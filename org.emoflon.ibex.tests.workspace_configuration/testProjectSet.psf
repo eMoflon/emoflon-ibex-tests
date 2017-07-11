@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<psf version="2.0">
+<provider id="org.eclipse.egit.core.GitProvider">
+<project reference="1.0,https://github.com/eMoflon/benchmarx.git,pr/57,core/Benchmarx"/>
+<project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,metamodels/ClassInheritanceHierarchy"/>
+<project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,testsuites/ClassInhHier2DB"/>
+<project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,metamodels/Database"/>
+<project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,testsuites/FamiliesToPersons_V0"/>
+<project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,testsuites/FamiliesToPersons_V1"/>
+<project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,metamodels/SimpleFamilies"/>
+<project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,metamodels/SimplePersons"/>
+</provider>
+<workingSets editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" id="1496664564939_2" label="metamodels" name="metamodels">
+<item elementID="=SimpleFamilies" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=SimplePersons" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=Database" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=ClassInheritanceHierarchy" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+</workingSets>
+<workingSets editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" id="1496664579737_3" label="testsuites" name="testsuites">
+<item elementID="=Benchmarx" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=ClassInhHier2DB" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=FamiliesToPersons_V0" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=FamiliesToPersons_V1" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+</workingSets>
+</psf>
