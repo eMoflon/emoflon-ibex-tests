@@ -1,9 +1,9 @@
-#using testsuite2_familiestopersons.*
+#using FamiliesToPersons_V1.*
 #using AttrCondDefLibrary.*
 
-#rule CreateDaughterInExistingFamily #with testsuite2_familiestopersons
+#rule CreateDaughterInExistingFamily #with FamiliesToPersons_V1
 
-#source { 
+#source {
 	f:Family {
 		++ -daughters->m
 	}

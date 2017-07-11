@@ -1,7 +1,7 @@
-#using testsuite1_familiestopersons.*
+#using FamiliesToPersons_V0.*
 #using AttrCondDefLibrary.*
 
-#rule ConnectFatherWithSuperfluousGreenElements #extends ConnectFather #with testsuite1_familiestopersons
+#rule ConnectFatherWithSuperfluousGreenElements #extends ConnectFather #with FamiliesToPersons_V0
 
 #source { 
 	++ fm:FamilyMember

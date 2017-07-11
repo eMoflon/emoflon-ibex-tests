@@ -1,7 +1,7 @@
-#using testsuite1_familiestopersons.*
+#using FamiliesToPersons_V0.*
 #using AttrCondDefLibrary.*
 
-#abstract #rule FamilyMemberToPerson #with testsuite1_familiestopersons
+#abstract #rule FamilyMemberToPerson #with FamiliesToPersons_V0
 
 #source { 
 	fr:FamilyRegister {

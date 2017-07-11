@@ -1,7 +1,7 @@
-#using testsuite1_familiestopersons.*
+#using FamiliesToPersons_V0.*
 #using AttrCondDefLibrary.*
 
-#rule HandleRegistersLoose #with testsuite1_familiestopersons
+#rule HandleRegistersLoose #with FamiliesToPersons_V0
 
 #source { 
 	++ fr:FamilyRegister
