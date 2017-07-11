@@ -1,7 +1,7 @@
-#using testsuite1_ClassInhHier2DB.*
+#using ClassInhHier2DB.*
 #using AttrCondDefLibrary.*
 
-#rule AttributeToColumnRule #with testsuite1_ClassInhHier2DB
+#rule AttributeToColumnRule #with ClassInhHier2DB
 
 #source {
 	clazz:Clazz {
