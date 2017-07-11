@@ -26,7 +26,7 @@ public abstract class CCTestCase {
 	}
 	
 	public void createGenerator(String srcInstance, String trgInstance) throws IOException {
-		generator = new CC_App("testsuite1_familiestopersons", "./../", flatten, false, srcInstance, trgInstance);
+		generator = new CC_App("FamiliesToPersons_V0", "./../", flatten, false, srcInstance, trgInstance);
 	}
 
 	protected void runGenerator() throws IOException {
