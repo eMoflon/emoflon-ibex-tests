@@ -1,0 +1,17 @@
+#using testsuite1_familiestopersons.*
+#using AttrCondDefLibrary.*
+
+#rule HandleFamilyReg #with testsuite1_familiestopersons
+
+#source { 
+	++ fr:FamilyRegister
+}
+
+#target {
+}
+
+#correspondence {
+}
+
+#attributeConditions {
+}

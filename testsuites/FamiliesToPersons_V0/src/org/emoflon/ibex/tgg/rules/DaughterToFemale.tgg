@@ -1,0 +1,16 @@
+#using testsuite1_familiestopersons.*
+#using AttrCondDefLibrary.*
+
+#rule DaughterToFemale #extends NewFamilyDaughterToFemale, ExistingFamilyToPerson #with testsuite1_familiestopersons
+
+#source { 
+}
+
+#target {
+}
+
+#correspondence {
+}
+
+#attributeConditions {
+}

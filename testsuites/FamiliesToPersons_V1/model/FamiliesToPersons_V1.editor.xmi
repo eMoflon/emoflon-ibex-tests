@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="ASCII"?>
+<tgg:TripleGraphGrammarFile xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tgg="http://www.moflon.org/ide/tgg/mosl/TGG">
+  <schema name="testsuite2_familiestopersons">
+    <imports name="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore"/>
+    <imports name="platform:/resource/SimplePersons/model/SimplePersons.ecore"/>
+    <sourceTypes href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#/"/>
+    <targetTypes href="platform:/resource/SimplePersons/model/SimplePersons.ecore#/"/>
+    <correspondenceTypes name="RegisterToRegister">
+      <source href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//FamilyRegister"/>
+      <target href="platform:/resource/SimplePersons/model/SimplePersons.ecore#//PersonRegister"/>
+    </correspondenceTypes>
+    <correspondenceTypes name="FamilyMemberToPerson">
+      <source href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//FamilyMember"/>
+      <target href="platform:/resource/SimplePersons/model/SimplePersons.ecore#//Person"/>
+    </correspondenceTypes>
+    <attributeCondDefs href="platform:/resource/FamiliesToPersons_V1/src/org/emoflon/ibex/tgg/rules/CreateDaughterInExistingFamily.tgg#|12"/>
+    <attributeCondDefs href="platform:/resource/FamiliesToPersons_V1/src/org/emoflon/ibex/tgg/rules/CreateMotherInNewFamily.tgg#|19"/>
+  </schema>
+  <rules name="CreateDaughterInExistingFamily">
+    <using importedNamespace="testsuite2_familiestopersons.*"/>
+    <using importedNamespace="AttrCondDefLibrary.*"/>
+    <schema href="platform:/resource/FamiliesToPersons_V1/src/org/emoflon/ibex/tgg/rules/CreateDaughterInExistingFamily.tgg#|0"/>
+    <sourcePatterns name="f">
+      <type href="platform:/resource/FamiliesToPersons_V1/src/org/emoflon/ibex/tgg/rules/CreateDaughterInExistingFamily.tgg#|1"/>
+      <linkVariablePatterns>
+        <op value="++"/>
+        <type href="platform:/resource/FamiliesToPersons_V1/src/org/emoflon/ibex/tgg/rules/CreateDaughterInExistingFamily.tgg#|2"/>
+        <target href="platform:/resource/FamiliesToPersons_V1/src/org/emoflon/ibex/tgg/rules/CreateDaughterInExistingFamily.tgg#|3"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="m">
+      <op value="++"/>
+      <type href="platform:/resource/FamiliesToPersons_V1/src/org/emoflon/ibex/tgg/rules/CreateDaughterInExistingFamily.tgg#|4"/>
+    </sourcePatterns>
+    <targetPatterns name="preg">
+      <type href="platform:/resource/FamiliesToPersons_V1/src/org/emoflon/ibex/tgg/rules/CreateDaughterInExistingFamily.tgg#|5"/>
+      <linkVariablePatterns>
+        <op value="++"/>
+        <type href="platform:/resource/FamiliesToPersons_V1/src/org/emoflon/ibex/tgg/rules/CreateDaughterInExistingFamily.tgg#|6"/>
+        <target href="platform:/resource/FamiliesToPersons_V1/src/org/emoflon/ibex/tgg/rules/CreateDaughterInExistingFamily.tgg#|7"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="p">
+      <op value="++"/>
+      <type href="platform:/resource/FamiliesToPersons_V1/src/org/emoflon/ibex/tgg/rules/CreateDaughterInExistingFamily.tgg#|8"/>
+    </targetPatterns>
+    <correspondencePatterns name="p2m">
+      <op value="++"/>
+      <type href="platform:/resource/FamiliesToPersons_V1/src/org/emoflon/ibex/tgg/rules/CreateDaughterInExistingFamily.tgg#|9"/>
+      <source href="platform:/resource/FamiliesToPersons_V1/src/org/emoflon/ibex/tgg/rules/CreateDaughterInExistingFamily.tgg#|10"/>
+      <target href="platform:/resource/FamiliesToPersons_V1/src/org/emoflon/ibex/tgg/rules/CreateDaughterInExistingFamily.tgg#|11"/>
+    </correspondencePatterns>
+    <attrConditions>
+      <name href="platform:/resource/FamiliesToPersons_V1/src/org/emoflon/ibex/tgg/rules/CreateDaughterInExistingFamily.tgg#|12"/>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.0/@sourcePatterns.1">
+        <attribute href="platform:/resource/FamiliesToPersons_V1/src/org/emoflon/ibex/tgg/rules/CreateDaughterInExistingFamily.tgg#|14"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.0/@targetPatterns.1">
+        <attribute href="platform:/resource/FamiliesToPersons_V1/src/org/emoflon/ibex/tgg/rules/CreateDaughterInExistingFamily.tgg#|16"/>
+      </values>
+    </attrConditions>
+  </rules>
+  <rules name="CreateMotherInNewFamily">
+    <using importedNamespace="testsuite2_familiestopersons.*"/>
+    <using importedNamespace="AttrCondDefLibrary.*"/>
+    <schema href="platform:/resource/FamiliesToPersons_V1/src/org/emoflon/ibex/tgg/rules/CreateMotherInNewFamily.tgg#|0"/>
+    <sourcePatterns name="reg">
+      <type href="platform:/resource/FamiliesToPersons_V1/src/org/emoflon/ibex/tgg/rules/CreateMotherInNewFamily.tgg#|1"/>
+      <linkVariablePatterns>
+        <op value="++"/>
+        <type href="platform:/resource/FamiliesToPersons_V1/src/org/emoflon/ibex/tgg/rules/CreateMotherInNewFamily.tgg#|2"/>
+        <target href="platform:/resource/FamiliesToPersons_V1/src/org/emoflon/ibex/tgg/rules/CreateMotherInNewFamily.tgg#|3"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="family">
+      <op value="++"/>
+      <type href="platform:/resource/FamiliesToPersons_V1/src/org/emoflon/ibex/tgg/rules/CreateMotherInNewFamily.tgg#|4"/>
+      <attributeAssignments op=":=">
+        <attribute href="platform:/resource/FamiliesToPersons_V1/src/org/emoflon/ibex/tgg/rules/CreateMotherInNewFamily.tgg#|5"/>
+        <valueExp xsi:type="tgg:LiteralExpression" value="&quot;Test&quot;"/>
+      </attributeAssignments>
+      <linkVariablePatterns>
+        <op value="++"/>
+        <type href="platform:/resource/FamiliesToPersons_V1/src/org/emoflon/ibex/tgg/rules/CreateMotherInNewFamily.tgg#|6"/>
+        <target href="platform:/resource/FamiliesToPersons_V1/src/org/emoflon/ibex/tgg/rules/CreateMotherInNewFamily.tgg#|7"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="m">
+      <op value="++"/>
+      <type href="platform:/resource/FamiliesToPersons_V1/src/org/emoflon/ibex/tgg/rules/CreateMotherInNewFamily.tgg#|8"/>
+    </sourcePatterns>
+    <targetPatterns name="preg">
+      <type href="platform:/resource/FamiliesToPersons_V1/src/org/emoflon/ibex/tgg/rules/CreateMotherInNewFamily.tgg#|9"/>
+      <linkVariablePatterns>
+        <op value="++"/>
+        <type href="platform:/resource/FamiliesToPersons_V1/src/org/emoflon/ibex/tgg/rules/CreateMotherInNewFamily.tgg#|10"/>
+        <target href="platform:/resource/FamiliesToPersons_V1/src/org/emoflon/ibex/tgg/rules/CreateMotherInNewFamily.tgg#|11"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="p">
+      <op value="++"/>
+      <type href="platform:/resource/FamiliesToPersons_V1/src/org/emoflon/ibex/tgg/rules/CreateMotherInNewFamily.tgg#|12"/>
+    </targetPatterns>
+    <correspondencePatterns name="reg2reg">
+      <type href="platform:/resource/FamiliesToPersons_V1/src/org/emoflon/ibex/tgg/rules/CreateMotherInNewFamily.tgg#|13"/>
+      <source href="platform:/resource/FamiliesToPersons_V1/src/org/emoflon/ibex/tgg/rules/CreateMotherInNewFamily.tgg#|14"/>
+      <target href="platform:/resource/FamiliesToPersons_V1/src/org/emoflon/ibex/tgg/rules/CreateMotherInNewFamily.tgg#|15"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="m2p">
+      <op value="++"/>
+      <type href="platform:/resource/FamiliesToPersons_V1/src/org/emoflon/ibex/tgg/rules/CreateMotherInNewFamily.tgg#|16"/>
+      <source href="platform:/resource/FamiliesToPersons_V1/src/org/emoflon/ibex/tgg/rules/CreateMotherInNewFamily.tgg#|17"/>
+      <target href="platform:/resource/FamiliesToPersons_V1/src/org/emoflon/ibex/tgg/rules/CreateMotherInNewFamily.tgg#|18"/>
+    </correspondencePatterns>
+    <attrConditions>
+      <name href="platform:/resource/FamiliesToPersons_V1/src/org/emoflon/ibex/tgg/rules/CreateMotherInNewFamily.tgg#|19"/>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.1/@targetPatterns.1">
+        <attribute href="platform:/resource/FamiliesToPersons_V1/src/org/emoflon/ibex/tgg/rules/CreateMotherInNewFamily.tgg#|21"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.1/@sourcePatterns.2">
+        <attribute href="platform:/resource/FamiliesToPersons_V1/src/org/emoflon/ibex/tgg/rules/CreateMotherInNewFamily.tgg#|23"/>
+      </values>
+    </attrConditions>
+  </rules>
+  <rules name="HandleRegisters">
+    <using importedNamespace="testsuite2_familiestopersons.*"/>
+    <using importedNamespace="AttrCondDefLibrary.*"/>
+    <schema href="platform:/resource/FamiliesToPersons_V1/src/org/emoflon/ibex/tgg/rules/HandleRegisters.tgg#|0"/>
+    <sourcePatterns name="fr">
+      <op value="++"/>
+      <type href="platform:/resource/FamiliesToPersons_V1/src/org/emoflon/ibex/tgg/rules/HandleRegisters.tgg#|1"/>
+    </sourcePatterns>
+    <targetPatterns name="pr">
+      <op value="++"/>
+      <type href="platform:/resource/FamiliesToPersons_V1/src/org/emoflon/ibex/tgg/rules/HandleRegisters.tgg#|2"/>
+    </targetPatterns>
+    <correspondencePatterns name="roots">
+      <op value="++"/>
+      <type href="platform:/resource/FamiliesToPersons_V1/src/org/emoflon/ibex/tgg/rules/HandleRegisters.tgg#|3"/>
+      <source href="platform:/resource/FamiliesToPersons_V1/src/org/emoflon/ibex/tgg/rules/HandleRegisters.tgg#|4"/>
+      <target href="platform:/resource/FamiliesToPersons_V1/src/org/emoflon/ibex/tgg/rules/HandleRegisters.tgg#|5"/>
+    </correspondencePatterns>
+  </rules>
+</tgg:TripleGraphGrammarFile>

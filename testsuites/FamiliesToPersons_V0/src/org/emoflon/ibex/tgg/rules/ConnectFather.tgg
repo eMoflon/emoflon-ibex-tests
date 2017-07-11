@@ -1,0 +1,17 @@
+#using testsuite1_familiestopersons.*
+#using AttrCondDefLibrary.*
+
+#rule ConnectFather #extends FatherToMale #with testsuite1_familiestopersons
+
+#source { 
+	fm:FamilyMember
+}
+
+#target {
+}
+
+#correspondence {
+}
+
+#attributeConditions {
+}

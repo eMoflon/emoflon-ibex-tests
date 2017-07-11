@@ -1,0 +1,18 @@
+#using testsuite1_familiestopersons.*
+#using AttrCondDefLibrary.*
+
+#rule HandleRegistersLoose #with testsuite1_familiestopersons
+
+#source { 
+	++ fr:FamilyRegister
+}
+
+#target {
+	++ pr:PersonRegister
+}
+
+#correspondence {
+}
+
+#attributeConditions {
+}
