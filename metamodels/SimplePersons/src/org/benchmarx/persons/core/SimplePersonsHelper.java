@@ -2,6 +2,8 @@ package org.benchmarx.persons.core;
 
 import java.util.Optional;
 
+import org.eclipse.emf.ecore.util.EcoreUtil;
+
 import SimplePersons.Person;
 import SimplePersons.PersonRegister;
 import SimplePersons.SimplePersonsFactory;
@@ -23,6 +25,6 @@ public class SimplePersonsHelper {
 		Optional<Person> toBeDeleted = register.getPersons().stream()
 				.filter(p -> p.getName().equals(name)).findAny();
 		
-		toBeDeleted.map(p -> register.getPersons().remove(p));
+		toBeDeleted.ifPresent(p -> EcoreUtil.delete(p));
 	}
 }
