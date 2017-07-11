@@ -39,10 +39,13 @@ public class AlignmentBased extends SyncTestCase {
 		tool.performAndPropagateSourceEdit(r -> helperFamily.createDaughterInSingleTestFamily(r, "Magdalena"));
 		tool.performAndPropagateSourceEdit(r -> helperFamily.createDaughterInSingleTestFamily(r, "Lisa"));
 				
+
+		util.assertPrecondition("singleFamilyWithThreeDaughters", "singlePersonRegisterWithThreeDaughters");
+		
 		//------------
 		tool.performAndPropagateTargetEdit(r -> helperPerson.deletePerson(r, "Lisa"));
 		//------------
 
-		util.assertPrecondition("singleFamilyWithDaughters", "singlePersonRegisterWithFemalePersons");
+		util.assertPostcondition("singleFamilyWithDaughters", "singlePersonRegisterWithFemalePersons");
 	}
 }
