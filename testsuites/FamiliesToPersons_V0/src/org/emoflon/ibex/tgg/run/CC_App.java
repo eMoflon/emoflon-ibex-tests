@@ -25,7 +25,7 @@ public class CC_App extends CC {
 	public static void main(String[] args) throws IOException {
 			BasicConfigurator.configure();
 	
-			CC_App cc = new CC_App("testsuite1_familiestopersons", "./../", true, false, args[0], args[1]);
+			CC_App cc = new CC_App("FamiliesToPersons_V0", "./../", true, false, args[0], args[1]);
 			
 			logger.info("Starting CC");
 			long tic = System.currentTimeMillis();

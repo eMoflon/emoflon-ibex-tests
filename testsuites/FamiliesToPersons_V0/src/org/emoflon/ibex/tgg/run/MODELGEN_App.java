@@ -17,8 +17,8 @@ public class MODELGEN_App extends MODELGEN {
 	}
 	
 	public static void main(String[] args) throws IOException {
-		MODELGEN_App refinedGenerator = new MODELGEN_App("testsuite1_familiestopersons", "./../", false, false);
-		MODELGEN_App flatGenerator = new MODELGEN_App("testsuite1_familiestopersons", "./../", true, false);
+		MODELGEN_App refinedGenerator = new MODELGEN_App("FamiliesToPersons_V0", "./../", false, false);
+		MODELGEN_App flatGenerator = new MODELGEN_App("FamiliesToPersons_V0", "./../", true, false);
 		
 		runPerformanceTest(refinedGenerator, "refinedGenerator");
 		runPerformanceTest(flatGenerator, "flatGenerator");

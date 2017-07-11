@@ -24,7 +24,7 @@ public class CC_App extends CC {
 	public static void main(String[] args) throws IOException {
 		BasicConfigurator.configure();
 
-		CC_App cc = new CC_App("testsuite1_ClassInhHier2DB", "./../", true, false, args[0], args[1]);
+		CC_App cc = new CC_App("ClassInhHier2DB", "./../", true, false, args[0], args[1]);
 		
 		logger.info("Starting CC");
 		long tic = System.currentTimeMillis();

@@ -13,7 +13,7 @@ public class SYNC_App extends SYNC {
 	public static void main(String[] args) throws IOException {
 			BasicConfigurator.configure();
 	
-			SYNC_App sync = new SYNC_App("testsuite1_ClassInhHier2DB", "./../", false, true);
+			SYNC_App sync = new SYNC_App("ClassInhHier2DB", "./../", false, true);
 			
 			logger.info("Starting SYNC");
 			long tic = System.currentTimeMillis();

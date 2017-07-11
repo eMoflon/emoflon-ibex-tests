@@ -13,7 +13,6 @@ import org.benchmarx.util.EMFUtil;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGENStopCriterion;
 import org.emoflon.ibex.tgg.run.MODELGEN_App;
-import org.emoflon.ibex.tgg.runtime.engine.DemoclesEngine;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -44,7 +43,7 @@ public abstract class ModelGenTestCase {
 	
 	@Before
 	public void createGenerator() throws IOException {
-		generator = new MODELGEN_App("testsuite1_familiestopersons", "./../", flatten, false);
+		generator = new MODELGEN_App("FamiliesToPersons_V0", "./../", flatten, false);
 		stop = new MODELGENStopCriterion(generator.getTGG());
 		
 		for (TGGRule rule : generator.getTGG().getRules()) {

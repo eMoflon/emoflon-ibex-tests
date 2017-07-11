@@ -19,7 +19,7 @@ public class MODELGEN_App extends MODELGEN {
 	public static void main(String[] args) throws IOException {
 		BasicConfigurator.configure();
 
-		MODELGEN_App generator = new MODELGEN_App("testsuite1_ClassInhHier2DB", "./../", false, false);
+		MODELGEN_App generator = new MODELGEN_App("ClassInhHier2DB", "./../", false, false);
 
 		MODELGENStopCriterion stop = new MODELGENStopCriterion(generator.getTGG());
 		stop.setTimeOutInMS(1000);
