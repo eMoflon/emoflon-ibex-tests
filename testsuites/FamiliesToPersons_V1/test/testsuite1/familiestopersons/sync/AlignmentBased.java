@@ -31,7 +31,6 @@ public class AlignmentBased extends SyncTestCase {
 	}
 	
 	
-	@Ignore("Waiting for Fix for Issue #5")
 	@Test
 	public void testDeleteDaughter()
 	{
