@@ -51,8 +51,8 @@ public abstract class ModelGenTestCase {
 		stop.setMaxRuleCount("SubClassToTable", 0);
 		stop.setMaxRuleCount("AttributeToColumnRule", 0);
 		
-		classComp = new ClassInheritanceHierarchyComparator();
-		dbComp = new DatabaseComparator();
+		classComp = new ClassInheritanceHierarchyComparator(false);
+		dbComp = new DatabaseComparator(false);
 	}
 
 	protected void runGenerator(MODELGENStopCriterion stop) throws IOException {
