@@ -21,8 +21,7 @@ public class DatabaseHelper {
 		Table t = db.getTables().get(pos);
 		
 		Column c = DatabaseFactory.eINSTANCE.createColumn();
-		c.setName(name);
-		
 		t.getColumns().add(c);
+		c.setName(name);
 	}
 }

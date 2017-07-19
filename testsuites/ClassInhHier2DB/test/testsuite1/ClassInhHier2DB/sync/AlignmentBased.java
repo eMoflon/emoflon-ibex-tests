@@ -58,7 +58,6 @@ public class AlignmentBased extends SyncTestCase {
 	 * <b>Features</b>: fwd
 	 */
 	@Test
-	@Ignore
 	public void testSubClassToTable_FWD()
 	{
 		util.assertPrecondition("in/PackageToDatabase_FWD", "expected/PackageToDatabase_FWD");
@@ -156,7 +155,6 @@ public class AlignmentBased extends SyncTestCase {
 	 * <b>Features</b>: fwd
 	 */
 	@Test
-	@Ignore
 	public void testLargeExample_FWD()
 	{
 		util.assertPrecondition("in/PackageToDatabase_FWD", "expected/PackageToDatabase_FWD");

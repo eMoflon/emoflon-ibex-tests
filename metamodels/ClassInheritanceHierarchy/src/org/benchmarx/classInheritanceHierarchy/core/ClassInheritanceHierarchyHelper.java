@@ -16,9 +16,9 @@ public class ClassInheritanceHierarchyHelper {
 	public void createSubClass(ClassPackage pkg, String name, int superPos){
 		Clazz superClazz = pkg.getClasses().get(superPos);
 		Clazz c = ClassInheritanceHierarchyFactory.eINSTANCE.createClazz();
+		pkg.getClasses().add(c);
 		c.setName(name);
 		c.setSuperClass(superClazz);
-		pkg.getClasses().add(c);
 	}
 	
 	public void createAttributeInSingleClass(ClassPackage pkg, String name, String type){
