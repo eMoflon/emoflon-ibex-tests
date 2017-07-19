@@ -9,10 +9,17 @@ import java.util.ArrayList
 import static org.junit.Assert.*
 
 class ClassInheritanceHierarchyComparator implements Comparator<ClassPackage> {
+	/** 
+	 * checkAttributeValues determines if equality requires equal values in all EAttributes.
+	 * MODELGEN tests cannot handle this and therefore require checkAttributeValues == false.
+	 */
+	boolean checkAttributeValues
+	
 	ClazzNormalizer clazzNormalizer
 	
-	new (){
-		clazzNormalizer = new ClazzNormalizer();
+	new (boolean checkAttributeValues){
+		this.checkAttributeValues = checkAttributeValues
+		clazzNormalizer = new ClazzNormalizer(checkAttributeValues)
 	}
 	
 	override assertEquals(ClassPackage expected, ClassPackage actual) {
@@ -23,7 +30,7 @@ class ClassInheritanceHierarchyComparator implements Comparator<ClassPackage> {
 	def stringify(ClassPackage classPackage) {
 		return '''
 		ClassPackage {
-			name = "classPackage",
+			name = "«IF checkAttributeValues»«classPackage.name»«ELSE»classPackage«ENDIF»",
 			classes = [
 			«val List<Clazz> sortedList = new ArrayList<Clazz>(classPackage.classes)»
 			«clazzNormalizer.normalize(sortedList)»

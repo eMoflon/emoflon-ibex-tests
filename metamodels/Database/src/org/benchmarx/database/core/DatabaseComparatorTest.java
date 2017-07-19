@@ -26,7 +26,7 @@ public class DatabaseComparatorTest {
 	
 	@Before
 	public void createComparator() {
-		comp = new DatabaseComparator();
+		comp = new DatabaseComparator(true);
 	}
 	
 	@Test

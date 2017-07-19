@@ -26,7 +26,7 @@ public class ClassInheritanceHierarchyComparatorTest {
 	
 	@Before
 	public void createComparator() {
-		comp = new ClassInheritanceHierarchyComparator();
+		comp = new ClassInheritanceHierarchyComparator(true);
 	}
 	
 	@Test

@@ -9,10 +9,17 @@ import Database.DB
 import Database.Table
 
 class DatabaseComparator implements Comparator<DB> {
-		TableNormalizer tableNormalizer
+	/** 
+	 * checkAttributeValues determines if equality requires equal values in all EAttributes.
+	 * MODELGEN tests cannot handle this and therefore require checkAttributeValues == false.
+	 */
+	boolean checkAttributeValues
 	
-	new (){
-		tableNormalizer = new TableNormalizer();
+	TableNormalizer tableNormalizer
+	
+	new (boolean checkAttributeValues){
+		this.checkAttributeValues = checkAttributeValues
+		tableNormalizer = new TableNormalizer(checkAttributeValues)
 	}
 	
 	override assertEquals(DB expected, DB actual) {
@@ -23,7 +30,7 @@ class DatabaseComparator implements Comparator<DB> {
 	def stringify(DB db) {
 		return '''
 		DB {
-			title = "database",
+			title = "«IF checkAttributeValues»«db.title»«ELSE»database«ENDIF»",
 			tables = [
 			«val List<Table> sortedList = new ArrayList<Table>(db.tables)»
 			«tableNormalizer.normalize(sortedList)»

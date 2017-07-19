@@ -7,6 +7,11 @@ import java.util.List;
 import Database.Column;
 
 public class ColumnNormalizer implements Comparator<Column>{
+	boolean checkAttributeValues;
+	
+	public ColumnNormalizer(boolean checkAttributeValues) {
+		this.checkAttributeValues = checkAttributeValues;
+	}
 
 	@Override
 	public int compare(Column column1, Column column2) {
@@ -14,10 +19,8 @@ public class ColumnNormalizer implements Comparator<Column>{
 	}
 	
 	public String stringify(Column column) {
-		if (column.getName() == null)
-			return "";
-		else
-			return "column";
+		return checkAttributeValues ? ""+column.getName()
+									: "column";
 	}
 
 	public void normalize(List<Column> columns){

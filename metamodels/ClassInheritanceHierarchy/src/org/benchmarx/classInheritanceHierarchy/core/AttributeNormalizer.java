@@ -7,6 +7,11 @@ import java.util.List;
 import ClassInheritanceHierarchy.Attribute;
 
 public class AttributeNormalizer implements Comparator<Attribute>{
+	boolean checkAttributeValues;
+			
+	public AttributeNormalizer(boolean checkAttributeValues) {
+		this.checkAttributeValues = checkAttributeValues;
+	}
 
 	@Override
 	public int compare(Attribute attribute1, Attribute attribute2) {
@@ -17,7 +22,8 @@ public class AttributeNormalizer implements Comparator<Attribute>{
 	}
 	
 	public String stringify(Attribute attribute) {
-		return "attribute: attributeType";
+		return checkAttributeValues ? attribute.getName() + ": " + attribute.getType()
+									: "attribute: attributeType";
 	}
 
 	public void normalize(List<Attribute> attributes){
