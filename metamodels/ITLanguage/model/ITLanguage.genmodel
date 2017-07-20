@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/ITLanguage/gen" modelPluginID="ITLanguage" modelName="ITLanguage"
+    updateClasspath="false" codeFormatting="true" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="8.0" copyrightFields="false" operationReflection="true">
+  <foreignModel>ITLanguage.ecore</foreignModel>
+  <genPackages prefix="ITLanguage" disposableProviderFactory="true" ecorePackage="platform:/plugin/ITLanguage/model/ITLanguage.ecore#/">
+    <genClasses ecoreClass="platform:/plugin/ITLanguage/model/ITLanguage.ecore#//IT">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/ITLanguage/model/ITLanguage.ecore#//IT/router"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/ITLanguage/model/ITLanguage.ecore#//IT/network"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/ITLanguage/model/ITLanguage.ecore#//IT/name"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/ITLanguage/model/ITLanguage.ecore#//Laptop">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/ITLanguage/model/ITLanguage.ecore#//Laptop/name"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/ITLanguage/model/ITLanguage.ecore#//Network">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/ITLanguage/model/ITLanguage.ecore#//Network/pc"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/ITLanguage/model/ITLanguage.ecore#//Network/laptop"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/ITLanguage/model/ITLanguage.ecore#//Network/name"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/ITLanguage/model/ITLanguage.ecore#//PC">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/ITLanguage/model/ITLanguage.ecore#//PC/name"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/ITLanguage/model/ITLanguage.ecore#//Router">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/plugin/ITLanguage/model/ITLanguage.ecore#//Router/network"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/ITLanguage/model/ITLanguage.ecore#//Router/name"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
