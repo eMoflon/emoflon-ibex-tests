@@ -1,0 +1,26 @@
+#using CompanyToIT.*
+#using AttrCondDefLibrary.*
+
+#rule CompanyToITRule #with CompanyToIT
+
+#source {
+	++ceo:CEO
+	++company:Company {
+		++ - ceo->ceo
+	}
+}
+
+#target {
+	++it:IT
+}
+
+#correspondence {
+	++ c2i :CompanyToIT {
+		#src->company
+		#trg->it
+	}
+}
+
+#attributeConditions {
+	eq_string(company.name, it.name)
+}

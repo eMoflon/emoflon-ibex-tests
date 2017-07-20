@@ -1,0 +1,34 @@
+#import "platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore"
+#import "platform:/resource/ITLanguage/model/ITLanguage.ecore"
+
+#schema CompanyToIT
+
+#source {
+	CompanyLanguage
+}
+
+#target {
+	ITLanguage
+}
+
+#correspondence {
+	AdminToRouter {
+		#src->CompanyLanguage.Admin
+		#trg->ITLanguage.Router
+	}
+	EmployeeToPC {
+		#src->CompanyLanguage.Employee
+		#trg->ITLanguage.PC
+	}
+	EmployeeToLaptop {
+		#src->CompanyLanguage.Employee
+		#trg->ITLanguage.Laptop
+	}
+	CompanyToIT {
+		#src->CompanyLanguage.Company
+		#trg->ITLanguage.IT
+	}
+}
+
+#attributeConditions {
+}

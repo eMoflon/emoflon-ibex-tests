@@ -1,0 +1,42 @@
+#using CompanyToIT.*
+#using AttrCondDefLibrary.*
+
+#rule AdminToRouterRule #with CompanyToIT
+
+#source {
+	company:Company {
+		- ceo->ceo
+		++ - admin->admin
+	}
+	ceo:CEO
+	++admin:Admin {
+		++ - ceo->ceo
+	}
+}
+
+#target {
+	++router:Router {
+		++ - network->network
+	}
+	it:IT {
+		++ - network->network
+		++ - router->router
+	}
+	++network:Network
+}
+
+#correspondence {
+	++ a2r :AdminToRouter {
+		#src->admin
+		#trg->router
+	}
+	c2i :CompanyToIT {
+		#src->company
+		#trg->it
+	}
+}
+
+#attributeConditions {
+	eq_string(admin.name, router.name)
+	eq_string(it.name, network.name)
+}
