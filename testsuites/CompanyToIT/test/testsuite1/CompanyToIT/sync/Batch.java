@@ -60,6 +60,7 @@ public class Batch extends SyncTestCase {
 	 * <b>Features</b>: fwd
 	 */
 	@Test
+	@Ignore ("Translation ambiguous with respect to employees")
 	public void testEmployee_Laptop_FWD()
 	{
 		util.assertPrecondition("in/Company_FWD", "expected/Company_FWD");
@@ -92,6 +93,7 @@ public class Batch extends SyncTestCase {
 	 * <b>Features</b>: fwd
 	 */
 	@Test
+	@Ignore ("Translation ambiguous with respect to employees")
 	public void testEmployee_PC_FWD()
 	{
 		util.assertPrecondition("in/Company_FWD", "expected/Company_FWD");
@@ -124,6 +126,7 @@ public class Batch extends SyncTestCase {
 	 * <b>Features</b>: fwd
 	 */
 	@Test
+	@Ignore ("Translation ambiguous with respect to employees")
 	public void testEmployee_PC_Laptop_FWD()
 	{
 		util.assertPrecondition("in/Company_FWD", "expected/Company_FWD");
