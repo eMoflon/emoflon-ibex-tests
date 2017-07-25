@@ -5,9 +5,9 @@ import java.io.IOException;
 import org.junit.Ignore;
 import org.junit.Test;
 
-public class SyncInstancesTest extends ModelGenTestCase {
+public class SyncResourcesTest extends ModelGenTestCase {
 
-	public SyncInstancesTest(Boolean flatten) {
+	public SyncResourcesTest(Boolean flatten) {
 		super(flatten);
 	}
 	

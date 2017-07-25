@@ -10,10 +10,17 @@ public class TestSimpleNegative extends CCTestCase {
 		super(flatten);
 	}
 	
-//	@Test
-//	public void testPackageToTable() throws IOException {
-//		createGenerator("in/PackageToDatabase_FWD", "expected/ClassToTable_FWD");
-//		runGenerator();
-//		assert !generator.modelsAreConsistent();
-//	}
+	@Test
+	public void testCompanyToRouter() throws IOException {
+		createGenerator("in/Company_FWD", "expected/Admin_FWD");
+		runGenerator();
+		assert !generator.modelsAreConsistent();
+	}
+	
+	@Test
+	public void testAdminToLaptop() throws IOException {
+		createGenerator("in/Admin_FWD", "expected/Employee_Laptop_FWD");
+		runGenerator();
+		assert !generator.modelsAreConsistent();
+	}
 }
