@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="ASCII"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="BlockDiagram" nsURI="platform:/plugin/BlockDiagram/model/BlockDiagram.ecore" nsPrefix="BlockDiagram">
+  <eClassifiers xsi:type="ecore:EClass" name="Block">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="blockSystem" lowerBound="1" eType="//BlockSystem" eOpposite="//BlockSystem/blocks"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ports" lowerBound="1" upperBound="-1" eType="//Port" containment="true" eOpposite="//Port/block"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" ordered="false" lowerBound="1">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BlockSystem">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="blocks" upperBound="-1" eType="//Block" containment="true" eOpposite="//Block/blockSystem"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" lowerBound="1">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Connector">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sub" lowerBound="1" eType="//Require" eOpposite="//Require/connector"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pub" lowerBound="1" eType="//Provide" eOpposite="//Provide/connector"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Port">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="block" lowerBound="1" eType="//Block" eOpposite="//Block/ports"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" ordered="false" lowerBound="1">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Provide" eSuperTypes="//Port">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="connector" lowerBound="1" eType="//Connector" eOpposite="//Connector/pub"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Require" eSuperTypes="//Port">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="connector" lowerBound="1" eType="//Connector" containment="true" eOpposite="//Connector/sub"/>
+  </eClassifiers>
+</ecore:EPackage>
