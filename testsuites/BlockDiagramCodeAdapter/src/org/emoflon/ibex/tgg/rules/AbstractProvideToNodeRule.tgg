@@ -1,0 +1,21 @@
+#using BlockDiagramCodeAdapter.*
+#using AttrCondDefLibrary.*
+
+#rule AbstractProvideToNodeRule #with BlockDiagramCodeAdapter
+
+#source {
+	++port:Provide
+}
+
+#target {
+	++portNode:Node {
+		name := "PROVIDE"
+	}
+}
+
+#correspondence {
+	++ portToNode :ProvideToNode {
+		#src->port
+		#trg->portNode
+	}
+}

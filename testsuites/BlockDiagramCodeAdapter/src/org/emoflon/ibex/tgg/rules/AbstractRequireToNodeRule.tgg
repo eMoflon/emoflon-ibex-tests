@@ -1,0 +1,21 @@
+#using BlockDiagramCodeAdapter.*
+#using AttrCondDefLibrary.*
+
+#rule AbstractRequireToNodeRule #with BlockDiagramCodeAdapter
+
+#source {
+	++port:Require
+}
+
+#target {
+	++portNode:Node {
+		name := "REQUIRE"
+	}
+}
+
+#correspondence {
+	++ portToNode :RequireToNode {
+		#src->port
+		#trg->portNode
+	}
+}

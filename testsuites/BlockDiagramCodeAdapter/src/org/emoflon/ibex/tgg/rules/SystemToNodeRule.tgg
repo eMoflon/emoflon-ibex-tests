@@ -1,0 +1,27 @@
+#using BlockDiagramCodeAdapter.*
+#using AttrCondDefLibrary.*
+
+#rule SystemToNodeRule #with BlockDiagramCodeAdapter
+
+#source {
+	++system:BlockSystem
+}
+
+#target {
+	++file:File
+	++node:Node {
+		name := "System"
+		++ - file->file
+	}
+}
+
+#correspondence {
+	++ systemToNode :SystemToNode {
+		#src->system
+		#trg->node
+	}
+}
+
+#attributeConditions {
+	eq_string(system.name, file.name)
+}

@@ -1,0 +1,68 @@
+#using BlockDiagramCodeAdapter.*
+#using AttrCondDefLibrary.*
+
+#rule ConnectorToNodeRule #with BlockDiagramCodeAdapter
+
+#source {
+	++connector:Connector
+	providerBlock:Block
+	provide:Provide {
+		++ - connector->connector
+		- block->providerBlock
+	}
+	require:BlockDiagram.Require {
+		++ - connector->connector
+	}
+}
+
+#target {
+	systemNode:Node {
+		name == "System"
+	}
+	providerBlockNode:Node {
+		- parentNode->systemNode
+	}
+	requireNode:Node {
+		- parentNode->requireBlockNode
+	}
+	requireBlockNode:Node {
+		- parentNode->systemNode
+	}
+	++connectorNode:Node {
+		name := "CONNECTOR"
+		++ - attribute->referencedPort
+		++ - attribute->referencedBlock
+		++ - parentNode->requireNode
+	}
+	provideNode:MocaTree.Node {
+		- parentNode->providerBlockNode
+	}
+	++referencedBlock:MocaTree.Attribute {
+		name := "block"
+		index := 1
+	}
+	++referencedPort:MocaTree.Attribute {
+		name := "port"
+		index := 0
+	}
+}
+
+#correspondence {
+	provideToNode :ProvideToNode {
+		#src->provide
+		#trg->provideNode
+	}
+	requireToNode :RequireToNode {
+		#src->require
+		#trg->requireNode
+	}
+	++ connectorToNode :ConnectorToNode {
+		#src->connector
+		#trg->connectorNode
+	}
+}
+
+#attributeConditions {
+	eq_string(provide.id, referencedPort.value)
+	eq_string(providerBlock.id, referencedBlock.value)
+}
