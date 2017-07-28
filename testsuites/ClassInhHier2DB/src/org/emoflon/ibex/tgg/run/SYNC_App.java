@@ -1,7 +1,6 @@
 package org.emoflon.ibex.tgg.run;
 
 import java.io.IOException;
-import org.apache.log4j.BasicConfigurator;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.ibex.tgg.operational.strategies.sync.SYNC;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesEngine;

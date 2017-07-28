@@ -1,7 +1,6 @@
 package testsuite1.ClassInhHier2DB.sync;
 
 import org.benchmarx.BXTool;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import ClassInheritanceHierarchy.ClassPackage;

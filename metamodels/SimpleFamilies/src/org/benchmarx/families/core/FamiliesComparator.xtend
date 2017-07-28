@@ -29,7 +29,7 @@ public class FamiliesComparator implements Comparator<FamilyRegister> {
 		    families = [
 		    «val List<Family> sortedList = new ArrayList<Family>(families.families)»
 		    «comparator.normalize(sortedList)»
-				«FOR f : sortedList SEPARATOR ", "»
+			«FOR f : sortedList SEPARATOR ", "»
 				Family {
 				     familyName = "«f.name»"
 				    ,father     = «maybeFamilyMember(f.father)»
@@ -48,7 +48,7 @@ public class FamiliesComparator implements Comparator<FamilyRegister> {
 	}
 	
 	def maybeFamilyMember(FamilyMember fm){
-		return '''«IF fm != null»Just («familyMember(fm)»)«ELSE»Nothing«ENDIF»'''
+		return '''«IF fm !== null»Just («familyMember(fm)»)«ELSE»Nothing«ENDIF»'''
 	}
 	
 	def familyMember(FamilyMember fm){

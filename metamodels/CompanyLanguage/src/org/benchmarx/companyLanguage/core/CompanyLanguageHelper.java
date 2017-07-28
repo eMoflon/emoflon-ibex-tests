@@ -8,7 +8,7 @@ import CompanyLanguage.Employee;
 
 public class CompanyLanguageHelper {
 
-	public void createAdminForFirstCEO(Company c, String name) {
+	public void createAdminForCEO(Company c, String name) {
 		CEO ceo = c.getCeo().get(0);
 		Admin admin = CompanyLanguageFactory.eINSTANCE.createAdmin();
 		c.getAdmin().add(admin);

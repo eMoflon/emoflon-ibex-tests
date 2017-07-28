@@ -36,7 +36,7 @@ public class Batch extends SyncTestCase {
 	{
 		util.assertPrecondition("in/Company_FWD", "expected/Company_FWD");
 		//------------
-		tool.performAndPropagateSourceEdit(c -> helperCompany.createAdminForFirstCEO(c, "Ingo"));
+		tool.performAndPropagateSourceEdit(c -> helperCompany.createAdminForCEO(c, "Ingo"));
 		//------------
 		util.assertPostcondition("in/Admin_FWD", "expected/Admin_FWD");
 	}
@@ -65,7 +65,7 @@ public class Batch extends SyncTestCase {
 	{
 		util.assertPrecondition("in/Company_FWD", "expected/Company_FWD");
 		//------------
-		tool.performAndPropagateSourceEdit(util.execute((Company c) -> helperCompany.createAdminForFirstCEO(c, "Ingo"))
+		tool.performAndPropagateSourceEdit(util.execute((Company c) -> helperCompany.createAdminForCEO(c, "Ingo"))
 					.andThen((c -> helperCompany.createEmployeeForFirstCEO(c, "Tony")))
 			);
 		//------------
@@ -98,7 +98,7 @@ public class Batch extends SyncTestCase {
 	{
 		util.assertPrecondition("in/Company_FWD", "expected/Company_FWD");
 		//------------
-		tool.performAndPropagateSourceEdit(util.execute((Company c) -> helperCompany.createAdminForFirstCEO(c, "Ingo"))
+		tool.performAndPropagateSourceEdit(util.execute((Company c) -> helperCompany.createAdminForCEO(c, "Ingo"))
 					.andThen((c -> helperCompany.createEmployeeForFirstCEO(c, "Marius")))
 			);
 		//------------
@@ -131,7 +131,7 @@ public class Batch extends SyncTestCase {
 	{
 		util.assertPrecondition("in/Company_FWD", "expected/Company_FWD");
 		//------------
-		tool.performAndPropagateSourceEdit(util.execute((Company c) -> helperCompany.createAdminForFirstCEO(c, "Ingo"))
+		tool.performAndPropagateSourceEdit(util.execute((Company c) -> helperCompany.createAdminForCEO(c, "Ingo"))
 					.andThen((c -> helperCompany.createEmployeeForFirstCEO(c, "Marius")))
 					.andThen((c -> helperCompany.createEmployeeForFirstCEO(c, "Tony")))
 			);

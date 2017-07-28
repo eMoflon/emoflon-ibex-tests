@@ -1,7 +1,6 @@
 package testsuite1.CompanyToIT.sync;
 
 import org.benchmarx.BXTool;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import CompanyLanguage.Company;
