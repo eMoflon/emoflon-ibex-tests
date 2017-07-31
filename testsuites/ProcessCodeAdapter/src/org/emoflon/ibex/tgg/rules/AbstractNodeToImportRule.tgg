@@ -1,0 +1,32 @@
+#using ProcessCodeAdapter.*
+#using AttrCondDefLibrary.*
+
+#abstract #rule AbstractNodeToImportRule #with ProcessCodeAdapter
+
+#source {
+	taskNode:Node {
+		- file->file
+	}
+	invocationsNode:Node {
+		- parentNode->taskNode
+	}
+	file:File
+	folder:Folder {
+		- file->file
+	}
+	++invocationNode:Node {
+		++ - parentNode->invocationsNode
+	}
+}
+
+#target {
+	system:SystemModule
+	task:Task
+}
+
+#correspondence {
+	fileToTask :FileToTask {
+		#src->file
+		#trg->task
+	}
+}

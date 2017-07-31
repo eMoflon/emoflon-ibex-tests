@@ -1,0 +1,32 @@
+#using ProcessCodeAdapter.*
+#using AttrCondDefLibrary.*
+
+#abstract #rule AbstractOtherInvokedTaskRule #with ProcessCodeAdapter
+
+#source {
+	otherFile:File
+	folder:Folder {
+		- file->otherFile
+	}
+	++invocationNode:Node
+}
+
+#target {
+	system:SystemModule
+	invokedTask:Task {
+		++ - invocation->invocation
+		- systemModule->system
+	}
+	++invocation:Invocation
+}
+
+#correspondence {
+	fileToTask2 :FileToTask {
+		#src->otherFile
+		#trg->invokedTask
+	}
+}
+
+#attributeConditions {
+	addPrefix(invocationNode.name, ".proc", otherFile.name)
+}

@@ -1,0 +1,49 @@
+#using ProcessCodeAdapter.*
+#using AttrCondDefLibrary.*
+
+#rule FileToTaskRule #with ProcessCodeAdapter
+
+#source {
+	folder:Folder {
+		++ - file->file
+	}
+	++invocationNode:Node {
+		name := "INVOCATIONS"
+		++ - parentNode->taskNode
+	}
+	++taskNode:Node {
+		name := "TASK"
+		++ - file->file
+	}
+	++file:File
+	++importNode:MocaTree.Node {
+		name := "IMPORTS"
+		++ - parentNode->taskNode
+	}
+}
+
+#target {
+	system:SystemModule {
+		- allModules->module
+	}
+	module:Module
+	++task:ProcessDefinition.Task {
+		++ - module->module
+		++ - systemModule->system
+	}
+}
+
+#correspondence {
+	folderToModule :FolderToModule {
+		#src->folder
+		#trg->module
+	}
+	++ fileToTask :FileToTask {
+		#src->file
+		#trg->task
+	}
+}
+
+#attributeConditions {
+	addPrefix(task.id, ".proc", file.name)
+}

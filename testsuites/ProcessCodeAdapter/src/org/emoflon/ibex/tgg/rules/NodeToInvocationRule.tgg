@@ -1,0 +1,19 @@
+#using ProcessCodeAdapter.*
+#using AttrCondDefLibrary.*
+
+#rule NodeToInvocationRule #extends AbstractOtherInvokedTaskRule, AbstractNodeToInvocationRule #with ProcessCodeAdapter
+
+#source {
+	++invocationNode:Node
+}
+
+#target {
+	++invocation:Invocation
+}
+
+#correspondence {
+	++ invocationNodeToInvocation :NodeToInvocation {
+		#src->invocationNode
+		#trg->invocation
+	}
+}

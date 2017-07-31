@@ -1,0 +1,23 @@
+#using ProcessCodeAdapter.*
+#using AttrCondDefLibrary.*
+
+#rule RootToSystemRule #with ProcessCodeAdapter
+
+#source {
+	++rootFolder:MocaTree.Folder
+}
+
+#target {
+	++system:ProcessDefinition.SystemModule
+}
+
+#correspondence {
+	++ rootFolderToSystem :FolderToSystem {
+		#src->rootFolder
+		#trg->system
+	}
+}
+
+#attributeConditions {
+	eq_string(rootFolder.name, system.name)
+}

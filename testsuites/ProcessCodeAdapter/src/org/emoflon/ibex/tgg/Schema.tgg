@@ -1,0 +1,38 @@
+#import "platform:/resource/MocaTree/model/MocaTree.ecore"
+#import "platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore"
+
+#schema ProcessCodeAdapter
+
+#source {
+	MocaTree
+}
+
+#target {
+	ProcessDefinition
+}
+
+#correspondence {
+	FileToTask {
+		#src->File
+		#trg->Task
+	}
+	FolderToSystem {
+		#src->Folder
+		#trg->SystemModule
+	}
+	NodeToImport {
+		#src->Node
+		#trg->Import
+	}
+	NodeToInvocation {
+		#src->Node
+		#trg->Invocation
+	}
+	FolderToModule {
+		#src->Folder
+		#trg->Module
+	}
+}
+
+#attributeConditions {
+}

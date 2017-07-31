@@ -1,0 +1,37 @@
+#using ProcessCodeAdapter.*
+#using AttrCondDefLibrary.*
+
+#abstract #rule AbstractNodeToInvocationRule #with ProcessCodeAdapter
+
+#source {
+	file:File
+	folder:Folder {
+		- file->file
+	}
+	++invocationNode:Node {
+		++ - parentNode->invocationsNode
+	}
+	taskNode:Node {
+		- file->file
+	}
+	invocationsNode:Node {
+		name == "INVOCATIONS"
+		- parentNode->taskNode
+	}
+}
+
+#target {
+	task:Task {
+		- systemModule->system
+		++ - invocations->invocation
+	}
+	++invocation:Invocation
+	system:SystemModule
+}
+
+#correspondence {
+	fileToTask :FileToTask {
+		#src->file
+		#trg->task
+	}
+}

@@ -1,0 +1,33 @@
+#using ProcessCodeAdapter.*
+#using AttrCondDefLibrary.*
+
+#rule SubFolderToModuleRule #with ProcessCodeAdapter
+
+#source {
+	rootFolder:Folder {
+		++ - subFolder->subFolder
+	}
+	++subFolder:Folder
+}
+
+#target {
+	++module:Module
+	system:SystemModule {
+		++ - allModules->module
+	}
+}
+
+#correspondence {
+	++ subFolderToSubTask :FolderToModule {
+		#src->subFolder
+		#trg->module
+	}
+	folderToSystem :FolderToSystem {
+		#src->rootFolder
+		#trg->system
+	}
+}
+
+#attributeConditions {
+	eq_string(subFolder.name, module.description)
+}
