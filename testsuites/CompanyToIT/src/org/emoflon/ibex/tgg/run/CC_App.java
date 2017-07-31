@@ -1,7 +1,6 @@
 package org.emoflon.ibex.tgg.run;
 
 import java.io.IOException;
-import org.apache.log4j.BasicConfigurator;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.ibex.tgg.operational.strategies.cc.CC;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesEngine;
@@ -19,21 +18,6 @@ public class CC_App extends CC {
 		this.srcPath = srcPath;
 		this.trgPath = trgPath;
 		registerPatternMatchingEngine(new DemoclesEngine());
-	}
-
-	public static void main(String[] args) throws IOException {
-		BasicConfigurator.configure();
-
-		CC_App cc = new CC_App("ClassInhHier2DB", "./../", true, false, args[0], args[1]);
-		
-		logger.info("Starting CC");
-		long tic = System.currentTimeMillis();
-		cc.run();
-		long toc = System.currentTimeMillis();
-		logger.info("Completed CC in: " + (toc - tic) + " ms");
-
-		cc.saveModels();
-		cc.terminate();
 	}
 
 	@Override
