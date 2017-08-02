@@ -1,0 +1,31 @@
+#using BlockCodeAdapter.*
+#using AttrCondDefLibrary.*
+
+#abstract #rule ContextMapping2WireRule_f #with BlockCodeAdapter
+
+#source {
+	toPortNode:Node {
+		- parentNode->toBlockNode
+	}
+	fromBlockNode:Node {
+		- parentNode->blocks
+	}
+	blocks:Node {
+		name == "BLOCKS"
+	}
+	toBlockNode:Node {
+		- parentNode->blocks
+	}
+}
+
+#target {
+	spec:Specification {
+		- blocks->fromBlock
+		- blocks->toBlock
+	}
+	fromPort:Port
+	toBlock:Block
+	fromBlock:Block {
+		- ports->fromPort
+	}
+}

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BlockLanguage:Specification xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:BlockLanguage="platform:/plugin/BlockLanguage/model/BlockLanguage.ecore#/"  name="specification">
+  <blocks name="block1">
+    <ports id="1">
+      <wire port="#//@blocks.1/@ports.0"/>
+    </ports>
+  </blocks>
+  <blocks name="block2">
+    <ports id="2"/>
+  </blocks>
+</BlockLanguage:Specification>

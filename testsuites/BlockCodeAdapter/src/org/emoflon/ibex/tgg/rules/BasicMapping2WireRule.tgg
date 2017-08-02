@@ -1,0 +1,77 @@
+#using BlockCodeAdapter.*
+#using AttrCondDefLibrary.*
+
+#abstract #rule BasicMapping2WireRule #with BlockCodeAdapter
+
+#source {
+	fromBlockNode:Node {
+		- parentNode->blocks
+	}
+	mappingNode:Node {
+		name == "MAPPINGS"
+		- parentNode->specNode
+	}
+	toPortNode:Node
+	specNode:MocaTree.Node {
+		name == "SPEC"
+	}
+	blocks:Node {
+		name == "BLOCKS"
+		- parentNode->specNode
+	}
+	fromPortNode:Node {
+		- parentNode->fromBlockNode
+	}
+	++to:Node {
+		++ - parentNode->from
+	}
+	++from:Node {
+		++ - parentNode->mappingNode
+	}
+}
+
+#target {
+	++wire:Wire {
+		++ - port->toPort
+	}
+	toPort:Port
+	fromPort:Port {
+		++ - wire->wire
+	}
+	toBlock:Block {
+		- ports->toPort
+	}
+	spec:Specification {
+		- blocks->toBlock
+	}
+}
+
+#correspondence {
+	n2p2 :NodeToPort {
+		#src->toPortNode
+		#trg->toPort
+	}
+	n2s :NodeToSpecification {
+		#src->specNode
+		#trg->spec
+	}
+	++ n2w2 :NodeToWire {
+		#src->to
+		#trg->wire
+	}
+	++ n2w1 :NodeToWire {
+		#src->from
+		#trg->wire
+	}
+	n2p1 :NodeToPort {
+		#src->fromPortNode
+		#trg->fromPort
+	}
+}
+
+#attributeConditions {
+	stringToInt(to.name, toPort.id)
+	eq_string(fromPortNode.name, from.name)
+	eq_string(toPortNode.name, to.name)
+	stringToInt(from.name, fromPort.id)
+}

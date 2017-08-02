@@ -2,8 +2,10 @@
 <psf version="2.0">
 <provider id="org.eclipse.egit.core.GitProvider">
 <project reference="1.0,https://github.com/eMoflon/benchmarx.git,pr/57,core/Benchmarx"/>
+<project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,testsuites/BlockCodeAdapter"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,metamodels/BlockDiagram"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,testsuites/BlockDiagramCodeAdapter"/>
+<project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,metamodels/BlockLanguage"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,metamodels/ClassInheritanceHierarchy"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,testsuites/ClassInhHier2DB"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,metamodels/CompanyLanguage"/>
@@ -20,6 +22,7 @@
 </provider>
 <workingSets editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" id="1496664564939_2" label="metamodels" name="metamodels">
 <item elementID="=BlockDiagram" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=BlockLanguage" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=ClassInheritanceHierarchy" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=CompanyLanguage" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=Database" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
@@ -31,6 +34,7 @@
 </workingSets>
 <workingSets editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" id="1496664579737_3" label="testsuites" name="testsuites">
 <item elementID="=Benchmarx" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=BlockCodeAdapter" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=BlockDiagramCodeAdapter" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=ClassInhHier2DB" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=CompanyToIT" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>

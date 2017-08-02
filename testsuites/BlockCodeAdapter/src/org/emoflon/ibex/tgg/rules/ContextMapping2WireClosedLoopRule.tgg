@@ -1,0 +1,18 @@
+#using BlockCodeAdapter.*
+#using AttrCondDefLibrary.*
+
+#abstract #rule ContextMapping2WireClosedLoopRule #with BlockCodeAdapter
+
+#source {
+	toPortNode:Node {
+		- parentNode->fromBlockNode
+	}
+	fromBlockNode:Node
+}
+
+#target {
+	toBlock:Block {
+		- ports->fromPort
+	}
+	fromPort:Port
+}

@@ -1,0 +1,38 @@
+#using BlockCodeAdapter.*
+#using AttrCondDefLibrary.*
+
+#rule Node2PortRule #with BlockCodeAdapter
+
+#source {
+	blocksNode:Node {
+		name == "BLOCKS"
+	}
+	++portNode:Node {
+		++ - parentNode->blockNode
+	}
+	blockNode:Node {
+		- parentNode->blocksNode
+	}
+}
+
+#target {
+	++port:Port
+	block:Block {
+		++ - ports->port
+	}
+}
+
+#correspondence {
+	n2b :NodeToBlock {
+		#src->blockNode
+		#trg->block
+	}
+	++ n2p :NodeToPort {
+		#src->portNode
+		#trg->port
+	}
+}
+
+#attributeConditions {
+	stringToInt(portNode.name, port.id)
+}
