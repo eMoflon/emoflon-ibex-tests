@@ -1,6 +1,7 @@
 package testsuite1.ProcessCodeAdapter.sync;
 
 import org.benchmarx.BXTool;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import MocaTree.Folder;
@@ -46,6 +47,7 @@ public class Batch extends SyncTestCase {
 	 * <b>Features</b>: bwd
 	 */
 	@Test
+	@Ignore("Waiting for Fix related to democles issue #14")
 	public void testModules_BWD()
 	{
 		util.assertPrecondition("in/SystemModule_FWD", "expected/SystemModule_FWD");
@@ -84,6 +86,7 @@ public class Batch extends SyncTestCase {
 	 * <b>Features</b>: bwd
 	 */
 	@Test
+	@Ignore("Waiting for Fix related to democles issue #14")
 	public void testTasks_BWD()
 	{
 		util.assertPrecondition("in/SystemModule_FWD", "expected/SystemModule_FWD");
@@ -125,6 +128,7 @@ public class Batch extends SyncTestCase {
 	 * <b>Features</b>: bwd
 	 */
 	@Test
+	@Ignore("Waiting for Fix related to democles issue #14")
 	public void testImport_BWD()
 	{
 		util.assertPrecondition("in/SystemModule_FWD", "expected/SystemModule_FWD");
@@ -166,6 +170,7 @@ public class Batch extends SyncTestCase {
 	 * <b>Features</b>: bwd
 	 */
 	@Test
+	@Ignore("Waiting for Fix related to democles issue #14")
 	public void testInvocationSameModule_BWD()
 	{
 		util.assertPrecondition("in/SystemModule_FWD", "expected/SystemModule_FWD");
@@ -207,6 +212,7 @@ public class Batch extends SyncTestCase {
 	 * <b>Features</b>: bwd
 	 */
 	@Test
+	@Ignore("Waiting for Fix related to democles issue #14")
 	public void testInvocationOtherModule_BWD()
 	{
 		util.assertPrecondition("in/SystemModule_FWD", "expected/SystemModule_FWD");
@@ -244,6 +250,7 @@ public class Batch extends SyncTestCase {
 	 * <b>Features</b>: bwd
 	 */
 	@Test
+	@Ignore("Waiting for Fix related to democles issue #14")
 	public void testInvocationRecursive_BWD()
 	{
 		util.assertPrecondition("in/SystemModule_FWD", "expected/SystemModule_FWD");
