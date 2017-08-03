@@ -1,0 +1,83 @@
+#using VHDLTGGCodeAdapter.*
+#using AttrCondDefLibrary.*
+
+#abstract #rule AbstractMappingRule #with VHDLTGGCodeAdapter
+
+#source {
+	vhdlNode:Node {
+		name == "VHDL"
+	}
+	outputPortNodeName:Node {
+		- parentNode->outputPortNode
+	}
+	++mapping:Node {
+		++ - parentNode->gateNode
+	}
+	outputPortNode:Node {
+		name == "PORT"
+		- parentNode->entityNode
+	}
+	outNode:Node {
+		name == "out"
+		- parentNode->outputPortNode
+	}
+	entityNode:Node {
+		name == "ENTITY"
+		- parentNode->vhdlNode
+	}
+	inputPortNode1:Node {
+		name == "PORT"
+		- parentNode->entityNode
+	}
+	++expressionNode:Node {
+		++ - parentNode->mapping
+	}
+	gateNode:Node {
+		name == "GATE"
+		- parentNode->vhdlNode
+	}
+	inNode:Node {
+		name == "in"
+		- parentNode->inputPortNode1
+	}
+}
+
+#target {
+//	!noOut:Port
+	++out:OutputPort {
+		++ - block->expression
+	}
+	outExternal:OutputPort {
+//		- src->noOut
+		++ - src->out
+	}
+//	!noIn:Port {
+//		- src->leftExtern
+//	}
+	leftExtern:InputPort
+	compositeBlock:CompositeBlock {
+		- inputs->leftExtern
+		++ - blocks->expression
+		- ports->outExternal
+	}
+	++expression:Block
+}
+
+#correspondence {
+	node2OutputPort :NodeToOutputPort {
+		#src->outputPortNode
+		#trg->outExternal
+	}
+	gate2composite :NodeToCompositeBlock {
+		#src->gateNode
+		#trg->compositeBlock
+	}
+	node2InputPort1 :NodeToInputPort {
+		#src->inputPortNode1
+		#trg->leftExtern
+	}
+}
+
+#attributeConditions {
+	eq_string(outputPortNodeName.name, mapping.name)
+}

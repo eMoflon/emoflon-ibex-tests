@@ -1,0 +1,39 @@
+#using VHDLTGGCodeAdapter.*
+#using AttrCondDefLibrary.*
+
+#rule Mapping2AndGate #extends AbstractBinaryMappingRule #with VHDLTGGCodeAdapter
+
+#source {
+	++expressionNode:Node {
+		name := "and"
+	}
+}
+
+#target {
+	++rightPort:InputPort {
+		name := "AND.in2"
+		++ - block->expression
+	}
+	++leftPort:InputPort {
+		name := "AND.in1"
+		++ - block->expression
+	}
+	++expression:AndGate {
+		++ - inputs->rightPort
+		++ - inputport1->leftPort
+		++ - inputport2->rightPort
+		++ - inputs->leftPort
+		++ - outputport->out
+	}
+	++out:OutputPort {
+		name := "AND.out"
+		++ - block->expression
+	}
+}
+
+#correspondence {
+	++ andNode2Gate :NodeToBlock {
+		#src->expressionNode
+		#trg->expression
+	}
+}

@@ -1,0 +1,57 @@
+#using VHDLTGGCodeAdapter.*
+#using AttrCondDefLibrary.*
+
+#rule Entity2CompositeBlock #with VHDLTGGCodeAdapter
+
+#source {
+	++entity:Node {
+		index := 1
+		name := "ENTITY"
+		++ - parentNode->vhdl
+	}
+	++gateName:Node {
+		index := 0
+		++ - parentNode->gate
+	}
+	++gate:Node {
+		index := 0
+		name := "GATE"
+		++ - parentNode->vhdl
+	}
+	file:File
+	vhdl:Node {
+		name == "VHDL"
+		- file->file
+	}
+	++entityName:Node {
+		++ - parentNode->entity
+	}
+}
+
+#target {
+	++composite:CompositeBlock
+	spec:VHDLSpecification {
+		++ - blocks->composite
+	}
+}
+
+#correspondence {
+	++ gate2composite :NodeToCompositeBlock {
+		#src->gate
+		#trg->composite
+	}
+	file2spec :FileToVHDLSpecification {
+		#src->file
+		#trg->spec
+	}
+	++ entity2composite :NodeToCompositeBlock {
+		#src->entity
+		#trg->composite
+	}
+}
+
+#attributeConditions {
+	eq_string(gateName.name, entityName.name)
+	eq_string(entityName.name, composite.name)
+	eq_string(gateName.name, composite.name)
+}

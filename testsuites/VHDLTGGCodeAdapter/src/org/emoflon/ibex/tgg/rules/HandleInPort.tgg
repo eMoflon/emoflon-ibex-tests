@@ -1,0 +1,28 @@
+#using VHDLTGGCodeAdapter.*
+#using AttrCondDefLibrary.*
+
+#rule HandleInPort #extends Handle #with VHDLTGGCodeAdapter
+
+#source {
+	++typeNode:Node {
+		name := "in"
+	}
+	++portNode:Node {
+		name := "PORT"
+	}
+}
+
+#target {
+	++port:InputPort
+	composite:CompositeBlock {
+		++ - ports->port
+		++ - inputs->port
+	}
+}
+
+#correspondence {
+	++ portNodeToPort :NodeToInputPort {
+		#src->portNode
+		#trg->port
+	}
+}

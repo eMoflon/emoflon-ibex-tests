@@ -1,0 +1,24 @@
+#using VHDLTGGCodeAdapter.*
+#using AttrCondDefLibrary.*
+
+#rule HandleOutPort #extends Handle #with VHDLTGGCodeAdapter
+
+#source {
+	++portNode:Node {
+		name := "PORT"
+	}
+	++typeNode:Node {
+		name := "out"
+	}
+}
+
+#target {
+	++port:OutputPort
+}
+
+#correspondence {
+	++ node2outport :NodeToOutputPort {
+		#src->portNode
+		#trg->port
+	}
+}

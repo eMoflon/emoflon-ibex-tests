@@ -1,0 +1,50 @@
+#using VHDLTGGCodeAdapter.*
+#using AttrCondDefLibrary.*
+
+#rule Mapping2NotGate #extends AbstractMappingRule #with VHDLTGGCodeAdapter
+
+#source {
+	++expressionNode:Node {
+		name := "not"
+	}
+	entityNode:Node {
+		name == "ENTITY"
+	}
+	++port:Node {
+		++ - parentNode->expressionNode
+	}
+}
+
+#target {
+	++expression:NotGate {
+		++ - inputport->in
+		++ - outputport->out
+		++ - inputs->in
+	}
+	++out:OutputPort {
+		name := "NOT.out"
+		++ - block->expression
+	}
+	leftExtern:InputPort
+	++in:InputPort {
+		name := "NOT.in"
+		++ - src->leftExtern
+		++ - block->expression
+	}
+	compositeBlock:CompositeBlock
+}
+
+#correspondence {
+	compositeBlockToEntityNode :NodeToCompositeBlock {
+		#src->entityNode
+		#trg->compositeBlock
+	}
+	++ notNode2Gate :NodeToBlock {
+		#src->expressionNode
+		#trg->expression
+	}
+}
+
+#attributeConditions {
+	eq_string(leftExtern.name, port.name)
+}

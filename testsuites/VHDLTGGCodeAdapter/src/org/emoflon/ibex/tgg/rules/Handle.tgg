@@ -1,0 +1,40 @@
+#using VHDLTGGCodeAdapter.*
+#using AttrCondDefLibrary.*
+
+#abstract #rule Handle #with VHDLTGGCodeAdapter
+
+#source {
+	++typeNode:Node {
+		++ - parentNode->portNode
+	}
+	entity:Node {
+		name == "ENTITY"
+	}
+	++portNode:Node {
+		name := "PORT"
+		++ - parentNode->entity
+	}
+	++portName:Node {
+		++ - parentNode->portNode
+	}
+}
+
+#target {
+	++port:Port {
+		++ - block->composite
+	}
+	composite:CompositeBlock {
+		++ - ports->port
+	}
+}
+
+#correspondence {
+	entity2composite :NodeToCompositeBlock {
+		#src->entity
+		#trg->composite
+	}
+}
+
+#attributeConditions {
+	eq_string(portName.name, port.name)
+}
