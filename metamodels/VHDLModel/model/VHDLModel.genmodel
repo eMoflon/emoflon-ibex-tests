@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/VHDLModel/gen" modelPluginID="VHDLModel" modelName="VHDLModel"
+    updateClasspath="false" codeFormatting="true" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="8.0" copyrightFields="false" operationReflection="true">
+  <foreignModel>VHDLModel.ecore</foreignModel>
+  <genPackages prefix="VHDLModel" disposableProviderFactory="true" ecorePackage="platform:/plugin/VHDLModel/model/VHDLModel.ecore#/">
+    <genClasses ecoreClass="platform:/plugin/VHDLModel/model/VHDLModel.ecore#//AndGate">
+      <genOperations ecoreOperation="platform:/plugin/VHDLModel/model/VHDLModel.ecore#//AndGate/eval"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="platform:/plugin/VHDLModel/model/VHDLModel.ecore#//BinaryGate">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/VHDLModel/model/VHDLModel.ecore#//BinaryGate/inputport2"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/VHDLModel/model/VHDLModel.ecore#//BinaryGate/inputport1"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/VHDLModel/model/VHDLModel.ecore#//BinaryGate/outputport"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="platform:/plugin/VHDLModel/model/VHDLModel.ecore#//Block">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/plugin/VHDLModel/model/VHDLModel.ecore#//Block/inputs"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/VHDLModel/model/VHDLModel.ecore#//Block/name"/>
+      <genOperations ecoreOperation="platform:/plugin/VHDLModel/model/VHDLModel.ecore#//Block/eval"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/VHDLModel/model/VHDLModel.ecore#//BlockRef">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/plugin/VHDLModel/model/VHDLModel.ecore#//BlockRef/block"/>
+      <genOperations ecoreOperation="platform:/plugin/VHDLModel/model/VHDLModel.ecore#//BlockRef/eval"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="platform:/plugin/VHDLModel/model/VHDLModel.ecore#//ComplexBlock">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/VHDLModel/model/VHDLModel.ecore#//ComplexBlock/ports"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/VHDLModel/model/VHDLModel.ecore#//CompositeBlock">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/VHDLModel/model/VHDLModel.ecore#//CompositeBlock/blocks"/>
+      <genOperations ecoreOperation="platform:/plugin/VHDLModel/model/VHDLModel.ecore#//CompositeBlock/eval"/>
+      <genOperations ecoreOperation="platform:/plugin/VHDLModel/model/VHDLModel.ecore#//CompositeBlock/pullValue">
+        <genParameters ecoreParameter="platform:/plugin/VHDLModel/model/VHDLModel.ecore#//CompositeBlock/pullValue/port"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/VHDLModel/model/VHDLModel.ecore#//InputPort"/>
+    <genClasses ecoreClass="platform:/plugin/VHDLModel/model/VHDLModel.ecore#//NotGate">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/VHDLModel/model/VHDLModel.ecore#//NotGate/outputport"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/VHDLModel/model/VHDLModel.ecore#//NotGate/inputport"/>
+      <genOperations ecoreOperation="platform:/plugin/VHDLModel/model/VHDLModel.ecore#//NotGate/eval"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/VHDLModel/model/VHDLModel.ecore#//OrGate">
+      <genOperations ecoreOperation="platform:/plugin/VHDLModel/model/VHDLModel.ecore#//OrGate/eval"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/VHDLModel/model/VHDLModel.ecore#//OutputPort"/>
+    <genClasses image="false" ecoreClass="platform:/plugin/VHDLModel/model/VHDLModel.ecore#//Port">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/plugin/VHDLModel/model/VHDLModel.ecore#//Port/src"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/plugin/VHDLModel/model/VHDLModel.ecore#//Port/block"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/VHDLModel/model/VHDLModel.ecore#//Port/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/VHDLModel/model/VHDLModel.ecore#//Port/high"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/VHDLModel/model/VHDLModel.ecore#//Signal"/>
+    <genClasses ecoreClass="platform:/plugin/VHDLModel/model/VHDLModel.ecore#//VHDLSpecification">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/VHDLModel/model/VHDLModel.ecore#//VHDLSpecification/blocks"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/VHDLModel/model/VHDLModel.ecore#//VHDLSpecification/name"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
