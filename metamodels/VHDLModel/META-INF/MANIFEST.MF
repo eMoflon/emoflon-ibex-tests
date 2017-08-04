@@ -1,8 +1,9 @@
 Manifest-Version: 1.0
 Bundle-SymbolicName: VHDLModel;singleton:=true
 Export-Package: VHDLModel,
+ VHDLModel.impl,
  VHDLModel.util,
- VHDLModel.impl
+ org.benchmarx.vhdlModel.core
 Bundle-Name: VHDLModel
 Bundle-Version: 1.0
 Require-Bundle: org.eclipse.emf.ecore,
