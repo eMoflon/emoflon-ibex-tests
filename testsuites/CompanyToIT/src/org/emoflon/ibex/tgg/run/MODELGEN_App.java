@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import org.eclipse.emf.common.util.URI;
 import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGEN;
+import org.emoflon.ibex.tgg.runtime.engine.DemoclesEngine;
 
 import CompanyLanguage.impl.CompanyLanguagePackageImpl;
 import ITLanguage.impl.ITLanguagePackageImpl;
@@ -12,6 +13,7 @@ public class MODELGEN_App extends MODELGEN {
 
 	public MODELGEN_App(String projectName, String workspacePath, boolean flatten, boolean debug) throws IOException {
 		super(projectName, workspacePath, flatten, debug);
+		registerPatternMatchingEngine(new DemoclesEngine());
 	}
 
 	protected void registerUserMetamodels() throws IOException {
