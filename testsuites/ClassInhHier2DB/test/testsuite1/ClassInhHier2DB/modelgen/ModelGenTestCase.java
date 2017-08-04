@@ -12,7 +12,6 @@ import org.benchmarx.util.EMFUtil;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGENStopCriterion;
 import org.emoflon.ibex.tgg.run.MODELGEN_App;
-import org.emoflon.ibex.tgg.runtime.engine.DemoclesEngine;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -43,7 +42,6 @@ public abstract class ModelGenTestCase {
 	@Before
 	public void createGenerator() throws IOException {
 		generator = new MODELGEN_App("ClassInhHier2DB", "./../", flatten, false);
-		generator.registerPatternMatchingEngine(new DemoclesEngine());
 		stop = new MODELGENStopCriterion(generator.getTGG());
 		
 		stop.setMaxRuleCount("PackageToDatabaseRule", 0);
