@@ -1,18 +1,20 @@
 package testsuite1.CompanyToIT.sync;
 
-import org.benchmarx.BXTool;
-import org.junit.Ignore;
+import java.util.Set;
+
+import org.emoflon.ibex.tgg.operational.util.IMatch;
 import org.junit.Test;
 
 import CompanyLanguage.Company;
+import CompanyLanguage.Employee;
 import ITLanguage.IT;
-import testsuite1.CompanyToIT.sync.util.Decisions;
+import testsuite1.CompanyToIT.sync.util.IbexCompanyToIT;
 import testsuite1.CompanyToIT.sync.util.SyncTestCase;
 
 
 public class Batch extends SyncTestCase {
 
-	public Batch(BXTool<Company, IT, Decisions> tool) {
+	public Batch(IbexCompanyToIT tool) {
 		super(tool);
 	}
 
@@ -60,9 +62,17 @@ public class Batch extends SyncTestCase {
 	 * <b>Features</b>: fwd
 	 */
 	@Test
-	@Ignore ("Translation ambiguous with respect to employees")
 	public void testEmployee_Laptop_FWD()
 	{
+		tool.getSYNC().setUpdatePolicy(matchContainer -> {
+			Set<IMatch> matches = matchContainer.getMatches();
+			for (IMatch match : matches) {
+				if (!matchContainer.getRuleName(match).equals("EmployeeToPCRule"))
+					return match;
+			}
+			return matches.iterator().next();
+		});
+		
 		util.assertPrecondition("in/Company_FWD", "expected/Company_FWD");
 		//------------
 		tool.performAndPropagateSourceEdit(util.execute((Company c) -> helperCompany.createAdminForCEO(c, "Ingo"))
@@ -93,9 +103,17 @@ public class Batch extends SyncTestCase {
 	 * <b>Features</b>: fwd
 	 */
 	@Test
-	@Ignore ("Translation ambiguous with respect to employees")
 	public void testEmployee_PC_FWD()
 	{
+		tool.getSYNC().setUpdatePolicy(matchContainer -> {
+			Set<IMatch> matches = matchContainer.getMatches();
+			for (IMatch match : matches) {
+				if (!matchContainer.getRuleName(match).equals("EmployeeToLaptopRule"))
+					return match;
+			}
+			return matches.iterator().next();
+		});
+		
 		util.assertPrecondition("in/Company_FWD", "expected/Company_FWD");
 		//------------
 		tool.performAndPropagateSourceEdit(util.execute((Company c) -> helperCompany.createAdminForCEO(c, "Ingo"))
@@ -126,9 +144,27 @@ public class Batch extends SyncTestCase {
 	 * <b>Features</b>: fwd
 	 */
 	@Test
-	@Ignore ("Translation ambiguous with respect to employees")
 	public void testEmployee_PC_Laptop_FWD()
 	{
+		tool.getSYNC().setUpdatePolicy(matchContainer -> {
+			Set<IMatch> matches = matchContainer.getMatches();
+			for (IMatch match : matches) {
+				String name = matchContainer.getRuleName(match);
+				if (name.equals("EmployeeToLaptopRule")) {
+					Employee e = (Employee)match.get("employee");
+					if (e.getName().equals("Marius"))
+						continue;
+				}
+				if (name.equals("EmployeeToPCRule")) {
+					Employee e = (Employee)match.get("employee");
+					if (e.getName().equals("Tony"))
+						continue;
+				}
+				return match;
+			}
+			return matches.iterator().next();
+		});
+		
 		util.assertPrecondition("in/Company_FWD", "expected/Company_FWD");
 		//------------
 		tool.performAndPropagateSourceEdit(util.execute((Company c) -> helperCompany.createAdminForCEO(c, "Ingo"))

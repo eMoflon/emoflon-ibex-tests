@@ -151,4 +151,8 @@ public class IbexCompanyToIT extends BXToolForEMF<Company, IT, Decisions>   {
 			e.printStackTrace();
 		}
 	}
+	
+	public SYNC getSYNC() {
+		return synchroniser;
+	}
 }

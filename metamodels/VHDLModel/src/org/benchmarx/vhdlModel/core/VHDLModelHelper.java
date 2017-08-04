@@ -1,6 +1,5 @@
 package org.benchmarx.vhdlModel.core;
 
-import VHDLModel.Block;
 import VHDLModel.CompositeBlock;
 import VHDLModel.InputPort;
 import VHDLModel.NotGate;

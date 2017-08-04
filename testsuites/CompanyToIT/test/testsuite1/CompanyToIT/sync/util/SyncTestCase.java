@@ -5,7 +5,6 @@ import java.util.Arrays;
 import java.util.Collection;
 
 import org.apache.log4j.BasicConfigurator;
-import org.benchmarx.BXTool;
 import org.benchmarx.companyLanguage.core.CompanyLanguageHelper;
 import org.benchmarx.itLanguage.core.ITLanguageHelper;
 import org.benchmarx.util.BenchmarxUtil;
@@ -24,7 +23,7 @@ import ITLanguage.ITLanguagePackage;
 @RunWith(Parameterized.class)
 public abstract class SyncTestCase {
 
-	protected BXTool<Company, IT, Decisions> tool;
+	protected IbexCompanyToIT tool;
 	protected CompanyLanguageHelper helperCompany;
 	protected ITLanguageHelper helperIT;
 	protected BenchmarxUtil<Company, IT, Decisions> util;
@@ -55,14 +54,14 @@ public abstract class SyncTestCase {
 	}
 	
 	@Parameters
-	public static Collection<BXTool<Company, IT, Decisions>> tools() throws IOException {
+	public static Collection<IbexCompanyToIT> tools() throws IOException {
 		return Arrays.asList(
 				new IbexCompanyToIT(true),
 				new IbexCompanyToIT(false)
 			);
 	}
 	
-	protected SyncTestCase(BXTool<Company, IT, Decisions> tool) {
+	protected SyncTestCase(IbexCompanyToIT tool) {
 		this.tool = tool; 
 	}
 }
