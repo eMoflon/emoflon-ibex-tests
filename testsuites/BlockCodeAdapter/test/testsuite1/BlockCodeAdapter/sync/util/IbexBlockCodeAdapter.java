@@ -42,7 +42,7 @@ public class IbexBlockCodeAdapter extends BXToolForEMF<File, Specification, Deci
 	
 	@Override
 	public String getName() {
-		return "eMoflon::Ibex";
+		return "eMoflon::Ibex" + (flatten? " (flattened)" : " (with refinements)");
 	}
 	
 	@Override

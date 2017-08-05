@@ -53,7 +53,7 @@ public abstract class SyncTestCase {
 		tool.terminateSynchronisationDialogue();
 	}
 	
-	@Parameters
+	@Parameters(name = "{0}")
 	public static Collection<BXTool<File, Specification, Decisions>> tools() throws IOException {
 		return Arrays.asList(
 				new IbexBlockCodeAdapter(true)
