@@ -1,4 +1,4 @@
-package org.emoflon.ibex.tgg.run;
+package org.emoflon.ibex.tgg.run.processcodeadapter;
 
 import java.io.IOException;
 

@@ -1,18 +1,36 @@
 package testsuite1.ProcessCodeAdapter.sync;
 
-import org.benchmarx.BXTool;
+import org.benchmarx.mocaTree.core.MocaTreeHelper;
+import org.benchmarx.processDefinition.core.ProcessDefinitionHelper;
 import org.junit.Ignore;
 import org.junit.Test;
 
 import MocaTree.Folder;
 import ProcessDefinition.SystemModule;
-import testsuite1.ProcessCodeAdapter.sync.util.Decisions;
-import testsuite1.ProcessCodeAdapter.sync.util.SyncTestCase;
+import testsuite1.ProcessCodeAdapter.sync.util.IbexProcessCodeAdapter;
+import testsuite1.testUtil.SyncTestCase;
 
-public class AlignmentBased extends SyncTestCase {
+public class AlignmentBased extends SyncTestCase<Folder, SystemModule> {
+	private static final String projectName = "ProcessCodeAdapter";
+	
+	MocaTreeHelper helperMoca;
+	ProcessDefinitionHelper helperProcess;
 
-	public AlignmentBased(BXTool<Folder, SystemModule, Decisions> tool) {
-		super(tool);
+	public AlignmentBased(boolean flatten) {
+		super(new IbexProcessCodeAdapter(flatten, projectName), flatten);
+	}
+	
+	protected void initHelpers() {
+		helperMoca = new MocaTreeHelper();
+		helperProcess = new ProcessDefinitionHelper();
+	}
+	
+	protected void assertPrecondition(String source, String target) {
+		util.assertPrecondition(projectName+"/"+source, projectName+"/"+target);
+	}
+	
+	protected void assertPostcondition(String source, String target) {
+		util.assertPostcondition(projectName+"/"+source, projectName+"/"+target);
 	}
 	
 	/**
@@ -21,12 +39,12 @@ public class AlignmentBased extends SyncTestCase {
 	@Test
 	public void testModules_FWD()
 	{
-		util.assertPrecondition("in/SystemModule_FWD", "expected/SystemModule_FWD");
+		assertPrecondition("in/SystemModule_FWD", "expected/SystemModule_FWD");
 		//------------
 		tool.performAndPropagateSourceEdit(f -> helperMoca.createSubFolder(f, "A", 0));
 		tool.performAndPropagateSourceEdit(f -> helperMoca.createSubFolder(f, "B", 0));
 		//------------
-		util.assertPostcondition("in/Modules_FWD", "expected/Modules_FWD");
+		assertPostcondition("in/Modules_FWD", "expected/Modules_FWD");
 	}
 
 	/**
@@ -36,12 +54,12 @@ public class AlignmentBased extends SyncTestCase {
 	@Ignore("Waiting for Fix related to democles issue #14")
 	public void testModules_BWD()
 	{
-		util.assertPrecondition("in/SystemModule_FWD", "expected/SystemModule_FWD");
+		assertPrecondition("in/SystemModule_FWD", "expected/SystemModule_FWD");
 		//------------
 		tool.performAndPropagateTargetEdit(sm -> helperProcess.createSubModule(sm, "A"));
 		tool.performAndPropagateTargetEdit(sm -> helperProcess.createSubModule(sm, "B"));
 		//------------
-		util.assertPostcondition("expected/Modules_BWD", "in/Modules_BWD");
+		assertPostcondition("expected/Modules_BWD", "in/Modules_BWD");
 	}
 	
 	/**
@@ -50,7 +68,7 @@ public class AlignmentBased extends SyncTestCase {
 	@Test
 	public void testTasks_FWD()
 	{
-		util.assertPrecondition("in/SystemModule_FWD", "expected/SystemModule_FWD");
+		assertPrecondition("in/SystemModule_FWD", "expected/SystemModule_FWD");
 		//------------
 		tool.performAndPropagateSourceEdit(f -> helperMoca.createSubFolder(f, "A", 0));
 		tool.performAndPropagateSourceEdit(f -> helperMoca.createSubFolder(f, "B", 0));
@@ -63,7 +81,7 @@ public class AlignmentBased extends SyncTestCase {
 		tool.performAndPropagateSourceEdit(f -> helperMoca.createSubNode(f, "INVOCATIONS", 0, 0));
 		tool.performAndPropagateSourceEdit(f -> helperMoca.createSubNode(f, "INVOCATIONS", 1, 0));
 		//------------
-		util.assertPostcondition("in/Tasks_FWD", "expected/Tasks_FWD");
+		assertPostcondition("in/Tasks_FWD", "expected/Tasks_FWD");
 	}
 
 	/**
@@ -73,14 +91,14 @@ public class AlignmentBased extends SyncTestCase {
 	@Ignore("Waiting for Fix related to democles issue #14")
 	public void testTasks_BWD()
 	{
-		util.assertPrecondition("in/SystemModule_FWD", "expected/SystemModule_FWD");
+		assertPrecondition("in/SystemModule_FWD", "expected/SystemModule_FWD");
 		//------------
 		tool.performAndPropagateTargetEdit(sm -> helperProcess.createSubModule(sm, "A"));
 		tool.performAndPropagateTargetEdit(sm -> helperProcess.createSubModule(sm, "B"));
 		tool.performAndPropagateTargetEdit(sm -> helperProcess.createTask(sm, "1", 0));
 		tool.performAndPropagateTargetEdit(sm -> helperProcess.createTask(sm, "2", 1));
 		//------------
-		util.assertPostcondition("expected/Tasks_BWD", "in/Tasks_BWD");
+		assertPostcondition("expected/Tasks_BWD", "in/Tasks_BWD");
 	}
 	
 	/**
@@ -89,7 +107,7 @@ public class AlignmentBased extends SyncTestCase {
 	@Test
 	public void testImport_FWD()
 	{
-		util.assertPrecondition("in/SystemModule_FWD", "expected/SystemModule_FWD");
+		assertPrecondition("in/SystemModule_FWD", "expected/SystemModule_FWD");
 		//------------
 		tool.performAndPropagateSourceEdit(f -> helperMoca.createSubFolder(f, "A", 0));
 		tool.performAndPropagateSourceEdit(f -> helperMoca.createSubFolder(f, "B", 0));
@@ -103,7 +121,7 @@ public class AlignmentBased extends SyncTestCase {
 		tool.performAndPropagateSourceEdit(f -> helperMoca.createSubNode(f, "INVOCATIONS", 1, 0));
 		tool.performAndPropagateSourceEdit(f -> helperMoca.createSubSubNode(f, "B", 0, 0, 0));
 		//------------
-		util.assertPostcondition("in/Import_FWD", "expected/Import_FWD");
+		assertPostcondition("in/Import_FWD", "expected/Import_FWD");
 	}
 
 	/**
@@ -113,7 +131,7 @@ public class AlignmentBased extends SyncTestCase {
 	@Ignore("Waiting for Fix related to democles issue #14")
 	public void testImport_BWD()
 	{
-		util.assertPrecondition("in/SystemModule_FWD", "expected/SystemModule_FWD");
+		assertPrecondition("in/SystemModule_FWD", "expected/SystemModule_FWD");
 		//------------
 		tool.performAndPropagateTargetEdit(sm -> helperProcess.createSubModule(sm, "A"));
 		tool.performAndPropagateTargetEdit(sm -> helperProcess.createSubModule(sm, "B"));
@@ -121,7 +139,7 @@ public class AlignmentBased extends SyncTestCase {
 		tool.performAndPropagateTargetEdit(sm -> helperProcess.createTask(sm, "2", 1));
 		tool.performAndPropagateTargetEdit(sm -> helperProcess.createImport(sm, 0, 0, 1));
 		//------------
-		util.assertPostcondition("expected/Import_BWD", "in/Import_BWD");
+		assertPostcondition("expected/Import_BWD", "in/Import_BWD");
 	}
 	
 	/**
@@ -130,7 +148,7 @@ public class AlignmentBased extends SyncTestCase {
 	@Test
 	public void testInvocationSameModule_FWD()
 	{
-		util.assertPrecondition("in/SystemModule_FWD", "expected/SystemModule_FWD");
+		assertPrecondition("in/SystemModule_FWD", "expected/SystemModule_FWD");
 		//------------
 		tool.performAndPropagateSourceEdit(f -> helperMoca.createSubFolder(f, "A", 0));
 		tool.performAndPropagateSourceEdit(f -> helperMoca.createFile(f, "1.proc", 0));
@@ -143,7 +161,7 @@ public class AlignmentBased extends SyncTestCase {
 		tool.performAndPropagateSourceEdit(f -> helperMoca.createSubNode(f, "INVOCATIONS", 0, 1));
 		tool.performAndPropagateSourceEdit(f -> helperMoca.createSubSubNode(f, "2", 0, 0, 1));
 		//------------
-		util.assertPostcondition("in/InvocationSameModule_FWD", "expected/InvocationSameModule_FWD");
+		assertPostcondition("in/InvocationSameModule_FWD", "expected/InvocationSameModule_FWD");
 	}
 
 	/**
@@ -153,14 +171,14 @@ public class AlignmentBased extends SyncTestCase {
 	@Ignore("Waiting for Fix related to democles issue #14")
 	public void testInvocationSameModule_BWD()
 	{
-		util.assertPrecondition("in/SystemModule_FWD", "expected/SystemModule_FWD");
+		assertPrecondition("in/SystemModule_FWD", "expected/SystemModule_FWD");
 		//------------
 		tool.performAndPropagateTargetEdit(sm -> helperProcess.createSubModule(sm, "A"));
 		tool.performAndPropagateTargetEdit(sm -> helperProcess.createTask(sm, "1", 0));
 		tool.performAndPropagateTargetEdit(sm -> helperProcess.createTask(sm, "2", 0));
 		tool.performAndPropagateTargetEdit(sm -> helperProcess.createInvocation(sm, 0, 0, 0, 1));
 		//------------
-		util.assertPostcondition("expected/InvocationSameModule_BWD", "in/InvocationSameModule_BWD");
+		assertPostcondition("expected/InvocationSameModule_BWD", "in/InvocationSameModule_BWD");
 	}
 	
 	/**
@@ -169,7 +187,7 @@ public class AlignmentBased extends SyncTestCase {
 	@Test
 	public void testInvocationOtherModule_FWD()
 	{
-		util.assertPrecondition("in/SystemModule_FWD", "expected/SystemModule_FWD");
+		assertPrecondition("in/SystemModule_FWD", "expected/SystemModule_FWD");
 		//------------
 		tool.performAndPropagateSourceEdit(f -> helperMoca.createSubFolder(f, "A", 0));
 		tool.performAndPropagateSourceEdit(f -> helperMoca.createSubFolder(f, "B", 0));
@@ -183,7 +201,7 @@ public class AlignmentBased extends SyncTestCase {
 		tool.performAndPropagateSourceEdit(f -> helperMoca.createSubNode(f, "INVOCATIONS", 1, 0));
 		tool.performAndPropagateSourceEdit(f -> helperMoca.createSubSubNode(f, "2", 0, 0, 1));
 		//------------
-		util.assertPostcondition("in/InvocationOtherModule_FWD", "expected/InvocationOtherModule_FWD");
+		assertPostcondition("in/InvocationOtherModule_FWD", "expected/InvocationOtherModule_FWD");
 	}
 
 	/**
@@ -193,7 +211,7 @@ public class AlignmentBased extends SyncTestCase {
 	@Ignore("Waiting for Fix related to democles issue #14")
 	public void testInvocationOtherModule_BWD()
 	{
-		util.assertPrecondition("in/SystemModule_FWD", "expected/SystemModule_FWD");
+		assertPrecondition("in/SystemModule_FWD", "expected/SystemModule_FWD");
 		//------------
 		tool.performAndPropagateTargetEdit(sm -> helperProcess.createSubModule(sm, "A"));
 		tool.performAndPropagateTargetEdit(sm -> helperProcess.createSubModule(sm, "B"));
@@ -201,7 +219,7 @@ public class AlignmentBased extends SyncTestCase {
 		tool.performAndPropagateTargetEdit(sm -> helperProcess.createTask(sm, "2", 1));
 		tool.performAndPropagateTargetEdit(sm -> helperProcess.createInvocation(sm, 0, 0, 1, 0));
 		//------------
-		util.assertPostcondition("expected/InvocationOtherModule_BWD", "in/InvocationOtherModule_BWD");
+		assertPostcondition("expected/InvocationOtherModule_BWD", "in/InvocationOtherModule_BWD");
 	}
 	
 	/**
@@ -210,7 +228,7 @@ public class AlignmentBased extends SyncTestCase {
 	@Test
 	public void testInvocationRecursive_FWD()
 	{
-		util.assertPrecondition("in/SystemModule_FWD", "expected/SystemModule_FWD");
+		assertPrecondition("in/SystemModule_FWD", "expected/SystemModule_FWD");
 		//------------
 		tool.performAndPropagateSourceEdit(f -> helperMoca.createSubFolder(f, "A", 0));
 		tool.performAndPropagateSourceEdit(f -> helperMoca.createFile(f, "1.proc", 0));
@@ -219,7 +237,7 @@ public class AlignmentBased extends SyncTestCase {
 		tool.performAndPropagateSourceEdit(f -> helperMoca.createSubNode(f, "INVOCATIONS", 0, 0));
 		tool.performAndPropagateSourceEdit(f -> helperMoca.createSubSubNode(f, "1", 0, 0, 1));
 		//------------
-		util.assertPostcondition("in/InvocationRecursive_FWD", "expected/InvocationRecursive_FWD");
+		assertPostcondition("in/InvocationRecursive_FWD", "expected/InvocationRecursive_FWD");
 	}
 
 	/**
@@ -229,13 +247,13 @@ public class AlignmentBased extends SyncTestCase {
 	@Ignore("Waiting for Fix related to democles issue #14")
 	public void testInvocationRecursive_BWD()
 	{
-		util.assertPrecondition("in/SystemModule_FWD", "expected/SystemModule_FWD");
+		assertPrecondition("in/SystemModule_FWD", "expected/SystemModule_FWD");
 		//------------
 		tool.performAndPropagateTargetEdit(sm -> helperProcess.createSubModule(sm, "A"));
 		tool.performAndPropagateTargetEdit(sm -> helperProcess.createTask(sm, "1", 0));
 		tool.performAndPropagateTargetEdit(sm -> helperProcess.createInvocation(sm, 0, 0, 0, 0));
 		//------------
-		util.assertPostcondition("expected/InvocationRecursive_BWD", "in/InvocationRecursive_BWD");
+		assertPostcondition("expected/InvocationRecursive_BWD", "in/InvocationRecursive_BWD");
 	}
 	
 }

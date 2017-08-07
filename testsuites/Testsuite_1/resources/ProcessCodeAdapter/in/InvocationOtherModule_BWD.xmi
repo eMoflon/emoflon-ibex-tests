@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ProcessDefinition:SystemModule
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ProcessDefinition="platform:/plugin/ProcessDefinition/model/ProcessDefinition.ecore#/"
+     
+    allTasks="#//@allModules.0/@tasks.0 #//@allModules.1/@tasks.0"
+    name="Example">
+  <allModules
+      description="A">
+    <tasks systemModule="#/"
+        id="1">
+      <invocations
+          invokedTask="#//@allModules.1/@tasks.0"/>
+    </tasks>
+  </allModules>
+  <allModules
+      description="B">
+    <tasks invocation="#//@allModules.0/@tasks.0/@invocations.0"
+        systemModule="#/"
+        id="2"/>
+  </allModules>
+</ProcessDefinition:SystemModule>

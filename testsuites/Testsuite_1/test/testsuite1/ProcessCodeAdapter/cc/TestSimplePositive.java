@@ -2,12 +2,19 @@ package testsuite1.ProcessCodeAdapter.cc;
 
 import java.io.IOException;
 
+import org.emoflon.ibex.tgg.run.processcodeadapter.CC_App;
 import org.junit.Test;
+
+import testsuite1.testUtil.CCTestCase;
 
 public class TestSimplePositive extends CCTestCase {
 	
 	public TestSimplePositive(boolean flatten) {
 		super(flatten);
+	}
+	
+	public void createGenerator(String srcInstance, String trgInstance) throws IOException {
+		generator = new CC_App("ProcessCodeAdapter", "./../", flatten, false, srcInstance, trgInstance);
 	}
 	
 	@Test

@@ -2,12 +2,40 @@ package testsuite1.ProcessCodeAdapter.modelgen;
 
 import java.io.IOException;
 
+import org.benchmarx.mocaTree.core.MocaTreeFolderComparator;
+import org.benchmarx.processDefinition.core.ProcessDefinitionComparator;
+import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGENStopCriterion;
+import org.emoflon.ibex.tgg.run.vhdltggcodeadapter.MODELGEN_App;
+import org.junit.Before;
 import org.junit.Test;
 
-public class SyncResourcesTest extends ModelGenTestCase {
+import MocaTree.Folder;
+import ProcessDefinition.SystemModule;
+import language.TGGRule;
+import testsuite1.testUtil.ModelGenTestCase;
+
+public class SyncResourcesTest extends ModelGenTestCase<Folder, SystemModule> {
 
 	public SyncResourcesTest(Boolean flatten) {
 		super(flatten);
+	}
+	
+	@Override
+	protected String getProjectName() {
+		return "ProcessCodeAdapter";
+	}
+	
+	@Before
+	public void createGenerator() throws IOException {
+		generator = new MODELGEN_App(getProjectName(), "./../", flatten, false);
+		stop = new MODELGENStopCriterion(generator.getTGG());
+		
+		for (TGGRule rule : generator.getTGG().getRules()) {
+			stop.setMaxRuleCount(rule.getName(), 0);
+		}
+		
+		sourceComp = new MocaTreeFolderComparator(false);
+		targetComp = new ProcessDefinitionComparator(false);
 	}
 	
 	@Test
