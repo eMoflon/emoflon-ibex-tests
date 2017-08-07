@@ -2,13 +2,41 @@ package testsuite1.BlockCodeAdapter.modelgen;
 
 import java.io.IOException;
 
+import org.benchmarx.blockLanguage.core.BlockLanguageComparator;
+import org.benchmarx.mocaTree.core.MocaTreeFileComparator;
+import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGENStopCriterion;
+import org.emoflon.ibex.tgg.run.blockcodeadapter.MODELGEN_App;
+import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 
-public class SyncResourcesTest extends ModelGenTestCase {
+import BlockLanguage.Specification;
+import MocaTree.File;
+import language.TGGRule;
+import testsuite1.testUtil.ModelGenTestCase;
+
+public class SyncResourcesTest extends ModelGenTestCase<File, Specification> {
 
 	public SyncResourcesTest(Boolean flatten) {
 		super(flatten);
+	}
+
+	@Override
+	protected String getProjectName() {
+		return "BlockCodeAdapter";
+	}
+	
+	@Before
+	public void createGenerator() throws IOException {
+		generator = new MODELGEN_App(getProjectName(), "./../", flatten, false);
+		stop = new MODELGENStopCriterion(generator.getTGG());
+		
+		for (TGGRule rule : generator.getTGG().getRules()) {
+			stop.setMaxRuleCount(rule.getName(), 0);
+		}
+
+		sourceComp = new MocaTreeFileComparator(false);
+		targetComp = new BlockLanguageComparator(false);
 	}
 	
 	@Test

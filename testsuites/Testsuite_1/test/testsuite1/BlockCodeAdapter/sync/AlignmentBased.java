@@ -1,21 +1,39 @@
 package testsuite1.BlockCodeAdapter.sync;
 
-import org.benchmarx.BXTool;
+import org.benchmarx.blockLanguage.core.BlockLanguageHelper;
 import org.junit.Ignore;
 import org.junit.Test;
 
 import BlockLanguage.Specification;
 import MocaTree.File;
-import testsuite1.BlockCodeAdapter.sync.util.Decisions;
-import testsuite1.BlockCodeAdapter.sync.util.SyncTestCase;
+import testsuite1.BlockCodeAdapter.sync.util.IbexBlockCodeAdapter;
+import testsuite1.BlockCodeAdapter.sync.util.MocaTreeHelper;
+import testsuite1.testUtil.SyncTestCase;
 
 
-public class AlignmentBased extends SyncTestCase {
-
-	public AlignmentBased(BXTool<File, Specification, Decisions> tool) {
-		super(tool);
+public class AlignmentBased extends SyncTestCase<File, Specification> {
+	private static final String projectName = "BlockCodeAdapter";
+	
+	private MocaTreeHelper helperMT;
+	private BlockLanguageHelper helperBlock;
+	
+	public AlignmentBased(boolean flatten) {
+		super(new IbexBlockCodeAdapter(flatten, projectName), flatten);
 	}
-
+	
+	protected void initHelpers() {
+		helperMT = new MocaTreeHelper();
+		helperBlock = new BlockLanguageHelper();
+	}
+	
+	protected void assertPrecondition(String source, String target) {
+		util.assertPrecondition(projectName+"/"+source, projectName+"/"+target);
+	}
+	
+	protected void assertPostcondition(String source, String target) {
+		util.assertPostcondition(projectName+"/"+source, projectName+"/"+target);
+	}
+	
 	/**
 	 * <b>Features</b>: fwd
 	 */
@@ -23,12 +41,12 @@ public class AlignmentBased extends SyncTestCase {
 	@Ignore("Waiting for Fix related to democles issue #14")
 	public void testPort_FWD()
 	{
-		util.assertPrecondition("expected/Spec_BWD", "in/Spec_BWD");
+		assertPrecondition("expected/Spec_BWD", "in/Spec_BWD");
 		//------------
 		tool.performAndPropagateSourceEdit(f -> helperMT.createBlockNode(f, "block"));
 		tool.performAndPropagateSourceEdit(f -> helperMT.createPortNode(f, "0", 0));
 		//------------
-		util.assertPostcondition("in/Port_FWD", "expected/Port_FWD");
+		assertPostcondition("in/Port_FWD", "expected/Port_FWD");
 	}
 
 	/**
@@ -37,12 +55,12 @@ public class AlignmentBased extends SyncTestCase {
 	@Test
 	public void testPort_BWD()
 	{
-		util.assertPrecondition("expected/Spec_BWD", "in/Spec_BWD");
+		assertPrecondition("expected/Spec_BWD", "in/Spec_BWD");
 		//------------
 		tool.performAndPropagateTargetEdit(s -> helperBlock.createBlock(s, "block"));
 		tool.performAndPropagateTargetEdit(s -> helperBlock.createPort(s, 0, 0));
 		//------------
-		util.assertPostcondition("expected/Port_BWD", "in/Port_BWD");
+		assertPostcondition("expected/Port_BWD", "in/Port_BWD");
 	}
 
 	/**
@@ -52,7 +70,7 @@ public class AlignmentBased extends SyncTestCase {
 	@Ignore("Waiting for Fix related to democles issue #14")
 	public void testWire_FWD()
 	{
-		util.assertPrecondition("expected/Spec_BWD", "in/Spec_BWD");
+		assertPrecondition("expected/Spec_BWD", "in/Spec_BWD");
 		//------------
 		tool.performAndPropagateSourceEdit(f -> helperMT.createBlockNode(f, "block1"));
 		tool.performAndPropagateSourceEdit(f -> helperMT.createBlockNode(f, "block2"));
@@ -60,7 +78,7 @@ public class AlignmentBased extends SyncTestCase {
 		tool.performAndPropagateSourceEdit(f -> helperMT.createPortNode(f, "2", 1));
 		tool.performAndPropagateSourceEdit(f -> helperMT.createWireNodes(f, "1", "2"));
 		//------------
-		util.assertPostcondition("in/Wire_FWD", "expected/Wire_FWD");
+		assertPostcondition("in/Wire_FWD", "expected/Wire_FWD");
 	}
 	
 	/**
@@ -69,7 +87,7 @@ public class AlignmentBased extends SyncTestCase {
 	@Test
 	public void testWire_BWD()
 	{
-		util.assertPrecondition("expected/Spec_BWD", "in/Spec_BWD");
+		assertPrecondition("expected/Spec_BWD", "in/Spec_BWD");
 		//------------
 		tool.performAndPropagateTargetEdit(s -> helperBlock.createBlock(s, "block1"));
 		tool.performAndPropagateTargetEdit(s -> helperBlock.createBlock(s, "block2"));
@@ -77,7 +95,7 @@ public class AlignmentBased extends SyncTestCase {
 		tool.performAndPropagateTargetEdit(s -> helperBlock.createPort(s, 2, 1));
 		tool.performAndPropagateTargetEdit(s -> helperBlock.createWire(s, 0, 0, 1, 0));
 		//------------
-		util.assertPostcondition("expected/Wire_BWD", "in/Wire_BWD");
+		assertPostcondition("expected/Wire_BWD", "in/Wire_BWD");
 	}
 
 	/**
@@ -87,14 +105,14 @@ public class AlignmentBased extends SyncTestCase {
 	@Ignore("Waiting for Fix related to democles issue #14")
 	public void testWireCloseLoop_FWD()
 	{
-		util.assertPrecondition("expected/Spec_BWD", "in/Spec_BWD");
+		assertPrecondition("expected/Spec_BWD", "in/Spec_BWD");
 		//------------
 		tool.performAndPropagateSourceEdit(f -> helperMT.createBlockNode(f, "block"));
 		tool.performAndPropagateSourceEdit(f -> helperMT.createPortNode(f, "1", 0));
 		tool.performAndPropagateSourceEdit(f -> helperMT.createPortNode(f, "2", 0));
 		tool.performAndPropagateSourceEdit(f -> helperMT.createWireNodes(f, "1", "2"));
 		//------------
-		util.assertPostcondition("in/WireCloseLoop_FWD", "expected/WireCloseLoop_FWD");
+		assertPostcondition("in/WireCloseLoop_FWD", "expected/WireCloseLoop_FWD");
 	}
 
 	/**
@@ -103,13 +121,13 @@ public class AlignmentBased extends SyncTestCase {
 	@Test
 	public void testWireCloseLoop_BWD()
 	{
-		util.assertPrecondition("expected/Spec_BWD", "in/Spec_BWD");
+		assertPrecondition("expected/Spec_BWD", "in/Spec_BWD");
 		//------------
 		tool.performAndPropagateTargetEdit(s -> helperBlock.createBlock(s, "block"));
 		tool.performAndPropagateTargetEdit(s -> helperBlock.createPort(s, 1, 0));
 		tool.performAndPropagateTargetEdit(s -> helperBlock.createPort(s, 2, 0));
 		tool.performAndPropagateTargetEdit(s -> helperBlock.createWire(s, 0, 0, 0, 1));
 		//------------
-		util.assertPostcondition("expected/WireCloseLoop_BWD", "in/WireCloseLoop_BWD");
+		assertPostcondition("expected/WireCloseLoop_BWD", "in/WireCloseLoop_BWD");
 	}
 }
