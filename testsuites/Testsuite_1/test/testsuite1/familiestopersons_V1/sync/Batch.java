@@ -1,18 +1,36 @@
-package testsuite1.familiestopersons.sync;
+package testsuite1.familiestopersons_V1.sync;
 
-import org.benchmarx.BXTool;
+import org.benchmarx.families.core.SimpleFamiliesHelper;
+import org.benchmarx.persons.core.SimplePersonsHelper;
 import org.junit.Test;
 
 import SimpleFamilies.FamilyRegister;
 import SimplePersons.PersonRegister;
-import testsuite1.familiestopersons.util.Decisions;
-import testsuite1.familiestopersons.util.SyncTestCase;
+import testsuite1.familiestopersons_V1.sync.util.IbexSimpleFamiliesToPersons;
+import testsuite1.testUtil.SyncTestCase;
 
 
-public class Batch extends SyncTestCase {
+public class Batch extends SyncTestCase<FamilyRegister, PersonRegister> {
+	private static final String projectName = "FamiliesToPersons_V1";
+	
+	private SimpleFamiliesHelper helperFamily;
+	private SimplePersonsHelper helperPerson;
 
-	public Batch(BXTool<FamilyRegister, PersonRegister, Decisions> tool) {
-		super(tool);
+	public Batch(boolean flatten) {
+		super(new IbexSimpleFamiliesToPersons(flatten, projectName), flatten);
+	}
+	
+	protected void initHelpers() {
+		helperFamily = new SimpleFamiliesHelper();
+		helperPerson = new SimplePersonsHelper();
+	}
+	
+	protected void assertPrecondition(String source, String target) {
+		util.assertPrecondition(projectName+"/"+source, projectName+"/"+target);
+	}
+	
+	protected void assertPostcondition(String source, String target) {
+		util.assertPostcondition(projectName+"/"+source, projectName+"/"+target);
 	}
 	
 	/**
@@ -25,7 +43,7 @@ public class Batch extends SyncTestCase {
 	{
 		// No precondition!
 		//------------
-		util.assertPostcondition("singleFamilyReg", "singlePersonReg");
+		assertPostcondition("singleFamilyReg", "singlePersonReg");
 	}
 	
 	/**
@@ -39,7 +57,7 @@ public class Batch extends SyncTestCase {
 		tool.performAndPropagateSourceEdit(util.execute(helperFamily::createTestFamily)
 											   .andThen(r -> helperFamily.createMotherInSingleTestFamily(r, "mother")));
 		//------------
-		util.assertPostcondition("singleFamilyWithMother", "singlePersonRegisterWithFemalePerson");
+		assertPostcondition("singleFamilyWithMother", "singlePersonRegisterWithFemalePerson");
 	}
 	
 	/**
@@ -52,7 +70,7 @@ public class Batch extends SyncTestCase {
 		//------------
 		tool.performAndPropagateTargetEdit(r -> helperPerson.createMotherAsFemale(r, "mother"));
 		//------------
-		util.assertPostcondition("singleFamilyWithMother", "singlePersonRegisterWithFemalePerson");
+		assertPostcondition("singleFamilyWithMother", "singlePersonRegisterWithFemalePerson");
 	}
 	
 	/**
@@ -69,6 +87,6 @@ public class Batch extends SyncTestCase {
 											   .andThen(r -> helperFamily.createDaughterInSingleTestFamily(r, "Magdalena"))
 										);
 		//------------
-		util.assertPostcondition("singleFamilyWithDaughters", "singlePersonRegisterWithFemalePersons");
+		assertPostcondition("singleFamilyWithDaughters", "singlePersonRegisterWithFemalePersons");
 	}
 }

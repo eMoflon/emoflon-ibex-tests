@@ -1,4 +1,4 @@
-package org.emoflon.ibex.tgg.run;
+package org.emoflon.ibex.tgg.run.familiestopersons_v1;
 
 import java.io.IOException;
 
