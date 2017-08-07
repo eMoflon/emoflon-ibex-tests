@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-SymbolicName: FamiliesToPersons_V0;singleton:=true
-Bundle-Name: testsuite1.familiestopersons
+Bundle-Name: testsuite1.familiestopersons_V0
 Bundle-Version: 1.0
 Require-Bundle: org.eclipse.emf.ecore.xmi,
  org.gervarro.democles.common,
@@ -30,3 +30,4 @@ Bundle-ManifestVersion: 2
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-Vendor: eMoflon IBeX
+Export-Package: org.emoflon.ibex.tgg.run.familiestopersons_v0
