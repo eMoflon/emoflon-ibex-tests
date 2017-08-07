@@ -1,4 +1,4 @@
-package org.emoflon.ibex.tgg.run;
+package org.emoflon.ibex.tgg.run.vhdltggcodeadapter;
 
 import java.io.IOException;
 
