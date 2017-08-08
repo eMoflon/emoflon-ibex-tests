@@ -20,7 +20,7 @@ public class IbexClassInhHier2DB extends IbexAdapter<ClassPackage, DB>   {
 	@Override
 	public void initiateSynchronisationDialogue() {
 		try {
-			synchroniser = new SYNC_App("ClassInhHier2DB", testsuite1.testUtil.Constants.workpacePath, flatten, true);
+			synchroniser = new SYNC_App("ClassInhHier2DB", testsuite1.testUtil.Constants.workpacePath, flatten, false);
 			
 			ClassPackage pkg = ClassInheritanceHierarchyFactory.eINSTANCE.createClassPackage();
 			pkg.setName("P");

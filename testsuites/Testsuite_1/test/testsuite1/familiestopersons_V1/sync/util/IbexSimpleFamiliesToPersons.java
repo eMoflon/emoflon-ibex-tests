@@ -27,7 +27,7 @@ public class IbexSimpleFamiliesToPersons extends IbexAdapter<FamilyRegister, Per
 	@Override
 	public void initiateSynchronisationDialogue() {
 		try {
-			synchroniser = new SYNC_App(projectName, testsuite1.testUtil.Constants.workpacePath, flatten, true);
+			synchroniser = new SYNC_App(projectName, testsuite1.testUtil.Constants.workpacePath, flatten, false);
 			
 			FamilyRegister reg = SimpleFamiliesFactory.eINSTANCE.createFamilyRegister();
 			synchroniser.getSourceResource().getContents().add(reg);
