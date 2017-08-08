@@ -1,4 +1,4 @@
-package org.emoflon.ibex.tgg.run;
+package org.emoflon.ibex.tgg.run.classinhhier2db;
 
 import java.io.IOException;
 import org.eclipse.emf.ecore.util.EcoreUtil;

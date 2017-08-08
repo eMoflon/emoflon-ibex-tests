@@ -1,19 +1,37 @@
 package testsuite1.ClassInhHier2DB.sync;
 
-import org.benchmarx.BXTool;
+import org.benchmarx.classInheritanceHierarchy.core.ClassInheritanceHierarchyHelper;
+import org.benchmarx.database.core.DatabaseHelper;
 import org.junit.Test;
 
 import ClassInheritanceHierarchy.ClassPackage;
 import Database.DB;
-import testsuite1.ClassInhHier2DB.sync.util.Decisions;
-import testsuite1.ClassInhHier2DB.sync.util.SyncTestCase;
+import testsuite1.ClassInhHier2DB.sync.util.IbexClassInhHier2DB;
+import testsuite1.testUtil.SyncTestCase;
 
-public class AlignmentBased extends SyncTestCase {
+public class AlignmentBased extends SyncTestCase<ClassPackage, DB> {
+	public final static String projectName = "ClassInhHier2DB";
+	
+	ClassInheritanceHierarchyHelper helperClassInh;
+	DatabaseHelper helperDB;
 
-	public AlignmentBased(BXTool<ClassPackage, DB, Decisions> tool) {
-		super(tool);
+	public AlignmentBased(boolean flatten) {
+		super(new IbexClassInhHier2DB(flatten, projectName), flatten);
 	}
 	
+	@Override
+	protected void initHelpers() {
+		helperClassInh = new ClassInheritanceHierarchyHelper();
+		helperDB = new DatabaseHelper();
+	}
+	
+	protected void assertPrecondition(String source, String target) {
+		util.assertPrecondition(projectName+"/"+source, projectName+"/"+target);
+	}
+	
+	protected void assertPostcondition(String source, String target) {
+		util.assertPostcondition(projectName+"/"+source, projectName+"/"+target);
+	}
 
 	/**
 	 * <b>Features</b>: fwd
@@ -24,7 +42,7 @@ public class AlignmentBased extends SyncTestCase {
 		// No precondition!
 		//------------
 		//------------
-		util.assertPostcondition("in/PackageToDatabase_FWD", "expected/PackageToDatabase_FWD");
+		assertPostcondition("in/PackageToDatabase_FWD", "expected/PackageToDatabase_FWD");
 	}
 
 	/**
@@ -33,11 +51,11 @@ public class AlignmentBased extends SyncTestCase {
 	@Test
 	public void testClassToTable_FWD()
 	{
-		util.assertPrecondition("in/PackageToDatabase_FWD", "expected/PackageToDatabase_FWD");
+		assertPrecondition("in/PackageToDatabase_FWD", "expected/PackageToDatabase_FWD");
 		//------------
 		tool.performAndPropagateSourceEdit(p -> helperClassInh.createClass(p, "C"));
 		//------------
-		util.assertPostcondition("in/ClassToTable_FWD", "expected/ClassToTable_FWD");
+		assertPostcondition("in/ClassToTable_FWD", "expected/ClassToTable_FWD");
 	}
 	
 	/**
@@ -46,11 +64,11 @@ public class AlignmentBased extends SyncTestCase {
 	@Test
 	public void testClassToTable_BWD()
 	{
-		util.assertPrecondition("in/PackageToDatabase_FWD", "expected/PackageToDatabase_FWD");
+		assertPrecondition("in/PackageToDatabase_FWD", "expected/PackageToDatabase_FWD");
 		//------------
 		tool.performAndPropagateTargetEdit(db -> helperDB.createTable(db, "C"));
 		//------------
-		util.assertPostcondition("expected/ClassToTable_BWD", "in/ClassToTable_BWD");
+		assertPostcondition("expected/ClassToTable_BWD", "in/ClassToTable_BWD");
 	}
 
 	/**
@@ -59,13 +77,13 @@ public class AlignmentBased extends SyncTestCase {
 	@Test
 	public void testSubClassToTable_FWD()
 	{
-		util.assertPrecondition("in/PackageToDatabase_FWD", "expected/PackageToDatabase_FWD");
+		assertPrecondition("in/PackageToDatabase_FWD", "expected/PackageToDatabase_FWD");
 		//------------
 		tool.performAndPropagateSourceEdit(p -> helperClassInh.createClass(p, "C1"));
 		tool.performAndPropagateSourceEdit(p -> helperClassInh.createSubClass(p, "C2", 0));
 			
 		//------------
-		util.assertPostcondition("in/SubClassToTable_FWD", "expected/SubClassToTable_FWD");
+		assertPostcondition("in/SubClassToTable_FWD", "expected/SubClassToTable_FWD");
 	}
 	
 	/**
@@ -74,11 +92,11 @@ public class AlignmentBased extends SyncTestCase {
 	@Test
 	public void testSubClassToTable_BWD()
 	{
-		util.assertPrecondition("in/PackageToDatabase_FWD", "expected/PackageToDatabase_FWD");
+		assertPrecondition("in/PackageToDatabase_FWD", "expected/PackageToDatabase_FWD");
 		//------------
 		tool.performAndPropagateTargetEdit(db -> helperDB.createTable(db, "C1"));
 		//------------
-		util.assertPostcondition("expected/SubClassToTable_BWD", "in/SubClassToTable_BWD");
+		assertPostcondition("expected/SubClassToTable_BWD", "in/SubClassToTable_BWD");
 	}
 	
 	/**
@@ -88,13 +106,13 @@ public class AlignmentBased extends SyncTestCase {
 	@Test
 	public void testAttributeToColumn_FWD()
 	{
-		util.assertPrecondition("in/PackageToDatabase_FWD", "expected/PackageToDatabase_FWD");
+		assertPrecondition("in/PackageToDatabase_FWD", "expected/PackageToDatabase_FWD");
 		//------------
 		tool.performAndPropagateSourceEdit(p -> helperClassInh.createClass(p, "C"));
 		tool.performAndPropagateSourceEdit(p -> helperClassInh.createAttributeInSingleClass(p, "A1", null));
 		tool.performAndPropagateSourceEdit(p -> helperClassInh.createAttributeInSingleClass(p, "A2", null));
 		//------------
-		util.assertPostcondition("in/AttributeToColumn_FWD", "expected/AttributeToColumn_FWD");
+		assertPostcondition("in/AttributeToColumn_FWD", "expected/AttributeToColumn_FWD");
 	}
 	
 	/**
@@ -103,13 +121,13 @@ public class AlignmentBased extends SyncTestCase {
 	@Test
 	public void testAttributeToColumn_BWD()
 	{
-		util.assertPrecondition("in/PackageToDatabase_FWD", "expected/PackageToDatabase_FWD");
+		assertPrecondition("in/PackageToDatabase_FWD", "expected/PackageToDatabase_FWD");
 		//------------
 		tool.performAndPropagateTargetEdit(db -> helperDB.createTable(db, "C"));
 		tool.performAndPropagateTargetEdit(db -> helperDB.createColumnInSingleTable(db, "A1"));
 		tool.performAndPropagateTargetEdit(db -> helperDB.createColumnInSingleTable(db, "A2"));
 		//------------
-		util.assertPostcondition("expected/AttributeToColumn_BWD", "in/AttributeToColumn_BWD");
+		assertPostcondition("expected/AttributeToColumn_BWD", "in/AttributeToColumn_BWD");
 	}
 	
 	
@@ -119,7 +137,7 @@ public class AlignmentBased extends SyncTestCase {
 	@Test
 	public void testAttributeToColumn2_FWD()
 	{
-		util.assertPrecondition("in/PackageToDatabase_FWD", "expected/PackageToDatabase_FWD");
+		assertPrecondition("in/PackageToDatabase_FWD", "expected/PackageToDatabase_FWD");
 		//------------
 		tool.performAndPropagateSourceEdit(p -> helperClassInh.createClass(p, "entity1"));
 		tool.performAndPropagateSourceEdit(p -> helperClassInh.createClass(p, "entity2"));
@@ -128,7 +146,7 @@ public class AlignmentBased extends SyncTestCase {
 		tool.performAndPropagateSourceEdit(p -> helperClassInh.createAttributeInClass(p, "third", null, 0));
 		tool.performAndPropagateSourceEdit(p -> helperClassInh.createAttributeInClass(p, "fourth", null, 1));	
 		//------------
-		util.assertPostcondition("in/AttributeToColumn2_FWD", "expected/AttributeToColumn2_FWD");
+		assertPostcondition("in/AttributeToColumn2_FWD", "expected/AttributeToColumn2_FWD");
 	}
 	
 	/**
@@ -137,7 +155,7 @@ public class AlignmentBased extends SyncTestCase {
 	@Test
 	public void testAttributeToColumn2_BWD()
 	{
-		util.assertPrecondition("in/PackageToDatabase_FWD", "expected/PackageToDatabase_FWD");
+		assertPrecondition("in/PackageToDatabase_FWD", "expected/PackageToDatabase_FWD");
 		//------------
 		tool.performAndPropagateTargetEdit(db -> helperDB.createTable(db, "entity1"));
 		tool.performAndPropagateTargetEdit(db -> helperDB.createTable(db, "entity2"));
@@ -146,7 +164,7 @@ public class AlignmentBased extends SyncTestCase {
 		tool.performAndPropagateTargetEdit(db -> helperDB.createColumnInTable(db, "third", 0));
 		tool.performAndPropagateTargetEdit(db -> helperDB.createColumnInTable(db, "fourth", 1));			
 		//------------
-		util.assertPostcondition("expected/AttributeToColumn2_BWD", "in/AttributeToColumn2_BWD");
+		assertPostcondition("expected/AttributeToColumn2_BWD", "in/AttributeToColumn2_BWD");
 	}
 	
 	
@@ -156,7 +174,7 @@ public class AlignmentBased extends SyncTestCase {
 	@Test
 	public void testLargeExample_FWD()
 	{
-		util.assertPrecondition("in/PackageToDatabase_FWD", "expected/PackageToDatabase_FWD");
+		assertPrecondition("in/PackageToDatabase_FWD", "expected/PackageToDatabase_FWD");
 		//------------
 		tool.performAndPropagateSourceEdit(p -> helperClassInh.createClass(p, "SuperClass"));
 		tool.performAndPropagateSourceEdit(p -> helperClassInh.createSubClass(p, "SubClass", 0));
@@ -168,7 +186,7 @@ public class AlignmentBased extends SyncTestCase {
 		tool.performAndPropagateSourceEdit(p -> helperClassInh.createAttributeInClass(p, "yet another attr of subclass", "int", 1));
 		tool.performAndPropagateSourceEdit(p -> helperClassInh.createAttributeInClass(p, "attr", null, 4));			
 		//------------
-		util.assertPostcondition("in/LargeExample_FWD", "expected/LargeExample_FWD");
+		assertPostcondition("in/LargeExample_FWD", "expected/LargeExample_FWD");
 	}
 	
 	/**
@@ -177,7 +195,7 @@ public class AlignmentBased extends SyncTestCase {
 	@Test
 	public void testLargeExample_BWD()
 	{
-		util.assertPrecondition("in/PackageToDatabase_FWD", "expected/PackageToDatabase_FWD");
+		assertPrecondition("in/PackageToDatabase_FWD", "expected/PackageToDatabase_FWD");
 		//------------
 		tool.performAndPropagateTargetEdit(db -> helperDB.createTable(db, "SuperClass"));
 		tool.performAndPropagateTargetEdit(db -> helperDB.createTable(db, "Another Super Class"));
@@ -186,6 +204,6 @@ public class AlignmentBased extends SyncTestCase {
 		tool.performAndPropagateTargetEdit(db -> helperDB.createColumnInTable(db, "yet another attr of subclass", 0));
 		tool.performAndPropagateTargetEdit(db -> helperDB.createColumnInTable(db, "attr", 1));
 		//------------
-		util.assertPostcondition("expected/LargeExample_BWD", "in/LargeExample_BWD");
+		assertPostcondition("expected/LargeExample_BWD", "in/LargeExample_BWD");
 	}
 }
