@@ -25,11 +25,6 @@ public class IbexBlockCodeAdapter extends IbexAdapter<File, Specification>   {
 	}
 	
 	@Override
-	public String getName() {
-		return "eMoflon::Ibex";
-	}
-	
-	@Override
 	public void initiateSynchronisationDialogue() {
 		try {
 			synchroniser = new SYNC_App(projectName, "./../", flatten, false);

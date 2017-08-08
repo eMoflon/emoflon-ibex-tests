@@ -20,6 +20,7 @@ public class Batch extends SyncTestCase<Folder, SystemModule> {
 		super(new IbexProcessCodeAdapter(flatten, projectName), flatten);
 	}
 	
+	@Override
 	protected void initHelpers() {
 		helperMoca = new MocaTreeHelper();
 		helperProcess = new ProcessDefinitionHelper();

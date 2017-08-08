@@ -5,7 +5,7 @@ import java.io.IOException;
 import org.benchmarx.mocaTree.core.MocaTreeFolderComparator;
 import org.benchmarx.processDefinition.core.ProcessDefinitionComparator;
 import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGENStopCriterion;
-import org.emoflon.ibex.tgg.run.vhdltggcodeadapter.MODELGEN_App;
+import org.emoflon.ibex.tgg.run.processcodeadapter.MODELGEN_App;
 import org.junit.Before;
 import org.junit.Test;
 
