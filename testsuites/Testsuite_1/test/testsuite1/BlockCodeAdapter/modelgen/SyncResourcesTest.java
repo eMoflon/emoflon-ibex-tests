@@ -7,7 +7,6 @@ import org.benchmarx.mocaTree.core.MocaTreeFileComparator;
 import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGENStopCriterion;
 import org.emoflon.ibex.tgg.run.blockcodeadapter.MODELGEN_App;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import BlockLanguage.Specification;
@@ -55,7 +54,7 @@ public class SyncResourcesTest extends ModelGenTestCase<File, Specification> {
 	}
 	
 	@Test
-	@Ignore("Waiting for Fix related to democles issue #14")
+	// AssertionError mentioned in issue #14
 	public void testPort() throws IOException {
 		stop.setMaxRuleCount("File2SpecRule", 1);
 		stop.setMaxRuleCount("Node2BlockRule", 1);
@@ -65,7 +64,7 @@ public class SyncResourcesTest extends ModelGenTestCase<File, Specification> {
 	}
 	
 	@Test
-	@Ignore("Waiting for Fix related to democles issue #14")
+	// AssertionError mentioned in issue #14
 	public void testWireCloseLoop() throws IOException {
 		stop.setMaxRuleCount("File2SpecRule", 1);
 		stop.setMaxRuleCount("Node2BlockRule", 1);

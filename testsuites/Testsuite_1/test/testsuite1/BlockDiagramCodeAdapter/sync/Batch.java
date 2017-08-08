@@ -2,7 +2,6 @@ package testsuite1.BlockDiagramCodeAdapter.sync;
 
 import org.benchmarx.blockDiagram.core.BlockDiagramHelper;
 import org.benchmarx.mocaTree.core.MocaTreeNodeHelper;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import BlockDiagram.BlockSystem;
@@ -50,7 +49,7 @@ public class Batch extends testsuite1.testUtil.SyncTestCase<BlockSystem, File> {
 	 * <b>Features</b>: fwd
 	 */
 	@Test
-	@Ignore("Waiting for Fix related to democles issue #14")
+	// AssertionError mentioned in issue #14
 	public void testBlockToNode_FWD()
 	{
 		assertPrecondition("in/SystemToNode_FWD", "expected/SystemToNode_FWD");
@@ -77,7 +76,7 @@ public class Batch extends testsuite1.testUtil.SyncTestCase<BlockSystem, File> {
 	 * <b>Features</b>: fwd
 	 */
 	@Test
-	@Ignore("Waiting for Fix related to democles issue #14")
+	// AssertionError mentioned in issue #14
 	public void testProvideToNode_FWD()
 	{
 		assertPrecondition("in/SystemToNode_FWD", "expected/SystemToNode_FWD");
@@ -108,7 +107,7 @@ public class Batch extends testsuite1.testUtil.SyncTestCase<BlockSystem, File> {
 	 * <b>Features</b>: fwd
 	 */
 	@Test
-	@Ignore("Waiting for Fix related to democles issue #14")
+	// AssertionError mentioned in issue #14
 	public void testRequireToNode_FWD()
 	{
 		assertPrecondition("in/SystemToNode_FWD", "expected/SystemToNode_FWD");
@@ -139,7 +138,7 @@ public class Batch extends testsuite1.testUtil.SyncTestCase<BlockSystem, File> {
 	 * <b>Features</b>: fwd
 	 */
 	@Test
-	@Ignore("Waiting for Fix related to democles issue #14")
+	// AssertionError mentioned in issue #14
 	public void testConnectorToNode_FWD()
 	{
 		assertPrecondition("in/SystemToNode_FWD", "expected/SystemToNode_FWD");
@@ -147,7 +146,7 @@ public class Batch extends testsuite1.testUtil.SyncTestCase<BlockSystem, File> {
 		tool.performAndPropagateSourceEdit(util.execute( (BlockSystem bs) -> helperBlock.createBlock(bs, "A"))
 		   .andThen(bs -> helperBlock.createProvidePortInFirstBlock(bs, "5"))
 		   .andThen(bs -> helperBlock.createBlock(bs, "B"))
-		   .andThen(bs -> helperBlock.createRequirePortInBlock(bs, "5", 1))
+		   .andThen(bs -> helperBlock.createRequirePortInBlock(bs, "2", 1))
 		   .andThen(bs -> helperBlock.createConnectorBetweenFirstTwoBlocks(bs))
 		);
 		//------------

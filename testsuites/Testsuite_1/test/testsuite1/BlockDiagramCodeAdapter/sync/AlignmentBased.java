@@ -2,7 +2,6 @@ package testsuite1.BlockDiagramCodeAdapter.sync;
 
 import org.benchmarx.blockDiagram.core.BlockDiagramHelper;
 import org.benchmarx.mocaTree.core.MocaTreeNodeHelper;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import BlockDiagram.BlockSystem;
@@ -50,7 +49,7 @@ public class AlignmentBased extends testsuite1.testUtil.SyncTestCase<BlockSystem
 	 * <b>Features</b>: fwd
 	 */
 	@Test
-	@Ignore("Waiting for Fix related to democles issue #14")
+	// AssertionError mentioned in issue #14
 	public void testProvideToNode_FWD()
 	{
 		assertPrecondition("in/SystemToNode_FWD", "expected/SystemToNode_FWD");
@@ -79,7 +78,7 @@ public class AlignmentBased extends testsuite1.testUtil.SyncTestCase<BlockSystem
 	 * <b>Features</b>: fwd
 	 */
 	@Test
-	@Ignore("Waiting for Fix related to democles issue #14")
+	// AssertionError mentioned in issue #14
 	public void testRequireToNode_FWD()
 	{
 		assertPrecondition("in/SystemToNode_FWD", "expected/SystemToNode_FWD");
@@ -108,7 +107,7 @@ public class AlignmentBased extends testsuite1.testUtil.SyncTestCase<BlockSystem
 	 * <b>Features</b>: fwd
 	 */
 	@Test
-	@Ignore("Waiting for Fix related to democles issue #14")
+	// AssertionError mentioned in issue #14
 	public void testConnectorToNode_FWD()
 	{
 		assertPrecondition("in/SystemToNode_FWD", "expected/SystemToNode_FWD");
@@ -116,7 +115,7 @@ public class AlignmentBased extends testsuite1.testUtil.SyncTestCase<BlockSystem
 		tool.performAndPropagateSourceEdit(bs -> helperBlock.createBlock(bs, "A"));
 		tool.performAndPropagateSourceEdit(bs -> helperBlock.createProvidePortInFirstBlock(bs, "5"));
 		tool.performAndPropagateSourceEdit(bs -> helperBlock.createBlock(bs, "B"));
-		tool.performAndPropagateSourceEdit(bs -> helperBlock.createRequirePortInBlock(bs, "5", 1));
+		tool.performAndPropagateSourceEdit(bs -> helperBlock.createRequirePortInBlock(bs, "2", 1));
 		tool.performAndPropagateSourceEdit(bs -> helperBlock.createConnectorBetweenFirstTwoBlocks(bs));
 		//------------
 		assertPostcondition("in/ConnectorToNode_FWD", "expected/ConnectorToNode_FWD");

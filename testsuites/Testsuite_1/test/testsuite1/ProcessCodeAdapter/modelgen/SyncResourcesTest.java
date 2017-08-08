@@ -54,16 +54,6 @@ public class SyncResourcesTest extends ModelGenTestCase<Folder, SystemModule> {
 	}
 	
 	@Test
-	public void testInvocationSameModule() throws IOException {
-		stop.setMaxRuleCount("RootToSystemRule", 1);
-		stop.setMaxRuleCount("SubFolderToModuleRule", 1);
-		stop.setMaxRuleCount("FileToTaskRule", 2);
-		stop.setMaxRuleCount("NodeToInvocationRule", 1);
-		runGenerator(stop);
-		assertPostcondition("in/InvocationSameModule_FWD", "expected/InvocationSameModule_FWD");
-	}
-	
-	@Test
 	public void testInvocationRecursive() throws IOException {
 		stop.setMaxRuleCount("RootToSystemRule", 1);
 		stop.setMaxRuleCount("SubFolderToModuleRule", 1);

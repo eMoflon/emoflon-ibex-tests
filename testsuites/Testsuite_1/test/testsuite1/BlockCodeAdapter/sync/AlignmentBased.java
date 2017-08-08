@@ -1,7 +1,6 @@
 package testsuite1.BlockCodeAdapter.sync;
 
 import org.benchmarx.blockLanguage.core.BlockLanguageHelper;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import BlockLanguage.Specification;
@@ -38,7 +37,7 @@ public class AlignmentBased extends SyncTestCase<File, Specification> {
 	 * <b>Features</b>: fwd
 	 */
 	@Test
-	@Ignore("Waiting for Fix related to democles issue #14")
+	// AssertionError mentioned in issue #14
 	public void testPort_FWD()
 	{
 		assertPrecondition("expected/Spec_BWD", "in/Spec_BWD");
@@ -67,7 +66,7 @@ public class AlignmentBased extends SyncTestCase<File, Specification> {
 	 * <b>Features</b>: fwd
 	 */
 	@Test
-	@Ignore("Waiting for Fix related to democles issue #14")
+	// AssertionError mentioned in issue #14
 	public void testWire_FWD()
 	{
 		assertPrecondition("expected/Spec_BWD", "in/Spec_BWD");
@@ -102,7 +101,7 @@ public class AlignmentBased extends SyncTestCase<File, Specification> {
 	 * <b>Features</b>: fwd
 	 */
 	@Test
-	@Ignore("Waiting for Fix related to democles issue #14")
+	// AssertionError mentioned in issue #14
 	public void testWireCloseLoop_FWD()
 	{
 		assertPrecondition("expected/Spec_BWD", "in/Spec_BWD");

@@ -2,7 +2,6 @@ package testsuite1.ProcessCodeAdapter.sync;
 
 import org.benchmarx.mocaTree.core.MocaTreeHelper;
 import org.benchmarx.processDefinition.core.ProcessDefinitionHelper;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import MocaTree.Folder;
@@ -51,7 +50,7 @@ public class AlignmentBased extends SyncTestCase<Folder, SystemModule> {
 	 * <b>Features</b>: bwd
 	 */
 	@Test
-	@Ignore("Waiting for Fix related to democles issue #14")
+	// AssertionError mentioned in issue #14
 	public void testModules_BWD()
 	{
 		assertPrecondition("in/SystemModule_FWD", "expected/SystemModule_FWD");
@@ -88,7 +87,7 @@ public class AlignmentBased extends SyncTestCase<Folder, SystemModule> {
 	 * <b>Features</b>: bwd
 	 */
 	@Test
-	@Ignore("Waiting for Fix related to democles issue #14")
+	// AssertionError mentioned in issue #14
 	public void testTasks_BWD()
 	{
 		assertPrecondition("in/SystemModule_FWD", "expected/SystemModule_FWD");
@@ -128,7 +127,7 @@ public class AlignmentBased extends SyncTestCase<Folder, SystemModule> {
 	 * <b>Features</b>: bwd
 	 */
 	@Test
-	@Ignore("Waiting for Fix related to democles issue #14")
+	// AssertionError mentioned in issue #14
 	public void testImport_BWD()
 	{
 		assertPrecondition("in/SystemModule_FWD", "expected/SystemModule_FWD");
@@ -168,7 +167,7 @@ public class AlignmentBased extends SyncTestCase<Folder, SystemModule> {
 	 * <b>Features</b>: bwd
 	 */
 	@Test
-	@Ignore("Waiting for Fix related to democles issue #14")
+	// AssertionError mentioned in issue #14
 	public void testInvocationSameModule_BWD()
 	{
 		assertPrecondition("in/SystemModule_FWD", "expected/SystemModule_FWD");
@@ -208,7 +207,7 @@ public class AlignmentBased extends SyncTestCase<Folder, SystemModule> {
 	 * <b>Features</b>: bwd
 	 */
 	@Test
-	@Ignore("Waiting for Fix related to democles issue #14")
+	// AssertionError mentioned in issue #14
 	public void testInvocationOtherModule_BWD()
 	{
 		assertPrecondition("in/SystemModule_FWD", "expected/SystemModule_FWD");
@@ -244,7 +243,7 @@ public class AlignmentBased extends SyncTestCase<Folder, SystemModule> {
 	 * <b>Features</b>: bwd
 	 */
 	@Test
-	@Ignore("Waiting for Fix related to democles issue #14")
+	// AssertionError mentioned in issue #14
 	public void testInvocationRecursive_BWD()
 	{
 		assertPrecondition("in/SystemModule_FWD", "expected/SystemModule_FWD");

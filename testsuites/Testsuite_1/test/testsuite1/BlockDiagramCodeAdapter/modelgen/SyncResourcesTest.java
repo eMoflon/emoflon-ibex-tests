@@ -7,7 +7,6 @@ import org.benchmarx.mocaTree.core.MocaTreeFileComparator;
 import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGENStopCriterion;
 import org.emoflon.ibex.tgg.run.blockdiagramcodeadapter.MODELGEN_App;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import BlockDiagram.BlockSystem;
@@ -47,7 +46,7 @@ public class SyncResourcesTest extends ModelGenTestCase<BlockSystem, File> {
 	}
 	
 	@Test
-	@Ignore("Waiting for Fix related to democles issue #14")
+	// AssertionError mentioned in issue #14
 	public void testBlockToNode() throws IOException {
 		stop.setMaxRuleCount("SystemToNodeRule", 1);
 		stop.setMaxRuleCount("BlockToNodeRule", 1);
@@ -56,7 +55,7 @@ public class SyncResourcesTest extends ModelGenTestCase<BlockSystem, File> {
 	}
 	
 	@Test
-	@Ignore("Waiting for Fix related to democles issue #14")
+	// AssertionError mentioned in issue #14
 	public void testProvideToNode() throws IOException {
 		stop.setMaxRuleCount("SystemToNodeRule", 1);
 		stop.setMaxRuleCount("BlockToNodeRule", 1);
@@ -66,7 +65,7 @@ public class SyncResourcesTest extends ModelGenTestCase<BlockSystem, File> {
 	}
 	
 	@Test
-	@Ignore("Waiting for Fix related to democles issue #14")
+	// AssertionError mentioned in issue #14
 	public void testRequireToNode() throws IOException {
 		stop.setMaxRuleCount("SystemToNodeRule", 1);
 		stop.setMaxRuleCount("BlockToNodeRule", 1);
