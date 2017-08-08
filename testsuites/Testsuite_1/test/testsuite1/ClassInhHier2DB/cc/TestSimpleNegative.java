@@ -14,7 +14,7 @@ public class TestSimpleNegative extends CCTestCase {
 	}
 	
 	public void createGenerator(String srcInstance, String trgInstance) throws IOException {
-		generator = new CC_App("ClassInhHier2DB", "./../", flatten, false, srcInstance, trgInstance);
+		generator = new CC_App("ClassInhHier2DB", testsuite1.testUtil.Constants.workpacePath, flatten, false, srcInstance, trgInstance);
 	}
 	
 	@Test

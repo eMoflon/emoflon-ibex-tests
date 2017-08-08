@@ -27,7 +27,7 @@ public class IbexProcessCodeAdapter extends IbexAdapter<Folder, SystemModule>   
 	@Override
 	public void initiateSynchronisationDialogue() {
 		try {
-			synchroniser = new SYNC_App(projectName, "./../", flatten, false);
+			synchroniser = new SYNC_App(projectName, testsuite1.testUtil.Constants.workpacePath, flatten, false);
 			
 			Folder folder = MocaTreeFactory.eINSTANCE.createFolder();
 			folder.setName("Example");

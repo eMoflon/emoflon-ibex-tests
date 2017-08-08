@@ -27,7 +27,7 @@ public class SyncResourcesTest extends ModelGenTestCase<ClassPackage, DB> {
 	
 	@Before
 	public void createGenerator() throws IOException {
-		generator = new MODELGEN_App(getProjectName(), "./../", flatten, false);
+		generator = new MODELGEN_App(getProjectName(), testsuite1.testUtil.Constants.workpacePath, flatten, false);
 		stop = new MODELGENStopCriterion(generator.getTGG());
 		
 		for (TGGRule rule : generator.getTGG().getRules()) {

@@ -14,7 +14,7 @@ public class TestSimpleNegative extends CCTestCase {
 	}
 	
 	public void createGenerator(String srcInstance, String trgInstance) throws IOException {
-		generator = new CC_App("ProcessCodeAdapter", "./../", flatten, false, srcInstance, trgInstance);
+		generator = new CC_App("ProcessCodeAdapter", testsuite1.testUtil.Constants.workpacePath, flatten, false, srcInstance, trgInstance);
 	}
 	
 	@Test
