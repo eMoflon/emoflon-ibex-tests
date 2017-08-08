@@ -4,12 +4,12 @@ import MocaTree.File
 
 class FileNormalizer extends Normalizer<File> {
 	
-	NodeNormalizer nodeNormalizer
+	TextNormalizer textNormalizer
 	
 	new (boolean checkAttributeValues){
 		super(checkAttributeValues)
 		
-		nodeNormalizer = new NodeNormalizer(checkAttributeValues)
+		textNormalizer = new TextNormalizer(checkAttributeValues)
 	}
 
 	
@@ -18,7 +18,7 @@ class FileNormalizer extends Normalizer<File> {
 			File {
 				name = "«IF checkAttributeValues»«f.name»«ELSE»file«ENDIF»",
 				index = "«IF checkAttributeValues»«f.index»«ELSE»index«ENDIF»",
-				rootNode = "«IF checkAttributeValues»«nodeNormalizer.stringify(f.rootNode)»«ELSE»«IF f.rootNode !== null»rootNode«ELSE»()«ENDIF»«ENDIF»",
+				rootNode = "«IF checkAttributeValues»«textNormalizer.stringify(f.rootNode)»«ELSE»«IF f.rootNode !== null»rootNode«ELSE»()«ENDIF»«ENDIF»",
 			}
 		'''
 	}

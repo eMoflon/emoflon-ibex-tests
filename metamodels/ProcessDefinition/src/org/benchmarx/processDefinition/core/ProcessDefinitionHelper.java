@@ -19,6 +19,7 @@ public class ProcessDefinitionHelper {
 		Module module = sm.getAllModules().get(index);
 		Task task = ProcessDefinitionFactory.eINSTANCE.createTask();
 		module.getTasks().add(task);
+		task.setSystemModule(sm);
 		task.setId(id);
 	}
 
