@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="ASCII"?>
+<tgg:TripleGraphGrammarFile xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tgg="http://www.moflon.org/ide/tgg/mosl/TGG">
+  <schema name="CompanyToIT">
+    <imports name="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore"/>
+    <imports name="platform:/resource/ITLanguage/model/ITLanguage.ecore"/>
+    <sourceTypes href="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore#/"/>
+    <targetTypes href="platform:/resource/ITLanguage/model/ITLanguage.ecore#/"/>
+    <correspondenceTypes name="AdminToRouter">
+      <source href="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore#//Admin"/>
+      <target href="platform:/resource/ITLanguage/model/ITLanguage.ecore#//Router"/>
+    </correspondenceTypes>
+    <correspondenceTypes name="EmployeeToPC">
+      <source href="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore#//Employee"/>
+      <target href="platform:/resource/ITLanguage/model/ITLanguage.ecore#//PC"/>
+    </correspondenceTypes>
+    <correspondenceTypes name="EmployeeToLaptop">
+      <source href="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore#//Employee"/>
+      <target href="platform:/resource/ITLanguage/model/ITLanguage.ecore#//Laptop"/>
+    </correspondenceTypes>
+    <correspondenceTypes name="CompanyToIT">
+      <source href="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore#//Company"/>
+      <target href="platform:/resource/ITLanguage/model/ITLanguage.ecore#//IT"/>
+    </correspondenceTypes>
+    <attributeCondDefs name="eq_string">
+      <params paramName="a">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </params>
+      <params paramName="b">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </params>
+      <allowedSyncAdornments>
+        <value>B</value>
+        <value>B</value>
+      </allowedSyncAdornments>
+      <allowedSyncAdornments>
+        <value>B</value>
+        <value>F</value>
+      </allowedSyncAdornments>
+      <allowedSyncAdornments>
+        <value>F</value>
+        <value>B</value>
+      </allowedSyncAdornments>
+      <allowedGenAdornments>
+        <value>B</value>
+        <value>B</value>
+      </allowedGenAdornments>
+      <allowedGenAdornments>
+        <value>B</value>
+        <value>F</value>
+      </allowedGenAdornments>
+      <allowedGenAdornments>
+        <value>F</value>
+        <value>B</value>
+      </allowedGenAdornments>
+      <allowedGenAdornments>
+        <value>F</value>
+        <value>F</value>
+      </allowedGenAdornments>
+    </attributeCondDefs>
+  </schema>
+  <rules name="AdminToRouterRule" schema="//@schema">
+    <using importedNamespace="CompanyToIT.*"/>
+    <using importedNamespace="AttrCondDefLibrary.*"/>
+    <sourcePatterns name="admin">
+      <op value="++"/>
+      <type href="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore#//Admin"/>
+      <linkVariablePatterns target="//@rules.0/@sourcePatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore#//Admin/ceo"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="ceo">
+      <type href="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore#//CEO"/>
+    </sourcePatterns>
+    <sourcePatterns name="company">
+      <type href="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore#//Company"/>
+      <linkVariablePatterns target="//@rules.0/@sourcePatterns.1">
+        <type href="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore#//Company/ceo"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.0/@sourcePatterns.0">
+        <op value="++"/>
+        <type href="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore#//Company/admin"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <targetPatterns name="it">
+      <type href="platform:/resource/ITLanguage/model/ITLanguage.ecore#//IT"/>
+      <linkVariablePatterns target="//@rules.0/@targetPatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/ITLanguage/model/ITLanguage.ecore#//IT/network"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.0/@targetPatterns.2">
+        <op value="++"/>
+        <type href="platform:/resource/ITLanguage/model/ITLanguage.ecore#//IT/router"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="network">
+      <op value="++"/>
+      <type href="platform:/resource/ITLanguage/model/ITLanguage.ecore#//Network"/>
+    </targetPatterns>
+    <targetPatterns name="router">
+      <op value="++"/>
+      <type href="platform:/resource/ITLanguage/model/ITLanguage.ecore#//Router"/>
+      <linkVariablePatterns target="//@rules.0/@targetPatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/ITLanguage/model/ITLanguage.ecore#//Router/network"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <correspondencePatterns name="a2r" type="//@schema/@correspondenceTypes.0" source="//@rules.0/@sourcePatterns.0" target="//@rules.0/@targetPatterns.2">
+      <op value="++"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="c2i" type="//@schema/@correspondenceTypes.3" source="//@rules.0/@sourcePatterns.2" target="//@rules.0/@targetPatterns.0"/>
+    <attrConditions name="//@schema/@attributeCondDefs.0">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.0/@sourcePatterns.0">
+        <attribute href="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore#//Admin/name"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.0/@targetPatterns.2">
+        <attribute href="platform:/resource/ITLanguage/model/ITLanguage.ecore#//Router/name"/>
+      </values>
+    </attrConditions>
+    <attrConditions name="//@schema/@attributeCondDefs.0">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.0/@targetPatterns.0">
+        <attribute href="platform:/resource/ITLanguage/model/ITLanguage.ecore#//IT/name"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.0/@targetPatterns.1">
+        <attribute href="platform:/resource/ITLanguage/model/ITLanguage.ecore#//Network/name"/>
+      </values>
+    </attrConditions>
+  </rules>
+  <rules name="CompanyToITRule" schema="//@schema">
+    <using importedNamespace="CompanyToIT.*"/>
+    <using importedNamespace="AttrCondDefLibrary.*"/>
+    <sourcePatterns name="ceo">
+      <op value="++"/>
+      <type href="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore#//CEO"/>
+    </sourcePatterns>
+    <sourcePatterns name="company">
+      <op value="++"/>
+      <type href="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore#//Company"/>
+      <linkVariablePatterns target="//@rules.1/@sourcePatterns.0">
+        <op value="++"/>
+        <type href="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore#//Company/ceo"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <targetPatterns name="it">
+      <op value="++"/>
+      <type href="platform:/resource/ITLanguage/model/ITLanguage.ecore#//IT"/>
+    </targetPatterns>
+    <correspondencePatterns name="c2i" type="//@schema/@correspondenceTypes.3" source="//@rules.1/@sourcePatterns.1" target="//@rules.1/@targetPatterns.0">
+      <op value="++"/>
+    </correspondencePatterns>
+    <attrConditions name="//@schema/@attributeCondDefs.0">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.1/@sourcePatterns.1">
+        <attribute href="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore#//Company/name"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.1/@targetPatterns.0">
+        <attribute href="platform:/resource/ITLanguage/model/ITLanguage.ecore#//IT/name"/>
+      </values>
+    </attrConditions>
+  </rules>
+  <rules name="EmployeeToLaptopRule" schema="//@schema">
+    <using importedNamespace="CompanyToIT.*"/>
+    <using importedNamespace="AttrCondDefLibrary.*"/>
+    <sourcePatterns name="admin">
+      <type href="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore#//Admin"/>
+      <linkVariablePatterns target="//@rules.2/@sourcePatterns.1">
+        <type href="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore#//Admin/ceo"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="ceo">
+      <type href="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore#//CEO"/>
+      <linkVariablePatterns target="//@rules.2/@sourcePatterns.3">
+        <op value="++"/>
+        <type href="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore#//CEO/employee"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="company">
+      <type href="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore#//Company"/>
+      <linkVariablePatterns target="//@rules.2/@sourcePatterns.1">
+        <type href="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore#//Company/ceo"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.2/@sourcePatterns.0">
+        <type href="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore#//Company/admin"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.2/@sourcePatterns.3">
+        <op value="++"/>
+        <type href="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore#//Company/employee"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="employee">
+      <op value="++"/>
+      <type href="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore#//Employee"/>
+    </sourcePatterns>
+    <targetPatterns name="computer">
+      <op value="++"/>
+      <type href="platform:/resource/ITLanguage/model/ITLanguage.ecore#//Laptop"/>
+    </targetPatterns>
+    <targetPatterns name="it">
+      <type href="platform:/resource/ITLanguage/model/ITLanguage.ecore#//IT"/>
+      <linkVariablePatterns target="//@rules.2/@targetPatterns.2">
+        <type href="platform:/resource/ITLanguage/model/ITLanguage.ecore#//IT/network"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.2/@targetPatterns.3">
+        <type href="platform:/resource/ITLanguage/model/ITLanguage.ecore#//IT/router"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="network">
+      <type href="platform:/resource/ITLanguage/model/ITLanguage.ecore#//Network"/>
+      <linkVariablePatterns target="//@rules.2/@targetPatterns.0">
+        <op value="++"/>
+        <type href="platform:/resource/ITLanguage/model/ITLanguage.ecore#//Network/laptop"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="router">
+      <type href="platform:/resource/ITLanguage/model/ITLanguage.ecore#//Router"/>
+      <linkVariablePatterns target="//@rules.2/@targetPatterns.2">
+        <type href="platform:/resource/ITLanguage/model/ITLanguage.ecore#//Router/network"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <correspondencePatterns name="a2r" type="//@schema/@correspondenceTypes.0" source="//@rules.2/@sourcePatterns.0" target="//@rules.2/@targetPatterns.3"/>
+    <correspondencePatterns name="c2i" type="//@schema/@correspondenceTypes.3" source="//@rules.2/@sourcePatterns.2" target="//@rules.2/@targetPatterns.1"/>
+    <correspondencePatterns name="e2p" type="//@schema/@correspondenceTypes.2" source="//@rules.2/@sourcePatterns.3" target="//@rules.2/@targetPatterns.0">
+      <op value="++"/>
+    </correspondencePatterns>
+    <attrConditions name="//@schema/@attributeCondDefs.0">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.2/@sourcePatterns.3">
+        <attribute href="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore#//Employee/name"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.2/@targetPatterns.0">
+        <attribute href="platform:/resource/ITLanguage/model/ITLanguage.ecore#//Laptop/name"/>
+      </values>
+    </attrConditions>
+  </rules>
+  <rules name="EmployeeToPCRule" schema="//@schema">
+    <using importedNamespace="CompanyToIT.*"/>
+    <using importedNamespace="AttrCondDefLibrary.*"/>
+    <sourcePatterns name="admin">
+      <type href="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore#//Admin"/>
+      <linkVariablePatterns target="//@rules.3/@sourcePatterns.1">
+        <type href="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore#//Admin/ceo"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="ceo">
+      <type href="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore#//CEO"/>
+      <linkVariablePatterns target="//@rules.3/@sourcePatterns.3">
+        <op value="++"/>
+        <type href="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore#//CEO/employee"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="company">
+      <type href="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore#//Company"/>
+      <linkVariablePatterns target="//@rules.3/@sourcePatterns.0">
+        <type href="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore#//Company/admin"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.3/@sourcePatterns.3">
+        <op value="++"/>
+        <type href="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore#//Company/employee"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.3/@sourcePatterns.1">
+        <type href="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore#//Company/ceo"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="employee">
+      <op value="++"/>
+      <type href="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore#//Employee"/>
+    </sourcePatterns>
+    <targetPatterns name="computer">
+      <op value="++"/>
+      <type href="platform:/resource/ITLanguage/model/ITLanguage.ecore#//PC"/>
+    </targetPatterns>
+    <targetPatterns name="it">
+      <type href="platform:/resource/ITLanguage/model/ITLanguage.ecore#//IT"/>
+      <linkVariablePatterns target="//@rules.3/@targetPatterns.3">
+        <type href="platform:/resource/ITLanguage/model/ITLanguage.ecore#//IT/router"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.3/@targetPatterns.2">
+        <type href="platform:/resource/ITLanguage/model/ITLanguage.ecore#//IT/network"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="network">
+      <type href="platform:/resource/ITLanguage/model/ITLanguage.ecore#//Network"/>
+      <linkVariablePatterns target="//@rules.3/@targetPatterns.0">
+        <op value="++"/>
+        <type href="platform:/resource/ITLanguage/model/ITLanguage.ecore#//Network/pc"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="router">
+      <type href="platform:/resource/ITLanguage/model/ITLanguage.ecore#//Router"/>
+      <linkVariablePatterns target="//@rules.3/@targetPatterns.2">
+        <type href="platform:/resource/ITLanguage/model/ITLanguage.ecore#//Router/network"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <correspondencePatterns name="a2r" type="//@schema/@correspondenceTypes.0" source="//@rules.3/@sourcePatterns.0" target="//@rules.3/@targetPatterns.3"/>
+    <correspondencePatterns name="c2i" type="//@schema/@correspondenceTypes.3" source="//@rules.3/@sourcePatterns.2" target="//@rules.3/@targetPatterns.1"/>
+    <correspondencePatterns name="e2p" type="//@schema/@correspondenceTypes.1" source="//@rules.3/@sourcePatterns.3" target="//@rules.3/@targetPatterns.0">
+      <op value="++"/>
+    </correspondencePatterns>
+    <attrConditions name="//@schema/@attributeCondDefs.0">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.3/@sourcePatterns.3">
+        <attribute href="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore#//Employee/name"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.3/@targetPatterns.0">
+        <attribute href="platform:/resource/ITLanguage/model/ITLanguage.ecore#//PC/name"/>
+      </values>
+    </attrConditions>
+  </rules>
+</tgg:TripleGraphGrammarFile>

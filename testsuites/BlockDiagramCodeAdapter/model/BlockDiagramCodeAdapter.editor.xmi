@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="ASCII"?>
+<tgg:TripleGraphGrammarFile xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tgg="http://www.moflon.org/ide/tgg/mosl/TGG">
+  <schema name="BlockDiagramCodeAdapter">
+    <imports name="platform:/resource/BlockDiagram/model/BlockDiagram.ecore"/>
+    <imports name="platform:/resource/MocaTree/model/MocaTree.ecore"/>
+    <sourceTypes href="platform:/resource/BlockDiagram/model/BlockDiagram.ecore#/"/>
+    <targetTypes href="platform:/resource/MocaTree/model/MocaTree.ecore#/"/>
+    <correspondenceTypes name="PortToNode">
+      <source href="platform:/resource/BlockDiagram/model/BlockDiagram.ecore#//Port"/>
+      <target href="platform:/resource/MocaTree/model/MocaTree.ecore#//Node"/>
+    </correspondenceTypes>
+    <correspondenceTypes name="BlockToNode">
+      <source href="platform:/resource/BlockDiagram/model/BlockDiagram.ecore#//Block"/>
+      <target href="platform:/resource/MocaTree/model/MocaTree.ecore#//Node"/>
+    </correspondenceTypes>
+    <correspondenceTypes name="SystemToNode">
+      <source href="platform:/resource/BlockDiagram/model/BlockDiagram.ecore#//BlockSystem"/>
+      <target href="platform:/resource/MocaTree/model/MocaTree.ecore#//Node"/>
+    </correspondenceTypes>
+    <correspondenceTypes name="RequireToNode" super="//@schema/@correspondenceTypes.0"/>
+    <correspondenceTypes name="ConnectorToNode">
+      <source href="platform:/resource/BlockDiagram/model/BlockDiagram.ecore#//Connector"/>
+      <target href="platform:/resource/MocaTree/model/MocaTree.ecore#//Node"/>
+    </correspondenceTypes>
+    <correspondenceTypes name="ProvideToNode" super="//@schema/@correspondenceTypes.0"/>
+    <attributeCondDefs name="eq_string">
+      <params paramName="a">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </params>
+      <params paramName="b">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </params>
+      <allowedSyncAdornments>
+        <value>B</value>
+        <value>B</value>
+      </allowedSyncAdornments>
+      <allowedSyncAdornments>
+        <value>B</value>
+        <value>F</value>
+      </allowedSyncAdornments>
+      <allowedSyncAdornments>
+        <value>F</value>
+        <value>B</value>
+      </allowedSyncAdornments>
+      <allowedGenAdornments>
+        <value>B</value>
+        <value>B</value>
+      </allowedGenAdornments>
+      <allowedGenAdornments>
+        <value>B</value>
+        <value>F</value>
+      </allowedGenAdornments>
+      <allowedGenAdornments>
+        <value>F</value>
+        <value>B</value>
+      </allowedGenAdornments>
+      <allowedGenAdornments>
+        <value>F</value>
+        <value>F</value>
+      </allowedGenAdornments>
+    </attributeCondDefs>
+  </schema>
+  <rules name="AbstractPortToNodeRule" abstractRule="true" schema="//@schema">
+    <using importedNamespace="BlockDiagramCodeAdapter.*"/>
+    <using importedNamespace="AttrCondDefLibrary.*"/>
+    <sourcePatterns name="block">
+      <type href="platform:/resource/BlockDiagram/model/BlockDiagram.ecore#//Block"/>
+    </sourcePatterns>
+    <sourcePatterns name="port">
+      <op value="++"/>
+      <type href="platform:/resource/BlockDiagram/model/BlockDiagram.ecore#//Port"/>
+      <linkVariablePatterns target="//@rules.0/@sourcePatterns.0">
+        <op value="++"/>
+        <type href="platform:/resource/BlockDiagram/model/BlockDiagram.ecore#//Port/block"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <targetPatterns name="portNode">
+      <op value="++"/>
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Node"/>
+      <linkVariablePatterns target="//@rules.0/@targetPatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Text/parentNode"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.0/@targetPatterns.2">
+        <op value="++"/>
+        <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Node/attribute"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="node">
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Node"/>
+    </targetPatterns>
+    <targetPatterns name="id">
+      <op value="++"/>
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Attribute"/>
+      <attributeAssignments op=":=">
+        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
+        <valueExp xsi:type="tgg:LiteralExpression" value="&quot;id&quot;"/>
+      </attributeAssignments>
+    </targetPatterns>
+    <correspondencePatterns name="blockToNode" type="//@schema/@correspondenceTypes.1" source="//@rules.0/@sourcePatterns.0" target="//@rules.0/@targetPatterns.1"/>
+    <correspondencePatterns name="portToNode" type="//@schema/@correspondenceTypes.0" source="//@rules.0/@sourcePatterns.1" target="//@rules.0/@targetPatterns.0">
+      <op value="++"/>
+    </correspondencePatterns>
+    <attrConditions name="//@schema/@attributeCondDefs.0">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.0/@sourcePatterns.1">
+        <attribute href="platform:/resource/BlockDiagram/model/BlockDiagram.ecore#//Port/id"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.0/@targetPatterns.2">
+        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//Attribute/value"/>
+      </values>
+    </attrConditions>
+  </rules>
+  <rules name="AbstractProvideToNodeRule" schema="//@schema">
+    <using importedNamespace="BlockDiagramCodeAdapter.*"/>
+    <using importedNamespace="AttrCondDefLibrary.*"/>
+    <sourcePatterns name="port">
+      <op value="++"/>
+      <type href="platform:/resource/BlockDiagram/model/BlockDiagram.ecore#//Provide"/>
+    </sourcePatterns>
+    <targetPatterns name="portNode">
+      <op value="++"/>
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Node"/>
+      <attributeAssignments op=":=">
+        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
+        <valueExp xsi:type="tgg:LiteralExpression" value="&quot;PROVIDE&quot;"/>
+      </attributeAssignments>
+    </targetPatterns>
+    <correspondencePatterns name="portToNode" type="//@schema/@correspondenceTypes.5" source="//@rules.1/@sourcePatterns.0" target="//@rules.1/@targetPatterns.0">
+      <op value="++"/>
+    </correspondencePatterns>
+  </rules>
+  <rules name="AbstractRequireToNodeRule" schema="//@schema">
+    <using importedNamespace="BlockDiagramCodeAdapter.*"/>
+    <using importedNamespace="AttrCondDefLibrary.*"/>
+    <sourcePatterns name="port">
+      <op value="++"/>
+      <type href="platform:/resource/BlockDiagram/model/BlockDiagram.ecore#//Require"/>
+    </sourcePatterns>
+    <targetPatterns name="portNode">
+      <op value="++"/>
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Node"/>
+      <attributeAssignments op=":=">
+        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
+        <valueExp xsi:type="tgg:LiteralExpression" value="&quot;REQUIRE&quot;"/>
+      </attributeAssignments>
+    </targetPatterns>
+    <correspondencePatterns name="portToNode" type="//@schema/@correspondenceTypes.3" source="//@rules.2/@sourcePatterns.0" target="//@rules.2/@targetPatterns.0">
+      <op value="++"/>
+    </correspondencePatterns>
+  </rules>
+  <rules name="BlockToNodeRule" schema="//@schema">
+    <using importedNamespace="BlockDiagramCodeAdapter.*"/>
+    <using importedNamespace="AttrCondDefLibrary.*"/>
+    <sourcePatterns name="system">
+      <type href="platform:/resource/BlockDiagram/model/BlockDiagram.ecore#//BlockSystem"/>
+      <linkVariablePatterns target="//@rules.3/@sourcePatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/BlockDiagram/model/BlockDiagram.ecore#//BlockSystem/blocks"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="block">
+      <op value="++"/>
+      <type href="platform:/resource/BlockDiagram/model/BlockDiagram.ecore#//Block"/>
+    </sourcePatterns>
+    <targetPatterns name="id">
+      <op value="++"/>
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Attribute"/>
+      <attributeAssignments op=":=">
+        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
+        <valueExp xsi:type="tgg:LiteralExpression" value="&quot;id&quot;"/>
+      </attributeAssignments>
+    </targetPatterns>
+    <targetPatterns name="systemNode">
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Node"/>
+    </targetPatterns>
+    <targetPatterns name="blockNode">
+      <op value="++"/>
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Node"/>
+      <attributeAssignments op=":=">
+        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
+        <valueExp xsi:type="tgg:LiteralExpression" value="&quot;Block&quot;"/>
+      </attributeAssignments>
+      <linkVariablePatterns target="//@rules.3/@targetPatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Text/parentNode"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.3/@targetPatterns.0">
+        <op value="++"/>
+        <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Node/attribute"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <correspondencePatterns name="systemToNode" type="//@schema/@correspondenceTypes.2" source="//@rules.3/@sourcePatterns.0" target="//@rules.3/@targetPatterns.1"/>
+    <correspondencePatterns name="blockToNode" type="//@schema/@correspondenceTypes.1" source="//@rules.3/@sourcePatterns.1" target="//@rules.3/@targetPatterns.2">
+      <op value="++"/>
+    </correspondencePatterns>
+    <attrConditions name="//@schema/@attributeCondDefs.0">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.3/@sourcePatterns.1">
+        <attribute href="platform:/resource/BlockDiagram/model/BlockDiagram.ecore#//Block/id"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.3/@targetPatterns.0">
+        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//Attribute/value"/>
+      </values>
+    </attrConditions>
+  </rules>
+  <rules name="ConnectorToNodeRule" schema="//@schema">
+    <using importedNamespace="BlockDiagramCodeAdapter.*"/>
+    <using importedNamespace="AttrCondDefLibrary.*"/>
+    <sourcePatterns name="connector">
+      <op value="++"/>
+      <type href="platform:/resource/BlockDiagram/model/BlockDiagram.ecore#//Connector"/>
+    </sourcePatterns>
+    <sourcePatterns name="providerBlock">
+      <type href="platform:/resource/BlockDiagram/model/BlockDiagram.ecore#//Block"/>
+    </sourcePatterns>
+    <sourcePatterns name="provide">
+      <type href="platform:/resource/BlockDiagram/model/BlockDiagram.ecore#//Provide"/>
+      <linkVariablePatterns target="//@rules.4/@sourcePatterns.0">
+        <op value="++"/>
+        <type href="platform:/resource/BlockDiagram/model/BlockDiagram.ecore#//Provide/connector"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.4/@sourcePatterns.1">
+        <type href="platform:/resource/BlockDiagram/model/BlockDiagram.ecore#//Port/block"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="require">
+      <type href="platform:/resource/BlockDiagram/model/BlockDiagram.ecore#//Require"/>
+      <linkVariablePatterns target="//@rules.4/@sourcePatterns.0">
+        <op value="++"/>
+        <type href="platform:/resource/BlockDiagram/model/BlockDiagram.ecore#//Require/connector"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <targetPatterns name="systemNode">
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Node"/>
+      <attributeConstraints op="==">
+        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
+        <valueExp xsi:type="tgg:LiteralExpression" value="&quot;System&quot;"/>
+      </attributeConstraints>
+    </targetPatterns>
+    <targetPatterns name="providerBlockNode">
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Node"/>
+      <linkVariablePatterns target="//@rules.4/@targetPatterns.0">
+        <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Text/parentNode"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="requireNode">
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Node"/>
+      <linkVariablePatterns target="//@rules.4/@targetPatterns.3">
+        <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Text/parentNode"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="requireBlockNode">
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Node"/>
+      <linkVariablePatterns target="//@rules.4/@targetPatterns.0">
+        <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Text/parentNode"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="connectorNode">
+      <op value="++"/>
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Node"/>
+      <attributeAssignments op=":=">
+        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
+        <valueExp xsi:type="tgg:LiteralExpression" value="&quot;CONNECTOR&quot;"/>
+      </attributeAssignments>
+      <linkVariablePatterns target="//@rules.4/@targetPatterns.7">
+        <op value="++"/>
+        <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Node/attribute"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.4/@targetPatterns.6">
+        <op value="++"/>
+        <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Node/attribute"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.4/@targetPatterns.2">
+        <op value="++"/>
+        <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Text/parentNode"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="provideNode">
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Node"/>
+      <linkVariablePatterns target="//@rules.4/@targetPatterns.1">
+        <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Text/parentNode"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="referencedBlock">
+      <op value="++"/>
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Attribute"/>
+      <attributeAssignments op=":=">
+        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
+        <valueExp xsi:type="tgg:LiteralExpression" value="&quot;block&quot;"/>
+      </attributeAssignments>
+      <attributeAssignments op=":=">
+        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/index"/>
+        <valueExp xsi:type="tgg:LiteralExpression" value="1"/>
+      </attributeAssignments>
+    </targetPatterns>
+    <targetPatterns name="referencedPort">
+      <op value="++"/>
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Attribute"/>
+      <attributeAssignments op=":=">
+        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
+        <valueExp xsi:type="tgg:LiteralExpression" value="&quot;port&quot;"/>
+      </attributeAssignments>
+      <attributeAssignments op=":=">
+        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/index"/>
+        <valueExp xsi:type="tgg:LiteralExpression" value="0"/>
+      </attributeAssignments>
+    </targetPatterns>
+    <correspondencePatterns name="provideToNode" type="//@schema/@correspondenceTypes.5" source="//@rules.4/@sourcePatterns.2" target="//@rules.4/@targetPatterns.5"/>
+    <correspondencePatterns name="requireToNode" type="//@schema/@correspondenceTypes.3" source="//@rules.4/@sourcePatterns.3" target="//@rules.4/@targetPatterns.2"/>
+    <correspondencePatterns name="connectorToNode" type="//@schema/@correspondenceTypes.4" source="//@rules.4/@sourcePatterns.0" target="//@rules.4/@targetPatterns.4">
+      <op value="++"/>
+    </correspondencePatterns>
+    <attrConditions name="//@schema/@attributeCondDefs.0">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.4/@sourcePatterns.2">
+        <attribute href="platform:/resource/BlockDiagram/model/BlockDiagram.ecore#//Port/id"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.4/@targetPatterns.7">
+        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//Attribute/value"/>
+      </values>
+    </attrConditions>
+    <attrConditions name="//@schema/@attributeCondDefs.0">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.4/@sourcePatterns.1">
+        <attribute href="platform:/resource/BlockDiagram/model/BlockDiagram.ecore#//Block/id"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.4/@targetPatterns.6">
+        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//Attribute/value"/>
+      </values>
+    </attrConditions>
+  </rules>
+  <rules name="ProvideToNodeRule" supertypes="//@rules.1 //@rules.0" schema="//@schema">
+    <using importedNamespace="BlockDiagramCodeAdapter.*"/>
+    <using importedNamespace="AttrCondDefLibrary.*"/>
+  </rules>
+  <rules name="RequireToNodeRule" supertypes="//@rules.2 //@rules.0" schema="//@schema">
+    <using importedNamespace="BlockDiagramCodeAdapter.*"/>
+    <using importedNamespace="AttrCondDefLibrary.*"/>
+  </rules>
+  <rules name="SystemToNodeRule" schema="//@schema">
+    <using importedNamespace="BlockDiagramCodeAdapter.*"/>
+    <using importedNamespace="AttrCondDefLibrary.*"/>
+    <sourcePatterns name="system">
+      <op value="++"/>
+      <type href="platform:/resource/BlockDiagram/model/BlockDiagram.ecore#//BlockSystem"/>
+    </sourcePatterns>
+    <targetPatterns name="file">
+      <op value="++"/>
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//File"/>
+    </targetPatterns>
+    <targetPatterns name="node">
+      <op value="++"/>
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Node"/>
+      <attributeAssignments op=":=">
+        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
+        <valueExp xsi:type="tgg:LiteralExpression" value="&quot;System&quot;"/>
+      </attributeAssignments>
+      <linkVariablePatterns target="//@rules.7/@targetPatterns.0">
+        <op value="++"/>
+        <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Node/file"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <correspondencePatterns name="systemToNode" type="//@schema/@correspondenceTypes.2" source="//@rules.7/@sourcePatterns.0" target="//@rules.7/@targetPatterns.1">
+      <op value="++"/>
+    </correspondencePatterns>
+    <attrConditions name="//@schema/@attributeCondDefs.0">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.7/@sourcePatterns.0">
+        <attribute href="platform:/resource/BlockDiagram/model/BlockDiagram.ecore#//BlockSystem/name"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.7/@targetPatterns.0">
+        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
+      </values>
+    </attrConditions>
+  </rules>
+</tgg:TripleGraphGrammarFile>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="BlockDiagramCodeAdapter" nsURI="platform:/resource/BlockDiagramCodeAdapter/model/BlockDiagramCodeAdapter.ecore"
+    nsPrefix="BlockDiagramCodeAdapter">
+  <eClassifiers xsi:type="ecore:EClass" name="PortToNode">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="ecore:EClass platform:/resource/BlockDiagram/model/BlockDiagram.ecore#//Port"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="ecore:EClass platform:/resource/MocaTree/model/MocaTree.ecore#//Node"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BlockToNode">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="ecore:EClass platform:/resource/BlockDiagram/model/BlockDiagram.ecore#//Block"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="ecore:EClass platform:/resource/MocaTree/model/MocaTree.ecore#//Node"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SystemToNode">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="ecore:EClass platform:/resource/BlockDiagram/model/BlockDiagram.ecore#//BlockSystem"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="ecore:EClass platform:/resource/MocaTree/model/MocaTree.ecore#//Node"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RequireToNode" eSuperTypes="platform:/resource/BlockDiagramCodeAdapter/model/BlockDiagramCodeAdapter.ecore#//PortToNode"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ConnectorToNode">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="ecore:EClass platform:/resource/BlockDiagram/model/BlockDiagram.ecore#//Connector"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="ecore:EClass platform:/resource/MocaTree/model/MocaTree.ecore#//Node"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProvideToNode" eSuperTypes="platform:/resource/BlockDiagramCodeAdapter/model/BlockDiagramCodeAdapter.ecore#//PortToNode"/>
+</ecore:EPackage>

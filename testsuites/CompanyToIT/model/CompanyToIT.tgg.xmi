@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="ASCII"?>
+<org.emoflon.ibex.tgg.core.language:TGG xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.emoflon.ibex.tgg.core.language="platform:/plugin/org.emoflon.ibex.tgg.core.language/model/Language.ecore#/" xmlns:org.emoflon.ibex.tgg.core.language.misc.expressions="platform:/plugin/org.emoflon.ibex.tgg.core.language/model/Language.ecore#/misc/expressions" name="CompanyToIT">
+  <src href="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore#/"/>
+  <trg href="platform:/resource/ITLanguage/model/ITLanguage.ecore#/"/>
+  <corr href="platform:/resource/CompanyToIT/model/CompanyToIT.ecore#/"/>
+  <rules name="AdminToRouterRule">
+    <nodes name="company" outgoingEdges="//@rules.0/@edges.0 //@rules.0/@edges.1" incomingCorrsSource="//@rules.0/@nodes.7">
+      <type href="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore#//Company"/>
+    </nodes>
+    <nodes name="ceo" incomingEdges="//@rules.0/@edges.0 //@rules.0/@edges.2">
+      <type href="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore#//CEO"/>
+    </nodes>
+    <nodes name="admin" bindingType="CREATE" incomingEdges="//@rules.0/@edges.1" outgoingEdges="//@rules.0/@edges.2" incomingCorrsSource="//@rules.0/@nodes.6">
+      <type href="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore#//Admin"/>
+    </nodes>
+    <nodes name="router" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.0/@edges.5" outgoingEdges="//@rules.0/@edges.3" incomingCorrsTarget="//@rules.0/@nodes.6">
+      <type href="platform:/resource/ITLanguage/model/ITLanguage.ecore#//Router"/>
+    </nodes>
+    <nodes name="it" domainType="TRG" outgoingEdges="//@rules.0/@edges.4 //@rules.0/@edges.5" incomingCorrsTarget="//@rules.0/@nodes.7">
+      <type href="platform:/resource/ITLanguage/model/ITLanguage.ecore#//IT"/>
+    </nodes>
+    <nodes name="network" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.0/@edges.3 //@rules.0/@edges.4">
+      <type href="platform:/resource/ITLanguage/model/ITLanguage.ecore#//Network"/>
+    </nodes>
+    <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="a2r" domainType="CORR" bindingType="CREATE" source="//@rules.0/@nodes.2" target="//@rules.0/@nodes.3">
+      <type href="platform:/resource/CompanyToIT/model/CompanyToIT.ecore#//AdminToRouter"/>
+    </nodes>
+    <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="c2i" domainType="CORR" source="//@rules.0/@nodes.0" target="//@rules.0/@nodes.4">
+      <type href="platform:/resource/CompanyToIT/model/CompanyToIT.ecore#//CompanyToIT"/>
+    </nodes>
+    <edges name="company__ceo__ceo_eMoflonEdge" srcNode="//@rules.0/@nodes.0" trgNode="//@rules.0/@nodes.1">
+      <type href="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore#//Company/ceo"/>
+    </edges>
+    <edges name="company__admin__admin_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.0/@nodes.0" trgNode="//@rules.0/@nodes.2">
+      <type href="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore#//Company/admin"/>
+    </edges>
+    <edges name="admin__ceo__ceo_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.0/@nodes.2" trgNode="//@rules.0/@nodes.1">
+      <type href="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore#//Admin/ceo"/>
+    </edges>
+    <edges name="router__network__network_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.0/@nodes.3" trgNode="//@rules.0/@nodes.5">
+      <type href="platform:/resource/ITLanguage/model/ITLanguage.ecore#//Router/network"/>
+    </edges>
+    <edges name="it__network__network_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.0/@nodes.4" trgNode="//@rules.0/@nodes.5">
+      <type href="platform:/resource/ITLanguage/model/ITLanguage.ecore#//IT/network"/>
+    </edges>
+    <edges name="it__router__router_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.0/@nodes.4" trgNode="//@rules.0/@nodes.3">
+      <type href="platform:/resource/ITLanguage/model/ITLanguage.ecore#//IT/router"/>
+    </edges>
+    <attributeConditionLibrary sorted_BWD="//@rules.0/@attributeConditionLibrary/@tggAttributeConstraints.1 //@rules.0/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_FWD="//@rules.0/@attributeConditionLibrary/@tggAttributeConstraints.0 //@rules.0/@attributeConditionLibrary/@tggAttributeConstraints.1" sorted_CC="//@rules.0/@attributeConditionLibrary/@tggAttributeConstraints.0 //@rules.0/@attributeConditionLibrary/@tggAttributeConstraints.1" sorted_MODELGEN="//@rules.0/@attributeConditionLibrary/@tggAttributeConstraints.1 //@rules.0/@attributeConditionLibrary/@tggAttributeConstraints.0">
+      <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0" parameters="//@rules.0/@attributeConditionLibrary/@parameterValues.0 //@rules.0/@attributeConditionLibrary/@parameterValues.1"/>
+      <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0" parameters="//@rules.0/@attributeConditionLibrary/@parameterValues.2 //@rules.0/@attributeConditionLibrary/@parameterValues.3"/>
+      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.0" objectVar="//@rules.0/@nodes.2">
+        <attribute href="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore#//Admin/name"/>
+      </parameterValues>
+      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.1" objectVar="//@rules.0/@nodes.3">
+        <attribute href="platform:/resource/ITLanguage/model/ITLanguage.ecore#//Router/name"/>
+      </parameterValues>
+      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.0" objectVar="//@rules.0/@nodes.4">
+        <attribute href="platform:/resource/ITLanguage/model/ITLanguage.ecore#//IT/name"/>
+      </parameterValues>
+      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.1" objectVar="//@rules.0/@nodes.5">
+        <attribute href="platform:/resource/ITLanguage/model/ITLanguage.ecore#//Network/name"/>
+      </parameterValues>
+    </attributeConditionLibrary>
+  </rules>
+  <rules name="CompanyToITRule">
+    <nodes name="ceo" bindingType="CREATE" incomingEdges="//@rules.1/@edges.0">
+      <type href="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore#//CEO"/>
+    </nodes>
+    <nodes name="company" bindingType="CREATE" outgoingEdges="//@rules.1/@edges.0" incomingCorrsSource="//@rules.1/@nodes.3">
+      <type href="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore#//Company"/>
+    </nodes>
+    <nodes name="it" domainType="TRG" bindingType="CREATE" incomingCorrsTarget="//@rules.1/@nodes.3">
+      <type href="platform:/resource/ITLanguage/model/ITLanguage.ecore#//IT"/>
+    </nodes>
+    <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="c2i" domainType="CORR" bindingType="CREATE" source="//@rules.1/@nodes.1" target="//@rules.1/@nodes.2">
+      <type href="platform:/resource/CompanyToIT/model/CompanyToIT.ecore#//CompanyToIT"/>
+    </nodes>
+    <edges name="company__ceo__ceo_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.1/@nodes.1" trgNode="//@rules.1/@nodes.0">
+      <type href="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore#//Company/ceo"/>
+    </edges>
+    <attributeConditionLibrary sorted_BWD="//@rules.1/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_FWD="//@rules.1/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_CC="//@rules.1/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_MODELGEN="//@rules.1/@attributeConditionLibrary/@tggAttributeConstraints.0">
+      <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0" parameters="//@rules.1/@attributeConditionLibrary/@parameterValues.0 //@rules.1/@attributeConditionLibrary/@parameterValues.1"/>
+      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.0" objectVar="//@rules.1/@nodes.1">
+        <attribute href="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore#//Company/name"/>
+      </parameterValues>
+      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.1" objectVar="//@rules.1/@nodes.2">
+        <attribute href="platform:/resource/ITLanguage/model/ITLanguage.ecore#//IT/name"/>
+      </parameterValues>
+    </attributeConditionLibrary>
+  </rules>
+  <rules name="EmployeeToLaptopRule">
+    <nodes name="ceo" incomingEdges="//@rules.2/@edges.1 //@rules.2/@edges.4" outgoingEdges="//@rules.2/@edges.0">
+      <type href="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore#//CEO"/>
+    </nodes>
+    <nodes name="company" outgoingEdges="//@rules.2/@edges.1 //@rules.2/@edges.2 //@rules.2/@edges.3" incomingCorrsSource="//@rules.2/@nodes.8">
+      <type href="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore#//Company"/>
+    </nodes>
+    <nodes name="admin" incomingEdges="//@rules.2/@edges.2" outgoingEdges="//@rules.2/@edges.4" incomingCorrsSource="//@rules.2/@nodes.9">
+      <type href="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore#//Admin"/>
+    </nodes>
+    <nodes name="employee" bindingType="CREATE" incomingEdges="//@rules.2/@edges.0 //@rules.2/@edges.3" incomingCorrsSource="//@rules.2/@nodes.10">
+      <type href="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore#//Employee"/>
+    </nodes>
+    <nodes name="computer" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.2/@edges.7" incomingCorrsTarget="//@rules.2/@nodes.10">
+      <type href="platform:/resource/ITLanguage/model/ITLanguage.ecore#//Laptop"/>
+    </nodes>
+    <nodes name="it" domainType="TRG" outgoingEdges="//@rules.2/@edges.5 //@rules.2/@edges.6" incomingCorrsTarget="//@rules.2/@nodes.8">
+      <type href="platform:/resource/ITLanguage/model/ITLanguage.ecore#//IT"/>
+    </nodes>
+    <nodes name="network" domainType="TRG" incomingEdges="//@rules.2/@edges.5 //@rules.2/@edges.8" outgoingEdges="//@rules.2/@edges.7">
+      <type href="platform:/resource/ITLanguage/model/ITLanguage.ecore#//Network"/>
+    </nodes>
+    <nodes name="router" domainType="TRG" incomingEdges="//@rules.2/@edges.6" outgoingEdges="//@rules.2/@edges.8" incomingCorrsTarget="//@rules.2/@nodes.9">
+      <type href="platform:/resource/ITLanguage/model/ITLanguage.ecore#//Router"/>
+    </nodes>
+    <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="c2i" domainType="CORR" source="//@rules.2/@nodes.1" target="//@rules.2/@nodes.5">
+      <type href="platform:/resource/CompanyToIT/model/CompanyToIT.ecore#//CompanyToIT"/>
+    </nodes>
+    <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="a2r" domainType="CORR" source="//@rules.2/@nodes.2" target="//@rules.2/@nodes.7">
+      <type href="platform:/resource/CompanyToIT/model/CompanyToIT.ecore#//AdminToRouter"/>
+    </nodes>
+    <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="e2p" domainType="CORR" bindingType="CREATE" source="//@rules.2/@nodes.3" target="//@rules.2/@nodes.4">
+      <type href="platform:/resource/CompanyToIT/model/CompanyToIT.ecore#//EmployeeToLaptop"/>
+    </nodes>
+    <edges name="ceo__employee__employee_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.2/@nodes.0" trgNode="//@rules.2/@nodes.3">
+      <type href="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore#//CEO/employee"/>
+    </edges>
+    <edges name="company__ceo__ceo_eMoflonEdge" srcNode="//@rules.2/@nodes.1" trgNode="//@rules.2/@nodes.0">
+      <type href="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore#//Company/ceo"/>
+    </edges>
+    <edges name="company__admin__admin_eMoflonEdge" srcNode="//@rules.2/@nodes.1" trgNode="//@rules.2/@nodes.2">
+      <type href="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore#//Company/admin"/>
+    </edges>
+    <edges name="company__employee__employee_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.2/@nodes.1" trgNode="//@rules.2/@nodes.3">
+      <type href="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore#//Company/employee"/>
+    </edges>
+    <edges name="admin__ceo__ceo_eMoflonEdge" srcNode="//@rules.2/@nodes.2" trgNode="//@rules.2/@nodes.0">
+      <type href="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore#//Admin/ceo"/>
+    </edges>
+    <edges name="it__network__network_eMoflonEdge" domainType="TRG" srcNode="//@rules.2/@nodes.5" trgNode="//@rules.2/@nodes.6">
+      <type href="platform:/resource/ITLanguage/model/ITLanguage.ecore#//IT/network"/>
+    </edges>
+    <edges name="it__router__router_eMoflonEdge" domainType="TRG" srcNode="//@rules.2/@nodes.5" trgNode="//@rules.2/@nodes.7">
+      <type href="platform:/resource/ITLanguage/model/ITLanguage.ecore#//IT/router"/>
+    </edges>
+    <edges name="network__laptop__computer_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.2/@nodes.6" trgNode="//@rules.2/@nodes.4">
+      <type href="platform:/resource/ITLanguage/model/ITLanguage.ecore#//Network/laptop"/>
+    </edges>
+    <edges name="router__network__network_eMoflonEdge" domainType="TRG" srcNode="//@rules.2/@nodes.7" trgNode="//@rules.2/@nodes.6">
+      <type href="platform:/resource/ITLanguage/model/ITLanguage.ecore#//Router/network"/>
+    </edges>
+    <attributeConditionLibrary sorted_BWD="//@rules.2/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_FWD="//@rules.2/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_CC="//@rules.2/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_MODELGEN="//@rules.2/@attributeConditionLibrary/@tggAttributeConstraints.0">
+      <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0" parameters="//@rules.2/@attributeConditionLibrary/@parameterValues.0 //@rules.2/@attributeConditionLibrary/@parameterValues.1"/>
+      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.0" objectVar="//@rules.2/@nodes.3">
+        <attribute href="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore#//Employee/name"/>
+      </parameterValues>
+      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.1" objectVar="//@rules.2/@nodes.4">
+        <attribute href="platform:/resource/ITLanguage/model/ITLanguage.ecore#//Laptop/name"/>
+      </parameterValues>
+    </attributeConditionLibrary>
+  </rules>
+  <rules name="EmployeeToPCRule">
+    <nodes name="admin" incomingEdges="//@rules.3/@edges.1" outgoingEdges="//@rules.3/@edges.0" incomingCorrsSource="//@rules.3/@nodes.9">
+      <type href="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore#//Admin"/>
+    </nodes>
+    <nodes name="company" outgoingEdges="//@rules.3/@edges.1 //@rules.3/@edges.2 //@rules.3/@edges.3" incomingCorrsSource="//@rules.3/@nodes.10">
+      <type href="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore#//Company"/>
+    </nodes>
+    <nodes name="ceo" incomingEdges="//@rules.3/@edges.0 //@rules.3/@edges.3" outgoingEdges="//@rules.3/@edges.4">
+      <type href="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore#//CEO"/>
+    </nodes>
+    <nodes name="employee" bindingType="CREATE" incomingEdges="//@rules.3/@edges.2 //@rules.3/@edges.4" incomingCorrsSource="//@rules.3/@nodes.8">
+      <type href="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore#//Employee"/>
+    </nodes>
+    <nodes name="network" domainType="TRG" incomingEdges="//@rules.3/@edges.7 //@rules.3/@edges.8" outgoingEdges="//@rules.3/@edges.5">
+      <type href="platform:/resource/ITLanguage/model/ITLanguage.ecore#//Network"/>
+    </nodes>
+    <nodes name="it" domainType="TRG" outgoingEdges="//@rules.3/@edges.6 //@rules.3/@edges.7" incomingCorrsTarget="//@rules.3/@nodes.10">
+      <type href="platform:/resource/ITLanguage/model/ITLanguage.ecore#//IT"/>
+    </nodes>
+    <nodes name="computer" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.3/@edges.5" incomingCorrsTarget="//@rules.3/@nodes.8">
+      <type href="platform:/resource/ITLanguage/model/ITLanguage.ecore#//PC"/>
+    </nodes>
+    <nodes name="router" domainType="TRG" incomingEdges="//@rules.3/@edges.6" outgoingEdges="//@rules.3/@edges.8" incomingCorrsTarget="//@rules.3/@nodes.9">
+      <type href="platform:/resource/ITLanguage/model/ITLanguage.ecore#//Router"/>
+    </nodes>
+    <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="e2p" domainType="CORR" bindingType="CREATE" source="//@rules.3/@nodes.3" target="//@rules.3/@nodes.6">
+      <type href="platform:/resource/CompanyToIT/model/CompanyToIT.ecore#//EmployeeToPC"/>
+    </nodes>
+    <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="a2r" domainType="CORR" source="//@rules.3/@nodes.0" target="//@rules.3/@nodes.7">
+      <type href="platform:/resource/CompanyToIT/model/CompanyToIT.ecore#//AdminToRouter"/>
+    </nodes>
+    <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="c2i" domainType="CORR" source="//@rules.3/@nodes.1" target="//@rules.3/@nodes.5">
+      <type href="platform:/resource/CompanyToIT/model/CompanyToIT.ecore#//CompanyToIT"/>
+    </nodes>
+    <edges name="admin__ceo__ceo_eMoflonEdge" srcNode="//@rules.3/@nodes.0" trgNode="//@rules.3/@nodes.2">
+      <type href="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore#//Admin/ceo"/>
+    </edges>
+    <edges name="company__admin__admin_eMoflonEdge" srcNode="//@rules.3/@nodes.1" trgNode="//@rules.3/@nodes.0">
+      <type href="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore#//Company/admin"/>
+    </edges>
+    <edges name="company__employee__employee_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.3/@nodes.1" trgNode="//@rules.3/@nodes.3">
+      <type href="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore#//Company/employee"/>
+    </edges>
+    <edges name="company__ceo__ceo_eMoflonEdge" srcNode="//@rules.3/@nodes.1" trgNode="//@rules.3/@nodes.2">
+      <type href="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore#//Company/ceo"/>
+    </edges>
+    <edges name="ceo__employee__employee_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.3/@nodes.2" trgNode="//@rules.3/@nodes.3">
+      <type href="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore#//CEO/employee"/>
+    </edges>
+    <edges name="network__pc__computer_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.3/@nodes.4" trgNode="//@rules.3/@nodes.6">
+      <type href="platform:/resource/ITLanguage/model/ITLanguage.ecore#//Network/pc"/>
+    </edges>
+    <edges name="it__router__router_eMoflonEdge" domainType="TRG" srcNode="//@rules.3/@nodes.5" trgNode="//@rules.3/@nodes.7">
+      <type href="platform:/resource/ITLanguage/model/ITLanguage.ecore#//IT/router"/>
+    </edges>
+    <edges name="it__network__network_eMoflonEdge" domainType="TRG" srcNode="//@rules.3/@nodes.5" trgNode="//@rules.3/@nodes.4">
+      <type href="platform:/resource/ITLanguage/model/ITLanguage.ecore#//IT/network"/>
+    </edges>
+    <edges name="router__network__network_eMoflonEdge" domainType="TRG" srcNode="//@rules.3/@nodes.7" trgNode="//@rules.3/@nodes.4">
+      <type href="platform:/resource/ITLanguage/model/ITLanguage.ecore#//Router/network"/>
+    </edges>
+    <attributeConditionLibrary sorted_BWD="//@rules.3/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_FWD="//@rules.3/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_CC="//@rules.3/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_MODELGEN="//@rules.3/@attributeConditionLibrary/@tggAttributeConstraints.0">
+      <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0" parameters="//@rules.3/@attributeConditionLibrary/@parameterValues.0 //@rules.3/@attributeConditionLibrary/@parameterValues.1"/>
+      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.0" objectVar="//@rules.3/@nodes.3">
+        <attribute href="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore#//Employee/name"/>
+      </parameterValues>
+      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.1" objectVar="//@rules.3/@nodes.6">
+        <attribute href="platform:/resource/ITLanguage/model/ITLanguage.ecore#//PC/name"/>
+      </parameterValues>
+    </attributeConditionLibrary>
+  </rules>
+  <attributeConstraintDefinitionLibrary>
+    <tggAttributeConstraintDefinitions name="eq_string" userDefined="false">
+      <parameterDefinitions name="a">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </parameterDefinitions>
+      <parameterDefinitions name="b">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </parameterDefinitions>
+      <syncAdornments>
+        <value>B</value>
+        <value>B</value>
+      </syncAdornments>
+      <syncAdornments>
+        <value>B</value>
+        <value>F</value>
+      </syncAdornments>
+      <syncAdornments>
+        <value>F</value>
+        <value>B</value>
+      </syncAdornments>
+      <genAdornments>
+        <value>B</value>
+        <value>B</value>
+      </genAdornments>
+      <genAdornments>
+        <value>B</value>
+        <value>F</value>
+      </genAdornments>
+      <genAdornments>
+        <value>F</value>
+        <value>B</value>
+      </genAdornments>
+      <genAdornments>
+        <value>F</value>
+        <value>F</value>
+      </genAdornments>
+    </tggAttributeConstraintDefinitions>
+  </attributeConstraintDefinitionLibrary>
+</org.emoflon.ibex.tgg.core.language:TGG>

@@ -1,0 +1,757 @@
+<?xml version="1.0" encoding="ASCII"?>
+<tgg:TripleGraphGrammarFile xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tgg="http://www.moflon.org/ide/tgg/mosl/TGG">
+  <schema name="ProcessCodeAdapter">
+    <imports name="platform:/resource/MocaTree/model/MocaTree.ecore"/>
+    <imports name="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore"/>
+    <sourceTypes href="platform:/resource/MocaTree/model/MocaTree.ecore#/"/>
+    <targetTypes href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#/"/>
+    <correspondenceTypes name="FileToTask">
+      <source href="platform:/resource/MocaTree/model/MocaTree.ecore#//File"/>
+      <target href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//Task"/>
+    </correspondenceTypes>
+    <correspondenceTypes name="FolderToSystem">
+      <source href="platform:/resource/MocaTree/model/MocaTree.ecore#//Folder"/>
+      <target href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//SystemModule"/>
+    </correspondenceTypes>
+    <correspondenceTypes name="NodeToImport">
+      <source href="platform:/resource/MocaTree/model/MocaTree.ecore#//Node"/>
+      <target href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//Import"/>
+    </correspondenceTypes>
+    <correspondenceTypes name="NodeToInvocation">
+      <source href="platform:/resource/MocaTree/model/MocaTree.ecore#//Node"/>
+      <target href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//Invocation"/>
+    </correspondenceTypes>
+    <correspondenceTypes name="FolderToModule">
+      <source href="platform:/resource/MocaTree/model/MocaTree.ecore#//Folder"/>
+      <target href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//Module"/>
+    </correspondenceTypes>
+    <attributeCondDefs name="addPrefix">
+      <params paramName="prefix">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </params>
+      <params paramName="word">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </params>
+      <params paramName="result">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </params>
+      <allowedSyncAdornments>
+        <value>B</value>
+        <value>B</value>
+        <value>B</value>
+      </allowedSyncAdornments>
+      <allowedSyncAdornments>
+        <value>B</value>
+        <value>B</value>
+        <value>F</value>
+      </allowedSyncAdornments>
+      <allowedSyncAdornments>
+        <value>B</value>
+        <value>F</value>
+        <value>B</value>
+      </allowedSyncAdornments>
+      <allowedSyncAdornments>
+        <value>F</value>
+        <value>B</value>
+        <value>B</value>
+      </allowedSyncAdornments>
+      <allowedGenAdornments>
+        <value>B</value>
+        <value>B</value>
+        <value>B</value>
+      </allowedGenAdornments>
+      <allowedGenAdornments>
+        <value>B</value>
+        <value>B</value>
+        <value>F</value>
+      </allowedGenAdornments>
+      <allowedGenAdornments>
+        <value>B</value>
+        <value>F</value>
+        <value>B</value>
+      </allowedGenAdornments>
+      <allowedGenAdornments>
+        <value>F</value>
+        <value>B</value>
+        <value>B</value>
+      </allowedGenAdornments>
+      <allowedGenAdornments>
+        <value>B</value>
+        <value>F</value>
+        <value>F</value>
+      </allowedGenAdornments>
+      <allowedGenAdornments>
+        <value>F</value>
+        <value>B</value>
+        <value>F</value>
+      </allowedGenAdornments>
+    </attributeCondDefs>
+    <attributeCondDefs name="eq_string">
+      <params paramName="a">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </params>
+      <params paramName="b">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </params>
+      <allowedSyncAdornments>
+        <value>B</value>
+        <value>B</value>
+      </allowedSyncAdornments>
+      <allowedSyncAdornments>
+        <value>B</value>
+        <value>F</value>
+      </allowedSyncAdornments>
+      <allowedSyncAdornments>
+        <value>F</value>
+        <value>B</value>
+      </allowedSyncAdornments>
+      <allowedGenAdornments>
+        <value>B</value>
+        <value>B</value>
+      </allowedGenAdornments>
+      <allowedGenAdornments>
+        <value>B</value>
+        <value>F</value>
+      </allowedGenAdornments>
+      <allowedGenAdornments>
+        <value>F</value>
+        <value>B</value>
+      </allowedGenAdornments>
+      <allowedGenAdornments>
+        <value>F</value>
+        <value>F</value>
+      </allowedGenAdornments>
+    </attributeCondDefs>
+  </schema>
+  <rules name="AbstractNodeToImportRule" abstractRule="true" schema="//@schema">
+    <using importedNamespace="ProcessCodeAdapter.*"/>
+    <using importedNamespace="AttrCondDefLibrary.*"/>
+    <sourcePatterns name="file">
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//File"/>
+    </sourcePatterns>
+    <sourcePatterns name="folder">
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Folder"/>
+      <linkVariablePatterns target="//@rules.0/@sourcePatterns.0">
+        <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Folder/file"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="invocationNode">
+      <op value="++"/>
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Node"/>
+      <linkVariablePatterns target="//@rules.0/@sourcePatterns.3">
+        <op value="++"/>
+        <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Text/parentNode"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="invocationsNode">
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Node"/>
+      <linkVariablePatterns target="//@rules.0/@sourcePatterns.4">
+        <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Text/parentNode"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="taskNode">
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Node"/>
+      <linkVariablePatterns target="//@rules.0/@sourcePatterns.0">
+        <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Node/file"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <targetPatterns name="system">
+      <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//SystemModule"/>
+    </targetPatterns>
+    <targetPatterns name="task">
+      <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//Task"/>
+    </targetPatterns>
+    <correspondencePatterns name="fileToTask" type="//@schema/@correspondenceTypes.0" source="//@rules.0/@sourcePatterns.0" target="//@rules.0/@targetPatterns.1"/>
+  </rules>
+  <rules name="AbstractNodeToInvocationRule" abstractRule="true" schema="//@schema">
+    <using importedNamespace="ProcessCodeAdapter.*"/>
+    <using importedNamespace="AttrCondDefLibrary.*"/>
+    <sourcePatterns name="file">
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//File"/>
+    </sourcePatterns>
+    <sourcePatterns name="folder">
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Folder"/>
+      <linkVariablePatterns target="//@rules.1/@sourcePatterns.0">
+        <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Folder/file"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="invocationNode">
+      <op value="++"/>
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Node"/>
+      <linkVariablePatterns target="//@rules.1/@sourcePatterns.3">
+        <op value="++"/>
+        <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Text/parentNode"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="invocationsNode">
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Node"/>
+      <attributeConstraints op="==">
+        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
+        <valueExp xsi:type="tgg:LiteralExpression" value="&quot;INVOCATIONS&quot;"/>
+      </attributeConstraints>
+      <linkVariablePatterns target="//@rules.1/@sourcePatterns.4">
+        <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Text/parentNode"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="taskNode">
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Node"/>
+      <linkVariablePatterns target="//@rules.1/@sourcePatterns.0">
+        <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Node/file"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <targetPatterns name="invocation">
+      <op value="++"/>
+      <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//Invocation"/>
+    </targetPatterns>
+    <targetPatterns name="system">
+      <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//SystemModule"/>
+    </targetPatterns>
+    <targetPatterns name="task">
+      <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//Task"/>
+      <linkVariablePatterns target="//@rules.1/@targetPatterns.1">
+        <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//Task/systemModule"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.1/@targetPatterns.0">
+        <op value="++"/>
+        <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//Task/invocations"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <correspondencePatterns name="fileToTask" type="//@schema/@correspondenceTypes.0" source="//@rules.1/@sourcePatterns.0" target="//@rules.1/@targetPatterns.2"/>
+  </rules>
+  <rules name="AbstractOtherInvokedTaskRule" abstractRule="true" schema="//@schema">
+    <using importedNamespace="ProcessCodeAdapter.*"/>
+    <using importedNamespace="AttrCondDefLibrary.*"/>
+    <sourcePatterns name="folder">
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Folder"/>
+      <linkVariablePatterns target="//@rules.2/@sourcePatterns.2">
+        <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Folder/file"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="invocationNode">
+      <op value="++"/>
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Node"/>
+    </sourcePatterns>
+    <sourcePatterns name="otherFile">
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//File"/>
+    </sourcePatterns>
+    <targetPatterns name="invocation">
+      <op value="++"/>
+      <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//Invocation"/>
+    </targetPatterns>
+    <targetPatterns name="invokedTask">
+      <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//Task"/>
+      <linkVariablePatterns target="//@rules.2/@targetPatterns.0">
+        <op value="++"/>
+        <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//Task/invocation"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.2/@targetPatterns.2">
+        <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//Task/systemModule"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="system">
+      <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//SystemModule"/>
+    </targetPatterns>
+    <correspondencePatterns name="fileToTask2" type="//@schema/@correspondenceTypes.0" source="//@rules.2/@sourcePatterns.2" target="//@rules.2/@targetPatterns.1"/>
+    <attrConditions name="//@schema/@attributeCondDefs.0">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.2/@sourcePatterns.1">
+        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
+      </values>
+      <values xsi:type="tgg:LiteralExpression" value="&quot;.proc&quot;"/>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.2/@sourcePatterns.2">
+        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
+      </values>
+    </attrConditions>
+  </rules>
+  <rules name="FileToTaskRule" schema="//@schema">
+    <using importedNamespace="ProcessCodeAdapter.*"/>
+    <using importedNamespace="AttrCondDefLibrary.*"/>
+    <sourcePatterns name="file">
+      <op value="++"/>
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//File"/>
+    </sourcePatterns>
+    <sourcePatterns name="folder">
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Folder"/>
+      <linkVariablePatterns target="//@rules.3/@sourcePatterns.0">
+        <op value="++"/>
+        <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Folder/file"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="importNode">
+      <op value="++"/>
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Node"/>
+      <attributeAssignments op=":=">
+        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
+        <valueExp xsi:type="tgg:LiteralExpression" value="&quot;IMPORTS&quot;"/>
+      </attributeAssignments>
+      <linkVariablePatterns target="//@rules.3/@sourcePatterns.4">
+        <op value="++"/>
+        <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Text/parentNode"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="invocationNode">
+      <op value="++"/>
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Node"/>
+      <attributeAssignments op=":=">
+        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
+        <valueExp xsi:type="tgg:LiteralExpression" value="&quot;INVOCATIONS&quot;"/>
+      </attributeAssignments>
+      <linkVariablePatterns target="//@rules.3/@sourcePatterns.4">
+        <op value="++"/>
+        <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Text/parentNode"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="taskNode">
+      <op value="++"/>
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Node"/>
+      <attributeAssignments op=":=">
+        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
+        <valueExp xsi:type="tgg:LiteralExpression" value="&quot;TASK&quot;"/>
+      </attributeAssignments>
+      <linkVariablePatterns target="//@rules.3/@sourcePatterns.0">
+        <op value="++"/>
+        <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Node/file"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <targetPatterns name="module">
+      <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//Module"/>
+    </targetPatterns>
+    <targetPatterns name="system">
+      <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//SystemModule"/>
+      <linkVariablePatterns target="//@rules.3/@targetPatterns.0">
+        <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//SystemModule/allModules"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="task">
+      <op value="++"/>
+      <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//Task"/>
+      <linkVariablePatterns target="//@rules.3/@targetPatterns.0">
+        <op value="++"/>
+        <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//Task/module"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.3/@targetPatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//Task/systemModule"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <correspondencePatterns name="fileToTask" type="//@schema/@correspondenceTypes.0" source="//@rules.3/@sourcePatterns.0" target="//@rules.3/@targetPatterns.2">
+      <op value="++"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="folderToModule" type="//@schema/@correspondenceTypes.4" source="//@rules.3/@sourcePatterns.1" target="//@rules.3/@targetPatterns.0"/>
+    <attrConditions name="//@schema/@attributeCondDefs.0">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.3/@targetPatterns.2">
+        <attribute href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//Task/id"/>
+      </values>
+      <values xsi:type="tgg:LiteralExpression" value="&quot;.proc&quot;"/>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.3/@sourcePatterns.0">
+        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
+      </values>
+    </attrConditions>
+  </rules>
+  <rules name="NodeToImportRule" schema="//@schema">
+    <using importedNamespace="ProcessCodeAdapter.*"/>
+    <using importedNamespace="AttrCondDefLibrary.*"/>
+    <sourcePatterns name="file">
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//File"/>
+    </sourcePatterns>
+    <sourcePatterns name="folder">
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Folder"/>
+      <linkVariablePatterns target="//@rules.4/@sourcePatterns.0">
+        <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Folder/file"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="invocationNode">
+      <op value="++"/>
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Node"/>
+      <linkVariablePatterns target="//@rules.4/@sourcePatterns.3">
+        <op value="++"/>
+        <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Text/parentNode"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="invocationsNode">
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Node"/>
+      <attributeConstraints op="==">
+        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
+        <valueExp xsi:type="tgg:LiteralExpression" value="&quot;IMPORTS&quot;"/>
+      </attributeConstraints>
+      <linkVariablePatterns target="//@rules.4/@sourcePatterns.6">
+        <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Text/parentNode"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="otherFolder">
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Folder"/>
+    </sourcePatterns>
+    <sourcePatterns name="rootFolder">
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Folder"/>
+      <linkVariablePatterns target="//@rules.4/@sourcePatterns.4">
+        <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Folder/subFolder"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.4/@sourcePatterns.1">
+        <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Folder/subFolder"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="taskNode">
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Node"/>
+      <linkVariablePatterns target="//@rules.4/@sourcePatterns.0">
+        <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Node/file"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <targetPatterns name="importedModule">
+      <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//Module"/>
+      <linkVariablePatterns target="//@rules.4/@targetPatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//Module/import"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="invocation">
+      <op value="++"/>
+      <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//Import"/>
+    </targetPatterns>
+    <targetPatterns name="module">
+      <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//Module"/>
+    </targetPatterns>
+    <targetPatterns name="system">
+      <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//SystemModule"/>
+      <linkVariablePatterns target="//@rules.4/@targetPatterns.2">
+        <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//SystemModule/allModules"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.4/@targetPatterns.0">
+        <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//SystemModule/allModules"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="task">
+      <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//Task"/>
+      <linkVariablePatterns target="//@rules.4/@targetPatterns.2">
+        <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//Task/module"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.4/@targetPatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//Task/imports"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <correspondencePatterns name="fileToImportedModule" type="//@schema/@correspondenceTypes.4" source="//@rules.4/@sourcePatterns.4" target="//@rules.4/@targetPatterns.0"/>
+    <correspondencePatterns name="fileToTask" type="//@schema/@correspondenceTypes.0" source="//@rules.4/@sourcePatterns.0" target="//@rules.4/@targetPatterns.4"/>
+    <correspondencePatterns name="nodeToImport" type="//@schema/@correspondenceTypes.2" source="//@rules.4/@sourcePatterns.2" target="//@rules.4/@targetPatterns.1">
+      <op value="++"/>
+    </correspondencePatterns>
+    <attrConditions name="//@schema/@attributeCondDefs.1">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.4/@sourcePatterns.2">
+        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.4/@sourcePatterns.4">
+        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
+      </values>
+    </attrConditions>
+  </rules>
+  <rules name="NodeToInvocationDifferentModuleRule" schema="//@schema">
+    <using importedNamespace="ProcessCodeAdapter.*"/>
+    <using importedNamespace="AttrCondDefLibrary.*"/>
+    <sourcePatterns name="file">
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//File"/>
+    </sourcePatterns>
+    <sourcePatterns name="folder">
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Folder"/>
+      <linkVariablePatterns target="//@rules.5/@sourcePatterns.0">
+        <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Folder/file"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="invocationNode">
+      <op value="++"/>
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Node"/>
+      <linkVariablePatterns target="//@rules.5/@sourcePatterns.3">
+        <op value="++"/>
+        <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Text/parentNode"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="invocationsNode">
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Node"/>
+      <attributeConstraints op="==">
+        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
+        <valueExp xsi:type="tgg:LiteralExpression" value="&quot;INVOCATIONS&quot;"/>
+      </attributeConstraints>
+      <linkVariablePatterns target="//@rules.5/@sourcePatterns.7">
+        <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Text/parentNode"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="otherFile">
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//File"/>
+    </sourcePatterns>
+    <sourcePatterns name="otherFolder">
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Folder"/>
+      <linkVariablePatterns target="//@rules.5/@sourcePatterns.4">
+        <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Folder/file"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="rootFolder">
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Folder"/>
+      <linkVariablePatterns target="//@rules.5/@sourcePatterns.5">
+        <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Folder/subFolder"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.5/@sourcePatterns.1">
+        <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Folder/subFolder"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="taskNode">
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Node"/>
+      <linkVariablePatterns target="//@rules.5/@sourcePatterns.0">
+        <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Node/file"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <targetPatterns name="invocation">
+      <op value="++"/>
+      <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//Invocation"/>
+    </targetPatterns>
+    <targetPatterns name="invokedTask">
+      <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//Task"/>
+      <linkVariablePatterns target="//@rules.5/@targetPatterns.0">
+        <op value="++"/>
+        <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//Task/invocation"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.5/@targetPatterns.2">
+        <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//Task/systemModule"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="system">
+      <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//SystemModule"/>
+    </targetPatterns>
+    <targetPatterns name="task">
+      <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//Task"/>
+      <linkVariablePatterns target="//@rules.5/@targetPatterns.2">
+        <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//Task/systemModule"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.5/@targetPatterns.0">
+        <op value="++"/>
+        <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//Task/invocations"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <correspondencePatterns name="file2Task2" type="//@schema/@correspondenceTypes.0" source="//@rules.5/@sourcePatterns.4" target="//@rules.5/@targetPatterns.1"/>
+    <correspondencePatterns name="fileToTask" type="//@schema/@correspondenceTypes.0" source="//@rules.5/@sourcePatterns.0" target="//@rules.5/@targetPatterns.3"/>
+    <correspondencePatterns name="invocationNodeToInvocation" type="//@schema/@correspondenceTypes.3" source="//@rules.5/@sourcePatterns.2" target="//@rules.5/@targetPatterns.0">
+      <op value="++"/>
+    </correspondencePatterns>
+    <attrConditions name="//@schema/@attributeCondDefs.0">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.5/@sourcePatterns.2">
+        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
+      </values>
+      <values xsi:type="tgg:LiteralExpression" value="&quot;.proc&quot;"/>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.5/@sourcePatterns.4">
+        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
+      </values>
+    </attrConditions>
+  </rules>
+  <rules name="NodeToInvocationRecursiveRule" schema="//@schema">
+    <using importedNamespace="ProcessCodeAdapter.*"/>
+    <using importedNamespace="AttrCondDefLibrary.*"/>
+    <sourcePatterns name="file">
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//File"/>
+    </sourcePatterns>
+    <sourcePatterns name="folder">
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Folder"/>
+      <linkVariablePatterns target="//@rules.6/@sourcePatterns.0">
+        <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Folder/file"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="invocationNode">
+      <op value="++"/>
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Node"/>
+      <linkVariablePatterns target="//@rules.6/@sourcePatterns.3">
+        <op value="++"/>
+        <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Text/parentNode"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="invocationsNode">
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Node"/>
+      <attributeConstraints op="==">
+        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
+        <valueExp xsi:type="tgg:LiteralExpression" value="&quot;INVOCATIONS&quot;"/>
+      </attributeConstraints>
+      <linkVariablePatterns target="//@rules.6/@sourcePatterns.4">
+        <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Text/parentNode"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="taskNode">
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Node"/>
+      <linkVariablePatterns target="//@rules.6/@sourcePatterns.0">
+        <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Node/file"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <targetPatterns name="invocation">
+      <op value="++"/>
+      <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//Invocation"/>
+    </targetPatterns>
+    <targetPatterns name="system">
+      <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//SystemModule"/>
+    </targetPatterns>
+    <targetPatterns name="task">
+      <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//Task"/>
+      <linkVariablePatterns target="//@rules.6/@targetPatterns.0">
+        <op value="++"/>
+        <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//Task/invocation"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.6/@targetPatterns.0">
+        <op value="++"/>
+        <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//Task/invocations"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.6/@targetPatterns.1">
+        <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//Task/systemModule"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <correspondencePatterns name="fileToTask" type="//@schema/@correspondenceTypes.0" source="//@rules.6/@sourcePatterns.0" target="//@rules.6/@targetPatterns.2"/>
+    <correspondencePatterns name="invocationNodeToInvocation" type="//@schema/@correspondenceTypes.3" source="//@rules.6/@sourcePatterns.2" target="//@rules.6/@targetPatterns.0">
+      <op value="++"/>
+    </correspondencePatterns>
+    <attrConditions name="//@schema/@attributeCondDefs.0">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.6/@sourcePatterns.2">
+        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
+      </values>
+      <values xsi:type="tgg:LiteralExpression" value="&quot;.proc&quot;"/>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.6/@sourcePatterns.0">
+        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
+      </values>
+    </attrConditions>
+  </rules>
+  <rules name="NodeToInvocationRule" schema="//@schema">
+    <using importedNamespace="ProcessCodeAdapter.*"/>
+    <using importedNamespace="AttrCondDefLibrary.*"/>
+    <sourcePatterns name="file">
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//File"/>
+    </sourcePatterns>
+    <sourcePatterns name="folder">
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Folder"/>
+      <linkVariablePatterns target="//@rules.7/@sourcePatterns.0">
+        <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Folder/file"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.7/@sourcePatterns.4">
+        <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Folder/file"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="invocationNode">
+      <op value="++"/>
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Node"/>
+      <linkVariablePatterns target="//@rules.7/@sourcePatterns.3">
+        <op value="++"/>
+        <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Text/parentNode"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="invocationsNode">
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Node"/>
+      <attributeConstraints op="==">
+        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
+        <valueExp xsi:type="tgg:LiteralExpression" value="&quot;INVOCATIONS&quot;"/>
+      </attributeConstraints>
+      <linkVariablePatterns target="//@rules.7/@sourcePatterns.5">
+        <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Text/parentNode"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="otherFile">
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//File"/>
+    </sourcePatterns>
+    <sourcePatterns name="taskNode">
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Node"/>
+      <linkVariablePatterns target="//@rules.7/@sourcePatterns.0">
+        <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Node/file"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <targetPatterns name="invocation">
+      <op value="++"/>
+      <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//Invocation"/>
+    </targetPatterns>
+    <targetPatterns name="invokedTask">
+      <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//Task"/>
+      <linkVariablePatterns target="//@rules.7/@targetPatterns.0">
+        <op value="++"/>
+        <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//Task/invocation"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.7/@targetPatterns.2">
+        <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//Task/systemModule"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="system">
+      <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//SystemModule"/>
+    </targetPatterns>
+    <targetPatterns name="task">
+      <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//Task"/>
+      <linkVariablePatterns target="//@rules.7/@targetPatterns.2">
+        <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//Task/systemModule"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.7/@targetPatterns.0">
+        <op value="++"/>
+        <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//Task/invocations"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <correspondencePatterns name="fileToTask" type="//@schema/@correspondenceTypes.0" source="//@rules.7/@sourcePatterns.0" target="//@rules.7/@targetPatterns.3"/>
+    <correspondencePatterns name="fileToTask2" type="//@schema/@correspondenceTypes.0" source="//@rules.7/@sourcePatterns.4" target="//@rules.7/@targetPatterns.1"/>
+    <correspondencePatterns name="invocationNodeToInvocation" type="//@schema/@correspondenceTypes.3" source="//@rules.7/@sourcePatterns.2" target="//@rules.7/@targetPatterns.0">
+      <op value="++"/>
+    </correspondencePatterns>
+    <attrConditions name="//@schema/@attributeCondDefs.0">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.7/@sourcePatterns.2">
+        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
+      </values>
+      <values xsi:type="tgg:LiteralExpression" value="&quot;.proc&quot;"/>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.7/@sourcePatterns.4">
+        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
+      </values>
+    </attrConditions>
+  </rules>
+  <rules name="RootToSystemRule" schema="//@schema">
+    <using importedNamespace="ProcessCodeAdapter.*"/>
+    <using importedNamespace="AttrCondDefLibrary.*"/>
+    <sourcePatterns name="rootFolder">
+      <op value="++"/>
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Folder"/>
+    </sourcePatterns>
+    <targetPatterns name="system">
+      <op value="++"/>
+      <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//SystemModule"/>
+    </targetPatterns>
+    <correspondencePatterns name="rootFolderToSystem" type="//@schema/@correspondenceTypes.1" source="//@rules.8/@sourcePatterns.0" target="//@rules.8/@targetPatterns.0">
+      <op value="++"/>
+    </correspondencePatterns>
+    <attrConditions name="//@schema/@attributeCondDefs.1">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.8/@sourcePatterns.0">
+        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.8/@targetPatterns.0">
+        <attribute href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//SystemModule/name"/>
+      </values>
+    </attrConditions>
+  </rules>
+  <rules name="SubFolderToModuleRule" schema="//@schema">
+    <using importedNamespace="ProcessCodeAdapter.*"/>
+    <using importedNamespace="AttrCondDefLibrary.*"/>
+    <sourcePatterns name="rootFolder">
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Folder"/>
+      <linkVariablePatterns target="//@rules.9/@sourcePatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Folder/subFolder"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="subFolder">
+      <op value="++"/>
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Folder"/>
+    </sourcePatterns>
+    <targetPatterns name="module">
+      <op value="++"/>
+      <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//Module"/>
+    </targetPatterns>
+    <targetPatterns name="system">
+      <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//SystemModule"/>
+      <linkVariablePatterns target="//@rules.9/@targetPatterns.0">
+        <op value="++"/>
+        <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//SystemModule/allModules"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <correspondencePatterns name="folderToSystem" type="//@schema/@correspondenceTypes.1" source="//@rules.9/@sourcePatterns.0" target="//@rules.9/@targetPatterns.1"/>
+    <correspondencePatterns name="subFolderToSubTask" type="//@schema/@correspondenceTypes.4" source="//@rules.9/@sourcePatterns.1" target="//@rules.9/@targetPatterns.0">
+      <op value="++"/>
+    </correspondencePatterns>
+    <attrConditions name="//@schema/@attributeCondDefs.1">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.9/@sourcePatterns.1">
+        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.9/@targetPatterns.0">
+        <attribute href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//Module/description"/>
+      </values>
+    </attrConditions>
+  </rules>
+</tgg:TripleGraphGrammarFile>
