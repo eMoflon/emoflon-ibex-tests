@@ -110,7 +110,7 @@
       </values>
     </attrConditions>
   </rules>
-  <rules name="AbstractProvideToNodeRule" schema="//@schema">
+  <rules name="AbstractProvideToNodeRule" abstractRule="true" schema="//@schema">
     <using importedNamespace="BlockDiagramCodeAdapter.*"/>
     <using importedNamespace="AttrCondDefLibrary.*"/>
     <sourcePatterns name="port">
@@ -129,7 +129,7 @@
       <op value="++"/>
     </correspondencePatterns>
   </rules>
-  <rules name="AbstractRequireToNodeRule" schema="//@schema">
+  <rules name="AbstractRequireToNodeRule" abstractRule="true" schema="//@schema">
     <using importedNamespace="BlockDiagramCodeAdapter.*"/>
     <using importedNamespace="AttrCondDefLibrary.*"/>
     <sourcePatterns name="port">

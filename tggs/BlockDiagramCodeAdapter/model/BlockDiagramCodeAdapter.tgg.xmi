@@ -57,7 +57,7 @@
       </parameterValues>
     </attributeConditionLibrary>
   </rules>
-  <rules name="AbstractProvideToNodeRule">
+  <rules name="AbstractProvideToNodeRule" abstract="true">
     <nodes name="port" bindingType="CREATE" incomingCorrsSource="//@rules.1/@nodes.2">
       <type href="platform:/resource/BlockDiagram/model/BlockDiagram.ecore#//Provide"/>
     </nodes>
@@ -73,7 +73,7 @@
     </nodes>
     <attributeConditionLibrary/>
   </rules>
-  <rules name="AbstractRequireToNodeRule">
+  <rules name="AbstractRequireToNodeRule" abstract="true">
     <nodes name="port" bindingType="CREATE" incomingCorrsSource="//@rules.2/@nodes.2">
       <type href="platform:/resource/BlockDiagram/model/BlockDiagram.ecore#//Require"/>
     </nodes>

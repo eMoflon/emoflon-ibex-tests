@@ -1,7 +1,7 @@
 #using BlockDiagramCodeAdapter.*
 #using AttrCondDefLibrary.*
 
-#rule AbstractProvideToNodeRule #with BlockDiagramCodeAdapter
+#abstract #rule AbstractProvideToNodeRule #with BlockDiagramCodeAdapter
 
 #source {
 	++port:Provide
