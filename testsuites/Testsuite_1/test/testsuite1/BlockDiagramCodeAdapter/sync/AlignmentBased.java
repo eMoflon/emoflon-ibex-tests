@@ -1,20 +1,37 @@
 package testsuite1.BlockDiagramCodeAdapter.sync;
 
-import org.benchmarx.BXTool;
+import org.benchmarx.blockDiagram.core.BlockDiagramHelper;
+import org.benchmarx.mocaTree.core.MocaTreeNodeHelper;
 import org.junit.Ignore;
 import org.junit.Test;
 
 import BlockDiagram.BlockSystem;
 import MocaTree.File;
-import testsuite1.BlockDiagramCodeAdapter.sync.util.Decisions;
-import testsuite1.BlockDiagramCodeAdapter.sync.util.SyncTestCase;
+import testsuite1.BlockDiagramCodeAdapter.sync.util.IbexBlockDiagramCodeAdapter;
 
 
-public class AlignmentBased extends SyncTestCase {
+public class AlignmentBased extends testsuite1.testUtil.SyncTestCase<BlockSystem, File> {
+	private static final String projectName = "BlockDiagramCodeAdapter";
+	
+	BlockDiagramHelper helperBlock;
+	MocaTreeNodeHelper helperMT;
 
 	/** Currently, some of these tests fail due to Assertion Error in Democles*/
-	public AlignmentBased(BXTool<BlockSystem, File, Decisions> tool) {
-		super(tool);
+	public AlignmentBased(boolean flatten) {
+		super(new IbexBlockDiagramCodeAdapter(flatten, projectName), flatten);
+	}
+	
+	protected void initHelpers() {
+		helperBlock = new BlockDiagramHelper();
+		helperMT = new MocaTreeNodeHelper();
+	}
+	
+	protected void assertPrecondition(String source, String target) {
+		util.assertPrecondition(projectName+"/"+source, projectName+"/"+target);
+	}
+	
+	protected void assertPostcondition(String source, String target) {
+		util.assertPostcondition(projectName+"/"+source, projectName+"/"+target);
 	}
 	
 	/**
@@ -26,7 +43,7 @@ public class AlignmentBased extends SyncTestCase {
 		// No precondition!
 		//------------
 		//------------
-		util.assertPostcondition("in/SystemToNode_FWD", "expected/SystemToNode_FWD");
+		assertPostcondition("in/SystemToNode_FWD", "expected/SystemToNode_FWD");
 	}
 
 	/**
@@ -36,12 +53,12 @@ public class AlignmentBased extends SyncTestCase {
 	@Ignore("Waiting for Fix related to democles issue #14")
 	public void testProvideToNode_FWD()
 	{
-		util.assertPrecondition("in/SystemToNode_FWD", "expected/SystemToNode_FWD");
+		assertPrecondition("in/SystemToNode_FWD", "expected/SystemToNode_FWD");
 		//------------
 		tool.performAndPropagateSourceEdit(bs -> helperBlock.createBlock(bs, "A"));
 		tool.performAndPropagateSourceEdit(bs -> helperBlock.createProvidePortInFirstBlock(bs, "5"));
 		//------------
-		util.assertPostcondition("in/ProvideToNode_FWD", "expected/ProvideToNode_FWD");
+		assertPostcondition("in/ProvideToNode_FWD", "expected/ProvideToNode_FWD");
 	}
 
 	/**
@@ -50,12 +67,12 @@ public class AlignmentBased extends SyncTestCase {
 	@Test
 	public void testProvideToNode_BWD()
 	{
-		util.assertPrecondition("in/SystemToNode_FWD", "expected/SystemToNode_FWD");
+		assertPrecondition("in/SystemToNode_FWD", "expected/SystemToNode_FWD");
 		//------------
 		tool.performAndPropagateTargetEdit(f -> helperMT.createBlockNode(f, "A"));
 		tool.performAndPropagateTargetEdit(f -> helperMT.createPortNodeInFirstBlockNode(f, "PROVIDE", "5"));
 		//------------
-		util.assertPostcondition("expected/ProvideToNode_BWD", "in/ProvideToNode_BWD");
+		assertPostcondition("expected/ProvideToNode_BWD", "in/ProvideToNode_BWD");
 	}
 
 	/**
@@ -65,12 +82,12 @@ public class AlignmentBased extends SyncTestCase {
 	@Ignore("Waiting for Fix related to democles issue #14")
 	public void testRequireToNode_FWD()
 	{
-		util.assertPrecondition("in/SystemToNode_FWD", "expected/SystemToNode_FWD");
+		assertPrecondition("in/SystemToNode_FWD", "expected/SystemToNode_FWD");
 		//------------
 		tool.performAndPropagateSourceEdit(bs -> helperBlock.createBlock(bs, "A"));
 		tool.performAndPropagateSourceEdit(bs -> helperBlock.createRequirePortInFirstBlock(bs, "1"));
 		//------------
-		util.assertPostcondition("in/RequireToNode_FWD", "expected/RequireToNode_FWD");
+		assertPostcondition("in/RequireToNode_FWD", "expected/RequireToNode_FWD");
 	}
 
 	/**
@@ -79,12 +96,12 @@ public class AlignmentBased extends SyncTestCase {
 	@Test
 	public void testRequireToNode_BWD()
 	{
-		util.assertPrecondition("in/SystemToNode_FWD", "expected/SystemToNode_FWD");
+		assertPrecondition("in/SystemToNode_FWD", "expected/SystemToNode_FWD");
 		//------------
 		tool.performAndPropagateTargetEdit(f -> helperMT.createBlockNode(f, "A"));
 		tool.performAndPropagateTargetEdit(f -> helperMT.createPortNodeInFirstBlockNode(f, "REQUIRE", "1"));
 		//------------
-		util.assertPostcondition("expected/RequireToNode_BWD", "in/RequireToNode_BWD");
+		assertPostcondition("expected/RequireToNode_BWD", "in/RequireToNode_BWD");
 	}
 
 	/**
@@ -94,7 +111,7 @@ public class AlignmentBased extends SyncTestCase {
 	@Ignore("Waiting for Fix related to democles issue #14")
 	public void testConnectorToNode_FWD()
 	{
-		util.assertPrecondition("in/SystemToNode_FWD", "expected/SystemToNode_FWD");
+		assertPrecondition("in/SystemToNode_FWD", "expected/SystemToNode_FWD");
 		//------------
 		tool.performAndPropagateSourceEdit(bs -> helperBlock.createBlock(bs, "A"));
 		tool.performAndPropagateSourceEdit(bs -> helperBlock.createProvidePortInFirstBlock(bs, "5"));
@@ -102,7 +119,7 @@ public class AlignmentBased extends SyncTestCase {
 		tool.performAndPropagateSourceEdit(bs -> helperBlock.createRequirePortInBlock(bs, "5", 1));
 		tool.performAndPropagateSourceEdit(bs -> helperBlock.createConnectorBetweenFirstTwoBlocks(bs));
 		//------------
-		util.assertPostcondition("in/ConnectorToNode_FWD", "expected/ConnectorToNode_FWD");
+		assertPostcondition("in/ConnectorToNode_FWD", "expected/ConnectorToNode_FWD");
 	}
 
 	/**
@@ -111,7 +128,7 @@ public class AlignmentBased extends SyncTestCase {
 	@Test
 	public void testConnectorToNode_BWD()
 	{
-		util.assertPrecondition("in/SystemToNode_FWD", "expected/SystemToNode_FWD");
+		assertPrecondition("in/SystemToNode_FWD", "expected/SystemToNode_FWD");
 		//------------
 		tool.performAndPropagateTargetEdit(f -> helperMT.createBlockNode(f, "A"));
 		tool.performAndPropagateTargetEdit(f -> helperMT.createBlockNode(f, "B"));
@@ -119,7 +136,7 @@ public class AlignmentBased extends SyncTestCase {
 		tool.performAndPropagateTargetEdit(f -> helperMT.createPortNodeInBlockNode(f, "REQUIRE", "2", 1));
 		tool.performAndPropagateTargetEdit(f -> helperMT.createConnectorNodeBetweenFirstTwoBlockNodes(f));
 		//------------
-		util.assertPostcondition("expected/ConnectorToNode_BWD", "in/ConnectorToNode_BWD");
+		assertPostcondition("expected/ConnectorToNode_BWD", "in/ConnectorToNode_BWD");
 	}
 	
 }

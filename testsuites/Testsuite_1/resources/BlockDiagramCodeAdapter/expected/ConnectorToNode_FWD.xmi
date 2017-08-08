@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ASCII"?>
+<MocaTree:File xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xmlns:MocaTree="platform:/plugin/MocaTree/model/MocaTree.ecore#/" name="aBlockSystem">
+  <rootNode name="System">
+    <children xsi:type="MocaTree:Node" name="Block">
+      <children xsi:type="MocaTree:Node" name="PROVIDE">
+        <attribute name="id" value="5"/>
+      </children>
+      <attribute name="id" value="A"/>
+    </children>
+    <children xsi:type="MocaTree:Node" name="Block">
+      <children xsi:type="MocaTree:Node" name="REQUIRE">
+        <children xsi:type="MocaTree:Node" name="CONNECTOR">
+          <attribute name="port" value="5"/>
+          <attribute index="1" name="block" value="A"/>
+        </children>
+        <attribute name="id" value="2"/>
+      </children>
+      <attribute name="id" value="B"/>
+    </children>
+  </rootNode>
+</MocaTree:File>
