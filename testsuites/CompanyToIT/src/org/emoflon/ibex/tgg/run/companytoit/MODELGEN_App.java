@@ -1,4 +1,4 @@
-package org.emoflon.ibex.tgg.run;
+package org.emoflon.ibex.tgg.run.companytoit;
 
 import java.io.IOException;
 

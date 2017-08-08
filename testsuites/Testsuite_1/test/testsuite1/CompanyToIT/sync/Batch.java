@@ -2,6 +2,8 @@ package testsuite1.CompanyToIT.sync;
 
 import java.util.Set;
 
+import org.benchmarx.companyLanguage.core.CompanyLanguageHelper;
+import org.benchmarx.itLanguage.core.ITLanguageHelper;
 import org.emoflon.ibex.tgg.operational.util.IMatch;
 import org.junit.Test;
 
@@ -9,13 +11,31 @@ import CompanyLanguage.Company;
 import CompanyLanguage.Employee;
 import ITLanguage.IT;
 import testsuite1.CompanyToIT.sync.util.IbexCompanyToIT;
-import testsuite1.CompanyToIT.sync.util.SyncTestCase;
+import testsuite1.testUtil.SyncTestCase;
 
 
-public class Batch extends SyncTestCase {
+public class Batch extends SyncTestCase<Company, IT> {
+	public final static String projectName = "CompanyToIT";
+	
+	CompanyLanguageHelper helperCompany;
+	ITLanguageHelper helperIT;
 
-	public Batch(IbexCompanyToIT tool) {
-		super(tool);
+	public Batch(boolean flatten) {
+		super(new IbexCompanyToIT(flatten, projectName), flatten);
+	}
+	
+	@Override
+	protected void initHelpers() {
+		helperCompany = new CompanyLanguageHelper();
+		helperIT = new ITLanguageHelper();
+	}
+	
+	protected void assertPrecondition(String source, String target) {
+		util.assertPrecondition(projectName+"/"+source, projectName+"/"+target);
+	}
+	
+	protected void assertPostcondition(String source, String target) {
+		util.assertPostcondition(projectName+"/"+source, projectName+"/"+target);
 	}
 
 	/**
@@ -27,7 +47,7 @@ public class Batch extends SyncTestCase {
 		//------------
 
 		//------------
-		util.assertPostcondition("in/Company_FWD", "expected/Company_FWD");
+		assertPostcondition("in/Company_FWD", "expected/Company_FWD");
 	}
 
 	/**
@@ -36,11 +56,11 @@ public class Batch extends SyncTestCase {
 	@Test
 	public void testAdmin_FWD()
 	{
-		util.assertPrecondition("in/Company_FWD", "expected/Company_FWD");
+		assertPrecondition("in/Company_FWD", "expected/Company_FWD");
 		//------------
 		tool.performAndPropagateSourceEdit(c -> helperCompany.createAdminForCEO(c, "Ingo"));
 		//------------
-		util.assertPostcondition("in/Admin_FWD", "expected/Admin_FWD");
+		assertPostcondition("in/Admin_FWD", "expected/Admin_FWD");
 	}
 
 	/**
@@ -49,13 +69,13 @@ public class Batch extends SyncTestCase {
 	@Test
 	public void testAdmin_BWD()
 	{
-		util.assertPrecondition("in/Company_FWD", "expected/Company_FWD");
+		assertPrecondition("in/Company_FWD", "expected/Company_FWD");
 		//------------
 		tool.performAndPropagateTargetEdit(util.execute((IT i) -> helperIT.createEmptyNetwork(i, "ES"))
 					.andThen((i -> helperIT.createRouterOnFirstNetwork(i, "Ingo")))
 			);
 		//------------
-		util.assertPostcondition("expected/Admin_BWD", "in/Admin_BWD");
+		assertPostcondition("expected/Admin_BWD", "in/Admin_BWD");
 	}
 
 	/**
@@ -64,7 +84,7 @@ public class Batch extends SyncTestCase {
 	@Test
 	public void testEmployee_Laptop_FWD()
 	{
-		tool.getSYNC().setUpdatePolicy(matchContainer -> {
+		((IbexCompanyToIT)tool).getSYNC().setUpdatePolicy(matchContainer -> {
 			Set<IMatch> matches = matchContainer.getMatches();
 			for (IMatch match : matches) {
 				if (!matchContainer.getRuleName(match).equals("EmployeeToPCRule"))
@@ -73,13 +93,13 @@ public class Batch extends SyncTestCase {
 			return matches.iterator().next();
 		});
 		
-		util.assertPrecondition("in/Company_FWD", "expected/Company_FWD");
+		assertPrecondition("in/Company_FWD", "expected/Company_FWD");
 		//------------
 		tool.performAndPropagateSourceEdit(util.execute((Company c) -> helperCompany.createAdminForCEO(c, "Ingo"))
 					.andThen((c -> helperCompany.createEmployeeForFirstCEO(c, "Tony")))
 			);
 		//------------
-		util.assertPostcondition("in/Employee_Laptop_FWD", "expected/Employee_Laptop_FWD");
+		assertPostcondition("in/Employee_Laptop_FWD", "expected/Employee_Laptop_FWD");
 	}
 
 	/**
@@ -88,7 +108,7 @@ public class Batch extends SyncTestCase {
 	@Test
 	public void testEmployee_Laptop_BWD()
 	{
-		util.assertPrecondition("in/Company_FWD", "expected/Company_FWD");
+		assertPrecondition("in/Company_FWD", "expected/Company_FWD");
 		//------------
 		tool.performAndPropagateTargetEdit(util.execute((IT i) -> helperIT.createEmptyNetwork(i, "ES"))
 					.andThen((i -> helperIT.createRouterOnFirstNetwork(i, "Ingo")))
@@ -96,7 +116,7 @@ public class Batch extends SyncTestCase {
 					.andThen((i -> helperIT.createLaptopOnFirstNetwork(i, "Marius")))
 			);
 		//------------
-		util.assertPostcondition("expected/Employee_Laptop_BWD", "in/Employee_Laptop_BWD");
+		assertPostcondition("expected/Employee_Laptop_BWD", "in/Employee_Laptop_BWD");
 	}
 	
 	/**
@@ -105,7 +125,7 @@ public class Batch extends SyncTestCase {
 	@Test
 	public void testEmployee_PC_FWD()
 	{
-		tool.getSYNC().setUpdatePolicy(matchContainer -> {
+		((IbexCompanyToIT)tool).getSYNC().setUpdatePolicy(matchContainer -> {
 			Set<IMatch> matches = matchContainer.getMatches();
 			for (IMatch match : matches) {
 				if (!matchContainer.getRuleName(match).equals("EmployeeToLaptopRule"))
@@ -114,13 +134,13 @@ public class Batch extends SyncTestCase {
 			return matches.iterator().next();
 		});
 		
-		util.assertPrecondition("in/Company_FWD", "expected/Company_FWD");
+		assertPrecondition("in/Company_FWD", "expected/Company_FWD");
 		//------------
 		tool.performAndPropagateSourceEdit(util.execute((Company c) -> helperCompany.createAdminForCEO(c, "Ingo"))
 					.andThen((c -> helperCompany.createEmployeeForFirstCEO(c, "Marius")))
 			);
 		//------------
-		util.assertPostcondition("in/Employee_PC_FWD", "expected/Employee_PC_FWD");
+		assertPostcondition("in/Employee_PC_FWD", "expected/Employee_PC_FWD");
 	}
 
 	/**
@@ -129,7 +149,7 @@ public class Batch extends SyncTestCase {
 	@Test
 	public void testEmployee_PC_BWD()
 	{
-		util.assertPrecondition("in/Company_FWD", "expected/Company_FWD");
+		assertPrecondition("in/Company_FWD", "expected/Company_FWD");
 		//------------
 		tool.performAndPropagateTargetEdit(util.execute((IT i) -> helperIT.createEmptyNetwork(i, "ES"))
 					.andThen((i -> helperIT.createRouterOnFirstNetwork(i, "Ingo")))
@@ -137,7 +157,7 @@ public class Batch extends SyncTestCase {
 					.andThen((i -> helperIT.createPCOnFirstNetwork(i, "Marius")))
 			);
 		//------------
-		util.assertPostcondition("expected/Employee_PC_BWD", "in/Employee_PC_BWD");
+		assertPostcondition("expected/Employee_PC_BWD", "in/Employee_PC_BWD");
 	}
 	
 	/**
@@ -146,7 +166,7 @@ public class Batch extends SyncTestCase {
 	@Test
 	public void testEmployee_PC_Laptop_FWD()
 	{
-		tool.getSYNC().setUpdatePolicy(matchContainer -> {
+		((IbexCompanyToIT)tool).getSYNC().setUpdatePolicy(matchContainer -> {
 			Set<IMatch> matches = matchContainer.getMatches();
 			for (IMatch match : matches) {
 				String name = matchContainer.getRuleName(match);
@@ -165,14 +185,14 @@ public class Batch extends SyncTestCase {
 			return matches.iterator().next();
 		});
 		
-		util.assertPrecondition("in/Company_FWD", "expected/Company_FWD");
+		assertPrecondition("in/Company_FWD", "expected/Company_FWD");
 		//------------
 		tool.performAndPropagateSourceEdit(util.execute((Company c) -> helperCompany.createAdminForCEO(c, "Ingo"))
 					.andThen((c -> helperCompany.createEmployeeForFirstCEO(c, "Marius")))
 					.andThen((c -> helperCompany.createEmployeeForFirstCEO(c, "Tony")))
 			);
 		//------------
-		util.assertPostcondition("in/Employee_PC_Laptop_FWD", "expected/Employee_PC_Laptop_FWD");
+		assertPostcondition("in/Employee_PC_Laptop_FWD", "expected/Employee_PC_Laptop_FWD");
 	}
 
 	/**
@@ -181,7 +201,7 @@ public class Batch extends SyncTestCase {
 	@Test
 	public void testEmployee_PC_Laptop_BWD()
 	{
-		util.assertPrecondition("in/Company_FWD", "expected/Company_FWD");
+		assertPrecondition("in/Company_FWD", "expected/Company_FWD");
 		//------------
 		tool.performAndPropagateTargetEdit(util.execute((IT i) -> helperIT.createEmptyNetwork(i, "ES"))
 					.andThen((i -> helperIT.createRouterOnFirstNetwork(i, "Ingo")))
@@ -189,6 +209,6 @@ public class Batch extends SyncTestCase {
 					.andThen((i -> helperIT.createPCOnFirstNetwork(i, "Marius")))
 			);
 		//------------
-		util.assertPostcondition("in/Employee_PC_Laptop_FWD", "expected/Employee_PC_Laptop_FWD");
+		assertPostcondition("in/Employee_PC_Laptop_FWD", "expected/Employee_PC_Laptop_FWD");
 	}
 }

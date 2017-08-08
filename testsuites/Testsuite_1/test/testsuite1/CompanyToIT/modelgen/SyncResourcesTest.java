@@ -2,12 +2,40 @@ package testsuite1.CompanyToIT.modelgen;
 
 import java.io.IOException;
 
+import org.benchmarx.companyLanguage.core.CompanyLanguageComparator;
+import org.benchmarx.itLanguage.core.ITLanguageComparator;
+import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGENStopCriterion;
+import org.emoflon.ibex.tgg.run.companytoit.MODELGEN_App;
+import org.junit.Before;
 import org.junit.Test;
 
-public class SyncResourcesTest extends ModelGenTestCase {
+import CompanyLanguage.Company;
+import ITLanguage.IT;
+import language.TGGRule;
+import testsuite1.testUtil.ModelGenTestCase;
+
+public class SyncResourcesTest extends ModelGenTestCase<Company, IT> {
 
 	public SyncResourcesTest(Boolean flatten) {
 		super(flatten);
+	}
+
+	@Override
+	protected String getProjectName() {
+		return "CompanyToIT";
+	}
+	
+	@Before
+	public void createGenerator() throws IOException {
+		generator = new MODELGEN_App(getProjectName(), "./../", flatten, false);
+		stop = new MODELGENStopCriterion(generator.getTGG());
+		
+		for (TGGRule rule : generator.getTGG().getRules()) {
+			stop.setMaxRuleCount(rule.getName(), 0);
+		}
+		
+		sourceComp = new CompanyLanguageComparator(false);
+		targetComp = new ITLanguageComparator(false);
 	}
 	
 	@Test
@@ -52,5 +80,4 @@ public class SyncResourcesTest extends ModelGenTestCase {
 		runGenerator(stop);
 		assertPostcondition("in/Employee_PC_FWD", "expected/Employee_PC_FWD");
 	}
-
 }
