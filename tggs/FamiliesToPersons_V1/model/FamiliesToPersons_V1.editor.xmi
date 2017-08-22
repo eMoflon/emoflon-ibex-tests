@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="ASCII"?>
 <tgg:TripleGraphGrammarFile xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tgg="http://www.moflon.org/ide/tgg/mosl/TGG">
+  <imports name="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore"/>
+  <imports name="platform:/resource/SimplePersons/model/SimplePersons.ecore"/>
   <schema name="FamiliesToPersons_V1">
-    <imports name="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore"/>
-    <imports name="platform:/resource/SimplePersons/model/SimplePersons.ecore"/>
     <sourceTypes href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#/"/>
     <targetTypes href="platform:/resource/SimplePersons/model/SimplePersons.ecore#/"/>
     <correspondenceTypes name="RegisterToRegister">
@@ -51,8 +51,6 @@
     </attributeCondDefs>
   </schema>
   <rules name="CreateDaughterInExistingFamily" schema="//@schema">
-    <using importedNamespace="FamiliesToPersons_V1.*"/>
-    <using importedNamespace="AttrCondDefLibrary.*"/>
     <sourcePatterns name="f">
       <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//Family"/>
       <linkVariablePatterns target="//@rules.0/@sourcePatterns.1">
@@ -88,8 +86,6 @@
     </attrConditions>
   </rules>
   <rules name="CreateMotherInNewFamily" schema="//@schema">
-    <using importedNamespace="FamiliesToPersons_V1.*"/>
-    <using importedNamespace="AttrCondDefLibrary.*"/>
     <sourcePatterns name="reg">
       <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//FamilyRegister"/>
       <linkVariablePatterns target="//@rules.1/@sourcePatterns.1">
@@ -138,8 +134,6 @@
     </attrConditions>
   </rules>
   <rules name="HandleRegisters" schema="//@schema">
-    <using importedNamespace="FamiliesToPersons_V1.*"/>
-    <using importedNamespace="AttrCondDefLibrary.*"/>
     <sourcePatterns name="fr">
       <op value="++"/>
       <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//FamilyRegister"/>

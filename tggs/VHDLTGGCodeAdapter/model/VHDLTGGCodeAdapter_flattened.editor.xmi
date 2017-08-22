@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="ASCII"?>
 <tgg:TripleGraphGrammarFile xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tgg="http://www.moflon.org/ide/tgg/mosl/TGG">
+  <imports name="platform:/resource/MocaTree/model/MocaTree.ecore"/>
+  <imports name="platform:/resource/VHDLModel/model/VHDLModel.ecore"/>
   <schema name="VHDLTGGCodeAdapter">
-    <imports name="platform:/resource/MocaTree/model/MocaTree.ecore"/>
-    <imports name="platform:/resource/VHDLModel/model/VHDLModel.ecore"/>
     <sourceTypes href="platform:/resource/MocaTree/model/MocaTree.ecore#/"/>
     <targetTypes href="platform:/resource/VHDLModel/model/VHDLModel.ecore#/"/>
     <correspondenceTypes name="NodeToInputPort">
@@ -124,8 +124,6 @@
     </attributeCondDefs>
   </schema>
   <rules name="AbstractBinaryMappingRule" abstractRule="true" schema="//@schema">
-    <using importedNamespace="VHDLTGGCodeAdapter.*"/>
-    <using importedNamespace="AttrCondDefLibrary.*"/>
     <sourcePatterns name="entityNode">
       <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Node"/>
       <attributeConstraints op="==">
@@ -351,8 +349,6 @@
     </attrConditions>
   </rules>
   <rules name="AbstractMappingRule" abstractRule="true" schema="//@schema">
-    <using importedNamespace="VHDLTGGCodeAdapter.*"/>
-    <using importedNamespace="AttrCondDefLibrary.*"/>
     <sourcePatterns name="entityNode">
       <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Node"/>
       <attributeConstraints op="==">
@@ -490,8 +486,6 @@
     </attrConditions>
   </rules>
   <rules name="Entity2CompositeBlock" schema="//@schema">
-    <using importedNamespace="VHDLTGGCodeAdapter.*"/>
-    <using importedNamespace="AttrCondDefLibrary.*"/>
     <sourcePatterns name="entity">
       <op value="++"/>
       <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Node"/>
@@ -601,8 +595,6 @@
     </attrConditions>
   </rules>
   <rules name="File2VHDLSpec" schema="//@schema">
-    <using importedNamespace="VHDLTGGCodeAdapter.*"/>
-    <using importedNamespace="AttrCondDefLibrary.*"/>
     <sourcePatterns name="file">
       <op value="++"/>
       <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//File"/>
@@ -637,8 +629,6 @@
     </attrConditions>
   </rules>
   <rules name="Handle" abstractRule="true" schema="//@schema">
-    <using importedNamespace="VHDLTGGCodeAdapter.*"/>
-    <using importedNamespace="AttrCondDefLibrary.*"/>
     <sourcePatterns name="entity">
       <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Node"/>
       <attributeConstraints op="==">
@@ -700,8 +690,6 @@
     </attrConditions>
   </rules>
   <rules name="HandleInPort" schema="//@schema">
-    <using importedNamespace="VHDLTGGCodeAdapter.*"/>
-    <using importedNamespace="AttrCondDefLibrary.*"/>
     <sourcePatterns name="entity">
       <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Node"/>
       <attributeConstraints op="==">
@@ -778,8 +766,6 @@
     </attrConditions>
   </rules>
   <rules name="HandleOutPort" schema="//@schema">
-    <using importedNamespace="VHDLTGGCodeAdapter.*"/>
-    <using importedNamespace="AttrCondDefLibrary.*"/>
     <sourcePatterns name="entity">
       <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Node"/>
       <attributeConstraints op="==">
@@ -852,8 +838,6 @@
     </attrConditions>
   </rules>
   <rules name="Mapping2AndGate" schema="//@schema">
-    <using importedNamespace="VHDLTGGCodeAdapter.*"/>
-    <using importedNamespace="AttrCondDefLibrary.*"/>
     <sourcePatterns name="entityNode">
       <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Node"/>
       <attributeConstraints op="==">
@@ -1126,8 +1110,6 @@
     </attrConditions>
   </rules>
   <rules name="Mapping2NotGate" schema="//@schema">
-    <using importedNamespace="VHDLTGGCodeAdapter.*"/>
-    <using importedNamespace="AttrCondDefLibrary.*"/>
     <sourcePatterns name="entityNode">
       <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Node"/>
       <attributeConstraints op="==">
@@ -1308,14 +1290,6 @@
       <op value="++"/>
     </correspondencePatterns>
     <attrConditions name="//@schema/@attributeCondDefs.0">
-      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.8/@targetPatterns.3">
-        <attribute href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Port/name"/>
-      </values>
-      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.8/@sourcePatterns.9">
-        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
-      </values>
-    </attrConditions>
-    <attrConditions name="//@schema/@attributeCondDefs.0">
       <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.8/@sourcePatterns.8">
         <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
       </values>
@@ -1323,10 +1297,16 @@
         <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
       </values>
     </attrConditions>
+    <attrConditions name="//@schema/@attributeCondDefs.0">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.8/@targetPatterns.3">
+        <attribute href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Port/name"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.8/@sourcePatterns.9">
+        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
+      </values>
+    </attrConditions>
   </rules>
   <rules name="Mapping2OrGate" schema="//@schema">
-    <using importedNamespace="VHDLTGGCodeAdapter.*"/>
-    <using importedNamespace="AttrCondDefLibrary.*"/>
     <sourcePatterns name="entityNode">
       <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Node"/>
       <attributeConstraints op="==">
@@ -1518,13 +1498,13 @@
         <attribute href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Port/name"/>
         <valueExp xsi:type="tgg:LiteralExpression" value="&quot;OR.in1&quot;"/>
       </attributeAssignments>
-      <linkVariablePatterns target="//@rules.9/@targetPatterns.1">
-        <op value="++"/>
-        <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Port/block"/>
-      </linkVariablePatterns>
       <linkVariablePatterns target="//@rules.9/@targetPatterns.2">
         <op value="++"/>
         <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Port/src"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.9/@targetPatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Port/block"/>
       </linkVariablePatterns>
     </targetPatterns>
     <targetPatterns name="out">
@@ -1556,13 +1536,13 @@
         <attribute href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Port/name"/>
         <valueExp xsi:type="tgg:LiteralExpression" value="&quot;OR.in2&quot;"/>
       </attributeAssignments>
-      <linkVariablePatterns target="//@rules.9/@targetPatterns.1">
-        <op value="++"/>
-        <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Port/block"/>
-      </linkVariablePatterns>
       <linkVariablePatterns target="//@rules.9/@targetPatterns.6">
         <op value="++"/>
         <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Port/src"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.9/@targetPatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Port/block"/>
       </linkVariablePatterns>
     </targetPatterns>
     <correspondencePatterns name="gate2composite" type="//@schema/@correspondenceTypes.2" source="//@rules.9/@sourcePatterns.2" target="//@rules.9/@targetPatterns.0"/>

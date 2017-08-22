@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="ASCII"?>
 <tgg:TripleGraphGrammarFile xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tgg="http://www.moflon.org/ide/tgg/mosl/TGG">
+  <imports name="platform:/resource/BlockDiagram/model/BlockDiagram.ecore"/>
+  <imports name="platform:/resource/MocaTree/model/MocaTree.ecore"/>
   <schema name="BlockDiagramCodeAdapter">
-    <imports name="platform:/resource/BlockDiagram/model/BlockDiagram.ecore"/>
-    <imports name="platform:/resource/MocaTree/model/MocaTree.ecore"/>
     <sourceTypes href="platform:/resource/BlockDiagram/model/BlockDiagram.ecore#/"/>
     <targetTypes href="platform:/resource/MocaTree/model/MocaTree.ecore#/"/>
     <correspondenceTypes name="PortToNode">
@@ -61,8 +61,6 @@
     </attributeCondDefs>
   </schema>
   <rules name="AbstractPortToNodeRule" abstractRule="true" schema="//@schema">
-    <using importedNamespace="BlockDiagramCodeAdapter.*"/>
-    <using importedNamespace="AttrCondDefLibrary.*"/>
     <sourcePatterns name="block">
       <type href="platform:/resource/BlockDiagram/model/BlockDiagram.ecore#//Block"/>
     </sourcePatterns>
@@ -111,8 +109,6 @@
     </attrConditions>
   </rules>
   <rules name="AbstractProvideToNodeRule" abstractRule="true" schema="//@schema">
-    <using importedNamespace="BlockDiagramCodeAdapter.*"/>
-    <using importedNamespace="AttrCondDefLibrary.*"/>
     <sourcePatterns name="port">
       <op value="++"/>
       <type href="platform:/resource/BlockDiagram/model/BlockDiagram.ecore#//Provide"/>
@@ -130,8 +126,6 @@
     </correspondencePatterns>
   </rules>
   <rules name="AbstractRequireToNodeRule" abstractRule="true" schema="//@schema">
-    <using importedNamespace="BlockDiagramCodeAdapter.*"/>
-    <using importedNamespace="AttrCondDefLibrary.*"/>
     <sourcePatterns name="port">
       <op value="++"/>
       <type href="platform:/resource/BlockDiagram/model/BlockDiagram.ecore#//Require"/>
@@ -149,8 +143,6 @@
     </correspondencePatterns>
   </rules>
   <rules name="BlockToNodeRule" schema="//@schema">
-    <using importedNamespace="BlockDiagramCodeAdapter.*"/>
-    <using importedNamespace="AttrCondDefLibrary.*"/>
     <sourcePatterns name="block">
       <op value="++"/>
       <type href="platform:/resource/BlockDiagram/model/BlockDiagram.ecore#//Block"/>
@@ -203,8 +195,6 @@
     </attrConditions>
   </rules>
   <rules name="ConnectorToNodeRule" schema="//@schema">
-    <using importedNamespace="BlockDiagramCodeAdapter.*"/>
-    <using importedNamespace="AttrCondDefLibrary.*"/>
     <sourcePatterns name="connector">
       <op value="++"/>
       <type href="platform:/resource/BlockDiagram/model/BlockDiagram.ecore#//Connector"/>
@@ -327,8 +317,6 @@
     </attrConditions>
   </rules>
   <rules name="ProvideToNodeRule" schema="//@schema">
-    <using importedNamespace="BlockDiagramCodeAdapter.*"/>
-    <using importedNamespace="AttrCondDefLibrary.*"/>
     <sourcePatterns name="block">
       <type href="platform:/resource/BlockDiagram/model/BlockDiagram.ecore#//Block"/>
     </sourcePatterns>
@@ -381,8 +369,6 @@
     </attrConditions>
   </rules>
   <rules name="RequireToNodeRule" schema="//@schema">
-    <using importedNamespace="BlockDiagramCodeAdapter.*"/>
-    <using importedNamespace="AttrCondDefLibrary.*"/>
     <sourcePatterns name="block">
       <type href="platform:/resource/BlockDiagram/model/BlockDiagram.ecore#//Block"/>
     </sourcePatterns>
@@ -435,8 +421,6 @@
     </attrConditions>
   </rules>
   <rules name="SystemToNodeRule" schema="//@schema">
-    <using importedNamespace="BlockDiagramCodeAdapter.*"/>
-    <using importedNamespace="AttrCondDefLibrary.*"/>
     <sourcePatterns name="system">
       <op value="++"/>
       <type href="platform:/resource/BlockDiagram/model/BlockDiagram.ecore#//BlockSystem"/>

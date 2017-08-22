@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="ASCII"?>
 <tgg:TripleGraphGrammarFile xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tgg="http://www.moflon.org/ide/tgg/mosl/TGG">
+  <imports name="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore"/>
+  <imports name="platform:/resource/SimplePersons/model/SimplePersons.ecore"/>
   <schema name="FamiliesToPersons_V0">
-    <imports name="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore"/>
-    <imports name="platform:/resource/SimplePersons/model/SimplePersons.ecore"/>
     <sourceTypes href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#/"/>
     <targetTypes href="platform:/resource/SimplePersons/model/SimplePersons.ecore#/"/>
     <correspondenceTypes name="RegisterToRegister">
@@ -14,581 +14,446 @@
       <target href="platform:/resource/SimplePersons/model/SimplePersons.ecore#//Person"/>
     </correspondenceTypes>
   </schema>
-  <rules name="ConnectFather">
-    <using importedNamespace="FamiliesToPersons_V0.*"/>
-    <using importedNamespace="AttrCondDefLibrary.*"/>
-    <supertypes href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/ConnectFather.tgg#|0"/>
-    <schema href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/ConnectFather.tgg#|1"/>
+  <rules name="ConnectFather" supertypes="//@rules.9" schema="//@schema">
     <sourcePatterns name="fm">
-      <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/ConnectFather.tgg#|2"/>
+      <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//FamilyMember"/>
     </sourcePatterns>
   </rules>
-  <rules name="ConnectFatherWithSuperfluousGreenElements">
-    <using importedNamespace="FamiliesToPersons_V0.*"/>
-    <using importedNamespace="AttrCondDefLibrary.*"/>
-    <supertypes href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/ConnectFatherWithSuperfluousGreenElements.tgg#|0"/>
-    <schema href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/ConnectFatherWithSuperfluousGreenElements.tgg#|1"/>
+  <rules name="ConnectFatherWithSuperfluousGreenElements" supertypes="//@rules.0" schema="//@schema">
     <sourcePatterns name="fm">
       <op value="++"/>
-      <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/ConnectFatherWithSuperfluousGreenElements.tgg#|2"/>
+      <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//FamilyMember"/>
     </sourcePatterns>
   </rules>
-  <rules name="CreateFather">
-    <using importedNamespace="FamiliesToPersons_V0.*"/>
-    <using importedNamespace="AttrCondDefLibrary.*"/>
-    <schema href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/CreateFather.tgg#|0"/>
+  <rules name="CreateFather" schema="//@schema">
     <sourcePatterns name="father">
       <op value="++"/>
-      <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/CreateFather.tgg#|1"/>
+      <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//FamilyMember"/>
       <attributeAssignments op=":=">
-        <attribute href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/CreateFather.tgg#|2"/>
+        <attribute href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//FamilyMember/name"/>
         <valueExp xsi:type="tgg:LiteralExpression" value="&quot;father&quot;"/>
       </attributeAssignments>
     </sourcePatterns>
   </rules>
-  <rules name="CreateFourthAndFifthFamily">
-    <using importedNamespace="FamiliesToPersons_V0.*"/>
-    <using importedNamespace="AttrCondDefLibrary.*"/>
-    <supertypes href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/CreateFourthAndFifthFamily.tgg#|0"/>
-    <schema href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/CreateFourthAndFifthFamily.tgg#|1"/>
+  <rules name="CreateFourthAndFifthFamily" supertypes="//@rules.4" schema="//@schema">
     <sourcePatterns name="fr">
-      <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/CreateFourthAndFifthFamily.tgg#|2"/>
-      <linkVariablePatterns>
+      <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//FamilyRegister"/>
+      <linkVariablePatterns target="//@rules.3/@sourcePatterns.1">
         <op value="++"/>
-        <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/CreateFourthAndFifthFamily.tgg#|3"/>
-        <target href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/CreateFourthAndFifthFamily.tgg#|4"/>
+        <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//FamilyRegister/families"/>
       </linkVariablePatterns>
     </sourcePatterns>
     <sourcePatterns name="f5">
       <op value="++"/>
-      <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/CreateFourthAndFifthFamily.tgg#|5"/>
+      <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//Family"/>
       <attributeAssignments op=":=">
-        <attribute href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/CreateFourthAndFifthFamily.tgg#|6"/>
+        <attribute href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//Family/name"/>
         <valueExp xsi:type="tgg:LiteralExpression" value="&quot;Test&quot;"/>
       </attributeAssignments>
     </sourcePatterns>
   </rules>
-  <rules name="CreateFourthFamily">
-    <using importedNamespace="FamiliesToPersons_V0.*"/>
-    <using importedNamespace="AttrCondDefLibrary.*"/>
-    <schema href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/CreateFourthFamily.tgg#|0"/>
+  <rules name="CreateFourthFamily" schema="//@schema">
     <sourcePatterns name="fr">
-      <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/CreateFourthFamily.tgg#|1"/>
-      <linkVariablePatterns>
-        <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/CreateFourthFamily.tgg#|2"/>
-        <target href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/CreateFourthFamily.tgg#|3"/>
+      <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//FamilyRegister"/>
+      <linkVariablePatterns target="//@rules.4/@sourcePatterns.1">
+        <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//FamilyRegister/families"/>
       </linkVariablePatterns>
-      <linkVariablePatterns>
-        <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/CreateFourthFamily.tgg#|4"/>
-        <target href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/CreateFourthFamily.tgg#|5"/>
+      <linkVariablePatterns target="//@rules.4/@sourcePatterns.2">
+        <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//FamilyRegister/families"/>
       </linkVariablePatterns>
-      <linkVariablePatterns>
-        <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/CreateFourthFamily.tgg#|6"/>
-        <target href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/CreateFourthFamily.tgg#|7"/>
+      <linkVariablePatterns target="//@rules.4/@sourcePatterns.3">
+        <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//FamilyRegister/families"/>
       </linkVariablePatterns>
-      <linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.4/@sourcePatterns.4">
         <op value="++"/>
-        <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/CreateFourthFamily.tgg#|8"/>
-        <target href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/CreateFourthFamily.tgg#|9"/>
+        <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//FamilyRegister/families"/>
       </linkVariablePatterns>
     </sourcePatterns>
     <sourcePatterns name="f1">
-      <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/CreateFourthFamily.tgg#|10"/>
+      <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//Family"/>
       <attributeConstraints op="==">
-        <attribute href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/CreateFourthFamily.tgg#|11"/>
+        <attribute href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//Family/name"/>
         <valueExp xsi:type="tgg:LiteralExpression" value="&quot;Test&quot;"/>
       </attributeConstraints>
     </sourcePatterns>
     <sourcePatterns name="f2">
-      <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/CreateFourthFamily.tgg#|12"/>
+      <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//Family"/>
       <attributeConstraints op="==">
-        <attribute href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/CreateFourthFamily.tgg#|13"/>
+        <attribute href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//Family/name"/>
         <valueExp xsi:type="tgg:LiteralExpression" value="&quot;Test&quot;"/>
       </attributeConstraints>
     </sourcePatterns>
     <sourcePatterns name="f3">
-      <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/CreateFourthFamily.tgg#|14"/>
+      <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//Family"/>
       <attributeConstraints op="==">
-        <attribute href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/CreateFourthFamily.tgg#|15"/>
+        <attribute href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//Family/name"/>
         <valueExp xsi:type="tgg:LiteralExpression" value="&quot;Test&quot;"/>
       </attributeConstraints>
     </sourcePatterns>
     <sourcePatterns name="f4">
       <op value="++"/>
-      <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/CreateFourthFamily.tgg#|16"/>
+      <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//Family"/>
       <attributeAssignments op=":=">
-        <attribute href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/CreateFourthFamily.tgg#|17"/>
+        <attribute href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//Family/name"/>
         <valueExp xsi:type="tgg:LiteralExpression" value="&quot;Test&quot;"/>
       </attributeAssignments>
     </sourcePatterns>
     <targetPatterns name="pr">
-      <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/CreateFourthFamily.tgg#|18"/>
+      <type href="platform:/resource/SimplePersons/model/SimplePersons.ecore#//PersonRegister"/>
     </targetPatterns>
-    <correspondencePatterns name="fr2pr">
-      <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/CreateFourthFamily.tgg#|19"/>
-      <source href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/CreateFourthFamily.tgg#|20"/>
-      <target href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/CreateFourthFamily.tgg#|21"/>
-    </correspondencePatterns>
+    <correspondencePatterns name="fr2pr" type="//@schema/@correspondenceTypes.0" source="//@rules.4/@sourcePatterns.0" target="//@rules.4/@targetPatterns.0"/>
   </rules>
-  <rules name="DaughterToFemale">
-    <using importedNamespace="FamiliesToPersons_V0.*"/>
-    <using importedNamespace="AttrCondDefLibrary.*"/>
-    <supertypes href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/DaughterToFemale.tgg#|0"/>
-    <supertypes href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/DaughterToFemale.tgg#|1"/>
-    <schema href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/DaughterToFemale.tgg#|2"/>
-  </rules>
-  <rules name="ExistingFamilyToPerson" abstractRule="true">
-    <using importedNamespace="FamiliesToPersons_V0.*"/>
-    <using importedNamespace="AttrCondDefLibrary.*"/>
-    <supertypes href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/ExistingFamilyToPerson.tgg#|0"/>
-    <schema href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/ExistingFamilyToPerson.tgg#|1"/>
+  <rules name="DaughterToFemale" supertypes="//@rules.18 //@rules.6" schema="//@schema"/>
+  <rules name="ExistingFamilyToPerson" abstractRule="true" supertypes="//@rules.7" schema="//@schema">
     <sourcePatterns name="fr">
-      <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/ExistingFamilyToPerson.tgg#|2"/>
-      <linkVariablePatterns>
-        <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/ExistingFamilyToPerson.tgg#|3"/>
-        <target href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/ExistingFamilyToPerson.tgg#|4"/>
+      <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//FamilyRegister"/>
+      <linkVariablePatterns target="//@rules.6/@sourcePatterns.1">
+        <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//FamilyRegister/families"/>
       </linkVariablePatterns>
     </sourcePatterns>
     <sourcePatterns name="f">
-      <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/ExistingFamilyToPerson.tgg#|5"/>
+      <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//Family"/>
     </sourcePatterns>
   </rules>
-  <rules name="FamilyMemberToPerson" abstractRule="true">
-    <using importedNamespace="FamiliesToPersons_V0.*"/>
-    <using importedNamespace="AttrCondDefLibrary.*"/>
-    <schema href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/FamilyMemberToPerson.tgg#|0"/>
+  <rules name="FamilyMemberToPerson" abstractRule="true" schema="//@schema">
     <sourcePatterns name="fr">
-      <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/FamilyMemberToPerson.tgg#|1"/>
-      <linkVariablePatterns>
+      <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//FamilyRegister"/>
+      <linkVariablePatterns target="//@rules.7/@sourcePatterns.1">
         <op value="++"/>
-        <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/FamilyMemberToPerson.tgg#|2"/>
-        <target href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/FamilyMemberToPerson.tgg#|3"/>
+        <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//FamilyRegister/families"/>
       </linkVariablePatterns>
     </sourcePatterns>
     <sourcePatterns name="f">
       <op value="++"/>
-      <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/FamilyMemberToPerson.tgg#|4"/>
+      <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//Family"/>
     </sourcePatterns>
     <sourcePatterns name="fm">
       <op value="++"/>
-      <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/FamilyMemberToPerson.tgg#|5"/>
+      <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//FamilyMember"/>
     </sourcePatterns>
     <targetPatterns name="pr">
-      <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/FamilyMemberToPerson.tgg#|6"/>
-      <linkVariablePatterns>
+      <type href="platform:/resource/SimplePersons/model/SimplePersons.ecore#//PersonRegister"/>
+      <linkVariablePatterns target="//@rules.7/@targetPatterns.1">
         <op value="++"/>
-        <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/FamilyMemberToPerson.tgg#|7"/>
-        <target href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/FamilyMemberToPerson.tgg#|8"/>
+        <type href="platform:/resource/SimplePersons/model/SimplePersons.ecore#//PersonRegister/persons"/>
       </linkVariablePatterns>
     </targetPatterns>
     <targetPatterns name="p">
       <op value="++"/>
-      <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/FamilyMemberToPerson.tgg#|9"/>
+      <type href="platform:/resource/SimplePersons/model/SimplePersons.ecore#//Person"/>
     </targetPatterns>
-    <correspondencePatterns name="roots">
-      <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/FamilyMemberToPerson.tgg#|10"/>
-      <source href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/FamilyMemberToPerson.tgg#|11"/>
-      <target href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/FamilyMemberToPerson.tgg#|12"/>
-    </correspondencePatterns>
-    <correspondencePatterns name="memberToPerson">
+    <correspondencePatterns name="roots" type="//@schema/@correspondenceTypes.0" source="//@rules.7/@sourcePatterns.0" target="//@rules.7/@targetPatterns.0"/>
+    <correspondencePatterns name="memberToPerson" type="//@schema/@correspondenceTypes.1" source="//@rules.7/@sourcePatterns.2" target="//@rules.7/@targetPatterns.1">
       <op value="++"/>
-      <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/FamilyMemberToPerson.tgg#|13"/>
-      <source href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/FamilyMemberToPerson.tgg#|14"/>
-      <target href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/FamilyMemberToPerson.tgg#|15"/>
     </correspondencePatterns>
   </rules>
-  <rules name="FatherAndMale">
-    <using importedNamespace="FamiliesToPersons_V0.*"/>
-    <using importedNamespace="AttrCondDefLibrary.*"/>
-    <schema href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/FatherAndMale.tgg#|0"/>
+  <rules name="FatherAndMale" schema="//@schema">
     <sourcePatterns name="fr">
-      <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/FatherAndMale.tgg#|1"/>
-      <linkVariablePatterns>
-        <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/FatherAndMale.tgg#|2"/>
-        <target href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/FatherAndMale.tgg#|3"/>
+      <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//FamilyRegister"/>
+      <linkVariablePatterns target="//@rules.8/@sourcePatterns.1">
+        <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//FamilyRegister/families"/>
       </linkVariablePatterns>
     </sourcePatterns>
     <sourcePatterns name="f">
-      <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/FatherAndMale.tgg#|4"/>
-      <linkVariablePatterns>
+      <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//Family"/>
+      <linkVariablePatterns target="//@rules.8/@sourcePatterns.2">
         <op value="++"/>
-        <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/FatherAndMale.tgg#|5"/>
-        <target href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/FatherAndMale.tgg#|6"/>
+        <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//Family/father"/>
       </linkVariablePatterns>
     </sourcePatterns>
     <sourcePatterns name="father">
       <op value="++"/>
-      <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/FatherAndMale.tgg#|7"/>
+      <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//FamilyMember"/>
       <attributeAssignments op=":=">
-        <attribute href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/FatherAndMale.tgg#|8"/>
+        <attribute href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//FamilyMember/name"/>
         <valueExp xsi:type="tgg:LiteralExpression" value="&quot;father&quot;"/>
       </attributeAssignments>
     </sourcePatterns>
     <targetPatterns name="pr">
-      <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/FatherAndMale.tgg#|9"/>
-      <linkVariablePatterns>
+      <type href="platform:/resource/SimplePersons/model/SimplePersons.ecore#//PersonRegister"/>
+      <linkVariablePatterns target="//@rules.8/@targetPatterns.1">
         <op value="++"/>
-        <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/FatherAndMale.tgg#|10"/>
-        <target href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/FatherAndMale.tgg#|11"/>
+        <type href="platform:/resource/SimplePersons/model/SimplePersons.ecore#//PersonRegister/persons"/>
       </linkVariablePatterns>
     </targetPatterns>
     <targetPatterns name="p">
       <op value="++"/>
-      <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/FatherAndMale.tgg#|12"/>
+      <type href="platform:/resource/SimplePersons/model/SimplePersons.ecore#//Male"/>
       <attributeAssignments op=":=">
-        <attribute href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/FatherAndMale.tgg#|13"/>
+        <attribute href="platform:/resource/SimplePersons/model/SimplePersons.ecore#//Person/name"/>
         <valueExp xsi:type="tgg:LiteralExpression" value="&quot;father&quot;"/>
       </attributeAssignments>
     </targetPatterns>
   </rules>
-  <rules name="FatherToMale">
-    <using importedNamespace="FamiliesToPersons_V0.*"/>
-    <using importedNamespace="AttrCondDefLibrary.*"/>
-    <supertypes href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/FatherToMale.tgg#|0"/>
-    <supertypes href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/FatherToMale.tgg#|1"/>
-    <schema href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/FatherToMale.tgg#|2"/>
+  <rules name="FatherToMale" supertypes="//@rules.7 //@rules.6" schema="//@schema">
     <sourcePatterns name="f">
-      <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/FatherToMale.tgg#|3"/>
-      <linkVariablePatterns>
+      <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//Family"/>
+      <linkVariablePatterns target="//@rules.9/@sourcePatterns.1">
         <op value="++"/>
-        <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/FatherToMale.tgg#|4"/>
-        <target href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/FatherToMale.tgg#|5"/>
+        <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//Family/father"/>
       </linkVariablePatterns>
     </sourcePatterns>
     <sourcePatterns name="fm">
       <op value="++"/>
-      <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/FatherToMale.tgg#|6"/>
+      <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//FamilyMember"/>
       <attributeAssignments op=":=">
-        <attribute href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/FatherToMale.tgg#|7"/>
+        <attribute href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//FamilyMember/name"/>
         <valueExp xsi:type="tgg:LiteralExpression" value="&quot;father&quot;"/>
       </attributeAssignments>
     </sourcePatterns>
     <targetPatterns name="p">
       <op value="++"/>
-      <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/FatherToMale.tgg#|8"/>
+      <type href="platform:/resource/SimplePersons/model/SimplePersons.ecore#//Male"/>
       <attributeAssignments op=":=">
-        <attribute href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/FatherToMale.tgg#|9"/>
+        <attribute href="platform:/resource/SimplePersons/model/SimplePersons.ecore#//Person/name"/>
         <valueExp xsi:type="tgg:LiteralExpression" value="&quot;father&quot;"/>
       </attributeAssignments>
     </targetPatterns>
   </rules>
-  <rules name="FatherToNothing">
-    <using importedNamespace="FamiliesToPersons_V0.*"/>
-    <using importedNamespace="AttrCondDefLibrary.*"/>
-    <schema href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/FatherToNothing.tgg#|0"/>
+  <rules name="FatherToNothing" schema="//@schema">
     <sourcePatterns name="fr">
-      <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/FatherToNothing.tgg#|1"/>
-      <linkVariablePatterns>
-        <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/FatherToNothing.tgg#|2"/>
-        <target href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/FatherToNothing.tgg#|3"/>
+      <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//FamilyRegister"/>
+      <linkVariablePatterns target="//@rules.10/@sourcePatterns.1">
+        <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//FamilyRegister/families"/>
       </linkVariablePatterns>
     </sourcePatterns>
     <sourcePatterns name="f">
-      <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/FatherToNothing.tgg#|4"/>
-      <linkVariablePatterns>
+      <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//Family"/>
+      <linkVariablePatterns target="//@rules.10/@sourcePatterns.2">
         <op value="++"/>
-        <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/FatherToNothing.tgg#|5"/>
-        <target href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/FatherToNothing.tgg#|6"/>
+        <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//Family/father"/>
       </linkVariablePatterns>
     </sourcePatterns>
     <sourcePatterns name="father">
       <op value="++"/>
-      <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/FatherToNothing.tgg#|7"/>
+      <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//FamilyMember"/>
       <attributeAssignments op=":=">
-        <attribute href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/FatherToNothing.tgg#|8"/>
+        <attribute href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//FamilyMember/name"/>
         <valueExp xsi:type="tgg:LiteralExpression" value="&quot;father&quot;"/>
       </attributeAssignments>
     </sourcePatterns>
     <targetPatterns name="pr">
-      <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/FatherToNothing.tgg#|9"/>
+      <type href="platform:/resource/SimplePersons/model/SimplePersons.ecore#//PersonRegister"/>
     </targetPatterns>
-    <correspondencePatterns name="roots">
-      <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/FatherToNothing.tgg#|10"/>
-      <source href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/FatherToNothing.tgg#|11"/>
-      <target href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/FatherToNothing.tgg#|12"/>
-    </correspondencePatterns>
+    <correspondencePatterns name="roots" type="//@schema/@correspondenceTypes.0" source="//@rules.10/@sourcePatterns.0" target="//@rules.10/@targetPatterns.0"/>
   </rules>
-  <rules name="HandleFamilyReg">
-    <using importedNamespace="FamiliesToPersons_V0.*"/>
-    <using importedNamespace="AttrCondDefLibrary.*"/>
-    <schema href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/HandleFamilyReg.tgg#|0"/>
+  <rules name="HandleFamilyReg" schema="//@schema">
     <sourcePatterns name="fr">
       <op value="++"/>
-      <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/HandleFamilyReg.tgg#|1"/>
+      <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//FamilyRegister"/>
     </sourcePatterns>
   </rules>
-  <rules name="HandleRegisters">
-    <using importedNamespace="FamiliesToPersons_V0.*"/>
-    <using importedNamespace="AttrCondDefLibrary.*"/>
-    <schema href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/HandleRegisters.tgg#|0"/>
+  <rules name="HandleRegisters" schema="//@schema">
     <sourcePatterns name="fr">
       <op value="++"/>
-      <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/HandleRegisters.tgg#|1"/>
+      <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//FamilyRegister"/>
     </sourcePatterns>
     <targetPatterns name="pr">
       <op value="++"/>
-      <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/HandleRegisters.tgg#|2"/>
+      <type href="platform:/resource/SimplePersons/model/SimplePersons.ecore#//PersonRegister"/>
     </targetPatterns>
-    <correspondencePatterns name="roots">
+    <correspondencePatterns name="roots" type="//@schema/@correspondenceTypes.0" source="//@rules.12/@sourcePatterns.0" target="//@rules.12/@targetPatterns.0">
       <op value="++"/>
-      <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/HandleRegisters.tgg#|3"/>
-      <source href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/HandleRegisters.tgg#|4"/>
-      <target href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/HandleRegisters.tgg#|5"/>
     </correspondencePatterns>
   </rules>
-  <rules name="HandleRegistersLoose">
-    <using importedNamespace="FamiliesToPersons_V0.*"/>
-    <using importedNamespace="AttrCondDefLibrary.*"/>
-    <schema href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/HandleRegistersLoose.tgg#|0"/>
+  <rules name="HandleRegistersLoose" schema="//@schema">
     <sourcePatterns name="fr">
       <op value="++"/>
-      <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/HandleRegistersLoose.tgg#|1"/>
+      <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//FamilyRegister"/>
     </sourcePatterns>
     <targetPatterns name="pr">
       <op value="++"/>
-      <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/HandleRegistersLoose.tgg#|2"/>
+      <type href="platform:/resource/SimplePersons/model/SimplePersons.ecore#//PersonRegister"/>
     </targetPatterns>
   </rules>
-  <rules name="IgnoreFamily">
-    <using importedNamespace="FamiliesToPersons_V0.*"/>
-    <using importedNamespace="AttrCondDefLibrary.*"/>
-    <schema href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/IgnoreFamily.tgg#|0"/>
+  <rules name="IgnoreFamily" schema="//@schema">
     <sourcePatterns name="fr">
-      <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/IgnoreFamily.tgg#|1"/>
-      <linkVariablePatterns>
+      <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//FamilyRegister"/>
+      <linkVariablePatterns target="//@rules.14/@sourcePatterns.1">
         <op value="++"/>
-        <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/IgnoreFamily.tgg#|2"/>
-        <target href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/IgnoreFamily.tgg#|3"/>
+        <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//FamilyRegister/families"/>
       </linkVariablePatterns>
     </sourcePatterns>
     <sourcePatterns name="f">
       <op value="++"/>
-      <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/IgnoreFamily.tgg#|4"/>
+      <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//Family"/>
       <attributeAssignments op=":=">
-        <attribute href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/IgnoreFamily.tgg#|5"/>
+        <attribute href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//Family/name"/>
         <valueExp xsi:type="tgg:LiteralExpression" value="&quot;Test&quot;"/>
       </attributeAssignments>
     </sourcePatterns>
     <targetPatterns name="pr">
-      <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/IgnoreFamily.tgg#|6"/>
+      <type href="platform:/resource/SimplePersons/model/SimplePersons.ecore#//PersonRegister"/>
     </targetPatterns>
-    <correspondencePatterns name="fr2pr">
-      <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/IgnoreFamily.tgg#|7"/>
-      <source href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/IgnoreFamily.tgg#|8"/>
-      <target href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/IgnoreFamily.tgg#|9"/>
-    </correspondencePatterns>
+    <correspondencePatterns name="fr2pr" type="//@schema/@correspondenceTypes.0" source="//@rules.14/@sourcePatterns.0" target="//@rules.14/@targetPatterns.0"/>
   </rules>
-  <rules name="IgnoreFamilyLoose">
-    <using importedNamespace="FamiliesToPersons_V0.*"/>
-    <using importedNamespace="AttrCondDefLibrary.*"/>
-    <schema href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/IgnoreFamilyLoose.tgg#|0"/>
+  <rules name="IgnoreFamilyLoose" schema="//@schema">
     <sourcePatterns name="fr">
-      <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/IgnoreFamilyLoose.tgg#|1"/>
-      <linkVariablePatterns>
+      <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//FamilyRegister"/>
+      <linkVariablePatterns target="//@rules.15/@sourcePatterns.1">
         <op value="++"/>
-        <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/IgnoreFamilyLoose.tgg#|2"/>
-        <target href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/IgnoreFamilyLoose.tgg#|3"/>
+        <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//FamilyRegister/families"/>
       </linkVariablePatterns>
     </sourcePatterns>
     <sourcePatterns name="f">
       <op value="++"/>
-      <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/IgnoreFamilyLoose.tgg#|4"/>
+      <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//Family"/>
       <attributeAssignments op=":=">
-        <attribute href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/IgnoreFamilyLoose.tgg#|5"/>
+        <attribute href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//Family/name"/>
         <valueExp xsi:type="tgg:LiteralExpression" value="&quot;Test&quot;"/>
       </attributeAssignments>
     </sourcePatterns>
   </rules>
-  <rules name="IgnoreTwoFamilies">
-    <using importedNamespace="FamiliesToPersons_V0.*"/>
-    <using importedNamespace="AttrCondDefLibrary.*"/>
-    <supertypes href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/IgnoreTwoFamilies.tgg#|0"/>
-    <schema href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/IgnoreTwoFamilies.tgg#|1"/>
+  <rules name="IgnoreTwoFamilies" supertypes="//@rules.14" schema="//@schema">
     <sourcePatterns name="fr">
-      <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/IgnoreTwoFamilies.tgg#|2"/>
-      <linkVariablePatterns>
+      <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//FamilyRegister"/>
+      <linkVariablePatterns target="//@rules.16/@sourcePatterns.1">
         <op value="++"/>
-        <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/IgnoreTwoFamilies.tgg#|3"/>
-        <target href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/IgnoreTwoFamilies.tgg#|4"/>
+        <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//FamilyRegister/families"/>
       </linkVariablePatterns>
     </sourcePatterns>
     <sourcePatterns name="f2">
       <op value="++"/>
-      <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/IgnoreTwoFamilies.tgg#|5"/>
+      <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//Family"/>
       <attributeAssignments op=":=">
-        <attribute href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/IgnoreTwoFamilies.tgg#|6"/>
+        <attribute href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//Family/name"/>
         <valueExp xsi:type="tgg:LiteralExpression" value="&quot;Test&quot;"/>
       </attributeAssignments>
     </sourcePatterns>
   </rules>
-  <rules name="MotherToFemale">
-    <using importedNamespace="FamiliesToPersons_V0.*"/>
-    <using importedNamespace="AttrCondDefLibrary.*"/>
-    <supertypes href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/MotherToFemale.tgg#|0"/>
-    <supertypes href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/MotherToFemale.tgg#|1"/>
-    <schema href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/MotherToFemale.tgg#|2"/>
+  <rules name="MotherToFemale" supertypes="//@rules.7 //@rules.6" schema="//@schema">
     <sourcePatterns name="f">
-      <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/MotherToFemale.tgg#|3"/>
-      <linkVariablePatterns>
+      <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//Family"/>
+      <linkVariablePatterns target="//@rules.17/@sourcePatterns.1">
         <op value="++"/>
-        <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/MotherToFemale.tgg#|4"/>
-        <target href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/MotherToFemale.tgg#|5"/>
+        <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//Family/mother"/>
       </linkVariablePatterns>
     </sourcePatterns>
     <sourcePatterns name="fm">
       <op value="++"/>
-      <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/MotherToFemale.tgg#|6"/>
+      <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//FamilyMember"/>
       <attributeAssignments op=":=">
-        <attribute href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/MotherToFemale.tgg#|7"/>
+        <attribute href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//FamilyMember/name"/>
         <valueExp xsi:type="tgg:LiteralExpression" value="&quot;mother&quot;"/>
       </attributeAssignments>
     </sourcePatterns>
     <targetPatterns name="p">
       <op value="++"/>
-      <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/MotherToFemale.tgg#|8"/>
+      <type href="platform:/resource/SimplePersons/model/SimplePersons.ecore#//Female"/>
       <attributeAssignments op=":=">
-        <attribute href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/MotherToFemale.tgg#|9"/>
+        <attribute href="platform:/resource/SimplePersons/model/SimplePersons.ecore#//Person/name"/>
         <valueExp xsi:type="tgg:LiteralExpression" value="&quot;mother&quot;"/>
       </attributeAssignments>
     </targetPatterns>
   </rules>
-  <rules name="NewFamilyDaughterToFemale">
-    <using importedNamespace="FamiliesToPersons_V0.*"/>
-    <using importedNamespace="AttrCondDefLibrary.*"/>
-    <supertypes href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/NewFamilyDaughterToFemale.tgg#|0"/>
-    <schema href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/NewFamilyDaughterToFemale.tgg#|1"/>
+  <rules name="NewFamilyDaughterToFemale" supertypes="//@rules.7" schema="//@schema">
     <sourcePatterns name="f">
       <op value="++"/>
-      <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/NewFamilyDaughterToFemale.tgg#|2"/>
-      <linkVariablePatterns>
+      <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//Family"/>
+      <linkVariablePatterns target="//@rules.18/@sourcePatterns.1">
         <op value="++"/>
-        <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/NewFamilyDaughterToFemale.tgg#|3"/>
-        <target href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/NewFamilyDaughterToFemale.tgg#|4"/>
+        <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//Family/daughters"/>
       </linkVariablePatterns>
     </sourcePatterns>
     <sourcePatterns name="fm">
       <op value="++"/>
-      <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/NewFamilyDaughterToFemale.tgg#|5"/>
+      <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//FamilyMember"/>
       <attributeAssignments op=":=">
-        <attribute href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/NewFamilyDaughterToFemale.tgg#|6"/>
+        <attribute href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//FamilyMember/name"/>
         <valueExp xsi:type="tgg:LiteralExpression" value="&quot;daughter&quot;"/>
       </attributeAssignments>
     </sourcePatterns>
     <targetPatterns name="p">
       <op value="++"/>
-      <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/NewFamilyDaughterToFemale.tgg#|7"/>
+      <type href="platform:/resource/SimplePersons/model/SimplePersons.ecore#//Female"/>
       <attributeAssignments op=":=">
-        <attribute href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/NewFamilyDaughterToFemale.tgg#|8"/>
+        <attribute href="platform:/resource/SimplePersons/model/SimplePersons.ecore#//Person/name"/>
         <valueExp xsi:type="tgg:LiteralExpression" value="&quot;daughter&quot;"/>
       </attributeAssignments>
     </targetPatterns>
   </rules>
-  <rules name="ReplaceFatherWithSon">
-    <using importedNamespace="FamiliesToPersons_V0.*"/>
-    <using importedNamespace="AttrCondDefLibrary.*"/>
-    <supertypes href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/ReplaceFatherWithSon.tgg#|0"/>
-    <schema href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/ReplaceFatherWithSon.tgg#|1"/>
+  <rules name="ReplaceFatherWithSon" supertypes="//@rules.9" schema="//@schema">
     <sourcePatterns name="fr">
-      <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/ReplaceFatherWithSon.tgg#|2"/>
-      <linkVariablePatterns>
-        <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/ReplaceFatherWithSon.tgg#|3"/>
-        <target href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/ReplaceFatherWithSon.tgg#|4"/>
+      <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//FamilyRegister"/>
+      <linkVariablePatterns target="//@rules.19/@sourcePatterns.2">
+        <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//FamilyRegister/families"/>
       </linkVariablePatterns>
     </sourcePatterns>
     <sourcePatterns name="f">
-      <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/ReplaceFatherWithSon.tgg#|5"/>
-      <linkVariablePatterns>
-        <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/ReplaceFatherWithSon.tgg#|6"/>
-        <target href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/ReplaceFatherWithSon.tgg#|7"/>
+      <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//Family"/>
+      <linkVariablePatterns target="//@rules.19/@sourcePatterns.3">
+        <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//Family/father"/>
       </linkVariablePatterns>
-      <linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.19/@sourcePatterns.4">
         <op value="++"/>
-        <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/ReplaceFatherWithSon.tgg#|8"/>
-        <target href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/ReplaceFatherWithSon.tgg#|9"/>
+        <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//Family/sons"/>
       </linkVariablePatterns>
     </sourcePatterns>
     <sourcePatterns name="f2">
-      <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/ReplaceFatherWithSon.tgg#|10"/>
-      <linkVariablePatterns>
+      <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//Family"/>
+      <linkVariablePatterns target="//@rules.19/@sourcePatterns.3">
         <op value="++"/>
-        <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/ReplaceFatherWithSon.tgg#|11"/>
-        <target href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/ReplaceFatherWithSon.tgg#|12"/>
+        <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//Family/father"/>
       </linkVariablePatterns>
     </sourcePatterns>
     <sourcePatterns name="fm">
-      <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/ReplaceFatherWithSon.tgg#|13"/>
+      <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//FamilyMember"/>
     </sourcePatterns>
     <sourcePatterns name="son">
       <op value="++"/>
-      <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/ReplaceFatherWithSon.tgg#|14"/>
+      <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//FamilyMember"/>
       <attributeAssignments op=":=">
-        <attribute href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/ReplaceFatherWithSon.tgg#|15"/>
+        <attribute href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//FamilyMember/name"/>
         <valueExp xsi:type="tgg:LiteralExpression" value="&quot;son&quot;"/>
       </attributeAssignments>
     </sourcePatterns>
     <targetPatterns name="pr">
-      <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/ReplaceFatherWithSon.tgg#|16"/>
-      <linkVariablePatterns>
-        <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/ReplaceFatherWithSon.tgg#|17"/>
-        <target href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/ReplaceFatherWithSon.tgg#|18"/>
+      <type href="platform:/resource/SimplePersons/model/SimplePersons.ecore#//PersonRegister"/>
+      <linkVariablePatterns target="//@rules.19/@targetPatterns.1">
+        <type href="platform:/resource/SimplePersons/model/SimplePersons.ecore#//PersonRegister/persons"/>
       </linkVariablePatterns>
     </targetPatterns>
     <targetPatterns name="p">
-      <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/ReplaceFatherWithSon.tgg#|19"/>
+      <type href="platform:/resource/SimplePersons/model/SimplePersons.ecore#//Male"/>
     </targetPatterns>
-    <correspondencePatterns name="memberToPerson">
-      <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/ReplaceFatherWithSon.tgg#|20"/>
-      <source href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/ReplaceFatherWithSon.tgg#|21"/>
-      <target href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/ReplaceFatherWithSon.tgg#|22"/>
-    </correspondencePatterns>
+    <correspondencePatterns name="memberToPerson" type="//@schema/@correspondenceTypes.1" source="//@rules.19/@sourcePatterns.3" target="//@rules.19/@targetPatterns.1"/>
   </rules>
-  <rules name="SonToMale">
-    <using importedNamespace="FamiliesToPersons_V0.*"/>
-    <using importedNamespace="AttrCondDefLibrary.*"/>
-    <supertypes href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/SonToMale.tgg#|0"/>
-    <supertypes href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/SonToMale.tgg#|1"/>
-    <schema href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/SonToMale.tgg#|2"/>
+  <rules name="SonToMale" supertypes="//@rules.7 //@rules.6" schema="//@schema">
     <sourcePatterns name="f">
-      <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/SonToMale.tgg#|3"/>
-      <linkVariablePatterns>
+      <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//Family"/>
+      <linkVariablePatterns target="//@rules.20/@sourcePatterns.1">
         <op value="++"/>
-        <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/SonToMale.tgg#|4"/>
-        <target href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/SonToMale.tgg#|5"/>
+        <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//Family/sons"/>
       </linkVariablePatterns>
     </sourcePatterns>
     <sourcePatterns name="fm">
       <op value="++"/>
-      <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/SonToMale.tgg#|6"/>
+      <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//FamilyMember"/>
       <attributeAssignments op=":=">
-        <attribute href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/SonToMale.tgg#|7"/>
+        <attribute href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//FamilyMember/name"/>
         <valueExp xsi:type="tgg:LiteralExpression" value="&quot;son&quot;"/>
       </attributeAssignments>
     </sourcePatterns>
     <targetPatterns name="p">
       <op value="++"/>
-      <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/SonToMale.tgg#|8"/>
+      <type href="platform:/resource/SimplePersons/model/SimplePersons.ecore#//Male"/>
       <attributeAssignments op=":=">
-        <attribute href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/SonToMale.tgg#|9"/>
+        <attribute href="platform:/resource/SimplePersons/model/SimplePersons.ecore#//Person/name"/>
         <valueExp xsi:type="tgg:LiteralExpression" value="&quot;son&quot;"/>
       </attributeAssignments>
     </targetPatterns>
   </rules>
-  <rules name="SonToMaleWithSuperfluousGreenElements">
-    <using importedNamespace="FamiliesToPersons_V0.*"/>
-    <using importedNamespace="AttrCondDefLibrary.*"/>
-    <supertypes href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/SonToMaleWithSuperfluousGreenElements.tgg#|0"/>
-    <schema href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/SonToMaleWithSuperfluousGreenElements.tgg#|1"/>
+  <rules name="SonToMaleWithSuperfluousGreenElements" supertypes="//@rules.20" schema="//@schema">
     <sourcePatterns name="fr">
-      <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/SonToMaleWithSuperfluousGreenElements.tgg#|2"/>
-      <linkVariablePatterns>
+      <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//FamilyRegister"/>
+      <linkVariablePatterns target="//@rules.21/@sourcePatterns.1">
         <op value="++"/>
-        <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/SonToMaleWithSuperfluousGreenElements.tgg#|3"/>
-        <target href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/SonToMaleWithSuperfluousGreenElements.tgg#|4"/>
+        <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//FamilyRegister/families"/>
       </linkVariablePatterns>
     </sourcePatterns>
     <sourcePatterns name="f">
       <op value="++"/>
-      <type href="platform:/resource/FamiliesToPersons_V0/src/org/emoflon/ibex/tgg/rules/SonToMaleWithSuperfluousGreenElements.tgg#|5"/>
+      <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//Family"/>
     </sourcePatterns>
   </rules>
 </tgg:TripleGraphGrammarFile>

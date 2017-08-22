@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="ASCII"?>
 <tgg:TripleGraphGrammarFile xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tgg="http://www.moflon.org/ide/tgg/mosl/TGG">
+  <imports name="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore"/>
+  <imports name="platform:/resource/ITLanguage/model/ITLanguage.ecore"/>
   <schema name="CompanyToIT">
-    <imports name="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore"/>
-    <imports name="platform:/resource/ITLanguage/model/ITLanguage.ecore"/>
     <sourceTypes href="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore#/"/>
     <targetTypes href="platform:/resource/ITLanguage/model/ITLanguage.ecore#/"/>
     <correspondenceTypes name="AdminToRouter">
@@ -59,8 +59,6 @@
     </attributeCondDefs>
   </schema>
   <rules name="AdminToRouterRule" schema="//@schema">
-    <using importedNamespace="CompanyToIT.*"/>
-    <using importedNamespace="AttrCondDefLibrary.*"/>
     <sourcePatterns name="admin">
       <op value="++"/>
       <type href="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore#//Admin"/>
@@ -127,8 +125,6 @@
     </attrConditions>
   </rules>
   <rules name="CompanyToITRule" schema="//@schema">
-    <using importedNamespace="CompanyToIT.*"/>
-    <using importedNamespace="AttrCondDefLibrary.*"/>
     <sourcePatterns name="ceo">
       <op value="++"/>
       <type href="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore#//CEO"/>
@@ -158,8 +154,6 @@
     </attrConditions>
   </rules>
   <rules name="EmployeeToLaptopRule" schema="//@schema">
-    <using importedNamespace="CompanyToIT.*"/>
-    <using importedNamespace="AttrCondDefLibrary.*"/>
     <sourcePatterns name="admin">
       <type href="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore#//Admin"/>
       <linkVariablePatterns target="//@rules.2/@sourcePatterns.1">
@@ -231,8 +225,6 @@
     </attrConditions>
   </rules>
   <rules name="EmployeeToPCRule" schema="//@schema">
-    <using importedNamespace="CompanyToIT.*"/>
-    <using importedNamespace="AttrCondDefLibrary.*"/>
     <sourcePatterns name="admin">
       <type href="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore#//Admin"/>
       <linkVariablePatterns target="//@rules.3/@sourcePatterns.1">

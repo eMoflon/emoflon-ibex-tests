@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="ASCII"?>
 <tgg:TripleGraphGrammarFile xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tgg="http://www.moflon.org/ide/tgg/mosl/TGG">
+  <imports name="platform:/resource/ClassInheritanceHierarchy/model/ClassInheritanceHierarchy.ecore"/>
+  <imports name="platform:/resource/Database/model/Database.ecore"/>
   <schema name="ClassInhHier2DB">
-    <imports name="platform:/resource/ClassInheritanceHierarchy/model/ClassInheritanceHierarchy.ecore"/>
-    <imports name="platform:/resource/Database/model/Database.ecore"/>
     <sourceTypes href="platform:/resource/ClassInheritanceHierarchy/model/ClassInheritanceHierarchy.ecore#/"/>
     <targetTypes href="platform:/resource/Database/model/Database.ecore#/"/>
     <correspondenceTypes name="PackageToDatabase">
@@ -55,8 +55,6 @@
     </attributeCondDefs>
   </schema>
   <rules name="AttributeToColumnRule" schema="//@schema">
-    <using importedNamespace="ClassInhHier2DB.*"/>
-    <using importedNamespace="AttrCondDefLibrary.*"/>
     <sourcePatterns name="attribute">
       <op value="++"/>
       <type href="platform:/resource/ClassInheritanceHierarchy/model/ClassInheritanceHierarchy.ecore#//Attribute"/>
@@ -93,8 +91,6 @@
     </attrConditions>
   </rules>
   <rules name="ClassToTableRule" schema="//@schema">
-    <using importedNamespace="ClassInhHier2DB.*"/>
-    <using importedNamespace="AttrCondDefLibrary.*"/>
     <sourcePatterns name="classpackage">
       <type href="platform:/resource/ClassInheritanceHierarchy/model/ClassInheritanceHierarchy.ecore#//ClassPackage"/>
     </sourcePatterns>
@@ -131,8 +127,6 @@
     </attrConditions>
   </rules>
   <rules name="PackageToDatabaseRule" schema="//@schema">
-    <using importedNamespace="ClassInhHier2DB.*"/>
-    <using importedNamespace="AttrCondDefLibrary.*"/>
     <sourcePatterns name="classpackage">
       <op value="++"/>
       <type href="platform:/resource/ClassInheritanceHierarchy/model/ClassInheritanceHierarchy.ecore#//ClassPackage"/>
@@ -154,8 +148,6 @@
     </attrConditions>
   </rules>
   <rules name="SubClassToTable" schema="//@schema">
-    <using importedNamespace="ClassInhHier2DB.*"/>
-    <using importedNamespace="AttrCondDefLibrary.*"/>
     <sourcePatterns name="classpackage">
       <type href="platform:/resource/ClassInheritanceHierarchy/model/ClassInheritanceHierarchy.ecore#//ClassPackage"/>
     </sourcePatterns>

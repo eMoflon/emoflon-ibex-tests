@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="ASCII"?>
 <tgg:TripleGraphGrammarFile xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tgg="http://www.moflon.org/ide/tgg/mosl/TGG">
+  <imports name="platform:/resource/MocaTree/model/MocaTree.ecore"/>
+  <imports name="platform:/resource/BlockLanguage/model/BlockLanguage.ecore"/>
   <schema name="BlockCodeAdapter">
-    <imports name="platform:/resource/MocaTree/model/MocaTree.ecore"/>
-    <imports name="platform:/resource/BlockLanguage/model/BlockLanguage.ecore"/>
     <sourceTypes href="platform:/resource/MocaTree/model/MocaTree.ecore#/"/>
     <targetTypes href="platform:/resource/BlockLanguage/model/BlockLanguage.ecore#/"/>
     <correspondenceTypes name="NodeToSpecification">
@@ -160,8 +160,6 @@
     </attributeCondDefs>
   </schema>
   <rules name="BasicMapping2WireRule" abstractRule="true" schema="//@schema">
-    <using importedNamespace="BlockCodeAdapter.*"/>
-    <using importedNamespace="AttrCondDefLibrary.*"/>
     <sourcePatterns name="fromBlockNode">
       <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Node"/>
       <linkVariablePatterns target="//@rules.0/@sourcePatterns.4">
@@ -293,8 +291,6 @@
     </attrConditions>
   </rules>
   <rules name="ContextMapping2WireClosedLoopRule" abstractRule="true" schema="//@schema">
-    <using importedNamespace="BlockCodeAdapter.*"/>
-    <using importedNamespace="AttrCondDefLibrary.*"/>
     <sourcePatterns name="toPortNode">
       <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Node"/>
       <linkVariablePatterns target="//@rules.1/@sourcePatterns.1">
@@ -315,8 +311,6 @@
     </targetPatterns>
   </rules>
   <rules name="ContextMapping2WireRule_f" abstractRule="true" schema="//@schema">
-    <using importedNamespace="BlockCodeAdapter.*"/>
-    <using importedNamespace="AttrCondDefLibrary.*"/>
     <sourcePatterns name="toPortNode">
       <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Node"/>
       <linkVariablePatterns target="//@rules.2/@sourcePatterns.3">
@@ -365,8 +359,6 @@
     </targetPatterns>
   </rules>
   <rules name="File2SpecRule" schema="//@schema">
-    <using importedNamespace="BlockCodeAdapter.*"/>
-    <using importedNamespace="AttrCondDefLibrary.*"/>
     <sourcePatterns name="blocks">
       <op value="++"/>
       <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Node"/>
@@ -427,21 +419,9 @@
       </values>
     </attrConditions>
   </rules>
-  <rules name="Mapping2WireClosedLoopRule" schema="//@schema">
-    <using importedNamespace="BlockCodeAdapter.*"/>
-    <using importedNamespace="AttrCondDefLibrary.*"/>
-    <supertypes href="platform:/resource/BlockCodeAdapter/src/org/emoflon/ibex/tgg/rules/Mapping2WireClosedLoopRule.tgg#|0"/>
-    <supertypes href="platform:/resource/BlockCodeAdapter/src/org/emoflon/ibex/tgg/rules/Mapping2WireClosedLoopRule.tgg#|1"/>
-  </rules>
-  <rules name="Mapping2WireRule" schema="//@schema">
-    <using importedNamespace="BlockCodeAdapter.*"/>
-    <using importedNamespace="AttrCondDefLibrary.*"/>
-    <supertypes href="platform:/resource/BlockCodeAdapter/src/org/emoflon/ibex/tgg/rules/Mapping2WireRule.tgg#|0"/>
-    <supertypes href="platform:/resource/BlockCodeAdapter/src/org/emoflon/ibex/tgg/rules/Mapping2WireRule.tgg#|1"/>
-  </rules>
+  <rules name="Mapping2WireClosedLoopRule" supertypes="//@rules.0 //@rules.1" schema="//@schema"/>
+  <rules name="Mapping2WireRule" supertypes="//@rules.0 //@rules.2" schema="//@schema"/>
   <rules name="Node2BlockRule" schema="//@schema">
-    <using importedNamespace="BlockCodeAdapter.*"/>
-    <using importedNamespace="AttrCondDefLibrary.*"/>
     <sourcePatterns name="blockNode">
       <op value="++"/>
       <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Node"/>
@@ -488,8 +468,6 @@
     </attrConditions>
   </rules>
   <rules name="Node2PortRule" schema="//@schema">
-    <using importedNamespace="BlockCodeAdapter.*"/>
-    <using importedNamespace="AttrCondDefLibrary.*"/>
     <sourcePatterns name="blocksNode">
       <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Node"/>
       <attributeConstraints op="==">
