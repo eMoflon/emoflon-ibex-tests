@@ -1,12 +1,7 @@
 package testsuite1.BlockCodeAdapter.sync;
 
-import java.io.IOException;
-import java.util.Arrays;
-import java.util.Collection;
-
 import org.benchmarx.blockLanguage.core.BlockLanguageHelper;
 import org.junit.Test;
-import org.junit.runners.Parameterized.Parameters;
 
 import BlockLanguage.Specification;
 import MocaTree.File;
@@ -37,17 +32,10 @@ public class Batch extends SyncTestCase<File, Specification> {
 		util.assertPostcondition(projectName+"/"+source, projectName+"/"+target);
 	}
 	
-	// IndexOutOfBoundsException mentioned in issue #15
-	@Parameters(name="eMoflon::IBeX, Flattened: true")
-	public static Collection<Boolean> flattening() throws IOException {
-		return Arrays.asList(true);
-	}
-	
 	/**
 	 * <b>Features</b>: bwd
 	 */
 	@Test
-	// IndexOutOfBoundsException mentioned in issue #15
 	public void testSpec_BWD()
 	{
 		// No precondition!
@@ -60,7 +48,6 @@ public class Batch extends SyncTestCase<File, Specification> {
 	 * <b>Features</b>: fwd
 	 */
 	@Test
-	// IndexOutOfBoundsException mentioned in issue #15
 	public void testBlock_FWD()
 	{
 		assertPrecondition("expected/Spec_BWD", "in/Spec_BWD");
@@ -74,7 +61,6 @@ public class Batch extends SyncTestCase<File, Specification> {
 	 * <b>Features</b>: bwd
 	 */
 	@Test
-	// IndexOutOfBoundsException mentioned in issue #15
 	public void testBlock_BWD()
 	{
 		assertPrecondition("expected/Spec_BWD", "in/Spec_BWD");
@@ -88,8 +74,6 @@ public class Batch extends SyncTestCase<File, Specification> {
 	 * <b>Features</b>: fwd
 	 */
 	@Test
-	// IndexOutOfBoundsException mentioned in issue #15
-	// AssertionError mentioned in issue #14
 	public void testPort_FWD()
 	{
 		assertPrecondition("expected/Spec_BWD", "in/Spec_BWD");
@@ -105,7 +89,6 @@ public class Batch extends SyncTestCase<File, Specification> {
 	 * <b>Features</b>: bwd
 	 */
 	@Test
-	// IndexOutOfBoundsException mentioned in issue #15
 	public void testPort_BWD()
 	{
 		assertPrecondition("expected/Spec_BWD", "in/Spec_BWD");
@@ -121,8 +104,6 @@ public class Batch extends SyncTestCase<File, Specification> {
 	 * <b>Features</b>: fwd
 	 */
 	@Test
-	// IndexOutOfBoundsException mentioned in issue #15
-	// AssertionError mentioned in issue #14
 	public void testWire_FWD()
 	{
 		assertPrecondition("expected/Spec_BWD", "in/Spec_BWD");
@@ -141,7 +122,6 @@ public class Batch extends SyncTestCase<File, Specification> {
 	 * <b>Features</b>: bwd
 	 */
 	@Test
-	// IndexOutOfBoundsException mentioned in issue #15
 	public void testWire_BWD()
 	{
 		assertPrecondition("expected/Spec_BWD", "in/Spec_BWD");
@@ -160,8 +140,6 @@ public class Batch extends SyncTestCase<File, Specification> {
 	 * <b>Features</b>: fwd
 	 */
 	@Test
-	// IndexOutOfBoundsException mentioned in issue #15
-	// AssertionError mentioned in issue #14
 	public void testWireCloseLoop_FWD()
 	{
 		assertPrecondition("expected/Spec_BWD", "in/Spec_BWD");
@@ -179,7 +157,6 @@ public class Batch extends SyncTestCase<File, Specification> {
 	 * <b>Features</b>: bwd
 	 */
 	@Test
-	// IndexOutOfBoundsException mentioned in issue #15
 	public void testWireCloseLoop_BWD()
 	{
 		assertPrecondition("expected/Spec_BWD", "in/Spec_BWD");

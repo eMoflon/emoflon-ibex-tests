@@ -49,7 +49,6 @@ public class Batch extends testsuite1.testUtil.SyncTestCase<BlockSystem, File> {
 	 * <b>Features</b>: fwd
 	 */
 	@Test
-	// AssertionError mentioned in issue #14
 	public void testBlockToNode_FWD()
 	{
 		assertPrecondition("in/SystemToNode_FWD", "expected/SystemToNode_FWD");
@@ -76,7 +75,6 @@ public class Batch extends testsuite1.testUtil.SyncTestCase<BlockSystem, File> {
 	 * <b>Features</b>: fwd
 	 */
 	@Test
-	// AssertionError mentioned in issue #14
 	public void testProvideToNode_FWD()
 	{
 		assertPrecondition("in/SystemToNode_FWD", "expected/SystemToNode_FWD");
@@ -107,7 +105,6 @@ public class Batch extends testsuite1.testUtil.SyncTestCase<BlockSystem, File> {
 	 * <b>Features</b>: fwd
 	 */
 	@Test
-	// AssertionError mentioned in issue #14
 	public void testRequireToNode_FWD()
 	{
 		assertPrecondition("in/SystemToNode_FWD", "expected/SystemToNode_FWD");
@@ -138,7 +135,6 @@ public class Batch extends testsuite1.testUtil.SyncTestCase<BlockSystem, File> {
 	 * <b>Features</b>: fwd
 	 */
 	@Test
-	// AssertionError mentioned in issue #14
 	public void testConnectorToNode_FWD()
 	{
 		assertPrecondition("in/SystemToNode_FWD", "expected/SystemToNode_FWD");

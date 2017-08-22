@@ -54,7 +54,6 @@ public class SyncResourcesTest extends ModelGenTestCase<File, Specification> {
 	}
 	
 	@Test
-	// AssertionError mentioned in issue #14
 	public void testPort() throws IOException {
 		stop.setMaxRuleCount("File2SpecRule", 1);
 		stop.setMaxRuleCount("Node2BlockRule", 1);
@@ -64,7 +63,6 @@ public class SyncResourcesTest extends ModelGenTestCase<File, Specification> {
 	}
 	
 	@Test
-	// AssertionError mentioned in issue #14
 	public void testWireCloseLoop() throws IOException {
 		stop.setMaxRuleCount("File2SpecRule", 1);
 		stop.setMaxRuleCount("Node2BlockRule", 1);

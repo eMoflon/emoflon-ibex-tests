@@ -46,7 +46,6 @@ public class SyncResourcesTest extends ModelGenTestCase<BlockSystem, File> {
 	}
 	
 	@Test
-	// AssertionError mentioned in issue #14
 	public void testBlockToNode() throws IOException {
 		stop.setMaxRuleCount("SystemToNodeRule", 1);
 		stop.setMaxRuleCount("BlockToNodeRule", 1);
@@ -55,7 +54,6 @@ public class SyncResourcesTest extends ModelGenTestCase<BlockSystem, File> {
 	}
 	
 	@Test
-	// AssertionError mentioned in issue #14
 	public void testProvideToNode() throws IOException {
 		stop.setMaxRuleCount("SystemToNodeRule", 1);
 		stop.setMaxRuleCount("BlockToNodeRule", 1);
@@ -65,7 +63,6 @@ public class SyncResourcesTest extends ModelGenTestCase<BlockSystem, File> {
 	}
 	
 	@Test
-	// AssertionError mentioned in issue #14
 	public void testRequireToNode() throws IOException {
 		stop.setMaxRuleCount("SystemToNodeRule", 1);
 		stop.setMaxRuleCount("BlockToNodeRule", 1);

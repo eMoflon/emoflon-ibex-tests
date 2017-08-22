@@ -7,7 +7,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
 @RunWith(Parameterized.class)
-public abstract class CCTestCase extends TestCase{
+public abstract class CCTestCase extends TestCase {
 	protected CC generator;
 	
 	protected CCTestCase(boolean flatten) {
