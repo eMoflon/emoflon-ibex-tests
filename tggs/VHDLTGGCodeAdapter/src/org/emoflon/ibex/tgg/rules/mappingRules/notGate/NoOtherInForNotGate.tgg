@@ -1,0 +1,9 @@
+#nac NoOtherInForNotGate #for Mapping2NotGate 
+
+#target {
+	noIn:Port {
+		- src->leftExtern
+	}
+	
+	leftExtern:InputPort
+}

@@ -26,18 +26,24 @@ public class VHDLModelHelper {
 
 		OutputPort gateOutPort = VHDLModelFactory.eINSTANCE.createOutputPort();
 		gate.setOutputport(gateOutPort);
+		gateOutPort.setBlock(gate);
 		gateOutPort.setName("NOT.out");
 
 		InputPort gateInPort = VHDLModelFactory.eINSTANCE.createInputPort();
 		gate.setInputport(gateInPort);
+		gate.getInputs().add(gateInPort);
+		gateInPort.setBlock(gate);
 		gateInPort.setName("NOT.in");
 
 		OutputPort blockOutPort = VHDLModelFactory.eINSTANCE.createOutputPort();
 		parentBlock.getPorts().add(blockOutPort);
+		blockOutPort.setBlock(parentBlock);
 		blockOutPort.setName("ExternalOutput");
 
 		InputPort blockInPort = VHDLModelFactory.eINSTANCE.createInputPort();
 		parentBlock.getPorts().add(blockInPort);
+		parentBlock.getInputs().add(blockInPort);
+		blockInPort.setBlock(parentBlock);
 		blockInPort.setName("ExternalInput");
 
 		blockOutPort.setSrc(gateOutPort);

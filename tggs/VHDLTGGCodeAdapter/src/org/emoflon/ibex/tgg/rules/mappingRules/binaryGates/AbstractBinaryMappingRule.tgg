@@ -27,9 +27,6 @@
 }
 
 #target {
-//	!noInRight:Port {
-//		- src->rightExtern
-//	}
 	++leftPort:InputPort {
 		++ - src->leftExtern
 	}

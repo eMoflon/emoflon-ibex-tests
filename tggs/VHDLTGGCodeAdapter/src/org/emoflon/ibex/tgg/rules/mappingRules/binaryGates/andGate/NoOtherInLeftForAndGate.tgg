@@ -1,0 +1,9 @@
+#nac NoOtherInLeftForAndGate #for Mapping2AndGate
+
+#target {
+	noIn:Port {
+		- src->leftExtern
+	}
+	
+	leftExtern:InputPort
+}

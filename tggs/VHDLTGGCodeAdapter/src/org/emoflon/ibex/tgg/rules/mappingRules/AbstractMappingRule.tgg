@@ -43,17 +43,13 @@
 }
 
 #target {
-//	!noOut:Port
 	++out:OutputPort {
 		++ - block->expression
 	}
 	outExternal:OutputPort {
-//		- src->noOut
 		++ - src->out
 	}
-//	!noIn:Port {
-//		- src->leftExtern
-//	}
+
 	leftExtern:InputPort
 	compositeBlock:CompositeBlock {
 		- inputs->leftExtern

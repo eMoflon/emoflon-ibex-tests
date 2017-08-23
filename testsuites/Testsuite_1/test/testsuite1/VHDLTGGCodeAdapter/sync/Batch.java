@@ -1,7 +1,6 @@
 package testsuite1.VHDLTGGCodeAdapter.sync;
 
 import org.benchmarx.vhdlModel.core.VHDLModelHelper;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import MocaTree.File;
@@ -80,13 +79,13 @@ public class Batch extends SyncTestCase<File, VHDLSpecification> {
 	 * <b>Features</b>: bwd
 	 */
 	@Test
-	@Ignore("User-defined NACs are necessary for this test.")
 	public void testNotGate_BWD()
 	{
 		assertPrecondition("expected/File2VHDLSpec_BWD", "in/File2VHDLSpec_BWD");
 		//------------
-		tool.performAndPropagateTargetEdit(util.execute((VHDLSpecification v) -> helperVHDL.createTopLevelBlock(v, "Example"))
-				.andThen(v -> helperVHDL.createNotGate(v))
+		tool.performAndPropagateTargetEdit(
+				util.execute((VHDLSpecification v) -> helperVHDL.createTopLevelBlock(v, "Example"))
+				    .andThen(v -> helperVHDL.createNotGate(v))
 		);
 		//------------
 		assertPostcondition("expected/NotGate_BWD", "in/NotGate_BWD");
