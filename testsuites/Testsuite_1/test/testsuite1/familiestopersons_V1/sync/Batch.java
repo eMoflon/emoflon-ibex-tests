@@ -68,7 +68,7 @@ public class Batch extends SyncTestCase<FamilyRegister, PersonRegister> {
 	{
 		// No precondition!
 		//------------
-		tool.performAndPropagateTargetEdit(r -> helperPerson.createMotherAsFemale(r, "mother"));
+		tool.performAndPropagateTargetEdit(r -> helperPerson.createFemale(r, "mother"));
 		//------------
 		assertPostcondition("singleFamilyWithMother", "singlePersonRegisterWithFemalePerson");
 	}

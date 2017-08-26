@@ -39,7 +39,7 @@ public class AlignmentBased extends SyncTestCase<FamilyRegister, PersonRegister>
 	{
 		// No precondition!
 		//------------
-		tool.performAndPropagateTargetEdit(r -> helperPerson.createMotherAsFemale(r, "Lisa"));
+		tool.performAndPropagateTargetEdit(r -> helperPerson.createFemale(r, "Lisa"));
 		tool.performAndPropagateSourceEdit(r -> helperFamily.createDaughterInSingleTestFamily(r, "Maria"));
 		tool.performAndPropagateSourceEdit(r -> helperFamily.createDaughterInSingleTestFamily(r, "Magdalena"));
 		tool.performAndPropagateTargetEdit(r -> helperPerson.renamePerson(r, "Lisa", "Theresa"));
@@ -52,7 +52,7 @@ public class AlignmentBased extends SyncTestCase<FamilyRegister, PersonRegister>
 	@Test
 	public void testDeleteDaughter()
 	{
-		tool.performAndPropagateTargetEdit(r -> helperPerson.createMotherAsFemale(r, "Theresa"));
+		tool.performAndPropagateTargetEdit(r -> helperPerson.createFemale(r, "Theresa"));
 		tool.performAndPropagateSourceEdit(r -> helperFamily.createDaughterInSingleTestFamily(r, "Maria"));
 		tool.performAndPropagateSourceEdit(r -> helperFamily.createDaughterInSingleTestFamily(r, "Magdalena"));
 		tool.performAndPropagateSourceEdit(r -> helperFamily.createDaughterInSingleTestFamily(r, "Lisa"));
@@ -65,5 +65,20 @@ public class AlignmentBased extends SyncTestCase<FamilyRegister, PersonRegister>
 		//------------
 
 		assertPostcondition("singleFamilyWithDaughters", "singlePersonRegisterWithFemalePersons");
+	}
+	
+	@Test
+	public void testMotherNAC(){
+		// This female can only be propagated as a mother because a daughter requires an existing family
+		tool.performAndPropagateTargetEdit(r -> helperPerson.createFemale(r, "Theresa"));
+		
+		// But once one of them gets a daughter
+		tool.performAndPropagateSourceEdit(r -> helperFamily.createDaughterInSingleTestFamily(r, "Maria"));
+		
+		// You can't create new families anymore!
+		tool.performAndPropagateTargetEdit(r -> helperPerson.createFemale(r, "Magdalena"));
+		tool.performAndPropagateTargetEdit(r -> helperPerson.createFemale(r, "Lisa"));
+		
+		assertPrecondition("singleFamilyWithThreeDaughters", "singlePersonRegisterWithThreeDaughters");
 	}
 }

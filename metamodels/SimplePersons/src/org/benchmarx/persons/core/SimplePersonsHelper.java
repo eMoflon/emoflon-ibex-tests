@@ -9,7 +9,7 @@ import SimplePersons.PersonRegister;
 import SimplePersons.SimplePersonsFactory;
 
 public class SimplePersonsHelper {
-	public void createMotherAsFemale(PersonRegister register, String name){
+	public void createFemale(PersonRegister register, String name){
 		Person p = SimplePersonsFactory.eINSTANCE.createFemale();
 		p.setName(name);
 		register.getPersons().add(p);

@@ -39,3 +39,16 @@
 #attributeConditions {
 	 eq_string(p.name, m.name)
 }
+
+#nac NoOtherFamily #for CreateMotherInNewFamily
+
+#source {
+	d:FamilyMember
+	other:Family {
+		-daughters->d
+	}
+		
+	reg:FamilyRegister {
+		-families->other
+	}
+}

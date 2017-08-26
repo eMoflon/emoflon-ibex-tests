@@ -4,9 +4,14 @@
 #rule CreateDaughterInExistingFamily #with FamiliesToPersons_V1
 
 #source {
+	freg:FamilyRegister {
+		-families->f
+	}
+	
 	f:Family {
 		++ -daughters->m
 	}
+	
 	++ m:FamilyMember
 }
 
@@ -19,6 +24,11 @@
 }
 
 #correspondence {
+	r2r:RegisterToRegister {
+		#src->freg
+		#trg->preg
+	}
+	
 	++ p2m:FamilyMemberToPerson {
 		#src->m
 		#trg->p
