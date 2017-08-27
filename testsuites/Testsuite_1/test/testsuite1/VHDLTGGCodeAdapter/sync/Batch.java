@@ -1,12 +1,6 @@
 package testsuite1.VHDLTGGCodeAdapter.sync;
 
-import java.io.IOException;
-
-import org.apache.log4j.Logger;
 import org.benchmarx.vhdlModel.core.VHDLModelHelper;
-import org.emoflon.ibex.tgg.run.vhdltggcodeadapter.SYNC_App;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 import MocaTree.File;
@@ -17,30 +11,10 @@ import testsuite1.testUtil.SyncTestCase;
 
 
 public class Batch extends SyncTestCase<File, VHDLSpecification> {
-	protected final static Logger logger = Logger.getLogger(Batch.class);
-
 	private static final String projectName = "VHDLTGGCodeAdapter";
 	
 	private MocaTreeHelper helperMT;
 	private VHDLModelHelper helperVHDL;
-	
-	@BeforeClass
-	public static void createSynchronisers() throws IOException {
-		logger.info("Performing initialisation...");
-		long toc = System.currentTimeMillis();
-		
-		IbexVHDLTGGCodeAdapter.normalSynchroniser = new SYNC_App(projectName, testsuite1.testUtil.Constants.workpacePath, true, false);
-		IbexVHDLTGGCodeAdapter.flattenedSynchroniser = new SYNC_App(projectName, testsuite1.testUtil.Constants.workpacePath, false, false);
-	
-		long tic = System.currentTimeMillis();
-		logger.info("done in: " + (tic - toc)/1000 + "s");
-	}
-	
-	@AfterClass
-	public static void terminateSynchronisers() throws IOException{
-		IbexVHDLTGGCodeAdapter.normalSynchroniser.terminate();
-		IbexVHDLTGGCodeAdapter.flattenedSynchroniser.terminate();
-	}
 	
 	public Batch(boolean flatten) {
 		super(new IbexVHDLTGGCodeAdapter(flatten, projectName), flatten);

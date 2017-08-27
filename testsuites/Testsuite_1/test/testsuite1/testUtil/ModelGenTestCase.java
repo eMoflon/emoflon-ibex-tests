@@ -2,45 +2,25 @@ package testsuite1.testUtil;
 
 import java.io.IOException;
 
-import org.apache.log4j.Logger;
 import org.benchmarx.emf.Comparator;
 import org.benchmarx.util.EMFUtil;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGEN;
 import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGENStopCriterion;
-import org.emoflon.ibex.tgg.run.vhdltggcodeadapter.MODELGEN_App;
 import org.junit.Assert;
 
-import language.TGGRule;
-import testsuite1.VHDLTGGCodeAdapter.modelgen.SyncResourcesTest;
-
 public abstract class ModelGenTestCase<S, T> extends TestCase {
-	protected final static Logger logger = Logger.getLogger(SyncResourcesTest.class);
-	
-	protected static MODELGEN generator;
-	protected static MODELGEN_App flattenedGenerator;
-	protected static MODELGEN_App normalGenerator;
-	
+	protected MODELGEN generator;
+	protected MODELGENStopCriterion stop;
 	protected Comparator<S> sourceComp;
 	protected Comparator<T> targetComp;
 	
-	protected static MODELGENStopCriterion stop;
-
 	protected ModelGenTestCase(boolean flatten) {
 		super(flatten);
 	}
 	
 	protected abstract String getProjectName();
 
-	protected static void resetGenerator(Boolean flatten) throws IOException{
-		generator = flatten? flattenedGenerator : normalGenerator;
-		generator.resetPatternMatchingEngine();
-		
-		stop = new MODELGENStopCriterion(generator.getTGG());		
-		for (TGGRule rule : generator.getTGG().getRules())
-			stop.setMaxRuleCount(rule.getName(), 0);
-	}
-	
 	protected void runGenerator(MODELGENStopCriterion stop) throws IOException {
 		generator.setStopCriterion(stop); 
 		generator.run();

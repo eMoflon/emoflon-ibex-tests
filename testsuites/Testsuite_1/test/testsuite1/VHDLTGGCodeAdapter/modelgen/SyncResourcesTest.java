@@ -4,43 +4,36 @@ import java.io.IOException;
 
 import org.benchmarx.mocaTree.core.MocaTreeFileComparator;
 import org.benchmarx.vhdlModel.core.VHDLModelComparator;
+import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGENStopCriterion;
 import org.emoflon.ibex.tgg.run.vhdltggcodeadapter.MODELGEN_App;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 import MocaTree.File;
 import VHDLModel.VHDLSpecification;
+import language.TGGRule;
 import testsuite1.testUtil.ModelGenTestCase;
 
 public class SyncResourcesTest extends ModelGenTestCase<File, VHDLSpecification> {
 
-	private final static String projectName =  "VHDLTGGCodeAdapter";
-	
 	public SyncResourcesTest(Boolean flatten) {
 		super(flatten);
 	}
 
 	@Override
 	protected String getProjectName() {
-		return projectName;
-	}
-	
-	@BeforeClass
-	public static void createGenerators() throws IOException {
-		logger.info("Performing initialisation...");
-		long toc = System.currentTimeMillis();
-		
-		flattenedGenerator = new MODELGEN_App(projectName, testsuite1.testUtil.Constants.workpacePath, true, false);
-		normalGenerator = new MODELGEN_App(projectName, testsuite1.testUtil.Constants.workpacePath, false, false);
-		
-		long tic = System.currentTimeMillis();
-		logger.info("done in: " + (tic - toc)/1000 + "s");
+		return "VHDLTGGCodeAdapter";
 	}
 	
 	@Before
-	public void reset() throws IOException {
-		resetGenerator(flatten);
+	public void createGenerator() throws IOException {
+		generator = new MODELGEN_App(getProjectName(), testsuite1.testUtil.Constants.workpacePath, flatten, false);
+		stop = new MODELGENStopCriterion(generator.getTGG());
+		
+		for (TGGRule rule : generator.getTGG().getRules()) {
+			stop.setMaxRuleCount(rule.getName(), 0);
+		}
+		
 		sourceComp = new MocaTreeFileComparator(false);
 		targetComp = new VHDLModelComparator(false);
 	}
