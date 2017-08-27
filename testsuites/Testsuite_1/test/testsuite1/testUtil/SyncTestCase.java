@@ -3,7 +3,6 @@ package testsuite1.testUtil;
 import org.benchmarx.BXTool;
 import org.benchmarx.util.BenchmarxUtil;
 import org.eclipse.emf.ecore.EObject;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -21,7 +20,6 @@ public abstract class SyncTestCase<S extends EObject, T extends EObject> extends
 	
 	@Before
 	public void initialise() {
-		
 		// Initialise all helpers
 		util = new BenchmarxUtil<>(tool);
 		initHelpers();
@@ -31,9 +29,4 @@ public abstract class SyncTestCase<S extends EObject, T extends EObject> extends
 	}
 	
 	protected abstract void initHelpers();
-
-	@After
-	public void terminate(){
-		tool.terminateSynchronisationDialogue();
-	}
 }
