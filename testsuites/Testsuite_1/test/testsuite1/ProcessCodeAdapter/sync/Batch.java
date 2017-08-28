@@ -25,12 +25,9 @@ public class Batch extends SyncTestCase<Folder, SystemModule> {
 		helperProcess = new ProcessDefinitionHelper();
 	}
 	
-	protected void assertPrecondition(String source, String target) {
-		util.assertPrecondition(projectName+"/"+source, projectName+"/"+target);
-	}
-	
-	protected void assertPostcondition(String source, String target) {
-		util.assertPostcondition(projectName+"/"+source, projectName+"/"+target);
+	@Override
+	protected String getProjectName() {
+		return projectName;
 	}
 
 	/**

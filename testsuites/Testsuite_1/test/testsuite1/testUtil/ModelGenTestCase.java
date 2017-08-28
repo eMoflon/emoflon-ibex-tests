@@ -20,6 +20,10 @@ public abstract class ModelGenTestCase<S, T> extends TestCase {
 	}
 	
 	protected abstract String getProjectName();
+	
+	protected String getResourcePath() {
+		return "../../../tggs/"+getProjectName()+"/resources/";
+	}
 
 	protected void runGenerator(MODELGENStopCriterion stop) throws IOException {
 		generator.setStopCriterion(stop); 
@@ -34,7 +38,7 @@ public abstract class ModelGenTestCase<S, T> extends TestCase {
 
 	@SuppressWarnings("unchecked")
 	protected void assertPostconditionOnSrc(String src) {
-		Resource srcExp = EMFUtil.loadExpectedResource(getProjectName()+"/"+src, generator.getResourceSet());
+		Resource srcExp = EMFUtil.loadExpectedResource(getResourcePath()+"/"+src, generator.getResourceSet());
 		
 		Assert.assertNotEquals("Resource is empty", 0, srcExp.getContents().size());
 		
@@ -47,7 +51,7 @@ public abstract class ModelGenTestCase<S, T> extends TestCase {
 
 	@SuppressWarnings("unchecked")
 	protected void assertPostconditionOnTrg(String trg) {
-		Resource trgExp = EMFUtil.loadExpectedResource(getProjectName()+"/"+trg, generator.getResourceSet());
+		Resource trgExp = EMFUtil.loadExpectedResource(getResourcePath()+"/"+trg, generator.getResourceSet());
 		
 		Assert.assertNotEquals("Resource is empty", 0, trgExp.getContents().size());
 		
