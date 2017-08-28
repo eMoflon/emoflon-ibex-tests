@@ -29,7 +29,7 @@ public class IbexCompanyToIT extends IbexAdapter<Company, IT>  {
 	@Override
 	public void initiateSynchronisationDialogue() {
 		try {
-			synchroniser = new SYNC_App(projectName, testsuite1.testUtil.Constants.workpacePath, flatten, false);
+			synchroniser = new SYNC_App(projectName, testsuite1.testUtil.Constants.workspacePath, flatten, false);
 			
 			Company company = CompanyLanguageFactory.eINSTANCE.createCompany();
 			company.setName("ES");

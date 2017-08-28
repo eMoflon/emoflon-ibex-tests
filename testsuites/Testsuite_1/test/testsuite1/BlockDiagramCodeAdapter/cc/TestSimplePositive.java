@@ -14,7 +14,7 @@ public class TestSimplePositive extends CCTestCase {
 	}
 	
 	public void createGenerator(String srcInstance, String trgInstance) throws IOException {
-		generator = new CC_App("BlockDiagramCodeAdapter", testsuite1.testUtil.Constants.workpacePath, flatten, false, srcInstance, trgInstance);
+		generator = new CC_App("BlockDiagramCodeAdapter", testsuite1.testUtil.Constants.workspacePath, flatten, false, srcInstance, trgInstance);
 	}
 	
 	@Test

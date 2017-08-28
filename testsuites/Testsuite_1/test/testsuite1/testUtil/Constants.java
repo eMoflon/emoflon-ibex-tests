@@ -1,7 +1,7 @@
 package testsuite1.testUtil;
 
 public class Constants {
-	public final static String workpacePath = "./../../tggs/";
+	public final static String workspacePath = "./../../tggs/";
 	
 	public final static String[] testProjects = {"BlockCodeAdapter",
 											     "BlockDiagramCodeAdapter",

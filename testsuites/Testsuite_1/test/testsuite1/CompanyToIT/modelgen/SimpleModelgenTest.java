@@ -27,7 +27,7 @@ public class SimpleModelgenTest extends ModelGenTestCase<Company, IT> {
 	
 	@Before
 	public void createGenerator() throws IOException {
-		generator = new MODELGEN_App(getProjectName(), testsuite1.testUtil.Constants.workpacePath, flatten, false);
+		generator = new MODELGEN_App(getProjectName(), testsuite1.testUtil.Constants.workspacePath, flatten, false);
 		stop = new MODELGENStopCriterion(generator.getTGG());
 		
 		for (TGGRule rule : generator.getTGG().getRules()) {
