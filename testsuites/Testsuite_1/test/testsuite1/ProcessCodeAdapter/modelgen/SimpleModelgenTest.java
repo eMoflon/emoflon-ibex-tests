@@ -14,9 +14,9 @@ import ProcessDefinition.SystemModule;
 import language.TGGRule;
 import testsuite1.testUtil.ModelGenTestCase;
 
-public class SyncResourcesTest extends ModelGenTestCase<Folder, SystemModule> {
+public class SimpleModelgenTest extends ModelGenTestCase<Folder, SystemModule> {
 
-	public SyncResourcesTest(Boolean flatten) {
+	public SimpleModelgenTest(Boolean flatten) {
 		super(flatten);
 	}
 	

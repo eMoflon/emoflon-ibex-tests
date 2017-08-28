@@ -6,6 +6,9 @@ import org.apache.log4j.BasicConfigurator;
 import org.emoflon.ibex.tgg.operational.strategies.sync.SYNC;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesEngine;
 
+import SimpleFamilies.impl.SimpleFamiliesPackageImpl;
+import SimplePersons.impl.SimplePersonsPackageImpl;
+
 public class SYNC_App extends SYNC {
 
 	public SYNC_App(String projectName, String workspacePath, boolean flatten, boolean debug) throws IOException {
@@ -16,7 +19,7 @@ public class SYNC_App extends SYNC {
 	public static void main(String[] args) throws IOException {
 		BasicConfigurator.configure();
 
-		SYNC_App sync = new SYNC_App("FamiliesToPersons_V0", "./../", false, false);
+		SYNC_App sync = new SYNC_App("FamiliesToPersons_V0", "./../", false, true);
 		
 		logger.info("Starting SYNC");
 		long tic = System.currentTimeMillis();
@@ -29,7 +32,8 @@ public class SYNC_App extends SYNC {
 	}
 
 	protected void registerUserMetamodels() throws IOException {
-		//FIXME load and register source and target metamodels
+		rs.getPackageRegistry().put("platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore", SimpleFamiliesPackageImpl.init());
+		rs.getPackageRegistry().put("platform:/resource/SimplePersons/model/SimplePersons.ecore", SimplePersonsPackageImpl.init());
 		
 		// Register correspondence metamodel last
 		loadAndRegisterMetamodel(projectPath + "/model/" + projectPath + ".ecore");

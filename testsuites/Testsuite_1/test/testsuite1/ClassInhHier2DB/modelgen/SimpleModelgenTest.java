@@ -14,9 +14,9 @@ import Database.DB;
 import language.TGGRule;
 import testsuite1.testUtil.ModelGenTestCase;
 
-public class SyncResourcesTest extends ModelGenTestCase<ClassPackage, DB> {
+public class SimpleModelgenTest extends ModelGenTestCase<ClassPackage, DB> {
 
-	public SyncResourcesTest(Boolean flatten) {
+	public SimpleModelgenTest(Boolean flatten) {
 		super(flatten);
 	}
 

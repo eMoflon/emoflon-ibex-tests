@@ -14,9 +14,9 @@ import MocaTree.File;
 import language.TGGRule;
 import testsuite1.testUtil.ModelGenTestCase;
 
-public class SyncResourcesTest extends ModelGenTestCase<File, Specification> {
+public class SimpleModelgenTest extends ModelGenTestCase<File, Specification> {
 
-	public SyncResourcesTest(Boolean flatten) {
+	public SimpleModelgenTest(Boolean flatten) {
 		super(flatten);
 	}
 

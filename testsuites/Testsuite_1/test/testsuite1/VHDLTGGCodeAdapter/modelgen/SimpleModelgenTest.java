@@ -14,9 +14,9 @@ import VHDLModel.VHDLSpecification;
 import language.TGGRule;
 import testsuite1.testUtil.ModelGenTestCase;
 
-public class SyncResourcesTest extends ModelGenTestCase<File, VHDLSpecification> {
+public class SimpleModelgenTest extends ModelGenTestCase<File, VHDLSpecification> {
 
-	public SyncResourcesTest(Boolean flatten) {
+	public SimpleModelgenTest(Boolean flatten) {
 		super(flatten);
 	}
 
