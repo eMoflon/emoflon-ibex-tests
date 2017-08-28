@@ -44,4 +44,9 @@ Require-Bundle: org.apache.log4j,
  ProcessDefinition;bundle-version="1.0.0",
  SimpleFamilies;bundle-version="1.0.0",
  SimplePersons;bundle-version="1.0.0",
- VHDLModel;bundle-version="1.0.0"
+ VHDLModel;bundle-version="1.0.0",
+ com.google.guava,
+ org.eclipse.xtext.xbase.lib,
+ org.eclipse.xtend.lib,
+ org.eclipse.xtend.lib.macro
+
