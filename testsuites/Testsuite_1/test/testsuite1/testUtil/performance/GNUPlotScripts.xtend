@@ -22,29 +22,56 @@ class GNUPlotScripts {
 	def static createPlot(String title, String outputstyle) {
 		var script = ""
 		switch title {
-			case "tggSizeMODELGEN": script = tggSizeMODELGENComparison(title, outputstyle)
+			case "TGGSizeMODELGEN": script = testsuite1.testUtil.performance.GNUPlotScripts.tggSizeComparison(title, outputstyle, "MODELGEN")
+			case "TGGSizeCC": script = testsuite1.testUtil.performance.GNUPlotScripts.tggSizeComparison(title, outputstyle, "CC")
+			case "TGGSizeFWD": script = testsuite1.testUtil.performance.GNUPlotScripts.tggSizeComparison(title, outputstyle, "FWD")
+			case "TGGSizeBWD": script = testsuite1.testUtil.performance.GNUPlotScripts.tggSizeComparison(title, outputstyle, "BWD")
+			case "TGGSizeINCREMENTAL": script = testsuite1.testUtil.performance.GNUPlotScripts.tggSizeComparison(title, outputstyle, "INCREMENTAL")
+			case "TGGsWithoutRefinement": script = tggsWithoutRefinementComparison(title, outputstyle)
 		}
 		var lines = script.split("\n\n")
 		Files.write(Paths.get(scriptPath+title+".gp"), lines)
 		Runtime.runtime.exec("gnuplot "+scriptPath+title+".gp").waitFor()
 		
 	}
-
-	def static tggSizeMODELGENComparison(String title, String outputstyle) {
+	
+	def static commonHistogramScriptParts(String title, String outputstyle) {
 		return '''
 			set terminal «outputstyle»
 			set output "«plotPath»«title».«IF outputstyle=="gif"»gif«ELSE»pdf«ENDIF»"
-			set title "Comparison of Model Sizes - MODELGEN"
 			set style data histogram
 			set style histogram cluster gap 1
 			set style fill solid border -1
 			set boxwidth 0.9
-			set xlabel "TGG"
 			set ylabel "execution time / ms"
-			set grid
-			set xtic rotate by -45 scale 0
+			set xtic rotate out
 			set key top left
-			plot "«dataPath»«title».dat" using ($2/100000):xtic(1) ti col, '' u ($3/100000) ti col
+			set logscale y
+			set grid
+		'''
+	}
+
+	def static tggSizeComparison(String title, String outputstyle, String op) {
+		return '''
+			«testsuite1.testUtil.performance.GNUPlotScripts.commonHistogramScriptParts(title, outputstyle)»
+			set title "Impact of TGG size on execution time - «op»"
+			plot \
+			newhistogram lt 3, \
+			"«dataPath»«title».dat" using ($2/100000):xtic(1) ti col, '' u ($3/100000) ti col
+		'''
+	}
+
+	def static tggsWithoutRefinementComparison(String title, String outputstyle) {
+		return '''
+			«testsuite1.testUtil.performance.GNUPlotScripts.commonHistogramScriptParts(title, outputstyle)»
+			set title "Comparison of TGGs without refinements"
+			set style histogram cluster gap 1 title offset 1, -2
+			set bmargin 7
+			plot \
+			newhistogram lt 3 "ClassInhHier2DB", \
+			"«dataPath»«title».dat" using ($2/100000):xtic(1) ti col, '' u ($3/100000) ti col, \
+			newhistogram lt 3 "CompanyToIT", \
+			"«dataPath»«title».dat" every ::1 using ($4/100000):xtic(1) notitle, '' every ::1 u ($5/100000) notitle, \
 		'''
 	}
 }

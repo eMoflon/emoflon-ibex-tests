@@ -1,8 +1,11 @@
 package testsuite1.testUtil.performance;
 
-public enum Operationalization {
+import java.io.Serializable;
+
+public enum Operationalization implements Serializable {
 	MODELGEN,
 	CC,
-	SYNC,
-	INCREMENTAL
+	FWD,
+	BWD,
+	INCREMENTAL_SYNC
 }

@@ -8,21 +8,15 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class PerformanceTestUtil {
-	
-	private List<TestDataPoint> testData;
-	
-	public PerformanceTestUtil(List<TestDataPoint> testData) {
-		this.testData = testData;
-	}
 
 	/**
 	 * Returns those TestDataPoints from the testData which fit to the
 	 * specified parameters tgg, op, modelSize and flattened. When null is
 	 * passed for any parameter, then that parameter is not used for filtering.
 	 */
-	public List<TestDataPoint> filterTestResults(String tgg, Operationalization op, Integer modelSize, Boolean flattened) {
+	public List<TestDataPoint> filterTestResults(List<TestDataPoint> testData, String tgg, Operationalization op, Integer modelSize, Boolean flattened) {
 		return testData.stream()
-					   .filter(t -> tgg==null || t.tgg.getName().equals(tgg))
+					   .filter(t -> tgg==null || t.tggName.equals(tgg))
 					   .filter(t -> op==null || t.operationalization == op)
 					   .filter(t -> modelSize==null || t.modelSize == modelSize)
 					   .filter(t -> flattened==null || t.flattenedNetwork == flattened)
@@ -39,7 +33,7 @@ public class PerformanceTestUtil {
 	
 	/**
 	 * Saves the data as a .dat file in the performance/data directory
-	 * of the testsuite. Also, 
+	 * of the testsuite. Also, generates the gnuplot script and executes it.
 	 * @param data
 	 * @param fileName Name of the .dat file
 	 */
@@ -47,8 +41,7 @@ public class PerformanceTestUtil {
 		try {
 			Path file = Paths.get("performance/data/"+fileName+".dat");
 			Files.write(file, data);
-//			GNUPlotScripts.tggSizeMODELGENComparison("MODELGEN with 100 elements sorted by TGG size", "gif");
-			GNUPlotScripts.createPlot(fileName, "gif");
+			GNUPlotScripts.createPlot(fileName, "pdf");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

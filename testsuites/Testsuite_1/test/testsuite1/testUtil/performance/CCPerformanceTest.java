@@ -7,31 +7,26 @@ import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.function.Function;
 import java.util.function.Supplier;
 
-import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGEN;
-import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGENStopCriterion;
-import org.emoflon.ibex.tgg.operational.util.RandomMatchUpdatePolicy;
+import org.emoflon.ibex.tgg.operational.strategies.cc.CC;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesEngine;
 
 import language.TGG;
 
-public class MODELGENPerformanceTest {
-	public MODELGEN generator;
+public class CCPerformanceTest {
+	public CC checker;
 	
 	protected boolean initialized = false;
 	
 	protected List<String> executionResults = new LinkedList<String>();
 	protected List<String> initResults = new LinkedList<String>();
 
-	public long timedInit(MODELGEN generator) throws IOException {
-		this.generator = generator;
-		
-		generator.setUpdatePolicy(new RandomMatchUpdatePolicy());
+	public long timedInit(CC checker) throws IOException {
+		this.checker = checker;
 		
 		long tic = System.nanoTime();
-		generator.registerPatternMatchingEngine(new DemoclesEngine());
+		checker.registerPatternMatchingEngine(new DemoclesEngine());
 		long toc = System.nanoTime();
 		
 		initialized = true;
@@ -39,23 +34,21 @@ public class MODELGENPerformanceTest {
 		return toc - tic;
 	}
 	
-	public long timedExecution(MODELGENStopCriterion stop) throws IOException {
+	public long timedExecution() throws IOException {
 		if (!initialized)
-			throw new NullPointerException("Generator has not been initialized yet. Call timedInit() before this method.");
-		
-		generator.setStopCriterion(stop);
+			throw new NullPointerException("Checker has not been initialized yet. Call timedInit() before this method.");
 		
 		long tic = System.nanoTime();
-		generator.run();
+		checker.run();
 		long toc = System.nanoTime();
 		
-		generator.terminate();
+		checker.terminate();
 		executionResults.add((toc - tic)+"");
 		System.out.println((toc - tic) + "");
 		return toc - tic;
 	}
 	
-	public TestDataPoint timedExecutionAndInit(Supplier<MODELGEN> generator, Function<TGG, MODELGENStopCriterion> stops, int size, int repetitions, boolean flattened) throws IOException {
+	public TestDataPoint timedExecutionAndInit(Supplier<CC> checker, int size, int repetitions, boolean flattened) throws IOException {
 		if (repetitions < 1)
 			throw new IllegalArgumentException("Number of repetitions must be positive.");
 		
@@ -64,22 +57,17 @@ public class MODELGENPerformanceTest {
 		TGG tgg = null;
 		
 		for (int i = 0; i < repetitions; i++) {
-			MODELGEN gen = generator.get();
-			tgg = gen.getTGG();
-			System.out.println(gen.getTGG().getName()+":MODELGEN, size="+size+", flattened = "+flattened+": "+(i+1)+"-th execution started.");
-			initTimes[i] = timedInit(gen);
-			MODELGENStopCriterion stop = stops.apply(gen.getTGG());
-			executionTimes[i] = timedExecution(stop);
+			CC cc = checker.get();
+			tgg = cc.getTGG();
+			System.out.println(cc.getTGG().getName()+":CC, size="+size+", flattened = "+flattened+": "+(i+1)+"-th execution started.");
+			initTimes[i] = timedInit(cc);
+			executionTimes[i] = timedExecution();
 			System.out.print((i+1)+"-th execution finished. ");
-			
-			if (i==0) { // one generated model should be saved
-				gen.saveModels();
-			}
 		}
 		System.out.println("");
-		
+
 		TestDataPoint result = new TestDataPoint(initTimes, executionTimes);
-		result.operationalization = Operationalization.MODELGEN;
+		result.operationalization = Operationalization.CC;
 		result.setTGG(tgg);
 		result.modelSize = size;
 		result.flattenedNetwork = flattened;
@@ -87,10 +75,10 @@ public class MODELGENPerformanceTest {
 	}
 	
 	public void saveResults() throws IOException {
-		Path file = Paths.get("performance/MODELGENExecutionResults.txt");
+		Path file = Paths.get("performance/CCExecutionResults.txt");
 		Files.deleteIfExists(file);
 		Files.write(file, executionResults, StandardOpenOption.CREATE_NEW);
-		file = Paths.get("performance/MODELGENInitResults.txt");
+		file = Paths.get("performance/CCInitResults.txt");
 		Files.write(file, initResults, StandardOpenOption.CREATE);
 	}
 }
