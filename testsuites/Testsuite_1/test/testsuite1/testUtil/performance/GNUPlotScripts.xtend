@@ -44,7 +44,7 @@ class GNUPlotScripts {
 			set style fill solid border -1
 			set boxwidth 0.9
 			set ylabel "execution time / ms"
-			set xtic rotate out
+			set xtic rotate by -45
 			set key top left
 			set logscale y
 			set grid
@@ -65,8 +65,8 @@ class GNUPlotScripts {
 		return '''
 			«testsuite1.testUtil.performance.GNUPlotScripts.commonHistogramScriptParts(title, outputstyle)»
 			set title "Comparison of TGGs without refinements"
-			set style histogram cluster gap 1 title offset 1, -2
-			set bmargin 7
+			set style histogram cluster gap 1 title offset 0, -2
+			set bmargin 6
 			plot \
 			newhistogram lt 3 "ClassInhHier2DB", \
 			"«dataPath»«title».dat" using ($2/100000):xtic(1) ti col, '' u ($3/100000) ti col, \
