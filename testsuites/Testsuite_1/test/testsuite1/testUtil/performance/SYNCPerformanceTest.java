@@ -47,10 +47,10 @@ public class SYNCPerformanceTest {
 	}
 	
 	public TestDataPoint timedFwdAndInit(Supplier<SYNC> transformator, int size, int repetitions, boolean flattened) throws IOException {
-		return this.timedIncrFwdAndInit(transformator, size, repetitions, flattened, (o)->{});
+		return this.timedFwdAndInit(transformator, size, repetitions, flattened, (o)->{}, false);
 	}
 	
-	public TestDataPoint timedIncrFwdAndInit(Supplier<SYNC> transformator, int size, int repetitions, boolean flattened, Consumer<EObject> edit) throws IOException {
+	public TestDataPoint timedFwdAndInit(Supplier<SYNC> transformator, int size, int repetitions, boolean flattened, Consumer<EObject> edit, boolean incr) throws IOException {
 		if (repetitions < 1)
 			throw new IllegalArgumentException("Number of repetitions must be positive.");
 		
@@ -61,8 +61,10 @@ public class SYNCPerformanceTest {
 		for (int i = 0; i < repetitions; i++) {
 			SYNC sync = transformator.get();
 			tgg = sync.getTGG();
-			System.out.println(sync.getTGG().getName()+":FWD, size="+size+", flattened = "+flattened+": "+(i+1)+"-th execution started.");
+			System.out.println(sync.getTGG().getName()+":"+(incr ? Operationalization.INCREMENTAL_FWD : Operationalization.FWD)+", size="+size+", flattened = "+flattened+": "+(i+1)+"-th execution started.");
 			initTimes[i] = timedInit(sync);
+			if (incr)
+				sync.forward();
 			edit.accept(sync.getSourceResource().getContents().get(0));
 			executionTimes[i] = timedFwd();
 			System.out.print((i+1)+"-th execution finished. ");
@@ -70,7 +72,7 @@ public class SYNCPerformanceTest {
 		System.out.println("");
 
 		TestDataPoint result = new TestDataPoint(initTimes, executionTimes);
-		result.operationalization = Operationalization.FWD;
+		result.operationalization = incr ? Operationalization.INCREMENTAL_FWD : Operationalization.FWD;
 		result.setTGG(tgg);
 		result.modelSize = size;
 		result.flattenedNetwork = flattened;
@@ -92,10 +94,10 @@ public class SYNCPerformanceTest {
 	}
 	
 	public TestDataPoint timedBwdAndInit(Supplier<SYNC> transformator, int size, int repetitions, boolean flattened) throws IOException {
-		return this.timedIncrBwdAndInit(transformator, size, repetitions, flattened, (o)->{});
+		return this.timedBwdAndInit(transformator, size, repetitions, flattened, (o)->{}, false);
 	}
 	
-	public TestDataPoint timedIncrBwdAndInit(Supplier<SYNC> transformator, int size, int repetitions, boolean flattened, Consumer<EObject> edit) throws IOException {
+	public TestDataPoint timedBwdAndInit(Supplier<SYNC> transformator, int size, int repetitions, boolean flattened, Consumer<EObject> edit, boolean incr) throws IOException {
 		if (repetitions < 1)
 			throw new IllegalArgumentException("Number of repetitions must be positive.");
 		
@@ -106,8 +108,10 @@ public class SYNCPerformanceTest {
 		for (int i = 0; i < repetitions; i++) {
 			SYNC sync = transformator.get();
 			tgg = sync.getTGG();
-			System.out.println(sync.getTGG().getName()+":BWD, size="+size+", flattened = "+flattened+": "+(i+1)+"-th execution started.");
+			System.out.println(sync.getTGG().getName()+":"+(incr ? Operationalization.INCREMENTAL_BWD : Operationalization.BWD)+", size="+size+", flattened = "+flattened+": "+(i+1)+"-th execution started.");
 			initTimes[i] = timedInit(sync);
+			if (incr)
+				sync.backward();
 			edit.accept(sync.getTargetResource().getContents().get(0));
 			executionTimes[i] = timedBwd();
 			System.out.print((i+1)+"-th execution finished. ");
@@ -115,7 +119,7 @@ public class SYNCPerformanceTest {
 		System.out.println("");
 
 		TestDataPoint result = new TestDataPoint(initTimes, executionTimes);
-		result.operationalization = Operationalization.BWD;
+		result.operationalization = incr ? Operationalization.INCREMENTAL_BWD : Operationalization.BWD;
 		result.setTGG(tgg);
 		result.modelSize = size;
 		result.flattenedNetwork = flattened;
