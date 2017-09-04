@@ -18,7 +18,7 @@ public class TestDataPoint implements Serializable {
 	public int tggSize;
 	public double tggAverageRuleSize;
 	
-	public TestDataPoint(long[] executionTimes, long[] initTimes) {
+	public TestDataPoint(long[] initTimes, long[] executionTimes) {
 		this.executionTimes = executionTimes;
 		this.initTimes = initTimes;
 	}
@@ -62,6 +62,14 @@ public class TestDataPoint implements Serializable {
 		this.tggAverageRuleSize = (tgg.getRules().stream().flatMap(r -> r.getNodes().stream()).count()
 								+ tgg.getRules().stream().flatMap(r -> r.getEdges().stream()).count())
 								/ (tggSize+0.0);
+	}
+	
+	public String toString() {
+		return "\n"+tggName+":"+operationalization
+				   +", elements:"+modelSize
+				   +", flattened:"+flattenedNetwork
+				   +", executionTime:"+this.medianExecutionTime()
+				   +", initTime:"+this.medianInitTime();
 	}
 
 }
