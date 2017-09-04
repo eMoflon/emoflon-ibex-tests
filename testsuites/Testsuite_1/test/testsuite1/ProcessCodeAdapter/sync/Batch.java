@@ -1,6 +1,6 @@
 package testsuite1.ProcessCodeAdapter.sync;
 
-import org.benchmarx.mocaTree.core.MocaTreeHelper;
+import org.benchmarx.mocaTree.core.MocaTreeHelperForProcessCode;
 import org.benchmarx.processDefinition.core.ProcessDefinitionHelper;
 import org.junit.Test;
 
@@ -12,7 +12,7 @@ import testsuite1.testUtil.SyncTestCase;
 public class Batch extends SyncTestCase<Folder, SystemModule> {
 	private static final String projectName = "ProcessCodeAdapter";
 	
-	private MocaTreeHelper helperMoca;
+	private MocaTreeHelperForProcessCode helperMoca;
 	private ProcessDefinitionHelper helperProcess;
 
 	public Batch(boolean flatten) {
@@ -21,7 +21,7 @@ public class Batch extends SyncTestCase<Folder, SystemModule> {
 	
 	@Override
 	protected void initHelpers() {
-		helperMoca = new MocaTreeHelper();
+		helperMoca = new MocaTreeHelperForProcessCode();
 		helperProcess = new ProcessDefinitionHelper();
 	}
 	

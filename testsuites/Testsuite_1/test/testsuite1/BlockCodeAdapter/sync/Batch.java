@@ -1,18 +1,18 @@
 package testsuite1.BlockCodeAdapter.sync;
 
 import org.benchmarx.blockLanguage.core.BlockLanguageHelper;
+import org.benchmarx.mocaTree.core.MocaTreeHelperForBlockCode;
 import org.junit.Test;
 
 import BlockLanguage.Specification;
 import MocaTree.File;
 import testsuite1.BlockCodeAdapter.sync.util.IbexBlockCodeAdapter;
-import testsuite1.BlockCodeAdapter.sync.util.MocaTreeHelper;
 import testsuite1.testUtil.SyncTestCase;
 
 public class Batch extends SyncTestCase<File, Specification> {
 	private static final String projectName = "BlockCodeAdapter";
 	
-	private MocaTreeHelper helperMT;
+	private MocaTreeHelperForBlockCode helperMT;
 	private BlockLanguageHelper helperBlock;
 	
 	public Batch(boolean flatten) {
@@ -20,7 +20,7 @@ public class Batch extends SyncTestCase<File, Specification> {
 	}
 	
 	protected void initHelpers() {
-		helperMT = new MocaTreeHelper();
+		helperMT = new MocaTreeHelperForBlockCode();
 		helperBlock = new BlockLanguageHelper();
 	}
 	

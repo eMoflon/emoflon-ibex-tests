@@ -5,7 +5,7 @@ import MocaTree.File;
 import MocaTree.MocaTreeFactory;
 import MocaTree.Node;
 
-public class MocaTreeNodeHelper {
+public class MocaTreeHelperForBlockDiagramCode {
 
 	public void createBlockNode(File f, String name) {
 		Node blockNode = MocaTreeFactory.eINSTANCE.createNode();
