@@ -19,14 +19,14 @@ class GNUPlotScripts {
 	 * @param outputstyle The style in which the plot should be generated.
 	 * The possible options are "gif" for a .gif file and "pdf" for a .pdf file.
 	 */
-	def static createPlot(String title, String outputstyle) {
+	def static createPlot(String title, String outputstyle, String... args) {
 		var script = ""
 		switch title {
-			case "TGGSizeMODELGEN": script = testsuite1.testUtil.performance.GNUPlotScripts.tggSizeComparison(title, outputstyle, "MODELGEN")
-			case "TGGSizeCC": script = testsuite1.testUtil.performance.GNUPlotScripts.tggSizeComparison(title, outputstyle, "CC")
-			case "TGGSizeFWD": script = testsuite1.testUtil.performance.GNUPlotScripts.tggSizeComparison(title, outputstyle, "FWD")
-			case "TGGSizeBWD": script = testsuite1.testUtil.performance.GNUPlotScripts.tggSizeComparison(title, outputstyle, "BWD")
-			case "TGGSizeINCREMENTAL": script = testsuite1.testUtil.performance.GNUPlotScripts.tggSizeComparison(title, outputstyle, "INCREMENTAL")
+			// args[0] should be the Operationalization
+			case "TGGSize": script = tggSizeComparison(title, outputstyle, args.get(0))
+			// args[0] should be the TGG, args[1] the Operationalization
+			case "ModelSize": script = modelSizeComparison(title, outputstyle, args.get(0), args.get(1)) 
+			
 			case "TGGsWithoutRefinement": script = tggsWithoutRefinementComparison(title, outputstyle)
 		}
 		var lines = script.split("\n\n")
@@ -57,7 +57,17 @@ class GNUPlotScripts {
 			set title "Impact of TGG size on execution time - «op»"
 			plot \
 			newhistogram lt 3, \
-			"«dataPath»«title».dat" using ($2/100000):xtic(1) ti col, '' u ($3/100000) ti col
+			"«dataPath»«title».dat" using ($2/1000000):xtic(1) ti col, '' u ($3/1000000) ti col
+		'''
+	}
+
+	def static modelSizeComparison(String title, String outputstyle, String tgg, String op) {
+		return '''
+			«testsuite1.testUtil.performance.GNUPlotScripts.commonHistogramScriptParts(title, outputstyle)»
+			set title "Impact of model size on execution time - «tgg»:«op»"
+			plot \
+			newhistogram lt 3, \
+			"«dataPath»«title».dat" using ($2/1000000):xtic(1) ti col, '' u ($3/1000000) ti col
 		'''
 	}
 
@@ -66,12 +76,13 @@ class GNUPlotScripts {
 			«testsuite1.testUtil.performance.GNUPlotScripts.commonHistogramScriptParts(title, outputstyle)»
 			set title "Comparison of TGGs without refinements"
 			set style histogram cluster gap 1 title offset 0, -2
-			set bmargin 6
+			set rmargin 8
+			set bmargin 8
 			plot \
 			newhistogram lt 3 "ClassInhHier2DB", \
-			"«dataPath»«title».dat" using ($2/100000):xtic(1) ti col, '' u ($3/100000) ti col, \
+			"«dataPath»«title».dat" using ($2/1000000):xtic(1) ti col, '' u ($3/1000000) ti col, \
 			newhistogram lt 3 "CompanyToIT", \
-			"«dataPath»«title».dat" every ::1 using ($4/100000):xtic(1) notitle, '' every ::1 u ($5/100000) notitle, \
+			"«dataPath»«title».dat" every ::1 using ($4/1000000):xtic(1) notitle, '' every ::1 u ($5/1000000) notitle, \
 		'''
 	}
 }

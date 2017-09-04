@@ -24,10 +24,10 @@ public class TestDataCollector {
 	
 	private static final String dataLocation = "performance/data/allTestDataPoints.ser";
 	
-	private IncrementalEditor incEditor;
+	private IncrementalEditor incEditor = new IncrementalEditor();
 	private List<TestDataPoint> data;
 	
-	public int[] modelSizes = {50, 10, 20};
+	public int[] modelSizes = {500, 50, 5};
 	public int repetitions = 3;
 	
 	/**
@@ -41,12 +41,18 @@ public class TestDataCollector {
 		data = new ArrayList<TestDataPoint>(100);
 		for (String tgg : Constants.testProjects) {
 			if (tgg.equals("VHDLTGGCodeAdapter")) continue; // skip the slow VHDLTGGCodeAdapter for testing
-//			if (!tgg.equals("CompanyToIT") && !tgg.equals("ClassInhHier2DB")) continue; // just use one TGG for quick testing
+			if (tgg.equals("ProcessCodeAdapter")) continue;
+			if (tgg.equals("FamiliesToPersons_V1")) continue;
+//			if (tgg.equals("FamiliesToPersons_V0")) continue;
+//			if (tgg.equals("CompanyToIT")) continue;
+//			if (tgg.equals("ClassInhHier2DB")) continue;
+//			if (tgg.equals("BlockDiagramCodeAdapter")) continue;
+			if (tgg.equals("BlockCodeAdapter")) continue;
 			for (int size : modelSizes) {
 				boolean[] networks = {true, false};
 				for (boolean flattened : networks) {
 					collectMODELGENData(tgg, size, flattened);
-					if (size <= 50)
+//					if (size <= 50)
 						collectCCData(tgg, size, flattened);
 					collectSYNCData(tgg, size, flattened);
 					collectINCREMENTALData(tgg, size, flattened);
@@ -195,6 +201,9 @@ public class TestDataCollector {
 	}
 
 	private void collectINCREMENTALData(String tggName, int size, boolean flattened) throws IOException {
+		if (!tggName.equals("CompanyToIT") && !tggName.equals("ClassInhHier2DB")) // currently measurements are only supported for these TGGs
+			return;
+		
 		SYNCPerformanceTest test = new SYNCPerformanceTest();
 
 		Supplier<SYNC> transformator = () -> {
@@ -207,7 +216,7 @@ public class TestDataCollector {
 			}
 		};
 		
-		TestDataPoint point = test.timedFwdAndInit(transformator, size, repetitions, flattened);
+		TestDataPoint point = test.timedFwdAndInit(transformator, size, repetitions, flattened, incEditor.getEdit(tggName, true), true);
 		data.add(point);
 
 		transformator = () -> {
@@ -219,7 +228,7 @@ public class TestDataCollector {
 				return null;
 			}
 		};
-		point = test.timedBwdAndInit(transformator, size, repetitions, flattened);
+		point = test.timedBwdAndInit(transformator, size, repetitions, flattened, incEditor.getEdit(tggName, false), true);
 		data.add(point);
 		
 	}

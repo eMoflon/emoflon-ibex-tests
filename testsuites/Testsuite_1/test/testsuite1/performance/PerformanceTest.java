@@ -21,6 +21,7 @@ public class PerformanceTest {
 		TestDataCollector collector = new TestDataCollector();
 		test.testData = collector.collectData();
 //		test.testData = collector.loadData();
+//		System.out.println(test.testData.toString());
 		
 		test.saveDataForTGGSizeDiagram(Operationalization.MODELGEN);
 		test.saveDataForTGGSizeDiagram(Operationalization.CC);
@@ -53,7 +54,7 @@ public class PerformanceTest {
 		}
 
 		// save data in file
-		util.saveDataAndCreatePlot(diagramStrings, "TGGSize"+op);
+		util.saveDataAndCreatePlot(diagramStrings, "TGGSize", op.toString());
 				
 	}
 	
@@ -64,16 +65,40 @@ public class PerformanceTest {
 		diagramStrings.add(util.makeLine("Operationalization", "Flattened", "Refinement"));
 
 		for (Operationalization op : Operationalization.values()) {
-			if (op != Operationalization.INCREMENTAL_SYNC)
-				diagramStrings.add(util.makeLine(op+"", util.filterTestResults(testData, "ClassInhHier2DB", op, standardModelSize, true).get(0).medianExecutionTime()+"",
-														util.filterTestResults(testData, "ClassInhHier2DB", op, standardModelSize, false).get(0).medianExecutionTime()+"",
-														util.filterTestResults(testData, "CompanyToIT", op, standardModelSize, true).get(0).medianExecutionTime()+"",
-														util.filterTestResults(testData, "CompanyToIT", op, standardModelSize, false).get(0).medianExecutionTime()+""
+				diagramStrings.add(util.makeLine(op+"", util.filterTestResults(testData, "ClassInhHier2DB", op, standardModelSize, true).get(0).executionTimes[0]+"",
+														util.filterTestResults(testData, "ClassInhHier2DB", op, standardModelSize, false).get(0).executionTimes[0]+"",
+														util.filterTestResults(testData, "CompanyToIT", op, standardModelSize, true).get(0).executionTimes[0]+"",
+														util.filterTestResults(testData, "CompanyToIT", op, standardModelSize, false).get(0).executionTimes[0]+""
 				));
 		}
 
 		// save data in file
 		util.saveDataAndCreatePlot(diagramStrings, "TGGsWithoutRefinement");
+				
+	}
+	
+	public void saveDataForModelSizeDiagram(String tgg, Operationalization op) {
+		// get data for plot
+		List<TestDataPoint> flattenedData = util.filterTestResults(testData, tgg, op, null, true);
+		List<TestDataPoint> refinementData = util.filterTestResults(testData, tgg, op, null, false);
+		
+		flattenedData.sort(Comparator.comparingInt((TestDataPoint p) -> p.modelSize));
+
+		// arrange data in lines
+		List<String> diagramStrings = new ArrayList<>();
+		diagramStrings.add(util.makeLine("TGG", "Flattened", "Refinement"));
+		
+		for (TestDataPoint p : flattenedData) {
+			double median = refinementData.stream()
+					   					  .filter(r -> r.modelSize == p.modelSize)
+					   					  .findAny()
+					   					  .get()
+					   					  .medianExecutionTime();
+			diagramStrings.add(util.makeLine(p.modelSize+"", p.medianExecutionTime()+"", median+""));
+		}
+
+		// save data in file
+		util.saveDataAndCreatePlot(diagramStrings, "ModelSize", op.toString());
 				
 	}
 }

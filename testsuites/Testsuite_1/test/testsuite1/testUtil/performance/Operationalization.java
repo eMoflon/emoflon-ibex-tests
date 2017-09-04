@@ -7,5 +7,6 @@ public enum Operationalization implements Serializable {
 	CC,
 	FWD,
 	BWD,
-	INCREMENTAL_SYNC
+	INCREMENTAL_FWD,
+	INCREMENTAL_BWD
 }

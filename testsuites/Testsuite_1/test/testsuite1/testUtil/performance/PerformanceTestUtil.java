@@ -37,11 +37,11 @@ public class PerformanceTestUtil {
 	 * @param data
 	 * @param fileName Name of the .dat file
 	 */
-	public void saveDataAndCreatePlot(List<String> data, String fileName) {
+	public void saveDataAndCreatePlot(List<String> data, String fileName, String... args) {
 		try {
 			Path file = Paths.get("performance/data/"+fileName+".dat");
 			Files.write(file, data);
-			GNUPlotScripts.createPlot(fileName, "pdf");
+			GNUPlotScripts.createPlot(fileName, "pdf", args);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
