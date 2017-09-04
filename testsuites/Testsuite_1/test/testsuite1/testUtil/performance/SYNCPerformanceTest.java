@@ -1,32 +1,30 @@
 package testsuite1.testUtil.performance;
 
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.function.Consumer;
 import java.util.function.Supplier;
 
+import org.eclipse.emf.ecore.EObject;
 import org.emoflon.ibex.tgg.operational.strategies.sync.SYNC;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesEngine;
 
 import language.TGG;
 
 public class SYNCPerformanceTest {
-	public SYNC transformator;
+	public SYNC sync;
 	
 	protected boolean initialized = false;
 	
 	protected List<String> executionResults = new LinkedList<String>();
 	protected List<String> initResults = new LinkedList<String>();
 
-	public long timedInit(SYNC transformator) throws IOException {
-		this.transformator = transformator;
+	private long timedInit(SYNC sync) throws IOException {
+		this.sync = sync;
 		
 		long tic = System.nanoTime();
-		transformator.registerPatternMatchingEngine(new DemoclesEngine());
+		sync.registerPatternMatchingEngine(new DemoclesEngine());
 		long toc = System.nanoTime();
 		
 		initialized = true;
@@ -34,21 +32,25 @@ public class SYNCPerformanceTest {
 		return toc - tic;
 	}
 	
-	public long timedFwd() throws IOException {
+	private long timedFwd() throws IOException {
 		if (!initialized)
 			throw new NullPointerException("Sync has not been initialized yet. Call timedInit() before this method.");
 		
 		long tic = System.nanoTime();
-		transformator.forward();
+		sync.forward();
 		long toc = System.nanoTime();
 		
-		transformator.terminate();
+		sync.terminate();
 		executionResults.add((toc - tic)+"");
 		System.out.println((toc - tic) + "");
 		return toc - tic;
 	}
 	
 	public TestDataPoint timedFwdAndInit(Supplier<SYNC> transformator, int size, int repetitions, boolean flattened) throws IOException {
+		return this.timedIncrFwdAndInit(transformator, size, repetitions, flattened, (o)->{});
+	}
+	
+	public TestDataPoint timedIncrFwdAndInit(Supplier<SYNC> transformator, int size, int repetitions, boolean flattened, Consumer<EObject> edit) throws IOException {
 		if (repetitions < 1)
 			throw new IllegalArgumentException("Number of repetitions must be positive.");
 		
@@ -61,6 +63,7 @@ public class SYNCPerformanceTest {
 			tgg = sync.getTGG();
 			System.out.println(sync.getTGG().getName()+":FWD, size="+size+", flattened = "+flattened+": "+(i+1)+"-th execution started.");
 			initTimes[i] = timedInit(sync);
+			edit.accept(sync.getSourceResource().getContents().get(0));
 			executionTimes[i] = timedFwd();
 			System.out.print((i+1)+"-th execution finished. ");
 		}
@@ -74,21 +77,25 @@ public class SYNCPerformanceTest {
 		return result;
 	}
 	
-	public long timedBwd() throws IOException {
+	private long timedBwd() throws IOException {
 		if (!initialized)
 			throw new NullPointerException("Sync has not been initialized yet. Call timedInit() before this method.");
 		
 		long tic = System.nanoTime();
-		transformator.backward();
+		sync.backward();
 		long toc = System.nanoTime();
 		
-		transformator.terminate();
+		sync.terminate();
 		executionResults.add((toc - tic)+"");
 		System.out.println((toc - tic) + "");
 		return toc - tic;
 	}
 	
 	public TestDataPoint timedBwdAndInit(Supplier<SYNC> transformator, int size, int repetitions, boolean flattened) throws IOException {
+		return this.timedIncrBwdAndInit(transformator, size, repetitions, flattened, (o)->{});
+	}
+	
+	public TestDataPoint timedIncrBwdAndInit(Supplier<SYNC> transformator, int size, int repetitions, boolean flattened, Consumer<EObject> edit) throws IOException {
 		if (repetitions < 1)
 			throw new IllegalArgumentException("Number of repetitions must be positive.");
 		
@@ -101,6 +108,7 @@ public class SYNCPerformanceTest {
 			tgg = sync.getTGG();
 			System.out.println(sync.getTGG().getName()+":BWD, size="+size+", flattened = "+flattened+": "+(i+1)+"-th execution started.");
 			initTimes[i] = timedInit(sync);
+			edit.accept(sync.getTargetResource().getContents().get(0));
 			executionTimes[i] = timedBwd();
 			System.out.print((i+1)+"-th execution finished. ");
 		}
@@ -112,13 +120,5 @@ public class SYNCPerformanceTest {
 		result.modelSize = size;
 		result.flattenedNetwork = flattened;
 		return result;
-	}
-	
-	public void saveResults() throws IOException {
-		Path file = Paths.get("performance/SYNCExecutionResults.txt");
-		Files.deleteIfExists(file);
-		Files.write(file, executionResults, StandardOpenOption.CREATE_NEW);
-		file = Paths.get("performance/SYNCInitResults.txt");
-		Files.write(file, initResults, StandardOpenOption.CREATE);
 	}
 }

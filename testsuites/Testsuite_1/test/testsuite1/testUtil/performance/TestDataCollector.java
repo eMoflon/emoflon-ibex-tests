@@ -24,6 +24,7 @@ public class TestDataCollector {
 	
 	private static final String dataLocation = "performance/data/allTestDataPoints.ser";
 	
+	private IncrementalEditor incEditor;
 	private List<TestDataPoint> data;
 	
 	public int[] modelSizes = {50, 10, 20};
@@ -170,7 +171,7 @@ public class TestDataCollector {
 		Supplier<SYNC> transformator = () -> {
 			try {
 				return new SYNC_App(tggName, Constants.workspacePath, flattened, false,
-						tggName+"/instances/"+size+"Element"+(flattened ? "_flattened" : "_refinement"), true);
+						tggName+"/instances/"+size+"Element"+(flattened ? "_flattened" : "_refinement"), true, false);
 			} catch (IOException e) {
 				e.printStackTrace();
 				return null;
@@ -183,7 +184,7 @@ public class TestDataCollector {
 		transformator = () -> {
 			try {
 				return new SYNC_App(tggName, Constants.workspacePath, flattened, false,
-						tggName+"/instances/"+size+"Element"+(flattened ? "_flattened" : "_refinement"), false);
+						tggName+"/instances/"+size+"Element"+(flattened ? "_flattened" : "_refinement"), false, false);
 			} catch (IOException e) {
 				e.printStackTrace();
 				return null;
@@ -193,8 +194,33 @@ public class TestDataCollector {
 		data.add(point);
 	}
 
-	private void collectINCREMENTALData(String tgg, int size, boolean flattened) {
-		// TODO Auto-generated method stub
+	private void collectINCREMENTALData(String tggName, int size, boolean flattened) throws IOException {
+		SYNCPerformanceTest test = new SYNCPerformanceTest();
+
+		Supplier<SYNC> transformator = () -> {
+			try {
+				return new SYNC_App(tggName, Constants.workspacePath, flattened, false,
+						tggName+"/instances/"+size+"Element"+(flattened ? "_flattened" : "_refinement"), true, true);
+			} catch (IOException e) {
+				e.printStackTrace();
+				return null;
+			}
+		};
+		
+		TestDataPoint point = test.timedFwdAndInit(transformator, size, repetitions, flattened);
+		data.add(point);
+
+		transformator = () -> {
+			try {
+				return new SYNC_App(tggName, Constants.workspacePath, flattened, false,
+						tggName+"/instances/"+size+"Element"+(flattened ? "_flattened" : "_refinement"), false, true);
+			} catch (IOException e) {
+				e.printStackTrace();
+				return null;
+			}
+		};
+		point = test.timedBwdAndInit(transformator, size, repetitions, flattened);
+		data.add(point);
 		
 	}
 	
