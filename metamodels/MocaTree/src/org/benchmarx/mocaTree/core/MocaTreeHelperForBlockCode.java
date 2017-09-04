@@ -1,10 +1,10 @@
-package testsuite1.BlockCodeAdapter.sync.util;
+package org.benchmarx.mocaTree.core;
 
 import MocaTree.File;
 import MocaTree.MocaTreeFactory;
 import MocaTree.Node;
 
-public class MocaTreeHelper {
+public class MocaTreeHelperForBlockCode {
 
 	public void createBlockNode(File f, String name) {
 		Node blocks = (Node)f.getRootNode().getChildren().get(0);

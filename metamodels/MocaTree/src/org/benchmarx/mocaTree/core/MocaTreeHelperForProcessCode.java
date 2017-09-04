@@ -5,7 +5,7 @@ import MocaTree.Folder;
 import MocaTree.MocaTreeFactory;
 import MocaTree.Node;
 
-public class MocaTreeHelper {
+public class MocaTreeHelperForProcessCode {
 
 	public void createSubFolder(Folder f, String name, int index) {
 		Folder subFolder = MocaTreeFactory.eINSTANCE.createFolder();

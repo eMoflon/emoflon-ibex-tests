@@ -1,19 +1,19 @@
 package testsuite1.VHDLTGGCodeAdapter.sync;
 
+import org.benchmarx.mocaTree.core.MocaTreeHelperForVHDLTGGCode;
 import org.benchmarx.vhdlModel.core.VHDLModelHelper;
 import org.junit.Test;
 
 import MocaTree.File;
 import VHDLModel.VHDLSpecification;
 import testsuite1.VHDLTGGCodeAdapter.sync.util.IbexVHDLTGGCodeAdapter;
-import testsuite1.VHDLTGGCodeAdapter.sync.util.MocaTreeHelper;
 import testsuite1.testUtil.SyncTestCase;
 
 
 public class Batch extends SyncTestCase<File, VHDLSpecification> {
 	private static final String projectName = "VHDLTGGCodeAdapter";
 	
-	private MocaTreeHelper helperMT;
+	private MocaTreeHelperForVHDLTGGCode helperMT;
 	private VHDLModelHelper helperVHDL;
 	
 	public Batch(boolean flatten) {
@@ -22,7 +22,7 @@ public class Batch extends SyncTestCase<File, VHDLSpecification> {
 
 	@Override
 	protected void initHelpers() {
-		helperMT = new MocaTreeHelper();
+		helperMT = new MocaTreeHelperForVHDLTGGCode();
 		helperVHDL = new VHDLModelHelper();
 	}
 	

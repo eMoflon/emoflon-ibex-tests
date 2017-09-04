@@ -1,6 +1,6 @@
 package testsuite1.ProcessCodeAdapter.sync;
 
-import org.benchmarx.mocaTree.core.MocaTreeHelper;
+import org.benchmarx.mocaTree.core.MocaTreeHelperForProcessCode;
 import org.benchmarx.processDefinition.core.ProcessDefinitionHelper;
 import org.junit.Test;
 
@@ -12,7 +12,7 @@ import testsuite1.testUtil.SyncTestCase;
 public class AlignmentBased extends SyncTestCase<Folder, SystemModule> {
 	private static final String projectName = "ProcessCodeAdapter";
 	
-	MocaTreeHelper helperMoca;
+	MocaTreeHelperForProcessCode helperMoca;
 	ProcessDefinitionHelper helperProcess;
 
 	public AlignmentBased(boolean flatten) {
@@ -20,7 +20,7 @@ public class AlignmentBased extends SyncTestCase<Folder, SystemModule> {
 	}
 	
 	protected void initHelpers() {
-		helperMoca = new MocaTreeHelper();
+		helperMoca = new MocaTreeHelperForProcessCode();
 		helperProcess = new ProcessDefinitionHelper();
 	}
 	

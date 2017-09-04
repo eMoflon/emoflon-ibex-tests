@@ -1,10 +1,10 @@
-package testsuite1.VHDLTGGCodeAdapter.sync.util;
+package org.benchmarx.mocaTree.core;
 
 import MocaTree.File;
 import MocaTree.MocaTreeFactory;
 import MocaTree.Node;
 
-public class MocaTreeHelper {
+public class MocaTreeHelperForVHDLTGGCode {
 
 	public void createGateAndEntityNodes(File f) {
 		Node gate = MocaTreeFactory.eINSTANCE.createNode();

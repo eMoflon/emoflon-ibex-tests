@@ -1,7 +1,7 @@
 package testsuite1.BlockDiagramCodeAdapter.sync;
 
 import org.benchmarx.blockDiagram.core.BlockDiagramHelper;
-import org.benchmarx.mocaTree.core.MocaTreeNodeHelper;
+import org.benchmarx.mocaTree.core.MocaTreeHelperForBlockDiagramCode;
 import org.junit.Test;
 
 import BlockDiagram.BlockSystem;
@@ -13,7 +13,7 @@ public class Batch extends testsuite1.testUtil.SyncTestCase<BlockSystem, File> {
 	private static final String projectName = "BlockDiagramCodeAdapter";
 	
 	BlockDiagramHelper helperBlock;
-	MocaTreeNodeHelper helperMT;
+	MocaTreeHelperForBlockDiagramCode helperMT;
 
 	/** Currently, some of these tests fail due to Assertion Error in Democles*/
 	public Batch(boolean flatten) {
@@ -22,7 +22,7 @@ public class Batch extends testsuite1.testUtil.SyncTestCase<BlockSystem, File> {
 	
 	protected void initHelpers() {
 		helperBlock = new BlockDiagramHelper();
-		helperMT = new MocaTreeNodeHelper();
+		helperMT = new MocaTreeHelperForBlockDiagramCode();
 	}
 	
 	@Override
