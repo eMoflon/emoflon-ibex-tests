@@ -101,5 +101,10 @@ public class MODELGEN_App extends MODELGEN {
 		
 		EcoreUtil.resolveAll(rs);
 	}
+	
+	@Override
+	protected boolean protocol() {
+		return true;
+	}
 
 }
