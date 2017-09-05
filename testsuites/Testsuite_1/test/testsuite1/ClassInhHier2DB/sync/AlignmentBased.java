@@ -2,9 +2,12 @@ package testsuite1.ClassInhHier2DB.sync;
 
 import org.benchmarx.classInheritanceHierarchy.core.ClassInheritanceHierarchyHelper;
 import org.benchmarx.database.core.DatabaseHelper;
+import org.junit.Ignore;
 import org.junit.Test;
 
+import ClassInheritanceHierarchy.ClassInheritanceHierarchyFactory;
 import ClassInheritanceHierarchy.ClassPackage;
+import ClassInheritanceHierarchy.Clazz;
 import Database.DB;
 import testsuite1.ClassInhHier2DB.sync.util.IbexClassInhHier2DB;
 import testsuite1.testUtil.SyncTestCase;
@@ -202,5 +205,25 @@ public class AlignmentBased extends SyncTestCase<ClassPackage, DB> {
 		tool.performAndPropagateTargetEdit(db -> helperDB.createColumnInTable(db, "attr", 1));
 		//------------
 		assertPostcondition("expected/LargeExample_BWD", "in/LargeExample_BWD");
+	}
+	
+	@Ignore //FIXME[Greg:  Join-Failed exception on container switch with eOpposite reference]
+	@Test
+	public void changeContainer() {
+		tool.performAndPropagateSourceEdit(p -> helperClassInh.createClass(p, "C"));
+		tool.performAndPropagateSourceEdit(p -> helperClassInh.createAttributeInSingleClass(p, "A1", null));
+		tool.performAndPropagateSourceEdit(p -> helperClassInh.createAttributeInSingleClass(p, "A2", null));
+		//------------
+		assertPrecondition("in/AttributeToColumn_FWD", "expected/AttributeToColumn_FWD");
+		
+		tool.performAndPropagateSourceEdit(p -> {
+			Clazz old = p.getClasses().get(0);
+			Clazz c = ClassInheritanceHierarchyFactory.eINSTANCE.createClazz();
+			c.setName("Foo");
+			p.getClasses().add(c);
+			c.getAttributes().addAll(old.getAttributes());
+		});
+		
+		assertPostcondition("expected/MovedAttributes", "expected/MovedCols");
 	}
 }
