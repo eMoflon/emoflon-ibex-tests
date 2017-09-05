@@ -19,9 +19,9 @@ class GNUPlotScripts {
 	 * @param outputstyle The style in which the plot should be generated.
 	 * The possible options are "gif" for a .gif file and "pdf" for a .pdf file.
 	 */
-	def static createPlot(String title, String outputstyle, String... args) {
+	def static createPlot(String diagramType, String title, String outputstyle, String[] args) {
 		var script = ""
-		switch title {
+		switch diagramType {
 			// args[0] should be the Operationalization
 			case "TGGSize": script = tggSizeComparison(title, outputstyle, args.get(0))
 			// args[0] should be the TGG, args[1] the Operationalization
@@ -35,10 +35,10 @@ class GNUPlotScripts {
 		
 	}
 	
-	def static commonHistogramScriptParts(String title, String outputstyle) {
+	def static commonHistogramScriptParts(String fileName, String outputstyle) {
 		return '''
 			set terminal «outputstyle»
-			set output "«plotPath»«title».«IF outputstyle=="gif"»gif«ELSE»pdf«ENDIF»"
+			set output "«plotPath»«fileName».«IF outputstyle=="gif"»gif«ELSE»pdf«ENDIF»"
 			set style data histogram
 			set style histogram cluster gap 1
 			set style fill solid border -1
@@ -65,6 +65,7 @@ class GNUPlotScripts {
 		return '''
 			«testsuite1.testUtil.performance.GNUPlotScripts.commonHistogramScriptParts(title, outputstyle)»
 			set title "Impact of model size on execution time - «tgg»:«op»"
+			set xlabel "model size"
 			plot \
 			newhistogram lt 3, \
 			"«dataPath»«title».dat" using ($2/1000000):xtic(1) ti col, '' u ($3/1000000) ti col

@@ -27,8 +27,16 @@ public class TestDataCollector {
 	private IncrementalEditor incEditor = new IncrementalEditor();
 	private List<TestDataPoint> data;
 	
-	public int[] modelSizes = {500, 50, 5};
+	// make tests adapt automatically to how big a model they can handle
+	
+//	public int[] modelSizes = {120, 60, 30, 15};
+	public int[] modelSizes = {50};
 	public int repetitions = 3;
+	
+	public static void main(String[] args) throws ClassNotFoundException, IOException {
+		TestDataCollector collector = new TestDataCollector();
+		collector.collectINCREMENTALData("CompanyToIT", 10, true);
+	}
 	
 	/**
 	 * Calculates the TestDataPoints for all combinations of operationalization,
@@ -43,19 +51,19 @@ public class TestDataCollector {
 			if (tgg.equals("VHDLTGGCodeAdapter")) continue; // skip the slow VHDLTGGCodeAdapter for testing
 			if (tgg.equals("ProcessCodeAdapter")) continue;
 			if (tgg.equals("FamiliesToPersons_V1")) continue;
-//			if (tgg.equals("FamiliesToPersons_V0")) continue;
-//			if (tgg.equals("CompanyToIT")) continue;
-//			if (tgg.equals("ClassInhHier2DB")) continue;
-//			if (tgg.equals("BlockDiagramCodeAdapter")) continue;
-			if (tgg.equals("BlockCodeAdapter")) continue;
+			if (tgg.equals("FamiliesToPersons_V0")) continue;
+			if (tgg.equals("CompanyToIT")) continue;
+			if (tgg.equals("ClassInhHier2DB")) continue;
+			if (tgg.equals("BlockDiagramCodeAdapter")) continue;
+//			if (tgg.equals("BlockCodeAdapter")) continue;
 			for (int size : modelSizes) {
-				boolean[] networks = {true, false};
+				boolean[] networks = {false, true};
 				for (boolean flattened : networks) {
 					collectMODELGENData(tgg, size, flattened);
 //					if (size <= 50)
-						collectCCData(tgg, size, flattened);
+					collectCCData(tgg, size, flattened);
 					collectSYNCData(tgg, size, flattened);
-					collectINCREMENTALData(tgg, size, flattened);
+					// collectINCREMENTALData(tgg, size, flattened); // Deprecated
 				}
 			}
 		}
@@ -134,7 +142,13 @@ public class TestDataCollector {
 					break;
 				case "FamiliesToPersons_V0":
 					stop.setMaxRuleCount("HandleRegisters", 1);
+					stop.setMaxRuleCount("HandleFamilyReg", 0);
 					stop.setMaxRuleCount("HandleRegistersLoose", 0);
+					stop.setMaxRuleCount("IgnoreFamilyLoose", 0);
+					stop.setMaxRuleCount("CreateFather", 0);
+					stop.setMaxRuleCount("FatherAndMale", 0);
+					stop.setMaxRuleCount("FatherToNothing", 0);
+					stop.setMaxRuleCount("ReplaceFatherWithSon", 0);
 					break;
 				case "FamiliesToPersons_V1":
 					stop.setMaxRuleCount("HandleRegisters", 1);
@@ -173,31 +187,38 @@ public class TestDataCollector {
 
 	private void collectSYNCData(String tggName, int size, boolean flattened) throws IOException {
 		SYNCPerformanceTest test = new SYNCPerformanceTest();
-
+		
+		// FWD
+		boolean fwd = true;
 		Supplier<SYNC> transformator = () -> {
 			try {
 				return new SYNC_App(tggName, Constants.workspacePath, flattened, false,
-						tggName+"/instances/"+size+"Element"+(flattened ? "_flattened" : "_refinement"), true, false);
+						tggName+"/instances/"+size+"Element"+(flattened ? "_flattened" : "_refinement"), fwd, false);
 			} catch (IOException e) {
 				e.printStackTrace();
 				return null;
 			}
 		};
 		
-		TestDataPoint point = test.timedFwdAndInit(transformator, size, repetitions, flattened);
-		data.add(point);
+		List<TestDataPoint> points = test.timedSyncAndInit(transformator, size, repetitions, flattened, fwd, incEditor.getEdit(tggName, fwd), true);
+		data.add(points.get(0));
+		data.add(points.get(1));
 
+		// BWD
+		boolean bwd = !fwd;
 		transformator = () -> {
 			try {
 				return new SYNC_App(tggName, Constants.workspacePath, flattened, false,
-						tggName+"/instances/"+size+"Element"+(flattened ? "_flattened" : "_refinement"), false, false);
+						tggName+"/instances/"+size+"Element"+(flattened ? "_flattened" : "_refinement"), bwd, false);
 			} catch (IOException e) {
 				e.printStackTrace();
 				return null;
 			}
 		};
-		point = test.timedBwdAndInit(transformator, size, repetitions, flattened);
-		data.add(point);
+		
+		points = test.timedSyncAndInit(transformator, size, repetitions, flattened, bwd, incEditor.getEdit(tggName, bwd), true);
+		data.add(points.get(0));
+		data.add(points.get(1));
 	}
 
 	private void collectINCREMENTALData(String tggName, int size, boolean flattened) throws IOException {
@@ -216,8 +237,7 @@ public class TestDataCollector {
 			}
 		};
 		
-		TestDataPoint point = test.timedFwdAndInit(transformator, size, repetitions, flattened, incEditor.getEdit(tggName, true), true);
-		data.add(point);
+		data.add(test.timedFwdAndInit(transformator, size, repetitions, flattened, incEditor.getEdit(tggName, true), true));
 
 		transformator = () -> {
 			try {
@@ -228,9 +248,8 @@ public class TestDataCollector {
 				return null;
 			}
 		};
-		point = test.timedBwdAndInit(transformator, size, repetitions, flattened, incEditor.getEdit(tggName, false), true);
-		data.add(point);
 		
+		data.add(test.timedBwdAndInit(transformator, size, repetitions, flattened, incEditor.getEdit(tggName, false), true));
 	}
 	
 	private void saveData() {

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
+import testsuite1.testUtil.Constants;
 import testsuite1.testUtil.performance.Operationalization;
 import testsuite1.testUtil.performance.PerformanceTestUtil;
 import testsuite1.testUtil.performance.TestDataCollector;
@@ -15,7 +16,7 @@ public class PerformanceTest {
 	
 	private List<TestDataPoint> testData;
 	private PerformanceTestUtil util = new PerformanceTestUtil();
-	
+
 	public static void main(String[] args) throws ClassNotFoundException, IOException {
 		PerformanceTest test = new PerformanceTest();
 		TestDataCollector collector = new TestDataCollector();
@@ -23,13 +24,18 @@ public class PerformanceTest {
 //		test.testData = collector.loadData();
 //		System.out.println(test.testData.toString());
 		
-		test.saveDataForTGGSizeDiagram(Operationalization.MODELGEN);
-		test.saveDataForTGGSizeDiagram(Operationalization.CC);
-		test.saveDataForTGGSizeDiagram(Operationalization.FWD);
-		test.saveDataForTGGSizeDiagram(Operationalization.BWD);
-//		test.saveDataForTGGSizeDiagram(Operationalization.INCREMENTAL_SYNC);
+//		for (Operationalization op : Operationalization.values()) {
+//			test.saveDataForTGGSizeDiagram(op);
+//		}
 		
-		test.saveDataForTGGsWithoutRefinement();
+//		test.saveDataForTGGsWithoutRefinement();
+		
+		for (Operationalization op : Operationalization.values()) {
+			for (String tgg : Constants.testProjects) {
+				if (tgg.equals("BlockCodeAdapter"))
+					test.saveDataForModelSizeDiagram(tgg, op);
+			}
+		}
 		
 	}
 	
@@ -54,7 +60,7 @@ public class PerformanceTest {
 		}
 
 		// save data in file
-		util.saveDataAndCreatePlot(diagramStrings, "TGGSize", op.toString());
+		util.saveDataAndCreatePlot(diagramStrings, "TGGSize", "TGGSize"+op, op.toString());
 				
 	}
 	
@@ -73,7 +79,7 @@ public class PerformanceTest {
 		}
 
 		// save data in file
-		util.saveDataAndCreatePlot(diagramStrings, "TGGsWithoutRefinement");
+		util.saveDataAndCreatePlot(diagramStrings, "TGGsWithoutRefinement", "TGGsWithoutRefinement");
 				
 	}
 	
@@ -98,7 +104,7 @@ public class PerformanceTest {
 		}
 
 		// save data in file
-		util.saveDataAndCreatePlot(diagramStrings, "ModelSize", op.toString());
+		util.saveDataAndCreatePlot(diagramStrings, "ModelSize", "ModelSize"+op+"_"+tgg, tgg, op.toString());
 				
 	}
 }
