@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="FeatureModelConciseToSafe" nsURI="platform:/resource/FeatureModelConciseToSafe/model/FeatureModelConciseToSafe.ecore"
+    nsPrefix="FeatureModelConciseToSafe">
+  <eClassifiers xsi:type="ecore:EClass" name="Model2Model">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="ecore:EClass platform:/resource/FeatureModelConcise/model/FeatureModelConcise.ecore#//Model"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="ecore:EClass platform:/resource/FeatureModelSafe/model/FeatureModelSafe.ecore#//Model"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Feature2Feature">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="ecore:EClass platform:/resource/FeatureModelConcise/model/FeatureModelConcise.ecore#//Feature"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="ecore:EClass platform:/resource/FeatureModelSafe/model/FeatureModelSafe.ecore#//Feature"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Group2Group">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="ecore:EClass platform:/resource/FeatureModelConcise/model/FeatureModelConcise.ecore#//Group"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="ecore:EClass platform:/resource/FeatureModelSafe/model/FeatureModelSafe.ecore#//Group"/>
+  </eClassifiers>
+</ecore:EPackage>
