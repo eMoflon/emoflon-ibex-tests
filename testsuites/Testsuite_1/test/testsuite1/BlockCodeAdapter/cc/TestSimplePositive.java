@@ -17,7 +17,7 @@ public class TestSimplePositive extends CCTestCase {
 	}
 	
 	public void createGenerator(String srcInstance, String trgInstance) throws IOException {
-		generator = new CC_App("BlockCodeAdapter", testsuite1.testUtil.Constants.workspacePath, flatten, false, srcInstance, trgInstance);
+		checker = new CC_App("BlockCodeAdapter", testsuite1.testUtil.Constants.workspacePath, flatten, false, srcInstance, trgInstance);
 	}
 	
 	// IndexOutOfBoundsException mentioned in issue #15
@@ -31,7 +31,7 @@ public class TestSimplePositive extends CCTestCase {
 	public void testSpec() throws IOException {
 		createGenerator("in/Spec_FWD", "expected/Spec_FWD");
 		runGenerator();
-		assert generator.modelsAreConsistent();
+		assert checker.modelsAreConsistent();
 	}
 	
 	@Test
@@ -39,7 +39,7 @@ public class TestSimplePositive extends CCTestCase {
 	public void testBlock() throws IOException {
 		createGenerator("in/Block_FWD", "expected/Block_FWD");
 		runGenerator();
-		assert generator.modelsAreConsistent();
+		assert checker.modelsAreConsistent();
 	}
 	
 	@Test
@@ -47,7 +47,7 @@ public class TestSimplePositive extends CCTestCase {
 	public void testPort() throws IOException {
 		createGenerator("in/Port_FWD", "expected/Port_FWD");
 		runGenerator();
-		assert generator.modelsAreConsistent();
+		assert checker.modelsAreConsistent();
 	}
 	
 	@Test
@@ -55,7 +55,7 @@ public class TestSimplePositive extends CCTestCase {
 	public void testWire() throws IOException {
 		createGenerator("in/Wire_FWD", "expected/Wire_FWD");
 		runGenerator();
-		assert generator.modelsAreConsistent();
+		assert checker.modelsAreConsistent();
 	}
 	
 	@Test
@@ -63,7 +63,7 @@ public class TestSimplePositive extends CCTestCase {
 	public void testWireCloseLoop() throws IOException {
 		createGenerator("in/WireCloseLoop_FWD", "expected/WireCloseLoop_FWD");
 		runGenerator();
-		assert generator.modelsAreConsistent();
+		assert checker.modelsAreConsistent();
 	}
 	
 }

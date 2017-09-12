@@ -8,13 +8,16 @@ import org.benchmarx.emf.Comparator
 
 import static org.junit.Assert.*
 
-// TODO:  Make sure collections are sorted
 class FeatureModelConciseComparator implements Comparator<Model> {
 	
 	boolean checkAttributeValues
+	FeatureNormaliser featureNormaliser
+	GroupNormaliser groupNormaliser
 	
 	new (boolean checkAttributeValues){
 		this.checkAttributeValues = checkAttributeValues
+		featureNormaliser = new FeatureNormaliser()
+		groupNormaliser = new GroupNormaliser()
 	}	
 	
 	override assertEquals(Model expected, Model actual) {
@@ -36,12 +39,12 @@ class FeatureModelConciseComparator implements Comparator<Model> {
 		'''
 		«IF(checkAttributeValues)»«feature.name»«ELSE»feature«ENDIF» {
 			// Groups:
-			«FOR group : feature.groups»
+			«FOR group : groupNormaliser.normalise(feature.groups)»
 			«stringifyGroup(group)»
 			«ENDFOR»
 			
 			// Sub Features:
-			«FOR f : feature.subfeatures»
+			«FOR f : featureNormaliser.normalise(feature.subfeatures)»
 			«stringify(f)»
 			«ENDFOR»
 		}
@@ -51,7 +54,7 @@ class FeatureModelConciseComparator implements Comparator<Model> {
 	def dispatch String stringifyGroup(XorGroup group){
 		'''
 		XOR {
-			«FOR f : group.members»
+			«FOR f : featureNormaliser.normalise(group.members)»
 			«stringify(f)»
 			«ENDFOR»
 		}
@@ -61,7 +64,7 @@ class FeatureModelConciseComparator implements Comparator<Model> {
 	def dispatch String stringifyGroup(OrGroup group){
 		'''
 		OR {
-			«FOR f : group.members»
+			«FOR f : featureNormaliser.normalise(group.members)»
 			«stringify(f)»
 			«ENDFOR»
 		}

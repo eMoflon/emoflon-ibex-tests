@@ -8,15 +8,15 @@ import org.junit.runners.Parameterized;
 
 @RunWith(Parameterized.class)
 public abstract class CCTestCase extends TestCase {
-	protected CC generator;
+	protected CC checker;
 	
 	protected CCTestCase(boolean flatten) {
 		super(flatten);
 	}
 
 	protected void runGenerator() throws IOException {
-		generator.run();
-		generator.terminate();
-		generator.saveModels();
+		checker.run();
+		checker.terminate();
+		checker.saveModels();
 	}
 }

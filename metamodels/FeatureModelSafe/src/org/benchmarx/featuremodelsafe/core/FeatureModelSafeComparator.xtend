@@ -7,13 +7,16 @@ import FeatureModelSafe.Feature
 import FeatureModelSafe.XorGroup
 import FeatureModelSafe.OrGroup
 
-// TODO: Make sure collections are sorted
 class FeatureModelSafeComparator implements Comparator<Model> {
 	
 	boolean checkAttributeValues
+	FeatureNormaliser featureNormaliser
+	GroupNormaliser groupNormaliser
 	
 	new (boolean checkAttributeValues){
 		this.checkAttributeValues = checkAttributeValues
+		featureNormaliser = new FeatureNormaliser
+		groupNormaliser = new GroupNormaliser
 	}	
 	
 	override assertEquals(Model expected, Model actual) {
@@ -35,12 +38,12 @@ class FeatureModelSafeComparator implements Comparator<Model> {
 		'''
 		«IF(checkAttributeValues)»«feature.name»«ELSE»feature«ENDIF» {
 			// Groups:
-			«FOR group : feature.groups»
+			«FOR group : groupNormaliser.normalise(feature.groups)»
 			«stringifyGroup(group)»
 			«ENDFOR»
 			
 			// Solitary Sub Features:
-			«FOR f : feature.solitarySubFeatures»
+			«FOR f : featureNormaliser.normalise(feature.solitarySubFeatures)»
 			«stringify(f)»
 			«ENDFOR»
 		}
@@ -50,7 +53,7 @@ class FeatureModelSafeComparator implements Comparator<Model> {
 	def dispatch String stringifyGroup(XorGroup group){
 		'''
 		XOR {
-			«FOR f : group.members»
+			«FOR f : featureNormaliser.normalise(group.members)»
 			«stringify(f)»
 			«ENDFOR»
 		}
@@ -60,7 +63,7 @@ class FeatureModelSafeComparator implements Comparator<Model> {
 	def dispatch String stringifyGroup(OrGroup group){
 		'''
 		OR {
-			«FOR f : group.members»
+			«FOR f : featureNormaliser.normalise(group.members)»
 			«stringify(f)»
 			«ENDFOR»
 		}

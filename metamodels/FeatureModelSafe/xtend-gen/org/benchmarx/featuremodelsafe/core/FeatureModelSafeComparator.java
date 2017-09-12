@@ -5,8 +5,11 @@ import FeatureModelSafe.Group;
 import FeatureModelSafe.Model;
 import FeatureModelSafe.OrGroup;
 import FeatureModelSafe.XorGroup;
+import java.util.ArrayList;
 import java.util.Arrays;
 import org.benchmarx.emf.Comparator;
+import org.benchmarx.featuremodelsafe.core.FeatureNormaliser;
+import org.benchmarx.featuremodelsafe.core.GroupNormaliser;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.junit.Assert;
@@ -15,14 +18,26 @@ import org.junit.Assert;
 public class FeatureModelSafeComparator implements Comparator<Model> {
   private boolean checkAttributeValues;
   
+  private FeatureNormaliser featureNormaliser;
+  
+  private GroupNormaliser groupNormaliser;
+  
   public FeatureModelSafeComparator(final boolean checkAttributeValues) {
     this.checkAttributeValues = checkAttributeValues;
+    FeatureNormaliser _featureNormaliser = new FeatureNormaliser();
+    this.featureNormaliser = _featureNormaliser;
+    GroupNormaliser _groupNormaliser = new GroupNormaliser();
+    this.groupNormaliser = _groupNormaliser;
   }
   
   @Override
   public void assertEquals(final Model expected, final Model actual) {
-    Assert.assertTrue(this.stringify(expected).startsWith("FeatureModelSafe"));
-    Assert.assertEquals(this.stringify(expected), this.stringify(actual));
+    String _stringify = this.stringify(expected);
+    boolean _startsWith = _stringify.startsWith("FeatureModelSafe");
+    Assert.assertTrue(_startsWith);
+    String _stringify_1 = this.stringify(expected);
+    String _stringify_2 = this.stringify(actual);
+    Assert.assertEquals(_stringify_1, _stringify_2);
   }
   
   public String stringify(final Model model) {
@@ -41,7 +56,8 @@ public class FeatureModelSafeComparator implements Comparator<Model> {
     _builder.append(" {");
     _builder.newLineIfNotEmpty();
     _builder.append("\t\t");
-    String _stringify = this.stringify(model.getRoot());
+    Feature _root = model.getRoot();
+    String _stringify = this.stringify(_root);
     _builder.append(_stringify, "\t\t");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
@@ -57,7 +73,7 @@ public class FeatureModelSafeComparator implements Comparator<Model> {
     {
       if (this.checkAttributeValues) {
         String _name = feature.getName();
-        _builder.append(_name);
+        _builder.append(_name, "");
       } else {
         _builder.append("feature");
       }
@@ -69,7 +85,8 @@ public class FeatureModelSafeComparator implements Comparator<Model> {
     _builder.newLine();
     {
       EList<Group> _groups = feature.getGroups();
-      for(final Group group : _groups) {
+      ArrayList<Group> _normalise = this.groupNormaliser.normalise(_groups);
+      for(final Group group : _normalise) {
         _builder.append("\t");
         String _stringifyGroup = this.stringifyGroup(group);
         _builder.append(_stringifyGroup, "\t");
@@ -83,7 +100,8 @@ public class FeatureModelSafeComparator implements Comparator<Model> {
     _builder.newLine();
     {
       EList<Feature> _solitarySubFeatures = feature.getSolitarySubFeatures();
-      for(final Feature f : _solitarySubFeatures) {
+      ArrayList<Feature> _normalise_1 = this.featureNormaliser.normalise(_solitarySubFeatures);
+      for(final Feature f : _normalise_1) {
         _builder.append("\t");
         String _stringify = this.stringify(f);
         _builder.append(_stringify, "\t");
@@ -101,7 +119,8 @@ public class FeatureModelSafeComparator implements Comparator<Model> {
     _builder.newLine();
     {
       EList<Feature> _members = group.getMembers();
-      for(final Feature f : _members) {
+      ArrayList<Feature> _normalise = this.featureNormaliser.normalise(_members);
+      for(final Feature f : _normalise) {
         _builder.append("\t");
         String _stringify = this.stringify(f);
         _builder.append(_stringify, "\t");
@@ -119,7 +138,8 @@ public class FeatureModelSafeComparator implements Comparator<Model> {
     _builder.newLine();
     {
       EList<Feature> _members = group.getMembers();
-      for(final Feature f : _members) {
+      ArrayList<Feature> _normalise = this.featureNormaliser.normalise(_members);
+      for(final Feature f : _normalise) {
         _builder.append("\t");
         String _stringify = this.stringify(f);
         _builder.append(_stringify, "\t");
