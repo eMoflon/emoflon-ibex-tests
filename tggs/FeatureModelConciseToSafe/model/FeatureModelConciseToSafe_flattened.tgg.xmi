@@ -32,13 +32,13 @@
   </rules>
   <rules name="CreateOrRule">
     <nodes name="conciseGroup" bindingType="CREATE" incomingEdges="//@rules.1/@edges.0" incomingCorrsSource="//@rules.1/@nodes.4">
-      <type href="platform:/resource/FeatureModelConcise/model/FeatureModelConcise.ecore#//XorGroup"/>
+      <type href="platform:/resource/FeatureModelConcise/model/FeatureModelConcise.ecore#//OrGroup"/>
     </nodes>
     <nodes name="conciseParent" outgoingEdges="//@rules.1/@edges.0" incomingCorrsSource="//@rules.1/@nodes.5">
       <type href="platform:/resource/FeatureModelConcise/model/FeatureModelConcise.ecore#//Feature"/>
     </nodes>
     <nodes name="safeGroup" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.1/@edges.1" incomingCorrsTarget="//@rules.1/@nodes.4">
-      <type href="platform:/resource/FeatureModelSafe/model/FeatureModelSafe.ecore#//XorGroup"/>
+      <type href="platform:/resource/FeatureModelSafe/model/FeatureModelSafe.ecore#//OrGroup"/>
     </nodes>
     <nodes name="safeParent" domainType="TRG" outgoingEdges="//@rules.1/@edges.1" incomingCorrsTarget="//@rules.1/@nodes.5">
       <type href="platform:/resource/FeatureModelSafe/model/FeatureModelSafe.ecore#//Feature"/>
@@ -59,13 +59,13 @@
   </rules>
   <rules name="CreateXOrRule">
     <nodes name="conciseGroup" bindingType="CREATE" incomingEdges="//@rules.2/@edges.0" incomingCorrsSource="//@rules.2/@nodes.4">
-      <type href="platform:/resource/FeatureModelConcise/model/FeatureModelConcise.ecore#//OrGroup"/>
+      <type href="platform:/resource/FeatureModelConcise/model/FeatureModelConcise.ecore#//XorGroup"/>
     </nodes>
     <nodes name="conciseParent" outgoingEdges="//@rules.2/@edges.0" incomingCorrsSource="//@rules.2/@nodes.5">
       <type href="platform:/resource/FeatureModelConcise/model/FeatureModelConcise.ecore#//Feature"/>
     </nodes>
     <nodes name="safeGroup" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.2/@edges.1" incomingCorrsTarget="//@rules.2/@nodes.4">
-      <type href="platform:/resource/FeatureModelSafe/model/FeatureModelSafe.ecore#//OrGroup"/>
+      <type href="platform:/resource/FeatureModelSafe/model/FeatureModelSafe.ecore#//XorGroup"/>
     </nodes>
     <nodes name="safeParent" domainType="TRG" outgoingEdges="//@rules.2/@edges.1" incomingCorrsTarget="//@rules.2/@nodes.5">
       <type href="platform:/resource/FeatureModelSafe/model/FeatureModelSafe.ecore#//Feature"/>

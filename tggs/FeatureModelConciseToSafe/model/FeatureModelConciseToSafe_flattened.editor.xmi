@@ -85,7 +85,7 @@
   <rules name="CreateOrRule" schema="//@schema">
     <sourcePatterns name="conciseGroup">
       <op value="++"/>
-      <type href="platform:/resource/FeatureModelConcise/model/FeatureModelConcise.ecore#//XorGroup"/>
+      <type href="platform:/resource/FeatureModelConcise/model/FeatureModelConcise.ecore#//OrGroup"/>
     </sourcePatterns>
     <sourcePatterns name="conciseParent">
       <type href="platform:/resource/FeatureModelConcise/model/FeatureModelConcise.ecore#//Feature"/>
@@ -96,7 +96,7 @@
     </sourcePatterns>
     <targetPatterns name="safeGroup">
       <op value="++"/>
-      <type href="platform:/resource/FeatureModelSafe/model/FeatureModelSafe.ecore#//XorGroup"/>
+      <type href="platform:/resource/FeatureModelSafe/model/FeatureModelSafe.ecore#//OrGroup"/>
     </targetPatterns>
     <targetPatterns name="safeParent">
       <type href="platform:/resource/FeatureModelSafe/model/FeatureModelSafe.ecore#//Feature"/>
@@ -113,7 +113,7 @@
   <rules name="CreateXOrRule" schema="//@schema">
     <sourcePatterns name="conciseGroup">
       <op value="++"/>
-      <type href="platform:/resource/FeatureModelConcise/model/FeatureModelConcise.ecore#//OrGroup"/>
+      <type href="platform:/resource/FeatureModelConcise/model/FeatureModelConcise.ecore#//XorGroup"/>
     </sourcePatterns>
     <sourcePatterns name="conciseParent">
       <type href="platform:/resource/FeatureModelConcise/model/FeatureModelConcise.ecore#//Feature"/>
@@ -124,7 +124,7 @@
     </sourcePatterns>
     <targetPatterns name="safeGroup">
       <op value="++"/>
-      <type href="platform:/resource/FeatureModelSafe/model/FeatureModelSafe.ecore#//OrGroup"/>
+      <type href="platform:/resource/FeatureModelSafe/model/FeatureModelSafe.ecore#//XorGroup"/>
     </targetPatterns>
     <targetPatterns name="safeParent">
       <type href="platform:/resource/FeatureModelSafe/model/FeatureModelSafe.ecore#//Feature"/>

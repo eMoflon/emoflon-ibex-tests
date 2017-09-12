@@ -30,7 +30,7 @@
     </edges>
     <attributeConditionLibrary/>
   </rules>
-  <rules name="CreateOrRule" refines="//@rules.0">
+  <rules name="CreateXOrRule" refines="//@rules.0">
     <nodes name="conciseGroup" bindingType="CREATE">
       <type href="platform:/resource/FeatureModelConcise/model/FeatureModelConcise.ecore#//XorGroup"/>
     </nodes>
@@ -39,7 +39,7 @@
     </nodes>
     <attributeConditionLibrary/>
   </rules>
-  <rules name="CreateXOrRule" refines="//@rules.0">
+  <rules name="CreateOrRule" refines="//@rules.0">
     <nodes name="conciseGroup" bindingType="CREATE">
       <type href="platform:/resource/FeatureModelConcise/model/FeatureModelConcise.ecore#//OrGroup"/>
     </nodes>

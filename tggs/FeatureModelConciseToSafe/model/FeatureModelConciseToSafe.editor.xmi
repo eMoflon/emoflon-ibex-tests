@@ -82,7 +82,7 @@
       <op value="++"/>
     </correspondencePatterns>
   </rules>
-  <rules name="CreateOrRule" supertypes="//@rules.0" schema="//@schema">
+  <rules name="CreateXOrRule" supertypes="//@rules.0" schema="//@schema">
     <sourcePatterns name="conciseGroup">
       <op value="++"/>
       <type href="platform:/resource/FeatureModelConcise/model/FeatureModelConcise.ecore#//XorGroup"/>
@@ -92,7 +92,7 @@
       <type href="platform:/resource/FeatureModelSafe/model/FeatureModelSafe.ecore#//XorGroup"/>
     </targetPatterns>
   </rules>
-  <rules name="CreateXOrRule" supertypes="//@rules.0" schema="//@schema">
+  <rules name="CreateOrRule" supertypes="//@rules.0" schema="//@schema">
     <sourcePatterns name="conciseGroup">
       <op value="++"/>
       <type href="platform:/resource/FeatureModelConcise/model/FeatureModelConcise.ecore#//OrGroup"/>

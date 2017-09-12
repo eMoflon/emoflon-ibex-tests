@@ -31,7 +31,7 @@
 	}
 }
 
-#rule CreateOrRule #extends CreateGroupsRule #with FeatureModelConciseToSafe
+#rule CreateXOrRule #extends CreateGroupsRule #with FeatureModelConciseToSafe
 
 #source { 
 	++ conciseGroup:FeatureModelConcise.XorGroup 
@@ -41,7 +41,7 @@
 	++ safeGroup:FeatureModelSafe.XorGroup
 }
 
-#rule CreateXOrRule #extends CreateGroupsRule #with FeatureModelConciseToSafe
+#rule CreateOrRule #extends CreateGroupsRule #with FeatureModelConciseToSafe
 
 #source { 
 	++ conciseGroup:FeatureModelConcise.OrGroup

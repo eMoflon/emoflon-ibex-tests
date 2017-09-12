@@ -1,4 +1,4 @@
-package testsuite1.ProcessCodeAdapter.modelgen;
+package testsuite1.ProcessCodeAdapter.gen;
 
 import java.io.IOException;
 
