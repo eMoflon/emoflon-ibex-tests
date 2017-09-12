@@ -1,0 +1,37 @@
+#using FeatureModelConciseToSafe.*
+#using AttrCondDefLibrary.*
+
+#rule RootAxiomRule #with FeatureModelConciseToSafe
+
+#source { 
+	++ conciseModel:FeatureModelConcise.Model {
+		++ -root->conciseRoot
+	}
+	
+	++ conciseRoot:FeatureModelConcise.Feature
+}
+
+#target {
+	++ safeModel:FeatureModelSafe.Model	{
+		++ -root->safeRoot
+	}
+	
+	++ safeRoot:FeatureModelSafe.Feature
+}
+
+#correspondence {
+	++ m2m:Model2Model {
+		#src->conciseModel
+		#trg->safeModel
+	}
+	
+	++ r2r:Feature2Feature {
+		#src->conciseRoot
+		#trg->safeRoot
+	}
+}
+
+#attributeConditions {
+	eq_string(conciseModel.name, safeModel.name)
+	eq_string(conciseRoot.name, safeRoot.name)
+}

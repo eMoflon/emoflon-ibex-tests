@@ -14,20 +14,20 @@ public class TestSimpleNegative extends CCTestCase {
 	}
 	
 	public void createGenerator(String srcInstance, String trgInstance) throws IOException {
-		generator = new CC_App("CompanyToIT", testsuite1.testUtil.Constants.workspacePath, flatten, false, srcInstance, trgInstance);
+		checker = new CC_App("CompanyToIT", testsuite1.testUtil.Constants.workspacePath, flatten, false, srcInstance, trgInstance);
 	}
 	
 	@Test
 	public void testCompanyToRouter() throws IOException {
 		createGenerator("in/Company_FWD", "expected/Admin_FWD");
 		runGenerator();
-		assert !generator.modelsAreConsistent();
+		assert !checker.modelsAreConsistent();
 	}
 	
 	@Test
 	public void testAdminToLaptop() throws IOException {
 		createGenerator("in/Admin_FWD", "expected/Employee_Laptop_FWD");
 		runGenerator();
-		assert !generator.modelsAreConsistent();
+		assert !checker.modelsAreConsistent();
 	}
 }

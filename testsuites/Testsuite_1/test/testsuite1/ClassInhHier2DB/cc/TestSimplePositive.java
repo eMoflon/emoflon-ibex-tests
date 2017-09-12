@@ -14,49 +14,49 @@ public class TestSimplePositive extends CCTestCase {
 	}
 	
 	public void createGenerator(String srcInstance, String trgInstance) throws IOException {
-		generator = new CC_App("ClassInhHier2DB", testsuite1.testUtil.Constants.workspacePath, flatten, false, srcInstance, trgInstance);
+		checker = new CC_App("ClassInhHier2DB", testsuite1.testUtil.Constants.workspacePath, flatten, false, srcInstance, trgInstance);
 	}
 	
 	@Test
 	public void testPackageToDatabase() throws IOException {
 		createGenerator("in/PackageToDatabase_FWD", "expected/PackageToDatabase_FWD");
 		runGenerator();
-		assert generator.modelsAreConsistent();
+		assert checker.modelsAreConsistent();
 	}
 	
 	@Test
 	public void testClassToTable() throws IOException {
 		createGenerator("in/ClassToTable_FWD", "expected/ClassToTable_FWD");
 		runGenerator();
-		assert generator.modelsAreConsistent();
+		assert checker.modelsAreConsistent();
 	}
 	
 	@Test
 	public void testAttributeToColumn() throws IOException {
 		createGenerator("in/AttributeToColumn_FWD", "expected/AttributeToColumn_FWD");
 		runGenerator();
-		assert generator.modelsAreConsistent();
+		assert checker.modelsAreConsistent();
 	}
 	
 	@Test
 	public void testAttributeToColumn2() throws IOException {
 		createGenerator("in/AttributeToColumn2_FWD", "expected/AttributeToColumn2_FWD");
 		runGenerator();
-		assert generator.modelsAreConsistent();
+		assert checker.modelsAreConsistent();
 	}
 	
 	@Test
 	public void testSubClassToTable() throws IOException {
 		createGenerator("in/SubClassToTable_FWD", "expected/SubClassToTable_FWD");
 		runGenerator();
-		assert generator.modelsAreConsistent();
+		assert checker.modelsAreConsistent();
 	}
 	
 	@Test
 	public void testLargeExample() throws IOException {
 		createGenerator("in/LargeExample_FWD", "expected/LargeExample_FWD");
 		runGenerator();
-		assert generator.modelsAreConsistent();
+		assert checker.modelsAreConsistent();
 	}
 	
 }
