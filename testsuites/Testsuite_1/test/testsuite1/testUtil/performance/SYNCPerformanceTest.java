@@ -1,9 +1,15 @@
 package testsuite1.testUtil.performance;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
@@ -13,11 +19,13 @@ import org.emoflon.ibex.tgg.operational.strategies.sync.SYNC;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesEngine;
 
 import language.TGG;
+import testsuite1.testUtil.Constants;
 
 public class SYNCPerformanceTest {
 	public SYNC sync;
 	
 	protected boolean initialized = false;
+	protected boolean useTimeouts = true;
 	
 	protected List<String> executionResults = new LinkedList<String>();
 	protected List<String> initResults = new LinkedList<String>();
@@ -79,29 +87,64 @@ public class SYNCPerformanceTest {
 		
 		for (int i = 0; i < repetitions; i++) {
 			SYNC sync = transformator.get();
-			tgg = sync.getTGG();
-			System.out.println(sync.getTGG().getName()+":"+(isFwd ? Operationalization.FWD : Operationalization.BWD)+", size="+size+", flattened = "+flattened+": "+(i+1)+"-th execution started.");
-			initTimes[i] = timedInit(sync);
-			
-			// batch
-			batchExecutionTimes[i] = isFwd ? timedFwd() : timedBwd();
-			
-			// incremental
-			if (incr) {
-				Resource model = isFwd ? sync.getSourceResource() : sync.getTargetResource();
-				edit.accept(model.getContents().get(0));
-				incrementalExecutionTimes[i] = isFwd ? timedFwd() : timedBwd();
-			}
-			
-			terminate();
-			
-			// debug code to check whether the incremental sync works properly
-//			if (i==0)
-//				sync.saveModels();
-			
-			System.out.print((i+1)+"-th execution finished. ");
+			ExecutorService es = Executors.newSingleThreadExecutor();
+			System.out.println((isFwd ? Operationalization.FWD : Operationalization.BWD)+": size="+size+", flattened = "+flattened+": "+(i+1)+"-th execution started.");
+
+			if (useTimeouts)
+				try {
+					Future<Long> initResult = es.submit(() -> timedInit(sync));
+				    initTimes[i] = initResult.get(Constants.timeout, TimeUnit.SECONDS);
+					tgg = sync.getTGG();
+					
+					// batch
+				    Future<Long> batchExecutionResult = es.submit(() -> isFwd ? timedFwd() : timedBwd());
+				    batchExecutionTimes[i] = batchExecutionResult.get(Constants.timeout, TimeUnit.SECONDS);
+					
+					// incremental
+					if (incr) {
+						Resource model = isFwd ? sync.getSourceResource() : sync.getTargetResource();
+						edit.accept(model.getContents().get(0));
+		
+					    Future<Long> incrExecutionResult = es.submit(() -> isFwd ? timedFwd() : timedBwd());
+					    incrementalExecutionTimes[i] = incrExecutionResult.get(Constants.timeout, TimeUnit.SECONDS);
+					}
+				} catch (TimeoutException e) {
+			    	System.out.println("Timeout!");
+					return new ArrayList<TestDataPoint>();
+				} catch (Exception e) {
+					e.printStackTrace();
+				} finally {
+					terminate();
+				    es.shutdownNow();
+				    try {
+						es.awaitTermination(1, TimeUnit.DAYS);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+				    System.gc();
+					System.out.println((i+1)+"-th execution finished. ");
+				}
+			else {
+				initTimes[i] = timedInit(sync);
+	
+				tgg = sync.getTGG();
+	
+		    	batchExecutionTimes[i] = isFwd ? timedFwd() : timedBwd();
+		    	
+		    	if (incr) {
+					Resource model = isFwd ? sync.getSourceResource() : sync.getTargetResource();
+					edit.accept(model.getContents().get(0));
+
+			    	incrementalExecutionTimes[i] = isFwd ? timedFwd() : timedBwd();
+		    	}
+		    		
+
+		    	terminate();
+			}		
+				// debug code to check whether the incremental sync works properly
+//					if (i==0)
+//						sync.saveModels();
 		}
-		System.out.println("");
 		
 		List<TestDataPoint> result;
 
@@ -124,6 +167,10 @@ public class SYNCPerformanceTest {
 		}
 
 		return result;
+	}
+	
+	public void setUseTimeouts(boolean useTimeouts) {
+		this.useTimeouts = useTimeouts;
 	}
 	
 	@Deprecated

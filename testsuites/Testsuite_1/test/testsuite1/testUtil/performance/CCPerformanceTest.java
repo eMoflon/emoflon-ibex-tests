@@ -7,17 +7,25 @@ import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 import java.util.function.Supplier;
 
 import org.emoflon.ibex.tgg.operational.strategies.cc.CC;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesEngine;
 
+import gurobi.GRBException;
 import language.TGG;
+import testsuite1.testUtil.Constants;
 
 public class CCPerformanceTest {
 	public CC checker;
 	
 	protected boolean initialized = false;
+	protected boolean useTimeouts = true;
 	
 	protected List<String> executionResults = new LinkedList<String>();
 	protected List<String> initResults = new LinkedList<String>();
@@ -42,13 +50,16 @@ public class CCPerformanceTest {
 		checker.run();
 		long toc = System.nanoTime();
 		
-		checker.terminate();
 		executionResults.add((toc - tic)+"");
 		System.out.println((toc - tic) + "");
 		return toc - tic;
 	}
 	
-	public TestDataPoint timedExecutionAndInit(Supplier<CC> checker, int size, int repetitions, boolean flattened) throws IOException {
+	public void terminate() throws IOException {
+		checker.terminate();
+	}
+	
+	public TestDataPoint timedExecutionAndInit(Supplier<CC> checker, int size, int repetitions, boolean flattened) throws IOException, GRBException {
 		if (repetitions < 1)
 			throw new IllegalArgumentException("Number of repetitions must be positive.");
 		
@@ -58,13 +69,44 @@ public class CCPerformanceTest {
 		
 		for (int i = 0; i < repetitions; i++) {
 			CC cc = checker.get();
-			tgg = cc.getTGG();
-			System.out.println(cc.getTGG().getName()+":CC, size="+size+", flattened = "+flattened+": "+(i+1)+"-th execution started.");
-			initTimes[i] = timedInit(cc);
-			executionTimes[i] = timedExecution();
-			System.out.print((i+1)+"-th execution finished. ");
+			ExecutorService es = Executors.newSingleThreadExecutor();
+			System.out.println("CC: size="+size+", flattened = "+flattened+": "+(i+1)+"-th execution started.");
+			
+			if (useTimeouts)
+			    try {
+					Future<Long> initResult = es.submit(() -> timedInit(cc));
+			    	initTimes[i] = initResult.get(Constants.timeout, TimeUnit.SECONDS);
+			    	
+					tgg = cc.getTGG();
+	
+					Future<Long> executionResult = es.submit(() -> timedExecution());
+			    	executionTimes[i] = executionResult.get(Constants.timeout, TimeUnit.SECONDS);
+			    } catch (TimeoutException e) {
+			    	System.out.println("Timeout!");
+			    	return null;
+			    } catch (Exception e) {
+		        	e.printStackTrace();
+			    } finally {
+			    	terminate();
+				    es.shutdownNow();
+				    try {
+						es.awaitTermination(1, TimeUnit.DAYS);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+				    System.gc();
+					System.out.println((i+1)+"-th execution finished. ");
+			    }
+			else {
+				initTimes[i] = timedInit(cc);
+	
+				tgg = cc.getTGG();
+	
+		    	executionTimes[i] = timedExecution();
+
+		    	terminate();
+			}
 		}
-		System.out.println("");
 
 		TestDataPoint result = new TestDataPoint(initTimes, executionTimes);
 		result.operationalization = Operationalization.CC;
@@ -72,6 +114,10 @@ public class CCPerformanceTest {
 		result.modelSize = size;
 		result.flattenedNetwork = flattened;
 		return result;
+	}
+
+	public void setUseTimeouts(boolean useTimeouts) {
+		this.useTimeouts = useTimeouts;
 	}
 	
 	public void saveResults() throws IOException {

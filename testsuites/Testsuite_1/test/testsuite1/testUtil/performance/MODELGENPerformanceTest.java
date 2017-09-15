@@ -7,6 +7,11 @@ import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
@@ -16,11 +21,13 @@ import org.emoflon.ibex.tgg.operational.util.RandomMatchUpdatePolicy;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesEngine;
 
 import language.TGG;
+import testsuite1.testUtil.Constants;
 
 public class MODELGENPerformanceTest {
 	public MODELGEN generator;
 	
 	protected boolean initialized = false;
+	protected boolean useTimeouts = true;
 	
 	protected List<String> executionResults = new LinkedList<String>();
 	protected List<String> initResults = new LinkedList<String>();
@@ -49,10 +56,13 @@ public class MODELGENPerformanceTest {
 		generator.run();
 		long toc = System.nanoTime();
 		
-		generator.terminate();
 		executionResults.add((toc - tic)+"");
 		System.out.println((toc - tic) + "");
 		return toc - tic;
+	}
+	
+	public void terminate() throws IOException {
+		generator.terminate();
 	}
 	
 	public TestDataPoint timedExecutionAndInit(Supplier<MODELGEN> generator, Function<TGG, MODELGENStopCriterion> stops, int size, int repetitions, boolean flattened) throws IOException {
@@ -65,18 +75,50 @@ public class MODELGENPerformanceTest {
 		
 		for (int i = 0; i < repetitions; i++) {
 			MODELGEN gen = generator.get();
-			tgg = gen.getTGG();
-			System.out.println(gen.getTGG().getName()+":MODELGEN, size="+size+", flattened = "+flattened+": "+(i+1)+"-th execution started.");
-			initTimes[i] = timedInit(gen);
-			MODELGENStopCriterion stop = stops.apply(gen.getTGG());
-			executionTimes[i] = timedExecution(stop);
-			System.out.print((i+1)+"-th execution finished. ");
+			ExecutorService es = Executors.newSingleThreadExecutor();
+			System.out.println("MODELGEN: size="+size+", flattened = "+flattened+": "+(i+1)+"-th execution started.");
+
+			if (useTimeouts)
+			    try {
+				    Future<Long> initResult = es.submit(() -> timedInit(gen));
+			    	initTimes[i] = initResult.get(Constants.timeout, TimeUnit.SECONDS);
+		
+					tgg = gen.getTGG();
+					MODELGENStopCriterion stop = stops.apply(tgg);
+		
+				    Future<Long> executionResult = es.submit(() -> timedExecution(stop));
+			    	executionTimes[i] = executionResult.get(Constants.timeout, TimeUnit.SECONDS);
+			    } catch (TimeoutException e) {
+			    	System.out.println("Timeout!");
+			    	return null;
+			    } catch (Exception e) {
+		        	e.printStackTrace();
+			    } finally {
+			    	terminate();
+				    es.shutdownNow();
+				    try {
+						es.awaitTermination(1, TimeUnit.DAYS);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+				    System.gc();
+					System.out.println((i+1)+"-th execution finished. ");
+			    }
+			else {
+				initTimes[i] = timedInit(gen);
+	
+				tgg = gen.getTGG();
+				MODELGENStopCriterion stop = stops.apply(tgg);
+	
+		    	executionTimes[i] = timedExecution(stop);
+
+		    	terminate();
+			}
 			
 			if (i==0) { // one generated model should be saved
 				gen.saveModels();
 			}
 		}
-		System.out.println("");
 		
 		TestDataPoint result = new TestDataPoint(initTimes, executionTimes);
 		result.operationalization = Operationalization.MODELGEN;
@@ -84,6 +126,10 @@ public class MODELGENPerformanceTest {
 		result.modelSize = size;
 		result.flattenedNetwork = flattened;
 		return result;
+	}
+	
+	public void setUseTimeouts(boolean useTimeouts) {
+		this.useTimeouts = useTimeouts;
 	}
 	
 	public void saveResults() throws IOException {
