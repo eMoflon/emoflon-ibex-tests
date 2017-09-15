@@ -1,9 +1,13 @@
-package testsuite1.testUtil.performance
+package testsuite1.performance
 
 import java.nio.file.Files
 import java.nio.file.Paths
+import testsuite1.performance.PerformanceTest
 
 class GNUPlotScripts {
+	private static final String timeUnit = "ms"
+	private static final int timeFactor = 1000000; //conversion from nanoseconds to "timeUnit"
+	
 	private static final String plotPath = "performance/plots/"
 	private static final String scriptPath = "performance/gnuplot_scripts/"
 	private static final String dataPath = "performance/data/"
@@ -22,12 +26,14 @@ class GNUPlotScripts {
 	def static createPlot(String diagramType, String title, String outputstyle, String[] args) {
 		var script = ""
 		switch diagramType {
-			// args[0] should be the Operationalization
-			case "TGGSize": script = tggSizeComparison(title, outputstyle, args.get(0))
-			// args[0] should be the TGG, args[1] the Operationalization
-			case "ModelSize": script = modelSizeComparison(title, outputstyle, args.get(0), args.get(1)) 
-			
 			case "TGGsWithoutRefinement": script = tggsWithoutRefinementComparison(title, outputstyle)
+			// args[0] should be the Operationalization
+			case "AllTGGs": script = allTGGsComparison(title, outputstyle, args.get(0))
+			case "AllTGGsInit": script = allTGGsInitComparison(title, outputstyle, args.get(0))
+			case "MemoryUsage": script = memoryUsage(title, outputstyle, args.get(0))
+			// args[0] should be the TGG, args[1] the Operationalization
+			case "ModelSize": script = modelSizeComparison(title, outputstyle, args.get(0), args.get(1))
+			case "InitTimes": script = initTimes(title, outputstyle, args.get(0), args.get(1))
 		}
 		var lines = script.split("\n\n")
 		Files.write(Paths.get(scriptPath+title+".gp"), lines)
@@ -35,15 +41,14 @@ class GNUPlotScripts {
 		
 	}
 	
-	def static commonHistogramScriptParts(String fileName, String outputstyle) {
+	def static commonHistogramScriptParts(String diagramType, String fileName, String outputstyle) {
 		return '''
-			set terminal «outputstyle»
-			set output "«plotPath»«fileName».«IF outputstyle=="gif"»gif«ELSE»pdf«ENDIF»"
+			set output "«plotPath»«diagramType»/«fileName».«IF outputstyle=="gif"»gif«ELSE»pdf«ENDIF»"
 			set style data histogram
 			set style histogram cluster gap 1
 			set style fill solid border -1
 			set boxwidth 0.9
-			set ylabel "execution time / ms"
+			set ylabel "execution time / «timeUnit»"
 			set xtic rotate by -45
 			set key top left
 			set logscale y
@@ -51,39 +56,118 @@ class GNUPlotScripts {
 		'''
 	}
 
-	def static tggSizeComparison(String title, String outputstyle, String op) {
+	def static allTGGsComparison(String title, String outputstyle, String op) {
 		return '''
-			«testsuite1.testUtil.performance.GNUPlotScripts.commonHistogramScriptParts(title, outputstyle)»
-			set title "Impact of TGG size on execution time - «op»"
+			set terminal «outputstyle»
+			«commonHistogramScriptParts("AllTGGs", title, outputstyle)»
+			set title "Comparison of TGG execution times for models of size «PerformanceTest.standardModelSize» - «op»"
+			set yrange [1:10000]
 			plot \
 			newhistogram lt 3, \
-			"«dataPath»«title».dat" using ($2/1000000):xtic(1) ti col, '' u ($3/1000000) ti col
+			"«dataPath»«title».dat" using ($2/«timeFactor»):xtic(1) ti col, '' u ($3/«timeFactor») ti col
+		'''
+	}
+
+	def static allTGGsInitComparison(String title, String outputstyle, String op) {
+		return '''
+			set terminal «outputstyle»
+			«commonHistogramScriptParts("AllTGGsInit", title, outputstyle)»
+			set title "Comparison of TGG initialization times for models of size «PerformanceTest.standardModelSize» - «op»"
+			set yrange [10:10000]
+			plot \
+			newhistogram lt 3, \
+			"«dataPath»«title».dat" using ($2/«timeFactor»):xtic(1) ti col, '' u ($3/«timeFactor») ti col
 		'''
 	}
 
 	def static modelSizeComparison(String title, String outputstyle, String tgg, String op) {
 		return '''
-			«testsuite1.testUtil.performance.GNUPlotScripts.commonHistogramScriptParts(title, outputstyle)»
+			set terminal «outputstyle»
+			«commonHistogramScriptParts("ModelSizes", title, outputstyle)»
 			set title "Impact of model size on execution time - «tgg»:«op»"
 			set xlabel "model size"
 			plot \
 			newhistogram lt 3, \
-			"«dataPath»«title».dat" using ($2/1000000):xtic(1) ti col, '' u ($3/1000000) ti col
+			"«dataPath»«title».dat" using ($2/«timeFactor»):xtic(1) ti col, '' u ($3/«timeFactor») ti col
 		'''
 	}
 
 	def static tggsWithoutRefinementComparison(String title, String outputstyle) {
 		return '''
-			«testsuite1.testUtil.performance.GNUPlotScripts.commonHistogramScriptParts(title, outputstyle)»
-			set title "Comparison of TGGs without refinements"
+			set terminal «outputstyle»
+			«commonHistogramScriptParts("TGGsWithoutRefinements", title, outputstyle)»
+			set title "Execution times of TGGs without refinements"
 			set style histogram cluster gap 1 title offset 0, -2
 			set rmargin 8
 			set bmargin 8
+			set yrange [0.1:10000]
 			plot \
 			newhistogram lt 3 "ClassInhHier2DB", \
-			"«dataPath»«title».dat" using ($2/1000000):xtic(1) ti col, '' u ($3/1000000) ti col, \
+			"«dataPath»«title».dat" using ($2/«timeFactor»):xtic(1) ti col, '' u ($3/«timeFactor») ti col, \
 			newhistogram lt 3 "CompanyToIT", \
-			"«dataPath»«title».dat" every ::1 using ($4/1000000):xtic(1) notitle, '' every ::1 u ($5/1000000) notitle, \
+			"«dataPath»«title».dat" every ::1 using ($4/«timeFactor»):xtic(1) notitle, '' every ::1 u ($5/«timeFactor») notitle, \
 		'''
 	}
+	
+	def static memoryUsage(String title, String outputstyle, String op) {
+		// make this into one stacked diagram
+		return '''
+			set terminal «outputstyle»
+			«commonHistogramScriptParts("MemoryUsage", title, outputstyle)»
+			set title "Maximum possible model sizes - «op»"
+			set ylabel "model size"
+			set yrange [10:100000]
+			plot \
+			newhistogram lt 3, \
+			"«dataPath»«title».dat" using ($2):xtic(1) ti col, '' u ($3) ti col
+		'''
+	}
+	
+	def static memoryUsageMODELGEN_FWD(String title, String outputstyle) {
+		return '''
+			set terminal «outputstyle» size 5,3.5
+			set output "«plotPath»MemoryUsage/«title».«IF outputstyle=="gif"»gif«ELSE»pdf«ENDIF»"
+			set style data histogram
+			set style histogram cluster gap 1
+			set style fill solid border -1
+			set boxwidth 0.9
+			set ylabel "execution time / «timeUnit»"
+			set xtic rotate by -30
+			set key top left
+			set logscale y
+			set grid
+			set title "Maximum possible model sizes - FWD"
+			set ylabel "model size"
+			set yrange [10:100000]
+			set size 1,1;
+			set multiplot
+			set size 0.92,0.62;
+			set origin 0,0;
+			plot \
+			newhistogram lt 3, \
+			"performance/data/MemoryUsageFWD.dat" using ($2):xtic(1) ti col, '' u ($3) ti col
+			set size 0.92,0.42;
+			set origin 0,0.58;
+			unset xtics
+			unset key
+			set title "Maximum possible model sizes - MODELGEN"
+			plot \
+			newhistogram lt 3, \
+			"performance/data/MemoryUsageMODELGEN.dat" using ($2):xtic(1) ti col, '' u ($3) ti col
+			unset multiplot
+		'''
+	}
+	
+	def static initTimes(String title, String outputstyle, String tgg, String op) {
+		return '''
+			set terminal «outputstyle» size 5,2
+			«commonHistogramScriptParts("InitTimes", title, outputstyle)»
+			set title "Execution times of initialization - «tgg»:«op»"
+			set yrange [1:10000]
+			plot \
+			newhistogram lt 3, \
+			"«dataPath»«title».dat" using ($2/«timeFactor»):xtic(1) ti col, '' u ($3/«timeFactor») ti col
+		'''
+	}
+	
 }
