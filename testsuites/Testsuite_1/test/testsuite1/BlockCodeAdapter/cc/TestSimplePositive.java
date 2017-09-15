@@ -20,14 +20,12 @@ public class TestSimplePositive extends CCTestCase {
 		checker = new CC_App("BlockCodeAdapter", testsuite1.testUtil.Constants.workspacePath, flatten, false, srcInstance, trgInstance);
 	}
 	
-	// IndexOutOfBoundsException mentioned in issue #15
 	@Parameters(name="eMoflon::IBeX, Flattened: true")
 	public static Collection<Boolean> flattening() throws IOException {
-		return Arrays.asList(true);
+		return Arrays.asList(false, true);
 	}
 	
 	@Test
-	// IndexOutOfBoundsException mentioned in issue #15
 	public void testSpec() throws IOException {
 		createGenerator("in/Spec_FWD", "expected/Spec_FWD");
 		runGenerator();
@@ -35,7 +33,6 @@ public class TestSimplePositive extends CCTestCase {
 	}
 	
 	@Test
-	// IndexOutOfBoundsException mentioned in issue #15
 	public void testBlock() throws IOException {
 		createGenerator("in/Block_FWD", "expected/Block_FWD");
 		runGenerator();
@@ -43,7 +40,6 @@ public class TestSimplePositive extends CCTestCase {
 	}
 	
 	@Test
-	// IndexOutOfBoundsException mentioned in issue #15
 	public void testPort() throws IOException {
 		createGenerator("in/Port_FWD", "expected/Port_FWD");
 		runGenerator();
@@ -51,7 +47,6 @@ public class TestSimplePositive extends CCTestCase {
 	}
 	
 	@Test
-	// IndexOutOfBoundsException mentioned in issue #15
 	public void testWire() throws IOException {
 		createGenerator("in/Wire_FWD", "expected/Wire_FWD");
 		runGenerator();
@@ -59,7 +54,6 @@ public class TestSimplePositive extends CCTestCase {
 	}
 	
 	@Test
-	// IndexOutOfBoundsException mentioned in issue #15
 	public void testWireCloseLoop() throws IOException {
 		createGenerator("in/WireCloseLoop_FWD", "expected/WireCloseLoop_FWD");
 		runGenerator();
