@@ -153,7 +153,4 @@ public class IncrementalEditor {
 	public void vhdlAddCompositeBlock(EObject specification) {
 		vhdlModels.createTopLevelBlock((VHDLSpecification)specification, "newCompositeBlock");
 	}
-	
-	
-
 }

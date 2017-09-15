@@ -1,4 +1,4 @@
-package testsuite1.testUtil;
+package testsuite1.testUtil.performance;
 
 import java.io.IOException;
 
@@ -6,7 +6,6 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.ibex.tgg.operational.strategies.sync.SYNC;
-import org.emoflon.ibex.tgg.runtime.engine.DemoclesEngine;
 
 import BlockDiagram.impl.BlockDiagramPackageImpl;
 import BlockLanguage.impl.BlockLanguagePackageImpl;
@@ -19,6 +18,7 @@ import ProcessDefinition.impl.ProcessDefinitionPackageImpl;
 import SimpleFamilies.impl.SimpleFamiliesPackageImpl;
 import SimplePersons.impl.SimplePersonsPackageImpl;
 import VHDLModel.impl.VHDLModelPackageImpl;
+import testsuite1.testUtil.Constants;
 
 public class SYNC_App extends SYNC {
 	private String instancePath;
@@ -30,7 +30,6 @@ public class SYNC_App extends SYNC {
 		this.instancePath = instancePath;
 		this.isFwd = isFwd;
 		this.isIncr = isIncr;
-		registerPatternMatchingEngine(new DemoclesEngine());
 	}
 
 	protected void registerUserMetamodels() throws IOException {

@@ -1,12 +1,10 @@
-package testsuite1.testUtil;
+package testsuite1.testUtil.performance;
 
 import java.io.IOException;
 
-import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGEN;
-import org.emoflon.ibex.tgg.runtime.engine.DemoclesEngine;
+import org.emoflon.ibex.tgg.operational.strategies.cc.CC;
 
 import BlockDiagram.impl.BlockDiagramPackageImpl;
 import BlockLanguage.impl.BlockLanguagePackageImpl;
@@ -19,16 +17,18 @@ import ProcessDefinition.impl.ProcessDefinitionPackageImpl;
 import SimpleFamilies.impl.SimpleFamiliesPackageImpl;
 import SimplePersons.impl.SimplePersonsPackageImpl;
 import VHDLModel.impl.VHDLModelPackageImpl;
+import testsuite1.testUtil.Constants;
 
-public class MODELGEN_App extends MODELGEN {
-	private String instancePath;
+public class CC_App extends CC {
+	private String modelPath;
 
-	public MODELGEN_App(String projectName, String workspacePath, boolean flatten, boolean debug, String instancePath) throws IOException {
+	public CC_App(String projectName, String workspacePath, boolean flatten, boolean debug,
+			String modelPath) throws IOException {
 		super(projectName, workspacePath, flatten, debug);
-		this.instancePath = instancePath;
-		registerPatternMatchingEngine(new DemoclesEngine());
+		this.modelPath = modelPath;
 	}
 
+	@Override
 	protected void registerUserMetamodels() throws IOException {
 		String srcMetaModel = "";
 		String trgMetaModel = "";
@@ -83,8 +83,6 @@ public class MODELGEN_App extends MODELGEN {
 						+ "New TGGs have to be manually added to the MODELGEN_App class of this testsuite.");
 		};
 		
-		rs.getURIConverter().getURIMap().put(URI.createURI("platform:/plugin/"+srcMetaModel+"/"), URI.createURI("platform:/resource/"+srcMetaModel+"/"));
-		rs.getURIConverter().getURIMap().put(URI.createURI("platform:/plugin/"+trgMetaModel+"/"), URI.createURI("platform:/resource/"+trgMetaModel+"/"));
 		rs.getPackageRegistry().put("platform:/resource/"+srcMetaModel+"/model/"+srcMetaModel+".ecore", srcPackage);
 		rs.getPackageRegistry().put("platform:/resource/"+trgMetaModel+"/model/"+trgMetaModel+".ecore", trgPackage);
 		
@@ -94,17 +92,11 @@ public class MODELGEN_App extends MODELGEN {
 	
 	@Override
 	public void loadModels() throws IOException {
-		s = createResource(instancePath + "/src.xmi");
-		t = createResource(instancePath + "/trg.xmi");
-		c = createResource(instancePath + "/corr.xmi");
-		p = createResource(instancePath + "/protocol.xmi");
-		
+		s = loadResource(projectPath + "/instances/"+modelPath+"/src.xmi");
+		t = loadResource(projectPath + "/instances/"+modelPath+"/trg.xmi");
+		c = createResource(projectPath + "/instances/"+modelPath+"/corr.xmi");
+		p = createResource(projectPath + "/instances/"+modelPath+"/protocol.xmi");
+	
 		EcoreUtil.resolveAll(rs);
 	}
-	
-	@Override
-	protected boolean protocol() {
-		return true;
-	}
-
 }
