@@ -2,7 +2,6 @@ package testsuite1.ClassInhHier2DB.sync;
 
 import org.benchmarx.classInheritanceHierarchy.core.ClassInheritanceHierarchyHelper;
 import org.benchmarx.database.core.DatabaseHelper;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import ClassInheritanceHierarchy.ClassInheritanceHierarchyFactory;
@@ -207,7 +206,6 @@ public class AlignmentBased extends SyncTestCase<ClassPackage, DB> {
 		assertPostcondition("expected/LargeExample_BWD", "in/LargeExample_BWD");
 	}
 	
-	@Ignore //FIXME[Greg:  Join-Failed exception on container switch with eOpposite reference]
 	@Test
 	public void changeContainer() {
 		tool.performAndPropagateSourceEdit(p -> helperClassInh.createClass(p, "C"));
