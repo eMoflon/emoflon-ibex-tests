@@ -1,12 +1,16 @@
 package testsuite1.testUtil.performance;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.function.BinaryOperator;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGENStopCriterion;
 
 import language.TGG;
+import language.TGGRule;
+import language.TGGRuleEdge;
 
 public class PerformanceTestUtil {
 
@@ -80,4 +84,41 @@ public class PerformanceTestUtil {
 		};
 	}
 
+	public double getAverageRuleSize(TGG flattenedTGG) {
+		double numberOfRules = flattenedTGG.getRules().size();
+		
+		return reduceRuleSizes(flattenedTGG, (size1, size2) -> size1 + size2)/numberOfRules;
+	}
+
+	public double getMaxRuleSize(TGG flattenedTGG) {
+		return reduceRuleSizes(flattenedTGG, (size1, size2) -> Math.max(size1, size2));
+	}
+
+	private Integer reduceRuleSizes(TGG flattenedTGG, BinaryOperator<Integer> accumulator) {
+		return flattenedTGG.getRules().stream()
+									  .map(this::getRuleSize)
+								 	  .reduce(accumulator)
+								 	  .get();
+	}
+	
+	private int getRuleSize(TGGRule rule) {
+		int size = rule.getNodes().size();
+		HashSet<TGGRuleEdge> checkedEdges = new HashSet<>();
+		
+		for (TGGRuleEdge e1 : rule.getEdges()) {
+			if (e1.getType().getEOpposite() == null
+					|| !checkedEdges.stream().anyMatch(e2 -> oppositeEdges(e1, e2))) {
+				checkedEdges.add(e1);
+				size++;
+			}
+		}
+		
+		return size;
+	}
+	
+	private boolean oppositeEdges(TGGRuleEdge e1, TGGRuleEdge e2) {
+		return e1.getType().getEOpposite().equals(e2.getType())
+				&& e1.getSrcNode().equals(e2.getTrgNode())
+				&& e1.getTrgNode().equals(e2.getSrcNode());
+	}
 }
