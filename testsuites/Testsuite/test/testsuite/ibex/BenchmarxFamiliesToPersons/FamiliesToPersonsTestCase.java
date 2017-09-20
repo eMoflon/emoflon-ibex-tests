@@ -13,8 +13,8 @@ import Persons.PersonRegister;
 import Persons.PersonsPackage;
 import testsuite.ibex.testUtil.SyncTestCase;
 
-public class FamiliesToPersonsTestCase extends SyncTestCase<FamilyRegister, PersonRegister> {
-	protected FamiliesToPersonsTestCase(boolean flatten) {
+public abstract class FamiliesToPersonsTestCase extends SyncTestCase<FamilyRegister, PersonRegister> {
+	public FamiliesToPersonsTestCase(boolean flatten) {
 		super(new IbexFamiliesToPersons(flatten, projectName), flatten);
 	}
 
