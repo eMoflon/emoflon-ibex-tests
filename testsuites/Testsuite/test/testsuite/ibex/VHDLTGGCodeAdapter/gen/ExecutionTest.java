@@ -1,4 +1,4 @@
-package testsuite1.VHDLTGGCodeAdapter.gen;
+package testsuite.ibex.VHDLTGGCodeAdapter.gen;
 
 import java.io.IOException;
 
@@ -17,7 +17,7 @@ public class ExecutionTest {
 	public void createGenerator() throws IOException {
 		BasicConfigurator.configure();
 		
-		this.generator = new MODELGEN_App("VHDLTGGCodeAdapter", testsuite1.testUtil.Constants.workspacePath, false, true);
+		this.generator = new MODELGEN_App("VHDLTGGCodeAdapter", testsuite.ibex.testUtil.Constants.workspacePath, false, true);
 		MODELGENStopCriterion stop = new MODELGENStopCriterion(generator.getTGG());
 		stop.setTimeOutInMS(10000);
 		generator.setUpdatePolicy(new RandomMatchUpdatePolicy());
