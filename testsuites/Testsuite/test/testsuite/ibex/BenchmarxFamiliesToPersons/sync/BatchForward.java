@@ -21,7 +21,7 @@ public class BatchForward extends FamiliesToPersonsTestCase {
 	{
 		// No precondition!
 		//------------
-		util.assertPostcondition("RootElementFamilies", "RootElementPersons");
+		assertPostcondition("RootElementFamilies", "RootElementPersons");
 	}
 	
 	/**
@@ -34,11 +34,11 @@ public class BatchForward extends FamiliesToPersonsTestCase {
 	{
 		tool.performAndPropagateSourceEdit(helperFamily::createSimpsonFamily);
 
-		util.assertPrecondition("Pre_NameChangeFamilyEmpty", "Pre_NameChangePersonEmpty");
+		assertPrecondition("Pre_NameChangeFamilyEmpty", "Pre_NameChangePersonEmpty");
 		//------------
 		tool.performAndPropagateSourceEdit(helperFamily::renameEmptySimpsonToBouvier);
 		//------------
-		util.assertPostcondition("NameChangeFamilyEmpty", "NameChangePersonEmpty");
+		assertPostcondition("NameChangeFamilyEmpty", "NameChangePersonEmpty");
 	}
 	
 	/**
@@ -55,7 +55,7 @@ public class BatchForward extends FamiliesToPersonsTestCase {
 		//------------
 		tool.performAndPropagateSourceEdit(helperFamily::createSkinnerFamily);
 		//------------
-		util.assertPostcondition("OneFamily", "PersonsForOneFamily");
+		assertPostcondition("OneFamily", "PersonsForOneFamily");
 	}
 
 	/**
@@ -74,7 +74,7 @@ public class BatchForward extends FamiliesToPersonsTestCase {
 				.execute(helperFamily::createFlandersFamily)
 				.andThen(helperFamily::createSonRod));
 		//------------
-		util.assertPostcondition("OneFamilyWithOneFamilyMemberSon", "PersonOneMaleMember");
+		assertPostcondition("OneFamilyWithOneFamilyMemberSon", "PersonOneMaleMember");
 	}
 	
 	/**
@@ -91,7 +91,7 @@ public class BatchForward extends FamiliesToPersonsTestCase {
 				.andThen(helperFamily::createSonRod)
 				.andThen(helperFamily::createNewFamilySimpsonWithMembers));
 		//------------
-		util.assertPostcondition("NewFamilyWithMembers", "PersonsMulti");
+		assertPostcondition("NewFamilyWithMembers", "PersonsMulti");
 	}
 	
 	/**
@@ -109,7 +109,7 @@ public class BatchForward extends FamiliesToPersonsTestCase {
 				.andThen(helperFamily::createSimpsonFamily)
 				.andThen(helperFamily::createFatherBart));
 		//------------
-		util.assertPostcondition("FamiliesWithSameName", "PersonWithSameName");
+		assertPostcondition("FamiliesWithSameName", "PersonWithSameName");
 	}
 	
 	/**
@@ -125,6 +125,6 @@ public class BatchForward extends FamiliesToPersonsTestCase {
 				.execute(helperFamily::createNewFamilySimpsonWithMembers)
 				.andThen(helperFamily::createSonBart));
 		//------------
-		util.assertPostcondition("FamilyWithDuplicateMember", "PersonWithSameName");
+		assertPostcondition("FamilyWithDuplicateMember", "PersonWithSameName");
 	}
 }

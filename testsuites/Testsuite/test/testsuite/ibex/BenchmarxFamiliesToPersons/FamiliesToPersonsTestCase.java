@@ -1,6 +1,5 @@
 package testsuite.ibex.BenchmarxFamiliesToPersons;
 
-import org.benchmarx.BXTool;
 import org.benchmarx.emf.Comparator;
 import org.benchmarx.families.core.FamiliesComparator;
 import org.benchmarx.families.core.FamilyHelper;
@@ -12,7 +11,6 @@ import Families.FamiliesPackage;
 import Families.FamilyRegister;
 import Persons.PersonRegister;
 import Persons.PersonsPackage;
-import testsuite.ibex.testUtil.Decisions;
 import testsuite.ibex.testUtil.SyncTestCase;
 
 public class FamiliesToPersonsTestCase extends SyncTestCase<FamilyRegister, PersonRegister> {
@@ -22,10 +20,8 @@ public class FamiliesToPersonsTestCase extends SyncTestCase<FamilyRegister, Pers
 
 	protected static final String projectName = "BenchmarxFamiliesToPersons";
 
-	protected BXTool<FamilyRegister, PersonRegister, Decisions> tool;
 	protected Comparator<FamilyRegister> familiesComparator;
 	protected Comparator<PersonRegister> personsComparator;
-	protected BenchmarxUtil<FamilyRegister, PersonRegister, Decisions> util;
 	protected FamilyHelper helperFamily;
 	protected PersonHelper helperPerson;
 

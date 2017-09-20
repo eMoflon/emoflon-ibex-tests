@@ -32,13 +32,13 @@ public class IncrementalBackward extends FamiliesToPersonsTestCase {
 					.execute(helperPerson::createHomer)
 					.andThen(helperPerson::createMaggie));	
 		tool.performIdleTargetEdit(helperPerson::setBirthdaysOfSimpson);
-		util.assertPrecondition("Pre_IncrBwdFamily", "Pre_IncrBwdPerson");
+		assertPrecondition("Pre_IncrBwdFamily", "Pre_IncrBwdPerson");
 
 		//------------		
 		tool.performAndPropagateTargetEdit(helperPerson::createSeymour);
-		util.assertPostcondition("FamilyAfterBwdInsertion1", "PersonAfterBwdInsertion1");
+		assertPostcondition("FamilyAfterBwdInsertion1", "PersonAfterBwdInsertion1");
 		tool.performAndPropagateTargetEdit(helperPerson::createSeymour);
-		util.assertPostcondition("FamilyAfterBwdInsertion2", "PersonAfterBwdInsertion2");
+		assertPostcondition("FamilyAfterBwdInsertion2", "PersonAfterBwdInsertion2");
 		//------------			
 	}
 	
@@ -58,13 +58,13 @@ public class IncrementalBackward extends FamiliesToPersonsTestCase {
 					.execute(helperPerson::createHomer)
 					.andThen(helperPerson::createMaggie));	
 		tool.performIdleTargetEdit(helperPerson::setBirthdaysOfSimpson);
-		util.assertPrecondition("Pre_IncrBwdFamily", "Pre_IncrBwdPerson");
+		assertPrecondition("Pre_IncrBwdFamily", "Pre_IncrBwdPerson");
 
 		//------------		
 		tool.performAndPropagateTargetEdit(helperPerson::createSeymour);
-		util.assertPostcondition("FamilyAfterBwdInsertion1", "PersonAfterBwdInsertion1");
+		assertPostcondition("FamilyAfterBwdInsertion1", "PersonAfterBwdInsertion1");
 		tool.performAndPropagateTargetEdit(helperPerson::createSeymour);
-		util.assertPostcondition("FamilyAfterBwdInsertion2", "PersonAfterBwdInsertion2");
+		assertPostcondition("FamilyAfterBwdInsertion2", "PersonAfterBwdInsertion2");
 		
 		// now setting !e^p
 		util.configure()
@@ -78,14 +78,14 @@ public class IncrementalBackward extends FamiliesToPersonsTestCase {
 			.makeDecision(Decisions.PREFER_EXISTING_FAMILY_TO_NEW, false)
 			.makeDecision(Decisions.PREFER_CREATING_PARENT_TO_CHILD, false);
 		tool.performAndPropagateTargetEdit(helperPerson::createSeymour);
-		util.assertPostcondition("FamilyAfterBwdInsertion4", "PersonAfterBwdInsertion4");
+		assertPostcondition("FamilyAfterBwdInsertion4", "PersonAfterBwdInsertion4");
 		
 		// now setting e^p
 		util.configure()
 			.makeDecision(Decisions.PREFER_EXISTING_FAMILY_TO_NEW, true)
 			.makeDecision(Decisions.PREFER_CREATING_PARENT_TO_CHILD, true);
 		tool.performAndPropagateTargetEdit(helperPerson::createSeymour);		
-		util.assertPostcondition("FamilyAfterBwdInsertion5", "PersonAfterBwdInsertion5");
+		assertPostcondition("FamilyAfterBwdInsertion5", "PersonAfterBwdInsertion5");
 		
 		// now setting e^!p
 		util.configure()
@@ -94,7 +94,7 @@ public class IncrementalBackward extends FamiliesToPersonsTestCase {
 		tool.performAndPropagateTargetEdit(util
 				.execute(helperPerson::createBart)
 				.andThen(helperPerson::createLisa));
-		util.assertPostcondition("FamilyAfterBwdInsertion6", "PersonAfterBwdInsertion6");
+		assertPostcondition("FamilyAfterBwdInsertion6", "PersonAfterBwdInsertion6");
 		//------------			
 	}
 	
@@ -116,12 +116,12 @@ public class IncrementalBackward extends FamiliesToPersonsTestCase {
 			.makeDecision(Decisions.PREFER_CREATING_PARENT_TO_CHILD, false);
 		tool.performAndPropagateTargetEdit(helperPerson::createMaggie);	
 		tool.performIdleTargetEdit(helperPerson::setBirthdaysOfSimpson);
-		util.assertPrecondition("Pre_IncrBwdFamilyFatherChild", "Pre_IncrBwdPerson");
+		assertPrecondition("Pre_IncrBwdFamilyFatherChild", "Pre_IncrBwdPerson");
 		
 		//------------		
 		tool.performAndPropagateTargetEdit(helperPerson::deleteHomer);
 		tool.performAndPropagateTargetEdit(helperPerson::deleteMaggie);
-		util.assertPostcondition("FamilyAfterBwdDeletion", "PersonAfterBwdDeletion");
+		assertPostcondition("FamilyAfterBwdDeletion", "PersonAfterBwdDeletion");
 		//------------
 	}
 	
@@ -158,7 +158,7 @@ public class IncrementalBackward extends FamiliesToPersonsTestCase {
 			.makeDecision(Decisions.PREFER_CREATING_PARENT_TO_CHILD, true);
 		tool.performAndPropagateTargetEdit(helperPerson::createBart);
 		tool.performIdleTargetEdit(helperPerson::setBirthdayOfFatherBart);
-		util.assertPrecondition("Pre_IncrBwdFamilyRenameDynamic", "Pre_IncrBwdPersonRenameDynamic");
+		assertPrecondition("Pre_IncrBwdFamilyRenameDynamic", "Pre_IncrBwdPersonRenameDynamic");
 		
 		//----------------------
 		tool.performAndPropagateTargetEdit(helperPerson::firstNameChangeOfBart);
@@ -179,7 +179,7 @@ public class IncrementalBackward extends FamiliesToPersonsTestCase {
 			.makeDecision(Decisions.PREFER_CREATING_PARENT_TO_CHILD, true);
 		tool.performAndPropagateTargetEdit(helperPerson::fullNameChangeOfMarge);
 		
-		util.assertPostcondition("FamilyAfterBwdIncrRenameDynamic", "PersonAfterBwdIncrRenameDynamic");
+		assertPostcondition("FamilyAfterBwdIncrRenameDynamic", "PersonAfterBwdIncrRenameDynamic");
 		//----------------------
 	}
 	
@@ -197,7 +197,7 @@ public class IncrementalBackward extends FamiliesToPersonsTestCase {
 		tool.performAndPropagateTargetEdit(helperPerson::createMaggie);	
 		tool.performAndPropagateTargetEdit(helperPerson::createHomer);
 		tool.performIdleTargetEdit(helperPerson::setBirthdaysOfSimpson);
-		util.assertPrecondition("Pre_IncrBwdFamily", "Pre_IncrBwdPerson");
+		assertPrecondition("Pre_IncrBwdFamily", "Pre_IncrBwdPerson");
 
 		//------------		
 		util.configure()
@@ -206,7 +206,7 @@ public class IncrementalBackward extends FamiliesToPersonsTestCase {
 		tool.performAndPropagateTargetEdit(util
 				.execute(helperPerson::deleteHomer)
 				.andThen(helperPerson::createHomer));
-		util.assertPostcondition("FamilyAfterBwdMixed", "PersonAfterBwdMixed");
+		assertPostcondition("FamilyAfterBwdMixed", "PersonAfterBwdMixed");
 	}
 	
 	/**
@@ -224,7 +224,7 @@ public class IncrementalBackward extends FamiliesToPersonsTestCase {
 			.makeDecision(Decisions.PREFER_CREATING_PARENT_TO_CHILD, false);
 		tool.performAndPropagateTargetEdit(helperPerson::createMaggie);
 		tool.performIdleTargetEdit(helperPerson::setBirthdayOfMaggie);
-		util.assertPrecondition("Pre_IncrBwdOpFamily", "Pre_IncrBwdOpPerson");
+		assertPrecondition("Pre_IncrBwdOpFamily", "Pre_IncrBwdOpPerson");
 		
 		//------------		
 		util.configure()
@@ -241,7 +241,7 @@ public class IncrementalBackward extends FamiliesToPersonsTestCase {
 			.makeDecision(Decisions.PREFER_EXISTING_FAMILY_TO_NEW, false)
 			.makeDecision(Decisions.PREFER_CREATING_PARENT_TO_CHILD, true);
 		tool.performAndPropagateTargetEdit(helperPerson::createLisa);					
-		util.assertPostcondition("FamilyAfterIncrOp", "PersonAfterIncrOp");
+		assertPostcondition("FamilyAfterIncrOp", "PersonAfterIncrOp");
 	}
 	
 	/**
@@ -261,11 +261,11 @@ public class IncrementalBackward extends FamiliesToPersonsTestCase {
 				.andThen(helperPerson::createHomer)				
 				.andThen(helperPerson::createMarge));
 		// ---------------------------------
-		util.assertPostcondition("FamilyWithParentsOnly", "PersonsMultiDeterministic"); 
+		assertPostcondition("FamilyWithParentsOnly", "PersonsMultiDeterministic"); 
 		
 		// issue the same transformation a second time
 		tool.performAndPropagateTargetEdit(helperPerson::idleDelta);
-		util.assertPostcondition("FamilyWithParentsOnly", "PersonsMultiDeterministic"); 
+		assertPostcondition("FamilyWithParentsOnly", "PersonsMultiDeterministic"); 
 	}
 	
 	@Test
@@ -280,10 +280,10 @@ public class IncrementalBackward extends FamiliesToPersonsTestCase {
 				.andThen(helperPerson::createHomer)				
 				.andThen(helperPerson::createMarge));
 		// ---------------------------------
-		util.assertPostcondition("FamilyWithParentsOnly", "PersonsMultiDeterministic"); 
+		assertPostcondition("FamilyWithParentsOnly", "PersonsMultiDeterministic"); 
 		
 		tool.performAndPropagateTargetEdit(helperPerson::hippocraticDelta);
-		util.assertPostcondition("FamilyWithParentsOnly", "PersonsMultiDeterministic2"); 
+		assertPostcondition("FamilyWithParentsOnly", "PersonsMultiDeterministic2"); 
 	}
 
 }

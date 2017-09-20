@@ -33,7 +33,7 @@ public class BatchBwdEAndP extends FamiliesToPersonsTestCase {
 			.makeDecision(Decisions.PREFER_CREATING_PARENT_TO_CHILD, true);
 		tool.performAndPropagateTargetEdit(helperPerson::createRod);
 		// ---------------------------------
-		util.assertPostcondition("OneFamilyWithOneFamilyMember", "PersonOneMaleMember"); 
+		assertPostcondition("OneFamilyWithOneFamilyMember", "PersonOneMaleMember"); 
 	}
 	
 	/**
@@ -54,6 +54,6 @@ public class BatchBwdEAndP extends FamiliesToPersonsTestCase {
 				.andThen(helperPerson::createHomer)				
 				.andThen(helperPerson::createMarge));
 		// ---------------------------------
-		util.assertPostcondition("FamilyWithParentsOnly", "PersonsMultiDeterministic"); 
+		assertPostcondition("FamilyWithParentsOnly", "PersonsMultiDeterministic"); 
 	}
 }

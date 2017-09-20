@@ -33,7 +33,7 @@ public class IncrementalForward extends FamiliesToPersonsTestCase {
 		tool.performAndPropagateSourceEdit(helperFamily::createSonBart);
 		tool.performIdleTargetEdit(helperPerson::setBirthdayOfYoungerBart);
 		
-		util.assertPrecondition("Pre_IncrFwdFamily", "Pre_IncrFwdPerson");
+		assertPrecondition("Pre_IncrFwdFamily", "Pre_IncrFwdPerson");
 
 		//------------
 		tool.performAndPropagateSourceEdit(util
@@ -41,7 +41,7 @@ public class IncrementalForward extends FamiliesToPersonsTestCase {
 				.andThen(helperFamily::createMotherMaude)
 				.andThen(helperFamily::createSonTodd));
 		//------------
-		util.assertPostcondition("FamilyAfterInsertion", "PersonAfterInsertion");
+		assertPostcondition("FamilyAfterInsertion", "PersonAfterInsertion");
 	}
 	
 	/**
@@ -66,12 +66,12 @@ public class IncrementalForward extends FamiliesToPersonsTestCase {
 		tool.performAndPropagateSourceEdit(helperFamily::createSonBart);
 		tool.performIdleTargetEdit(helperPerson::setBirthdayOfYoungerBart);
 		
-		util.assertPrecondition("Pre_IncrFwdFamily", "Pre_IncrFwdPerson");
+		assertPrecondition("Pre_IncrFwdFamily", "Pre_IncrFwdPerson");
 		//------------
 		tool.performAndPropagateSourceEdit(util
 				.execute(helperFamily::deleteFirstSonBart));
 		//------------
-		util.assertPostcondition("FamilyAfterDeletion", "PersonAfterDeletion");
+		assertPostcondition("FamilyAfterDeletion", "PersonAfterDeletion");
 	}
 	
 	/**
@@ -95,12 +95,12 @@ public class IncrementalForward extends FamiliesToPersonsTestCase {
 		tool.performAndPropagateSourceEdit(helperFamily::createSonBart);
 		tool.performIdleTargetEdit(helperPerson::setBirthdayOfYoungerBart);
 		
-		util.assertPrecondition("Pre_IncrFwdFamily", "Pre_IncrFwdPerson");
+		assertPrecondition("Pre_IncrFwdFamily", "Pre_IncrFwdPerson");
 		//------------
 		tool.performAndPropagateSourceEdit(util
 				.execute(helperFamily::renameSimpsonToBouvier));
 		//------------
-		util.assertPostcondition("FamilyAfterRename", "PersonAfterRename");
+		assertPostcondition("FamilyAfterRename", "PersonAfterRename");
 	}
 	
 	/**
@@ -125,13 +125,13 @@ public class IncrementalForward extends FamiliesToPersonsTestCase {
 		tool.performAndPropagateSourceEdit(helperFamily::createSonBart);
 		tool.performIdleTargetEdit(helperPerson::setBirthdayOfYoungerBart);
 		
-		util.assertPrecondition("Pre_IncrFwdFamily", "Pre_IncrFwdPerson");
+		assertPrecondition("Pre_IncrFwdFamily", "Pre_IncrFwdPerson");
 		//------------
 		tool.performAndPropagateSourceEdit(util
 				.execute(helperFamily::moveLisa)
 				.andThen(helperFamily::moveMarge));
 		//------------
-		util.assertPostcondition("FamilyAfterMove", "PersonAfterMove");
+		assertPostcondition("FamilyAfterMove", "PersonAfterMove");
 	}
 	
 	/**
@@ -156,13 +156,13 @@ public class IncrementalForward extends FamiliesToPersonsTestCase {
 		tool.performAndPropagateSourceEdit(helperFamily::createSonBart);
 		tool.performIdleTargetEdit(helperPerson::setBirthdayOfYoungerBart);
 		
-		util.assertPrecondition("Pre_IncrFwdFamily", "Pre_IncrFwdPerson");
+		assertPrecondition("Pre_IncrFwdFamily", "Pre_IncrFwdPerson");
 		//------------
 		tool.performAndPropagateSourceEdit(util
 				.execute(helperFamily::deleteFatherHomer)
 				.andThen(helperFamily::createFatherHomer));
 		//------------
-		util.assertPostcondition("FamilyAfterMixed", "PersonAfterMixed");
+		assertPostcondition("FamilyAfterMixed", "PersonAfterMixed");
 	}
 	
 	/**
@@ -188,11 +188,11 @@ public class IncrementalForward extends FamiliesToPersonsTestCase {
 		tool.performAndPropagateSourceEdit(helperFamily::createSonBart);
 		tool.performIdleTargetEdit(helperPerson::setBirthdayOfYoungerBart);
 		
-		util.assertPrecondition("Pre_IncrFwdFamily", "Pre_IncrFwdPerson");
+		assertPrecondition("Pre_IncrFwdFamily", "Pre_IncrFwdPerson");
 		//------------
 		tool.performAndPropagateSourceEdit(helperFamily::moveMaggieAndChangeRole);
 		//------------
-		util.assertPostcondition("FamilyAfterMoveRoleChange", "PersonAfterMoveRoleChange");
+		assertPostcondition("FamilyAfterMoveRoleChange", "PersonAfterMoveRoleChange");
 	}
 	
 	/**
@@ -208,10 +208,10 @@ public class IncrementalForward extends FamiliesToPersonsTestCase {
 				.execute(helperFamily::createNewFamilySimpsonWithMembers)
 				.andThen(helperFamily::createSonBart));
 		//------------
-		util.assertPostcondition("FamilyWithDuplicateMember", "PersonWithSameName");
+		assertPostcondition("FamilyWithDuplicateMember", "PersonWithSameName");
 		
 		tool.performAndPropagateSourceEdit(helperFamily::idleDelta);
-		util.assertPostcondition("FamilyWithDuplicateMember", "PersonWithSameName");
+		assertPostcondition("FamilyWithDuplicateMember", "PersonWithSameName");
 	}
 	
 	/**
@@ -227,10 +227,10 @@ public class IncrementalForward extends FamiliesToPersonsTestCase {
 				.execute(helperFamily::createNewFamilySimpsonWithMembers)
 				.andThen(helperFamily::createSonBart));
 		//------------
-		util.assertPostcondition("FamilyWithDuplicateMember", "PersonWithSameName");
+		assertPostcondition("FamilyWithDuplicateMember", "PersonWithSameName");
 		
 		tool.performAndPropagateSourceEdit(helperFamily::hippocraticDelta);
-		util.assertPostcondition("FamilyWithDuplicateMember2", "PersonWithSameName");
+		assertPostcondition("FamilyWithDuplicateMember2", "PersonWithSameName");
 	}
 
 }

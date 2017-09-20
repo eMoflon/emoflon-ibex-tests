@@ -27,7 +27,7 @@ public class BatchBwdENotP extends FamiliesToPersonsTestCase {
 			.makeDecision(Decisions.PREFER_CREATING_PARENT_TO_CHILD, false);
 		tool.performAndPropagateTargetEdit(helperPerson::createRod);
 		// ---------------------------------
-		util.assertPostcondition("OneFamilyWithOneFamilyMemberSon", "PersonOneMaleMember"); 
+		assertPostcondition("OneFamilyWithOneFamilyMemberSon", "PersonOneMaleMember"); 
 	}
 	
 	/**
@@ -51,7 +51,7 @@ public class BatchBwdENotP extends FamiliesToPersonsTestCase {
 				.andThen(helperPerson::createLisa)
 				.andThen(helperPerson::createMaggie));
 		// ---------------------------------
-		util.assertPostcondition("FamiliesWithChildrenOnly", "PersonsMulti"); 
+		assertPostcondition("FamiliesWithChildrenOnly", "PersonsMulti"); 
 	}
 	
 	/**
@@ -77,6 +77,6 @@ public class BatchBwdENotP extends FamiliesToPersonsTestCase {
 				.andThen(helperPerson::createLisa)
 				.andThen(helperPerson::createMaggie));
 		// ---------------------------------
-		util.assertPostcondition("FamilyWithDuplicateChildrenOnly", "PersonsDuplicateMulti"); 
+		assertPostcondition("FamilyWithDuplicateChildrenOnly", "PersonsDuplicateMulti"); 
 	}
 }

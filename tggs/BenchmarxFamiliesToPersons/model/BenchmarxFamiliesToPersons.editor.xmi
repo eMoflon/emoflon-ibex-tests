@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ASCII"?>
-<tgg:TripleGraphGrammarFile xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:tgg="http://www.moflon.org/ide/tgg/mosl/TGG">
+<tgg:TripleGraphGrammarFile xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tgg="http://www.moflon.org/ide/tgg/mosl/TGG">
   <imports name="platform:/resource/Families/model/Families.ecore"/>
   <imports name="platform:/resource/Persons/model/Persons.ecore"/>
   <schema name="FamiliesToPersons">
@@ -13,6 +13,92 @@
       <source href="platform:/resource/Families/model/Families.ecore#//FamilyMember"/>
       <target href="platform:/resource/Persons/model/Persons.ecore#//Person"/>
     </correspondenceTypes>
+    <attributeCondDefs name="concat">
+      <params paramName="separator">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </params>
+      <params paramName="leftWord">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </params>
+      <params paramName="rightWord">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </params>
+      <params paramName="result">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </params>
+      <allowedSyncAdornments>
+        <value>B</value>
+        <value>B</value>
+        <value>B</value>
+        <value>B</value>
+      </allowedSyncAdornments>
+      <allowedSyncAdornments>
+        <value>B</value>
+        <value>B</value>
+        <value>B</value>
+        <value>F</value>
+      </allowedSyncAdornments>
+      <allowedSyncAdornments>
+        <value>B</value>
+        <value>B</value>
+        <value>F</value>
+        <value>B</value>
+      </allowedSyncAdornments>
+      <allowedSyncAdornments>
+        <value>B</value>
+        <value>F</value>
+        <value>F</value>
+        <value>B</value>
+      </allowedSyncAdornments>
+      <allowedSyncAdornments>
+        <value>B</value>
+        <value>F</value>
+        <value>B</value>
+        <value>B</value>
+      </allowedSyncAdornments>
+      <allowedGenAdornments>
+        <value>B</value>
+        <value>B</value>
+        <value>B</value>
+        <value>B</value>
+      </allowedGenAdornments>
+      <allowedGenAdornments>
+        <value>B</value>
+        <value>B</value>
+        <value>B</value>
+        <value>F</value>
+      </allowedGenAdornments>
+      <allowedGenAdornments>
+        <value>B</value>
+        <value>B</value>
+        <value>F</value>
+        <value>B</value>
+      </allowedGenAdornments>
+      <allowedGenAdornments>
+        <value>B</value>
+        <value>F</value>
+        <value>F</value>
+        <value>B</value>
+      </allowedGenAdornments>
+      <allowedGenAdornments>
+        <value>B</value>
+        <value>F</value>
+        <value>B</value>
+        <value>B</value>
+      </allowedGenAdornments>
+      <allowedGenAdornments>
+        <value>B</value>
+        <value>F</value>
+        <value>B</value>
+        <value>F</value>
+      </allowedGenAdornments>
+      <allowedGenAdornments>
+        <value>B</value>
+        <value>B</value>
+        <value>F</value>
+        <value>F</value>
+      </allowedGenAdornments>
+    </attributeCondDefs>
   </schema>
   <rules name="DaughterOfExistingFamilyToFemale" supertypes="//@rules.2 //@rules.1" schema="//@schema"/>
   <rules name="DaughterToFemale" supertypes="//@rules.4" schema="//@schema">
@@ -88,6 +174,18 @@
     <correspondencePatterns name="familyMember2Persons" type="//@schema/@correspondenceTypes.1" source="//@rules.4/@sourcePatterns.2" target="//@rules.4/@targetPatterns.1">
       <op value="++"/>
     </correspondencePatterns>
+    <attrConditions name="//@schema/@attributeCondDefs.0">
+      <values xsi:type="tgg:LiteralExpression" value="&quot;, &quot;"/>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.4/@sourcePatterns.1">
+        <attribute href="platform:/resource/Families/model/Families.ecore#//Family/name"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.4/@sourcePatterns.2">
+        <attribute href="platform:/resource/Families/model/Families.ecore#//FamilyMember/name"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.4/@targetPatterns.1">
+        <attribute href="platform:/resource/Persons/model/Persons.ecore#//Person/name"/>
+      </values>
+    </attrConditions>
   </rules>
   <rules name="FatherOfExistingFamilyToMale" supertypes="//@rules.2 //@rules.6" schema="//@schema"/>
   <rules name="FatherToMale" supertypes="//@rules.4" schema="//@schema">
