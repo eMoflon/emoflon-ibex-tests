@@ -1,10 +1,10 @@
 Manifest-Version: 1.0
 Bundle-SymbolicName: SimpleFamilies;singleton:=true
 Export-Package: 
- org.benchmarx.families.core,
- SimpleFamilies.util,
  SimpleFamilies,
- SimpleFamilies.impl
+ SimpleFamilies.impl,
+ SimpleFamilies.util,
+ org.benchmarx.simplefamilies.core
 Bundle-Name: FamiliesModel
 Bundle-Version: 1.0.0.qualifier
 Require-Bundle: org.eclipse.emf.ecore,

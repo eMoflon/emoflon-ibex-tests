@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Testsuite_1
-Bundle-SymbolicName: Testsuite_1
+Bundle-SymbolicName: Testsuite
 Bundle-Version: 1.0.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Require-Bundle: org.apache.log4j,
@@ -47,4 +47,7 @@ Require-Bundle: org.apache.log4j,
  VHDLModel;bundle-version="1.0.0",
  FeatureModelConcise;bundle-version="1.0.0",
  FeatureModelConciseToSafe;bundle-version="1.0.0",
- FeatureModelSafe;bundle-version="1.0.0"
+ FeatureModelSafe;bundle-version="1.0.0",
+ Families;bundle-version="1.0.0",
+ Persons;bundle-version="1.0.0",
+ BenchmarxFamiliesToPersons;bundle-version="1.0.0"
