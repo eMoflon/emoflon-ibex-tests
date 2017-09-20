@@ -3,6 +3,7 @@ package org.emoflon.ibex.tgg.run.benchmarxfamiliestopersons;
 import java.io.IOException;
 
 import org.apache.log4j.BasicConfigurator;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.ibex.tgg.operational.strategies.sync.SYNC;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesEngine;
 
@@ -37,5 +38,16 @@ public class SYNC_App extends SYNC {
 		
 		// Register correspondence metamodel last
 		loadAndRegisterMetamodel(projectPath + "/model/" + projectPath + ".ecore");
+	}
+	
+	@Override
+	public void loadModels() throws IOException {
+		s = createResource(projectPath + "/instances/src.xmi");
+		t = createResource(projectPath + "/instances/trg.xmi");
+		c = createResource(projectPath + "/instances/corr.xmi");
+		p = createResource(projectPath + "/instances/protocol.xmi");
+		
+		EcoreUtil.resolveAll(rs);
+
 	}
 }

@@ -1,10 +1,7 @@
 package testsuite.ibex.BenchmarxFamiliesToPersons.sync;
 
-import org.benchmarx.BXTool;
 import org.junit.Test;
 
-import Families.FamilyRegister;
-import Persons.PersonRegister;
 import testsuite.ibex.BenchmarxFamiliesToPersons.FamiliesToPersonsTestCase;
 import testsuite.ibex.testUtil.Decisions;
 
@@ -16,11 +13,11 @@ import testsuite.ibex.testUtil.Decisions;
  * transformation. (c.f., Test Case 2d on GitHub).
  */
 public class BatchBwdEAndP extends FamiliesToPersonsTestCase {
-
-	public BatchBwdEAndP(BXTool<FamilyRegister, PersonRegister, Decisions> tool) {
-		super(tool);
-	}
 	
+	public BatchBwdEAndP(boolean flatten) {
+		super(flatten);
+	}
+
 	/**
 	 * <b>Test</b> for creation of a single male person (Flanders, Rod).<br/>
 	 * <b>Expect</b> the creation of a family member in the families model with

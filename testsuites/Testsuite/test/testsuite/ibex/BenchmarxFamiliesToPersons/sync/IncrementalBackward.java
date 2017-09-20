@@ -1,19 +1,16 @@
 package testsuite.ibex.BenchmarxFamiliesToPersons.sync;
 
-import org.benchmarx.BXTool;
 import org.junit.Test;
 
-import Families.FamilyRegister;
-import Persons.PersonRegister;
 import testsuite.ibex.BenchmarxFamiliesToPersons.FamiliesToPersonsTestCase;
 import testsuite.ibex.testUtil.Decisions;
 
 public class IncrementalBackward extends FamiliesToPersonsTestCase {
-
-	public IncrementalBackward(BXTool<FamilyRegister, PersonRegister, Decisions> tool) {
-		super(tool);
-	}
 	
+	public IncrementalBackward(boolean flatten) {
+		super(flatten);
+	}
+
 	/**
 	 * <b>Test</b> for inserting of a Person in a PersonRegister after the initial
 	 * register has been transformed into a family model. Please note: In order to

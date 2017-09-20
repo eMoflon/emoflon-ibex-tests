@@ -1,19 +1,16 @@
 package testsuite.ibex.BenchmarxFamiliesToPersons.sync;
 
-import org.benchmarx.BXTool;
 import org.junit.Test;
 
-import Families.FamilyRegister;
-import Persons.PersonRegister;
 import testsuite.ibex.BenchmarxFamiliesToPersons.FamiliesToPersonsTestCase;
-import testsuite.ibex.testUtil.Decisions;
 
 public class IncrementalForward extends FamiliesToPersonsTestCase {
 	
-	public IncrementalForward(BXTool<FamilyRegister, PersonRegister, Decisions> tool) {
-		super(tool);
-	}
 	
+	public IncrementalForward(boolean flatten) {
+		super(flatten);
+	}
+
 	/**
 	 * <b>Test</b> for inserting of a family members into an existing family after
 	 * the birthday dates in the Person register have been changed. <br/>

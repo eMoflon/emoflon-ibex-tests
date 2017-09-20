@@ -1,20 +1,16 @@
 package testsuite.ibex.BenchmarxFamiliesToPersons.sync;
 
-import org.benchmarx.BXTool;
 import org.junit.Test;
 
-import Families.FamilyRegister;
-import Persons.PersonRegister;
 import testsuite.ibex.BenchmarxFamiliesToPersons.FamiliesToPersonsTestCase;
-import testsuite.ibex.testUtil.Decisions;
 
 
 public class BatchForward extends FamiliesToPersonsTestCase {
 
-	public BatchForward(BXTool<FamilyRegister, PersonRegister, Decisions> tool) {
-		super(tool);
+	public BatchForward(boolean flatten) {
+		super(flatten);
 	}
-	
+
 	/**
 	 * <b>Test</b> for agreed upon starting state.<br/>
 	 * <b>Expect</b> root elements of both source and target models.<br/>
