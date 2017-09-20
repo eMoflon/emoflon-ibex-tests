@@ -6,6 +6,9 @@ import org.apache.log4j.BasicConfigurator;
 import org.emoflon.ibex.tgg.operational.strategies.cc.CC;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesEngine;
 
+import Families.impl.FamiliesPackageImpl;
+import Persons.impl.PersonsPackageImpl;
+
 public class CC_App extends CC {
 
 	public CC_App(String projectName, String workspacePath, boolean flatten, boolean debug) throws IOException {
@@ -29,7 +32,8 @@ public class CC_App extends CC {
 	}
 
 	protected void registerUserMetamodels() throws IOException {
-		//FIXME load and register source and target metamodels
+		rs.getPackageRegistry().put("platform:/resource/Families/model/Families.ecore", FamiliesPackageImpl.init());
+		rs.getPackageRegistry().put("platform:/resource/Persons/model/Persons.ecore", PersonsPackageImpl.init());
 		
 		// Register correspondence metamodel last
 		loadAndRegisterMetamodel(projectPath + "/model/" + projectPath + ".ecore");

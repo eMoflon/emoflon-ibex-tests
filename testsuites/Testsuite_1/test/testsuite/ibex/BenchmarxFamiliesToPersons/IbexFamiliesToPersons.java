@@ -23,7 +23,7 @@ public class IbexFamiliesToPersons extends IbexAdapter<FamilyRegister, PersonReg
 			synchroniser = new SYNC_App(projectName, testsuite.ibex.testUtil.Constants.workspacePath, flatten, false);
 			FamilyRegister familiesRoot = FamiliesFactory.eINSTANCE.createFamilyRegister();
 			synchroniser.getSourceResource().getContents().add(familiesRoot);
-			synchroniser.backward();
+			synchroniser.forward();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
