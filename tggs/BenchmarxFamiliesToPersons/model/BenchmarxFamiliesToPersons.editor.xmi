@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="ASCII"?>
+<tgg:TripleGraphGrammarFile xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tgg="http://www.moflon.org/ide/tgg/mosl/TGG">
+  <imports name="platform:/plugin/Families/model/Families.ecore"/>
+  <imports name="platform:/plugin/Persons/model/Persons.ecore"/>
+  <schema name="FamiliesToPersons">
+    <sourceTypes href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/Schema.tgg#|0"/>
+    <targetTypes href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/Schema.tgg#|1"/>
+    <correspondenceTypes name="FamiliesToPersonsCorr">
+      <source href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/Schema.tgg#|2"/>
+      <target href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/Schema.tgg#|3"/>
+    </correspondenceTypes>
+    <correspondenceTypes name="FamilyMemberToPerson">
+      <source href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/Schema.tgg#|4"/>
+      <target href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/Schema.tgg#|5"/>
+    </correspondenceTypes>
+    <attributeCondDefs name="concat">
+      <params paramName="separator">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </params>
+      <params paramName="leftWord">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </params>
+      <params paramName="rightWord">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </params>
+      <params paramName="result">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </params>
+      <allowedSyncAdornments>
+        <value>B</value>
+        <value>B</value>
+        <value>B</value>
+        <value>B</value>
+      </allowedSyncAdornments>
+      <allowedSyncAdornments>
+        <value>B</value>
+        <value>B</value>
+        <value>B</value>
+        <value>F</value>
+      </allowedSyncAdornments>
+      <allowedSyncAdornments>
+        <value>B</value>
+        <value>B</value>
+        <value>F</value>
+        <value>B</value>
+      </allowedSyncAdornments>
+      <allowedSyncAdornments>
+        <value>B</value>
+        <value>F</value>
+        <value>F</value>
+        <value>B</value>
+      </allowedSyncAdornments>
+      <allowedSyncAdornments>
+        <value>B</value>
+        <value>F</value>
+        <value>B</value>
+        <value>B</value>
+      </allowedSyncAdornments>
+      <allowedGenAdornments>
+        <value>B</value>
+        <value>B</value>
+        <value>B</value>
+        <value>B</value>
+      </allowedGenAdornments>
+      <allowedGenAdornments>
+        <value>B</value>
+        <value>B</value>
+        <value>B</value>
+        <value>F</value>
+      </allowedGenAdornments>
+      <allowedGenAdornments>
+        <value>B</value>
+        <value>B</value>
+        <value>F</value>
+        <value>B</value>
+      </allowedGenAdornments>
+      <allowedGenAdornments>
+        <value>B</value>
+        <value>F</value>
+        <value>F</value>
+        <value>B</value>
+      </allowedGenAdornments>
+      <allowedGenAdornments>
+        <value>B</value>
+        <value>F</value>
+        <value>B</value>
+        <value>B</value>
+      </allowedGenAdornments>
+      <allowedGenAdornments>
+        <value>B</value>
+        <value>F</value>
+        <value>B</value>
+        <value>F</value>
+      </allowedGenAdornments>
+      <allowedGenAdornments>
+        <value>B</value>
+        <value>B</value>
+        <value>F</value>
+        <value>F</value>
+      </allowedGenAdornments>
+    </attributeCondDefs>
+  </schema>
+  <rules name="DaughterOfExistingFamilyToFemale" schema="//@schema">
+    <supertypes href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/DaughterOfExistingFamilyToFemale.tgg#|0"/>
+    <supertypes href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/DaughterOfExistingFamilyToFemale.tgg#|1"/>
+  </rules>
+  <rules name="DaughterToFemale" schema="//@schema">
+    <supertypes href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/DaughterToFemale.tgg#|0"/>
+    <sourcePatterns name="f">
+      <op value="++"/>
+      <type href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/DaughterToFemale.tgg#|2"/>
+      <linkVariablePatterns>
+        <op value="++"/>
+        <type href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/DaughterToFemale.tgg#|3"/>
+        <target href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/DaughterToFemale.tgg#|4"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="fm">
+      <op value="++"/>
+      <type href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/DaughterToFemale.tgg#|5"/>
+    </sourcePatterns>
+    <targetPatterns name="p">
+      <op value="++"/>
+      <type href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/DaughterToFemale.tgg#|6"/>
+    </targetPatterns>
+  </rules>
+  <rules name="ExistingFamily2Person" abstractRule="true" schema="//@schema">
+    <supertypes href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/ExistingFamily2Person.tgg#|0"/>
+    <sourcePatterns name="families">
+      <type href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/ExistingFamily2Person.tgg#|2"/>
+      <linkVariablePatterns>
+        <type href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/ExistingFamily2Person.tgg#|3"/>
+        <target href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/ExistingFamily2Person.tgg#|4"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="f">
+      <type href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/ExistingFamily2Person.tgg#|5"/>
+    </sourcePatterns>
+  </rules>
+  <rules name="Families2Persons" schema="//@schema">
+    <sourcePatterns name="families">
+      <op value="++"/>
+      <type href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/Families2Persons.tgg#|1"/>
+    </sourcePatterns>
+    <targetPatterns name="persons">
+      <op value="++"/>
+      <type href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/Families2Persons.tgg#|2"/>
+    </targetPatterns>
+    <correspondencePatterns name="families2persons" type="//@schema/@correspondenceTypes.0">
+      <op value="++"/>
+      <source href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/Families2Persons.tgg#|4"/>
+      <target href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/Families2Persons.tgg#|5"/>
+    </correspondencePatterns>
+  </rules>
+  <rules name="FamilyMember2Person" abstractRule="true" schema="//@schema">
+    <sourcePatterns name="families">
+      <type href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/FamilyMember2Person.tgg#|1"/>
+      <linkVariablePatterns>
+        <op value="++"/>
+        <type href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/FamilyMember2Person.tgg#|2"/>
+        <target href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/FamilyMember2Person.tgg#|3"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="f">
+      <op value="++"/>
+      <type href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/FamilyMember2Person.tgg#|4"/>
+    </sourcePatterns>
+    <sourcePatterns name="fm">
+      <op value="++"/>
+      <type href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/FamilyMember2Person.tgg#|5"/>
+    </sourcePatterns>
+    <targetPatterns name="persons">
+      <type href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/FamilyMember2Person.tgg#|6"/>
+      <linkVariablePatterns>
+        <op value="++"/>
+        <type href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/FamilyMember2Person.tgg#|7"/>
+        <target href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/FamilyMember2Person.tgg#|8"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="p">
+      <op value="++"/>
+      <type href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/FamilyMember2Person.tgg#|9"/>
+    </targetPatterns>
+    <correspondencePatterns name="families2persons" type="//@schema/@correspondenceTypes.0">
+      <source href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/FamilyMember2Person.tgg#|11"/>
+      <target href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/FamilyMember2Person.tgg#|12"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="familyMember2Persons" type="//@schema/@correspondenceTypes.1">
+      <op value="++"/>
+      <source href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/FamilyMember2Person.tgg#|14"/>
+      <target href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/FamilyMember2Person.tgg#|15"/>
+    </correspondencePatterns>
+    <attrConditions name="//@schema/@attributeCondDefs.0">
+      <values xsi:type="tgg:LiteralExpression" value="&quot;, &quot;"/>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.4/@sourcePatterns.1">
+        <attribute href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/FamilyMember2Person.tgg#|18"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.4/@sourcePatterns.2">
+        <attribute href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/FamilyMember2Person.tgg#|20"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.4/@targetPatterns.1">
+        <attribute href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/FamilyMember2Person.tgg#|22"/>
+      </values>
+    </attrConditions>
+  </rules>
+  <rules name="FatherOfExistingFamilyToMale" schema="//@schema">
+    <supertypes href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/FatherOfExistingFamilyToMale.tgg#|0"/>
+    <supertypes href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/FatherOfExistingFamilyToMale.tgg#|1"/>
+  </rules>
+  <rules name="FatherToMale" schema="//@schema">
+    <supertypes href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/FatherToMale.tgg#|0"/>
+    <sourcePatterns name="f">
+      <op value="++"/>
+      <type href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/FatherToMale.tgg#|2"/>
+      <linkVariablePatterns>
+        <op value="++"/>
+        <type href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/FatherToMale.tgg#|3"/>
+        <target href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/FatherToMale.tgg#|4"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="fm">
+      <op value="++"/>
+      <type href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/FatherToMale.tgg#|5"/>
+    </sourcePatterns>
+    <targetPatterns name="p">
+      <op value="++"/>
+      <type href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/FatherToMale.tgg#|6"/>
+    </targetPatterns>
+  </rules>
+  <rules name="MotherOfExistingFamilyToFemale" schema="//@schema">
+    <supertypes href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/MotherOfExistingFamilyToFemale.tgg#|0"/>
+    <supertypes href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/MotherOfExistingFamilyToFemale.tgg#|1"/>
+  </rules>
+  <rules name="MotherToFemale" schema="//@schema">
+    <supertypes href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/MotherToFemale.tgg#|0"/>
+    <sourcePatterns name="f">
+      <op value="++"/>
+      <type href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/MotherToFemale.tgg#|2"/>
+      <linkVariablePatterns>
+        <op value="++"/>
+        <type href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/MotherToFemale.tgg#|3"/>
+        <target href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/MotherToFemale.tgg#|4"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="fm">
+      <op value="++"/>
+      <type href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/MotherToFemale.tgg#|5"/>
+    </sourcePatterns>
+    <targetPatterns name="p">
+      <op value="++"/>
+      <type href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/MotherToFemale.tgg#|6"/>
+    </targetPatterns>
+  </rules>
+  <rules name="SonOfExistingFamilyToMale" schema="//@schema">
+    <supertypes href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/SonOfExistingFamilyToMale.tgg#|0"/>
+    <supertypes href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/SonOfExistingFamilyToMale.tgg#|1"/>
+  </rules>
+  <rules name="SonToMale" schema="//@schema">
+    <supertypes href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/SonToMale.tgg#|0"/>
+    <sourcePatterns name="f">
+      <op value="++"/>
+      <type href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/SonToMale.tgg#|2"/>
+      <linkVariablePatterns>
+        <op value="++"/>
+        <type href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/SonToMale.tgg#|3"/>
+        <target href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/SonToMale.tgg#|4"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="fm">
+      <op value="++"/>
+      <type href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/SonToMale.tgg#|5"/>
+    </sourcePatterns>
+    <targetPatterns name="p">
+      <op value="++"/>
+      <type href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/SonToMale.tgg#|6"/>
+    </targetPatterns>
+  </rules>
+</tgg:TripleGraphGrammarFile>
