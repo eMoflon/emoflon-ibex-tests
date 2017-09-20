@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="ASCII"?>
 <tgg:TripleGraphGrammarFile xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tgg="http://www.moflon.org/ide/tgg/mosl/TGG">
-  <imports name="platform:/plugin/Families/model/Families.ecore"/>
-  <imports name="platform:/plugin/Persons/model/Persons.ecore"/>
+  <imports name="platform:/resource/Families/model/Families.ecore"/>
+  <imports name="platform:/resource/Persons/model/Persons.ecore"/>
   <schema name="FamiliesToPersons">
-    <sourceTypes href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/Schema.tgg#|0"/>
-    <targetTypes href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/Schema.tgg#|1"/>
+    <sourceTypes href="platform:/resource/Families/model/Families.ecore#/"/>
+    <targetTypes href="platform:/resource/Persons/model/Persons.ecore#/"/>
     <correspondenceTypes name="FamiliesToPersonsCorr">
-      <source href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/Schema.tgg#|2"/>
-      <target href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/Schema.tgg#|3"/>
+      <source href="platform:/resource/Families/model/Families.ecore#//FamilyRegister"/>
+      <target href="platform:/resource/Persons/model/Persons.ecore#//PersonRegister"/>
     </correspondenceTypes>
     <correspondenceTypes name="FamilyMemberToPerson">
-      <source href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/Schema.tgg#|4"/>
-      <target href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/Schema.tgg#|5"/>
+      <source href="platform:/resource/Families/model/Families.ecore#//FamilyMember"/>
+      <target href="platform:/resource/Persons/model/Persons.ecore#//Person"/>
     </correspondenceTypes>
     <attributeCondDefs name="concat">
       <params paramName="separator">
@@ -100,179 +100,170 @@
       </allowedGenAdornments>
     </attributeCondDefs>
   </schema>
-  <rules name="DaughterOfExistingFamilyToFemale" schema="//@schema">
-    <supertypes href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/DaughterOfExistingFamilyToFemale.tgg#|0"/>
-    <supertypes href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/DaughterOfExistingFamilyToFemale.tgg#|1"/>
-  </rules>
-  <rules name="DaughterToFemale" schema="//@schema">
-    <supertypes href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/DaughterToFemale.tgg#|0"/>
+  <rules name="DaughterOfExistingFamilyToFemale" supertypes="//@rules.2 //@rules.1" schema="//@schema"/>
+  <rules name="DaughterToFemale" supertypes="//@rules.4" schema="//@schema">
     <sourcePatterns name="f">
       <op value="++"/>
-      <type href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/DaughterToFemale.tgg#|2"/>
-      <linkVariablePatterns>
+      <type href="platform:/resource/Families/model/Families.ecore#//Family"/>
+      <linkVariablePatterns target="//@rules.1/@sourcePatterns.1">
         <op value="++"/>
-        <type href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/DaughterToFemale.tgg#|3"/>
-        <target href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/DaughterToFemale.tgg#|4"/>
+        <type href="platform:/resource/Families/model/Families.ecore#//Family/daughters"/>
       </linkVariablePatterns>
     </sourcePatterns>
     <sourcePatterns name="fm">
       <op value="++"/>
-      <type href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/DaughterToFemale.tgg#|5"/>
+      <type href="platform:/resource/Families/model/Families.ecore#//FamilyMember"/>
     </sourcePatterns>
     <targetPatterns name="p">
       <op value="++"/>
-      <type href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/DaughterToFemale.tgg#|6"/>
+      <type href="platform:/resource/Persons/model/Persons.ecore#//Female"/>
     </targetPatterns>
   </rules>
-  <rules name="ExistingFamily2Person" abstractRule="true" schema="//@schema">
-    <supertypes href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/ExistingFamily2Person.tgg#|0"/>
+  <rules name="ExistingFamily2Person" abstractRule="true" supertypes="//@rules.4" schema="//@schema">
     <sourcePatterns name="families">
-      <type href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/ExistingFamily2Person.tgg#|2"/>
-      <linkVariablePatterns>
-        <type href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/ExistingFamily2Person.tgg#|3"/>
-        <target href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/ExistingFamily2Person.tgg#|4"/>
+      <type href="platform:/resource/Families/model/Families.ecore#//FamilyRegister"/>
+      <linkVariablePatterns target="//@rules.2/@sourcePatterns.1">
+        <type href="platform:/resource/Families/model/Families.ecore#//FamilyRegister/families"/>
       </linkVariablePatterns>
     </sourcePatterns>
     <sourcePatterns name="f">
-      <type href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/ExistingFamily2Person.tgg#|5"/>
+      <type href="platform:/resource/Families/model/Families.ecore#//Family"/>
     </sourcePatterns>
   </rules>
   <rules name="Families2Persons" schema="//@schema">
     <sourcePatterns name="families">
       <op value="++"/>
-      <type href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/Families2Persons.tgg#|1"/>
+      <type href="platform:/resource/Families/model/Families.ecore#//FamilyRegister"/>
     </sourcePatterns>
     <targetPatterns name="persons">
       <op value="++"/>
-      <type href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/Families2Persons.tgg#|2"/>
+      <type href="platform:/resource/Persons/model/Persons.ecore#//PersonRegister"/>
     </targetPatterns>
-    <correspondencePatterns name="families2persons" type="//@schema/@correspondenceTypes.0">
+    <correspondencePatterns name="families2persons" type="//@schema/@correspondenceTypes.0" source="//@rules.3/@sourcePatterns.0" target="//@rules.3/@targetPatterns.0">
       <op value="++"/>
-      <source href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/Families2Persons.tgg#|4"/>
-      <target href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/Families2Persons.tgg#|5"/>
     </correspondencePatterns>
   </rules>
   <rules name="FamilyMember2Person" abstractRule="true" schema="//@schema">
     <sourcePatterns name="families">
-      <type href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/FamilyMember2Person.tgg#|1"/>
-      <linkVariablePatterns>
+      <type href="platform:/resource/Families/model/Families.ecore#//FamilyRegister"/>
+      <linkVariablePatterns target="//@rules.4/@sourcePatterns.1">
         <op value="++"/>
-        <type href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/FamilyMember2Person.tgg#|2"/>
-        <target href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/FamilyMember2Person.tgg#|3"/>
+        <type href="platform:/resource/Families/model/Families.ecore#//FamilyRegister/families"/>
       </linkVariablePatterns>
     </sourcePatterns>
     <sourcePatterns name="f">
       <op value="++"/>
-      <type href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/FamilyMember2Person.tgg#|4"/>
+      <type href="platform:/resource/Families/model/Families.ecore#//Family"/>
     </sourcePatterns>
     <sourcePatterns name="fm">
       <op value="++"/>
-      <type href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/FamilyMember2Person.tgg#|5"/>
+      <type href="platform:/resource/Families/model/Families.ecore#//FamilyMember"/>
     </sourcePatterns>
     <targetPatterns name="persons">
-      <type href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/FamilyMember2Person.tgg#|6"/>
-      <linkVariablePatterns>
+      <type href="platform:/resource/Persons/model/Persons.ecore#//PersonRegister"/>
+      <linkVariablePatterns target="//@rules.4/@targetPatterns.1">
         <op value="++"/>
-        <type href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/FamilyMember2Person.tgg#|7"/>
-        <target href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/FamilyMember2Person.tgg#|8"/>
+        <type href="platform:/resource/Persons/model/Persons.ecore#//PersonRegister/persons"/>
       </linkVariablePatterns>
     </targetPatterns>
     <targetPatterns name="p">
       <op value="++"/>
-      <type href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/FamilyMember2Person.tgg#|9"/>
+      <type href="platform:/resource/Persons/model/Persons.ecore#//Person"/>
     </targetPatterns>
-    <correspondencePatterns name="families2persons" type="//@schema/@correspondenceTypes.0">
-      <source href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/FamilyMember2Person.tgg#|11"/>
-      <target href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/FamilyMember2Person.tgg#|12"/>
-    </correspondencePatterns>
-    <correspondencePatterns name="familyMember2Persons" type="//@schema/@correspondenceTypes.1">
+    <correspondencePatterns name="families2persons" type="//@schema/@correspondenceTypes.0" source="//@rules.4/@sourcePatterns.0" target="//@rules.4/@targetPatterns.0"/>
+    <correspondencePatterns name="familyMember2Persons" type="//@schema/@correspondenceTypes.1" source="//@rules.4/@sourcePatterns.2" target="//@rules.4/@targetPatterns.1">
       <op value="++"/>
-      <source href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/FamilyMember2Person.tgg#|14"/>
-      <target href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/FamilyMember2Person.tgg#|15"/>
     </correspondencePatterns>
     <attrConditions name="//@schema/@attributeCondDefs.0">
       <values xsi:type="tgg:LiteralExpression" value="&quot;, &quot;"/>
       <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.4/@sourcePatterns.1">
-        <attribute href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/FamilyMember2Person.tgg#|18"/>
+        <attribute href="platform:/resource/Families/model/Families.ecore#//Family/name"/>
       </values>
       <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.4/@sourcePatterns.2">
-        <attribute href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/FamilyMember2Person.tgg#|20"/>
+        <attribute href="platform:/resource/Families/model/Families.ecore#//FamilyMember/name"/>
       </values>
       <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.4/@targetPatterns.1">
-        <attribute href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/FamilyMember2Person.tgg#|22"/>
+        <attribute href="platform:/resource/Persons/model/Persons.ecore#//Person/name"/>
       </values>
     </attrConditions>
   </rules>
-  <rules name="FatherOfExistingFamilyToMale" schema="//@schema">
-    <supertypes href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/FatherOfExistingFamilyToMale.tgg#|0"/>
-    <supertypes href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/FatherOfExistingFamilyToMale.tgg#|1"/>
-  </rules>
-  <rules name="FatherToMale" schema="//@schema">
-    <supertypes href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/FatherToMale.tgg#|0"/>
+  <rules name="FatherOfExistingFamilyToMale" supertypes="//@rules.2 //@rules.6" schema="//@schema"/>
+  <rules name="FatherToMale" supertypes="//@rules.4" schema="//@schema">
     <sourcePatterns name="f">
       <op value="++"/>
-      <type href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/FatherToMale.tgg#|2"/>
-      <linkVariablePatterns>
+      <type href="platform:/resource/Families/model/Families.ecore#//Family"/>
+      <linkVariablePatterns target="//@rules.6/@sourcePatterns.1">
         <op value="++"/>
-        <type href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/FatherToMale.tgg#|3"/>
-        <target href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/FatherToMale.tgg#|4"/>
+        <type href="platform:/resource/Families/model/Families.ecore#//Family/father"/>
       </linkVariablePatterns>
     </sourcePatterns>
     <sourcePatterns name="fm">
       <op value="++"/>
-      <type href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/FatherToMale.tgg#|5"/>
+      <type href="platform:/resource/Families/model/Families.ecore#//FamilyMember"/>
     </sourcePatterns>
     <targetPatterns name="p">
       <op value="++"/>
-      <type href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/FatherToMale.tgg#|6"/>
+      <type href="platform:/resource/Persons/model/Persons.ecore#//Male"/>
     </targetPatterns>
   </rules>
-  <rules name="MotherOfExistingFamilyToFemale" schema="//@schema">
-    <supertypes href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/MotherOfExistingFamilyToFemale.tgg#|0"/>
-    <supertypes href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/MotherOfExistingFamilyToFemale.tgg#|1"/>
-  </rules>
-  <rules name="MotherToFemale" schema="//@schema">
-    <supertypes href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/MotherToFemale.tgg#|0"/>
+  <rules name="MotherOfExistingFamilyToFemale" supertypes="//@rules.2 //@rules.8" schema="//@schema"/>
+  <rules name="MotherToFemale" supertypes="//@rules.4" schema="//@schema">
     <sourcePatterns name="f">
       <op value="++"/>
-      <type href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/MotherToFemale.tgg#|2"/>
-      <linkVariablePatterns>
+      <type href="platform:/resource/Families/model/Families.ecore#//Family"/>
+      <linkVariablePatterns target="//@rules.8/@sourcePatterns.1">
         <op value="++"/>
-        <type href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/MotherToFemale.tgg#|3"/>
-        <target href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/MotherToFemale.tgg#|4"/>
+        <type href="platform:/resource/Families/model/Families.ecore#//Family/mother"/>
       </linkVariablePatterns>
     </sourcePatterns>
     <sourcePatterns name="fm">
       <op value="++"/>
-      <type href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/MotherToFemale.tgg#|5"/>
+      <type href="platform:/resource/Families/model/Families.ecore#//FamilyMember"/>
     </sourcePatterns>
     <targetPatterns name="p">
       <op value="++"/>
-      <type href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/MotherToFemale.tgg#|6"/>
+      <type href="platform:/resource/Persons/model/Persons.ecore#//Female"/>
     </targetPatterns>
   </rules>
-  <rules name="SonOfExistingFamilyToMale" schema="//@schema">
-    <supertypes href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/SonOfExistingFamilyToMale.tgg#|0"/>
-    <supertypes href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/SonOfExistingFamilyToMale.tgg#|1"/>
-  </rules>
-  <rules name="SonToMale" schema="//@schema">
-    <supertypes href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/SonToMale.tgg#|0"/>
+  <rules name="SonOfExistingFamilyToMale" supertypes="//@rules.2 //@rules.10" schema="//@schema"/>
+  <rules name="SonToMale" supertypes="//@rules.4" schema="//@schema">
     <sourcePatterns name="f">
       <op value="++"/>
-      <type href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/SonToMale.tgg#|2"/>
-      <linkVariablePatterns>
+      <type href="platform:/resource/Families/model/Families.ecore#//Family"/>
+      <linkVariablePatterns target="//@rules.10/@sourcePatterns.1">
         <op value="++"/>
-        <type href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/SonToMale.tgg#|3"/>
-        <target href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/SonToMale.tgg#|4"/>
+        <type href="platform:/resource/Families/model/Families.ecore#//Family/sons"/>
       </linkVariablePatterns>
     </sourcePatterns>
     <sourcePatterns name="fm">
       <op value="++"/>
-      <type href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/SonToMale.tgg#|5"/>
+      <type href="platform:/resource/Families/model/Families.ecore#//FamilyMember"/>
     </sourcePatterns>
     <targetPatterns name="p">
       <op value="++"/>
-      <type href="platform:/resource/BenchmarxFamiliesToPersons/src/org/emoflon/ibex/tgg/rules/SonToMale.tgg#|6"/>
+      <type href="platform:/resource/Persons/model/Persons.ecore#//Male"/>
     </targetPatterns>
   </rules>
+  <nacs name="NoExistingFather" rule="//@rules.5">
+    <sourcePatterns name="existingFather">
+      <type href="platform:/resource/Families/model/Families.ecore#//FamilyMember"/>
+    </sourcePatterns>
+    <sourcePatterns name="f">
+      <type href="platform:/resource/Families/model/Families.ecore#//Family"/>
+      <linkVariablePatterns target="//@nacs.0/@sourcePatterns.0">
+        <type href="platform:/resource/Families/model/Families.ecore#//Family/father"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+  </nacs>
+  <nacs name="NoExistingMother" rule="//@rules.7">
+    <sourcePatterns name="existingMother">
+      <type href="platform:/resource/Families/model/Families.ecore#//FamilyMember"/>
+    </sourcePatterns>
+    <sourcePatterns name="f">
+      <type href="platform:/resource/Families/model/Families.ecore#//Family"/>
+      <linkVariablePatterns target="//@nacs.1/@sourcePatterns.0">
+        <type href="platform:/resource/Families/model/Families.ecore#//Family/mother"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+  </nacs>
 </tgg:TripleGraphGrammarFile>

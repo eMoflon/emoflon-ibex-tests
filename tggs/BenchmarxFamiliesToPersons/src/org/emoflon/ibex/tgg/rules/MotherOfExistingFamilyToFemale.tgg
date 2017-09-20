@@ -3,10 +3,12 @@
 
 #rule MotherOfExistingFamilyToFemale #extends ExistingFamily2Person, MotherToFemale #with FamiliesToPersons
 
+#nac NoExistingMother #for MotherOfExistingFamilyToFemale
+
 #source {
-	! existingMother : FamilyMember
-	
-	f : Family {
+ 	existingMother:FamilyMember
+ 	
+ 	f : Family {
 		-mother->existingMother
 	}
-}
+ }
