@@ -1,10 +1,10 @@
 Manifest-Version: 1.0
 Bundle-SymbolicName: SimplePersons;singleton:=true
 Export-Package: 
- org.benchmarx.persons.core,
- SimplePersons.util,
  SimplePersons,
- SimplePersons.impl
+ SimplePersons.impl,
+ SimplePersons.util,
+ org.benchmarx.simplepersons.core
 Bundle-Name: Persons
 Bundle-Version: 1.0.0.qualifier
 Require-Bundle: org.eclipse.emf.ecore,

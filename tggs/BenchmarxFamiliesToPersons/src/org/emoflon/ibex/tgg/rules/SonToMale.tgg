@@ -1,0 +1,17 @@
+#using FamiliesToPersons.*
+#using AttrCondDefLibrary.*
+
+#rule SonToMale #extends FamilyMember2Person #with FamiliesToPersons
+
+#source { 
+	++ f : Family {
+		++ -sons->fm	
+	}
+	
+	++ fm : FamilyMember
+}
+
+#target {
+	++ p : Male
+}
+ 

@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="ASCII"?>
+<tgg:TripleGraphGrammarFile xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tgg="http://www.moflon.org/ide/tgg/mosl/TGG">
+  <imports name="platform:/resource/Families/model/Families.ecore"/>
+  <imports name="platform:/resource/Persons/model/Persons.ecore"/>
+  <schema name="FamiliesToPersons">
+    <sourceTypes href="platform:/resource/Families/model/Families.ecore#/"/>
+    <targetTypes href="platform:/resource/Persons/model/Persons.ecore#/"/>
+    <correspondenceTypes name="FamiliesToPersonsCorr">
+      <source href="platform:/resource/Families/model/Families.ecore#//FamilyRegister"/>
+      <target href="platform:/resource/Persons/model/Persons.ecore#//PersonRegister"/>
+    </correspondenceTypes>
+    <correspondenceTypes name="FamilyMemberToPerson">
+      <source href="platform:/resource/Families/model/Families.ecore#//FamilyMember"/>
+      <target href="platform:/resource/Persons/model/Persons.ecore#//Person"/>
+    </correspondenceTypes>
+    <attributeCondDefs name="concat">
+      <params paramName="separator">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </params>
+      <params paramName="leftWord">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </params>
+      <params paramName="rightWord">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </params>
+      <params paramName="result">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </params>
+      <allowedSyncAdornments>
+        <value>B</value>
+        <value>B</value>
+        <value>B</value>
+        <value>B</value>
+      </allowedSyncAdornments>
+      <allowedSyncAdornments>
+        <value>B</value>
+        <value>B</value>
+        <value>B</value>
+        <value>F</value>
+      </allowedSyncAdornments>
+      <allowedSyncAdornments>
+        <value>B</value>
+        <value>B</value>
+        <value>F</value>
+        <value>B</value>
+      </allowedSyncAdornments>
+      <allowedSyncAdornments>
+        <value>B</value>
+        <value>F</value>
+        <value>F</value>
+        <value>B</value>
+      </allowedSyncAdornments>
+      <allowedSyncAdornments>
+        <value>B</value>
+        <value>F</value>
+        <value>B</value>
+        <value>B</value>
+      </allowedSyncAdornments>
+      <allowedGenAdornments>
+        <value>B</value>
+        <value>B</value>
+        <value>B</value>
+        <value>B</value>
+      </allowedGenAdornments>
+      <allowedGenAdornments>
+        <value>B</value>
+        <value>B</value>
+        <value>B</value>
+        <value>F</value>
+      </allowedGenAdornments>
+      <allowedGenAdornments>
+        <value>B</value>
+        <value>B</value>
+        <value>F</value>
+        <value>B</value>
+      </allowedGenAdornments>
+      <allowedGenAdornments>
+        <value>B</value>
+        <value>F</value>
+        <value>F</value>
+        <value>B</value>
+      </allowedGenAdornments>
+      <allowedGenAdornments>
+        <value>B</value>
+        <value>F</value>
+        <value>B</value>
+        <value>B</value>
+      </allowedGenAdornments>
+      <allowedGenAdornments>
+        <value>B</value>
+        <value>F</value>
+        <value>B</value>
+        <value>F</value>
+      </allowedGenAdornments>
+      <allowedGenAdornments>
+        <value>B</value>
+        <value>B</value>
+        <value>F</value>
+        <value>F</value>
+      </allowedGenAdornments>
+      <allowedGenAdornments>
+        <value>B</value>
+        <value>F</value>
+        <value>F</value>
+        <value>F</value>
+      </allowedGenAdornments>
+    </attributeCondDefs>
+  </schema>
+  <rules name="DaughterOfExistingFamilyToFemale" supertypes="//@rules.2 //@rules.1" schema="//@schema"/>
+  <rules name="DaughterToFemale" supertypes="//@rules.4" schema="//@schema">
+    <sourcePatterns name="f">
+      <op value="++"/>
+      <type href="platform:/resource/Families/model/Families.ecore#//Family"/>
+      <linkVariablePatterns target="//@rules.1/@sourcePatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Families/model/Families.ecore#//Family/daughters"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="fm">
+      <op value="++"/>
+      <type href="platform:/resource/Families/model/Families.ecore#//FamilyMember"/>
+    </sourcePatterns>
+    <targetPatterns name="p">
+      <op value="++"/>
+      <type href="platform:/resource/Persons/model/Persons.ecore#//Female"/>
+    </targetPatterns>
+  </rules>
+  <rules name="ExistingFamily2Person" abstractRule="true" supertypes="//@rules.4" schema="//@schema">
+    <sourcePatterns name="families">
+      <type href="platform:/resource/Families/model/Families.ecore#//FamilyRegister"/>
+      <linkVariablePatterns target="//@rules.2/@sourcePatterns.1">
+        <type href="platform:/resource/Families/model/Families.ecore#//FamilyRegister/families"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="f">
+      <type href="platform:/resource/Families/model/Families.ecore#//Family"/>
+    </sourcePatterns>
+  </rules>
+  <rules name="Families2Persons" schema="//@schema">
+    <sourcePatterns name="families">
+      <op value="++"/>
+      <type href="platform:/resource/Families/model/Families.ecore#//FamilyRegister"/>
+    </sourcePatterns>
+    <targetPatterns name="persons">
+      <op value="++"/>
+      <type href="platform:/resource/Persons/model/Persons.ecore#//PersonRegister"/>
+    </targetPatterns>
+    <correspondencePatterns name="families2persons" type="//@schema/@correspondenceTypes.0" source="//@rules.3/@sourcePatterns.0" target="//@rules.3/@targetPatterns.0">
+      <op value="++"/>
+    </correspondencePatterns>
+  </rules>
+  <rules name="FamilyMember2Person" abstractRule="true" schema="//@schema">
+    <sourcePatterns name="families">
+      <type href="platform:/resource/Families/model/Families.ecore#//FamilyRegister"/>
+      <linkVariablePatterns target="//@rules.4/@sourcePatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Families/model/Families.ecore#//FamilyRegister/families"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="f">
+      <op value="++"/>
+      <type href="platform:/resource/Families/model/Families.ecore#//Family"/>
+    </sourcePatterns>
+    <sourcePatterns name="fm">
+      <op value="++"/>
+      <type href="platform:/resource/Families/model/Families.ecore#//FamilyMember"/>
+    </sourcePatterns>
+    <targetPatterns name="persons">
+      <type href="platform:/resource/Persons/model/Persons.ecore#//PersonRegister"/>
+      <linkVariablePatterns target="//@rules.4/@targetPatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Persons/model/Persons.ecore#//PersonRegister/persons"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="p">
+      <op value="++"/>
+      <type href="platform:/resource/Persons/model/Persons.ecore#//Person"/>
+    </targetPatterns>
+    <correspondencePatterns name="families2persons" type="//@schema/@correspondenceTypes.0" source="//@rules.4/@sourcePatterns.0" target="//@rules.4/@targetPatterns.0"/>
+    <correspondencePatterns name="familyMember2Persons" type="//@schema/@correspondenceTypes.1" source="//@rules.4/@sourcePatterns.2" target="//@rules.4/@targetPatterns.1">
+      <op value="++"/>
+    </correspondencePatterns>
+    <attrConditions name="//@schema/@attributeCondDefs.0">
+      <values xsi:type="tgg:LiteralExpression" value="&quot;, &quot;"/>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.4/@sourcePatterns.1">
+        <attribute href="platform:/resource/Families/model/Families.ecore#//Family/name"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.4/@sourcePatterns.2">
+        <attribute href="platform:/resource/Families/model/Families.ecore#//FamilyMember/name"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.4/@targetPatterns.1">
+        <attribute href="platform:/resource/Persons/model/Persons.ecore#//Person/name"/>
+      </values>
+    </attrConditions>
+  </rules>
+  <rules name="FatherOfExistingFamilyToMale" supertypes="//@rules.2 //@rules.6" schema="//@schema"/>
+  <rules name="FatherToMale" supertypes="//@rules.4" schema="//@schema">
+    <sourcePatterns name="f">
+      <op value="++"/>
+      <type href="platform:/resource/Families/model/Families.ecore#//Family"/>
+      <linkVariablePatterns target="//@rules.6/@sourcePatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Families/model/Families.ecore#//Family/father"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="fm">
+      <op value="++"/>
+      <type href="platform:/resource/Families/model/Families.ecore#//FamilyMember"/>
+    </sourcePatterns>
+    <targetPatterns name="p">
+      <op value="++"/>
+      <type href="platform:/resource/Persons/model/Persons.ecore#//Male"/>
+    </targetPatterns>
+  </rules>
+  <rules name="MotherOfExistingFamilyToFemale" supertypes="//@rules.2 //@rules.8" schema="//@schema"/>
+  <rules name="MotherToFemale" supertypes="//@rules.4" schema="//@schema">
+    <sourcePatterns name="f">
+      <op value="++"/>
+      <type href="platform:/resource/Families/model/Families.ecore#//Family"/>
+      <linkVariablePatterns target="//@rules.8/@sourcePatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Families/model/Families.ecore#//Family/mother"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="fm">
+      <op value="++"/>
+      <type href="platform:/resource/Families/model/Families.ecore#//FamilyMember"/>
+    </sourcePatterns>
+    <targetPatterns name="p">
+      <op value="++"/>
+      <type href="platform:/resource/Persons/model/Persons.ecore#//Female"/>
+    </targetPatterns>
+  </rules>
+  <rules name="SonOfExistingFamilyToMale" supertypes="//@rules.2 //@rules.10" schema="//@schema"/>
+  <rules name="SonToMale" supertypes="//@rules.4" schema="//@schema">
+    <sourcePatterns name="f">
+      <op value="++"/>
+      <type href="platform:/resource/Families/model/Families.ecore#//Family"/>
+      <linkVariablePatterns target="//@rules.10/@sourcePatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Families/model/Families.ecore#//Family/sons"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="fm">
+      <op value="++"/>
+      <type href="platform:/resource/Families/model/Families.ecore#//FamilyMember"/>
+    </sourcePatterns>
+    <targetPatterns name="p">
+      <op value="++"/>
+      <type href="platform:/resource/Persons/model/Persons.ecore#//Male"/>
+    </targetPatterns>
+  </rules>
+  <nacs name="NoExistingFather" rule="//@rules.5">
+    <sourcePatterns name="existingFather">
+      <type href="platform:/resource/Families/model/Families.ecore#//FamilyMember"/>
+    </sourcePatterns>
+    <sourcePatterns name="f">
+      <type href="platform:/resource/Families/model/Families.ecore#//Family"/>
+      <linkVariablePatterns target="//@nacs.0/@sourcePatterns.0">
+        <type href="platform:/resource/Families/model/Families.ecore#//Family/father"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+  </nacs>
+  <nacs name="NoExistingMother" rule="//@rules.7">
+    <sourcePatterns name="existingMother">
+      <type href="platform:/resource/Families/model/Families.ecore#//FamilyMember"/>
+    </sourcePatterns>
+    <sourcePatterns name="f">
+      <type href="platform:/resource/Families/model/Families.ecore#//Family"/>
+      <linkVariablePatterns target="//@nacs.1/@sourcePatterns.0">
+        <type href="platform:/resource/Families/model/Families.ecore#//Family/mother"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+  </nacs>
+</tgg:TripleGraphGrammarFile>
