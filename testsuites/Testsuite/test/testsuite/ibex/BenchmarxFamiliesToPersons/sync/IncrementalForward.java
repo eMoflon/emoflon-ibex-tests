@@ -81,8 +81,8 @@ public class IncrementalForward extends FamiliesToPersonsTestCase {
 	 * <b>Expect</b>: Change the name of the affected Persons in the Person Register
 	 * <b>Features</b>: fwd, attribute, fixed, structural, corr-based
 	 */
-	@Test
 	@Ignore("We do not support incremental attribute changes yet.")
+	@Test
 	public void testIncrementalRename() {
 		tool.performAndPropagateSourceEdit(util
 				.execute(helperFamily::createSkinnerFamily)
@@ -113,7 +113,7 @@ public class IncrementalForward extends FamiliesToPersonsTestCase {
 	 * <b>Features</b>: fwd, del+add, fixed, structural
 	 */
 	
-	@Ignore ("We do not support least change yet.")
+	@Ignore ("Fails due to least change problems.")
 	@Test
 	public void testIncrementalMove() {
 		tool.performAndPropagateSourceEdit(util
@@ -146,7 +146,7 @@ public class IncrementalForward extends FamiliesToPersonsTestCase {
 	 * <b>Features</b>: fwd, structural, add+del, fixed 
 	 */
 	
-	@Ignore ("We do not support least change yet.")
+	@Ignore ("Fails due to least change problems.")
 	@Test
 	public void testIncrementalMixed() {
 		tool.performAndPropagateSourceEdit(util
@@ -180,7 +180,7 @@ public class IncrementalForward extends FamiliesToPersonsTestCase {
 	 * <b>Features</b>: fwd, structural, add+del, fixed 
 	 */
 	
-	@Ignore ("We do not support least change yet.")
+	@Ignore ("Fails due to least change problems.")
 	@Test
 	public void testIncrementalMoveRoleChange() {
 		tool.performAndPropagateSourceEdit(util

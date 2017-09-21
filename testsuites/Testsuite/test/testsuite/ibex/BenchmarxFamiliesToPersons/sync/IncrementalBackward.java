@@ -72,7 +72,7 @@ public class IncrementalBackward extends FamiliesToPersonsTestCase {
 			.makeDecision(Decisions.PREFER_EXISTING_FAMILY_TO_NEW, false)
 			.makeDecision(Decisions.PREFER_CREATING_PARENT_TO_CHILD, true);
 		tool.performAndPropagateTargetEdit(helperPerson::createSeymour);
-		util.assertPostcondition("FamilyAfterBwdInsertion3", "PersonAfterBwdInsertion3");
+		assertPostcondition("FamilyAfterBwdInsertion3", "PersonAfterBwdInsertion3");
 		
 		// now setting !e^!p
 		util.configure()
@@ -106,7 +106,7 @@ public class IncrementalBackward extends FamiliesToPersonsTestCase {
 	 * <b>Features</b>: bwd, del
 	 */
 	
-	@Ignore ("We do not support least change yet.")
+	@Ignore ("Fails due to least change problems.")
 	@Test
 	public void testIncrementalDeletions() {
 		util.configure()
@@ -134,8 +134,8 @@ public class IncrementalBackward extends FamiliesToPersonsTestCase {
 	 * <b>Expect</b> : Model states as described in the postcondition.<br/>
 	 * <b>Features</b>: bwd, attribute, structural, corr-based, runtime
 	 */
-	@Test
 	@Ignore("We do not support incrememental attribute changes yet.")
+	@Test
 	public void testIncrementalRenamingDynamic() {
 		util.configure()
 			.makeDecision(Decisions.PREFER_EXISTING_FAMILY_TO_NEW, true)
@@ -223,7 +223,7 @@ public class IncrementalBackward extends FamiliesToPersonsTestCase {
 	 * <b>Features</b>: bwd, add, operational, runtime
 	 */
 	
-	@Ignore ("We do not support least change yet.")
+	@Ignore ("Fails due to least change problems.")
 	@Test
 	public void testIncrementalOperational() {
 		util.configure()
