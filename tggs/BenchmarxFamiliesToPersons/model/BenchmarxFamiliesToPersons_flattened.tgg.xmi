@@ -145,7 +145,7 @@
     <edges name="p__personsInverse__persons_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.2/@nodes.3" trgNode="//@rules.2/@nodes.4">
       <type href="platform:/resource/Persons/model/Persons.ecore#//Person/personsInverse"/>
     </edges>
-    <attributeConditionLibrary>
+    <attributeConditionLibrary sorted_BWD="//@rules.2/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_FWD="//@rules.2/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_CC="//@rules.2/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_MODELGEN="//@rules.2/@attributeConditionLibrary/@tggAttributeConstraints.0">
       <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0" parameters="//@rules.2/@attributeConditionLibrary/@parameterValues.0 //@rules.2/@attributeConditionLibrary/@parameterValues.1 //@rules.2/@attributeConditionLibrary/@parameterValues.2 //@rules.2/@attributeConditionLibrary/@parameterValues.3"/>
       <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGLiteralExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.0" value="&quot;, &quot;"/>
       <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.1" objectVar="//@rules.2/@nodes.0">
@@ -205,7 +205,7 @@
     <edges name="p__personsInverse__persons_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.4/@nodes.3" trgNode="//@rules.4/@nodes.4">
       <type href="platform:/resource/Persons/model/Persons.ecore#//Person/personsInverse"/>
     </edges>
-    <attributeConditionLibrary>
+    <attributeConditionLibrary sorted_BWD="//@rules.4/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_FWD="//@rules.4/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_CC="//@rules.4/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_MODELGEN="//@rules.4/@attributeConditionLibrary/@tggAttributeConstraints.0">
       <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0" parameters="//@rules.4/@attributeConditionLibrary/@parameterValues.0 //@rules.4/@attributeConditionLibrary/@parameterValues.1 //@rules.4/@attributeConditionLibrary/@parameterValues.2 //@rules.4/@attributeConditionLibrary/@parameterValues.3"/>
       <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGLiteralExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.0" value="&quot;, &quot;"/>
       <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.1" objectVar="//@rules.4/@nodes.0">
