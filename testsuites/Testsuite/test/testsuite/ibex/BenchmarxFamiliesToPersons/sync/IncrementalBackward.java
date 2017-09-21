@@ -105,6 +105,8 @@ public class IncrementalBackward extends FamiliesToPersonsTestCase {
 	 * assertPostcondition statements.<br/>
 	 * <b>Features</b>: bwd, del
 	 */
+	//This test is ignored due to not supported least change
+	@Ignore
 	@Test
 	public void testIncrementalDeletions() {
 		util.configure()
@@ -191,6 +193,7 @@ public class IncrementalBackward extends FamiliesToPersonsTestCase {
 	 * <b>Expect</b> : Model states as described in the postcondition.<br/>
 	 * <b>Features</b>: bwd, del+add, structural, runtime
 	 */
+	@Ignore ("We do not support least change yet.")
 	@Test
 	public void testIncrementalMixedDynamic() {
 		util.configure()
@@ -219,6 +222,8 @@ public class IncrementalBackward extends FamiliesToPersonsTestCase {
 	 * <b>Expect</b> : Model states as described in the postcondition.<br/>
 	 * <b>Features</b>: bwd, add, operational, runtime
 	 */
+	
+	@Ignore ("We do not support least change yet.")
 	@Test
 	public void testIncrementalOperational() {
 		util.configure()

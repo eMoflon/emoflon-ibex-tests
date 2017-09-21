@@ -24,10 +24,10 @@ public class FamiliesToPersonsUpdatePolicy implements UpdatePolicy {
 		Set<IMatch> matches = new HashSet<IMatch>(matchContainer.getMatches());
 		matches.removeIf(m -> m.patternName().endsWith(PatternSuffixes.CONSISTENCY));
 		
-		if (thereIsAtLeastOneExistingFamily(matchContainer))
+		if (thereIsAtLeastOneExistingFamily(matches))
 			handlePrefsForExistingFamily(matches);
-
-		if (atLeastOneParentCanBeCreated(matchContainer))
+		
+		if (atLeastOneParentCanBeCreated(matches))
 			handlePrefsForParents(matches);
 
 		if (matches.isEmpty())
@@ -37,12 +37,12 @@ public class FamiliesToPersonsUpdatePolicy implements UpdatePolicy {
 		}
 	}
 
-	private boolean atLeastOneParentCanBeCreated(ImmutableMatchContainer matchContainer) {
-		return matchContainer.getMatches().stream().filter(m -> m.patternName().contains("Mother") || m.patternName().contains("Father")).count() >= 1;
+	private boolean atLeastOneParentCanBeCreated(Set<IMatch> matchContainer) {
+		return matchContainer.stream().filter(m -> m.patternName().contains("Mother") || m.patternName().contains("Father")).count() >= 1;
 	}
 
-	private boolean thereIsAtLeastOneExistingFamily(ImmutableMatchContainer matchContainer) {
-		return matchContainer.getMatches().stream().filter(m -> m.patternName().contains("Existing")).count() >= 1;
+	private boolean thereIsAtLeastOneExistingFamily(Set<IMatch> matchContainer) {
+		return matchContainer.stream().filter(m -> m.patternName().contains("Existing")).count() >= 1;
 	}
 
 	public void handlePrefsForExistingFamily(Set<IMatch> matches) {

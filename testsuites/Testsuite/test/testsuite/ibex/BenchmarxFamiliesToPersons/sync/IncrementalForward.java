@@ -112,6 +112,8 @@ public class IncrementalForward extends FamiliesToPersonsTestCase {
 	 * <b>Expect</b>: Change the name of the affected Persons in the Person Register
 	 * <b>Features</b>: fwd, del+add, fixed, structural
 	 */
+	
+	@Ignore ("We do not support least change yet.")
 	@Test
 	public void testIncrementalMove() {
 		tool.performAndPropagateSourceEdit(util
@@ -143,6 +145,8 @@ public class IncrementalForward extends FamiliesToPersonsTestCase {
 	 * should be re-created with the default birthday.
 	 * <b>Features</b>: fwd, structural, add+del, fixed 
 	 */
+	
+	@Ignore ("We do not support least change yet.")
 	@Test
 	public void testIncrementalMixed() {
 		tool.performAndPropagateSourceEdit(util
@@ -175,6 +179,8 @@ public class IncrementalForward extends FamiliesToPersonsTestCase {
 	 * should be retained.
 	 * <b>Features</b>: fwd, structural, add+del, fixed 
 	 */
+	
+	@Ignore ("We do not support least change yet.")
 	@Test
 	public void testIncrementalMoveRoleChange() {
 		tool.performAndPropagateSourceEdit(util
