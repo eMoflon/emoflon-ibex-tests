@@ -1,5 +1,6 @@
 package testsuite.ibex.BenchmarxFamiliesToPersons.sync;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import testsuite.ibex.BenchmarxFamiliesToPersons.FamiliesToPersonsTestCase;
@@ -132,6 +133,7 @@ public class IncrementalBackward extends FamiliesToPersonsTestCase {
 	 * <b>Features</b>: bwd, attribute, structural, corr-based, runtime
 	 */
 	@Test
+	@Ignore("We do not support incrememental attribute changes yet.")
 	public void testIncrementalRenamingDynamic() {
 		util.configure()
 			.makeDecision(Decisions.PREFER_EXISTING_FAMILY_TO_NEW, true)

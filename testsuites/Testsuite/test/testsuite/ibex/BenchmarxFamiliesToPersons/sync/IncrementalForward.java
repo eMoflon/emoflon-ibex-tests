@@ -1,5 +1,6 @@
 package testsuite.ibex.BenchmarxFamiliesToPersons.sync;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import testsuite.ibex.BenchmarxFamiliesToPersons.FamiliesToPersonsTestCase;
@@ -81,6 +82,7 @@ public class IncrementalForward extends FamiliesToPersonsTestCase {
 	 * <b>Features</b>: fwd, attribute, fixed, structural, corr-based
 	 */
 	@Test
+	@Ignore("We do not support incremental attribute changes yet.")
 	public void testIncrementalRename() {
 		tool.performAndPropagateSourceEdit(util
 				.execute(helperFamily::createSkinnerFamily)

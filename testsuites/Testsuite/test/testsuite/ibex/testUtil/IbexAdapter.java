@@ -22,6 +22,7 @@ public abstract class IbexAdapter<S extends EObject, T extends EObject> extends 
 	protected boolean flatten;
 	protected String projectName;
 	protected SYNC synchroniser;
+	protected Configurator<Decisions> configurator;
 	
 	public IbexAdapter(Comparator<S> src, Comparator<T> trg, boolean flatten, String projectName) {
 		super(src, trg);
@@ -68,7 +69,7 @@ public abstract class IbexAdapter<S extends EObject, T extends EObject> extends 
 
 	@Override
 	public void setConfigurator(Configurator<Decisions> configurator) {
-		// No configuration for now
+		this.configurator = configurator;
 	}
 	
 	@Override
