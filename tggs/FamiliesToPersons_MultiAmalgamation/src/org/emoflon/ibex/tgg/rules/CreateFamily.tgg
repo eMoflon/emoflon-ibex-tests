@@ -1,0 +1,28 @@
+#using FamiliesToPersons_MultiAmalgamation.*
+#using AttrCondDefLibrary.*
+
+#rule CreateFamily #with Families2Persons_MA
+
+#source { 
+	familyReg : FamilyRegister{
+		++-families -> family
+	}
+	
+	++ family : Family
+}
+
+#target {
+	
+	personReg : PersonRegister
+}
+
+#correspondence {
+	 familyReg2personReg : Families2Persons_MA.Families2PersonsCorr {
+	 	#src->familyReg
+	 	#trg->personReg
+	 }
+}
+
+#attributeConditions {
+	
+}
