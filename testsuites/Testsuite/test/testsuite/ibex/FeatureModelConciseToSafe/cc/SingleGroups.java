@@ -10,13 +10,8 @@ import org.junit.Test;
 import testsuite.ibex.testUtil.CCTestCase;
 
 public class SingleGroups extends CCTestCase {
-	
-	public SingleGroups(boolean flatten) {
-		super(flatten);
-	}
-	
 	public void createChecker(String srcInstance, String trgInstance) throws IOException {
-		checker = new CC_App("FeatureModelConciseToSafe", testsuite.ibex.testUtil.Constants.workspacePath, flatten, false, srcInstance, trgInstance);
+		checker = new CC_App("FeatureModelConciseToSafe", testsuite.ibex.testUtil.Constants.workspacePath, false, srcInstance, trgInstance);
 	}
 	
 	@Test

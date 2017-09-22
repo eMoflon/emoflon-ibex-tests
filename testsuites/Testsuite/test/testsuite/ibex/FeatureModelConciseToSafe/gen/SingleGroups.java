@@ -17,10 +17,6 @@ import testsuite.ibex.testUtil.ModelGenTestCase;
 
 public class SingleGroups extends ModelGenTestCase<FeatureModelConcise.Model, FeatureModelSafe.Model>{
 
-	public SingleGroups(boolean flatten) {
-		super(flatten);
-	}
-
 	@Override
 	protected String getProjectName() {
 		return "FeatureModelConciseToSafe";
@@ -28,7 +24,7 @@ public class SingleGroups extends ModelGenTestCase<FeatureModelConcise.Model, Fe
 	
 	@Before
 	public void createGenerator() throws IOException {
-		generator = new MODELGEN_App(getProjectName(), testsuite.ibex.testUtil.Constants.workspacePath, flatten, false);
+		generator = new MODELGEN_App(getProjectName(), testsuite.ibex.testUtil.Constants.workspacePath, false);
 		stop = new MODELGENStopCriterion(generator.getTGG());
 		
 		for (TGGRule rule : generator.getTGG().getRules()) {

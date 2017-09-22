@@ -5,10 +5,6 @@ import java.io.IOException;
 import org.junit.Test;
 
 public class TestContextFromRefinement extends FamiliesToPersonsModelGenTestCase {
-	
-	public TestContextFromRefinement(boolean flatten) {
-		super(flatten);
-	}
 
 	/**
 	 * Tests if a corr-context node from a super-rule that is missing in the match

@@ -5,11 +5,6 @@ import java.io.IOException;
 import org.junit.Test;
 
 public class TestSimplePositive extends FamiliesToPersonsCCTestCase {
-	
-	public TestSimplePositive(boolean flatten) {
-		super(flatten);
-	}
-	
 	@Test
 	public void testOneFatherToMale() throws IOException {
 		createGenerator("singleFatherFamily", "singleMalePersonReg");

@@ -15,8 +15,8 @@ public class Batch extends SyncTestCase<File, Specification> {
 	private MocaTreeHelperForBlockCode helperMT;
 	private BlockLanguageHelper helperBlock;
 	
-	public Batch(boolean flatten) {
-		super(new IbexBlockCodeAdapter(flatten, projectName), flatten);
+	public Batch() {
+		super(new IbexBlockCodeAdapter(projectName));
 	}
 	
 	protected void initHelpers() {

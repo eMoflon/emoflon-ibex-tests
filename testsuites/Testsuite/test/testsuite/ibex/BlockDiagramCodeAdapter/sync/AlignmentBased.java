@@ -16,8 +16,8 @@ public class AlignmentBased extends testsuite.ibex.testUtil.SyncTestCase<BlockSy
 	MocaTreeHelperForBlockDiagramCode helperMT;
 
 	/** Currently, some of these tests fail due to Assertion Error in Democles*/
-	public AlignmentBased(boolean flatten) {
-		super(new IbexBlockDiagramCodeAdapter(flatten, projectName), flatten);
+	public AlignmentBased() {
+		super(new IbexBlockDiagramCodeAdapter(projectName));
 	}
 	
 	protected void initHelpers() {

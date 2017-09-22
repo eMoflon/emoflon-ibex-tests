@@ -16,10 +16,6 @@ import testsuite.ibex.testUtil.ModelGenTestCase;
 
 public class SimpleModelgenTest extends ModelGenTestCase<File, VHDLSpecification> {
 
-	public SimpleModelgenTest(Boolean flatten) {
-		super(flatten);
-	}
-
 	@Override
 	protected String getProjectName() {
 		return "VHDLTGGCodeAdapter";
@@ -27,7 +23,7 @@ public class SimpleModelgenTest extends ModelGenTestCase<File, VHDLSpecification
 	
 	@Before
 	public void createGenerator() throws IOException {
-		generator = new MODELGEN_App(getProjectName(), testsuite.ibex.testUtil.Constants.workspacePath, flatten, false);
+		generator = new MODELGEN_App(getProjectName(), testsuite.ibex.testUtil.Constants.workspacePath, false);
 		stop = new MODELGENStopCriterion(generator.getTGG());
 		
 		for (TGGRule rule : generator.getTGG().getRules()) {

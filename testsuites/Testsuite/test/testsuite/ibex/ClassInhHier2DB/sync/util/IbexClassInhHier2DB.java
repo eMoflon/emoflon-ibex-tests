@@ -13,14 +13,14 @@ import testsuite.ibex.testUtil.IbexAdapter;
 
 public class IbexClassInhHier2DB extends IbexAdapter<ClassPackage, DB>   {
 	
-	public IbexClassInhHier2DB(boolean flatten, String projectName) {
-		super(new ClassInheritanceHierarchyComparator(true), new DatabaseComparator(true), flatten, projectName);
+	public IbexClassInhHier2DB(String projectName) {
+		super(new ClassInheritanceHierarchyComparator(true), new DatabaseComparator(true), projectName);
 	}
 	
 	@Override
 	public void initiateSynchronisationDialogue() {
 		try {
-			synchroniser = new SYNC_App("ClassInhHier2DB", testsuite.ibex.testUtil.Constants.workspacePath, flatten, false);
+			synchroniser = new SYNC_App("ClassInhHier2DB", testsuite.ibex.testUtil.Constants.workspacePath, false);
 			
 			ClassPackage pkg = ClassInheritanceHierarchyFactory.eINSTANCE.createClassPackage();
 			pkg.setName("P");

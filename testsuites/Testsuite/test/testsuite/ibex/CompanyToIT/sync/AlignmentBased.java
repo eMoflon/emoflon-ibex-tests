@@ -19,8 +19,8 @@ public class AlignmentBased extends SyncTestCase<Company, IT> {
 	CompanyLanguageHelper helperCompany;
 	ITLanguageHelper helperIT;
 
-	public AlignmentBased(boolean flatten) {
-		super(new IbexCompanyToIT(flatten, projectName), flatten);
+	public AlignmentBased() {
+		super(new IbexCompanyToIT(projectName));
 	}
 	
 	@Override

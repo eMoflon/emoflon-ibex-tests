@@ -7,9 +7,6 @@ import testsuite.ibex.BenchmarxFamiliesToPersons.FamiliesToPersonsTestCase;
 
 public class BatchForward extends FamiliesToPersonsTestCase {
 
-	public BatchForward(boolean flatten) {
-		super(flatten);
-	}
 
 	/**
 	 * <b>Test</b> for agreed upon starting state.<br/>

@@ -20,8 +20,8 @@ public class Batch extends SyncTestCase<Company, IT> {
 	CompanyLanguageHelper helperCompany;
 	ITLanguageHelper helperIT;
 
-	public Batch(boolean flatten) {
-		super(new IbexCompanyToIT(flatten, projectName), flatten);
+	public Batch() {
+		super(new IbexCompanyToIT(projectName));
 	}
 	
 	@Override

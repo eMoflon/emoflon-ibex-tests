@@ -22,14 +22,14 @@ import testsuite.ibex.testUtil.IbexAdapter;
  */
 public class IbexCompanyToIT extends IbexAdapter<Company, IT>  {
 	
-	public IbexCompanyToIT(boolean flatten, String projectName) {
-		super(new CompanyLanguageComparator(true), new ITLanguageComparator(true), flatten, projectName);
+	public IbexCompanyToIT(String projectName) {
+		super(new CompanyLanguageComparator(true), new ITLanguageComparator(true), projectName);
 	}
 	
 	@Override
 	public void initiateSynchronisationDialogue() {
 		try {
-			synchroniser = new SYNC_App(projectName, testsuite.ibex.testUtil.Constants.workspacePath, flatten, false);
+			synchroniser = new SYNC_App(projectName, testsuite.ibex.testUtil.Constants.workspacePath, false);
 			
 			Company company = CompanyLanguageFactory.eINSTANCE.createCompany();
 			company.setName("ES");

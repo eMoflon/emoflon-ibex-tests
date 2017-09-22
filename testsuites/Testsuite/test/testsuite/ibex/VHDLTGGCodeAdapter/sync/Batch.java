@@ -16,8 +16,8 @@ public class Batch extends SyncTestCase<File, VHDLSpecification> {
 	private MocaTreeHelperForVHDLTGGCode helperMT;
 	private VHDLModelHelper helperVHDL;
 	
-	public Batch(boolean flatten) {
-		super(new IbexVHDLTGGCodeAdapter(flatten, projectName), flatten);
+	public Batch() {
+		super(new IbexVHDLTGGCodeAdapter(projectName));
 	}
 
 	@Override

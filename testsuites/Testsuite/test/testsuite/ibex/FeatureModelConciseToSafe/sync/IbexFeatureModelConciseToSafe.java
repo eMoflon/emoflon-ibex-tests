@@ -13,14 +13,14 @@ import testsuite.ibex.testUtil.IbexAdapter;
 
 public class IbexFeatureModelConciseToSafe extends IbexAdapter<Model, FeatureModelSafe.Model> {
 
-	public IbexFeatureModelConciseToSafe(boolean flatten, String projectName) {
-		super(new FeatureModelConciseComparator(true), new FeatureModelSafeComparator(true), flatten, projectName);
+	public IbexFeatureModelConciseToSafe(String projectName) {
+		super(new FeatureModelConciseComparator(true), new FeatureModelSafeComparator(true), projectName);
 	}
 
 	@Override
 	public void initiateSynchronisationDialogue() {
 		try {
-			synchroniser = new SYNC_App(projectName, testsuite.ibex.testUtil.Constants.workspacePath, flatten, false);
+			synchroniser = new SYNC_App(projectName, testsuite.ibex.testUtil.Constants.workspacePath, false);
 			
 			Model m = FeatureModelConciseFactory.eINSTANCE.createModel();
 			Feature root = FeatureModelConciseFactory.eINSTANCE.createFeature();

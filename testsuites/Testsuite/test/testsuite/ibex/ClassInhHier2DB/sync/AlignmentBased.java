@@ -17,8 +17,8 @@ public class AlignmentBased extends SyncTestCase<ClassPackage, DB> {
 	ClassInheritanceHierarchyHelper helperClassInh;
 	DatabaseHelper helperDB;
 
-	public AlignmentBased(boolean flatten) {
-		super(new IbexClassInhHier2DB(flatten, projectName), flatten);
+	public AlignmentBased() {
+		super(new IbexClassInhHier2DB(projectName));
 	}
 	
 	@Override

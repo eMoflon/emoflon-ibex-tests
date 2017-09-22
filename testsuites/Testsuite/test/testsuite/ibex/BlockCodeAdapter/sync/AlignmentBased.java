@@ -16,8 +16,8 @@ public class AlignmentBased extends SyncTestCase<File, Specification> {
 	private MocaTreeHelperForBlockCode helperMT;
 	private BlockLanguageHelper helperBlock;
 	
-	public AlignmentBased(boolean flatten) {
-		super(new IbexBlockCodeAdapter(flatten, projectName), flatten);
+	public AlignmentBased() {
+		super(new IbexBlockCodeAdapter(projectName));
 	}
 	
 	protected void initHelpers() {

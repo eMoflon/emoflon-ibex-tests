@@ -14,8 +14,8 @@ import Persons.PersonsPackage;
 import testsuite.ibex.testUtil.SyncTestCase;
 
 public abstract class FamiliesToPersonsTestCase extends SyncTestCase<FamilyRegister, PersonRegister> {
-	public FamiliesToPersonsTestCase(boolean flatten) {
-		super(new IbexFamiliesToPersons(flatten, projectName), flatten);
+	public FamiliesToPersonsTestCase() {
+		super(new IbexFamiliesToPersons(projectName));
 	}
 
 	protected static final String projectName = "BenchmarxFamiliesToPersons";

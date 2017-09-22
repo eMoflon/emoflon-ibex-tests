@@ -7,11 +7,6 @@ import testsuite.ibex.BenchmarxFamiliesToPersons.FamiliesToPersonsTestCase;
 
 public class IncrementalForward extends FamiliesToPersonsTestCase {
 	
-	
-	public IncrementalForward(boolean flatten) {
-		super(flatten);
-	}
-
 	/**
 	 * <b>Test</b> for inserting of a family members into an existing family after
 	 * the birthday dates in the Person register have been changed. <br/>

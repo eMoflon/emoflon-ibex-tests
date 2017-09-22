@@ -15,8 +15,8 @@ public class Batch extends testsuite.ibex.testUtil.SyncTestCase<ClassPackage, DB
 	ClassInheritanceHierarchyHelper helperClassInh;
 	DatabaseHelper helperDB;
 
-	public Batch(boolean flatten) {
-		super(new IbexClassInhHier2DB(flatten, projectName), flatten);
+	public Batch() {
+		super(new IbexClassInhHier2DB(projectName));
 	}
 	
 	@Override

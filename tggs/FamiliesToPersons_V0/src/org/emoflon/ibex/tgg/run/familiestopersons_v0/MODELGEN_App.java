@@ -11,14 +11,14 @@ import SimplePersons.impl.SimplePersonsPackageImpl;
 
 public class MODELGEN_App extends MODELGEN {
 
-	public MODELGEN_App(String projectName, String workspacePath, boolean flatten, boolean debug) throws IOException {
-		super(projectName, workspacePath, flatten, debug);
+	public MODELGEN_App(String projectName, String workspacePath, boolean debug) throws IOException {
+		super(projectName, workspacePath, debug);
 		registerPatternMatchingEngine(new DemoclesEngine());
 	}
 	
 	public static void main(String[] args) throws IOException {
-		MODELGEN_App refinedGenerator = new MODELGEN_App("FamiliesToPersons_V0", "./../", false, false);
-		MODELGEN_App flatGenerator = new MODELGEN_App("FamiliesToPersons_V0", "./../", true, false);
+		MODELGEN_App refinedGenerator = new MODELGEN_App("FamiliesToPersons_V0", "./../", false);
+		MODELGEN_App flatGenerator = new MODELGEN_App("FamiliesToPersons_V0", "./../", false);
 		
 		runPerformanceTest(refinedGenerator, "refinedGenerator");
 		runPerformanceTest(flatGenerator, "flatGenerator");

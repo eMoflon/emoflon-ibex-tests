@@ -20,14 +20,14 @@ import testsuite.ibex.testUtil.IbexAdapter;
  */
 public class IbexProcessCodeAdapter extends IbexAdapter<Folder, SystemModule>   {
 	
-	public IbexProcessCodeAdapter(boolean flatten, String projectName) {
-		super(new MocaTreeFolderComparator(true), new ProcessDefinitionComparator(true), flatten, projectName);
+	public IbexProcessCodeAdapter(String projectName) {
+		super(new MocaTreeFolderComparator(true), new ProcessDefinitionComparator(true), projectName);
 	}
 	
 	@Override
 	public void initiateSynchronisationDialogue() {
 		try {
-			synchroniser = new SYNC_App(projectName, testsuite.ibex.testUtil.Constants.workspacePath, flatten, false);
+			synchroniser = new SYNC_App(projectName, testsuite.ibex.testUtil.Constants.workspacePath, false);
 			
 			Folder folder = MocaTreeFactory.eINSTANCE.createFolder();
 			folder.setName("Example");

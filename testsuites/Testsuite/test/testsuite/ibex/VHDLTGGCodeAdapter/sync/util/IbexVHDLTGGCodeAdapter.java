@@ -20,14 +20,14 @@ import testsuite.ibex.testUtil.IbexAdapter;
  */
 public class IbexVHDLTGGCodeAdapter extends IbexAdapter<File, VHDLSpecification>   {
 
-	public IbexVHDLTGGCodeAdapter(boolean flatten, String projectName) {
-		super(new MocaTreeFileComparator(true), new VHDLModelComparator(true), flatten, projectName);
+	public IbexVHDLTGGCodeAdapter(String projectName) {
+		super(new MocaTreeFileComparator(true), new VHDLModelComparator(true), projectName);
 	}
 	
 	@Override
 	public void initiateSynchronisationDialogue() {
 		try {
-			synchroniser = new SYNC_App(projectName, testsuite.ibex.testUtil.Constants.workspacePath, flatten, false);
+			synchroniser = new SYNC_App(projectName, testsuite.ibex.testUtil.Constants.workspacePath, false);
 			
 			VHDLSpecification spec = VHDLModelFactory.eINSTANCE.createVHDLSpecification();
 			spec.setName("Example");

@@ -8,10 +8,6 @@ import testsuite.ibex.testUtil.Decisions;
 
 public class IncrementalBackward extends FamiliesToPersonsTestCase {
 	
-	public IncrementalBackward(boolean flatten) {
-		super(flatten);
-	}
-
 	/**
 	 * <b>Test</b> for inserting of a Person in a PersonRegister after the initial
 	 * register has been transformed into a family model. Please note: In order to

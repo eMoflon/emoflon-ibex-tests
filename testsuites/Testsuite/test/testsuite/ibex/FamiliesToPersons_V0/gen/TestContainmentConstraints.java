@@ -7,10 +7,6 @@ import org.junit.Test;
 
 public class TestContainmentConstraints extends FamiliesToPersonsModelGenTestCase {
 	
-	public TestContainmentConstraints(boolean flatten) {
-		super(flatten);
-	}
-	
 	/**
 	 * Tests if the generated NAC for the containment of the FamilyMember
 	 * correctly prevents the application of ReplaceFatherWithSon.

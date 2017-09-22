@@ -17,8 +17,8 @@ public class AlignmentBased extends SyncTestCase<FamilyRegister, PersonRegister>
 	private SimpleFamiliesHelper helperFamily;
 	private SimplePersonsHelper helperPerson;
 
-	public AlignmentBased(boolean flatten) {
-		super(new IbexSimpleFamiliesToPersons(flatten, projectName), flatten);
+	public AlignmentBased() {
+		super(new IbexSimpleFamiliesToPersons(projectName));
 	}
 	
 	protected void initHelpers() {

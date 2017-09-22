@@ -16,8 +16,8 @@ public class Batch extends SyncTestCase<FamilyRegister, PersonRegister> {
 	private SimpleFamiliesHelper helperFamily;
 	private SimplePersonsHelper helperPerson;
 
-	public Batch(boolean flatten) {
-		super(new IbexSimpleFamiliesToPersons(flatten, projectName), flatten);
+	public Batch() {
+		super(new IbexSimpleFamiliesToPersons(projectName));
 	}
 	
 	protected void initHelpers() {
