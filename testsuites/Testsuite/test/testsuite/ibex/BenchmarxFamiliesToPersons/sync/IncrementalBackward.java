@@ -102,7 +102,8 @@ public class IncrementalBackward extends FamiliesToPersonsTestCase {
 	 * <b>Features</b>: bwd, del
 	 */
 	
-	@Ignore ("Fails due to least change problems.")
+	//FIXME [Greg]:  Democles throws a DanglingNode exception but the deletion is fine as far as I can tell.
+	@Ignore
 	@Test
 	public void testIncrementalDeletions() {
 		util.configure()

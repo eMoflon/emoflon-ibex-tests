@@ -141,7 +141,6 @@ public class IncrementalForward extends FamiliesToPersonsTestCase {
 	 * <b>Features</b>: fwd, structural, add+del, fixed 
 	 */
 	
-	@Ignore ("Fails due to least change problems.")
 	@Test
 	public void testIncrementalMixed() {
 		tool.performAndPropagateSourceEdit(util
