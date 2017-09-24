@@ -18,7 +18,7 @@ public abstract class FamiliesToPersonsTestCase extends SyncTestCase<FamilyRegis
 		super(new IbexFamiliesToPersons(projectName));
 	}
 
-	protected static final String projectName = "BenchmarxFamiliesToPersons";
+	protected static String projectName = "BenchmarxFamiliesToPersons";
 
 	protected Comparator<FamilyRegister> familiesComparator;
 	protected Comparator<PersonRegister> personsComparator;
