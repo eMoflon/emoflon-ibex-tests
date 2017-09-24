@@ -5,18 +5,14 @@ import org.benchmarx.util.BenchmarxUtil;
 import org.eclipse.emf.ecore.EObject;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
 
-@RunWith(Parameterized.class)
 public abstract class SyncTestCase<S extends EObject, T extends EObject> extends TestCase {
 	private final String resourcePath = "../../../tggs/"+getProjectName()+"/resources/";
 
 	protected BXTool<S, T, Decisions> tool;
 	protected BenchmarxUtil<S, T, Decisions> util;
 	
-	protected SyncTestCase(IbexAdapter<S, T> tool, boolean flatten) {
-		super(flatten);
+	protected SyncTestCase(IbexAdapter<S, T> tool) {
 		this.tool = tool;
 	}
 	

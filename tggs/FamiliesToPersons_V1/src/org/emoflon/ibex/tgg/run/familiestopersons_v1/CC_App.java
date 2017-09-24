@@ -13,9 +13,9 @@ public class CC_App extends CC {
 	private String srcPath;
 	private String trgPath;
 
-	public CC_App(String projectName, String workspacePath, boolean flatten, boolean debug,
+	public CC_App(String projectName, String workspacePath, boolean debug,
 			String srcPath, String trgPath) throws IOException {
-		super(projectName, workspacePath, flatten, debug);
+		super(projectName, workspacePath, debug);
 		this.srcPath = srcPath;
 		this.trgPath = trgPath;
 		registerPatternMatchingEngine(new DemoclesEngine());

@@ -8,13 +8,9 @@ import org.junit.Test;
 import testsuite.ibex.testUtil.CCTestCase;
 
 public class TestSimpleNegative extends CCTestCase {
-	
-	public TestSimpleNegative(boolean flatten) {
-		super(flatten);
-	}
-	
+		
 	public void createGenerator(String srcInstance, String trgInstance) throws IOException {
-		checker = new CC_App("CompanyToIT", testsuite.ibex.testUtil.Constants.workspacePath, flatten, false, srcInstance, trgInstance);
+		checker = new CC_App("CompanyToIT", testsuite.ibex.testUtil.Constants.workspacePath, false, srcInstance, trgInstance);
 	}
 	
 	@Test

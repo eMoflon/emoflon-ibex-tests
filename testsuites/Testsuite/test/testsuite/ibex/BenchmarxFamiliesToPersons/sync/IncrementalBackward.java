@@ -8,10 +8,6 @@ import testsuite.ibex.testUtil.Decisions;
 
 public class IncrementalBackward extends FamiliesToPersonsTestCase {
 	
-	public IncrementalBackward(boolean flatten) {
-		super(flatten);
-	}
-
 	/**
 	 * <b>Test</b> for inserting of a Person in a PersonRegister after the initial
 	 * register has been transformed into a family model. Please note: In order to
@@ -106,7 +102,8 @@ public class IncrementalBackward extends FamiliesToPersonsTestCase {
 	 * <b>Features</b>: bwd, del
 	 */
 	
-	@Ignore ("Fails due to least change problems.")
+	//FIXME [Greg]:  Democles throws a DanglingNode exception but the deletion is fine as far as I can tell.
+	@Ignore
 	@Test
 	public void testIncrementalDeletions() {
 		util.configure()

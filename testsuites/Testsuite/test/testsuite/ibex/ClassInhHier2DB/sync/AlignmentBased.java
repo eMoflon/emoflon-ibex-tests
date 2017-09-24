@@ -17,8 +17,8 @@ public class AlignmentBased extends SyncTestCase<ClassPackage, DB> {
 	ClassInheritanceHierarchyHelper helperClassInh;
 	DatabaseHelper helperDB;
 
-	public AlignmentBased(boolean flatten) {
-		super(new IbexClassInhHier2DB(flatten, projectName), flatten);
+	public AlignmentBased() {
+		super(new IbexClassInhHier2DB(projectName));
 	}
 	
 	@Override
@@ -223,5 +223,17 @@ public class AlignmentBased extends SyncTestCase<ClassPackage, DB> {
 		});
 		
 		assertPostcondition("expected/MovedAttributes", "expected/MovedCols");
+	}
+	
+	@Test
+	public void testFilterNACsForRevokingPhase() {
+		tool.performAndPropagateSourceEdit(p -> helperClassInh.createClass(p, "C1"));
+		tool.performAndPropagateSourceEdit(p -> helperClassInh.createClass(p, "C2"));
+		//------------
+		assertPrecondition("in/TwoClasses", "in/TwoTables");		
+		
+		tool.performAndPropagateSourceEdit(p -> helperClassInh.addInheritance(p, 1, 0));
+		
+		assertPostcondition("in/SubClassToTable_FWD", "in/SubClassToTable_BWD");
 	}
 }

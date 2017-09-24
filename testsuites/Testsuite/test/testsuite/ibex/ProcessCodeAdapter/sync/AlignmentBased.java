@@ -15,8 +15,8 @@ public class AlignmentBased extends SyncTestCase<Folder, SystemModule> {
 	MocaTreeHelperForProcessCode helperMoca;
 	ProcessDefinitionHelper helperProcess;
 
-	public AlignmentBased(boolean flatten) {
-		super(new IbexProcessCodeAdapter(flatten, projectName), flatten);
+	public AlignmentBased() {
+		super(new IbexProcessCodeAdapter(projectName));
 	}
 	
 	protected void initHelpers() {

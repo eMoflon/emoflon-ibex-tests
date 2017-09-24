@@ -12,15 +12,15 @@ import Persons.impl.PersonsPackageImpl;
 
 public class SYNC_App extends SYNC {
 
-	public SYNC_App(String projectName, String workspacePath, boolean flatten, boolean debug) throws IOException {
-		super(projectName, workspacePath, flatten, debug);
+	public SYNC_App(String projectName, String workspacePath, boolean debug) throws IOException {
+		super(projectName, workspacePath, debug);
 		registerPatternMatchingEngine(new DemoclesEngine());
 	}
 
 	public static void main(String[] args) throws IOException {
 		BasicConfigurator.configure();
 
-		SYNC_App sync = new SYNC_App("BenchmarxFamiliesToPersons", "./../", false, false);
+		SYNC_App sync = new SYNC_App("BenchmarxFamiliesToPersons", "./../", false);
 		
 		logger.info("Starting SYNC");
 		long tic = System.currentTimeMillis();

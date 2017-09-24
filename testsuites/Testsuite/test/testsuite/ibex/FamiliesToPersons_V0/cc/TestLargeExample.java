@@ -6,14 +6,9 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 public class TestLargeExample extends FamiliesToPersonsCCTestCase {
-	
-	public TestLargeExample(boolean flatten) {
-		super(flatten);
-	}
-	
 	public static void main(String[] args) throws IOException {
 		init();
-		TestLargeExample test = new TestLargeExample(true);
+		TestLargeExample test = new TestLargeExample();
 		test.test600Children();
 	}
 	

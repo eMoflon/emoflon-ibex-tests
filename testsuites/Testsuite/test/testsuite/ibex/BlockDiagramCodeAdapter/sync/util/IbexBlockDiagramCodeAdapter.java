@@ -20,14 +20,14 @@ import testsuite.ibex.testUtil.IbexAdapter;
  */
 public class IbexBlockDiagramCodeAdapter extends IbexAdapter<BlockSystem, File>   {
 	
-	public IbexBlockDiagramCodeAdapter(boolean flatten, String projectName) {
-		super(new BlockDiagramComparator(true), new MocaTreeFileComparator(true), flatten, projectName);
+	public IbexBlockDiagramCodeAdapter(String projectName) {
+		super(new BlockDiagramComparator(true), new MocaTreeFileComparator(true), projectName);
 	}
 	
 	@Override
 	public void initiateSynchronisationDialogue() {
 		try {
-			synchroniser = new SYNC_App("BlockDiagramCodeAdapter", testsuite.ibex.testUtil.Constants.workspacePath, flatten, false);
+			synchroniser = new SYNC_App("BlockDiagramCodeAdapter", testsuite.ibex.testUtil.Constants.workspacePath, false);
 			
 			BlockSystem bs = BlockDiagramFactory.eINSTANCE.createBlockSystem();
 			bs.setName("aBlockSystem");

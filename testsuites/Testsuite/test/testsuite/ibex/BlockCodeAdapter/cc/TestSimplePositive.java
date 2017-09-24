@@ -11,13 +11,8 @@ import org.junit.runners.Parameterized.Parameters;
 import testsuite.ibex.testUtil.CCTestCase;
 
 public class TestSimplePositive extends CCTestCase {
-	
-	public TestSimplePositive(boolean flatten) {
-		super(flatten);
-	}
-	
 	public void createGenerator(String srcInstance, String trgInstance) throws IOException {
-		checker = new CC_App("BlockCodeAdapter", testsuite.ibex.testUtil.Constants.workspacePath, flatten, false, srcInstance, trgInstance);
+		checker = new CC_App("BlockCodeAdapter", testsuite.ibex.testUtil.Constants.workspacePath, false, srcInstance, trgInstance);
 	}
 	
 	@Parameters(name="eMoflon::IBeX, Flattened: true")

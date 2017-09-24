@@ -15,9 +15,8 @@ public class Batch extends testsuite.ibex.testUtil.SyncTestCase<BlockSystem, Fil
 	BlockDiagramHelper helperBlock;
 	MocaTreeHelperForBlockDiagramCode helperMT;
 
-	/** Currently, some of these tests fail due to Assertion Error in Democles*/
-	public Batch(boolean flatten) {
-		super(new IbexBlockDiagramCodeAdapter(flatten, projectName), flatten);
+	public Batch() {
+		super(new IbexBlockDiagramCodeAdapter(projectName));
 	}
 	
 	protected void initHelpers() {

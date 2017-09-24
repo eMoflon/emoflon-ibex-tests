@@ -34,4 +34,11 @@ public class ClassInheritanceHierarchyHelper {
 		
 		c.getAttributes().add(attr);
 	}
+
+	public void addInheritance(ClassPackage pkg, int posSub, int posSuper) {
+		Clazz sub = pkg.getClasses().get(posSub);
+		Clazz sup = pkg.getClasses().get(posSuper);
+		
+		sub.setSuperClass(sup);
+	}
 }

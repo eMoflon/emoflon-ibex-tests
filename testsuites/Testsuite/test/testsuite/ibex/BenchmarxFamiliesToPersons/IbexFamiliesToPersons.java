@@ -15,14 +15,14 @@ import testsuite.ibex.testUtil.IbexAdapter;
 
 public class IbexFamiliesToPersons extends IbexAdapter<FamilyRegister, PersonRegister>{
 
-	public IbexFamiliesToPersons(boolean flatten, String projectName) {
-		super(new FamiliesComparator(), new PersonsComparator(), flatten, projectName);
+	public IbexFamiliesToPersons(String projectName) {
+		super(new FamiliesComparator(), new PersonsComparator(), projectName);
 	}
 	
 	@Override
 	public void initiateSynchronisationDialogue() {
 		try {
-			synchroniser = new SYNC_App(projectName, testsuite.ibex.testUtil.Constants.workspacePath, flatten, false);
+			synchroniser = new SYNC_App(projectName, testsuite.ibex.testUtil.Constants.workspacePath, false);
 			FamilyRegister familiesRoot = FamiliesFactory.eINSTANCE.createFamilyRegister();
 			synchroniser.getSourceResource().getContents().add(familiesRoot);
 			synchroniser.forward();

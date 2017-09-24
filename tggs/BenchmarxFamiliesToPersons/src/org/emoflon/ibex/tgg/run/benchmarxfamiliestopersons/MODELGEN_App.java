@@ -12,15 +12,15 @@ import Persons.impl.PersonsPackageImpl;
 
 public class MODELGEN_App extends MODELGEN {
 
-	public MODELGEN_App(String projectName, String workspacePath, boolean flatten, boolean debug) throws IOException {
-		super(projectName, workspacePath, flatten, debug);
+	public MODELGEN_App(String projectName, String workspacePath, boolean debug) throws IOException {
+		super(projectName, workspacePath, debug);
 		registerPatternMatchingEngine(new DemoclesEngine());
 	}
 
 	public static void main(String[] args) throws IOException {
 		BasicConfigurator.configure();
 
-		MODELGEN_App generator = new MODELGEN_App("BenchmarxFamiliesToPersons", "./../", false, false);
+		MODELGEN_App generator = new MODELGEN_App("BenchmarxFamiliesToPersons", "./../", false);
 		
 		MODELGENStopCriterion stop = new MODELGENStopCriterion(generator.getTGG());
 		stop.setTimeOutInMS(1000);

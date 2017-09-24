@@ -20,14 +20,14 @@ import testsuite.ibex.testUtil.IbexAdapter;
  */
 public class IbexBlockCodeAdapter extends IbexAdapter<File, Specification>   {
 	
-	public IbexBlockCodeAdapter(boolean flatten, String projectName) {
-		super(new MocaTreeFileComparator(true), new BlockLanguageComparator(true), flatten, projectName);
+	public IbexBlockCodeAdapter(String projectName) {
+		super(new MocaTreeFileComparator(true), new BlockLanguageComparator(true), projectName);
 	}
 	
 	@Override
 	public void initiateSynchronisationDialogue() {
 		try {
-			synchroniser = new SYNC_App(projectName, testsuite.ibex.testUtil.Constants.workspacePath, flatten, false);
+			synchroniser = new SYNC_App(projectName, testsuite.ibex.testUtil.Constants.workspacePath, false);
 			
 			Specification s = BlockLanguageFactory.eINSTANCE.createSpecification();
 			s.setName("specification");

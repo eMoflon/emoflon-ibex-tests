@@ -5,10 +5,6 @@ import java.io.IOException;
 import org.junit.Test;
 
 public class TestNoCorrespondence extends FamiliesToPersonsModelGenTestCase {
-	
-	public TestNoCorrespondence(boolean flatten) {
-		super(flatten);
-	}
 
 	/**
 	 * Currently, this test works sometimes, while it encounters a "join-failed"

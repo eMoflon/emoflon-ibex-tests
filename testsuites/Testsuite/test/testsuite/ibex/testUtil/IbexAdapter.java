@@ -19,14 +19,12 @@ public abstract class IbexAdapter<S extends EObject, T extends EObject> extends 
 
 	protected static final String RESULTPATH = "results/ibex";
 	
-	protected boolean flatten;
 	protected String projectName;
 	protected SYNC synchroniser;
 	protected Configurator<Decisions> configurator;
 	
-	public IbexAdapter(Comparator<S> src, Comparator<T> trg, boolean flatten, String projectName) {
+	public IbexAdapter(Comparator<S> src, Comparator<T> trg, String projectName) {
 		super(src, trg);
-		this.flatten = flatten;
 		this.projectName = projectName;
 	}
 	

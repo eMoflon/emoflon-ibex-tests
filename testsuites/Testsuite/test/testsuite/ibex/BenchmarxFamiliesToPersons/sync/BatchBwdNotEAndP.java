@@ -7,10 +7,6 @@ import testsuite.ibex.testUtil.Decisions;
 
 public class BatchBwdNotEAndP extends FamiliesToPersonsTestCase {
 	
-	public BatchBwdNotEAndP(boolean flatten) {
-		super(flatten);
-	}
-
 	/**
 	 * <b>Test</b> for creation of a single male person (Flanders, Rod).<br/>
 	 * <b>Expect</b> the creation of a family member in the families model with

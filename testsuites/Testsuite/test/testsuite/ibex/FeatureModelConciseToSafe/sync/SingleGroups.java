@@ -10,8 +10,8 @@ import testsuite.ibex.testUtil.SyncTestCase;
 
 public class SingleGroups extends SyncTestCase<Model, FeatureModelSafe.Model>{
 	
-	public SingleGroups(boolean flatten) {
-		super(new IbexFeatureModelConciseToSafe(flatten, projectName), flatten);
+	public SingleGroups() {
+		super(new IbexFeatureModelConciseToSafe(projectName));
 	}
 
 	private static final String projectName = "FeatureModelConciseToSafe";

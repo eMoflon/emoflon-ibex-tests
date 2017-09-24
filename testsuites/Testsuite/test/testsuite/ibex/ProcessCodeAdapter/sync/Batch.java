@@ -15,8 +15,8 @@ public class Batch extends SyncTestCase<Folder, SystemModule> {
 	private MocaTreeHelperForProcessCode helperMoca;
 	private ProcessDefinitionHelper helperProcess;
 
-	public Batch(boolean flatten) {
-		super(new IbexProcessCodeAdapter(flatten, projectName), flatten);
+	public Batch() {
+		super(new IbexProcessCodeAdapter(projectName));
 	}
 	
 	@Override

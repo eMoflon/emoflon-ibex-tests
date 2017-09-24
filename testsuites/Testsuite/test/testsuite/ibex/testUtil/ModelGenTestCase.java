@@ -15,10 +15,6 @@ public abstract class ModelGenTestCase<S, T> extends TestCase {
 	protected Comparator<S> sourceComp;
 	protected Comparator<T> targetComp;
 	
-	protected ModelGenTestCase(boolean flatten) {
-		super(flatten);
-	}
-	
 	protected abstract String getProjectName();
 	
 	protected String getResourcePath() {
