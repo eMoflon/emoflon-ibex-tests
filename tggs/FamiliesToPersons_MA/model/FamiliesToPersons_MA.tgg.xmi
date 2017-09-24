@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="ASCII"?>
+<org.emoflon.ibex.tgg.core.language:TGG xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.emoflon.ibex.tgg.core.language="platform:/plugin/org.emoflon.ibex.tgg.core.language/model/Language.ecore#/" name="Families2Persons_MA">
+  <src href="platform:/resource/Families/model/Families.ecore#/"/>
+  <trg href="platform:/resource/Persons/model/Persons.ecore#/"/>
+  <corr href="platform:/resource/FamiliesToPersons_MA/model/FamiliesToPersons_MA.ecore#/"/>
+  <rules name="CreateFamily">
+    <nodes name="familyReg" incomingEdges="//@rules.0/@edges.1" outgoingEdges="//@rules.0/@edges.0" incomingCorrsSource="//@rules.0/@nodes.3">
+      <type href="platform:/resource/Families/model/Families.ecore#//FamilyRegister"/>
+    </nodes>
+    <nodes name="family" bindingType="CREATE" incomingEdges="//@rules.0/@edges.0" outgoingEdges="//@rules.0/@edges.1">
+      <type href="platform:/resource/Families/model/Families.ecore#//Family"/>
+    </nodes>
+    <nodes name="personReg" domainType="TRG" incomingCorrsTarget="//@rules.0/@nodes.3">
+      <type href="platform:/resource/Persons/model/Persons.ecore#//PersonRegister"/>
+    </nodes>
+    <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="familyReg2personReg" domainType="CORR" source="//@rules.0/@nodes.0" target="//@rules.0/@nodes.2">
+      <type href="platform:/resource/FamiliesToPersons_MA/model/FamiliesToPersons_MA.ecore#//Families2PersonsCorr"/>
+    </nodes>
+    <edges name="familyReg__families__family_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.0/@nodes.0" trgNode="//@rules.0/@nodes.1">
+      <type href="platform:/resource/Families/model/Families.ecore#//FamilyRegister/families"/>
+    </edges>
+    <edges name="family__familiesInverse__familyReg_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.0/@nodes.1" trgNode="//@rules.0/@nodes.0">
+      <type href="platform:/resource/Families/model/Families.ecore#//Family/familiesInverse"/>
+    </edges>
+    <attributeConditionLibrary/>
+  </rules>
+  <rules name="Families2Persons">
+    <nodes name="familyReg" bindingType="CREATE" incomingCorrsSource="//@rules.1/@nodes.2">
+      <type href="platform:/resource/Families/model/Families.ecore#//FamilyRegister"/>
+    </nodes>
+    <nodes name="personReg" domainType="TRG" bindingType="CREATE" incomingCorrsTarget="//@rules.1/@nodes.2">
+      <type href="platform:/resource/Persons/model/Persons.ecore#//PersonRegister"/>
+    </nodes>
+    <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="families2persons" domainType="CORR" bindingType="CREATE" source="//@rules.1/@nodes.0" target="//@rules.1/@nodes.1">
+      <type href="platform:/resource/FamiliesToPersons_MA/model/FamiliesToPersons_MA.ecore#//Families2PersonsCorr"/>
+    </nodes>
+    <attributeConditionLibrary/>
+  </rules>
+  <attributeConstraintDefinitionLibrary/>
+</org.emoflon.ibex.tgg.core.language:TGG>

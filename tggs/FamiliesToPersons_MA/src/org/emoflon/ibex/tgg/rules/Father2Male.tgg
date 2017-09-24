@@ -1,0 +1,37 @@
+#using FamiliesToPersons_MA.*
+#using AttrCondDefLibrary.*
+
+#complement Father2Male #for CreateFamily
+
+#source { 
+	
+	family : Family {
+		++ -father -> father
+	}
+	
+	++ father : FamilyMember
+}
+
+#target {
+	
+	personReg : PersonRegister{
+		++ -persons-> malePerson
+	}
+	
+	++ malePerson : Male
+}
+
+#correspondence {
+	
+	++ father2malePerson : Families2Persons_MA.FamilyMember2Person{
+		#src->father
+		#trg->malePerson
+	}
+	
+}
+
+#attributeConditions {
+	concat(", ", father.name, family.name, malePerson.name)
+}
+
+
