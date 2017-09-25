@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:emf="http://gervarro.org/democles/constraint/emf.ecore" xmlns:specification="http://gervarro.org/democles/specification.ecore">
+  <specification:Pattern name="AttributeToColumnRule__CONTEXT_SRC">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="clazz">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/ClassInheritanceHierarchy/model/ClassInheritanceHierarchy.ecore#//Clazz"/>
+    </symbolicParameters>
+    <bodies/>
+  </specification:Pattern>
+  <specification:Pattern name="AttributeToColumnRule__CONTEXT_TRG">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="table">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/Database/model/Database.ecore#//Table"/>
+    </symbolicParameters>
+    <bodies/>
+  </specification:Pattern>
+  <specification:Pattern name="AttributeToColumnRule__CONTEXT_CORR">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="clazz">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/ClassInheritanceHierarchy/model/ClassInheritanceHierarchy.ecore#//Clazz"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="table">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/Database/model/Database.ecore#//Table"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="clazzToTable">
+      <eClassifier xsi:type="ecore:EClass" href="../model/ClassInhHier2DB_MA.ecore#//Clazz2Table"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/2/@symbolicParameters.2"/>
+        <parameters reference="/2/@symbolicParameters.0"/>
+        <eModelElement xsi:type="ecore:EReference" href="../model/ClassInhHier2DB_MA.ecore#//Clazz2Table/source"/>
+      </constraints>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/2/@symbolicParameters.2"/>
+        <parameters reference="/2/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../model/ClassInhHier2DB_MA.ecore#//Clazz2Table/target"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="AttributeToColumnRule__GEN_REFINEMENT_INVOCATIONS">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="clazz">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/ClassInheritanceHierarchy/model/ClassInheritanceHierarchy.ecore#//Clazz"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="table">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/Database/model/Database.ecore#//Table"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="clazzToTable">
+      <eClassifier xsi:type="ecore:EClass" href="../model/ClassInhHier2DB_MA.ecore#//Clazz2Table"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="AttributeToColumnRule__CONTEXT_SRC">
+        <parameters reference="/3/@symbolicParameters.0"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="AttributeToColumnRule__CONTEXT_TRG">
+        <parameters reference="/3/@symbolicParameters.1"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="AttributeToColumnRule__CONTEXT_CORR">
+        <parameters reference="/3/@symbolicParameters.0"/>
+        <parameters reference="/3/@symbolicParameters.1"/>
+        <parameters reference="/3/@symbolicParameters.2"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="AttributeToColumnRule__GEN">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="clazz">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/ClassInheritanceHierarchy/model/ClassInheritanceHierarchy.ecore#//Clazz"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="table">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/Database/model/Database.ecore#//Table"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="clazzToTable">
+      <eClassifier xsi:type="ecore:EClass" href="../model/ClassInhHier2DB_MA.ecore#//Clazz2Table"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="AttributeToColumnRule__GEN_REFINEMENT_INVOCATIONS">
+        <parameters reference="/4/@symbolicParameters.0"/>
+        <parameters reference="/4/@symbolicParameters.1"/>
+        <parameters reference="/4/@symbolicParameters.2"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="ClassToTableRule__CONTEXT_TRG">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="db">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/Database/model/Database.ecore#//DB"/>
+    </symbolicParameters>
+    <bodies/>
+  </specification:Pattern>
+  <specification:Pattern name="ClassToTableRule__CONTEXT_SRC">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="packageClass">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/ClassInheritanceHierarchy/model/ClassInheritanceHierarchy.ecore#//ClassPackage"/>
+    </symbolicParameters>
+    <bodies/>
+  </specification:Pattern>
+  <specification:Pattern name="ClassToTableRule__CONTEXT_CORR">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="packageClass">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/ClassInheritanceHierarchy/model/ClassInheritanceHierarchy.ecore#//ClassPackage"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="db">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/Database/model/Database.ecore#//DB"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="packageToDb">
+      <eClassifier xsi:type="ecore:EClass" href="../model/ClassInhHier2DB_MA.ecore#//Package2DB"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/7/@symbolicParameters.2"/>
+        <parameters reference="/7/@symbolicParameters.0"/>
+        <eModelElement xsi:type="ecore:EReference" href="../model/ClassInhHier2DB_MA.ecore#//Package2DB/source"/>
+      </constraints>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/7/@symbolicParameters.2"/>
+        <parameters reference="/7/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../model/ClassInhHier2DB_MA.ecore#//Package2DB/target"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="ClassToTableRule__GEN_REFINEMENT_INVOCATIONS">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="packageClass">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/ClassInheritanceHierarchy/model/ClassInheritanceHierarchy.ecore#//ClassPackage"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="db">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/Database/model/Database.ecore#//DB"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="packageToDb">
+      <eClassifier xsi:type="ecore:EClass" href="../model/ClassInhHier2DB_MA.ecore#//Package2DB"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="ClassToTableRule__CONTEXT_TRG">
+        <parameters reference="/8/@symbolicParameters.1"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="ClassToTableRule__CONTEXT_SRC">
+        <parameters reference="/8/@symbolicParameters.0"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="ClassToTableRule__CONTEXT_CORR">
+        <parameters reference="/8/@symbolicParameters.0"/>
+        <parameters reference="/8/@symbolicParameters.1"/>
+        <parameters reference="/8/@symbolicParameters.2"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="ClassToTableRule__GEN">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="packageClass">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/ClassInheritanceHierarchy/model/ClassInheritanceHierarchy.ecore#//ClassPackage"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="db">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/Database/model/Database.ecore#//DB"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="packageToDb">
+      <eClassifier xsi:type="ecore:EClass" href="../model/ClassInhHier2DB_MA.ecore#//Package2DB"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="ClassToTableRule__GEN_REFINEMENT_INVOCATIONS">
+        <parameters reference="/9/@symbolicParameters.0"/>
+        <parameters reference="/9/@symbolicParameters.1"/>
+        <parameters reference="/9/@symbolicParameters.2"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="SubClassToTable__CONTEXT_SRC">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="package">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/ClassInheritanceHierarchy/model/ClassInheritanceHierarchy.ecore#//ClassPackage"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="superClazz">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/ClassInheritanceHierarchy/model/ClassInheritanceHierarchy.ecore#//Clazz"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/10/@symbolicParameters.1"/>
+        <parameters reference="/10/@symbolicParameters.0"/>
+        <eModelElement xsi:type="ecore:EReference" href="../../../plugin/ClassInheritanceHierarchy/model/ClassInheritanceHierarchy.ecore#//Clazz/package"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="SubClassToTable__CONTEXT_TRG">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="db">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/Database/model/Database.ecore#//DB"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="superTable">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/Database/model/Database.ecore#//Table"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/11/@symbolicParameters.0"/>
+        <parameters reference="/11/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../../../plugin/Database/model/Database.ecore#//DB/tables"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="SubClassToTable__CONTEXT_CORR">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="superClazz">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/ClassInheritanceHierarchy/model/ClassInheritanceHierarchy.ecore#//Clazz"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="superTable">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/Database/model/Database.ecore#//Table"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="superClass2SuperTable">
+      <eClassifier xsi:type="ecore:EClass" href="../model/ClassInhHier2DB_MA.ecore#//Clazz2Table"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/12/@symbolicParameters.2"/>
+        <parameters reference="/12/@symbolicParameters.0"/>
+        <eModelElement xsi:type="ecore:EReference" href="../model/ClassInhHier2DB_MA.ecore#//Clazz2Table/source"/>
+      </constraints>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/12/@symbolicParameters.2"/>
+        <parameters reference="/12/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../model/ClassInhHier2DB_MA.ecore#//Clazz2Table/target"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="SubClassToTable__GEN_REFINEMENT_INVOCATIONS">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="package">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/ClassInheritanceHierarchy/model/ClassInheritanceHierarchy.ecore#//ClassPackage"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="superClazz">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/ClassInheritanceHierarchy/model/ClassInheritanceHierarchy.ecore#//Clazz"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="db">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/Database/model/Database.ecore#//DB"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="superTable">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/Database/model/Database.ecore#//Table"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="superClass2SuperTable">
+      <eClassifier xsi:type="ecore:EClass" href="../model/ClassInhHier2DB_MA.ecore#//Clazz2Table"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="SubClassToTable__CONTEXT_SRC">
+        <parameters reference="/13/@symbolicParameters.0"/>
+        <parameters reference="/13/@symbolicParameters.1"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="SubClassToTable__CONTEXT_TRG">
+        <parameters reference="/13/@symbolicParameters.2"/>
+        <parameters reference="/13/@symbolicParameters.3"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="SubClassToTable__CONTEXT_CORR">
+        <parameters reference="/13/@symbolicParameters.1"/>
+        <parameters reference="/13/@symbolicParameters.3"/>
+        <parameters reference="/13/@symbolicParameters.4"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="SubClassToTable__GEN">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="package">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/ClassInheritanceHierarchy/model/ClassInheritanceHierarchy.ecore#//ClassPackage"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="superClazz">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/ClassInheritanceHierarchy/model/ClassInheritanceHierarchy.ecore#//Clazz"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="db">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/Database/model/Database.ecore#//DB"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="superTable">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/Database/model/Database.ecore#//Table"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="superClass2SuperTable">
+      <eClassifier xsi:type="ecore:EClass" href="../model/ClassInhHier2DB_MA.ecore#//Clazz2Table"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="SubClassToTable__GEN_REFINEMENT_INVOCATIONS">
+        <parameters reference="/14/@symbolicParameters.0"/>
+        <parameters reference="/14/@symbolicParameters.1"/>
+        <parameters reference="/14/@symbolicParameters.2"/>
+        <parameters reference="/14/@symbolicParameters.3"/>
+        <parameters reference="/14/@symbolicParameters.4"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+</xmi:XMI>
