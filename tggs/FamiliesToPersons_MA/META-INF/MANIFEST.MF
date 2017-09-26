@@ -22,9 +22,11 @@ Require-Bundle: org.gervarro.democles.common,
  org.emoflon.ibex.tgg.core.language,
  org.emoflon.ibex.tgg.core.runtime,
  org.emoflon.ibex.tgg.runtime.democles,
+ Benchmarx;bundle-version="1.0.0",
  Families;bundle-version="1.0.0",
  Persons;bundle-version="1.0.0"
 Bundle-ManifestVersion: 2
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-Vendor: eMoflon IBeX
+Export-Package: org.emoflon.ibex.tgg.run.familiestopersons_ma

@@ -1,7 +1,7 @@
 #import "platform:/resource/Families/model/Families.ecore"
 #import "platform:/resource/Persons/model/Persons.ecore"
 
-#schema Families2Persons_MA
+#schema FamiliesToPersons_MA
 	
 #source {
 	Families
@@ -12,7 +12,7 @@
 } 
 
 #correspondence {
-	Families2PersonsCorr{
+	FamiliesReg2PersonsRegCorr{
 		#src->FamilyRegister
 		#trg->PersonRegister
 	}

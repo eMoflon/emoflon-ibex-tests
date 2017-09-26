@@ -2,10 +2,10 @@
 <tgg:TripleGraphGrammarFile xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tgg="http://www.moflon.org/ide/tgg/mosl/TGG">
   <imports name="platform:/resource/Families/model/Families.ecore"/>
   <imports name="platform:/resource/Persons/model/Persons.ecore"/>
-  <schema name="Families2Persons_MA">
+  <schema name="FamiliesToPersons_MA">
     <sourceTypes href="platform:/resource/Families/model/Families.ecore#/"/>
     <targetTypes href="platform:/resource/Persons/model/Persons.ecore#/"/>
-    <correspondenceTypes name="Families2PersonsCorr">
+    <correspondenceTypes name="FamiliesReg2PersonsRegCorr">
       <source href="platform:/resource/Families/model/Families.ecore#//FamilyRegister"/>
       <target href="platform:/resource/Persons/model/Persons.ecore#//PersonRegister"/>
     </correspondenceTypes>
@@ -14,227 +14,193 @@
       <target href="platform:/resource/Persons/model/Persons.ecore#//Person"/>
     </correspondenceTypes>
   </schema>
-  <rules name="CreateFamily">
-    <schema href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/CreateFamily.tgg#|0"/>
+  <rules name="CreateFamily" schema="//@schema">
     <sourcePatterns name="familyReg">
-      <type href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/CreateFamily.tgg#|1"/>
-      <linkVariablePatterns>
+      <type href="platform:/resource/Families/model/Families.ecore#//FamilyRegister"/>
+      <linkVariablePatterns target="//@rules.0/@sourcePatterns.1">
         <op value="++"/>
-        <type href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/CreateFamily.tgg#|2"/>
-        <target href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/CreateFamily.tgg#|3"/>
+        <type href="platform:/resource/Families/model/Families.ecore#//FamilyRegister/families"/>
       </linkVariablePatterns>
     </sourcePatterns>
     <sourcePatterns name="family">
       <op value="++"/>
-      <type href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/CreateFamily.tgg#|4"/>
+      <type href="platform:/resource/Families/model/Families.ecore#//Family"/>
     </sourcePatterns>
     <targetPatterns name="personReg">
-      <type href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/CreateFamily.tgg#|5"/>
+      <type href="platform:/resource/Persons/model/Persons.ecore#//PersonRegister"/>
     </targetPatterns>
-    <correspondencePatterns name="familyReg2personReg">
-      <type href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/CreateFamily.tgg#|6"/>
-      <source href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/CreateFamily.tgg#|7"/>
-      <target href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/CreateFamily.tgg#|8"/>
-    </correspondencePatterns>
+    <correspondencePatterns name="familyReg2personReg" type="//@schema/@correspondenceTypes.0" source="//@rules.0/@sourcePatterns.0" target="//@rules.0/@targetPatterns.0"/>
   </rules>
-  <rules name="Families2Persons">
-    <schema href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/Families2Persons.tgg#|0"/>
+  <rules name="Families2Persons" schema="//@schema">
     <sourcePatterns name="familyReg">
       <op value="++"/>
-      <type href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/Families2Persons.tgg#|1"/>
+      <type href="platform:/resource/Families/model/Families.ecore#//FamilyRegister"/>
     </sourcePatterns>
     <targetPatterns name="personReg">
       <op value="++"/>
-      <type href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/Families2Persons.tgg#|2"/>
+      <type href="platform:/resource/Persons/model/Persons.ecore#//PersonRegister"/>
     </targetPatterns>
-    <correspondencePatterns name="families2persons">
+    <correspondencePatterns name="families2persons" type="//@schema/@correspondenceTypes.0" source="//@rules.1/@sourcePatterns.0" target="//@rules.1/@targetPatterns.0">
       <op value="++"/>
-      <type href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/Families2Persons.tgg#|3"/>
-      <source href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/Families2Persons.tgg#|4"/>
-      <target href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/Families2Persons.tgg#|5"/>
     </correspondencePatterns>
   </rules>
-  <complementRules name="Daughter2Female">
-    <kernel href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/Daughter2Female.tgg#|0"/>
+  <complementRules name="Daughter2Female" kernel="//@rules.0">
     <sourcePatterns name="family">
-      <type href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/Daughter2Female.tgg#|1"/>
-      <linkVariablePatterns>
+      <type href="platform:/resource/Families/model/Families.ecore#//Family"/>
+      <linkVariablePatterns target="//@complementRules.0/@sourcePatterns.1">
         <op value="++"/>
-        <type href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/Daughter2Female.tgg#|2"/>
-        <target href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/Daughter2Female.tgg#|3"/>
+        <type href="platform:/resource/Families/model/Families.ecore#//Family/daughters"/>
       </linkVariablePatterns>
     </sourcePatterns>
     <sourcePatterns name="daughter">
       <op value="++"/>
-      <type href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/Daughter2Female.tgg#|4"/>
+      <type href="platform:/resource/Families/model/Families.ecore#//FamilyMember"/>
     </sourcePatterns>
     <targetPatterns name="personReg">
-      <type href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/Daughter2Female.tgg#|5"/>
-      <linkVariablePatterns>
+      <type href="platform:/resource/Persons/model/Persons.ecore#//PersonRegister"/>
+      <linkVariablePatterns target="//@complementRules.0/@targetPatterns.1">
         <op value="++"/>
-        <type href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/Daughter2Female.tgg#|6"/>
-        <target href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/Daughter2Female.tgg#|7"/>
+        <type href="platform:/resource/Persons/model/Persons.ecore#//PersonRegister/persons"/>
       </linkVariablePatterns>
     </targetPatterns>
     <targetPatterns name="femalePerson">
       <op value="++"/>
-      <type href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/Daughter2Female.tgg#|8"/>
+      <type href="platform:/resource/Persons/model/Persons.ecore#//Female"/>
     </targetPatterns>
-    <correspondencePatterns name="daughter2femalePerson">
+    <correspondencePatterns name="daughter2femalePerson" type="//@schema/@correspondenceTypes.1" source="//@complementRules.0/@sourcePatterns.1" target="//@complementRules.0/@targetPatterns.1">
       <op value="++"/>
-      <type href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/Daughter2Female.tgg#|9"/>
-      <source href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/Daughter2Female.tgg#|10"/>
-      <target href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/Daughter2Female.tgg#|11"/>
     </correspondencePatterns>
     <attrConditions>
-      <name href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/Daughter2Female.tgg#|12"/>
+      <name href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/csp/lib/AttrCondDefLibrary.tgg#//@library/@attributeCondDefs.9"/>
       <values xsi:type="tgg:LiteralExpression" value="&quot;, &quot;"/>
       <values xsi:type="tgg:AttributeExpression" objectVar="//@complementRules.0/@sourcePatterns.1">
-        <attribute href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/Daughter2Female.tgg#|14"/>
+        <attribute href="platform:/resource/Families/model/Families.ecore#//FamilyMember/name"/>
       </values>
       <values xsi:type="tgg:AttributeExpression" objectVar="//@complementRules.0/@sourcePatterns.0">
-        <attribute href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/Daughter2Female.tgg#|16"/>
+        <attribute href="platform:/resource/Families/model/Families.ecore#//Family/name"/>
       </values>
       <values xsi:type="tgg:AttributeExpression" objectVar="//@complementRules.0/@targetPatterns.1">
-        <attribute href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/Daughter2Female.tgg#|18"/>
+        <attribute href="platform:/resource/Persons/model/Persons.ecore#//Person/name"/>
       </values>
     </attrConditions>
   </complementRules>
-  <complementRules name="Father2Male">
-    <kernel href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/Father2Male.tgg#|0"/>
+  <complementRules name="Father2Male" kernel="//@rules.0">
     <sourcePatterns name="family">
-      <type href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/Father2Male.tgg#|1"/>
-      <linkVariablePatterns>
+      <type href="platform:/resource/Families/model/Families.ecore#//Family"/>
+      <linkVariablePatterns target="//@complementRules.1/@sourcePatterns.1">
         <op value="++"/>
-        <type href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/Father2Male.tgg#|2"/>
-        <target href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/Father2Male.tgg#|3"/>
+        <type href="platform:/resource/Families/model/Families.ecore#//Family/father"/>
       </linkVariablePatterns>
     </sourcePatterns>
     <sourcePatterns name="father">
       <op value="++"/>
-      <type href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/Father2Male.tgg#|4"/>
+      <type href="platform:/resource/Families/model/Families.ecore#//FamilyMember"/>
     </sourcePatterns>
     <targetPatterns name="personReg">
-      <type href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/Father2Male.tgg#|5"/>
-      <linkVariablePatterns>
+      <type href="platform:/resource/Persons/model/Persons.ecore#//PersonRegister"/>
+      <linkVariablePatterns target="//@complementRules.1/@targetPatterns.1">
         <op value="++"/>
-        <type href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/Father2Male.tgg#|6"/>
-        <target href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/Father2Male.tgg#|7"/>
+        <type href="platform:/resource/Persons/model/Persons.ecore#//PersonRegister/persons"/>
       </linkVariablePatterns>
     </targetPatterns>
     <targetPatterns name="malePerson">
       <op value="++"/>
-      <type href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/Father2Male.tgg#|8"/>
+      <type href="platform:/resource/Persons/model/Persons.ecore#//Male"/>
     </targetPatterns>
-    <correspondencePatterns name="father2malePerson">
+    <correspondencePatterns name="father2malePerson" type="//@schema/@correspondenceTypes.1" source="//@complementRules.1/@sourcePatterns.1" target="//@complementRules.1/@targetPatterns.1">
       <op value="++"/>
-      <type href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/Father2Male.tgg#|9"/>
-      <source href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/Father2Male.tgg#|10"/>
-      <target href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/Father2Male.tgg#|11"/>
     </correspondencePatterns>
     <attrConditions>
-      <name href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/Father2Male.tgg#|12"/>
+      <name href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/csp/lib/AttrCondDefLibrary.tgg#//@library/@attributeCondDefs.9"/>
       <values xsi:type="tgg:LiteralExpression" value="&quot;, &quot;"/>
       <values xsi:type="tgg:AttributeExpression" objectVar="//@complementRules.1/@sourcePatterns.1">
-        <attribute href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/Father2Male.tgg#|14"/>
+        <attribute href="platform:/resource/Families/model/Families.ecore#//FamilyMember/name"/>
       </values>
       <values xsi:type="tgg:AttributeExpression" objectVar="//@complementRules.1/@sourcePatterns.0">
-        <attribute href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/Father2Male.tgg#|16"/>
+        <attribute href="platform:/resource/Families/model/Families.ecore#//Family/name"/>
       </values>
       <values xsi:type="tgg:AttributeExpression" objectVar="//@complementRules.1/@targetPatterns.1">
-        <attribute href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/Father2Male.tgg#|18"/>
+        <attribute href="platform:/resource/Persons/model/Persons.ecore#//Person/name"/>
       </values>
     </attrConditions>
   </complementRules>
-  <complementRules name="Mother2Female">
-    <kernel href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/Mother2Female.tgg#|0"/>
+  <complementRules name="Mother2Female" kernel="//@rules.0">
     <sourcePatterns name="family">
-      <type href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/Mother2Female.tgg#|1"/>
-      <linkVariablePatterns>
+      <type href="platform:/resource/Families/model/Families.ecore#//Family"/>
+      <linkVariablePatterns target="//@complementRules.2/@sourcePatterns.1">
         <op value="++"/>
-        <type href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/Mother2Female.tgg#|2"/>
-        <target href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/Mother2Female.tgg#|3"/>
+        <type href="platform:/resource/Families/model/Families.ecore#//Family/mother"/>
       </linkVariablePatterns>
     </sourcePatterns>
     <sourcePatterns name="mother">
       <op value="++"/>
-      <type href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/Mother2Female.tgg#|4"/>
+      <type href="platform:/resource/Families/model/Families.ecore#//FamilyMember"/>
     </sourcePatterns>
     <targetPatterns name="personReg">
-      <type href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/Mother2Female.tgg#|5"/>
-      <linkVariablePatterns>
+      <type href="platform:/resource/Persons/model/Persons.ecore#//PersonRegister"/>
+      <linkVariablePatterns target="//@complementRules.2/@targetPatterns.1">
         <op value="++"/>
-        <type href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/Mother2Female.tgg#|6"/>
-        <target href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/Mother2Female.tgg#|7"/>
+        <type href="platform:/resource/Persons/model/Persons.ecore#//PersonRegister/persons"/>
       </linkVariablePatterns>
     </targetPatterns>
     <targetPatterns name="femalePerson">
       <op value="++"/>
-      <type href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/Mother2Female.tgg#|8"/>
+      <type href="platform:/resource/Persons/model/Persons.ecore#//Female"/>
     </targetPatterns>
-    <correspondencePatterns name="mother2femalePerson">
+    <correspondencePatterns name="mother2femalePerson" type="//@schema/@correspondenceTypes.1" source="//@complementRules.2/@sourcePatterns.1" target="//@complementRules.2/@targetPatterns.1">
       <op value="++"/>
-      <type href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/Mother2Female.tgg#|9"/>
-      <source href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/Mother2Female.tgg#|10"/>
-      <target href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/Mother2Female.tgg#|11"/>
     </correspondencePatterns>
     <attrConditions>
-      <name href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/Mother2Female.tgg#|12"/>
+      <name href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/csp/lib/AttrCondDefLibrary.tgg#//@library/@attributeCondDefs.9"/>
       <values xsi:type="tgg:LiteralExpression" value="&quot;, &quot;"/>
       <values xsi:type="tgg:AttributeExpression" objectVar="//@complementRules.2/@sourcePatterns.1">
-        <attribute href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/Mother2Female.tgg#|14"/>
+        <attribute href="platform:/resource/Families/model/Families.ecore#//FamilyMember/name"/>
       </values>
       <values xsi:type="tgg:AttributeExpression" objectVar="//@complementRules.2/@sourcePatterns.0">
-        <attribute href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/Mother2Female.tgg#|16"/>
+        <attribute href="platform:/resource/Families/model/Families.ecore#//Family/name"/>
       </values>
       <values xsi:type="tgg:AttributeExpression" objectVar="//@complementRules.2/@targetPatterns.1">
-        <attribute href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/Mother2Female.tgg#|18"/>
+        <attribute href="platform:/resource/Persons/model/Persons.ecore#//Person/name"/>
       </values>
     </attrConditions>
   </complementRules>
-  <complementRules name="Son2Male">
-    <kernel href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/Son2Male.tgg#|0"/>
+  <complementRules name="Son2Male" kernel="//@rules.0">
     <sourcePatterns name="family">
-      <type href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/Son2Male.tgg#|1"/>
-      <linkVariablePatterns>
+      <type href="platform:/resource/Families/model/Families.ecore#//Family"/>
+      <linkVariablePatterns target="//@complementRules.3/@sourcePatterns.1">
         <op value="++"/>
-        <type href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/Son2Male.tgg#|2"/>
-        <target href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/Son2Male.tgg#|3"/>
+        <type href="platform:/resource/Families/model/Families.ecore#//Family/sons"/>
       </linkVariablePatterns>
     </sourcePatterns>
     <sourcePatterns name="son">
       <op value="++"/>
-      <type href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/Son2Male.tgg#|4"/>
+      <type href="platform:/resource/Families/model/Families.ecore#//FamilyMember"/>
     </sourcePatterns>
     <targetPatterns name="personReg">
-      <type href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/Son2Male.tgg#|5"/>
-      <linkVariablePatterns>
+      <type href="platform:/resource/Persons/model/Persons.ecore#//PersonRegister"/>
+      <linkVariablePatterns target="//@complementRules.3/@targetPatterns.1">
         <op value="++"/>
-        <type href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/Son2Male.tgg#|6"/>
-        <target href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/Son2Male.tgg#|7"/>
+        <type href="platform:/resource/Persons/model/Persons.ecore#//PersonRegister/persons"/>
       </linkVariablePatterns>
     </targetPatterns>
     <targetPatterns name="malePerson">
       <op value="++"/>
-      <type href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/Son2Male.tgg#|8"/>
+      <type href="platform:/resource/Persons/model/Persons.ecore#//Male"/>
     </targetPatterns>
-    <correspondencePatterns name="son2malePerson">
+    <correspondencePatterns name="son2malePerson" type="//@schema/@correspondenceTypes.1" source="//@complementRules.3/@sourcePatterns.1" target="//@complementRules.3/@targetPatterns.1">
       <op value="++"/>
-      <type href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/Son2Male.tgg#|9"/>
-      <source href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/Son2Male.tgg#|10"/>
-      <target href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/Son2Male.tgg#|11"/>
     </correspondencePatterns>
     <attrConditions>
-      <name href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/Son2Male.tgg#|12"/>
+      <name href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/csp/lib/AttrCondDefLibrary.tgg#//@library/@attributeCondDefs.9"/>
       <values xsi:type="tgg:LiteralExpression" value="&quot;, &quot;"/>
       <values xsi:type="tgg:AttributeExpression" objectVar="//@complementRules.3/@sourcePatterns.1">
-        <attribute href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/Son2Male.tgg#|14"/>
+        <attribute href="platform:/resource/Families/model/Families.ecore#//FamilyMember/name"/>
       </values>
       <values xsi:type="tgg:AttributeExpression" objectVar="//@complementRules.3/@sourcePatterns.0">
-        <attribute href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/Son2Male.tgg#|16"/>
+        <attribute href="platform:/resource/Families/model/Families.ecore#//Family/name"/>
       </values>
       <values xsi:type="tgg:AttributeExpression" objectVar="//@complementRules.3/@targetPatterns.1">
-        <attribute href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/Son2Male.tgg#|18"/>
+        <attribute href="platform:/resource/Persons/model/Persons.ecore#//Person/name"/>
       </values>
     </attrConditions>
   </complementRules>

@@ -3,8 +3,12 @@ package org.emoflon.ibex.tgg.run.familiestopersons_ma;
 import java.io.IOException;
 
 import org.apache.log4j.BasicConfigurator;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.ibex.tgg.operational.strategies.sync.SYNC;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesEngine;
+
+import Families.impl.FamiliesPackageImpl;
+import Persons.impl.PersonsPackageImpl;
 
 public class SYNC_App extends SYNC {
 
@@ -29,9 +33,22 @@ public class SYNC_App extends SYNC {
 	}
 
 	protected void registerUserMetamodels() throws IOException {
-		//FIXME load and register source and target metamodels
+		rs.getPackageRegistry().put("platform:/resource/Families/model/Families.ecore", FamiliesPackageImpl.init());
+		rs.getPackageRegistry().put("platform:/resource/Persons/model/Persons.ecore", PersonsPackageImpl.init());
+	
 		
 		// Register correspondence metamodel last
 		loadAndRegisterMetamodel(projectPath + "/model/" + projectPath + ".ecore");
+	}
+	
+	@Override
+	public void loadModels() throws IOException {
+		s = createResource(projectPath + "/instances/src.xmi");
+		t = createResource(projectPath + "/instances/trg.xmi");
+		c = createResource(projectPath + "/instances/corr.xmi");
+		p = createResource(projectPath + "/instances/protocol.xmi");
+		
+		EcoreUtil.resolveAll(rs);
+
 	}
 }

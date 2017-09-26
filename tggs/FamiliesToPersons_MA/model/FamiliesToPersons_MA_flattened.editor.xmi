@@ -2,10 +2,10 @@
 <tgg:TripleGraphGrammarFile xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tgg="http://www.moflon.org/ide/tgg/mosl/TGG">
   <imports name="platform:/resource/Families/model/Families.ecore"/>
   <imports name="platform:/resource/Persons/model/Persons.ecore"/>
-  <schema name="Families2Persons_MA">
+  <schema name="FamiliesToPersons_MA">
     <sourceTypes href="platform:/resource/Families/model/Families.ecore#/"/>
     <targetTypes href="platform:/resource/Persons/model/Persons.ecore#/"/>
-    <correspondenceTypes name="Families2PersonsCorr">
+    <correspondenceTypes name="FamiliesReg2PersonsRegCorr">
       <source href="platform:/resource/Families/model/Families.ecore#//FamilyRegister"/>
       <target href="platform:/resource/Persons/model/Persons.ecore#//PersonRegister"/>
     </correspondenceTypes>
@@ -71,7 +71,7 @@
       <op value="++"/>
     </correspondencePatterns>
     <attrConditions>
-      <name href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/Daughter2Female.tgg#|12"/>
+      <name href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/csp/lib/AttrCondDefLibrary.tgg#//@library/@attributeCondDefs.9"/>
       <values xsi:type="tgg:LiteralExpression" value="&quot;, &quot;"/>
       <values xsi:type="tgg:AttributeExpression" objectVar="//@complementRules.0/@sourcePatterns.1">
         <attribute href="platform:/resource/Families/model/Families.ecore#//FamilyMember/name"/>
@@ -111,7 +111,7 @@
       <op value="++"/>
     </correspondencePatterns>
     <attrConditions>
-      <name href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/Father2Male.tgg#|12"/>
+      <name href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/csp/lib/AttrCondDefLibrary.tgg#//@library/@attributeCondDefs.9"/>
       <values xsi:type="tgg:LiteralExpression" value="&quot;, &quot;"/>
       <values xsi:type="tgg:AttributeExpression" objectVar="//@complementRules.1/@sourcePatterns.1">
         <attribute href="platform:/resource/Families/model/Families.ecore#//FamilyMember/name"/>
@@ -151,7 +151,7 @@
       <op value="++"/>
     </correspondencePatterns>
     <attrConditions>
-      <name href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/Mother2Female.tgg#|12"/>
+      <name href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/csp/lib/AttrCondDefLibrary.tgg#//@library/@attributeCondDefs.9"/>
       <values xsi:type="tgg:LiteralExpression" value="&quot;, &quot;"/>
       <values xsi:type="tgg:AttributeExpression" objectVar="//@complementRules.2/@sourcePatterns.1">
         <attribute href="platform:/resource/Families/model/Families.ecore#//FamilyMember/name"/>
@@ -191,7 +191,7 @@
       <op value="++"/>
     </correspondencePatterns>
     <attrConditions>
-      <name href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/rules/Son2Male.tgg#|12"/>
+      <name href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/csp/lib/AttrCondDefLibrary.tgg#//@library/@attributeCondDefs.9"/>
       <values xsi:type="tgg:LiteralExpression" value="&quot;, &quot;"/>
       <values xsi:type="tgg:AttributeExpression" objectVar="//@complementRules.3/@sourcePatterns.1">
         <attribute href="platform:/resource/Families/model/Families.ecore#//FamilyMember/name"/>

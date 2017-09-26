@@ -23,7 +23,7 @@
 
 #correspondence {
 	
-	++ father2malePerson : Families2Persons_MA.FamilyMember2Person{
+	++ father2malePerson : FamilyMember2Person {
 		#src->father
 		#trg->malePerson
 	}

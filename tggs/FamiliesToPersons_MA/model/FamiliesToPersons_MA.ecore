@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="Families2Persons_MA" nsURI="platform:/resource/Families2Persons_MA/model/Families2Persons_MA.ecore"
-    nsPrefix="Families2Persons_MA">
-  <eClassifiers xsi:type="ecore:EClass" name="Families2PersonsCorr">
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="FamiliesToPersons_MA" nsURI="platform:/resource/FamiliesToPersons_MA/model/FamiliesToPersons_MA.ecore"
+    nsPrefix="FamiliesToPersons_MA">
+  <eClassifiers xsi:type="ecore:EClass" name="FamiliesReg2PersonsRegCorr">
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="ecore:EClass platform:/resource/Families/model/Families.ecore#//FamilyRegister"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="ecore:EClass platform:/resource/Persons/model/Persons.ecore#//PersonRegister"/>
   </eClassifiers>

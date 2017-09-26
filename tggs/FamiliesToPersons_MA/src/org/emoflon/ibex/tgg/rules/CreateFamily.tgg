@@ -1,7 +1,7 @@
 #using FamiliesToPersons_MA.*
 #using AttrCondDefLibrary.*
 
-#rule CreateFamily #with Families2Persons_MA
+#rule CreateFamily #with FamiliesToPersons_MA
 
 #source { 
 	familyReg : FamilyRegister{
@@ -17,7 +17,7 @@
 }
 
 #correspondence {
-	 familyReg2personReg : Families2Persons_MA.Families2PersonsCorr {
+	 familyReg2personReg : FamiliesReg2PersonsRegCorr {
 	 	#src->familyReg
 	 	#trg->personReg
 	 }
