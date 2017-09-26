@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="ASCII"?>
-<org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:org.emoflon.ibex.tgg.core.runtime="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore" name="Families2Persons" final="true">
-  <createdSrc href="src.xmi#/"/>
-  <createdTrg href="trg.xmi#/"/>
+<org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:org.emoflon.ibex.tgg.core.runtime="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore" name="Families2Persons">
+  <createdSrc href="../resources/RootElementFamilies.xmi#/"/>
+  <createdTrg href="../resources/RootElementPersons.xmi#/"/>
   <createdCorr href="corr.xmi#/"/>
   <nodeMappings key="families2persons">
     <value href="corr.xmi#/"/>
   </nodeMappings>
-  <nodeMappings key="personReg">
-    <value href="trg.xmi#/"/>
-  </nodeMappings>
   <nodeMappings key="familyReg">
-    <value href="src.xmi#/"/>
+    <value href="../resources/RootElementFamilies.xmi#/"/>
+  </nodeMappings>
+  <nodeMappings key="personReg">
+    <value href="../resources/RootElementPersons.xmi#/"/>
   </nodeMappings>
 </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>

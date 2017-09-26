@@ -21,11 +21,16 @@ public class CC_App extends CC {
 		this.trgPath = trgPath;
 		registerPatternMatchingEngine(new DemoclesEngine());
 	}
+	
+	public CC_App(String projectName, String workspacePath, boolean debug) throws IOException {
+		super(projectName, workspacePath, debug);
+		registerPatternMatchingEngine(new DemoclesEngine());
+	}
 
 	public static void main(String[] args) throws IOException {
 		BasicConfigurator.configure();
 
-		CC_App cc = new CC_App("ClassInhHier2DB_MA", "./../", true, args[0], args[1]);
+		CC_App cc = new CC_App("ClassInhHier2DB_MA", "./../", true);
 		
 		logger.info("Starting CC");
 		long tic = System.currentTimeMillis();
@@ -48,8 +53,8 @@ public class CC_App extends CC {
 	
 	@Override
 	public void loadModels() throws IOException {
-		s = loadResource(projectPath + "/resources/in/"+srcPath+".xmi");
-		t = loadResource(projectPath + "/resources/in/"+trgPath+".xmi");
+		s = loadResource(projectPath + "/resources/"+srcPath+".xmi");
+		t = loadResource(projectPath + "/resources/"+trgPath+".xmi");
 		c = createResource(projectPath + "/instances/corr.xmi");
 		p = createResource(projectPath + "/instances/protocol.xmi");
 	

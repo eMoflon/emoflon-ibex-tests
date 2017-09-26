@@ -4,12 +4,12 @@
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:ClassInheritanceHierarchy="platform:/plugin/ClassInheritanceHierarchy/model/ClassInheritanceHierarchy.ecore"
     name="P">
-  <classes name="Class1"
+  <classes name="C1"
       subClass="//@classes.1">
     <attributes
         name="a1"/>
   </classes>
-  <classes name="SubClass1"
+  <classes name="SC1"
       superClass="//@classes.0">
     <attributes
         name="a2"/>

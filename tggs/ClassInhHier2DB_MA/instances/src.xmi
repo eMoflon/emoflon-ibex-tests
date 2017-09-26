@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="ASCII"?>
-<ClassInheritanceHierarchy:ClassPackage
-    xmi:version="2.0"
-    xmlns:xmi="http://www.omg.org/XMI"
-    xmlns:ClassInheritanceHierarchy="platform:/plugin/ClassInheritanceHierarchy/model/ClassInheritanceHierarchy.ecore"
-    name="fac">
-  <classes name="netus"
-      subClass="//@classes.3"/>
-  <classes name="sem"/>
-  <classes name="class"
-      subClass="//@classes.4"/>
-  <classes name="cum"
-      superClass="//@classes.0">
-    <attributes
-        name="aptent"/>
+<ClassInheritanceHierarchy:ClassPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ClassInheritanceHierarchy="platform:/plugin/ClassInheritanceHierarchy/model/ClassInheritanceHierarchy.ecore" name="P">
+  <classes name="C">
+    <attributes name="a1"/>
+    <attributes name="a2"/>
   </classes>
-  <classes name="habitasse"
-      superClass="//@classes.2"/>
 </ClassInheritanceHierarchy:ClassPackage>
