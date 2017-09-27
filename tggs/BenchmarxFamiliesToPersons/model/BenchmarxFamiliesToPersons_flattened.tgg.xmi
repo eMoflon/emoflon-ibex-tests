@@ -220,18 +220,6 @@
     </attributeConditionLibrary>
   </rules>
   <rules name="FatherOfExistingFamilyToMale">
-    <nacs name="NoExistingFather">
-      <nodes name="existingFather" incomingEdges="//@rules.5/@nacs.0/@edges.0">
-        <type href="platform:/resource/Families/model/Families.ecore#//FamilyMember"/>
-      </nodes>
-      <nodes name="f" outgoingEdges="//@rules.5/@nacs.0/@edges.0">
-        <type href="platform:/resource/Families/model/Families.ecore#//Family"/>
-      </nodes>
-      <edges name="f__father__existingFather_eMoflonEdge" srcNode="//@rules.5/@nacs.0/@nodes.1" trgNode="//@rules.5/@nacs.0/@nodes.0">
-        <type href="platform:/resource/Families/model/Families.ecore#//Family/father"/>
-      </edges>
-      <attributeConditionLibrary/>
-    </nacs>
     <nodes name="f" incomingEdges="//@rules.5/@edges.1 //@rules.5/@edges.3" outgoingEdges="//@rules.5/@edges.0 //@rules.5/@edges.4">
       <type href="platform:/resource/Families/model/Families.ecore#//Family"/>
     </nodes>
@@ -340,18 +328,6 @@
     </attributeConditionLibrary>
   </rules>
   <rules name="MotherOfExistingFamilyToFemale">
-    <nacs name="NoExistingMother">
-      <nodes name="existingMother" incomingEdges="//@rules.7/@nacs.0/@edges.0">
-        <type href="platform:/resource/Families/model/Families.ecore#//FamilyMember"/>
-      </nodes>
-      <nodes name="f" outgoingEdges="//@rules.7/@nacs.0/@edges.0">
-        <type href="platform:/resource/Families/model/Families.ecore#//Family"/>
-      </nodes>
-      <edges name="f__mother__existingMother_eMoflonEdge" srcNode="//@rules.7/@nacs.0/@nodes.1" trgNode="//@rules.7/@nacs.0/@nodes.0">
-        <type href="platform:/resource/Families/model/Families.ecore#//Family/mother"/>
-      </edges>
-      <attributeConditionLibrary/>
-    </nacs>
     <nodes name="f" incomingEdges="//@rules.7/@edges.1 //@rules.7/@edges.3" outgoingEdges="//@rules.7/@edges.0 //@rules.7/@edges.4">
       <type href="platform:/resource/Families/model/Families.ecore#//Family"/>
     </nodes>

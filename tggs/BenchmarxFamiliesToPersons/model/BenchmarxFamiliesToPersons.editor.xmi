@@ -250,26 +250,4 @@
       <type href="platform:/resource/Persons/model/Persons.ecore#//Male"/>
     </targetPatterns>
   </rules>
-  <nacs name="NoExistingFather" rule="//@rules.5">
-    <sourcePatterns name="existingFather">
-      <type href="platform:/resource/Families/model/Families.ecore#//FamilyMember"/>
-    </sourcePatterns>
-    <sourcePatterns name="f">
-      <type href="platform:/resource/Families/model/Families.ecore#//Family"/>
-      <linkVariablePatterns target="//@nacs.0/@sourcePatterns.0">
-        <type href="platform:/resource/Families/model/Families.ecore#//Family/father"/>
-      </linkVariablePatterns>
-    </sourcePatterns>
-  </nacs>
-  <nacs name="NoExistingMother" rule="//@rules.7">
-    <sourcePatterns name="existingMother">
-      <type href="platform:/resource/Families/model/Families.ecore#//FamilyMember"/>
-    </sourcePatterns>
-    <sourcePatterns name="f">
-      <type href="platform:/resource/Families/model/Families.ecore#//Family"/>
-      <linkVariablePatterns target="//@nacs.1/@sourcePatterns.0">
-        <type href="platform:/resource/Families/model/Families.ecore#//Family/mother"/>
-      </linkVariablePatterns>
-    </sourcePatterns>
-  </nacs>
 </tgg:TripleGraphGrammarFile>
