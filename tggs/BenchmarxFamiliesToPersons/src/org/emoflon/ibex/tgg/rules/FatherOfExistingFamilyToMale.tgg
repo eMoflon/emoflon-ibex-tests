@@ -2,13 +2,3 @@
 #using AttrCondDefLibrary.*
 
 #rule FatherOfExistingFamilyToMale #extends ExistingFamily2Person, FatherToMale #with FamiliesToPersons
-
-#nac NoExistingFather #for FatherOfExistingFamilyToMale 
-
- #source {
- 	existingFather:FamilyMember
- 	
- 	f : Family {
-		-father->existingFather
-	}
- } 
