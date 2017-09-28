@@ -1,0 +1,40 @@
+#using ClassMultipleInhHier2DB_MA.*
+#using AttrCondDefLibrary.*
+
+#complement TransferTransitiveSuperClazzesToSubSubTablesCorrs #for SubClassToTable
+
+#source { 
+	
+	subClazz:Clazz
+	transitiveSuperClass:Clazz
+
+}
+
+#target {
+	
+	superTable:Table
+	subSubTable:Table
+}
+
+#correspondence {
+	
+	transitiveSuperClassToSuperTable:Clazz2SubTable{
+		#src->transitiveSuperClass
+		#trg->superTable
+	}
+	
+	subClassToSubSubTable:Clazz2SubTable{
+		#src->subClazz
+		#trg->subSubTable
+	}
+	
+	++transitiveSuperClassToSubTable:Clazz2SubTable{
+		#src->transitiveSuperClass
+		#trg->subSubTable
+	}
+	
+}
+
+#attributeConditions {
+	
+}

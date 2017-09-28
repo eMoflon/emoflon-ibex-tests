@@ -1,0 +1,35 @@
+#using ClassMultipleInhHier2DB_MA.*
+#using AttrCondDefLibrary.*
+
+#complement TransferDirectSuperClazzToAllSubSubTablesCorrs #for SubClassToTable
+
+#source { 
+	
+	superClazz:Clazz
+	subClazz:Clazz
+	
+}
+
+#target {
+	
+	subSubTable:Table
+}
+
+#correspondence {
+	
+	subClassToSubSubTable:Clazz2SubTable{
+		#src->subClazz
+		#trg->subSubTable
+	}
+	
+	++transitiveSuperClassToSubTable:Clazz2SubTable{
+		#src->superClazz
+		#trg->subSubTable
+	}
+	
+}
+
+#attributeConditions {
+	
+}
+
