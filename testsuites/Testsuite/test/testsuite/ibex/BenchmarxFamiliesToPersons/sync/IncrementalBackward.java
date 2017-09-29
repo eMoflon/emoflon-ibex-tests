@@ -101,11 +101,9 @@ public class IncrementalBackward extends FamiliesToPersonsTestCase {
 	 * assertPostcondition statements.<br/>
 	 * <b>Features</b>: bwd, del
 	 */
-	
-	//FIXME [Greg]:  Democles throws a DanglingNode exception but the deletion is fine as far as I can tell.
-	@Ignore
+	@Ignore("Least change problem, we delete empty families unnecessarily")
 	@Test
-	public void testIncrementalDeletions() {
+	public void testIncrementalDeletions1() {
 		util.configure()
 			.makeDecision(Decisions.PREFER_EXISTING_FAMILY_TO_NEW, true)
 			.makeDecision(Decisions.PREFER_CREATING_PARENT_TO_CHILD, true);
@@ -122,6 +120,33 @@ public class IncrementalBackward extends FamiliesToPersonsTestCase {
 		tool.performAndPropagateTargetEdit(helperPerson::deleteHomer);
 		tool.performAndPropagateTargetEdit(helperPerson::deleteMaggie);
 		assertPostcondition("FamilyAfterBwdDeletion", "PersonAfterBwdDeletion");
+		//------------
+	}
+	
+	/**
+	 * Same test as testIncremenalDeletions1, but with expected behaviour that can
+	 * be modelled with TGG.  Note that this is not the behaviour as specified in the F2P benchmarx!
+	 */
+	//FIXME [Greg]:  This causes an AssertionError that I don't understand.  When assertions are ignored all works as expected.
+	@Ignore
+	@Test
+	public void testIncrementalDeletions2() {
+		util.configure()
+			.makeDecision(Decisions.PREFER_EXISTING_FAMILY_TO_NEW, true)
+			.makeDecision(Decisions.PREFER_CREATING_PARENT_TO_CHILD, true);
+		tool.performAndPropagateTargetEdit(helperPerson::createHomer);
+		// reconfigure, to allow the creation of a child in the existing family
+		util.configure()
+			.makeDecision(Decisions.PREFER_EXISTING_FAMILY_TO_NEW, true)
+			.makeDecision(Decisions.PREFER_CREATING_PARENT_TO_CHILD, false);
+		tool.performAndPropagateTargetEdit(helperPerson::createMaggie);	
+		tool.performIdleTargetEdit(helperPerson::setBirthdaysOfSimpson);
+		assertPrecondition("Pre_IncrBwdFamilyFatherChild", "Pre_IncrBwdPerson");
+		
+		//------------		
+		tool.performAndPropagateTargetEdit(helperPerson::deleteHomer);
+		tool.performAndPropagateTargetEdit(helperPerson::deleteMaggie);
+		assertPostcondition("FamilyAfterBwdDeletion2", "PersonAfterBwdDeletion2");
 		//------------
 	}
 	
