@@ -2,7 +2,6 @@ package testsuite.ibex.VHDLTGGCodeAdapter.sync;
 
 import org.benchmarx.mocaTree.core.MocaTreeHelperForVHDLTGGCode;
 import org.benchmarx.vhdlModel.core.VHDLModelHelper;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import MocaTree.File;
@@ -35,8 +34,6 @@ public class Batch extends SyncTestCase<File, VHDLSpecification> {
 	/**
 	 * <b>Features</b>: bwd
 	 */
-	//FIXME [Greg]: https://github.com/eMoflon/emoflon-ibex-democles/issues/17
-	@Ignore("Takes way too long...")
 	@Test
 	public void testFile2VHDLSpec_BWD()
 	{
@@ -49,8 +46,6 @@ public class Batch extends SyncTestCase<File, VHDLSpecification> {
 	/**
 	 * <b>Features</b>: fwd
 	 */
-	//FIXME [Greg]: https://github.com/eMoflon/emoflon-ibex-democles/issues/17
-	@Ignore("Takes way too long...")
 	@Test
 	public void testEntity2CompositeBlock_FWD()
 	{
@@ -67,8 +62,6 @@ public class Batch extends SyncTestCase<File, VHDLSpecification> {
 	/**
 	 * <b>Features</b>: bwd
 	 */
-	//FIXME [Greg]: https://github.com/eMoflon/emoflon-ibex-democles/issues/17
-	@Ignore("Takes way too long...")
 	@Test
 	public void testEntity2CompositeBlock_BWD()
 	{
@@ -82,8 +75,6 @@ public class Batch extends SyncTestCase<File, VHDLSpecification> {
 	/**
 	 * <b>Features</b>: bwd
 	 */
-	//FIXME [Greg]: https://github.com/eMoflon/emoflon-ibex-democles/issues/17
-	@Ignore("Takes way too long...")
 	@Test
 	public void testNotGate_BWD()
 	{
