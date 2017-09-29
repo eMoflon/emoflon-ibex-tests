@@ -62,7 +62,7 @@ public class SimpleModelgenTest extends ModelGenTestCase<ClassPackage, DB>{
 	@Test
 	public void testSubClassToTable() throws IOException {
 		stop.setMaxRuleCount("PackageToDatabase", 1);
-		stop.setMaxRuleCount("ClassToTable", 3);
+		stop.setMaxRuleCount("ClassToTable", 2);
 		stop.setMaxRuleCount("SubClassToTable", 1);
 		runGenerator(stop);
 		assertPostcondition("in/SubClassToTable_FWD", "expected/SubClassToTable_FWD");
@@ -76,7 +76,7 @@ public class SimpleModelgenTest extends ModelGenTestCase<ClassPackage, DB>{
 			stop.setMaxRuleCount("ClassToTable", 2);
 			stop.setMaxRuleCount("AttributeToColumn", 1);
 			stop.setMaxRuleCount("SubClassToTable", 1);
-			generator.setUpdatePolicy(new CreateAttributesUpdatePolicy());
+			// TODO [Milica]: create update policy to ensure that SuperClass gets attribute first
 			runGenerator(stop);
 			assertPostcondition("in/SuperAttToSubTable_FWD", "expected/SuperAttToSubTable_FWD");
 			
@@ -90,35 +90,48 @@ public class SimpleModelgenTest extends ModelGenTestCase<ClassPackage, DB>{
 			stop.setMaxRuleCount("ClassToTable", 2);
 			stop.setMaxRuleCount("AttributeToColumn", 2);
 			stop.setMaxRuleCount("SubClassToTable", 1);
-			generator.setUpdatePolicy(new CreateAttributesUpdatePolicy());
+			//generator.setUpdatePolicy();
 			runGenerator(stop);
 			assertPostcondition("in/SubAttToSubTable_FWD", "expected/SubAttToSubTable_FWD");
 	}
 	
 	@Ignore ("Fails due to not implemented logic for complement rules.")
 	@Test
-	public void testSubAttToSubTable2() throws IOException {
+	public void testTransitiveAttToSubTables() throws IOException {
 
-			stop.setMaxRuleCount("PackageToDatabaseRule", 1);
-			stop.setMaxRuleCount("ClassToTableRule", 1);
-			stop.setMaxRuleCount("AttributeToColumnRule", 3);
-			stop.setMaxRuleCount("SubClassToTable", 1);
-			generator.setUpdatePolicy(new CreateAttributesUpdatePolicy());
+			stop.setMaxRuleCount("PackageToDatabase", 1);
+			stop.setMaxRuleCount("ClassToTable", 3);
+			stop.setMaxRuleCount("AttributeToColumn", 1);
+			stop.setMaxRuleCount("SubClassToTable", 2);
+			//generator.setUpdatePolicy(new CreateAttributesUpdatePolicy());
 			runGenerator(stop);
-			assertPostcondition("in/SubAttToSubTable2_FWD", "expected/SubAttToSubTable2_FWD");
+			assertPostcondition("in/SuperSuperClassToSubTable_FWD", "expected/SuperSuperClassToSubTable_FWD");
 	}
 	
 	@Ignore ("Fails due to not implemented logic for complement rules.")
 	@Test
-	public void testTransitiveAttToSubTables() throws IOException {
+	public void testTwoSuperClassesToSubTables() throws IOException {
 
-			stop.setMaxRuleCount("PackageToDatabaseRule", 1);
-			stop.setMaxRuleCount("ClassToTableRule", 1);
-			stop.setMaxRuleCount("AttributeToColumnRule", 1);
+			stop.setMaxRuleCount("PackageToDatabase", 1);
+			stop.setMaxRuleCount("ClassToTable", 3);
+			stop.setMaxRuleCount("AttributeToColumn", 2);
 			stop.setMaxRuleCount("SubClassToTable", 2);
-			generator.setUpdatePolicy(new CreateAttributesUpdatePolicy());
+			//generator.setUpdatePolicy(new CreateAttributesUpdatePolicy());
 			runGenerator(stop);
-			assertPostcondition("in/SuperSuperClassToSubTable_FWD", "expected/SuperSuperClassToSubTable_FWD");
+			assertPostcondition("in/TwoSuperClassesToSubTable_FWD", "expected/TwoSuperClassesToSubTable_FWD");
+	}
+	
+	@Ignore ("Fails due to not implemented logic for complement rules.")
+	@Test
+	public void testTwoTransitiveSuperClassesToSubTables() throws IOException {
+
+			stop.setMaxRuleCount("PackageToDatabase", 1);
+			stop.setMaxRuleCount("ClassToTable", 5);
+			stop.setMaxRuleCount("AttributeToColumn", 4);
+			stop.setMaxRuleCount("SubClassToTable", 4);
+			//generator.setUpdatePolicy(new CreateAttributesUpdatePolicy());
+			runGenerator(stop);
+			assertPostcondition("in/TwoTransitiveSuperClassesToSubTable_FWD", "expected/TwoTransitiveSuperClassesToSubTable_FWD");
 	}
 
 }

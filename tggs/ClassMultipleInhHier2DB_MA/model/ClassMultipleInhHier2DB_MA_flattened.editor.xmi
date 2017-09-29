@@ -139,6 +139,14 @@
     <correspondencePatterns name="packageToDB" type="//@schema/@correspondenceTypes.0" source="//@rules.2/@sourcePatterns.0" target="//@rules.2/@targetPatterns.0">
       <op value="++"/>
     </correspondencePatterns>
+    <attrConditions name="//@schema/@attributeCondDefs.0">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.2/@sourcePatterns.0">
+        <attribute href="platform:/resource/ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//NamedElement/name"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.2/@targetPatterns.0">
+        <attribute href="platform:/resource/Database/model/Database.ecore#//DB/title"/>
+      </values>
+    </attrConditions>
   </rules>
   <rules name="SubClassToTable" schema="//@schema">
     <sourcePatterns name="subClazz">

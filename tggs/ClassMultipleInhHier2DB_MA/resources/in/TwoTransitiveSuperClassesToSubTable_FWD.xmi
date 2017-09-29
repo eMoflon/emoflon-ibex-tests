@@ -7,11 +7,30 @@
     xsi:schemaLocation="platform:/plugin/classMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore ../../../ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore"
     name="P">
   <classes name="C1"
-      subClass="//@classes.1">
+      subClass="//@classes.1 //@classes.4">
     <attributes
         name="a1"
         type=""/>
   </classes>
   <classes name="C2"
-      superClass="//@classes.0"/>
+      superClass="//@classes.0"
+      subClass="//@classes.4">
+    <attributes
+        name="a2"/>
+  </classes>
+  <classes name="C3"
+      subClass="//@classes.3 //@classes.4">
+    <attributes
+        name="a3"
+        type=""/>
+  </classes>
+  <classes name="C4"
+      superClass="//@classes.2"
+      subClass="//@classes.4">
+    <attributes
+        name="a4"
+        type=""/>
+  </classes>
+  <classes name="C5"
+      superClass="//@classes.0 //@classes.1 //@classes.2 //@classes.3"/>
 </classMultipleInheritanceHierarchy:ClassPackage>

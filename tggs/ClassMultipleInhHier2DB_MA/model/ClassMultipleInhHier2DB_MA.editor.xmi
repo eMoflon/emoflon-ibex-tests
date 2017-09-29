@@ -139,6 +139,14 @@
     <correspondencePatterns name="packageToDB" type="//@schema/@correspondenceTypes.0" source="//@rules.2/@sourcePatterns.0" target="//@rules.2/@targetPatterns.0">
       <op value="++"/>
     </correspondencePatterns>
+    <attrConditions name="//@schema/@attributeCondDefs.0">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.2/@sourcePatterns.0">
+        <attribute href="platform:/resource/ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//NamedElement/name"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.2/@targetPatterns.0">
+        <attribute href="platform:/resource/Database/model/Database.ecore#//DB/title"/>
+      </values>
+    </attrConditions>
   </rules>
   <rules name="SubClassToTable" schema="//@schema">
     <sourcePatterns name="superClazz">
@@ -163,47 +171,38 @@
       <op value="++"/>
     </correspondencePatterns>
   </rules>
-  <complementRules name="TransferSuperAttributes">
-    <kernel href="platform:/resource/ClassMultipleInhHier2DB_MA/src/org/emoflon/ibex/tgg/rules/AttributeToSubColumn.tgg#|0"/>
+  <complementRules name="TransferSuperAttributes" kernel="//@rules.0">
     <sourcePatterns name="clazz">
-      <type href="platform:/resource/ClassMultipleInhHier2DB_MA/src/org/emoflon/ibex/tgg/rules/AttributeToSubColumn.tgg#|1"/>
+      <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Clazz"/>
     </sourcePatterns>
     <targetPatterns name="table">
-      <type href="platform:/resource/ClassMultipleInhHier2DB_MA/src/org/emoflon/ibex/tgg/rules/AttributeToSubColumn.tgg#|2"/>
-      <linkVariablePatterns>
-        <type href="platform:/resource/ClassMultipleInhHier2DB_MA/src/org/emoflon/ibex/tgg/rules/AttributeToSubColumn.tgg#|3"/>
-        <target href="platform:/resource/ClassMultipleInhHier2DB_MA/src/org/emoflon/ibex/tgg/rules/AttributeToSubColumn.tgg#|4"/>
+      <type href="platform:/resource/Database/model/Database.ecore#//Table"/>
+      <linkVariablePatterns target="//@complementRules.0/@targetPatterns.1">
+        <type href="platform:/resource/Database/model/Database.ecore#//Table/columns"/>
       </linkVariablePatterns>
     </targetPatterns>
     <targetPatterns name="col">
-      <type href="platform:/resource/ClassMultipleInhHier2DB_MA/src/org/emoflon/ibex/tgg/rules/AttributeToSubColumn.tgg#|5"/>
+      <type href="platform:/resource/Database/model/Database.ecore#//Column"/>
     </targetPatterns>
     <targetPatterns name="subTable">
-      <type href="platform:/resource/ClassMultipleInhHier2DB_MA/src/org/emoflon/ibex/tgg/rules/AttributeToSubColumn.tgg#|6"/>
-      <linkVariablePatterns>
+      <type href="platform:/resource/Database/model/Database.ecore#//Table"/>
+      <linkVariablePatterns target="//@complementRules.0/@targetPatterns.3">
         <op value="++"/>
-        <type href="platform:/resource/ClassMultipleInhHier2DB_MA/src/org/emoflon/ibex/tgg/rules/AttributeToSubColumn.tgg#|7"/>
-        <target href="platform:/resource/ClassMultipleInhHier2DB_MA/src/org/emoflon/ibex/tgg/rules/AttributeToSubColumn.tgg#|8"/>
+        <type href="platform:/resource/Database/model/Database.ecore#//Table/columns"/>
       </linkVariablePatterns>
     </targetPatterns>
     <targetPatterns name="transferCol">
       <op value="++"/>
-      <type href="platform:/resource/ClassMultipleInhHier2DB_MA/src/org/emoflon/ibex/tgg/rules/AttributeToSubColumn.tgg#|9"/>
+      <type href="platform:/resource/Database/model/Database.ecore#//Column"/>
     </targetPatterns>
-    <correspondencePatterns name="superClassToSubTable" type="//@schema/@correspondenceTypes.2">
-      <source href="platform:/resource/ClassMultipleInhHier2DB_MA/src/org/emoflon/ibex/tgg/rules/AttributeToSubColumn.tgg#|11"/>
-      <target href="platform:/resource/ClassMultipleInhHier2DB_MA/src/org/emoflon/ibex/tgg/rules/AttributeToSubColumn.tgg#|12"/>
-    </correspondencePatterns>
-    <correspondencePatterns name="clazzToTable" type="//@schema/@correspondenceTypes.1">
-      <source href="platform:/resource/ClassMultipleInhHier2DB_MA/src/org/emoflon/ibex/tgg/rules/AttributeToSubColumn.tgg#|14"/>
-      <target href="platform:/resource/ClassMultipleInhHier2DB_MA/src/org/emoflon/ibex/tgg/rules/AttributeToSubColumn.tgg#|15"/>
-    </correspondencePatterns>
+    <correspondencePatterns name="superClassToSubTable" type="//@schema/@correspondenceTypes.2" source="//@complementRules.0/@sourcePatterns.0" target="//@complementRules.0/@targetPatterns.2"/>
+    <correspondencePatterns name="clazzToTable" type="//@schema/@correspondenceTypes.1" source="//@complementRules.0/@sourcePatterns.0" target="//@complementRules.0/@targetPatterns.0"/>
     <attrConditions name="//@schema/@attributeCondDefs.0">
       <values xsi:type="tgg:AttributeExpression" objectVar="//@complementRules.0/@targetPatterns.1">
-        <attribute href="platform:/resource/ClassMultipleInhHier2DB_MA/src/org/emoflon/ibex/tgg/rules/AttributeToSubColumn.tgg#|18"/>
+        <attribute href="platform:/resource/Database/model/Database.ecore#//Column/name"/>
       </values>
       <values xsi:type="tgg:AttributeExpression" objectVar="//@complementRules.0/@targetPatterns.3">
-        <attribute href="platform:/resource/ClassMultipleInhHier2DB_MA/src/org/emoflon/ibex/tgg/rules/AttributeToSubColumn.tgg#|20"/>
+        <attribute href="platform:/resource/Database/model/Database.ecore#//Column/name"/>
       </values>
     </attrConditions>
   </complementRules>
