@@ -9,7 +9,11 @@
       <source href="platform:/resource/ClassInheritanceHierarchy/model/ClassInheritanceHierarchy.ecore#//ClassPackage"/>
       <target href="platform:/resource/Database/model/Database.ecore#//DB"/>
     </correspondenceTypes>
-    <correspondenceTypes name="Clazz2Table">
+    <correspondenceTypes name="Clazz2DirectTable">
+      <source href="platform:/resource/ClassInheritanceHierarchy/model/ClassInheritanceHierarchy.ecore#//Clazz"/>
+      <target href="platform:/resource/Database/model/Database.ecore#//Table"/>
+    </correspondenceTypes>
+    <correspondenceTypes name="Clazz2SubTable">
       <source href="platform:/resource/ClassInheritanceHierarchy/model/ClassInheritanceHierarchy.ecore#//Clazz"/>
       <target href="platform:/resource/Database/model/Database.ecore#//Table"/>
     </correspondenceTypes>
@@ -316,7 +320,7 @@
       <op value="++"/>
       <type href="platform:/resource/Database/model/Database.ecore#//Column"/>
     </targetPatterns>
-    <correspondencePatterns name="superClassToSubTable" type="//@schema/@correspondenceTypes.1" source="//@complementRules.0/@sourcePatterns.0" target="//@complementRules.0/@targetPatterns.2"/>
+    <correspondencePatterns name="superClassToSubTable" type="//@schema/@correspondenceTypes.2" source="//@complementRules.0/@sourcePatterns.0" target="//@complementRules.0/@targetPatterns.2"/>
     <correspondencePatterns name="clazzToTable" type="//@schema/@correspondenceTypes.1" source="//@complementRules.0/@sourcePatterns.0" target="//@complementRules.0/@targetPatterns.0"/>
     <attrConditions name="//@schema/@attributeCondDefs.0">
       <values xsi:type="tgg:AttributeExpression" objectVar="//@complementRules.0/@targetPatterns.1">
@@ -344,7 +348,7 @@
       <type href="platform:/resource/Database/model/Database.ecore#//Table"/>
     </targetPatterns>
     <correspondencePatterns name="transitiveSuperClassToSuperTable" type="//@schema/@correspondenceTypes.1" source="//@complementRules.1/@sourcePatterns.1" target="//@complementRules.1/@targetPatterns.0"/>
-    <correspondencePatterns name="transitiveSuperClassToSubTable" type="//@schema/@correspondenceTypes.1" source="//@complementRules.1/@sourcePatterns.1" target="//@complementRules.1/@targetPatterns.1">
+    <correspondencePatterns name="transitiveSuperClassToSubTable" type="//@schema/@correspondenceTypes.2" source="//@complementRules.1/@sourcePatterns.1" target="//@complementRules.1/@targetPatterns.1">
       <op value="++"/>
     </correspondencePatterns>
   </complementRules>

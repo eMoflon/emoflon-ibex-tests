@@ -17,7 +17,7 @@
       <type href="platform:/resource/Database/model/Database.ecore#//Table"/>
     </nodes>
     <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="clazzToTable" domainType="CORR" source="//@rules.0/@nodes.1" target="//@rules.0/@nodes.3">
-      <type href="platform:/resource/ClassInhHier2DB_MA/model/ClassInhHier2DB_MA.ecore#//Clazz2Table"/>
+      <type href="platform:/resource/ClassInhHier2DB_MA/model/ClassInhHier2DB_MA.ecore#//Clazz2DirectTable"/>
     </nodes>
     <edges name="clazz__attributes__attribute_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.0/@nodes.1" trgNode="//@rules.0/@nodes.0">
       <type href="platform:/resource/ClassInheritanceHierarchy/model/ClassInheritanceHierarchy.ecore#//Clazz/attributes"/>
@@ -52,7 +52,7 @@
       <type href="platform:/resource/Database/model/Database.ecore#//Table"/>
     </nodes>
     <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="clazzToTable" domainType="CORR" bindingType="CREATE" source="//@rules.1/@nodes.0" target="//@rules.1/@nodes.3">
-      <type href="platform:/resource/ClassInhHier2DB_MA/model/ClassInhHier2DB_MA.ecore#//Clazz2Table"/>
+      <type href="platform:/resource/ClassInhHier2DB_MA/model/ClassInhHier2DB_MA.ecore#//Clazz2DirectTable"/>
     </nodes>
     <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="packageToDb" domainType="CORR" source="//@rules.1/@nodes.1" target="//@rules.1/@nodes.2">
       <type href="platform:/resource/ClassInhHier2DB_MA/model/ClassInhHier2DB_MA.ecore#//Package2DB"/>
@@ -116,10 +116,10 @@
       <type href="platform:/resource/Database/model/Database.ecore#//Table"/>
     </nodes>
     <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="subClazzToSubTable" domainType="CORR" bindingType="CREATE" source="//@rules.3/@nodes.1" target="//@rules.3/@nodes.4">
-      <type href="platform:/resource/ClassInhHier2DB_MA/model/ClassInhHier2DB_MA.ecore#//Clazz2Table"/>
+      <type href="platform:/resource/ClassInhHier2DB_MA/model/ClassInhHier2DB_MA.ecore#//Clazz2DirectTable"/>
     </nodes>
     <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="superClass2SuperTable" domainType="CORR" source="//@rules.3/@nodes.2" target="//@rules.3/@nodes.5">
-      <type href="platform:/resource/ClassInhHier2DB_MA/model/ClassInhHier2DB_MA.ecore#//Clazz2Table"/>
+      <type href="platform:/resource/ClassInhHier2DB_MA/model/ClassInhHier2DB_MA.ecore#//Clazz2DirectTable"/>
     </nodes>
     <edges name="package__classes__superClazz_eMoflonEdge" srcNode="//@rules.3/@nodes.0" trgNode="//@rules.3/@nodes.2">
       <type href="platform:/resource/ClassInheritanceHierarchy/model/ClassInheritanceHierarchy.ecore#//ClassPackage/classes"/>

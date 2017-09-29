@@ -22,12 +22,12 @@
 
 #correspondence {
 	
-	transitiveSuperClassToSuperTable:Clazz2Table{
+	transitiveSuperClassToSuperTable:Clazz2DirectTable{
 		#src->transitiveSuperClass
 		#trg->superTable
 	}
 	
-	++transitiveSuperClassToSubTable:Clazz2Table{
+	++transitiveSuperClassToSubTable:Clazz2SubTable{
 		#src->transitiveSuperClass
 		#trg->subTable
 	}

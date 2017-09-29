@@ -19,7 +19,12 @@
 		#trg->DB
 	}
 	
-	Clazz2Table{
+	Clazz2DirectTable{
+		#src->Clazz
+		#trg->Table
+	}
+	
+	Clazz2SubTable{
 		#src->Clazz
 		#trg->Table
 	}
