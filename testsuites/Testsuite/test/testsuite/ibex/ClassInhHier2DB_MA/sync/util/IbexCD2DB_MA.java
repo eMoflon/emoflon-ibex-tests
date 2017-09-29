@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import org.benchmarx.classInheritanceHierarchy.core.ClassInheritanceHierarchyComparator;
 import org.benchmarx.database.core.DatabaseComparator;
-import org.emoflon.ibex.tgg.run.classinhhier2db.SYNC_App;
+import org.emoflon.ibex.tgg.run.classinhhier2db_ma.SYNC_App;
 
 import ClassInheritanceHierarchy.ClassInheritanceHierarchyFactory;
 import ClassInheritanceHierarchy.ClassPackage;

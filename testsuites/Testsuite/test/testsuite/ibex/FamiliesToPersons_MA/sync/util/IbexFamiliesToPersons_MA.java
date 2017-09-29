@@ -34,7 +34,7 @@ public class IbexFamiliesToPersons_MA extends IbexAdapter<FamilyRegister, Person
 	@Override
 	public void setConfigurator(Configurator<Decisions> configurator) {
 		super.setConfigurator(configurator);
-		// TODO : Set Update policy for MA!! 
+		// TODO [Milica]: configure update policy for multi rules
 	}
 
 }

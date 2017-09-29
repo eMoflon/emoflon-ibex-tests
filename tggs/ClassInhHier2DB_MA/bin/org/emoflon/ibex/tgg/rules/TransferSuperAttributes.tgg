@@ -25,12 +25,12 @@
 
 #correspondence {
 	
-	superClassToSubTable:Clazz2Table{
+	superClassToSubTable:Clazz2SubTable{
 		#src->clazz
 		#trg->subTable
 	}
 	
-	clazzToTable:Clazz2Table{
+	clazzToTable:Clazz2DirectTable{
 		#src->clazz
 		#trg->table
 	}

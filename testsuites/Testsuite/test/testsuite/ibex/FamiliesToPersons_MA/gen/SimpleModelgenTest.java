@@ -47,7 +47,7 @@ public class SimpleModelgenTest extends ModelGenTestCase<FamilyRegister, PersonR
 	public void testEmptyFamily() throws IOException {
 		stop.setMaxRuleCount("Families2Persons", 1);
 		stop.setMaxRuleCount("CreateFamily", 1);
-		// TODO:  configure update policy to allow no complement rule applications
+		// TODO [Milica]:  configure update policy to allow no complement rule applications
 		runGenerator(stop);
 		assertPostcondition("OneFamily", "RootElementPersons");
 	}
@@ -57,7 +57,7 @@ public class SimpleModelgenTest extends ModelGenTestCase<FamilyRegister, PersonR
 	public void testCreateWholeSimpsonFamily() throws IOException {
 		stop.setMaxRuleCount("Families2Persons", 1);
 		stop.setMaxRuleCount("CreateFamily", 1);
-		// TODO:  configure update policy to allow required number of complement rule applications
+		// TODO: [Milica] configure update policy to allow required number of complement rule applications
 		runGenerator(stop);
 		assertPostcondition("OneFamilyWithFatherMotherSonTwoDaughters", "PersonTwoMaleThreeFemale");
 	}

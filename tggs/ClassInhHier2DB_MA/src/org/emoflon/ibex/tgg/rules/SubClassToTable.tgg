@@ -31,12 +31,12 @@
 }
 
 #correspondence {
-	superClass2SuperTable:Clazz2Table{
+	superClass2SuperTable:Clazz2DirectTable{
 		#src->superClazz
 		#trg->superTable
 	}
 	
-	++ subClazzToSubTable:Clazz2Table{
+	++ subClazzToSubTable:Clazz2DirectTable{
 		#src->subClazz
 		#trg->subTable
 	}
