@@ -21,5 +21,5 @@ public class Constants {
 												 processCodeAdapter,
 												 vhdlTGGCodeAdapter};
 	
-	public final static int timeout = 20;
+	public final static int timeout = 60*30; // in seconds
 }

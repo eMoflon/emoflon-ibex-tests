@@ -49,7 +49,7 @@ class GNUPlotScripts {
 			set style fill solid border -1
 			set boxwidth 0.9
 			set ylabel "execution time / «timeUnit»"
-			set xtic rotate by -45
+			set xtic rotate by -45 noenhanced
 			set key top left
 			set logscale y
 			set grid
@@ -73,7 +73,7 @@ class GNUPlotScripts {
 			set terminal «outputstyle»
 			«commonHistogramScriptParts("AllTGGsInit", title, outputstyle)»
 			set title "Comparison of TGG initialization times for models of size «PerformanceTest.standardModelSize» - «op»"
-			set yrange [10:10000]
+			set yrange [10:100000]
 			plot \
 			newhistogram lt 3, \
 			"«dataPath»«title».dat" using ($2/«timeFactor»):xtic(1) ti col, '' u ($3/«timeFactor») ti col
@@ -123,47 +123,13 @@ class GNUPlotScripts {
 		'''
 	}
 	
-	def static memoryUsageMODELGEN_FWD(String title, String outputstyle) {
-		return '''
-			set terminal «outputstyle» size 5,3.5
-			set output "«plotPath»MemoryUsage/«title».«IF outputstyle=="gif"»gif«ELSE»pdf«ENDIF»"
-			set style data histogram
-			set style histogram cluster gap 1
-			set style fill solid border -1
-			set boxwidth 0.9
-			set ylabel "execution time / «timeUnit»"
-			set xtic rotate by -30
-			set key top left
-			set logscale y
-			set grid
-			set title "Maximum possible model sizes - FWD"
-			set ylabel "model size"
-			set yrange [10:100000]
-			set size 1,1;
-			set multiplot
-			set size 0.92,0.62;
-			set origin 0,0;
-			plot \
-			newhistogram lt 3, \
-			"performance/data/MemoryUsageFWD.dat" using ($2):xtic(1) ti col, '' u ($3) ti col
-			set size 0.92,0.42;
-			set origin 0,0.58;
-			unset xtics
-			unset key
-			set title "Maximum possible model sizes - MODELGEN"
-			plot \
-			newhistogram lt 3, \
-			"performance/data/MemoryUsageMODELGEN.dat" using ($2):xtic(1) ti col, '' u ($3) ti col
-			unset multiplot
-		'''
-	}
-	
 	def static initTimes(String title, String outputstyle, String tgg, String op) {
 		return '''
 			set terminal «outputstyle» size 5,2
 			«commonHistogramScriptParts("InitTimes", title, outputstyle)»
 			set title "Execution times of initialization - «tgg»:«op»"
-			set yrange [1:10000]
+			set xlabel "model size"
+			set yrange [1:100000]
 			plot \
 			newhistogram lt 3, \
 			"«dataPath»«title».dat" using ($2/«timeFactor»):xtic(1) ti col, '' u ($3/«timeFactor») ti col

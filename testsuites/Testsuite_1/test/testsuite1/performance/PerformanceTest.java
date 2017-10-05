@@ -25,23 +25,30 @@ public class PerformanceTest {
 	public static void main(String[] args) throws ClassNotFoundException, IOException {
 		PerformanceTest test = new PerformanceTest();
 		TestDataCollector collector = new TestDataCollector();
-//		test.testData = collector.collectData();
-		test.testData = collector.loadData();
+		
+		// use this option if you want to perform new measurements
+		test.testData = collector.collectData();
+		// use this option to re-plot all plots with existing data
+//		test.testData = collector.loadData();
+		
 		test.maxModelSizes = collector.getMaxModelSizes();
 		
+		// save data in tables suited for the plots and create the plots
 //		test.saveDataForTGGsWithoutRefinement();
 		for (Operationalization op : Operationalization.values()) {
 //			test.saveDataForAllTGGsDiagram(op);
-//			test.saveDataForAllTGGsInitDiagram(op);
+			test.saveDataForAllTGGsInitDiagram(op);
 //			test.saveDataForMemoryUsageDiagram(op);
-			for (String tgg : Constants.testProjects) {
-				test.saveDataForInitTimesDiagram(tgg, op);
+//			for (String tgg : Constants.testProjects) {
+//				test.saveDataForInitTimesDiagram(tgg, op);
 //				test.saveDataForModelSizeDiagram(tgg, op);
-			}
+//			}
 		}
 		
+		// create additional plots that reuse created data files
+		GNUPlotScripts.createPlot("MemoryUsageMODELGEN_FWD", "MemoryUsageMODELGEN_FWD", "pdf", null);
 	}
-	
+
 	/**
 	 * Saves the data as a .dat file in the performance/data directory
 	 * of the testsuite. Also, generates the gnuplot script and executes it.
@@ -149,7 +156,6 @@ public class PerformanceTest {
 
 		// save data in file
 		saveDataAndCreatePlot(diagramStrings, "MemoryUsage", "MemoryUsage"+op, op.toString());
-				
 	}
 
 	public void saveDataForInitTimesDiagram(String tgg, Operationalization op) {

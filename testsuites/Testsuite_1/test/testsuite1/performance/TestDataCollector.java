@@ -45,13 +45,12 @@ public class TestDataCollector {
 	private List<TestDataPoint> data;
 	private List<TestDataPoint> maxModelSizes;
 	
-	public int[] modelSizes = {
-			500 };
-//			200, 500, 1000, 10000, 100000, 1000000};
-	public int repetitions = 3;
+	public int[] modelSizes = {//10, 20, 50, 100, 200, 
+			500, 1000, 5000, 10000, 100000, 1000000, 10000000};
+	public int repetitions = 7;
 	
 	public static void main(String[] args) throws IOException {
-		new TestDataCollector().collectMaxSizes();
+		new TestDataCollector().saveHardCodedMaxModelSizes();
 	}
 	
 	/**
@@ -63,17 +62,19 @@ public class TestDataCollector {
 	 */
 	public List<TestDataPoint> collectData() throws IOException {
 		data = new ArrayList<TestDataPoint>(100);
-		initMaxModelSizes();
+		saveHardCodedMaxModelSizes();
+//		initMaxModelSizes();
+		loadData();
 				
 		for (String tgg : Constants.testProjects) {
-			if (tgg.equals("VHDLTGGCodeAdapter")) continue; // skip the slow VHDLTGGCodeAdapter for testing
-//			if (tgg.equals("ProcessCodeAdapter")) continue;
-//			if (tgg.equals("FamiliesToPersons_V1")) continue;
-//			if (tgg.equals("FamiliesToPersons_V0")) continue;
-//			if (tgg.equals("CompanyToIT")) continue;
-//			if (tgg.equals("ClassInhHier2DB")) continue;
-//			if (tgg.equals("BlockDiagramCodeAdapter")) continue;
-//			if (tgg.equals("BlockCodeAdapter")) continue;
+//			if (tgg.equals("VHDLTGGCodeAdapter")) continue; // skip the slow VHDLTGGCodeAdapter for testing
+			if (tgg.equals("ProcessCodeAdapter")) continue;
+			if (tgg.equals("FamiliesToPersons_V1")) continue;
+			if (tgg.equals("FamiliesToPersons_V0")) continue;
+			if (tgg.equals("CompanyToIT")) continue;
+			if (tgg.equals("ClassInhHier2DB")) continue;
+			if (tgg.equals("BlockDiagramCodeAdapter")) continue;
+			if (tgg.equals("BlockCodeAdapter")) continue;
 			for (int size : modelSizes) {
 				boolean[] networks = {false, true};
 				for (boolean flattened : networks) {
@@ -82,6 +83,7 @@ public class TestDataCollector {
 					collectSYNCData(tgg, size, flattened);
 				}
 			}
+			saveData();
 		}
 		System.out.println("\n"+data.size()+" measurements have been performed.");
 		saveData();
@@ -102,20 +104,12 @@ public class TestDataCollector {
 		maxModelSizes = new ArrayList<TestDataPoint>();
 		Arrays.sort(modelSizes);
 		for (String tgg : Constants.testProjects) {
-			if (tgg.equals("BlockCodeAdapter") || // remove this
-				tgg.equals("BlockDiagramCodeAdapter") || 
-				tgg.equals("ClassInhHier2DB") || 
-				tgg.equals("CompanyToIT") || 
-				tgg.equals("FamiliesToPersons_V0") ||
-				tgg.equals("FamiliesToPersons_V1") ||
-				tgg.equals("ProcessCodeAdapter"))
-				continue;
 			boolean[] networks = {false, true};
 			for (boolean flattened : networks) {
 				for (Operationalization op : Operationalization.values()) {
 					if (op.equals(Operationalization.INCREMENTAL_FWD) || op.equals(Operationalization.INCREMENTAL_BWD))
 						continue;
-					if (op.equals(Operationalization.MODELGEN)) //remove this
+					if (!flattened) //remove this
 						continue;
 					for (int size : modelSizes) {
 						System.out.println("Checking "+tgg+":");
@@ -209,7 +203,7 @@ public class TestDataCollector {
 			try {
 				MODELGEN gen = new MODELGEN_App(tggName, Constants.workspacePath, flattened, false,
 						tggName+"/instances/"+size+"Element"+(flattened ? "_flattened" : "_refinement"));
-				gen.setUpdatePolicy(new TimedUpdatePolicy(new RandomMatchUpdatePolicy(), 20, TimeUnit.SECONDS));
+				gen.setUpdatePolicy(new TimedUpdatePolicy(new RandomMatchUpdatePolicy(), Constants.timeout, TimeUnit.SECONDS));
 				return gen;
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -235,7 +229,7 @@ public class TestDataCollector {
 		Supplier<CC> checker = () -> {
 			try {
 				CC cc = new CC_App(tggName, Constants.workspacePath, flattened, false, size+"Element"+(flattened ? "_flattened" : "_refinement"));
-				cc.setUpdatePolicy(new TimedUpdatePolicy(new NextMatchUpdatePolicy(), 20, TimeUnit.SECONDS));
+				cc.setUpdatePolicy(new TimedUpdatePolicy(new NextMatchUpdatePolicy(), Constants.timeout, TimeUnit.SECONDS));
 				return cc;
 			} catch (Exception e) {
 				throw new RuntimeException("CC_App for "+tggName+" could not be found. "
@@ -265,7 +259,7 @@ public class TestDataCollector {
 				try {
 					SYNC sync = new SYNC_App(tggName, Constants.workspacePath, flattened, false,
 							tggName+"/instances/"+size+"Element"+(flattened ? "_flattened" : "_refinement"), fwd, false);
-					sync.setUpdatePolicy(new TimedUpdatePolicy(new NextMatchUpdatePolicy(), 20, TimeUnit.SECONDS));
+					sync.setUpdatePolicy(new TimedUpdatePolicy(new NextMatchUpdatePolicy(), Constants.timeout, TimeUnit.SECONDS));
 					return sync;
 				} catch (IOException e) {
 					e.printStackTrace();
@@ -415,16 +409,17 @@ public class TestDataCollector {
 	}
 	
 	public void saveHardCodedMaxModelSizes() {
-		int[][][] modelSizeLimits = {{{10000,500,50,50},{10000,1000,1000,1000}},
+		int[][][] modelSizeLimits = {{{10000,500,50,50},{5000,1000,1000,1000}},
 									 {{10000,1000,100,100},{10000,1000,1000,1000}},
 									 {{100000, 10000, 1000, 10000},{100000, 10000, 10000, 10000}},
 									 {{100000,1000,1000,1000},{100000,1000,1000,1000}},
 									 {{100000,500,1000,1000},{100000,500,10000,1000}},
-									 {{100000,1000,10000,10000},{100000,1000,10000,10000}},
-									 {{100000,1000,50,50},{100000,10000,10000,10000}}};
+									 {{100000,1000,1000,1000},{100000,1000,1000,1000}},
+									 {{100000,1000,50,50},{100000,10000,10000,10000}},
+									 {{5000,1000,50,50},{1000,500,1000,1000}}};
 		
 		List<TestDataPoint> maxData = new ArrayList<TestDataPoint>(64);
-		for (int i = 0; i < 7; i++) {
+		for (int i = 0; i < modelSizeLimits.length; i++) {
 			boolean[] networks = {false, true};
 			for (int j = 0; j < 2; j++) {
 				for (int k = 0; k < 4; k++) {
