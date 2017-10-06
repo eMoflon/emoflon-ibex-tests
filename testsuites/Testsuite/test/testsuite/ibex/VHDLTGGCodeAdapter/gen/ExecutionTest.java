@@ -19,7 +19,7 @@ public class ExecutionTest {
 		
 		this.generator = new MODELGEN_App("VHDLTGGCodeAdapter", testsuite.ibex.testUtil.Constants.workspacePath, false);
 		MODELGENStopCriterion stop = new MODELGENStopCriterion(generator.getTGG());
-		stop.setTimeOutInMS(10000);
+		stop.setTimeOutInMS(1000);
 		generator.setUpdatePolicy(new RandomMatchUpdatePolicy());
 		this.generator.setStopCriterion(stop);
 	}

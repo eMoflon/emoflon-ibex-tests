@@ -13,6 +13,7 @@ public class TestLargeExample extends FamiliesToPersonsCCTestCase {
 	}
 	
 	@Test
+	@Ignore("Takes too long.")
 	public void test60Children() throws IOException {
 		createGenerator("sixtyChildFamily", "thirtyFemaleThirtyMalePersons");
 		runGenerator();
