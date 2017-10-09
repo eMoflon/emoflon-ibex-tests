@@ -25,8 +25,8 @@ public class SYNC_App extends SYNC {
 	private boolean isFwd;
 	private boolean isIncr;
 
-	public SYNC_App(String projectName, String workspacePath, boolean flatten, boolean debug, String instancePath, boolean isFwd, boolean isIncr) throws IOException {
-		super(projectName, workspacePath, flatten, debug);
+	public SYNC_App(String projectName, String workspacePath, boolean debug, String instancePath, boolean isFwd, boolean isIncr) throws IOException {
+		super(projectName, workspacePath, debug);
 		this.instancePath = instancePath;
 		this.isFwd = isFwd;
 		this.isIncr = isIncr;

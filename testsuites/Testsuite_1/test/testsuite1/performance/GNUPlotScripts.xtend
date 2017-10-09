@@ -64,7 +64,7 @@ class GNUPlotScripts {
 			set yrange [1:10000]
 			plot \
 			newhistogram lt 3, \
-			"«dataPath»«title».dat" using ($2/«timeFactor»):xtic(1) ti col, '' u ($3/«timeFactor») ti col
+			"«dataPath»«title».dat" using ($2/«timeFactor»):xtic(1) ti col
 		'''
 	}
 
@@ -76,7 +76,7 @@ class GNUPlotScripts {
 			set yrange [10:100000]
 			plot \
 			newhistogram lt 3, \
-			"«dataPath»«title».dat" using ($2/«timeFactor»):xtic(1) ti col, '' u ($3/«timeFactor») ti col
+			"«dataPath»«title».dat" using ($2/«timeFactor»):xtic(1) ti col
 		'''
 	}
 
@@ -88,7 +88,7 @@ class GNUPlotScripts {
 			set xlabel "model size"
 			plot \
 			newhistogram lt 3, \
-			"«dataPath»«title».dat" using ($2/«timeFactor»):xtic(1) ti col, '' u ($3/«timeFactor») ti col
+			"«dataPath»«title».dat" using ($2/«timeFactor»):xtic(1) ti col
 		'''
 	}
 
@@ -103,9 +103,9 @@ class GNUPlotScripts {
 			set yrange [0.1:10000]
 			plot \
 			newhistogram lt 3 "ClassInhHier2DB", \
-			"«dataPath»«title».dat" using ($2/«timeFactor»):xtic(1) ti col, '' u ($3/«timeFactor») ti col, \
+			"«dataPath»«title».dat" using ($2/«timeFactor»):xtic(1) ti col
 			newhistogram lt 3 "CompanyToIT", \
-			"«dataPath»«title».dat" every ::1 using ($4/«timeFactor»):xtic(1) notitle, '' every ::1 u ($5/«timeFactor») notitle, \
+			"«dataPath»«title».dat" every ::1 using ($3/«timeFactor»):xtic(1) notitle \
 		'''
 	}
 	
@@ -119,7 +119,7 @@ class GNUPlotScripts {
 			set yrange [10:100000]
 			plot \
 			newhistogram lt 3, \
-			"«dataPath»«title».dat" using ($2):xtic(1) ti col, '' u ($3) ti col
+			"«dataPath»«title».dat" using ($2):xtic(1) ti col
 		'''
 	}
 	
@@ -132,7 +132,7 @@ class GNUPlotScripts {
 			set yrange [1:100000]
 			plot \
 			newhistogram lt 3, \
-			"«dataPath»«title».dat" using ($2/«timeFactor»):xtic(1) ti col, '' u ($3/«timeFactor») ti col
+			"«dataPath»«title».dat" using ($2/«timeFactor»):xtic(1) ti col
 		'''
 	}
 	

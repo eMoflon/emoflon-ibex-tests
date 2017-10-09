@@ -72,11 +72,11 @@ public class SYNCPerformanceTest {
 		sync.terminate();
 	}
 	
-	public TestDataPoint timedSyncAndInit(Supplier<SYNC> transformator, int size, int repetitions, boolean flattened, boolean isFwd) throws IOException {
-		return this.timedSyncAndInit(transformator, size, repetitions, flattened, isFwd, (o)->{}, false).get(0);
+	public TestDataPoint timedSyncAndInit(Supplier<SYNC> transformator, int size, int repetitions, boolean isFwd) throws IOException {
+		return this.timedSyncAndInit(transformator, size, repetitions, isFwd, (o)->{}, false).get(0);
 	}
 	
-	public List<TestDataPoint> timedSyncAndInit(Supplier<SYNC> transformator, int size, int repetitions, boolean flattened, boolean isFwd, Consumer<EObject> edit, boolean incr) throws IOException {
+	public List<TestDataPoint> timedSyncAndInit(Supplier<SYNC> transformator, int size, int repetitions, boolean isFwd, Consumer<EObject> edit, boolean incr) throws IOException {
 		if (repetitions < 1)
 			throw new IllegalArgumentException("Number of repetitions must be positive.");
 		
@@ -88,7 +88,7 @@ public class SYNCPerformanceTest {
 		for (int i = 0; i < repetitions; i++) {
 			SYNC sync = transformator.get();
 			ExecutorService es = Executors.newSingleThreadExecutor();
-			System.out.println((isFwd ? Operationalization.FWD : Operationalization.BWD)+": size="+size+", flattened = "+flattened+": "+(i+1)+"-th execution started.");
+			System.out.println((isFwd ? Operationalization.FWD : Operationalization.BWD)+": size="+size+": "+(i+1)+"-th execution started.");
 
 			if (useTimeouts)
 				try {
@@ -141,9 +141,6 @@ public class SYNCPerformanceTest {
 
 		    	terminate();
 			}		
-				// debug code to check whether the incremental sync works properly
-//					if (i==0)
-//						sync.saveModels();
 		}
 		
 		List<TestDataPoint> result;
@@ -152,14 +149,12 @@ public class SYNCPerformanceTest {
 		batchData.operationalization = (isFwd ? Operationalization.FWD : Operationalization.BWD);
 		batchData.setTGG(tgg);
 		batchData.modelSize = size;
-		batchData.flattenedNetwork = flattened;
 		
 		if (incr) {
 			TestDataPoint incData = new TestDataPoint(initTimes, incrementalExecutionTimes);
 			incData.operationalization = (isFwd ? Operationalization.INCREMENTAL_FWD : Operationalization.INCREMENTAL_BWD);
 			incData.setTGG(tgg);
 			incData.modelSize = size;
-			incData.flattenedNetwork = flattened;
 			
 			result = Arrays.asList(batchData, incData);
 		} else {

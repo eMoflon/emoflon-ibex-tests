@@ -23,8 +23,8 @@ import testsuite1.testUtil.Constants;
 public class MODELGEN_App extends MODELGEN {
 	private String instancePath;
 
-	public MODELGEN_App(String projectName, String workspacePath, boolean flatten, boolean debug, String instancePath) throws IOException {
-		super(projectName, workspacePath, flatten, debug);
+	public MODELGEN_App(String projectName, String workspacePath, boolean debug, String instancePath) throws IOException {
+		super(projectName, workspacePath, debug);
 		this.instancePath = instancePath;
 	}
 

@@ -11,12 +11,10 @@ public class TestDataPoint implements Serializable {
 	public long[] initTimes;
 	public long[] executionTimes;
 	
-	public boolean flattenedNetwork;
 	public int modelSize;
 	public Operationalization operationalization;
 	public String tggName;
 	public int tggSize;
-	public double tggAverageRuleSize;
 	
 	public TestDataPoint(long[] initTimes, long[] executionTimes) {
 		this.executionTimes = executionTimes;
@@ -59,15 +57,11 @@ public class TestDataPoint implements Serializable {
 	public void setTGG(TGG tgg) {
 		this.tggName = tgg.getName();
 		this.tggSize = tgg.getRules().size();
-		this.tggAverageRuleSize = (tgg.getRules().stream().flatMap(r -> r.getNodes().stream()).count()
-								+ tgg.getRules().stream().flatMap(r -> r.getEdges().stream()).count())
-								/ (tggSize+0.0);
 	}
 	
 	public String toString() {
 		return "\n"+tggName+":"+operationalization
 				   +", elements:"+modelSize
-				   +", flattened:"+flattenedNetwork
 				   +", executionTime:"+this.medianExecutionTime()
 				   +", initTime:"+this.medianInitTime();
 	}

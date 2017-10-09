@@ -2,7 +2,7 @@ package testsuite1.testUtil.performance;
 
 import java.io.Serializable;
 
-public enum Operationalization implements Serializable {
+public enum Operationalization {
 	MODELGEN,
 	CC,
 	FWD,

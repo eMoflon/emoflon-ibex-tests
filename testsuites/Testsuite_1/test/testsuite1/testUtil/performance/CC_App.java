@@ -22,9 +22,9 @@ import testsuite1.testUtil.Constants;
 public class CC_App extends CC {
 	private String modelPath;
 
-	public CC_App(String projectName, String workspacePath, boolean flatten, boolean debug,
+	public CC_App(String projectName, String workspacePath, boolean debug,
 			String modelPath) throws IOException {
-		super(projectName, workspacePath, flatten, debug);
+		super(projectName, workspacePath, debug);
 		this.modelPath = modelPath;
 	}
 

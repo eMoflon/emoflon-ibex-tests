@@ -65,7 +65,7 @@ public class MODELGENPerformanceTest {
 		generator.terminate();
 	}
 	
-	public TestDataPoint timedExecutionAndInit(Supplier<MODELGEN> generator, Function<TGG, MODELGENStopCriterion> stops, int size, int repetitions, boolean flattened) throws IOException {
+	public TestDataPoint timedExecutionAndInit(Supplier<MODELGEN> generator, Function<TGG, MODELGENStopCriterion> stops, int size, int repetitions) throws IOException {
 		if (repetitions < 1)
 			throw new IllegalArgumentException("Number of repetitions must be positive.");
 		
@@ -76,7 +76,7 @@ public class MODELGENPerformanceTest {
 		for (int i = 0; i < repetitions; i++) {
 			MODELGEN gen = generator.get();
 			ExecutorService es = Executors.newSingleThreadExecutor();
-			System.out.println("MODELGEN: size="+size+", flattened = "+flattened+": "+(i+1)+"-th execution started.");
+			System.out.println("MODELGEN: size="+size+": "+(i+1)+"-th execution started.");
 
 			if (useTimeouts)
 			    try {
@@ -124,7 +124,6 @@ public class MODELGENPerformanceTest {
 		result.operationalization = Operationalization.MODELGEN;
 		result.setTGG(tgg);
 		result.modelSize = size;
-		result.flattenedNetwork = flattened;
 		return result;
 	}
 	

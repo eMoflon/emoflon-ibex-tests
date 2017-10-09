@@ -27,9 +27,9 @@ public class PerformanceTest {
 		TestDataCollector collector = new TestDataCollector();
 		
 		// use this option if you want to perform new measurements
-		test.testData = collector.collectData();
+//		test.testData = collector.collectData();
 		// use this option to re-plot all plots with existing data
-//		test.testData = collector.loadData();
+		test.testData = collector.loadData();
 		
 		test.maxModelSizes = collector.getMaxModelSizes();
 		
@@ -44,9 +44,6 @@ public class PerformanceTest {
 //				test.saveDataForModelSizeDiagram(tgg, op);
 //			}
 		}
-		
-		// create additional plots that reuse created data files
-		GNUPlotScripts.createPlot("MemoryUsageMODELGEN_FWD", "MemoryUsageMODELGEN_FWD", "pdf", null);
 	}
 
 	/**
@@ -67,22 +64,16 @@ public class PerformanceTest {
 	
 	public void saveDataForAllTGGsDiagram(Operationalization op) {
 		// get data for plot
-		List<TestDataPoint> flattenedData = util.filterTestResults(testData, null, op, standardModelSize, true);
-		List<TestDataPoint> refinementData = util.filterTestResults(testData, null, op, standardModelSize, false);
+		List<TestDataPoint> refinementData = util.filterTestResults(testData, null, op, standardModelSize);
 
-		flattenedData.sort(Comparator.comparingDouble((TestDataPoint p) -> p.medianExecutionTime()));
+		refinementData.sort(Comparator.comparingDouble((TestDataPoint p) -> p.medianExecutionTime()));
 
 		// arrange data in lines
 		List<String> diagramStrings = new ArrayList<>();
-		diagramStrings.add(util.makeLine("TGG", "Flattened", "Refinement"));
+		diagramStrings.add(util.makeLine("TGG", "ExecutionTime"));
 		
-		for (TestDataPoint p : flattenedData) {
-			double median = refinementData.stream()
-					   					  .filter(r -> r.tggName.equals(p.tggName))
-					   					  .findAny()
-					   					  .get()
-					   					  .medianExecutionTime();
-			diagramStrings.add(util.makeLine(p.tggName, p.medianExecutionTime()+"", median+""));
+		for (TestDataPoint p : refinementData) {
+			diagramStrings.add(util.makeLine(p.tggName, p.medianExecutionTime()+""));
 		}
 
 		// save data in file
@@ -93,14 +84,12 @@ public class PerformanceTest {
 	public void saveDataForTGGsWithoutRefinement() {
 		// arrange data in lines
 		List<String> diagramStrings = new ArrayList<>();
-		diagramStrings.add(util.makeLine("#", "ClassInhHier2DB", "", "CompanyToIT"));
-		diagramStrings.add(util.makeLine("Operationalization", "Flattened", "Refinement"));
+		diagramStrings.add(util.makeLine("#", "ClassInhHier2DB", "CompanyToIT"));
+		diagramStrings.add(util.makeLine("Operationalization", "ExecutionTime"));
 
 		for (Operationalization op : Operationalization.values()) {
-				diagramStrings.add(util.makeLine(op+"", util.filterTestResults(testData, "ClassInhHier2DB", op, bigModelSize, true).get(0).executionTimes[0]+"",
-														util.filterTestResults(testData, "ClassInhHier2DB", op, bigModelSize, false).get(0).executionTimes[0]+"",
-														util.filterTestResults(testData, "CompanyToIT", op, bigModelSize, true).get(0).executionTimes[0]+"",
-														util.filterTestResults(testData, "CompanyToIT", op, bigModelSize, false).get(0).executionTimes[0]+""
+				diagramStrings.add(util.makeLine(op+"", util.filterTestResults(testData, "ClassInhHier2DB", op, bigModelSize).get(0).executionTimes[0]+"",
+														util.filterTestResults(testData, "CompanyToIT", op, bigModelSize).get(0).executionTimes[0]+""
 				));
 		}
 
@@ -111,22 +100,16 @@ public class PerformanceTest {
 	
 	public void saveDataForModelSizeDiagram(String tgg, Operationalization op) {
 		// get data for plot
-		List<TestDataPoint> flattenedData = util.filterTestResults(testData, tgg, op, null, true);
-		List<TestDataPoint> refinementData = util.filterTestResults(testData, tgg, op, null, false);
+		List<TestDataPoint> refinementData = util.filterTestResults(testData, tgg, op, null);
 		
-		flattenedData.sort(Comparator.comparingInt((TestDataPoint p) -> p.modelSize));
+		refinementData.sort(Comparator.comparingInt((TestDataPoint p) -> p.modelSize));
 
 		// arrange data in lines
 		List<String> diagramStrings = new ArrayList<>();
-		diagramStrings.add(util.makeLine("ModelSize", "Flattened", "Refinement"));
+		diagramStrings.add(util.makeLine("ModelSize", "ExecutionTime"));
 		
-		for (TestDataPoint p : flattenedData) {
-			Optional<String> median = refinementData.stream()
-					   					  .filter(r -> r.modelSize == p.modelSize)
-					   					  .findAny()
-					   					  .map(t -> t.medianExecutionTime())
-					   					  .map(m -> m.toString());
-			diagramStrings.add(util.makeLine(p.modelSize+"", p.medianExecutionTime()+"", median.orElse("-")));
+		for (TestDataPoint p : refinementData) {
+			diagramStrings.add(util.makeLine(p.modelSize+"", p.medianExecutionTime()+""));
 		}
 
 		// save data in file
@@ -135,23 +118,17 @@ public class PerformanceTest {
 	
 	public void saveDataForMemoryUsageDiagram(Operationalization op) {
 		// get data for plot
-		List<TestDataPoint> flattenedData = util.filterTestResults(maxModelSizes, null, op, null, true);
-		List<TestDataPoint> refinementData = util.filterTestResults(maxModelSizes, null, op, null, false);
+		List<TestDataPoint> refinementData = util.filterTestResults(maxModelSizes, null, op, null);
 		
-		flattenedData.sort(Comparator.comparingInt((TestDataPoint p) -> p.modelSize));
+		refinementData.sort(Comparator.comparingInt((TestDataPoint p) -> p.modelSize));
 
 		// arrange data in lines
 		List<String> diagramStrings = new ArrayList<>();
-		diagramStrings.add(util.makeLine("TGG", "Flattened", "Refinement"));
+		diagramStrings.add(util.makeLine("TGG", "ExecutionTime"));
 		
 		// arrange data in lines		
-		for (TestDataPoint p : flattenedData) {
-			int refineModelSize = refinementData.stream()
-					   					  .filter(r -> r.tggName.equals(p.tggName))
-					   					  .findAny()
-					   					  .get()
-					   					  .modelSize;
-			diagramStrings.add(util.makeLine(p.tggName, p.modelSize+"", refineModelSize+""));
+		for (TestDataPoint p : refinementData) {
+			diagramStrings.add(util.makeLine(p.tggName, p.modelSize+""));
 		}
 
 		// save data in file
@@ -160,22 +137,16 @@ public class PerformanceTest {
 
 	public void saveDataForInitTimesDiagram(String tgg, Operationalization op) {
 		// get data for plot
-		List<TestDataPoint> flattenedData = util.filterTestResults(testData, tgg, op, null, true);
-		List<TestDataPoint> refinementData = util.filterTestResults(testData, tgg, op, null, false);
+		List<TestDataPoint> refinementData = util.filterTestResults(testData, tgg, op, null);
 		
-		flattenedData.sort(Comparator.comparingInt((TestDataPoint p) -> p.modelSize));
+		refinementData.sort(Comparator.comparingInt((TestDataPoint p) -> p.modelSize));
 
 		// arrange data in lines
 		List<String> diagramStrings = new ArrayList<>();
-		diagramStrings.add(util.makeLine("ModelSize", "Flattened", "Refinement"));
+		diagramStrings.add(util.makeLine("ModelSize", "InitTime"));
 		
-		for (TestDataPoint p : flattenedData) {
-			Optional<String> median = refinementData.stream()
-					   					  .filter(r -> r.modelSize == p.modelSize)
-					   					  .findAny()
-					   					  .map(t -> t.medianInitTime())
-					   					  .map(m -> m.toString());
-			diagramStrings.add(util.makeLine(p.modelSize+"", p.medianInitTime()+"", median.orElse("-")));
+		for (TestDataPoint p : refinementData) {
+			diagramStrings.add(util.makeLine(p.modelSize+"", p.medianInitTime()+""));
 		}
 
 		// save data in file
@@ -184,22 +155,16 @@ public class PerformanceTest {
 	
 	public void saveDataForAllTGGsInitDiagram(Operationalization op) {
 		// get data for plot
-		List<TestDataPoint> flattenedData = util.filterTestResults(testData, null, op, standardModelSize, true);
-		List<TestDataPoint> refinementData = util.filterTestResults(testData, null, op, standardModelSize, false);
+		List<TestDataPoint> refinementData = util.filterTestResults(testData, null, op, standardModelSize);
 
-		flattenedData.sort(Comparator.comparingDouble((TestDataPoint p) -> p.medianInitTime()));
+		refinementData.sort(Comparator.comparingDouble((TestDataPoint p) -> p.medianInitTime()));
 
 		// arrange data in lines
 		List<String> diagramStrings = new ArrayList<>();
-		diagramStrings.add(util.makeLine("TGG", "Flattened", "Refinement"));
+		diagramStrings.add(util.makeLine("TGG", "InitTime"));
 		
-		for (TestDataPoint p : flattenedData) {
-			double median = refinementData.stream()
-					   					  .filter(r -> r.tggName.equals(p.tggName))
-					   					  .findAny()
-					   					  .get()
-					   					  .medianInitTime();
-			diagramStrings.add(util.makeLine(p.tggName, p.medianInitTime()+"", median+""));
+		for (TestDataPoint p : refinementData) {
+			diagramStrings.add(util.makeLine(p.tggName, p.medianInitTime()+""));
 		}
 
 		// save data in file

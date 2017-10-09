@@ -47,12 +47,39 @@ public class TestDataCollector {
 	
 	public int[] modelSizes = {//10, 20, 50, 100, 200, 
 			500, 1000, 5000, 10000, 100000, 1000000, 10000000};
-	public int repetitions = 7;
+	public int repetitions = 1;
+	
+//	public static void main(String[] args) throws IOException {
+//		new TestDataCollector().saveHardCodedMaxModelSizes();
+//	}
 	
 	public static void main(String[] args) throws IOException {
-		new TestDataCollector().saveHardCodedMaxModelSizes();
+		new TestDataCollector().executeAndSave(args[0], Operationalization.valueOf(args[1]), Integer.parseInt(args[2]));
 	}
 	
+	private void executeAndSave(String tggName, Operationalization operationalization, int modelSize) throws IOException {
+		loadData();
+		
+		switch (operationalization) {
+			case MODELGEN:
+				this.collectMODELGENData(tggName, modelSize);
+				break;
+			case CC:
+				this.collectCCData(tggName, modelSize);
+				break;
+			case FWD:
+			case INCREMENTAL_FWD:
+				this.collectFWDData(tggName, modelSize);
+				break;
+			case BWD:
+			case INCREMENTAL_BWD:
+				this.collectBWDData(tggName, modelSize);
+				break;
+		}
+		
+		saveData();		
+	}
+
 	/**
 	 * Calculates the TestDataPoints for all combinations of operationalization,
 	 * tgg and model size. After collectData() finishes, the collected data can be accessed
@@ -76,12 +103,9 @@ public class TestDataCollector {
 			if (tgg.equals("BlockDiagramCodeAdapter")) continue;
 			if (tgg.equals("BlockCodeAdapter")) continue;
 			for (int size : modelSizes) {
-				boolean[] networks = {false, true};
-				for (boolean flattened : networks) {
-					collectMODELGENData(tgg, size, flattened);
-					collectCCData(tgg, size, flattened);
-					collectSYNCData(tgg, size, flattened);
-				}
+				collectMODELGENData(tgg, size);
+				collectCCData(tgg, size);
+				collectSYNCData(tgg, size);
 			}
 			saveData();
 		}
@@ -104,33 +128,28 @@ public class TestDataCollector {
 		maxModelSizes = new ArrayList<TestDataPoint>();
 		Arrays.sort(modelSizes);
 		for (String tgg : Constants.testProjects) {
-			boolean[] networks = {false, true};
-			for (boolean flattened : networks) {
-				for (Operationalization op : Operationalization.values()) {
-					if (op.equals(Operationalization.INCREMENTAL_FWD) || op.equals(Operationalization.INCREMENTAL_BWD))
-						continue;
-					if (!flattened) //remove this
-						continue;
-					for (int size : modelSizes) {
-						System.out.println("Checking "+tgg+":");
-						if (isMaxSize(tgg, size, flattened, op))
-							break;
-					}
+			for (Operationalization op : Operationalization.values()) {
+				if (op.equals(Operationalization.INCREMENTAL_FWD) || op.equals(Operationalization.INCREMENTAL_BWD))
+					continue;
+				for (int size : modelSizes) {
+					System.out.println("Checking "+tgg+":");
+					if (isMaxSize(tgg, size, op))
+						break;
 				}
 			}
 		}
 	}
 
-	private boolean isMaxSize(String tgg, int size, boolean flattened, Operationalization op) throws IOException {
+	private boolean isMaxSize(String tgg, int size, Operationalization op) throws IOException {
 		switch (op) {
 			case MODELGEN:
-				return isMODELGENMaxSize(tgg, size, flattened);
+				return isMODELGENMaxSize(tgg, size);
 			case CC:
-				return isCCMaxSize(tgg, size, flattened);
+				return isCCMaxSize(tgg, size);
 			case FWD: 
-				return isFWDmaxSize(tgg, size, flattened);
+				return isFWDmaxSize(tgg, size);
 			case BWD:
-				return isBWDmaxSize(tgg, size, flattened);
+				return isBWDmaxSize(tgg, size);
 			default:
 				throw new IllegalArgumentException("isMaxSize() should not be called with operationalizations INCREMENTAL_FWD or INCREMENTAL_BWD");
 		}
@@ -162,13 +181,10 @@ public class TestDataCollector {
 		String tgg = "VHDLTGGCodeAdapter";
 		
 		for (int size : modelSizes) {
-			boolean[] networks = {true, false};
-			for (boolean flattened : networks) {
-				collectMODELGENData(tgg, size, flattened);
-				if (size <= 50)
-					collectCCData(tgg, size, flattened);
-				collectSYNCData(tgg, size, flattened);
-			}
+			collectMODELGENData(tgg, size);
+			if (size <= 50)
+				collectCCData(tgg, size);
+			collectSYNCData(tgg, size);
 		}
 		saveData();
 		return data;
@@ -192,17 +208,17 @@ public class TestDataCollector {
 		this.maxModelSizes = maxModelSizes;
 	}
 
-	private void collectMODELGENData(String tggName, int size, boolean flattened) throws IOException {
-		if (size > util.filterTestResults(maxModelSizes, tggName, Operationalization.MODELGEN, null, flattened)
-				.get(0).modelSize) //skip sizes that are to large to handle
+	private void collectMODELGENData(String tggName, int size) throws IOException {
+		List<TestDataPoint> maxSizeData = util.filterTestResults(maxModelSizes, tggName, Operationalization.MODELGEN, null);
+		if (maxSizeData != null && size > maxSizeData.get(0).modelSize) //skip sizes that are to large to handle
 			return;
 		
 		MODELGENPerformanceTest test = new MODELGENPerformanceTest();
 
 		Supplier<MODELGEN> generator = () -> {
 			try {
-				MODELGEN gen = new MODELGEN_App(tggName, Constants.workspacePath, flattened, false,
-						tggName+"/instances/"+size+"Element"+(flattened ? "_flattened" : "_refinement"));
+				MODELGEN gen = new MODELGEN_App(tggName, Constants.workspacePath, false,
+						tggName+"/instances/"+size+"Element");
 				gen.setUpdatePolicy(new TimedUpdatePolicy(new RandomMatchUpdatePolicy(), Constants.timeout, TimeUnit.SECONDS));
 				return gen;
 			} catch (IOException e) {
@@ -213,34 +229,34 @@ public class TestDataCollector {
 		
 		Function<TGG, MODELGENStopCriterion> stops = util.createStopCriterion(tggName, size);
 
-		System.out.println("Collecting MODELGEN data for "+tggName+", size: "+size+", flattened: "+flattened);
-		TestDataPoint point = test.timedExecutionAndInit(generator, stops, size, repetitions, flattened);
+		System.out.println("Collecting MODELGEN data for "+tggName+", size: "+size);
+		TestDataPoint point = test.timedExecutionAndInit(generator, stops, size, repetitions);
 		
 		data.add(point);
 	}
 
-	private void collectCCData(String tggName, int size, boolean flattened) throws IOException {
-		if (size > util.filterTestResults(maxModelSizes, tggName, Operationalization.CC, null, flattened)
-				.get(0).modelSize) //skip sizes that are to large to handle
+	private void collectCCData(String tggName, int size) throws IOException {
+		List<TestDataPoint> maxSizeData = util.filterTestResults(maxModelSizes, tggName, Operationalization.CC, null);
+		if (maxSizeData != null && size > maxSizeData.get(0).modelSize) //skip sizes that are to large to handle
 			return;
 		
 		CCPerformanceTest test = new CCPerformanceTest();
 
 		Supplier<CC> checker = () -> {
 			try {
-				CC cc = new CC_App(tggName, Constants.workspacePath, flattened, false, size+"Element"+(flattened ? "_flattened" : "_refinement"));
+				CC cc = new CC_App(tggName, Constants.workspacePath, false, size+"Element");
 				cc.setUpdatePolicy(new TimedUpdatePolicy(new NextMatchUpdatePolicy(), Constants.timeout, TimeUnit.SECONDS));
 				return cc;
-			} catch (Exception e) {
-				throw new RuntimeException("CC_App for "+tggName+" could not be found. "
-						+ "Check if it is in the default package 'org.emoflon.ibex.tgg.run."+tggName.toLowerCase()+"'", e);
+			} catch (IOException e) {
+				e.printStackTrace();
+				return null;
 			}
 		};
 		
-		System.out.println("Collecting CC data for "+tggName+", size: "+size+", flattened: "+flattened);
+		System.out.println("Collecting CC data for "+tggName+", size: "+size);
 		TestDataPoint point = null;
 		try { //TODO remove this try/catch
-			point = test.timedExecutionAndInit(checker, size, repetitions, flattened);
+			point = test.timedExecutionAndInit(checker, size, repetitions);
 		} catch (GRBException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace(); 
@@ -248,17 +264,17 @@ public class TestDataCollector {
 		data.add(point);
 	}
 
-	private void collectSYNCData(String tggName, int size, boolean flattened) throws IOException {
+	private void collectSYNCData(String tggName, int size) throws IOException {
 		SYNCPerformanceTest test = new SYNCPerformanceTest();
 		boolean fwd = true;
 		
 		// FWD
-		if (size <= util.filterTestResults(maxModelSizes, tggName, Operationalization.FWD, null, flattened)
-				.get(0).modelSize) { //skip sizes that are to large to handle
+		List<TestDataPoint> maxSizeData = util.filterTestResults(maxModelSizes, tggName, Operationalization.FWD, null);
+		if (maxSizeData == null || size <= maxSizeData.get(0).modelSize) { //skip sizes that are to large to handle
 			Supplier<SYNC> transformator = () -> {
 				try {
-					SYNC sync = new SYNC_App(tggName, Constants.workspacePath, flattened, false,
-							tggName+"/instances/"+size+"Element"+(flattened ? "_flattened" : "_refinement"), fwd, false);
+					SYNC sync = new SYNC_App(tggName, Constants.workspacePath, false,
+							tggName+"/instances/"+size+"Element", fwd, false);
 					sync.setUpdatePolicy(new TimedUpdatePolicy(new NextMatchUpdatePolicy(), Constants.timeout, TimeUnit.SECONDS));
 					return sync;
 				} catch (IOException e) {
@@ -267,38 +283,82 @@ public class TestDataCollector {
 				}
 			};
 	
-			System.out.println("Collecting SYNC data for "+tggName+", size: "+size+", flattened: "+flattened);
-			List<TestDataPoint> points = test.timedSyncAndInit(transformator, size, repetitions, flattened, fwd, incEditor.getEdit(tggName, fwd), true);
+			System.out.println("Collecting SYNC data for "+tggName+", size: "+size);
+			List<TestDataPoint> points = test.timedSyncAndInit(transformator, size, repetitions, fwd, incEditor.getEdit(tggName, fwd), true);
 			data.addAll(points);
 		}
 		
 		// BWD
-		if (size <= util.filterTestResults(maxModelSizes, tggName, Operationalization.BWD, null, flattened)
-				.get(0).modelSize) { //skip sizes that are to large to handle
+		maxSizeData = util.filterTestResults(maxModelSizes, tggName, Operationalization.BWD, null);
+		if (maxSizeData == null || size <= maxSizeData.get(0).modelSize) { //skip sizes that are to large to handle
 			boolean bwd = !fwd;
 			Supplier<SYNC> transformator = () -> {
 				try {
-					return new SYNC_App(tggName, Constants.workspacePath, flattened, false,
-							tggName+"/instances/"+size+"Element"+(flattened ? "_flattened" : "_refinement"), bwd, false);
+					return new SYNC_App(tggName, Constants.workspacePath, false,
+							tggName+"/instances/"+size+"Element", bwd, false);
 				} catch (IOException e) {
 					e.printStackTrace();
 					return null;
 				}
 			};
 			
-			List<TestDataPoint> points = test.timedSyncAndInit(transformator, size, repetitions, flattened, bwd, incEditor.getEdit(tggName, bwd), true);
+			List<TestDataPoint> points = test.timedSyncAndInit(transformator, size, repetitions, bwd, incEditor.getEdit(tggName, bwd), true);
 			data.addAll(points);
 		}
 	}
 	
-	private boolean isMODELGENMaxSize(String tggName, int size, boolean flattened) throws IOException {
+	private void collectFWDData(String tggName, int size) throws IOException {
+		SYNCPerformanceTest test = new SYNCPerformanceTest();
+
+		List<TestDataPoint> maxSizeData = util.filterTestResults(maxModelSizes, tggName, Operationalization.FWD, null);
+		if (maxSizeData == null || size <= maxSizeData.get(0).modelSize) { //skip sizes that are to large to handle
+			Supplier<SYNC> transformator = () -> {
+				try {
+					SYNC sync = new SYNC_App(tggName, Constants.workspacePath, false,
+							tggName+"/instances/"+size+"Element", true, false);
+					sync.setUpdatePolicy(new TimedUpdatePolicy(new NextMatchUpdatePolicy(), Constants.timeout, TimeUnit.SECONDS));
+					return sync;
+				} catch (IOException e) {
+					e.printStackTrace();
+					return null;
+				}
+			};
+	
+			System.out.println("Collecting SYNC data for "+tggName+", size: "+size);
+			List<TestDataPoint> points = test.timedSyncAndInit(transformator, size, repetitions, true, incEditor.getEdit(tggName, true), true);
+			data.addAll(points);
+		}
+	}
+	
+
+	private void collectBWDData(String tggName, int size) throws IOException {
+		SYNCPerformanceTest test = new SYNCPerformanceTest();
+	
+		List<TestDataPoint> maxSizeData = util.filterTestResults(maxModelSizes, tggName, Operationalization.BWD, null);
+		if (maxSizeData == null || size <= maxSizeData.get(0).modelSize) { //skip sizes that are to large to handle
+			Supplier<SYNC> transformator = () -> {
+				try {
+					return new SYNC_App(tggName, Constants.workspacePath, false,
+							tggName+"/instances/"+size+"Element", false, false);
+				} catch (IOException e) {
+					e.printStackTrace();
+					return null;
+				}
+			};
+			
+			List<TestDataPoint> points = test.timedSyncAndInit(transformator, size, repetitions, false, incEditor.getEdit(tggName, false), true);
+			data.addAll(points);
+		}
+	}
+	
+	private boolean isMODELGENMaxSize(String tggName, int size) throws IOException {
 		MODELGENPerformanceTest test = new MODELGENPerformanceTest();
 		test.setUseTimeouts(false);
 
 		Supplier<MODELGEN> generator = () -> {
 			try {
-				MODELGEN gen = new MODELGEN_App(tggName, Constants.workspacePath, flattened, false,
-						tggName+"/instances/"+size+"Element"+(flattened ? "_flattened" : "_refinement"));
+				MODELGEN gen = new MODELGEN_App(tggName, Constants.workspacePath, false,
+						tggName+"/instances/"+size+"Element");
 				return gen;
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -309,7 +369,7 @@ public class TestDataCollector {
 		Function<TGG, MODELGENStopCriterion> stops = util.createStopCriterion(tggName, size);
 		
 		try {
-			test.timedExecutionAndInit(generator, stops, size, 1, flattened);
+			test.timedExecutionAndInit(generator, stops, size, 1);
 		} catch (OutOfMemoryError e) {
 			TestDataPoint maxSize = new TestDataPoint(null, null);
 			maxSize.tggName = tggName;
@@ -322,13 +382,13 @@ public class TestDataCollector {
 		return false;
 	}
 
-	private boolean isCCMaxSize(String tggName, int size, boolean flattened) throws IOException {
+	private boolean isCCMaxSize(String tggName, int size) throws IOException {
 		CCPerformanceTest test = new CCPerformanceTest();
 		test.setUseTimeouts(false);
 
 		Supplier<CC> checker = () -> {
 			try {
-				CC cc = new CC_App(tggName, Constants.workspacePath, flattened, false, size+"Element"+(flattened ? "_flattened" : "_refinement"));
+				CC cc = new CC_App(tggName, Constants.workspacePath, false, size+"Element");
 				return cc;
 			} catch (Exception e) {
 				throw new RuntimeException("CC_App for "+tggName+" could not be found. "
@@ -338,7 +398,7 @@ public class TestDataCollector {
 		
 
 		try {
-			test.timedExecutionAndInit(checker, size, 1, flattened);
+			test.timedExecutionAndInit(checker, size, 1);
 		} catch (OutOfMemoryError | GRBException e) {
 			TestDataPoint maxSize = new TestDataPoint(null, null);
 			maxSize.tggName = tggName;
@@ -351,14 +411,14 @@ public class TestDataCollector {
 		return false;
 	}
 
-	private boolean isFWDmaxSize(String tggName, int size, boolean flattened) throws IOException {
+	private boolean isFWDmaxSize(String tggName, int size) throws IOException {
 		SYNCPerformanceTest test = new SYNCPerformanceTest();
 		test.setUseTimeouts(false);
 		
 		Supplier<SYNC> transformator = () -> {
 			try {
-				SYNC sync = new SYNC_App(tggName, Constants.workspacePath, flattened, false,
-						tggName+"/instances/"+size+"Element"+(flattened ? "_flattened" : "_refinement"), true, false);
+				SYNC sync = new SYNC_App(tggName, Constants.workspacePath, false,
+						tggName+"/instances/"+size+"Element", true, false);
 				return sync;
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -367,7 +427,7 @@ public class TestDataCollector {
 		};
 		
 		try {
-			test.timedSyncAndInit(transformator, size, 1, flattened, true, incEditor.getEdit(tggName, true), true);
+			test.timedSyncAndInit(transformator, size, 1, true, incEditor.getEdit(tggName, true), true);
 		} catch (OutOfMemoryError e) {
 			TestDataPoint maxSize = new TestDataPoint(null, null);
 			maxSize.tggName = tggName;
@@ -380,14 +440,14 @@ public class TestDataCollector {
 		return false;
 	}
 
-	private boolean isBWDmaxSize(String tggName, int size, boolean flattened) throws IOException {
+	private boolean isBWDmaxSize(String tggName, int size) throws IOException {
 		SYNCPerformanceTest test = new SYNCPerformanceTest();
 		test.setUseTimeouts(false);
 		
 		Supplier<SYNC> transformator = () -> {
 			try {
-				return new SYNC_App(tggName, Constants.workspacePath, flattened, false,
-						tggName+"/instances/"+size+"Element"+(flattened ? "_flattened" : "_refinement"), false, false);
+				return new SYNC_App(tggName, Constants.workspacePath, false,
+						tggName+"/instances/"+size+"Element", false, false);
 			} catch (IOException e) {
 				e.printStackTrace();
 				return null;
@@ -395,7 +455,7 @@ public class TestDataCollector {
 		};
 		
 		try {
-			test.timedSyncAndInit(transformator, size, 1, flattened, false, incEditor.getEdit(tggName, false), true);
+			test.timedSyncAndInit(transformator, size, 1, false, incEditor.getEdit(tggName, false), true);
 		} catch (OutOfMemoryError e) {
 			TestDataPoint maxSize = new TestDataPoint(null, null);
 			maxSize.tggName = tggName;
@@ -409,27 +469,23 @@ public class TestDataCollector {
 	}
 	
 	public void saveHardCodedMaxModelSizes() {
-		int[][][] modelSizeLimits = {{{10000,500,50,50},{5000,1000,1000,1000}},
-									 {{10000,1000,100,100},{10000,1000,1000,1000}},
-									 {{100000, 10000, 1000, 10000},{100000, 10000, 10000, 10000}},
-									 {{100000,1000,1000,1000},{100000,1000,1000,1000}},
-									 {{100000,500,1000,1000},{100000,500,10000,1000}},
-									 {{100000,1000,1000,1000},{100000,1000,1000,1000}},
-									 {{100000,1000,50,50},{100000,10000,10000,10000}},
-									 {{5000,1000,50,50},{1000,500,1000,1000}}};
+		int[][] modelSizeLimits = {{10000,500,50,50},
+									 {10000,1000,100,100},
+									 {100000, 10000, 1000, 10000},
+									 {100000,1000,1000,1000},
+									 {100000,500,1000,1000},
+									 {100000,1000,1000,1000},
+									 {100000,1000,50,50},
+									 {5000,1000,50,50}};
 		
 		List<TestDataPoint> maxData = new ArrayList<TestDataPoint>(64);
 		for (int i = 0; i < modelSizeLimits.length; i++) {
-			boolean[] networks = {false, true};
-			for (int j = 0; j < 2; j++) {
-				for (int k = 0; k < 4; k++) {
-					TestDataPoint maxDataPoint = new TestDataPoint(null, null);
-					maxDataPoint.tggName = Constants.testProjects[i];
-					maxDataPoint.flattenedNetwork = networks[j];
-					maxDataPoint.operationalization = Operationalization.values()[k];
-					maxDataPoint.modelSize = modelSizeLimits[i][j][k];
-					maxData.add(maxDataPoint);
-				}
+			for (int j = 0; j < 4; j++) {
+				TestDataPoint maxDataPoint = new TestDataPoint(null, null);
+				maxDataPoint.tggName = Constants.testProjects[i];
+				maxDataPoint.operationalization = Operationalization.values()[j];
+				maxDataPoint.modelSize = modelSizeLimits[i][j];
+				maxData.add(maxDataPoint);
 			}
 		}
 		
@@ -457,7 +513,9 @@ public class TestDataCollector {
 			data = (List<TestDataPoint>)in.readObject();
 			in.close();
 			file.close();
-		} catch(Exception e) {
+		} catch(IOException e) {
+			data = new ArrayList<>();
+		} catch(ClassNotFoundException e) {
 			e.printStackTrace();
 		}
 		

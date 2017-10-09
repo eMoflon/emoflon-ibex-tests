@@ -19,13 +19,14 @@ public class PerformanceTestUtil {
 	 * specified parameters tgg, op, modelSize and flattened. When null is
 	 * passed for any parameter, then that parameter is not used for filtering.
 	 */
-	public List<TestDataPoint> filterTestResults(List<TestDataPoint> testData, String tgg, Operationalization op, Integer modelSize, Boolean flattened) {
+	public List<TestDataPoint> filterTestResults(List<TestDataPoint> testData, String tgg, Operationalization op, Integer modelSize) {
+		if (testData == null)
+			return null;
 		return testData.stream()
 				  	   .filter(t -> t != null)
 					   .filter(t -> tgg==null || t.tggName.equals(tgg))
 					   .filter(t -> op==null || t.operationalization == op)
 					   .filter(t -> modelSize==null || t.modelSize == modelSize)
-					   .filter(t -> flattened==null || t.flattenedNetwork == flattened)
 					   .collect(Collectors.toList());
 	}
 	

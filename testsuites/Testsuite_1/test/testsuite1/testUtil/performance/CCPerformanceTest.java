@@ -59,7 +59,7 @@ public class CCPerformanceTest {
 		checker.terminate();
 	}
 	
-	public TestDataPoint timedExecutionAndInit(Supplier<CC> checker, int size, int repetitions, boolean flattened) throws IOException, GRBException {
+	public TestDataPoint timedExecutionAndInit(Supplier<CC> checker, int size, int repetitions) throws IOException, GRBException {
 		if (repetitions < 1)
 			throw new IllegalArgumentException("Number of repetitions must be positive.");
 		
@@ -70,7 +70,7 @@ public class CCPerformanceTest {
 		for (int i = 0; i < repetitions; i++) {
 			CC cc = checker.get();
 			ExecutorService es = Executors.newSingleThreadExecutor();
-			System.out.println("CC: size="+size+", flattened = "+flattened+": "+(i+1)+"-th execution started.");
+			System.out.println("CC: size="+size+": "+(i+1)+"-th execution started.");
 			
 			if (useTimeouts)
 			    try {
@@ -112,7 +112,6 @@ public class CCPerformanceTest {
 		result.operationalization = Operationalization.CC;
 		result.setTGG(tgg);
 		result.modelSize = size;
-		result.flattenedNetwork = flattened;
 		return result;
 	}
 
