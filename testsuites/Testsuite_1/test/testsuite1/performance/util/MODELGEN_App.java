@@ -1,11 +1,11 @@
-package testsuite1.testUtil.performance;
+package testsuite1.performance.util;
 
 import java.io.IOException;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.emoflon.ibex.tgg.operational.strategies.sync.SYNC;
+import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGEN;
 
 import BlockDiagram.impl.BlockDiagramPackageImpl;
 import BlockLanguage.impl.BlockLanguagePackageImpl;
@@ -20,16 +20,12 @@ import SimplePersons.impl.SimplePersonsPackageImpl;
 import VHDLModel.impl.VHDLModelPackageImpl;
 import testsuite1.testUtil.Constants;
 
-public class SYNC_App extends SYNC {
+public class MODELGEN_App extends MODELGEN {
 	private String instancePath;
-	private boolean isFwd;
-	private boolean isIncr;
 
-	public SYNC_App(String projectName, String workspacePath, boolean debug, String instancePath, boolean isFwd, boolean isIncr) throws IOException {
+	public MODELGEN_App(String projectName, String workspacePath, boolean debug, String instancePath) throws IOException {
 		super(projectName, workspacePath, debug);
 		this.instancePath = instancePath;
-		this.isFwd = isFwd;
-		this.isIncr = isIncr;
 	}
 
 	protected void registerUserMetamodels() throws IOException {
@@ -97,24 +93,17 @@ public class SYNC_App extends SYNC {
 	
 	@Override
 	public void loadModels() throws IOException {
-		if (isIncr) {
-			s = loadResource(instancePath + "/src.xmi");
-			t = loadResource(instancePath + "/trg.xmi");
-			c = loadResource(instancePath + "/corr.xmi");
-			p = loadResource(instancePath + "/protocol.xmi");
-		} else {
-			if (isFwd) {
-				s = loadResource(instancePath + "/src.xmi");
-				t = createResource(instancePath + "/trg.xmi");
-			} else {
-				s = createResource(instancePath + "/src.xmi");
-				t = loadResource(instancePath + "/trg.xmi");
-			}
-			c = createResource(instancePath + "/corr.xmi");
-			p = createResource(instancePath + "/protocol.xmi");
-		}
+		s = createResource(instancePath + "/src.xmi");
+		t = createResource(instancePath + "/trg.xmi");
+		c = createResource(instancePath + "/corr.xmi");
+		p = createResource(instancePath + "/protocol.xmi");
 		
 		EcoreUtil.resolveAll(rs);
+	}
+	
+	@Override
+	protected boolean protocol() {
+		return true;
 	}
 
 }

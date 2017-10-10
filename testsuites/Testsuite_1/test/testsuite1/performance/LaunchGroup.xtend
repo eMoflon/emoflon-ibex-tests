@@ -5,10 +5,10 @@ import java.nio.file.Paths
 import java.util.ArrayList
 import java.util.Arrays
 import java.util.List
+import testsuite1.performance.util.LaunchConfiguration
+import testsuite1.performance.util.Operationalization
+import testsuite1.performance.util.TestCaseParameters
 import testsuite1.testUtil.Constants
-import testsuite1.testUtil.performance.LaunchConfiguration
-import testsuite1.testUtil.performance.Operationalization
-import testsuite1.testUtil.performance.TestCaseParameters
 
 class LaunchGroup {
 	public final static String launchGroupPath = "performance/"

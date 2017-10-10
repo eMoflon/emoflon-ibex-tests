@@ -1,6 +1,4 @@
-package testsuite1.testUtil.performance;
-
-import java.io.Serializable;
+package testsuite1.performance.util;
 
 public enum Operationalization {
 	MODELGEN,

@@ -23,17 +23,17 @@ import org.emoflon.ibex.tgg.operational.util.TimedUpdatePolicy;
 
 import gurobi.GRBException;
 import language.TGG;
+import testsuite1.performance.util.CCPerformanceTest;
+import testsuite1.performance.util.CC_App;
+import testsuite1.performance.util.IncrementalEditor;
+import testsuite1.performance.util.MODELGENPerformanceTest;
+import testsuite1.performance.util.MODELGEN_App;
+import testsuite1.performance.util.Operationalization;
+import testsuite1.performance.util.PerformanceTestUtil;
+import testsuite1.performance.util.SYNCPerformanceTest;
+import testsuite1.performance.util.SYNC_App;
+import testsuite1.performance.util.TestDataPoint;
 import testsuite1.testUtil.Constants;
-import testsuite1.testUtil.performance.CCPerformanceTest;
-import testsuite1.testUtil.performance.CC_App;
-import testsuite1.testUtil.performance.IncrementalEditor;
-import testsuite1.testUtil.performance.MODELGENPerformanceTest;
-import testsuite1.testUtil.performance.MODELGEN_App;
-import testsuite1.testUtil.performance.Operationalization;
-import testsuite1.testUtil.performance.PerformanceTestUtil;
-import testsuite1.testUtil.performance.SYNCPerformanceTest;
-import testsuite1.testUtil.performance.SYNC_App;
-import testsuite1.testUtil.performance.TestDataPoint;
 
 public class TestDataCollector {
 	

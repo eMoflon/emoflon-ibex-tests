@@ -1,4 +1,4 @@
-package testsuite1.testUtil.performance;
+package testsuite1.performance.util;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -12,17 +12,19 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
+import java.util.function.Function;
 import java.util.function.Supplier;
 
-import org.emoflon.ibex.tgg.operational.strategies.cc.CC;
+import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGEN;
+import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGENStopCriterion;
+import org.emoflon.ibex.tgg.operational.util.RandomMatchUpdatePolicy;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesEngine;
 
-import gurobi.GRBException;
 import language.TGG;
 import testsuite1.testUtil.Constants;
 
-public class CCPerformanceTest {
-	public CC checker;
+public class MODELGENPerformanceTest {
+	public MODELGEN generator;
 	
 	protected boolean initialized = false;
 	protected boolean useTimeouts = true;
@@ -30,11 +32,13 @@ public class CCPerformanceTest {
 	protected List<String> executionResults = new LinkedList<String>();
 	protected List<String> initResults = new LinkedList<String>();
 
-	public long timedInit(CC checker) throws IOException {
-		this.checker = checker;
+	public long timedInit(MODELGEN generator) throws IOException {
+		this.generator = generator;
+		
+		generator.setUpdatePolicy(new RandomMatchUpdatePolicy());
 		
 		long tic = System.nanoTime();
-		checker.registerPatternMatchingEngine(new DemoclesEngine());
+		generator.registerPatternMatchingEngine(new DemoclesEngine());
 		long toc = System.nanoTime();
 		
 		initialized = true;
@@ -42,12 +46,14 @@ public class CCPerformanceTest {
 		return toc - tic;
 	}
 	
-	public long timedExecution() throws IOException {
+	public long timedExecution(MODELGENStopCriterion stop) throws IOException {
 		if (!initialized)
-			throw new NullPointerException("Checker has not been initialized yet. Call timedInit() before this method.");
+			throw new NullPointerException("Generator has not been initialized yet. Call timedInit() before this method.");
+		
+		generator.setStopCriterion(stop);
 		
 		long tic = System.nanoTime();
-		checker.run();
+		generator.run();
 		long toc = System.nanoTime();
 		
 		executionResults.add((toc - tic)+"");
@@ -56,10 +62,10 @@ public class CCPerformanceTest {
 	}
 	
 	public void terminate() throws IOException {
-		checker.terminate();
+		generator.terminate();
 	}
 	
-	public TestDataPoint timedExecutionAndInit(Supplier<CC> checker, int size, int repetitions) throws IOException, GRBException {
+	public TestDataPoint timedExecutionAndInit(Supplier<MODELGEN> generator, Function<TGG, MODELGENStopCriterion> stops, int size, int repetitions) throws IOException {
 		if (repetitions < 1)
 			throw new IllegalArgumentException("Number of repetitions must be positive.");
 		
@@ -68,18 +74,19 @@ public class CCPerformanceTest {
 		TGG tgg = null;
 		
 		for (int i = 0; i < repetitions; i++) {
-			CC cc = checker.get();
+			MODELGEN gen = generator.get();
 			ExecutorService es = Executors.newSingleThreadExecutor();
-			System.out.println("CC: size="+size+": "+(i+1)+"-th execution started.");
-			
+			System.out.println("MODELGEN: size="+size+": "+(i+1)+"-th execution started.");
+
 			if (useTimeouts)
 			    try {
-					Future<Long> initResult = es.submit(() -> timedInit(cc));
+				    Future<Long> initResult = es.submit(() -> timedInit(gen));
 			    	initTimes[i] = initResult.get(Constants.timeout, TimeUnit.SECONDS);
-			    	
-					tgg = cc.getTGG();
-	
-					Future<Long> executionResult = es.submit(() -> timedExecution());
+		
+					tgg = gen.getTGG();
+					MODELGENStopCriterion stop = stops.apply(tgg);
+		
+				    Future<Long> executionResult = es.submit(() -> timedExecution(stop));
 			    	executionTimes[i] = executionResult.get(Constants.timeout, TimeUnit.SECONDS);
 			    } catch (TimeoutException e) {
 			    	System.out.println("Timeout!");
@@ -98,32 +105,37 @@ public class CCPerformanceTest {
 					System.out.println((i+1)+"-th execution finished. ");
 			    }
 			else {
-				initTimes[i] = timedInit(cc);
+				initTimes[i] = timedInit(gen);
 	
-				tgg = cc.getTGG();
+				tgg = gen.getTGG();
+				MODELGENStopCriterion stop = stops.apply(tgg);
 	
-		    	executionTimes[i] = timedExecution();
+		    	executionTimes[i] = timedExecution(stop);
 
 		    	terminate();
 			}
+			
+			if (i==0) { // one generated model should be saved
+				gen.saveModels();
+			}
 		}
-
+		
 		TestDataPoint result = new TestDataPoint(initTimes, executionTimes);
-		result.operationalization = Operationalization.CC;
+		result.operationalization = Operationalization.MODELGEN;
 		result.setTGG(tgg);
 		result.modelSize = size;
 		return result;
 	}
-
+	
 	public void setUseTimeouts(boolean useTimeouts) {
 		this.useTimeouts = useTimeouts;
 	}
 	
 	public void saveResults() throws IOException {
-		Path file = Paths.get("performance/CCExecutionResults.txt");
+		Path file = Paths.get("performance/MODELGENExecutionResults.txt");
 		Files.deleteIfExists(file);
 		Files.write(file, executionResults, StandardOpenOption.CREATE_NEW);
-		file = Paths.get("performance/CCInitResults.txt");
+		file = Paths.get("performance/MODELGENInitResults.txt");
 		Files.write(file, initResults, StandardOpenOption.CREATE);
 	}
 }

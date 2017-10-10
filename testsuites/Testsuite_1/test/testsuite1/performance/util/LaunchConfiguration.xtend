@@ -1,8 +1,9 @@
-package testsuite1.testUtil.performance
+package testsuite1.performance.util
 
 import java.nio.file.Files
 import java.nio.file.Paths
 import java.util.Arrays
+import testsuite1.performance.util.TestCaseParameters
 
 class LaunchConfiguration {
 	public final static String maxMemorySize = "1024M" //"M" for megabyte, "G" for gigabyte

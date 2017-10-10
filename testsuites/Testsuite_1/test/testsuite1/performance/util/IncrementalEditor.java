@@ -1,4 +1,4 @@
-package testsuite1.testUtil.performance;
+package testsuite1.performance.util;
 
 import java.util.function.Consumer;
 

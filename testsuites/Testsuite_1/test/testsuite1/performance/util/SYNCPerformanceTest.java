@@ -1,4 +1,4 @@
-package testsuite1.testUtil.performance;
+package testsuite1.performance.util;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -169,12 +169,12 @@ public class SYNCPerformanceTest {
 	}
 	
 	@Deprecated
-	public TestDataPoint timedFwdAndInit(Supplier<SYNC> transformator, int size, int repetitions, boolean flattened) throws IOException {
-		return this.timedFwdAndInit(transformator, size, repetitions, flattened, (o)->{}, false);
+	public TestDataPoint timedFwdAndInit(Supplier<SYNC> transformator, int size, int repetitions) throws IOException {
+		return this.timedFwdAndInit(transformator, size, repetitions, (o)->{}, false);
 	}
 
 	@Deprecated
-	public TestDataPoint timedFwdAndInit(Supplier<SYNC> transformator, int size, int repetitions, boolean flattened, Consumer<EObject> edit, boolean incr) throws IOException {
+	public TestDataPoint timedFwdAndInit(Supplier<SYNC> transformator, int size, int repetitions, Consumer<EObject> edit, boolean incr) throws IOException {
 		if (repetitions < 1)
 			throw new IllegalArgumentException("Number of repetitions must be positive.");
 		
@@ -185,7 +185,7 @@ public class SYNCPerformanceTest {
 		for (int i = 0; i < repetitions; i++) {
 			SYNC sync = transformator.get();
 			tgg = sync.getTGG();
-			System.out.println(sync.getTGG().getName()+":"+(incr ? Operationalization.INCREMENTAL_FWD : Operationalization.FWD)+", size="+size+", flattened = "+flattened+": "+(i+1)+"-th execution started.");
+			System.out.println(sync.getTGG().getName()+":"+(incr ? Operationalization.INCREMENTAL_FWD : Operationalization.FWD)+", size="+size+": "+(i+1)+"-th execution started.");
 			initTimes[i] = timedInit(sync);
 			if (incr)
 				sync.forward();
@@ -200,17 +200,16 @@ public class SYNCPerformanceTest {
 		result.operationalization = incr ? Operationalization.INCREMENTAL_FWD : Operationalization.FWD;
 		result.setTGG(tgg);
 		result.modelSize = size;
-		result.flattenedNetwork = flattened;
 		return result;
 	}
 	
 	@Deprecated
-	public TestDataPoint timedBwdAndInit(Supplier<SYNC> transformator, int size, int repetitions, boolean flattened) throws IOException {
-		return this.timedBwdAndInit(transformator, size, repetitions, flattened, (o)->{}, false);
+	public TestDataPoint timedBwdAndInit(Supplier<SYNC> transformator, int size, int repetitions) throws IOException {
+		return this.timedBwdAndInit(transformator, size, repetitions, (o)->{}, false);
 	}
 
 	@Deprecated
-	public TestDataPoint timedBwdAndInit(Supplier<SYNC> transformator, int size, int repetitions, boolean flattened, Consumer<EObject> edit, boolean incr) throws IOException {
+	public TestDataPoint timedBwdAndInit(Supplier<SYNC> transformator, int size, int repetitions, Consumer<EObject> edit, boolean incr) throws IOException {
 		if (repetitions < 1)
 			throw new IllegalArgumentException("Number of repetitions must be positive.");
 		
@@ -221,7 +220,7 @@ public class SYNCPerformanceTest {
 		for (int i = 0; i < repetitions; i++) {
 			SYNC sync = transformator.get();
 			tgg = sync.getTGG();
-			System.out.println(sync.getTGG().getName()+":"+(incr ? Operationalization.INCREMENTAL_BWD : Operationalization.BWD)+", size="+size+", flattened = "+flattened+": "+(i+1)+"-th execution started.");
+			System.out.println(sync.getTGG().getName()+":"+(incr ? Operationalization.INCREMENTAL_BWD : Operationalization.BWD)+", size="+size+": "+(i+1)+"-th execution started.");
 			initTimes[i] = timedInit(sync);
 			if (incr)
 				sync.backward();
@@ -236,7 +235,6 @@ public class SYNCPerformanceTest {
 		result.operationalization = incr ? Operationalization.INCREMENTAL_BWD : Operationalization.BWD;
 		result.setTGG(tgg);
 		result.modelSize = size;
-		result.flattenedNetwork = flattened;
 		return result;
 	}
 }
