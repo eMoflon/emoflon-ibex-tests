@@ -1,22 +1,101 @@
 package testsuite1.performance.util;
 
+import java.io.IOException;
 import java.util.HashSet;
 import java.util.List;
-import java.util.function.BinaryOperator;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGENStopCriterion;
 
+import BlockDiagram.impl.BlockDiagramPackageImpl;
+import BlockLanguage.impl.BlockLanguagePackageImpl;
+import ClassInheritanceHierarchy.impl.ClassInheritanceHierarchyPackageImpl;
+import CompanyLanguage.impl.CompanyLanguagePackageImpl;
+import Database.impl.DatabasePackageImpl;
+import ITLanguage.impl.ITLanguagePackageImpl;
+import MocaTree.impl.MocaTreePackageImpl;
+import ProcessDefinition.impl.ProcessDefinitionPackageImpl;
+import SimpleFamilies.impl.SimpleFamiliesPackageImpl;
+import SimplePersons.impl.SimplePersonsPackageImpl;
+import VHDLModel.impl.VHDLModelPackageImpl;
 import language.TGG;
 import language.TGGRule;
 import language.TGGRuleEdge;
+import testsuite1.testUtil.Constants;
 
 public class PerformanceTestUtil {
+	
+	/** 
+	 * Registers the meta models of the used TGG. For each new TGG,
+	 * the meta models that need to be registered need to be added here.
+	 *  */
+	protected void registerUserMetamodels(String projectPath, ResourceSet rs) throws IOException {
+		String srcMetaModel = "";
+		String trgMetaModel = "";
+		EPackage srcPackage = null;
+		EPackage trgPackage = null;
+		switch (projectPath) {
+			case Constants.blockCodeAdapter:
+				srcMetaModel = "MocaTree";
+				trgMetaModel = "BlockLanguage";
+				srcPackage = MocaTreePackageImpl.init();
+				trgPackage = BlockLanguagePackageImpl.init();
+				break;
+			case Constants.blockDiagramCodeAdapter:
+				srcMetaModel = "BlockDiagram";
+				trgMetaModel = "MocaTree";
+				srcPackage = BlockDiagramPackageImpl.init();
+				trgPackage = MocaTreePackageImpl.init();
+				break;
+			case Constants.classInhHier2DB:
+				srcMetaModel = "ClassInheritanceHierarchy";
+				trgMetaModel = "Database";
+				srcPackage = ClassInheritanceHierarchyPackageImpl.init();
+				trgPackage = DatabasePackageImpl.init();
+				break;
+			case Constants.companyToIT:
+				srcMetaModel = "CompanyLanguage";
+				trgMetaModel = "ITLanguage";
+				srcPackage = CompanyLanguagePackageImpl.init();
+				trgPackage = ITLanguagePackageImpl.init();
+				break;
+			case Constants.familiesToPersons_V0:
+			case Constants.familiesToPersons_V1:
+				srcMetaModel = "SimpleFamilies";
+				trgMetaModel = "SimplePersons";
+				srcPackage = SimpleFamiliesPackageImpl.init();
+				trgPackage = SimplePersonsPackageImpl.init();
+				break;
+			case Constants.processCodeAdapter:
+				srcMetaModel = "MocaTree";
+				trgMetaModel = "ProcessDefinition";
+				srcPackage = MocaTreePackageImpl.init();
+				trgPackage = ProcessDefinitionPackageImpl.init();
+				break;
+			case Constants.vhdlTGGCodeAdapter:
+				srcMetaModel = "MocaTree";
+				trgMetaModel = "VHDLModel";
+				srcPackage = MocaTreePackageImpl.init();
+				trgPackage = VHDLModelPackageImpl.init();
+				break;
+			default:
+				throw new IllegalArgumentException("ProjectName parameter does not specify a supported TGG. "
+						+ "New TGGs have to be manually added to the PerformanceTestUtil class.");
+		};
+		
+		rs.getURIConverter().getURIMap().put(URI.createURI("platform:/plugin/"+srcMetaModel+"/"), URI.createURI("platform:/resource/"+srcMetaModel+"/"));
+		rs.getURIConverter().getURIMap().put(URI.createURI("platform:/plugin/"+trgMetaModel+"/"), URI.createURI("platform:/resource/"+trgMetaModel+"/"));
+		rs.getPackageRegistry().put("platform:/resource/"+srcMetaModel+"/model/"+srcMetaModel+".ecore", srcPackage);
+		rs.getPackageRegistry().put("platform:/resource/"+trgMetaModel+"/model/"+trgMetaModel+".ecore", trgPackage);
+	}
 
 	/**
 	 * Returns those TestDataPoints from the testData which fit to the
-	 * specified parameters tgg, op, modelSize and flattened. When null is
+	 * specified parameters tgg, op and modelSize. When null is
 	 * passed for any parameter, then that parameter is not used for filtering.
 	 */
 	public List<TestDataPoint> filterTestResults(List<TestDataPoint> testData, String tgg, Operationalization op, Integer modelSize) {
@@ -24,9 +103,9 @@ public class PerformanceTestUtil {
 			return null;
 		return testData.stream()
 				  	   .filter(t -> t != null)
-					   .filter(t -> tgg==null || t.tggName.equals(tgg))
-					   .filter(t -> op==null || t.operationalization == op)
-					   .filter(t -> modelSize==null || t.modelSize == modelSize)
+					   .filter(t -> tgg==null || t.testCase.tgg().equals(tgg))
+					   .filter(t -> op==null || t.testCase.operationalization() == op)
+					   .filter(t -> modelSize==null || t.testCase.modelSize() == modelSize)
 					   .collect(Collectors.toList());
 	}
 	
@@ -80,28 +159,38 @@ public class PerformanceTestUtil {
 				case "VHDLTGGCodeAdapter":
 					stop.setMaxRuleCount("File2VHDLSpec", 1);
 					break;
+				default:
+					throw new IllegalArgumentException("The MODELGENStopCriterion has not been defined yet for the TGG "+tgg.getName());
 			}
 			return stop;
 		};
 	}
 
+	/**
+	 * Calculates the average number of elements per rule in a TGG
+	 */
 	public double getAverageRuleSize(TGG flattenedTGG) {
 		double numberOfRules = flattenedTGG.getRules().size();
 		
-		return reduceRuleSizes(flattenedTGG, (size1, size2) -> size1 + size2)/numberOfRules;
-	}
-
-	public double getMaxRuleSize(TGG flattenedTGG) {
-		return reduceRuleSizes(flattenedTGG, (size1, size2) -> Math.max(size1, size2));
-	}
-
-	private Integer reduceRuleSizes(TGG flattenedTGG, BinaryOperator<Integer> accumulator) {
 		return flattenedTGG.getRules().stream()
-									  .map(this::getRuleSize)
-								 	  .reduce(accumulator)
-								 	  .get();
+				  .map(this::getRuleSize)
+			 	  .reduce((size1, size2) -> size1 + size2)
+			 	  .get()/numberOfRules;
 	}
-	
+
+	/**
+	 * Calculates the max number of elements of a rule in a TGG
+	 */
+	public double getMaxRuleSize(TGG flattenedTGG) {
+		return flattenedTGG.getRules().stream()
+				  .map(this::getRuleSize)
+			 	  .reduce((size1, size2) -> Math.max(size1, size2))
+			 	  .get();
+	}
+
+	/**
+	 * Calculates the number of elements in a rule
+	 */
 	private int getRuleSize(TGGRule rule) {
 		int size = rule.getNodes().size();
 		HashSet<TGGRuleEdge> checkedEdges = new HashSet<>();
@@ -117,6 +206,9 @@ public class PerformanceTestUtil {
 		return size;
 	}
 	
+	/**
+	 * Checks whether two edges are EOpposites of each other.
+	 */
 	private boolean oppositeEdges(TGGRuleEdge e1, TGGRuleEdge e2) {
 		return e1.getType().getEOpposite().equals(e2.getType())
 				&& e1.getSrcNode().equals(e2.getTrgNode())

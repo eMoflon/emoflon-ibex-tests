@@ -146,15 +146,11 @@ public class SYNCPerformanceTest {
 		List<TestDataPoint> result;
 
 		TestDataPoint batchData = new TestDataPoint(initTimes, batchExecutionTimes);
-		batchData.operationalization = (isFwd ? Operationalization.FWD : Operationalization.BWD);
-		batchData.setTGG(tgg);
-		batchData.modelSize = size;
+		batchData.testCase = new TestCaseParameters(tgg.getName(), isFwd ? Operationalization.FWD : Operationalization.BWD, size);
 		
 		if (incr) {
 			TestDataPoint incData = new TestDataPoint(initTimes, incrementalExecutionTimes);
-			incData.operationalization = (isFwd ? Operationalization.INCREMENTAL_FWD : Operationalization.INCREMENTAL_BWD);
-			incData.setTGG(tgg);
-			incData.modelSize = size;
+			incData.testCase = new TestCaseParameters(tgg.getName(), isFwd ? Operationalization.INCREMENTAL_FWD : Operationalization.INCREMENTAL_BWD, size);
 			
 			result = Arrays.asList(batchData, incData);
 		} else {
@@ -197,9 +193,7 @@ public class SYNCPerformanceTest {
 		System.out.println("");
 
 		TestDataPoint result = new TestDataPoint(initTimes, executionTimes);
-		result.operationalization = incr ? Operationalization.INCREMENTAL_FWD : Operationalization.FWD;
-		result.setTGG(tgg);
-		result.modelSize = size;
+		result.testCase = new TestCaseParameters(tgg.getName(), incr ? Operationalization.INCREMENTAL_FWD : Operationalization.FWD, size);
 		return result;
 	}
 	
@@ -232,9 +226,7 @@ public class SYNCPerformanceTest {
 		System.out.println("");
 
 		TestDataPoint result = new TestDataPoint(initTimes, executionTimes);
-		result.operationalization = incr ? Operationalization.INCREMENTAL_BWD : Operationalization.BWD;
-		result.setTGG(tgg);
-		result.modelSize = size;
+		result.testCase = new TestCaseParameters(tgg.getName(), incr ? Operationalization.INCREMENTAL_BWD : Operationalization.BWD, size);
 		return result;
 	}
 }

@@ -121,9 +121,7 @@ public class MODELGENPerformanceTest {
 		}
 		
 		TestDataPoint result = new TestDataPoint(initTimes, executionTimes);
-		result.operationalization = Operationalization.MODELGEN;
-		result.setTGG(tgg);
-		result.modelSize = size;
+		result.testCase = new TestCaseParameters(tgg.getName(), Operationalization.MODELGEN, size);
 		return result;
 	}
 	

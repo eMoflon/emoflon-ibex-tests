@@ -32,6 +32,7 @@ import testsuite1.performance.util.Operationalization;
 import testsuite1.performance.util.PerformanceTestUtil;
 import testsuite1.performance.util.SYNCPerformanceTest;
 import testsuite1.performance.util.SYNC_App;
+import testsuite1.performance.util.TestCaseParameters;
 import testsuite1.performance.util.TestDataPoint;
 import testsuite1.testUtil.Constants;
 
@@ -68,13 +69,15 @@ public class TestDataCollector {
 				this.collectCCData(tggName, modelSize);
 				break;
 			case FWD:
-			case INCREMENTAL_FWD:
 				this.collectFWDData(tggName, modelSize);
 				break;
 			case BWD:
-			case INCREMENTAL_BWD:
 				this.collectBWDData(tggName, modelSize);
 				break;
+			case INCREMENTAL_FWD:
+			case INCREMENTAL_BWD:
+				throw new IllegalArgumentException("A test case should not contain the operationalization "
+						+"INCREMENTAL_FWD/INCREMENTAL_BWD because both batch and incremental SYNC are included in the FWD/BWD test cases.");
 		}
 		
 		saveData();		
@@ -210,7 +213,7 @@ public class TestDataCollector {
 
 	private void collectMODELGENData(String tggName, int size) throws IOException {
 		List<TestDataPoint> maxSizeData = util.filterTestResults(maxModelSizes, tggName, Operationalization.MODELGEN, null);
-		if (maxSizeData != null && size > maxSizeData.get(0).modelSize) //skip sizes that are to large to handle
+		if (maxSizeData != null && size > maxSizeData.get(0).testCase.modelSize()) //skip sizes that are to large to handle
 			return;
 		
 		MODELGENPerformanceTest test = new MODELGENPerformanceTest();
@@ -237,7 +240,7 @@ public class TestDataCollector {
 
 	private void collectCCData(String tggName, int size) throws IOException {
 		List<TestDataPoint> maxSizeData = util.filterTestResults(maxModelSizes, tggName, Operationalization.CC, null);
-		if (maxSizeData != null && size > maxSizeData.get(0).modelSize) //skip sizes that are to large to handle
+		if (maxSizeData != null && size > maxSizeData.get(0).testCase.modelSize()) //skip sizes that are to large to handle
 			return;
 		
 		CCPerformanceTest test = new CCPerformanceTest();
@@ -270,7 +273,7 @@ public class TestDataCollector {
 		
 		// FWD
 		List<TestDataPoint> maxSizeData = util.filterTestResults(maxModelSizes, tggName, Operationalization.FWD, null);
-		if (maxSizeData == null || size <= maxSizeData.get(0).modelSize) { //skip sizes that are to large to handle
+		if (maxSizeData == null || size <= maxSizeData.get(0).testCase.modelSize()) { //skip sizes that are to large to handle
 			Supplier<SYNC> transformator = () -> {
 				try {
 					SYNC sync = new SYNC_App(tggName, Constants.workspacePath, false,
@@ -290,7 +293,7 @@ public class TestDataCollector {
 		
 		// BWD
 		maxSizeData = util.filterTestResults(maxModelSizes, tggName, Operationalization.BWD, null);
-		if (maxSizeData == null || size <= maxSizeData.get(0).modelSize) { //skip sizes that are to large to handle
+		if (maxSizeData == null || size <= maxSizeData.get(0).testCase.modelSize()) { //skip sizes that are to large to handle
 			boolean bwd = !fwd;
 			Supplier<SYNC> transformator = () -> {
 				try {
@@ -311,7 +314,7 @@ public class TestDataCollector {
 		SYNCPerformanceTest test = new SYNCPerformanceTest();
 
 		List<TestDataPoint> maxSizeData = util.filterTestResults(maxModelSizes, tggName, Operationalization.FWD, null);
-		if (maxSizeData == null || size <= maxSizeData.get(0).modelSize) { //skip sizes that are to large to handle
+		if (maxSizeData == null || size <= maxSizeData.get(0).testCase.modelSize()) { //skip sizes that are to large to handle
 			Supplier<SYNC> transformator = () -> {
 				try {
 					SYNC sync = new SYNC_App(tggName, Constants.workspacePath, false,
@@ -335,7 +338,7 @@ public class TestDataCollector {
 		SYNCPerformanceTest test = new SYNCPerformanceTest();
 	
 		List<TestDataPoint> maxSizeData = util.filterTestResults(maxModelSizes, tggName, Operationalization.BWD, null);
-		if (maxSizeData == null || size <= maxSizeData.get(0).modelSize) { //skip sizes that are to large to handle
+		if (maxSizeData == null || size <= maxSizeData.get(0).testCase.modelSize()) { //skip sizes that are to large to handle
 			Supplier<SYNC> transformator = () -> {
 				try {
 					return new SYNC_App(tggName, Constants.workspacePath, false,
@@ -372,9 +375,7 @@ public class TestDataCollector {
 			test.timedExecutionAndInit(generator, stops, size, 1);
 		} catch (OutOfMemoryError e) {
 			TestDataPoint maxSize = new TestDataPoint(null, null);
-			maxSize.tggName = tggName;
-			maxSize.modelSize = size;
-			maxSize.operationalization = Operationalization.MODELGEN;
+			maxSize.testCase = new TestCaseParameters(tggName, Operationalization.MODELGEN, size);
 			maxModelSizes.add(maxSize);
 			return true;
 		}
@@ -401,9 +402,7 @@ public class TestDataCollector {
 			test.timedExecutionAndInit(checker, size, 1);
 		} catch (OutOfMemoryError | GRBException e) {
 			TestDataPoint maxSize = new TestDataPoint(null, null);
-			maxSize.tggName = tggName;
-			maxSize.modelSize = size;
-			maxSize.operationalization = Operationalization.CC;
+			maxSize.testCase = new TestCaseParameters(tggName, Operationalization.CC, size);
 			maxModelSizes.add(maxSize);
 			return true;
 		}
@@ -430,9 +429,7 @@ public class TestDataCollector {
 			test.timedSyncAndInit(transformator, size, 1, true, incEditor.getEdit(tggName, true), true);
 		} catch (OutOfMemoryError e) {
 			TestDataPoint maxSize = new TestDataPoint(null, null);
-			maxSize.tggName = tggName;
-			maxSize.modelSize = size;
-			maxSize.operationalization = Operationalization.FWD;
+			maxSize.testCase = new TestCaseParameters(tggName, Operationalization.FWD, size);
 			maxModelSizes.add(maxSize);
 			return true;
 		}
@@ -458,9 +455,7 @@ public class TestDataCollector {
 			test.timedSyncAndInit(transformator, size, 1, false, incEditor.getEdit(tggName, false), true);
 		} catch (OutOfMemoryError e) {
 			TestDataPoint maxSize = new TestDataPoint(null, null);
-			maxSize.tggName = tggName;
-			maxSize.modelSize = size;
-			maxSize.operationalization = Operationalization.BWD;
+			maxSize.testCase = new TestCaseParameters(tggName, Operationalization.BWD, size);
 			maxModelSizes.add(maxSize);
 			return true;
 		}
@@ -482,9 +477,7 @@ public class TestDataCollector {
 		for (int i = 0; i < modelSizeLimits.length; i++) {
 			for (int j = 0; j < 4; j++) {
 				TestDataPoint maxDataPoint = new TestDataPoint(null, null);
-				maxDataPoint.tggName = Constants.testProjects[i];
-				maxDataPoint.operationalization = Operationalization.values()[j];
-				maxDataPoint.modelSize = modelSizeLimits[i][j];
+				maxDataPoint.testCase = new TestCaseParameters(Constants.testProjects[i], Operationalization.values()[j], modelSizeLimits[i][j]);
 				maxData.add(maxDataPoint);
 			}
 		}

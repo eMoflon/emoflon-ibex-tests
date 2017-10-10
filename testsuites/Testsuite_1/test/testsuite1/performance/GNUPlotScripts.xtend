@@ -3,10 +3,11 @@ package testsuite1.performance
 import java.nio.file.Files
 import java.nio.file.Paths
 import testsuite1.performance.PerformanceTest
+import java.util.concurrent.TimeUnit
 
 class GNUPlotScripts {
-	private static final String timeUnit = "ms"
-	private static final int timeFactor = 1000000; //conversion from nanoseconds to "timeUnit"
+	private static final TimeUnit timeUnit = TimeUnit.MILLISECONDS;
+	private static final long timeFactor = TimeUnit.NANOSECONDS.convert(1, timeUnit); //conversion from nanoseconds to "timeUnit"
 	
 	private static final String plotPath = "performance/plots/"
 	private static final String scriptPath = "performance/gnuplot_scripts/"

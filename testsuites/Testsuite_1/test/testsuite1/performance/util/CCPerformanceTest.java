@@ -109,9 +109,7 @@ public class CCPerformanceTest {
 		}
 
 		TestDataPoint result = new TestDataPoint(initTimes, executionTimes);
-		result.operationalization = Operationalization.CC;
-		result.setTGG(tgg);
-		result.modelSize = size;
+		result.testCase = new TestCaseParameters(tgg.getName(), Operationalization.CC, size);
 		return result;
 	}
 

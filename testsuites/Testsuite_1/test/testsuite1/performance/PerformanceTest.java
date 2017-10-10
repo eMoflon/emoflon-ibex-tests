@@ -73,7 +73,7 @@ public class PerformanceTest {
 		diagramStrings.add(util.makeLine("TGG", "ExecutionTime"));
 		
 		for (TestDataPoint p : refinementData) {
-			diagramStrings.add(util.makeLine(p.tggName, p.medianExecutionTime()+""));
+			diagramStrings.add(util.makeLine(p.testCase.tgg(), p.medianExecutionTime()+""));
 		}
 
 		// save data in file
@@ -102,14 +102,14 @@ public class PerformanceTest {
 		// get data for plot
 		List<TestDataPoint> refinementData = util.filterTestResults(testData, tgg, op, null);
 		
-		refinementData.sort(Comparator.comparingInt((TestDataPoint p) -> p.modelSize));
+		refinementData.sort(Comparator.comparingInt((TestDataPoint p) -> p.testCase.modelSize()));
 
 		// arrange data in lines
 		List<String> diagramStrings = new ArrayList<>();
 		diagramStrings.add(util.makeLine("ModelSize", "ExecutionTime"));
 		
 		for (TestDataPoint p : refinementData) {
-			diagramStrings.add(util.makeLine(p.modelSize+"", p.medianExecutionTime()+""));
+			diagramStrings.add(util.makeLine(p.testCase.modelSize()+"", p.medianExecutionTime()+""));
 		}
 
 		// save data in file
@@ -120,7 +120,7 @@ public class PerformanceTest {
 		// get data for plot
 		List<TestDataPoint> refinementData = util.filterTestResults(maxModelSizes, null, op, null);
 		
-		refinementData.sort(Comparator.comparingInt((TestDataPoint p) -> p.modelSize));
+		refinementData.sort(Comparator.comparingInt((TestDataPoint p) -> p.testCase.modelSize()));
 
 		// arrange data in lines
 		List<String> diagramStrings = new ArrayList<>();
@@ -128,7 +128,7 @@ public class PerformanceTest {
 		
 		// arrange data in lines		
 		for (TestDataPoint p : refinementData) {
-			diagramStrings.add(util.makeLine(p.tggName, p.modelSize+""));
+			diagramStrings.add(util.makeLine(p.testCase.tgg(), p.testCase.modelSize()+""));
 		}
 
 		// save data in file
@@ -139,14 +139,14 @@ public class PerformanceTest {
 		// get data for plot
 		List<TestDataPoint> refinementData = util.filterTestResults(testData, tgg, op, null);
 		
-		refinementData.sort(Comparator.comparingInt((TestDataPoint p) -> p.modelSize));
+		refinementData.sort(Comparator.comparingInt((TestDataPoint p) -> p.testCase.modelSize()));
 
 		// arrange data in lines
 		List<String> diagramStrings = new ArrayList<>();
 		diagramStrings.add(util.makeLine("ModelSize", "InitTime"));
 		
 		for (TestDataPoint p : refinementData) {
-			diagramStrings.add(util.makeLine(p.modelSize+"", p.medianInitTime()+""));
+			diagramStrings.add(util.makeLine(p.testCase.modelSize()+"", p.medianInitTime()+""));
 		}
 
 		// save data in file
@@ -164,7 +164,7 @@ public class PerformanceTest {
 		diagramStrings.add(util.makeLine("TGG", "InitTime"));
 		
 		for (TestDataPoint p : refinementData) {
-			diagramStrings.add(util.makeLine(p.tggName, p.medianInitTime()+""));
+			diagramStrings.add(util.makeLine(p.testCase.tgg(), p.medianInitTime()+""));
 		}
 
 		// save data in file
