@@ -1,4 +1,4 @@
-package testsuite1.performance.util;
+package testsuite1.testUtil;
 
 public enum Operationalization {
 	MODELGEN,

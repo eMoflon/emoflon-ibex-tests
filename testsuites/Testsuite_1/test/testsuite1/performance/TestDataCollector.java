@@ -23,18 +23,15 @@ import org.emoflon.ibex.tgg.operational.util.TimedUpdatePolicy;
 
 import gurobi.GRBException;
 import language.TGG;
-import testsuite1.performance.util.CCPerformanceTest;
 import testsuite1.performance.util.CC_App;
 import testsuite1.performance.util.IncrementalEditor;
-import testsuite1.performance.util.MODELGENPerformanceTest;
 import testsuite1.performance.util.MODELGEN_App;
-import testsuite1.performance.util.Operationalization;
 import testsuite1.performance.util.PerformanceTestUtil;
-import testsuite1.performance.util.SYNCPerformanceTest;
 import testsuite1.performance.util.SYNC_App;
 import testsuite1.performance.util.TestCaseParameters;
 import testsuite1.performance.util.TestDataPoint;
 import testsuite1.testUtil.Constants;
+import testsuite1.testUtil.Operationalization;
 
 public class TestDataCollector {
 	
@@ -216,7 +213,7 @@ public class TestDataCollector {
 		if (maxSizeData != null && size > maxSizeData.get(0).testCase.modelSize()) //skip sizes that are to large to handle
 			return;
 		
-		MODELGENPerformanceTest test = new MODELGENPerformanceTest();
+		PerformanceTestMODELGEN test = new PerformanceTestMODELGEN();
 
 		Supplier<MODELGEN> generator = () -> {
 			try {
@@ -243,7 +240,7 @@ public class TestDataCollector {
 		if (maxSizeData != null && size > maxSizeData.get(0).testCase.modelSize()) //skip sizes that are to large to handle
 			return;
 		
-		CCPerformanceTest test = new CCPerformanceTest();
+		PerformanceTestCC test = new PerformanceTestCC();
 
 		Supplier<CC> checker = () -> {
 			try {
@@ -268,7 +265,7 @@ public class TestDataCollector {
 	}
 
 	private void collectSYNCData(String tggName, int size) throws IOException {
-		SYNCPerformanceTest test = new SYNCPerformanceTest();
+		PerformanceTestSYNC test = new PerformanceTestSYNC();
 		boolean fwd = true;
 		
 		// FWD
@@ -311,7 +308,7 @@ public class TestDataCollector {
 	}
 	
 	private void collectFWDData(String tggName, int size) throws IOException {
-		SYNCPerformanceTest test = new SYNCPerformanceTest();
+		PerformanceTestSYNC test = new PerformanceTestSYNC();
 
 		List<TestDataPoint> maxSizeData = util.filterTestResults(maxModelSizes, tggName, Operationalization.FWD, null);
 		if (maxSizeData == null || size <= maxSizeData.get(0).testCase.modelSize()) { //skip sizes that are to large to handle
@@ -335,7 +332,7 @@ public class TestDataCollector {
 	
 
 	private void collectBWDData(String tggName, int size) throws IOException {
-		SYNCPerformanceTest test = new SYNCPerformanceTest();
+		PerformanceTestSYNC test = new PerformanceTestSYNC();
 	
 		List<TestDataPoint> maxSizeData = util.filterTestResults(maxModelSizes, tggName, Operationalization.BWD, null);
 		if (maxSizeData == null || size <= maxSizeData.get(0).testCase.modelSize()) { //skip sizes that are to large to handle
@@ -355,7 +352,7 @@ public class TestDataCollector {
 	}
 	
 	private boolean isMODELGENMaxSize(String tggName, int size) throws IOException {
-		MODELGENPerformanceTest test = new MODELGENPerformanceTest();
+		PerformanceTestMODELGEN test = new PerformanceTestMODELGEN();
 		test.setUseTimeouts(false);
 
 		Supplier<MODELGEN> generator = () -> {
@@ -384,7 +381,7 @@ public class TestDataCollector {
 	}
 
 	private boolean isCCMaxSize(String tggName, int size) throws IOException {
-		CCPerformanceTest test = new CCPerformanceTest();
+		PerformanceTestCC test = new PerformanceTestCC();
 		test.setUseTimeouts(false);
 
 		Supplier<CC> checker = () -> {
@@ -411,7 +408,7 @@ public class TestDataCollector {
 	}
 
 	private boolean isFWDmaxSize(String tggName, int size) throws IOException {
-		SYNCPerformanceTest test = new SYNCPerformanceTest();
+		PerformanceTestSYNC test = new PerformanceTestSYNC();
 		test.setUseTimeouts(false);
 		
 		Supplier<SYNC> transformator = () -> {
@@ -438,7 +435,7 @@ public class TestDataCollector {
 	}
 
 	private boolean isBWDmaxSize(String tggName, int size) throws IOException {
-		SYNCPerformanceTest test = new SYNCPerformanceTest();
+		PerformanceTestSYNC test = new PerformanceTestSYNC();
 		test.setUseTimeouts(false);
 		
 		Supplier<SYNC> transformator = () -> {

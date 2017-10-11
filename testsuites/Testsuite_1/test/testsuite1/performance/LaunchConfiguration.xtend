@@ -1,4 +1,4 @@
-package testsuite1.performance.util
+package testsuite1.performance
 
 import java.nio.file.Files
 import java.nio.file.Paths

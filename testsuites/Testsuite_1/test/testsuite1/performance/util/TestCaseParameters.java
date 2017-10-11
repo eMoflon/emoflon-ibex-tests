@@ -1,5 +1,7 @@
 package testsuite1.performance.util;
 
+import testsuite1.testUtil.Operationalization;
+
 /**
  * This class holds all parameters that define a unique performance test case.
  * Currently, these parameters are the TGG, the operationalization and the model size.

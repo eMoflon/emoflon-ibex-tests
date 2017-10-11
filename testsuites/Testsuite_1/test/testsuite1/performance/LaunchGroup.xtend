@@ -5,9 +5,9 @@ import java.nio.file.Paths
 import java.util.ArrayList
 import java.util.Arrays
 import java.util.List
-import testsuite1.performance.util.LaunchConfiguration
+import testsuite1.performance.LaunchConfiguration
 import testsuite1.performance.util.TestCaseParameters
-import testsuite1.performance.util.Operationalization
+import testsuite1.testUtil.Operationalization
 import testsuite1.testUtil.Constants
 
 class LaunchGroup {

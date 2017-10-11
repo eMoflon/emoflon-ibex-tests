@@ -1,4 +1,4 @@
-package testsuite1.performance.util;
+package testsuite1.performance;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -21,9 +21,12 @@ import org.emoflon.ibex.tgg.operational.util.RandomMatchUpdatePolicy;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesEngine;
 
 import language.TGG;
+import testsuite1.performance.util.TestCaseParameters;
+import testsuite1.performance.util.TestDataPoint;
 import testsuite1.testUtil.Constants;
+import testsuite1.testUtil.Operationalization;
 
-public class MODELGENPerformanceTest {
+public class PerformanceTestMODELGEN {
 	public MODELGEN generator;
 	
 	protected boolean initialized = false;

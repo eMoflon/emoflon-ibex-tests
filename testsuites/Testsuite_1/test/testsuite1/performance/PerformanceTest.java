@@ -9,10 +9,10 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 
-import testsuite1.performance.util.Operationalization;
 import testsuite1.performance.util.PerformanceTestUtil;
 import testsuite1.performance.util.TestDataPoint;
 import testsuite1.testUtil.Constants;
+import testsuite1.testUtil.Operationalization;
 
 public class PerformanceTest {
 	public static final int standardModelSize = 50;

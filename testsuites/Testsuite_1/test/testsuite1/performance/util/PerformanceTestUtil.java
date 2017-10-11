@@ -26,6 +26,7 @@ import language.TGG;
 import language.TGGRule;
 import language.TGGRuleEdge;
 import testsuite1.testUtil.Constants;
+import testsuite1.testUtil.Operationalization;
 
 public class PerformanceTestUtil {
 	
