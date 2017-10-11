@@ -109,14 +109,6 @@ public class PerformanceTestUtil {
 					   .filter(t -> modelSize==null || t.testCase.modelSize() == modelSize)
 					   .collect(Collectors.toList());
 	}
-	
-	/**
-	 * Concatenates the Strings in contents with tabs. Used to define one
-	 * line for the .dat file, where the columns are separated by tabs.
-	 */
-	public String makeLine(String... contents) {
-		return String.join("	", contents);
-	}
 		
 	/**
 	 * Creates a MODELGENStopCriterion for a given TGG which ensures that only one

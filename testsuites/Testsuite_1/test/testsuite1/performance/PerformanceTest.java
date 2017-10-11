@@ -1,174 +1,88 @@
 package testsuite1.performance;
 
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Optional;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
+import java.util.function.Supplier;
 
-import testsuite1.performance.util.PerformanceTestUtil;
+import org.emoflon.ibex.tgg.operational.OperationalStrategy;
+import org.emoflon.ibex.tgg.runtime.engine.DemoclesEngine;
+
+import testsuite1.performance.util.TestCaseParameters;
 import testsuite1.performance.util.TestDataPoint;
 import testsuite1.testUtil.Constants;
 import testsuite1.testUtil.Operationalization;
 
-public class PerformanceTest {
-	public static final int standardModelSize = 50;
-	public static final int bigModelSize = 1000;
+public abstract class PerformanceTest<O extends OperationalStrategy> {
+	protected O op;
 	
-	public List<TestDataPoint> testData;
-	public List<TestDataPoint> maxModelSizes;
-	private PerformanceTestUtil util = new PerformanceTestUtil();
+	protected boolean initialized = false;
+	protected boolean useTimeouts = true;
 
-	public static void main(String[] args) throws ClassNotFoundException, IOException {
-		PerformanceTest test = new PerformanceTest();
-		TestDataCollector collector = new TestDataCollector();
+	protected long timedInit(O op) throws IOException {
+		this.op = op;
 		
-		// use this option if you want to perform new measurements
-//		test.testData = collector.collectData();
-		// use this option to re-plot all plots with existing data
-		test.testData = collector.loadData();
+		long tic = System.nanoTime();
+		op.registerPatternMatchingEngine(new DemoclesEngine());
+		long toc = System.nanoTime();
 		
-		test.maxModelSizes = collector.getMaxModelSizes();
-		
-		// save data in tables suited for the plots and create the plots
-//		test.saveDataForTGGsWithoutRefinement();
-		for (Operationalization op : Operationalization.values()) {
-//			test.saveDataForAllTGGsDiagram(op);
-			test.saveDataForAllTGGsInitDiagram(op);
-//			test.saveDataForMemoryUsageDiagram(op);
-//			for (String tgg : Constants.testProjects) {
-//				test.saveDataForInitTimesDiagram(tgg, op);
-//				test.saveDataForModelSizeDiagram(tgg, op);
-//			}
-		}
-	}
-
-	/**
-	 * Saves the data as a .dat file in the performance/data directory
-	 * of the testsuite. Also, generates the gnuplot script and executes it.
-	 * @param data
-	 * @param fileName Name of the .dat file
-	 */
-	public void saveDataAndCreatePlot(List<String> data, String diagramType, String fileName, String... args) {
-		try {				
-			Path file = Paths.get("performance/data/"+fileName+".dat");
-			Files.write(file, data);
-			GNUPlotScripts.createPlot(diagramType, fileName, "pdf", args);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		initialized = true;
+		return toc - tic;
 	}
 	
-	public void saveDataForAllTGGsDiagram(Operationalization op) {
-		// get data for plot
-		List<TestDataPoint> refinementData = util.filterTestResults(testData, null, op, standardModelSize);
-
-		refinementData.sort(Comparator.comparingDouble((TestDataPoint p) -> p.medianExecutionTime()));
-
-		// arrange data in lines
-		List<String> diagramStrings = new ArrayList<>();
-		diagramStrings.add(util.makeLine("TGG", "ExecutionTime"));
+	protected long timedExecution() throws IOException {
+		if (!initialized)
+			throw new NullPointerException("Initialization has not been performed yet. Call timedInit() before this method.");
 		
-		for (TestDataPoint p : refinementData) {
-			diagramStrings.add(util.makeLine(p.testCase.tgg(), p.medianExecutionTime()+""));
-		}
-
-		// save data in file
-		saveDataAndCreatePlot(diagramStrings, "AllTGGs", "AllTGGs"+op, op.toString());
-				
+		long tic = System.nanoTime();
+		op.run();
+		long toc = System.nanoTime();
+		
+		System.out.println((toc - tic) + "");
+		return toc - tic;
 	}
 	
-	public void saveDataForTGGsWithoutRefinement() {
-		// arrange data in lines
-		List<String> diagramStrings = new ArrayList<>();
-		diagramStrings.add(util.makeLine("#", "ClassInhHier2DB", "CompanyToIT"));
-		diagramStrings.add(util.makeLine("Operationalization", "ExecutionTime"));
+	public void terminate() throws IOException {
+		op.terminate();
+	}
 
-		for (Operationalization op : Operationalization.values()) {
-				diagramStrings.add(util.makeLine(op+"", util.filterTestResults(testData, "ClassInhHier2DB", op, bigModelSize).get(0).executionTimes[0]+"",
-														util.filterTestResults(testData, "CompanyToIT", op, bigModelSize).get(0).executionTimes[0]+""
-				));
-		}
-
-		// save data in file
-		saveDataAndCreatePlot(diagramStrings, "TGGsWithoutRefinement", "TGGsWithoutRefinement");
-				
+	public void setUseTimeouts(boolean useTimeouts) {
+		this.useTimeouts = useTimeouts;
 	}
 	
-	public void saveDataForModelSizeDiagram(String tgg, Operationalization op) {
-		// get data for plot
-		List<TestDataPoint> refinementData = util.filterTestResults(testData, tgg, op, null);
-		
-		refinementData.sort(Comparator.comparingInt((TestDataPoint p) -> p.testCase.modelSize()));
-
-		// arrange data in lines
-		List<String> diagramStrings = new ArrayList<>();
-		diagramStrings.add(util.makeLine("ModelSize", "ExecutionTime"));
-		
-		for (TestDataPoint p : refinementData) {
-			diagramStrings.add(util.makeLine(p.testCase.modelSize()+"", p.medianExecutionTime()+""));
-		}
-
-		// save data in file
-		saveDataAndCreatePlot(diagramStrings, "ModelSize", "ModelSize"+op+"_"+tgg, tgg, op.toString());	
-	}
+	protected abstract Operationalization getOpType();
 	
-	public void saveDataForMemoryUsageDiagram(Operationalization op) {
-		// get data for plot
-		List<TestDataPoint> refinementData = util.filterTestResults(maxModelSizes, null, op, null);
+	public TestDataPoint timedExecutionAndInit(Supplier<O> ops, int size) throws IOException {
+		long[] initTime = new long[1];
+		long[] execTime = new long[1];
+		initTime[0] = -1;
+		execTime[0] = -1;
 		
-		refinementData.sort(Comparator.comparingInt((TestDataPoint p) -> p.testCase.modelSize()));
+		ExecutorService es = Executors.newSingleThreadExecutor();
 
-		// arrange data in lines
-		List<String> diagramStrings = new ArrayList<>();
-		diagramStrings.add(util.makeLine("TGG", "ExecutionTime"));
-		
-		// arrange data in lines		
-		for (TestDataPoint p : refinementData) {
-			diagramStrings.add(util.makeLine(p.testCase.tgg(), p.testCase.modelSize()+""));
-		}
+	    try {
+	    	O op = ops.get();
+	    	
+		    Future<Long> initResult = es.submit(() -> timedInit(op));
+		    initTime[0] = initResult.get(useTimeouts ? Constants.timeout : Long.MAX_VALUE, TimeUnit.SECONDS);
 
-		// save data in file
-		saveDataAndCreatePlot(diagramStrings, "MemoryUsage", "MemoryUsage"+op, op.toString());
-	}
+		    Future<Long> executionResult = es.submit(() -> timedExecution());
+		    execTime[0] = executionResult.get(useTimeouts ? Constants.timeout : Long.MAX_VALUE, TimeUnit.SECONDS);
+	    } catch (TimeoutException e) {
+	    	System.out.println("Timeout!");
+	    	System.exit(0);
+	    } catch (Exception e) {
+        	e.printStackTrace();
+	    	System.exit(0);
+	    }
+	    
+    	terminate();
 
-	public void saveDataForInitTimesDiagram(String tgg, Operationalization op) {
-		// get data for plot
-		List<TestDataPoint> refinementData = util.filterTestResults(testData, tgg, op, null);
-		
-		refinementData.sort(Comparator.comparingInt((TestDataPoint p) -> p.testCase.modelSize()));
-
-		// arrange data in lines
-		List<String> diagramStrings = new ArrayList<>();
-		diagramStrings.add(util.makeLine("ModelSize", "InitTime"));
-		
-		for (TestDataPoint p : refinementData) {
-			diagramStrings.add(util.makeLine(p.testCase.modelSize()+"", p.medianInitTime()+""));
-		}
-
-		// save data in file
-		saveDataAndCreatePlot(diagramStrings, "InitTimes", "InitTimes"+op+"_"+tgg, tgg, op.toString());
-	}
-	
-	public void saveDataForAllTGGsInitDiagram(Operationalization op) {
-		// get data for plot
-		List<TestDataPoint> refinementData = util.filterTestResults(testData, null, op, standardModelSize);
-
-		refinementData.sort(Comparator.comparingDouble((TestDataPoint p) -> p.medianInitTime()));
-
-		// arrange data in lines
-		List<String> diagramStrings = new ArrayList<>();
-		diagramStrings.add(util.makeLine("TGG", "InitTime"));
-		
-		for (TestDataPoint p : refinementData) {
-			diagramStrings.add(util.makeLine(p.testCase.tgg(), p.medianInitTime()+""));
-		}
-
-		// save data in file
-		saveDataAndCreatePlot(diagramStrings, "AllTGGsInit", "AllTGGsInit"+op, op.toString());
-				
+		TestDataPoint result = new TestDataPoint(initTime, execTime);
+		result.testCase = new TestCaseParameters(op.getTGG().getName(), getOpType(), size);
+		return result;
 	}
 }

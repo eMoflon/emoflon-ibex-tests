@@ -1,9 +1,7 @@
 package testsuite1.performance;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -16,7 +14,6 @@ import java.util.function.Supplier;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.emoflon.ibex.tgg.operational.strategies.sync.SYNC;
-import org.emoflon.ibex.tgg.runtime.engine.DemoclesEngine;
 
 import language.TGG;
 import testsuite1.performance.util.TestCaseParameters;
@@ -24,36 +21,16 @@ import testsuite1.performance.util.TestDataPoint;
 import testsuite1.testUtil.Constants;
 import testsuite1.testUtil.Operationalization;
 
-public class PerformanceTestSYNC {
-	public SYNC sync;
-	
-	protected boolean initialized = false;
-	protected boolean useTimeouts = true;
-	
-	protected List<String> executionResults = new LinkedList<String>();
-	protected List<String> initResults = new LinkedList<String>();
-
-	private long timedInit(SYNC sync) throws IOException {
-		this.sync = sync;
-		
-		long tic = System.nanoTime();
-		sync.registerPatternMatchingEngine(new DemoclesEngine());
-		long toc = System.nanoTime();
-		
-		initialized = true;
-		initResults.add((toc - tic)+"");
-		return toc - tic;
-	}
+public class PerformanceTestSYNC extends PerformanceTest<SYNC> {
 	
 	private long timedFwd() throws IOException {
 		if (!initialized)
 			throw new NullPointerException("Sync has not been initialized yet. Call timedInit() before this method.");
 		
 		long tic = System.nanoTime();
-		sync.forward();
+		op.forward();
 		long toc = System.nanoTime();
 
-		executionResults.add((toc - tic)+"");
 		System.out.println((toc - tic) + "");
 		return toc - tic;
 	}
@@ -63,16 +40,16 @@ public class PerformanceTestSYNC {
 			throw new NullPointerException("Sync has not been initialized yet. Call timedInit() before this method.");
 		
 		long tic = System.nanoTime();
-		sync.backward();
+		op.backward();
 		long toc = System.nanoTime();
 		
-		executionResults.add((toc - tic)+"");
 		System.out.println((toc - tic) + "");
 		return toc - tic;
 	}
 	
-	private void terminate() throws IOException {
-		sync.terminate();
+	@Override
+	protected long timedExecution() {
+		throw new UnsupportedOperationException("SYNC must only be used with timedFwd() or timedBwd()!");
 	}
 	
 	public TestDataPoint timedSyncAndInit(Supplier<SYNC> transformator, int size, int repetitions, boolean isFwd) throws IOException {
@@ -113,7 +90,7 @@ public class PerformanceTestSYNC {
 					}
 				} catch (TimeoutException e) {
 			    	System.out.println("Timeout!");
-					return new ArrayList<TestDataPoint>();
+			    	System.exit(0);
 				} catch (Exception e) {
 					e.printStackTrace();
 				} finally {
@@ -162,74 +139,10 @@ public class PerformanceTestSYNC {
 
 		return result;
 	}
-	
-	public void setUseTimeouts(boolean useTimeouts) {
-		this.useTimeouts = useTimeouts;
-	}
-	
-	@Deprecated
-	public TestDataPoint timedFwdAndInit(Supplier<SYNC> transformator, int size, int repetitions) throws IOException {
-		return this.timedFwdAndInit(transformator, size, repetitions, (o)->{}, false);
-	}
 
-	@Deprecated
-	public TestDataPoint timedFwdAndInit(Supplier<SYNC> transformator, int size, int repetitions, Consumer<EObject> edit, boolean incr) throws IOException {
-		if (repetitions < 1)
-			throw new IllegalArgumentException("Number of repetitions must be positive.");
-		
-		long[] initTimes = new long[repetitions];
-		long[] executionTimes = new long[repetitions];
-		TGG tgg = null;
-		
-		for (int i = 0; i < repetitions; i++) {
-			SYNC sync = transformator.get();
-			tgg = sync.getTGG();
-			System.out.println(sync.getTGG().getName()+":"+(incr ? Operationalization.INCREMENTAL_FWD : Operationalization.FWD)+", size="+size+": "+(i+1)+"-th execution started.");
-			initTimes[i] = timedInit(sync);
-			if (incr)
-				sync.forward();
-			edit.accept(sync.getSourceResource().getContents().get(0));
-			executionTimes[i] = timedFwd();
-			terminate();
-			System.out.print((i+1)+"-th execution finished. ");
-		}
-		System.out.println("");
-
-		TestDataPoint result = new TestDataPoint(initTimes, executionTimes);
-		result.testCase = new TestCaseParameters(tgg.getName(), incr ? Operationalization.INCREMENTAL_FWD : Operationalization.FWD, size);
-		return result;
-	}
-	
-	@Deprecated
-	public TestDataPoint timedBwdAndInit(Supplier<SYNC> transformator, int size, int repetitions) throws IOException {
-		return this.timedBwdAndInit(transformator, size, repetitions, (o)->{}, false);
-	}
-
-	@Deprecated
-	public TestDataPoint timedBwdAndInit(Supplier<SYNC> transformator, int size, int repetitions, Consumer<EObject> edit, boolean incr) throws IOException {
-		if (repetitions < 1)
-			throw new IllegalArgumentException("Number of repetitions must be positive.");
-		
-		long[] initTimes = new long[repetitions];
-		long[] executionTimes = new long[repetitions];
-		TGG tgg = null;
-		
-		for (int i = 0; i < repetitions; i++) {
-			SYNC sync = transformator.get();
-			tgg = sync.getTGG();
-			System.out.println(sync.getTGG().getName()+":"+(incr ? Operationalization.INCREMENTAL_BWD : Operationalization.BWD)+", size="+size+": "+(i+1)+"-th execution started.");
-			initTimes[i] = timedInit(sync);
-			if (incr)
-				sync.backward();
-			edit.accept(sync.getTargetResource().getContents().get(0));
-			executionTimes[i] = timedBwd();
-			terminate();
-			System.out.print((i+1)+"-th execution finished. ");
-		}
-		System.out.println("");
-
-		TestDataPoint result = new TestDataPoint(initTimes, executionTimes);
-		result.testCase = new TestCaseParameters(tgg.getName(), incr ? Operationalization.INCREMENTAL_BWD : Operationalization.BWD, size);
-		return result;
+	@Override
+	protected Operationalization getOpType() {
+		//TODO not finished
+		return null;
 	}
 }

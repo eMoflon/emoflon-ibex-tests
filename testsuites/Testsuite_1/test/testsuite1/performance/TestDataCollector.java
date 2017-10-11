@@ -6,6 +6,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.nio.file.Files;
+import java.nio.file.NoSuchFileException;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -51,8 +54,19 @@ public class TestDataCollector {
 //		new TestDataCollector().saveHardCodedMaxModelSizes();
 //	}
 	
+	/**
+	 * 
+	 * @param args[0] Boolean value which determines if the collected data should be reset.
+	 * @param args[1] The name of the TGG.
+	 * @param args[2] The name of the operationalization.
+	 * @param args[3] The model size.
+	 * 
+	 * */
 	public static void main(String[] args) throws IOException {
-		new TestDataCollector().executeAndSave(args[0], Operationalization.valueOf(args[1]), Integer.parseInt(args[2]));
+		TestDataCollector collector = new TestDataCollector();
+		if (Boolean.parseBoolean(args[0]))
+			collector.deleteData();
+		collector.executeAndSave(args[1], Operationalization.valueOf(args[2]), Integer.parseInt(args[3]));
 	}
 	
 	private void executeAndSave(String tggName, Operationalization operationalization, int modelSize) throws IOException {
@@ -230,7 +244,7 @@ public class TestDataCollector {
 		Function<TGG, MODELGENStopCriterion> stops = util.createStopCriterion(tggName, size);
 
 		System.out.println("Collecting MODELGEN data for "+tggName+", size: "+size);
-		TestDataPoint point = test.timedExecutionAndInit(generator, stops, size, repetitions);
+		TestDataPoint point = test.repeatedTimedExecutionAndInit(generator, stops, size, repetitions);
 		
 		data.add(point);
 	}
@@ -256,7 +270,7 @@ public class TestDataCollector {
 		System.out.println("Collecting CC data for "+tggName+", size: "+size);
 		TestDataPoint point = null;
 		try { //TODO remove this try/catch
-			point = test.timedExecutionAndInit(checker, size, repetitions);
+			point = test.repeatedTimedExecutionAndInit(checker, size, repetitions);
 		} catch (GRBException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace(); 
@@ -369,7 +383,7 @@ public class TestDataCollector {
 		Function<TGG, MODELGENStopCriterion> stops = util.createStopCriterion(tggName, size);
 		
 		try {
-			test.timedExecutionAndInit(generator, stops, size, 1);
+			test.repeatedTimedExecutionAndInit(generator, stops, size, 1);
 		} catch (OutOfMemoryError e) {
 			TestDataPoint maxSize = new TestDataPoint(null, null);
 			maxSize.testCase = new TestCaseParameters(tggName, Operationalization.MODELGEN, size);
@@ -396,7 +410,7 @@ public class TestDataCollector {
 		
 
 		try {
-			test.timedExecutionAndInit(checker, size, 1);
+			test.repeatedTimedExecutionAndInit(checker, size, 1);
 		} catch (OutOfMemoryError | GRBException e) {
 			TestDataPoint maxSize = new TestDataPoint(null, null);
 			maxSize.testCase = new TestCaseParameters(tggName, Operationalization.CC, size);
@@ -491,6 +505,15 @@ public class TestDataCollector {
 			out.close();
 			file.close();
 		} catch(IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	private void deleteData() {
+		try {
+			Files.delete(Paths.get(dataLocation));
+		} catch(NoSuchFileException e) {
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}

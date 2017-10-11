@@ -15,8 +15,11 @@ class LaunchConfiguration {
 	/** The test case that is performed by this configuration. */
 	private TestCaseParameters params
 	
-	public new(TestCaseParameters params) {
+	private boolean reset;
+	
+	public new(TestCaseParameters params, boolean reset) {
 		this.params = params
+		this.reset = reset
 	}
 	
 	/** File name of the launch configuration. */
@@ -47,7 +50,7 @@ class LaunchConfiguration {
 			</listAttribute>
 			<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="testsuite1.performance.TestDataCollector"/>
 			<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="Testsuite_1"/>
-			<stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="«params.tgg» «params.operationalization.name()» «params.modelSize»"/>
+			<stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="«reset» «params.tgg» «params.operationalization.name()» «params.modelSize»"/>
 			<stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-Xmx«maxMemorySize»"/>
 		</launchConfiguration>
 		

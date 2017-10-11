@@ -2,23 +2,8 @@ package testsuite1.performance.util;
 
 import java.io.IOException;
 
-import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.ibex.tgg.operational.strategies.sync.SYNC;
-
-import BlockDiagram.impl.BlockDiagramPackageImpl;
-import BlockLanguage.impl.BlockLanguagePackageImpl;
-import ClassInheritanceHierarchy.impl.ClassInheritanceHierarchyPackageImpl;
-import CompanyLanguage.impl.CompanyLanguagePackageImpl;
-import Database.impl.DatabasePackageImpl;
-import ITLanguage.impl.ITLanguagePackageImpl;
-import MocaTree.impl.MocaTreePackageImpl;
-import ProcessDefinition.impl.ProcessDefinitionPackageImpl;
-import SimpleFamilies.impl.SimpleFamiliesPackageImpl;
-import SimplePersons.impl.SimplePersonsPackageImpl;
-import VHDLModel.impl.VHDLModelPackageImpl;
-import testsuite1.testUtil.Constants;
 
 public class SYNC_App extends SYNC {
 	private String instancePath;

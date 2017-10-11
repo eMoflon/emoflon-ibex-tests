@@ -27,13 +27,15 @@ class LaunchGroup {
 	/** Creates the launch configurations for all test cases and saves them together with a launch group. */
 	def static void main(String[] args) {
 		var group = new LaunchGroup()
+		var reset = true
 		
 		for (tgg : Constants.testProjects) {
 			for (op : Operationalization.values) {
 				if (op != Operationalization.INCREMENTAL_FWD && op != Operationalization.INCREMENTAL_BWD)
 					for (size : modelSizes) {
-						var launchConfig = new LaunchConfiguration(new TestCaseParameters(tgg, op, size))
-						launchConfig.save();
+						var launchConfig = new LaunchConfiguration(new TestCaseParameters(tgg, op, size), reset)
+						reset = false
+						launchConfig.save()
 						group.launchConfigs.add(launchConfig)
 					}
 					
