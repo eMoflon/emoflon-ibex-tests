@@ -3,17 +3,14 @@ package testsuite1.performance
 import java.nio.file.Files
 import java.nio.file.Paths
 import java.util.concurrent.TimeUnit
+import testsuite1.performance.util.PerformanceConstants
 
 class GNUPlotScripts {
-	/** The time unit used in the plots. */
-	private static final TimeUnit timeUnit = TimeUnit.MILLISECONDS;
+
+	private static final TimeUnit timeUnit = PerformanceConstants.plotTimeUnit;
 	private static final long timeFactor = TimeUnit.NANOSECONDS.convert(1, timeUnit); //conversion from nanoseconds to "timeUnit"
 	
-	/** 
-	 * The style in which the plot should be generated.
-	 * The possible options are "gif" for a .gif file and "pdf" for a .pdf file.
-	 * */
-	private static final String outputstyle = "pdf";
+	private static final String outputstyle = PerformanceConstants.outputstyle;
 	
 	private static final String plotPath = "performance/plots/"
 	private static final String scriptPath = "performance/gnuplot_scripts/"

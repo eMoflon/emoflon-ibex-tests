@@ -29,6 +29,7 @@ import language.TGG;
 import testsuite1.performance.util.CC_App;
 import testsuite1.performance.util.IncrementalEditor;
 import testsuite1.performance.util.MODELGEN_App;
+import testsuite1.performance.util.PerformanceConstants;
 import testsuite1.performance.util.PerformanceTestUtil;
 import testsuite1.performance.util.SYNC_App;
 import testsuite1.performance.util.TestCaseParameters;
@@ -46,9 +47,8 @@ public class TestDataCollector {
 	private List<TestDataPoint> data;
 	private List<TestDataPoint> maxModelSizes;
 	
-	public int[] modelSizes = {//10, 20, 50, 100, 200, 
-			500, 1000, 5000, 10000, 100000, 1000000, 10000000};
-	public int repetitions = 1;
+	public int[] modelSizes = PerformanceConstants.modelSizes;
+	public int repetitions = PerformanceConstants.repetitions;
 	
 //	public static void main(String[] args) throws IOException {
 //		new TestDataCollector().saveHardCodedMaxModelSizes();
@@ -233,7 +233,7 @@ public class TestDataCollector {
 			try {
 				MODELGEN gen = new MODELGEN_App(tggName, Constants.workspacePath, false,
 						tggName+"/instances/"+size+"Element");
-				gen.setUpdatePolicy(new TimedUpdatePolicy(new RandomMatchUpdatePolicy(), Constants.timeout, TimeUnit.SECONDS));
+				gen.setUpdatePolicy(new TimedUpdatePolicy(new RandomMatchUpdatePolicy(), PerformanceConstants.timeout, TimeUnit.SECONDS));
 				return gen;
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -259,7 +259,7 @@ public class TestDataCollector {
 		Supplier<CC> checker = () -> {
 			try {
 				CC cc = new CC_App(tggName, Constants.workspacePath, false, size+"Element");
-				cc.setUpdatePolicy(new TimedUpdatePolicy(new NextMatchUpdatePolicy(), Constants.timeout, TimeUnit.SECONDS));
+				cc.setUpdatePolicy(new TimedUpdatePolicy(new NextMatchUpdatePolicy(), PerformanceConstants.timeout, TimeUnit.SECONDS));
 				return cc;
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -289,7 +289,7 @@ public class TestDataCollector {
 				try {
 					SYNC sync = new SYNC_App(tggName, Constants.workspacePath, false,
 							tggName+"/instances/"+size+"Element", fwd, false);
-					sync.setUpdatePolicy(new TimedUpdatePolicy(new NextMatchUpdatePolicy(), Constants.timeout, TimeUnit.SECONDS));
+					sync.setUpdatePolicy(new TimedUpdatePolicy(new NextMatchUpdatePolicy(), PerformanceConstants.timeout, TimeUnit.SECONDS));
 					return sync;
 				} catch (IOException e) {
 					e.printStackTrace();
@@ -330,7 +330,7 @@ public class TestDataCollector {
 				try {
 					SYNC sync = new SYNC_App(tggName, Constants.workspacePath, false,
 							tggName+"/instances/"+size+"Element", true, false);
-					sync.setUpdatePolicy(new TimedUpdatePolicy(new NextMatchUpdatePolicy(), Constants.timeout, TimeUnit.SECONDS));
+					sync.setUpdatePolicy(new TimedUpdatePolicy(new NextMatchUpdatePolicy(), PerformanceConstants.timeout, TimeUnit.SECONDS));
 					return sync;
 				} catch (IOException e) {
 					e.printStackTrace();

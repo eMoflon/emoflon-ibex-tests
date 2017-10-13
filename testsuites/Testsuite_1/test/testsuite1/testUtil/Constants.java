@@ -20,6 +20,4 @@ public class Constants {
 												 familiesToPersons_V1,
 												 processCodeAdapter,
 												 vhdlTGGCodeAdapter};
-	
-	public final static int timeout = 30; // in seconds
 }

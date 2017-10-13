@@ -15,8 +15,7 @@ Executing performance tests
 To do this, run the LaunchGroup class.
 
 
-- To execute all tests, run the file AllPerformanceTests.launch in the performace folder of the testsuite project.
-
+- To execute all tests, run the file AllPerformanceTests.launch in the performance folder of the testsuite project.
 - After all tests have been executed, the plots are automatically generated for the collected data.
 
 Generating plots
@@ -29,17 +28,26 @@ and want to see how it looks like.
 
 Changing parameters of the performance tests
 ------------
-The performance tests have various parameters that can be changed. Here is a list of all of them:
+The performance tests have various parameters that can be changed. They can all be found in the PerformanceConstants class. Here is a list of all of them:
 
-- Timeout: 
-- Model Sizes:
-- Output Style:
-- Memory...:
+- timeout: The timeout after which a performance test is aborted.
+- maxMemorySize: Defines how much memory may be allocated for the heap by the JavaVM in each test case.
+- modelSizes: Array of model sizes for which test cases shall be generated and executed.
+- repetitions: Number of repetitions per test case. Final result is the median of all repetitions.
+
+- outputstyle: The file format in which the plot should be generated,  e.g. pdf or gif.
+- plotTimeUnit: The time unit used in the plots.
 
 
 Adding a new plot type to the performance framework
 ------------
+To add a new plot type, you have to do two things: Create a new gnuplot script template and providing the script with data.
 
+1. *Creating a script template:* The class GNUPlotScripts contains all templates. You can create a new one by simply adding a new method that returns the script.
+
+2. *Providing data:* The templates are called from the PlotGenerator class. After a new template is added, a new method in PlotGenerator must be created that saves a part of the collected data that is relevant to the plot in an appropriate form. You should format the data in a table, where each row is a separate string and each column is separated by a tab. For more detailed information on how the .data files should look like, refer to the existing plots or the gnuplot website.
+
+   You can then call saveData(List<String> data, String fileName) which saves the .data file in the performance/data folder. Afterwards, the template method of GNUPlotScripts can be called, which then saves the script for the concrete parameters in a .gp file in performance/gnuplot_scripts, and executes the script for the previously created .data file. Note that the fileName for the data and the script must be identical (excluding the file extension, which is automatically added).
 
 Adding a new TGG to the performance framework
 ------------

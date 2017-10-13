@@ -9,20 +9,13 @@ import testsuite1.performance.LaunchConfiguration
 import testsuite1.performance.util.TestCaseParameters
 import testsuite1.testUtil.Operationalization
 import testsuite1.testUtil.Constants
+import testsuite1.performance.util.PerformanceConstants
 
 class LaunchGroup {
 	/** Path where the LaunchGroup is saved by default. */
 	public final static String launchGroupPath = "performance/"
 	
-	/** Model sizes for which test cases shall be generated. */
-	public final static int[] modelSizes = #[10, 50
-//											 100, 500, 
-//											 1000, 5000,
-//											 10000, 50000,
-//											 100000, 500000,
-//											 1000000, 5000000,
-//											 10000000
-	]
+	public static int[] modelSizes = PerformanceConstants.modelSizes;
 	
 	/** Creates the launch configurations for all test cases and saves them together with a launch group. */
 	def static void main(String[] args) {

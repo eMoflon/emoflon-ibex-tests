@@ -7,16 +7,16 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-import java.util.Optional;
 
+import testsuite1.performance.util.PerformanceConstants;
 import testsuite1.performance.util.PerformanceTestUtil;
 import testsuite1.performance.util.TestDataPoint;
 import testsuite1.testUtil.Constants;
 import testsuite1.testUtil.Operationalization;
 
 public class PlotGenerator {
-	public static final int standardModelSize = 50;
-	public static final int bigModelSize = 1000;
+	public static final int standardModelSize = PerformanceConstants.standardModelSize;
+	public static final int bigModelSize = PerformanceConstants.bigModelSize;
 	
 	public List<TestDataPoint> testData;
 	public List<TestDataPoint> maxModelSizes;

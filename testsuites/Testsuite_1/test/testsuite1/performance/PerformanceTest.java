@@ -11,9 +11,9 @@ import java.util.function.Supplier;
 import org.emoflon.ibex.tgg.operational.OperationalStrategy;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesEngine;
 
+import testsuite1.performance.util.PerformanceConstants;
 import testsuite1.performance.util.TestCaseParameters;
 import testsuite1.performance.util.TestDataPoint;
-import testsuite1.testUtil.Constants;
 import testsuite1.testUtil.Operationalization;
 
 public abstract class PerformanceTest<O extends OperationalStrategy> {
@@ -67,10 +67,10 @@ public abstract class PerformanceTest<O extends OperationalStrategy> {
 	    	O op = ops.get();
 	    	
 		    Future<Long> initResult = es.submit(() -> timedInit(op));
-		    initTime[0] = initResult.get(useTimeouts ? Constants.timeout : Long.MAX_VALUE, TimeUnit.SECONDS);
+		    initTime[0] = initResult.get(useTimeouts ? PerformanceConstants.timeout : Long.MAX_VALUE, TimeUnit.SECONDS);
 
 		    Future<Long> executionResult = es.submit(() -> timedExecution());
-		    execTime[0] = executionResult.get(useTimeouts ? Constants.timeout : Long.MAX_VALUE, TimeUnit.SECONDS);
+		    execTime[0] = executionResult.get(useTimeouts ? PerformanceConstants.timeout : Long.MAX_VALUE, TimeUnit.SECONDS);
 	    } catch (TimeoutException e) {
 	    	System.out.println("Timeout!");
 	    	System.exit(0);

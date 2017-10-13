@@ -4,10 +4,11 @@ import java.nio.file.Files
 import java.nio.file.Paths
 import java.util.Arrays
 import testsuite1.performance.util.TestCaseParameters
+import testsuite1.performance.util.PerformanceConstants
 
 class LaunchConfiguration {
-	/** Defines how much memory may be allocated for the heap by the launched JavaVM. */
-	public final static String maxMemorySize = "1024M" //"M" for megabyte, "G" for gigabyte
+
+	public final static String maxMemorySize = PerformanceConstants.maxMemorySize
 	
 	/** Path where the LaunchConfiguration is saved by default. */
 	public final static String launchConfigPath = "performance/launchConfigs/"

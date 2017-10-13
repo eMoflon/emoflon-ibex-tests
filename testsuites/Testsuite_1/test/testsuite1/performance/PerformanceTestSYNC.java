@@ -16,9 +16,9 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.emoflon.ibex.tgg.operational.strategies.sync.SYNC;
 
 import language.TGG;
+import testsuite1.performance.util.PerformanceConstants;
 import testsuite1.performance.util.TestCaseParameters;
 import testsuite1.performance.util.TestDataPoint;
-import testsuite1.testUtil.Constants;
 import testsuite1.testUtil.Operationalization;
 
 public class PerformanceTestSYNC extends PerformanceTest<SYNC> {
@@ -73,12 +73,12 @@ public class PerformanceTestSYNC extends PerformanceTest<SYNC> {
 			if (useTimeouts)
 				try {
 					Future<Long> initResult = es.submit(() -> timedInit(sync));
-				    initTimes[i] = initResult.get(Constants.timeout, TimeUnit.SECONDS);
+				    initTimes[i] = initResult.get(PerformanceConstants.timeout, TimeUnit.SECONDS);
 					tgg = sync.getTGG();
 					
 					// batch
 				    Future<Long> batchExecutionResult = es.submit(() -> isFwd ? timedFwd() : timedBwd());
-				    batchExecutionTimes[i] = batchExecutionResult.get(Constants.timeout, TimeUnit.SECONDS);
+				    batchExecutionTimes[i] = batchExecutionResult.get(PerformanceConstants.timeout, TimeUnit.SECONDS);
 					
 					// incremental
 					if (incr) {
@@ -86,7 +86,7 @@ public class PerformanceTestSYNC extends PerformanceTest<SYNC> {
 						edit.accept(model.getContents().get(0));
 		
 					    Future<Long> incrExecutionResult = es.submit(() -> isFwd ? timedFwd() : timedBwd());
-					    incrementalExecutionTimes[i] = incrExecutionResult.get(Constants.timeout, TimeUnit.SECONDS);
+					    incrementalExecutionTimes[i] = incrExecutionResult.get(PerformanceConstants.timeout, TimeUnit.SECONDS);
 					}
 				} catch (TimeoutException e) {
 			    	System.out.println("Timeout!");
