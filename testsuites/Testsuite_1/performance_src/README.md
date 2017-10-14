@@ -1,6 +1,11 @@
+This framework allows to evaluate the performance of eMoflon::IBeX by automatically measuring
+the execution and initialization times of all operationalizations for various TGGs and model sizes.
+It also allows to generate several plots from the collected data.
 
+This README file contains instructions on how to setup the framework, how to use it,
+how to customize it and how to add new TGGs to the framework.
 
-Prerequisites
+Setup
 ------------
 - Download and install [gnuplot][].
 
@@ -16,6 +21,7 @@ To do this, run the LaunchGroup class.
 
 
 - To execute all tests, run the file AllPerformanceTests.launch in the performance folder of the testsuite project.
+If you just generated the file, you have to refresh the folder in order for it to appear.
 - After all tests have been executed, the plots are automatically generated for the collected data.
 
 Generating plots
@@ -38,7 +44,6 @@ The performance tests have various parameters that can be changed. They can all 
 - outputstyle: The file format in which the plot should be generated,  e.g. pdf or gif.
 - plotTimeUnit: The time unit used in the plots.
 
-
 Adding a new plot type to the performance framework
 ------------
 To add a new plot type, you have to do two things: Create a new gnuplot script template and providing the script with data.
@@ -51,7 +56,12 @@ To add a new plot type, you have to do two things: Create a new gnuplot script t
 
 Adding a new TGG to the performance framework
 ------------
-
+...
+- add TGG name to constants
+- create modelgenStopCriterion
+- create incremental edit
+- generate launch configurations
+...
 
 Additional remarks
 ------------

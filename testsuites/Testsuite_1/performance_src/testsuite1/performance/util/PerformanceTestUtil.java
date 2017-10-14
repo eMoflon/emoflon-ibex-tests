@@ -34,7 +34,7 @@ public class PerformanceTestUtil {
 	 * Registers the meta models of the used TGG. For each new TGG,
 	 * the meta models that need to be registered need to be added here.
 	 *  */
-	protected void registerUserMetamodels(String projectPath, ResourceSet rs) throws IOException {
+	public void registerUserMetamodels(String projectPath, ResourceSet rs) throws IOException {
 		String srcMetaModel = "";
 		String trgMetaModel = "";
 		EPackage srcPackage = null;
