@@ -89,11 +89,11 @@ class GNUPlotScripts {
 			set title "Execution times of TGGs without refinements"
 			set style histogram cluster gap 1 title offset 0, -2
 			set rmargin 8
-			set bmargin 8
+			set bmargin 9
 			set yrange [0.1:10000]
 			plot \
 			newhistogram lt 3 "ClassInhHier2DB", \
-			"«dataPath»«title».dat" using ($2/«timeFactor»):xtic(1) ti col
+			"«dataPath»«title».dat" using ($2/«timeFactor»):xtic(1) ti col, \
 			newhistogram lt 3 "CompanyToIT", \
 			"«dataPath»«title».dat" every ::1 using ($3/«timeFactor»):xtic(1) notitle \
 		'''
