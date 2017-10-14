@@ -1,7 +1,6 @@
 package testsuite1.performance.run;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
@@ -14,10 +13,8 @@ import java.util.function.Supplier;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.emoflon.ibex.tgg.operational.strategies.cc.CC;
 import org.emoflon.ibex.tgg.operational.strategies.sync.SYNC;
 
-import gurobi.GRBException;
 import language.TGG;
 import testsuite1.performance.util.PerformanceConstants;
 import testsuite1.performance.util.TestCaseParameters;

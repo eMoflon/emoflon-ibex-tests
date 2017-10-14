@@ -88,8 +88,8 @@ public class PlotGenerator {
 		diagramStrings.add(makeLine("Operationalization", "ExecutionTime"));
 
 		for (Operationalization op : Operationalization.values()) {
-				diagramStrings.add(makeLine(op+"", util.filterTestResults(testData, "ClassInhHier2DB", op, standardModelSize).get(0).executionTimes[0]+"",
-														util.filterTestResults(testData, "CompanyToIT", op, standardModelSize).get(0).executionTimes[0]+""
+				diagramStrings.add(makeLine(op+"", util.filterTestResults(testData, "ClassInhHier2DB", op, bigModelSize).get(0).executionTimes[0]+"",
+														util.filterTestResults(testData, "CompanyToIT", op, bigModelSize).get(0).executionTimes[0]+""
 				));
 		}
 		

@@ -13,13 +13,12 @@ public class PerformanceConstants {
 	public final static String maxMemorySize = "1024M"; //"M" for megabyte, "G" for gigabyte
 	
 	/** Model sizes for which test cases shall be generated and executed. */
-	public final static int[] modelSizes = {10, 50
-//											 100, 500, 
-//											 1000, 5000,
-//											 10000, 50000,
-//											 100000, 500000,
-//											 1000000, 5000000,
-//											 10000000
+	public final static int[] modelSizes = {10, 50,
+											 100, 500, 
+											 1000, 5000,
+											 10000, 50000,
+											 100000, 500000,
+											 1000000
 	};
 
 	/** Number of repetitions per test case. Final result is the median of all repetitions. */
