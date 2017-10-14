@@ -1,9 +1,11 @@
-package testsuite1.performance.util;
+package testsuite1.performance.run;
 
 import java.io.IOException;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.ibex.tgg.operational.strategies.cc.CC;
+
+import testsuite1.performance.util.PerformanceTestUtil;
 
 public class CC_App extends CC {
 	private String modelPath;

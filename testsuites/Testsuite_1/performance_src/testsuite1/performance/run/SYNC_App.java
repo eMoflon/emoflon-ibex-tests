@@ -1,9 +1,11 @@
-package testsuite1.performance.util;
+package testsuite1.performance.run;
 
 import java.io.IOException;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.ibex.tgg.operational.strategies.sync.SYNC;
+
+import testsuite1.performance.util.PerformanceTestUtil;
 
 public class SYNC_App extends SYNC {
 	private String instancePath;

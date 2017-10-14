@@ -1,9 +1,11 @@
-package testsuite1.performance.util;
+package testsuite1.performance.run;
 
 import java.io.IOException;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGEN;
+
+import testsuite1.performance.util.PerformanceTestUtil;
 
 public class MODELGEN_App extends MODELGEN {
 	private String instancePath;

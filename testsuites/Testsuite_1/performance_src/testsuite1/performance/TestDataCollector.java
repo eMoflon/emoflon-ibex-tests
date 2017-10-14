@@ -24,12 +24,15 @@ import org.emoflon.ibex.tgg.operational.util.TimedUpdatePolicy;
 
 import gurobi.GRBException;
 import language.TGG;
-import testsuite1.performance.util.CC_App;
+import testsuite1.performance.run.CC_App;
+import testsuite1.performance.run.MODELGEN_App;
+import testsuite1.performance.run.PerformanceTestCC;
+import testsuite1.performance.run.PerformanceTestMODELGEN;
+import testsuite1.performance.run.PerformanceTestSYNC;
+import testsuite1.performance.run.SYNC_App;
 import testsuite1.performance.util.IncrementalEditor;
-import testsuite1.performance.util.MODELGEN_App;
 import testsuite1.performance.util.PerformanceConstants;
 import testsuite1.performance.util.PerformanceTestUtil;
-import testsuite1.performance.util.SYNC_App;
 import testsuite1.performance.util.TestDataPoint;
 import testsuite1.testUtil.Constants;
 import testsuite1.testUtil.Operationalization;

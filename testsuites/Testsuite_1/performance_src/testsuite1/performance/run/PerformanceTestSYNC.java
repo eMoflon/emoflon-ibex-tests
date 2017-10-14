@@ -1,4 +1,4 @@
-package testsuite1.performance;
+package testsuite1.performance.run;
 
 import java.io.IOException;
 import java.util.Arrays;
