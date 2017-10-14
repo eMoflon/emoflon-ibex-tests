@@ -200,7 +200,7 @@ public class TestDataCollector {
 		};
 
 		System.out.println("Collecting SYNC data for "+tggName+", size: "+size);
-		List<TestDataPoint> points = test.timedSyncAndInit(transformator, size, repetitions, true, incEditor.getEdit(tggName, true), true);
+		List<TestDataPoint> points = test.timedExecutionAndInit(transformator, size, repetitions, true, incEditor.getEdit(tggName, true));
 		data.addAll(points);
 	}
 	
@@ -218,7 +218,7 @@ public class TestDataCollector {
 			}
 		};
 		
-		List<TestDataPoint> points = test.timedSyncAndInit(transformator, size, repetitions, false, incEditor.getEdit(tggName, false), true);
+		List<TestDataPoint> points = test.timedExecutionAndInit(transformator, size, repetitions, false, incEditor.getEdit(tggName, false));
 		data.addAll(points);
 	}
 }

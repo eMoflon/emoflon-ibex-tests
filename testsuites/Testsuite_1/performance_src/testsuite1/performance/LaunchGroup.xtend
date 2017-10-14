@@ -78,7 +78,7 @@ class LaunchGroup {
 			<booleanAttribute key="org.eclipse.debug.core.launchGroup.«i».adoptIfRunning" value="false"/>
 			<booleanAttribute key="org.eclipse.debug.core.launchGroup.«i».enabled" value="true"/>
 			<stringAttribute key="org.eclipse.debug.core.launchGroup.«i».mode" value="inherit"/>
-			<stringAttribute key="org.eclipse.debug.core.launchGroup.«i».name" value="PerformanceTest"/>
+			<stringAttribute key="org.eclipse.debug.core.launchGroup.«i».name" value="PlotGenerator"/>
 		</launchConfiguration>
 		'''
 	}

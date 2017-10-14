@@ -19,7 +19,6 @@ public class PlotGenerator {
 	public static final int bigModelSize = PerformanceConstants.bigModelSize;
 	
 	public List<TestDataPoint> testData;
-	public List<TestDataPoint> maxModelSizes;
 	private PerformanceTestUtil util = new PerformanceTestUtil();
 	private GNUPlotScripts scripts = new GNUPlotScripts();
 
@@ -34,7 +33,6 @@ public class PlotGenerator {
 		for (Operationalization op : Operationalization.values()) {
 			test.saveDataForAllTGGsDiagram(op);
 			test.saveDataForAllTGGsInitDiagram(op);
-			test.saveDataForMemoryUsageDiagram(op);
 			for (String tgg : Constants.testProjects) {
 				test.saveDataForInitTimesDiagram(tgg, op);
 				test.saveDataForModelSizeDiagram(tgg, op);
@@ -90,8 +88,8 @@ public class PlotGenerator {
 		diagramStrings.add(makeLine("Operationalization", "ExecutionTime"));
 
 		for (Operationalization op : Operationalization.values()) {
-				diagramStrings.add(makeLine(op+"", util.filterTestResults(testData, "ClassInhHier2DB", op, bigModelSize).get(0).executionTimes[0]+"",
-														util.filterTestResults(testData, "CompanyToIT", op, bigModelSize).get(0).executionTimes[0]+""
+				diagramStrings.add(makeLine(op+"", util.filterTestResults(testData, "ClassInhHier2DB", op, standardModelSize).get(0).executionTimes[0]+"",
+														util.filterTestResults(testData, "CompanyToIT", op, standardModelSize).get(0).executionTimes[0]+""
 				));
 		}
 		
@@ -119,27 +117,6 @@ public class PlotGenerator {
 		saveData(diagramStrings, "ModelSize"+op+"_"+tgg);
 		// create plot
 		scripts.modelSizeComparison("ModelSize"+op+"_"+tgg, tgg, op.toString());
-	}
-	
-	public void saveDataForMemoryUsageDiagram(Operationalization op) {
-		// get data for plot
-		List<TestDataPoint> refinementData = util.filterTestResults(maxModelSizes, null, op, null);
-		
-		refinementData.sort(Comparator.comparingInt((TestDataPoint p) -> p.testCase.modelSize()));
-
-		// arrange data in lines
-		List<String> diagramStrings = new ArrayList<>();
-		diagramStrings.add(makeLine("TGG", "ExecutionTime"));
-		
-		// arrange data in lines		
-		for (TestDataPoint p : refinementData) {
-			diagramStrings.add(makeLine(p.testCase.tgg(), p.testCase.modelSize()+""));
-		}
-
-		// save data in file
-		saveData(diagramStrings, "MemoryUsage"+op);
-		// create plot
-		scripts.memoryUsage("MemoryUsage"+op, op.toString());
 	}
 
 	public void saveDataForInitTimesDiagram(String tgg, Operationalization op) {

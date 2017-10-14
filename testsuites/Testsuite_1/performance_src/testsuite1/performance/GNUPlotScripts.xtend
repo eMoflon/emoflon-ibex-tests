@@ -100,20 +100,6 @@ class GNUPlotScripts {
 		createPlot(title, script);
 	}
 	
-	def memoryUsage(String title, String op) {
-		var script = '''
-			set terminal «outputstyle»
-			«commonHistogramScriptParts("MemoryUsage", title)»
-			set title "Maximum possible model sizes - «op»"
-			set ylabel "model size"
-			set yrange [10:100000]
-			plot \
-			newhistogram lt 3, \
-			"«dataPath»«title».dat" using ($2):xtic(1) ti col
-		'''
-		createPlot(title, script);
-	}
-	
 	def initTimes(String title, String tgg, String op) {
 		var script = '''
 			set terminal «outputstyle» size 5,2

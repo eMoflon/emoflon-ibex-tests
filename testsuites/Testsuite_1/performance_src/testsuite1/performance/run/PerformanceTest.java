@@ -79,6 +79,7 @@ public abstract class PerformanceTest<O extends OperationalStrategy> {
 	    	System.exit(0);
 	    }
 	    
+    	es.shutdownNow();
     	terminate();
 
 		TestDataPoint result = new TestDataPoint(initTime, execTime);

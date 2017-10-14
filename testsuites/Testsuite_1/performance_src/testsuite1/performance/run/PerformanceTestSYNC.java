@@ -1,6 +1,7 @@
 package testsuite1.performance.run;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
@@ -13,8 +14,10 @@ import java.util.function.Supplier;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.emoflon.ibex.tgg.operational.strategies.cc.CC;
 import org.emoflon.ibex.tgg.operational.strategies.sync.SYNC;
 
+import gurobi.GRBException;
 import language.TGG;
 import testsuite1.performance.util.PerformanceConstants;
 import testsuite1.performance.util.TestCaseParameters;
@@ -23,24 +26,20 @@ import testsuite1.testUtil.Operationalization;
 
 public class PerformanceTestSYNC extends PerformanceTest<SYNC> {
 	
-	private long timedFwd() throws IOException {
-		if (!initialized)
-			throw new NullPointerException("Sync has not been initialized yet. Call timedInit() before this method.");
-		
-		long tic = System.nanoTime();
-		op.forward();
-		long toc = System.nanoTime();
-
-		System.out.println((toc - tic) + "");
-		return toc - tic;
-	}
+	private Operationalization opType;
+	private boolean isForward;
 	
-	private long timedBwd() throws IOException {
+	@Override
+	protected long timedExecution() throws IOException {
 		if (!initialized)
 			throw new NullPointerException("Sync has not been initialized yet. Call timedInit() before this method.");
 		
 		long tic = System.nanoTime();
-		op.backward();
+		if (isForward)
+			op.forward();
+		else
+			op.backward();
+		
 		long toc = System.nanoTime();
 		
 		System.out.println((toc - tic) + "");
@@ -48,17 +47,15 @@ public class PerformanceTestSYNC extends PerformanceTest<SYNC> {
 	}
 	
 	@Override
-	protected long timedExecution() {
-		throw new UnsupportedOperationException("SYNC must only be used with timedFwd() or timedBwd()!");
+	public TestDataPoint timedExecutionAndInit(Supplier<SYNC> transformator, int size) throws IOException {
+		throw new UnsupportedOperationException("The SYNC operation requires additional parameters.");
 	}
-	
-	public TestDataPoint timedSyncAndInit(Supplier<SYNC> transformator, int size, int repetitions, boolean isFwd) throws IOException {
-		return this.timedSyncAndInit(transformator, size, repetitions, isFwd, (o)->{}, false).get(0);
-	}
-	
-	public List<TestDataPoint> timedSyncAndInit(Supplier<SYNC> transformator, int size, int repetitions, boolean isFwd, Consumer<EObject> edit, boolean incr) throws IOException {
+
+	public List<TestDataPoint> timedExecutionAndInit(Supplier<SYNC> transformator, int size, int repetitions, boolean isFwd, Consumer<EObject> edit) throws IOException {
 		if (repetitions < 1)
 			throw new IllegalArgumentException("Number of repetitions must be positive.");
+		
+		isForward = isFwd;
 		
 		long[] initTimes = new long[repetitions];
 		long[] batchExecutionTimes = new long[repetitions];
@@ -77,72 +74,38 @@ public class PerformanceTestSYNC extends PerformanceTest<SYNC> {
 					tgg = sync.getTGG();
 					
 					// batch
-				    Future<Long> batchExecutionResult = es.submit(() -> isFwd ? timedFwd() : timedBwd());
-				    batchExecutionTimes[i] = batchExecutionResult.get(PerformanceConstants.timeout, TimeUnit.SECONDS);
+				    Future<Long> batchExecutionResult = es.submit(() -> timedExecution());
+				    batchExecutionTimes[i] = batchExecutionResult.get(useTimeouts ? PerformanceConstants.timeout : Long.MAX_VALUE, TimeUnit.SECONDS);
 					
 					// incremental
-					if (incr) {
-						Resource model = isFwd ? sync.getSourceResource() : sync.getTargetResource();
-						edit.accept(model.getContents().get(0));
-		
-					    Future<Long> incrExecutionResult = es.submit(() -> isFwd ? timedFwd() : timedBwd());
-					    incrementalExecutionTimes[i] = incrExecutionResult.get(PerformanceConstants.timeout, TimeUnit.SECONDS);
-					}
+					Resource model = isFwd ? sync.getSourceResource() : sync.getTargetResource();
+					edit.accept(model.getContents().get(0));
+	
+				    Future<Long> incrExecutionResult = es.submit(() -> timedExecution());
+				    incrementalExecutionTimes[i] = incrExecutionResult.get(useTimeouts ? PerformanceConstants.timeout : Long.MAX_VALUE, TimeUnit.SECONDS);
 				} catch (TimeoutException e) {
 			    	System.out.println("Timeout!");
 			    	System.exit(0);
 				} catch (Exception e) {
 					e.printStackTrace();
-				} finally {
-					terminate();
-				    es.shutdownNow();
-				    try {
-						es.awaitTermination(1, TimeUnit.DAYS);
-					} catch (InterruptedException e) {
-						e.printStackTrace();
-					}
-				    System.gc();
-					System.out.println((i+1)+"-th execution finished. ");
-				}
-			else {
-				initTimes[i] = timedInit(sync);
-	
-				tgg = sync.getTGG();
-	
-		    	batchExecutionTimes[i] = isFwd ? timedFwd() : timedBwd();
-		    	
-		    	if (incr) {
-					Resource model = isFwd ? sync.getSourceResource() : sync.getTargetResource();
-					edit.accept(model.getContents().get(0));
-
-			    	incrementalExecutionTimes[i] = isFwd ? timedFwd() : timedBwd();
-		    	}
-		    		
-
-		    	terminate();
-			}		
+				} 
+			
+				System.out.println((i+1)+"-th execution finished. ");
+		    	es.shutdownNow();
+				terminate();	
 		}
-		
-		List<TestDataPoint> result;
 
 		TestDataPoint batchData = new TestDataPoint(initTimes, batchExecutionTimes);
 		batchData.testCase = new TestCaseParameters(tgg.getName(), isFwd ? Operationalization.FWD : Operationalization.BWD, size);
 		
-		if (incr) {
-			TestDataPoint incData = new TestDataPoint(initTimes, incrementalExecutionTimes);
-			incData.testCase = new TestCaseParameters(tgg.getName(), isFwd ? Operationalization.INCREMENTAL_FWD : Operationalization.INCREMENTAL_BWD, size);
-			
-			result = Arrays.asList(batchData, incData);
-		} else {
-			result = Arrays.asList(batchData);
-		}
-
-		return result;
+		TestDataPoint incData = new TestDataPoint(initTimes, incrementalExecutionTimes);
+		incData.testCase = new TestCaseParameters(tgg.getName(), isFwd ? Operationalization.INCREMENTAL_FWD : Operationalization.INCREMENTAL_BWD, size);
+		
+		return Arrays.asList(batchData, incData);
 	}
 
 	@Override
 	protected Operationalization getOpType() {
-		//TODO not finished
-		return null;
+		return opType;
 	}
 }

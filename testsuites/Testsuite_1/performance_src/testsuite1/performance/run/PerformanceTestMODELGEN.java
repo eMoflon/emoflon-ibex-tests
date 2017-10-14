@@ -10,7 +10,6 @@ import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGEN;
 import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGENStopCriterion;
 
 import language.TGG;
-import testsuite1.performance.util.TestCaseParameters;
 import testsuite1.performance.util.TestDataPoint;
 import testsuite1.testUtil.Operationalization;
 
@@ -24,7 +23,7 @@ public class PerformanceTestMODELGEN extends PerformanceTest<MODELGEN> {
 			throw new NullPointerException("Generator has not been initialized yet. Call timedInit() before this method.");
 		op.setStopCriterion(stops.apply(op.getTGG()));
 		
-		return timedExecution();
+		return super.timedExecution();
 	}
 	
 	public TestDataPoint repeatedTimedExecutionAndInit(Supplier<MODELGEN> generator, Function<TGG, MODELGENStopCriterion> stops, int size, int repetitions) throws IOException {
@@ -48,7 +47,7 @@ public class PerformanceTestMODELGEN extends PerformanceTest<MODELGEN> {
 		}
 		
 		TestDataPoint result = new TestDataPoint(initTimes, executionTimes);
-		result.testCase = new TestCaseParameters(generator.get().getTGG().getName(), Operationalization.MODELGEN, size);
+		result.testCase = data.get(0).testCase;
 		return result;
 	}
 
