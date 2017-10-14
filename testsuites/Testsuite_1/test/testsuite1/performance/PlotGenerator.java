@@ -28,17 +28,15 @@ public class PlotGenerator {
 		TestDataCollector collector = new TestDataCollector();
 		
 		test.testData = collector.loadData();
-		collector.saveHardCodedMaxModelSizes();
-		test.maxModelSizes = collector.getMaxModelSizes();
 		
 		// save data in tables suited for the plots and create the plots
-//		test.saveDataForTGGsWithoutRefinement();
+		test.saveDataForTGGsWithoutRefinement();
 		for (Operationalization op : Operationalization.values()) {
-//			test.saveDataForAllTGGsDiagram(op);
-//			test.saveDataForAllTGGsInitDiagram(op);
-//			test.saveDataForMemoryUsageDiagram(op);
+			test.saveDataForAllTGGsDiagram(op);
+			test.saveDataForAllTGGsInitDiagram(op);
+			test.saveDataForMemoryUsageDiagram(op);
 			for (String tgg : Constants.testProjects) {
-//				test.saveDataForInitTimesDiagram(tgg, op);
+				test.saveDataForInitTimesDiagram(tgg, op);
 				test.saveDataForModelSizeDiagram(tgg, op);
 			}
 		}
