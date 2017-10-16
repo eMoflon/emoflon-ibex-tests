@@ -263,9 +263,6 @@
     </sourcePatterns>
     <targetPatterns name="compositeBlock">
       <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//CompositeBlock"/>
-      <linkVariablePatterns target="//@rules.0/@targetPatterns.6">
-        <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Block/inputs"/>
-      </linkVariablePatterns>
       <linkVariablePatterns target="//@rules.0/@targetPatterns.2">
         <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Block/inputs"/>
       </linkVariablePatterns>
@@ -275,6 +272,9 @@
       </linkVariablePatterns>
       <linkVariablePatterns target="//@rules.0/@targetPatterns.5">
         <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//ComplexBlock/ports"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.0/@targetPatterns.6">
+        <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Block/inputs"/>
       </linkVariablePatterns>
     </targetPatterns>
     <targetPatterns name="expression">
@@ -324,6 +324,14 @@
     <correspondencePatterns name="node2composite" type="//@schema/@correspondenceTypes.2" source="//@rules.0/@sourcePatterns.0" target="//@rules.0/@targetPatterns.0"/>
     <correspondencePatterns name="node2inputPort2" type="//@schema/@correspondenceTypes.0" source="//@rules.0/@sourcePatterns.6" target="//@rules.0/@targetPatterns.6"/>
     <attrConditions name="//@schema/@attributeCondDefs.0">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.0/@sourcePatterns.11">
+        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.0/@sourcePatterns.8">
+        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
+      </values>
+    </attrConditions>
+    <attrConditions name="//@schema/@attributeCondDefs.0">
       <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.0/@targetPatterns.2">
         <attribute href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Port/name"/>
       </values>
@@ -336,14 +344,6 @@
         <attribute href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Port/name"/>
       </values>
       <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.0/@sourcePatterns.12">
-        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
-      </values>
-    </attrConditions>
-    <attrConditions name="//@schema/@attributeCondDefs.0">
-      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.0/@sourcePatterns.11">
-        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
-      </values>
-      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.0/@sourcePatterns.8">
         <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
       </values>
     </attrConditions>
@@ -981,9 +981,6 @@
     </sourcePatterns>
     <targetPatterns name="compositeBlock">
       <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//CompositeBlock"/>
-      <linkVariablePatterns target="//@rules.7/@targetPatterns.6">
-        <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Block/inputs"/>
-      </linkVariablePatterns>
       <linkVariablePatterns target="//@rules.7/@targetPatterns.2">
         <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Block/inputs"/>
       </linkVariablePatterns>
@@ -993,6 +990,9 @@
       </linkVariablePatterns>
       <linkVariablePatterns target="//@rules.7/@targetPatterns.5">
         <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//ComplexBlock/ports"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.7/@targetPatterns.6">
+        <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Block/inputs"/>
       </linkVariablePatterns>
     </targetPatterns>
     <targetPatterns name="expression">
@@ -1085,6 +1085,14 @@
     <correspondencePatterns name="node2composite" type="//@schema/@correspondenceTypes.2" source="//@rules.7/@sourcePatterns.0" target="//@rules.7/@targetPatterns.0"/>
     <correspondencePatterns name="node2inputPort2" type="//@schema/@correspondenceTypes.0" source="//@rules.7/@sourcePatterns.6" target="//@rules.7/@targetPatterns.6"/>
     <attrConditions name="//@schema/@attributeCondDefs.0">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.7/@sourcePatterns.11">
+        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.7/@sourcePatterns.8">
+        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
+      </values>
+    </attrConditions>
+    <attrConditions name="//@schema/@attributeCondDefs.0">
       <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.7/@targetPatterns.2">
         <attribute href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Port/name"/>
       </values>
@@ -1097,14 +1105,6 @@
         <attribute href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Port/name"/>
       </values>
       <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.7/@sourcePatterns.12">
-        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
-      </values>
-    </attrConditions>
-    <attrConditions name="//@schema/@attributeCondDefs.0">
-      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.7/@sourcePatterns.11">
-        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
-      </values>
-      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.7/@sourcePatterns.8">
         <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
       </values>
     </attrConditions>
@@ -1290,18 +1290,18 @@
       <op value="++"/>
     </correspondencePatterns>
     <attrConditions name="//@schema/@attributeCondDefs.0">
-      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.8/@sourcePatterns.8">
-        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
-      </values>
-      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.8/@sourcePatterns.5">
-        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
-      </values>
-    </attrConditions>
-    <attrConditions name="//@schema/@attributeCondDefs.0">
       <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.8/@targetPatterns.3">
         <attribute href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Port/name"/>
       </values>
       <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.8/@sourcePatterns.9">
+        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
+      </values>
+    </attrConditions>
+    <attrConditions name="//@schema/@attributeCondDefs.0">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.8/@sourcePatterns.8">
+        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.8/@sourcePatterns.5">
         <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
       </values>
     </attrConditions>
@@ -1450,9 +1450,6 @@
     </sourcePatterns>
     <targetPatterns name="compositeBlock">
       <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//CompositeBlock"/>
-      <linkVariablePatterns target="//@rules.9/@targetPatterns.6">
-        <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Block/inputs"/>
-      </linkVariablePatterns>
       <linkVariablePatterns target="//@rules.9/@targetPatterns.2">
         <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Block/inputs"/>
       </linkVariablePatterns>
@@ -1462,6 +1459,9 @@
       </linkVariablePatterns>
       <linkVariablePatterns target="//@rules.9/@targetPatterns.5">
         <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//ComplexBlock/ports"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.9/@targetPatterns.6">
+        <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Block/inputs"/>
       </linkVariablePatterns>
     </targetPatterns>
     <targetPatterns name="expression">
@@ -1554,6 +1554,14 @@
       <op value="++"/>
     </correspondencePatterns>
     <attrConditions name="//@schema/@attributeCondDefs.0">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.9/@sourcePatterns.11">
+        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.9/@sourcePatterns.8">
+        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
+      </values>
+    </attrConditions>
+    <attrConditions name="//@schema/@attributeCondDefs.0">
       <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.9/@targetPatterns.2">
         <attribute href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Port/name"/>
       </values>
@@ -1569,13 +1577,60 @@
         <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
       </values>
     </attrConditions>
-    <attrConditions name="//@schema/@attributeCondDefs.0">
-      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.9/@sourcePatterns.11">
-        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
-      </values>
-      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.9/@sourcePatterns.8">
-        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
-      </values>
-    </attrConditions>
   </rules>
+  <nacs name="NoOtherInLeftForOrGate" rule="//@rules.9">
+    <targetPatterns name="noIn">
+      <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Port"/>
+      <linkVariablePatterns target="//@nacs.0/@targetPatterns.1">
+        <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Port/src"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="leftExtern">
+      <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//InputPort"/>
+    </targetPatterns>
+  </nacs>
+  <nacs name="NoOtherInRightForOrGate" rule="//@rules.9">
+    <targetPatterns name="noInRight">
+      <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Port"/>
+      <linkVariablePatterns target="//@nacs.1/@targetPatterns.1">
+        <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Port/src"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="rightExtern">
+      <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//InputPort"/>
+    </targetPatterns>
+  </nacs>
+  <nacs name="NoOtherInLeftForAndGate" rule="//@rules.7">
+    <targetPatterns name="noIn">
+      <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Port"/>
+      <linkVariablePatterns target="//@nacs.2/@targetPatterns.1">
+        <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Port/src"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="leftExtern">
+      <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//InputPort"/>
+    </targetPatterns>
+  </nacs>
+  <nacs name="NoOtherInRightForAndGate" rule="//@rules.7">
+    <targetPatterns name="noInRight">
+      <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Port"/>
+      <linkVariablePatterns target="//@nacs.3/@targetPatterns.1">
+        <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Port/src"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="rightExtern">
+      <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//InputPort"/>
+    </targetPatterns>
+  </nacs>
+  <nacs name="NoOtherInForNotGate" rule="//@rules.8">
+    <targetPatterns name="noIn">
+      <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Port"/>
+      <linkVariablePatterns target="//@nacs.4/@targetPatterns.1">
+        <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Port/src"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="leftExtern">
+      <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//InputPort"/>
+    </targetPatterns>
+  </nacs>
 </tgg:TripleGraphGrammarFile>

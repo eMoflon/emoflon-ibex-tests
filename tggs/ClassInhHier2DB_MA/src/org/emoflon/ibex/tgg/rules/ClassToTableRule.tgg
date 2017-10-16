@@ -1,0 +1,38 @@
+#using ClassInhHier2DB_MA.*
+#using AttrCondDefLibrary.*
+
+#rule ClassToTableRule #with ClassInhHier2DB_MA
+
+#source { 
+	packageClass:ClassPackage{
+		++ -classes-> clazz
+	}
+	
+	++clazz:Clazz{
+		
+	}
+}
+
+#target {
+	db:DB{
+		++ -tables->table
+	}
+	
+	++table:Table
+}
+
+#correspondence {
+	packageToDb:Package2DB{
+		#src->packageClass
+		#trg->db
+	}
+	
+	++ clazzToTable:Clazz2DirectTable{
+		#src->clazz
+		#trg->table
+	}
+}
+
+#attributeConditions {
+	eq_string(clazz.name, table.heading)
+}

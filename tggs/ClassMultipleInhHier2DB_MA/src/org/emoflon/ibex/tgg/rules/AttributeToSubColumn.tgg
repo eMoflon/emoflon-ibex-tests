@@ -1,0 +1,40 @@
+#using ClassMultipleInhHier2DB_MA.*
+#using AttrCondDefLibrary.*
+
+#complement TransferSuperAttributes #for AttributeToColumn
+
+#source { 
+	clazz:Clazz
+}
+
+#target {
+	
+	table:Table {
+		-columns->col
+	}
+	col:Column
+	
+	subTable:Table{
+		++ -columns-> transferCol
+	}
+	
+	++ transferCol:Column
+}
+
+#correspondence {
+	
+	superClassToSubTable:Clazz2SubTable{
+		#src->clazz
+		#trg->subTable
+	}
+	
+	clazzToTable:Clazz2DirectTable{
+		#src->clazz
+		#trg->table
+	}
+
+}
+
+#attributeConditions {
+	eq_string(col.name, transferCol.name)	
+}

@@ -1,0 +1,42 @@
+#using ClassMultipleInhHier2DB_MA.*
+#using AttrCondDefLibrary.*
+
+#rule SubClassToTable #with ClassMultipleInhHier2DB_MA
+
+#source { 
+	
+	superClazz:Clazz
+	
+	subClazz:Clazz{
+		++ -superClass->superClazz
+	}
+}
+
+#target {
+	
+	superTable:Table
+    subTable:Table
+	
+}
+
+#correspondence {
+	superClass2SuperTable:Clazz2DirectTable{
+		#src->superClazz
+		#trg->superTable
+	}
+	
+	 subClazzToSubTable:Clazz2DirectTable{
+		#src->subClazz
+		#trg->subTable
+	}
+	
+	++superClassToSubTable:Clazz2SubTable{
+		#src->superClazz
+		#trg->subTable
+	}
+	
+}
+
+#attributeConditions {
+	//concat(":", superClazz.name, subClazz.name, subTable.heading)
+}

@@ -97,10 +97,10 @@
     <nodes name="compositeBlock" domainType="TRG" outgoingEdges="//@rules.0/@edges.13 //@rules.0/@edges.14 //@rules.0/@edges.15 //@rules.0/@edges.16" incomingCorrsTarget="//@rules.0/@nodes.22 //@rules.0/@nodes.25">
       <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//CompositeBlock"/>
     </nodes>
-    <nodes name="expression" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.0/@edges.15 //@rules.0/@edges.18">
+    <nodes name="expression" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.0/@edges.14 //@rules.0/@edges.18">
       <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Block"/>
     </nodes>
-    <nodes name="leftExtern" domainType="TRG" incomingEdges="//@rules.0/@edges.14 //@rules.0/@edges.17" incomingCorrsTarget="//@rules.0/@nodes.23">
+    <nodes name="leftExtern" domainType="TRG" incomingEdges="//@rules.0/@edges.13 //@rules.0/@edges.17" incomingCorrsTarget="//@rules.0/@nodes.23">
       <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//InputPort"/>
     </nodes>
     <nodes name="leftPort" domainType="TRG" bindingType="CREATE" outgoingEdges="//@rules.0/@edges.17">
@@ -109,10 +109,10 @@
     <nodes name="out" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.0/@edges.19" outgoingEdges="//@rules.0/@edges.18">
       <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//OutputPort"/>
     </nodes>
-    <nodes name="outExternal" domainType="TRG" incomingEdges="//@rules.0/@edges.16" outgoingEdges="//@rules.0/@edges.19" incomingCorrsTarget="//@rules.0/@nodes.24">
+    <nodes name="outExternal" domainType="TRG" incomingEdges="//@rules.0/@edges.15" outgoingEdges="//@rules.0/@edges.19" incomingCorrsTarget="//@rules.0/@nodes.24">
       <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//OutputPort"/>
     </nodes>
-    <nodes name="rightExtern" domainType="TRG" incomingEdges="//@rules.0/@edges.13 //@rules.0/@edges.20" incomingCorrsTarget="//@rules.0/@nodes.26">
+    <nodes name="rightExtern" domainType="TRG" incomingEdges="//@rules.0/@edges.16 //@rules.0/@edges.20" incomingCorrsTarget="//@rules.0/@nodes.26">
       <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//InputPort"/>
     </nodes>
     <nodes name="rightPort" domainType="TRG" bindingType="CREATE" outgoingEdges="//@rules.0/@edges.20">
@@ -172,9 +172,6 @@
     <edges name="right__parentNode__expressionNode_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.0/@nodes.12" trgNode="//@rules.0/@nodes.1">
       <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Text/parentNode"/>
     </edges>
-    <edges name="compositeBlock__inputs__rightExtern_eMoflonEdge" domainType="TRG" srcNode="//@rules.0/@nodes.14" trgNode="//@rules.0/@nodes.20">
-      <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Block/inputs"/>
-    </edges>
     <edges name="compositeBlock__inputs__leftExtern_eMoflonEdge" domainType="TRG" srcNode="//@rules.0/@nodes.14" trgNode="//@rules.0/@nodes.16">
       <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Block/inputs"/>
     </edges>
@@ -183,6 +180,9 @@
     </edges>
     <edges name="compositeBlock__ports__outExternal_eMoflonEdge" domainType="TRG" srcNode="//@rules.0/@nodes.14" trgNode="//@rules.0/@nodes.19">
       <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//ComplexBlock/ports"/>
+    </edges>
+    <edges name="compositeBlock__inputs__rightExtern_eMoflonEdge" domainType="TRG" srcNode="//@rules.0/@nodes.14" trgNode="//@rules.0/@nodes.20">
+      <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Block/inputs"/>
     </edges>
     <edges name="leftPort__src__leftExtern_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.0/@nodes.17" trgNode="//@rules.0/@nodes.16">
       <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Port/src"/>
@@ -239,6 +239,12 @@
       <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0" parameters="//@rules.0/@attributeConditionLibrary/@parameterValues.0 //@rules.0/@attributeConditionLibrary/@parameterValues.1"/>
       <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0" parameters="//@rules.0/@attributeConditionLibrary/@parameterValues.2 //@rules.0/@attributeConditionLibrary/@parameterValues.3"/>
       <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0" parameters="//@rules.0/@attributeConditionLibrary/@parameterValues.4 //@rules.0/@attributeConditionLibrary/@parameterValues.5"/>
+      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.0" objectVar="//@rules.0/@nodes.11">
+        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
+      </parameterValues>
+      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.1" objectVar="//@rules.0/@nodes.8">
+        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
+      </parameterValues>
       <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.0" objectVar="//@rules.0/@nodes.16">
         <attribute href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Port/name"/>
       </parameterValues>
@@ -249,12 +255,6 @@
         <attribute href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Port/name"/>
       </parameterValues>
       <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.1" objectVar="//@rules.0/@nodes.12">
-        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
-      </parameterValues>
-      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.0" objectVar="//@rules.0/@nodes.11">
-        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
-      </parameterValues>
-      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.1" objectVar="//@rules.0/@nodes.8">
         <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
       </parameterValues>
     </attributeConditionLibrary>
@@ -779,6 +779,30 @@
     </attributeConditionLibrary>
   </rules>
   <rules name="Mapping2AndGate">
+    <nacs name="NoOtherInLeftForAndGate">
+      <nodes name="noIn" domainType="TRG" outgoingEdges="//@rules.7/@nacs.0/@edges.0">
+        <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Port"/>
+      </nodes>
+      <nodes name="leftExtern" domainType="TRG" incomingEdges="//@rules.7/@nacs.0/@edges.0">
+        <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//InputPort"/>
+      </nodes>
+      <edges name="noIn__src__leftExtern_eMoflonEdge" domainType="TRG" srcNode="//@rules.7/@nacs.0/@nodes.0" trgNode="//@rules.7/@nacs.0/@nodes.1">
+        <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Port/src"/>
+      </edges>
+      <attributeConditionLibrary/>
+    </nacs>
+    <nacs name="NoOtherInRightForAndGate">
+      <nodes name="noInRight" domainType="TRG" outgoingEdges="//@rules.7/@nacs.1/@edges.0">
+        <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Port"/>
+      </nodes>
+      <nodes name="rightExtern" domainType="TRG" incomingEdges="//@rules.7/@nacs.1/@edges.0">
+        <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//InputPort"/>
+      </nodes>
+      <edges name="noInRight__src__rightExtern_eMoflonEdge" domainType="TRG" srcNode="//@rules.7/@nacs.1/@nodes.0" trgNode="//@rules.7/@nacs.1/@nodes.1">
+        <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Port/src"/>
+      </edges>
+      <attributeConditionLibrary/>
+    </nacs>
     <nodes name="entityNode" incomingEdges="//@rules.7/@edges.5 //@rules.7/@edges.6 //@rules.7/@edges.10 //@rules.7/@edges.28" outgoingEdges="//@rules.7/@edges.0 //@rules.7/@edges.33 //@rules.7/@edges.34 //@rules.7/@edges.38" incomingCorrsSource="//@rules.7/@nodes.26">
       <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Node"/>
       <attrExpr>
@@ -876,10 +900,10 @@
     <nodes name="compositeBlock" domainType="TRG" outgoingEdges="//@rules.7/@edges.13 //@rules.7/@edges.14 //@rules.7/@edges.15 //@rules.7/@edges.16" incomingCorrsTarget="//@rules.7/@nodes.23 //@rules.7/@nodes.26">
       <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//CompositeBlock"/>
     </nodes>
-    <nodes name="expression" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.7/@edges.15 //@rules.7/@edges.22 //@rules.7/@edges.24 //@rules.7/@edges.26" outgoingEdges="//@rules.7/@edges.17 //@rules.7/@edges.18 //@rules.7/@edges.19 //@rules.7/@edges.20 //@rules.7/@edges.21" incomingCorrsTarget="//@rules.7/@nodes.22">
+    <nodes name="expression" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.7/@edges.14 //@rules.7/@edges.22 //@rules.7/@edges.24 //@rules.7/@edges.26" outgoingEdges="//@rules.7/@edges.17 //@rules.7/@edges.18 //@rules.7/@edges.19 //@rules.7/@edges.20 //@rules.7/@edges.21" incomingCorrsTarget="//@rules.7/@nodes.22">
       <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//AndGate"/>
     </nodes>
-    <nodes name="leftExtern" domainType="TRG" incomingEdges="//@rules.7/@edges.14 //@rules.7/@edges.23" incomingCorrsTarget="//@rules.7/@nodes.24">
+    <nodes name="leftExtern" domainType="TRG" incomingEdges="//@rules.7/@edges.13 //@rules.7/@edges.23" incomingCorrsTarget="//@rules.7/@nodes.24">
       <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//InputPort"/>
     </nodes>
     <nodes name="leftPort" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.7/@edges.18 //@rules.7/@edges.20" outgoingEdges="//@rules.7/@edges.22 //@rules.7/@edges.23">
@@ -896,10 +920,10 @@
         <valueExpr xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGLiteralExpression" value="&quot;AND.out&quot;"/>
       </attrExpr>
     </nodes>
-    <nodes name="outExternal" domainType="TRG" incomingEdges="//@rules.7/@edges.16" outgoingEdges="//@rules.7/@edges.25" incomingCorrsTarget="//@rules.7/@nodes.25">
+    <nodes name="outExternal" domainType="TRG" incomingEdges="//@rules.7/@edges.15" outgoingEdges="//@rules.7/@edges.25" incomingCorrsTarget="//@rules.7/@nodes.25">
       <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//OutputPort"/>
     </nodes>
-    <nodes name="rightExtern" domainType="TRG" incomingEdges="//@rules.7/@edges.13 //@rules.7/@edges.27" incomingCorrsTarget="//@rules.7/@nodes.27">
+    <nodes name="rightExtern" domainType="TRG" incomingEdges="//@rules.7/@edges.16 //@rules.7/@edges.27" incomingCorrsTarget="//@rules.7/@nodes.27">
       <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//InputPort"/>
     </nodes>
     <nodes name="rightPort" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.7/@edges.17 //@rules.7/@edges.19" outgoingEdges="//@rules.7/@edges.26 //@rules.7/@edges.27">
@@ -966,9 +990,6 @@
     <edges name="right__parentNode__expressionNode_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.7/@nodes.12" trgNode="//@rules.7/@nodes.1">
       <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Text/parentNode"/>
     </edges>
-    <edges name="compositeBlock__inputs__rightExtern_eMoflonEdge" domainType="TRG" srcNode="//@rules.7/@nodes.14" trgNode="//@rules.7/@nodes.20">
-      <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Block/inputs"/>
-    </edges>
     <edges name="compositeBlock__inputs__leftExtern_eMoflonEdge" domainType="TRG" srcNode="//@rules.7/@nodes.14" trgNode="//@rules.7/@nodes.16">
       <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Block/inputs"/>
     </edges>
@@ -977,6 +998,9 @@
     </edges>
     <edges name="compositeBlock__ports__outExternal_eMoflonEdge" domainType="TRG" srcNode="//@rules.7/@nodes.14" trgNode="//@rules.7/@nodes.19">
       <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//ComplexBlock/ports"/>
+    </edges>
+    <edges name="compositeBlock__inputs__rightExtern_eMoflonEdge" domainType="TRG" srcNode="//@rules.7/@nodes.14" trgNode="//@rules.7/@nodes.20">
+      <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Block/inputs"/>
     </edges>
     <edges name="expression__inputs__rightPort_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.7/@nodes.15" trgNode="//@rules.7/@nodes.21">
       <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Block/inputs"/>
@@ -1054,6 +1078,12 @@
       <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0" parameters="//@rules.7/@attributeConditionLibrary/@parameterValues.0 //@rules.7/@attributeConditionLibrary/@parameterValues.1"/>
       <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0" parameters="//@rules.7/@attributeConditionLibrary/@parameterValues.2 //@rules.7/@attributeConditionLibrary/@parameterValues.3"/>
       <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0" parameters="//@rules.7/@attributeConditionLibrary/@parameterValues.4 //@rules.7/@attributeConditionLibrary/@parameterValues.5"/>
+      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.0" objectVar="//@rules.7/@nodes.11">
+        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
+      </parameterValues>
+      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.1" objectVar="//@rules.7/@nodes.8">
+        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
+      </parameterValues>
       <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.0" objectVar="//@rules.7/@nodes.16">
         <attribute href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Port/name"/>
       </parameterValues>
@@ -1066,15 +1096,21 @@
       <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.1" objectVar="//@rules.7/@nodes.12">
         <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
       </parameterValues>
-      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.0" objectVar="//@rules.7/@nodes.11">
-        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
-      </parameterValues>
-      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.1" objectVar="//@rules.7/@nodes.8">
-        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
-      </parameterValues>
     </attributeConditionLibrary>
   </rules>
   <rules name="Mapping2NotGate">
+    <nacs name="NoOtherInForNotGate">
+      <nodes name="noIn" domainType="TRG" outgoingEdges="//@rules.8/@nacs.0/@edges.0">
+        <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Port"/>
+      </nodes>
+      <nodes name="leftExtern" domainType="TRG" incomingEdges="//@rules.8/@nacs.0/@edges.0">
+        <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//InputPort"/>
+      </nodes>
+      <edges name="noIn__src__leftExtern_eMoflonEdge" domainType="TRG" srcNode="//@rules.8/@nacs.0/@nodes.0" trgNode="//@rules.8/@nacs.0/@nodes.1">
+        <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Port/src"/>
+      </edges>
+      <attributeConditionLibrary/>
+    </nacs>
     <nodes name="entityNode" incomingEdges="//@rules.8/@edges.4 //@rules.8/@edges.7 //@rules.8/@edges.20" outgoingEdges="//@rules.8/@edges.0 //@rules.8/@edges.24 //@rules.8/@edges.27" incomingCorrsSource="//@rules.8/@nodes.17">
       <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Node"/>
       <attrExpr>
@@ -1278,21 +1314,45 @@
     <attributeConditionLibrary sorted_BWD="//@rules.8/@attributeConditionLibrary/@tggAttributeConstraints.0 //@rules.8/@attributeConditionLibrary/@tggAttributeConstraints.1" sorted_FWD="//@rules.8/@attributeConditionLibrary/@tggAttributeConstraints.0 //@rules.8/@attributeConditionLibrary/@tggAttributeConstraints.1" sorted_CC="//@rules.8/@attributeConditionLibrary/@tggAttributeConstraints.0 //@rules.8/@attributeConditionLibrary/@tggAttributeConstraints.1" sorted_MODELGEN="//@rules.8/@attributeConditionLibrary/@tggAttributeConstraints.0 //@rules.8/@attributeConditionLibrary/@tggAttributeConstraints.1">
       <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0" parameters="//@rules.8/@attributeConditionLibrary/@parameterValues.0 //@rules.8/@attributeConditionLibrary/@parameterValues.1"/>
       <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0" parameters="//@rules.8/@attributeConditionLibrary/@parameterValues.2 //@rules.8/@attributeConditionLibrary/@parameterValues.3"/>
-      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.0" objectVar="//@rules.8/@nodes.8">
-        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
-      </parameterValues>
-      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.1" objectVar="//@rules.8/@nodes.5">
-        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
-      </parameterValues>
       <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.0" objectVar="//@rules.8/@nodes.14">
         <attribute href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Port/name"/>
       </parameterValues>
       <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.1" objectVar="//@rules.8/@nodes.9">
         <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
       </parameterValues>
+      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.0" objectVar="//@rules.8/@nodes.8">
+        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
+      </parameterValues>
+      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.1" objectVar="//@rules.8/@nodes.5">
+        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
+      </parameterValues>
     </attributeConditionLibrary>
   </rules>
   <rules name="Mapping2OrGate">
+    <nacs name="NoOtherInLeftForOrGate">
+      <nodes name="noIn" domainType="TRG" outgoingEdges="//@rules.9/@nacs.0/@edges.0">
+        <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Port"/>
+      </nodes>
+      <nodes name="leftExtern" domainType="TRG" incomingEdges="//@rules.9/@nacs.0/@edges.0">
+        <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//InputPort"/>
+      </nodes>
+      <edges name="noIn__src__leftExtern_eMoflonEdge" domainType="TRG" srcNode="//@rules.9/@nacs.0/@nodes.0" trgNode="//@rules.9/@nacs.0/@nodes.1">
+        <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Port/src"/>
+      </edges>
+      <attributeConditionLibrary/>
+    </nacs>
+    <nacs name="NoOtherInRightForOrGate">
+      <nodes name="noInRight" domainType="TRG" outgoingEdges="//@rules.9/@nacs.1/@edges.0">
+        <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Port"/>
+      </nodes>
+      <nodes name="rightExtern" domainType="TRG" incomingEdges="//@rules.9/@nacs.1/@edges.0">
+        <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//InputPort"/>
+      </nodes>
+      <edges name="noInRight__src__rightExtern_eMoflonEdge" domainType="TRG" srcNode="//@rules.9/@nacs.1/@nodes.0" trgNode="//@rules.9/@nacs.1/@nodes.1">
+        <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Port/src"/>
+      </edges>
+      <attributeConditionLibrary/>
+    </nacs>
     <nodes name="entityNode" incomingEdges="//@rules.9/@edges.5 //@rules.9/@edges.6 //@rules.9/@edges.10 //@rules.9/@edges.28" outgoingEdges="//@rules.9/@edges.0 //@rules.9/@edges.33 //@rules.9/@edges.34 //@rules.9/@edges.38" incomingCorrsSource="//@rules.9/@nodes.25">
       <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Node"/>
       <attrExpr>
@@ -1390,10 +1450,10 @@
     <nodes name="compositeBlock" domainType="TRG" outgoingEdges="//@rules.9/@edges.13 //@rules.9/@edges.14 //@rules.9/@edges.15 //@rules.9/@edges.16" incomingCorrsTarget="//@rules.9/@nodes.22 //@rules.9/@nodes.25">
       <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//CompositeBlock"/>
     </nodes>
-    <nodes name="expression" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.9/@edges.15 //@rules.9/@edges.23 //@rules.9/@edges.24 //@rules.9/@edges.27" outgoingEdges="//@rules.9/@edges.17 //@rules.9/@edges.18 //@rules.9/@edges.19 //@rules.9/@edges.20 //@rules.9/@edges.21" incomingCorrsTarget="//@rules.9/@nodes.27">
+    <nodes name="expression" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.9/@edges.14 //@rules.9/@edges.23 //@rules.9/@edges.24 //@rules.9/@edges.27" outgoingEdges="//@rules.9/@edges.17 //@rules.9/@edges.18 //@rules.9/@edges.19 //@rules.9/@edges.20 //@rules.9/@edges.21" incomingCorrsTarget="//@rules.9/@nodes.27">
       <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//OrGate"/>
     </nodes>
-    <nodes name="leftExtern" domainType="TRG" incomingEdges="//@rules.9/@edges.14 //@rules.9/@edges.22" incomingCorrsTarget="//@rules.9/@nodes.23">
+    <nodes name="leftExtern" domainType="TRG" incomingEdges="//@rules.9/@edges.13 //@rules.9/@edges.22" incomingCorrsTarget="//@rules.9/@nodes.23">
       <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//InputPort"/>
     </nodes>
     <nodes name="leftPort" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.9/@edges.17 //@rules.9/@edges.21" outgoingEdges="//@rules.9/@edges.22 //@rules.9/@edges.23">
@@ -1410,10 +1470,10 @@
         <valueExpr xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGLiteralExpression" value="&quot;OR.out&quot;"/>
       </attrExpr>
     </nodes>
-    <nodes name="outExternal" domainType="TRG" incomingEdges="//@rules.9/@edges.16" outgoingEdges="//@rules.9/@edges.25" incomingCorrsTarget="//@rules.9/@nodes.24">
+    <nodes name="outExternal" domainType="TRG" incomingEdges="//@rules.9/@edges.15" outgoingEdges="//@rules.9/@edges.25" incomingCorrsTarget="//@rules.9/@nodes.24">
       <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//OutputPort"/>
     </nodes>
-    <nodes name="rightExtern" domainType="TRG" incomingEdges="//@rules.9/@edges.13 //@rules.9/@edges.26" incomingCorrsTarget="//@rules.9/@nodes.26">
+    <nodes name="rightExtern" domainType="TRG" incomingEdges="//@rules.9/@edges.16 //@rules.9/@edges.26" incomingCorrsTarget="//@rules.9/@nodes.26">
       <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//InputPort"/>
     </nodes>
     <nodes name="rightPort" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.9/@edges.19 //@rules.9/@edges.20" outgoingEdges="//@rules.9/@edges.26 //@rules.9/@edges.27">
@@ -1480,9 +1540,6 @@
     <edges name="right__parentNode__expressionNode_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.9/@nodes.12" trgNode="//@rules.9/@nodes.1">
       <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Text/parentNode"/>
     </edges>
-    <edges name="compositeBlock__inputs__rightExtern_eMoflonEdge" domainType="TRG" srcNode="//@rules.9/@nodes.14" trgNode="//@rules.9/@nodes.20">
-      <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Block/inputs"/>
-    </edges>
     <edges name="compositeBlock__inputs__leftExtern_eMoflonEdge" domainType="TRG" srcNode="//@rules.9/@nodes.14" trgNode="//@rules.9/@nodes.16">
       <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Block/inputs"/>
     </edges>
@@ -1491,6 +1548,9 @@
     </edges>
     <edges name="compositeBlock__ports__outExternal_eMoflonEdge" domainType="TRG" srcNode="//@rules.9/@nodes.14" trgNode="//@rules.9/@nodes.19">
       <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//ComplexBlock/ports"/>
+    </edges>
+    <edges name="compositeBlock__inputs__rightExtern_eMoflonEdge" domainType="TRG" srcNode="//@rules.9/@nodes.14" trgNode="//@rules.9/@nodes.20">
+      <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Block/inputs"/>
     </edges>
     <edges name="expression__inputport1__leftPort_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.9/@nodes.15" trgNode="//@rules.9/@nodes.17">
       <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//BinaryGate/inputport1"/>
@@ -1568,6 +1628,12 @@
       <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0" parameters="//@rules.9/@attributeConditionLibrary/@parameterValues.0 //@rules.9/@attributeConditionLibrary/@parameterValues.1"/>
       <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0" parameters="//@rules.9/@attributeConditionLibrary/@parameterValues.2 //@rules.9/@attributeConditionLibrary/@parameterValues.3"/>
       <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0" parameters="//@rules.9/@attributeConditionLibrary/@parameterValues.4 //@rules.9/@attributeConditionLibrary/@parameterValues.5"/>
+      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.0" objectVar="//@rules.9/@nodes.11">
+        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
+      </parameterValues>
+      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.1" objectVar="//@rules.9/@nodes.8">
+        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
+      </parameterValues>
       <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.0" objectVar="//@rules.9/@nodes.16">
         <attribute href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Port/name"/>
       </parameterValues>
@@ -1578,12 +1644,6 @@
         <attribute href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Port/name"/>
       </parameterValues>
       <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.1" objectVar="//@rules.9/@nodes.12">
-        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
-      </parameterValues>
-      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.0" objectVar="//@rules.9/@nodes.11">
-        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
-      </parameterValues>
-      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.1" objectVar="//@rules.9/@nodes.8">
         <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
       </parameterValues>
     </attributeConditionLibrary>

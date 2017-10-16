@@ -13,9 +13,9 @@ public class CC_App extends CC {
 	private String srcPath;
 	private String trgPath;
 
-	public CC_App(String projectName, String workspacePath, boolean flatten, boolean debug,
+	public CC_App(String projectName, String workspacePath, boolean debug,
 			String srcPath, String trgPath) throws IOException {
-		super(projectName, workspacePath, flatten, debug);
+		super(projectName, workspacePath, debug);
 		this.srcPath = srcPath;
 		this.trgPath = trgPath;
 		registerPatternMatchingEngine(new DemoclesEngine());
@@ -24,7 +24,7 @@ public class CC_App extends CC {
 	public static void main(String[] args) throws IOException {
 		BasicConfigurator.configure();
 
-		CC_App cc = new CC_App("ClassInhHier2DB", "./../", true, false, args[0], args[1]);
+		CC_App cc = new CC_App("ClassInhHier2DB", "./../", true, args[0], args[1]);
 		
 		logger.info("Starting CC");
 		long tic = System.currentTimeMillis();

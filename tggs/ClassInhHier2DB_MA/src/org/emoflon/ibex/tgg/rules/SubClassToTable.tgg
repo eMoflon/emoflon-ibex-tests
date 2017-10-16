@@ -1,0 +1,48 @@
+#using ClassInhHier2DB_MA.*
+#using AttrCondDefLibrary.*
+
+#rule SubClassToTable #with ClassInhHier2DB_MA
+
+#source { 
+	
+	package:ClassPackage{
+		-classes->superClazz
+		++ -classes->subClazz
+	}
+	
+	superClazz:Clazz
+	
+	++ subClazz:Clazz{
+		++ -superClass->superClazz
+	}
+}
+
+#target {
+	
+	db:DB{
+		-tables->superTable
+		++-tables->subTable
+	}
+	
+	superTable:Table
+	
+	++ subTable:Table
+	
+}
+
+#correspondence {
+	superClass2SuperTable:Clazz2DirectTable{
+		#src->superClazz
+		#trg->superTable
+	}
+	
+	++ subClazzToSubTable:Clazz2DirectTable{
+		#src->subClazz
+		#trg->subTable
+	}
+	
+}
+
+#attributeConditions {
+	concat(":", superClazz.name, subClazz.name, subTable.heading)
+}

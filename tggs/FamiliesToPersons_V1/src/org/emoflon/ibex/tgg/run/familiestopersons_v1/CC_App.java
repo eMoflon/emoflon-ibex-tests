@@ -2,6 +2,7 @@ package org.emoflon.ibex.tgg.run.familiestopersons_v1;
 
 import java.io.IOException;
 
+import org.apache.log4j.BasicConfigurator;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.ibex.tgg.operational.strategies.cc.CC;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesEngine;
@@ -13,12 +14,29 @@ public class CC_App extends CC {
 	private String srcPath;
 	private String trgPath;
 
-	public CC_App(String projectName, String workspacePath, boolean flatten, boolean debug,
+	public CC_App(String projectName, String workspacePath, boolean debug,
 			String srcPath, String trgPath) throws IOException {
-		super(projectName, workspacePath, flatten, debug);
+		super(projectName, workspacePath, debug);
 		this.srcPath = srcPath;
 		this.trgPath = trgPath;
 		registerPatternMatchingEngine(new DemoclesEngine());
+	}
+	
+	public static void main(String[] args) throws IOException {
+		BasicConfigurator.configure();
+
+		CC_App cc = new CC_App("FamiliesToPersons_V1", "./../", true, "../instances/src", "../instances/trg");
+		
+		logger.info("Starting CC");
+		long tic = System.currentTimeMillis();
+		cc.run();
+		long toc = System.currentTimeMillis();
+		logger.info("Completed CC in: " + (toc - tic) + " ms");
+		
+		System.out.println(cc.generateConsistencyReport());
+		
+		cc.saveModels();
+		cc.terminate();
 	}
 
 	@Override

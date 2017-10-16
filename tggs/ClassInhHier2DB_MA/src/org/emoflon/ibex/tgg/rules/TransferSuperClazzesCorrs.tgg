@@ -1,0 +1,39 @@
+#using ClassInhHier2DB_MA.*
+#using AttrCondDefLibrary.*
+
+#complement TransferSuperClazzesCorrs #for SubClassToTable
+
+#source { 
+	
+	package:ClassPackage{
+		-classes-> transitiveSuperClass
+	}
+	
+	transitiveSuperClass:Clazz
+	
+}
+
+#target {
+	
+	superTable:Table
+	
+	subTable:Table
+}
+
+#correspondence {
+	
+	transitiveSuperClassToSuperTable:Clazz2DirectTable{
+		#src->transitiveSuperClass
+		#trg->superTable
+	}
+	
+	++transitiveSuperClassToSubTable:Clazz2SubTable{
+		#src->transitiveSuperClass
+		#trg->subTable
+	}
+	
+}
+
+#attributeConditions {
+	
+}

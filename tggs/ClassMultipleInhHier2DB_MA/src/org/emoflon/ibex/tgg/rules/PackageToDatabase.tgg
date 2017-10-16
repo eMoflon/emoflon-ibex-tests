@@ -1,0 +1,23 @@
+#using ClassMultipleInhHier2DB_MA.*
+#using AttrCondDefLibrary.*
+
+#rule PackageToDatabase #with ClassMultipleInhHier2DB_MA
+
+#source { 
+	++package : ClassPackage
+}
+
+#target {
+	++db : DB
+}
+
+#correspondence {
+	++ packageToDB : Package2DB{
+		#src->package
+		#trg->db
+	}
+}
+
+#attributeConditions {
+	eq_string(package.name, db.title)
+}
