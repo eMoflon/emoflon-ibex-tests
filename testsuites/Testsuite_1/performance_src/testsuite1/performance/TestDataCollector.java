@@ -41,20 +41,16 @@ public class TestDataCollector {
 	
 	private static final String dataLocation = "performance/data/allTestDataPoints.ser";
 	
+	public int[] modelSizes = PerformanceConstants.modelSizes;
+	public int repetitions = PerformanceConstants.repetitions;
+	
 	private IncrementalEditor incEditor = new IncrementalEditor();
 	private PerformanceTestUtil util = new PerformanceTestUtil();
 	private List<TestDataPoint> data;
 	
-	public int[] modelSizes = PerformanceConstants.modelSizes;
-	public int repetitions = PerformanceConstants.repetitions;
-	
-//	public static void main(String[] args) throws IOException {
-//		new TestDataCollector().saveHardCodedMaxModelSizes();
-//	}
-	
 	/**
-	 * 
 	 * @param args[0] Boolean value which determines if the collected data should be reset.
+	 * 				  Used in the first run of a new test data collection.
 	 * @param args[1] The name of the TGG.
 	 * @param args[2] The name of the operationalization.
 	 * @param args[3] The model size.
@@ -89,18 +85,18 @@ public class TestDataCollector {
 						+"INCREMENTAL_FWD/INCREMENTAL_BWD because both batch and incremental SYNC are included in the FWD/BWD test cases.");
 		}
 		
-		saveData();		
+		saveData();	
 	}
 
 	public List<TestDataPoint> getData() {
 		if (data == null)
-			throw new IllegalStateException("No data has been collected yet. Call collectData() or loadData() before this method.");
+			loadData();
 		
 		return data;
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<TestDataPoint> loadData() {
+	private List<TestDataPoint> loadData() {
 		try {
 			FileInputStream file = new FileInputStream(dataLocation);
 			ObjectInputStream in = new ObjectInputStream(file);
@@ -116,7 +112,7 @@ public class TestDataCollector {
 		return data;
 	}
 	
-	public void saveData() {
+	private void saveData() {
 		try {
 			FileOutputStream file = new FileOutputStream(dataLocation);
 			ObjectOutputStream out = new ObjectOutputStream(file);
@@ -128,7 +124,7 @@ public class TestDataCollector {
 		}
 	}
 	
-	public void deleteData() {
+	private void deleteData() {
 		try {
 			Files.delete(Paths.get(dataLocation));
 		} catch(NoSuchFileException e) {

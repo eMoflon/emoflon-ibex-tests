@@ -26,7 +26,7 @@ public class PlotGenerator {
 		PlotGenerator test = new PlotGenerator();
 		TestDataCollector collector = new TestDataCollector();
 		
-		test.testData = collector.loadData();
+		test.testData = collector.getData();
 		
 		// save data in tables suited for the plots and create the plots
 		test.saveDataForTGGsWithoutRefinement();
