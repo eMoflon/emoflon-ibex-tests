@@ -1,4 +1,4 @@
-package testsuite1.performance.run;
+package testsuite.ibex.performance.run;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -10,8 +10,8 @@ import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGEN;
 import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGENStopCriterion;
 
 import language.TGG;
-import testsuite1.performance.util.TestDataPoint;
-import testsuite1.performance.util.Operationalization;
+import testsuite.ibex.performance.util.Operationalization;
+import testsuite.ibex.performance.util.TestDataPoint;
 
 public class PerformanceTestMODELGEN extends PerformanceTest<MODELGEN> {
 	

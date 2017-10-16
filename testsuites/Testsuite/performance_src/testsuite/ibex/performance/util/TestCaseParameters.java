@@ -1,8 +1,8 @@
-package testsuite1.performance.util;
+package testsuite.ibex.performance.util;
 
 import java.io.Serializable;
 
-import testsuite1.performance.util.Operationalization;
+import testsuite.ibex.performance.util.Operationalization;
 
 /**
  * This class holds all parameters that define a unique performance test case.

@@ -1,4 +1,4 @@
-package testsuite1.performance.run;
+package testsuite.ibex.performance.run;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -16,10 +16,10 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.emoflon.ibex.tgg.operational.strategies.sync.SYNC;
 
 import language.TGG;
-import testsuite1.performance.util.PerformanceConstants;
-import testsuite1.performance.util.TestCaseParameters;
-import testsuite1.performance.util.TestDataPoint;
-import testsuite1.performance.util.Operationalization;
+import testsuite.ibex.performance.util.Operationalization;
+import testsuite.ibex.performance.util.PerformanceConstants;
+import testsuite.ibex.performance.util.TestCaseParameters;
+import testsuite.ibex.performance.util.TestDataPoint;
 
 public class PerformanceTestSYNC extends PerformanceTest<SYNC> {
 	

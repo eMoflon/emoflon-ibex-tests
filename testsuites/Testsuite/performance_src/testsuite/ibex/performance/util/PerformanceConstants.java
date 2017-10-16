@@ -1,4 +1,4 @@
-package testsuite1.performance.util;
+package testsuite.ibex.performance.util;
 
 import java.util.concurrent.TimeUnit;
 

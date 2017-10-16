@@ -1,9 +1,9 @@
-package testsuite1.performance
+package testsuite.ibex.performance
 
 import java.nio.file.Files
 import java.nio.file.Paths
 import java.util.concurrent.TimeUnit
-import testsuite1.performance.util.PerformanceConstants
+import testsuite.ibex.performance.util.PerformanceConstants
 
 class GNUPlotScripts {
 

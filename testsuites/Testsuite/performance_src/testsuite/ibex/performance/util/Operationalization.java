@@ -1,4 +1,4 @@
-package testsuite1.performance.util;
+package testsuite.ibex.performance.util;
 
 public enum Operationalization {
 	MODELGEN,

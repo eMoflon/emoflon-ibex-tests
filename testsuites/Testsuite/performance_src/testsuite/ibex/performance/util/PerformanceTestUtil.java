@@ -1,4 +1,4 @@
-package testsuite1.performance.util;
+package testsuite.ibex.performance.util;
 
 import java.io.IOException;
 import java.util.HashSet;
@@ -25,8 +25,8 @@ import VHDLModel.impl.VHDLModelPackageImpl;
 import language.TGG;
 import language.TGGRule;
 import language.TGGRuleEdge;
+import testsuite.ibex.performance.util.Operationalization;
 import testsuite.ibex.testUtil.Constants;
-import testsuite1.performance.util.Operationalization;
 
 public class PerformanceTestUtil {
 	

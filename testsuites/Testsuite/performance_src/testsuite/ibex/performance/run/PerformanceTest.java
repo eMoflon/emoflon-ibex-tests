@@ -1,4 +1,4 @@
-package testsuite1.performance.run;
+package testsuite.ibex.performance.run;
 
 import java.io.IOException;
 import java.util.concurrent.ExecutorService;
@@ -11,10 +11,10 @@ import java.util.function.Supplier;
 import org.emoflon.ibex.tgg.operational.OperationalStrategy;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesEngine;
 
-import testsuite1.performance.util.PerformanceConstants;
-import testsuite1.performance.util.TestCaseParameters;
-import testsuite1.performance.util.TestDataPoint;
-import testsuite1.performance.util.Operationalization;
+import testsuite.ibex.performance.util.Operationalization;
+import testsuite.ibex.performance.util.PerformanceConstants;
+import testsuite.ibex.performance.util.TestCaseParameters;
+import testsuite.ibex.performance.util.TestDataPoint;
 
 public abstract class PerformanceTest<O extends OperationalStrategy> {
 	protected O op;

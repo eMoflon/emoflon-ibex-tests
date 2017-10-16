@@ -1,4 +1,4 @@
-package testsuite1.performance;
+package testsuite.ibex.performance;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -8,10 +8,11 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-import testsuite1.performance.util.PerformanceConstants;
-import testsuite1.performance.util.PerformanceTestUtil;
-import testsuite1.performance.util.TestDataPoint;
-import testsuite1.performance.util.Operationalization;
+import testsuite.ibex.performance.GNUPlotScripts;
+import testsuite.ibex.performance.util.Operationalization;
+import testsuite.ibex.performance.util.PerformanceConstants;
+import testsuite.ibex.performance.util.PerformanceTestUtil;
+import testsuite.ibex.performance.util.TestDataPoint;
 import testsuite.ibex.testUtil.Constants;
 
 public class PlotGenerator {
@@ -87,10 +88,15 @@ public class PlotGenerator {
 		diagramStrings.add(makeLine("#", "ClassInhHier2DB", "CompanyToIT"));
 		diagramStrings.add(makeLine("Operationalization", "ExecutionTime"));
 
-		for (Operationalization op : Operationalization.values()) {
-				diagramStrings.add(makeLine(op+"", util.filterTestResults(testData, "ClassInhHier2DB", op, bigModelSize).get(0).executionTimes[0]+"",
-														util.filterTestResults(testData, "CompanyToIT", op, bigModelSize).get(0).executionTimes[0]+""
-				));
+		try {
+			for (Operationalization op : Operationalization.values()) {
+					diagramStrings.add(makeLine(op+"", util.filterTestResults(testData, "ClassInhHier2DB", op, bigModelSize).get(0).executionTimes[0]+"",
+															util.filterTestResults(testData, "CompanyToIT", op, bigModelSize).get(0).executionTimes[0]+""
+					));
+			}
+		} catch (IndexOutOfBoundsException e) {
+			System.out.println("Data for TGGsWithoutRefinement diagram not available!");
+			return;
 		}
 		
 		// save data in file

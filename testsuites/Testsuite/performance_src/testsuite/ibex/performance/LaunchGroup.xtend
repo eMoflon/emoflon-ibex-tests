@@ -1,15 +1,15 @@
-package testsuite1.performance
+package testsuite.ibex.performance
 
 import java.nio.file.Files
 import java.nio.file.Paths
 import java.util.ArrayList
 import java.util.Arrays
 import java.util.List
-import testsuite1.performance.LaunchConfiguration
-import testsuite1.performance.util.TestCaseParameters
-import testsuite1.performance.util.Operationalization;
+import testsuite.ibex.performance.LaunchConfiguration
+import testsuite.ibex.performance.util.TestCaseParameters
+import testsuite.ibex.performance.util.Operationalization;
 import testsuite.ibex.testUtil.Constants;
-import testsuite1.performance.util.PerformanceConstants
+import testsuite.ibex.performance.util.PerformanceConstants
 
 class LaunchGroup {
 	/** Path where the LaunchGroup is saved by default. */

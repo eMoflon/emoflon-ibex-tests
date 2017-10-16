@@ -1,10 +1,10 @@
-package testsuite1.performance
+package testsuite.ibex.performance
 
 import java.nio.file.Files
 import java.nio.file.Paths
 import java.util.Arrays
-import testsuite1.performance.util.TestCaseParameters
-import testsuite1.performance.util.PerformanceConstants
+import testsuite.ibex.performance.util.TestCaseParameters
+import testsuite.ibex.performance.util.PerformanceConstants
 
 class LaunchConfiguration {
 
@@ -44,13 +44,13 @@ class LaunchConfiguration {
 		<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 		<launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
 			<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
-				<listEntry value="/Testsuite_1/test/testsuite1/performance/TestDataCollector.java"/>
+				<listEntry value="/Testsuite/test/testsuite/ibex/performance/TestDataCollector.java"/>
 			</listAttribute>
 			<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
 				<listEntry value="1"/>
 			</listAttribute>
-			<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="testsuite1.performance.TestDataCollector"/>
-			<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="Testsuite_1"/>
+			<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="testsuite.ibex.performance.TestDataCollector"/>
+			<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="Testsuite"/>
 			<stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="«reset» «params.tgg» «params.operationalization.name()» «params.modelSize»"/>
 			<stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-Xmx«maxMemorySize»"/>
 		</launchConfiguration>

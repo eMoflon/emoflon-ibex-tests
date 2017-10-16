@@ -1,4 +1,4 @@
-package testsuite1.performance.run;
+package testsuite.ibex.performance.run;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -8,8 +8,8 @@ import java.util.function.Supplier;
 import org.emoflon.ibex.tgg.operational.strategies.cc.CC;
 
 import gurobi.GRBException;
-import testsuite1.performance.util.TestDataPoint;
-import testsuite1.performance.util.Operationalization;
+import testsuite.ibex.performance.util.Operationalization;
+import testsuite.ibex.performance.util.TestDataPoint;
 
 public class PerformanceTestCC extends PerformanceTest<CC>{
 	
