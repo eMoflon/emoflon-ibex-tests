@@ -34,8 +34,8 @@ import testsuite1.performance.util.IncrementalEditor;
 import testsuite1.performance.util.PerformanceConstants;
 import testsuite1.performance.util.PerformanceTestUtil;
 import testsuite1.performance.util.TestDataPoint;
-import testsuite1.testUtil.Constants;
-import testsuite1.testUtil.Operationalization;
+import testsuite1.performance.util.Operationalization;
+import testsuite.ibex.testUtil.Constants;
 
 public class TestDataCollector {
 	

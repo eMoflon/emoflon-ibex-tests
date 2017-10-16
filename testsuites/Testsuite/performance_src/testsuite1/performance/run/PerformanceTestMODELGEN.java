@@ -11,7 +11,7 @@ import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGENStopCriterion;
 
 import language.TGG;
 import testsuite1.performance.util.TestDataPoint;
-import testsuite1.testUtil.Operationalization;
+import testsuite1.performance.util.Operationalization;
 
 public class PerformanceTestMODELGEN extends PerformanceTest<MODELGEN> {
 	

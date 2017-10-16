@@ -25,8 +25,8 @@ import VHDLModel.impl.VHDLModelPackageImpl;
 import language.TGG;
 import language.TGGRule;
 import language.TGGRuleEdge;
-import testsuite1.testUtil.Constants;
-import testsuite1.testUtil.Operationalization;
+import testsuite.ibex.testUtil.Constants;
+import testsuite1.performance.util.Operationalization;
 
 public class PerformanceTestUtil {
 	

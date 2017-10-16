@@ -2,7 +2,7 @@ package testsuite1.performance.util;
 
 import java.io.Serializable;
 
-import testsuite1.testUtil.Operationalization;
+import testsuite1.performance.util.Operationalization;
 
 /**
  * This class holds all parameters that define a unique performance test case.

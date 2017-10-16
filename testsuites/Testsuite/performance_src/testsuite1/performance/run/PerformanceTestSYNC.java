@@ -19,7 +19,7 @@ import language.TGG;
 import testsuite1.performance.util.PerformanceConstants;
 import testsuite1.performance.util.TestCaseParameters;
 import testsuite1.performance.util.TestDataPoint;
-import testsuite1.testUtil.Operationalization;
+import testsuite1.performance.util.Operationalization;
 
 public class PerformanceTestSYNC extends PerformanceTest<SYNC> {
 	

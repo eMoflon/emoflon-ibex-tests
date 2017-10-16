@@ -9,7 +9,7 @@ import org.emoflon.ibex.tgg.operational.strategies.cc.CC;
 
 import gurobi.GRBException;
 import testsuite1.performance.util.TestDataPoint;
-import testsuite1.testUtil.Operationalization;
+import testsuite1.performance.util.Operationalization;
 
 public class PerformanceTestCC extends PerformanceTest<CC>{
 	

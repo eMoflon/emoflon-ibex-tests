@@ -14,7 +14,7 @@ import org.emoflon.ibex.tgg.runtime.engine.DemoclesEngine;
 import testsuite1.performance.util.PerformanceConstants;
 import testsuite1.performance.util.TestCaseParameters;
 import testsuite1.performance.util.TestDataPoint;
-import testsuite1.testUtil.Operationalization;
+import testsuite1.performance.util.Operationalization;
 
 public abstract class PerformanceTest<O extends OperationalStrategy> {
 	protected O op;
