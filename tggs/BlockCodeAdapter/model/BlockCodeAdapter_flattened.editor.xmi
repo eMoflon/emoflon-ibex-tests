@@ -563,10 +563,6 @@
         <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
         <valueExp xsi:type="tgg:LiteralExpression" value="&quot;BLOCKS&quot;"/>
       </attributeConstraints>
-      <attributeConstraints op="==">
-        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
-        <valueExp xsi:type="tgg:LiteralExpression" value="&quot;BLOCKS&quot;"/>
-      </attributeConstraints>
       <linkVariablePatterns target="//@rules.5/@sourcePatterns.5">
         <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Text/parentNode"/>
       </linkVariablePatterns>

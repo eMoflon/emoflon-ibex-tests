@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import org.benchmarx.featuremodelconcise.core.FeatureModelConciseComparator;
 import org.benchmarx.featuremodelsafe.core.FeatureModelSafeComparator;
+import org.eclipse.emf.ecore.EObject;
 import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGENStopCriterion;
 import org.emoflon.ibex.tgg.operational.util.IMatch;
 import org.emoflon.ibex.tgg.run.featuremodelconcisetosafe.MODELGEN_App;
@@ -46,8 +47,8 @@ public class SingleGroups extends ModelGenTestCase<FeatureModelConcise.Model, Fe
 			ArrayList<IMatch> filteredMatches = new ArrayList<>();
 			filteredMatches.addAll(matches.getMatches());
 			
-			filteredMatches.removeIf(m -> matches.getRuleName(m).equals("CreateXOrRule") && !(m.get("conciseParent").eContainer() instanceof Model));
-			filteredMatches.removeIf(m -> matches.getRuleName(m).equals("SolitaryFeatureRule") && !(m.get("conciseParent").eContainer() instanceof Model));
+			filteredMatches.removeIf(m -> matches.getRuleName(m).equals("CreateXOrRule") && !(((EObject) m.get("conciseParent")).eContainer() instanceof Model));
+			filteredMatches.removeIf(m -> matches.getRuleName(m).equals("SolitaryFeatureRule") && !(((EObject) m.get("conciseParent")).eContainer() instanceof Model));
 			
 			if(filteredMatches.isEmpty())
 				return matches.getNextRandom();

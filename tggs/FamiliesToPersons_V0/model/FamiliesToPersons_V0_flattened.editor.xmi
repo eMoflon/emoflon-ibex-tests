@@ -146,10 +146,6 @@
     </sourcePatterns>
     <sourcePatterns name="fr">
       <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//FamilyRegister"/>
-      <linkVariablePatterns target="//@rules.3/@sourcePatterns.4">
-        <op value="++"/>
-        <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//FamilyRegister/families"/>
-      </linkVariablePatterns>
       <linkVariablePatterns target="//@rules.3/@sourcePatterns.0">
         <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//FamilyRegister/families"/>
       </linkVariablePatterns>
@@ -160,6 +156,10 @@
         <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//FamilyRegister/families"/>
       </linkVariablePatterns>
       <linkVariablePatterns target="//@rules.3/@sourcePatterns.3">
+        <op value="++"/>
+        <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//FamilyRegister/families"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.3/@sourcePatterns.4">
         <op value="++"/>
         <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//FamilyRegister/families"/>
       </linkVariablePatterns>
