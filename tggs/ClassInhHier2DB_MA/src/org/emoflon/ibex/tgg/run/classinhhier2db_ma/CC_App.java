@@ -4,7 +4,9 @@ import java.io.IOException;
 
 import org.apache.log4j.BasicConfigurator;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.emoflon.ibex.tgg.operational.csp.constraints.factories.UserDefinedRuntimeTGGAttrConstraintFactory;
 import org.emoflon.ibex.tgg.operational.strategies.cc.CC;
+import org.emoflon.ibex.tgg.operational.util.IbexOptions;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesEngine;
 
 import ClassInheritanceHierarchy.impl.ClassInheritanceHierarchyPackageImpl;
@@ -16,14 +18,14 @@ public class CC_App extends CC {
 
 	public CC_App(String projectName, String workspacePath, boolean debug,
 			String srcPath, String trgPath) throws IOException {
-		super(projectName, workspacePath, debug);
+		super(createIbexOptions().projectName(projectName).workspacePath(workspacePath).debug(debug));
 		this.srcPath = srcPath;
 		this.trgPath = trgPath;
 		registerPatternMatchingEngine(new DemoclesEngine());
 	}
 	
 	public CC_App(String projectName, String workspacePath, boolean debug) throws IOException {
-		super(projectName, workspacePath, debug);
+		super(createIbexOptions().projectName(projectName).workspacePath(workspacePath).debug(debug));
 		registerPatternMatchingEngine(new DemoclesEngine());
 	}
 
@@ -61,4 +63,11 @@ public class CC_App extends CC {
 		EcoreUtil.resolveAll(rs);
 	}
 	
+	private static IbexOptions createIbexOptions() {
+		IbexOptions options = new IbexOptions();
+		options.projectName("ClassInhHier2DB_MA");
+		options.debug(true);
+		options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
+		return options;
+	}
 }
