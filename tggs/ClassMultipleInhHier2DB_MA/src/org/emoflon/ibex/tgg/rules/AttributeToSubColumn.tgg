@@ -9,9 +9,6 @@
 
 #target {
 	
-	table:Table {
-		-columns->col
-	}
 	col:Column
 	
 	subTable:Table{
@@ -28,10 +25,6 @@
 		#trg->subTable
 	}
 	
-	clazzToTable:Clazz2DirectTable{
-		#src->clazz
-		#trg->table
-	}
 
 }
 

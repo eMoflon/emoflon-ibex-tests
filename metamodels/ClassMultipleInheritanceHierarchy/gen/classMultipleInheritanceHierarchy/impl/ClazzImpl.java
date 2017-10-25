@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
-import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -33,7 +33,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link classMultipleInheritanceHierarchy.impl.ClazzImpl#getSuperClass <em>Super Class</em>}</li>
- *   <li>{@link classMultipleInheritanceHierarchy.impl.ClazzImpl#getSubClass <em>Sub Class</em>}</li>
  *   <li>{@link classMultipleInheritanceHierarchy.impl.ClazzImpl#getPackage <em>Package</em>}</li>
  *   <li>{@link classMultipleInheritanceHierarchy.impl.ClazzImpl#getAttributes <em>Attributes</em>}</li>
  * </ul>
@@ -50,16 +49,6 @@ public class ClazzImpl extends NamedElementImpl implements Clazz {
 	 * @ordered
 	 */
 	protected EList<Clazz> superClass;
-
-	/**
-	 * The cached value of the '{@link #getSubClass() <em>Sub Class</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSubClass()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Clazz> subClass;
 
 	/**
 	 * The cached value of the '{@link #getAttributes() <em>Attributes</em>}' containment reference list.
@@ -97,25 +86,10 @@ public class ClazzImpl extends NamedElementImpl implements Clazz {
 	 */
 	public EList<Clazz> getSuperClass() {
 		if (superClass == null) {
-			superClass = new EObjectWithInverseResolvingEList.ManyInverse<Clazz>(Clazz.class, this,
-					ClassMultipleInheritanceHierarchyPackage.CLAZZ__SUPER_CLASS,
-					ClassMultipleInheritanceHierarchyPackage.CLAZZ__SUB_CLASS);
-		}
-		return superClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Clazz> getSubClass() {
-		if (subClass == null) {
-			subClass = new EObjectWithInverseResolvingEList.ManyInverse<Clazz>(Clazz.class, this,
-					ClassMultipleInheritanceHierarchyPackage.CLAZZ__SUB_CLASS,
+			superClass = new EObjectResolvingEList<Clazz>(Clazz.class, this,
 					ClassMultipleInheritanceHierarchyPackage.CLAZZ__SUPER_CLASS);
 		}
-		return subClass;
+		return superClass;
 	}
 
 	/**
@@ -188,10 +162,6 @@ public class ClazzImpl extends NamedElementImpl implements Clazz {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case ClassMultipleInheritanceHierarchyPackage.CLAZZ__SUPER_CLASS:
-			return ((InternalEList<InternalEObject>) (InternalEList<?>) getSuperClass()).basicAdd(otherEnd, msgs);
-		case ClassMultipleInheritanceHierarchyPackage.CLAZZ__SUB_CLASS:
-			return ((InternalEList<InternalEObject>) (InternalEList<?>) getSubClass()).basicAdd(otherEnd, msgs);
 		case ClassMultipleInheritanceHierarchyPackage.CLAZZ__PACKAGE:
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
@@ -210,10 +180,6 @@ public class ClazzImpl extends NamedElementImpl implements Clazz {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case ClassMultipleInheritanceHierarchyPackage.CLAZZ__SUPER_CLASS:
-			return ((InternalEList<?>) getSuperClass()).basicRemove(otherEnd, msgs);
-		case ClassMultipleInheritanceHierarchyPackage.CLAZZ__SUB_CLASS:
-			return ((InternalEList<?>) getSubClass()).basicRemove(otherEnd, msgs);
 		case ClassMultipleInheritanceHierarchyPackage.CLAZZ__PACKAGE:
 			return basicSetPackage(null, msgs);
 		case ClassMultipleInheritanceHierarchyPackage.CLAZZ__ATTRIBUTES:
@@ -247,8 +213,6 @@ public class ClazzImpl extends NamedElementImpl implements Clazz {
 		switch (featureID) {
 		case ClassMultipleInheritanceHierarchyPackage.CLAZZ__SUPER_CLASS:
 			return getSuperClass();
-		case ClassMultipleInheritanceHierarchyPackage.CLAZZ__SUB_CLASS:
-			return getSubClass();
 		case ClassMultipleInheritanceHierarchyPackage.CLAZZ__PACKAGE:
 			return getPackage();
 		case ClassMultipleInheritanceHierarchyPackage.CLAZZ__ATTRIBUTES:
@@ -269,10 +233,6 @@ public class ClazzImpl extends NamedElementImpl implements Clazz {
 		case ClassMultipleInheritanceHierarchyPackage.CLAZZ__SUPER_CLASS:
 			getSuperClass().clear();
 			getSuperClass().addAll((Collection<? extends Clazz>) newValue);
-			return;
-		case ClassMultipleInheritanceHierarchyPackage.CLAZZ__SUB_CLASS:
-			getSubClass().clear();
-			getSubClass().addAll((Collection<? extends Clazz>) newValue);
 			return;
 		case ClassMultipleInheritanceHierarchyPackage.CLAZZ__PACKAGE:
 			setPackage((ClassPackage) newValue);
@@ -296,9 +256,6 @@ public class ClazzImpl extends NamedElementImpl implements Clazz {
 		case ClassMultipleInheritanceHierarchyPackage.CLAZZ__SUPER_CLASS:
 			getSuperClass().clear();
 			return;
-		case ClassMultipleInheritanceHierarchyPackage.CLAZZ__SUB_CLASS:
-			getSubClass().clear();
-			return;
 		case ClassMultipleInheritanceHierarchyPackage.CLAZZ__PACKAGE:
 			setPackage((ClassPackage) null);
 			return;
@@ -319,8 +276,6 @@ public class ClazzImpl extends NamedElementImpl implements Clazz {
 		switch (featureID) {
 		case ClassMultipleInheritanceHierarchyPackage.CLAZZ__SUPER_CLASS:
 			return superClass != null && !superClass.isEmpty();
-		case ClassMultipleInheritanceHierarchyPackage.CLAZZ__SUB_CLASS:
-			return subClass != null && !subClass.isEmpty();
 		case ClassMultipleInheritanceHierarchyPackage.CLAZZ__PACKAGE:
 			return getPackage() != null;
 		case ClassMultipleInheritanceHierarchyPackage.CLAZZ__ATTRIBUTES:

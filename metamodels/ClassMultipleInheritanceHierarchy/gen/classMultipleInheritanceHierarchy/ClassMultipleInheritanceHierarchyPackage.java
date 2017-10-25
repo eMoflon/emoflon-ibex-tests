@@ -38,7 +38,7 @@ public interface ClassMultipleInheritanceHierarchyPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "platform:/plugin/classMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore";
+	String eNS_URI = "platform:/resource/ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore";
 
 	/**
 	 * The package namespace name.
@@ -224,22 +224,13 @@ public interface ClassMultipleInheritanceHierarchyPackage extends EPackage {
 	int CLAZZ__SUPER_CLASS = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Sub Class</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CLAZZ__SUB_CLASS = NAMED_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
 	 * The feature id for the '<em><b>Package</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CLAZZ__PACKAGE = NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int CLAZZ__PACKAGE = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
@@ -248,7 +239,7 @@ public interface ClassMultipleInheritanceHierarchyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CLAZZ__ATTRIBUTES = NAMED_ELEMENT_FEATURE_COUNT + 3;
+	int CLAZZ__ATTRIBUTES = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Clazz</em>' class.
@@ -257,7 +248,7 @@ public interface ClassMultipleInheritanceHierarchyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CLAZZ_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 4;
+	int CLAZZ_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Clazz</em>' class.
@@ -341,17 +332,6 @@ public interface ClassMultipleInheritanceHierarchyPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getClazz_SuperClass();
-
-	/**
-	 * Returns the meta object for the reference list '{@link classMultipleInheritanceHierarchy.Clazz#getSubClass <em>Sub Class</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Sub Class</em>'.
-	 * @see classMultipleInheritanceHierarchy.Clazz#getSubClass()
-	 * @see #getClazz()
-	 * @generated
-	 */
-	EReference getClazz_SubClass();
 
 	/**
 	 * Returns the meta object for the container reference '{@link classMultipleInheritanceHierarchy.Clazz#getPackage <em>Package</em>}'.
@@ -480,14 +460,6 @@ public interface ClassMultipleInheritanceHierarchyPackage extends EPackage {
 		 * @generated
 		 */
 		EReference CLAZZ__SUPER_CLASS = eINSTANCE.getClazz_SuperClass();
-
-		/**
-		 * The meta object literal for the '<em><b>Sub Class</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CLAZZ__SUB_CLASS = eINSTANCE.getClazz_SubClass();
 
 		/**
 		 * The meta object literal for the '<em><b>Package</b></em>' container reference feature.

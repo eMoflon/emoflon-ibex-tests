@@ -8,7 +8,7 @@ import org.emoflon.ibex.tgg.operational.util.UpdatePolicy;
 
 import ClassInheritanceHierarchy.Clazz;
 
-public class CreateAttributesUpdatePolicy implements UpdatePolicy {
+public class CreateAttributesUpdatePolicy extends UpdatePolicy {
 
 	@Override
 	public IMatch chooseOneMatch(ImmutableMatchContainer matchContainer) {		

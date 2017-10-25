@@ -175,18 +175,12 @@
     <sourcePatterns name="clazz">
       <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Clazz"/>
     </sourcePatterns>
-    <targetPatterns name="table">
-      <type href="platform:/resource/Database/model/Database.ecore#//Table"/>
-      <linkVariablePatterns target="//@complementRules.0/@targetPatterns.1">
-        <type href="platform:/resource/Database/model/Database.ecore#//Table/columns"/>
-      </linkVariablePatterns>
-    </targetPatterns>
     <targetPatterns name="col">
       <type href="platform:/resource/Database/model/Database.ecore#//Column"/>
     </targetPatterns>
     <targetPatterns name="subTable">
       <type href="platform:/resource/Database/model/Database.ecore#//Table"/>
-      <linkVariablePatterns target="//@complementRules.0/@targetPatterns.3">
+      <linkVariablePatterns target="//@complementRules.0/@targetPatterns.2">
         <op value="++"/>
         <type href="platform:/resource/Database/model/Database.ecore#//Table/columns"/>
       </linkVariablePatterns>
@@ -195,13 +189,12 @@
       <op value="++"/>
       <type href="platform:/resource/Database/model/Database.ecore#//Column"/>
     </targetPatterns>
-    <correspondencePatterns name="superClassToSubTable" type="//@schema/@correspondenceTypes.2" source="//@complementRules.0/@sourcePatterns.0" target="//@complementRules.0/@targetPatterns.2"/>
-    <correspondencePatterns name="clazzToTable" type="//@schema/@correspondenceTypes.1" source="//@complementRules.0/@sourcePatterns.0" target="//@complementRules.0/@targetPatterns.0"/>
+    <correspondencePatterns name="superClassToSubTable" type="//@schema/@correspondenceTypes.2" source="//@complementRules.0/@sourcePatterns.0" target="//@complementRules.0/@targetPatterns.1"/>
     <attrConditions name="//@schema/@attributeCondDefs.0">
-      <values xsi:type="tgg:AttributeExpression" objectVar="//@complementRules.0/@targetPatterns.1">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@complementRules.0/@targetPatterns.0">
         <attribute href="platform:/resource/Database/model/Database.ecore#//Column/name"/>
       </values>
-      <values xsi:type="tgg:AttributeExpression" objectVar="//@complementRules.0/@targetPatterns.3">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@complementRules.0/@targetPatterns.2">
         <attribute href="platform:/resource/Database/model/Database.ecore#//Column/name"/>
       </values>
     </attrConditions>
@@ -319,4 +312,26 @@
       <op value="++"/>
     </correspondencePatterns>
   </complementRules>
+  <nacs name="NoDoubleEdges" rule="//@rules.3">
+    <sourcePatterns name="superClazz">
+      <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Clazz"/>
+    </sourcePatterns>
+    <sourcePatterns name="subClazz">
+      <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Clazz"/>
+      <linkVariablePatterns target="//@nacs.0/@sourcePatterns.0">
+        <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Clazz/superClass"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+  </nacs>
+  <nacs name="NoSimpleCycles" rule="//@rules.3">
+    <sourcePatterns name="superClazz">
+      <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Clazz"/>
+      <linkVariablePatterns target="//@nacs.1/@sourcePatterns.1">
+        <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Clazz/superClass"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="subClazz">
+      <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Clazz"/>
+    </sourcePatterns>
+  </nacs>
 </tgg:TripleGraphGrammarFile>
