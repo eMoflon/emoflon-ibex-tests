@@ -8,6 +8,9 @@ import org.emoflon.ibex.tgg.operational.util.UpdatePolicy;
 
 import ClassInheritanceHierarchy.Clazz;
 
+/*This update policy prefers adding attribute first to super class. If super class already have an
+ * attribute, then all other attributes are added to subclass*/
+
 public class CreateAttributesUpdatePolicy extends UpdatePolicy {
 
 	@Override

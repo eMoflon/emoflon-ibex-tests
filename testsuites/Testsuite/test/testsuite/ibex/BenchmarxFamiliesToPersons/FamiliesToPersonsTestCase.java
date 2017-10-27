@@ -33,8 +33,8 @@ public abstract class FamiliesToPersonsTestCase extends SyncTestCase<FamilyRegis
 		PersonsPackage.eINSTANCE.getName();
 		
 		// Initialise all helpers
-		familiesComparator = new FamiliesComparator();
-		personsComparator = new PersonsComparator();
+		familiesComparator = new FamiliesComparator(true);
+		personsComparator = new PersonsComparator(true);
 		util = new BenchmarxUtil<>(tool);
 		helperFamily = new FamilyHelper();
 		helperPerson = new PersonHelper();
