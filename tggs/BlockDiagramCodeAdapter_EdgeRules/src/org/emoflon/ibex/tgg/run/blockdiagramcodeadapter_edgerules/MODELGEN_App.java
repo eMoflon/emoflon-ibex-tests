@@ -12,15 +12,15 @@ import MocaTree.impl.MocaTreePackageImpl;
 
 public class MODELGEN_App extends MODELGEN {
 
-	public MODELGEN_App(String projectName, String workspacePath, boolean flatten, boolean debug) throws IOException {
-		super(projectName, workspacePath, flatten, debug);
+	public MODELGEN_App(String projectName, String workspacePath, boolean debug) throws IOException {
+		super(projectName, workspacePath, debug);
 		registerPatternMatchingEngine(new DemoclesEngine());
 	}
 
 	public static void main(String[] args) throws IOException {
 		BasicConfigurator.configure();
 
-		MODELGEN_App generator = new MODELGEN_App("BlockDiagramCodeAdapter_EdgeRules", "./../", false, false);
+		MODELGEN_App generator = new MODELGEN_App("BlockDiagramCodeAdapter_EdgeRules", "./../", false);
 		
 		MODELGENStopCriterion stop = new MODELGENStopCriterion(generator.getTGG());
 		stop.setTimeOutInMS(1000);
@@ -37,7 +37,6 @@ public class MODELGEN_App extends MODELGEN {
 	}
 
 	protected void registerUserMetamodels() throws IOException {
-		//FIXME load and register source and target metamodels
 		rs.getPackageRegistry().put("platform:/resource/BlockDiagram/model/BlockDiagram.ecore", BlockDiagramPackageImpl.init());
 		rs.getPackageRegistry().put("platform:/resource/MocaTree/model/MocaTree.ecore", MocaTreePackageImpl.init());
 		// Register correspondence metamodel last
