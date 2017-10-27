@@ -18,13 +18,13 @@ public class CreateAttributesUpdatePolicy extends UpdatePolicy {
 	public IMatch chooseOneMatch(ImmutableMatchContainer matchContainer) {	
 		return forceClassCreation(matchContainer)
 				.orElse(forceInheritanceCreation(matchContainer)
+				.orElse(getNonAttributeMatch(matchContainer)
 				.orElse(getAttributeMatchForEmptySuperClass(matchContainer)
 				.orElse(getAttributeMatchForSubClass(matchContainer)
-				.orElse(getNonAttributeMatch(matchContainer)
 				.orElse(matchContainer.getNextRandom())))));
 	}
 
-	private Optional<IMatch> forceClassCreation(ImmutableMatchContainer matchContainer) {
+	protected Optional<IMatch> forceClassCreation(ImmutableMatchContainer matchContainer) {
 		Optional<IMatch> match = matchContainer.getMatches()
 				.stream()
 				.filter(m -> m.patternName().equals("ClassToTable__GEN"))
@@ -32,7 +32,7 @@ public class CreateAttributesUpdatePolicy extends UpdatePolicy {
 		return match;
 	}
 	
-	private Optional<IMatch> forceInheritanceCreation(ImmutableMatchContainer matchContainer) {
+	protected Optional<IMatch> forceInheritanceCreation(ImmutableMatchContainer matchContainer) {
 		Optional<IMatch> match = matchContainer.getMatches()
 				.stream()
 				.filter(m -> m.patternName().equals("SubClassToTable__GEN"))
@@ -40,7 +40,7 @@ public class CreateAttributesUpdatePolicy extends UpdatePolicy {
 		return match;
 	}
 
-	private Optional<IMatch> getNonAttributeMatch(ImmutableMatchContainer matchContainer) {
+	protected Optional<IMatch> getNonAttributeMatch(ImmutableMatchContainer matchContainer) {
 		Optional<IMatch> match = matchContainer.getMatches()
 				  .stream()
 				  .filter(m -> ! m.patternName().equals("AttributeToColumn__GEN"))
@@ -48,7 +48,7 @@ public class CreateAttributesUpdatePolicy extends UpdatePolicy {
 		return match;
 	}
 
-	private Optional<IMatch> getAttributeMatchForSubClass(ImmutableMatchContainer matchContainer) {
+	protected Optional<IMatch> getAttributeMatchForSubClass(ImmutableMatchContainer matchContainer) {
 		Optional<IMatch> match = matchContainer.getMatches()
 		  		.stream()
 		  		.filter(m -> m.patternName().equals("AttributeToColumn__GEN"))
@@ -60,7 +60,7 @@ public class CreateAttributesUpdatePolicy extends UpdatePolicy {
 		return match;
 	}
 
-	private Optional<IMatch> getAttributeMatchForEmptySuperClass(ImmutableMatchContainer matchContainer) {
+	protected Optional<IMatch> getAttributeMatchForEmptySuperClass(ImmutableMatchContainer matchContainer) {
 		Optional<IMatch> match = matchContainer.getMatches()
 				.stream()
 				.filter(m -> m.patternName().equals("AttributeToColumn__GEN"))
