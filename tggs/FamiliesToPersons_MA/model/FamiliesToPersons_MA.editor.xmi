@@ -13,6 +13,98 @@
       <source href="platform:/resource/Families/model/Families.ecore#//FamilyMember"/>
       <target href="platform:/resource/Persons/model/Persons.ecore#//Person"/>
     </correspondenceTypes>
+    <attributeCondDefs name="concat">
+      <params paramName="separator">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </params>
+      <params paramName="leftWord">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </params>
+      <params paramName="rightWord">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </params>
+      <params paramName="result">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </params>
+      <allowedSyncAdornments>
+        <value>B</value>
+        <value>B</value>
+        <value>B</value>
+        <value>B</value>
+      </allowedSyncAdornments>
+      <allowedSyncAdornments>
+        <value>B</value>
+        <value>B</value>
+        <value>B</value>
+        <value>F</value>
+      </allowedSyncAdornments>
+      <allowedSyncAdornments>
+        <value>B</value>
+        <value>B</value>
+        <value>F</value>
+        <value>B</value>
+      </allowedSyncAdornments>
+      <allowedSyncAdornments>
+        <value>B</value>
+        <value>F</value>
+        <value>F</value>
+        <value>B</value>
+      </allowedSyncAdornments>
+      <allowedSyncAdornments>
+        <value>B</value>
+        <value>F</value>
+        <value>B</value>
+        <value>B</value>
+      </allowedSyncAdornments>
+      <allowedGenAdornments>
+        <value>B</value>
+        <value>B</value>
+        <value>B</value>
+        <value>B</value>
+      </allowedGenAdornments>
+      <allowedGenAdornments>
+        <value>B</value>
+        <value>B</value>
+        <value>B</value>
+        <value>F</value>
+      </allowedGenAdornments>
+      <allowedGenAdornments>
+        <value>B</value>
+        <value>B</value>
+        <value>F</value>
+        <value>B</value>
+      </allowedGenAdornments>
+      <allowedGenAdornments>
+        <value>B</value>
+        <value>F</value>
+        <value>F</value>
+        <value>B</value>
+      </allowedGenAdornments>
+      <allowedGenAdornments>
+        <value>B</value>
+        <value>F</value>
+        <value>B</value>
+        <value>B</value>
+      </allowedGenAdornments>
+      <allowedGenAdornments>
+        <value>B</value>
+        <value>F</value>
+        <value>B</value>
+        <value>F</value>
+      </allowedGenAdornments>
+      <allowedGenAdornments>
+        <value>B</value>
+        <value>B</value>
+        <value>F</value>
+        <value>F</value>
+      </allowedGenAdornments>
+      <allowedGenAdornments>
+        <value>B</value>
+        <value>F</value>
+        <value>F</value>
+        <value>F</value>
+      </allowedGenAdornments>
+    </attributeCondDefs>
   </schema>
   <rules name="CreateFamily" schema="//@schema">
     <sourcePatterns name="familyReg">
@@ -70,8 +162,7 @@
     <correspondencePatterns name="daughter2femalePerson" type="//@schema/@correspondenceTypes.1" source="//@complementRules.0/@sourcePatterns.1" target="//@complementRules.0/@targetPatterns.1">
       <op value="++"/>
     </correspondencePatterns>
-    <attrConditions>
-      <name href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/csp/lib/AttrCondDefLibrary.tgg#//@library/@attributeCondDefs.9"/>
+    <attrConditions name="//@schema/@attributeCondDefs.0">
       <values xsi:type="tgg:LiteralExpression" value="&quot;, &quot;"/>
       <values xsi:type="tgg:AttributeExpression" objectVar="//@complementRules.0/@sourcePatterns.1">
         <attribute href="platform:/resource/Families/model/Families.ecore#//FamilyMember/name"/>
@@ -110,8 +201,7 @@
     <correspondencePatterns name="father2malePerson" type="//@schema/@correspondenceTypes.1" source="//@complementRules.1/@sourcePatterns.1" target="//@complementRules.1/@targetPatterns.1">
       <op value="++"/>
     </correspondencePatterns>
-    <attrConditions>
-      <name href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/csp/lib/AttrCondDefLibrary.tgg#//@library/@attributeCondDefs.9"/>
+    <attrConditions name="//@schema/@attributeCondDefs.0">
       <values xsi:type="tgg:LiteralExpression" value="&quot;, &quot;"/>
       <values xsi:type="tgg:AttributeExpression" objectVar="//@complementRules.1/@sourcePatterns.1">
         <attribute href="platform:/resource/Families/model/Families.ecore#//FamilyMember/name"/>
@@ -150,8 +240,7 @@
     <correspondencePatterns name="mother2femalePerson" type="//@schema/@correspondenceTypes.1" source="//@complementRules.2/@sourcePatterns.1" target="//@complementRules.2/@targetPatterns.1">
       <op value="++"/>
     </correspondencePatterns>
-    <attrConditions>
-      <name href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/csp/lib/AttrCondDefLibrary.tgg#//@library/@attributeCondDefs.9"/>
+    <attrConditions name="//@schema/@attributeCondDefs.0">
       <values xsi:type="tgg:LiteralExpression" value="&quot;, &quot;"/>
       <values xsi:type="tgg:AttributeExpression" objectVar="//@complementRules.2/@sourcePatterns.1">
         <attribute href="platform:/resource/Families/model/Families.ecore#//FamilyMember/name"/>
@@ -190,8 +279,7 @@
     <correspondencePatterns name="son2malePerson" type="//@schema/@correspondenceTypes.1" source="//@complementRules.3/@sourcePatterns.1" target="//@complementRules.3/@targetPatterns.1">
       <op value="++"/>
     </correspondencePatterns>
-    <attrConditions>
-      <name href="platform:/resource/FamiliesToPersons_MA/src/org/emoflon/ibex/tgg/csp/lib/AttrCondDefLibrary.tgg#//@library/@attributeCondDefs.9"/>
+    <attrConditions name="//@schema/@attributeCondDefs.0">
       <values xsi:type="tgg:LiteralExpression" value="&quot;, &quot;"/>
       <values xsi:type="tgg:AttributeExpression" objectVar="//@complementRules.3/@sourcePatterns.1">
         <attribute href="platform:/resource/Families/model/Families.ecore#//FamilyMember/name"/>

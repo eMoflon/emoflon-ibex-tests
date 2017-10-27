@@ -17,6 +17,7 @@
 	}
 }
 
+
 #target {
 	
 	db:DB{
@@ -26,14 +27,18 @@
 	
 	superTable:Table
 	
-	++ subTable:Table
-	
+	++ subTable:Table	
 }
 
 #correspondence {
 	superClass2SuperTable:Clazz2DirectTable{
 		#src->superClazz
 		#trg->superTable
+	}
+	
+	++ superClazzToSubTable:Clazz2SubTable{
+		#src->superClazz
+		#trg->subTable
 	}
 	
 	++ subClazzToSubTable:Clazz2DirectTable{
@@ -44,5 +49,5 @@
 }
 
 #attributeConditions {
-	concat(":", superClazz.name, subClazz.name, subTable.heading)
+	concat(":", subClazz.name, superClazz.name, subTable.heading)
 }

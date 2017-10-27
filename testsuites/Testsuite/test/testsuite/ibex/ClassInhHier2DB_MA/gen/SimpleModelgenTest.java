@@ -5,15 +5,14 @@ import java.io.IOException;
 import org.benchmarx.classInheritanceHierarchy.core.ClassInheritanceHierarchyComparator;
 import org.benchmarx.database.core.DatabaseComparator;
 import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGENStopCriterion;
+import org.emoflon.ibex.tgg.run.classinhhier2db_ma.MODELGEN_App;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import ClassInheritanceHierarchy.ClassPackage;
 import Database.DB;
 import language.TGGRule;
 import testsuite.ibex.testUtil.ModelGenTestCase;
-import org.emoflon.ibex.tgg.run.classinhhier2db_ma.MODELGEN_App;
 
 public class SimpleModelgenTest extends ModelGenTestCase<ClassPackage, DB>{
 	
@@ -68,10 +67,8 @@ public class SimpleModelgenTest extends ModelGenTestCase<ClassPackage, DB>{
 		assertPostcondition("in/SubClassToTable_FWD", "expected/SubClassToTable_FWD");
 	}
 	
-	@Ignore ("Fails due to not implemented logic for complement rules.")
 	@Test
 	public void testSuperAttToSubTable() throws IOException {
-
 			stop.setMaxRuleCount("PackageToDatabaseRule", 1);
 			stop.setMaxRuleCount("ClassToTableRule", 1);
 			stop.setMaxRuleCount("AttributeToColumnRule", 1);
@@ -82,10 +79,8 @@ public class SimpleModelgenTest extends ModelGenTestCase<ClassPackage, DB>{
 			
 	}
 	
-	@Ignore ("Fails due to not implemented logic for complement rules.")
 	@Test
 	public void testSubAttToSubTable() throws IOException {
-
 			stop.setMaxRuleCount("PackageToDatabaseRule", 1);
 			stop.setMaxRuleCount("ClassToTableRule", 1);
 			stop.setMaxRuleCount("AttributeToColumnRule", 2);
@@ -95,10 +90,8 @@ public class SimpleModelgenTest extends ModelGenTestCase<ClassPackage, DB>{
 			assertPostcondition("in/SubAttToSubTable_FWD", "expected/SubAttToSubTable_FWD");
 	}
 	
-	@Ignore ("Fails due to not implemented logic for complement rules.")
 	@Test
 	public void testSubAttToSubTable2() throws IOException {
-
 			stop.setMaxRuleCount("PackageToDatabaseRule", 1);
 			stop.setMaxRuleCount("ClassToTableRule", 1);
 			stop.setMaxRuleCount("AttributeToColumnRule", 3);
@@ -108,10 +101,8 @@ public class SimpleModelgenTest extends ModelGenTestCase<ClassPackage, DB>{
 			assertPostcondition("in/SubAttToSubTable2_FWD", "expected/SubAttToSubTable2_FWD");
 	}
 	
-	@Ignore ("Fails due to not implemented logic for complement rules.")
 	@Test
 	public void testTransitiveAttToSubTables() throws IOException {
-
 			stop.setMaxRuleCount("PackageToDatabaseRule", 1);
 			stop.setMaxRuleCount("ClassToTableRule", 1);
 			stop.setMaxRuleCount("AttributeToColumnRule", 1);

@@ -11,7 +11,7 @@ import org.emoflon.ibex.tgg.operational.util.UpdatePolicy;
 
 import testsuite.ibex.testUtil.Decisions;
 
-public class FamiliesToPersonsUpdatePolicy implements UpdatePolicy {
+public class FamiliesToPersonsUpdatePolicy extends UpdatePolicy {
 
 	private Configurator<Decisions> configurator;
 	
