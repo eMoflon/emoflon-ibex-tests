@@ -1,0 +1,41 @@
+#import "platform:/resource/BlockDiagram/model/BlockDiagram.ecore"
+#import "platform:/resource/MocaTree/model/MocaTree.ecore"
+
+#schema BlockDiagramCodeAdapter_EdgeRules
+
+#source {
+	BlockDiagram
+}
+
+#target {
+	MocaTree
+}
+
+#correspondence {
+	RequirementToNodeSrc {
+		#src->BlockDiagram.Require
+		#trg->MocaTree.Node
+	}
+	BlockToNode {
+		#src->BlockDiagram.Block
+		#trg->MocaTree.Node
+	}
+	SystemToNode {
+		#src->BlockDiagram.BlockSystem
+		#trg->MocaTree.Node
+	}
+	PortToNode {
+		#src->BlockDiagram.Port
+		#trg->MocaTree.Node
+	}
+	RequirementToNodeTrg {
+		#src->BlockDiagram.Provide
+		#trg->MocaTree.Node
+	}
+	ProvideToNode #extends PortToNode
+	RequireToNode #extends PortToNode
+}
+
+#attributeConditions {
+	
+}

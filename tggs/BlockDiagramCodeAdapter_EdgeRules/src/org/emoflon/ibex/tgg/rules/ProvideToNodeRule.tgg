@@ -1,0 +1,29 @@
+#using BlockDiagramCodeAdapter_EdgeRules.*
+#using AttrCondDefLibrary.*
+
+#rule ProvideToNodeRule #with BlockDiagramCodeAdapter_EdgeRules
+
+#source {
+	++provide:BlockDiagram.Provide
+}
+
+#target {
+	++id:MocaTree.Attribute {
+		name := "id"
+	}
+	++provideNode:MocaTree.Node {
+		name := "PROVIDE"
+		++ - attribute->id
+	}
+}
+
+#correspondence {
+	++ provideToNode :ProvideToNode {
+		#src->provide
+		#trg->provideNode
+	}
+}
+
+#attributeConditions {
+	eq_string (provide.id, id.value)
+}

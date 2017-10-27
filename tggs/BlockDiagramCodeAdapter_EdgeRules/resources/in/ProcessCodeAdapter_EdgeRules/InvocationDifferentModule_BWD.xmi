@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="ASCII"?>
+<ProcessDefinition_EdgeRules:SystemModule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ProcessDefinition_EdgeRules="platform:/plugin/ProcessDefinition_EdgeRules/model/ProcessDefinition_EdgeRules.ecore" xsi:schemaLocation="platform:/plugin/ProcessDefinition_EdgeRules/model/ProcessDefinition_EdgeRules.ecore ../../../../../ProcessDefinition_EdgeRules/model/ProcessDefinition_EdgeRules.ecore" allTasks="//@allModules.0/@tasks.0 //@allModules.1/@tasks.0" name="System">
+  <allModules description="ModuleA">
+    <tasks invocations="//@allModules.1/@tasks.0" id="A"/>
+  </allModules>
+  <allModules description="ModuleB">
+    <tasks id="B"/>
+  </allModules>
+</ProcessDefinition_EdgeRules:SystemModule>
