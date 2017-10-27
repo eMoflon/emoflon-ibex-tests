@@ -8,11 +8,8 @@ import BlockDiagram.BlockSystem;
 import MocaTree.File;
 import testsuite.ibex.BlockDiagramCodeAdapter_EdgeRules.sync.util.IbexBlockDiagramCodeAdapter;
 
-
-
-
 public class Batch extends testsuite.ibex.testUtil.SyncTestCase<BlockSystem, File> {
-	private static final String projectName = "BlockDiagramCodeAdapter";
+	private static final String projectName = "BlockDiagramCodeAdapter_EdgeRules";
 	
 	BlockDiagramHelper helperBlock;
 	MocaTreeHelperForBlockDiagramCode helperMT;

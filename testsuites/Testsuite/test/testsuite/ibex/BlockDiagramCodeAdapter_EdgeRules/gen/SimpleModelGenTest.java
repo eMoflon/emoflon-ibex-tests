@@ -16,12 +16,6 @@ import testsuite.ibex.testUtil.ModelGenTestCase;
 
 
 public class SimpleModelGenTest extends ModelGenTestCase<BlockSystem, File> {
-
-	
-	
-
-	
-
 	@Override
 	protected String getProjectName() {
 		return "BlockDiagramCodeAdapter_EdgeRules";
