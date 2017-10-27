@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ASCII"?>
+<MocaTree:Folder xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:MocaTree="platform:/plugin/MocaTree/model/MocaTree.ecore" name="System">
+  <subFolder name="ModuleA">
+    <file name="A.proc">
+      <rootNode name="TASK">
+        <children xsi:type="MocaTree:Node" name="IMPORTS"/>
+        <children xsi:type="MocaTree:Node" name="INVOCATIONS">
+          <children xsi:type="MocaTree:Node" name="B"/>
+        </children>
+      </rootNode>
+    </file>
+  </subFolder>
+  <subFolder name="ModuleB">
+    <file name="B.proc">
+      <rootNode name="TASK">
+        <children xsi:type="MocaTree:Node" name="IMPORTS"/>
+        <children xsi:type="MocaTree:Node" name="INVOCATIONS"/>
+      </rootNode>
+    </file>
+  </subFolder>
+</MocaTree:Folder>
