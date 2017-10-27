@@ -1,48 +1,7 @@
 <?xml version="1.0" encoding="ASCII"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:Database="platform:/plugin/Database/model/Database.ecore">
-  <Database:DB title="facilisi">
-    <tables heading="lectus">
-      <columns name="lorem"/>
-      <columns name="placerat"/>
-      <columns name="dui"/>
-      <columns name="dignissim"/>
-    </tables>
-    <tables heading="magna:lectus">
-      <columns name="lorem"/>
-      <columns name="placerat"/>
-      <columns name="sollicitudin"/>
-      <columns name="dui"/>
-      <columns name="dignissim"/>
-    </tables>
-    <tables heading="est:lectus">
-      <columns name="lorem"/>
-      <columns name="placerat"/>
-      <columns name="dui"/>
-      <columns name="dignissim"/>
-    </tables>
-    <tables heading="hendrerit"/>
-    <tables heading="lacinia:magna">
-      <columns name="lorem"/>
-      <columns name="eleifend"/>
-      <columns name="placerat"/>
-      <columns name="sollicitudin"/>
-      <columns name="mi"/>
-      <columns name="dictum"/>
-      <columns name="dui"/>
-      <columns name="dignissim"/>
-    </tables>
-    <tables heading="himenaeos:lacinia">
-      <columns name="lorem"/>
-      <columns name="eleifend"/>
-      <columns name="placerat"/>
-      <columns name="sit"/>
-      <columns name="sollicitudin"/>
-      <columns name="mi"/>
-      <columns name="dictum"/>
-      <columns name="dui"/>
-      <columns name="dignissim"/>
-      <columns name="morbi"/>
-    </tables>
-  </Database:DB>
-  <Database:DB title="lobortis"/>
-</xmi:XMI>
+<Database:DB xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:Database="platform:/plugin/Database/model/Database.ecore" title="P">
+  <tables heading="C">
+    <columns name="a1"/>
+    <columns name="a2"/>
+  </tables>
+</Database:DB>

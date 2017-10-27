@@ -1,26 +1,7 @@
 <?xml version="1.0" encoding="ASCII"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ClassInheritanceHierarchy="platform:/plugin/ClassInheritanceHierarchy/model/ClassInheritanceHierarchy.ecore">
-  <ClassInheritanceHierarchy:ClassPackage name="facilisi">
-    <classes name="lectus" subClass="/0/@classes.1 /0/@classes.2">
-      <attributes name="lorem"/>
-      <attributes name="placerat"/>
-      <attributes name="dui"/>
-      <attributes name="dignissim"/>
-    </classes>
-    <classes name="magna" superClass="/0/@classes.0" subClass="/0/@classes.4">
-      <attributes name="sollicitudin"/>
-    </classes>
-    <classes name="est" superClass="/0/@classes.0"/>
-    <classes name="hendrerit"/>
-    <classes name="lacinia" superClass="/0/@classes.1" subClass="/0/@classes.5">
-      <attributes name="eleifend"/>
-      <attributes name="mi"/>
-      <attributes name="dictum"/>
-    </classes>
-    <classes name="himenaeos" superClass="/0/@classes.4">
-      <attributes name="sit"/>
-      <attributes name="morbi"/>
-    </classes>
-  </ClassInheritanceHierarchy:ClassPackage>
-  <ClassInheritanceHierarchy:ClassPackage name="lobortis"/>
-</xmi:XMI>
+<ClassInheritanceHierarchy:ClassPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ClassInheritanceHierarchy="platform:/plugin/ClassInheritanceHierarchy/model/ClassInheritanceHierarchy.ecore" name="P">
+  <classes name="C">
+    <attributes name="a1"/>
+    <attributes name="a2"/>
+  </classes>
+</ClassInheritanceHierarchy:ClassPackage>

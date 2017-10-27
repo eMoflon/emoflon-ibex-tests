@@ -16,7 +16,7 @@ import testsuite.ibex.testUtil.IbexAdapter;
 public class IbexFamiliesToPersons_MA extends IbexAdapter<FamilyRegister, PersonRegister>{
 
 	public IbexFamiliesToPersons_MA(String projectName) {
-		super(new FamiliesComparator(true), new PersonsComparator(true), projectName);
+		super(new FamiliesComparator(), new PersonsComparator(), projectName);
 	}
 	
 	@Override

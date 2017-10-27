@@ -1,5 +1,75 @@
 <?xml version="1.0" encoding="ASCII"?>
-<Families:FamilyRegister
-    xmi:version="2.0"
-    xmlns:xmi="http://www.omg.org/XMI"
-    xmlns:Families="platform:/plugin/Families/model/Families.ecore"/>
+<Families:FamilyRegister xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:Families="platform:/plugin/Families/model/Families.ecore">
+  <families>
+    <father name="suscipit"/>
+    <mother name="ligula"/>
+    <daughters name="neque"/>
+  </families>
+  <families>
+    <father name="consectetur"/>
+    <mother name="lorem"/>
+    <daughters name="nunc"/>
+    <daughters name="orci"/>
+    <daughters name="lacinia"/>
+  </families>
+  <families>
+    <father name="felis"/>
+    <mother name="curae"/>
+    <sons name="convallis"/>
+    <daughters name="taciti"/>
+    <daughters name="mus"/>
+  </families>
+  <families>
+    <father name="platea"/>
+    <mother name="curabitur"/>
+    <sons name="vel"/>
+    <sons name="vel"/>
+    <sons name="purus"/>
+  </families>
+  <families>
+    <father name="sem"/>
+    <mother name="inceptos"/>
+    <daughters name="adipiscing"/>
+  </families>
+  <families>
+    <father name="inceptos"/>
+    <mother name="nam"/>
+    <sons name="libero"/>
+    <sons name="aptent"/>
+    <daughters name="netus"/>
+    <daughters name="dignissim"/>
+  </families>
+  <families>
+    <father name="semper"/>
+    <mother name="maecenas"/>
+    <sons name="senectus"/>
+    <sons name="lobortis"/>
+    <sons name="placerat"/>
+    <daughters name="viverra"/>
+    <daughters name="morbi"/>
+  </families>
+  <families>
+    <father name="netus"/>
+    <mother name="ac"/>
+    <daughters name="facilisis"/>
+    <daughters name="blandit"/>
+    <daughters name="justo"/>
+  </families>
+  <families>
+    <father name="aenean"/>
+    <mother name="mollis"/>
+    <sons name="tortor"/>
+    <daughters name="aliquam"/>
+  </families>
+  <families>
+    <father name="lobortis"/>
+    <mother name="accumsan"/>
+    <sons name="inceptos"/>
+    <sons name="senectus"/>
+    <sons name="porta"/>
+    <sons name="aliquet"/>
+    <daughters name="per"/>
+    <daughters name="consequat"/>
+    <daughters name="volutpat"/>
+  </families>
+</Families:FamilyRegister>

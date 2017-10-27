@@ -41,7 +41,6 @@ public class MODELGEN_App extends MODELGEN {
 		generator.terminate();
 	}
 
-	// TODO : Update Corrs for Class to Table!!! (Direct and Sub)
 	protected void registerUserMetamodels() throws IOException {
 		rs.getPackageRegistry().put("platform:/resource/ClassInheritanceHierarchy/model/ClassInheritanceHierarchy.ecore", ClassInheritanceHierarchyPackageImpl.init());
 		rs.getPackageRegistry().put("platform:/resource/Database/model/Database.ecore", DatabasePackageImpl.init());
