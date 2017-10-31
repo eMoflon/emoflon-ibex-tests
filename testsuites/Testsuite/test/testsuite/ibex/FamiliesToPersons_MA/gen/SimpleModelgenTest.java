@@ -2,13 +2,14 @@ package testsuite.ibex.FamiliesToPersons_MA.gen;
 
 import java.io.IOException;
 
-import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGENStopCriterion;
-import org.emoflon.ibex.tgg.run.familiestopersons_ma.*;
-import org.junit.Before;
-import org.junit.Ignore;
-import org.junit.Test;
 import org.benchmarx.families.core.FamiliesComparator;
 import org.benchmarx.persons.core.PersonsComparator;
+import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGENStopCriterion;
+import org.emoflon.ibex.tgg.operational.util.RandomMatchUpdatePolicy;
+import org.emoflon.ibex.tgg.operational.util.UpdatePolicy;
+import org.emoflon.ibex.tgg.run.familiestopersons_ma.MODELGEN_App;
+import org.junit.Before;
+import org.junit.Test;
 
 import Families.FamilyRegister;
 import Persons.PersonRegister;
@@ -32,34 +33,87 @@ public class SimpleModelgenTest extends ModelGenTestCase<FamilyRegister, PersonR
 			stop.setMaxRuleCount(rule.getName(), 0);
 		}
 		
-		sourceComp = new FamiliesComparator();
-		targetComp = new PersonsComparator();
+		sourceComp = new FamiliesComparator(false);
+		targetComp = new PersonsComparator(false);
 	}
 	
 	@Test
 	public void testOneRoot() throws IOException {
 		stop.setMaxRuleCount("Families2Persons", 1);
 		runGenerator(stop);
-		assertPostcondition("RootElementFamilies", "RootElementPersons");
+		assertPostcondition("01_RootElementFamilies", "01_RootElementPersons");
 	}
 	
 	@Test
 	public void testEmptyFamily() throws IOException {
 		stop.setMaxRuleCount("Families2Persons", 1);
 		stop.setMaxRuleCount("CreateFamily", 1);
-		// TODO [Milica]:  configure update policy to allow no complement rule applications
 		runGenerator(stop);
-		assertPostcondition("OneFamily", "RootElementPersons");
+		assertPostcondition("01_OneFamily", "01_RootElementPersons");
 	}
 	
-	@Ignore("Fails due to maximality.")
 	@Test
-	public void testCreateWholeSimpsonFamily() throws IOException {
+	public void testOneFather() throws IOException {
 		stop.setMaxRuleCount("Families2Persons", 1);
 		stop.setMaxRuleCount("CreateFamily", 1);
-		// TODO: [Milica] configure update policy to allow required number of complement rule applications
+		UpdatePolicy newUP = new RandomMatchUpdatePolicy();
+		newUP.setBoundForComplementRule("Father2Male", 1, true);
+		generator.setUpdatePolicy(newUP);
 		runGenerator(stop);
-		assertPostcondition("OneFamilyWithFatherMotherSonTwoDaughters", "PersonTwoMaleThreeFemale");
+		assertPostcondition("01_Family_Father", "01_Person_Male");
+	}
+	
+	@Test
+	public void testOneFatherTwoDaughters() throws IOException {
+		stop.setMaxRuleCount("Families2Persons", 1);
+		stop.setMaxRuleCount("CreateFamily", 1);
+		UpdatePolicy newUP = new RandomMatchUpdatePolicy();
+		newUP.setBoundForComplementRule("Father2Male", 1, true);
+		newUP.setBoundForComplementRule("Daughter2Female", 2, true);
+		generator.setUpdatePolicy(newUP);
+		runGenerator(stop);
+		assertPostcondition("01_Family_FatherTwoDaughters", "01_Person_MaleTwoFemale");
+	}
+	
+	@Test
+	public void testFatherMotherSonTwoDaugthers() throws IOException {
+		stop.setMaxRuleCount("Families2Persons", 1);
+		stop.setMaxRuleCount("CreateFamily", 1);
+		UpdatePolicy newUP = new RandomMatchUpdatePolicy();
+		newUP.setBoundForComplementRule("Father2Male", 1, true);
+		newUP.setBoundForComplementRule("Mother2Female", 1, true);
+		newUP.setBoundForComplementRule("Son2Male", 1, true);
+		newUP.setBoundForComplementRule("Daughter2Female", 2, true);
+		generator.setUpdatePolicy(newUP);
+		runGenerator(stop);
+		assertPostcondition("01_Family_FatherMotherSonTwoDaughters", "01_Person_TwoMaleThreeFemale");
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void testViolationOfUpperBoundFather() throws IOException {
+		stop.setMaxRuleCount("Families2Persons", 1);
+		stop.setMaxRuleCount("CreateFamily", 1);
+		UpdatePolicy newUP = new RandomMatchUpdatePolicy();
+		newUP.setBoundForComplementRule("Father2Male", 2, true);
+		generator.setUpdatePolicy(newUP);
+		runGenerator(stop);
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void testViolationOfUpperBoundMother() throws IOException {
+		stop.setMaxRuleCount("Families2Persons", 1);
+		stop.setMaxRuleCount("CreateFamily", 1);
+		UpdatePolicy newUP = new RandomMatchUpdatePolicy();
+		newUP.setBoundForComplementRule("Mother2Female", 2, true);
+		generator.setUpdatePolicy(newUP);
+		runGenerator(stop);
 	}
 
+
 }
+
+
+
+
+
+

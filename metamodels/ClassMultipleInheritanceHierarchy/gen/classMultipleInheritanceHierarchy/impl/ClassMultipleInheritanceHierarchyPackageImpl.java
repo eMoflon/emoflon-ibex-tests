@@ -186,7 +186,7 @@ public class ClassMultipleInheritanceHierarchyPackageImpl extends EPackageImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getClazz_SubClass() {
+	public EReference getClazz_Package() {
 		return (EReference) clazzEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -195,17 +195,8 @@ public class ClassMultipleInheritanceHierarchyPackageImpl extends EPackageImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getClazz_Package() {
-		return (EReference) clazzEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getClazz_Attributes() {
-		return (EReference) clazzEClass.getEStructuralFeatures().get(3);
+		return (EReference) clazzEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -264,7 +255,6 @@ public class ClassMultipleInheritanceHierarchyPackageImpl extends EPackageImpl
 
 		clazzEClass = createEClass(CLAZZ);
 		createEReference(clazzEClass, CLAZZ__SUPER_CLASS);
-		createEReference(clazzEClass, CLAZZ__SUB_CLASS);
 		createEReference(clazzEClass, CLAZZ__PACKAGE);
 		createEReference(clazzEClass, CLAZZ__ATTRIBUTES);
 
@@ -322,12 +312,9 @@ public class ClassMultipleInheritanceHierarchyPackageImpl extends EPackageImpl
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(clazzEClass, Clazz.class, "Clazz", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getClazz_SuperClass(), this.getClazz(), this.getClazz_SubClass(), "superClass", null, 0, -1,
-				Clazz.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getClazz_SubClass(), this.getClazz(), this.getClazz_SuperClass(), "subClass", null, 0, -1,
-				Clazz.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getClazz_SuperClass(), this.getClazz(), null, "superClass", null, 0, -1, Clazz.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getClazz_Package(), this.getClassPackage(), this.getClassPackage_Classes(), "package", null, 1,
 				1, Clazz.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

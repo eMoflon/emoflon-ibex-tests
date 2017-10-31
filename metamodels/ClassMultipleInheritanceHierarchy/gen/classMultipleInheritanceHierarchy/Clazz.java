@@ -14,7 +14,6 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link classMultipleInheritanceHierarchy.Clazz#getSuperClass <em>Super Class</em>}</li>
- *   <li>{@link classMultipleInheritanceHierarchy.Clazz#getSubClass <em>Sub Class</em>}</li>
  *   <li>{@link classMultipleInheritanceHierarchy.Clazz#getPackage <em>Package</em>}</li>
  *   <li>{@link classMultipleInheritanceHierarchy.Clazz#getAttributes <em>Attributes</em>}</li>
  * </ul>
@@ -27,7 +26,6 @@ public interface Clazz extends NamedElement {
 	/**
 	 * Returns the value of the '<em><b>Super Class</b></em>' reference list.
 	 * The list contents are of type {@link classMultipleInheritanceHierarchy.Clazz}.
-	 * It is bidirectional and its opposite is '{@link classMultipleInheritanceHierarchy.Clazz#getSubClass <em>Sub Class</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Super Class</em>' reference list isn't clear,
@@ -36,29 +34,10 @@ public interface Clazz extends NamedElement {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Super Class</em>' reference list.
 	 * @see classMultipleInheritanceHierarchy.ClassMultipleInheritanceHierarchyPackage#getClazz_SuperClass()
-	 * @see classMultipleInheritanceHierarchy.Clazz#getSubClass
-	 * @model opposite="subClass"
+	 * @model
 	 * @generated
 	 */
 	EList<Clazz> getSuperClass();
-
-	/**
-	 * Returns the value of the '<em><b>Sub Class</b></em>' reference list.
-	 * The list contents are of type {@link classMultipleInheritanceHierarchy.Clazz}.
-	 * It is bidirectional and its opposite is '{@link classMultipleInheritanceHierarchy.Clazz#getSuperClass <em>Super Class</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Sub Class</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Sub Class</em>' reference list.
-	 * @see classMultipleInheritanceHierarchy.ClassMultipleInheritanceHierarchyPackage#getClazz_SubClass()
-	 * @see classMultipleInheritanceHierarchy.Clazz#getSuperClass
-	 * @model opposite="superClass"
-	 * @generated
-	 */
-	EList<Clazz> getSubClass();
 
 	/**
 	 * Returns the value of the '<em><b>Package</b></em>' container reference.

@@ -22,12 +22,15 @@ public class MODELGEN_App extends MODELGEN {
 	public static void main(String[] args) throws IOException {
 		BasicConfigurator.configure();
 
-		MODELGEN_App generator = new MODELGEN_App("ClassInhHier2DB_MA", "./../", false);
+		MODELGEN_App generator = new MODELGEN_App("ClassInhHier2DB_MA", "./../", true);
 		
 		MODELGENStopCriterion stop = new MODELGENStopCriterion(generator.getTGG());
 		stop.setTimeOutInMS(1000);
-		stop.setMaxSrcCount(20);
-		stop.setMaxRuleCount("PackageToDatabaseRule", 1);
+		//stop.setMaxSrcCount(20);
+		stop.setMaxRuleCount("PackageToDatabaseRule", 2);
+		stop.setMaxRuleCount("ClassToTableRule", 2);
+		stop.setMaxRuleCount("SubClassToTable", 4);
+		stop.setMaxRuleCount("AttributeToColumnRule", 10);
 		generator.setStopCriterion(stop);
 		
 		logger.info("Starting MODELGEN");
@@ -40,7 +43,6 @@ public class MODELGEN_App extends MODELGEN {
 		generator.terminate();
 	}
 
-	// TODO : Update Corrs for Class to Table!!! (Direct and Sub)
 	protected void registerUserMetamodels() throws IOException {
 		rs.getPackageRegistry().put("platform:/resource/ClassInheritanceHierarchy/model/ClassInheritanceHierarchy.ecore", ClassInheritanceHierarchyPackageImpl.init());
 		rs.getPackageRegistry().put("platform:/resource/Database/model/Database.ecore", DatabasePackageImpl.init());

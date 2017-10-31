@@ -9,14 +9,14 @@ public class TestSimplePositive extends FamiliesToPersons_MA_CCTestCase {
 	
 	@Test
 	public void testRegisters() throws IOException {
-		createGenerator("RootElementFamilies", "RootElementPersons");
+		createGenerator("01_RootElementFamilies", "01_RootElementPersons");
 		runGenerator();
 		assert checker.modelsAreConsistent();
 	}
 	
 	@Test
 	public void testEmptyFamily() throws IOException {
-		createGenerator("OneFamily", "RootElementPersons");
+		createGenerator("01_OneFamily", "01_RootElementPersons");
 		runGenerator();
 		assert checker.modelsAreConsistent();
 	}

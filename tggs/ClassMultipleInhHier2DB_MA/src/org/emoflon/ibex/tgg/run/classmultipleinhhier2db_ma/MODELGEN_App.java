@@ -22,10 +22,14 @@ public class MODELGEN_App extends MODELGEN {
 	public static void main(String[] args) throws IOException {
 		BasicConfigurator.configure();
 
-		MODELGEN_App generator = new MODELGEN_App("ClassMultipleInhHier2DB_MA", "./../", false);
+		MODELGEN_App generator = new MODELGEN_App("ClassMultipleInhHier2DB_MA", "./../", true);
 		
 		MODELGENStopCriterion stop = new MODELGENStopCriterion(generator.getTGG());
-		stop.setTimeOutInMS(100);
+		//stop.setTimeOutInMS(100);
+		stop.setMaxRuleCount("PackageToDatabase", 1);
+		stop.setMaxRuleCount("ClassToTable", 4);
+		stop.setMaxRuleCount("SubClassToTable", 2);
+		stop.setMaxRuleCount("AttributeToColumn", 10);
 		generator.setStopCriterion(stop);
 		
 		logger.info("Starting MODELGEN");
