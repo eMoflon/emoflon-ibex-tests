@@ -36,11 +36,7 @@
     </nodes>
     <attributeConditionLibrary/>
   </rules>
-<<<<<<< HEAD
-  <rules name="Daughter2Female" kernel="//@rules.0">
-=======
   <rules xsi:type="org.emoflon.ibex.tgg.core.language:TGGComplementRule" name="Daughter2Female" kernel="//@rules.0">
->>>>>>> master
     <nodes name="family" incomingEdges="//@rules.2/@edges.2" outgoingEdges="//@rules.2/@edges.0">
       <type href="platform:/resource/Families/model/Families.ecore#//Family"/>
     </nodes>
@@ -82,11 +78,7 @@
       </parameterValues>
     </attributeConditionLibrary>
   </rules>
-<<<<<<< HEAD
-  <rules name="Father2Male" kernel="//@rules.0">
-=======
   <rules xsi:type="org.emoflon.ibex.tgg.core.language:TGGComplementRule" name="Father2Male" kernel="//@rules.0">
->>>>>>> master
     <nodes name="family" incomingEdges="//@rules.3/@edges.2" outgoingEdges="//@rules.3/@edges.0">
       <type href="platform:/resource/Families/model/Families.ecore#//Family"/>
     </nodes>
@@ -128,11 +120,7 @@
       </parameterValues>
     </attributeConditionLibrary>
   </rules>
-<<<<<<< HEAD
-  <rules name="Mother2Female" kernel="//@rules.0">
-=======
   <rules xsi:type="org.emoflon.ibex.tgg.core.language:TGGComplementRule" name="Mother2Female" kernel="//@rules.0">
->>>>>>> master
     <nodes name="family" incomingEdges="//@rules.4/@edges.2" outgoingEdges="//@rules.4/@edges.0">
       <type href="platform:/resource/Families/model/Families.ecore#//Family"/>
     </nodes>
@@ -174,11 +162,7 @@
       </parameterValues>
     </attributeConditionLibrary>
   </rules>
-<<<<<<< HEAD
-  <rules name="Son2Male" kernel="//@rules.0">
-=======
   <rules xsi:type="org.emoflon.ibex.tgg.core.language:TGGComplementRule" name="Son2Male" kernel="//@rules.0">
->>>>>>> master
     <nodes name="family" incomingEdges="//@rules.5/@edges.2" outgoingEdges="//@rules.5/@edges.0">
       <type href="platform:/resource/Families/model/Families.ecore#//Family"/>
     </nodes>

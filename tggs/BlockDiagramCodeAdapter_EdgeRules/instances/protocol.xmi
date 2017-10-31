@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:org.emoflon.ibex.tgg.core.runtime="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore">
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="SystemToNodeRule">
+    <createdSrc href="../resources/in/BlockToNode_FWD.xmi#/"/>
+    <createdTrg href="../resources/expected/BlockToNode_FWD.xmi#/"/>
+    <createdTrg href="../resources/expected/BlockToNode_FWD.xmi#//@rootNode"/>
+    <createdCorr href="corr.xmi#/0"/>
+    <nodeMappings key="systemToNode">
+      <value href="corr.xmi#/0"/>
+    </nodeMappings>
+    <nodeMappings key="system">
+      <value href="../resources/in/BlockToNode_FWD.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="file">
+      <value href="../resources/expected/BlockToNode_FWD.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="node">
+      <value href="../resources/expected/BlockToNode_FWD.xmi#//@rootNode"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="BlockToNodeRule">
+    <createdSrc href="../resources/in/BlockToNode_FWD.xmi#//@blocks.0"/>
+    <createdTrg href="../resources/expected/BlockToNode_FWD.xmi#//@rootNode/@children.0"/>
+    <createdTrg href="../resources/expected/BlockToNode_FWD.xmi#//@rootNode/@children.0/@attribute.0"/>
+    <createdCorr href="corr.xmi#/1"/>
+    <contextSrc href="../resources/in/BlockToNode_FWD.xmi#/"/>
+    <contextTrg href="../resources/expected/BlockToNode_FWD.xmi#//@rootNode"/>
+    <nodeMappings key="blockToNode">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="block">
+      <value href="../resources/in/BlockToNode_FWD.xmi#//@blocks.0"/>
+    </nodeMappings>
+    <nodeMappings key="system">
+      <value href="../resources/in/BlockToNode_FWD.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="blockNode">
+      <value href="../resources/expected/BlockToNode_FWD.xmi#//@rootNode/@children.0"/>
+    </nodeMappings>
+    <nodeMappings key="id">
+      <value href="../resources/expected/BlockToNode_FWD.xmi#//@rootNode/@children.0/@attribute.0"/>
+    </nodeMappings>
+    <nodeMappings key="systemNode">
+      <value href="../resources/expected/BlockToNode_FWD.xmi#//@rootNode"/>
+    </nodeMappings>
+    <nodeMappings key="systemToNode">
+      <value href="corr.xmi#/0"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+</xmi:XMI>

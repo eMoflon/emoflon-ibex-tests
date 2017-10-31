@@ -6,12 +6,10 @@ import org.apache.log4j.BasicConfigurator;
 import org.emoflon.ibex.tgg.operational.csp.constraints.factories.UserDefinedRuntimeTGGAttrConstraintFactory;
 import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGEN;
 import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGENStopCriterion;
-<<<<<<< HEAD
 import org.emoflon.ibex.tgg.operational.util.IbexOptions;
-=======
 import org.emoflon.ibex.tgg.operational.util.RandomMatchUpdatePolicy;
 import org.emoflon.ibex.tgg.operational.util.UpdatePolicy;
->>>>>>> master
+
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesEngine;
 
 import Families.impl.FamiliesPackageImpl;

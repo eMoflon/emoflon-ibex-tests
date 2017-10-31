@@ -147,52 +147,52 @@
     </edges>
     <attributeConditionLibrary/>
   </rules>
+  <rules xsi:type="org.emoflon.ibex.tgg.core.language:TGGComplementRule" name="TransferDirectSuperClazzToAllSubSubTablesCorrs" bounded="true" kernel="//@rules.3">
+    <nodes name="superClazz" incomingCorrsSource="//@rules.4/@nodes.4">
+      <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Clazz"/>
+    </nodes>
+    <nodes name="subClazz" incomingCorrsSource="//@rules.4/@nodes.3">
+      <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Clazz"/>
+    </nodes>
+    <nodes name="subSubTable" domainType="TRG" incomingCorrsTarget="//@rules.4/@nodes.3 //@rules.4/@nodes.4">
+      <type href="platform:/resource/Database/model/Database.ecore#//Table"/>
+    </nodes>
+    <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="subClassToSubSubTable" domainType="CORR" source="//@rules.4/@nodes.1" target="//@rules.4/@nodes.2">
+      <type href="platform:/resource/ClassMultipleInhHier2DB_MA/model/ClassMultipleInhHier2DB_MA.ecore#//Clazz2SubTable"/>
+    </nodes>
+    <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="transitiveSuperClassToSubTable" domainType="CORR" bindingType="CREATE" source="//@rules.4/@nodes.0" target="//@rules.4/@nodes.2">
+      <type href="platform:/resource/ClassMultipleInhHier2DB_MA/model/ClassMultipleInhHier2DB_MA.ecore#//Clazz2SubTable"/>
+    </nodes>
+    <attributeConditionLibrary/>
+  </rules>
   <rules xsi:type="org.emoflon.ibex.tgg.core.language:TGGComplementRule" name="TransferSuperAttributes" bounded="true" kernel="//@rules.0">
-    <nodes name="clazz" incomingCorrsSource="//@rules.4/@nodes.4">
+    <nodes name="clazz" incomingCorrsSource="//@rules.5/@nodes.4">
       <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Clazz"/>
     </nodes>
     <nodes name="col" domainType="TRG">
       <type href="platform:/resource/Database/model/Database.ecore#//Column"/>
     </nodes>
-    <nodes name="subTable" domainType="TRG" outgoingEdges="//@rules.4/@edges.0" incomingCorrsTarget="//@rules.4/@nodes.4">
+    <nodes name="subTable" domainType="TRG" outgoingEdges="//@rules.5/@edges.0" incomingCorrsTarget="//@rules.5/@nodes.4">
       <type href="platform:/resource/Database/model/Database.ecore#//Table"/>
     </nodes>
-    <nodes name="transferCol" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.4/@edges.0">
+    <nodes name="transferCol" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.5/@edges.0">
       <type href="platform:/resource/Database/model/Database.ecore#//Column"/>
     </nodes>
-    <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="superClassToSubTable" domainType="CORR" source="//@rules.4/@nodes.0" target="//@rules.4/@nodes.2">
+    <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="superClassToSubTable" domainType="CORR" source="//@rules.5/@nodes.0" target="//@rules.5/@nodes.2">
       <type href="platform:/resource/ClassMultipleInhHier2DB_MA/model/ClassMultipleInhHier2DB_MA.ecore#//Clazz2SubTable"/>
     </nodes>
-    <edges name="subTable__columns__transferCol_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.4/@nodes.2" trgNode="//@rules.4/@nodes.3">
+    <edges name="subTable__columns__transferCol_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.5/@nodes.2" trgNode="//@rules.5/@nodes.3">
       <type href="platform:/resource/Database/model/Database.ecore#//Table/columns"/>
     </edges>
-    <attributeConditionLibrary sorted_BWD="//@rules.4/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_FWD="//@rules.4/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_CC="//@rules.4/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_MODELGEN="//@rules.4/@attributeConditionLibrary/@tggAttributeConstraints.0">
-      <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0" parameters="//@rules.4/@attributeConditionLibrary/@parameterValues.0 //@rules.4/@attributeConditionLibrary/@parameterValues.1"/>
-      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.0" objectVar="//@rules.4/@nodes.1">
+    <attributeConditionLibrary sorted_BWD="//@rules.5/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_FWD="//@rules.5/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_CC="//@rules.5/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_MODELGEN="//@rules.5/@attributeConditionLibrary/@tggAttributeConstraints.0">
+      <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0" parameters="//@rules.5/@attributeConditionLibrary/@parameterValues.0 //@rules.5/@attributeConditionLibrary/@parameterValues.1"/>
+      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.0" objectVar="//@rules.5/@nodes.1">
         <attribute href="platform:/resource/Database/model/Database.ecore#//Column/name"/>
       </parameterValues>
-      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.1" objectVar="//@rules.4/@nodes.3">
+      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.1" objectVar="//@rules.5/@nodes.3">
         <attribute href="platform:/resource/Database/model/Database.ecore#//Column/name"/>
       </parameterValues>
     </attributeConditionLibrary>
-  </rules>
-  <rules xsi:type="org.emoflon.ibex.tgg.core.language:TGGComplementRule" name="TransferDirectSuperClazzToAllSubSubTablesCorrs" bounded="true" kernel="//@rules.3">
-    <nodes name="superClazz" incomingCorrsSource="//@rules.5/@nodes.4">
-      <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Clazz"/>
-    </nodes>
-    <nodes name="subClazz" incomingCorrsSource="//@rules.5/@nodes.3">
-      <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Clazz"/>
-    </nodes>
-    <nodes name="subSubTable" domainType="TRG" incomingCorrsTarget="//@rules.5/@nodes.3 //@rules.5/@nodes.4">
-      <type href="platform:/resource/Database/model/Database.ecore#//Table"/>
-    </nodes>
-    <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="subClassToSubSubTable" domainType="CORR" source="//@rules.5/@nodes.1" target="//@rules.5/@nodes.2">
-      <type href="platform:/resource/ClassMultipleInhHier2DB_MA/model/ClassMultipleInhHier2DB_MA.ecore#//Clazz2SubTable"/>
-    </nodes>
-    <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="transitiveSuperClassToSubTable" domainType="CORR" bindingType="CREATE" source="//@rules.5/@nodes.0" target="//@rules.5/@nodes.2">
-      <type href="platform:/resource/ClassMultipleInhHier2DB_MA/model/ClassMultipleInhHier2DB_MA.ecore#//Clazz2SubTable"/>
-    </nodes>
-    <attributeConditionLibrary/>
   </rules>
   <rules xsi:type="org.emoflon.ibex.tgg.core.language:TGGComplementRule" name="TransferSuperCols" bounded="true" kernel="//@rules.3">
     <nodes name="superTable" domainType="TRG" outgoingEdges="//@rules.6/@edges.0">
@@ -283,168 +283,6 @@
     <attributeConditionLibrary/>
   </rules>
   <rules xsi:type="org.emoflon.ibex.tgg.core.language:TGGComplementRule" name="TransferTransitiveSuperClazzesToSubTableCorrs" bounded="true" kernel="//@rules.3">
-    <nodes name="transitiveSuperClass" incomingCorrsSource="//@rules.9/@nodes.3 //@rules.9/@nodes.4">
-      <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Clazz"/>
-    </nodes>
-    <nodes name="superTable" domainType="TRG" incomingCorrsTarget="//@rules.9/@nodes.3">
-      <type href="platform:/resource/Database/model/Database.ecore#//Table"/>
-    </nodes>
-    <nodes name="subTable" domainType="TRG" incomingCorrsTarget="//@rules.9/@nodes.4">
-      <type href="platform:/resource/Database/model/Database.ecore#//Table"/>
-    </nodes>
-    <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="transitiveSuperClassToSuperTable" domainType="CORR" source="//@rules.9/@nodes.0" target="//@rules.9/@nodes.1">
-      <type href="platform:/resource/ClassMultipleInhHier2DB_MA/model/ClassMultipleInhHier2DB_MA.ecore#//Clazz2SubTable"/>
-    </nodes>
-    <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="transitiveSuperClassToSubTable" domainType="CORR" bindingType="CREATE" source="//@rules.9/@nodes.0" target="//@rules.9/@nodes.2">
-      <type href="platform:/resource/ClassMultipleInhHier2DB_MA/model/ClassMultipleInhHier2DB_MA.ecore#//Clazz2SubTable"/>
-    </nodes>
-    <attributeConditionLibrary/>
-  </rules>
-  <rules name="TransferSuperAttributes" kernel="//@rules.0">
-    <nodes name="clazz" incomingCorrsSource="//@rules.4/@nodes.5 //@rules.4/@nodes.6">
-      <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Clazz"/>
-    </nodes>
-    <nodes name="table" domainType="TRG" outgoingEdges="//@rules.4/@edges.0" incomingCorrsTarget="//@rules.4/@nodes.6">
-      <type href="platform:/resource/Database/model/Database.ecore#//Table"/>
-    </nodes>
-    <nodes name="col" domainType="TRG" incomingEdges="//@rules.4/@edges.0">
-      <type href="platform:/resource/Database/model/Database.ecore#//Column"/>
-    </nodes>
-    <nodes name="subTable" domainType="TRG" outgoingEdges="//@rules.4/@edges.1" incomingCorrsTarget="//@rules.4/@nodes.5">
-      <type href="platform:/resource/Database/model/Database.ecore#//Table"/>
-    </nodes>
-    <nodes name="transferCol" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.4/@edges.1">
-      <type href="platform:/resource/Database/model/Database.ecore#//Column"/>
-    </nodes>
-    <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="superClassToSubTable" domainType="CORR" source="//@rules.4/@nodes.0" target="//@rules.4/@nodes.3">
-      <type href="platform:/resource/ClassMultipleInhHier2DB_MA/model/ClassMultipleInhHier2DB_MA.ecore#//Clazz2SubTable"/>
-    </nodes>
-    <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="clazzToTable" domainType="CORR" source="//@rules.4/@nodes.0" target="//@rules.4/@nodes.1">
-      <type href="platform:/resource/ClassMultipleInhHier2DB_MA/model/ClassMultipleInhHier2DB_MA.ecore#//Clazz2DirectTable"/>
-    </nodes>
-    <edges name="table__columns__col_eMoflonEdge" domainType="TRG" srcNode="//@rules.4/@nodes.1" trgNode="//@rules.4/@nodes.2">
-      <type href="platform:/resource/Database/model/Database.ecore#//Table/columns"/>
-    </edges>
-    <edges name="subTable__columns__transferCol_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.4/@nodes.3" trgNode="//@rules.4/@nodes.4">
-      <type href="platform:/resource/Database/model/Database.ecore#//Table/columns"/>
-    </edges>
-    <attributeConditionLibrary sorted_BWD="//@rules.4/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_FWD="//@rules.4/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_CC="//@rules.4/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_MODELGEN="//@rules.4/@attributeConditionLibrary/@tggAttributeConstraints.0">
-      <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0" parameters="//@rules.4/@attributeConditionLibrary/@parameterValues.0 //@rules.4/@attributeConditionLibrary/@parameterValues.1"/>
-      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.0" objectVar="//@rules.4/@nodes.2">
-        <attribute href="platform:/resource/Database/model/Database.ecore#//Column/name"/>
-      </parameterValues>
-      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.1" objectVar="//@rules.4/@nodes.4">
-        <attribute href="platform:/resource/Database/model/Database.ecore#//Column/name"/>
-      </parameterValues>
-    </attributeConditionLibrary>
-  </rules>
-  <rules name="TransferDirectSuperClazzToAllSubSubTablesCorrs" kernel="//@rules.3">
-    <nodes name="superClazz" incomingCorrsSource="//@rules.5/@nodes.4">
-      <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Clazz"/>
-    </nodes>
-    <nodes name="subClazz" incomingCorrsSource="//@rules.5/@nodes.3">
-      <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Clazz"/>
-    </nodes>
-    <nodes name="subSubTable" domainType="TRG" incomingCorrsTarget="//@rules.5/@nodes.3 //@rules.5/@nodes.4">
-      <type href="platform:/resource/Database/model/Database.ecore#//Table"/>
-    </nodes>
-    <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="subClassToSubSubTable" domainType="CORR" source="//@rules.5/@nodes.1" target="//@rules.5/@nodes.2">
-      <type href="platform:/resource/ClassMultipleInhHier2DB_MA/model/ClassMultipleInhHier2DB_MA.ecore#//Clazz2SubTable"/>
-    </nodes>
-    <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="transitiveSuperClassToSubTable" domainType="CORR" bindingType="CREATE" source="//@rules.5/@nodes.0" target="//@rules.5/@nodes.2">
-      <type href="platform:/resource/ClassMultipleInhHier2DB_MA/model/ClassMultipleInhHier2DB_MA.ecore#//Clazz2SubTable"/>
-    </nodes>
-    <attributeConditionLibrary/>
-  </rules>
-  <rules name="TransferSuperCols" kernel="//@rules.3">
-    <nodes name="superTable" domainType="TRG" outgoingEdges="//@rules.6/@edges.0">
-      <type href="platform:/resource/Database/model/Database.ecore#//Table"/>
-    </nodes>
-    <nodes name="col" domainType="TRG" incomingEdges="//@rules.6/@edges.0">
-      <type href="platform:/resource/Database/model/Database.ecore#//Column"/>
-    </nodes>
-    <nodes name="subTable" domainType="TRG" outgoingEdges="//@rules.6/@edges.1">
-      <type href="platform:/resource/Database/model/Database.ecore#//Table"/>
-    </nodes>
-    <nodes name="transferedCols" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.6/@edges.1">
-      <type href="platform:/resource/Database/model/Database.ecore#//Column"/>
-    </nodes>
-    <edges name="superTable__columns__col_eMoflonEdge" domainType="TRG" srcNode="//@rules.6/@nodes.0" trgNode="//@rules.6/@nodes.1">
-      <type href="platform:/resource/Database/model/Database.ecore#//Table/columns"/>
-    </edges>
-    <edges name="subTable__columns__transferedCols_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.6/@nodes.2" trgNode="//@rules.6/@nodes.3">
-      <type href="platform:/resource/Database/model/Database.ecore#//Table/columns"/>
-    </edges>
-    <attributeConditionLibrary sorted_BWD="//@rules.6/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_FWD="//@rules.6/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_CC="//@rules.6/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_MODELGEN="//@rules.6/@attributeConditionLibrary/@tggAttributeConstraints.0">
-      <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0" parameters="//@rules.6/@attributeConditionLibrary/@parameterValues.0 //@rules.6/@attributeConditionLibrary/@parameterValues.1"/>
-      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.0" objectVar="//@rules.6/@nodes.1">
-        <attribute href="platform:/resource/Database/model/Database.ecore#//Column/name"/>
-      </parameterValues>
-      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.1" objectVar="//@rules.6/@nodes.3">
-        <attribute href="platform:/resource/Database/model/Database.ecore#//Column/name"/>
-      </parameterValues>
-    </attributeConditionLibrary>
-  </rules>
-  <rules name="TransferSuperColsToSubSubTables" kernel="//@rules.3">
-    <nodes name="subClazz" incomingCorrsSource="//@rules.7/@nodes.5">
-      <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Clazz"/>
-    </nodes>
-    <nodes name="superTable" domainType="TRG" outgoingEdges="//@rules.7/@edges.0">
-      <type href="platform:/resource/Database/model/Database.ecore#//Table"/>
-    </nodes>
-    <nodes name="col" domainType="TRG" incomingEdges="//@rules.7/@edges.0">
-      <type href="platform:/resource/Database/model/Database.ecore#//Column"/>
-    </nodes>
-    <nodes name="subSubTable" domainType="TRG" outgoingEdges="//@rules.7/@edges.1" incomingCorrsTarget="//@rules.7/@nodes.5">
-      <type href="platform:/resource/Database/model/Database.ecore#//Table"/>
-    </nodes>
-    <nodes name="transferedCols" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.7/@edges.1">
-      <type href="platform:/resource/Database/model/Database.ecore#//Column"/>
-    </nodes>
-    <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="SubClassToSubSubTable" domainType="CORR" source="//@rules.7/@nodes.0" target="//@rules.7/@nodes.3">
-      <type href="platform:/resource/ClassMultipleInhHier2DB_MA/model/ClassMultipleInhHier2DB_MA.ecore#//Clazz2SubTable"/>
-    </nodes>
-    <edges name="superTable__columns__col_eMoflonEdge" domainType="TRG" srcNode="//@rules.7/@nodes.1" trgNode="//@rules.7/@nodes.2">
-      <type href="platform:/resource/Database/model/Database.ecore#//Table/columns"/>
-    </edges>
-    <edges name="subSubTable__columns__transferedCols_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.7/@nodes.3" trgNode="//@rules.7/@nodes.4">
-      <type href="platform:/resource/Database/model/Database.ecore#//Table/columns"/>
-    </edges>
-    <attributeConditionLibrary sorted_BWD="//@rules.7/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_FWD="//@rules.7/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_CC="//@rules.7/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_MODELGEN="//@rules.7/@attributeConditionLibrary/@tggAttributeConstraints.0">
-      <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0" parameters="//@rules.7/@attributeConditionLibrary/@parameterValues.0 //@rules.7/@attributeConditionLibrary/@parameterValues.1"/>
-      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.0" objectVar="//@rules.7/@nodes.2">
-        <attribute href="platform:/resource/Database/model/Database.ecore#//Column/name"/>
-      </parameterValues>
-      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.1" objectVar="//@rules.7/@nodes.4">
-        <attribute href="platform:/resource/Database/model/Database.ecore#//Column/name"/>
-      </parameterValues>
-    </attributeConditionLibrary>
-  </rules>
-  <rules name="TransferTransitiveSuperClazzesToSubSubTablesCorrs" kernel="//@rules.3">
-    <nodes name="subClazz" incomingCorrsSource="//@rules.8/@nodes.5">
-      <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Clazz"/>
-    </nodes>
-    <nodes name="transitiveSuperClass" incomingCorrsSource="//@rules.8/@nodes.4 //@rules.8/@nodes.6">
-      <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Clazz"/>
-    </nodes>
-    <nodes name="superTable" domainType="TRG" incomingCorrsTarget="//@rules.8/@nodes.4">
-      <type href="platform:/resource/Database/model/Database.ecore#//Table"/>
-    </nodes>
-    <nodes name="subSubTable" domainType="TRG" incomingCorrsTarget="//@rules.8/@nodes.5 //@rules.8/@nodes.6">
-      <type href="platform:/resource/Database/model/Database.ecore#//Table"/>
-    </nodes>
-    <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="transitiveSuperClassToSuperTable" domainType="CORR" source="//@rules.8/@nodes.1" target="//@rules.8/@nodes.2">
-      <type href="platform:/resource/ClassMultipleInhHier2DB_MA/model/ClassMultipleInhHier2DB_MA.ecore#//Clazz2SubTable"/>
-    </nodes>
-    <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="subClassToSubSubTable" domainType="CORR" source="//@rules.8/@nodes.0" target="//@rules.8/@nodes.3">
-      <type href="platform:/resource/ClassMultipleInhHier2DB_MA/model/ClassMultipleInhHier2DB_MA.ecore#//Clazz2SubTable"/>
-    </nodes>
-    <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="transitiveSuperClassToSubTable" domainType="CORR" bindingType="CREATE" source="//@rules.8/@nodes.1" target="//@rules.8/@nodes.3">
-      <type href="platform:/resource/ClassMultipleInhHier2DB_MA/model/ClassMultipleInhHier2DB_MA.ecore#//Clazz2SubTable"/>
-    </nodes>
-    <attributeConditionLibrary/>
-  </rules>
-  <rules name="TransferTransitiveSuperClazzesToSubTableCorrs" kernel="//@rules.3">
     <nodes name="transitiveSuperClass" incomingCorrsSource="//@rules.9/@nodes.3 //@rules.9/@nodes.4">
       <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Clazz"/>
     </nodes>
