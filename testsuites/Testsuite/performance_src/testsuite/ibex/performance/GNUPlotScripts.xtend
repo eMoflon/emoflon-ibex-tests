@@ -10,7 +10,9 @@ class GNUPlotScripts {
 	private static final TimeUnit timeUnit = PerformanceConstants.plotTimeUnit;
 	private static final long timeFactor = TimeUnit.NANOSECONDS.convert(1, timeUnit); //conversion from nanoseconds to "timeUnit"
 	
-	private static final String outputstyle = PerformanceConstants.outputstyle;
+	private static final String output = PerformanceConstants.output;
+	private static final String terminal = PerformanceConstants.terminal;
+	private static final String gnuplotCommand = PerformanceConstants.gnuPlotCommand;
 	
 	private static final String plotPath = "performance/plots/"
 	private static final String scriptPath = "performance/gnuplot_scripts/"
@@ -25,12 +27,12 @@ class GNUPlotScripts {
 	def createPlot(String title, String script) {
 		var lines = script.split("\n\n")
 		Files.write(Paths.get(scriptPath+title+".gp"), lines)
-		Runtime.runtime.exec("gnuplot "+scriptPath+title+".gp").waitFor()
+		Runtime.runtime.exec(gnuplotCommand + " "+scriptPath+title+".gp").waitFor()
 	}
 	
 	def commonHistogramScriptParts(String diagramType, String fileName) {
 		return '''
-			set output "«plotPath»«diagramType»/«fileName».«IF outputstyle=="gif"»gif«ELSE»pdf«ENDIF»"
+			set output "«plotPath»«diagramType»/«fileName».«output»"
 			set style data histogram
 			set style histogram cluster gap 1
 			set style fill solid border -1
@@ -45,7 +47,7 @@ class GNUPlotScripts {
 
 	def allTGGsComparison(String title, String op) {
 		var script = '''
-			set terminal «outputstyle»
+			set terminal «terminal»
 			«commonHistogramScriptParts("AllTGGs", title)»
 			set title "Comparison of TGG execution times for models of size «PlotGenerator.standardModelSize» - «op»"
 			set yrange [1:10000]
@@ -58,7 +60,7 @@ class GNUPlotScripts {
 
 	def allTGGsInitComparison(String title, String op) {
 		var script = '''
-			set terminal «outputstyle»
+			set terminal «terminal»
 			«commonHistogramScriptParts("AllTGGsInit", title)»
 			set title "Comparison of TGG initialization times for models of size «PlotGenerator.standardModelSize» - «op»"
 			set yrange [10:100000]
@@ -71,7 +73,7 @@ class GNUPlotScripts {
 
 	def modelSizeComparison(String title, String tgg, String op) {
 		var script = '''
-			set terminal «outputstyle»
+			set terminal «terminal»
 			«commonHistogramScriptParts("ModelSizes", title)»
 			set title "Impact of model size on execution time - «tgg»:«op»"
 			set xlabel "model size"
@@ -84,7 +86,7 @@ class GNUPlotScripts {
 
 	def tggsWithoutRefinementComparison(String title) {
 		var script = '''
-			set terminal «outputstyle»
+			set terminal «terminal»
 			«commonHistogramScriptParts("TGGsWithoutRefinements", title)»
 			set title "Execution times of TGGs without refinements"
 			set style histogram cluster gap 1 title offset 0, -2
@@ -102,7 +104,7 @@ class GNUPlotScripts {
 	
 	def initTimes(String title, String tgg, String op) {
 		var script = '''
-			set terminal «outputstyle» size 5,2
+			set terminal «terminal» size 5,2
 			«commonHistogramScriptParts("InitTimes", title)»
 			set title "Execution times of initialization - «tgg»:«op»"
 			set xlabel "model size"
