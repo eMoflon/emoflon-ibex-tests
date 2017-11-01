@@ -19,9 +19,7 @@ Setup
 Executing performance tests
 ------------
 - Before you can execute the tests for the first time, you have to generate the launch configurations and launch group.
-To do this, execute the main method in `./testsuite/ibex/performance/LaunchGroup.xtendLaunchGroup.xtend`.
-
-
+To do this, execute the main method in `./testsuite/ibex/performance/LaunchGroup.xtend`.
 - To execute all tests, run the generated launch configuration `../performance/AllPerformanceTests.launch`.
 If you just generated the file, you might have to refresh the folder in order for it to appear.
 - After all tests have been executed, the plots are automatically generated for the collected data.
