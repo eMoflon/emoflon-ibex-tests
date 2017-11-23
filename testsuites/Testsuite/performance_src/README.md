@@ -1,9 +1,11 @@
-This framework allows to evaluate the performance of eMoflon::IBeX by automatically measuring
+This framework evaluates the performance of eMoflon::IBeX by automatically measuring
 the execution and initialization times of all operationalizations for various TGGs and model sizes.
-It also allows to generate several plots from the collected data.
+It also generates several plots automatically from the collected data.
 
-This README file contains instructions on how to setup the framework, how to use it,
-how to customize it and how to add new TGGs to the framework.
+This README file contains instructions on how to setup the framework, how to use it, and
+how to customize it, e.g., by adding new TGGs to the framework.
+
+Note:  All paths given are relative to this README file.
 
 Setup
 ------------
@@ -17,24 +19,22 @@ Setup
 Executing performance tests
 ------------
 - Before you can execute the tests for the first time, you have to generate the launch configurations and launch group.
-To do this, run the LaunchGroup class.
-
-
-- To execute all tests, run the file AllPerformanceTests.launch in the performance folder of the testsuite project.
-If you just generated the file, you have to refresh the folder in order for it to appear.
+To do this, execute the main method in `./testsuite/ibex/performance/LaunchGroup.xtend`.
+- To execute all tests, run the generated launch configuration `../performance/AllPerformanceTests.launch`.
+If you just generated the file, you might have to refresh the folder in order for it to appear.
 - After all tests have been executed, the plots are automatically generated for the collected data.
 
 Generating plots
 ------------
-- If you want to generate the plots without running the tests again,
-you can simply run the PlotGenerator class.
+- If you want to regenerate all plots without running the tests again,
+you can simply execute `./testsuite/ibex/performance/PlotGenerator.java`.
 This may be useful, e.g.,  if you change a plot type or add a new plot type
 and want to see how it looks like.
 
 
 Changing parameters of the performance tests
 ------------
-The performance tests have various parameters that can be changed. They can all be found in the PerformanceConstants class. Here is a list of all of them:
+The performance tests have various parameters that can be changed. They can all be found in `./testsuite/ibex/performance/util/PerformanceConstants.java`. Here is a list of all of them:
 
 - timeout: The timeout after which a performance test is aborted.
 - maxMemorySize: Defines how much memory may be allocated for the heap by the JavaVM in each test case.
@@ -46,7 +46,7 @@ The performance tests have various parameters that can be changed. They can all 
 
 Adding a new plot type to the performance framework
 ------------
-To add a new plot type, you have to do two things: Create a new gnuplot script template and providing the script with data.
+To add a new plot type, you have to do two things: Create a new gnuplot script template and provide the script with data.
 
 1. *Creating a script template:* The class GNUPlotScripts contains all templates. You can create a new one by simply adding a new method that returns the script.
 
@@ -56,12 +56,12 @@ To add a new plot type, you have to do two things: Create a new gnuplot script t
 
 Adding a new TGG to the performance framework
 ------------
-...
-- add TGG name to constants
-- create modelgenStopCriterion
-- create incremental edit
-- generate launch configurations
-...
+
+- Add the new TGG's name to `../test/testsuite/ibex/testUtil/Constants.java`
+- You might have to register any new metamodels that weren't present before in the testsuite workspace here:  ` testsuite.ibex.performance.util.PerformanceTestUtil::registerUserMetamodels`
+- Create a suitable modelgenStopCriterion for the TGG
+- Create suitable incremental edits for the TGG in `./testsuite/ibex/performance/util/IncrementalEditor.java`
+- Generate your launch configurations afresh and check if the new TGG is included
 
 Additional remarks
 ------------

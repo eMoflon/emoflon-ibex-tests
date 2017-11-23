@@ -60,6 +60,7 @@ public class Batch extends SyncTestCase<ClassPackage, DB>{
 		assertPostcondition("in/ClassToTable_FWD", "expected/ClassToTable_FWD");
 	}
 	
+	@Ignore
 	@Test
 	public void testSubClassToTable_FWD()
 	{
