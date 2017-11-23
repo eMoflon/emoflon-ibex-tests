@@ -130,10 +130,6 @@
         <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
         <valueExp xsi:type="tgg:LiteralExpression" value="&quot;ENTITY&quot;"/>
       </attributeConstraints>
-      <attributeConstraints op="==">
-        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
-        <valueExp xsi:type="tgg:LiteralExpression" value="&quot;ENTITY&quot;"/>
-      </attributeConstraints>
       <linkVariablePatterns target="//@rules.0/@sourcePatterns.13">
         <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Text/parentNode"/>
       </linkVariablePatterns>
@@ -712,10 +708,6 @@
         <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
         <valueExp xsi:type="tgg:LiteralExpression" value="&quot;PORT&quot;"/>
       </attributeAssignments>
-      <attributeAssignments op=":=">
-        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
-        <valueExp xsi:type="tgg:LiteralExpression" value="&quot;PORT&quot;"/>
-      </attributeAssignments>
       <linkVariablePatterns target="//@rules.5/@sourcePatterns.0">
         <op value="++"/>
         <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Text/parentNode"/>
@@ -788,10 +780,6 @@
         <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
         <valueExp xsi:type="tgg:LiteralExpression" value="&quot;PORT&quot;"/>
       </attributeAssignments>
-      <attributeAssignments op=":=">
-        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
-        <valueExp xsi:type="tgg:LiteralExpression" value="&quot;PORT&quot;"/>
-      </attributeAssignments>
       <linkVariablePatterns target="//@rules.6/@sourcePatterns.0">
         <op value="++"/>
         <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Text/parentNode"/>
@@ -840,10 +828,6 @@
   <rules name="Mapping2AndGate" schema="//@schema">
     <sourcePatterns name="entityNode">
       <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Node"/>
-      <attributeConstraints op="==">
-        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
-        <valueExp xsi:type="tgg:LiteralExpression" value="&quot;ENTITY&quot;"/>
-      </attributeConstraints>
       <attributeConstraints op="==">
         <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
         <valueExp xsi:type="tgg:LiteralExpression" value="&quot;ENTITY&quot;"/>
@@ -1116,10 +1100,6 @@
         <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
         <valueExp xsi:type="tgg:LiteralExpression" value="&quot;ENTITY&quot;"/>
       </attributeConstraints>
-      <attributeConstraints op="==">
-        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
-        <valueExp xsi:type="tgg:LiteralExpression" value="&quot;ENTITY&quot;"/>
-      </attributeConstraints>
       <linkVariablePatterns target="//@rules.8/@sourcePatterns.10">
         <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Text/parentNode"/>
       </linkVariablePatterns>
@@ -1309,10 +1289,6 @@
   <rules name="Mapping2OrGate" schema="//@schema">
     <sourcePatterns name="entityNode">
       <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Node"/>
-      <attributeConstraints op="==">
-        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
-        <valueExp xsi:type="tgg:LiteralExpression" value="&quot;ENTITY&quot;"/>
-      </attributeConstraints>
       <attributeConstraints op="==">
         <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
         <valueExp xsi:type="tgg:LiteralExpression" value="&quot;ENTITY&quot;"/>
