@@ -4,6 +4,16 @@
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:Database="platform:/plugin/Database/model/Database.ecore"
     title="P">
-  <tables heading="C1"/>
-  <tables heading="C1:SC1"/>
+  <tables heading="C1">
+    <columns
+        name="a1"/>
+  </tables>
+  <tables heading="SC1">
+    <columns
+        name="a1"/>
+  </tables>
+  <tables heading="SC2">
+    <columns
+        name="a1"/>
+  </tables>
 </Database:DB>

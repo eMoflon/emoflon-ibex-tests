@@ -38,7 +38,7 @@ public class SimpleModelgenTest extends ModelGenTestCase<ClassPackage, DB>{
 	public void testPackageToDatabase() throws IOException {
 		stop.setMaxRuleCount("PackageToDatabaseRule", 1);
 		runGenerator(stop);
-		assertPostcondition("in/PackageToDatabase_FWD", "expected/PackageToDatabase_FWD");
+		assertPostcondition("in/01_PackageToDatabase_FWD", "expected/01_PackageToDatabase_FWD");
 	}
 	
 	@Test
@@ -46,7 +46,7 @@ public class SimpleModelgenTest extends ModelGenTestCase<ClassPackage, DB>{
 		stop.setMaxRuleCount("PackageToDatabaseRule", 1);
 		stop.setMaxRuleCount("ClassToTableRule", 1);
 		runGenerator(stop);
-		assertPostcondition("in/ClassToTable_FWD", "expected/ClassToTable_FWD");
+		assertPostcondition("in/02_ClassToTable_FWD", "expected/02_ClassToTable_FWD");
 	}
 	
 	@Test
@@ -55,7 +55,7 @@ public class SimpleModelgenTest extends ModelGenTestCase<ClassPackage, DB>{
 		stop.setMaxRuleCount("ClassToTableRule", 1);
 		stop.setMaxRuleCount("AttributeToColumnRule", 2);
 		runGenerator(stop);
-		assertPostcondition("in/AttributeToColumn_FWD", "expected/AttributeToColumn_FWD");
+		assertPostcondition("in/03_AttributeToColumn_FWD", "expected/03_AttributeToColumn_FWD");
 	}
 	
 	@Test
@@ -64,7 +64,7 @@ public class SimpleModelgenTest extends ModelGenTestCase<ClassPackage, DB>{
 		stop.setMaxRuleCount("ClassToTableRule", 1);
 		stop.setMaxRuleCount("SubClassToTable", 1);
 		runGenerator(stop);
-		assertPostcondition("in/SubClassToTable_FWD", "expected/SubClassToTable_FWD");
+		assertPostcondition("in/04_SubClassToTable_FWD", "expected/04_SubClassToTable_FWD");
 	}
 	
 	@Test
@@ -75,7 +75,7 @@ public class SimpleModelgenTest extends ModelGenTestCase<ClassPackage, DB>{
 			stop.setMaxRuleCount("SubClassToTable", 1);
 			generator.setUpdatePolicy(new CreateAttributesUpdatePolicy());
 			runGenerator(stop);
-			assertPostcondition("in/SuperAttToSubTable_FWD", "expected/SuperAttToSubTable_FWD");
+			assertPostcondition("in/05_OneSuperAtt_FWD", "expected/05_OneSuperAtt_FWD");
 			
 	}
 	
@@ -87,7 +87,7 @@ public class SimpleModelgenTest extends ModelGenTestCase<ClassPackage, DB>{
 			stop.setMaxRuleCount("SubClassToTable", 1);
 			generator.setUpdatePolicy(new CreateAttributesUpdatePolicy());
 			runGenerator(stop);
-			assertPostcondition("in/SubAttToSubTable_FWD", "expected/SubAttToSubTable_FWD");
+			assertPostcondition("in/06_OneSuperAtt_OneSubAtt_FWD", "expected/06_OneSuperAtt_OneSubAtt_FWD");
 	}
 	
 	@Test
@@ -98,7 +98,7 @@ public class SimpleModelgenTest extends ModelGenTestCase<ClassPackage, DB>{
 			stop.setMaxRuleCount("SubClassToTable", 1);
 			generator.setUpdatePolicy(new CreateAttributesUpdatePolicy());
 			runGenerator(stop);
-			assertPostcondition("in/SubAttToSubTable2_FWD", "expected/SubAttToSubTable2_FWD");
+			assertPostcondition("in/07_OneSuperAtt_TwoSubAtt_FWD", "expected/07_OneSuperAtt_TwoSubAtt_FWD");
 	}
 	
 	@Test
@@ -109,7 +109,7 @@ public class SimpleModelgenTest extends ModelGenTestCase<ClassPackage, DB>{
 			stop.setMaxRuleCount("SubClassToTable", 2);
 			generator.setUpdatePolicy(new CreateAttributesUpdatePolicy());
 			runGenerator(stop);
-			assertPostcondition("in/SuperSuperClassToSubTable_FWD", "expected/SuperSuperClassToSubTable_FWD");
+			assertPostcondition("in/09_OneSuperSuperAtt_FWD", "expected/09_OneSuperSuperAtt_FWD");
 	}
 
 }

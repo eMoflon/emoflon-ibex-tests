@@ -25,10 +25,10 @@ public class MODELGEN_App extends MODELGEN {
 		MODELGENStopCriterion stop = new MODELGENStopCriterion(generator.getTGG());
 		stop.setTimeOutInMS(1000);
 		//stop.setMaxSrcCount(20);
-		stop.setMaxRuleCount("PackageToDatabaseRule", 2);
-		stop.setMaxRuleCount("ClassToTableRule", 2);
-		stop.setMaxRuleCount("SubClassToTable", 4);
-		stop.setMaxRuleCount("AttributeToColumnRule", 10);
+		stop.setMaxRuleCount("PackageToDatabaseRule", 1);
+		stop.setMaxRuleCount("ClassToTableRule", 1);
+		stop.setMaxRuleCount("SubClassToTable", 1);
+		stop.setMaxRuleCount("AttributeToColumnRule", 1);
 		generator.setStopCriterion(stop);
 		
 		logger.info("Starting MODELGEN");

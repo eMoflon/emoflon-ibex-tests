@@ -49,5 +49,5 @@
 }
 
 #attributeConditions {
-	concat(":", subClazz.name, superClazz.name, subTable.heading)
+	eq_string(subClazz.name, subTable.heading)
 }
