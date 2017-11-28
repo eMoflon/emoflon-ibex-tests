@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ASCII"?>
+<classMultipleInheritanceHierarchy:ClassPackage
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:classMultipleInheritanceHierarchy="platform:/resource/ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore"
+    name="P">
+  <classes name="C1">
+    <attributes
+        name="a1"/>
+  </classes>
+  <classes name="C2"
+      superClass="//@classes.0">
+    <attributes
+        name="a2"/>
+  </classes>
+  <classes name="C3">
+    <attributes
+        name="a3"/>
+  </classes>
+  <classes name="C4"
+      superClass="//@classes.2">
+    <attributes
+        name="a4"/>
+  </classes>
+  <classes name="C5"
+      superClass="//@classes.2 //@classes.3"/>
+</classMultipleInheritanceHierarchy:ClassPackage>
