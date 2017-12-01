@@ -1,17 +1,17 @@
-package testsuite.ibex.ClassMultiInhHier2DB_MA.cc;
+package testsuite.ibex.ClassInhHier2DB_MA.cc;
 
 import java.io.IOException;
 
-import org.emoflon.ibex.tgg.run.classmultipleinhhier2db_ma.CC_App;
+import org.emoflon.ibex.tgg.run.classinhhier2db_ma.CC_App;
 import org.junit.Ignore;
 import org.junit.Test;
 
 import testsuite.ibex.testUtil.CCTestCase;
 
-public class TestSimplePositive extends CCTestCase{
+public class TestSimplePositive4 extends CCTestCase {
 	
 	public void createGenerator(String srcInstance, String trgInstance) throws IOException {
-		checker = new CC_App("ClassMultipleInhHier2DB_MA", testsuite.ibex.testUtil.Constants.workspacePath, false, srcInstance, trgInstance);
+		checker = new CC_App("ClassInhHier2DB_MA", testsuite.ibex.testUtil.Constants.workspacePath, false, srcInstance, trgInstance);
 	}
 	
 	@Test
@@ -39,7 +39,6 @@ public class TestSimplePositive extends CCTestCase{
 	public void testSubClassToTable() throws IOException {
 		createGenerator("in/04_SubClassToTable_FWD", "expected/04_SubClassToTable_FWD");
 		runGenerator();
-		checker.generateConsistencyReport();
 		assert checker.modelsAreConsistent();
 	}
 	
@@ -48,50 +47,56 @@ public class TestSimplePositive extends CCTestCase{
 		createGenerator("in/05_OneSuperAtt_FWD", "expected/05_OneSuperAtt_FWD");
 		runGenerator();
 		assert checker.modelsAreConsistent();
-			
 	}
 	
 	@Test
-	public void testSubAttToSubTable() throws IOException {
+	public void testSuperAttAndSubAttToSubTable() throws IOException {
 		createGenerator("in/06_OneSuperAtt_OneSubAtt_FWD", "expected/06_OneSuperAtt_OneSubAtt_FWD");
 		runGenerator();
 		assert checker.modelsAreConsistent();
 	}
 	
 	@Test
-	public void testTransitiveAttToSubTables() throws IOException {
-		createGenerator("in/07_OneSuperSuperAtt_FWD", "expected/07_OneSuperSuperAtt_FWD");
+	public void testOneSuperThreeSubAttToSubTable() throws IOException {
+		createGenerator("in/07_OneSuperAtt_TwoSubAtt_FWD", "expected/07_OneSuperAtt_TwoSubAtt_FWD");
 		runGenerator();
 		assert checker.modelsAreConsistent();
 	}
 	
 	@Test
-	public void testTransitiveAttToSubTables2() throws IOException {
-		createGenerator("in/08_OneSuperSuperAtt_OneSuperAtt_FWD", "expected/08_OneSuperSuperAtt_OneSuperAtt_FWD");
+	public void testThreeSuperAttOneSubAttToSubTable() throws IOException {
+		createGenerator("in/08_ThreeSuperAtt_OneSubAtt_FWD", "expected/08_ThreeSuperAtt_OneSubAtt_FWD");
 		runGenerator();
 		assert checker.modelsAreConsistent();
 	}
 	
 	@Test
-	public void testTransitiveAttToSubTables3() throws IOException {
-		createGenerator("in/09_OneSuperAtt_OneSubAtt_OneSubAtt_FWD", "expected/09_OneSuperAtt_OneSubAtt_OneSubAtt_FWD");
+	public void testOneTransitiveAttToSubTables() throws IOException {
+		createGenerator("in/09_OneSuperSuperAtt_FWD", "expected/09_OneSuperSuperAtt_FWD");
 		runGenerator();
 		assert checker.modelsAreConsistent();
 	}
 	
 	@Test
-	public void testTwoSuperClassesToSubTables() throws IOException {
-		createGenerator("in/10_TwoSuperClassesToSubTable_FWD", "expected/10_TwoSuperClassesToSubTable_FWD");
+	public void testOneTransitiveAttOneSuperAttOneSubAttToSubTable() throws IOException {
+		createGenerator("in/10_OneSuperSuperAtt_OneSuperAtt_OneSubAtt_FWD", "expected/10_OneSuperSuperAtt_OneSuperAtt_OneSubAtt_FWD");
 		runGenerator();
 		assert checker.modelsAreConsistent();
 	}
 	
-
 	@Test
-	public void testTwoTransitiveSuperClassesToSubTables() throws IOException {
-		createGenerator("in/11_TwoTransitiveSuperClassesToSubTable_FWD", "expected/11_TwoTransitiveSuperClassesToSubTable_FWD");
+	public void testOneSuperAttToTwoSubTables() throws IOException {
+		createGenerator("in/11_OneSuperSuperAtt_OneSuperAtt_FWD", "expected/11_OneSuperSuperAtt_OneSuperAtt_FWD");
 		runGenerator();
 		assert checker.modelsAreConsistent();
 	}
-
+	
+	@Test
+	public void testOneSuperAttOneSubAttToTwoSubTables() throws IOException {
+		createGenerator("in/12_OneSuperAtt_OneSubAtt_OneSubAtt_FWD", "expected/12_OneSuperAtt_OneSubAtt_OneSubAtt_FWD");
+		runGenerator();
+		assert checker.modelsAreConsistent();
+	}
+	
+	
 }

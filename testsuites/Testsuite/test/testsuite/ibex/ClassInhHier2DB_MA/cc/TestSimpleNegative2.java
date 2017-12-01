@@ -8,7 +8,7 @@ import org.junit.Test;
 
 import testsuite.ibex.testUtil.CCTestCase;
 
-public class TestSimpleNegative extends CCTestCase {
+public class TestSimpleNegative2 extends CCTestCase {
 	
 	public void createGenerator(String srcInstance, String trgInstance) throws IOException {
 		checker = new CC_App("ClassInhHier2DB_MA", testsuite.ibex.testUtil.Constants.workspacePath, false, srcInstance, trgInstance);

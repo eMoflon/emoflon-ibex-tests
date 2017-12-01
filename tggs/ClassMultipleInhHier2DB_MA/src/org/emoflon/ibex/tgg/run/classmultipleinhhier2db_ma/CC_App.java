@@ -36,6 +36,7 @@ public class CC_App extends CC {
 		logger.info("Starting CC");
 		long tic = System.currentTimeMillis();
 		cc.run();
+		System.out.println(cc.generateConsistencyReport());
 		long toc = System.currentTimeMillis();
 		logger.info("Completed CC in: " + (toc - tic) + " ms");
 		
@@ -55,6 +56,17 @@ public class CC_App extends CC {
 	
 	@Override
 	public void loadModels() throws IOException {
+		s = loadResource(projectPath + "/instances/src2.xmi");
+		t = loadResource(projectPath + "/instances/trg2.xmi");
+		c = createResource(projectPath + "/instances/corr.xmi");
+		p = createResource(projectPath + "/instances/protocol.xmi");
+	
+		EcoreUtil.resolveAll(rs);
+	}
+	
+	/*
+	@Override
+	public void loadModels() throws IOException {
 		s = loadResource(projectPath + "/resources/"+srcPath+".xmi");
 		t = loadResource(projectPath + "/resources/"+trgPath+".xmi");
 		c = createResource(projectPath + "/instances/corr.xmi");
@@ -62,7 +74,7 @@ public class CC_App extends CC {
 	
 		EcoreUtil.resolveAll(rs);
 	}
-	
+	*/
 
 	
 }

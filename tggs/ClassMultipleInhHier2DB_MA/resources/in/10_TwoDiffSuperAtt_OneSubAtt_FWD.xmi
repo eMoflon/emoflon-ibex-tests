@@ -8,20 +8,13 @@
     <attributes
         name="a1"/>
   </classes>
-  <classes name="C2"
-      superClass="//@classes.0">
+  <classes name="C2">
     <attributes
         name="a2"/>
   </classes>
-  <classes name="C3">
+  <classes name="C3"
+      superClass="//@classes.1 //@classes.0">
     <attributes
         name="a3"/>
   </classes>
-  <classes name="C4"
-      superClass="//@classes.2">
-    <attributes
-        name="a4"/>
-  </classes>
-  <classes name="C5"
-      superClass="//@classes.2 //@classes.3"/>
 </classMultipleInheritanceHierarchy:ClassPackage>

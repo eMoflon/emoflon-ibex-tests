@@ -40,7 +40,7 @@ public class SimpleModelgenTest extends ModelGenTestCase<ClassPackage, DB>{
 	public void testPackageToDatabase() throws IOException {
 		stop.setMaxRuleCount("PackageToDatabase", 1);
 		runGenerator(stop);
-		assertPostcondition("in/PackageToDatabase_FWD", "expected/PackageToDatabase_FWD");
+		assertPostcondition("in/01_PackageToDatabase_FWD", "expected/01_PackageToDatabase_FWD");
 	}
 	
 	@Test
@@ -48,7 +48,7 @@ public class SimpleModelgenTest extends ModelGenTestCase<ClassPackage, DB>{
 		stop.setMaxRuleCount("PackageToDatabase", 1);
 		stop.setMaxRuleCount("ClassToTable", 1);
 		runGenerator(stop);
-		assertPostcondition("in/ClassToTable_FWD", "expected/ClassToTable_FWD");
+		assertPostcondition("in/02_ClassToTable_FWD", "expected/02_ClassToTable_FWD");
 	}
 	
 	@Test
@@ -57,7 +57,7 @@ public class SimpleModelgenTest extends ModelGenTestCase<ClassPackage, DB>{
 		stop.setMaxRuleCount("ClassToTable", 1);
 		stop.setMaxRuleCount("AttributeToColumn", 2);
 		runGenerator(stop);
-		assertPostcondition("in/AttributeToColumn_FWD", "expected/AttributeToColumn_FWD");
+		assertPostcondition("in/03_AttributeToColumn_FWD", "expected/03_AttributeToColumn_FWD");
 	}
 	
 	@Test
@@ -66,10 +66,9 @@ public class SimpleModelgenTest extends ModelGenTestCase<ClassPackage, DB>{
 		stop.setMaxRuleCount("ClassToTable", 2);
 		stop.setMaxRuleCount("SubClassToTable", 1);
 		runGenerator(stop);
-		assertPostcondition("in/SubClassToTable_FWD", "expected/SubClassToTable_FWD");
+		assertPostcondition("in/04_SubClassToTable_FWD", "expected/04_SubClassToTable_FWD");
 	}
 	
-	// This one should be ok
 	@Test
 	public void testSuperAttToSubTable() throws IOException {
 			stop.setMaxRuleCount("PackageToDatabase", 1);
@@ -78,11 +77,10 @@ public class SimpleModelgenTest extends ModelGenTestCase<ClassPackage, DB>{
 			stop.setMaxRuleCount("SubClassToTable", 1);
 			generator.setUpdatePolicy(new CreateAttributesUpdatePolicy());
 			runGenerator(stop);
-			assertPostcondition("in/SuperAttToSubTable_FWD", "expected/SuperAttToSubTable_FWD");
+			assertPostcondition("in/05_OneSuperAtt_FWD", "expected/05_OneSuperAtt_FWD");
 			
 	}
 	
-	// This one should be ok
 	@Test
 	public void testSubAttToSubTable() throws IOException {
 			stop.setMaxRuleCount("PackageToDatabase", 1);
@@ -91,10 +89,8 @@ public class SimpleModelgenTest extends ModelGenTestCase<ClassPackage, DB>{
 			stop.setMaxRuleCount("SubClassToTable", 1);
 			generator.setUpdatePolicy(new CreateAttributesUpdatePolicy());
 			runGenerator(stop);
-			assertPostcondition("in/SubAttToSubTable_FWD", "expected/SubAttToSubTable_FWD");
+			assertPostcondition("in/06_OneSuperAtt_OneSubAtt_FWD", "expected/06_OneSuperAtt_OneSubAtt_FWD");
 	}
-	
-	//From now on, discuss these TCs with Tony
 	
 	@Test
 	public void testTransitiveAttToSubTables() throws IOException {
@@ -104,7 +100,7 @@ public class SimpleModelgenTest extends ModelGenTestCase<ClassPackage, DB>{
 			stop.setMaxRuleCount("SubClassToTable", 2);
 			generator.setUpdatePolicy(new CreateSingleTransitiveInhUpdatePolicy());
 			runGenerator(stop);
-			assertPostcondition("in/SuperSuperClassToSubTable_FWD", "expected/SuperSuperClassToSubTable_FWD");
+			assertPostcondition("in/07_OneSuperSuperAtt_FWD", "expected/07_OneSuperSuperAtt_FWD");
 	}
 	
 	@Test
@@ -115,10 +111,10 @@ public class SimpleModelgenTest extends ModelGenTestCase<ClassPackage, DB>{
 			stop.setMaxRuleCount("SubClassToTable", 2);
 			generator.setUpdatePolicy(new CreateMultipleInhUpdatePolicy());
 			runGenerator(stop);
-			assertPostcondition("in/TwoSuperClassesToSubTable_FWD", "expected/TwoSuperClassesToSubTable_FWD");
+			assertPostcondition("in/10_TwoSuperClassesToSubTable_FWD", "expected/10_TwoSuperClassesToSubTable_FWD");
 	}
 	
-	@Ignore ("Fails due to not specified Update Policy")
+	@Ignore ("Cannot be tested due to Update Policy cannot support this scenario.")
 	@Test
 	public void testTwoTransitiveSuperClassesToSubTables() throws IOException {
 

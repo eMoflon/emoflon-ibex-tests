@@ -950,13 +950,13 @@
     <bodies>
       <constraints xsi:type="emf:Reference">
         <parameters reference="/46/@symbolicParameters.2"/>
-        <parameters reference="/46/@symbolicParameters.1"/>
-        <eModelElement xsi:type="ecore:EReference" href="../../../plugin/ClassInheritanceHierarchy/model/ClassInheritanceHierarchy.ecore#//Clazz/superClass"/>
+        <parameters reference="/46/@symbolicParameters.0"/>
+        <eModelElement xsi:type="ecore:EReference" href="../../../plugin/ClassInheritanceHierarchy/model/ClassInheritanceHierarchy.ecore#//Clazz/package"/>
       </constraints>
       <constraints xsi:type="emf:Reference">
         <parameters reference="/46/@symbolicParameters.2"/>
-        <parameters reference="/46/@symbolicParameters.0"/>
-        <eModelElement xsi:type="ecore:EReference" href="../../../plugin/ClassInheritanceHierarchy/model/ClassInheritanceHierarchy.ecore#//Clazz/package"/>
+        <parameters reference="/46/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../../../plugin/ClassInheritanceHierarchy/model/ClassInheritanceHierarchy.ecore#//Clazz/superClass"/>
       </constraints>
       <constraints xsi:type="relational:Unequal">
         <parameters reference="/46/@symbolicParameters.2"/>
@@ -1126,12 +1126,12 @@
     </symbolicParameters>
     <bodies>
       <constraints xsi:type="emf:Reference">
-        <parameters reference="/52/@symbolicParameters.2"/>
+        <parameters reference="/52/@symbolicParameters.1"/>
         <parameters reference="/52/@symbolicParameters.0"/>
         <eModelElement xsi:type="ecore:EReference" href="../../../plugin/ClassInheritanceHierarchy/model/ClassInheritanceHierarchy.ecore#//Clazz/subClass"/>
       </constraints>
       <constraints xsi:type="emf:Reference">
-        <parameters reference="/52/@symbolicParameters.1"/>
+        <parameters reference="/52/@symbolicParameters.2"/>
         <parameters reference="/52/@symbolicParameters.0"/>
         <eModelElement xsi:type="ecore:EReference" href="../../../plugin/ClassInheritanceHierarchy/model/ClassInheritanceHierarchy.ecore#//Clazz/subClass"/>
       </constraints>
@@ -1230,23 +1230,23 @@
       <localVariables xsi:type="emf:EMFVariable" name="clazzToTable">
         <eClassifier xsi:type="ecore:EClass" href="../model/ClassInhHier2DB_MA.ecore#//Clazz2DirectTable"/>
       </localVariables>
-      <localVariables xsi:type="emf:EMFVariable" name="eMoflon_ProtocolNode_attr_EBoolean">
-        <eClassifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-      </localVariables>
       <localVariables xsi:type="emf:EMFVariable" name="eMoflon_ProtocolNode_attr_EString">
         <eClassifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </localVariables>
-      <constants value="ACED0005737200116A6176612E6C616E672E426F6F6C65616ECD207280D59CFAEE0200015A000576616C7565787000"/>
+      <localVariables xsi:type="emf:EMFVariable" name="eMoflon_ProtocolNode_attr_EBoolean">
+        <eClassifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      </localVariables>
       <constants value="ACED0005740015417474726962757465546F436F6C756D6E52756C65"/>
+      <constants value="ACED0005737200116A6176612E6C616E672E426F6F6C65616ECD207280D59CFAEE0200015A000576616C7565787000"/>
       <constraints xsi:type="emf:Attribute">
         <parameters reference="/55/@bodies.0/@localVariables.0"/>
         <parameters reference="/55/@bodies.0/@localVariables.4"/>
-        <eModelElement xsi:type="ecore:EAttribute" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication/amalgamated"/>
+        <eModelElement xsi:type="ecore:EAttribute" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication/name"/>
       </constraints>
       <constraints xsi:type="emf:Attribute">
         <parameters reference="/55/@bodies.0/@localVariables.0"/>
         <parameters reference="/55/@bodies.0/@localVariables.5"/>
-        <eModelElement xsi:type="ecore:EAttribute" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication/name"/>
+        <eModelElement xsi:type="ecore:EAttribute" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication/amalgamated"/>
       </constraints>
       <constraints xsi:type="relational:Equal">
         <parameters reference="/55/@bodies.0/@localVariables.4"/>

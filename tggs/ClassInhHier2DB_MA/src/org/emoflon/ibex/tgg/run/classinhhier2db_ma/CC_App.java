@@ -45,7 +45,7 @@ public class CC_App extends CC {
 		
 		cc.saveModels();
 		cc.terminate();
-		System.out.println("TERMINATED AFTER " + i);
+		//System.out.println("TERMINATED AFTER " + i);
 		//}
 		
 		//while(cc.modelsAreConsistent());
@@ -71,6 +71,7 @@ public class CC_App extends CC {
 	
 		EcoreUtil.resolveAll(rs);
 	}
+	
 	*/
 	
 	@Override
@@ -82,4 +83,5 @@ public class CC_App extends CC {
 	
 		EcoreUtil.resolveAll(rs);
 	}
+	
 }
