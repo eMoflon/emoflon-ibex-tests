@@ -60,7 +60,7 @@ public class Batch extends SyncTestCase<ClassPackage, DB>{
 		assertPostcondition("in/02_ClassToTable_FWD", "expected/02_ClassToTable_FWD");
 	}
 	
-	@Ignore ("Fails due to not implemented logic for complement rules.")
+	@Ignore
 	@Test
 	public void testSubClassToTable_FWD()
 	{
