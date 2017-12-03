@@ -54,6 +54,7 @@ public class CC_App extends CC {
 		loadAndRegisterMetamodel(projectPath + "/model/" + projectPath + ".ecore");
 	}
 	
+	/*
 	@Override
 	public void loadModels() throws IOException {
 		s = loadResource(projectPath + "/instances/src2.xmi");
@@ -63,8 +64,8 @@ public class CC_App extends CC {
 	
 		EcoreUtil.resolveAll(rs);
 	}
+	*/
 	
-	/*
 	@Override
 	public void loadModels() throws IOException {
 		s = loadResource(projectPath + "/resources/"+srcPath+".xmi");
@@ -74,7 +75,7 @@ public class CC_App extends CC {
 	
 		EcoreUtil.resolveAll(rs);
 	}
-	*/
+	
 
 	
 }
