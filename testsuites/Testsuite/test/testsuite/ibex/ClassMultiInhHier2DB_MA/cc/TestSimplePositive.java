@@ -3,7 +3,6 @@ package testsuite.ibex.ClassMultiInhHier2DB_MA.cc;
 import java.io.IOException;
 
 import org.emoflon.ibex.tgg.run.classmultipleinhhier2db_ma.CC_App;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import testsuite.ibex.testUtil.CCTestCase;
@@ -16,71 +15,87 @@ public class TestSimplePositive extends CCTestCase{
 	
 	@Test
 	public void testPackageToDatabase() throws IOException {
-		createGenerator("in/PackageToDatabase_FWD", "expected/PackageToDatabase_FWD");
+		createGenerator("in/01_PackageToDatabase_FWD", "expected/01_PackageToDatabase_FWD");
 		runGenerator();
 		assert checker.modelsAreConsistent();
 	}
 	
 	@Test
 	public void testClassToTable() throws IOException {
-		createGenerator("in/ClassToTable_FWD", "expected/ClassToTable_FWD");
+		createGenerator("in/02_ClassToTable_FWD", "expected/02_ClassToTable_FWD");
 		runGenerator();
 		assert checker.modelsAreConsistent();
 	}
 	
 	@Test
 	public void testAttributeToColumn() throws IOException {
-		createGenerator("in/AttributeToColumn_FWD", "expected/AttributeToColumn_FWD");
+		createGenerator("in/03_AttributeToColumn_FWD", "expected/03_AttributeToColumn_FWD");
 		runGenerator();
 		assert checker.modelsAreConsistent();
 	}
 	
-	@Ignore ("Fails due to not implemented logic for complement rules.")
 	@Test
 	public void testSubClassToTable() throws IOException {
-		createGenerator("in/SubClassToTable_FWD", "expected/SubClassToTable_FWD");
+		createGenerator("in/04_SubClassToTable_FWD", "expected/04_SubClassToTable_FWD");
 		runGenerator();
 		checker.generateConsistencyReport();
 		assert checker.modelsAreConsistent();
 	}
 	
-	@Ignore ("Fails due to not implemented logic for complement rules.")
 	@Test
 	public void testSuperAttToSubTable() throws IOException {
-		createGenerator("in/SuperAttToSubTable_FWD", "expected/SuperAttToSubTable_FWD");
+		createGenerator("in/05_OneSuperAtt_FWD", "expected/05_OneSuperAtt_FWD");
 		runGenerator();
 		assert checker.modelsAreConsistent();
 			
 	}
 	
-	@Ignore ("Fails due to not implemented logic for complement rules.")
 	@Test
 	public void testSubAttToSubTable() throws IOException {
-		createGenerator("in/SubAttToSubTable_FWD", "expected/SubAttToSubTable_FWD");
+		createGenerator("in/06_OneSuperAtt_OneSubAtt_FWD", "expected/06_OneSuperAtt_OneSubAtt_FWD");
 		runGenerator();
 		assert checker.modelsAreConsistent();
 	}
 	
-	@Ignore ("Fails due to not implemented logic for complement rules.")
 	@Test
 	public void testTransitiveAttToSubTables() throws IOException {
-		createGenerator("in/SuperSuperClassToSubTable_FWD", "expected/SuperSuperClassToSubTable_FWD");
+		createGenerator("in/07_OneSuperSuperAtt_FWD", "expected/07_OneSuperSuperAtt_FWD");
 		runGenerator();
 		assert checker.modelsAreConsistent();
 	}
 	
-	@Ignore ("Fails due to not implemented logic for complement rules.")
+	@Test
+	public void testTransitiveAttToSubTables2() throws IOException {
+		createGenerator("in/08_OneSuperSuperAtt_OneSuperAtt_FWD", "expected/08_OneSuperSuperAtt_OneSuperAtt_FWD");
+		runGenerator();
+		assert checker.modelsAreConsistent();
+	}
+	
+	@Test
+	public void testTransitiveAttToSubTables3() throws IOException {
+		createGenerator("in/09_OneSuperAtt_OneSubAtt_OneSubAtt_FWD", "expected/09_OneSuperAtt_OneSubAtt_OneSubAtt_FWD");
+		runGenerator();
+		assert checker.modelsAreConsistent();
+	}
+	
 	@Test
 	public void testTwoSuperClassesToSubTables() throws IOException {
-		createGenerator("in/TwoSuperClassesToSubTable_FWD", "expected/TwoSuperClassesToSubTable_FWD");
+		createGenerator("in/10_TwoDiffSuperAtt_FWD", "expected/10_TwoDiffSuperAtt_FWD");
 		runGenerator();
 		assert checker.modelsAreConsistent();
 	}
 	
-	@Ignore ("Fails due to not implemented logic for complement rules.")
+
 	@Test
 	public void testTwoTransitiveSuperClassesToSubTables() throws IOException {
-		createGenerator("in/TwoTransitiveSuperClassesToSubTable_FWD", "expected/TwoTransitiveSuperClassesToSubTable_FWD");
+		createGenerator("in/11_TwoDiffTransitiveSuperAtt_FWD", "expected/11_TwoDiffTransitiveSuperAtt_FWD");
+		runGenerator();
+		assert checker.modelsAreConsistent();
+	}
+	
+	@Test
+	public void testTwoTransitiveSuperClassesToSubTables2() throws IOException {
+		createGenerator("in/11_TwoDiffTransitiveSuperAtt_OneSubAtt_FWD", "expected/11_TwoDiffTransitiveSuperAtt_OneSubAtt_FWD");
 		runGenerator();
 		assert checker.modelsAreConsistent();
 	}

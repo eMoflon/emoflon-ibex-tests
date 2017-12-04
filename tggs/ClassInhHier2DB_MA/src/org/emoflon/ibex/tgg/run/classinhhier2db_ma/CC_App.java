@@ -28,18 +28,28 @@ public class CC_App extends CC {
 	}
 
 	public static void main(String[] args) throws IOException {
+		
+		CC_App cc;
+		int i = 0;
+		//do {
 		BasicConfigurator.configure();
 
-		CC_App cc = new CC_App("ClassInhHier2DB_MA", "./../", true);
+		cc = new CC_App("ClassInhHier2DB_MA", "./../", true);
 		
 		logger.info("Starting CC");
 		long tic = System.currentTimeMillis();
 		cc.run();
+		i++;
 		long toc = System.currentTimeMillis();
 		logger.info("Completed CC in: " + (toc - tic) + " ms");
 		
 		cc.saveModels();
 		cc.terminate();
+		//System.out.println("TERMINATED AFTER " + i);
+		//}
+		
+		//while(cc.modelsAreConsistent());
+		System.out.println(cc.generateConsistencyReport());
 	}
 
 	protected void registerUserMetamodels() throws IOException {
@@ -50,6 +60,19 @@ public class CC_App extends CC {
 		// Register correspondence metamodel last
 		loadAndRegisterMetamodel(projectPath + "/model/" + projectPath + ".ecore");
 	}
+	
+	/*
+	@Override
+	public void loadModels() throws IOException {
+		s = loadResource(projectPath + "/instances/src3.xmi");
+		t = loadResource(projectPath + "/instances/trg3.xmi");
+		c = createResource(projectPath + "/instances/corr.xmi");
+		p = createResource(projectPath + "/instances/protocol.xmi");
+	
+		EcoreUtil.resolveAll(rs);
+	}
+	
+	*/
 	
 	@Override
 	public void loadModels() throws IOException {
