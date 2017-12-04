@@ -18,15 +18,33 @@
       <value href="trg.xmi#/"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="RequireToNodeRule" final="true">
+    <createdSrc href="src.xmi#//@blocks.0/@ports.0"/>
+    <createdTrg href="trg.xmi#//@rootNode/@children.0/@children.0/@attribute.0"/>
+    <createdTrg href="trg.xmi#//@rootNode/@children.0/@children.0"/>
+    <createdCorr href="corr.xmi#/1"/>
+    <nodeMappings key="require">
+      <value href="src.xmi#//@blocks.0/@ports.0"/>
+    </nodeMappings>
+    <nodeMappings key="requireToNode">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="id">
+      <value href="trg.xmi#//@rootNode/@children.0/@children.0/@attribute.0"/>
+    </nodeMappings>
+    <nodeMappings key="requireNode">
+      <value href="trg.xmi#//@rootNode/@children.0/@children.0"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
   <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="BlockToNodeRule" final="true">
     <createdSrc href="src.xmi#//@blocks.0"/>
     <createdTrg href="trg.xmi#//@rootNode/@children.0"/>
     <createdTrg href="trg.xmi#//@rootNode/@children.0/@attribute.0"/>
-    <createdCorr href="corr.xmi#/1"/>
+    <createdCorr href="corr.xmi#/2"/>
     <contextSrc href="src.xmi#/"/>
     <contextTrg href="trg.xmi#//@rootNode"/>
     <nodeMappings key="blockToNode">
-      <value href="corr.xmi#/1"/>
+      <value href="corr.xmi#/2"/>
     </nodeMappings>
     <nodeMappings key="blockNode">
       <value href="trg.xmi#//@rootNode/@children.0"/>
@@ -47,24 +65,6 @@
       <value href="corr.xmi#/0"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="RequireToNodeRule" final="true">
-    <createdSrc href="src.xmi#//@blocks.0/@ports.0"/>
-    <createdTrg href="trg.xmi#//@rootNode/@children.0/@children.0/@attribute.0"/>
-    <createdTrg href="trg.xmi#//@rootNode/@children.0/@children.0"/>
-    <createdCorr href="corr.xmi#/2"/>
-    <nodeMappings key="require">
-      <value href="src.xmi#//@blocks.0/@ports.0"/>
-    </nodeMappings>
-    <nodeMappings key="requireToNode">
-      <value href="corr.xmi#/2"/>
-    </nodeMappings>
-    <nodeMappings key="id">
-      <value href="trg.xmi#//@rootNode/@children.0/@children.0/@attribute.0"/>
-    </nodeMappings>
-    <nodeMappings key="requireNode">
-      <value href="trg.xmi#//@rootNode/@children.0/@children.0"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
   <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PortEdgeRule" final="true">
     <contextSrc href="src.xmi#//@blocks.0"/>
     <contextSrc href="src.xmi#//@blocks.0/@ports.0"/>
@@ -83,10 +83,10 @@
       <value href="trg.xmi#//@rootNode/@children.0/@children.0"/>
     </nodeMappings>
     <nodeMappings key="blockToNode">
-      <value href="corr.xmi#/1"/>
+      <value href="corr.xmi#/2"/>
     </nodeMappings>
     <nodeMappings key="portToNode">
-      <value href="corr.xmi#/2"/>
+      <value href="corr.xmi#/1"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
 </xmi:XMI>

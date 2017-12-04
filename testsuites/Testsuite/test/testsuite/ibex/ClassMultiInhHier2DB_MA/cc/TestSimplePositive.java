@@ -3,7 +3,6 @@ package testsuite.ibex.ClassMultiInhHier2DB_MA.cc;
 import java.io.IOException;
 
 import org.emoflon.ibex.tgg.run.classmultipleinhhier2db_ma.CC_App;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import testsuite.ibex.testUtil.CCTestCase;
@@ -81,7 +80,7 @@ public class TestSimplePositive extends CCTestCase{
 	
 	@Test
 	public void testTwoSuperClassesToSubTables() throws IOException {
-		createGenerator("in/10_TwoSuperClassesToSubTable_FWD", "expected/10_TwoSuperClassesToSubTable_FWD");
+		createGenerator("in/10_TwoDiffSuperAtt_FWD", "expected/10_TwoDiffSuperAtt_FWD");
 		runGenerator();
 		assert checker.modelsAreConsistent();
 	}
@@ -89,7 +88,14 @@ public class TestSimplePositive extends CCTestCase{
 
 	@Test
 	public void testTwoTransitiveSuperClassesToSubTables() throws IOException {
-		createGenerator("in/11_TwoTransitiveSuperClassesToSubTable_FWD", "expected/11_TwoTransitiveSuperClassesToSubTable_FWD");
+		createGenerator("in/11_TwoDiffTransitiveSuperAtt_FWD", "expected/11_TwoDiffTransitiveSuperAtt_FWD");
+		runGenerator();
+		assert checker.modelsAreConsistent();
+	}
+	
+	@Test
+	public void testTwoTransitiveSuperClassesToSubTables2() throws IOException {
+		createGenerator("in/11_TwoDiffTransitiveSuperAtt_OneSubAtt_FWD", "expected/11_TwoDiffTransitiveSuperAtt_OneSubAtt_FWD");
 		runGenerator();
 		assert checker.modelsAreConsistent();
 	}

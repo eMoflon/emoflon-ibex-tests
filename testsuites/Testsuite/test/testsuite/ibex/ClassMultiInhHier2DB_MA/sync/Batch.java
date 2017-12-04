@@ -145,7 +145,7 @@ public class Batch extends SyncTestCase<ClassPackage, DB>{
 				.andThen( p -> helperClass.createInheritance(p, 1, 2))
 		);
 		//------------
-		assertPostcondition("in/10_TwoSuperClassesToSubTable_FWD", "expected/10_TwoSuperClassesToSubTable_FWD");
+		assertPostcondition("in/10_TwoDiffSuperAtt_FWD", "expected/10_TwoDiffSuperAtt_FWD");
 	}
 	
 	

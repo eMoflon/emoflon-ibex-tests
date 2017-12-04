@@ -28,7 +28,6 @@ public class TestSimpleNegative extends CCTestCase{
 		assert !checker.modelsAreConsistent();
 	}
 	
-	@Ignore
 	@Test
 	public void testSubClassToTable() throws IOException {
 		createGenerator("in/04_SubClassToTable_FWD", "expected/05_OneSuperAtt_FWD");
@@ -67,6 +66,7 @@ public class TestSimpleNegative extends CCTestCase{
 		assert !checker.modelsAreConsistent();
 	}
 	
+	@Ignore("Possibly related to FIX ME in CC, regarding uniqueness.")
 	@Test
 	public void testTransitiveAttToSubTables2_V3() throws IOException {
 		createGenerator("in/08_OneSuperSuperAtt_OneSuperAtt_FWD", "expected/08_OneSuperSuperAtt_OneSuperAtt_INCONS_V3_FWD");
@@ -74,30 +74,27 @@ public class TestSimpleNegative extends CCTestCase{
 		assert !checker.modelsAreConsistent();
 	}
 	
-	@Ignore
 	@Test
 	public void testTwoSuperClassesToSubTables_V1() throws IOException {
-		createGenerator("in/10_TwoSuperClassesToSubTable_FWD", "expected/08_OneSuperSuperAtt_OneSuperAtt_INCONS_V1_FWD");
+		createGenerator("in/10_TwoDiffSuperAtt_FWD", "expected/08_OneSuperSuperAtt_OneSuperAtt_INCONS_V1_FWD");
 		runGenerator();
 		assert !checker.modelsAreConsistent();
 	}
 	
 	@Test
 	public void testTwoSuperClassesToSubTables_V2() throws IOException {
-		createGenerator("in/10_TwoSuperClassesToSubTable_FWD", "expected/08_OneSuperSuperAtt_OneSuperAtt_INCONS_V2_FWD");
+		createGenerator("in/10_TwoDiffSuperAtt_FWD", "expected/08_OneSuperSuperAtt_OneSuperAtt_INCONS_V2_FWD");
 		runGenerator();
 		assert !checker.modelsAreConsistent();
 	}
 	
-	@Ignore
 	@Test
 	public void testTwoSuperClassesToSubTables_V3() throws IOException {
-		createGenerator("in/10_TwoSuperClassesToSubTable_FWD", "expected/08_OneSuperSuperAtt_OneSuperAtt_INCONS_V3_FWD");
+		createGenerator("in/10_TwoDiffSuperAtt_FWD", "expected/08_OneSuperSuperAtt_OneSuperAtt_INCONS_V3_FWD");
 		runGenerator();
 		assert !checker.modelsAreConsistent();
 	}
 	
-	@Ignore
 	@Test
 	public void testTwoSuperClassesToSubTables2_V1() throws IOException {
 		createGenerator("in/10_TwoDiffSuperAtt_OneSubAtt_FWD", "expected/09_OneSuperAtt_OneSubAtt_OneSubAtt_INCONS_V1_FWD");
@@ -112,10 +109,24 @@ public class TestSimpleNegative extends CCTestCase{
 		assert !checker.modelsAreConsistent();
 	}
 	
-	@Ignore
 	@Test
 	public void testTwoSuperClassesToSubTables2_V3() throws IOException {
 		createGenerator("in/10_TwoDiffSuperAtt_OneSubAtt_FWD", "expected/09_OneSuperAtt_OneSubAtt_OneSubAtt_INCONS_V3_FWD");
+		runGenerator();
+		assert !checker.modelsAreConsistent();
+	}
+	
+	@Test
+	public void testTwoDiffTransitiveSuperToSubTables_V1() throws IOException {
+		createGenerator("in/11_TwoDiffTransitiveSuperAtt_OneSubAtt_FWD", "expected/11_TwoDiffTransitiveSuperAtt_OneSubAtt_INCONS_V1_FWD");
+		runGenerator();
+		assert !checker.modelsAreConsistent();
+	}
+	
+	@Ignore("Possibly related to FIX ME in CC, regarding uniqueness.")
+	@Test
+	public void testTwoDiffTransitiveSuperToSubTables_V2() throws IOException {
+		createGenerator("in/11_TwoDiffTransitiveSuperAtt_OneSubAtt_FWD", "expected/11_TwoDiffTransitiveSuperAtt_OneSubAtt_INCONS_V2_FWD");
 		runGenerator();
 		assert !checker.modelsAreConsistent();
 	}

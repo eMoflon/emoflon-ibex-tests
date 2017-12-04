@@ -111,7 +111,7 @@ public class SimpleModelgenTest extends ModelGenTestCase<ClassPackage, DB>{
 			stop.setMaxRuleCount("SubClassToTable", 2);
 			generator.setUpdatePolicy(new CreateMultipleInhUpdatePolicy());
 			runGenerator(stop);
-			assertPostcondition("in/10_TwoSuperClassesToSubTable_FWD", "expected/10_TwoSuperClassesToSubTable_FWD");
+			assertPostcondition("in/10_TwoDiffSuperAtt_FWD", "expected/10_TwoDiffSuperAtt_FWD");
 	}
 	
 	@Ignore ("Cannot be tested due to Update Policy cannot support this scenario.")
@@ -124,7 +124,7 @@ public class SimpleModelgenTest extends ModelGenTestCase<ClassPackage, DB>{
 			stop.setMaxRuleCount("SubClassToTable", 4);
 			//generator.setUpdatePolicy(new CreateAttributesUpdatePolicy());
 			runGenerator(stop);
-			assertPostcondition("in/TwoTransitiveSuperClassesToSubTable_FWD", "expected/TwoTransitiveSuperClassesToSubTable_FWD");
+			assertPostcondition("in/11_TwoDiffTransitiveSuperAtt_FWD", "expected/11_TwoDiffTransitiveSuperAtt_FWD");
 	}
 
 }
