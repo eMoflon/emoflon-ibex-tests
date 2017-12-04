@@ -2,6 +2,7 @@ package testsuite.ibex.VHDLTGGCodeAdapter.sync;
 
 import org.benchmarx.mocaTree.core.MocaTreeHelperForVHDLTGGCode;
 import org.benchmarx.vhdlModel.core.VHDLModelHelper;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import MocaTree.File;
@@ -75,6 +76,7 @@ public class Batch extends SyncTestCase<File, VHDLSpecification> {
 	/**
 	 * <b>Features</b>: bwd
 	 */
+	@Ignore("Appears to be non-deterministic")
 	@Test
 	public void testNotGate_BWD()
 	{
