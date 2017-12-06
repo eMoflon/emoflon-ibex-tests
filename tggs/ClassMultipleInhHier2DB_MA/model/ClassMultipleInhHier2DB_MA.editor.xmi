@@ -171,34 +171,6 @@
       <op value="++"/>
     </correspondencePatterns>
   </rules>
-  <complementRules name="TransferSuperAttributes" kernel="//@rules.0">
-    <sourcePatterns name="clazz">
-      <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Clazz"/>
-    </sourcePatterns>
-    <targetPatterns name="col">
-      <type href="platform:/resource/Database/model/Database.ecore#//Column"/>
-    </targetPatterns>
-    <targetPatterns name="subTable">
-      <type href="platform:/resource/Database/model/Database.ecore#//Table"/>
-      <linkVariablePatterns target="//@complementRules.0/@targetPatterns.2">
-        <op value="++"/>
-        <type href="platform:/resource/Database/model/Database.ecore#//Table/columns"/>
-      </linkVariablePatterns>
-    </targetPatterns>
-    <targetPatterns name="transferCol">
-      <op value="++"/>
-      <type href="platform:/resource/Database/model/Database.ecore#//Column"/>
-    </targetPatterns>
-    <correspondencePatterns name="superClassToSubTable" type="//@schema/@correspondenceTypes.2" source="//@complementRules.0/@sourcePatterns.0" target="//@complementRules.0/@targetPatterns.1"/>
-    <attrConditions name="//@schema/@attributeCondDefs.0">
-      <values xsi:type="tgg:AttributeExpression" objectVar="//@complementRules.0/@targetPatterns.0">
-        <attribute href="platform:/resource/Database/model/Database.ecore#//Column/name"/>
-      </values>
-      <values xsi:type="tgg:AttributeExpression" objectVar="//@complementRules.0/@targetPatterns.2">
-        <attribute href="platform:/resource/Database/model/Database.ecore#//Column/name"/>
-      </values>
-    </attrConditions>
-  </complementRules>
   <complementRules name="TransferDirectSuperClazzToAllSubSubTablesCorrs" kernel="//@rules.3">
     <sourcePatterns name="superClazz">
       <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Clazz"/>
@@ -209,10 +181,38 @@
     <targetPatterns name="subSubTable">
       <type href="platform:/resource/Database/model/Database.ecore#//Table"/>
     </targetPatterns>
-    <correspondencePatterns name="subClassToSubSubTable" type="//@schema/@correspondenceTypes.2" source="//@complementRules.1/@sourcePatterns.1" target="//@complementRules.1/@targetPatterns.0"/>
-    <correspondencePatterns name="transitiveSuperClassToSubTable" type="//@schema/@correspondenceTypes.2" source="//@complementRules.1/@sourcePatterns.0" target="//@complementRules.1/@targetPatterns.0">
+    <correspondencePatterns name="subClassToSubSubTable" type="//@schema/@correspondenceTypes.2" source="//@complementRules.0/@sourcePatterns.1" target="//@complementRules.0/@targetPatterns.0"/>
+    <correspondencePatterns name="transitiveSuperClassToSubTable" type="//@schema/@correspondenceTypes.2" source="//@complementRules.0/@sourcePatterns.0" target="//@complementRules.0/@targetPatterns.0">
       <op value="++"/>
     </correspondencePatterns>
+  </complementRules>
+  <complementRules name="TransferSuperAttributes" kernel="//@rules.0">
+    <sourcePatterns name="clazz">
+      <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Clazz"/>
+    </sourcePatterns>
+    <targetPatterns name="col">
+      <type href="platform:/resource/Database/model/Database.ecore#//Column"/>
+    </targetPatterns>
+    <targetPatterns name="subTable">
+      <type href="platform:/resource/Database/model/Database.ecore#//Table"/>
+      <linkVariablePatterns target="//@complementRules.1/@targetPatterns.2">
+        <op value="++"/>
+        <type href="platform:/resource/Database/model/Database.ecore#//Table/columns"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="transferCol">
+      <op value="++"/>
+      <type href="platform:/resource/Database/model/Database.ecore#//Column"/>
+    </targetPatterns>
+    <correspondencePatterns name="superClassToSubTable" type="//@schema/@correspondenceTypes.2" source="//@complementRules.1/@sourcePatterns.0" target="//@complementRules.1/@targetPatterns.1"/>
+    <attrConditions name="//@schema/@attributeCondDefs.0">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@complementRules.1/@targetPatterns.0">
+        <attribute href="platform:/resource/Database/model/Database.ecore#//Column/name"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@complementRules.1/@targetPatterns.2">
+        <attribute href="platform:/resource/Database/model/Database.ecore#//Column/name"/>
+      </values>
+    </attrConditions>
   </complementRules>
   <complementRules name="TransferSuperCols" kernel="//@rules.3">
     <targetPatterns name="superTable">

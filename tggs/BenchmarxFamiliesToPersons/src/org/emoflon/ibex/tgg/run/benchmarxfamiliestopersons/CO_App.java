@@ -3,16 +3,16 @@ package org.emoflon.ibex.tgg.run.benchmarxfamiliestopersons;
 import java.io.IOException;
 
 import org.apache.log4j.BasicConfigurator;
-import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGEN;
-import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGENStopCriterion;
+
+import org.emoflon.ibex.tgg.operational.strategies.co.CO;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesEngine;
 
 import Families.impl.FamiliesPackageImpl;
 import Persons.impl.PersonsPackageImpl;
 
-public class MODELGEN_App extends MODELGEN {
+public class CO_App extends CO {
 
-	public MODELGEN_App(String projectName, String workspacePath, boolean debug) throws IOException {
+	public CO_App(String projectName, String workspacePath, boolean debug) throws IOException {
 		super(projectName, workspacePath, debug);
 		registerPatternMatchingEngine(new DemoclesEngine());
 	}
@@ -20,23 +20,20 @@ public class MODELGEN_App extends MODELGEN {
 	public static void main(String[] args) throws IOException {
 		BasicConfigurator.configure();
 
-		MODELGEN_App generator = new MODELGEN_App("BenchmarxFamiliesToPersons", "./../", false);
+		CO_App co = new CO_App("BenchmarxFamiliesToPersons", "./../", true);
 		
-		MODELGENStopCriterion stop = new MODELGENStopCriterion(generator.getTGG());
-		stop.setTimeOutInMS(100);
-		generator.setStopCriterion(stop);
-		
-		logger.info("Starting MODELGEN");
+		logger.info("Starting CO");
 		long tic = System.currentTimeMillis();
-		generator.run();
+		co.run();
 		long toc = System.currentTimeMillis();
-		logger.info("Completed MODELGEN in: " + (toc - tic) + " ms");
+		logger.info("Completed CO in: " + (toc - tic) + " ms");
 		
-		generator.saveModels();
-		generator.terminate();
+		co.saveModels();
+		co.terminate();
 	}
 
 	protected void registerUserMetamodels() throws IOException {
+		// Load and register source and target metamodels
 		rs.getPackageRegistry().put("platform:/resource/Families/model/Families.ecore", FamiliesPackageImpl.init());
 		rs.getPackageRegistry().put("platform:/resource/Persons/model/Persons.ecore", PersonsPackageImpl.init());
 		

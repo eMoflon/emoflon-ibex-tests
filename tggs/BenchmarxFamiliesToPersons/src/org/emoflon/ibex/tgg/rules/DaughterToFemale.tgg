@@ -1,7 +1,7 @@
-#using FamiliesToPersons.*
+#using BenchmarxFamiliesToPersons.*
 #using AttrCondDefLibrary.*
 
-#rule DaughterToFemale #extends FamilyMember2Person #with FamiliesToPersons
+#rule DaughterToFemale #extends FamilyMember2Person #with BenchmarxFamiliesToPersons
 
 #source { 
 	++ f : Family {

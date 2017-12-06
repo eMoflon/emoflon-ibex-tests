@@ -2,7 +2,7 @@
 <tgg:TripleGraphGrammarFile xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tgg="http://www.moflon.org/ide/tgg/mosl/TGG">
   <imports name="platform:/resource/Families/model/Families.ecore"/>
   <imports name="platform:/resource/Persons/model/Persons.ecore"/>
-  <schema name="FamiliesToPersons">
+  <schema name="BenchmarxFamiliesToPersons">
     <sourceTypes href="platform:/resource/Families/model/Families.ecore#/"/>
     <targetTypes href="platform:/resource/Persons/model/Persons.ecore#/"/>
     <correspondenceTypes name="FamiliesToPersonsCorr">
