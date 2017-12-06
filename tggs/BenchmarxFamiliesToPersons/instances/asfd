@@ -1,0 +1,51 @@
+@startuml
+hide empty members
+hide circle
+hide stereotype
+
+skinparam shadowing false
+
+skinparam class {
+	BorderColor<<GREEN>> SpringGreen
+	BorderColor<<BLACK>> Black
+	BorderColor<<KERN>> LightGray
+	BackgroundColor<<TRG>> MistyRose
+	BackgroundColor<<SRC>> LightYellow
+	BackgroundColor<<CORR>> LightCyan 
+	ArrowColor Black
+}	
+together {
+class o1_FamilyRegister <<BLACK>> <<SRC>>{
+	}
+class o2_FamilyMember <<BLACK>> <<SRC>>{
+	name = ultricies
+	}
+class o3_FamilyMember <<BLACK>> <<SRC>>{
+	name = per
+	}
+}
+
+
+together {
+class o7_PersonRegister <<BLACK>> <<TRG>>{
+	}
+class o8_Male <<BLACK>> <<TRG>>{
+	name = vestibulum, ultricies
+	birthday = Thu Jan 01 00:00:00 CET 1
+	}
+class o9_Female <<BLACK>> <<TRG>>{
+	name = metus, per
+	birthday = Thu Jan 01 00:00:00 CET 1
+	}
+}
+		
+ o7_PersonRegister <..> o1_FamilyRegister : "FamiliesToPersonsCorr"
+o4_FamiliesToPersonsCorr ..> o7_PersonRegister : ""	
+o5_FamilyMemberToPerson ..> o2_FamilyMember : ""
+o5_FamilyMemberToPerson ..> o8_Male : ""	
+o9_Female <..> o3_FamilyMember : ""
+o6_FamilyMemberToPerson ..> o9_Female : ""	
+
+o7_PersonRegister --> o9_Female : "persons"
+o2_FamilyMember <--> o8_Male : "persons"
+@enduml

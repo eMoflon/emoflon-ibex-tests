@@ -1,7 +1,7 @@
-#using FamiliesToPersons.*
+#using BenchmarxFamiliesToPersons.*
 #using AttrCondDefLibrary.*
 
-#abstract #rule FamilyMember2Person #with FamiliesToPersons
+#abstract #rule FamilyMember2Person #with BenchmarxFamiliesToPersons
 
 #source { 
 	families : FamilyRegister {
