@@ -3,7 +3,6 @@ package testsuite.ibex.ClassInhHier2DB_MA.cc;
 import java.io.IOException;
 
 import org.emoflon.ibex.tgg.run.classinhhier2db_ma.CC_App;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import testsuite.ibex.testUtil.CCTestCase;

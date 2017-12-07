@@ -30,8 +30,6 @@ public class CC_App extends CC {
 	public static void main(String[] args) throws IOException {
 		
 		CC_App cc;
-		int i = 0;
-		//do {
 		BasicConfigurator.configure();
 
 		cc = new CC_App("ClassInhHier2DB_MA", "./../", true);
@@ -39,16 +37,12 @@ public class CC_App extends CC {
 		logger.info("Starting CC");
 		long tic = System.currentTimeMillis();
 		cc.run();
-		i++;
 		long toc = System.currentTimeMillis();
 		logger.info("Completed CC in: " + (toc - tic) + " ms");
 		
 		cc.saveModels();
 		cc.terminate();
-		//System.out.println("TERMINATED AFTER " + i);
-		//}
 		
-		//while(cc.modelsAreConsistent());
 		System.out.println(cc.generateConsistencyReport());
 	}
 
