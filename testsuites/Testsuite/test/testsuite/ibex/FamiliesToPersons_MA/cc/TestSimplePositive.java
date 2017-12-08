@@ -2,7 +2,6 @@ package testsuite.ibex.FamiliesToPersons_MA.cc;
 
 import java.io.IOException;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 public class TestSimplePositive extends FamiliesToPersons_MA_CCTestCase {
@@ -21,12 +20,26 @@ public class TestSimplePositive extends FamiliesToPersons_MA_CCTestCase {
 		assert checker.modelsAreConsistent();
 	}
 	
-	@Ignore("Fails due to maximality.")
 	@Test
-	public void testWholeSimpsonFamily() throws IOException {
-		createGenerator("OneFamilyWithFatherMotherSonTwoDaughters", "PersonTwoMaleThreeFemale");
+	public void testOneMother() throws IOException {
+		createGenerator("02_Family_OneMother", "02_Person_OneFemale");
 		runGenerator();
 		assert checker.modelsAreConsistent();
 	}
+	
+	@Test
+	public void testOneMotherOneFather() throws IOException {
+		createGenerator("02_Family_OneMotherOneFather", "02_Person_OneFemaleOneMale");
+		runGenerator();
+		assert checker.modelsAreConsistent();
+	}
+	
+	@Test
+	public void testAllFamilyRoles() throws IOException {
+		createGenerator("02_Family_AllRoles", "02_Person_AllRoles");
+		runGenerator();
+		assert checker.modelsAreConsistent();
+	}
+	
 
 }

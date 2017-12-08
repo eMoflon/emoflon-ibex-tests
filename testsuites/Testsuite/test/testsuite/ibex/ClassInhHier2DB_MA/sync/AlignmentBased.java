@@ -33,51 +33,51 @@ public class AlignmentBased extends SyncTestCase<ClassPackage, DB>{
 	}
 
 	@Test
-	public void testPackageToDatabase_FWD()
+	public void test01_PackageToDatabase_FWD()
 	{
 		// No precondition!
 		//------------
-		assertPostcondition("in/PackageToDatabase_FWD", "expected/PackageToDatabase_FWD");
+		assertPostcondition("in/01_PackageToDatabase_FWD", "expected/01_PackageToDatabase_FWD");
 	}
 
 	@Test
 	public void testClassToTable_FWD()
 	{
-		assertPrecondition("in/PackageToDatabase_FWD", "expected/PackageToDatabase_FWD");
+		assertPrecondition("in/01_PackageToDatabase_FWD", "expected/01_PackageToDatabase_FWD");
 		//------------
 		tool.performAndPropagateSourceEdit(p -> helperClass.createClass(p, "C"));
 		//------------
-		assertPostcondition("in/ClassToTable_FWD", "expected/ClassToTable_FWD");
+		assertPostcondition("in/02_ClassToTable_FWD", "expected/02_ClassToTable_FWD");
 	}
 	
 	@Test
 	public void testClassToTable_BWD()
 	{
-		assertPrecondition("in/PackageToDatabase_FWD", "expected/PackageToDatabase_FWD");
+		assertPrecondition("in/01_PackageToDatabase_FWD", "expected/01_PackageToDatabase_FWD");
 		//------------
 		tool.performAndPropagateTargetEdit(db -> helperDB.createTable(db, "C"));
 		//------------
-		assertPostcondition("in/ClassToTable_FWD", "expected/ClassToTable_FWD");
+		assertPostcondition("in/02_ClassToTable_FWD", "expected/02_ClassToTable_FWD");
 	}
 	
 	@Ignore ("Fails due to not implemented logic for complement rules.")
 	@Test
 	public void testSubClassToTable_FWD()
 	{
-		assertPrecondition("in/PackageToDatabase_FWD", "expected/PackageToDatabase_FWD");
+		assertPrecondition("in/01_PackageToDatabase_FWD", "expected/01_PackageToDatabase_FWD");
 		//------------
 		tool.performAndPropagateSourceEdit(p -> helperClass.createClass(p, "C1"));
 		tool.performAndPropagateSourceEdit(p -> helperClass.createSubClass(p, "SC1", 0));
 			
 		//------------
-		assertPostcondition("in/SubClassToTable_FWD", "expected/SubClassToTable_FWD");
+		assertPostcondition("in/04_SubClassToTable_FWD", "expected/04_SubClassToTable_FWD");
 	}
 
-	// In BWD inheritance relation cannot be recovered for this scenario
+	@Ignore ("In BWD inheritance relation cannot be recovered for this scenario.")
 	@Test
 	public void testSubClassToTable_BWD()
 	{
-		assertPrecondition("in/PackageToDatabase_FWD", "expected/PackageToDatabase_FWD");
+		assertPrecondition("in/01_PackageToDatabase_FWD", "expected/01_PackageToDatabase_FWD");
 		//------------
 		tool.performAndPropagateTargetEdit(db -> helperDB.createTable(db, "C1"));
 		tool.performAndPropagateTargetEdit(db -> helperDB.createTable(db, "SC1"));
@@ -88,75 +88,75 @@ public class AlignmentBased extends SyncTestCase<ClassPackage, DB>{
 	@Test
 	public void testAttributeToColumn_FWD()
 	{
-		assertPrecondition("in/PackageToDatabase_FWD", "expected/PackageToDatabase_FWD");
+		assertPrecondition("in/01_PackageToDatabase_FWD", "expected/01_PackageToDatabase_FWD");
 		//------------
 		tool.performAndPropagateSourceEdit(p -> helperClass.createClass(p, "C"));
 		tool.performAndPropagateSourceEdit(p -> helperClass.createAttributeInSingleClass(p, "a1", null));
 		tool.performAndPropagateSourceEdit(p -> helperClass.createAttributeInSingleClass(p, "a2", null));
 		//------------
-		assertPostcondition("in/AttributeToColumn_FWD", "expected/AttributeToColumn_FWD");
+		assertPostcondition("in/03_AttributeToColumn_FWD", "expected/03_AttributeToColumn_FWD");
 	}
 	
 	@Test
 	public void testAttributeToColumn_BWD()
 	{
-		assertPrecondition("in/PackageToDatabase_FWD", "expected/PackageToDatabase_FWD");
+		assertPrecondition("in/01_PackageToDatabase_FWD", "expected/01_PackageToDatabase_FWD");
 		//------------
 		tool.performAndPropagateTargetEdit(db -> helperDB.createTable(db, "C"));
 		tool.performAndPropagateTargetEdit(db -> helperDB.createColumnInSingleTable(db, "a1"));
 		tool.performAndPropagateTargetEdit(db -> helperDB.createColumnInSingleTable(db, "a2"));
 		//------------
-		assertPostcondition("in/AttributeToColumn_FWD", "expected/AttributeToColumn_FWD");
+		assertPostcondition("in/03_AttributeToColumn_FWD", "expected/03_AttributeToColumn_FWD");
 	}
 	
 	@Ignore ("Fails due to not implemented logic for complement rules.")
 	@Test
 	public void testSuperAttToSubTable_FWD() {
-		assertPrecondition("in/PackageToDatabase_FWD", "expected/PackageToDatabase_FWD");
+		assertPrecondition("in/01_PackageToDatabase_FWD", "expected/01_PackageToDatabase_FWD");
 		//------------
 		tool.performAndPropagateSourceEdit (p -> helperClass.createClass(p, "C1"));
 		tool.performAndPropagateSourceEdit( p -> helperClass.createAttributeInClass(p, "a1", null, 0));
 		tool.performAndPropagateSourceEdit( p -> helperClass.createSubClass(p, "SC1", 0));
 		//------------
-		assertPostcondition("in/SuperAttToSubTable_FWD", "expected/SuperAttToSubTable_FWD");
+		assertPostcondition("in/05_OneSuperAtt_FWD", "expected/05_OneSuperAtt_FWD");
 	}
 	
 	@Ignore ("Fails due to not implemented logic for complement rules.")
 	@Test
 	public void testSuperAttToSubTable_BWD() {
-		assertPrecondition("in/PackageToDatabase_FWD", "expected/PackageToDatabase_FWD");
+		assertPrecondition("in/01_PackageToDatabase_FWD", "expected/01_PackageToDatabase_FWD");
 		//------------
 		tool.performAndPropagateSourceEdit (p -> helperClass.createClass(p, "C1"));
 		tool.performAndPropagateSourceEdit( p -> helperClass.createSubClass(p, "SC1", 0));
 		tool.performAndPropagateTargetEdit( db -> helperDB.createColumnInTable(db, "a1", 0));
 		//------------
-		assertPostcondition("in/SuperAttToSubTable_FWD", "expected/SuperAttToSubTable_FWD");
+		assertPostcondition("in/05_OneSuperAtt_FWD", "expected/05_OneSuperAtt_FWD");
 	}
 	
 	@Ignore ("Fails due to not implemented logic for complement rules.")
 	@Test
 	public void testSubAttToSubTable_FWD() {
-		assertPrecondition("in/PackageToDatabase_FWD", "expected/PackageToDatabase_FWD");
+		assertPrecondition("in/01_PackageToDatabase_FWD", "expected/01_PackageToDatabase_FWD");
 		//------------
 		tool.performAndPropagateSourceEdit( p -> helperClass.createClass(p, "C1"));
 		tool.performAndPropagateSourceEdit( p -> helperClass.createAttributeInClass(p, "a1", null, 0));
 		tool.performAndPropagateSourceEdit( p -> helperClass.createSubClass(p, "SC1", 0));
 		tool.performAndPropagateSourceEdit( p -> helperClass.createAttributeInClass(p, "a2", null, 1));
 		//------------
-		assertPostcondition("in/SubAttToSubTable_FWD", "expected/SubAttToSubTable_FWD");
+		assertPostcondition("in/06_OneSuperAtt_OneSubAtt_FWD", "expected/06_OneSuperAtt_OneSubAtt_FWD");
 	}
 	
 	@Ignore ("Fails due to not implemented logic for complement rules.")
 	@Test
 	public void testSuperSuperAttToSubTable_FWD() {
-		assertPrecondition("in/PackageToDatabase_FWD", "expected/PackageToDatabase_FWD");
+		assertPrecondition("in/01_PackageToDatabase_FWD", "expected/01_PackageToDatabase_FWD");
 		//------------
 		tool.performAndPropagateSourceEdit( p -> helperClass.createClass(p, "C1"));
 		tool.performAndPropagateSourceEdit( p -> helperClass.createAttributeInClass(p, "a1", null, 0));
 		tool.performAndPropagateSourceEdit( p -> helperClass.createSubClass(p, "SC1", 0));
-		tool.performAndPropagateSourceEdit( p -> helperClass.createSubClass(p, "SCSC1", 1));
+		tool.performAndPropagateSourceEdit( p -> helperClass.createSubClass(p, "SC2", 1));
 		//------------
-		assertPostcondition("in/SuperSuperClassToSubTable_FWD", "expected/SuperSuperClassToSubTable_FWD");
+		assertPostcondition("in/09_OneSuperSuperAtt_FWD", "expected/09_OneSuperSuperAtt_FWD");
 	}
 		
 }

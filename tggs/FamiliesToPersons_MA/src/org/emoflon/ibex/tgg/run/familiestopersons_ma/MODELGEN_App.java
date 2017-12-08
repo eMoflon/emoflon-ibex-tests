@@ -32,12 +32,12 @@ public class MODELGEN_App extends MODELGEN {
 		UpdatePolicy newUP = new RandomMatchUpdatePolicy();
 		newUP.setBoundForComplementRule("Father2Male", 1, true);
 		newUP.setBoundForComplementRule("Mother2Female", 1, true);
-		newUP.setBoundForComplementRule("Son2Male", 4, false);
-		newUP.setBoundForComplementRule("Daughter2Female", 3, false);
+		newUP.setBoundForComplementRule("Son2Male", 1, false);
+		newUP.setBoundForComplementRule("Daughter2Female", 1, false);
 		generator.setUpdatePolicy(newUP);
 		
 		stop.setMaxRuleCount("Families2Persons", 1);
-		stop.setMaxRuleCount("CreateFamily", 10);
+		stop.setMaxRuleCount("CreateFamily", 1);
 		generator.setStopCriterion(stop);
 		
 		logger.info("Starting MODELGEN");

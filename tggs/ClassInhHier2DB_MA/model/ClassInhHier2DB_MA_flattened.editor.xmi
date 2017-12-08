@@ -57,98 +57,6 @@
         <value>F</value>
       </allowedGenAdornments>
     </attributeCondDefs>
-    <attributeCondDefs name="concat">
-      <params paramName="separator">
-        <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      </params>
-      <params paramName="leftWord">
-        <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      </params>
-      <params paramName="rightWord">
-        <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      </params>
-      <params paramName="result">
-        <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      </params>
-      <allowedSyncAdornments>
-        <value>B</value>
-        <value>B</value>
-        <value>B</value>
-        <value>B</value>
-      </allowedSyncAdornments>
-      <allowedSyncAdornments>
-        <value>B</value>
-        <value>B</value>
-        <value>B</value>
-        <value>F</value>
-      </allowedSyncAdornments>
-      <allowedSyncAdornments>
-        <value>B</value>
-        <value>B</value>
-        <value>F</value>
-        <value>B</value>
-      </allowedSyncAdornments>
-      <allowedSyncAdornments>
-        <value>B</value>
-        <value>F</value>
-        <value>F</value>
-        <value>B</value>
-      </allowedSyncAdornments>
-      <allowedSyncAdornments>
-        <value>B</value>
-        <value>F</value>
-        <value>B</value>
-        <value>B</value>
-      </allowedSyncAdornments>
-      <allowedGenAdornments>
-        <value>B</value>
-        <value>B</value>
-        <value>B</value>
-        <value>B</value>
-      </allowedGenAdornments>
-      <allowedGenAdornments>
-        <value>B</value>
-        <value>B</value>
-        <value>B</value>
-        <value>F</value>
-      </allowedGenAdornments>
-      <allowedGenAdornments>
-        <value>B</value>
-        <value>B</value>
-        <value>F</value>
-        <value>B</value>
-      </allowedGenAdornments>
-      <allowedGenAdornments>
-        <value>B</value>
-        <value>F</value>
-        <value>F</value>
-        <value>B</value>
-      </allowedGenAdornments>
-      <allowedGenAdornments>
-        <value>B</value>
-        <value>F</value>
-        <value>B</value>
-        <value>B</value>
-      </allowedGenAdornments>
-      <allowedGenAdornments>
-        <value>B</value>
-        <value>F</value>
-        <value>B</value>
-        <value>F</value>
-      </allowedGenAdornments>
-      <allowedGenAdornments>
-        <value>B</value>
-        <value>B</value>
-        <value>F</value>
-        <value>F</value>
-      </allowedGenAdornments>
-      <allowedGenAdornments>
-        <value>B</value>
-        <value>F</value>
-        <value>F</value>
-        <value>F</value>
-      </allowedGenAdornments>
-    </attributeCondDefs>
   </schema>
   <rules name="AttributeToColumnRule" schema="//@schema">
     <sourcePatterns name="attribute">
@@ -286,12 +194,8 @@
     <correspondencePatterns name="superClazzToSubTable" type="//@schema/@correspondenceTypes.2" source="//@rules.3/@sourcePatterns.2" target="//@rules.3/@targetPatterns.1">
       <op value="++"/>
     </correspondencePatterns>
-    <attrConditions name="//@schema/@attributeCondDefs.1">
-      <values xsi:type="tgg:LiteralExpression" value="&quot;:&quot;"/>
+    <attrConditions name="//@schema/@attributeCondDefs.0">
       <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.3/@sourcePatterns.1">
-        <attribute href="platform:/resource/ClassInheritanceHierarchy/model/ClassInheritanceHierarchy.ecore#//NamedElement/name"/>
-      </values>
-      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.3/@sourcePatterns.2">
         <attribute href="platform:/resource/ClassInheritanceHierarchy/model/ClassInheritanceHierarchy.ecore#//NamedElement/name"/>
       </values>
       <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.3/@targetPatterns.1">
