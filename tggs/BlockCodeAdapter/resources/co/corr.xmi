@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:BlockCodeAdapter="platform:/resource/BlockCodeAdapter/model/BlockCodeAdapter.ecore">
+  <BlockCodeAdapter:FileToSpecification>
+    <source href="../resources/in/Wire_FWD.xmi#/"/>
+    <target href="../resources/expected/Wire_FWD.xmi#/"/>
+  </BlockCodeAdapter:FileToSpecification>
+  <BlockCodeAdapter:NodeToSpecification>
+    <source href="../resources/in/Wire_FWD.xmi#//@rootNode"/>
+    <target href="../resources/expected/Wire_FWD.xmi#/"/>
+  </BlockCodeAdapter:NodeToSpecification>
+  <BlockCodeAdapter:NodeToBlock>
+    <source href="../resources/in/Wire_FWD.xmi#//@rootNode/@children.0/@children.0"/>
+    <target href="../resources/expected/Wire_FWD.xmi#//@blocks.0"/>
+  </BlockCodeAdapter:NodeToBlock>
+  <BlockCodeAdapter:NodeToPort>
+    <source href="../resources/in/Wire_FWD.xmi#//@rootNode/@children.0/@children.0/@children.0"/>
+    <target href="../resources/expected/Wire_FWD.xmi#//@blocks.0/@ports.0"/>
+  </BlockCodeAdapter:NodeToPort>
+  <BlockCodeAdapter:NodeToBlock>
+    <source href="../resources/in/Wire_FWD.xmi#//@rootNode/@children.0/@children.1"/>
+    <target href="../resources/expected/Wire_FWD.xmi#//@blocks.1"/>
+  </BlockCodeAdapter:NodeToBlock>
+  <BlockCodeAdapter:NodeToPort>
+    <source href="../resources/in/Wire_FWD.xmi#//@rootNode/@children.0/@children.1/@children.0"/>
+    <target href="../resources/expected/Wire_FWD.xmi#//@blocks.1/@ports.0"/>
+  </BlockCodeAdapter:NodeToPort>
+</xmi:XMI>

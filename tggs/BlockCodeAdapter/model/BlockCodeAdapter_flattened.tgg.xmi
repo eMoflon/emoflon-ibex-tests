@@ -325,7 +325,7 @@
     <nodes name="toPortNode" incomingEdges="//@rules.4/@edges.18" outgoingEdges="//@rules.4/@edges.6" incomingCorrsSource="//@rules.4/@nodes.14">
       <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Node"/>
     </nodes>
-    <nodes name="fromPort" domainType="TRG" incomingEdges="//@rules.4/@edges.10" outgoingEdges="//@rules.4/@edges.7" incomingCorrsTarget="//@rules.4/@nodes.13">
+    <nodes name="fromPort" domainType="TRG" incomingEdges="//@rules.4/@edges.9" outgoingEdges="//@rules.4/@edges.7" incomingCorrsTarget="//@rules.4/@nodes.13">
       <type href="platform:/resource/BlockLanguage/model/BlockLanguage.ecore#//Port"/>
     </nodes>
     <nodes name="spec" domainType="TRG" outgoingEdges="//@rules.4/@edges.8" incomingCorrsTarget="//@rules.4/@nodes.15">
@@ -334,7 +334,7 @@
     <nodes name="toBlock" domainType="TRG" incomingEdges="//@rules.4/@edges.8" outgoingEdges="//@rules.4/@edges.9 //@rules.4/@edges.10">
       <type href="platform:/resource/BlockLanguage/model/BlockLanguage.ecore#//Block"/>
     </nodes>
-    <nodes name="toPort" domainType="TRG" incomingEdges="//@rules.4/@edges.9 //@rules.4/@edges.11" incomingCorrsTarget="//@rules.4/@nodes.14">
+    <nodes name="toPort" domainType="TRG" incomingEdges="//@rules.4/@edges.10 //@rules.4/@edges.11" incomingCorrsTarget="//@rules.4/@nodes.14">
       <type href="platform:/resource/BlockLanguage/model/BlockLanguage.ecore#//Port"/>
     </nodes>
     <nodes name="wire" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.4/@edges.7" outgoingEdges="//@rules.4/@edges.11" incomingCorrsTarget="//@rules.4/@nodes.16 //@rules.4/@nodes.17">
@@ -382,10 +382,10 @@
     <edges name="spec__blocks__toBlock_eMoflonEdge" domainType="TRG" srcNode="//@rules.4/@nodes.9" trgNode="//@rules.4/@nodes.10">
       <type href="platform:/resource/BlockLanguage/model/BlockLanguage.ecore#//Specification/blocks"/>
     </edges>
-    <edges name="toBlock__ports__toPort_eMoflonEdge" domainType="TRG" srcNode="//@rules.4/@nodes.10" trgNode="//@rules.4/@nodes.11">
+    <edges name="toBlock__ports__fromPort_eMoflonEdge" domainType="TRG" srcNode="//@rules.4/@nodes.10" trgNode="//@rules.4/@nodes.8">
       <type href="platform:/resource/BlockLanguage/model/BlockLanguage.ecore#//Block/ports"/>
     </edges>
-    <edges name="toBlock__ports__fromPort_eMoflonEdge" domainType="TRG" srcNode="//@rules.4/@nodes.10" trgNode="//@rules.4/@nodes.8">
+    <edges name="toBlock__ports__toPort_eMoflonEdge" domainType="TRG" srcNode="//@rules.4/@nodes.10" trgNode="//@rules.4/@nodes.11">
       <type href="platform:/resource/BlockLanguage/model/BlockLanguage.ecore#//Block/ports"/>
     </edges>
     <edges name="wire__port__toPort_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.4/@nodes.12" trgNode="//@rules.4/@nodes.11">
@@ -440,10 +440,6 @@
   <rules name="Mapping2WireRule">
     <nodes name="blocks" incomingEdges="//@rules.5/@edges.2 //@rules.5/@edges.6 //@rules.5/@edges.14" outgoingEdges="//@rules.5/@edges.0 //@rules.5/@edges.16 //@rules.5/@edges.20">
       <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Node"/>
-      <attrExpr>
-        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
-        <valueExpr xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGLiteralExpression" value="&quot;BLOCKS&quot;"/>
-      </attrExpr>
       <attrExpr>
         <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
         <valueExpr xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGLiteralExpression" value="&quot;BLOCKS&quot;"/>

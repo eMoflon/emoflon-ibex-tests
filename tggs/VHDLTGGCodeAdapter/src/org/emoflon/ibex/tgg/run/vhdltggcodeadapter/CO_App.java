@@ -1,14 +1,16 @@
-package org.emoflon.ibex.tgg.run.companytoit;
+package org.emoflon.ibex.tgg.run.vhdltggcodeadapter;
 
 import java.io.IOException;
 
 import org.apache.log4j.BasicConfigurator;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.apache.commons.lang3.NotImplementedException;
+
 import org.emoflon.ibex.tgg.operational.strategies.co.CO;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesEngine;
 
-import CompanyLanguage.impl.CompanyLanguagePackageImpl;
-import ITLanguage.impl.ITLanguagePackageImpl;
+import MocaTree.impl.MocaTreePackageImpl;
+import VHDLModel.impl.VHDLModelPackageImpl;
 
 public class CO_App extends CO {
 
@@ -27,7 +29,7 @@ public class CO_App extends CO {
 	public static void main(String[] args) throws IOException {
 		BasicConfigurator.configure();
 
-		CO_App co = new CO_App("CompanyToIT", "./../", true, "src", "trg", "corr");
+		CO_App co = new CO_App("VHDLTGGCodeAdapter", "./../", false, "src", "trg", "corr");
 		
 		logger.info("Starting CO");
 		long tic = System.currentTimeMillis();
@@ -40,9 +42,8 @@ public class CO_App extends CO {
 	}
 
 	protected void registerUserMetamodels() throws IOException {
-		// Load and register source and target metamodels
-		rs.getPackageRegistry().put("platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore", CompanyLanguagePackageImpl.init());
-		rs.getPackageRegistry().put("platform:/resource/ITLanguage/model/ITLanguage.ecore", ITLanguagePackageImpl.init());
+		rs.getPackageRegistry().put("platform:/resource/VHDLModel/model/VHDLModel.ecore", VHDLModelPackageImpl.init());
+		rs.getPackageRegistry().put("platform:/resource/MocaTree/model/MocaTree.ecore", MocaTreePackageImpl.init());
 		
 		// Register correspondence metamodel last
 		loadAndRegisterMetamodel(projectPath + "/model/" + projectPath + ".ecore");
