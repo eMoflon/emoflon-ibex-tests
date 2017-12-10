@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:BlockDiagramCodeAdapter="platform:/resource/BlockDiagramCodeAdapter/model/BlockDiagramCodeAdapter.ecore">
+  <BlockDiagramCodeAdapter:SystemToNode>
+    <source href="src.xmi#/0"/>
+    <target href="trg.xmi#/0/@rootNode"/>
+  </BlockDiagramCodeAdapter:SystemToNode>
+  <BlockDiagramCodeAdapter:BlockToNode>
+    <source href="src.xmi#/0/@blocks.0"/>
+    <target href="trg.xmi#/0/@rootNode/@children.0"/>
+  </BlockDiagramCodeAdapter:BlockToNode>
+  <BlockDiagramCodeAdapter:ProvideToNode>
+    <source href="src.xmi#/0/@blocks.0/@ports.0"/>
+    <target href="trg.xmi#/0/@rootNode/@children.0/@children.0"/>
+  </BlockDiagramCodeAdapter:ProvideToNode>
+  <BlockDiagramCodeAdapter:BlockToNode>
+    <source href="src.xmi#/0/@blocks.1"/>
+    <target href="trg.xmi#/0/@rootNode/@children.1"/>
+  </BlockDiagramCodeAdapter:BlockToNode>
+  <BlockDiagramCodeAdapter:ProvideToNode>
+    <source href="src.xmi#/0/@blocks.1/@ports.0"/>
+    <target href="trg.xmi#/0/@rootNode/@children.1/@children.0"/>
+  </BlockDiagramCodeAdapter:ProvideToNode>
+  <BlockDiagramCodeAdapter:RequireToNode>
+    <source href="src.xmi#/0/@blocks.1/@ports.1"/>
+    <target href="trg.xmi#/0/@rootNode/@children.1/@children.1"/>
+  </BlockDiagramCodeAdapter:RequireToNode>
+  <BlockDiagramCodeAdapter:SystemToNode>
+    <source href="src.xmi#/1"/>
+    <target href="trg.xmi#/1/@rootNode"/>
+  </BlockDiagramCodeAdapter:SystemToNode>
+  <BlockDiagramCodeAdapter:RequireToNode>
+    <source href="src.xmi#/0/@blocks.0/@ports.1"/>
+    <target href="trg.xmi#/0/@rootNode/@children.0/@children.1"/>
+  </BlockDiagramCodeAdapter:RequireToNode>
+  <BlockDiagramCodeAdapter:RequireToNode>
+    <source href="src.xmi#/0/@blocks.0/@ports.2"/>
+    <target href="trg.xmi#/0/@rootNode/@children.0/@children.2"/>
+  </BlockDiagramCodeAdapter:RequireToNode>
+  <BlockDiagramCodeAdapter:RequireToNode>
+    <source href="src.xmi#/0/@blocks.1/@ports.2"/>
+    <target href="trg.xmi#/0/@rootNode/@children.1/@children.2"/>
+  </BlockDiagramCodeAdapter:RequireToNode>
+  <BlockDiagramCodeAdapter:ProvideToNode>
+    <source href="src.xmi#/0/@blocks.1/@ports.3"/>
+    <target href="trg.xmi#/0/@rootNode/@children.1/@children.3"/>
+  </BlockDiagramCodeAdapter:ProvideToNode>
+  <BlockDiagramCodeAdapter:RequireToNode>
+    <source href="src.xmi#/0/@blocks.0/@ports.3"/>
+    <target href="trg.xmi#/0/@rootNode/@children.0/@children.3"/>
+  </BlockDiagramCodeAdapter:RequireToNode>
+  <BlockDiagramCodeAdapter:SystemToNode>
+    <source href="src.xmi#/2"/>
+    <target href="trg.xmi#/2/@rootNode"/>
+  </BlockDiagramCodeAdapter:SystemToNode>
+  <BlockDiagramCodeAdapter:SystemToNode>
+    <source href="src.xmi#/3"/>
+    <target href="trg.xmi#/3/@rootNode"/>
+  </BlockDiagramCodeAdapter:SystemToNode>
+  <BlockDiagramCodeAdapter:BlockToNode>
+    <source href="src.xmi#/1/@blocks.0"/>
+    <target href="trg.xmi#/1/@rootNode/@children.0"/>
+  </BlockDiagramCodeAdapter:BlockToNode>
+  <BlockDiagramCodeAdapter:BlockToNode>
+    <source href="src.xmi#/2/@blocks.0"/>
+    <target href="trg.xmi#/2/@rootNode/@children.0"/>
+  </BlockDiagramCodeAdapter:BlockToNode>
+  <BlockDiagramCodeAdapter:ProvideToNode>
+    <source href="src.xmi#/0/@blocks.1/@ports.4"/>
+    <target href="trg.xmi#/0/@rootNode/@children.1/@children.4"/>
+  </BlockDiagramCodeAdapter:ProvideToNode>
+  <BlockDiagramCodeAdapter:ProvideToNode>
+    <source href="src.xmi#/0/@blocks.1/@ports.5"/>
+    <target href="trg.xmi#/0/@rootNode/@children.1/@children.5"/>
+  </BlockDiagramCodeAdapter:ProvideToNode>
+  <BlockDiagramCodeAdapter:RequireToNode>
+    <source href="src.xmi#/0/@blocks.0/@ports.4"/>
+    <target href="trg.xmi#/0/@rootNode/@children.0/@children.4"/>
+  </BlockDiagramCodeAdapter:RequireToNode>
+  <BlockDiagramCodeAdapter:RequireToNode>
+    <source href="src.xmi#/2/@blocks.0/@ports.0"/>
+    <target href="trg.xmi#/2/@rootNode/@children.0/@children.0"/>
+  </BlockDiagramCodeAdapter:RequireToNode>
+  <BlockDiagramCodeAdapter:RequireToNode>
+    <source href="src.xmi#/0/@blocks.1/@ports.6"/>
+    <target href="trg.xmi#/0/@rootNode/@children.1/@children.6"/>
+  </BlockDiagramCodeAdapter:RequireToNode>
+  <BlockDiagramCodeAdapter:ProvideToNode>
+    <source href="src.xmi#/1/@blocks.0/@ports.0"/>
+    <target href="trg.xmi#/1/@rootNode/@children.0/@children.0"/>
+  </BlockDiagramCodeAdapter:ProvideToNode>
+  <BlockDiagramCodeAdapter:RequireToNode>
+    <source href="src.xmi#/0/@blocks.1/@ports.7"/>
+    <target href="trg.xmi#/0/@rootNode/@children.1/@children.7"/>
+  </BlockDiagramCodeAdapter:RequireToNode>
+  <BlockDiagramCodeAdapter:BlockToNode>
+    <source href="src.xmi#/2/@blocks.1"/>
+    <target href="trg.xmi#/2/@rootNode/@children.1"/>
+  </BlockDiagramCodeAdapter:BlockToNode>
+  <BlockDiagramCodeAdapter:RequireToNode>
+    <source href="src.xmi#/1/@blocks.0/@ports.1"/>
+    <target href="trg.xmi#/1/@rootNode/@children.0/@children.1"/>
+  </BlockDiagramCodeAdapter:RequireToNode>
+  <BlockDiagramCodeAdapter:RequireToNode>
+    <source href="src.xmi#/2/@blocks.1/@ports.0"/>
+    <target href="trg.xmi#/2/@rootNode/@children.1/@children.0"/>
+  </BlockDiagramCodeAdapter:RequireToNode>
+  <BlockDiagramCodeAdapter:RequireToNode>
+    <source href="src.xmi#/0/@blocks.1/@ports.8"/>
+    <target href="trg.xmi#/0/@rootNode/@children.1/@children.8"/>
+  </BlockDiagramCodeAdapter:RequireToNode>
+  <BlockDiagramCodeAdapter:ProvideToNode>
+    <source href="src.xmi#/0/@blocks.1/@ports.9"/>
+    <target href="trg.xmi#/0/@rootNode/@children.1/@children.9"/>
+  </BlockDiagramCodeAdapter:ProvideToNode>
+  <BlockDiagramCodeAdapter:BlockToNode>
+    <source href="src.xmi#/0/@blocks.2"/>
+    <target href="trg.xmi#/0/@rootNode/@children.2"/>
+  </BlockDiagramCodeAdapter:BlockToNode>
+  <BlockDiagramCodeAdapter:ProvideToNode>
+    <source href="src.xmi#/2/@blocks.0/@ports.1"/>
+    <target href="trg.xmi#/2/@rootNode/@children.0/@children.1"/>
+  </BlockDiagramCodeAdapter:ProvideToNode>
+  <BlockDiagramCodeAdapter:RequireToNode>
+    <source href="src.xmi#/0/@blocks.0/@ports.5"/>
+    <target href="trg.xmi#/0/@rootNode/@children.0/@children.5"/>
+  </BlockDiagramCodeAdapter:RequireToNode>
+  <BlockDiagramCodeAdapter:ProvideToNode>
+    <source href="src.xmi#/2/@blocks.0/@ports.2"/>
+    <target href="trg.xmi#/2/@rootNode/@children.0/@children.2"/>
+  </BlockDiagramCodeAdapter:ProvideToNode>
+  <BlockDiagramCodeAdapter:ProvideToNode>
+    <source href="src.xmi#/0/@blocks.0/@ports.6"/>
+    <target href="trg.xmi#/0/@rootNode/@children.0/@children.6"/>
+  </BlockDiagramCodeAdapter:ProvideToNode>
+  <BlockDiagramCodeAdapter:RequireToNode>
+    <source href="src.xmi#/0/@blocks.1/@ports.10"/>
+    <target href="trg.xmi#/0/@rootNode/@children.1/@children.10"/>
+  </BlockDiagramCodeAdapter:RequireToNode>
+  <BlockDiagramCodeAdapter:ProvideToNode>
+    <source href="src.xmi#/0/@blocks.2/@ports.0"/>
+    <target href="trg.xmi#/0/@rootNode/@children.2/@children.0"/>
+  </BlockDiagramCodeAdapter:ProvideToNode>
+  <BlockDiagramCodeAdapter:RequireToNode>
+    <source href="src.xmi#/0/@blocks.1/@ports.11"/>
+    <target href="trg.xmi#/0/@rootNode/@children.1/@children.11"/>
+  </BlockDiagramCodeAdapter:RequireToNode>
+  <BlockDiagramCodeAdapter:ProvideToNode>
+    <source href="src.xmi#/1/@blocks.0/@ports.2"/>
+    <target href="trg.xmi#/1/@rootNode/@children.0/@children.2"/>
+  </BlockDiagramCodeAdapter:ProvideToNode>
+  <BlockDiagramCodeAdapter:ProvideToNode>
+    <source href="src.xmi#/0/@blocks.1/@ports.12"/>
+    <target href="trg.xmi#/0/@rootNode/@children.1/@children.12"/>
+  </BlockDiagramCodeAdapter:ProvideToNode>
+  <BlockDiagramCodeAdapter:BlockToNode>
+    <source href="src.xmi#/2/@blocks.2"/>
+    <target href="trg.xmi#/2/@rootNode/@children.2"/>
+  </BlockDiagramCodeAdapter:BlockToNode>
+  <BlockDiagramCodeAdapter:SystemToNode>
+    <source href="src.xmi#/4"/>
+    <target href="trg.xmi#/4/@rootNode"/>
+  </BlockDiagramCodeAdapter:SystemToNode>
+  <BlockDiagramCodeAdapter:SystemToNode>
+    <source href="src.xmi#/5"/>
+    <target href="trg.xmi#/5/@rootNode"/>
+  </BlockDiagramCodeAdapter:SystemToNode>
+  <BlockDiagramCodeAdapter:BlockToNode>
+    <source href="src.xmi#/4/@blocks.0"/>
+    <target href="trg.xmi#/4/@rootNode/@children.0"/>
+  </BlockDiagramCodeAdapter:BlockToNode>
+  <BlockDiagramCodeAdapter:ProvideToNode>
+    <source href="src.xmi#/2/@blocks.0/@ports.3"/>
+    <target href="trg.xmi#/2/@rootNode/@children.0/@children.3"/>
+  </BlockDiagramCodeAdapter:ProvideToNode>
+  <BlockDiagramCodeAdapter:BlockToNode>
+    <source href="src.xmi#/1/@blocks.1"/>
+    <target href="trg.xmi#/1/@rootNode/@children.1"/>
+  </BlockDiagramCodeAdapter:BlockToNode>
+  <BlockDiagramCodeAdapter:ProvideToNode>
+    <source href="src.xmi#/2/@blocks.2/@ports.0"/>
+    <target href="trg.xmi#/2/@rootNode/@children.2/@children.0"/>
+  </BlockDiagramCodeAdapter:ProvideToNode>
+  <BlockDiagramCodeAdapter:ProvideToNode>
+    <source href="src.xmi#/0/@blocks.2/@ports.1"/>
+    <target href="trg.xmi#/0/@rootNode/@children.2/@children.1"/>
+  </BlockDiagramCodeAdapter:ProvideToNode>
+  <BlockDiagramCodeAdapter:RequireToNode>
+    <source href="src.xmi#/4/@blocks.0/@ports.0"/>
+    <target href="trg.xmi#/4/@rootNode/@children.0/@children.0"/>
+  </BlockDiagramCodeAdapter:RequireToNode>
+  <BlockDiagramCodeAdapter:RequireToNode>
+    <source href="src.xmi#/1/@blocks.0/@ports.3"/>
+    <target href="trg.xmi#/1/@rootNode/@children.0/@children.3"/>
+  </BlockDiagramCodeAdapter:RequireToNode>
+  <BlockDiagramCodeAdapter:RequireToNode>
+    <source href="src.xmi#/4/@blocks.0/@ports.1"/>
+    <target href="trg.xmi#/4/@rootNode/@children.0/@children.1"/>
+  </BlockDiagramCodeAdapter:RequireToNode>
+  <BlockDiagramCodeAdapter:RequireToNode>
+    <source href="src.xmi#/1/@blocks.0/@ports.4"/>
+    <target href="trg.xmi#/1/@rootNode/@children.0/@children.4"/>
+  </BlockDiagramCodeAdapter:RequireToNode>
+  <BlockDiagramCodeAdapter:ProvideToNode>
+    <source href="src.xmi#/2/@blocks.0/@ports.4"/>
+    <target href="trg.xmi#/2/@rootNode/@children.0/@children.4"/>
+  </BlockDiagramCodeAdapter:ProvideToNode>
+  <BlockDiagramCodeAdapter:RequireToNode>
+    <source href="src.xmi#/0/@blocks.1/@ports.13"/>
+    <target href="trg.xmi#/0/@rootNode/@children.1/@children.13"/>
+  </BlockDiagramCodeAdapter:RequireToNode>
+  <BlockDiagramCodeAdapter:BlockToNode>
+    <source href="src.xmi#/2/@blocks.3"/>
+    <target href="trg.xmi#/2/@rootNode/@children.3"/>
+  </BlockDiagramCodeAdapter:BlockToNode>
+  <BlockDiagramCodeAdapter:ProvideToNode>
+    <source href="src.xmi#/2/@blocks.1/@ports.1"/>
+    <target href="trg.xmi#/2/@rootNode/@children.1/@children.1"/>
+  </BlockDiagramCodeAdapter:ProvideToNode>
+  <BlockDiagramCodeAdapter:ProvideToNode>
+    <source href="src.xmi#/1/@blocks.1/@ports.0"/>
+    <target href="trg.xmi#/1/@rootNode/@children.1/@children.0"/>
+  </BlockDiagramCodeAdapter:ProvideToNode>
+</xmi:XMI>
