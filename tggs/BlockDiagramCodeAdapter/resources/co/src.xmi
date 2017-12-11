@@ -1,71 +1,8 @@
 <?xml version="1.0" encoding="ASCII"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:BlockDiagram="platform:/plugin/BlockDiagram/model/BlockDiagram.ecore">
-  <BlockDiagram:BlockSystem name="sociis">
-    <blocks id="torquent">
-      <ports xsi:type="BlockDiagram:Provide" id="ad"/>
-      <ports xsi:type="BlockDiagram:Require" id="lectus"/>
-      <ports xsi:type="BlockDiagram:Require" id="lorem"/>
-      <ports xsi:type="BlockDiagram:Require" id="lacinia"/>
-      <ports xsi:type="BlockDiagram:Require" id="pulvinar"/>
-      <ports xsi:type="BlockDiagram:Require" id="lobortis"/>
-      <ports xsi:type="BlockDiagram:Provide" id="risus"/>
-    </blocks>
-    <blocks id="taciti">
-      <ports xsi:type="BlockDiagram:Provide" id="tellus"/>
-      <ports xsi:type="BlockDiagram:Require" id="etiam"/>
-      <ports xsi:type="BlockDiagram:Require" id="erat"/>
-      <ports xsi:type="BlockDiagram:Provide" id="laoreet"/>
-      <ports xsi:type="BlockDiagram:Provide" id="ut"/>
-      <ports xsi:type="BlockDiagram:Provide" id="nisi"/>
-      <ports xsi:type="BlockDiagram:Require" id="cursus"/>
-      <ports xsi:type="BlockDiagram:Require" id="ad"/>
-      <ports xsi:type="BlockDiagram:Require" id="sem"/>
-      <ports xsi:type="BlockDiagram:Provide" id="sodales"/>
-      <ports xsi:type="BlockDiagram:Require" id="ante"/>
-      <ports xsi:type="BlockDiagram:Require" id="ullamcorper"/>
-      <ports xsi:type="BlockDiagram:Provide" id="ac"/>
-      <ports xsi:type="BlockDiagram:Require" id="per"/>
-    </blocks>
-    <blocks id="aptent">
-      <ports xsi:type="BlockDiagram:Provide" id="dapibus"/>
-      <ports xsi:type="BlockDiagram:Provide" id="nam"/>
-    </blocks>
-  </BlockDiagram:BlockSystem>
-  <BlockDiagram:BlockSystem name="libero">
-    <blocks id="elementum">
-      <ports xsi:type="BlockDiagram:Provide" id="malesuada"/>
-      <ports xsi:type="BlockDiagram:Require" id="lectus"/>
-      <ports xsi:type="BlockDiagram:Provide" id="rhoncus"/>
-      <ports xsi:type="BlockDiagram:Require" id="lorem"/>
-      <ports xsi:type="BlockDiagram:Require" id="aenean"/>
-    </blocks>
-    <blocks id="lorem">
-      <ports xsi:type="BlockDiagram:Provide" id="sodales"/>
-    </blocks>
-  </BlockDiagram:BlockSystem>
-  <BlockDiagram:BlockSystem name="neque">
-    <blocks id="aptent">
-      <ports xsi:type="BlockDiagram:Require" id="urna"/>
-      <ports xsi:type="BlockDiagram:Provide" id="ligula"/>
-      <ports xsi:type="BlockDiagram:Provide" id="dapibus"/>
-      <ports xsi:type="BlockDiagram:Provide" id="eget"/>
-      <ports xsi:type="BlockDiagram:Provide" id="donec"/>
-    </blocks>
-    <blocks id="duis">
-      <ports xsi:type="BlockDiagram:Require" id="suscipit"/>
-      <ports xsi:type="BlockDiagram:Provide" id="egestas"/>
-    </blocks>
-    <blocks id="ut">
-      <ports xsi:type="BlockDiagram:Provide" id="cum"/>
-    </blocks>
-    <blocks id="magnis"/>
-  </BlockDiagram:BlockSystem>
-  <BlockDiagram:BlockSystem name="donec"/>
-  <BlockDiagram:BlockSystem name="aptent">
-    <blocks id="a">
-      <ports xsi:type="BlockDiagram:Require" id="suscipit"/>
-      <ports xsi:type="BlockDiagram:Require" id="magna"/>
-    </blocks>
-  </BlockDiagram:BlockSystem>
-  <BlockDiagram:BlockSystem name="mus"/>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:BlockDiagram="platform:/plugin/BlockDiagram/model/BlockDiagram.ecore">
+  <BlockDiagram:BlockSystem name="elementum"/>
+  <BlockDiagram:BlockSystem name="orci"/>
+  <BlockDiagram:BlockSystem name="auctor"/>
+  <BlockDiagram:BlockSystem name="arcu"/>
+  <BlockDiagram:BlockSystem name="netus"/>
 </xmi:XMI>
