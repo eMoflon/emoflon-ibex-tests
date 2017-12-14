@@ -1,2 +1,15 @@
 <?xml version="1.0" encoding="ASCII"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI"/>
+<org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:org.emoflon.ibex.tgg.core.runtime="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore" name="PackageToDatabaseRule">
+  <createdSrc href="src.xmi#/"/>
+  <createdTrg href="trg.xmi#/"/>
+  <createdCorr href="corr_inc.xmi#/4"/>
+  <nodeMappings key="packageToDatabase">
+    <value href="corr_inc.xmi#/0"/>
+  </nodeMappings>
+  <nodeMappings key="classpackage">
+    <value href="src.xmi#/"/>
+  </nodeMappings>
+  <nodeMappings key="db">
+    <value href="trg.xmi#/"/>
+  </nodeMappings>
+</org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>

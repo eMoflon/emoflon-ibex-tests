@@ -1,5 +1,48 @@
 <?xml version="1.0" encoding="ASCII"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:emf="http://gervarro.org/democles/constraint/emf.ecore" xmlns:specification="http://gervarro.org/democles/specification.ecore">
+  <specification:Pattern name="DaughterOfExistingFamilyToFemale__WHOLE">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="f">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/Families/model/Families.ecore#//Family"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="families">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/Families/model/Families.ecore#//FamilyRegister"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="fm">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/Families/model/Families.ecore#//FamilyMember"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="p">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/Persons/model/Persons.ecore#//Female"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="persons">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/Persons/model/Persons.ecore#//PersonRegister"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="families2persons">
+      <eClassifier xsi:type="ecore:EClass" href="../model/BenchmarxFamiliesToPersons.ecore#//FamiliesToPersonsCorr"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="familyMember2Persons">
+      <eClassifier xsi:type="ecore:EClass" href="../model/BenchmarxFamiliesToPersons.ecore#//FamilyMemberToPerson"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="ExistingFamily2Person__WHOLE">
+        <parameters reference="/0/@symbolicParameters.0"/>
+        <parameters reference="/0/@symbolicParameters.1"/>
+        <parameters reference="/0/@symbolicParameters.2"/>
+        <parameters reference="/0/@symbolicParameters.3"/>
+        <parameters reference="/0/@symbolicParameters.4"/>
+        <parameters reference="/0/@symbolicParameters.5"/>
+        <parameters reference="/0/@symbolicParameters.6"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="DaughterToFemale__WHOLE">
+        <parameters reference="/0/@symbolicParameters.0"/>
+        <parameters reference="/0/@symbolicParameters.1"/>
+        <parameters reference="/0/@symbolicParameters.2"/>
+        <parameters reference="/0/@symbolicParameters.3"/>
+        <parameters reference="/0/@symbolicParameters.4"/>
+        <parameters reference="/0/@symbolicParameters.5"/>
+        <parameters reference="/0/@symbolicParameters.6"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
   <specification:Pattern name="DaughterToFemale__SRC">
     <symbolicParameters xsi:type="emf:EMFVariable" name="f">
       <eClassifier xsi:type="ecore:EClass" href="../../../plugin/Families/model/Families.ecore#//Family"/>
@@ -9,13 +52,13 @@
     </symbolicParameters>
     <bodies>
       <constraints xsi:type="emf:Reference">
-        <parameters reference="/0/@symbolicParameters.0"/>
-        <parameters reference="/0/@symbolicParameters.1"/>
+        <parameters reference="/1/@symbolicParameters.0"/>
+        <parameters reference="/1/@symbolicParameters.1"/>
         <eModelElement xsi:type="ecore:EReference" href="../../../plugin/Families/model/Families.ecore#//Family/daughters"/>
       </constraints>
       <constraints xsi:type="emf:Reference">
-        <parameters reference="/0/@symbolicParameters.1"/>
-        <parameters reference="/0/@symbolicParameters.0"/>
+        <parameters reference="/1/@symbolicParameters.1"/>
+        <parameters reference="/1/@symbolicParameters.0"/>
         <eModelElement xsi:type="ecore:EReference" href="../../../plugin/Families/model/Families.ecore#//FamilyMember/daughtersInverse"/>
       </constraints>
     </bodies>
@@ -49,41 +92,21 @@
       <eClassifier xsi:type="ecore:EClass" href="../model/BenchmarxFamiliesToPersons.ecore#//FamilyMemberToPerson"/>
     </symbolicParameters>
     <bodies>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/2/@symbolicParameters.5"/>
-        <parameters reference="/2/@symbolicParameters.1"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/BenchmarxFamiliesToPersons.ecore#//FamiliesToPersonsCorr/source"/>
-      </constraints>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/2/@symbolicParameters.5"/>
-        <parameters reference="/2/@symbolicParameters.4"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/BenchmarxFamiliesToPersons.ecore#//FamiliesToPersonsCorr/target"/>
-      </constraints>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/2/@symbolicParameters.6"/>
-        <parameters reference="/2/@symbolicParameters.2"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/BenchmarxFamiliesToPersons.ecore#//FamilyMemberToPerson/source"/>
-      </constraints>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/2/@symbolicParameters.6"/>
-        <parameters reference="/2/@symbolicParameters.3"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/BenchmarxFamiliesToPersons.ecore#//FamilyMemberToPerson/target"/>
-      </constraints>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="DaughterToFemale__SRC">
-        <parameters reference="/2/@symbolicParameters.0"/>
-        <parameters reference="/2/@symbolicParameters.2"/>
+        <parameters reference="/3/@symbolicParameters.0"/>
+        <parameters reference="/3/@symbolicParameters.2"/>
       </constraints>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="DaughterToFemale__TRG">
-        <parameters reference="/2/@symbolicParameters.3"/>
+        <parameters reference="/3/@symbolicParameters.3"/>
       </constraints>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="FamilyMember2Person__WHOLE">
-        <parameters reference="/2/@symbolicParameters.0"/>
-        <parameters reference="/2/@symbolicParameters.1"/>
-        <parameters reference="/2/@symbolicParameters.2"/>
-        <parameters reference="/2/@symbolicParameters.3"/>
-        <parameters reference="/2/@symbolicParameters.4"/>
-        <parameters reference="/2/@symbolicParameters.5"/>
-        <parameters reference="/2/@symbolicParameters.6"/>
+        <parameters reference="/3/@symbolicParameters.0"/>
+        <parameters reference="/3/@symbolicParameters.1"/>
+        <parameters reference="/3/@symbolicParameters.2"/>
+        <parameters reference="/3/@symbolicParameters.3"/>
+        <parameters reference="/3/@symbolicParameters.4"/>
+        <parameters reference="/3/@symbolicParameters.5"/>
+        <parameters reference="/3/@symbolicParameters.6"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -96,13 +119,13 @@
     </symbolicParameters>
     <bodies>
       <constraints xsi:type="emf:Reference">
-        <parameters reference="/3/@symbolicParameters.0"/>
-        <parameters reference="/3/@symbolicParameters.1"/>
+        <parameters reference="/4/@symbolicParameters.0"/>
+        <parameters reference="/4/@symbolicParameters.1"/>
         <eModelElement xsi:type="ecore:EReference" href="../../../plugin/Families/model/Families.ecore#//FamilyRegister/families"/>
       </constraints>
       <constraints xsi:type="emf:Reference">
-        <parameters reference="/3/@symbolicParameters.1"/>
-        <parameters reference="/3/@symbolicParameters.0"/>
+        <parameters reference="/4/@symbolicParameters.1"/>
+        <parameters reference="/4/@symbolicParameters.0"/>
         <eModelElement xsi:type="ecore:EReference" href="../../../plugin/Families/model/Families.ecore#//Family/familiesInverse"/>
       </constraints>
     </bodies>
@@ -116,8 +139,8 @@
     </symbolicParameters>
     <bodies>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="ExistingFamily2Person__CONTEXT_SRC">
-        <parameters reference="/4/@symbolicParameters.0"/>
-        <parameters reference="/4/@symbolicParameters.1"/>
+        <parameters reference="/5/@symbolicParameters.0"/>
+        <parameters reference="/5/@symbolicParameters.1"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -144,38 +167,18 @@
       <eClassifier xsi:type="ecore:EClass" href="../model/BenchmarxFamiliesToPersons.ecore#//FamilyMemberToPerson"/>
     </symbolicParameters>
     <bodies>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/5/@symbolicParameters.5"/>
-        <parameters reference="/5/@symbolicParameters.1"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/BenchmarxFamiliesToPersons.ecore#//FamiliesToPersonsCorr/source"/>
-      </constraints>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/5/@symbolicParameters.5"/>
-        <parameters reference="/5/@symbolicParameters.4"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/BenchmarxFamiliesToPersons.ecore#//FamiliesToPersonsCorr/target"/>
-      </constraints>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/5/@symbolicParameters.6"/>
-        <parameters reference="/5/@symbolicParameters.2"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/BenchmarxFamiliesToPersons.ecore#//FamilyMemberToPerson/source"/>
-      </constraints>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/5/@symbolicParameters.6"/>
-        <parameters reference="/5/@symbolicParameters.3"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/BenchmarxFamiliesToPersons.ecore#//FamilyMemberToPerson/target"/>
-      </constraints>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="ExistingFamily2Person__SRC">
-        <parameters reference="/5/@symbolicParameters.1"/>
-        <parameters reference="/5/@symbolicParameters.0"/>
+        <parameters reference="/6/@symbolicParameters.1"/>
+        <parameters reference="/6/@symbolicParameters.0"/>
       </constraints>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="FamilyMember2Person__WHOLE">
-        <parameters reference="/5/@symbolicParameters.0"/>
-        <parameters reference="/5/@symbolicParameters.1"/>
-        <parameters reference="/5/@symbolicParameters.2"/>
-        <parameters reference="/5/@symbolicParameters.3"/>
-        <parameters reference="/5/@symbolicParameters.4"/>
-        <parameters reference="/5/@symbolicParameters.5"/>
-        <parameters reference="/5/@symbolicParameters.6"/>
+        <parameters reference="/6/@symbolicParameters.0"/>
+        <parameters reference="/6/@symbolicParameters.1"/>
+        <parameters reference="/6/@symbolicParameters.2"/>
+        <parameters reference="/6/@symbolicParameters.3"/>
+        <parameters reference="/6/@symbolicParameters.4"/>
+        <parameters reference="/6/@symbolicParameters.5"/>
+        <parameters reference="/6/@symbolicParameters.6"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -191,23 +194,13 @@
     </symbolicParameters>
     <bodies>
       <constraints xsi:type="emf:Reference">
-        <parameters reference="/6/@symbolicParameters.2"/>
-        <parameters reference="/6/@symbolicParameters.0"/>
+        <parameters reference="/7/@symbolicParameters.2"/>
+        <parameters reference="/7/@symbolicParameters.0"/>
         <eModelElement xsi:type="ecore:EReference" href="../model/BenchmarxFamiliesToPersons.ecore#//FamiliesToPersonsCorr/source"/>
       </constraints>
       <constraints xsi:type="emf:Reference">
-        <parameters reference="/6/@symbolicParameters.2"/>
-        <parameters reference="/6/@symbolicParameters.1"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/BenchmarxFamiliesToPersons.ecore#//FamiliesToPersonsCorr/target"/>
-      </constraints>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/6/@symbolicParameters.2"/>
-        <parameters reference="/6/@symbolicParameters.0"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/BenchmarxFamiliesToPersons.ecore#//FamiliesToPersonsCorr/source"/>
-      </constraints>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/6/@symbolicParameters.2"/>
-        <parameters reference="/6/@symbolicParameters.1"/>
+        <parameters reference="/7/@symbolicParameters.2"/>
+        <parameters reference="/7/@symbolicParameters.1"/>
         <eModelElement xsi:type="ecore:EReference" href="../model/BenchmarxFamiliesToPersons.ecore#//FamiliesToPersonsCorr/target"/>
       </constraints>
     </bodies>
@@ -235,26 +228,16 @@
       <eClassifier xsi:type="ecore:EClass" href="../model/BenchmarxFamiliesToPersons.ecore#//FamiliesToPersonsCorr"/>
     </symbolicParameters>
     <bodies>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/9/@symbolicParameters.2"/>
-        <parameters reference="/9/@symbolicParameters.0"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/BenchmarxFamiliesToPersons.ecore#//FamiliesToPersonsCorr/source"/>
-      </constraints>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/9/@symbolicParameters.2"/>
-        <parameters reference="/9/@symbolicParameters.1"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/BenchmarxFamiliesToPersons.ecore#//FamiliesToPersonsCorr/target"/>
-      </constraints>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="Families2Persons__SRC">
-        <parameters reference="/9/@symbolicParameters.0"/>
+        <parameters reference="/10/@symbolicParameters.0"/>
       </constraints>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="Families2Persons__TRG">
-        <parameters reference="/9/@symbolicParameters.1"/>
+        <parameters reference="/10/@symbolicParameters.1"/>
       </constraints>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="Families2Persons__CORR">
-        <parameters reference="/9/@symbolicParameters.0"/>
-        <parameters reference="/9/@symbolicParameters.1"/>
-        <parameters reference="/9/@symbolicParameters.2"/>
+        <parameters reference="/10/@symbolicParameters.0"/>
+        <parameters reference="/10/@symbolicParameters.1"/>
+        <parameters reference="/10/@symbolicParameters.2"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -270,23 +253,13 @@
     </symbolicParameters>
     <bodies>
       <constraints xsi:type="emf:Reference">
-        <parameters reference="/10/@symbolicParameters.2"/>
-        <parameters reference="/10/@symbolicParameters.0"/>
+        <parameters reference="/11/@symbolicParameters.2"/>
+        <parameters reference="/11/@symbolicParameters.0"/>
         <eModelElement xsi:type="ecore:EReference" href="../model/BenchmarxFamiliesToPersons.ecore#//FamiliesToPersonsCorr/source"/>
       </constraints>
       <constraints xsi:type="emf:Reference">
-        <parameters reference="/10/@symbolicParameters.2"/>
-        <parameters reference="/10/@symbolicParameters.1"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/BenchmarxFamiliesToPersons.ecore#//FamiliesToPersonsCorr/target"/>
-      </constraints>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/10/@symbolicParameters.2"/>
-        <parameters reference="/10/@symbolicParameters.0"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/BenchmarxFamiliesToPersons.ecore#//FamiliesToPersonsCorr/source"/>
-      </constraints>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/10/@symbolicParameters.2"/>
-        <parameters reference="/10/@symbolicParameters.1"/>
+        <parameters reference="/11/@symbolicParameters.2"/>
+        <parameters reference="/11/@symbolicParameters.1"/>
         <eModelElement xsi:type="ecore:EReference" href="../model/BenchmarxFamiliesToPersons.ecore#//FamiliesToPersonsCorr/target"/>
       </constraints>
     </bodies>
@@ -324,49 +297,29 @@
     </symbolicParameters>
     <bodies>
       <constraints xsi:type="emf:Reference">
-        <parameters reference="/13/@symbolicParameters.4"/>
-        <parameters reference="/13/@symbolicParameters.0"/>
+        <parameters reference="/14/@symbolicParameters.4"/>
+        <parameters reference="/14/@symbolicParameters.0"/>
         <eModelElement xsi:type="ecore:EReference" href="../model/BenchmarxFamiliesToPersons.ecore#//FamiliesToPersonsCorr/source"/>
       </constraints>
       <constraints xsi:type="emf:Reference">
-        <parameters reference="/13/@symbolicParameters.4"/>
-        <parameters reference="/13/@symbolicParameters.2"/>
+        <parameters reference="/14/@symbolicParameters.4"/>
+        <parameters reference="/14/@symbolicParameters.2"/>
         <eModelElement xsi:type="ecore:EReference" href="../model/BenchmarxFamiliesToPersons.ecore#//FamiliesToPersonsCorr/target"/>
       </constraints>
       <constraints xsi:type="emf:Reference">
-        <parameters reference="/13/@symbolicParameters.5"/>
-        <parameters reference="/13/@symbolicParameters.1"/>
+        <parameters reference="/14/@symbolicParameters.5"/>
+        <parameters reference="/14/@symbolicParameters.1"/>
         <eModelElement xsi:type="ecore:EReference" href="../model/BenchmarxFamiliesToPersons.ecore#//FamilyMemberToPerson/source"/>
       </constraints>
       <constraints xsi:type="emf:Reference">
-        <parameters reference="/13/@symbolicParameters.5"/>
-        <parameters reference="/13/@symbolicParameters.3"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/BenchmarxFamiliesToPersons.ecore#//FamilyMemberToPerson/target"/>
-      </constraints>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/13/@symbolicParameters.4"/>
-        <parameters reference="/13/@symbolicParameters.0"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/BenchmarxFamiliesToPersons.ecore#//FamiliesToPersonsCorr/source"/>
-      </constraints>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/13/@symbolicParameters.4"/>
-        <parameters reference="/13/@symbolicParameters.2"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/BenchmarxFamiliesToPersons.ecore#//FamiliesToPersonsCorr/target"/>
-      </constraints>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/13/@symbolicParameters.5"/>
-        <parameters reference="/13/@symbolicParameters.1"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/BenchmarxFamiliesToPersons.ecore#//FamilyMemberToPerson/source"/>
-      </constraints>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/13/@symbolicParameters.5"/>
-        <parameters reference="/13/@symbolicParameters.3"/>
+        <parameters reference="/14/@symbolicParameters.5"/>
+        <parameters reference="/14/@symbolicParameters.3"/>
         <eModelElement xsi:type="ecore:EReference" href="../model/BenchmarxFamiliesToPersons.ecore#//FamilyMemberToPerson/target"/>
       </constraints>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="FamilyMember2Person__CONTEXT_CORR">
-        <parameters reference="/13/@symbolicParameters.0"/>
-        <parameters reference="/13/@symbolicParameters.2"/>
-        <parameters reference="/13/@symbolicParameters.4"/>
+        <parameters reference="/14/@symbolicParameters.0"/>
+        <parameters reference="/14/@symbolicParameters.2"/>
+        <parameters reference="/14/@symbolicParameters.4"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -382,17 +335,17 @@
     </symbolicParameters>
     <bodies>
       <constraints xsi:type="emf:Reference">
-        <parameters reference="/14/@symbolicParameters.0"/>
-        <parameters reference="/14/@symbolicParameters.1"/>
+        <parameters reference="/15/@symbolicParameters.0"/>
+        <parameters reference="/15/@symbolicParameters.1"/>
         <eModelElement xsi:type="ecore:EReference" href="../../../plugin/Families/model/Families.ecore#//FamilyRegister/families"/>
       </constraints>
       <constraints xsi:type="emf:Reference">
-        <parameters reference="/14/@symbolicParameters.1"/>
-        <parameters reference="/14/@symbolicParameters.0"/>
+        <parameters reference="/15/@symbolicParameters.1"/>
+        <parameters reference="/15/@symbolicParameters.0"/>
         <eModelElement xsi:type="ecore:EReference" href="../../../plugin/Families/model/Families.ecore#//Family/familiesInverse"/>
       </constraints>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="FamilyMember2Person__CONTEXT_SRC">
-        <parameters reference="/14/@symbolicParameters.0"/>
+        <parameters reference="/15/@symbolicParameters.0"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -405,17 +358,17 @@
     </symbolicParameters>
     <bodies>
       <constraints xsi:type="emf:Reference">
-        <parameters reference="/15/@symbolicParameters.0"/>
-        <parameters reference="/15/@symbolicParameters.1"/>
+        <parameters reference="/16/@symbolicParameters.0"/>
+        <parameters reference="/16/@symbolicParameters.1"/>
         <eModelElement xsi:type="ecore:EReference" href="../../../plugin/Persons/model/Persons.ecore#//PersonRegister/persons"/>
       </constraints>
       <constraints xsi:type="emf:Reference">
-        <parameters reference="/15/@symbolicParameters.1"/>
-        <parameters reference="/15/@symbolicParameters.0"/>
+        <parameters reference="/16/@symbolicParameters.1"/>
+        <parameters reference="/16/@symbolicParameters.0"/>
         <eModelElement xsi:type="ecore:EReference" href="../../../plugin/Persons/model/Persons.ecore#//Person/personsInverse"/>
       </constraints>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="FamilyMember2Person__CONTEXT_TRG">
-        <parameters reference="/15/@symbolicParameters.0"/>
+        <parameters reference="/16/@symbolicParameters.0"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -442,42 +395,22 @@
       <eClassifier xsi:type="ecore:EClass" href="../model/BenchmarxFamiliesToPersons.ecore#//FamilyMemberToPerson"/>
     </symbolicParameters>
     <bodies>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/16/@symbolicParameters.5"/>
-        <parameters reference="/16/@symbolicParameters.1"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/BenchmarxFamiliesToPersons.ecore#//FamiliesToPersonsCorr/source"/>
-      </constraints>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/16/@symbolicParameters.5"/>
-        <parameters reference="/16/@symbolicParameters.4"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/BenchmarxFamiliesToPersons.ecore#//FamiliesToPersonsCorr/target"/>
-      </constraints>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/16/@symbolicParameters.6"/>
-        <parameters reference="/16/@symbolicParameters.2"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/BenchmarxFamiliesToPersons.ecore#//FamilyMemberToPerson/source"/>
-      </constraints>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/16/@symbolicParameters.6"/>
-        <parameters reference="/16/@symbolicParameters.3"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/BenchmarxFamiliesToPersons.ecore#//FamilyMemberToPerson/target"/>
-      </constraints>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="FamilyMember2Person__SRC">
-        <parameters reference="/16/@symbolicParameters.1"/>
-        <parameters reference="/16/@symbolicParameters.0"/>
-        <parameters reference="/16/@symbolicParameters.2"/>
+        <parameters reference="/17/@symbolicParameters.1"/>
+        <parameters reference="/17/@symbolicParameters.0"/>
+        <parameters reference="/17/@symbolicParameters.2"/>
       </constraints>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="FamilyMember2Person__TRG">
-        <parameters reference="/16/@symbolicParameters.4"/>
-        <parameters reference="/16/@symbolicParameters.3"/>
+        <parameters reference="/17/@symbolicParameters.4"/>
+        <parameters reference="/17/@symbolicParameters.3"/>
       </constraints>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="FamilyMember2Person__CORR">
-        <parameters reference="/16/@symbolicParameters.1"/>
-        <parameters reference="/16/@symbolicParameters.2"/>
-        <parameters reference="/16/@symbolicParameters.4"/>
-        <parameters reference="/16/@symbolicParameters.3"/>
-        <parameters reference="/16/@symbolicParameters.5"/>
-        <parameters reference="/16/@symbolicParameters.6"/>
+        <parameters reference="/17/@symbolicParameters.1"/>
+        <parameters reference="/17/@symbolicParameters.2"/>
+        <parameters reference="/17/@symbolicParameters.4"/>
+        <parameters reference="/17/@symbolicParameters.3"/>
+        <parameters reference="/17/@symbolicParameters.5"/>
+        <parameters reference="/17/@symbolicParameters.6"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -504,43 +437,23 @@
       <eClassifier xsi:type="ecore:EClass" href="../model/BenchmarxFamiliesToPersons.ecore#//FamilyMemberToPerson"/>
     </symbolicParameters>
     <bodies>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/17/@symbolicParameters.5"/>
-        <parameters reference="/17/@symbolicParameters.1"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/BenchmarxFamiliesToPersons.ecore#//FamiliesToPersonsCorr/source"/>
-      </constraints>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/17/@symbolicParameters.5"/>
-        <parameters reference="/17/@symbolicParameters.4"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/BenchmarxFamiliesToPersons.ecore#//FamiliesToPersonsCorr/target"/>
-      </constraints>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/17/@symbolicParameters.6"/>
-        <parameters reference="/17/@symbolicParameters.2"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/BenchmarxFamiliesToPersons.ecore#//FamilyMemberToPerson/source"/>
-      </constraints>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/17/@symbolicParameters.6"/>
-        <parameters reference="/17/@symbolicParameters.3"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/BenchmarxFamiliesToPersons.ecore#//FamilyMemberToPerson/target"/>
-      </constraints>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="ExistingFamily2Person__WHOLE">
-        <parameters reference="/17/@symbolicParameters.0"/>
-        <parameters reference="/17/@symbolicParameters.1"/>
-        <parameters reference="/17/@symbolicParameters.2"/>
-        <parameters reference="/17/@symbolicParameters.3"/>
-        <parameters reference="/17/@symbolicParameters.4"/>
-        <parameters reference="/17/@symbolicParameters.5"/>
-        <parameters reference="/17/@symbolicParameters.6"/>
+        <parameters reference="/18/@symbolicParameters.0"/>
+        <parameters reference="/18/@symbolicParameters.1"/>
+        <parameters reference="/18/@symbolicParameters.2"/>
+        <parameters reference="/18/@symbolicParameters.3"/>
+        <parameters reference="/18/@symbolicParameters.4"/>
+        <parameters reference="/18/@symbolicParameters.5"/>
+        <parameters reference="/18/@symbolicParameters.6"/>
       </constraints>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="FatherToMale__WHOLE">
-        <parameters reference="/17/@symbolicParameters.0"/>
-        <parameters reference="/17/@symbolicParameters.1"/>
-        <parameters reference="/17/@symbolicParameters.2"/>
-        <parameters reference="/17/@symbolicParameters.3"/>
-        <parameters reference="/17/@symbolicParameters.4"/>
-        <parameters reference="/17/@symbolicParameters.5"/>
-        <parameters reference="/17/@symbolicParameters.6"/>
+        <parameters reference="/18/@symbolicParameters.0"/>
+        <parameters reference="/18/@symbolicParameters.1"/>
+        <parameters reference="/18/@symbolicParameters.2"/>
+        <parameters reference="/18/@symbolicParameters.3"/>
+        <parameters reference="/18/@symbolicParameters.4"/>
+        <parameters reference="/18/@symbolicParameters.5"/>
+        <parameters reference="/18/@symbolicParameters.6"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -553,13 +466,13 @@
     </symbolicParameters>
     <bodies>
       <constraints xsi:type="emf:Reference">
-        <parameters reference="/18/@symbolicParameters.0"/>
-        <parameters reference="/18/@symbolicParameters.1"/>
+        <parameters reference="/19/@symbolicParameters.0"/>
+        <parameters reference="/19/@symbolicParameters.1"/>
         <eModelElement xsi:type="ecore:EReference" href="../../../plugin/Families/model/Families.ecore#//Family/father"/>
       </constraints>
       <constraints xsi:type="emf:Reference">
-        <parameters reference="/18/@symbolicParameters.1"/>
-        <parameters reference="/18/@symbolicParameters.0"/>
+        <parameters reference="/19/@symbolicParameters.1"/>
+        <parameters reference="/19/@symbolicParameters.0"/>
         <eModelElement xsi:type="ecore:EReference" href="../../../plugin/Families/model/Families.ecore#//FamilyMember/fatherInverse"/>
       </constraints>
     </bodies>
@@ -593,41 +506,21 @@
       <eClassifier xsi:type="ecore:EClass" href="../model/BenchmarxFamiliesToPersons.ecore#//FamilyMemberToPerson"/>
     </symbolicParameters>
     <bodies>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/20/@symbolicParameters.5"/>
-        <parameters reference="/20/@symbolicParameters.1"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/BenchmarxFamiliesToPersons.ecore#//FamiliesToPersonsCorr/source"/>
-      </constraints>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/20/@symbolicParameters.5"/>
-        <parameters reference="/20/@symbolicParameters.4"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/BenchmarxFamiliesToPersons.ecore#//FamiliesToPersonsCorr/target"/>
-      </constraints>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/20/@symbolicParameters.6"/>
-        <parameters reference="/20/@symbolicParameters.2"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/BenchmarxFamiliesToPersons.ecore#//FamilyMemberToPerson/source"/>
-      </constraints>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/20/@symbolicParameters.6"/>
-        <parameters reference="/20/@symbolicParameters.3"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/BenchmarxFamiliesToPersons.ecore#//FamilyMemberToPerson/target"/>
-      </constraints>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="FatherToMale__SRC">
-        <parameters reference="/20/@symbolicParameters.0"/>
-        <parameters reference="/20/@symbolicParameters.2"/>
+        <parameters reference="/21/@symbolicParameters.0"/>
+        <parameters reference="/21/@symbolicParameters.2"/>
       </constraints>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="FatherToMale__TRG">
-        <parameters reference="/20/@symbolicParameters.3"/>
+        <parameters reference="/21/@symbolicParameters.3"/>
       </constraints>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="FamilyMember2Person__WHOLE">
-        <parameters reference="/20/@symbolicParameters.0"/>
-        <parameters reference="/20/@symbolicParameters.1"/>
-        <parameters reference="/20/@symbolicParameters.2"/>
-        <parameters reference="/20/@symbolicParameters.3"/>
-        <parameters reference="/20/@symbolicParameters.4"/>
-        <parameters reference="/20/@symbolicParameters.5"/>
-        <parameters reference="/20/@symbolicParameters.6"/>
+        <parameters reference="/21/@symbolicParameters.0"/>
+        <parameters reference="/21/@symbolicParameters.1"/>
+        <parameters reference="/21/@symbolicParameters.2"/>
+        <parameters reference="/21/@symbolicParameters.3"/>
+        <parameters reference="/21/@symbolicParameters.4"/>
+        <parameters reference="/21/@symbolicParameters.5"/>
+        <parameters reference="/21/@symbolicParameters.6"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -654,43 +547,23 @@
       <eClassifier xsi:type="ecore:EClass" href="../model/BenchmarxFamiliesToPersons.ecore#//FamilyMemberToPerson"/>
     </symbolicParameters>
     <bodies>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/21/@symbolicParameters.5"/>
-        <parameters reference="/21/@symbolicParameters.1"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/BenchmarxFamiliesToPersons.ecore#//FamiliesToPersonsCorr/source"/>
-      </constraints>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/21/@symbolicParameters.5"/>
-        <parameters reference="/21/@symbolicParameters.4"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/BenchmarxFamiliesToPersons.ecore#//FamiliesToPersonsCorr/target"/>
-      </constraints>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/21/@symbolicParameters.6"/>
-        <parameters reference="/21/@symbolicParameters.2"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/BenchmarxFamiliesToPersons.ecore#//FamilyMemberToPerson/source"/>
-      </constraints>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/21/@symbolicParameters.6"/>
-        <parameters reference="/21/@symbolicParameters.3"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/BenchmarxFamiliesToPersons.ecore#//FamilyMemberToPerson/target"/>
-      </constraints>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="ExistingFamily2Person__WHOLE">
-        <parameters reference="/21/@symbolicParameters.0"/>
-        <parameters reference="/21/@symbolicParameters.1"/>
-        <parameters reference="/21/@symbolicParameters.2"/>
-        <parameters reference="/21/@symbolicParameters.3"/>
-        <parameters reference="/21/@symbolicParameters.4"/>
-        <parameters reference="/21/@symbolicParameters.5"/>
-        <parameters reference="/21/@symbolicParameters.6"/>
+        <parameters reference="/22/@symbolicParameters.0"/>
+        <parameters reference="/22/@symbolicParameters.1"/>
+        <parameters reference="/22/@symbolicParameters.2"/>
+        <parameters reference="/22/@symbolicParameters.3"/>
+        <parameters reference="/22/@symbolicParameters.4"/>
+        <parameters reference="/22/@symbolicParameters.5"/>
+        <parameters reference="/22/@symbolicParameters.6"/>
       </constraints>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="MotherToFemale__WHOLE">
-        <parameters reference="/21/@symbolicParameters.0"/>
-        <parameters reference="/21/@symbolicParameters.1"/>
-        <parameters reference="/21/@symbolicParameters.2"/>
-        <parameters reference="/21/@symbolicParameters.3"/>
-        <parameters reference="/21/@symbolicParameters.4"/>
-        <parameters reference="/21/@symbolicParameters.5"/>
-        <parameters reference="/21/@symbolicParameters.6"/>
+        <parameters reference="/22/@symbolicParameters.0"/>
+        <parameters reference="/22/@symbolicParameters.1"/>
+        <parameters reference="/22/@symbolicParameters.2"/>
+        <parameters reference="/22/@symbolicParameters.3"/>
+        <parameters reference="/22/@symbolicParameters.4"/>
+        <parameters reference="/22/@symbolicParameters.5"/>
+        <parameters reference="/22/@symbolicParameters.6"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -703,13 +576,13 @@
     </symbolicParameters>
     <bodies>
       <constraints xsi:type="emf:Reference">
-        <parameters reference="/22/@symbolicParameters.0"/>
-        <parameters reference="/22/@symbolicParameters.1"/>
+        <parameters reference="/23/@symbolicParameters.0"/>
+        <parameters reference="/23/@symbolicParameters.1"/>
         <eModelElement xsi:type="ecore:EReference" href="../../../plugin/Families/model/Families.ecore#//Family/mother"/>
       </constraints>
       <constraints xsi:type="emf:Reference">
-        <parameters reference="/22/@symbolicParameters.1"/>
-        <parameters reference="/22/@symbolicParameters.0"/>
+        <parameters reference="/23/@symbolicParameters.1"/>
+        <parameters reference="/23/@symbolicParameters.0"/>
         <eModelElement xsi:type="ecore:EReference" href="../../../plugin/Families/model/Families.ecore#//FamilyMember/motherInverse"/>
       </constraints>
     </bodies>
@@ -743,41 +616,21 @@
       <eClassifier xsi:type="ecore:EClass" href="../model/BenchmarxFamiliesToPersons.ecore#//FamilyMemberToPerson"/>
     </symbolicParameters>
     <bodies>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/24/@symbolicParameters.5"/>
-        <parameters reference="/24/@symbolicParameters.1"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/BenchmarxFamiliesToPersons.ecore#//FamiliesToPersonsCorr/source"/>
-      </constraints>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/24/@symbolicParameters.5"/>
-        <parameters reference="/24/@symbolicParameters.4"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/BenchmarxFamiliesToPersons.ecore#//FamiliesToPersonsCorr/target"/>
-      </constraints>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/24/@symbolicParameters.6"/>
-        <parameters reference="/24/@symbolicParameters.2"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/BenchmarxFamiliesToPersons.ecore#//FamilyMemberToPerson/source"/>
-      </constraints>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/24/@symbolicParameters.6"/>
-        <parameters reference="/24/@symbolicParameters.3"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/BenchmarxFamiliesToPersons.ecore#//FamilyMemberToPerson/target"/>
-      </constraints>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="MotherToFemale__SRC">
-        <parameters reference="/24/@symbolicParameters.0"/>
-        <parameters reference="/24/@symbolicParameters.2"/>
+        <parameters reference="/25/@symbolicParameters.0"/>
+        <parameters reference="/25/@symbolicParameters.2"/>
       </constraints>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="MotherToFemale__TRG">
-        <parameters reference="/24/@symbolicParameters.3"/>
+        <parameters reference="/25/@symbolicParameters.3"/>
       </constraints>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="FamilyMember2Person__WHOLE">
-        <parameters reference="/24/@symbolicParameters.0"/>
-        <parameters reference="/24/@symbolicParameters.1"/>
-        <parameters reference="/24/@symbolicParameters.2"/>
-        <parameters reference="/24/@symbolicParameters.3"/>
-        <parameters reference="/24/@symbolicParameters.4"/>
-        <parameters reference="/24/@symbolicParameters.5"/>
-        <parameters reference="/24/@symbolicParameters.6"/>
+        <parameters reference="/25/@symbolicParameters.0"/>
+        <parameters reference="/25/@symbolicParameters.1"/>
+        <parameters reference="/25/@symbolicParameters.2"/>
+        <parameters reference="/25/@symbolicParameters.3"/>
+        <parameters reference="/25/@symbolicParameters.4"/>
+        <parameters reference="/25/@symbolicParameters.5"/>
+        <parameters reference="/25/@symbolicParameters.6"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -804,43 +657,23 @@
       <eClassifier xsi:type="ecore:EClass" href="../model/BenchmarxFamiliesToPersons.ecore#//FamilyMemberToPerson"/>
     </symbolicParameters>
     <bodies>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/25/@symbolicParameters.5"/>
-        <parameters reference="/25/@symbolicParameters.1"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/BenchmarxFamiliesToPersons.ecore#//FamiliesToPersonsCorr/source"/>
-      </constraints>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/25/@symbolicParameters.5"/>
-        <parameters reference="/25/@symbolicParameters.4"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/BenchmarxFamiliesToPersons.ecore#//FamiliesToPersonsCorr/target"/>
-      </constraints>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/25/@symbolicParameters.6"/>
-        <parameters reference="/25/@symbolicParameters.2"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/BenchmarxFamiliesToPersons.ecore#//FamilyMemberToPerson/source"/>
-      </constraints>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/25/@symbolicParameters.6"/>
-        <parameters reference="/25/@symbolicParameters.3"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/BenchmarxFamiliesToPersons.ecore#//FamilyMemberToPerson/target"/>
-      </constraints>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="ExistingFamily2Person__WHOLE">
-        <parameters reference="/25/@symbolicParameters.0"/>
-        <parameters reference="/25/@symbolicParameters.1"/>
-        <parameters reference="/25/@symbolicParameters.2"/>
-        <parameters reference="/25/@symbolicParameters.3"/>
-        <parameters reference="/25/@symbolicParameters.4"/>
-        <parameters reference="/25/@symbolicParameters.5"/>
-        <parameters reference="/25/@symbolicParameters.6"/>
+        <parameters reference="/26/@symbolicParameters.0"/>
+        <parameters reference="/26/@symbolicParameters.1"/>
+        <parameters reference="/26/@symbolicParameters.2"/>
+        <parameters reference="/26/@symbolicParameters.3"/>
+        <parameters reference="/26/@symbolicParameters.4"/>
+        <parameters reference="/26/@symbolicParameters.5"/>
+        <parameters reference="/26/@symbolicParameters.6"/>
       </constraints>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="SonToMale__WHOLE">
-        <parameters reference="/25/@symbolicParameters.0"/>
-        <parameters reference="/25/@symbolicParameters.1"/>
-        <parameters reference="/25/@symbolicParameters.2"/>
-        <parameters reference="/25/@symbolicParameters.3"/>
-        <parameters reference="/25/@symbolicParameters.4"/>
-        <parameters reference="/25/@symbolicParameters.5"/>
-        <parameters reference="/25/@symbolicParameters.6"/>
+        <parameters reference="/26/@symbolicParameters.0"/>
+        <parameters reference="/26/@symbolicParameters.1"/>
+        <parameters reference="/26/@symbolicParameters.2"/>
+        <parameters reference="/26/@symbolicParameters.3"/>
+        <parameters reference="/26/@symbolicParameters.4"/>
+        <parameters reference="/26/@symbolicParameters.5"/>
+        <parameters reference="/26/@symbolicParameters.6"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -853,13 +686,13 @@
     </symbolicParameters>
     <bodies>
       <constraints xsi:type="emf:Reference">
-        <parameters reference="/26/@symbolicParameters.0"/>
-        <parameters reference="/26/@symbolicParameters.1"/>
+        <parameters reference="/27/@symbolicParameters.0"/>
+        <parameters reference="/27/@symbolicParameters.1"/>
         <eModelElement xsi:type="ecore:EReference" href="../../../plugin/Families/model/Families.ecore#//Family/sons"/>
       </constraints>
       <constraints xsi:type="emf:Reference">
-        <parameters reference="/26/@symbolicParameters.1"/>
-        <parameters reference="/26/@symbolicParameters.0"/>
+        <parameters reference="/27/@symbolicParameters.1"/>
+        <parameters reference="/27/@symbolicParameters.0"/>
         <eModelElement xsi:type="ecore:EReference" href="../../../plugin/Families/model/Families.ecore#//FamilyMember/sonsInverse"/>
       </constraints>
     </bodies>
@@ -893,41 +726,21 @@
       <eClassifier xsi:type="ecore:EClass" href="../model/BenchmarxFamiliesToPersons.ecore#//FamilyMemberToPerson"/>
     </symbolicParameters>
     <bodies>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/28/@symbolicParameters.5"/>
-        <parameters reference="/28/@symbolicParameters.1"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/BenchmarxFamiliesToPersons.ecore#//FamiliesToPersonsCorr/source"/>
-      </constraints>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/28/@symbolicParameters.5"/>
-        <parameters reference="/28/@symbolicParameters.4"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/BenchmarxFamiliesToPersons.ecore#//FamiliesToPersonsCorr/target"/>
-      </constraints>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/28/@symbolicParameters.6"/>
-        <parameters reference="/28/@symbolicParameters.2"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/BenchmarxFamiliesToPersons.ecore#//FamilyMemberToPerson/source"/>
-      </constraints>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/28/@symbolicParameters.6"/>
-        <parameters reference="/28/@symbolicParameters.3"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/BenchmarxFamiliesToPersons.ecore#//FamilyMemberToPerson/target"/>
-      </constraints>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="SonToMale__SRC">
-        <parameters reference="/28/@symbolicParameters.0"/>
-        <parameters reference="/28/@symbolicParameters.2"/>
+        <parameters reference="/29/@symbolicParameters.0"/>
+        <parameters reference="/29/@symbolicParameters.2"/>
       </constraints>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="SonToMale__TRG">
-        <parameters reference="/28/@symbolicParameters.3"/>
+        <parameters reference="/29/@symbolicParameters.3"/>
       </constraints>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="FamilyMember2Person__WHOLE">
-        <parameters reference="/28/@symbolicParameters.0"/>
-        <parameters reference="/28/@symbolicParameters.1"/>
-        <parameters reference="/28/@symbolicParameters.2"/>
-        <parameters reference="/28/@symbolicParameters.3"/>
-        <parameters reference="/28/@symbolicParameters.4"/>
-        <parameters reference="/28/@symbolicParameters.5"/>
-        <parameters reference="/28/@symbolicParameters.6"/>
+        <parameters reference="/29/@symbolicParameters.0"/>
+        <parameters reference="/29/@symbolicParameters.1"/>
+        <parameters reference="/29/@symbolicParameters.2"/>
+        <parameters reference="/29/@symbolicParameters.3"/>
+        <parameters reference="/29/@symbolicParameters.4"/>
+        <parameters reference="/29/@symbolicParameters.5"/>
+        <parameters reference="/29/@symbolicParameters.6"/>
       </constraints>
     </bodies>
   </specification:Pattern>

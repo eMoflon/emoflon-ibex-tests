@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:org.emoflon.ibex.tgg.core.runtime="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore">
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="File2VHDLSpec">
+    <createdSrc href="src.xmi#/1"/>
+    <createdSrc href="src.xmi#/1/@rootNode"/>
+    <createdTrg href="trg.xmi#/1"/>
+    <createdCorr href="corr_inc.xmi#/6"/>
+    <nodeMappings key="file2spec">
+      <value href="corr_inc.xmi#/3"/>
+    </nodeMappings>
+    <nodeMappings key="file">
+      <value href="src.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="vhdl">
+      <value href="src.xmi#/1/@rootNode"/>
+    </nodeMappings>
+    <nodeMappings key="spec">
+      <value href="trg.xmi#/1"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="Entity2CompositeBlock">
+    <createdSrc href="src.xmi#/0/@rootNode/@children.0"/>
+    <createdSrc href="src.xmi#/0/@rootNode/@children.0/@children.0"/>
+    <createdSrc href="src.xmi#/0/@rootNode/@children.1"/>
+    <createdSrc href="src.xmi#/0/@rootNode/@children.1/@children.0"/>
+    <createdTrg href="trg.xmi#/0/@blocks.0"/>
+    <createdCorr href="corr_inc.xmi#/7"/>
+    <createdCorr href="corr_inc.xmi#/8"/>
+    <contextSrc href="src.xmi#/0"/>
+    <contextSrc href="src.xmi#/0/@rootNode"/>
+    <contextTrg href="trg.xmi#/0"/>
+    <nodeMappings key="gate2composite">
+      <value href="corr_inc.xmi#/2"/>
+    </nodeMappings>
+    <nodeMappings key="entity2composite">
+      <value href="corr_inc.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="entity">
+      <value href="src.xmi#/0/@rootNode/@children.0"/>
+    </nodeMappings>
+    <nodeMappings key="entityName">
+      <value href="src.xmi#/0/@rootNode/@children.0/@children.0"/>
+    </nodeMappings>
+    <nodeMappings key="file">
+      <value href="src.xmi#/0"/>
+    </nodeMappings>
+    <nodeMappings key="gate">
+      <value href="src.xmi#/0/@rootNode/@children.1"/>
+    </nodeMappings>
+    <nodeMappings key="gateName">
+      <value href="src.xmi#/0/@rootNode/@children.1/@children.0"/>
+    </nodeMappings>
+    <nodeMappings key="vhdl">
+      <value href="src.xmi#/0/@rootNode"/>
+    </nodeMappings>
+    <nodeMappings key="composite">
+      <value href="trg.xmi#/0/@blocks.0"/>
+    </nodeMappings>
+    <nodeMappings key="spec">
+      <value href="trg.xmi#/0"/>
+    </nodeMappings>
+    <nodeMappings key="file2spec">
+      <value href="corr_inc.xmi#/0"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="File2VHDLSpec">
+    <createdSrc href="src.xmi#/0"/>
+    <createdSrc href="src.xmi#/0/@rootNode"/>
+    <createdTrg href="trg.xmi#/0"/>
+    <createdCorr href="corr_inc.xmi#/9"/>
+    <nodeMappings key="file2spec">
+      <value href="corr_inc.xmi#/0"/>
+    </nodeMappings>
+    <nodeMappings key="file">
+      <value href="src.xmi#/0"/>
+    </nodeMappings>
+    <nodeMappings key="vhdl">
+      <value href="src.xmi#/0/@rootNode"/>
+    </nodeMappings>
+    <nodeMappings key="spec">
+      <value href="trg.xmi#/0"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+</xmi:XMI>

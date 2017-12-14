@@ -1,8 +1,70 @@
 <?xml version="1.0" encoding="ASCII"?>
-<ProcessDefinition:SystemModule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ProcessDefinition="platform:/plugin/ProcessDefinition/model/ProcessDefinition.ecore" allTasks="//@allModules.0/@tasks.0" name="Example">
-  <allModules description="A">
-    <tasks systemModule="/" invocation="//@allModules.0/@tasks.0/@invocations.0" id="1">
-      <invocations invokedTask="//@allModules.0/@tasks.0"/>
-    </tasks>
-  </allModules>
-</ProcessDefinition:SystemModule>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ProcessDefinition="platform:/plugin/ProcessDefinition/model/ProcessDefinition.ecore">
+  <ProcessDefinition:SystemModule allTasks="/0/@allModules.1/@tasks.0 /0/@allModules.0/@tasks.0 /0/@allModules.0/@tasks.1 /0/@allModules.1/@tasks.1" name="risus">
+    <allModules import="/0/@allModules.1/@tasks.0/@imports.0" description="mi">
+      <tasks systemModule="/0" invocation="/0/@allModules.0/@tasks.0/@invocations.0 /0/@allModules.1/@tasks.1/@invocations.0 /0/@allModules.1/@tasks.1/@invocations.2" id="torquent">
+        <invocations invokedTask="/0/@allModules.0/@tasks.0"/>
+        <invocations invokedTask="/0/@allModules.1/@tasks.0"/>
+        <invocations invokedTask="/0/@allModules.1/@tasks.1"/>
+      </tasks>
+      <tasks systemModule="/0" invocation="/0/@allModules.0/@tasks.1/@invocations.0 /0/@allModules.0/@tasks.1/@invocations.1 /0/@allModules.0/@tasks.1/@invocations.3 /0/@allModules.0/@tasks.1/@invocations.4 /0/@allModules.0/@tasks.1/@invocations.5" id="arcu">
+        <invocations invokedTask="/0/@allModules.0/@tasks.1"/>
+        <invocations invokedTask="/0/@allModules.0/@tasks.1"/>
+        <invocations invokedTask="/0/@allModules.1/@tasks.0"/>
+        <invocations invokedTask="/0/@allModules.0/@tasks.1"/>
+        <invocations invokedTask="/0/@allModules.0/@tasks.1"/>
+        <invocations invokedTask="/0/@allModules.0/@tasks.1"/>
+        <imports module="/0/@allModules.1"/>
+      </tasks>
+    </allModules>
+    <allModules import="/0/@allModules.0/@tasks.1/@imports.0" description="dui">
+      <tasks systemModule="/0" invocation="/0/@allModules.0/@tasks.0/@invocations.1 /0/@allModules.0/@tasks.1/@invocations.2 /0/@allModules.1/@tasks.0/@invocations.0" id="congue">
+        <invocations invokedTask="/0/@allModules.1/@tasks.0"/>
+        <imports module="/0/@allModules.0"/>
+        <imports module="/0/@allModules.3"/>
+      </tasks>
+      <tasks systemModule="/0" invocation="/0/@allModules.0/@tasks.0/@invocations.2 /0/@allModules.1/@tasks.1/@invocations.1" id="odio">
+        <invocations invokedTask="/0/@allModules.0/@tasks.0"/>
+        <invocations invokedTask="/0/@allModules.1/@tasks.1"/>
+        <invocations invokedTask="/0/@allModules.0/@tasks.0"/>
+      </tasks>
+    </allModules>
+    <allModules description="facilisi"/>
+    <allModules import="/0/@allModules.1/@tasks.0/@imports.1" description="lorem"/>
+    <allModules description="nisl"/>
+  </ProcessDefinition:SystemModule>
+  <ProcessDefinition:SystemModule allTasks="/1/@allModules.0/@tasks.0 /1/@allModules.1/@tasks.0" name="vestibulum">
+    <allModules description="duis">
+      <tasks systemModule="/1" invocation="/1/@allModules.0/@tasks.0/@invocations.0" id="est">
+        <invocations invokedTask="/1/@allModules.0/@tasks.0"/>
+      </tasks>
+    </allModules>
+    <allModules description="risus">
+      <tasks systemModule="/1" id="pharetra"/>
+    </allModules>
+  </ProcessDefinition:SystemModule>
+  <ProcessDefinition:SystemModule allTasks="/2/@allModules.0/@tasks.0 /2/@allModules.0/@tasks.1 /2/@allModules.0/@tasks.2" name="sociosqu">
+    <allModules description="libero">
+      <tasks systemModule="/2" invocation="/2/@allModules.0/@tasks.1/@invocations.0 /2/@allModules.0/@tasks.0/@invocations.0 /2/@allModules.0/@tasks.0/@invocations.1 /2/@allModules.0/@tasks.0/@invocations.2 /2/@allModules.0/@tasks.2/@invocations.2 /2/@allModules.0/@tasks.2/@invocations.3" id="habitasse">
+        <invocations invokedTask="/2/@allModules.0/@tasks.0"/>
+        <invocations invokedTask="/2/@allModules.0/@tasks.0"/>
+        <invocations invokedTask="/2/@allModules.0/@tasks.0"/>
+      </tasks>
+      <tasks systemModule="/2" invocation="/2/@allModules.0/@tasks.1/@invocations.1 /2/@allModules.0/@tasks.1/@invocations.2 /2/@allModules.0/@tasks.1/@invocations.4" id="nisi">
+        <invocations invokedTask="/2/@allModules.0/@tasks.0"/>
+        <invocations invokedTask="/2/@allModules.0/@tasks.1"/>
+        <invocations invokedTask="/2/@allModules.0/@tasks.1"/>
+        <invocations invokedTask="/2/@allModules.0/@tasks.2"/>
+        <invocations invokedTask="/2/@allModules.0/@tasks.1"/>
+      </tasks>
+      <tasks systemModule="/2" invocation="/2/@allModules.0/@tasks.2/@invocations.0 /2/@allModules.0/@tasks.1/@invocations.3 /2/@allModules.0/@tasks.2/@invocations.1" id="netus">
+        <invocations invokedTask="/2/@allModules.0/@tasks.2"/>
+        <invocations invokedTask="/2/@allModules.0/@tasks.2"/>
+        <invocations invokedTask="/2/@allModules.0/@tasks.0"/>
+        <invocations invokedTask="/2/@allModules.0/@tasks.0"/>
+      </tasks>
+    </allModules>
+    <allModules description="conubia"/>
+  </ProcessDefinition:SystemModule>
+  <ProcessDefinition:SystemModule name="augue"/>
+</xmi:XMI>

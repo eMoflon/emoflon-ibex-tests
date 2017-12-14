@@ -24,10 +24,6 @@
     <source xsi:type="FeatureModelConcise:XorGroup" href="src.xmi#/1/@root/@groups.0"/>
     <target xsi:type="FeatureModelSafe:XorGroup" href="trg.xmi#/1/@root/@groups.0"/>
   </FeatureModelConciseToSafe:Group2Group>
-  <FeatureModelConciseToSafe:Model2Model>
-    <source href="src.xmi#/2"/>
-    <target href="trg.xmi#/2"/>
-  </FeatureModelConciseToSafe:Model2Model>
   <FeatureModelConciseToSafe:Feature2Feature>
     <source href="src.xmi#/2/@root"/>
     <target href="trg.xmi#/2/@root"/>
