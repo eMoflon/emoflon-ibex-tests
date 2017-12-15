@@ -4,20 +4,16 @@
     <source href="src.xmi#/0"/>
     <target href="trg.xmi#/0"/>
   </VHDLTGGCodeAdapter:FileToVHDLSpecification>
-  <VHDLTGGCodeAdapter:NodeToCompositeBlock>
-    <source href="src.xmi#/0/@rootNode/@children.0"/>
-    <target href="trg.xmi#/0/@blocks.0"/>
-  </VHDLTGGCodeAdapter:NodeToCompositeBlock>
-  <VHDLTGGCodeAdapter:NodeToCompositeBlock>
-    <source href="src.xmi#/0/@rootNode/@children.1"/>
-    <target href="trg.xmi#/0/@blocks.0"/>
-  </VHDLTGGCodeAdapter:NodeToCompositeBlock>
   <VHDLTGGCodeAdapter:FileToVHDLSpecification>
     <source href="src.xmi#/1"/>
     <target href="trg.xmi#/1"/>
   </VHDLTGGCodeAdapter:FileToVHDLSpecification>
+  <VHDLTGGCodeAdapter:FileToVHDLSpecification>
+    <source href="src.xmi#/2"/>
+    <target href="trg.xmi#/2"/>
+  </VHDLTGGCodeAdapter:FileToVHDLSpecification>
   <VHDLTGGCodeAdapter:NodeToCompositeBlock>
-    <source href="src.xmi#/1/@rootNode/@children.1"/>
+    <source href="src.xmi#/1/@rootNode/@children.0"/>
     <target href="trg.xmi#/1/@blocks.0"/>
   </VHDLTGGCodeAdapter:NodeToCompositeBlock>
   <VHDLTGGCodeAdapter:NodeToCompositeBlock>

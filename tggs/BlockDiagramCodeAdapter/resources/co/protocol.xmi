@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ASCII"?>
+<org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:org.emoflon.ibex.tgg.core.runtime="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore" name="SystemToNodeRule">
+  <createdSrc href="src.xmi#/4"/>
+  <createdTrg href="trg.xmi#/4"/>
+  <createdTrg href="trg.xmi#/4/@rootNode"/>
+  <createdCorr href="corr_inc.xmi#/4"/>
+  <nodeMappings key="system">
+    <value href="src.xmi#/4"/>
+  </nodeMappings>
+  <nodeMappings key="file">
+    <value href="trg.xmi#/4"/>
+  </nodeMappings>
+  <nodeMappings key="node">
+    <value href="trg.xmi#/4/@rootNode"/>
+  </nodeMappings>
+  <nodeMappings key="systemToNode">
+    <value href="corr_inc.xmi#/4"/>
+  </nodeMappings>
+</org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
