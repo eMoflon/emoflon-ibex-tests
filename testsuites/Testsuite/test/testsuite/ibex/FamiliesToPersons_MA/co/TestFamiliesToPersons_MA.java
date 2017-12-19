@@ -1,16 +1,16 @@
-package testsuite.ibex.BenchmarxFamiliesToPersons.co;
+package testsuite.ibex.FamiliesToPersons_MA.co;
 
 import java.io.IOException;
 
-import org.emoflon.ibex.tgg.run.benchmarxfamiliestopersons.CO_App;
+import org.emoflon.ibex.tgg.run.familiestopersons_ma.CO_App;
 import org.junit.Test;
 
 import testsuite.ibex.testUtil.COTestCase;
 
-public class TestConsistentTriples extends COTestCase{
+public class TestFamiliesToPersons_MA extends COTestCase {
 
 	public void createGenerator(String srcInstance, String trgInstance, String corrInstance) throws IOException {
-		checker = new CO_App("BenchmarxFamiliesToPersons", testsuite.ibex.testUtil.Constants.workspacePath, true, srcInstance, trgInstance, corrInstance);
+		checker = new CO_App("FamiliesToPersons_MA", testsuite.ibex.testUtil.Constants.workspacePath, false, srcInstance, trgInstance, corrInstance);
 	}
 	
 	@Test
@@ -21,7 +21,7 @@ public class TestConsistentTriples extends COTestCase{
 	}
 	
 	@Test
-	public void testSimpleNegative() throws IOException {
+	public void testAllPersonsMissing() throws IOException {
 		createGenerator("src", "trg", "corr_inc");
 		runGenerator();
 		assert !checker.modelsAreConsistent();

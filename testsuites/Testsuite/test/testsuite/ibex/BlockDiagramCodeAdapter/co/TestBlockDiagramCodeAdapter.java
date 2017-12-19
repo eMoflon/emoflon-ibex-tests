@@ -7,10 +7,10 @@ import org.junit.Test;
 
 import testsuite.ibex.testUtil.COTestCase;
 
-public class TestSimple extends COTestCase{
+public class TestBlockDiagramCodeAdapter extends COTestCase{
 
 	public void createGenerator(String srcInstance, String trgInstance, String corrInstance) throws IOException {
-		checker = new CO_App("BlockDiagramCodeAdapter", testsuite.ibex.testUtil.Constants.workspacePath, false, srcInstance, trgInstance, corrInstance);
+		checker = new CO_App("BlockDiagramCodeAdapter", testsuite.ibex.testUtil.Constants.workspacePath, true, srcInstance, trgInstance, corrInstance);
 	}
 	
 	@Test
@@ -21,7 +21,7 @@ public class TestSimple extends COTestCase{
 	}
 	
 	@Test
-	public void testSimpleNegative() throws IOException {
+	public void testWrongLink() throws IOException {
 		createGenerator("src", "trg", "corr_inc");
 		runGenerator();
 		assert !checker.modelsAreConsistent();

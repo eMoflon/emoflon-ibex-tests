@@ -1,16 +1,16 @@
-package testsuite.ibex.VHDLTGGCodeAdapter.co;
+package testsuite.ibex.CompanyToIT.co;
 
 import java.io.IOException;
 
-import org.emoflon.ibex.tgg.run.vhdltggcodeadapter.CO_App;
+import org.emoflon.ibex.tgg.run.companytoit.CO_App;
 import org.junit.Test;
 
 import testsuite.ibex.testUtil.COTestCase;
 
-public class TestSimple extends COTestCase{
+public class TestCompanyToIT extends COTestCase{
 
 	public void createGenerator(String srcInstance, String trgInstance, String corrInstance) throws IOException {
-		checker = new CO_App("VHDLTGGCodeAdapter", testsuite.ibex.testUtil.Constants.workspacePath, false, srcInstance, trgInstance, corrInstance);
+		checker = new CO_App("CompanyToIT", testsuite.ibex.testUtil.Constants.workspacePath, false, srcInstance, trgInstance, corrInstance);
 	}
 	
 	@Test
@@ -21,7 +21,7 @@ public class TestSimple extends COTestCase{
 	}
 	
 	@Test
-	public void testSimpleNegative() throws IOException {
+	public void testCyclicWrongLinks() throws IOException {
 		createGenerator("src", "trg", "corr_inc");
 		runGenerator();
 		assert !checker.modelsAreConsistent();
