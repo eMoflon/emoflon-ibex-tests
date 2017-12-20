@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:BlockCodeAdapter="platform:/resource/BlockCodeAdapter/model/BlockCodeAdapter.ecore">
+  <BlockCodeAdapter:FileToSpecification>
+    <source href="src.xmi#/"/>
+    <target href="trg.xmi#/"/>
+  </BlockCodeAdapter:FileToSpecification>
+  <BlockCodeAdapter:NodeToSpecification>
+    <source href="src.xmi#//@rootNode"/>
+    <target href="trg.xmi#/"/>
+  </BlockCodeAdapter:NodeToSpecification>
+  <BlockCodeAdapter:NodeToBlock>
+    <source href="src.xmi#//@rootNode/@children.0/@children.0"/>
+    <target href="trg.xmi#//@blocks.0"/>
+  </BlockCodeAdapter:NodeToBlock>
+  <BlockCodeAdapter:NodeToPort>
+    <source href="src.xmi#//@rootNode/@children.0/@children.0/@children.0"/>
+    <target href="trg.xmi#//@blocks.0/@ports.0"/>
+  </BlockCodeAdapter:NodeToPort>
+</xmi:XMI>

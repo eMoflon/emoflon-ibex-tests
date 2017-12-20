@@ -24,7 +24,7 @@ public class MODELGEN_App extends MODELGEN {
 		MODELGEN_App generator = new MODELGEN_App("VHDLTGGCodeAdapter", "./../", true);
 		
 		MODELGENStopCriterion stop = new MODELGENStopCriterion(generator.getTGG());
-		stop.setTimeOutInMS(1000);
+		stop.setTimeOutInMS(300);
 		generator.setStopCriterion(stop);
 		
 		logger.info("Starting MODELGEN");

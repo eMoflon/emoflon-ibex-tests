@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:VHDLTGGCodeAdapter="platform:/resource/VHDLTGGCodeAdapter/model/VHDLTGGCodeAdapter.ecore">
+  <VHDLTGGCodeAdapter:FileToVHDLSpecification>
+    <source href="src.xmi#/0"/>
+    <target href="trg.xmi#/0"/>
+  </VHDLTGGCodeAdapter:FileToVHDLSpecification>
+  <VHDLTGGCodeAdapter:FileToVHDLSpecification>
+    <source href="src.xmi#/1"/>
+    <target href="trg.xmi#/1"/>
+  </VHDLTGGCodeAdapter:FileToVHDLSpecification>
+  <VHDLTGGCodeAdapter:FileToVHDLSpecification>
+    <source href="src.xmi#/2"/>
+    <target href="trg.xmi#/2"/>
+  </VHDLTGGCodeAdapter:FileToVHDLSpecification>
+  <VHDLTGGCodeAdapter:NodeToCompositeBlock>
+    <source href="src.xmi#/1/@rootNode/@children.1"/>
+    <target href="trg.xmi#/1/@blocks.0"/>
+  </VHDLTGGCodeAdapter:NodeToCompositeBlock>
+</xmi:XMI>

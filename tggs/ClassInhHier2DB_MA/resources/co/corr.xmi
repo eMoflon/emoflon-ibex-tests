@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ClassInhHier2DB_MA="platform:/resource/ClassInhHier2DB_MA/model/ClassInhHier2DB_MA.ecore">
+  <ClassInhHier2DB_MA:Package2DB>
+    <source href="src.xmi#/"/>
+    <target href="trg.xmi#/"/>
+  </ClassInhHier2DB_MA:Package2DB>
+  <ClassInhHier2DB_MA:Clazz2DirectTable>
+    <source href="src.xmi#//@classes.0"/>
+    <target href="trg.xmi#//@tables.0"/>
+  </ClassInhHier2DB_MA:Clazz2DirectTable>
+  <ClassInhHier2DB_MA:Clazz2DirectTable>
+    <source href="src.xmi#//@classes.1"/>
+    <target href="trg.xmi#//@tables.1"/>
+  </ClassInhHier2DB_MA:Clazz2DirectTable>
+  <ClassInhHier2DB_MA:Clazz2SubTable>
+    <source href="src.xmi#//@classes.0"/>
+    <target href="trg.xmi#//@tables.1"/>
+  </ClassInhHier2DB_MA:Clazz2SubTable>
+</xmi:XMI>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:FeatureModelConcise="platform:/plugin/FeatureModelConcise/model/FeatureModelConcise.ecore" xmlns:FeatureModelConciseToSafe="platform:/resource/FeatureModelConciseToSafe/model/FeatureModelConciseToSafe.ecore" xmlns:FeatureModelSafe="platform:/plugin/FeatureModelSafe/model/FeatureModelSafe.ecore">
+  <FeatureModelConciseToSafe:Model2Model>
+    <source href="src.xmi#/0"/>
+    <target href="trg.xmi#/0"/>
+  </FeatureModelConciseToSafe:Model2Model>
+  <FeatureModelConciseToSafe:Feature2Feature>
+    <source href="src.xmi#/0/@root"/>
+    <target href="trg.xmi#/0/@root"/>
+  </FeatureModelConciseToSafe:Feature2Feature>
+  <FeatureModelConciseToSafe:Model2Model>
+    <source href="src.xmi#/1"/>
+    <target href="trg.xmi#/1"/>
+  </FeatureModelConciseToSafe:Model2Model>
+  <FeatureModelConciseToSafe:Feature2Feature>
+    <source href="src.xmi#/1/@root"/>
+    <target href="trg.xmi#/1/@root"/>
+  </FeatureModelConciseToSafe:Feature2Feature>
+  <FeatureModelConciseToSafe:Feature2Feature>
+    <source href="src.xmi#/1/@root/@subfeatures.0"/>
+    <target href="trg.xmi#/1/@root/@solitarySubFeatures.0"/>
+  </FeatureModelConciseToSafe:Feature2Feature>
+  <FeatureModelConciseToSafe:Group2Group>
+    <source xsi:type="FeatureModelConcise:XorGroup" href="src.xmi#/1/@root/@groups.0"/>
+    <target xsi:type="FeatureModelSafe:XorGroup" href="trg.xmi#/1/@root/@groups.0"/>
+  </FeatureModelConciseToSafe:Group2Group>
+  <FeatureModelConciseToSafe:Feature2Feature>
+    <source href="src.xmi#/2/@root"/>
+    <target href="trg.xmi#/2/@root"/>
+  </FeatureModelConciseToSafe:Feature2Feature>
+  <FeatureModelConciseToSafe:Feature2Feature>
+    <source href="src.xmi#/1/@root/@subfeatures.1"/>
+    <target href="trg.xmi#/1/@root/@groups.0/@members.0"/>
+  </FeatureModelConciseToSafe:Feature2Feature>
+  <FeatureModelConciseToSafe:Feature2Feature>
+    <source href="src.xmi#/0/@root/@subfeatures.0"/>
+    <target href="trg.xmi#/0/@root/@solitarySubFeatures.0"/>
+  </FeatureModelConciseToSafe:Feature2Feature>
+  <FeatureModelConciseToSafe:Group2Group>
+    <source xsi:type="FeatureModelConcise:OrGroup" href="src.xmi#/1/@root/@groups.1"/>
+    <target xsi:type="FeatureModelSafe:OrGroup" href="trg.xmi#/1/@root/@groups.1"/>
+  </FeatureModelConciseToSafe:Group2Group>
+  <FeatureModelConciseToSafe:Group2Group>
+    <source xsi:type="FeatureModelConcise:OrGroup" href="src.xmi#/0/@root/@groups.0"/>
+    <target xsi:type="FeatureModelSafe:OrGroup" href="trg.xmi#/0/@root/@groups.0"/>
+  </FeatureModelConciseToSafe:Group2Group>
+  <FeatureModelConciseToSafe:Group2Group>
+    <source xsi:type="FeatureModelConcise:XorGroup" href="src.xmi#/0/@root/@subfeatures.0/@groups.0"/>
+    <target xsi:type="FeatureModelSafe:XorGroup" href="trg.xmi#/0/@root/@solitarySubFeatures.0/@groups.0"/>
+  </FeatureModelConciseToSafe:Group2Group>
+</xmi:XMI>

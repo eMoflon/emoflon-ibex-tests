@@ -496,10 +496,10 @@
     </targetPatterns>
     <targetPatterns name="toBlock">
       <type href="platform:/resource/BlockLanguage/model/BlockLanguage.ecore#//Block"/>
-      <linkVariablePatterns target="//@rules.4/@targetPatterns.3">
+      <linkVariablePatterns target="//@rules.4/@targetPatterns.0">
         <type href="platform:/resource/BlockLanguage/model/BlockLanguage.ecore#//Block/ports"/>
       </linkVariablePatterns>
-      <linkVariablePatterns target="//@rules.4/@targetPatterns.0">
+      <linkVariablePatterns target="//@rules.4/@targetPatterns.3">
         <type href="platform:/resource/BlockLanguage/model/BlockLanguage.ecore#//Block/ports"/>
       </linkVariablePatterns>
     </targetPatterns>
@@ -559,10 +559,6 @@
   <rules name="Mapping2WireRule" schema="//@schema">
     <sourcePatterns name="blocks">
       <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Node"/>
-      <attributeConstraints op="==">
-        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
-        <valueExp xsi:type="tgg:LiteralExpression" value="&quot;BLOCKS&quot;"/>
-      </attributeConstraints>
       <attributeConstraints op="==">
         <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
         <valueExp xsi:type="tgg:LiteralExpression" value="&quot;BLOCKS&quot;"/>
