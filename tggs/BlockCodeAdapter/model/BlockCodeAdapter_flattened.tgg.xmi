@@ -477,7 +477,7 @@
     <nodes name="toPortNode" incomingEdges="//@rules.5/@edges.21" outgoingEdges="//@rules.5/@edges.7" incomingCorrsSource="//@rules.5/@nodes.16">
       <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Node"/>
     </nodes>
-    <nodes name="fromBlock" domainType="TRG" incomingEdges="//@rules.5/@edges.11" outgoingEdges="//@rules.5/@edges.8">
+    <nodes name="fromBlock" domainType="TRG" incomingEdges="//@rules.5/@edges.10" outgoingEdges="//@rules.5/@edges.8">
       <type href="platform:/resource/BlockLanguage/model/BlockLanguage.ecore#//Block"/>
     </nodes>
     <nodes name="fromPort" domainType="TRG" incomingEdges="//@rules.5/@edges.8" outgoingEdges="//@rules.5/@edges.9" incomingCorrsTarget="//@rules.5/@nodes.15">
@@ -486,7 +486,7 @@
     <nodes name="spec" domainType="TRG" outgoingEdges="//@rules.5/@edges.10 //@rules.5/@edges.11" incomingCorrsTarget="//@rules.5/@nodes.17">
       <type href="platform:/resource/BlockLanguage/model/BlockLanguage.ecore#//Specification"/>
     </nodes>
-    <nodes name="toBlock" domainType="TRG" incomingEdges="//@rules.5/@edges.10" outgoingEdges="//@rules.5/@edges.12">
+    <nodes name="toBlock" domainType="TRG" incomingEdges="//@rules.5/@edges.11" outgoingEdges="//@rules.5/@edges.12">
       <type href="platform:/resource/BlockLanguage/model/BlockLanguage.ecore#//Block"/>
     </nodes>
     <nodes name="toPort" domainType="TRG" incomingEdges="//@rules.5/@edges.12 //@rules.5/@edges.13" incomingCorrsTarget="//@rules.5/@nodes.16">
@@ -540,10 +540,10 @@
     <edges name="fromPort__wire__wire_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.5/@nodes.10" trgNode="//@rules.5/@nodes.14">
       <type href="platform:/resource/BlockLanguage/model/BlockLanguage.ecore#//Port/wire"/>
     </edges>
-    <edges name="spec__blocks__toBlock_eMoflonEdge" domainType="TRG" srcNode="//@rules.5/@nodes.11" trgNode="//@rules.5/@nodes.12">
+    <edges name="spec__blocks__fromBlock_eMoflonEdge" domainType="TRG" srcNode="//@rules.5/@nodes.11" trgNode="//@rules.5/@nodes.9">
       <type href="platform:/resource/BlockLanguage/model/BlockLanguage.ecore#//Specification/blocks"/>
     </edges>
-    <edges name="spec__blocks__fromBlock_eMoflonEdge" domainType="TRG" srcNode="//@rules.5/@nodes.11" trgNode="//@rules.5/@nodes.9">
+    <edges name="spec__blocks__toBlock_eMoflonEdge" domainType="TRG" srcNode="//@rules.5/@nodes.11" trgNode="//@rules.5/@nodes.12">
       <type href="platform:/resource/BlockLanguage/model/BlockLanguage.ecore#//Specification/blocks"/>
     </edges>
     <edges name="toBlock__ports__toPort_eMoflonEdge" domainType="TRG" srcNode="//@rules.5/@nodes.12" trgNode="//@rules.5/@nodes.13">

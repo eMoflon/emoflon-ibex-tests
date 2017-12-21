@@ -10,7 +10,7 @@
 	fromBlockNode:Node
 }
 
-#target {
+#target { 
 	toBlock:Block {
 		- ports->fromPort
 	}

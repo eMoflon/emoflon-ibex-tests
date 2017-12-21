@@ -4,22 +4,18 @@ import java.io.IOException;
 
 import org.apache.log4j.BasicConfigurator;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.emoflon.ibex.tgg.operational.csp.constraints.factories.UserDefinedRuntimeTGGAttrConstraintFactory;
 import org.emoflon.ibex.tgg.operational.strategies.co.CO;
+import org.emoflon.ibex.tgg.operational.util.IbexOptions;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesEngine;
 
 import Families.impl.FamiliesPackageImpl;
 import Persons.impl.PersonsPackageImpl;
 
 public class CO_App extends CO {
-	String srcPath;
-	String trgPath;
-	String corrPath;
-	
-	public CO_App(String projectName, String workspacePath, boolean debug, String srcPath, String trgPath, String corrPath) throws IOException {
-		super(projectName, workspacePath, debug);
-		this.srcPath = srcPath;
-		this.trgPath = trgPath;
-		this.corrPath = corrPath;
+
+	public CO_App(String projectName, String workspacePath, boolean debug) throws IOException {
+		super(createIbexOptions().projectName(projectName).workspacePath(workspacePath).debug(debug));
 		registerPatternMatchingEngine(new DemoclesEngine());
 		
 	}
@@ -63,4 +59,11 @@ public class CO_App extends CO {
 		p.save(null);
 	}
 	
+	protected static IbexOptions createIbexOptions() {
+		IbexOptions options = new IbexOptions();
+		options.projectName("BenchmarxFamiliesToPersons");
+		options.debug(true);
+		options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
+		return options;
+	}
 }
