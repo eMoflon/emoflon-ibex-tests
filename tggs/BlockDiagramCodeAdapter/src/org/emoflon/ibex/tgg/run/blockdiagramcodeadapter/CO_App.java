@@ -5,8 +5,9 @@ import java.io.IOException;
 import org.apache.log4j.BasicConfigurator;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.apache.commons.lang3.NotImplementedException;
-
+import org.emoflon.ibex.tgg.operational.csp.constraints.factories.UserDefinedRuntimeTGGAttrConstraintFactory;
 import org.emoflon.ibex.tgg.operational.strategies.co.CO;
+import org.emoflon.ibex.tgg.operational.util.IbexOptions;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesEngine;
 
 import BlockDiagram.impl.BlockDiagramPackageImpl;
@@ -20,7 +21,7 @@ public class CO_App extends CO {
 
 	
 	public CO_App(String projectName, String workspacePath, boolean debug, String srcPath, String trgPath, String corrPath) throws IOException {
-		super(projectName, workspacePath, debug);
+		super(createIbexOptions().projectName(projectName).workspacePath(workspacePath).debug(debug));
 		this.srcPath = srcPath;
 		this.trgPath = trgPath;
 		this.corrPath = corrPath;
@@ -64,5 +65,13 @@ public class CO_App extends CO {
 	@Override
 	public void saveModels() throws IOException {
 		p.save(null);
+	}
+	
+	protected static IbexOptions createIbexOptions() {
+		IbexOptions options = new IbexOptions();
+		options.projectName("BenchmarxFamiliesToPersons");
+		options.debug(true);
+		options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
+		return options;
 	}
 }

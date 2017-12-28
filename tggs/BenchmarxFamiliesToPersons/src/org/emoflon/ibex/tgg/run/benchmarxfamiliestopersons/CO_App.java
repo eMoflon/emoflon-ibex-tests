@@ -14,10 +14,16 @@ import Persons.impl.PersonsPackageImpl;
 
 public class CO_App extends CO {
 
-	public CO_App(String projectName, String workspacePath, boolean debug) throws IOException {
+	String srcPath;
+	String trgPath;
+	String corrPath;
+	
+	public CO_App(String projectName, String workspacePath, boolean debug, String srcPath, String trgPath, String corrPath) throws IOException {
 		super(createIbexOptions().projectName(projectName).workspacePath(workspacePath).debug(debug));
+		this.srcPath = srcPath;
+		this.trgPath = trgPath;
+		this.corrPath = corrPath;
 		registerPatternMatchingEngine(new DemoclesEngine());
-		
 	}
 
 	public static void main(String[] args) throws IOException {

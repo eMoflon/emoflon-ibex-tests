@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import org.apache.log4j.BasicConfigurator;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.emoflon.ibex.tgg.operational.csp.constraints.factories.UserDefinedRuntimeTGGAttrConstraintFactory;
 import org.emoflon.ibex.tgg.operational.strategies.co.CO;
 import org.emoflon.ibex.tgg.operational.util.IbexOptions;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesEngine;
@@ -13,8 +14,15 @@ import ITLanguage.impl.ITLanguagePackageImpl;
 
 public class CO_App extends CO {
 
-	public CO_App(String projectName, String workspacePath, boolean debug) throws IOException {
+	String srcPath;
+	String trgPath;
+	String corrPath;
+	
+	public CO_App(String projectName, String workspacePath, boolean debug, String srcPath, String trgPath, String corrPath) throws IOException {
 		super(createIbexOptions().projectName(projectName).workspacePath(workspacePath).debug(debug));
+		this.srcPath = srcPath;
+		this.trgPath = trgPath;
+		this.corrPath = corrPath;
 		registerPatternMatchingEngine(new DemoclesEngine());
 	}
 
@@ -55,6 +63,8 @@ public class CO_App extends CO {
 	@Override
 	public void saveModels() throws IOException {
 		p.save(null);
+	}
+	
 	private static IbexOptions createIbexOptions() {
 		IbexOptions options = new IbexOptions();
 		options.projectName("CompanyToIT");
