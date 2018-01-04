@@ -25,5 +25,8 @@
 }
 
 #attributeConditions {
-	
+	#userDefined rand (name:EString) {
+		#sync: [F B]
+		#gen: [F]
+		}
 }
