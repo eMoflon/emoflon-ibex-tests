@@ -1270,18 +1270,18 @@
       <op value="++"/>
     </correspondencePatterns>
     <attrConditions name="//@schema/@attributeCondDefs.0">
-      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.8/@sourcePatterns.8">
-        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
-      </values>
-      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.8/@sourcePatterns.5">
-        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
-      </values>
-    </attrConditions>
-    <attrConditions name="//@schema/@attributeCondDefs.0">
       <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.8/@targetPatterns.3">
         <attribute href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Port/name"/>
       </values>
       <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.8/@sourcePatterns.9">
+        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
+      </values>
+    </attrConditions>
+    <attrConditions name="//@schema/@attributeCondDefs.0">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.8/@sourcePatterns.8">
+        <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.8/@sourcePatterns.5">
         <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
       </values>
     </attrConditions>
