@@ -13,7 +13,7 @@
 	file:File
 	folder:Folder {
 		- file->file
-	}
+	} 
 	++invocationNode:Node {
 		++ - parentNode->invocationsNode
 	}

@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.ibex.tgg.operational.strategies.sync.SYNC;
+import org.emoflon.ibex.tgg.operational.util.IbexOptions;
 
 import testsuite.ibex.performance.util.PerformanceTestUtil;
 
@@ -13,7 +14,10 @@ public class SYNC_App extends SYNC {
 	private boolean isIncr;
 
 	public SYNC_App(String projectName, String workspacePath, boolean debug, String instancePath, boolean isFwd, boolean isIncr) throws IOException {
-		super(projectName, workspacePath, debug);
+		super(createIbexOptions()
+				.projectName(projectName)
+				.workspacePath(workspacePath)
+				.debug(debug));
 		this.instancePath = instancePath;
 		this.isFwd = isFwd;
 		this.isIncr = isIncr;
@@ -54,4 +58,8 @@ public class SYNC_App extends SYNC {
 		EcoreUtil.resolveAll(rs);
 	}
 
+	protected static IbexOptions createIbexOptions() {
+		IbexOptions options = new IbexOptions();
+		return options;
+	}
 }

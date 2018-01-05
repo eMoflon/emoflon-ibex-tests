@@ -4,15 +4,18 @@ import java.io.IOException;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.ibex.tgg.operational.strategies.cc.CC;
+import org.emoflon.ibex.tgg.operational.util.IbexOptions;
 
 import testsuite.ibex.performance.util.PerformanceTestUtil;
 
 public class CC_App extends CC {
 	private String modelPath;
 
-	public CC_App(String projectName, String workspacePath, boolean debug,
-			String modelPath) throws IOException {
-		super(projectName, workspacePath, debug);
+	public CC_App(String projectName, String workspacePath, boolean debug, String modelPath) throws IOException {
+		super(createIbexOptions()
+				.projectName(projectName)
+				.workspacePath(workspacePath)
+				.debug(debug));
 		this.modelPath = modelPath;
 	}
 
@@ -32,5 +35,10 @@ public class CC_App extends CC {
 		p = createResource(projectPath + "/instances/"+modelPath+"/protocol.xmi");
 	
 		EcoreUtil.resolveAll(rs);
+	}
+	
+	protected static IbexOptions createIbexOptions() {
+		IbexOptions options = new IbexOptions();
+		return options;
 	}
 }

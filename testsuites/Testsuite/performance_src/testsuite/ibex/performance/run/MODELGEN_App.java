@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGEN;
+import org.emoflon.ibex.tgg.operational.util.IbexOptions;
 
 import testsuite.ibex.performance.util.PerformanceTestUtil;
 
@@ -11,7 +12,10 @@ public class MODELGEN_App extends MODELGEN {
 	private String instancePath;
 
 	public MODELGEN_App(String projectName, String workspacePath, boolean debug, String instancePath) throws IOException {
-		super(projectName, workspacePath, debug);
+		super(createIbexOptions()
+				.projectName(projectName)
+				.workspacePath(workspacePath)
+				.debug(debug));
 		this.instancePath = instancePath;
 	}
 
@@ -38,4 +42,8 @@ public class MODELGEN_App extends MODELGEN {
 		return true;
 	}
 
+	protected static IbexOptions createIbexOptions() {
+		IbexOptions options = new IbexOptions();
+		return options;
+	}
 }

@@ -18,7 +18,7 @@
 		- parentNode->entityNode
 	}
 	outNode:Node {
-		name == "out"
+		name == "out" 
 		- parentNode->outputPortNode
 	}
 	entityNode:Node {
