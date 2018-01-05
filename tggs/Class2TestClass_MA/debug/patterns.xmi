@@ -412,12 +412,12 @@
         <eModelElement xsi:type="ecore:EAttribute" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication/name"/>
       </constraints>
       <constraints xsi:type="relational:Equal">
-        <parameters reference="/21/@bodies.0/@localVariables.3"/>
-        <parameters reference="/21/@bodies.0/@constants.1"/>
-      </constraints>
-      <constraints xsi:type="relational:Equal">
         <parameters reference="/21/@bodies.0/@localVariables.4"/>
         <parameters reference="/21/@bodies.0/@constants.0"/>
+      </constraints>
+      <constraints xsi:type="relational:Equal">
+        <parameters reference="/21/@bodies.0/@localVariables.3"/>
+        <parameters reference="/21/@bodies.0/@constants.1"/>
       </constraints>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="CreateTestClass__CONTEXT_SRC">
         <parameters reference="/21/@symbolicParameters.0"/>

@@ -9,7 +9,6 @@ import org.emoflon.ibex.tgg.operational.util.RandomMatchUpdatePolicy;
 import org.emoflon.ibex.tgg.operational.util.UpdatePolicy;
 import org.emoflon.ibex.tgg.run.class2testclass_ma.MODELGEN_App;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import ClassInheritanceHierarchy.ClassPackage;
@@ -44,16 +43,19 @@ public class SimpleModelgenTest extends ModelGenTestCase<ClassPackage, DB>{
 		assertPostcondition("in/01_PackageToTestSuite_FWD", "expected/01_PackageToTestSuite_FWD");
 	}
 	
-	@Ignore("Implement rand in starndard library")
 	@Test
 	public void testClassToTestClass() throws IOException {
 		stop.setMaxRuleCount("Package2TestSuite", 1);
 		stop.setMaxRuleCount("CreateClass", 1);
+		// For every Class there should be at least one TestClass
+		// TODO: [Milica] Implement possibility for complement rules to be 0..* or 1..*
+		UpdatePolicy newUP = new RandomMatchUpdatePolicy();
+		newUP.setBoundForComplementRule("CreateTestClass", 1, true);
+		generator.setUpdatePolicy(newUP);
 		runGenerator(stop);
 		assertPostcondition("in/02_OneClass", "expected/02_OneTestClass");
 	}
 	
-	@Ignore("Implement rand in starndard library")
 	@Test
 	public void testThreeClassesToSixTestClasses() throws IOException {
 		stop.setMaxRuleCount("Package2TestSuite", 1);
@@ -62,7 +64,7 @@ public class SimpleModelgenTest extends ModelGenTestCase<ClassPackage, DB>{
 		newUP.setBoundForComplementRule("CreateTestClass", 2, true);
 		generator.setUpdatePolicy(newUP);
 		runGenerator(stop);
-		assertPostcondition("in/03_ThreeClasses", "expected/03_SixTestClasses");
+		assertPostcondition("in/03_ThreeClasses", "expected/04_SixTestClasses");
 	}
 	
 }

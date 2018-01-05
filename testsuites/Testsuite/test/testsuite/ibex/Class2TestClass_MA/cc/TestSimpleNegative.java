@@ -3,34 +3,29 @@ package testsuite.ibex.Class2TestClass_MA.cc;
 import java.io.IOException;
 
 import org.emoflon.ibex.tgg.run.class2testclass_ma.CC_App;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import testsuite.ibex.testUtil.CCTestCase;
 
-public class TestSimplePositive extends CCTestCase {
+public class TestSimpleNegative extends CCTestCase {
 	public void createGenerator(String srcInstance, String trgInstance) throws IOException {
 		checker = new CC_App("Class2TestClass_MA", testsuite.ibex.testUtil.Constants.workspacePath, false, srcInstance, trgInstance);
 	}
 	
-	@Test
-	public void testPackageToTestSuite() throws IOException {
-		createGenerator("in/01_PackageToTestSuite_FWD", "expected/01_PackageToTestSuite_FWD");
-		runGenerator();
-		assert checker.modelsAreConsistent();
-	}
-	
+	@Ignore("This should be negative, since TC has to exist for every Class")
 	@Test
 	public void testClassToMandatoryTestClass() throws IOException {
-		createGenerator("in/02_OneClass", "expected/02_OneTestClass");
+		createGenerator("in/02_OneClass", "expected/01_PackageToTestSuite_FWD");
 		runGenerator();
 		assert checker.modelsAreConsistent();
 	}
 	
 	@Test
-	public void testMandatoryClassToTestClass2() throws IOException {
-		createGenerator("in/03_ThreeClasses", "expected/04_SixTestClasses");
+	public void testTestClassWithoutClass() throws IOException {
+		createGenerator("in/02_OneClass", "expected/03_TwoTestClasses");
 		runGenerator();
-		assert checker.modelsAreConsistent();
+		assert !checker.modelsAreConsistent();
 	}
 	
 }

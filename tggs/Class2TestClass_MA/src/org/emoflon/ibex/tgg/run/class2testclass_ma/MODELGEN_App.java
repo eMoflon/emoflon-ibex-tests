@@ -33,7 +33,7 @@ public class MODELGEN_App extends MODELGEN {
 		newUP.setBoundForComplementRule("CreateTestClass", 2, true);
 		generator.setUpdatePolicy(newUP);
 		stop.setMaxRuleCount("Package2TestSuite", 1);
-		stop.setMaxRuleCount("CreateClass", 3);
+		stop.setMaxRuleCount("CreateClass", 4);
 		
 		generator.setStopCriterion(stop);
 		logger.info("Starting MODELGEN");

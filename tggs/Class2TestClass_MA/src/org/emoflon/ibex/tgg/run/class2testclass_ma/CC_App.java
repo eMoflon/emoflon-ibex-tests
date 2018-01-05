@@ -3,6 +3,7 @@ package org.emoflon.ibex.tgg.run.class2testclass_ma;
 import java.io.IOException;
 
 import org.apache.log4j.BasicConfigurator;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.ibex.tgg.operational.csp.constraints.factories.UserDefinedRuntimeTGGAttrConstraintFactory;
 import org.emoflon.ibex.tgg.operational.strategies.cc.CC;
 import org.emoflon.ibex.tgg.operational.util.IbexOptions;
@@ -12,6 +13,18 @@ import ClassInheritanceHierarchy.impl.ClassInheritanceHierarchyPackageImpl;
 import Database.impl.DatabasePackageImpl;
 
 public class CC_App extends CC {
+	
+	private String srcPath;
+	private String trgPath;
+	
+	
+	public CC_App(String projectName, String workspacePath, boolean debug,
+			String srcPath, String trgPath) throws IOException {
+		super(createIbexOptions().projectName(projectName).workspacePath(workspacePath).debug(debug));
+		this.srcPath = srcPath;
+		this.trgPath = trgPath;
+		registerPatternMatchingEngine(new DemoclesEngine());
+	}
 
 	public CC_App(String projectName, String workspacePath, boolean debug) throws IOException {
 		super(createIbexOptions().projectName(projectName).workspacePath(workspacePath).debug(debug));
@@ -31,7 +44,8 @@ public class CC_App extends CC {
 		
 		cc.saveModels();
 		cc.terminate();
-		logger.info(cc.generateConsistencyReport());			
+		logger.info(cc.generateConsistencyReport());
+		System.out.println(cc.generateConsistencyReport());
 	}
 
 	protected void registerUserMetamodels() throws IOException {
@@ -48,5 +62,17 @@ public class CC_App extends CC {
 			options.debug(true);
 			options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
 			return options;
+	}
+	
+	@Override
+	public void loadModels() throws IOException {
+		s = loadResource(projectPath + "/resources/"+srcPath+".xmi");
+		t = loadResource(projectPath + "/resources/"+trgPath+".xmi");
+		//s = loadResource(projectPath + "/instances/src.xmi");
+		//t = loadResource(projectPath + "/instances/trg.xmi");
+		c = createResource(projectPath + "/instances/corr.xmi");
+		p = createResource(projectPath + "/instances/protocol.xmi");
+	
+		EcoreUtil.resolveAll(rs);
 	}
 }

@@ -3,6 +3,7 @@ package org.emoflon.ibex.tgg.run.class2testclass_ma;
 import java.io.IOException;
 
 import org.apache.log4j.BasicConfigurator;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.ibex.tgg.operational.csp.constraints.factories.UserDefinedRuntimeTGGAttrConstraintFactory;
 import org.emoflon.ibex.tgg.operational.strategies.sync.SYNC;
 import org.emoflon.ibex.tgg.operational.util.IbexOptions;
@@ -47,5 +48,15 @@ public class SYNC_App extends SYNC {
 			options.debug(true);
 			options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
 			return options;
+	}
+	
+	@Override
+	public void loadModels() throws IOException {
+		s = loadResource(projectPath + "/instances/src.xmi");
+		t = createResource(projectPath + "/instances/trg.xmi");
+		c = createResource(projectPath + "/instances/corr.xmi");
+		p = createResource(projectPath + "/instances/protocol.xmi");
+		
+		EcoreUtil.resolveAll(rs);
 	}
 }

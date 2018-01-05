@@ -1,31 +1,11 @@
 <?xml version="1.0" encoding="ASCII"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:Class2TestClass_MA="platform:/resource/Class2TestClass_MA/model/Class2TestClass_MA.ecore">
   <Class2TestClass_MA:PackageToTestSuite>
-    <source href="src.xmi#/"/>
-    <target href="trg.xmi#/"/>
+    <source href="../resources/in/02_OneClass.xmi#/"/>
+    <target href="../resources/expected/03_TwoTestClasses.xmi#/"/>
   </Class2TestClass_MA:PackageToTestSuite>
   <Class2TestClass_MA:ClazzToTestClass>
-    <source href="src.xmi#//@classes.0"/>
-    <target href="trg.xmi#//@tables.0"/>
-  </Class2TestClass_MA:ClazzToTestClass>
-  <Class2TestClass_MA:ClazzToTestClass>
-    <source href="src.xmi#//@classes.0"/>
-    <target href="trg.xmi#//@tables.1"/>
-  </Class2TestClass_MA:ClazzToTestClass>
-  <Class2TestClass_MA:ClazzToTestClass>
-    <source href="src.xmi#//@classes.1"/>
-    <target href="trg.xmi#//@tables.2"/>
-  </Class2TestClass_MA:ClazzToTestClass>
-  <Class2TestClass_MA:ClazzToTestClass>
-    <source href="src.xmi#//@classes.1"/>
-    <target href="trg.xmi#//@tables.3"/>
-  </Class2TestClass_MA:ClazzToTestClass>
-  <Class2TestClass_MA:ClazzToTestClass>
-    <source href="src.xmi#//@classes.2"/>
-    <target href="trg.xmi#//@tables.4"/>
-  </Class2TestClass_MA:ClazzToTestClass>
-  <Class2TestClass_MA:ClazzToTestClass>
-    <source href="src.xmi#//@classes.2"/>
-    <target href="trg.xmi#//@tables.5"/>
+    <source href="../resources/in/02_OneClass.xmi#//@classes.0"/>
+    <target href="../resources/expected/03_TwoTestClasses.xmi#//@tables.0"/>
   </Class2TestClass_MA:ClazzToTestClass>
 </xmi:XMI>
