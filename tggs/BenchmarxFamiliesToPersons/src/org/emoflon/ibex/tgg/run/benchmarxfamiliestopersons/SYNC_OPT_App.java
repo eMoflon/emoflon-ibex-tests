@@ -1,26 +1,30 @@
-package org.emoflon.ibex.tgg.run.familiestopersons_ma;
+package org.emoflon.ibex.tgg.run.benchmarxfamiliestopersons;
 
 import java.io.IOException;
+import java.util.List;
 
 import org.apache.log4j.BasicConfigurator;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.emoflon.ibex.tgg.operational.strategies.sync.SYNC;
+import org.emoflon.ibex.tgg.operational.OperationalStrategy;
+import org.emoflon.ibex.tgg.operational.strategies.sync_opt.SYNC;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesEngine;
 
 import Families.impl.FamiliesPackageImpl;
 import Persons.impl.PersonsPackageImpl;
+import language.csp.TGGAttributeConstraint;
+import language.csp.TGGAttributeConstraintLibrary;
 
-public class SYNC_App extends SYNC {
+public class SYNC_OPT_App extends SYNC {
 
-	public SYNC_App(String projectName, String workspacePath, boolean debug) throws IOException {
+	public SYNC_OPT_App(String projectName, String workspacePath, boolean debug) throws IOException {
 		super(projectName, workspacePath, debug);
 		registerPatternMatchingEngine(new DemoclesEngine());
 	}
 
 	public static void main(String[] args) throws IOException {
 		BasicConfigurator.configure();
-		
-		SYNC_App sync = new SYNC_App("FamiliesToPersons_MA", "./../", false);
+
+		SYNC_OPT_App sync = new SYNC_OPT_App("BenchmarxFamiliesToPersons", "./../", false);
 		
 		logger.info("Starting SYNC");
 		long tic = System.currentTimeMillis();
@@ -35,7 +39,6 @@ public class SYNC_App extends SYNC {
 	protected void registerUserMetamodels() throws IOException {
 		rs.getPackageRegistry().put("platform:/resource/Families/model/Families.ecore", FamiliesPackageImpl.init());
 		rs.getPackageRegistry().put("platform:/resource/Persons/model/Persons.ecore", PersonsPackageImpl.init());
-	
 		
 		// Register correspondence metamodel last
 		loadAndRegisterMetamodel(projectPath + "/model/" + projectPath + ".ecore");
