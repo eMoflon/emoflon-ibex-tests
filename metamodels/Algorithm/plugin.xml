@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?eclipse version="3.0"?><plugin>
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated Algorithm -->
+      <package
+            uri="platform:/plugin/Algorithm/model/Algorithm.ecore"
+            class="Algorithm.AlgorithmPackage"
+            genModel="model/Algorithm.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated Algorithms -->
+      <package
+            uri="platform:/resource/Algorithms/model/Algorithms.ecore"
+            class="Algorithms.AlgorithmsPackage"
+            genModel="model/Algorithms.genmodel"/>
+   </extension>
+
+</plugin>
