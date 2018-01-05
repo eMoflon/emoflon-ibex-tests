@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="ASCII"?>
-<FamiliesToPersons_MA:FamiliesReg2PersonsRegCorr xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:FamiliesToPersons_MA="platform:/resource/FamiliesToPersons_MA/model/FamiliesToPersons_MA.ecore">
-  <source href="../resources/01_RootElementFamilies.xmi#/"/>
-  <target href="../resources/01_RootElementPersons.xmi#/"/>
-</FamiliesToPersons_MA:FamiliesReg2PersonsRegCorr>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:FamiliesToPersons_MA="platform:/resource/FamiliesToPersons_MA/model/FamiliesToPersons_MA.ecore" xmlns:Persons="platform:/plugin/Persons/model/Persons.ecore">
+  <FamiliesToPersons_MA:FamiliesReg2PersonsRegCorr>
+    <source href="../resources/02_Family_OneMother.xmi#/"/>
+    <target href="../resources/02_Person_OneFemale.xmi#/"/>
+  </FamiliesToPersons_MA:FamiliesReg2PersonsRegCorr>
+  <FamiliesToPersons_MA:FamilyMember2Person>
+    <source href="../resources/02_Family_OneMother.xmi#//@families.0/@mother"/>
+    <target xsi:type="Persons:Female" href="../resources/02_Person_OneFemale.xmi#//@persons.0"/>
+  </FamiliesToPersons_MA:FamilyMember2Person>
+</xmi:XMI>
