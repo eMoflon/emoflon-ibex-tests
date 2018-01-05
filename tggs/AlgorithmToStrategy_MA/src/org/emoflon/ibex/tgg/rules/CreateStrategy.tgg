@@ -1,0 +1,29 @@
+#using AlgorithmToStrategy_MA.*
+#using AttrCondDefLibrary.*
+
+#rule CreateStrategy #with AlgorithmToStrategy_MA
+
+#source { 
+	ac : AlgorithmContainer
+}
+
+#target {
+	
+	sc : StrategyContainer{
+		++ -strategies -> strategy
+	}
+	
+	++strategy:Strategy
+}
+
+#correspondence {
+	ac2sc : AlgorithmsToStrategiesContainerCorr{
+		#src->ac
+		#trg->sc
+	}
+}
+
+#attributeConditions {
+	
+}
+
