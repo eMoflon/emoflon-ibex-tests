@@ -6,7 +6,9 @@ import java.util.List;
 import org.apache.log4j.BasicConfigurator;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.ibex.tgg.operational.OperationalStrategy;
+import org.emoflon.ibex.tgg.operational.csp.constraints.factories.UserDefinedRuntimeTGGAttrConstraintFactory;
 import org.emoflon.ibex.tgg.operational.strategies.sync_opt.SYNC;
+import org.emoflon.ibex.tgg.operational.util.IbexOptions;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesEngine;
 
 import Families.impl.FamiliesPackageImpl;
@@ -17,7 +19,7 @@ import language.csp.TGGAttributeConstraintLibrary;
 public class SYNC_OPT_App extends SYNC {
 
 	public SYNC_OPT_App(String projectName, String workspacePath, boolean debug) throws IOException {
-		super(projectName, workspacePath, debug);
+		super(createIbexOptions().projectName(projectName).workspacePath(workspacePath).debug(debug));
 		registerPatternMatchingEngine(new DemoclesEngine());
 	}
 
@@ -53,5 +55,13 @@ public class SYNC_OPT_App extends SYNC {
 		
 		EcoreUtil.resolveAll(rs);
 
+	}
+	
+	protected static IbexOptions createIbexOptions() {
+		IbexOptions options = new IbexOptions();
+		options.projectName("BenchmarxFamiliesToPersons");
+		options.debug(true);
+		options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
+		return options;
 	}
 }
