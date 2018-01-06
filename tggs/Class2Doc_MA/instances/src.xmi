@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="ASCII"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:classMultipleInheritanceHierarchy="platform:/resource/ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore">
-  <classMultipleInheritanceHierarchy:ClassPackage name="dignissim">
-    <classes name="orci" superClass="/0/@classes.1"/>
-    <classes name="aliquam" superClass="/0/@classes.0 /0/@classes.2"/>
-    <classes name="facilisis" superClass="/0/@classes.1"/>
-  </classMultipleInheritanceHierarchy:ClassPackage>
-  <classMultipleInheritanceHierarchy:ClassPackage name="vehicula">
-    <classes name="tortor"/>
-    <classes name="mollis"/>
-  </classMultipleInheritanceHierarchy:ClassPackage>
-</xmi:XMI>
+<classMultipleInheritanceHierarchy:ClassPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:classMultipleInheritanceHierarchy="platform:/resource/ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore" name="egestas">
+  <classes name="mattis" superClass="//@classes.1"/>
+  <classes name="sodales"/>
+  <classes name="conubia" superClass="//@classes.1"/>
+</classMultipleInheritanceHierarchy:ClassPackage>

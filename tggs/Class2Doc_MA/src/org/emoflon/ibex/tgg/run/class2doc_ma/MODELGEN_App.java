@@ -23,9 +23,12 @@ public class MODELGEN_App extends MODELGEN {
 		BasicConfigurator.configure();
 
 		MODELGEN_App generator = new MODELGEN_App("Class2Doc_MA", "./../", true);
-		
+		generator.setUpdatePolicy(new CreateMultipleInhUpdatePolicy());
 		MODELGENStopCriterion stop = new MODELGENStopCriterion(generator.getTGG());
-		stop.setTimeOutInMS(300);
+		//stop.setTimeOutInMS(300);
+		stop.setMaxRuleCount("Package2Container", 1);
+		stop.setMaxRuleCount("Class2Doc", 3);
+		stop.setMaxRuleCount("SubClass2SubDoc", 2);
 		generator.setStopCriterion(stop);
 		
 		logger.info("Starting MODELGEN");

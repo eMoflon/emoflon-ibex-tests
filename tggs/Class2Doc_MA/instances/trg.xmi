@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="ASCII"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:Documents="platform:/resource/Documents/model/Documents.ecore">
-  <Documents:Container name="dignissim">
-    <documents name="orci" reference="/0/@documents.1 /0/@documents.2"/>
-    <documents name="aliquam" reference="/0/@documents.0 /0/@documents.2"/>
-    <documents name="facilisis" reference="/0/@documents.1 /0/@documents.0"/>
-  </Documents:Container>
-  <Documents:Container name="vehicula">
-    <documents name="tortor"/>
-    <documents name="mollis"/>
-  </Documents:Container>
-</xmi:XMI>
+<Documents:Container xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:Documents="platform:/resource/Documents/model/Documents.ecore" name="egestas">
+  <documents name="mattis" reference="//@documents.1"/>
+  <documents name="sodales"/>
+  <documents name="conubia" reference="//@documents.1"/>
+</Documents:Container>
