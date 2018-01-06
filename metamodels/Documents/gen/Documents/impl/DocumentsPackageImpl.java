@@ -120,6 +120,15 @@ public class DocumentsPackageImpl extends EPackageImpl implements DocumentsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getContainer_Documents() {
+		return (EReference) containerEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getDocument() {
 		return documentEClass;
 	}
@@ -140,6 +149,15 @@ public class DocumentsPackageImpl extends EPackageImpl implements DocumentsPacka
 	 */
 	public EReference getDocument_Reference() {
 		return (EReference) documentEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDocument_Container() {
+		return (EReference) documentEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -173,10 +191,12 @@ public class DocumentsPackageImpl extends EPackageImpl implements DocumentsPacka
 		// Create classes and their features
 		containerEClass = createEClass(CONTAINER);
 		createEAttribute(containerEClass, CONTAINER__NAME);
+		createEReference(containerEClass, CONTAINER__DOCUMENTS);
 
 		documentEClass = createEClass(DOCUMENT);
 		createEAttribute(documentEClass, DOCUMENT__NAME);
 		createEReference(documentEClass, DOCUMENT__REFERENCE);
+		createEReference(documentEClass, DOCUMENT__CONTAINER);
 	}
 
 	/**
@@ -215,6 +235,9 @@ public class DocumentsPackageImpl extends EPackageImpl implements DocumentsPacka
 		initEAttribute(getContainer_Name(), ecorePackage.getEString(), "name", null, 1, 1, Documents.Container.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
 				!IS_ORDERED);
+		initEReference(getContainer_Documents(), this.getDocument(), this.getDocument_Container(), "documents", null, 0,
+				-1, Documents.Container.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(documentEClass, Document.class, "Document", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -223,6 +246,9 @@ public class DocumentsPackageImpl extends EPackageImpl implements DocumentsPacka
 		initEReference(getDocument_Reference(), this.getDocument(), null, "reference", null, 0, -1, Document.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDocument_Container(), this.getContainer(), this.getContainer_Documents(), "container", null,
+				1, 1, Document.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

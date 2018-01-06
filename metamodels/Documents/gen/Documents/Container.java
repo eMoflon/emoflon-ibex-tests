@@ -2,6 +2,7 @@
  */
 package Documents;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -14,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link Documents.Container#getName <em>Name</em>}</li>
+ *   <li>{@link Documents.Container#getDocuments <em>Documents</em>}</li>
  * </ul>
  *
  * @see Documents.DocumentsPackage#getContainer()
@@ -46,5 +48,23 @@ public interface Container extends EObject {
 	 * @generated
 	 */
 	void setName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Documents</b></em>' containment reference list.
+	 * The list contents are of type {@link Documents.Document}.
+	 * It is bidirectional and its opposite is '{@link Documents.Document#getContainer <em>Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Documents</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Documents</em>' containment reference list.
+	 * @see Documents.DocumentsPackage#getContainer_Documents()
+	 * @see Documents.Document#getContainer
+	 * @model opposite="container" containment="true"
+	 * @generated
+	 */
+	EList<Document> getDocuments();
 
 } // Container

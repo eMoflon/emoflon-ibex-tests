@@ -1,0 +1,1016 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:emf="http://gervarro.org/democles/constraint/emf.ecore" xmlns:relational="http://gervarro.org/democles/specification/constraint/relational.ecore" xmlns:specification="http://gervarro.org/democles/specification.ecore">
+  <specification:Pattern name="Class2Doc__CONTEXT_CORR">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="package">
+      <eClassifier xsi:type="ecore:EClass" href="../../ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//ClassPackage"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="container">
+      <eClassifier xsi:type="ecore:EClass" href="../../Documents/model/Documents.ecore#//Container"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="p2c">
+      <eClassifier xsi:type="ecore:EClass" href="../model/Class2Doc_MA.ecore#//classPackate2Container"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/0/@symbolicParameters.2"/>
+        <parameters reference="/0/@symbolicParameters.0"/>
+        <eModelElement xsi:type="ecore:EReference" href="../model/Class2Doc_MA.ecore#//classPackate2Container/source"/>
+      </constraints>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/0/@symbolicParameters.2"/>
+        <parameters reference="/0/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../model/Class2Doc_MA.ecore#//classPackate2Container/target"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="Class2Doc__CONTEXT_SRC">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="package">
+      <eClassifier xsi:type="ecore:EClass" href="../../ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//ClassPackage"/>
+    </symbolicParameters>
+    <bodies/>
+  </specification:Pattern>
+  <specification:Pattern name="Class2Doc__CONTEXT_TRG">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="container">
+      <eClassifier xsi:type="ecore:EClass" href="../../Documents/model/Documents.ecore#//Container"/>
+    </symbolicParameters>
+    <bodies/>
+  </specification:Pattern>
+  <specification:Pattern name="Class2Doc__GEN">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="package">
+      <eClassifier xsi:type="ecore:EClass" href="../../ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//ClassPackage"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="container">
+      <eClassifier xsi:type="ecore:EClass" href="../../Documents/model/Documents.ecore#//Container"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="p2c">
+      <eClassifier xsi:type="ecore:EClass" href="../model/Class2Doc_MA.ecore#//classPackate2Container"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="Class2Doc__GEN_REFINEMENT_INVOCATIONS">
+        <parameters reference="/3/@symbolicParameters.0"/>
+        <parameters reference="/3/@symbolicParameters.1"/>
+        <parameters reference="/3/@symbolicParameters.2"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="Class2Doc__GEN_REFINEMENT_INVOCATIONS">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="package">
+      <eClassifier xsi:type="ecore:EClass" href="../../ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//ClassPackage"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="container">
+      <eClassifier xsi:type="ecore:EClass" href="../../Documents/model/Documents.ecore#//Container"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="p2c">
+      <eClassifier xsi:type="ecore:EClass" href="../model/Class2Doc_MA.ecore#//classPackate2Container"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="Class2Doc__CONTEXT_SRC">
+        <parameters reference="/4/@symbolicParameters.0"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="Class2Doc__CONTEXT_CORR">
+        <parameters reference="/4/@symbolicParameters.0"/>
+        <parameters reference="/4/@symbolicParameters.1"/>
+        <parameters reference="/4/@symbolicParameters.2"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="Class2Doc__CONTEXT_TRG">
+        <parameters reference="/4/@symbolicParameters.1"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="ConnectSubDoc__CONTEXT_TRG">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="subDoc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Documents/model/Documents.ecore#//Document"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="superDoc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Documents/model/Documents.ecore#//Document"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="anotherSubDoc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Documents/model/Documents.ecore#//Document"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/5/@symbolicParameters.2"/>
+        <parameters reference="/5/@symbolicParameters.0"/>
+        <eModelElement xsi:type="ecore:EReference" href="../../Documents/model/Documents.ecore#//Document/reference"/>
+      </constraints>
+      <constraints xsi:type="relational:Unequal">
+        <parameters reference="/5/@symbolicParameters.0"/>
+        <parameters reference="/5/@symbolicParameters.1"/>
+      </constraints>
+      <constraints xsi:type="relational:Unequal">
+        <parameters reference="/5/@symbolicParameters.0"/>
+        <parameters reference="/5/@symbolicParameters.2"/>
+      </constraints>
+      <constraints xsi:type="relational:Unequal">
+        <parameters reference="/5/@symbolicParameters.1"/>
+        <parameters reference="/5/@symbolicParameters.2"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="ConnectSubDoc__GEN">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="subDoc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Documents/model/Documents.ecore#//Document"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="superDoc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Documents/model/Documents.ecore#//Document"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="anotherSubDoc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Documents/model/Documents.ecore#//Document"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="ConnectSubDoc__GEN_REFINEMENT_INVOCATIONS">
+        <parameters reference="/6/@symbolicParameters.0"/>
+        <parameters reference="/6/@symbolicParameters.1"/>
+        <parameters reference="/6/@symbolicParameters.2"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="ConnectSubDoc__GEN_REFINEMENT_INVOCATIONS">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="subDoc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Documents/model/Documents.ecore#//Document"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="superDoc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Documents/model/Documents.ecore#//Document"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="anotherSubDoc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Documents/model/Documents.ecore#//Document"/>
+    </symbolicParameters>
+    <bodies>
+      <localVariables xsi:type="emf:EMFVariable" name="eMoflon_ProtocolNode">
+        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication"/>
+      </localVariables>
+      <localVariables xsi:type="emf:EMFVariable" name="p">
+        <eClassifier xsi:type="ecore:EClass" href="../../ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//ClassPackage"/>
+      </localVariables>
+      <localVariables xsi:type="emf:EMFVariable" name="subClass">
+        <eClassifier xsi:type="ecore:EClass" href="../../ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Clazz"/>
+      </localVariables>
+      <localVariables xsi:type="emf:EMFVariable" name="superClass">
+        <eClassifier xsi:type="ecore:EClass" href="../../ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Clazz"/>
+      </localVariables>
+      <localVariables xsi:type="emf:EMFVariable" name="c">
+        <eClassifier xsi:type="ecore:EClass" href="../../Documents/model/Documents.ecore#//Container"/>
+      </localVariables>
+      <localVariables xsi:type="emf:EMFVariable" name="c2d">
+        <eClassifier xsi:type="ecore:EClass" href="../model/Class2Doc_MA.ecore#//class2doc"/>
+      </localVariables>
+      <localVariables xsi:type="emf:EMFVariable" name="subc2d">
+        <eClassifier xsi:type="ecore:EClass" href="../model/Class2Doc_MA.ecore#//class2doc"/>
+      </localVariables>
+      <localVariables xsi:type="emf:EMFVariable" name="__eMoflon_ProtocolNode__amalgamated__">
+        <eClassifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      </localVariables>
+      <localVariables xsi:type="emf:EMFVariable" name="__eMoflon_ProtocolNode__name__">
+        <eClassifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </localVariables>
+      <constants value="ACED000574000F537562436C61737332537562446F63"/>
+      <constants value="ACED0005737200116A6176612E6C616E672E426F6F6C65616ECD207280D59CFAEE0200015A000576616C7565787000"/>
+      <constraints xsi:type="emf:Attribute">
+        <parameters reference="/7/@bodies.0/@localVariables.0"/>
+        <parameters reference="/7/@bodies.0/@localVariables.7"/>
+        <eModelElement xsi:type="ecore:EAttribute" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication/amalgamated"/>
+      </constraints>
+      <constraints xsi:type="emf:Attribute">
+        <parameters reference="/7/@bodies.0/@localVariables.0"/>
+        <parameters reference="/7/@bodies.0/@localVariables.8"/>
+        <eModelElement xsi:type="ecore:EAttribute" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication/name"/>
+      </constraints>
+      <constraints xsi:type="relational:Equal">
+        <parameters reference="/7/@bodies.0/@localVariables.7"/>
+        <parameters reference="/7/@bodies.0/@constants.1"/>
+      </constraints>
+      <constraints xsi:type="relational:Equal">
+        <parameters reference="/7/@bodies.0/@localVariables.8"/>
+        <parameters reference="/7/@bodies.0/@constants.0"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="ConnectSubDoc__CONTEXT_TRG">
+        <parameters reference="/7/@symbolicParameters.0"/>
+        <parameters reference="/7/@symbolicParameters.1"/>
+        <parameters reference="/7/@symbolicParameters.2"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="SubClass2SubDoc__CONSISTENCY">
+        <parameters reference="/7/@bodies.0/@localVariables.1"/>
+        <parameters reference="/7/@bodies.0/@localVariables.2"/>
+        <parameters reference="/7/@bodies.0/@localVariables.3"/>
+        <parameters reference="/7/@bodies.0/@localVariables.4"/>
+        <parameters reference="/7/@symbolicParameters.0"/>
+        <parameters reference="/7/@symbolicParameters.1"/>
+        <parameters reference="/7/@bodies.0/@localVariables.5"/>
+        <parameters reference="/7/@bodies.0/@localVariables.6"/>
+        <parameters reference="/7/@bodies.0/@localVariables.0"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="ConnectSuperAndSubDoc__CONTEXT_TRG">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="superDoc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Documents/model/Documents.ecore#//Document"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="anotherSuperDoc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Documents/model/Documents.ecore#//Document"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="subDoc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Documents/model/Documents.ecore#//Document"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="anotherSubDoc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Documents/model/Documents.ecore#//Document"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/8/@symbolicParameters.0"/>
+        <parameters reference="/8/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../../Documents/model/Documents.ecore#//Document/reference"/>
+      </constraints>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/8/@symbolicParameters.3"/>
+        <parameters reference="/8/@symbolicParameters.2"/>
+        <eModelElement xsi:type="ecore:EReference" href="../../Documents/model/Documents.ecore#//Document/reference"/>
+      </constraints>
+      <constraints xsi:type="relational:Unequal">
+        <parameters reference="/8/@symbolicParameters.0"/>
+        <parameters reference="/8/@symbolicParameters.1"/>
+      </constraints>
+      <constraints xsi:type="relational:Unequal">
+        <parameters reference="/8/@symbolicParameters.0"/>
+        <parameters reference="/8/@symbolicParameters.2"/>
+      </constraints>
+      <constraints xsi:type="relational:Unequal">
+        <parameters reference="/8/@symbolicParameters.0"/>
+        <parameters reference="/8/@symbolicParameters.3"/>
+      </constraints>
+      <constraints xsi:type="relational:Unequal">
+        <parameters reference="/8/@symbolicParameters.1"/>
+        <parameters reference="/8/@symbolicParameters.2"/>
+      </constraints>
+      <constraints xsi:type="relational:Unequal">
+        <parameters reference="/8/@symbolicParameters.1"/>
+        <parameters reference="/8/@symbolicParameters.3"/>
+      </constraints>
+      <constraints xsi:type="relational:Unequal">
+        <parameters reference="/8/@symbolicParameters.2"/>
+        <parameters reference="/8/@symbolicParameters.3"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="ConnectSuperAndSubDoc__GEN">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="superDoc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Documents/model/Documents.ecore#//Document"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="anotherSuperDoc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Documents/model/Documents.ecore#//Document"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="subDoc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Documents/model/Documents.ecore#//Document"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="anotherSubDoc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Documents/model/Documents.ecore#//Document"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="ConnectSuperAndSubDoc__GEN_REFINEMENT_INVOCATIONS">
+        <parameters reference="/9/@symbolicParameters.0"/>
+        <parameters reference="/9/@symbolicParameters.1"/>
+        <parameters reference="/9/@symbolicParameters.2"/>
+        <parameters reference="/9/@symbolicParameters.3"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="ConnectSuperAndSubDoc__GEN_REFINEMENT_INVOCATIONS">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="superDoc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Documents/model/Documents.ecore#//Document"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="anotherSuperDoc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Documents/model/Documents.ecore#//Document"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="subDoc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Documents/model/Documents.ecore#//Document"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="anotherSubDoc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Documents/model/Documents.ecore#//Document"/>
+    </symbolicParameters>
+    <bodies>
+      <localVariables xsi:type="emf:EMFVariable" name="eMoflon_ProtocolNode">
+        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication"/>
+      </localVariables>
+      <localVariables xsi:type="emf:EMFVariable" name="p">
+        <eClassifier xsi:type="ecore:EClass" href="../../ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//ClassPackage"/>
+      </localVariables>
+      <localVariables xsi:type="emf:EMFVariable" name="subClass">
+        <eClassifier xsi:type="ecore:EClass" href="../../ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Clazz"/>
+      </localVariables>
+      <localVariables xsi:type="emf:EMFVariable" name="superClass">
+        <eClassifier xsi:type="ecore:EClass" href="../../ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Clazz"/>
+      </localVariables>
+      <localVariables xsi:type="emf:EMFVariable" name="c">
+        <eClassifier xsi:type="ecore:EClass" href="../../Documents/model/Documents.ecore#//Container"/>
+      </localVariables>
+      <localVariables xsi:type="emf:EMFVariable" name="c2d">
+        <eClassifier xsi:type="ecore:EClass" href="../model/Class2Doc_MA.ecore#//class2doc"/>
+      </localVariables>
+      <localVariables xsi:type="emf:EMFVariable" name="subc2d">
+        <eClassifier xsi:type="ecore:EClass" href="../model/Class2Doc_MA.ecore#//class2doc"/>
+      </localVariables>
+      <localVariables xsi:type="emf:EMFVariable" name="__eMoflon_ProtocolNode__amalgamated__">
+        <eClassifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      </localVariables>
+      <localVariables xsi:type="emf:EMFVariable" name="__eMoflon_ProtocolNode__name__">
+        <eClassifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </localVariables>
+      <constants value="ACED000574000F537562436C61737332537562446F63"/>
+      <constants value="ACED0005737200116A6176612E6C616E672E426F6F6C65616ECD207280D59CFAEE0200015A000576616C7565787000"/>
+      <constraints xsi:type="emf:Attribute">
+        <parameters reference="/10/@bodies.0/@localVariables.0"/>
+        <parameters reference="/10/@bodies.0/@localVariables.7"/>
+        <eModelElement xsi:type="ecore:EAttribute" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication/amalgamated"/>
+      </constraints>
+      <constraints xsi:type="emf:Attribute">
+        <parameters reference="/10/@bodies.0/@localVariables.0"/>
+        <parameters reference="/10/@bodies.0/@localVariables.8"/>
+        <eModelElement xsi:type="ecore:EAttribute" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication/name"/>
+      </constraints>
+      <constraints xsi:type="relational:Equal">
+        <parameters reference="/10/@bodies.0/@localVariables.8"/>
+        <parameters reference="/10/@bodies.0/@constants.0"/>
+      </constraints>
+      <constraints xsi:type="relational:Equal">
+        <parameters reference="/10/@bodies.0/@localVariables.7"/>
+        <parameters reference="/10/@bodies.0/@constants.1"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="ConnectSuperAndSubDoc__CONTEXT_TRG">
+        <parameters reference="/10/@symbolicParameters.0"/>
+        <parameters reference="/10/@symbolicParameters.1"/>
+        <parameters reference="/10/@symbolicParameters.2"/>
+        <parameters reference="/10/@symbolicParameters.3"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="SubClass2SubDoc__CONSISTENCY">
+        <parameters reference="/10/@bodies.0/@localVariables.1"/>
+        <parameters reference="/10/@bodies.0/@localVariables.2"/>
+        <parameters reference="/10/@bodies.0/@localVariables.3"/>
+        <parameters reference="/10/@bodies.0/@localVariables.4"/>
+        <parameters reference="/10/@symbolicParameters.2"/>
+        <parameters reference="/10/@symbolicParameters.0"/>
+        <parameters reference="/10/@bodies.0/@localVariables.5"/>
+        <parameters reference="/10/@bodies.0/@localVariables.6"/>
+        <parameters reference="/10/@bodies.0/@localVariables.0"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="ConnectSuperDoc__CONTEXT_TRG">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="superDoc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Documents/model/Documents.ecore#//Document"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="anotherSuperDoc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Documents/model/Documents.ecore#//Document"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="subDoc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Documents/model/Documents.ecore#//Document"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/11/@symbolicParameters.0"/>
+        <parameters reference="/11/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../../Documents/model/Documents.ecore#//Document/reference"/>
+      </constraints>
+      <constraints xsi:type="relational:Unequal">
+        <parameters reference="/11/@symbolicParameters.0"/>
+        <parameters reference="/11/@symbolicParameters.1"/>
+      </constraints>
+      <constraints xsi:type="relational:Unequal">
+        <parameters reference="/11/@symbolicParameters.0"/>
+        <parameters reference="/11/@symbolicParameters.2"/>
+      </constraints>
+      <constraints xsi:type="relational:Unequal">
+        <parameters reference="/11/@symbolicParameters.1"/>
+        <parameters reference="/11/@symbolicParameters.2"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="ConnectSuperDoc__GEN">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="superDoc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Documents/model/Documents.ecore#//Document"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="anotherSuperDoc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Documents/model/Documents.ecore#//Document"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="subDoc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Documents/model/Documents.ecore#//Document"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="ConnectSuperDoc__GEN_REFINEMENT_INVOCATIONS">
+        <parameters reference="/12/@symbolicParameters.0"/>
+        <parameters reference="/12/@symbolicParameters.1"/>
+        <parameters reference="/12/@symbolicParameters.2"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="ConnectSuperDoc__GEN_REFINEMENT_INVOCATIONS">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="superDoc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Documents/model/Documents.ecore#//Document"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="anotherSuperDoc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Documents/model/Documents.ecore#//Document"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="subDoc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Documents/model/Documents.ecore#//Document"/>
+    </symbolicParameters>
+    <bodies>
+      <localVariables xsi:type="emf:EMFVariable" name="eMoflon_ProtocolNode">
+        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication"/>
+      </localVariables>
+      <localVariables xsi:type="emf:EMFVariable" name="p">
+        <eClassifier xsi:type="ecore:EClass" href="../../ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//ClassPackage"/>
+      </localVariables>
+      <localVariables xsi:type="emf:EMFVariable" name="subClass">
+        <eClassifier xsi:type="ecore:EClass" href="../../ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Clazz"/>
+      </localVariables>
+      <localVariables xsi:type="emf:EMFVariable" name="superClass">
+        <eClassifier xsi:type="ecore:EClass" href="../../ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Clazz"/>
+      </localVariables>
+      <localVariables xsi:type="emf:EMFVariable" name="c">
+        <eClassifier xsi:type="ecore:EClass" href="../../Documents/model/Documents.ecore#//Container"/>
+      </localVariables>
+      <localVariables xsi:type="emf:EMFVariable" name="c2d">
+        <eClassifier xsi:type="ecore:EClass" href="../model/Class2Doc_MA.ecore#//class2doc"/>
+      </localVariables>
+      <localVariables xsi:type="emf:EMFVariable" name="subc2d">
+        <eClassifier xsi:type="ecore:EClass" href="../model/Class2Doc_MA.ecore#//class2doc"/>
+      </localVariables>
+      <localVariables xsi:type="emf:EMFVariable" name="__eMoflon_ProtocolNode__amalgamated__">
+        <eClassifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      </localVariables>
+      <localVariables xsi:type="emf:EMFVariable" name="__eMoflon_ProtocolNode__name__">
+        <eClassifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </localVariables>
+      <constants value="ACED000574000F537562436C61737332537562446F63"/>
+      <constants value="ACED0005737200116A6176612E6C616E672E426F6F6C65616ECD207280D59CFAEE0200015A000576616C7565787000"/>
+      <constraints xsi:type="emf:Attribute">
+        <parameters reference="/13/@bodies.0/@localVariables.0"/>
+        <parameters reference="/13/@bodies.0/@localVariables.7"/>
+        <eModelElement xsi:type="ecore:EAttribute" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication/amalgamated"/>
+      </constraints>
+      <constraints xsi:type="emf:Attribute">
+        <parameters reference="/13/@bodies.0/@localVariables.0"/>
+        <parameters reference="/13/@bodies.0/@localVariables.8"/>
+        <eModelElement xsi:type="ecore:EAttribute" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication/name"/>
+      </constraints>
+      <constraints xsi:type="relational:Equal">
+        <parameters reference="/13/@bodies.0/@localVariables.7"/>
+        <parameters reference="/13/@bodies.0/@constants.1"/>
+      </constraints>
+      <constraints xsi:type="relational:Equal">
+        <parameters reference="/13/@bodies.0/@localVariables.8"/>
+        <parameters reference="/13/@bodies.0/@constants.0"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="ConnectSuperDoc__CONTEXT_TRG">
+        <parameters reference="/13/@symbolicParameters.0"/>
+        <parameters reference="/13/@symbolicParameters.1"/>
+        <parameters reference="/13/@symbolicParameters.2"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="SubClass2SubDoc__CONSISTENCY">
+        <parameters reference="/13/@bodies.0/@localVariables.1"/>
+        <parameters reference="/13/@bodies.0/@localVariables.2"/>
+        <parameters reference="/13/@bodies.0/@localVariables.3"/>
+        <parameters reference="/13/@bodies.0/@localVariables.4"/>
+        <parameters reference="/13/@symbolicParameters.2"/>
+        <parameters reference="/13/@symbolicParameters.0"/>
+        <parameters reference="/13/@bodies.0/@localVariables.5"/>
+        <parameters reference="/13/@bodies.0/@localVariables.6"/>
+        <parameters reference="/13/@bodies.0/@localVariables.0"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="ContextMarkedPattern__SRC">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="protocol">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="checkedObject">
+      <eClassifier xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/14/@symbolicParameters.0"/>
+        <parameters reference="/14/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication/contextSrc"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="ContextMarkedPattern__TRG">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="protocol">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="checkedObject">
+      <eClassifier xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/15/@symbolicParameters.0"/>
+        <parameters reference="/15/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication/contextTrg"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="SubClass2SubDoc__CONSISTENCY">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="p">
+      <eClassifier xsi:type="ecore:EClass" href="../../ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//ClassPackage"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="subClass">
+      <eClassifier xsi:type="ecore:EClass" href="../../ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Clazz"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="superClass">
+      <eClassifier xsi:type="ecore:EClass" href="../../ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Clazz"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="c">
+      <eClassifier xsi:type="ecore:EClass" href="../../Documents/model/Documents.ecore#//Container"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="subDoc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Documents/model/Documents.ecore#//Document"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="superDoc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Documents/model/Documents.ecore#//Document"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="c2d">
+      <eClassifier xsi:type="ecore:EClass" href="../model/Class2Doc_MA.ecore#//class2doc"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="subc2d">
+      <eClassifier xsi:type="ecore:EClass" href="../model/Class2Doc_MA.ecore#//class2doc"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="eMoflon_ProtocolNode">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication"/>
+    </symbolicParameters>
+    <bodies>
+      <localVariables xsi:type="emf:EMFVariable" name="__eMoflon_ProtocolNode__name__">
+        <eClassifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </localVariables>
+      <constants value="ACED000574000F537562436C61737332537562446F63"/>
+      <constraints xsi:type="emf:Attribute">
+        <parameters reference="/16/@symbolicParameters.8"/>
+        <parameters reference="/16/@bodies.0/@localVariables.0"/>
+        <eModelElement xsi:type="ecore:EAttribute" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication/name"/>
+      </constraints>
+      <constraints xsi:type="relational:Equal">
+        <parameters reference="/16/@bodies.0/@localVariables.0"/>
+        <parameters reference="/16/@bodies.0/@constants.0"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="ContextMarkedPattern__SRC">
+        <parameters reference="/16/@symbolicParameters.8"/>
+        <parameters reference="/16/@symbolicParameters.0"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="ContextMarkedPattern__SRC">
+        <parameters reference="/16/@symbolicParameters.8"/>
+        <parameters reference="/16/@symbolicParameters.1"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="ContextMarkedPattern__SRC">
+        <parameters reference="/16/@symbolicParameters.8"/>
+        <parameters reference="/16/@symbolicParameters.2"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="ContextMarkedPattern__TRG">
+        <parameters reference="/16/@symbolicParameters.8"/>
+        <parameters reference="/16/@symbolicParameters.3"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="ContextMarkedPattern__TRG">
+        <parameters reference="/16/@symbolicParameters.8"/>
+        <parameters reference="/16/@symbolicParameters.4"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="ContextMarkedPattern__TRG">
+        <parameters reference="/16/@symbolicParameters.8"/>
+        <parameters reference="/16/@symbolicParameters.5"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="SubClass2SubDoc__WHOLE">
+        <parameters reference="/16/@symbolicParameters.0"/>
+        <parameters reference="/16/@symbolicParameters.1"/>
+        <parameters reference="/16/@symbolicParameters.2"/>
+        <parameters reference="/16/@symbolicParameters.3"/>
+        <parameters reference="/16/@symbolicParameters.4"/>
+        <parameters reference="/16/@symbolicParameters.5"/>
+        <parameters reference="/16/@symbolicParameters.6"/>
+        <parameters reference="/16/@symbolicParameters.7"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="SubClass2SubDoc__NO_FILTER_ACs_SRC">
+        <parameters reference="/16/@symbolicParameters.0"/>
+        <parameters reference="/16/@symbolicParameters.1"/>
+        <parameters reference="/16/@symbolicParameters.2"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="SubClass2SubDoc__NO_FILTER_ACs_TRG">
+        <parameters reference="/16/@symbolicParameters.3"/>
+        <parameters reference="/16/@symbolicParameters.4"/>
+        <parameters reference="/16/@symbolicParameters.5"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="SubClass2SubDoc__CONTEXT_CORR">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="superClass">
+      <eClassifier xsi:type="ecore:EClass" href="../../ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Clazz"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="subClass">
+      <eClassifier xsi:type="ecore:EClass" href="../../ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Clazz"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="superDoc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Documents/model/Documents.ecore#//Document"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="subDoc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Documents/model/Documents.ecore#//Document"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="c2d">
+      <eClassifier xsi:type="ecore:EClass" href="../model/Class2Doc_MA.ecore#//class2doc"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="subc2d">
+      <eClassifier xsi:type="ecore:EClass" href="../model/Class2Doc_MA.ecore#//class2doc"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/17/@symbolicParameters.4"/>
+        <parameters reference="/17/@symbolicParameters.0"/>
+        <eModelElement xsi:type="ecore:EReference" href="../model/Class2Doc_MA.ecore#//class2doc/source"/>
+      </constraints>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/17/@symbolicParameters.4"/>
+        <parameters reference="/17/@symbolicParameters.2"/>
+        <eModelElement xsi:type="ecore:EReference" href="../model/Class2Doc_MA.ecore#//class2doc/target"/>
+      </constraints>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/17/@symbolicParameters.5"/>
+        <parameters reference="/17/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../model/Class2Doc_MA.ecore#//class2doc/source"/>
+      </constraints>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/17/@symbolicParameters.5"/>
+        <parameters reference="/17/@symbolicParameters.3"/>
+        <eModelElement xsi:type="ecore:EReference" href="../model/Class2Doc_MA.ecore#//class2doc/target"/>
+      </constraints>
+      <constraints xsi:type="relational:Unequal">
+        <parameters reference="/17/@symbolicParameters.4"/>
+        <parameters reference="/17/@symbolicParameters.5"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="SubClass2SubDoc__CONTEXT_SRC">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="p">
+      <eClassifier xsi:type="ecore:EClass" href="../../ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//ClassPackage"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="superClass">
+      <eClassifier xsi:type="ecore:EClass" href="../../ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Clazz"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="subClass">
+      <eClassifier xsi:type="ecore:EClass" href="../../ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Clazz"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/18/@symbolicParameters.0"/>
+        <parameters reference="/18/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../../ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//ClassPackage/classes"/>
+      </constraints>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/18/@symbolicParameters.0"/>
+        <parameters reference="/18/@symbolicParameters.2"/>
+        <eModelElement xsi:type="ecore:EReference" href="../../ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//ClassPackage/classes"/>
+      </constraints>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/18/@symbolicParameters.1"/>
+        <parameters reference="/18/@symbolicParameters.0"/>
+        <eModelElement xsi:type="ecore:EReference" href="../../ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Clazz/package"/>
+      </constraints>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/18/@symbolicParameters.2"/>
+        <parameters reference="/18/@symbolicParameters.0"/>
+        <eModelElement xsi:type="ecore:EReference" href="../../ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Clazz/package"/>
+      </constraints>
+      <constraints xsi:type="relational:Unequal">
+        <parameters reference="/18/@symbolicParameters.1"/>
+        <parameters reference="/18/@symbolicParameters.2"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="SubClass2SubDoc__CONTEXT_TRG">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="c">
+      <eClassifier xsi:type="ecore:EClass" href="../../Documents/model/Documents.ecore#//Container"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="superDoc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Documents/model/Documents.ecore#//Document"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="subDoc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Documents/model/Documents.ecore#//Document"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/19/@symbolicParameters.0"/>
+        <parameters reference="/19/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../../Documents/model/Documents.ecore#//Container/documents"/>
+      </constraints>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/19/@symbolicParameters.0"/>
+        <parameters reference="/19/@symbolicParameters.2"/>
+        <eModelElement xsi:type="ecore:EReference" href="../../Documents/model/Documents.ecore#//Container/documents"/>
+      </constraints>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/19/@symbolicParameters.1"/>
+        <parameters reference="/19/@symbolicParameters.0"/>
+        <eModelElement xsi:type="ecore:EReference" href="../../Documents/model/Documents.ecore#//Document/container"/>
+      </constraints>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/19/@symbolicParameters.2"/>
+        <parameters reference="/19/@symbolicParameters.0"/>
+        <eModelElement xsi:type="ecore:EReference" href="../../Documents/model/Documents.ecore#//Document/container"/>
+      </constraints>
+      <constraints xsi:type="relational:Unequal">
+        <parameters reference="/19/@symbolicParameters.1"/>
+        <parameters reference="/19/@symbolicParameters.2"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="SubClass2SubDoc__CORR">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="superClass">
+      <eClassifier xsi:type="ecore:EClass" href="../../ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Clazz"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="subClass">
+      <eClassifier xsi:type="ecore:EClass" href="../../ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Clazz"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="superDoc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Documents/model/Documents.ecore#//Document"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="subDoc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Documents/model/Documents.ecore#//Document"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="c2d">
+      <eClassifier xsi:type="ecore:EClass" href="../model/Class2Doc_MA.ecore#//class2doc"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="subc2d">
+      <eClassifier xsi:type="ecore:EClass" href="../model/Class2Doc_MA.ecore#//class2doc"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/20/@symbolicParameters.4"/>
+        <parameters reference="/20/@symbolicParameters.0"/>
+        <eModelElement xsi:type="ecore:EReference" href="../model/Class2Doc_MA.ecore#//class2doc/source"/>
+      </constraints>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/20/@symbolicParameters.4"/>
+        <parameters reference="/20/@symbolicParameters.2"/>
+        <eModelElement xsi:type="ecore:EReference" href="../model/Class2Doc_MA.ecore#//class2doc/target"/>
+      </constraints>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/20/@symbolicParameters.5"/>
+        <parameters reference="/20/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../model/Class2Doc_MA.ecore#//class2doc/source"/>
+      </constraints>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/20/@symbolicParameters.5"/>
+        <parameters reference="/20/@symbolicParameters.3"/>
+        <eModelElement xsi:type="ecore:EReference" href="../model/Class2Doc_MA.ecore#//class2doc/target"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="SubClass2SubDoc__CONTEXT_CORR">
+        <parameters reference="/20/@symbolicParameters.0"/>
+        <parameters reference="/20/@symbolicParameters.1"/>
+        <parameters reference="/20/@symbolicParameters.2"/>
+        <parameters reference="/20/@symbolicParameters.3"/>
+        <parameters reference="/20/@symbolicParameters.4"/>
+        <parameters reference="/20/@symbolicParameters.5"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="SubClass2SubDoc__GEN">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="p">
+      <eClassifier xsi:type="ecore:EClass" href="../../ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//ClassPackage"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="subClass">
+      <eClassifier xsi:type="ecore:EClass" href="../../ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Clazz"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="superClass">
+      <eClassifier xsi:type="ecore:EClass" href="../../ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Clazz"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="c">
+      <eClassifier xsi:type="ecore:EClass" href="../../Documents/model/Documents.ecore#//Container"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="subDoc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Documents/model/Documents.ecore#//Document"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="superDoc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Documents/model/Documents.ecore#//Document"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="c2d">
+      <eClassifier xsi:type="ecore:EClass" href="../model/Class2Doc_MA.ecore#//class2doc"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="subc2d">
+      <eClassifier xsi:type="ecore:EClass" href="../model/Class2Doc_MA.ecore#//class2doc"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="SubClass2SubDoc__GEN_REFINEMENT_INVOCATIONS">
+        <parameters reference="/21/@symbolicParameters.0"/>
+        <parameters reference="/21/@symbolicParameters.1"/>
+        <parameters reference="/21/@symbolicParameters.2"/>
+        <parameters reference="/21/@symbolicParameters.3"/>
+        <parameters reference="/21/@symbolicParameters.4"/>
+        <parameters reference="/21/@symbolicParameters.5"/>
+        <parameters reference="/21/@symbolicParameters.6"/>
+        <parameters reference="/21/@symbolicParameters.7"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="SubClass2SubDoc__GEN_REFINEMENT_INVOCATIONS">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="p">
+      <eClassifier xsi:type="ecore:EClass" href="../../ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//ClassPackage"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="subClass">
+      <eClassifier xsi:type="ecore:EClass" href="../../ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Clazz"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="superClass">
+      <eClassifier xsi:type="ecore:EClass" href="../../ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Clazz"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="c">
+      <eClassifier xsi:type="ecore:EClass" href="../../Documents/model/Documents.ecore#//Container"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="subDoc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Documents/model/Documents.ecore#//Document"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="superDoc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Documents/model/Documents.ecore#//Document"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="c2d">
+      <eClassifier xsi:type="ecore:EClass" href="../model/Class2Doc_MA.ecore#//class2doc"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="subc2d">
+      <eClassifier xsi:type="ecore:EClass" href="../model/Class2Doc_MA.ecore#//class2doc"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="SubClass2SubDoc__CONTEXT_SRC">
+        <parameters reference="/22/@symbolicParameters.0"/>
+        <parameters reference="/22/@symbolicParameters.2"/>
+        <parameters reference="/22/@symbolicParameters.1"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="SubClass2SubDoc__CONTEXT_CORR">
+        <parameters reference="/22/@symbolicParameters.2"/>
+        <parameters reference="/22/@symbolicParameters.1"/>
+        <parameters reference="/22/@symbolicParameters.5"/>
+        <parameters reference="/22/@symbolicParameters.4"/>
+        <parameters reference="/22/@symbolicParameters.6"/>
+        <parameters reference="/22/@symbolicParameters.7"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="SubClass2SubDoc__CONTEXT_TRG">
+        <parameters reference="/22/@symbolicParameters.3"/>
+        <parameters reference="/22/@symbolicParameters.5"/>
+        <parameters reference="/22/@symbolicParameters.4"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="SubClass2SubDoc__NO_FILTER_ACs_SRC">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="p">
+      <eClassifier xsi:type="ecore:EClass" href="../../ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//ClassPackage"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="subClass">
+      <eClassifier xsi:type="ecore:EClass" href="../../ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Clazz"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="superClass">
+      <eClassifier xsi:type="ecore:EClass" href="../../ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Clazz"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="SubClass2SubDoc__SRC_REFINEMENT_INVOCATIONS">
+        <parameters reference="/23/@symbolicParameters.0"/>
+        <parameters reference="/23/@symbolicParameters.1"/>
+        <parameters reference="/23/@symbolicParameters.2"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="SubClass2SubDoc__NO_FILTER_ACs_TRG">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="c">
+      <eClassifier xsi:type="ecore:EClass" href="../../Documents/model/Documents.ecore#//Container"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="subDoc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Documents/model/Documents.ecore#//Document"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="superDoc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Documents/model/Documents.ecore#//Document"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="SubClass2SubDoc__TRG_REFINEMENT_INVOCATIONS">
+        <parameters reference="/24/@symbolicParameters.0"/>
+        <parameters reference="/24/@symbolicParameters.1"/>
+        <parameters reference="/24/@symbolicParameters.2"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="SubClass2SubDoc__SRC">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="p">
+      <eClassifier xsi:type="ecore:EClass" href="../../ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//ClassPackage"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="superClass">
+      <eClassifier xsi:type="ecore:EClass" href="../../ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Clazz"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="subClass">
+      <eClassifier xsi:type="ecore:EClass" href="../../ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Clazz"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/25/@symbolicParameters.2"/>
+        <parameters reference="/25/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../../ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Clazz/superClass"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="SubClass2SubDoc__CONTEXT_SRC">
+        <parameters reference="/25/@symbolicParameters.0"/>
+        <parameters reference="/25/@symbolicParameters.1"/>
+        <parameters reference="/25/@symbolicParameters.2"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="SubClass2SubDoc__SRC_REFINEMENT_INVOCATIONS">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="p">
+      <eClassifier xsi:type="ecore:EClass" href="../../ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//ClassPackage"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="subClass">
+      <eClassifier xsi:type="ecore:EClass" href="../../ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Clazz"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="superClass">
+      <eClassifier xsi:type="ecore:EClass" href="../../ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Clazz"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="SubClass2SubDoc__SRC">
+        <parameters reference="/26/@symbolicParameters.0"/>
+        <parameters reference="/26/@symbolicParameters.2"/>
+        <parameters reference="/26/@symbolicParameters.1"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="SubClass2SubDoc__TRG">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="c">
+      <eClassifier xsi:type="ecore:EClass" href="../../Documents/model/Documents.ecore#//Container"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="superDoc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Documents/model/Documents.ecore#//Document"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="subDoc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Documents/model/Documents.ecore#//Document"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/27/@symbolicParameters.2"/>
+        <parameters reference="/27/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../../Documents/model/Documents.ecore#//Document/reference"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="SubClass2SubDoc__CONTEXT_TRG">
+        <parameters reference="/27/@symbolicParameters.0"/>
+        <parameters reference="/27/@symbolicParameters.1"/>
+        <parameters reference="/27/@symbolicParameters.2"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="SubClass2SubDoc__TRG_REFINEMENT_INVOCATIONS">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="c">
+      <eClassifier xsi:type="ecore:EClass" href="../../Documents/model/Documents.ecore#//Container"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="subDoc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Documents/model/Documents.ecore#//Document"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="superDoc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Documents/model/Documents.ecore#//Document"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="SubClass2SubDoc__TRG">
+        <parameters reference="/28/@symbolicParameters.0"/>
+        <parameters reference="/28/@symbolicParameters.2"/>
+        <parameters reference="/28/@symbolicParameters.1"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="SubClass2SubDoc__WHOLE">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="p">
+      <eClassifier xsi:type="ecore:EClass" href="../../ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//ClassPackage"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="subClass">
+      <eClassifier xsi:type="ecore:EClass" href="../../ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Clazz"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="superClass">
+      <eClassifier xsi:type="ecore:EClass" href="../../ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Clazz"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="c">
+      <eClassifier xsi:type="ecore:EClass" href="../../Documents/model/Documents.ecore#//Container"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="subDoc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Documents/model/Documents.ecore#//Document"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="superDoc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Documents/model/Documents.ecore#//Document"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="c2d">
+      <eClassifier xsi:type="ecore:EClass" href="../model/Class2Doc_MA.ecore#//class2doc"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="subc2d">
+      <eClassifier xsi:type="ecore:EClass" href="../model/Class2Doc_MA.ecore#//class2doc"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="SubClass2SubDoc__SRC">
+        <parameters reference="/29/@symbolicParameters.0"/>
+        <parameters reference="/29/@symbolicParameters.2"/>
+        <parameters reference="/29/@symbolicParameters.1"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="SubClass2SubDoc__TRG">
+        <parameters reference="/29/@symbolicParameters.3"/>
+        <parameters reference="/29/@symbolicParameters.5"/>
+        <parameters reference="/29/@symbolicParameters.4"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="SubClass2SubDoc__CORR">
+        <parameters reference="/29/@symbolicParameters.2"/>
+        <parameters reference="/29/@symbolicParameters.1"/>
+        <parameters reference="/29/@symbolicParameters.5"/>
+        <parameters reference="/29/@symbolicParameters.4"/>
+        <parameters reference="/29/@symbolicParameters.6"/>
+        <parameters reference="/29/@symbolicParameters.7"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+</xmi:XMI>

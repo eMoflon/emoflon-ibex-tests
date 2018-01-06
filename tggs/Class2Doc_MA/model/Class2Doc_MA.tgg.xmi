@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="ASCII"?>
+<org.emoflon.ibex.tgg.core.language:TGG xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.emoflon.ibex.tgg.core.language="platform:/plugin/org.emoflon.ibex.tgg.core.language/model/Language.ecore#/" xmlns:org.emoflon.ibex.tgg.core.language.misc.expressions="platform:/plugin/org.emoflon.ibex.tgg.core.language/model/Language.ecore#/misc/expressions" name="Class2Doc_MA">
+  <src href="platform:/resource/ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#/"/>
+  <trg href="platform:/resource/Documents/model/Documents.ecore#/"/>
+  <corr href="platform:/resource/Class2Doc_MA/model/Class2Doc_MA.ecore#/"/>
+  <rules name="Class2Doc">
+    <nodes name="package" incomingEdges="//@rules.0/@edges.2" outgoingEdges="//@rules.0/@edges.0" incomingCorrsSource="//@rules.0/@nodes.4">
+      <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//ClassPackage"/>
+    </nodes>
+    <nodes name="class" bindingType="CREATE" incomingEdges="//@rules.0/@edges.0" outgoingEdges="//@rules.0/@edges.2" incomingCorrsSource="//@rules.0/@nodes.5">
+      <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Clazz"/>
+    </nodes>
+    <nodes name="container" domainType="TRG" incomingEdges="//@rules.0/@edges.3" outgoingEdges="//@rules.0/@edges.1" incomingCorrsTarget="//@rules.0/@nodes.4">
+      <type href="platform:/resource/Documents/model/Documents.ecore#//Container"/>
+    </nodes>
+    <nodes name="doc" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.0/@edges.1" outgoingEdges="//@rules.0/@edges.3" incomingCorrsTarget="//@rules.0/@nodes.5">
+      <type href="platform:/resource/Documents/model/Documents.ecore#//Document"/>
+    </nodes>
+    <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="p2c" domainType="CORR" source="//@rules.0/@nodes.0" target="//@rules.0/@nodes.2">
+      <type href="platform:/resource/Class2Doc_MA/model/Class2Doc_MA.ecore#//classPackate2Container"/>
+    </nodes>
+    <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="c2d" domainType="CORR" bindingType="CREATE" source="//@rules.0/@nodes.1" target="//@rules.0/@nodes.3">
+      <type href="platform:/resource/Class2Doc_MA/model/Class2Doc_MA.ecore#//class2doc"/>
+    </nodes>
+    <edges name="package__classes__class_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.0/@nodes.0" trgNode="//@rules.0/@nodes.1">
+      <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//ClassPackage/classes"/>
+    </edges>
+    <edges name="container__documents__doc_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.0/@nodes.2" trgNode="//@rules.0/@nodes.3">
+      <type href="platform:/resource/Documents/model/Documents.ecore#//Container/documents"/>
+    </edges>
+    <edges name="class__package__package_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.0/@nodes.1" trgNode="//@rules.0/@nodes.0">
+      <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Clazz/package"/>
+    </edges>
+    <edges name="doc__container__container_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.0/@nodes.3" trgNode="//@rules.0/@nodes.2">
+      <type href="platform:/resource/Documents/model/Documents.ecore#//Document/container"/>
+    </edges>
+    <attributeConditionLibrary sorted_BWD="//@rules.0/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_FWD="//@rules.0/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_CC="//@rules.0/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_MODELGEN="//@rules.0/@attributeConditionLibrary/@tggAttributeConstraints.0">
+      <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0" parameters="//@rules.0/@attributeConditionLibrary/@parameterValues.0 //@rules.0/@attributeConditionLibrary/@parameterValues.1"/>
+      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.0" objectVar="//@rules.0/@nodes.1">
+        <attribute href="platform:/resource/ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//NamedElement/name"/>
+      </parameterValues>
+      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.1" objectVar="//@rules.0/@nodes.3">
+        <attribute href="platform:/resource/Documents/model/Documents.ecore#//Document/name"/>
+      </parameterValues>
+    </attributeConditionLibrary>
+  </rules>
+  <rules name="Package2Container">
+    <nodes name="package" bindingType="CREATE" incomingCorrsSource="//@rules.1/@nodes.2">
+      <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//ClassPackage"/>
+    </nodes>
+    <nodes name="container" domainType="TRG" bindingType="CREATE" incomingCorrsTarget="//@rules.1/@nodes.2">
+      <type href="platform:/resource/Documents/model/Documents.ecore#//Container"/>
+    </nodes>
+    <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="p2c" domainType="CORR" bindingType="CREATE" source="//@rules.1/@nodes.0" target="//@rules.1/@nodes.1">
+      <type href="platform:/resource/Class2Doc_MA/model/Class2Doc_MA.ecore#//classPackate2Container"/>
+    </nodes>
+    <attributeConditionLibrary sorted_BWD="//@rules.1/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_FWD="//@rules.1/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_CC="//@rules.1/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_MODELGEN="//@rules.1/@attributeConditionLibrary/@tggAttributeConstraints.0">
+      <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0" parameters="//@rules.1/@attributeConditionLibrary/@parameterValues.0 //@rules.1/@attributeConditionLibrary/@parameterValues.1"/>
+      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.0" objectVar="//@rules.1/@nodes.0">
+        <attribute href="platform:/resource/ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//NamedElement/name"/>
+      </parameterValues>
+      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.1" objectVar="//@rules.1/@nodes.1">
+        <attribute href="platform:/resource/Documents/model/Documents.ecore#//Container/name"/>
+      </parameterValues>
+    </attributeConditionLibrary>
+  </rules>
+  <rules name="SubClass2SubDoc">
+    <nodes name="p" incomingEdges="//@rules.2/@edges.6 //@rules.2/@edges.7" outgoingEdges="//@rules.2/@edges.0 //@rules.2/@edges.1">
+      <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//ClassPackage"/>
+    </nodes>
+    <nodes name="superClass" incomingEdges="//@rules.2/@edges.0 //@rules.2/@edges.2" outgoingEdges="//@rules.2/@edges.6" incomingCorrsSource="//@rules.2/@nodes.6">
+      <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Clazz"/>
+    </nodes>
+    <nodes name="subClass" incomingEdges="//@rules.2/@edges.1" outgoingEdges="//@rules.2/@edges.2 //@rules.2/@edges.7" incomingCorrsSource="//@rules.2/@nodes.7">
+      <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Clazz"/>
+    </nodes>
+    <nodes name="c" domainType="TRG" incomingEdges="//@rules.2/@edges.8 //@rules.2/@edges.9" outgoingEdges="//@rules.2/@edges.3 //@rules.2/@edges.4">
+      <type href="platform:/resource/Documents/model/Documents.ecore#//Container"/>
+    </nodes>
+    <nodes name="superDoc" domainType="TRG" incomingEdges="//@rules.2/@edges.3 //@rules.2/@edges.5" outgoingEdges="//@rules.2/@edges.8" incomingCorrsTarget="//@rules.2/@nodes.6">
+      <type href="platform:/resource/Documents/model/Documents.ecore#//Document"/>
+    </nodes>
+    <nodes name="subDoc" domainType="TRG" incomingEdges="//@rules.2/@edges.4" outgoingEdges="//@rules.2/@edges.5 //@rules.2/@edges.9" incomingCorrsTarget="//@rules.2/@nodes.7">
+      <type href="platform:/resource/Documents/model/Documents.ecore#//Document"/>
+    </nodes>
+    <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="c2d" domainType="CORR" source="//@rules.2/@nodes.1" target="//@rules.2/@nodes.4">
+      <type href="platform:/resource/Class2Doc_MA/model/Class2Doc_MA.ecore#//class2doc"/>
+    </nodes>
+    <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="subc2d" domainType="CORR" source="//@rules.2/@nodes.2" target="//@rules.2/@nodes.5">
+      <type href="platform:/resource/Class2Doc_MA/model/Class2Doc_MA.ecore#//class2doc"/>
+    </nodes>
+    <edges name="p__classes__superClass_eMoflonEdge" srcNode="//@rules.2/@nodes.0" trgNode="//@rules.2/@nodes.1">
+      <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//ClassPackage/classes"/>
+    </edges>
+    <edges name="p__classes__subClass_eMoflonEdge" srcNode="//@rules.2/@nodes.0" trgNode="//@rules.2/@nodes.2">
+      <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//ClassPackage/classes"/>
+    </edges>
+    <edges name="subClass__superClass__superClass_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.2/@nodes.2" trgNode="//@rules.2/@nodes.1">
+      <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Clazz/superClass"/>
+    </edges>
+    <edges name="c__documents__superDoc_eMoflonEdge" domainType="TRG" srcNode="//@rules.2/@nodes.3" trgNode="//@rules.2/@nodes.4">
+      <type href="platform:/resource/Documents/model/Documents.ecore#//Container/documents"/>
+    </edges>
+    <edges name="c__documents__subDoc_eMoflonEdge" domainType="TRG" srcNode="//@rules.2/@nodes.3" trgNode="//@rules.2/@nodes.5">
+      <type href="platform:/resource/Documents/model/Documents.ecore#//Container/documents"/>
+    </edges>
+    <edges name="subDoc__reference__superDoc_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.2/@nodes.5" trgNode="//@rules.2/@nodes.4">
+      <type href="platform:/resource/Documents/model/Documents.ecore#//Document/reference"/>
+    </edges>
+    <edges name="superClass__package__p_eMoflonEdge" srcNode="//@rules.2/@nodes.1" trgNode="//@rules.2/@nodes.0">
+      <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Clazz/package"/>
+    </edges>
+    <edges name="subClass__package__p_eMoflonEdge" srcNode="//@rules.2/@nodes.2" trgNode="//@rules.2/@nodes.0">
+      <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Clazz/package"/>
+    </edges>
+    <edges name="superDoc__container__c_eMoflonEdge" domainType="TRG" srcNode="//@rules.2/@nodes.4" trgNode="//@rules.2/@nodes.3">
+      <type href="platform:/resource/Documents/model/Documents.ecore#//Document/container"/>
+    </edges>
+    <edges name="subDoc__container__c_eMoflonEdge" domainType="TRG" srcNode="//@rules.2/@nodes.5" trgNode="//@rules.2/@nodes.3">
+      <type href="platform:/resource/Documents/model/Documents.ecore#//Document/container"/>
+    </edges>
+    <attributeConditionLibrary/>
+  </rules>
+  <rules xsi:type="org.emoflon.ibex.tgg.core.language:TGGComplementRule" name="ConnectSubDoc" bounded="true" kernel="//@rules.2">
+    <nodes name="subDoc" domainType="TRG" incomingEdges="//@rules.3/@edges.0">
+      <type href="platform:/resource/Documents/model/Documents.ecore#//Document"/>
+    </nodes>
+    <nodes name="superDoc" domainType="TRG" incomingEdges="//@rules.3/@edges.1">
+      <type href="platform:/resource/Documents/model/Documents.ecore#//Document"/>
+    </nodes>
+    <nodes name="anotherSubDoc" domainType="TRG" outgoingEdges="//@rules.3/@edges.0 //@rules.3/@edges.1">
+      <type href="platform:/resource/Documents/model/Documents.ecore#//Document"/>
+    </nodes>
+    <edges name="anotherSubDoc__reference__subDoc_eMoflonEdge" domainType="TRG" srcNode="//@rules.3/@nodes.2" trgNode="//@rules.3/@nodes.0">
+      <type href="platform:/resource/Documents/model/Documents.ecore#//Document/reference"/>
+    </edges>
+    <edges name="anotherSubDoc__reference__superDoc_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.3/@nodes.2" trgNode="//@rules.3/@nodes.1">
+      <type href="platform:/resource/Documents/model/Documents.ecore#//Document/reference"/>
+    </edges>
+    <attributeConditionLibrary/>
+  </rules>
+  <rules xsi:type="org.emoflon.ibex.tgg.core.language:TGGComplementRule" name="ConnectSuperAndSubDoc" bounded="true" kernel="//@rules.2">
+    <nodes name="superDoc" domainType="TRG" outgoingEdges="//@rules.4/@edges.0">
+      <type href="platform:/resource/Documents/model/Documents.ecore#//Document"/>
+    </nodes>
+    <nodes name="anotherSuperDoc" domainType="TRG" incomingEdges="//@rules.4/@edges.0 //@rules.4/@edges.2">
+      <type href="platform:/resource/Documents/model/Documents.ecore#//Document"/>
+    </nodes>
+    <nodes name="subDoc" domainType="TRG" incomingEdges="//@rules.4/@edges.1">
+      <type href="platform:/resource/Documents/model/Documents.ecore#//Document"/>
+    </nodes>
+    <nodes name="anotherSubDoc" domainType="TRG" outgoingEdges="//@rules.4/@edges.1 //@rules.4/@edges.2">
+      <type href="platform:/resource/Documents/model/Documents.ecore#//Document"/>
+    </nodes>
+    <edges name="superDoc__reference__anotherSuperDoc_eMoflonEdge" domainType="TRG" srcNode="//@rules.4/@nodes.0" trgNode="//@rules.4/@nodes.1">
+      <type href="platform:/resource/Documents/model/Documents.ecore#//Document/reference"/>
+    </edges>
+    <edges name="anotherSubDoc__reference__subDoc_eMoflonEdge" domainType="TRG" srcNode="//@rules.4/@nodes.3" trgNode="//@rules.4/@nodes.2">
+      <type href="platform:/resource/Documents/model/Documents.ecore#//Document/reference"/>
+    </edges>
+    <edges name="anotherSubDoc__reference__anotherSuperDoc_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.4/@nodes.3" trgNode="//@rules.4/@nodes.1">
+      <type href="platform:/resource/Documents/model/Documents.ecore#//Document/reference"/>
+    </edges>
+    <attributeConditionLibrary/>
+  </rules>
+  <rules xsi:type="org.emoflon.ibex.tgg.core.language:TGGComplementRule" name="ConnectSuperDoc" bounded="true" kernel="//@rules.2">
+    <nodes name="superDoc" domainType="TRG" outgoingEdges="//@rules.5/@edges.0">
+      <type href="platform:/resource/Documents/model/Documents.ecore#//Document"/>
+    </nodes>
+    <nodes name="anotherSuperDoc" domainType="TRG" incomingEdges="//@rules.5/@edges.0 //@rules.5/@edges.1">
+      <type href="platform:/resource/Documents/model/Documents.ecore#//Document"/>
+    </nodes>
+    <nodes name="subDoc" domainType="TRG" outgoingEdges="//@rules.5/@edges.1">
+      <type href="platform:/resource/Documents/model/Documents.ecore#//Document"/>
+    </nodes>
+    <edges name="superDoc__reference__anotherSuperDoc_eMoflonEdge" domainType="TRG" srcNode="//@rules.5/@nodes.0" trgNode="//@rules.5/@nodes.1">
+      <type href="platform:/resource/Documents/model/Documents.ecore#//Document/reference"/>
+    </edges>
+    <edges name="subDoc__reference__anotherSuperDoc_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.5/@nodes.2" trgNode="//@rules.5/@nodes.1">
+      <type href="platform:/resource/Documents/model/Documents.ecore#//Document/reference"/>
+    </edges>
+    <attributeConditionLibrary/>
+  </rules>
+  <attributeConstraintDefinitionLibrary>
+    <tggAttributeConstraintDefinitions name="eq_string" userDefined="false">
+      <parameterDefinitions name="a">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </parameterDefinitions>
+      <parameterDefinitions name="b">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </parameterDefinitions>
+      <syncAdornments>
+        <value>B</value>
+        <value>B</value>
+      </syncAdornments>
+      <syncAdornments>
+        <value>B</value>
+        <value>F</value>
+      </syncAdornments>
+      <syncAdornments>
+        <value>F</value>
+        <value>B</value>
+      </syncAdornments>
+      <genAdornments>
+        <value>B</value>
+        <value>B</value>
+      </genAdornments>
+      <genAdornments>
+        <value>B</value>
+        <value>F</value>
+      </genAdornments>
+      <genAdornments>
+        <value>F</value>
+        <value>B</value>
+      </genAdornments>
+      <genAdornments>
+        <value>F</value>
+        <value>F</value>
+      </genAdornments>
+    </tggAttributeConstraintDefinitions>
+  </attributeConstraintDefinitionLibrary>
+</org.emoflon.ibex.tgg.core.language:TGG>

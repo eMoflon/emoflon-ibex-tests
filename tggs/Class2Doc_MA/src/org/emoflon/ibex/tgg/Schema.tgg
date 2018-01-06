@@ -1,0 +1,28 @@
+#import "platform:/resource/ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore"
+#import "platform:/resource/Documents/model/Documents.ecore"
+
+#schema Class2Doc_MA
+	
+#source {
+	classMultipleInheritanceHierarchy
+}
+
+#target { 
+	Documents
+} 
+
+#correspondence {
+	classPackate2Container{
+		#src->ClassPackage 
+		#trg->Container
+	}
+	
+	class2doc {
+		#src->Clazz
+		#trg->Document
+	}
+}
+
+#attributeConditions {
+	
+}

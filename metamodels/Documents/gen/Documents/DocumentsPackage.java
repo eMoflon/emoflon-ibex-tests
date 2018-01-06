@@ -76,13 +76,22 @@ public interface DocumentsPackage extends EPackage {
 	int CONTAINER__NAME = 0;
 
 	/**
+	 * The feature id for the '<em><b>Documents</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINER__DOCUMENTS = 1;
+
+	/**
 	 * The number of structural features of the '<em>Container</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTAINER_FEATURE_COUNT = 1;
+	int CONTAINER_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Container</em>' class.
@@ -122,13 +131,22 @@ public interface DocumentsPackage extends EPackage {
 	int DOCUMENT__REFERENCE = 1;
 
 	/**
+	 * The feature id for the '<em><b>Container</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOCUMENT__CONTAINER = 2;
+
+	/**
 	 * The number of structural features of the '<em>Document</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_FEATURE_COUNT = 2;
+	int DOCUMENT_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Document</em>' class.
@@ -161,6 +179,17 @@ public interface DocumentsPackage extends EPackage {
 	EAttribute getContainer_Name();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link Documents.Container#getDocuments <em>Documents</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Documents</em>'.
+	 * @see Documents.Container#getDocuments()
+	 * @see #getContainer()
+	 * @generated
+	 */
+	EReference getContainer_Documents();
+
+	/**
 	 * Returns the meta object for class '{@link Documents.Document <em>Document</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -191,6 +220,17 @@ public interface DocumentsPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getDocument_Reference();
+
+	/**
+	 * Returns the meta object for the container reference '{@link Documents.Document#getContainer <em>Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Container</em>'.
+	 * @see Documents.Document#getContainer()
+	 * @see #getDocument()
+	 * @generated
+	 */
+	EReference getDocument_Container();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -234,6 +274,14 @@ public interface DocumentsPackage extends EPackage {
 		EAttribute CONTAINER__NAME = eINSTANCE.getContainer_Name();
 
 		/**
+		 * The meta object literal for the '<em><b>Documents</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONTAINER__DOCUMENTS = eINSTANCE.getContainer_Documents();
+
+		/**
 		 * The meta object literal for the '{@link Documents.impl.DocumentImpl <em>Document</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -258,6 +306,14 @@ public interface DocumentsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference DOCUMENT__REFERENCE = eINSTANCE.getDocument_Reference();
+
+		/**
+		 * The meta object literal for the '<em><b>Container</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DOCUMENT__CONTAINER = eINSTANCE.getDocument_Container();
 
 	}
 
