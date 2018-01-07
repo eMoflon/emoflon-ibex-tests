@@ -1,0 +1,1178 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:emf="http://gervarro.org/democles/constraint/emf.ecore" xmlns:relational="http://gervarro.org/democles/specification/constraint/relational.ecore" xmlns:specification="http://gervarro.org/democles/specification.ecore">
+  <specification:Pattern name="ContextMarkedPattern__SRC">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="protocol">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="checkedObject">
+      <eClassifier xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/0/@symbolicParameters.0"/>
+        <parameters reference="/0/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication/contextSrc"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="ContextMarkedPattern__TRG">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="protocol">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="checkedObject">
+      <eClassifier xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/1/@symbolicParameters.0"/>
+        <parameters reference="/1/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication/contextTrg"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="CreateFamily__CONSISTENCY">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="family">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//Family"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="familyReg">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//FamilyRegister"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="personReg">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/Persons/model/Persons.ecore#//PersonRegister"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="familyReg2personReg">
+      <eClassifier xsi:type="ecore:EClass" href="../model/FamilyWithSiblingsToPersons_MA.ecore#//FamiliesReg2PersonsRegCorr"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="eMoflon_ProtocolNode">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication"/>
+    </symbolicParameters>
+    <bodies>
+      <localVariables xsi:type="emf:EMFVariable" name="family_attr_EString">
+        <eClassifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </localVariables>
+      <localVariables xsi:type="emf:EMFVariable" name="eMoflon_ProtocolNode_attr_EString">
+        <eClassifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </localVariables>
+      <constants value="ACED000574000454657374"/>
+      <constants value="ACED000574000C43726561746546616D696C79"/>
+      <constraints xsi:type="emf:Attribute">
+        <parameters reference="/2/@symbolicParameters.0"/>
+        <parameters reference="/2/@bodies.0/@localVariables.0"/>
+        <eModelElement xsi:type="ecore:EAttribute" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//Family/name"/>
+      </constraints>
+      <constraints xsi:type="emf:Attribute">
+        <parameters reference="/2/@symbolicParameters.4"/>
+        <parameters reference="/2/@bodies.0/@localVariables.1"/>
+        <eModelElement xsi:type="ecore:EAttribute" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication/name"/>
+      </constraints>
+      <constraints xsi:type="relational:Equal">
+        <parameters reference="/2/@bodies.0/@localVariables.0"/>
+        <parameters reference="/2/@bodies.0/@constants.0"/>
+      </constraints>
+      <constraints xsi:type="relational:Equal">
+        <parameters reference="/2/@bodies.0/@localVariables.1"/>
+        <parameters reference="/2/@bodies.0/@constants.1"/>
+      </constraints>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/2/@symbolicParameters.3"/>
+        <parameters reference="/2/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../model/FamilyWithSiblingsToPersons_MA.ecore#//FamiliesReg2PersonsRegCorr/source"/>
+      </constraints>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/2/@symbolicParameters.3"/>
+        <parameters reference="/2/@symbolicParameters.2"/>
+        <eModelElement xsi:type="ecore:EReference" href="../model/FamilyWithSiblingsToPersons_MA.ecore#//FamiliesReg2PersonsRegCorr/target"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="MarkedPattern__SRC">
+        <parameters reference="/2/@symbolicParameters.4"/>
+        <parameters reference="/2/@symbolicParameters.0"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="ContextMarkedPattern__SRC">
+        <parameters reference="/2/@symbolicParameters.4"/>
+        <parameters reference="/2/@symbolicParameters.1"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="ContextMarkedPattern__TRG">
+        <parameters reference="/2/@symbolicParameters.4"/>
+        <parameters reference="/2/@symbolicParameters.2"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="CreateFamily__WHOLE">
+        <parameters reference="/2/@symbolicParameters.0"/>
+        <parameters reference="/2/@symbolicParameters.1"/>
+        <parameters reference="/2/@symbolicParameters.2"/>
+        <parameters reference="/2/@symbolicParameters.3"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="CreateFamily__NO_FILTER_ACs_SRC">
+        <parameters reference="/2/@symbolicParameters.0"/>
+        <parameters reference="/2/@symbolicParameters.1"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="CreateFamily__NO_FILTER_ACs_TRG">
+        <parameters reference="/2/@symbolicParameters.2"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="CreateFamily__CONTEXT_CORR">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="familyReg">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//FamilyRegister"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="personReg">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/Persons/model/Persons.ecore#//PersonRegister"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="familyReg2personReg">
+      <eClassifier xsi:type="ecore:EClass" href="../model/FamilyWithSiblingsToPersons_MA.ecore#//FamiliesReg2PersonsRegCorr"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/3/@symbolicParameters.2"/>
+        <parameters reference="/3/@symbolicParameters.0"/>
+        <eModelElement xsi:type="ecore:EReference" href="../model/FamilyWithSiblingsToPersons_MA.ecore#//FamiliesReg2PersonsRegCorr/source"/>
+      </constraints>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/3/@symbolicParameters.2"/>
+        <parameters reference="/3/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../model/FamilyWithSiblingsToPersons_MA.ecore#//FamiliesReg2PersonsRegCorr/target"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="CreateFamily__CONTEXT_SRC">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="familyReg">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//FamilyRegister"/>
+    </symbolicParameters>
+    <bodies/>
+  </specification:Pattern>
+  <specification:Pattern name="CreateFamily__CONTEXT_TRG">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="personReg">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/Persons/model/Persons.ecore#//PersonRegister"/>
+    </symbolicParameters>
+    <bodies/>
+  </specification:Pattern>
+  <specification:Pattern name="CreateFamily__CORR">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="familyReg">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//FamilyRegister"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="personReg">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/Persons/model/Persons.ecore#//PersonRegister"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="familyReg2personReg">
+      <eClassifier xsi:type="ecore:EClass" href="../model/FamilyWithSiblingsToPersons_MA.ecore#//FamiliesReg2PersonsRegCorr"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/6/@symbolicParameters.2"/>
+        <parameters reference="/6/@symbolicParameters.0"/>
+        <eModelElement xsi:type="ecore:EReference" href="../model/FamilyWithSiblingsToPersons_MA.ecore#//FamiliesReg2PersonsRegCorr/source"/>
+      </constraints>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/6/@symbolicParameters.2"/>
+        <parameters reference="/6/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../model/FamilyWithSiblingsToPersons_MA.ecore#//FamiliesReg2PersonsRegCorr/target"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="CreateFamily__CONTEXT_CORR">
+        <parameters reference="/6/@symbolicParameters.0"/>
+        <parameters reference="/6/@symbolicParameters.1"/>
+        <parameters reference="/6/@symbolicParameters.2"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="CreateFamily__GEN">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="familyReg">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//FamilyRegister"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="personReg">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/Persons/model/Persons.ecore#//PersonRegister"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="familyReg2personReg">
+      <eClassifier xsi:type="ecore:EClass" href="../model/FamilyWithSiblingsToPersons_MA.ecore#//FamiliesReg2PersonsRegCorr"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/7/@symbolicParameters.2"/>
+        <parameters reference="/7/@symbolicParameters.0"/>
+        <eModelElement xsi:type="ecore:EReference" href="../model/FamilyWithSiblingsToPersons_MA.ecore#//FamiliesReg2PersonsRegCorr/source"/>
+      </constraints>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/7/@symbolicParameters.2"/>
+        <parameters reference="/7/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../model/FamilyWithSiblingsToPersons_MA.ecore#//FamiliesReg2PersonsRegCorr/target"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="CreateFamily__GEN_REFINEMENT_INVOCATIONS">
+        <parameters reference="/7/@symbolicParameters.0"/>
+        <parameters reference="/7/@symbolicParameters.1"/>
+        <parameters reference="/7/@symbolicParameters.2"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="CreateFamily__GEN_REFINEMENT_INVOCATIONS">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="familyReg">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//FamilyRegister"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="personReg">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/Persons/model/Persons.ecore#//PersonRegister"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="familyReg2personReg">
+      <eClassifier xsi:type="ecore:EClass" href="../model/FamilyWithSiblingsToPersons_MA.ecore#//FamiliesReg2PersonsRegCorr"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/8/@symbolicParameters.2"/>
+        <parameters reference="/8/@symbolicParameters.0"/>
+        <eModelElement xsi:type="ecore:EReference" href="../model/FamilyWithSiblingsToPersons_MA.ecore#//FamiliesReg2PersonsRegCorr/source"/>
+      </constraints>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/8/@symbolicParameters.2"/>
+        <parameters reference="/8/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../model/FamilyWithSiblingsToPersons_MA.ecore#//FamiliesReg2PersonsRegCorr/target"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="CreateFamily__CONTEXT_SRC">
+        <parameters reference="/8/@symbolicParameters.0"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="CreateFamily__CONTEXT_CORR">
+        <parameters reference="/8/@symbolicParameters.0"/>
+        <parameters reference="/8/@symbolicParameters.1"/>
+        <parameters reference="/8/@symbolicParameters.2"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="CreateFamily__CONTEXT_TRG">
+        <parameters reference="/8/@symbolicParameters.1"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="CreateFamily__NO_FILTER_ACs_SRC">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="family">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//Family"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="familyReg">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//FamilyRegister"/>
+    </symbolicParameters>
+    <bodies>
+      <localVariables xsi:type="emf:EMFVariable" name="family_attr_EString">
+        <eClassifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </localVariables>
+      <constants value="ACED000574000454657374"/>
+      <constraints xsi:type="emf:Attribute">
+        <parameters reference="/9/@symbolicParameters.0"/>
+        <parameters reference="/9/@bodies.0/@localVariables.0"/>
+        <eModelElement xsi:type="ecore:EAttribute" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//Family/name"/>
+      </constraints>
+      <constraints xsi:type="relational:Equal">
+        <parameters reference="/9/@bodies.0/@localVariables.0"/>
+        <parameters reference="/9/@bodies.0/@constants.0"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="CreateFamily__SRC_REFINEMENT_INVOCATIONS">
+        <parameters reference="/9/@symbolicParameters.0"/>
+        <parameters reference="/9/@symbolicParameters.1"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" invokedPattern="CreateFamily__family_families_incoming_DEC_SRC">
+        <parameters reference="/9/@symbolicParameters.0"/>
+        <parameters reference="/9/@symbolicParameters.1"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="CreateFamily__NO_FILTER_ACs_TRG">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="personReg">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/Persons/model/Persons.ecore#//PersonRegister"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="CreateFamily__TRG_REFINEMENT_INVOCATIONS">
+        <parameters reference="/10/@symbolicParameters.0"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="CreateFamily__SRC">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="familyReg">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//FamilyRegister"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="family">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//Family"/>
+    </symbolicParameters>
+    <bodies>
+      <localVariables xsi:type="emf:EMFVariable" name="family_attr_EString">
+        <eClassifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </localVariables>
+      <constants value="ACED000574000454657374"/>
+      <constraints xsi:type="emf:Attribute">
+        <parameters reference="/11/@symbolicParameters.1"/>
+        <parameters reference="/11/@bodies.0/@localVariables.0"/>
+        <eModelElement xsi:type="ecore:EAttribute" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//Family/name"/>
+      </constraints>
+      <constraints xsi:type="relational:Equal">
+        <parameters reference="/11/@bodies.0/@localVariables.0"/>
+        <parameters reference="/11/@bodies.0/@constants.0"/>
+      </constraints>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/11/@symbolicParameters.0"/>
+        <parameters reference="/11/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//FamilyRegister/families"/>
+      </constraints>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/11/@symbolicParameters.1"/>
+        <parameters reference="/11/@symbolicParameters.0"/>
+        <eModelElement xsi:type="ecore:EReference" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//Family/familiesInverse"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="CreateFamily__CONTEXT_SRC">
+        <parameters reference="/11/@symbolicParameters.0"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="CreateFamily__SRC_REFINEMENT_INVOCATIONS">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="family">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//Family"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="familyReg">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//FamilyRegister"/>
+    </symbolicParameters>
+    <bodies>
+      <localVariables xsi:type="emf:EMFVariable" name="family_attr_EString">
+        <eClassifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </localVariables>
+      <constants value="ACED000574000454657374"/>
+      <constraints xsi:type="emf:Attribute">
+        <parameters reference="/12/@symbolicParameters.0"/>
+        <parameters reference="/12/@bodies.0/@localVariables.0"/>
+        <eModelElement xsi:type="ecore:EAttribute" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//Family/name"/>
+      </constraints>
+      <constraints xsi:type="relational:Equal">
+        <parameters reference="/12/@bodies.0/@localVariables.0"/>
+        <parameters reference="/12/@bodies.0/@constants.0"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="CreateFamily__SRC">
+        <parameters reference="/12/@symbolicParameters.1"/>
+        <parameters reference="/12/@symbolicParameters.0"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="CreateFamily__TRG">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="personReg">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/Persons/model/Persons.ecore#//PersonRegister"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="CreateFamily__CONTEXT_TRG">
+        <parameters reference="/13/@symbolicParameters.0"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="CreateFamily__TRG_REFINEMENT_INVOCATIONS">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="personReg">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/Persons/model/Persons.ecore#//PersonRegister"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="CreateFamily__TRG">
+        <parameters reference="/14/@symbolicParameters.0"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="CreateFamily__WHOLE">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="family">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//Family"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="familyReg">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//FamilyRegister"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="personReg">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/Persons/model/Persons.ecore#//PersonRegister"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="familyReg2personReg">
+      <eClassifier xsi:type="ecore:EClass" href="../model/FamilyWithSiblingsToPersons_MA.ecore#//FamiliesReg2PersonsRegCorr"/>
+    </symbolicParameters>
+    <bodies>
+      <localVariables xsi:type="emf:EMFVariable" name="family_attr_EString">
+        <eClassifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </localVariables>
+      <constants value="ACED000574000454657374"/>
+      <constraints xsi:type="emf:Attribute">
+        <parameters reference="/15/@symbolicParameters.0"/>
+        <parameters reference="/15/@bodies.0/@localVariables.0"/>
+        <eModelElement xsi:type="ecore:EAttribute" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//Family/name"/>
+      </constraints>
+      <constraints xsi:type="relational:Equal">
+        <parameters reference="/15/@bodies.0/@localVariables.0"/>
+        <parameters reference="/15/@bodies.0/@constants.0"/>
+      </constraints>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/15/@symbolicParameters.3"/>
+        <parameters reference="/15/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../model/FamilyWithSiblingsToPersons_MA.ecore#//FamiliesReg2PersonsRegCorr/source"/>
+      </constraints>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/15/@symbolicParameters.3"/>
+        <parameters reference="/15/@symbolicParameters.2"/>
+        <eModelElement xsi:type="ecore:EReference" href="../model/FamilyWithSiblingsToPersons_MA.ecore#//FamiliesReg2PersonsRegCorr/target"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="CreateFamily__SRC">
+        <parameters reference="/15/@symbolicParameters.1"/>
+        <parameters reference="/15/@symbolicParameters.0"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="CreateFamily__TRG">
+        <parameters reference="/15/@symbolicParameters.2"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="CreateFamily__CORR">
+        <parameters reference="/15/@symbolicParameters.1"/>
+        <parameters reference="/15/@symbolicParameters.2"/>
+        <parameters reference="/15/@symbolicParameters.3"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="CreateFamily__family_families_incoming_DEC_SRC">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="family">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//Family"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="familyReg">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//FamilyRegister"/>
+    </symbolicParameters>
+    <bodies>
+      <localVariables xsi:type="emf:EMFVariable" name="family_families_DECNode">
+        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//FamilyRegister"/>
+      </localVariables>
+      <localVariables xsi:type="emf:EMFVariable" name="family_attr_EString">
+        <eClassifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </localVariables>
+      <constants value="ACED000574000454657374"/>
+      <constraints xsi:type="emf:Attribute">
+        <parameters reference="/16/@symbolicParameters.0"/>
+        <parameters reference="/16/@bodies.0/@localVariables.1"/>
+        <eModelElement xsi:type="ecore:EAttribute" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//Family/name"/>
+      </constraints>
+      <constraints xsi:type="relational:Equal">
+        <parameters reference="/16/@bodies.0/@localVariables.1"/>
+        <parameters reference="/16/@bodies.0/@constants.0"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="language.impl.TGGRuleImpl@11a9e7c8 (name: CreateFamily) (abstract: false)__family_families_incoming_SearchEdge_SRC">
+        <parameters reference="/16/@symbolicParameters.0"/>
+        <parameters reference="/16/@symbolicParameters.1"/>
+        <parameters reference="/16/@bodies.0/@localVariables.0"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="CreateSiblingsConnection__CONTEXT_SRC">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="family">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//Family"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="siblingFamily">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//Family"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="relational:Unequal">
+        <parameters reference="/17/@symbolicParameters.0"/>
+        <parameters reference="/17/@symbolicParameters.1"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="CreateSiblingsConnection__GEN">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="family">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//Family"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="siblingFamily">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//Family"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="CreateSiblingsConnection__GEN_REFINEMENT_INVOCATIONS">
+        <parameters reference="/18/@symbolicParameters.0"/>
+        <parameters reference="/18/@symbolicParameters.1"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" invokedPattern="CreateSiblingsConnection_family_siblingsEdge_Multiplicity__CONSTRAINT">
+        <parameters reference="/18/@symbolicParameters.0"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" invokedPattern="CreateSiblingsConnection_siblingFamily_siblingsEdge_Multiplicity__CONSTRAINT">
+        <parameters reference="/18/@symbolicParameters.1"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="CreateSiblingsConnection__GEN_REFINEMENT_INVOCATIONS">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="family">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//Family"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="siblingFamily">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//Family"/>
+    </symbolicParameters>
+    <bodies>
+      <localVariables xsi:type="emf:EMFVariable" name="eMoflon_ProtocolNode">
+        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication"/>
+      </localVariables>
+      <localVariables xsi:type="emf:EMFVariable" name="familyReg">
+        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//FamilyRegister"/>
+      </localVariables>
+      <localVariables xsi:type="emf:EMFVariable" name="personReg">
+        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/Persons/model/Persons.ecore#//PersonRegister"/>
+      </localVariables>
+      <localVariables xsi:type="emf:EMFVariable" name="familyReg2personReg">
+        <eClassifier xsi:type="ecore:EClass" href="../model/FamilyWithSiblingsToPersons_MA.ecore#//FamiliesReg2PersonsRegCorr"/>
+      </localVariables>
+      <localVariables xsi:type="emf:EMFVariable" name="eMoflon_ProtocolNode_attr_EString">
+        <eClassifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </localVariables>
+      <localVariables xsi:type="emf:EMFVariable" name="eMoflon_ProtocolNode_attr_EBoolean">
+        <eClassifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      </localVariables>
+      <constants value="ACED000574000C43726561746546616D696C79"/>
+      <constants value="ACED0005737200116A6176612E6C616E672E426F6F6C65616ECD207280D59CFAEE0200015A000576616C7565787000"/>
+      <constraints xsi:type="emf:Attribute">
+        <parameters reference="/19/@bodies.0/@localVariables.0"/>
+        <parameters reference="/19/@bodies.0/@localVariables.4"/>
+        <eModelElement xsi:type="ecore:EAttribute" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication/name"/>
+      </constraints>
+      <constraints xsi:type="emf:Attribute">
+        <parameters reference="/19/@bodies.0/@localVariables.0"/>
+        <parameters reference="/19/@bodies.0/@localVariables.5"/>
+        <eModelElement xsi:type="ecore:EAttribute" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication/amalgamated"/>
+      </constraints>
+      <constraints xsi:type="relational:Equal">
+        <parameters reference="/19/@bodies.0/@localVariables.4"/>
+        <parameters reference="/19/@bodies.0/@constants.0"/>
+      </constraints>
+      <constraints xsi:type="relational:Equal">
+        <parameters reference="/19/@bodies.0/@localVariables.5"/>
+        <parameters reference="/19/@bodies.0/@constants.1"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="CreateSiblingsConnection__CONTEXT_SRC">
+        <parameters reference="/19/@symbolicParameters.0"/>
+        <parameters reference="/19/@symbolicParameters.1"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="CreateFamily__CONSISTENCY">
+        <parameters reference="/19/@symbolicParameters.0"/>
+        <parameters reference="/19/@bodies.0/@localVariables.1"/>
+        <parameters reference="/19/@bodies.0/@localVariables.2"/>
+        <parameters reference="/19/@bodies.0/@localVariables.3"/>
+        <parameters reference="/19/@bodies.0/@localVariables.0"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="CreateSiblingsConnection_family_siblingsEdge_Multiplicity__CONSTRAINT">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="family">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//Family"/>
+    </symbolicParameters>
+    <bodies>
+      <localVariables xsi:type="emf:EMFVariable" name="siblingFamily1">
+        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//Family"/>
+      </localVariables>
+      <localVariables xsi:type="emf:EMFVariable" name="siblingFamily3">
+        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//Family"/>
+      </localVariables>
+      <localVariables xsi:type="emf:EMFVariable" name="siblingFamily2">
+        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//Family"/>
+      </localVariables>
+      <localVariables xsi:type="emf:EMFVariable" name="siblingFamily4">
+        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//Family"/>
+      </localVariables>
+      <localVariables xsi:type="emf:EMFVariable" name="siblingFamily5">
+        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//Family"/>
+      </localVariables>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/20/@symbolicParameters.0"/>
+        <parameters reference="/20/@bodies.0/@localVariables.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//Family/siblings"/>
+      </constraints>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/20/@symbolicParameters.0"/>
+        <parameters reference="/20/@bodies.0/@localVariables.3"/>
+        <eModelElement xsi:type="ecore:EReference" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//Family/siblings"/>
+      </constraints>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/20/@symbolicParameters.0"/>
+        <parameters reference="/20/@bodies.0/@localVariables.4"/>
+        <eModelElement xsi:type="ecore:EReference" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//Family/siblings"/>
+      </constraints>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/20/@symbolicParameters.0"/>
+        <parameters reference="/20/@bodies.0/@localVariables.0"/>
+        <eModelElement xsi:type="ecore:EReference" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//Family/siblings"/>
+      </constraints>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/20/@symbolicParameters.0"/>
+        <parameters reference="/20/@bodies.0/@localVariables.2"/>
+        <eModelElement xsi:type="ecore:EReference" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//Family/siblings"/>
+      </constraints>
+      <constraints xsi:type="relational:Unequal">
+        <parameters reference="/20/@bodies.0/@localVariables.0"/>
+        <parameters reference="/20/@bodies.0/@localVariables.1"/>
+      </constraints>
+      <constraints xsi:type="relational:Unequal">
+        <parameters reference="/20/@bodies.0/@localVariables.0"/>
+        <parameters reference="/20/@bodies.0/@localVariables.2"/>
+      </constraints>
+      <constraints xsi:type="relational:Unequal">
+        <parameters reference="/20/@bodies.0/@localVariables.0"/>
+        <parameters reference="/20/@bodies.0/@localVariables.3"/>
+      </constraints>
+      <constraints xsi:type="relational:Unequal">
+        <parameters reference="/20/@bodies.0/@localVariables.0"/>
+        <parameters reference="/20/@bodies.0/@localVariables.4"/>
+      </constraints>
+      <constraints xsi:type="relational:Unequal">
+        <parameters reference="/20/@bodies.0/@localVariables.0"/>
+        <parameters reference="/20/@symbolicParameters.0"/>
+      </constraints>
+      <constraints xsi:type="relational:Unequal">
+        <parameters reference="/20/@bodies.0/@localVariables.1"/>
+        <parameters reference="/20/@bodies.0/@localVariables.2"/>
+      </constraints>
+      <constraints xsi:type="relational:Unequal">
+        <parameters reference="/20/@bodies.0/@localVariables.1"/>
+        <parameters reference="/20/@bodies.0/@localVariables.3"/>
+      </constraints>
+      <constraints xsi:type="relational:Unequal">
+        <parameters reference="/20/@bodies.0/@localVariables.1"/>
+        <parameters reference="/20/@bodies.0/@localVariables.4"/>
+      </constraints>
+      <constraints xsi:type="relational:Unequal">
+        <parameters reference="/20/@bodies.0/@localVariables.1"/>
+        <parameters reference="/20/@symbolicParameters.0"/>
+      </constraints>
+      <constraints xsi:type="relational:Unequal">
+        <parameters reference="/20/@bodies.0/@localVariables.2"/>
+        <parameters reference="/20/@bodies.0/@localVariables.3"/>
+      </constraints>
+      <constraints xsi:type="relational:Unequal">
+        <parameters reference="/20/@bodies.0/@localVariables.2"/>
+        <parameters reference="/20/@bodies.0/@localVariables.4"/>
+      </constraints>
+      <constraints xsi:type="relational:Unequal">
+        <parameters reference="/20/@bodies.0/@localVariables.2"/>
+        <parameters reference="/20/@symbolicParameters.0"/>
+      </constraints>
+      <constraints xsi:type="relational:Unequal">
+        <parameters reference="/20/@bodies.0/@localVariables.3"/>
+        <parameters reference="/20/@bodies.0/@localVariables.4"/>
+      </constraints>
+      <constraints xsi:type="relational:Unequal">
+        <parameters reference="/20/@bodies.0/@localVariables.3"/>
+        <parameters reference="/20/@symbolicParameters.0"/>
+      </constraints>
+      <constraints xsi:type="relational:Unequal">
+        <parameters reference="/20/@bodies.0/@localVariables.4"/>
+        <parameters reference="/20/@symbolicParameters.0"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="CreateSiblingsConnection_siblingFamily_siblingsEdge_Multiplicity__CONSTRAINT">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="siblingFamily">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//Family"/>
+    </symbolicParameters>
+    <bodies>
+      <localVariables xsi:type="emf:EMFVariable" name="family2">
+        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//Family"/>
+      </localVariables>
+      <localVariables xsi:type="emf:EMFVariable" name="family4">
+        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//Family"/>
+      </localVariables>
+      <localVariables xsi:type="emf:EMFVariable" name="family5">
+        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//Family"/>
+      </localVariables>
+      <localVariables xsi:type="emf:EMFVariable" name="family1">
+        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//Family"/>
+      </localVariables>
+      <localVariables xsi:type="emf:EMFVariable" name="family3">
+        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//Family"/>
+      </localVariables>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/21/@symbolicParameters.0"/>
+        <parameters reference="/21/@bodies.0/@localVariables.4"/>
+        <eModelElement xsi:type="ecore:EReference" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//Family/siblings"/>
+      </constraints>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/21/@symbolicParameters.0"/>
+        <parameters reference="/21/@bodies.0/@localVariables.3"/>
+        <eModelElement xsi:type="ecore:EReference" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//Family/siblings"/>
+      </constraints>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/21/@symbolicParameters.0"/>
+        <parameters reference="/21/@bodies.0/@localVariables.2"/>
+        <eModelElement xsi:type="ecore:EReference" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//Family/siblings"/>
+      </constraints>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/21/@symbolicParameters.0"/>
+        <parameters reference="/21/@bodies.0/@localVariables.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//Family/siblings"/>
+      </constraints>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/21/@symbolicParameters.0"/>
+        <parameters reference="/21/@bodies.0/@localVariables.0"/>
+        <eModelElement xsi:type="ecore:EReference" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//Family/siblings"/>
+      </constraints>
+      <constraints xsi:type="relational:Unequal">
+        <parameters reference="/21/@bodies.0/@localVariables.0"/>
+        <parameters reference="/21/@bodies.0/@localVariables.1"/>
+      </constraints>
+      <constraints xsi:type="relational:Unequal">
+        <parameters reference="/21/@bodies.0/@localVariables.0"/>
+        <parameters reference="/21/@bodies.0/@localVariables.2"/>
+      </constraints>
+      <constraints xsi:type="relational:Unequal">
+        <parameters reference="/21/@bodies.0/@localVariables.0"/>
+        <parameters reference="/21/@bodies.0/@localVariables.3"/>
+      </constraints>
+      <constraints xsi:type="relational:Unequal">
+        <parameters reference="/21/@bodies.0/@localVariables.0"/>
+        <parameters reference="/21/@bodies.0/@localVariables.4"/>
+      </constraints>
+      <constraints xsi:type="relational:Unequal">
+        <parameters reference="/21/@bodies.0/@localVariables.0"/>
+        <parameters reference="/21/@symbolicParameters.0"/>
+      </constraints>
+      <constraints xsi:type="relational:Unequal">
+        <parameters reference="/21/@bodies.0/@localVariables.1"/>
+        <parameters reference="/21/@bodies.0/@localVariables.2"/>
+      </constraints>
+      <constraints xsi:type="relational:Unequal">
+        <parameters reference="/21/@bodies.0/@localVariables.1"/>
+        <parameters reference="/21/@bodies.0/@localVariables.3"/>
+      </constraints>
+      <constraints xsi:type="relational:Unequal">
+        <parameters reference="/21/@bodies.0/@localVariables.1"/>
+        <parameters reference="/21/@bodies.0/@localVariables.4"/>
+      </constraints>
+      <constraints xsi:type="relational:Unequal">
+        <parameters reference="/21/@bodies.0/@localVariables.1"/>
+        <parameters reference="/21/@symbolicParameters.0"/>
+      </constraints>
+      <constraints xsi:type="relational:Unequal">
+        <parameters reference="/21/@bodies.0/@localVariables.2"/>
+        <parameters reference="/21/@bodies.0/@localVariables.3"/>
+      </constraints>
+      <constraints xsi:type="relational:Unequal">
+        <parameters reference="/21/@bodies.0/@localVariables.2"/>
+        <parameters reference="/21/@bodies.0/@localVariables.4"/>
+      </constraints>
+      <constraints xsi:type="relational:Unequal">
+        <parameters reference="/21/@bodies.0/@localVariables.2"/>
+        <parameters reference="/21/@symbolicParameters.0"/>
+      </constraints>
+      <constraints xsi:type="relational:Unequal">
+        <parameters reference="/21/@bodies.0/@localVariables.3"/>
+        <parameters reference="/21/@bodies.0/@localVariables.4"/>
+      </constraints>
+      <constraints xsi:type="relational:Unequal">
+        <parameters reference="/21/@bodies.0/@localVariables.3"/>
+        <parameters reference="/21/@symbolicParameters.0"/>
+      </constraints>
+      <constraints xsi:type="relational:Unequal">
+        <parameters reference="/21/@bodies.0/@localVariables.4"/>
+        <parameters reference="/21/@symbolicParameters.0"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="Daughter2Female__CONTEXT_SRC">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="family">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//Family"/>
+    </symbolicParameters>
+    <bodies/>
+  </specification:Pattern>
+  <specification:Pattern name="Daughter2Female__CONTEXT_TRG">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="personReg">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/Persons/model/Persons.ecore#//PersonRegister"/>
+    </symbolicParameters>
+    <bodies/>
+  </specification:Pattern>
+  <specification:Pattern name="Daughter2Female__GEN">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="family">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//Family"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="personReg">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/Persons/model/Persons.ecore#//PersonRegister"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="Daughter2Female__GEN_REFINEMENT_INVOCATIONS">
+        <parameters reference="/24/@symbolicParameters.0"/>
+        <parameters reference="/24/@symbolicParameters.1"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="Daughter2Female__GEN_REFINEMENT_INVOCATIONS">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="family">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//Family"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="personReg">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/Persons/model/Persons.ecore#//PersonRegister"/>
+    </symbolicParameters>
+    <bodies>
+      <localVariables xsi:type="emf:EMFVariable" name="eMoflon_ProtocolNode">
+        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication"/>
+      </localVariables>
+      <localVariables xsi:type="emf:EMFVariable" name="familyReg">
+        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//FamilyRegister"/>
+      </localVariables>
+      <localVariables xsi:type="emf:EMFVariable" name="familyReg2personReg">
+        <eClassifier xsi:type="ecore:EClass" href="../model/FamilyWithSiblingsToPersons_MA.ecore#//FamiliesReg2PersonsRegCorr"/>
+      </localVariables>
+      <localVariables xsi:type="emf:EMFVariable" name="eMoflon_ProtocolNode_attr_EString">
+        <eClassifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </localVariables>
+      <localVariables xsi:type="emf:EMFVariable" name="eMoflon_ProtocolNode_attr_EBoolean">
+        <eClassifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      </localVariables>
+      <constants value="ACED000574000C43726561746546616D696C79"/>
+      <constants value="ACED0005737200116A6176612E6C616E672E426F6F6C65616ECD207280D59CFAEE0200015A000576616C7565787000"/>
+      <constraints xsi:type="emf:Attribute">
+        <parameters reference="/25/@bodies.0/@localVariables.0"/>
+        <parameters reference="/25/@bodies.0/@localVariables.3"/>
+        <eModelElement xsi:type="ecore:EAttribute" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication/name"/>
+      </constraints>
+      <constraints xsi:type="emf:Attribute">
+        <parameters reference="/25/@bodies.0/@localVariables.0"/>
+        <parameters reference="/25/@bodies.0/@localVariables.4"/>
+        <eModelElement xsi:type="ecore:EAttribute" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication/amalgamated"/>
+      </constraints>
+      <constraints xsi:type="relational:Equal">
+        <parameters reference="/25/@bodies.0/@localVariables.3"/>
+        <parameters reference="/25/@bodies.0/@constants.0"/>
+      </constraints>
+      <constraints xsi:type="relational:Equal">
+        <parameters reference="/25/@bodies.0/@localVariables.4"/>
+        <parameters reference="/25/@bodies.0/@constants.1"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="Daughter2Female__CONTEXT_SRC">
+        <parameters reference="/25/@symbolicParameters.0"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="Daughter2Female__CONTEXT_TRG">
+        <parameters reference="/25/@symbolicParameters.1"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="CreateFamily__CONSISTENCY">
+        <parameters reference="/25/@symbolicParameters.0"/>
+        <parameters reference="/25/@bodies.0/@localVariables.1"/>
+        <parameters reference="/25/@symbolicParameters.1"/>
+        <parameters reference="/25/@bodies.0/@localVariables.2"/>
+        <parameters reference="/25/@bodies.0/@localVariables.0"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="Father2Male__CONTEXT_SRC">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="family">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//Family"/>
+    </symbolicParameters>
+    <bodies/>
+  </specification:Pattern>
+  <specification:Pattern name="Father2Male__CONTEXT_TRG">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="personReg">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/Persons/model/Persons.ecore#//PersonRegister"/>
+    </symbolicParameters>
+    <bodies/>
+  </specification:Pattern>
+  <specification:Pattern name="Father2Male__GEN">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="family">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//Family"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="personReg">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/Persons/model/Persons.ecore#//PersonRegister"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="Father2Male__GEN_REFINEMENT_INVOCATIONS">
+        <parameters reference="/28/@symbolicParameters.0"/>
+        <parameters reference="/28/@symbolicParameters.1"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" invokedPattern="Father2Male_family_fatherEdge_Multiplicity__CONSTRAINT">
+        <parameters reference="/28/@symbolicParameters.0"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="Father2Male__GEN_REFINEMENT_INVOCATIONS">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="family">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//Family"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="personReg">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/Persons/model/Persons.ecore#//PersonRegister"/>
+    </symbolicParameters>
+    <bodies>
+      <localVariables xsi:type="emf:EMFVariable" name="eMoflon_ProtocolNode">
+        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication"/>
+      </localVariables>
+      <localVariables xsi:type="emf:EMFVariable" name="familyReg">
+        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//FamilyRegister"/>
+      </localVariables>
+      <localVariables xsi:type="emf:EMFVariable" name="familyReg2personReg">
+        <eClassifier xsi:type="ecore:EClass" href="../model/FamilyWithSiblingsToPersons_MA.ecore#//FamiliesReg2PersonsRegCorr"/>
+      </localVariables>
+      <localVariables xsi:type="emf:EMFVariable" name="eMoflon_ProtocolNode_attr_EBoolean">
+        <eClassifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      </localVariables>
+      <localVariables xsi:type="emf:EMFVariable" name="eMoflon_ProtocolNode_attr_EString">
+        <eClassifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </localVariables>
+      <constants value="ACED0005737200116A6176612E6C616E672E426F6F6C65616ECD207280D59CFAEE0200015A000576616C7565787000"/>
+      <constants value="ACED000574000C43726561746546616D696C79"/>
+      <constraints xsi:type="emf:Attribute">
+        <parameters reference="/29/@bodies.0/@localVariables.0"/>
+        <parameters reference="/29/@bodies.0/@localVariables.3"/>
+        <eModelElement xsi:type="ecore:EAttribute" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication/amalgamated"/>
+      </constraints>
+      <constraints xsi:type="emf:Attribute">
+        <parameters reference="/29/@bodies.0/@localVariables.0"/>
+        <parameters reference="/29/@bodies.0/@localVariables.4"/>
+        <eModelElement xsi:type="ecore:EAttribute" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication/name"/>
+      </constraints>
+      <constraints xsi:type="relational:Equal">
+        <parameters reference="/29/@bodies.0/@localVariables.3"/>
+        <parameters reference="/29/@bodies.0/@constants.0"/>
+      </constraints>
+      <constraints xsi:type="relational:Equal">
+        <parameters reference="/29/@bodies.0/@localVariables.4"/>
+        <parameters reference="/29/@bodies.0/@constants.1"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="Father2Male__CONTEXT_SRC">
+        <parameters reference="/29/@symbolicParameters.0"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="Father2Male__CONTEXT_TRG">
+        <parameters reference="/29/@symbolicParameters.1"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="CreateFamily__CONSISTENCY">
+        <parameters reference="/29/@symbolicParameters.0"/>
+        <parameters reference="/29/@bodies.0/@localVariables.1"/>
+        <parameters reference="/29/@symbolicParameters.1"/>
+        <parameters reference="/29/@bodies.0/@localVariables.2"/>
+        <parameters reference="/29/@bodies.0/@localVariables.0"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="Father2Male_family_fatherEdge_Multiplicity__CONSTRAINT">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="family">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//Family"/>
+    </symbolicParameters>
+    <bodies>
+      <localVariables xsi:type="emf:EMFVariable" name="father1">
+        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//FamilyMember"/>
+      </localVariables>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/30/@symbolicParameters.0"/>
+        <parameters reference="/30/@bodies.0/@localVariables.0"/>
+        <eModelElement xsi:type="ecore:EReference" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//Family/father"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="MarkedPattern__SRC">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="protocol">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="checkedObject">
+      <eClassifier xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/31/@symbolicParameters.0"/>
+        <parameters reference="/31/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication/createdSrc"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="Mother2Female__CONTEXT_SRC">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="family">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//Family"/>
+    </symbolicParameters>
+    <bodies/>
+  </specification:Pattern>
+  <specification:Pattern name="Mother2Female__CONTEXT_TRG">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="personReg">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/Persons/model/Persons.ecore#//PersonRegister"/>
+    </symbolicParameters>
+    <bodies/>
+  </specification:Pattern>
+  <specification:Pattern name="Mother2Female__GEN">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="family">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//Family"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="personReg">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/Persons/model/Persons.ecore#//PersonRegister"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="Mother2Female__GEN_REFINEMENT_INVOCATIONS">
+        <parameters reference="/34/@symbolicParameters.0"/>
+        <parameters reference="/34/@symbolicParameters.1"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" invokedPattern="Mother2Female_family_motherEdge_Multiplicity__CONSTRAINT">
+        <parameters reference="/34/@symbolicParameters.0"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="Mother2Female__GEN_REFINEMENT_INVOCATIONS">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="family">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//Family"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="personReg">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/Persons/model/Persons.ecore#//PersonRegister"/>
+    </symbolicParameters>
+    <bodies>
+      <localVariables xsi:type="emf:EMFVariable" name="eMoflon_ProtocolNode">
+        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication"/>
+      </localVariables>
+      <localVariables xsi:type="emf:EMFVariable" name="familyReg">
+        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//FamilyRegister"/>
+      </localVariables>
+      <localVariables xsi:type="emf:EMFVariable" name="familyReg2personReg">
+        <eClassifier xsi:type="ecore:EClass" href="../model/FamilyWithSiblingsToPersons_MA.ecore#//FamiliesReg2PersonsRegCorr"/>
+      </localVariables>
+      <localVariables xsi:type="emf:EMFVariable" name="eMoflon_ProtocolNode_attr_EBoolean">
+        <eClassifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      </localVariables>
+      <localVariables xsi:type="emf:EMFVariable" name="eMoflon_ProtocolNode_attr_EString">
+        <eClassifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </localVariables>
+      <constants value="ACED0005737200116A6176612E6C616E672E426F6F6C65616ECD207280D59CFAEE0200015A000576616C7565787000"/>
+      <constants value="ACED000574000C43726561746546616D696C79"/>
+      <constraints xsi:type="emf:Attribute">
+        <parameters reference="/35/@bodies.0/@localVariables.0"/>
+        <parameters reference="/35/@bodies.0/@localVariables.3"/>
+        <eModelElement xsi:type="ecore:EAttribute" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication/amalgamated"/>
+      </constraints>
+      <constraints xsi:type="emf:Attribute">
+        <parameters reference="/35/@bodies.0/@localVariables.0"/>
+        <parameters reference="/35/@bodies.0/@localVariables.4"/>
+        <eModelElement xsi:type="ecore:EAttribute" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication/name"/>
+      </constraints>
+      <constraints xsi:type="relational:Equal">
+        <parameters reference="/35/@bodies.0/@localVariables.3"/>
+        <parameters reference="/35/@bodies.0/@constants.0"/>
+      </constraints>
+      <constraints xsi:type="relational:Equal">
+        <parameters reference="/35/@bodies.0/@localVariables.4"/>
+        <parameters reference="/35/@bodies.0/@constants.1"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="Mother2Female__CONTEXT_SRC">
+        <parameters reference="/35/@symbolicParameters.0"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="Mother2Female__CONTEXT_TRG">
+        <parameters reference="/35/@symbolicParameters.1"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="CreateFamily__CONSISTENCY">
+        <parameters reference="/35/@symbolicParameters.0"/>
+        <parameters reference="/35/@bodies.0/@localVariables.1"/>
+        <parameters reference="/35/@symbolicParameters.1"/>
+        <parameters reference="/35/@bodies.0/@localVariables.2"/>
+        <parameters reference="/35/@bodies.0/@localVariables.0"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="Mother2Female_family_motherEdge_Multiplicity__CONSTRAINT">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="family">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//Family"/>
+    </symbolicParameters>
+    <bodies>
+      <localVariables xsi:type="emf:EMFVariable" name="mother1">
+        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//FamilyMember"/>
+      </localVariables>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/36/@symbolicParameters.0"/>
+        <parameters reference="/36/@bodies.0/@localVariables.0"/>
+        <eModelElement xsi:type="ecore:EReference" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//Family/mother"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="Son2Male__CONTEXT_SRC">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="family">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//Family"/>
+    </symbolicParameters>
+    <bodies/>
+  </specification:Pattern>
+  <specification:Pattern name="Son2Male__CONTEXT_TRG">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="personReg">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/Persons/model/Persons.ecore#//PersonRegister"/>
+    </symbolicParameters>
+    <bodies/>
+  </specification:Pattern>
+  <specification:Pattern name="Son2Male__GEN">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="family">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//Family"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="personReg">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/Persons/model/Persons.ecore#//PersonRegister"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="Son2Male__GEN_REFINEMENT_INVOCATIONS">
+        <parameters reference="/39/@symbolicParameters.0"/>
+        <parameters reference="/39/@symbolicParameters.1"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="Son2Male__GEN_REFINEMENT_INVOCATIONS">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="family">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//Family"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="personReg">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/Persons/model/Persons.ecore#//PersonRegister"/>
+    </symbolicParameters>
+    <bodies>
+      <localVariables xsi:type="emf:EMFVariable" name="eMoflon_ProtocolNode">
+        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication"/>
+      </localVariables>
+      <localVariables xsi:type="emf:EMFVariable" name="familyReg">
+        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//FamilyRegister"/>
+      </localVariables>
+      <localVariables xsi:type="emf:EMFVariable" name="familyReg2personReg">
+        <eClassifier xsi:type="ecore:EClass" href="../model/FamilyWithSiblingsToPersons_MA.ecore#//FamiliesReg2PersonsRegCorr"/>
+      </localVariables>
+      <localVariables xsi:type="emf:EMFVariable" name="eMoflon_ProtocolNode_attr_EString">
+        <eClassifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </localVariables>
+      <localVariables xsi:type="emf:EMFVariable" name="eMoflon_ProtocolNode_attr_EBoolean">
+        <eClassifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      </localVariables>
+      <constants value="ACED000574000C43726561746546616D696C79"/>
+      <constants value="ACED0005737200116A6176612E6C616E672E426F6F6C65616ECD207280D59CFAEE0200015A000576616C7565787000"/>
+      <constraints xsi:type="emf:Attribute">
+        <parameters reference="/40/@bodies.0/@localVariables.0"/>
+        <parameters reference="/40/@bodies.0/@localVariables.3"/>
+        <eModelElement xsi:type="ecore:EAttribute" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication/name"/>
+      </constraints>
+      <constraints xsi:type="emf:Attribute">
+        <parameters reference="/40/@bodies.0/@localVariables.0"/>
+        <parameters reference="/40/@bodies.0/@localVariables.4"/>
+        <eModelElement xsi:type="ecore:EAttribute" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication/amalgamated"/>
+      </constraints>
+      <constraints xsi:type="relational:Equal">
+        <parameters reference="/40/@bodies.0/@localVariables.3"/>
+        <parameters reference="/40/@bodies.0/@constants.0"/>
+      </constraints>
+      <constraints xsi:type="relational:Equal">
+        <parameters reference="/40/@bodies.0/@localVariables.4"/>
+        <parameters reference="/40/@bodies.0/@constants.1"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="Son2Male__CONTEXT_SRC">
+        <parameters reference="/40/@symbolicParameters.0"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="Son2Male__CONTEXT_TRG">
+        <parameters reference="/40/@symbolicParameters.1"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="CreateFamily__CONSISTENCY">
+        <parameters reference="/40/@symbolicParameters.0"/>
+        <parameters reference="/40/@bodies.0/@localVariables.1"/>
+        <parameters reference="/40/@symbolicParameters.1"/>
+        <parameters reference="/40/@bodies.0/@localVariables.2"/>
+        <parameters reference="/40/@bodies.0/@localVariables.0"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="language.impl.TGGRuleImpl@11a9e7c8 (name: CreateFamily) (abstract: false)__family_families_incoming_SearchEdge_SRC">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="family">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//Family"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="familyReg">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//FamilyRegister"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="family_families_DECNode">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//FamilyRegister"/>
+    </symbolicParameters>
+    <bodies>
+      <localVariables xsi:type="emf:EMFVariable" name="family_attr_EString">
+        <eClassifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </localVariables>
+      <constants value="ACED000574000454657374"/>
+      <constraints xsi:type="emf:Attribute">
+        <parameters reference="/41/@symbolicParameters.0"/>
+        <parameters reference="/41/@bodies.0/@localVariables.0"/>
+        <eModelElement xsi:type="ecore:EAttribute" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//Family/name"/>
+      </constraints>
+      <constraints xsi:type="relational:Equal">
+        <parameters reference="/41/@bodies.0/@localVariables.0"/>
+        <parameters reference="/41/@bodies.0/@constants.0"/>
+      </constraints>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/41/@symbolicParameters.1"/>
+        <parameters reference="/41/@symbolicParameters.0"/>
+        <eModelElement xsi:type="ecore:EReference" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//FamilyRegister/families"/>
+      </constraints>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/41/@symbolicParameters.2"/>
+        <parameters reference="/41/@symbolicParameters.0"/>
+        <eModelElement xsi:type="ecore:EReference" href="../../../plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//FamilyRegister/families"/>
+      </constraints>
+      <constraints xsi:type="relational:Unequal">
+        <parameters reference="/41/@symbolicParameters.1"/>
+        <parameters reference="/41/@symbolicParameters.2"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+</xmi:XMI>

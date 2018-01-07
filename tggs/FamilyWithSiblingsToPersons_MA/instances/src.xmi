@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ASCII"?>
+<FamiliesWithSiblings:FamilyRegister xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:FamiliesWithSiblings="platform:/plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore">
+  <families name="Test" siblings="//@families.1 //@families.2">
+    <father name="in"/>
+    <mother name="risus"/>
+  </families>
+  <families name="Test" siblings="//@families.0 //@families.2">
+    <father name="senectus"/>
+    <mother name="habitasse"/>
+  </families>
+  <families name="Test" siblings="//@families.0 //@families.1">
+    <father name="accumsan"/>
+    <mother name="congue"/>
+  </families>
+</FamiliesWithSiblings:FamilyRegister>
