@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/FamiliesWithSiblings/gen" creationIcons="false"
+    editDirectory="/FamiliesWithSiblings.edit/gen" editorDirectory="/FamiliesWithSiblings.editor/gen"
+    modelPluginID="FamiliesWithSiblings" modelName="FamiliesWithSiblings" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0"
+    copyrightFields="false" colorProviders="true" operationReflection="true" importOrganizing="true">
+  <foreignModel>familiesWithSiblings.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="FamiliesWithSiblings" disposableProviderFactory="true" ecorePackage="FamiliesWithSiblings.ecore#/">
+    <genClasses ecoreClass="FamiliesWithSiblings.ecore#//FamilyRegister">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FamiliesWithSiblings.ecore#//FamilyRegister/families"/>
+    </genClasses>
+    <genClasses ecoreClass="FamiliesWithSiblings.ecore#//Family">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FamiliesWithSiblings.ecore#//Family/father"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FamiliesWithSiblings.ecore#//Family/mother"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FamiliesWithSiblings.ecore#//Family/sons"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FamiliesWithSiblings.ecore#//Family/daughters"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FamiliesWithSiblings.ecore#//Family/name"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference FamiliesWithSiblings.ecore#//Family/familiesInverse"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FamiliesWithSiblings.ecore#//Family/sibling"/>
+    </genClasses>
+    <genClasses ecoreClass="FamiliesWithSiblings.ecore#//FamilyMember">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FamiliesWithSiblings.ecore#//FamilyMember/name"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference FamiliesWithSiblings.ecore#//FamilyMember/fatherInverse"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference FamiliesWithSiblings.ecore#//FamilyMember/motherInverse"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference FamiliesWithSiblings.ecore#//FamilyMember/sonsInverse"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference FamiliesWithSiblings.ecore#//FamilyMember/daughtersInverse"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
