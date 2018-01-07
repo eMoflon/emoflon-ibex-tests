@@ -6,6 +6,7 @@ import java.util.Optional;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
+import FamiliesWithSiblings.FamiliesWithSiblingsFactory;
 import FamiliesWithSiblings.Family;
 import FamiliesWithSiblings.FamilyMember;
 import FamiliesWithSiblings.FamilyRegister;
@@ -67,6 +68,25 @@ public class FamilySiblingsHelper {
 	public void createSkinnerFamily(FamilyRegister register) {
 		builder = new FamilySiblingsRegisterBuilder(register);
 		builder.family("Skinner");
+	}
+	
+	public void createFamily(FamilyRegister register, String name) {
+		builder = new FamilySiblingsRegisterBuilder(register);
+		builder.family(name);
+	}
+	
+	public void addFatherToSpecificFamily(FamilyRegister register, int pos, String name) {
+		Family family = register.getFamilies().get(pos);
+		FamilyMember mem = FamiliesWithSiblingsFactory.eINSTANCE.createFamilyMember();
+		mem.setName(name);
+		family.setFather(mem);
+	}
+	
+	public void addMotherToSpecificFamily(FamilyRegister register, int pos, String name) {
+		Family family = register.getFamilies().get(pos);
+		FamilyMember mem = FamiliesWithSiblingsFactory.eINSTANCE.createFamilyMember();
+		mem.setName(name);
+		family.setMother(mem);
 	}
 
 	public void createFlandersFamily(FamilyRegister register) {	
