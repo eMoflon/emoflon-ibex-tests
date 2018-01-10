@@ -496,10 +496,10 @@
     </targetPatterns>
     <targetPatterns name="toBlock">
       <type href="platform:/resource/BlockLanguage/model/BlockLanguage.ecore#//Block"/>
-      <linkVariablePatterns target="//@rules.4/@targetPatterns.0">
+      <linkVariablePatterns target="//@rules.4/@targetPatterns.3">
         <type href="platform:/resource/BlockLanguage/model/BlockLanguage.ecore#//Block/ports"/>
       </linkVariablePatterns>
-      <linkVariablePatterns target="//@rules.4/@targetPatterns.3">
+      <linkVariablePatterns target="//@rules.4/@targetPatterns.0">
         <type href="platform:/resource/BlockLanguage/model/BlockLanguage.ecore#//Block/ports"/>
       </linkVariablePatterns>
     </targetPatterns>
@@ -639,10 +639,10 @@
     </targetPatterns>
     <targetPatterns name="spec">
       <type href="platform:/resource/BlockLanguage/model/BlockLanguage.ecore#//Specification"/>
-      <linkVariablePatterns target="//@rules.5/@targetPatterns.0">
+      <linkVariablePatterns target="//@rules.5/@targetPatterns.3">
         <type href="platform:/resource/BlockLanguage/model/BlockLanguage.ecore#//Specification/blocks"/>
       </linkVariablePatterns>
-      <linkVariablePatterns target="//@rules.5/@targetPatterns.3">
+      <linkVariablePatterns target="//@rules.5/@targetPatterns.0">
         <type href="platform:/resource/BlockLanguage/model/BlockLanguage.ecore#//Specification/blocks"/>
       </linkVariablePatterns>
     </targetPatterns>

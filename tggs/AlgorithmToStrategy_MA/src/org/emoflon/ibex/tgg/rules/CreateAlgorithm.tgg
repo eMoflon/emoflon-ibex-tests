@@ -1,0 +1,28 @@
+#using AlgorithmToStrategy_MA.*
+#using AttrCondDefLibrary.*
+
+#rule CreateAlgorithm #with AlgorithmToStrategy_MA
+
+#source { 
+	ac : AlgorithmContainer {
+		++ -algorithms -> algo
+	}
+	
+	++algo:Algorithm
+}
+
+#target {
+	
+	sc : StrategyContainer
+}
+
+#correspondence {
+		ac2sc : AlgorithmsToStrategiesContainerCorr{
+		#src->ac
+		#trg->sc
+	}
+}
+
+#attributeConditions {
+
+}

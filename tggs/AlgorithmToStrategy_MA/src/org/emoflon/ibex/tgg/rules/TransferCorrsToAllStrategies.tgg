@@ -1,0 +1,26 @@
+#using AlgorithmToStrategy_MA.*
+#using AttrCondDefLibrary.*
+
+ 
+#complement TransferCorrsToAllStrategies #for CreateAlgorithm
+
+#source { 
+	algo : Algorithm
+}
+
+#target {
+	
+	strat : Strategy
+	
+}
+
+#correspondence {
+	++ a2s : AlgorithmToStrategy{
+		#src->algo
+		#trg->strat
+	}
+}
+
+#attributeConditions {
+	
+}

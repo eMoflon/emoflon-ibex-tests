@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description">
+  <viewpoint:DAnalysis xmi:id="_2R9TINp_Eeegm9XrDHogow" selectedViews="_2v3XINp_Eeegm9XrDHogow" version="12.0.0.201704271200">
+    <semanticResources>FamiliesWithSiblings.ecore</semanticResources>
+    <semanticResources>FamiliesWithSiblings.genmodel</semanticResources>
+    <semanticResources>familiesWithSiblings.ecore</semanticResources>
+    <semanticResources>../src/org/benchmarx/familiessiblings/core/FamiliesComparator.xtend</semanticResources>
+    <semanticResources>FamilyRegister.xmi</semanticResources>
+    <semanticResources>FamilyRegister2.xmi</semanticResources>
+    <semanticResources>FamilyRegister3.xmi</semanticResources>
+    <ownedViews xmi:type="viewpoint:DView" xmi:id="_2v3XINp_Eeegm9XrDHogow">
+      <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_23JD0Np_Eeegm9XrDHogow" name="familiesWithSiblings" repPath="#_23EyYNp_Eeegm9XrDHogow">
+        <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
+        <target xmi:type="ecore:EPackage" href="familiesWithSiblings.ecore#/"/>
+      </ownedRepresentationDescriptors>
+    </ownedViews>
+  </viewpoint:DAnalysis>
+  <diagram:DSemanticDiagram xmi:id="_23EyYNp_Eeegm9XrDHogow" name="familiesWithSiblings">
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_23FZcNp_Eeegm9XrDHogow" source="DANNOTATION_CUSTOMIZATION_KEY">
+      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_23FZcdp_Eeegm9XrDHogow"/>
+    </ownedAnnotationEntries>
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_23mW0Np_Eeegm9XrDHogow" source="GMF_DIAGRAMS">
+      <data xmi:type="notation:Diagram" xmi:id="_23mW0dp_Eeegm9XrDHogow" type="Sirius" element="_23EyYNp_Eeegm9XrDHogow" measurementUnit="Pixel">
+        <styles xmi:type="notation:DiagramStyle" xmi:id="_23mW0tp_Eeegm9XrDHogow"/>
+      </data>
+    </ownedAnnotationEntries>
+    <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
+    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_23FZc9p_Eeegm9XrDHogow"/>
+    <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer"/>
+    <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@additionalLayers[name='Package']"/>
+    <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@additionalLayers[name='Validation']"/>
+    <target xmi:type="ecore:EPackage" href="familiesWithSiblings.ecore#/"/>
+  </diagram:DSemanticDiagram>
+</xmi:XMI>

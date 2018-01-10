@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="ASCII"?>
+<FamiliesWithSiblings:FamilyRegister
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:FamiliesWithSiblings="platform:/resource/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore">
+  <families
+      name="Test"
+      siblings="//@families.1">
+    <father
+        name="father1"/>
+  </families>
+  <families
+      name="Test"
+      siblings="//@families.0">
+    <mother
+        name="mother2"/>
+  </families>
+</FamiliesWithSiblings:FamilyRegister>

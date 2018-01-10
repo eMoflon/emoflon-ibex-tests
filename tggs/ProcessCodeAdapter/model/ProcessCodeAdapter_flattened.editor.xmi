@@ -569,16 +569,16 @@
     </targetPatterns>
     <targetPatterns name="task">
       <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//Task"/>
-      <linkVariablePatterns target="//@rules.6/@targetPatterns.1">
-        <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//Task/systemModule"/>
+      <linkVariablePatterns target="//@rules.6/@targetPatterns.0">
+        <op value="++"/>
+        <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//Task/invocation"/>
       </linkVariablePatterns>
       <linkVariablePatterns target="//@rules.6/@targetPatterns.0">
         <op value="++"/>
         <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//Task/invocations"/>
       </linkVariablePatterns>
-      <linkVariablePatterns target="//@rules.6/@targetPatterns.0">
-        <op value="++"/>
-        <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//Task/invocation"/>
+      <linkVariablePatterns target="//@rules.6/@targetPatterns.1">
+        <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//Task/systemModule"/>
       </linkVariablePatterns>
     </targetPatterns>
     <correspondencePatterns name="fileToTask" type="//@schema/@correspondenceTypes.0" source="//@rules.6/@sourcePatterns.0" target="//@rules.6/@targetPatterns.2"/>

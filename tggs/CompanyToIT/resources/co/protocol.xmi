@@ -19,24 +19,6 @@
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
   <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="CompanyToITRule">
-    <createdSrc href="src.xmi#/0/@ceo.0"/>
-    <createdSrc href="src.xmi#/0"/>
-    <createdTrg href="trg.xmi#/0"/>
-    <createdCorr href="corr.xmi#/0"/>
-    <nodeMappings key="ceo">
-      <value href="src.xmi#/0/@ceo.0"/>
-    </nodeMappings>
-    <nodeMappings key="company">
-      <value href="src.xmi#/0"/>
-    </nodeMappings>
-    <nodeMappings key="it">
-      <value href="trg.xmi#/0"/>
-    </nodeMappings>
-    <nodeMappings key="c2i">
-      <value href="corr.xmi#/0"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="CompanyToITRule">
     <createdSrc href="src.xmi#/2/@ceo.0"/>
     <createdSrc href="src.xmi#/2"/>
     <createdTrg href="trg.xmi#/2"/>
@@ -52,6 +34,24 @@
     </nodeMappings>
     <nodeMappings key="c2i">
       <value href="corr.xmi#/2"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="CompanyToITRule">
+    <createdSrc href="src.xmi#/0/@ceo.0"/>
+    <createdSrc href="src.xmi#/0"/>
+    <createdTrg href="trg.xmi#/0"/>
+    <createdCorr href="corr.xmi#/0"/>
+    <nodeMappings key="ceo">
+      <value href="src.xmi#/0/@ceo.0"/>
+    </nodeMappings>
+    <nodeMappings key="company">
+      <value href="src.xmi#/0"/>
+    </nodeMappings>
+    <nodeMappings key="it">
+      <value href="trg.xmi#/0"/>
+    </nodeMappings>
+    <nodeMappings key="c2i">
+      <value href="corr.xmi#/0"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
 </xmi:XMI>

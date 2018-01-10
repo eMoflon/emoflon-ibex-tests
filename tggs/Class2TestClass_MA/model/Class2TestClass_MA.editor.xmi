@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="ASCII"?>
+<tgg:TripleGraphGrammarFile xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tgg="http://www.moflon.org/ide/tgg/mosl/TGG">
+  <imports name="platform:/resource/ClassInheritanceHierarchy/model/ClassInheritanceHierarchy.ecore"/>
+  <imports name="platform:/resource/Database/model/Database.ecore"/>
+  <schema name="Class2TestClass_MA">
+    <sourceTypes href="platform:/resource/ClassInheritanceHierarchy/model/ClassInheritanceHierarchy.ecore#/"/>
+    <targetTypes href="platform:/resource/Database/model/Database.ecore#/"/>
+    <correspondenceTypes name="PackageToTestSuite">
+      <source href="platform:/resource/ClassInheritanceHierarchy/model/ClassInheritanceHierarchy.ecore#//ClassPackage"/>
+      <target href="platform:/resource/Database/model/Database.ecore#//DB"/>
+    </correspondenceTypes>
+    <correspondenceTypes name="ClazzToTestClass">
+      <source href="platform:/resource/ClassInheritanceHierarchy/model/ClassInheritanceHierarchy.ecore#//Clazz"/>
+      <target href="platform:/resource/Database/model/Database.ecore#//Table"/>
+    </correspondenceTypes>
+    <attributeCondDefs name="setRandomString">
+      <params paramName="a">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </params>
+      <allowedSyncAdornments>
+        <value>F</value>
+      </allowedSyncAdornments>
+      <allowedSyncAdornments>
+        <value>B</value>
+      </allowedSyncAdornments>
+      <allowedGenAdornments>
+        <value>F</value>
+      </allowedGenAdornments>
+    </attributeCondDefs>
+    <attributeCondDefs name="eq_string">
+      <params paramName="a">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </params>
+      <params paramName="b">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </params>
+      <allowedSyncAdornments>
+        <value>B</value>
+        <value>B</value>
+      </allowedSyncAdornments>
+      <allowedSyncAdornments>
+        <value>B</value>
+        <value>F</value>
+      </allowedSyncAdornments>
+      <allowedSyncAdornments>
+        <value>F</value>
+        <value>B</value>
+      </allowedSyncAdornments>
+      <allowedGenAdornments>
+        <value>B</value>
+        <value>B</value>
+      </allowedGenAdornments>
+      <allowedGenAdornments>
+        <value>B</value>
+        <value>F</value>
+      </allowedGenAdornments>
+      <allowedGenAdornments>
+        <value>F</value>
+        <value>B</value>
+      </allowedGenAdornments>
+      <allowedGenAdornments>
+        <value>F</value>
+        <value>F</value>
+      </allowedGenAdornments>
+    </attributeCondDefs>
+  </schema>
+  <rules name="CreateClass" schema="//@schema">
+    <sourcePatterns name="package">
+      <type href="platform:/resource/ClassInheritanceHierarchy/model/ClassInheritanceHierarchy.ecore#//ClassPackage"/>
+      <linkVariablePatterns target="//@rules.0/@sourcePatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/ClassInheritanceHierarchy/model/ClassInheritanceHierarchy.ecore#//ClassPackage/classes"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="class">
+      <op value="++"/>
+      <type href="platform:/resource/ClassInheritanceHierarchy/model/ClassInheritanceHierarchy.ecore#//Clazz"/>
+    </sourcePatterns>
+    <targetPatterns name="testSuite">
+      <type href="platform:/resource/Database/model/Database.ecore#//DB"/>
+    </targetPatterns>
+    <correspondencePatterns name="package2testSuite" type="//@schema/@correspondenceTypes.0" source="//@rules.0/@sourcePatterns.0" target="//@rules.0/@targetPatterns.0"/>
+    <attrConditions name="//@schema/@attributeCondDefs.0">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.0/@sourcePatterns.1">
+        <attribute href="platform:/resource/ClassInheritanceHierarchy/model/ClassInheritanceHierarchy.ecore#//NamedElement/name"/>
+      </values>
+    </attrConditions>
+  </rules>
+  <rules name="Package2TestSuite" schema="//@schema">
+    <sourcePatterns name="package">
+      <op value="++"/>
+      <type href="platform:/resource/ClassInheritanceHierarchy/model/ClassInheritanceHierarchy.ecore#//ClassPackage"/>
+    </sourcePatterns>
+    <targetPatterns name="testSuite">
+      <op value="++"/>
+      <type href="platform:/resource/Database/model/Database.ecore#//DB"/>
+    </targetPatterns>
+    <correspondencePatterns name="package2testSuite" type="//@schema/@correspondenceTypes.0" source="//@rules.1/@sourcePatterns.0" target="//@rules.1/@targetPatterns.0">
+      <op value="++"/>
+    </correspondencePatterns>
+    <attrConditions name="//@schema/@attributeCondDefs.1">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.1/@sourcePatterns.0">
+        <attribute href="platform:/resource/ClassInheritanceHierarchy/model/ClassInheritanceHierarchy.ecore#//NamedElement/name"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.1/@targetPatterns.0">
+        <attribute href="platform:/resource/Database/model/Database.ecore#//DB/title"/>
+      </values>
+    </attrConditions>
+  </rules>
+  <complementRules name="CreateTestClass" kernel="//@rules.0">
+    <sourcePatterns name="class">
+      <type href="platform:/resource/ClassInheritanceHierarchy/model/ClassInheritanceHierarchy.ecore#//Clazz"/>
+    </sourcePatterns>
+    <targetPatterns name="testSuite">
+      <type href="platform:/resource/Database/model/Database.ecore#//DB"/>
+      <linkVariablePatterns target="//@complementRules.0/@targetPatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Database/model/Database.ecore#//DB/tables"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="testClass">
+      <op value="++"/>
+      <type href="platform:/resource/Database/model/Database.ecore#//Table"/>
+    </targetPatterns>
+    <correspondencePatterns name="class2testClass" type="//@schema/@correspondenceTypes.1" source="//@complementRules.0/@sourcePatterns.0" target="//@complementRules.0/@targetPatterns.1">
+      <op value="++"/>
+    </correspondencePatterns>
+    <attrConditions name="//@schema/@attributeCondDefs.1">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@complementRules.0/@sourcePatterns.0">
+        <attribute href="platform:/resource/ClassInheritanceHierarchy/model/ClassInheritanceHierarchy.ecore#//NamedElement/name"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@complementRules.0/@targetPatterns.1">
+        <attribute href="platform:/resource/Database/model/Database.ecore#//Table/heading"/>
+      </values>
+    </attrConditions>
+  </complementRules>
+</tgg:TripleGraphGrammarFile>

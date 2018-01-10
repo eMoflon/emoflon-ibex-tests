@@ -1,0 +1,21 @@
+#using FamilyWithSiblingsToPersons_MA.*
+#using AttrCondDefLibrary.*
+
+#complement CreateSiblingsConnection #for CreateFamily
+
+#source { 
+	
+	family : Family{
+		++ -siblings -> siblingFamily
+	}
+	
+	siblingFamily:Family{
+		++ -siblings -> family
+	}
+	
+}
+
+
+#attributeConditions {
+	eq_string(family.name, siblingFamily.name)
+}

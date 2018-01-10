@@ -1,0 +1,23 @@
+#using Class2TestClass_MA.*
+#using AttrCondDefLibrary.*
+
+#rule Package2TestSuite #with Class2TestClass_MA
+
+#source { 
+	++ package : ClassPackage
+}
+
+#target {
+	++ testSuite : DB
+}
+
+#correspondence {
+	++package2testSuite : PackageToTestSuite {
+		#src->package
+		#trg->testSuite
+	}
+}
+
+#attributeConditions {
+	eq_string(package.name, testSuite.title)
+}

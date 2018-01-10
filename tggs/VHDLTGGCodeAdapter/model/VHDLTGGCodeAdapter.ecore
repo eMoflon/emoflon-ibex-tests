@@ -3,23 +3,23 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="VHDLTGGCodeAdapter" nsURI="platform:/resource/VHDLTGGCodeAdapter/model/VHDLTGGCodeAdapter.ecore"
     nsPrefix="VHDLTGGCodeAdapter">
   <eClassifiers xsi:type="ecore:EClass" name="NodeToInputPort">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="ecore:EClass ../../MocaTree/model/MocaTree.ecore#//Node"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="ecore:EClass ../../VHDLModel/model/VHDLModel.ecore#//InputPort"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="ecore:EClass platform:/resource/MocaTree/model/MocaTree.ecore#//Node"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="ecore:EClass platform:/resource/VHDLModel/model/VHDLModel.ecore#//InputPort"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NodeToBlock">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="ecore:EClass ../../MocaTree/model/MocaTree.ecore#//Node"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="ecore:EClass ../../VHDLModel/model/VHDLModel.ecore#//Block"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="ecore:EClass platform:/resource/MocaTree/model/MocaTree.ecore#//Node"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="ecore:EClass platform:/resource/VHDLModel/model/VHDLModel.ecore#//Block"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NodeToCompositeBlock">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="ecore:EClass ../../MocaTree/model/MocaTree.ecore#//Node"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="ecore:EClass ../../VHDLModel/model/VHDLModel.ecore#//CompositeBlock"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="ecore:EClass platform:/resource/MocaTree/model/MocaTree.ecore#//Node"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="ecore:EClass platform:/resource/VHDLModel/model/VHDLModel.ecore#//CompositeBlock"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FileToVHDLSpecification">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="ecore:EClass ../../MocaTree/model/MocaTree.ecore#//File"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="ecore:EClass ../../VHDLModel/model/VHDLModel.ecore#//VHDLSpecification"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="ecore:EClass platform:/resource/MocaTree/model/MocaTree.ecore#//File"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="ecore:EClass platform:/resource/VHDLModel/model/VHDLModel.ecore#//VHDLSpecification"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NodeToOutputPort">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="ecore:EClass ../../MocaTree/model/MocaTree.ecore#//Node"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="ecore:EClass ../../VHDLModel/model/VHDLModel.ecore#//OutputPort"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="ecore:EClass platform:/resource/MocaTree/model/MocaTree.ecore#//Node"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="ecore:EClass platform:/resource/VHDLModel/model/VHDLModel.ecore#//OutputPort"/>
   </eClassifiers>
 </ecore:EPackage>

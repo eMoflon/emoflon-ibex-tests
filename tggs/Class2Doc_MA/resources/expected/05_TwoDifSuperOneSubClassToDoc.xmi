@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="ASCII"?>
+<Documents:Container
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:Documents="platform:/resource/Documents/model/Documents.ecore"
+    name="p">
+  <documents
+      name="c1"/>
+  <documents
+      name="c2"
+      reference="//@documents.0"/>
+  <documents
+      name="c3"
+      reference="//@documents.0 //@documents.1 //@documents.4 //@documents.3"/>
+  <documents
+      name="c4"/>
+  <documents
+      name="c5"
+      reference="//@documents.3"/>
+  <documents
+      name="c6"
+      reference="//@documents.1 //@documents.4 //@documents.3 //@documents.2 //@documents.0"/>
+</Documents:Container>

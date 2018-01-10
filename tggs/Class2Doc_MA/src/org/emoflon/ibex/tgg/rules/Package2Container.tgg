@@ -1,0 +1,23 @@
+#using Class2Doc_MA.*
+#using AttrCondDefLibrary.*
+
+#rule Package2Container #with Class2Doc_MA
+
+#source { 
+	++package:ClassPackage
+}
+
+#target {
+	++container:Container
+}
+
+#correspondence {
+	++p2c : classPackate2Container{
+		#src->package
+		#trg->container
+	}
+}
+
+#attributeConditions {
+	eq_string(package.name, container.name)
+}

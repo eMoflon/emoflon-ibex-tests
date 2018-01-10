@@ -1,0 +1,29 @@
+#using FamilyWithSiblingsToPersons_MA.*
+#using AttrCondDefLibrary.*
+
+#rule CreateFamily #with FamilyWithSiblingsToPersons_MA
+
+#source { 
+	familyReg : FamilyRegister{
+		++-families -> family
+	}
+	
+	++ family : Family{
+	}
+}
+
+#target {
+	
+	personReg : PersonRegister
+}
+
+#correspondence {
+	 familyReg2personReg : FamiliesReg2PersonsRegCorr {
+	 	#src->familyReg
+	 	#trg->personReg
+	 }
+}
+
+#attributeConditions {
+	setDefaultString(family.name, "f")
+}
