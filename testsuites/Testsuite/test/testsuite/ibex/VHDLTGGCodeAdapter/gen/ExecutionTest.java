@@ -5,10 +5,11 @@ import java.io.IOException;
 import org.apache.log4j.BasicConfigurator;
 import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGEN;
 import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGENStopCriterion;
-import org.emoflon.ibex.tgg.operational.util.RandomMatchUpdatePolicy;
 import org.emoflon.ibex.tgg.run.vhdltggcodeadapter.MODELGEN_App;
 import org.junit.Before;
 import org.junit.Test;
+
+import org.emoflon.ibex.tgg.operational.updatepolicy.RandomMatchUpdatePolicy;
 
 public class ExecutionTest {
 	private MODELGEN generator;

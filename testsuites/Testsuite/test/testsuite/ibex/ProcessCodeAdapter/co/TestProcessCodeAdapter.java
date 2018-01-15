@@ -10,7 +10,7 @@ import testsuite.ibex.testUtil.COTestCase;
 public class TestProcessCodeAdapter extends COTestCase{
 
 	public void createGenerator(String srcInstance, String trgInstance, String corrInstance) throws IOException {
-		checker = new CO_App("ProcessCodeAdapter", testsuite.ibex.testUtil.Constants.workspacePath, false, srcInstance, trgInstance, corrInstance);
+		checker = new CO_App("ProcessCodeAdapter", testsuite.ibex.testUtil.Constants.workspacePath, true, srcInstance, trgInstance, corrInstance);
 	}
 	
 	@Test

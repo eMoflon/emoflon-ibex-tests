@@ -7,7 +7,7 @@ import org.benchmarx.featuremodelconcise.core.FeatureModelConciseComparator;
 import org.benchmarx.featuremodelsafe.core.FeatureModelSafeComparator;
 import org.eclipse.emf.ecore.EObject;
 import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGENStopCriterion;
-import org.emoflon.ibex.tgg.operational.util.IMatch;
+import org.emoflon.ibex.tgg.operational.matches.IMatch;
 import org.emoflon.ibex.tgg.run.featuremodelconcisetosafe.MODELGEN_App;
 import org.junit.Before;
 import org.junit.Test;

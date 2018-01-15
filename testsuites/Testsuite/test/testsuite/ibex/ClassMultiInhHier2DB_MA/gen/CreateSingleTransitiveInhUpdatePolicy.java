@@ -2,8 +2,8 @@ package testsuite.ibex.ClassMultiInhHier2DB_MA.gen;
 
 import java.util.Optional;
 
-import org.emoflon.ibex.tgg.operational.util.IMatch;
-import org.emoflon.ibex.tgg.operational.util.ImmutableMatchContainer;
+import org.emoflon.ibex.tgg.operational.matches.IMatch;
+import org.emoflon.ibex.tgg.operational.matches.ImmutableMatchContainer;
 
 import classMultipleInheritanceHierarchy.Clazz;
 

@@ -41,7 +41,7 @@ public abstract class ModelGenTestCase<S, T> extends TestCase {
 		Assert.assertEquals(srcExp.getContents().size(), generator.getSourceResource().getContents().size());
 		for (int i = 0; i < srcExp.getContents().size(); i++) {
 			sourceComp.assertEquals((S)srcExp.getContents().get(i), 
-					                  (S)generator.getSourceResource().getContents().get(i));
+					                (S)generator.getSourceResource().getContents().get(i));
 		}
 	}
 

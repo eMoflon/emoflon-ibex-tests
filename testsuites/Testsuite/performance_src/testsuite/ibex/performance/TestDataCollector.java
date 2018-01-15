@@ -18,9 +18,9 @@ import org.emoflon.ibex.tgg.operational.strategies.cc.CC;
 import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGEN;
 import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGENStopCriterion;
 import org.emoflon.ibex.tgg.operational.strategies.sync.SYNC;
-import org.emoflon.ibex.tgg.operational.util.NextMatchUpdatePolicy;
-import org.emoflon.ibex.tgg.operational.util.RandomMatchUpdatePolicy;
-import org.emoflon.ibex.tgg.operational.util.TimedUpdatePolicy;
+import org.emoflon.ibex.tgg.operational.updatepolicy.NextMatchUpdatePolicy;
+import org.emoflon.ibex.tgg.operational.updatepolicy.RandomMatchUpdatePolicy;
+import org.emoflon.ibex.tgg.operational.updatepolicy.TimedUpdatePolicy;
 
 import gurobi.GRBException;
 import language.TGG;

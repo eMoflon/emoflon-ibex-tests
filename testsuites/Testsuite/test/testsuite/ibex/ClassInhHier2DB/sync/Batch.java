@@ -8,7 +8,6 @@ import ClassInheritanceHierarchy.ClassPackage;
 import Database.DB;
 import testsuite.ibex.ClassInhHier2DB.sync.util.IbexClassInhHier2DB;
 
-
 public class Batch extends testsuite.ibex.testUtil.SyncTestCase<ClassPackage, DB> {
 	public final static String projectName = "ClassInhHier2DB";
 	
