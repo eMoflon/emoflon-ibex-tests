@@ -4,31 +4,31 @@
     <createdSrc href="../resources/in/03_OneAlgo.xmi#/"/>
     <createdTrg href="../resources/expected/01_ContainersOnly.xmi#/"/>
     <createdCorr href="corr.xmi#/"/>
-    <nodeMappings key="ac2sc">
-      <value href="corr.xmi#/"/>
+    <nodeMappings key="sc">
+      <value href="../resources/expected/01_ContainersOnly.xmi#/"/>
     </nodeMappings>
     <nodeMappings key="ac">
       <value href="../resources/in/03_OneAlgo.xmi#/"/>
     </nodeMappings>
-    <nodeMappings key="sc">
-      <value href="../resources/expected/01_ContainersOnly.xmi#/"/>
+    <nodeMappings key="ac2sc">
+      <value href="corr.xmi#/"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
   <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="CreateAlgorithm" amalgamated="true">
     <createdSrc href="../resources/in/03_OneAlgo.xmi#//@algorithms.0"/>
     <contextSrc href="../resources/in/03_OneAlgo.xmi#/"/>
     <contextTrg href="../resources/expected/01_ContainersOnly.xmi#/"/>
-    <nodeMappings key="ac">
-      <value href="../resources/in/03_OneAlgo.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="algo">
-      <value href="../resources/in/03_OneAlgo.xmi#//@algorithms.0"/>
-    </nodeMappings>
     <nodeMappings key="sc">
       <value href="../resources/expected/01_ContainersOnly.xmi#/"/>
     </nodeMappings>
+    <nodeMappings key="ac">
+      <value href="../resources/in/03_OneAlgo.xmi#/"/>
+    </nodeMappings>
     <nodeMappings key="ac2sc">
       <value href="corr.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="algo">
+      <value href="../resources/in/03_OneAlgo.xmi#//@algorithms.0"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
 </xmi:XMI>

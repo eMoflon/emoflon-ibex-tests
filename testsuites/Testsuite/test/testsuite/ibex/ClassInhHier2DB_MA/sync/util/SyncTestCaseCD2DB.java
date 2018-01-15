@@ -4,9 +4,9 @@ import java.util.Optional;
 
 import org.benchmarx.classInheritanceHierarchy.core.ClassInheritanceHierarchyHelper;
 import org.benchmarx.database.core.DatabaseHelper;
-import org.emoflon.ibex.tgg.operational.util.IMatch;
-import org.emoflon.ibex.tgg.operational.util.ImmutableMatchContainer;
-import org.emoflon.ibex.tgg.operational.util.UpdatePolicy;
+import org.emoflon.ibex.tgg.operational.matches.IMatch;
+import org.emoflon.ibex.tgg.operational.matches.ImmutableMatchContainer;
+import org.emoflon.ibex.tgg.operational.updatepolicy.UpdatePolicy;
 import org.junit.Ignore;
 
 import ClassInheritanceHierarchy.ClassPackage;

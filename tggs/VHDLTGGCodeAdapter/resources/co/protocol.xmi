@@ -1,46 +1,13 @@
 <?xml version="1.0" encoding="ASCII"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:org.emoflon.ibex.tgg.core.runtime="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore">
   <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="File2VHDLSpec">
-    <createdSrc href="src.xmi#/1"/>
-    <createdSrc href="src.xmi#/1/@rootNode"/>
-    <createdTrg href="trg.xmi#/1"/>
-    <createdCorr href="corr_inc.xmi#/1"/>
-    <nodeMappings key="file">
-      <value href="src.xmi#/1"/>
-    </nodeMappings>
-    <nodeMappings key="vhdl">
-      <value href="src.xmi#/1/@rootNode"/>
-    </nodeMappings>
-    <nodeMappings key="spec">
-      <value href="trg.xmi#/1"/>
-    </nodeMappings>
-    <nodeMappings key="file2spec">
-      <value href="corr_inc.xmi#/1"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="File2VHDLSpec">
-    <createdSrc href="src.xmi#/0"/>
-    <createdSrc href="src.xmi#/0/@rootNode"/>
-    <createdTrg href="trg.xmi#/0"/>
-    <createdCorr href="corr_inc.xmi#/0"/>
-    <nodeMappings key="file">
-      <value href="src.xmi#/0"/>
-    </nodeMappings>
-    <nodeMappings key="vhdl">
-      <value href="src.xmi#/0/@rootNode"/>
-    </nodeMappings>
-    <nodeMappings key="spec">
-      <value href="trg.xmi#/0"/>
-    </nodeMappings>
-    <nodeMappings key="file2spec">
-      <value href="corr_inc.xmi#/0"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="File2VHDLSpec">
     <createdSrc href="src.xmi#/2"/>
     <createdSrc href="src.xmi#/2/@rootNode"/>
     <createdTrg href="trg.xmi#/2"/>
     <createdCorr href="corr_inc.xmi#/2"/>
+    <nodeMappings key="file2spec">
+      <value href="corr_inc.xmi#/2"/>
+    </nodeMappings>
     <nodeMappings key="file">
       <value href="src.xmi#/2"/>
     </nodeMappings>
@@ -50,8 +17,41 @@
     <nodeMappings key="spec">
       <value href="trg.xmi#/2"/>
     </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="File2VHDLSpec">
+    <createdSrc href="src.xmi#/0"/>
+    <createdSrc href="src.xmi#/0/@rootNode"/>
+    <createdTrg href="trg.xmi#/0"/>
+    <createdCorr href="corr_inc.xmi#/0"/>
     <nodeMappings key="file2spec">
-      <value href="corr_inc.xmi#/2"/>
+      <value href="corr_inc.xmi#/0"/>
+    </nodeMappings>
+    <nodeMappings key="file">
+      <value href="src.xmi#/0"/>
+    </nodeMappings>
+    <nodeMappings key="vhdl">
+      <value href="src.xmi#/0/@rootNode"/>
+    </nodeMappings>
+    <nodeMappings key="spec">
+      <value href="trg.xmi#/0"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="File2VHDLSpec">
+    <createdSrc href="src.xmi#/1"/>
+    <createdSrc href="src.xmi#/1/@rootNode"/>
+    <createdTrg href="trg.xmi#/1"/>
+    <createdCorr href="corr_inc.xmi#/1"/>
+    <nodeMappings key="file2spec">
+      <value href="corr_inc.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="file">
+      <value href="src.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="vhdl">
+      <value href="src.xmi#/1/@rootNode"/>
+    </nodeMappings>
+    <nodeMappings key="spec">
+      <value href="trg.xmi#/1"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
 </xmi:XMI>

@@ -13,20 +13,20 @@
     <nodeMappings key="blocks">
       <value href="src.xmi#//@rootNode/@children.0"/>
     </nodeMappings>
-    <nodeMappings key="specNode">
-      <value href="src.xmi#//@rootNode"/>
-    </nodeMappings>
     <nodeMappings key="block">
       <value href="trg.xmi#//@blocks.0"/>
     </nodeMappings>
     <nodeMappings key="spec">
       <value href="trg.xmi#/"/>
     </nodeMappings>
-    <nodeMappings key="n2b">
-      <value href="corr_inc.xmi#/2"/>
-    </nodeMappings>
     <nodeMappings key="n2s">
       <value href="corr_inc.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="specNode">
+      <value href="src.xmi#//@rootNode"/>
+    </nodeMappings>
+    <nodeMappings key="n2b">
+      <value href="corr_inc.xmi#/2"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
   <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="File2SpecRule">
@@ -37,26 +37,26 @@
     <createdTrg href="trg.xmi#/"/>
     <createdCorr href="corr_inc.xmi#/0"/>
     <createdCorr href="corr_inc.xmi#/1"/>
-    <nodeMappings key="blocks">
-      <value href="src.xmi#//@rootNode/@children.0"/>
-    </nodeMappings>
     <nodeMappings key="file">
       <value href="src.xmi#/"/>
     </nodeMappings>
-    <nodeMappings key="mappingNode">
-      <value href="src.xmi#//@rootNode/@children.1"/>
-    </nodeMappings>
-    <nodeMappings key="specNode">
-      <value href="src.xmi#//@rootNode"/>
-    </nodeMappings>
-    <nodeMappings key="spec">
-      <value href="trg.xmi#/"/>
+    <nodeMappings key="blocks">
+      <value href="src.xmi#//@rootNode/@children.0"/>
     </nodeMappings>
     <nodeMappings key="f2s">
       <value href="corr_inc.xmi#/0"/>
     </nodeMappings>
+    <nodeMappings key="mappingNode">
+      <value href="src.xmi#//@rootNode/@children.1"/>
+    </nodeMappings>
+    <nodeMappings key="spec">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
     <nodeMappings key="n2s">
       <value href="corr_inc.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="specNode">
+      <value href="src.xmi#//@rootNode"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
 </xmi:XMI>

@@ -2,9 +2,9 @@ package org.emoflon.ibex.tgg.run.class2doc_ma;
 
 import java.util.Optional;
 
-import org.emoflon.ibex.tgg.operational.util.IMatch;
-import org.emoflon.ibex.tgg.operational.util.ImmutableMatchContainer;
-import org.emoflon.ibex.tgg.operational.util.UpdatePolicy;
+import org.emoflon.ibex.tgg.operational.matches.IMatch;
+import org.emoflon.ibex.tgg.operational.matches.ImmutableMatchContainer;
+import org.emoflon.ibex.tgg.operational.updatepolicy.UpdatePolicy;
 
 
 /*This update policy prefers adding attribute first to super class. If super class already have an

@@ -3,13 +3,13 @@
   <createdSrc href="src.xmi#/"/>
   <createdTrg href="trg.xmi#/"/>
   <createdCorr href="corr.xmi#/"/>
+  <nodeMappings key="packageToDB">
+    <value href="corr.xmi#/"/>
+  </nodeMappings>
   <nodeMappings key="package">
     <value href="src.xmi#/"/>
   </nodeMappings>
   <nodeMappings key="db">
     <value href="trg.xmi#/"/>
-  </nodeMappings>
-  <nodeMappings key="packageToDB">
-    <value href="corr.xmi#/"/>
   </nodeMappings>
 </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
