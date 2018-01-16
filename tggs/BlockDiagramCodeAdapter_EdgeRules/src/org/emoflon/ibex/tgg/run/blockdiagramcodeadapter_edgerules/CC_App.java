@@ -26,7 +26,7 @@ public class CC_App extends CC {
 				.debug(debug));
 		this.srcPath = srcPath;
 		this.trgPath = trgPath;
-		registerPatternMatchingEngine(new DemoclesEngine());
+		registerBlackInterpreter(new DemoclesEngine());
 	}
 
 	public static void main(String[] args) throws IOException {

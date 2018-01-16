@@ -24,7 +24,7 @@ public class CO_App extends CO {
 		this.srcPath = srcPath;
 		this.trgPath = trgPath;
 		this.corrPath = corrPath;
-		registerPatternMatchingEngine(new DemoclesEngine());
+		registerBlackInterpreter(new DemoclesEngine());
 	}
 
 	public static void main(String[] args) throws IOException {

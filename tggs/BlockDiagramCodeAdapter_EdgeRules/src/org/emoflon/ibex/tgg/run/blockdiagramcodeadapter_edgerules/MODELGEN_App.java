@@ -19,7 +19,7 @@ public class MODELGEN_App extends MODELGEN {
 				.projectName(projectName)
 				.workspacePath(workspacePath)
 				.debug(debug));
-		registerPatternMatchingEngine(new DemoclesEngine());
+		registerBlackInterpreter(new DemoclesEngine());
 	}
 
 	public static void main(String[] args) throws IOException {

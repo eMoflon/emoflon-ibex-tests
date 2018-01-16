@@ -19,7 +19,7 @@ public class SYNC_App extends SYNC {
 				.projectName(projectName)
 				.workspacePath(workspacePath)
 				.debug(debug));
-		registerPatternMatchingEngine(new DemoclesEngine());
+		registerBlackInterpreter(new DemoclesEngine());
 	}
 
 	public static void main(String[] args) throws IOException {

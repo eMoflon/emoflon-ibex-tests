@@ -16,7 +16,7 @@ public class SYNC_App extends SYNC {
 
 	public SYNC_App(String projectName, String workspacePath, boolean debug) throws IOException {
 		super(createIbexOptions().projectName(projectName).workspacePath(workspacePath).debug(debug));
-		registerPatternMatchingEngine(new DemoclesEngine());
+		registerBlackInterpreter(new DemoclesEngine());
 	}
 	
 	public static void main(String[] args) throws IOException {

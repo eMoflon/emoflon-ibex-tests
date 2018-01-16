@@ -36,11 +36,6 @@ public class MODELGEN_App extends MODELGEN {
 		
 		EcoreUtil.resolveAll(rs);
 	}
-	
-	@Override
-	protected boolean protocol() {
-		return true;
-	}
 
 	protected static IbexOptions createIbexOptions() {
 		IbexOptions options = new IbexOptions();
