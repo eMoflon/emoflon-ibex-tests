@@ -20,7 +20,7 @@ public class IbexA2S_MA extends IbexAdapter<AlgorithmContainer, StrategyContaine
 	@Override
 	public void initiateSynchronisationDialogue() {
 		try {
-			synchroniser = new SYNC_App(projectName, testsuite.ibex.testUtil.Constants.workspacePath, true);
+			synchroniser = new SYNC_App(projectName, testsuite.ibex.testUtil.Constants.workspacePath, false);
 			AlgorithmContainer ac = AlgorithmsFactory.eINSTANCE.createAlgorithmContainer();
 			ac.setName("AC");	
 			synchroniser.getSourceResource().getContents().add(ac);

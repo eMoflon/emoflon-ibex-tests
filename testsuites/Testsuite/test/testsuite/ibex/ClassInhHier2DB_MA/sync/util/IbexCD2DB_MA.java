@@ -22,7 +22,7 @@ public class IbexCD2DB_MA extends IbexAdapter<ClassPackage, DB> {
 	@Override
 	public void initiateSynchronisationDialogue() {
 		try {
-			synchroniser = new SYNC_App("ClassInhHier2DB_MA", testsuite.ibex.testUtil.Constants.workspacePath, true);
+			synchroniser = new SYNC_App("ClassInhHier2DB_MA", testsuite.ibex.testUtil.Constants.workspacePath, false);
 				
 			ClassPackage pkg = ClassInheritanceHierarchyFactory.eINSTANCE.createClassPackage();
 			pkg.setName("P");

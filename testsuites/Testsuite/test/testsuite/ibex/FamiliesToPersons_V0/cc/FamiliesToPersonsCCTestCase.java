@@ -8,6 +8,6 @@ import testsuite.ibex.testUtil.CCTestCase;
 
 public abstract class FamiliesToPersonsCCTestCase extends CCTestCase {
 	public void createGenerator(String srcInstance, String trgInstance) throws IOException {
-		checker = new CC_App("FamiliesToPersons_V0", testsuite.ibex.testUtil.Constants.workspacePath, true, srcInstance, trgInstance);
+		checker = new CC_App("FamiliesToPersons_V0", testsuite.ibex.testUtil.Constants.workspacePath, false, srcInstance, trgInstance);
 	}
 }

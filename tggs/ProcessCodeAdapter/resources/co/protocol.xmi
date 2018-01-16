@@ -1,182 +1,59 @@
 <?xml version="1.0" encoding="ASCII"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:org.emoflon.ibex.tgg.core.runtime="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore">
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="NodeToInvocationRule">
-    <createdSrc href="src.xmi#/2/@subFolder.0/@file.0/@rootNode/@children.1/@children.0"/>
-    <createdTrg href="trg.xmi#/2/@allModules.0/@tasks.0/@invocations.0"/>
-    <createdCorr href="corr.xmi#/13"/>
-    <contextSrc href="src.xmi#/2/@subFolder.0/@file.0"/>
-    <contextSrc href="src.xmi#/2/@subFolder.0"/>
-    <contextSrc href="src.xmi#/2/@subFolder.0/@file.0/@rootNode/@children.1"/>
-    <contextSrc href="src.xmi#/2/@subFolder.0/@file.0/@rootNode"/>
-    <contextTrg href="trg.xmi#/2/@allModules.0/@tasks.0"/>
-    <contextTrg href="trg.xmi#/2"/>
-    <nodeMappings key="fileToTask2">
-      <value href="corr.xmi#/6"/>
-    </nodeMappings>
-    <nodeMappings key="invocationNode">
-      <value href="src.xmi#/2/@subFolder.0/@file.0/@rootNode/@children.1/@children.0"/>
-    </nodeMappings>
-    <nodeMappings key="taskNode">
-      <value href="src.xmi#/2/@subFolder.0/@file.0/@rootNode"/>
-    </nodeMappings>
-    <nodeMappings key="invocationNodeToInvocation">
-      <value href="corr.xmi#/13"/>
-    </nodeMappings>
-    <nodeMappings key="otherFile">
-      <value href="src.xmi#/2/@subFolder.0/@file.0"/>
-    </nodeMappings>
-    <nodeMappings key="invocation">
-      <value href="trg.xmi#/2/@allModules.0/@tasks.0/@invocations.0"/>
-    </nodeMappings>
-    <nodeMappings key="file">
-      <value href="src.xmi#/2/@subFolder.0/@file.0"/>
-    </nodeMappings>
-    <nodeMappings key="folder">
-      <value href="src.xmi#/2/@subFolder.0"/>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="SubFolderToModuleRule">
+    <createdSrc href="src.xmi#/0/@subFolder.1"/>
+    <createdTrg href="trg.xmi#/0/@allModules.1"/>
+    <createdCorr href="corr.xmi#/2"/>
+    <contextSrc href="src.xmi#/0"/>
+    <contextTrg href="trg.xmi#/0"/>
+    <nodeMappings key="subFolder">
+      <value href="src.xmi#/0/@subFolder.1"/>
     </nodeMappings>
     <nodeMappings key="system">
-      <value href="trg.xmi#/2"/>
+      <value href="trg.xmi#/0"/>
     </nodeMappings>
-    <nodeMappings key="task">
-      <value href="trg.xmi#/2/@allModules.0/@tasks.0"/>
+    <nodeMappings key="rootFolder">
+      <value href="src.xmi#/0"/>
     </nodeMappings>
-    <nodeMappings key="invokedTask">
-      <value href="trg.xmi#/2/@allModules.0/@tasks.0"/>
+    <nodeMappings key="module">
+      <value href="trg.xmi#/0/@allModules.1"/>
     </nodeMappings>
-    <nodeMappings key="invocationsNode">
-      <value href="src.xmi#/2/@subFolder.0/@file.0/@rootNode/@children.1"/>
+    <nodeMappings key="folderToSystem">
+      <value href="corr.xmi#/0"/>
     </nodeMappings>
-    <nodeMappings key="fileToTask">
-      <value href="corr.xmi#/6"/>
+    <nodeMappings key="subFolderToSubTask">
+      <value href="corr.xmi#/2"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="NodeToInvocationRecursiveRule">
-    <createdSrc href="src.xmi#/0/@subFolder.0/@file.1/@rootNode/@children.1/@children.1"/>
-    <createdTrg href="trg.xmi#/0/@allModules.0/@tasks.1/@invocations.1"/>
-    <createdCorr href="corr.xmi#/36"/>
-    <contextSrc href="src.xmi#/0/@subFolder.0/@file.1"/>
-    <contextSrc href="src.xmi#/0/@subFolder.0"/>
-    <contextSrc href="src.xmi#/0/@subFolder.0/@file.1/@rootNode/@children.1"/>
-    <contextSrc href="src.xmi#/0/@subFolder.0/@file.1/@rootNode"/>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="SubFolderToModuleRule">
+    <createdSrc href="src.xmi#/0/@subFolder.0"/>
+    <createdTrg href="trg.xmi#/0/@allModules.0"/>
+    <createdCorr href="corr.xmi#/1"/>
+    <contextSrc href="src.xmi#/0"/>
     <contextTrg href="trg.xmi#/0"/>
-    <contextTrg href="trg.xmi#/0/@allModules.0/@tasks.1"/>
-    <nodeMappings key="invocation">
-      <value href="trg.xmi#/0/@allModules.0/@tasks.1/@invocations.1"/>
-    </nodeMappings>
-    <nodeMappings key="file">
-      <value href="src.xmi#/0/@subFolder.0/@file.1"/>
-    </nodeMappings>
-    <nodeMappings key="folder">
+    <nodeMappings key="subFolder">
       <value href="src.xmi#/0/@subFolder.0"/>
     </nodeMappings>
     <nodeMappings key="system">
       <value href="trg.xmi#/0"/>
     </nodeMappings>
-    <nodeMappings key="task">
-      <value href="trg.xmi#/0/@allModules.0/@tasks.1"/>
-    </nodeMappings>
-    <nodeMappings key="invocationsNode">
-      <value href="src.xmi#/0/@subFolder.0/@file.1/@rootNode/@children.1"/>
-    </nodeMappings>
-    <nodeMappings key="invocationNode">
-      <value href="src.xmi#/0/@subFolder.0/@file.1/@rootNode/@children.1/@children.1"/>
-    </nodeMappings>
-    <nodeMappings key="taskNode">
-      <value href="src.xmi#/0/@subFolder.0/@file.1/@rootNode"/>
-    </nodeMappings>
-    <nodeMappings key="invocationNodeToInvocation">
-      <value href="corr.xmi#/36"/>
-    </nodeMappings>
-    <nodeMappings key="fileToTask">
-      <value href="corr.xmi#/26"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="FileToTaskRule">
-    <createdSrc href="src.xmi#/0/@subFolder.0/@file.1"/>
-    <createdSrc href="src.xmi#/0/@subFolder.0/@file.1/@rootNode/@children.0"/>
-    <createdSrc href="src.xmi#/0/@subFolder.0/@file.1/@rootNode/@children.1"/>
-    <createdSrc href="src.xmi#/0/@subFolder.0/@file.1/@rootNode"/>
-    <createdTrg href="trg.xmi#/0/@allModules.0/@tasks.1"/>
-    <createdCorr href="corr.xmi#/26"/>
-    <contextSrc href="src.xmi#/0/@subFolder.0"/>
-    <contextTrg href="trg.xmi#/0/@allModules.0"/>
-    <contextTrg href="trg.xmi#/0"/>
-    <nodeMappings key="file">
-      <value href="src.xmi#/0/@subFolder.0/@file.1"/>
-    </nodeMappings>
-    <nodeMappings key="folder">
-      <value href="src.xmi#/0/@subFolder.0"/>
-    </nodeMappings>
-    <nodeMappings key="system">
-      <value href="trg.xmi#/0"/>
-    </nodeMappings>
-    <nodeMappings key="task">
-      <value href="trg.xmi#/0/@allModules.0/@tasks.1"/>
+    <nodeMappings key="rootFolder">
+      <value href="src.xmi#/0"/>
     </nodeMappings>
     <nodeMappings key="module">
       <value href="trg.xmi#/0/@allModules.0"/>
     </nodeMappings>
-    <nodeMappings key="invocationNode">
-      <value href="src.xmi#/0/@subFolder.0/@file.1/@rootNode/@children.1"/>
+    <nodeMappings key="folderToSystem">
+      <value href="corr.xmi#/0"/>
     </nodeMappings>
-    <nodeMappings key="folderToModule">
+    <nodeMappings key="subFolderToSubTask">
       <value href="corr.xmi#/1"/>
-    </nodeMappings>
-    <nodeMappings key="taskNode">
-      <value href="src.xmi#/0/@subFolder.0/@file.1/@rootNode"/>
-    </nodeMappings>
-    <nodeMappings key="importNode">
-      <value href="src.xmi#/0/@subFolder.0/@file.1/@rootNode/@children.0"/>
-    </nodeMappings>
-    <nodeMappings key="fileToTask">
-      <value href="corr.xmi#/26"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="NodeToInvocationRecursiveRule">
-    <createdSrc href="src.xmi#/0/@subFolder.0/@file.1/@rootNode/@children.1/@children.0"/>
-    <createdTrg href="trg.xmi#/0/@allModules.0/@tasks.1/@invocations.0"/>
-    <createdCorr href="corr.xmi#/30"/>
-    <contextSrc href="src.xmi#/0/@subFolder.0/@file.1"/>
-    <contextSrc href="src.xmi#/0/@subFolder.0"/>
-    <contextSrc href="src.xmi#/0/@subFolder.0/@file.1/@rootNode/@children.1"/>
-    <contextSrc href="src.xmi#/0/@subFolder.0/@file.1/@rootNode"/>
-    <contextTrg href="trg.xmi#/0"/>
-    <contextTrg href="trg.xmi#/0/@allModules.0/@tasks.1"/>
-    <nodeMappings key="invocation">
-      <value href="trg.xmi#/0/@allModules.0/@tasks.1/@invocations.0"/>
-    </nodeMappings>
-    <nodeMappings key="file">
-      <value href="src.xmi#/0/@subFolder.0/@file.1"/>
-    </nodeMappings>
-    <nodeMappings key="folder">
-      <value href="src.xmi#/0/@subFolder.0"/>
-    </nodeMappings>
-    <nodeMappings key="system">
-      <value href="trg.xmi#/0"/>
-    </nodeMappings>
-    <nodeMappings key="task">
-      <value href="trg.xmi#/0/@allModules.0/@tasks.1"/>
-    </nodeMappings>
-    <nodeMappings key="invocationsNode">
-      <value href="src.xmi#/0/@subFolder.0/@file.1/@rootNode/@children.1"/>
-    </nodeMappings>
-    <nodeMappings key="invocationNode">
-      <value href="src.xmi#/0/@subFolder.0/@file.1/@rootNode/@children.1/@children.0"/>
-    </nodeMappings>
-    <nodeMappings key="taskNode">
-      <value href="src.xmi#/0/@subFolder.0/@file.1/@rootNode"/>
-    </nodeMappings>
-    <nodeMappings key="invocationNodeToInvocation">
-      <value href="corr.xmi#/30"/>
-    </nodeMappings>
-    <nodeMappings key="fileToTask">
-      <value href="corr.xmi#/26"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
   <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="NodeToInvocationRule">
-    <createdSrc href="src.xmi#/2/@subFolder.0/@file.2/@rootNode/@children.1/@children.2"/>
-    <createdTrg href="trg.xmi#/2/@allModules.0/@tasks.2/@invocations.2"/>
-    <createdCorr href="corr.xmi#/22"/>
+    <createdSrc href="src.xmi#/2/@subFolder.0/@file.2/@rootNode/@children.1/@children.3"/>
+    <createdTrg href="trg.xmi#/2/@allModules.0/@tasks.2/@invocations.3"/>
+    <createdCorr href="corr.xmi#/42"/>
     <contextSrc href="src.xmi#/2/@subFolder.0/@file.2"/>
     <contextSrc href="src.xmi#/2/@subFolder.0"/>
     <contextSrc href="src.xmi#/2/@subFolder.0/@file.2/@rootNode/@children.1"/>
@@ -189,19 +66,19 @@
       <value href="corr.xmi#/6"/>
     </nodeMappings>
     <nodeMappings key="invocationNode">
-      <value href="src.xmi#/2/@subFolder.0/@file.2/@rootNode/@children.1/@children.2"/>
+      <value href="src.xmi#/2/@subFolder.0/@file.2/@rootNode/@children.1/@children.3"/>
     </nodeMappings>
     <nodeMappings key="taskNode">
       <value href="src.xmi#/2/@subFolder.0/@file.2/@rootNode"/>
     </nodeMappings>
     <nodeMappings key="invocationNodeToInvocation">
-      <value href="corr.xmi#/22"/>
+      <value href="corr.xmi#/42"/>
     </nodeMappings>
     <nodeMappings key="otherFile">
       <value href="src.xmi#/2/@subFolder.0/@file.0"/>
     </nodeMappings>
     <nodeMappings key="invocation">
-      <value href="trg.xmi#/2/@allModules.0/@tasks.2/@invocations.2"/>
+      <value href="trg.xmi#/2/@allModules.0/@tasks.2/@invocations.3"/>
     </nodeMappings>
     <nodeMappings key="file">
       <value href="src.xmi#/2/@subFolder.0/@file.2"/>
@@ -285,32 +162,7 @@
       <value href="corr.xmi#/24"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="SubFolderToModuleRule">
-    <createdSrc href="src.xmi#/0/@subFolder.0"/>
-    <createdTrg href="trg.xmi#/0/@allModules.0"/>
-    <createdCorr href="corr.xmi#/1"/>
-    <contextSrc href="src.xmi#/0"/>
-    <contextTrg href="trg.xmi#/0"/>
-    <nodeMappings key="subFolder">
-      <value href="src.xmi#/0/@subFolder.0"/>
-    </nodeMappings>
-    <nodeMappings key="system">
-      <value href="trg.xmi#/0"/>
-    </nodeMappings>
-    <nodeMappings key="rootFolder">
-      <value href="src.xmi#/0"/>
-    </nodeMappings>
-    <nodeMappings key="module">
-      <value href="trg.xmi#/0/@allModules.0"/>
-    </nodeMappings>
-    <nodeMappings key="folderToSystem">
-      <value href="corr.xmi#/0"/>
-    </nodeMappings>
-    <nodeMappings key="subFolderToSubTask">
-      <value href="corr.xmi#/1"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="NodeToInvocationRecursiveRule">
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="NodeToInvocationRule">
     <createdSrc href="src.xmi#/2/@subFolder.0/@file.1/@rootNode/@children.1/@children.2"/>
     <createdTrg href="trg.xmi#/2/@allModules.0/@tasks.1/@invocations.2"/>
     <createdCorr href="corr.xmi#/15"/>
@@ -318,8 +170,23 @@
     <contextSrc href="src.xmi#/2/@subFolder.0"/>
     <contextSrc href="src.xmi#/2/@subFolder.0/@file.1/@rootNode/@children.1"/>
     <contextSrc href="src.xmi#/2/@subFolder.0/@file.1/@rootNode"/>
-    <contextTrg href="trg.xmi#/2"/>
     <contextTrg href="trg.xmi#/2/@allModules.0/@tasks.1"/>
+    <contextTrg href="trg.xmi#/2"/>
+    <nodeMappings key="fileToTask2">
+      <value href="corr.xmi#/7"/>
+    </nodeMappings>
+    <nodeMappings key="invocationNode">
+      <value href="src.xmi#/2/@subFolder.0/@file.1/@rootNode/@children.1/@children.2"/>
+    </nodeMappings>
+    <nodeMappings key="taskNode">
+      <value href="src.xmi#/2/@subFolder.0/@file.1/@rootNode"/>
+    </nodeMappings>
+    <nodeMappings key="invocationNodeToInvocation">
+      <value href="corr.xmi#/15"/>
+    </nodeMappings>
+    <nodeMappings key="otherFile">
+      <value href="src.xmi#/2/@subFolder.0/@file.1"/>
+    </nodeMappings>
     <nodeMappings key="invocation">
       <value href="trg.xmi#/2/@allModules.0/@tasks.1/@invocations.2"/>
     </nodeMappings>
@@ -335,97 +202,74 @@
     <nodeMappings key="task">
       <value href="trg.xmi#/2/@allModules.0/@tasks.1"/>
     </nodeMappings>
+    <nodeMappings key="invokedTask">
+      <value href="trg.xmi#/2/@allModules.0/@tasks.1"/>
+    </nodeMappings>
     <nodeMappings key="invocationsNode">
       <value href="src.xmi#/2/@subFolder.0/@file.1/@rootNode/@children.1"/>
-    </nodeMappings>
-    <nodeMappings key="invocationNode">
-      <value href="src.xmi#/2/@subFolder.0/@file.1/@rootNode/@children.1/@children.2"/>
-    </nodeMappings>
-    <nodeMappings key="taskNode">
-      <value href="src.xmi#/2/@subFolder.0/@file.1/@rootNode"/>
-    </nodeMappings>
-    <nodeMappings key="invocationNodeToInvocation">
-      <value href="corr.xmi#/15"/>
     </nodeMappings>
     <nodeMappings key="fileToTask">
       <value href="corr.xmi#/7"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="NodeToInvocationRule">
-    <createdSrc href="src.xmi#/2/@subFolder.0/@file.2/@rootNode/@children.1/@children.3"/>
-    <createdTrg href="trg.xmi#/2/@allModules.0/@tasks.2/@invocations.3"/>
-    <createdCorr href="corr.xmi#/42"/>
-    <contextSrc href="src.xmi#/2/@subFolder.0/@file.2"/>
-    <contextSrc href="src.xmi#/2/@subFolder.0"/>
-    <contextSrc href="src.xmi#/2/@subFolder.0/@file.2/@rootNode/@children.1"/>
-    <contextSrc href="src.xmi#/2/@subFolder.0/@file.0"/>
-    <contextSrc href="src.xmi#/2/@subFolder.0/@file.2/@rootNode"/>
-    <contextTrg href="trg.xmi#/2/@allModules.0/@tasks.0"/>
-    <contextTrg href="trg.xmi#/2"/>
-    <contextTrg href="trg.xmi#/2/@allModules.0/@tasks.2"/>
-    <nodeMappings key="fileToTask2">
-      <value href="corr.xmi#/6"/>
-    </nodeMappings>
-    <nodeMappings key="invocationNode">
-      <value href="src.xmi#/2/@subFolder.0/@file.2/@rootNode/@children.1/@children.3"/>
-    </nodeMappings>
-    <nodeMappings key="taskNode">
-      <value href="src.xmi#/2/@subFolder.0/@file.2/@rootNode"/>
-    </nodeMappings>
-    <nodeMappings key="invocationNodeToInvocation">
-      <value href="corr.xmi#/42"/>
-    </nodeMappings>
-    <nodeMappings key="otherFile">
-      <value href="src.xmi#/2/@subFolder.0/@file.0"/>
-    </nodeMappings>
-    <nodeMappings key="invocation">
-      <value href="trg.xmi#/2/@allModules.0/@tasks.2/@invocations.3"/>
-    </nodeMappings>
-    <nodeMappings key="file">
-      <value href="src.xmi#/2/@subFolder.0/@file.2"/>
-    </nodeMappings>
-    <nodeMappings key="folder">
-      <value href="src.xmi#/2/@subFolder.0"/>
-    </nodeMappings>
-    <nodeMappings key="system">
-      <value href="trg.xmi#/2"/>
-    </nodeMappings>
-    <nodeMappings key="task">
-      <value href="trg.xmi#/2/@allModules.0/@tasks.2"/>
-    </nodeMappings>
-    <nodeMappings key="invokedTask">
-      <value href="trg.xmi#/2/@allModules.0/@tasks.0"/>
-    </nodeMappings>
-    <nodeMappings key="invocationsNode">
-      <value href="src.xmi#/2/@subFolder.0/@file.2/@rootNode/@children.1"/>
-    </nodeMappings>
-    <nodeMappings key="fileToTask">
-      <value href="corr.xmi#/11"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="SubFolderToModuleRule">
-    <createdSrc href="src.xmi#/1/@subFolder.0"/>
-    <createdTrg href="trg.xmi#/1/@allModules.0"/>
-    <createdCorr href="corr.xmi#/19"/>
-    <contextSrc href="src.xmi#/1"/>
-    <contextTrg href="trg.xmi#/1"/>
-    <nodeMappings key="subFolder">
-      <value href="src.xmi#/1/@subFolder.0"/>
-    </nodeMappings>
-    <nodeMappings key="system">
-      <value href="trg.xmi#/1"/>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="NodeToInvocationDifferentModuleRule">
+    <createdSrc href="src.xmi#/0/@subFolder.1/@file.1/@rootNode/@children.1/@children.2"/>
+    <createdTrg href="trg.xmi#/0/@allModules.1/@tasks.1/@invocations.2"/>
+    <createdCorr href="corr.xmi#/47"/>
+    <contextSrc href="src.xmi#/0/@subFolder.1/@file.1"/>
+    <contextSrc href="src.xmi#/0/@subFolder.1"/>
+    <contextSrc href="src.xmi#/0/@subFolder.1/@file.1/@rootNode/@children.1"/>
+    <contextSrc href="src.xmi#/0/@subFolder.0/@file.0"/>
+    <contextSrc href="src.xmi#/0/@subFolder.0"/>
+    <contextSrc href="src.xmi#/0"/>
+    <contextSrc href="src.xmi#/0/@subFolder.1/@file.1/@rootNode"/>
+    <contextTrg href="trg.xmi#/0/@allModules.0/@tasks.0"/>
+    <contextTrg href="trg.xmi#/0"/>
+    <contextTrg href="trg.xmi#/0/@allModules.1/@tasks.1"/>
+    <nodeMappings key="otherFolder">
+      <value href="src.xmi#/0/@subFolder.0"/>
     </nodeMappings>
     <nodeMappings key="rootFolder">
-      <value href="src.xmi#/1"/>
+      <value href="src.xmi#/0"/>
     </nodeMappings>
-    <nodeMappings key="module">
-      <value href="trg.xmi#/1/@allModules.0"/>
+    <nodeMappings key="invocationNode">
+      <value href="src.xmi#/0/@subFolder.1/@file.1/@rootNode/@children.1/@children.2"/>
     </nodeMappings>
-    <nodeMappings key="folderToSystem">
-      <value href="corr.xmi#/3"/>
+    <nodeMappings key="taskNode">
+      <value href="src.xmi#/0/@subFolder.1/@file.1/@rootNode"/>
     </nodeMappings>
-    <nodeMappings key="subFolderToSubTask">
-      <value href="corr.xmi#/19"/>
+    <nodeMappings key="invocationNodeToInvocation">
+      <value href="corr.xmi#/47"/>
+    </nodeMappings>
+    <nodeMappings key="otherFile">
+      <value href="src.xmi#/0/@subFolder.0/@file.0"/>
+    </nodeMappings>
+    <nodeMappings key="invocation">
+      <value href="trg.xmi#/0/@allModules.1/@tasks.1/@invocations.2"/>
+    </nodeMappings>
+    <nodeMappings key="file">
+      <value href="src.xmi#/0/@subFolder.1/@file.1"/>
+    </nodeMappings>
+    <nodeMappings key="folder">
+      <value href="src.xmi#/0/@subFolder.1"/>
+    </nodeMappings>
+    <nodeMappings key="system">
+      <value href="trg.xmi#/0"/>
+    </nodeMappings>
+    <nodeMappings key="task">
+      <value href="trg.xmi#/0/@allModules.1/@tasks.1"/>
+    </nodeMappings>
+    <nodeMappings key="invokedTask">
+      <value href="trg.xmi#/0/@allModules.0/@tasks.0"/>
+    </nodeMappings>
+    <nodeMappings key="invocationsNode">
+      <value href="src.xmi#/0/@subFolder.1/@file.1/@rootNode/@children.1"/>
+    </nodeMappings>
+    <nodeMappings key="file2Task2">
+      <value href="corr.xmi#/24"/>
+    </nodeMappings>
+    <nodeMappings key="fileToTask">
+      <value href="corr.xmi#/39"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
   <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="SubFolderToModuleRule">
@@ -453,178 +297,29 @@
       <value href="corr.xmi#/14"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="NodeToImportRule">
-    <createdSrc href="src.xmi#/0/@subFolder.0/@file.1/@rootNode/@children.0/@children.0"/>
-    <createdTrg href="trg.xmi#/0/@allModules.0/@tasks.1/@imports.0"/>
-    <createdCorr href="corr.xmi#/32"/>
-    <contextSrc href="src.xmi#/0/@subFolder.0/@file.1"/>
-    <contextSrc href="src.xmi#/0/@subFolder.0"/>
-    <contextSrc href="src.xmi#/0/@subFolder.0/@file.1/@rootNode/@children.0"/>
-    <contextSrc href="src.xmi#/0/@subFolder.1"/>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="SubFolderToModuleRule">
+    <createdSrc href="src.xmi#/0/@subFolder.4"/>
+    <createdTrg href="trg.xmi#/0/@allModules.4"/>
+    <createdCorr href="corr.xmi#/50"/>
     <contextSrc href="src.xmi#/0"/>
-    <contextSrc href="src.xmi#/0/@subFolder.0/@file.1/@rootNode"/>
-    <contextTrg href="trg.xmi#/0/@allModules.1"/>
-    <contextTrg href="trg.xmi#/0/@allModules.0"/>
     <contextTrg href="trg.xmi#/0"/>
-    <contextTrg href="trg.xmi#/0/@allModules.0/@tasks.1"/>
-    <nodeMappings key="importedModule">
-      <value href="trg.xmi#/0/@allModules.1"/>
+    <nodeMappings key="subFolder">
+      <value href="src.xmi#/0/@subFolder.4"/>
     </nodeMappings>
-    <nodeMappings key="otherFolder">
-      <value href="src.xmi#/0/@subFolder.1"/>
-    </nodeMappings>
-    <nodeMappings key="fileToImportedModule">
-      <value href="corr.xmi#/2"/>
+    <nodeMappings key="system">
+      <value href="trg.xmi#/0"/>
     </nodeMappings>
     <nodeMappings key="rootFolder">
       <value href="src.xmi#/0"/>
     </nodeMappings>
     <nodeMappings key="module">
-      <value href="trg.xmi#/0/@allModules.0"/>
+      <value href="trg.xmi#/0/@allModules.4"/>
     </nodeMappings>
-    <nodeMappings key="nodeToImport">
-      <value href="corr.xmi#/32"/>
+    <nodeMappings key="folderToSystem">
+      <value href="corr.xmi#/0"/>
     </nodeMappings>
-    <nodeMappings key="invocationNode">
-      <value href="src.xmi#/0/@subFolder.0/@file.1/@rootNode/@children.0/@children.0"/>
-    </nodeMappings>
-    <nodeMappings key="taskNode">
-      <value href="src.xmi#/0/@subFolder.0/@file.1/@rootNode"/>
-    </nodeMappings>
-    <nodeMappings key="invocation">
-      <value href="trg.xmi#/0/@allModules.0/@tasks.1/@imports.0"/>
-    </nodeMappings>
-    <nodeMappings key="file">
-      <value href="src.xmi#/0/@subFolder.0/@file.1"/>
-    </nodeMappings>
-    <nodeMappings key="folder">
-      <value href="src.xmi#/0/@subFolder.0"/>
-    </nodeMappings>
-    <nodeMappings key="system">
-      <value href="trg.xmi#/0"/>
-    </nodeMappings>
-    <nodeMappings key="task">
-      <value href="trg.xmi#/0/@allModules.0/@tasks.1"/>
-    </nodeMappings>
-    <nodeMappings key="invocationsNode">
-      <value href="src.xmi#/0/@subFolder.0/@file.1/@rootNode/@children.0"/>
-    </nodeMappings>
-    <nodeMappings key="fileToTask">
-      <value href="corr.xmi#/26"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="NodeToInvocationRule">
-    <createdSrc href="src.xmi#/2/@subFolder.0/@file.2/@rootNode/@children.1/@children.1"/>
-    <createdTrg href="trg.xmi#/2/@allModules.0/@tasks.2/@invocations.1"/>
-    <createdCorr href="corr.xmi#/21"/>
-    <contextSrc href="src.xmi#/2/@subFolder.0/@file.2"/>
-    <contextSrc href="src.xmi#/2/@subFolder.0"/>
-    <contextSrc href="src.xmi#/2/@subFolder.0/@file.2/@rootNode/@children.1"/>
-    <contextSrc href="src.xmi#/2/@subFolder.0/@file.2/@rootNode"/>
-    <contextTrg href="trg.xmi#/2/@allModules.0/@tasks.2"/>
-    <contextTrg href="trg.xmi#/2"/>
-    <nodeMappings key="fileToTask2">
-      <value href="corr.xmi#/11"/>
-    </nodeMappings>
-    <nodeMappings key="invocationNode">
-      <value href="src.xmi#/2/@subFolder.0/@file.2/@rootNode/@children.1/@children.1"/>
-    </nodeMappings>
-    <nodeMappings key="taskNode">
-      <value href="src.xmi#/2/@subFolder.0/@file.2/@rootNode"/>
-    </nodeMappings>
-    <nodeMappings key="invocationNodeToInvocation">
-      <value href="corr.xmi#/21"/>
-    </nodeMappings>
-    <nodeMappings key="otherFile">
-      <value href="src.xmi#/2/@subFolder.0/@file.2"/>
-    </nodeMappings>
-    <nodeMappings key="invocation">
-      <value href="trg.xmi#/2/@allModules.0/@tasks.2/@invocations.1"/>
-    </nodeMappings>
-    <nodeMappings key="file">
-      <value href="src.xmi#/2/@subFolder.0/@file.2"/>
-    </nodeMappings>
-    <nodeMappings key="folder">
-      <value href="src.xmi#/2/@subFolder.0"/>
-    </nodeMappings>
-    <nodeMappings key="system">
-      <value href="trg.xmi#/2"/>
-    </nodeMappings>
-    <nodeMappings key="task">
-      <value href="trg.xmi#/2/@allModules.0/@tasks.2"/>
-    </nodeMappings>
-    <nodeMappings key="invokedTask">
-      <value href="trg.xmi#/2/@allModules.0/@tasks.2"/>
-    </nodeMappings>
-    <nodeMappings key="invocationsNode">
-      <value href="src.xmi#/2/@subFolder.0/@file.2/@rootNode/@children.1"/>
-    </nodeMappings>
-    <nodeMappings key="fileToTask">
-      <value href="corr.xmi#/11"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="RootToSystemRule">
-    <createdSrc href="src.xmi#/2"/>
-    <createdTrg href="trg.xmi#/2"/>
-    <createdCorr href="corr.xmi#/4"/>
-    <nodeMappings key="system">
-      <value href="trg.xmi#/2"/>
-    </nodeMappings>
-    <nodeMappings key="rootFolder">
-      <value href="src.xmi#/2"/>
-    </nodeMappings>
-    <nodeMappings key="rootFolderToSystem">
-      <value href="corr.xmi#/4"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="NodeToInvocationRule">
-    <createdSrc href="src.xmi#/2/@subFolder.0/@file.1/@rootNode/@children.1/@children.1"/>
-    <createdTrg href="trg.xmi#/2/@allModules.0/@tasks.1/@invocations.1"/>
-    <createdCorr href="corr.xmi#/10"/>
-    <contextSrc href="src.xmi#/2/@subFolder.0/@file.1"/>
-    <contextSrc href="src.xmi#/2/@subFolder.0"/>
-    <contextSrc href="src.xmi#/2/@subFolder.0/@file.1/@rootNode/@children.1"/>
-    <contextSrc href="src.xmi#/2/@subFolder.0/@file.1/@rootNode"/>
-    <contextTrg href="trg.xmi#/2/@allModules.0/@tasks.1"/>
-    <contextTrg href="trg.xmi#/2"/>
-    <nodeMappings key="fileToTask2">
-      <value href="corr.xmi#/7"/>
-    </nodeMappings>
-    <nodeMappings key="invocationNode">
-      <value href="src.xmi#/2/@subFolder.0/@file.1/@rootNode/@children.1/@children.1"/>
-    </nodeMappings>
-    <nodeMappings key="taskNode">
-      <value href="src.xmi#/2/@subFolder.0/@file.1/@rootNode"/>
-    </nodeMappings>
-    <nodeMappings key="invocationNodeToInvocation">
-      <value href="corr.xmi#/10"/>
-    </nodeMappings>
-    <nodeMappings key="otherFile">
-      <value href="src.xmi#/2/@subFolder.0/@file.1"/>
-    </nodeMappings>
-    <nodeMappings key="invocation">
-      <value href="trg.xmi#/2/@allModules.0/@tasks.1/@invocations.1"/>
-    </nodeMappings>
-    <nodeMappings key="file">
-      <value href="src.xmi#/2/@subFolder.0/@file.1"/>
-    </nodeMappings>
-    <nodeMappings key="folder">
-      <value href="src.xmi#/2/@subFolder.0"/>
-    </nodeMappings>
-    <nodeMappings key="system">
-      <value href="trg.xmi#/2"/>
-    </nodeMappings>
-    <nodeMappings key="task">
-      <value href="trg.xmi#/2/@allModules.0/@tasks.1"/>
-    </nodeMappings>
-    <nodeMappings key="invokedTask">
-      <value href="trg.xmi#/2/@allModules.0/@tasks.1"/>
-    </nodeMappings>
-    <nodeMappings key="invocationsNode">
-      <value href="src.xmi#/2/@subFolder.0/@file.1/@rootNode/@children.1"/>
-    </nodeMappings>
-    <nodeMappings key="fileToTask">
-      <value href="corr.xmi#/7"/>
+    <nodeMappings key="subFolderToSubTask">
+      <value href="corr.xmi#/50"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
   <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="FileToTaskRule">
@@ -668,164 +363,45 @@
       <value href="corr.xmi#/6"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="NodeToImportRule">
-    <createdSrc href="src.xmi#/0/@subFolder.1/@file.0/@rootNode/@children.0/@children.0"/>
-    <createdTrg href="trg.xmi#/0/@allModules.1/@tasks.0/@imports.0"/>
-    <createdCorr href="corr.xmi#/17"/>
-    <contextSrc href="src.xmi#/0/@subFolder.1/@file.0"/>
-    <contextSrc href="src.xmi#/0/@subFolder.1"/>
-    <contextSrc href="src.xmi#/0/@subFolder.1/@file.0/@rootNode/@children.0"/>
-    <contextSrc href="src.xmi#/0/@subFolder.0"/>
-    <contextSrc href="src.xmi#/0"/>
-    <contextSrc href="src.xmi#/0/@subFolder.1/@file.0/@rootNode"/>
-    <contextTrg href="trg.xmi#/0/@allModules.0"/>
-    <contextTrg href="trg.xmi#/0/@allModules.1"/>
-    <contextTrg href="trg.xmi#/0"/>
-    <contextTrg href="trg.xmi#/0/@allModules.1/@tasks.0"/>
-    <nodeMappings key="importedModule">
-      <value href="trg.xmi#/0/@allModules.0"/>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="FileToTaskRule">
+    <createdSrc href="src.xmi#/1/@subFolder.0/@file.0"/>
+    <createdSrc href="src.xmi#/1/@subFolder.0/@file.0/@rootNode/@children.0"/>
+    <createdSrc href="src.xmi#/1/@subFolder.0/@file.0/@rootNode/@children.1"/>
+    <createdSrc href="src.xmi#/1/@subFolder.0/@file.0/@rootNode"/>
+    <createdTrg href="trg.xmi#/1/@allModules.0/@tasks.0"/>
+    <createdCorr href="corr.xmi#/29"/>
+    <contextSrc href="src.xmi#/1/@subFolder.0"/>
+    <contextTrg href="trg.xmi#/1/@allModules.0"/>
+    <contextTrg href="trg.xmi#/1"/>
+    <nodeMappings key="file">
+      <value href="src.xmi#/1/@subFolder.0/@file.0"/>
     </nodeMappings>
-    <nodeMappings key="otherFolder">
-      <value href="src.xmi#/0/@subFolder.0"/>
+    <nodeMappings key="folder">
+      <value href="src.xmi#/1/@subFolder.0"/>
     </nodeMappings>
-    <nodeMappings key="fileToImportedModule">
-      <value href="corr.xmi#/1"/>
+    <nodeMappings key="system">
+      <value href="trg.xmi#/1"/>
     </nodeMappings>
-    <nodeMappings key="rootFolder">
-      <value href="src.xmi#/0"/>
+    <nodeMappings key="task">
+      <value href="trg.xmi#/1/@allModules.0/@tasks.0"/>
     </nodeMappings>
     <nodeMappings key="module">
-      <value href="trg.xmi#/0/@allModules.1"/>
-    </nodeMappings>
-    <nodeMappings key="nodeToImport">
-      <value href="corr.xmi#/17"/>
+      <value href="trg.xmi#/1/@allModules.0"/>
     </nodeMappings>
     <nodeMappings key="invocationNode">
-      <value href="src.xmi#/0/@subFolder.1/@file.0/@rootNode/@children.0/@children.0"/>
+      <value href="src.xmi#/1/@subFolder.0/@file.0/@rootNode/@children.1"/>
+    </nodeMappings>
+    <nodeMappings key="folderToModule">
+      <value href="corr.xmi#/19"/>
     </nodeMappings>
     <nodeMappings key="taskNode">
-      <value href="src.xmi#/0/@subFolder.1/@file.0/@rootNode"/>
+      <value href="src.xmi#/1/@subFolder.0/@file.0/@rootNode"/>
     </nodeMappings>
-    <nodeMappings key="invocation">
-      <value href="trg.xmi#/0/@allModules.1/@tasks.0/@imports.0"/>
-    </nodeMappings>
-    <nodeMappings key="file">
-      <value href="src.xmi#/0/@subFolder.1/@file.0"/>
-    </nodeMappings>
-    <nodeMappings key="folder">
-      <value href="src.xmi#/0/@subFolder.1"/>
-    </nodeMappings>
-    <nodeMappings key="system">
-      <value href="trg.xmi#/0"/>
-    </nodeMappings>
-    <nodeMappings key="task">
-      <value href="trg.xmi#/0/@allModules.1/@tasks.0"/>
-    </nodeMappings>
-    <nodeMappings key="invocationsNode">
-      <value href="src.xmi#/0/@subFolder.1/@file.0/@rootNode/@children.0"/>
+    <nodeMappings key="importNode">
+      <value href="src.xmi#/1/@subFolder.0/@file.0/@rootNode/@children.0"/>
     </nodeMappings>
     <nodeMappings key="fileToTask">
-      <value href="corr.xmi#/8"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="NodeToInvocationRule">
-    <createdSrc href="src.xmi#/0/@subFolder.0/@file.1/@rootNode/@children.1/@children.5"/>
-    <createdTrg href="trg.xmi#/0/@allModules.0/@tasks.1/@invocations.5"/>
-    <createdCorr href="corr.xmi#/49"/>
-    <contextSrc href="src.xmi#/0/@subFolder.0/@file.1"/>
-    <contextSrc href="src.xmi#/0/@subFolder.0"/>
-    <contextSrc href="src.xmi#/0/@subFolder.0/@file.1/@rootNode/@children.1"/>
-    <contextSrc href="src.xmi#/0/@subFolder.0/@file.1/@rootNode"/>
-    <contextTrg href="trg.xmi#/0/@allModules.0/@tasks.1"/>
-    <contextTrg href="trg.xmi#/0"/>
-    <nodeMappings key="fileToTask2">
-      <value href="corr.xmi#/26"/>
-    </nodeMappings>
-    <nodeMappings key="invocationNode">
-      <value href="src.xmi#/0/@subFolder.0/@file.1/@rootNode/@children.1/@children.5"/>
-    </nodeMappings>
-    <nodeMappings key="taskNode">
-      <value href="src.xmi#/0/@subFolder.0/@file.1/@rootNode"/>
-    </nodeMappings>
-    <nodeMappings key="invocationNodeToInvocation">
-      <value href="corr.xmi#/49"/>
-    </nodeMappings>
-    <nodeMappings key="otherFile">
-      <value href="src.xmi#/0/@subFolder.0/@file.1"/>
-    </nodeMappings>
-    <nodeMappings key="invocation">
-      <value href="trg.xmi#/0/@allModules.0/@tasks.1/@invocations.5"/>
-    </nodeMappings>
-    <nodeMappings key="file">
-      <value href="src.xmi#/0/@subFolder.0/@file.1"/>
-    </nodeMappings>
-    <nodeMappings key="folder">
-      <value href="src.xmi#/0/@subFolder.0"/>
-    </nodeMappings>
-    <nodeMappings key="system">
-      <value href="trg.xmi#/0"/>
-    </nodeMappings>
-    <nodeMappings key="task">
-      <value href="trg.xmi#/0/@allModules.0/@tasks.1"/>
-    </nodeMappings>
-    <nodeMappings key="invokedTask">
-      <value href="trg.xmi#/0/@allModules.0/@tasks.1"/>
-    </nodeMappings>
-    <nodeMappings key="invocationsNode">
-      <value href="src.xmi#/0/@subFolder.0/@file.1/@rootNode/@children.1"/>
-    </nodeMappings>
-    <nodeMappings key="fileToTask">
-      <value href="corr.xmi#/26"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="NodeToInvocationRule">
-    <createdSrc href="src.xmi#/2/@subFolder.0/@file.2/@rootNode/@children.1/@children.0"/>
-    <createdTrg href="trg.xmi#/2/@allModules.0/@tasks.2/@invocations.0"/>
-    <createdCorr href="corr.xmi#/12"/>
-    <contextSrc href="src.xmi#/2/@subFolder.0/@file.2"/>
-    <contextSrc href="src.xmi#/2/@subFolder.0"/>
-    <contextSrc href="src.xmi#/2/@subFolder.0/@file.2/@rootNode/@children.1"/>
-    <contextSrc href="src.xmi#/2/@subFolder.0/@file.2/@rootNode"/>
-    <contextTrg href="trg.xmi#/2/@allModules.0/@tasks.2"/>
-    <contextTrg href="trg.xmi#/2"/>
-    <nodeMappings key="fileToTask2">
-      <value href="corr.xmi#/11"/>
-    </nodeMappings>
-    <nodeMappings key="invocationNode">
-      <value href="src.xmi#/2/@subFolder.0/@file.2/@rootNode/@children.1/@children.0"/>
-    </nodeMappings>
-    <nodeMappings key="taskNode">
-      <value href="src.xmi#/2/@subFolder.0/@file.2/@rootNode"/>
-    </nodeMappings>
-    <nodeMappings key="invocationNodeToInvocation">
-      <value href="corr.xmi#/12"/>
-    </nodeMappings>
-    <nodeMappings key="otherFile">
-      <value href="src.xmi#/2/@subFolder.0/@file.2"/>
-    </nodeMappings>
-    <nodeMappings key="invocation">
-      <value href="trg.xmi#/2/@allModules.0/@tasks.2/@invocations.0"/>
-    </nodeMappings>
-    <nodeMappings key="file">
-      <value href="src.xmi#/2/@subFolder.0/@file.2"/>
-    </nodeMappings>
-    <nodeMappings key="folder">
-      <value href="src.xmi#/2/@subFolder.0"/>
-    </nodeMappings>
-    <nodeMappings key="system">
-      <value href="trg.xmi#/2"/>
-    </nodeMappings>
-    <nodeMappings key="task">
-      <value href="trg.xmi#/2/@allModules.0/@tasks.2"/>
-    </nodeMappings>
-    <nodeMappings key="invokedTask">
-      <value href="trg.xmi#/2/@allModules.0/@tasks.2"/>
-    </nodeMappings>
-    <nodeMappings key="invocationsNode">
-      <value href="src.xmi#/2/@subFolder.0/@file.2/@rootNode/@children.1"/>
-    </nodeMappings>
-    <nodeMappings key="fileToTask">
-      <value href="corr.xmi#/11"/>
+      <value href="corr.xmi#/29"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
   <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="RootToSystemRule">
@@ -842,16 +418,34 @@
       <value href="corr.xmi#/31"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="FileToTaskRule">
-    <createdSrc href="src.xmi#/0/@subFolder.1/@file.1"/>
-    <createdSrc href="src.xmi#/0/@subFolder.1/@file.1/@rootNode/@children.0"/>
-    <createdSrc href="src.xmi#/0/@subFolder.1/@file.1/@rootNode/@children.1"/>
-    <createdSrc href="src.xmi#/0/@subFolder.1/@file.1/@rootNode"/>
-    <createdTrg href="trg.xmi#/0/@allModules.1/@tasks.1"/>
-    <createdCorr href="corr.xmi#/39"/>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="NodeToInvocationRule">
+    <createdSrc href="src.xmi#/0/@subFolder.1/@file.1/@rootNode/@children.1/@children.1"/>
+    <createdTrg href="trg.xmi#/0/@allModules.1/@tasks.1/@invocations.1"/>
+    <createdCorr href="corr.xmi#/46"/>
+    <contextSrc href="src.xmi#/0/@subFolder.1/@file.1"/>
     <contextSrc href="src.xmi#/0/@subFolder.1"/>
-    <contextTrg href="trg.xmi#/0/@allModules.1"/>
+    <contextSrc href="src.xmi#/0/@subFolder.1/@file.1/@rootNode/@children.1"/>
+    <contextSrc href="src.xmi#/0/@subFolder.1/@file.1/@rootNode"/>
+    <contextTrg href="trg.xmi#/0/@allModules.1/@tasks.1"/>
     <contextTrg href="trg.xmi#/0"/>
+    <nodeMappings key="fileToTask2">
+      <value href="corr.xmi#/39"/>
+    </nodeMappings>
+    <nodeMappings key="invocationNode">
+      <value href="src.xmi#/0/@subFolder.1/@file.1/@rootNode/@children.1/@children.1"/>
+    </nodeMappings>
+    <nodeMappings key="taskNode">
+      <value href="src.xmi#/0/@subFolder.1/@file.1/@rootNode"/>
+    </nodeMappings>
+    <nodeMappings key="invocationNodeToInvocation">
+      <value href="corr.xmi#/46"/>
+    </nodeMappings>
+    <nodeMappings key="otherFile">
+      <value href="src.xmi#/0/@subFolder.1/@file.1"/>
+    </nodeMappings>
+    <nodeMappings key="invocation">
+      <value href="trg.xmi#/0/@allModules.1/@tasks.1/@invocations.1"/>
+    </nodeMappings>
     <nodeMappings key="file">
       <value href="src.xmi#/0/@subFolder.1/@file.1"/>
     </nodeMappings>
@@ -864,126 +458,44 @@
     <nodeMappings key="task">
       <value href="trg.xmi#/0/@allModules.1/@tasks.1"/>
     </nodeMappings>
-    <nodeMappings key="module">
-      <value href="trg.xmi#/0/@allModules.1"/>
+    <nodeMappings key="invokedTask">
+      <value href="trg.xmi#/0/@allModules.1/@tasks.1"/>
     </nodeMappings>
-    <nodeMappings key="invocationNode">
+    <nodeMappings key="invocationsNode">
       <value href="src.xmi#/0/@subFolder.1/@file.1/@rootNode/@children.1"/>
-    </nodeMappings>
-    <nodeMappings key="folderToModule">
-      <value href="corr.xmi#/2"/>
-    </nodeMappings>
-    <nodeMappings key="taskNode">
-      <value href="src.xmi#/0/@subFolder.1/@file.1/@rootNode"/>
-    </nodeMappings>
-    <nodeMappings key="importNode">
-      <value href="src.xmi#/0/@subFolder.1/@file.1/@rootNode/@children.0"/>
     </nodeMappings>
     <nodeMappings key="fileToTask">
       <value href="corr.xmi#/39"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="FileToTaskRule">
-    <createdSrc href="src.xmi#/2/@subFolder.0/@file.2"/>
-    <createdSrc href="src.xmi#/2/@subFolder.0/@file.2/@rootNode/@children.0"/>
-    <createdSrc href="src.xmi#/2/@subFolder.0/@file.2/@rootNode/@children.1"/>
-    <createdSrc href="src.xmi#/2/@subFolder.0/@file.2/@rootNode"/>
-    <createdTrg href="trg.xmi#/2/@allModules.0/@tasks.2"/>
-    <createdCorr href="corr.xmi#/11"/>
-    <contextSrc href="src.xmi#/2/@subFolder.0"/>
-    <contextTrg href="trg.xmi#/2/@allModules.0"/>
-    <contextTrg href="trg.xmi#/2"/>
-    <nodeMappings key="file">
-      <value href="src.xmi#/2/@subFolder.0/@file.2"/>
-    </nodeMappings>
-    <nodeMappings key="folder">
-      <value href="src.xmi#/2/@subFolder.0"/>
-    </nodeMappings>
-    <nodeMappings key="system">
-      <value href="trg.xmi#/2"/>
-    </nodeMappings>
-    <nodeMappings key="task">
-      <value href="trg.xmi#/2/@allModules.0/@tasks.2"/>
-    </nodeMappings>
-    <nodeMappings key="module">
-      <value href="trg.xmi#/2/@allModules.0"/>
-    </nodeMappings>
-    <nodeMappings key="invocationNode">
-      <value href="src.xmi#/2/@subFolder.0/@file.2/@rootNode/@children.1"/>
-    </nodeMappings>
-    <nodeMappings key="folderToModule">
-      <value href="corr.xmi#/5"/>
-    </nodeMappings>
-    <nodeMappings key="taskNode">
-      <value href="src.xmi#/2/@subFolder.0/@file.2/@rootNode"/>
-    </nodeMappings>
-    <nodeMappings key="importNode">
-      <value href="src.xmi#/2/@subFolder.0/@file.2/@rootNode/@children.0"/>
-    </nodeMappings>
-    <nodeMappings key="fileToTask">
-      <value href="corr.xmi#/11"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
   <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="NodeToInvocationRule">
-    <createdSrc href="src.xmi#/0/@subFolder.1/@file.0/@rootNode/@children.1/@children.0"/>
-    <createdTrg href="trg.xmi#/0/@allModules.1/@tasks.0/@invocations.0"/>
-    <createdCorr href="corr.xmi#/43"/>
-    <contextSrc href="src.xmi#/0/@subFolder.1/@file.0"/>
-    <contextSrc href="src.xmi#/0/@subFolder.1"/>
-    <contextSrc href="src.xmi#/0/@subFolder.1/@file.0/@rootNode/@children.1"/>
-    <contextSrc href="src.xmi#/0/@subFolder.1/@file.0/@rootNode"/>
-    <contextTrg href="trg.xmi#/0/@allModules.1/@tasks.0"/>
+    <createdSrc href="src.xmi#/0/@subFolder.0/@file.0/@rootNode/@children.1/@children.0"/>
+    <createdTrg href="trg.xmi#/0/@allModules.0/@tasks.0/@invocations.0"/>
+    <createdCorr href="corr.xmi#/28"/>
+    <contextSrc href="src.xmi#/0/@subFolder.0/@file.0"/>
+    <contextSrc href="src.xmi#/0/@subFolder.0"/>
+    <contextSrc href="src.xmi#/0/@subFolder.0/@file.0/@rootNode/@children.1"/>
+    <contextSrc href="src.xmi#/0/@subFolder.0/@file.0/@rootNode"/>
+    <contextTrg href="trg.xmi#/0/@allModules.0/@tasks.0"/>
     <contextTrg href="trg.xmi#/0"/>
     <nodeMappings key="fileToTask2">
-      <value href="corr.xmi#/8"/>
+      <value href="corr.xmi#/24"/>
     </nodeMappings>
     <nodeMappings key="invocationNode">
-      <value href="src.xmi#/0/@subFolder.1/@file.0/@rootNode/@children.1/@children.0"/>
+      <value href="src.xmi#/0/@subFolder.0/@file.0/@rootNode/@children.1/@children.0"/>
     </nodeMappings>
     <nodeMappings key="taskNode">
-      <value href="src.xmi#/0/@subFolder.1/@file.0/@rootNode"/>
+      <value href="src.xmi#/0/@subFolder.0/@file.0/@rootNode"/>
     </nodeMappings>
     <nodeMappings key="invocationNodeToInvocation">
-      <value href="corr.xmi#/43"/>
+      <value href="corr.xmi#/28"/>
     </nodeMappings>
     <nodeMappings key="otherFile">
-      <value href="src.xmi#/0/@subFolder.1/@file.0"/>
+      <value href="src.xmi#/0/@subFolder.0/@file.0"/>
     </nodeMappings>
     <nodeMappings key="invocation">
-      <value href="trg.xmi#/0/@allModules.1/@tasks.0/@invocations.0"/>
+      <value href="trg.xmi#/0/@allModules.0/@tasks.0/@invocations.0"/>
     </nodeMappings>
-    <nodeMappings key="file">
-      <value href="src.xmi#/0/@subFolder.1/@file.0"/>
-    </nodeMappings>
-    <nodeMappings key="folder">
-      <value href="src.xmi#/0/@subFolder.1"/>
-    </nodeMappings>
-    <nodeMappings key="system">
-      <value href="trg.xmi#/0"/>
-    </nodeMappings>
-    <nodeMappings key="task">
-      <value href="trg.xmi#/0/@allModules.1/@tasks.0"/>
-    </nodeMappings>
-    <nodeMappings key="invokedTask">
-      <value href="trg.xmi#/0/@allModules.1/@tasks.0"/>
-    </nodeMappings>
-    <nodeMappings key="invocationsNode">
-      <value href="src.xmi#/0/@subFolder.1/@file.0/@rootNode/@children.1"/>
-    </nodeMappings>
-    <nodeMappings key="fileToTask">
-      <value href="corr.xmi#/8"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="FileToTaskRule">
-    <createdSrc href="src.xmi#/0/@subFolder.0/@file.0"/>
-    <createdSrc href="src.xmi#/0/@subFolder.0/@file.0/@rootNode/@children.0"/>
-    <createdSrc href="src.xmi#/0/@subFolder.0/@file.0/@rootNode/@children.1"/>
-    <createdSrc href="src.xmi#/0/@subFolder.0/@file.0/@rootNode"/>
-    <createdTrg href="trg.xmi#/0/@allModules.0/@tasks.0"/>
-    <createdCorr href="corr.xmi#/24"/>
-    <contextSrc href="src.xmi#/0/@subFolder.0"/>
-    <contextTrg href="trg.xmi#/0/@allModules.0"/>
-    <contextTrg href="trg.xmi#/0"/>
     <nodeMappings key="file">
       <value href="src.xmi#/0/@subFolder.0/@file.0"/>
     </nodeMappings>
@@ -996,57 +508,56 @@
     <nodeMappings key="task">
       <value href="trg.xmi#/0/@allModules.0/@tasks.0"/>
     </nodeMappings>
-    <nodeMappings key="module">
-      <value href="trg.xmi#/0/@allModules.0"/>
+    <nodeMappings key="invokedTask">
+      <value href="trg.xmi#/0/@allModules.0/@tasks.0"/>
     </nodeMappings>
-    <nodeMappings key="invocationNode">
+    <nodeMappings key="invocationsNode">
       <value href="src.xmi#/0/@subFolder.0/@file.0/@rootNode/@children.1"/>
-    </nodeMappings>
-    <nodeMappings key="folderToModule">
-      <value href="corr.xmi#/1"/>
-    </nodeMappings>
-    <nodeMappings key="taskNode">
-      <value href="src.xmi#/0/@subFolder.0/@file.0/@rootNode"/>
-    </nodeMappings>
-    <nodeMappings key="importNode">
-      <value href="src.xmi#/0/@subFolder.0/@file.0/@rootNode/@children.0"/>
     </nodeMappings>
     <nodeMappings key="fileToTask">
       <value href="corr.xmi#/24"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="NodeToInvocationRule">
-    <createdSrc href="src.xmi#/2/@subFolder.0/@file.1/@rootNode/@children.1/@children.3"/>
-    <createdTrg href="trg.xmi#/2/@allModules.0/@tasks.1/@invocations.3"/>
-    <createdCorr href="corr.xmi#/20"/>
-    <contextSrc href="src.xmi#/2/@subFolder.0/@file.1"/>
-    <contextSrc href="src.xmi#/2/@subFolder.0"/>
-    <contextSrc href="src.xmi#/2/@subFolder.0/@file.1/@rootNode/@children.1"/>
-    <contextSrc href="src.xmi#/2/@subFolder.0/@file.2"/>
-    <contextSrc href="src.xmi#/2/@subFolder.0/@file.1/@rootNode"/>
-    <contextTrg href="trg.xmi#/2/@allModules.0/@tasks.2"/>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="SubFolderToModuleRule">
+    <createdSrc href="src.xmi#/2/@subFolder.1"/>
+    <createdTrg href="trg.xmi#/2/@allModules.1"/>
+    <createdCorr href="corr.xmi#/25"/>
+    <contextSrc href="src.xmi#/2"/>
     <contextTrg href="trg.xmi#/2"/>
-    <contextTrg href="trg.xmi#/2/@allModules.0/@tasks.1"/>
-    <nodeMappings key="fileToTask2">
-      <value href="corr.xmi#/11"/>
+    <nodeMappings key="subFolder">
+      <value href="src.xmi#/2/@subFolder.1"/>
     </nodeMappings>
-    <nodeMappings key="invocationNode">
-      <value href="src.xmi#/2/@subFolder.0/@file.1/@rootNode/@children.1/@children.3"/>
+    <nodeMappings key="system">
+      <value href="trg.xmi#/2"/>
     </nodeMappings>
-    <nodeMappings key="taskNode">
-      <value href="src.xmi#/2/@subFolder.0/@file.1/@rootNode"/>
+    <nodeMappings key="rootFolder">
+      <value href="src.xmi#/2"/>
     </nodeMappings>
-    <nodeMappings key="invocationNodeToInvocation">
-      <value href="corr.xmi#/20"/>
+    <nodeMappings key="module">
+      <value href="trg.xmi#/2/@allModules.1"/>
     </nodeMappings>
-    <nodeMappings key="otherFile">
-      <value href="src.xmi#/2/@subFolder.0/@file.2"/>
+    <nodeMappings key="folderToSystem">
+      <value href="corr.xmi#/4"/>
     </nodeMappings>
+    <nodeMappings key="subFolderToSubTask">
+      <value href="corr.xmi#/25"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="NodeToInvocationRecursiveRule">
+    <createdSrc href="src.xmi#/2/@subFolder.0/@file.0/@rootNode/@children.1/@children.1"/>
+    <createdTrg href="trg.xmi#/2/@allModules.0/@tasks.0/@invocations.1"/>
+    <createdCorr href="corr.xmi#/16"/>
+    <contextSrc href="src.xmi#/2/@subFolder.0/@file.0"/>
+    <contextSrc href="src.xmi#/2/@subFolder.0"/>
+    <contextSrc href="src.xmi#/2/@subFolder.0/@file.0/@rootNode/@children.1"/>
+    <contextSrc href="src.xmi#/2/@subFolder.0/@file.0/@rootNode"/>
+    <contextTrg href="trg.xmi#/2"/>
+    <contextTrg href="trg.xmi#/2/@allModules.0/@tasks.0"/>
     <nodeMappings key="invocation">
-      <value href="trg.xmi#/2/@allModules.0/@tasks.1/@invocations.3"/>
+      <value href="trg.xmi#/2/@allModules.0/@tasks.0/@invocations.1"/>
     </nodeMappings>
     <nodeMappings key="file">
-      <value href="src.xmi#/2/@subFolder.0/@file.1"/>
+      <value href="src.xmi#/2/@subFolder.0/@file.0"/>
     </nodeMappings>
     <nodeMappings key="folder">
       <value href="src.xmi#/2/@subFolder.0"/>
@@ -1055,16 +566,22 @@
       <value href="trg.xmi#/2"/>
     </nodeMappings>
     <nodeMappings key="task">
-      <value href="trg.xmi#/2/@allModules.0/@tasks.1"/>
-    </nodeMappings>
-    <nodeMappings key="invokedTask">
-      <value href="trg.xmi#/2/@allModules.0/@tasks.2"/>
+      <value href="trg.xmi#/2/@allModules.0/@tasks.0"/>
     </nodeMappings>
     <nodeMappings key="invocationsNode">
-      <value href="src.xmi#/2/@subFolder.0/@file.1/@rootNode/@children.1"/>
+      <value href="src.xmi#/2/@subFolder.0/@file.0/@rootNode/@children.1"/>
+    </nodeMappings>
+    <nodeMappings key="invocationNode">
+      <value href="src.xmi#/2/@subFolder.0/@file.0/@rootNode/@children.1/@children.1"/>
+    </nodeMappings>
+    <nodeMappings key="taskNode">
+      <value href="src.xmi#/2/@subFolder.0/@file.0/@rootNode"/>
+    </nodeMappings>
+    <nodeMappings key="invocationNodeToInvocation">
+      <value href="corr.xmi#/16"/>
     </nodeMappings>
     <nodeMappings key="fileToTask">
-      <value href="corr.xmi#/7"/>
+      <value href="corr.xmi#/6"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
   <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="NodeToInvocationRecursiveRule">
@@ -1168,32 +685,336 @@
       <value href="corr.xmi#/26"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="SubFolderToModuleRule">
-    <createdSrc href="src.xmi#/0/@subFolder.4"/>
-    <createdTrg href="trg.xmi#/0/@allModules.4"/>
-    <createdCorr href="corr.xmi#/50"/>
-    <contextSrc href="src.xmi#/0"/>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="NodeToInvocationRecursiveRule">
+    <createdSrc href="src.xmi#/0/@subFolder.0/@file.1/@rootNode/@children.1/@children.3"/>
+    <createdTrg href="trg.xmi#/0/@allModules.0/@tasks.1/@invocations.3"/>
+    <createdCorr href="corr.xmi#/38"/>
+    <contextSrc href="src.xmi#/0/@subFolder.0/@file.1"/>
+    <contextSrc href="src.xmi#/0/@subFolder.0"/>
+    <contextSrc href="src.xmi#/0/@subFolder.0/@file.1/@rootNode/@children.1"/>
+    <contextSrc href="src.xmi#/0/@subFolder.0/@file.1/@rootNode"/>
     <contextTrg href="trg.xmi#/0"/>
-    <nodeMappings key="subFolder">
-      <value href="src.xmi#/0/@subFolder.4"/>
+    <contextTrg href="trg.xmi#/0/@allModules.0/@tasks.1"/>
+    <nodeMappings key="invocation">
+      <value href="trg.xmi#/0/@allModules.0/@tasks.1/@invocations.3"/>
     </nodeMappings>
+    <nodeMappings key="file">
+      <value href="src.xmi#/0/@subFolder.0/@file.1"/>
+    </nodeMappings>
+    <nodeMappings key="folder">
+      <value href="src.xmi#/0/@subFolder.0"/>
+    </nodeMappings>
+    <nodeMappings key="system">
+      <value href="trg.xmi#/0"/>
+    </nodeMappings>
+    <nodeMappings key="task">
+      <value href="trg.xmi#/0/@allModules.0/@tasks.1"/>
+    </nodeMappings>
+    <nodeMappings key="invocationsNode">
+      <value href="src.xmi#/0/@subFolder.0/@file.1/@rootNode/@children.1"/>
+    </nodeMappings>
+    <nodeMappings key="invocationNode">
+      <value href="src.xmi#/0/@subFolder.0/@file.1/@rootNode/@children.1/@children.3"/>
+    </nodeMappings>
+    <nodeMappings key="taskNode">
+      <value href="src.xmi#/0/@subFolder.0/@file.1/@rootNode"/>
+    </nodeMappings>
+    <nodeMappings key="invocationNodeToInvocation">
+      <value href="corr.xmi#/38"/>
+    </nodeMappings>
+    <nodeMappings key="fileToTask">
+      <value href="corr.xmi#/26"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="FileToTaskRule">
+    <createdSrc href="src.xmi#/2/@subFolder.0/@file.1"/>
+    <createdSrc href="src.xmi#/2/@subFolder.0/@file.1/@rootNode/@children.0"/>
+    <createdSrc href="src.xmi#/2/@subFolder.0/@file.1/@rootNode/@children.1"/>
+    <createdSrc href="src.xmi#/2/@subFolder.0/@file.1/@rootNode"/>
+    <createdTrg href="trg.xmi#/2/@allModules.0/@tasks.1"/>
+    <createdCorr href="corr.xmi#/7"/>
+    <contextSrc href="src.xmi#/2/@subFolder.0"/>
+    <contextTrg href="trg.xmi#/2/@allModules.0"/>
+    <contextTrg href="trg.xmi#/2"/>
+    <nodeMappings key="file">
+      <value href="src.xmi#/2/@subFolder.0/@file.1"/>
+    </nodeMappings>
+    <nodeMappings key="folder">
+      <value href="src.xmi#/2/@subFolder.0"/>
+    </nodeMappings>
+    <nodeMappings key="system">
+      <value href="trg.xmi#/2"/>
+    </nodeMappings>
+    <nodeMappings key="task">
+      <value href="trg.xmi#/2/@allModules.0/@tasks.1"/>
+    </nodeMappings>
+    <nodeMappings key="module">
+      <value href="trg.xmi#/2/@allModules.0"/>
+    </nodeMappings>
+    <nodeMappings key="invocationNode">
+      <value href="src.xmi#/2/@subFolder.0/@file.1/@rootNode/@children.1"/>
+    </nodeMappings>
+    <nodeMappings key="folderToModule">
+      <value href="corr.xmi#/5"/>
+    </nodeMappings>
+    <nodeMappings key="taskNode">
+      <value href="src.xmi#/2/@subFolder.0/@file.1/@rootNode"/>
+    </nodeMappings>
+    <nodeMappings key="importNode">
+      <value href="src.xmi#/2/@subFolder.0/@file.1/@rootNode/@children.0"/>
+    </nodeMappings>
+    <nodeMappings key="fileToTask">
+      <value href="corr.xmi#/7"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="NodeToInvocationRecursiveRule">
+    <createdSrc href="src.xmi#/2/@subFolder.0/@file.1/@rootNode/@children.1/@children.4"/>
+    <createdTrg href="trg.xmi#/2/@allModules.0/@tasks.1/@invocations.4"/>
+    <createdCorr href="corr.xmi#/23"/>
+    <contextSrc href="src.xmi#/2/@subFolder.0/@file.1"/>
+    <contextSrc href="src.xmi#/2/@subFolder.0"/>
+    <contextSrc href="src.xmi#/2/@subFolder.0/@file.1/@rootNode/@children.1"/>
+    <contextSrc href="src.xmi#/2/@subFolder.0/@file.1/@rootNode"/>
+    <contextTrg href="trg.xmi#/2"/>
+    <contextTrg href="trg.xmi#/2/@allModules.0/@tasks.1"/>
+    <nodeMappings key="invocation">
+      <value href="trg.xmi#/2/@allModules.0/@tasks.1/@invocations.4"/>
+    </nodeMappings>
+    <nodeMappings key="file">
+      <value href="src.xmi#/2/@subFolder.0/@file.1"/>
+    </nodeMappings>
+    <nodeMappings key="folder">
+      <value href="src.xmi#/2/@subFolder.0"/>
+    </nodeMappings>
+    <nodeMappings key="system">
+      <value href="trg.xmi#/2"/>
+    </nodeMappings>
+    <nodeMappings key="task">
+      <value href="trg.xmi#/2/@allModules.0/@tasks.1"/>
+    </nodeMappings>
+    <nodeMappings key="invocationsNode">
+      <value href="src.xmi#/2/@subFolder.0/@file.1/@rootNode/@children.1"/>
+    </nodeMappings>
+    <nodeMappings key="invocationNode">
+      <value href="src.xmi#/2/@subFolder.0/@file.1/@rootNode/@children.1/@children.4"/>
+    </nodeMappings>
+    <nodeMappings key="taskNode">
+      <value href="src.xmi#/2/@subFolder.0/@file.1/@rootNode"/>
+    </nodeMappings>
+    <nodeMappings key="invocationNodeToInvocation">
+      <value href="corr.xmi#/23"/>
+    </nodeMappings>
+    <nodeMappings key="fileToTask">
+      <value href="corr.xmi#/7"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="NodeToImportRule">
+    <createdSrc href="src.xmi#/0/@subFolder.1/@file.0/@rootNode/@children.0/@children.0"/>
+    <createdTrg href="trg.xmi#/0/@allModules.1/@tasks.0/@imports.0"/>
+    <createdCorr href="corr.xmi#/17"/>
+    <contextSrc href="src.xmi#/0/@subFolder.1/@file.0"/>
+    <contextSrc href="src.xmi#/0/@subFolder.1"/>
+    <contextSrc href="src.xmi#/0/@subFolder.1/@file.0/@rootNode/@children.0"/>
+    <contextSrc href="src.xmi#/0/@subFolder.0"/>
+    <contextSrc href="src.xmi#/0"/>
+    <contextSrc href="src.xmi#/0/@subFolder.1/@file.0/@rootNode"/>
+    <contextTrg href="trg.xmi#/0/@allModules.0"/>
+    <contextTrg href="trg.xmi#/0/@allModules.1"/>
+    <contextTrg href="trg.xmi#/0"/>
+    <contextTrg href="trg.xmi#/0/@allModules.1/@tasks.0"/>
+    <nodeMappings key="importedModule">
+      <value href="trg.xmi#/0/@allModules.0"/>
+    </nodeMappings>
+    <nodeMappings key="otherFolder">
+      <value href="src.xmi#/0/@subFolder.0"/>
+    </nodeMappings>
+    <nodeMappings key="fileToImportedModule">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="rootFolder">
+      <value href="src.xmi#/0"/>
+    </nodeMappings>
+    <nodeMappings key="module">
+      <value href="trg.xmi#/0/@allModules.1"/>
+    </nodeMappings>
+    <nodeMappings key="nodeToImport">
+      <value href="corr.xmi#/17"/>
+    </nodeMappings>
+    <nodeMappings key="invocationNode">
+      <value href="src.xmi#/0/@subFolder.1/@file.0/@rootNode/@children.0/@children.0"/>
+    </nodeMappings>
+    <nodeMappings key="taskNode">
+      <value href="src.xmi#/0/@subFolder.1/@file.0/@rootNode"/>
+    </nodeMappings>
+    <nodeMappings key="invocation">
+      <value href="trg.xmi#/0/@allModules.1/@tasks.0/@imports.0"/>
+    </nodeMappings>
+    <nodeMappings key="file">
+      <value href="src.xmi#/0/@subFolder.1/@file.0"/>
+    </nodeMappings>
+    <nodeMappings key="folder">
+      <value href="src.xmi#/0/@subFolder.1"/>
+    </nodeMappings>
+    <nodeMappings key="system">
+      <value href="trg.xmi#/0"/>
+    </nodeMappings>
+    <nodeMappings key="task">
+      <value href="trg.xmi#/0/@allModules.1/@tasks.0"/>
+    </nodeMappings>
+    <nodeMappings key="invocationsNode">
+      <value href="src.xmi#/0/@subFolder.1/@file.0/@rootNode/@children.0"/>
+    </nodeMappings>
+    <nodeMappings key="fileToTask">
+      <value href="corr.xmi#/8"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="FileToTaskRule">
+    <createdSrc href="src.xmi#/0/@subFolder.0/@file.1"/>
+    <createdSrc href="src.xmi#/0/@subFolder.0/@file.1/@rootNode/@children.0"/>
+    <createdSrc href="src.xmi#/0/@subFolder.0/@file.1/@rootNode/@children.1"/>
+    <createdSrc href="src.xmi#/0/@subFolder.0/@file.1/@rootNode"/>
+    <createdTrg href="trg.xmi#/0/@allModules.0/@tasks.1"/>
+    <createdCorr href="corr.xmi#/26"/>
+    <contextSrc href="src.xmi#/0/@subFolder.0"/>
+    <contextTrg href="trg.xmi#/0/@allModules.0"/>
+    <contextTrg href="trg.xmi#/0"/>
+    <nodeMappings key="file">
+      <value href="src.xmi#/0/@subFolder.0/@file.1"/>
+    </nodeMappings>
+    <nodeMappings key="folder">
+      <value href="src.xmi#/0/@subFolder.0"/>
+    </nodeMappings>
+    <nodeMappings key="system">
+      <value href="trg.xmi#/0"/>
+    </nodeMappings>
+    <nodeMappings key="task">
+      <value href="trg.xmi#/0/@allModules.0/@tasks.1"/>
+    </nodeMappings>
+    <nodeMappings key="module">
+      <value href="trg.xmi#/0/@allModules.0"/>
+    </nodeMappings>
+    <nodeMappings key="invocationNode">
+      <value href="src.xmi#/0/@subFolder.0/@file.1/@rootNode/@children.1"/>
+    </nodeMappings>
+    <nodeMappings key="folderToModule">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="taskNode">
+      <value href="src.xmi#/0/@subFolder.0/@file.1/@rootNode"/>
+    </nodeMappings>
+    <nodeMappings key="importNode">
+      <value href="src.xmi#/0/@subFolder.0/@file.1/@rootNode/@children.0"/>
+    </nodeMappings>
+    <nodeMappings key="fileToTask">
+      <value href="corr.xmi#/26"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="FileToTaskRule">
+    <createdSrc href="src.xmi#/0/@subFolder.1/@file.1"/>
+    <createdSrc href="src.xmi#/0/@subFolder.1/@file.1/@rootNode/@children.0"/>
+    <createdSrc href="src.xmi#/0/@subFolder.1/@file.1/@rootNode/@children.1"/>
+    <createdSrc href="src.xmi#/0/@subFolder.1/@file.1/@rootNode"/>
+    <createdTrg href="trg.xmi#/0/@allModules.1/@tasks.1"/>
+    <createdCorr href="corr.xmi#/39"/>
+    <contextSrc href="src.xmi#/0/@subFolder.1"/>
+    <contextTrg href="trg.xmi#/0/@allModules.1"/>
+    <contextTrg href="trg.xmi#/0"/>
+    <nodeMappings key="file">
+      <value href="src.xmi#/0/@subFolder.1/@file.1"/>
+    </nodeMappings>
+    <nodeMappings key="folder">
+      <value href="src.xmi#/0/@subFolder.1"/>
+    </nodeMappings>
+    <nodeMappings key="system">
+      <value href="trg.xmi#/0"/>
+    </nodeMappings>
+    <nodeMappings key="task">
+      <value href="trg.xmi#/0/@allModules.1/@tasks.1"/>
+    </nodeMappings>
+    <nodeMappings key="module">
+      <value href="trg.xmi#/0/@allModules.1"/>
+    </nodeMappings>
+    <nodeMappings key="invocationNode">
+      <value href="src.xmi#/0/@subFolder.1/@file.1/@rootNode/@children.1"/>
+    </nodeMappings>
+    <nodeMappings key="folderToModule">
+      <value href="corr.xmi#/2"/>
+    </nodeMappings>
+    <nodeMappings key="taskNode">
+      <value href="src.xmi#/0/@subFolder.1/@file.1/@rootNode"/>
+    </nodeMappings>
+    <nodeMappings key="importNode">
+      <value href="src.xmi#/0/@subFolder.1/@file.1/@rootNode/@children.0"/>
+    </nodeMappings>
+    <nodeMappings key="fileToTask">
+      <value href="corr.xmi#/39"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="RootToSystemRule">
+    <createdSrc href="src.xmi#/0"/>
+    <createdTrg href="trg.xmi#/0"/>
+    <createdCorr href="corr.xmi#/0"/>
     <nodeMappings key="system">
       <value href="trg.xmi#/0"/>
     </nodeMappings>
     <nodeMappings key="rootFolder">
       <value href="src.xmi#/0"/>
     </nodeMappings>
-    <nodeMappings key="module">
-      <value href="trg.xmi#/0/@allModules.4"/>
-    </nodeMappings>
-    <nodeMappings key="folderToSystem">
+    <nodeMappings key="rootFolderToSystem">
       <value href="corr.xmi#/0"/>
-    </nodeMappings>
-    <nodeMappings key="subFolderToSubTask">
-      <value href="corr.xmi#/50"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
   <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="NodeToInvocationRule">
+    <createdSrc href="src.xmi#/2/@subFolder.0/@file.2/@rootNode/@children.1/@children.0"/>
+    <createdTrg href="trg.xmi#/2/@allModules.0/@tasks.2/@invocations.0"/>
+    <createdCorr href="corr.xmi#/12"/>
+    <contextSrc href="src.xmi#/2/@subFolder.0/@file.2"/>
+    <contextSrc href="src.xmi#/2/@subFolder.0"/>
+    <contextSrc href="src.xmi#/2/@subFolder.0/@file.2/@rootNode/@children.1"/>
+    <contextSrc href="src.xmi#/2/@subFolder.0/@file.2/@rootNode"/>
+    <contextTrg href="trg.xmi#/2/@allModules.0/@tasks.2"/>
+    <contextTrg href="trg.xmi#/2"/>
+    <nodeMappings key="fileToTask2">
+      <value href="corr.xmi#/11"/>
+    </nodeMappings>
+    <nodeMappings key="invocationNode">
+      <value href="src.xmi#/2/@subFolder.0/@file.2/@rootNode/@children.1/@children.0"/>
+    </nodeMappings>
+    <nodeMappings key="taskNode">
+      <value href="src.xmi#/2/@subFolder.0/@file.2/@rootNode"/>
+    </nodeMappings>
+    <nodeMappings key="invocationNodeToInvocation">
+      <value href="corr.xmi#/12"/>
+    </nodeMappings>
+    <nodeMappings key="otherFile">
+      <value href="src.xmi#/2/@subFolder.0/@file.2"/>
+    </nodeMappings>
+    <nodeMappings key="invocation">
+      <value href="trg.xmi#/2/@allModules.0/@tasks.2/@invocations.0"/>
+    </nodeMappings>
+    <nodeMappings key="file">
+      <value href="src.xmi#/2/@subFolder.0/@file.2"/>
+    </nodeMappings>
+    <nodeMappings key="folder">
+      <value href="src.xmi#/2/@subFolder.0"/>
+    </nodeMappings>
+    <nodeMappings key="system">
+      <value href="trg.xmi#/2"/>
+    </nodeMappings>
+    <nodeMappings key="task">
+      <value href="trg.xmi#/2/@allModules.0/@tasks.2"/>
+    </nodeMappings>
+    <nodeMappings key="invokedTask">
+      <value href="trg.xmi#/2/@allModules.0/@tasks.2"/>
+    </nodeMappings>
+    <nodeMappings key="invocationsNode">
+      <value href="src.xmi#/2/@subFolder.0/@file.2/@rootNode/@children.1"/>
+    </nodeMappings>
+    <nodeMappings key="fileToTask">
+      <value href="corr.xmi#/11"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="NodeToInvocationRecursiveRule">
     <createdSrc href="src.xmi#/0/@subFolder.0/@file.1/@rootNode/@children.1/@children.4"/>
     <createdTrg href="trg.xmi#/0/@allModules.0/@tasks.1/@invocations.4"/>
     <createdCorr href="corr.xmi#/40"/>
@@ -1201,23 +1022,8 @@
     <contextSrc href="src.xmi#/0/@subFolder.0"/>
     <contextSrc href="src.xmi#/0/@subFolder.0/@file.1/@rootNode/@children.1"/>
     <contextSrc href="src.xmi#/0/@subFolder.0/@file.1/@rootNode"/>
-    <contextTrg href="trg.xmi#/0/@allModules.0/@tasks.1"/>
     <contextTrg href="trg.xmi#/0"/>
-    <nodeMappings key="fileToTask2">
-      <value href="corr.xmi#/26"/>
-    </nodeMappings>
-    <nodeMappings key="invocationNode">
-      <value href="src.xmi#/0/@subFolder.0/@file.1/@rootNode/@children.1/@children.4"/>
-    </nodeMappings>
-    <nodeMappings key="taskNode">
-      <value href="src.xmi#/0/@subFolder.0/@file.1/@rootNode"/>
-    </nodeMappings>
-    <nodeMappings key="invocationNodeToInvocation">
-      <value href="corr.xmi#/40"/>
-    </nodeMappings>
-    <nodeMappings key="otherFile">
-      <value href="src.xmi#/0/@subFolder.0/@file.1"/>
-    </nodeMappings>
+    <contextTrg href="trg.xmi#/0/@allModules.0/@tasks.1"/>
     <nodeMappings key="invocation">
       <value href="trg.xmi#/0/@allModules.0/@tasks.1/@invocations.4"/>
     </nodeMappings>
@@ -1233,11 +1039,58 @@
     <nodeMappings key="task">
       <value href="trg.xmi#/0/@allModules.0/@tasks.1"/>
     </nodeMappings>
-    <nodeMappings key="invokedTask">
+    <nodeMappings key="invocationsNode">
+      <value href="src.xmi#/0/@subFolder.0/@file.1/@rootNode/@children.1"/>
+    </nodeMappings>
+    <nodeMappings key="invocationNode">
+      <value href="src.xmi#/0/@subFolder.0/@file.1/@rootNode/@children.1/@children.4"/>
+    </nodeMappings>
+    <nodeMappings key="taskNode">
+      <value href="src.xmi#/0/@subFolder.0/@file.1/@rootNode"/>
+    </nodeMappings>
+    <nodeMappings key="invocationNodeToInvocation">
+      <value href="corr.xmi#/40"/>
+    </nodeMappings>
+    <nodeMappings key="fileToTask">
+      <value href="corr.xmi#/26"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="NodeToInvocationRecursiveRule">
+    <createdSrc href="src.xmi#/0/@subFolder.0/@file.1/@rootNode/@children.1/@children.0"/>
+    <createdTrg href="trg.xmi#/0/@allModules.0/@tasks.1/@invocations.0"/>
+    <createdCorr href="corr.xmi#/30"/>
+    <contextSrc href="src.xmi#/0/@subFolder.0/@file.1"/>
+    <contextSrc href="src.xmi#/0/@subFolder.0"/>
+    <contextSrc href="src.xmi#/0/@subFolder.0/@file.1/@rootNode/@children.1"/>
+    <contextSrc href="src.xmi#/0/@subFolder.0/@file.1/@rootNode"/>
+    <contextTrg href="trg.xmi#/0"/>
+    <contextTrg href="trg.xmi#/0/@allModules.0/@tasks.1"/>
+    <nodeMappings key="invocation">
+      <value href="trg.xmi#/0/@allModules.0/@tasks.1/@invocations.0"/>
+    </nodeMappings>
+    <nodeMappings key="file">
+      <value href="src.xmi#/0/@subFolder.0/@file.1"/>
+    </nodeMappings>
+    <nodeMappings key="folder">
+      <value href="src.xmi#/0/@subFolder.0"/>
+    </nodeMappings>
+    <nodeMappings key="system">
+      <value href="trg.xmi#/0"/>
+    </nodeMappings>
+    <nodeMappings key="task">
       <value href="trg.xmi#/0/@allModules.0/@tasks.1"/>
     </nodeMappings>
     <nodeMappings key="invocationsNode">
       <value href="src.xmi#/0/@subFolder.0/@file.1/@rootNode/@children.1"/>
+    </nodeMappings>
+    <nodeMappings key="invocationNode">
+      <value href="src.xmi#/0/@subFolder.0/@file.1/@rootNode/@children.1/@children.0"/>
+    </nodeMappings>
+    <nodeMappings key="taskNode">
+      <value href="src.xmi#/0/@subFolder.0/@file.1/@rootNode"/>
+    </nodeMappings>
+    <nodeMappings key="invocationNodeToInvocation">
+      <value href="corr.xmi#/30"/>
     </nodeMappings>
     <nodeMappings key="fileToTask">
       <value href="corr.xmi#/26"/>
@@ -1303,96 +1156,38 @@
       <value href="corr.xmi#/24"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="SubFolderToModuleRule">
-    <createdSrc href="src.xmi#/2/@subFolder.0"/>
-    <createdTrg href="trg.xmi#/2/@allModules.0"/>
-    <createdCorr href="corr.xmi#/5"/>
-    <contextSrc href="src.xmi#/2"/>
-    <contextTrg href="trg.xmi#/2"/>
-    <nodeMappings key="subFolder">
-      <value href="src.xmi#/2/@subFolder.0"/>
-    </nodeMappings>
-    <nodeMappings key="system">
-      <value href="trg.xmi#/2"/>
-    </nodeMappings>
-    <nodeMappings key="rootFolder">
-      <value href="src.xmi#/2"/>
-    </nodeMappings>
-    <nodeMappings key="module">
-      <value href="trg.xmi#/2/@allModules.0"/>
-    </nodeMappings>
-    <nodeMappings key="folderToSystem">
-      <value href="corr.xmi#/4"/>
-    </nodeMappings>
-    <nodeMappings key="subFolderToSubTask">
-      <value href="corr.xmi#/5"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
   <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="NodeToInvocationRule">
-    <createdSrc href="src.xmi#/0/@subFolder.0/@file.1/@rootNode/@children.1/@children.3"/>
-    <createdTrg href="trg.xmi#/0/@allModules.0/@tasks.1/@invocations.3"/>
-    <createdCorr href="corr.xmi#/38"/>
-    <contextSrc href="src.xmi#/0/@subFolder.0/@file.1"/>
-    <contextSrc href="src.xmi#/0/@subFolder.0"/>
-    <contextSrc href="src.xmi#/0/@subFolder.0/@file.1/@rootNode/@children.1"/>
-    <contextSrc href="src.xmi#/0/@subFolder.0/@file.1/@rootNode"/>
-    <contextTrg href="trg.xmi#/0/@allModules.0/@tasks.1"/>
-    <contextTrg href="trg.xmi#/0"/>
+    <createdSrc href="src.xmi#/2/@subFolder.0/@file.1/@rootNode/@children.1/@children.0"/>
+    <createdTrg href="trg.xmi#/2/@allModules.0/@tasks.1/@invocations.0"/>
+    <createdCorr href="corr.xmi#/9"/>
+    <contextSrc href="src.xmi#/2/@subFolder.0/@file.1"/>
+    <contextSrc href="src.xmi#/2/@subFolder.0"/>
+    <contextSrc href="src.xmi#/2/@subFolder.0/@file.1/@rootNode/@children.1"/>
+    <contextSrc href="src.xmi#/2/@subFolder.0/@file.0"/>
+    <contextSrc href="src.xmi#/2/@subFolder.0/@file.1/@rootNode"/>
+    <contextTrg href="trg.xmi#/2/@allModules.0/@tasks.0"/>
+    <contextTrg href="trg.xmi#/2"/>
+    <contextTrg href="trg.xmi#/2/@allModules.0/@tasks.1"/>
     <nodeMappings key="fileToTask2">
-      <value href="corr.xmi#/26"/>
+      <value href="corr.xmi#/6"/>
     </nodeMappings>
     <nodeMappings key="invocationNode">
-      <value href="src.xmi#/0/@subFolder.0/@file.1/@rootNode/@children.1/@children.3"/>
+      <value href="src.xmi#/2/@subFolder.0/@file.1/@rootNode/@children.1/@children.0"/>
     </nodeMappings>
     <nodeMappings key="taskNode">
-      <value href="src.xmi#/0/@subFolder.0/@file.1/@rootNode"/>
+      <value href="src.xmi#/2/@subFolder.0/@file.1/@rootNode"/>
     </nodeMappings>
     <nodeMappings key="invocationNodeToInvocation">
-      <value href="corr.xmi#/38"/>
+      <value href="corr.xmi#/9"/>
     </nodeMappings>
     <nodeMappings key="otherFile">
-      <value href="src.xmi#/0/@subFolder.0/@file.1"/>
-    </nodeMappings>
-    <nodeMappings key="invocation">
-      <value href="trg.xmi#/0/@allModules.0/@tasks.1/@invocations.3"/>
-    </nodeMappings>
-    <nodeMappings key="file">
-      <value href="src.xmi#/0/@subFolder.0/@file.1"/>
-    </nodeMappings>
-    <nodeMappings key="folder">
-      <value href="src.xmi#/0/@subFolder.0"/>
-    </nodeMappings>
-    <nodeMappings key="system">
-      <value href="trg.xmi#/0"/>
-    </nodeMappings>
-    <nodeMappings key="task">
-      <value href="trg.xmi#/0/@allModules.0/@tasks.1"/>
-    </nodeMappings>
-    <nodeMappings key="invokedTask">
-      <value href="trg.xmi#/0/@allModules.0/@tasks.1"/>
-    </nodeMappings>
-    <nodeMappings key="invocationsNode">
-      <value href="src.xmi#/0/@subFolder.0/@file.1/@rootNode/@children.1"/>
-    </nodeMappings>
-    <nodeMappings key="fileToTask">
-      <value href="corr.xmi#/26"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="NodeToInvocationRecursiveRule">
-    <createdSrc href="src.xmi#/2/@subFolder.0/@file.0/@rootNode/@children.1/@children.1"/>
-    <createdTrg href="trg.xmi#/2/@allModules.0/@tasks.0/@invocations.1"/>
-    <createdCorr href="corr.xmi#/16"/>
-    <contextSrc href="src.xmi#/2/@subFolder.0/@file.0"/>
-    <contextSrc href="src.xmi#/2/@subFolder.0"/>
-    <contextSrc href="src.xmi#/2/@subFolder.0/@file.0/@rootNode/@children.1"/>
-    <contextSrc href="src.xmi#/2/@subFolder.0/@file.0/@rootNode"/>
-    <contextTrg href="trg.xmi#/2"/>
-    <contextTrg href="trg.xmi#/2/@allModules.0/@tasks.0"/>
-    <nodeMappings key="invocation">
-      <value href="trg.xmi#/2/@allModules.0/@tasks.0/@invocations.1"/>
-    </nodeMappings>
-    <nodeMappings key="file">
       <value href="src.xmi#/2/@subFolder.0/@file.0"/>
+    </nodeMappings>
+    <nodeMappings key="invocation">
+      <value href="trg.xmi#/2/@allModules.0/@tasks.1/@invocations.0"/>
+    </nodeMappings>
+    <nodeMappings key="file">
+      <value href="src.xmi#/2/@subFolder.0/@file.1"/>
     </nodeMappings>
     <nodeMappings key="folder">
       <value href="src.xmi#/2/@subFolder.0"/>
@@ -1401,47 +1196,66 @@
       <value href="trg.xmi#/2"/>
     </nodeMappings>
     <nodeMappings key="task">
+      <value href="trg.xmi#/2/@allModules.0/@tasks.1"/>
+    </nodeMappings>
+    <nodeMappings key="invokedTask">
       <value href="trg.xmi#/2/@allModules.0/@tasks.0"/>
     </nodeMappings>
     <nodeMappings key="invocationsNode">
-      <value href="src.xmi#/2/@subFolder.0/@file.0/@rootNode/@children.1"/>
-    </nodeMappings>
-    <nodeMappings key="invocationNode">
-      <value href="src.xmi#/2/@subFolder.0/@file.0/@rootNode/@children.1/@children.1"/>
-    </nodeMappings>
-    <nodeMappings key="taskNode">
-      <value href="src.xmi#/2/@subFolder.0/@file.0/@rootNode"/>
-    </nodeMappings>
-    <nodeMappings key="invocationNodeToInvocation">
-      <value href="corr.xmi#/16"/>
+      <value href="src.xmi#/2/@subFolder.0/@file.1/@rootNode/@children.1"/>
     </nodeMappings>
     <nodeMappings key="fileToTask">
-      <value href="corr.xmi#/6"/>
+      <value href="corr.xmi#/7"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="SubFolderToModuleRule">
-    <createdSrc href="src.xmi#/1/@subFolder.1"/>
-    <createdTrg href="trg.xmi#/1/@allModules.1"/>
-    <createdCorr href="corr.xmi#/34"/>
-    <contextSrc href="src.xmi#/1"/>
-    <contextTrg href="trg.xmi#/1"/>
-    <nodeMappings key="subFolder">
-      <value href="src.xmi#/1/@subFolder.1"/>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="NodeToInvocationRule">
+    <createdSrc href="src.xmi#/2/@subFolder.0/@file.2/@rootNode/@children.1/@children.1"/>
+    <createdTrg href="trg.xmi#/2/@allModules.0/@tasks.2/@invocations.1"/>
+    <createdCorr href="corr.xmi#/21"/>
+    <contextSrc href="src.xmi#/2/@subFolder.0/@file.2"/>
+    <contextSrc href="src.xmi#/2/@subFolder.0"/>
+    <contextSrc href="src.xmi#/2/@subFolder.0/@file.2/@rootNode/@children.1"/>
+    <contextSrc href="src.xmi#/2/@subFolder.0/@file.2/@rootNode"/>
+    <contextTrg href="trg.xmi#/2/@allModules.0/@tasks.2"/>
+    <contextTrg href="trg.xmi#/2"/>
+    <nodeMappings key="fileToTask2">
+      <value href="corr.xmi#/11"/>
+    </nodeMappings>
+    <nodeMappings key="invocationNode">
+      <value href="src.xmi#/2/@subFolder.0/@file.2/@rootNode/@children.1/@children.1"/>
+    </nodeMappings>
+    <nodeMappings key="taskNode">
+      <value href="src.xmi#/2/@subFolder.0/@file.2/@rootNode"/>
+    </nodeMappings>
+    <nodeMappings key="invocationNodeToInvocation">
+      <value href="corr.xmi#/21"/>
+    </nodeMappings>
+    <nodeMappings key="otherFile">
+      <value href="src.xmi#/2/@subFolder.0/@file.2"/>
+    </nodeMappings>
+    <nodeMappings key="invocation">
+      <value href="trg.xmi#/2/@allModules.0/@tasks.2/@invocations.1"/>
+    </nodeMappings>
+    <nodeMappings key="file">
+      <value href="src.xmi#/2/@subFolder.0/@file.2"/>
+    </nodeMappings>
+    <nodeMappings key="folder">
+      <value href="src.xmi#/2/@subFolder.0"/>
     </nodeMappings>
     <nodeMappings key="system">
-      <value href="trg.xmi#/1"/>
+      <value href="trg.xmi#/2"/>
     </nodeMappings>
-    <nodeMappings key="rootFolder">
-      <value href="src.xmi#/1"/>
+    <nodeMappings key="task">
+      <value href="trg.xmi#/2/@allModules.0/@tasks.2"/>
     </nodeMappings>
-    <nodeMappings key="module">
-      <value href="trg.xmi#/1/@allModules.1"/>
+    <nodeMappings key="invokedTask">
+      <value href="trg.xmi#/2/@allModules.0/@tasks.2"/>
     </nodeMappings>
-    <nodeMappings key="folderToSystem">
-      <value href="corr.xmi#/3"/>
+    <nodeMappings key="invocationsNode">
+      <value href="src.xmi#/2/@subFolder.0/@file.2/@rootNode/@children.1"/>
     </nodeMappings>
-    <nodeMappings key="subFolderToSubTask">
-      <value href="corr.xmi#/34"/>
+    <nodeMappings key="fileToTask">
+      <value href="corr.xmi#/11"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
   <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="NodeToInvocationRule">
@@ -1494,31 +1308,6 @@
       <value href="corr.xmi#/6"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="SubFolderToModuleRule">
-    <createdSrc href="src.xmi#/2/@subFolder.1"/>
-    <createdTrg href="trg.xmi#/2/@allModules.1"/>
-    <createdCorr href="corr.xmi#/25"/>
-    <contextSrc href="src.xmi#/2"/>
-    <contextTrg href="trg.xmi#/2"/>
-    <nodeMappings key="subFolder">
-      <value href="src.xmi#/2/@subFolder.1"/>
-    </nodeMappings>
-    <nodeMappings key="system">
-      <value href="trg.xmi#/2"/>
-    </nodeMappings>
-    <nodeMappings key="rootFolder">
-      <value href="src.xmi#/2"/>
-    </nodeMappings>
-    <nodeMappings key="module">
-      <value href="trg.xmi#/2/@allModules.1"/>
-    </nodeMappings>
-    <nodeMappings key="folderToSystem">
-      <value href="corr.xmi#/4"/>
-    </nodeMappings>
-    <nodeMappings key="subFolderToSubTask">
-      <value href="corr.xmi#/25"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
   <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="FileToTaskRule">
     <createdSrc href="src.xmi#/1/@subFolder.1/@file.0"/>
     <createdSrc href="src.xmi#/1/@subFolder.1/@file.0/@rootNode/@children.0"/>
@@ -1560,101 +1349,33 @@
       <value href="corr.xmi#/41"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="SubFolderToModuleRule">
-    <createdSrc href="src.xmi#/0/@subFolder.1"/>
-    <createdTrg href="trg.xmi#/0/@allModules.1"/>
-    <createdCorr href="corr.xmi#/2"/>
-    <contextSrc href="src.xmi#/0"/>
-    <contextTrg href="trg.xmi#/0"/>
-    <nodeMappings key="subFolder">
-      <value href="src.xmi#/0/@subFolder.1"/>
-    </nodeMappings>
-    <nodeMappings key="system">
-      <value href="trg.xmi#/0"/>
-    </nodeMappings>
-    <nodeMappings key="rootFolder">
-      <value href="src.xmi#/0"/>
-    </nodeMappings>
-    <nodeMappings key="module">
-      <value href="trg.xmi#/0/@allModules.1"/>
-    </nodeMappings>
-    <nodeMappings key="folderToSystem">
-      <value href="corr.xmi#/0"/>
-    </nodeMappings>
-    <nodeMappings key="subFolderToSubTask">
-      <value href="corr.xmi#/2"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="FileToTaskRule">
-    <createdSrc href="src.xmi#/1/@subFolder.0/@file.0"/>
-    <createdSrc href="src.xmi#/1/@subFolder.0/@file.0/@rootNode/@children.0"/>
-    <createdSrc href="src.xmi#/1/@subFolder.0/@file.0/@rootNode/@children.1"/>
-    <createdSrc href="src.xmi#/1/@subFolder.0/@file.0/@rootNode"/>
-    <createdTrg href="trg.xmi#/1/@allModules.0/@tasks.0"/>
-    <createdCorr href="corr.xmi#/29"/>
-    <contextSrc href="src.xmi#/1/@subFolder.0"/>
-    <contextTrg href="trg.xmi#/1/@allModules.0"/>
-    <contextTrg href="trg.xmi#/1"/>
-    <nodeMappings key="file">
-      <value href="src.xmi#/1/@subFolder.0/@file.0"/>
-    </nodeMappings>
-    <nodeMappings key="folder">
-      <value href="src.xmi#/1/@subFolder.0"/>
-    </nodeMappings>
-    <nodeMappings key="system">
-      <value href="trg.xmi#/1"/>
-    </nodeMappings>
-    <nodeMappings key="task">
-      <value href="trg.xmi#/1/@allModules.0/@tasks.0"/>
-    </nodeMappings>
-    <nodeMappings key="module">
-      <value href="trg.xmi#/1/@allModules.0"/>
-    </nodeMappings>
-    <nodeMappings key="invocationNode">
-      <value href="src.xmi#/1/@subFolder.0/@file.0/@rootNode/@children.1"/>
-    </nodeMappings>
-    <nodeMappings key="folderToModule">
-      <value href="corr.xmi#/19"/>
-    </nodeMappings>
-    <nodeMappings key="taskNode">
-      <value href="src.xmi#/1/@subFolder.0/@file.0/@rootNode"/>
-    </nodeMappings>
-    <nodeMappings key="importNode">
-      <value href="src.xmi#/1/@subFolder.0/@file.0/@rootNode/@children.0"/>
-    </nodeMappings>
-    <nodeMappings key="fileToTask">
-      <value href="corr.xmi#/29"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
   <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="NodeToInvocationRule">
-    <createdSrc href="src.xmi#/2/@subFolder.0/@file.1/@rootNode/@children.1/@children.0"/>
-    <createdTrg href="trg.xmi#/2/@allModules.0/@tasks.1/@invocations.0"/>
-    <createdCorr href="corr.xmi#/9"/>
+    <createdSrc href="src.xmi#/2/@subFolder.0/@file.1/@rootNode/@children.1/@children.1"/>
+    <createdTrg href="trg.xmi#/2/@allModules.0/@tasks.1/@invocations.1"/>
+    <createdCorr href="corr.xmi#/10"/>
     <contextSrc href="src.xmi#/2/@subFolder.0/@file.1"/>
     <contextSrc href="src.xmi#/2/@subFolder.0"/>
     <contextSrc href="src.xmi#/2/@subFolder.0/@file.1/@rootNode/@children.1"/>
-    <contextSrc href="src.xmi#/2/@subFolder.0/@file.0"/>
     <contextSrc href="src.xmi#/2/@subFolder.0/@file.1/@rootNode"/>
-    <contextTrg href="trg.xmi#/2/@allModules.0/@tasks.0"/>
-    <contextTrg href="trg.xmi#/2"/>
     <contextTrg href="trg.xmi#/2/@allModules.0/@tasks.1"/>
+    <contextTrg href="trg.xmi#/2"/>
     <nodeMappings key="fileToTask2">
-      <value href="corr.xmi#/6"/>
+      <value href="corr.xmi#/7"/>
     </nodeMappings>
     <nodeMappings key="invocationNode">
-      <value href="src.xmi#/2/@subFolder.0/@file.1/@rootNode/@children.1/@children.0"/>
+      <value href="src.xmi#/2/@subFolder.0/@file.1/@rootNode/@children.1/@children.1"/>
     </nodeMappings>
     <nodeMappings key="taskNode">
       <value href="src.xmi#/2/@subFolder.0/@file.1/@rootNode"/>
     </nodeMappings>
     <nodeMappings key="invocationNodeToInvocation">
-      <value href="corr.xmi#/9"/>
+      <value href="corr.xmi#/10"/>
     </nodeMappings>
     <nodeMappings key="otherFile">
-      <value href="src.xmi#/2/@subFolder.0/@file.0"/>
+      <value href="src.xmi#/2/@subFolder.0/@file.1"/>
     </nodeMappings>
     <nodeMappings key="invocation">
-      <value href="trg.xmi#/2/@allModules.0/@tasks.1/@invocations.0"/>
+      <value href="trg.xmi#/2/@allModules.0/@tasks.1/@invocations.1"/>
     </nodeMappings>
     <nodeMappings key="file">
       <value href="src.xmi#/2/@subFolder.0/@file.1"/>
@@ -1669,13 +1390,166 @@
       <value href="trg.xmi#/2/@allModules.0/@tasks.1"/>
     </nodeMappings>
     <nodeMappings key="invokedTask">
-      <value href="trg.xmi#/2/@allModules.0/@tasks.0"/>
+      <value href="trg.xmi#/2/@allModules.0/@tasks.1"/>
     </nodeMappings>
     <nodeMappings key="invocationsNode">
       <value href="src.xmi#/2/@subFolder.0/@file.1/@rootNode/@children.1"/>
     </nodeMappings>
     <nodeMappings key="fileToTask">
       <value href="corr.xmi#/7"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="NodeToInvocationRule">
+    <createdSrc href="src.xmi#/2/@subFolder.0/@file.1/@rootNode/@children.1/@children.3"/>
+    <createdTrg href="trg.xmi#/2/@allModules.0/@tasks.1/@invocations.3"/>
+    <createdCorr href="corr.xmi#/20"/>
+    <contextSrc href="src.xmi#/2/@subFolder.0/@file.1"/>
+    <contextSrc href="src.xmi#/2/@subFolder.0"/>
+    <contextSrc href="src.xmi#/2/@subFolder.0/@file.1/@rootNode/@children.1"/>
+    <contextSrc href="src.xmi#/2/@subFolder.0/@file.2"/>
+    <contextSrc href="src.xmi#/2/@subFolder.0/@file.1/@rootNode"/>
+    <contextTrg href="trg.xmi#/2/@allModules.0/@tasks.2"/>
+    <contextTrg href="trg.xmi#/2"/>
+    <contextTrg href="trg.xmi#/2/@allModules.0/@tasks.1"/>
+    <nodeMappings key="fileToTask2">
+      <value href="corr.xmi#/11"/>
+    </nodeMappings>
+    <nodeMappings key="invocationNode">
+      <value href="src.xmi#/2/@subFolder.0/@file.1/@rootNode/@children.1/@children.3"/>
+    </nodeMappings>
+    <nodeMappings key="taskNode">
+      <value href="src.xmi#/2/@subFolder.0/@file.1/@rootNode"/>
+    </nodeMappings>
+    <nodeMappings key="invocationNodeToInvocation">
+      <value href="corr.xmi#/20"/>
+    </nodeMappings>
+    <nodeMappings key="otherFile">
+      <value href="src.xmi#/2/@subFolder.0/@file.2"/>
+    </nodeMappings>
+    <nodeMappings key="invocation">
+      <value href="trg.xmi#/2/@allModules.0/@tasks.1/@invocations.3"/>
+    </nodeMappings>
+    <nodeMappings key="file">
+      <value href="src.xmi#/2/@subFolder.0/@file.1"/>
+    </nodeMappings>
+    <nodeMappings key="folder">
+      <value href="src.xmi#/2/@subFolder.0"/>
+    </nodeMappings>
+    <nodeMappings key="system">
+      <value href="trg.xmi#/2"/>
+    </nodeMappings>
+    <nodeMappings key="task">
+      <value href="trg.xmi#/2/@allModules.0/@tasks.1"/>
+    </nodeMappings>
+    <nodeMappings key="invokedTask">
+      <value href="trg.xmi#/2/@allModules.0/@tasks.2"/>
+    </nodeMappings>
+    <nodeMappings key="invocationsNode">
+      <value href="src.xmi#/2/@subFolder.0/@file.1/@rootNode/@children.1"/>
+    </nodeMappings>
+    <nodeMappings key="fileToTask">
+      <value href="corr.xmi#/7"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="FileToTaskRule">
+    <createdSrc href="src.xmi#/0/@subFolder.1/@file.0"/>
+    <createdSrc href="src.xmi#/0/@subFolder.1/@file.0/@rootNode/@children.0"/>
+    <createdSrc href="src.xmi#/0/@subFolder.1/@file.0/@rootNode/@children.1"/>
+    <createdSrc href="src.xmi#/0/@subFolder.1/@file.0/@rootNode"/>
+    <createdTrg href="trg.xmi#/0/@allModules.1/@tasks.0"/>
+    <createdCorr href="corr.xmi#/8"/>
+    <contextSrc href="src.xmi#/0/@subFolder.1"/>
+    <contextTrg href="trg.xmi#/0/@allModules.1"/>
+    <contextTrg href="trg.xmi#/0"/>
+    <nodeMappings key="file">
+      <value href="src.xmi#/0/@subFolder.1/@file.0"/>
+    </nodeMappings>
+    <nodeMappings key="folder">
+      <value href="src.xmi#/0/@subFolder.1"/>
+    </nodeMappings>
+    <nodeMappings key="system">
+      <value href="trg.xmi#/0"/>
+    </nodeMappings>
+    <nodeMappings key="task">
+      <value href="trg.xmi#/0/@allModules.1/@tasks.0"/>
+    </nodeMappings>
+    <nodeMappings key="module">
+      <value href="trg.xmi#/0/@allModules.1"/>
+    </nodeMappings>
+    <nodeMappings key="invocationNode">
+      <value href="src.xmi#/0/@subFolder.1/@file.0/@rootNode/@children.1"/>
+    </nodeMappings>
+    <nodeMappings key="folderToModule">
+      <value href="corr.xmi#/2"/>
+    </nodeMappings>
+    <nodeMappings key="taskNode">
+      <value href="src.xmi#/0/@subFolder.1/@file.0/@rootNode"/>
+    </nodeMappings>
+    <nodeMappings key="importNode">
+      <value href="src.xmi#/0/@subFolder.1/@file.0/@rootNode/@children.0"/>
+    </nodeMappings>
+    <nodeMappings key="fileToTask">
+      <value href="corr.xmi#/8"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="NodeToImportRule">
+    <createdSrc href="src.xmi#/0/@subFolder.1/@file.0/@rootNode/@children.0/@children.1"/>
+    <createdTrg href="trg.xmi#/0/@allModules.1/@tasks.0/@imports.1"/>
+    <createdCorr href="corr.xmi#/33"/>
+    <contextSrc href="src.xmi#/0/@subFolder.1/@file.0"/>
+    <contextSrc href="src.xmi#/0/@subFolder.1"/>
+    <contextSrc href="src.xmi#/0/@subFolder.1/@file.0/@rootNode/@children.0"/>
+    <contextSrc href="src.xmi#/0/@subFolder.3"/>
+    <contextSrc href="src.xmi#/0"/>
+    <contextSrc href="src.xmi#/0/@subFolder.1/@file.0/@rootNode"/>
+    <contextTrg href="trg.xmi#/0/@allModules.3"/>
+    <contextTrg href="trg.xmi#/0/@allModules.1"/>
+    <contextTrg href="trg.xmi#/0"/>
+    <contextTrg href="trg.xmi#/0/@allModules.1/@tasks.0"/>
+    <nodeMappings key="importedModule">
+      <value href="trg.xmi#/0/@allModules.3"/>
+    </nodeMappings>
+    <nodeMappings key="otherFolder">
+      <value href="src.xmi#/0/@subFolder.3"/>
+    </nodeMappings>
+    <nodeMappings key="fileToImportedModule">
+      <value href="corr.xmi#/27"/>
+    </nodeMappings>
+    <nodeMappings key="rootFolder">
+      <value href="src.xmi#/0"/>
+    </nodeMappings>
+    <nodeMappings key="module">
+      <value href="trg.xmi#/0/@allModules.1"/>
+    </nodeMappings>
+    <nodeMappings key="nodeToImport">
+      <value href="corr.xmi#/33"/>
+    </nodeMappings>
+    <nodeMappings key="invocationNode">
+      <value href="src.xmi#/0/@subFolder.1/@file.0/@rootNode/@children.0/@children.1"/>
+    </nodeMappings>
+    <nodeMappings key="taskNode">
+      <value href="src.xmi#/0/@subFolder.1/@file.0/@rootNode"/>
+    </nodeMappings>
+    <nodeMappings key="invocation">
+      <value href="trg.xmi#/0/@allModules.1/@tasks.0/@imports.1"/>
+    </nodeMappings>
+    <nodeMappings key="file">
+      <value href="src.xmi#/0/@subFolder.1/@file.0"/>
+    </nodeMappings>
+    <nodeMappings key="folder">
+      <value href="src.xmi#/0/@subFolder.1"/>
+    </nodeMappings>
+    <nodeMappings key="system">
+      <value href="trg.xmi#/0"/>
+    </nodeMappings>
+    <nodeMappings key="task">
+      <value href="trg.xmi#/0/@allModules.1/@tasks.0"/>
+    </nodeMappings>
+    <nodeMappings key="invocationsNode">
+      <value href="src.xmi#/0/@subFolder.1/@file.0/@rootNode/@children.0"/>
+    </nodeMappings>
+    <nodeMappings key="fileToTask">
+      <value href="corr.xmi#/8"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
   <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="NodeToInvocationDifferentModuleRule">
@@ -1739,20 +1613,61 @@
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
   <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="NodeToInvocationRecursiveRule">
-    <createdSrc href="src.xmi#/2/@subFolder.0/@file.1/@rootNode/@children.1/@children.4"/>
-    <createdTrg href="trg.xmi#/2/@allModules.0/@tasks.1/@invocations.4"/>
-    <createdCorr href="corr.xmi#/23"/>
-    <contextSrc href="src.xmi#/2/@subFolder.0/@file.1"/>
-    <contextSrc href="src.xmi#/2/@subFolder.0"/>
-    <contextSrc href="src.xmi#/2/@subFolder.0/@file.1/@rootNode/@children.1"/>
-    <contextSrc href="src.xmi#/2/@subFolder.0/@file.1/@rootNode"/>
-    <contextTrg href="trg.xmi#/2"/>
-    <contextTrg href="trg.xmi#/2/@allModules.0/@tasks.1"/>
+    <createdSrc href="src.xmi#/0/@subFolder.0/@file.1/@rootNode/@children.1/@children.5"/>
+    <createdTrg href="trg.xmi#/0/@allModules.0/@tasks.1/@invocations.5"/>
+    <createdCorr href="corr.xmi#/49"/>
+    <contextSrc href="src.xmi#/0/@subFolder.0/@file.1"/>
+    <contextSrc href="src.xmi#/0/@subFolder.0"/>
+    <contextSrc href="src.xmi#/0/@subFolder.0/@file.1/@rootNode/@children.1"/>
+    <contextSrc href="src.xmi#/0/@subFolder.0/@file.1/@rootNode"/>
+    <contextTrg href="trg.xmi#/0"/>
+    <contextTrg href="trg.xmi#/0/@allModules.0/@tasks.1"/>
     <nodeMappings key="invocation">
-      <value href="trg.xmi#/2/@allModules.0/@tasks.1/@invocations.4"/>
+      <value href="trg.xmi#/0/@allModules.0/@tasks.1/@invocations.5"/>
     </nodeMappings>
     <nodeMappings key="file">
-      <value href="src.xmi#/2/@subFolder.0/@file.1"/>
+      <value href="src.xmi#/0/@subFolder.0/@file.1"/>
+    </nodeMappings>
+    <nodeMappings key="folder">
+      <value href="src.xmi#/0/@subFolder.0"/>
+    </nodeMappings>
+    <nodeMappings key="system">
+      <value href="trg.xmi#/0"/>
+    </nodeMappings>
+    <nodeMappings key="task">
+      <value href="trg.xmi#/0/@allModules.0/@tasks.1"/>
+    </nodeMappings>
+    <nodeMappings key="invocationsNode">
+      <value href="src.xmi#/0/@subFolder.0/@file.1/@rootNode/@children.1"/>
+    </nodeMappings>
+    <nodeMappings key="invocationNode">
+      <value href="src.xmi#/0/@subFolder.0/@file.1/@rootNode/@children.1/@children.5"/>
+    </nodeMappings>
+    <nodeMappings key="taskNode">
+      <value href="src.xmi#/0/@subFolder.0/@file.1/@rootNode"/>
+    </nodeMappings>
+    <nodeMappings key="invocationNodeToInvocation">
+      <value href="corr.xmi#/49"/>
+    </nodeMappings>
+    <nodeMappings key="fileToTask">
+      <value href="corr.xmi#/26"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="NodeToInvocationRecursiveRule">
+    <createdSrc href="src.xmi#/2/@subFolder.0/@file.0/@rootNode/@children.1/@children.0"/>
+    <createdTrg href="trg.xmi#/2/@allModules.0/@tasks.0/@invocations.0"/>
+    <createdCorr href="corr.xmi#/13"/>
+    <contextSrc href="src.xmi#/2/@subFolder.0/@file.0"/>
+    <contextSrc href="src.xmi#/2/@subFolder.0"/>
+    <contextSrc href="src.xmi#/2/@subFolder.0/@file.0/@rootNode/@children.1"/>
+    <contextSrc href="src.xmi#/2/@subFolder.0/@file.0/@rootNode"/>
+    <contextTrg href="trg.xmi#/2"/>
+    <contextTrg href="trg.xmi#/2/@allModules.0/@tasks.0"/>
+    <nodeMappings key="invocation">
+      <value href="trg.xmi#/2/@allModules.0/@tasks.0/@invocations.0"/>
+    </nodeMappings>
+    <nodeMappings key="file">
+      <value href="src.xmi#/2/@subFolder.0/@file.0"/>
     </nodeMappings>
     <nodeMappings key="folder">
       <value href="src.xmi#/2/@subFolder.0"/>
@@ -1761,48 +1676,103 @@
       <value href="trg.xmi#/2"/>
     </nodeMappings>
     <nodeMappings key="task">
-      <value href="trg.xmi#/2/@allModules.0/@tasks.1"/>
+      <value href="trg.xmi#/2/@allModules.0/@tasks.0"/>
     </nodeMappings>
     <nodeMappings key="invocationsNode">
-      <value href="src.xmi#/2/@subFolder.0/@file.1/@rootNode/@children.1"/>
+      <value href="src.xmi#/2/@subFolder.0/@file.0/@rootNode/@children.1"/>
     </nodeMappings>
     <nodeMappings key="invocationNode">
-      <value href="src.xmi#/2/@subFolder.0/@file.1/@rootNode/@children.1/@children.4"/>
+      <value href="src.xmi#/2/@subFolder.0/@file.0/@rootNode/@children.1/@children.0"/>
     </nodeMappings>
     <nodeMappings key="taskNode">
-      <value href="src.xmi#/2/@subFolder.0/@file.1/@rootNode"/>
+      <value href="src.xmi#/2/@subFolder.0/@file.0/@rootNode"/>
     </nodeMappings>
     <nodeMappings key="invocationNodeToInvocation">
-      <value href="corr.xmi#/23"/>
+      <value href="corr.xmi#/13"/>
     </nodeMappings>
     <nodeMappings key="fileToTask">
-      <value href="corr.xmi#/7"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="RootToSystemRule">
-    <createdSrc href="src.xmi#/0"/>
-    <createdTrg href="trg.xmi#/0"/>
-    <createdCorr href="corr.xmi#/0"/>
-    <nodeMappings key="system">
-      <value href="trg.xmi#/0"/>
-    </nodeMappings>
-    <nodeMappings key="rootFolder">
-      <value href="src.xmi#/0"/>
-    </nodeMappings>
-    <nodeMappings key="rootFolderToSystem">
-      <value href="corr.xmi#/0"/>
+      <value href="corr.xmi#/6"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
   <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="FileToTaskRule">
-    <createdSrc href="src.xmi#/0/@subFolder.1/@file.0"/>
-    <createdSrc href="src.xmi#/0/@subFolder.1/@file.0/@rootNode/@children.0"/>
-    <createdSrc href="src.xmi#/0/@subFolder.1/@file.0/@rootNode/@children.1"/>
-    <createdSrc href="src.xmi#/0/@subFolder.1/@file.0/@rootNode"/>
-    <createdTrg href="trg.xmi#/0/@allModules.1/@tasks.0"/>
-    <createdCorr href="corr.xmi#/8"/>
+    <createdSrc href="src.xmi#/2/@subFolder.0/@file.2"/>
+    <createdSrc href="src.xmi#/2/@subFolder.0/@file.2/@rootNode/@children.0"/>
+    <createdSrc href="src.xmi#/2/@subFolder.0/@file.2/@rootNode/@children.1"/>
+    <createdSrc href="src.xmi#/2/@subFolder.0/@file.2/@rootNode"/>
+    <createdTrg href="trg.xmi#/2/@allModules.0/@tasks.2"/>
+    <createdCorr href="corr.xmi#/11"/>
+    <contextSrc href="src.xmi#/2/@subFolder.0"/>
+    <contextTrg href="trg.xmi#/2/@allModules.0"/>
+    <contextTrg href="trg.xmi#/2"/>
+    <nodeMappings key="file">
+      <value href="src.xmi#/2/@subFolder.0/@file.2"/>
+    </nodeMappings>
+    <nodeMappings key="folder">
+      <value href="src.xmi#/2/@subFolder.0"/>
+    </nodeMappings>
+    <nodeMappings key="system">
+      <value href="trg.xmi#/2"/>
+    </nodeMappings>
+    <nodeMappings key="task">
+      <value href="trg.xmi#/2/@allModules.0/@tasks.2"/>
+    </nodeMappings>
+    <nodeMappings key="module">
+      <value href="trg.xmi#/2/@allModules.0"/>
+    </nodeMappings>
+    <nodeMappings key="invocationNode">
+      <value href="src.xmi#/2/@subFolder.0/@file.2/@rootNode/@children.1"/>
+    </nodeMappings>
+    <nodeMappings key="folderToModule">
+      <value href="corr.xmi#/5"/>
+    </nodeMappings>
+    <nodeMappings key="taskNode">
+      <value href="src.xmi#/2/@subFolder.0/@file.2/@rootNode"/>
+    </nodeMappings>
+    <nodeMappings key="importNode">
+      <value href="src.xmi#/2/@subFolder.0/@file.2/@rootNode/@children.0"/>
+    </nodeMappings>
+    <nodeMappings key="fileToTask">
+      <value href="corr.xmi#/11"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="SubFolderToModuleRule">
+    <createdSrc href="src.xmi#/2/@subFolder.0"/>
+    <createdTrg href="trg.xmi#/2/@allModules.0"/>
+    <createdCorr href="corr.xmi#/5"/>
+    <contextSrc href="src.xmi#/2"/>
+    <contextTrg href="trg.xmi#/2"/>
+    <nodeMappings key="subFolder">
+      <value href="src.xmi#/2/@subFolder.0"/>
+    </nodeMappings>
+    <nodeMappings key="system">
+      <value href="trg.xmi#/2"/>
+    </nodeMappings>
+    <nodeMappings key="rootFolder">
+      <value href="src.xmi#/2"/>
+    </nodeMappings>
+    <nodeMappings key="module">
+      <value href="trg.xmi#/2/@allModules.0"/>
+    </nodeMappings>
+    <nodeMappings key="folderToSystem">
+      <value href="corr.xmi#/4"/>
+    </nodeMappings>
+    <nodeMappings key="subFolderToSubTask">
+      <value href="corr.xmi#/5"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="NodeToInvocationRecursiveRule">
+    <createdSrc href="src.xmi#/0/@subFolder.1/@file.0/@rootNode/@children.1/@children.0"/>
+    <createdTrg href="trg.xmi#/0/@allModules.1/@tasks.0/@invocations.0"/>
+    <createdCorr href="corr.xmi#/43"/>
+    <contextSrc href="src.xmi#/0/@subFolder.1/@file.0"/>
     <contextSrc href="src.xmi#/0/@subFolder.1"/>
-    <contextTrg href="trg.xmi#/0/@allModules.1"/>
+    <contextSrc href="src.xmi#/0/@subFolder.1/@file.0/@rootNode/@children.1"/>
+    <contextSrc href="src.xmi#/0/@subFolder.1/@file.0/@rootNode"/>
     <contextTrg href="trg.xmi#/0"/>
+    <contextTrg href="trg.xmi#/0/@allModules.1/@tasks.0"/>
+    <nodeMappings key="invocation">
+      <value href="trg.xmi#/0/@allModules.1/@tasks.0/@invocations.0"/>
+    </nodeMappings>
     <nodeMappings key="file">
       <value href="src.xmi#/0/@subFolder.1/@file.0"/>
     </nodeMappings>
@@ -1815,23 +1785,149 @@
     <nodeMappings key="task">
       <value href="trg.xmi#/0/@allModules.1/@tasks.0"/>
     </nodeMappings>
-    <nodeMappings key="module">
-      <value href="trg.xmi#/0/@allModules.1"/>
-    </nodeMappings>
-    <nodeMappings key="invocationNode">
+    <nodeMappings key="invocationsNode">
       <value href="src.xmi#/0/@subFolder.1/@file.0/@rootNode/@children.1"/>
     </nodeMappings>
-    <nodeMappings key="folderToModule">
-      <value href="corr.xmi#/2"/>
+    <nodeMappings key="invocationNode">
+      <value href="src.xmi#/0/@subFolder.1/@file.0/@rootNode/@children.1/@children.0"/>
     </nodeMappings>
     <nodeMappings key="taskNode">
       <value href="src.xmi#/0/@subFolder.1/@file.0/@rootNode"/>
     </nodeMappings>
-    <nodeMappings key="importNode">
-      <value href="src.xmi#/0/@subFolder.1/@file.0/@rootNode/@children.0"/>
+    <nodeMappings key="invocationNodeToInvocation">
+      <value href="corr.xmi#/43"/>
     </nodeMappings>
     <nodeMappings key="fileToTask">
       <value href="corr.xmi#/8"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="RootToSystemRule">
+    <createdSrc href="src.xmi#/2"/>
+    <createdTrg href="trg.xmi#/2"/>
+    <createdCorr href="corr.xmi#/4"/>
+    <nodeMappings key="system">
+      <value href="trg.xmi#/2"/>
+    </nodeMappings>
+    <nodeMappings key="rootFolder">
+      <value href="src.xmi#/2"/>
+    </nodeMappings>
+    <nodeMappings key="rootFolderToSystem">
+      <value href="corr.xmi#/4"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="NodeToInvocationRecursiveRule">
+    <createdSrc href="src.xmi#/0/@subFolder.0/@file.1/@rootNode/@children.1/@children.1"/>
+    <createdTrg href="trg.xmi#/0/@allModules.0/@tasks.1/@invocations.1"/>
+    <createdCorr href="corr.xmi#/36"/>
+    <contextSrc href="src.xmi#/0/@subFolder.0/@file.1"/>
+    <contextSrc href="src.xmi#/0/@subFolder.0"/>
+    <contextSrc href="src.xmi#/0/@subFolder.0/@file.1/@rootNode/@children.1"/>
+    <contextSrc href="src.xmi#/0/@subFolder.0/@file.1/@rootNode"/>
+    <contextTrg href="trg.xmi#/0"/>
+    <contextTrg href="trg.xmi#/0/@allModules.0/@tasks.1"/>
+    <nodeMappings key="invocation">
+      <value href="trg.xmi#/0/@allModules.0/@tasks.1/@invocations.1"/>
+    </nodeMappings>
+    <nodeMappings key="file">
+      <value href="src.xmi#/0/@subFolder.0/@file.1"/>
+    </nodeMappings>
+    <nodeMappings key="folder">
+      <value href="src.xmi#/0/@subFolder.0"/>
+    </nodeMappings>
+    <nodeMappings key="system">
+      <value href="trg.xmi#/0"/>
+    </nodeMappings>
+    <nodeMappings key="task">
+      <value href="trg.xmi#/0/@allModules.0/@tasks.1"/>
+    </nodeMappings>
+    <nodeMappings key="invocationsNode">
+      <value href="src.xmi#/0/@subFolder.0/@file.1/@rootNode/@children.1"/>
+    </nodeMappings>
+    <nodeMappings key="invocationNode">
+      <value href="src.xmi#/0/@subFolder.0/@file.1/@rootNode/@children.1/@children.1"/>
+    </nodeMappings>
+    <nodeMappings key="taskNode">
+      <value href="src.xmi#/0/@subFolder.0/@file.1/@rootNode"/>
+    </nodeMappings>
+    <nodeMappings key="invocationNodeToInvocation">
+      <value href="corr.xmi#/36"/>
+    </nodeMappings>
+    <nodeMappings key="fileToTask">
+      <value href="corr.xmi#/26"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="NodeToImportRule">
+    <createdSrc href="src.xmi#/0/@subFolder.0/@file.1/@rootNode/@children.0/@children.0"/>
+    <createdTrg href="trg.xmi#/0/@allModules.0/@tasks.1/@imports.0"/>
+    <createdCorr href="corr.xmi#/32"/>
+    <contextSrc href="src.xmi#/0/@subFolder.0/@file.1"/>
+    <contextSrc href="src.xmi#/0/@subFolder.0"/>
+    <contextSrc href="src.xmi#/0/@subFolder.0/@file.1/@rootNode/@children.0"/>
+    <contextSrc href="src.xmi#/0/@subFolder.1"/>
+    <contextSrc href="src.xmi#/0"/>
+    <contextSrc href="src.xmi#/0/@subFolder.0/@file.1/@rootNode"/>
+    <contextTrg href="trg.xmi#/0/@allModules.1"/>
+    <contextTrg href="trg.xmi#/0/@allModules.0"/>
+    <contextTrg href="trg.xmi#/0"/>
+    <contextTrg href="trg.xmi#/0/@allModules.0/@tasks.1"/>
+    <nodeMappings key="importedModule">
+      <value href="trg.xmi#/0/@allModules.1"/>
+    </nodeMappings>
+    <nodeMappings key="otherFolder">
+      <value href="src.xmi#/0/@subFolder.1"/>
+    </nodeMappings>
+    <nodeMappings key="fileToImportedModule">
+      <value href="corr.xmi#/2"/>
+    </nodeMappings>
+    <nodeMappings key="rootFolder">
+      <value href="src.xmi#/0"/>
+    </nodeMappings>
+    <nodeMappings key="module">
+      <value href="trg.xmi#/0/@allModules.0"/>
+    </nodeMappings>
+    <nodeMappings key="nodeToImport">
+      <value href="corr.xmi#/32"/>
+    </nodeMappings>
+    <nodeMappings key="invocationNode">
+      <value href="src.xmi#/0/@subFolder.0/@file.1/@rootNode/@children.0/@children.0"/>
+    </nodeMappings>
+    <nodeMappings key="taskNode">
+      <value href="src.xmi#/0/@subFolder.0/@file.1/@rootNode"/>
+    </nodeMappings>
+    <nodeMappings key="invocation">
+      <value href="trg.xmi#/0/@allModules.0/@tasks.1/@imports.0"/>
+    </nodeMappings>
+    <nodeMappings key="file">
+      <value href="src.xmi#/0/@subFolder.0/@file.1"/>
+    </nodeMappings>
+    <nodeMappings key="folder">
+      <value href="src.xmi#/0/@subFolder.0"/>
+    </nodeMappings>
+    <nodeMappings key="system">
+      <value href="trg.xmi#/0"/>
+    </nodeMappings>
+    <nodeMappings key="task">
+      <value href="trg.xmi#/0/@allModules.0/@tasks.1"/>
+    </nodeMappings>
+    <nodeMappings key="invocationsNode">
+      <value href="src.xmi#/0/@subFolder.0/@file.1/@rootNode/@children.0"/>
+    </nodeMappings>
+    <nodeMappings key="fileToTask">
+      <value href="corr.xmi#/26"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="RootToSystemRule">
+    <createdSrc href="src.xmi#/1"/>
+    <createdTrg href="trg.xmi#/1"/>
+    <createdCorr href="corr.xmi#/3"/>
+    <nodeMappings key="system">
+      <value href="trg.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="rootFolder">
+      <value href="src.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="rootFolderToSystem">
+      <value href="corr.xmi#/3"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
   <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="SubFolderToModuleRule">
@@ -1859,192 +1955,88 @@
       <value href="corr.xmi#/27"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="RootToSystemRule">
-    <createdSrc href="src.xmi#/1"/>
-    <createdTrg href="trg.xmi#/1"/>
-    <createdCorr href="corr.xmi#/3"/>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="SubFolderToModuleRule">
+    <createdSrc href="src.xmi#/1/@subFolder.0"/>
+    <createdTrg href="trg.xmi#/1/@allModules.0"/>
+    <createdCorr href="corr.xmi#/19"/>
+    <contextSrc href="src.xmi#/1"/>
+    <contextTrg href="trg.xmi#/1"/>
+    <nodeMappings key="subFolder">
+      <value href="src.xmi#/1/@subFolder.0"/>
+    </nodeMappings>
     <nodeMappings key="system">
       <value href="trg.xmi#/1"/>
     </nodeMappings>
     <nodeMappings key="rootFolder">
       <value href="src.xmi#/1"/>
     </nodeMappings>
-    <nodeMappings key="rootFolderToSystem">
+    <nodeMappings key="module">
+      <value href="trg.xmi#/1/@allModules.0"/>
+    </nodeMappings>
+    <nodeMappings key="folderToSystem">
       <value href="corr.xmi#/3"/>
     </nodeMappings>
+    <nodeMappings key="subFolderToSubTask">
+      <value href="corr.xmi#/19"/>
+    </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="NodeToInvocationRule">
-    <createdSrc href="src.xmi#/0/@subFolder.1/@file.1/@rootNode/@children.1/@children.1"/>
-    <createdTrg href="trg.xmi#/0/@allModules.1/@tasks.1/@invocations.1"/>
-    <createdCorr href="corr.xmi#/46"/>
-    <contextSrc href="src.xmi#/0/@subFolder.1/@file.1"/>
-    <contextSrc href="src.xmi#/0/@subFolder.1"/>
-    <contextSrc href="src.xmi#/0/@subFolder.1/@file.1/@rootNode/@children.1"/>
-    <contextSrc href="src.xmi#/0/@subFolder.1/@file.1/@rootNode"/>
-    <contextTrg href="trg.xmi#/0/@allModules.1/@tasks.1"/>
-    <contextTrg href="trg.xmi#/0"/>
-    <nodeMappings key="fileToTask2">
-      <value href="corr.xmi#/39"/>
-    </nodeMappings>
-    <nodeMappings key="invocationNode">
-      <value href="src.xmi#/0/@subFolder.1/@file.1/@rootNode/@children.1/@children.1"/>
-    </nodeMappings>
-    <nodeMappings key="taskNode">
-      <value href="src.xmi#/0/@subFolder.1/@file.1/@rootNode"/>
-    </nodeMappings>
-    <nodeMappings key="invocationNodeToInvocation">
-      <value href="corr.xmi#/46"/>
-    </nodeMappings>
-    <nodeMappings key="otherFile">
-      <value href="src.xmi#/0/@subFolder.1/@file.1"/>
-    </nodeMappings>
-    <nodeMappings key="invocation">
-      <value href="trg.xmi#/0/@allModules.1/@tasks.1/@invocations.1"/>
-    </nodeMappings>
-    <nodeMappings key="file">
-      <value href="src.xmi#/0/@subFolder.1/@file.1"/>
-    </nodeMappings>
-    <nodeMappings key="folder">
-      <value href="src.xmi#/0/@subFolder.1"/>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="SubFolderToModuleRule">
+    <createdSrc href="src.xmi#/1/@subFolder.1"/>
+    <createdTrg href="trg.xmi#/1/@allModules.1"/>
+    <createdCorr href="corr.xmi#/34"/>
+    <contextSrc href="src.xmi#/1"/>
+    <contextTrg href="trg.xmi#/1"/>
+    <nodeMappings key="subFolder">
+      <value href="src.xmi#/1/@subFolder.1"/>
     </nodeMappings>
     <nodeMappings key="system">
-      <value href="trg.xmi#/0"/>
-    </nodeMappings>
-    <nodeMappings key="task">
-      <value href="trg.xmi#/0/@allModules.1/@tasks.1"/>
-    </nodeMappings>
-    <nodeMappings key="invokedTask">
-      <value href="trg.xmi#/0/@allModules.1/@tasks.1"/>
-    </nodeMappings>
-    <nodeMappings key="invocationsNode">
-      <value href="src.xmi#/0/@subFolder.1/@file.1/@rootNode/@children.1"/>
-    </nodeMappings>
-    <nodeMappings key="fileToTask">
-      <value href="corr.xmi#/39"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="NodeToInvocationRule">
-    <createdSrc href="src.xmi#/0/@subFolder.0/@file.0/@rootNode/@children.1/@children.0"/>
-    <createdTrg href="trg.xmi#/0/@allModules.0/@tasks.0/@invocations.0"/>
-    <createdCorr href="corr.xmi#/28"/>
-    <contextSrc href="src.xmi#/0/@subFolder.0/@file.0"/>
-    <contextSrc href="src.xmi#/0/@subFolder.0"/>
-    <contextSrc href="src.xmi#/0/@subFolder.0/@file.0/@rootNode/@children.1"/>
-    <contextSrc href="src.xmi#/0/@subFolder.0/@file.0/@rootNode"/>
-    <contextTrg href="trg.xmi#/0/@allModules.0/@tasks.0"/>
-    <contextTrg href="trg.xmi#/0"/>
-    <nodeMappings key="fileToTask2">
-      <value href="corr.xmi#/24"/>
-    </nodeMappings>
-    <nodeMappings key="invocationNode">
-      <value href="src.xmi#/0/@subFolder.0/@file.0/@rootNode/@children.1/@children.0"/>
-    </nodeMappings>
-    <nodeMappings key="taskNode">
-      <value href="src.xmi#/0/@subFolder.0/@file.0/@rootNode"/>
-    </nodeMappings>
-    <nodeMappings key="invocationNodeToInvocation">
-      <value href="corr.xmi#/28"/>
-    </nodeMappings>
-    <nodeMappings key="otherFile">
-      <value href="src.xmi#/0/@subFolder.0/@file.0"/>
-    </nodeMappings>
-    <nodeMappings key="invocation">
-      <value href="trg.xmi#/0/@allModules.0/@tasks.0/@invocations.0"/>
-    </nodeMappings>
-    <nodeMappings key="file">
-      <value href="src.xmi#/0/@subFolder.0/@file.0"/>
-    </nodeMappings>
-    <nodeMappings key="folder">
-      <value href="src.xmi#/0/@subFolder.0"/>
-    </nodeMappings>
-    <nodeMappings key="system">
-      <value href="trg.xmi#/0"/>
-    </nodeMappings>
-    <nodeMappings key="task">
-      <value href="trg.xmi#/0/@allModules.0/@tasks.0"/>
-    </nodeMappings>
-    <nodeMappings key="invokedTask">
-      <value href="trg.xmi#/0/@allModules.0/@tasks.0"/>
-    </nodeMappings>
-    <nodeMappings key="invocationsNode">
-      <value href="src.xmi#/0/@subFolder.0/@file.0/@rootNode/@children.1"/>
-    </nodeMappings>
-    <nodeMappings key="fileToTask">
-      <value href="corr.xmi#/24"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="NodeToInvocationDifferentModuleRule">
-    <createdSrc href="src.xmi#/0/@subFolder.1/@file.1/@rootNode/@children.1/@children.2"/>
-    <createdTrg href="trg.xmi#/0/@allModules.1/@tasks.1/@invocations.2"/>
-    <createdCorr href="corr.xmi#/47"/>
-    <contextSrc href="src.xmi#/0/@subFolder.1/@file.1"/>
-    <contextSrc href="src.xmi#/0/@subFolder.1"/>
-    <contextSrc href="src.xmi#/0/@subFolder.1/@file.1/@rootNode/@children.1"/>
-    <contextSrc href="src.xmi#/0/@subFolder.0/@file.0"/>
-    <contextSrc href="src.xmi#/0/@subFolder.0"/>
-    <contextSrc href="src.xmi#/0"/>
-    <contextSrc href="src.xmi#/0/@subFolder.1/@file.1/@rootNode"/>
-    <contextTrg href="trg.xmi#/0/@allModules.0/@tasks.0"/>
-    <contextTrg href="trg.xmi#/0"/>
-    <contextTrg href="trg.xmi#/0/@allModules.1/@tasks.1"/>
-    <nodeMappings key="otherFolder">
-      <value href="src.xmi#/0/@subFolder.0"/>
+      <value href="trg.xmi#/1"/>
     </nodeMappings>
     <nodeMappings key="rootFolder">
-      <value href="src.xmi#/0"/>
+      <value href="src.xmi#/1"/>
     </nodeMappings>
-    <nodeMappings key="invocationNode">
-      <value href="src.xmi#/0/@subFolder.1/@file.1/@rootNode/@children.1/@children.2"/>
+    <nodeMappings key="module">
+      <value href="trg.xmi#/1/@allModules.1"/>
     </nodeMappings>
-    <nodeMappings key="taskNode">
-      <value href="src.xmi#/0/@subFolder.1/@file.1/@rootNode"/>
+    <nodeMappings key="folderToSystem">
+      <value href="corr.xmi#/3"/>
     </nodeMappings>
-    <nodeMappings key="invocationNodeToInvocation">
-      <value href="corr.xmi#/47"/>
-    </nodeMappings>
-    <nodeMappings key="otherFile">
-      <value href="src.xmi#/0/@subFolder.0/@file.0"/>
-    </nodeMappings>
-    <nodeMappings key="invocation">
-      <value href="trg.xmi#/0/@allModules.1/@tasks.1/@invocations.2"/>
-    </nodeMappings>
-    <nodeMappings key="file">
-      <value href="src.xmi#/0/@subFolder.1/@file.1"/>
-    </nodeMappings>
-    <nodeMappings key="folder">
-      <value href="src.xmi#/0/@subFolder.1"/>
-    </nodeMappings>
-    <nodeMappings key="system">
-      <value href="trg.xmi#/0"/>
-    </nodeMappings>
-    <nodeMappings key="task">
-      <value href="trg.xmi#/0/@allModules.1/@tasks.1"/>
-    </nodeMappings>
-    <nodeMappings key="invokedTask">
-      <value href="trg.xmi#/0/@allModules.0/@tasks.0"/>
-    </nodeMappings>
-    <nodeMappings key="invocationsNode">
-      <value href="src.xmi#/0/@subFolder.1/@file.1/@rootNode/@children.1"/>
-    </nodeMappings>
-    <nodeMappings key="file2Task2">
-      <value href="corr.xmi#/24"/>
-    </nodeMappings>
-    <nodeMappings key="fileToTask">
-      <value href="corr.xmi#/39"/>
+    <nodeMappings key="subFolderToSubTask">
+      <value href="corr.xmi#/34"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="FileToTaskRule">
-    <createdSrc href="src.xmi#/2/@subFolder.0/@file.1"/>
-    <createdSrc href="src.xmi#/2/@subFolder.0/@file.1/@rootNode/@children.0"/>
-    <createdSrc href="src.xmi#/2/@subFolder.0/@file.1/@rootNode/@children.1"/>
-    <createdSrc href="src.xmi#/2/@subFolder.0/@file.1/@rootNode"/>
-    <createdTrg href="trg.xmi#/2/@allModules.0/@tasks.1"/>
-    <createdCorr href="corr.xmi#/7"/>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="NodeToInvocationRule">
+    <createdSrc href="src.xmi#/2/@subFolder.0/@file.2/@rootNode/@children.1/@children.2"/>
+    <createdTrg href="trg.xmi#/2/@allModules.0/@tasks.2/@invocations.2"/>
+    <createdCorr href="corr.xmi#/22"/>
+    <contextSrc href="src.xmi#/2/@subFolder.0/@file.2"/>
     <contextSrc href="src.xmi#/2/@subFolder.0"/>
-    <contextTrg href="trg.xmi#/2/@allModules.0"/>
+    <contextSrc href="src.xmi#/2/@subFolder.0/@file.2/@rootNode/@children.1"/>
+    <contextSrc href="src.xmi#/2/@subFolder.0/@file.0"/>
+    <contextSrc href="src.xmi#/2/@subFolder.0/@file.2/@rootNode"/>
+    <contextTrg href="trg.xmi#/2/@allModules.0/@tasks.0"/>
     <contextTrg href="trg.xmi#/2"/>
+    <contextTrg href="trg.xmi#/2/@allModules.0/@tasks.2"/>
+    <nodeMappings key="fileToTask2">
+      <value href="corr.xmi#/6"/>
+    </nodeMappings>
+    <nodeMappings key="invocationNode">
+      <value href="src.xmi#/2/@subFolder.0/@file.2/@rootNode/@children.1/@children.2"/>
+    </nodeMappings>
+    <nodeMappings key="taskNode">
+      <value href="src.xmi#/2/@subFolder.0/@file.2/@rootNode"/>
+    </nodeMappings>
+    <nodeMappings key="invocationNodeToInvocation">
+      <value href="corr.xmi#/22"/>
+    </nodeMappings>
+    <nodeMappings key="otherFile">
+      <value href="src.xmi#/2/@subFolder.0/@file.0"/>
+    </nodeMappings>
+    <nodeMappings key="invocation">
+      <value href="trg.xmi#/2/@allModules.0/@tasks.2/@invocations.2"/>
+    </nodeMappings>
     <nodeMappings key="file">
-      <value href="src.xmi#/2/@subFolder.0/@file.1"/>
+      <value href="src.xmi#/2/@subFolder.0/@file.2"/>
     </nodeMappings>
     <nodeMappings key="folder">
       <value href="src.xmi#/2/@subFolder.0"/>
@@ -2053,85 +2045,57 @@
       <value href="trg.xmi#/2"/>
     </nodeMappings>
     <nodeMappings key="task">
-      <value href="trg.xmi#/2/@allModules.0/@tasks.1"/>
+      <value href="trg.xmi#/2/@allModules.0/@tasks.2"/>
     </nodeMappings>
-    <nodeMappings key="module">
-      <value href="trg.xmi#/2/@allModules.0"/>
+    <nodeMappings key="invokedTask">
+      <value href="trg.xmi#/2/@allModules.0/@tasks.0"/>
     </nodeMappings>
-    <nodeMappings key="invocationNode">
-      <value href="src.xmi#/2/@subFolder.0/@file.1/@rootNode/@children.1"/>
-    </nodeMappings>
-    <nodeMappings key="folderToModule">
-      <value href="corr.xmi#/5"/>
-    </nodeMappings>
-    <nodeMappings key="taskNode">
-      <value href="src.xmi#/2/@subFolder.0/@file.1/@rootNode"/>
-    </nodeMappings>
-    <nodeMappings key="importNode">
-      <value href="src.xmi#/2/@subFolder.0/@file.1/@rootNode/@children.0"/>
+    <nodeMappings key="invocationsNode">
+      <value href="src.xmi#/2/@subFolder.0/@file.2/@rootNode/@children.1"/>
     </nodeMappings>
     <nodeMappings key="fileToTask">
-      <value href="corr.xmi#/7"/>
+      <value href="corr.xmi#/11"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="NodeToImportRule">
-    <createdSrc href="src.xmi#/0/@subFolder.1/@file.0/@rootNode/@children.0/@children.1"/>
-    <createdTrg href="trg.xmi#/0/@allModules.1/@tasks.0/@imports.1"/>
-    <createdCorr href="corr.xmi#/33"/>
-    <contextSrc href="src.xmi#/0/@subFolder.1/@file.0"/>
-    <contextSrc href="src.xmi#/0/@subFolder.1"/>
-    <contextSrc href="src.xmi#/0/@subFolder.1/@file.0/@rootNode/@children.0"/>
-    <contextSrc href="src.xmi#/0/@subFolder.3"/>
-    <contextSrc href="src.xmi#/0"/>
-    <contextSrc href="src.xmi#/0/@subFolder.1/@file.0/@rootNode"/>
-    <contextTrg href="trg.xmi#/0/@allModules.3"/>
-    <contextTrg href="trg.xmi#/0/@allModules.1"/>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="FileToTaskRule">
+    <createdSrc href="src.xmi#/0/@subFolder.0/@file.0"/>
+    <createdSrc href="src.xmi#/0/@subFolder.0/@file.0/@rootNode/@children.0"/>
+    <createdSrc href="src.xmi#/0/@subFolder.0/@file.0/@rootNode/@children.1"/>
+    <createdSrc href="src.xmi#/0/@subFolder.0/@file.0/@rootNode"/>
+    <createdTrg href="trg.xmi#/0/@allModules.0/@tasks.0"/>
+    <createdCorr href="corr.xmi#/24"/>
+    <contextSrc href="src.xmi#/0/@subFolder.0"/>
+    <contextTrg href="trg.xmi#/0/@allModules.0"/>
     <contextTrg href="trg.xmi#/0"/>
-    <contextTrg href="trg.xmi#/0/@allModules.1/@tasks.0"/>
-    <nodeMappings key="importedModule">
-      <value href="trg.xmi#/0/@allModules.3"/>
-    </nodeMappings>
-    <nodeMappings key="otherFolder">
-      <value href="src.xmi#/0/@subFolder.3"/>
-    </nodeMappings>
-    <nodeMappings key="fileToImportedModule">
-      <value href="corr.xmi#/27"/>
-    </nodeMappings>
-    <nodeMappings key="rootFolder">
-      <value href="src.xmi#/0"/>
-    </nodeMappings>
-    <nodeMappings key="module">
-      <value href="trg.xmi#/0/@allModules.1"/>
-    </nodeMappings>
-    <nodeMappings key="nodeToImport">
-      <value href="corr.xmi#/33"/>
-    </nodeMappings>
-    <nodeMappings key="invocationNode">
-      <value href="src.xmi#/0/@subFolder.1/@file.0/@rootNode/@children.0/@children.1"/>
-    </nodeMappings>
-    <nodeMappings key="taskNode">
-      <value href="src.xmi#/0/@subFolder.1/@file.0/@rootNode"/>
-    </nodeMappings>
-    <nodeMappings key="invocation">
-      <value href="trg.xmi#/0/@allModules.1/@tasks.0/@imports.1"/>
-    </nodeMappings>
     <nodeMappings key="file">
-      <value href="src.xmi#/0/@subFolder.1/@file.0"/>
+      <value href="src.xmi#/0/@subFolder.0/@file.0"/>
     </nodeMappings>
     <nodeMappings key="folder">
-      <value href="src.xmi#/0/@subFolder.1"/>
+      <value href="src.xmi#/0/@subFolder.0"/>
     </nodeMappings>
     <nodeMappings key="system">
       <value href="trg.xmi#/0"/>
     </nodeMappings>
     <nodeMappings key="task">
-      <value href="trg.xmi#/0/@allModules.1/@tasks.0"/>
+      <value href="trg.xmi#/0/@allModules.0/@tasks.0"/>
     </nodeMappings>
-    <nodeMappings key="invocationsNode">
-      <value href="src.xmi#/0/@subFolder.1/@file.0/@rootNode/@children.0"/>
+    <nodeMappings key="module">
+      <value href="trg.xmi#/0/@allModules.0"/>
+    </nodeMappings>
+    <nodeMappings key="invocationNode">
+      <value href="src.xmi#/0/@subFolder.0/@file.0/@rootNode/@children.1"/>
+    </nodeMappings>
+    <nodeMappings key="folderToModule">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="taskNode">
+      <value href="src.xmi#/0/@subFolder.0/@file.0/@rootNode"/>
+    </nodeMappings>
+    <nodeMappings key="importNode">
+      <value href="src.xmi#/0/@subFolder.0/@file.0/@rootNode/@children.0"/>
     </nodeMappings>
     <nodeMappings key="fileToTask">
-      <value href="corr.xmi#/8"/>
+      <value href="corr.xmi#/24"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
 </xmi:XMI>

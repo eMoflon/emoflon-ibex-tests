@@ -56,7 +56,7 @@ public class SYNC_App extends SYNC {
 	protected static IbexOptions createIbexOptions() {
 		IbexOptions options = new IbexOptions();
 		options.projectName("BenchmarxFamiliesToPersons");
-		options.debug(true);
+		options.debug(false);
 		options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
 		return options;
 	}
