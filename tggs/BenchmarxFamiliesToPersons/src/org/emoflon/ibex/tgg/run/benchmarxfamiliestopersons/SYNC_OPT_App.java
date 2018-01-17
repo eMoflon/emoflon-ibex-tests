@@ -1,11 +1,10 @@
 package org.emoflon.ibex.tgg.run.benchmarxfamiliestopersons;
 
 import java.io.IOException;
-import java.util.List;
 
 import org.apache.log4j.BasicConfigurator;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.emoflon.ibex.tgg.operational.OperationalStrategy;
 import org.emoflon.ibex.tgg.operational.csp.constraints.factories.UserDefinedRuntimeTGGAttrConstraintFactory;
 import org.emoflon.ibex.tgg.operational.strategies.sync_opt.SYNC;
 import org.emoflon.ibex.tgg.operational.util.IbexOptions;
@@ -13,8 +12,6 @@ import org.emoflon.ibex.tgg.runtime.engine.DemoclesEngine;
 
 import Families.impl.FamiliesPackageImpl;
 import Persons.impl.PersonsPackageImpl;
-import language.csp.TGGAttributeConstraint;
-import language.csp.TGGAttributeConstraintLibrary;
 
 public class SYNC_OPT_App extends SYNC {
 
@@ -26,7 +23,7 @@ public class SYNC_OPT_App extends SYNC {
 	public static void main(String[] args) throws IOException {
 		BasicConfigurator.configure();
 
-		SYNC_OPT_App sync = new SYNC_OPT_App("BenchmarxFamiliesToPersons", "./../", false);
+		SYNC_OPT_App sync = new SYNC_OPT_App("BenchmarxFamiliesToPersons", "./../", true);
 		
 		logger.info("Starting SYNC");
 		long tic = System.currentTimeMillis();
@@ -38,9 +35,23 @@ public class SYNC_OPT_App extends SYNC {
 		sync.terminate();
 	}
 
+//	protected void registerUserMetamodels() throws IOException {
+//		rs.getPackageRegistry().put("platform:/resource/Families/model/Families.ecore", FamiliesPackageImpl.init());
+//		rs.getPackageRegistry().put("platform:/resource/Persons/model/Persons.ecore", PersonsPackageImpl.init());
+//		
+//		// Register correspondence metamodel last
+//		loadAndRegisterMetamodel(projectPath + "/model/" + projectPath + ".ecore");
+//	}
+	
 	protected void registerUserMetamodels() throws IOException {
 		rs.getPackageRegistry().put("platform:/resource/Families/model/Families.ecore", FamiliesPackageImpl.init());
-		rs.getPackageRegistry().put("platform:/resource/Persons/model/Persons.ecore", PersonsPackageImpl.init());
+		//rs.getPackageRegistry().put("platform:/resource/Persons/model/Persons.ecore", PersonsPackageImpl.init());
+		loadAndRegisterMetamodel("platform:/resource/../../benchmarx/examples/familiestopersons/metamodels/Persons/model/Persons.ecore");
+		rs.getURIConverter().getURIMap().put(
+				URI.createURI("platform:/resource/Persons/model/Persons.ecore"), 
+				URI.createURI("platform:/plugin/Persons/model/Persons.ecore")
+			);
+		
 		
 		// Register correspondence metamodel last
 		loadAndRegisterMetamodel(projectPath + "/model/" + projectPath + ".ecore");
@@ -48,7 +59,7 @@ public class SYNC_OPT_App extends SYNC {
 	
 	@Override
 	public void loadModels() throws IOException {
-		s = createResource(projectPath + "/instances/src.xmi");
+		s = loadResource(projectPath + "/instances/src.xmi");
 		t = createResource(projectPath + "/instances/trg.xmi");
 		c = createResource(projectPath + "/instances/corr.xmi");
 		p = createResource(projectPath + "/instances/protocol.xmi");
