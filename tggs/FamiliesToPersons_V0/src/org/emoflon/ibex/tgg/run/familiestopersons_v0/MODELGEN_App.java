@@ -5,7 +5,7 @@ import java.io.IOException;
 import org.emoflon.ibex.tgg.operational.csp.constraints.factories.UserDefinedRuntimeTGGAttrConstraintFactory;
 import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGEN;
 import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGENStopCriterion;
-import org.emoflon.ibex.tgg.operational.util.IbexOptions;
+import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesEngine;
 
 import SimpleFamilies.impl.SimpleFamiliesPackageImpl;
@@ -15,7 +15,7 @@ public class MODELGEN_App extends MODELGEN {
 
 	public MODELGEN_App(String projectName, String workspacePath, boolean debug) throws IOException {
 		super(createIbexOptions().projectName(projectName).workspacePath(workspacePath).debug(debug));
-		registerPatternMatchingEngine(new DemoclesEngine());
+		registerBlackInterpreter(new DemoclesEngine());
 	}
 	
 	public static void main(String[] args) throws IOException {
@@ -57,7 +57,7 @@ public class MODELGEN_App extends MODELGEN {
 	private static IbexOptions createIbexOptions() {
 		IbexOptions options = new IbexOptions();
 		options.projectName("FamiliesToPersons_V0");
-		options.debug(true);
+		options.debug(false);
 		options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
 		return options;
 	}

@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import org.benchmarx.classInheritanceHierarchy.core.ClassInheritanceHierarchyComparator;
 import org.benchmarx.database.core.DatabaseComparator;
+import org.emoflon.ibex.tgg.operational.strategies.sync.SYNC;
 import org.emoflon.ibex.tgg.run.classinhhier2db_ma.SYNC_App;
 
 import ClassInheritanceHierarchy.ClassInheritanceHierarchyFactory;
@@ -31,6 +32,10 @@ public class IbexCD2DB_MA extends IbexAdapter<ClassPackage, DB> {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public SYNC getSync() {
+		return synchroniser;
 	}
 
 }

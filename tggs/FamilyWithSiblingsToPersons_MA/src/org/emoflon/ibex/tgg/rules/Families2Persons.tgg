@@ -1,0 +1,22 @@
+#using FamilyWithSiblingsToPersons_MA.*
+#using AttrCondDefLibrary.*
+
+#rule Families2Persons #with FamilyWithSiblingsToPersons_MA
+
+#source { 
+	++ familyReg : FamilyRegister
+}
+
+#target {
+	++ personReg : PersonRegister
+}
+
+#correspondence {
+	++ families2persons :FamiliesReg2PersonsRegCorr {
+		#src->familyReg
+		#trg->personReg
+	}
+}
+
+#attributeConditions {
+}

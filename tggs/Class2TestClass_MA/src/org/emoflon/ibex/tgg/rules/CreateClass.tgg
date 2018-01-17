@@ -1,0 +1,29 @@
+#using Class2TestClass_MA.*
+#using AttrCondDefLibrary.*
+
+#rule CreateClass #with Class2TestClass_MA
+
+#source { 
+	package : ClassPackage{
+		++ -classes->class
+	}
+	
+	++ class : Clazz
+}
+
+#target {
+	
+	testSuite : DB
+
+}
+
+#correspondence {
+	package2testSuite : PackageToTestSuite {
+		#src->package
+		#trg->testSuite
+	}
+}
+
+#attributeConditions {
+	setRandomString(class.name)
+}

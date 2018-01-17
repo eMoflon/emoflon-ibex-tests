@@ -4,10 +4,9 @@ import java.io.IOException;
 
 import org.apache.log4j.BasicConfigurator;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.apache.commons.lang3.NotImplementedException;
 import org.emoflon.ibex.tgg.operational.csp.constraints.factories.UserDefinedRuntimeTGGAttrConstraintFactory;
 import org.emoflon.ibex.tgg.operational.strategies.co.CO;
-import org.emoflon.ibex.tgg.operational.util.IbexOptions;
+import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesEngine;
 
 import BlockDiagram.impl.BlockDiagramPackageImpl;
@@ -25,7 +24,7 @@ public class CO_App extends CO {
 		this.srcPath = srcPath;
 		this.trgPath = trgPath;
 		this.corrPath = corrPath;
-		registerPatternMatchingEngine(new DemoclesEngine());
+		registerBlackInterpreter(new DemoclesEngine());
 	}
 
 	public static void main(String[] args) throws IOException {
@@ -70,7 +69,7 @@ public class CO_App extends CO {
 	protected static IbexOptions createIbexOptions() {
 		IbexOptions options = new IbexOptions();
 		options.projectName("BenchmarxFamiliesToPersons");
-		options.debug(true);
+		options.debug(false);
 		options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
 		return options;
 	}

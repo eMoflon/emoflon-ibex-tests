@@ -1,0 +1,1177 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:emf="http://gervarro.org/democles/constraint/emf.ecore" xmlns:relational="http://gervarro.org/democles/specification/constraint/relational.ecore" xmlns:specification="http://gervarro.org/democles/specification.ecore">
+  <specification:Pattern name="AlgoContainerToStrategyContainer__CC">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="ac">
+      <eClassifier xsi:type="ecore:EClass" href="../../Algorithms/model/Algorithms.ecore#//AlgorithmContainer"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="sc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Strategies/model/Strategies.ecore#//StrategyContainer"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="AlgoContainerToStrategyContainer__CC_REFINEMENT_INVOCATIONS">
+        <parameters reference="/0/@symbolicParameters.0"/>
+        <parameters reference="/0/@symbolicParameters.1"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="AlgoContainerToStrategyContainer__NO_FILTER_ACs_SRC">
+        <parameters reference="/0/@symbolicParameters.0"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="AlgoContainerToStrategyContainer__NO_FILTER_ACs_TRG">
+        <parameters reference="/0/@symbolicParameters.1"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="AlgoContainerToStrategyContainer__CC_REFINEMENT_INVOCATIONS">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="ac">
+      <eClassifier xsi:type="ecore:EClass" href="../../Algorithms/model/Algorithms.ecore#//AlgorithmContainer"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="sc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Strategies/model/Strategies.ecore#//StrategyContainer"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="AlgoContainerToStrategyContainer__SRC">
+        <parameters reference="/1/@symbolicParameters.0"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="AlgoContainerToStrategyContainer__TRG">
+        <parameters reference="/1/@symbolicParameters.1"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="AlgoContainerToStrategyContainer__NO_FILTER_ACs_SRC">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="ac">
+      <eClassifier xsi:type="ecore:EClass" href="../../Algorithms/model/Algorithms.ecore#//AlgorithmContainer"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="AlgoContainerToStrategyContainer__SRC_REFINEMENT_INVOCATIONS">
+        <parameters reference="/2/@symbolicParameters.0"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="AlgoContainerToStrategyContainer__NO_FILTER_ACs_TRG">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="sc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Strategies/model/Strategies.ecore#//StrategyContainer"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="AlgoContainerToStrategyContainer__TRG_REFINEMENT_INVOCATIONS">
+        <parameters reference="/3/@symbolicParameters.0"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="AlgoContainerToStrategyContainer__SRC">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="ac">
+      <eClassifier xsi:type="ecore:EClass" href="../../Algorithms/model/Algorithms.ecore#//AlgorithmContainer"/>
+    </symbolicParameters>
+    <bodies/>
+  </specification:Pattern>
+  <specification:Pattern name="AlgoContainerToStrategyContainer__SRC_REFINEMENT_INVOCATIONS">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="ac">
+      <eClassifier xsi:type="ecore:EClass" href="../../Algorithms/model/Algorithms.ecore#//AlgorithmContainer"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="AlgoContainerToStrategyContainer__SRC">
+        <parameters reference="/5/@symbolicParameters.0"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="AlgoContainerToStrategyContainer__TRG">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="sc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Strategies/model/Strategies.ecore#//StrategyContainer"/>
+    </symbolicParameters>
+    <bodies/>
+  </specification:Pattern>
+  <specification:Pattern name="AlgoContainerToStrategyContainer__TRG_REFINEMENT_INVOCATIONS">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="sc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Strategies/model/Strategies.ecore#//StrategyContainer"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="AlgoContainerToStrategyContainer__TRG">
+        <parameters reference="/7/@symbolicParameters.0"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="ContextMarkedPattern__SRC">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="protocol">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="checkedObject">
+      <eClassifier xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/8/@symbolicParameters.0"/>
+        <parameters reference="/8/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication/contextSrc"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="ContextMarkedPattern__TRG">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="protocol">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="checkedObject">
+      <eClassifier xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/9/@symbolicParameters.0"/>
+        <parameters reference="/9/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication/contextTrg"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="CreateAlgorithm__CC">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="ac">
+      <eClassifier xsi:type="ecore:EClass" href="../../Algorithms/model/Algorithms.ecore#//AlgorithmContainer"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="algo">
+      <eClassifier xsi:type="ecore:EClass" href="../../Algorithms/model/Algorithms.ecore#//Algorithm"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="sc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Strategies/model/Strategies.ecore#//StrategyContainer"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="ac2sc">
+      <eClassifier xsi:type="ecore:EClass" href="../model/AlgorithmToStrategy_MA.ecore#//AlgorithmsToStrategiesContainerCorr"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="CreateAlgorithm__CC_REFINEMENT_INVOCATIONS">
+        <parameters reference="/10/@symbolicParameters.0"/>
+        <parameters reference="/10/@symbolicParameters.1"/>
+        <parameters reference="/10/@symbolicParameters.2"/>
+        <parameters reference="/10/@symbolicParameters.3"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="CreateAlgorithm__NO_FILTER_ACs_SRC">
+        <parameters reference="/10/@symbolicParameters.0"/>
+        <parameters reference="/10/@symbolicParameters.1"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="CreateAlgorithm__NO_FILTER_ACs_TRG">
+        <parameters reference="/10/@symbolicParameters.2"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="CreateAlgorithm__CC_REFINEMENT_INVOCATIONS">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="ac">
+      <eClassifier xsi:type="ecore:EClass" href="../../Algorithms/model/Algorithms.ecore#//AlgorithmContainer"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="algo">
+      <eClassifier xsi:type="ecore:EClass" href="../../Algorithms/model/Algorithms.ecore#//Algorithm"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="sc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Strategies/model/Strategies.ecore#//StrategyContainer"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="ac2sc">
+      <eClassifier xsi:type="ecore:EClass" href="../model/AlgorithmToStrategy_MA.ecore#//AlgorithmsToStrategiesContainerCorr"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="CreateAlgorithm__SRC">
+        <parameters reference="/11/@symbolicParameters.0"/>
+        <parameters reference="/11/@symbolicParameters.1"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="CreateAlgorithm__TRG">
+        <parameters reference="/11/@symbolicParameters.2"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="CreateAlgorithm__CONTEXT_CORR">
+        <parameters reference="/11/@symbolicParameters.0"/>
+        <parameters reference="/11/@symbolicParameters.2"/>
+        <parameters reference="/11/@symbolicParameters.3"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="CreateAlgorithm__CONSISTENCY">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="ac">
+      <eClassifier xsi:type="ecore:EClass" href="../../Algorithms/model/Algorithms.ecore#//AlgorithmContainer"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="algo">
+      <eClassifier xsi:type="ecore:EClass" href="../../Algorithms/model/Algorithms.ecore#//Algorithm"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="sc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Strategies/model/Strategies.ecore#//StrategyContainer"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="ac2sc">
+      <eClassifier xsi:type="ecore:EClass" href="../model/AlgorithmToStrategy_MA.ecore#//AlgorithmsToStrategiesContainerCorr"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="eMoflon_ProtocolNode">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication"/>
+    </symbolicParameters>
+    <bodies>
+      <localVariables xsi:type="emf:EMFVariable" name="eMoflon_ProtocolNode_attr_EString">
+        <eClassifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </localVariables>
+      <constants value="ACED000574000F437265617465416C676F726974686D"/>
+      <constraints xsi:type="emf:Attribute">
+        <parameters reference="/12/@symbolicParameters.4"/>
+        <parameters reference="/12/@bodies.0/@localVariables.0"/>
+        <eModelElement xsi:type="ecore:EAttribute" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication/name"/>
+      </constraints>
+      <constraints xsi:type="relational:Equal">
+        <parameters reference="/12/@bodies.0/@localVariables.0"/>
+        <parameters reference="/12/@bodies.0/@constants.0"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="ContextMarkedPattern__SRC">
+        <parameters reference="/12/@symbolicParameters.4"/>
+        <parameters reference="/12/@symbolicParameters.0"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="MarkedPattern__SRC">
+        <parameters reference="/12/@symbolicParameters.4"/>
+        <parameters reference="/12/@symbolicParameters.1"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="ContextMarkedPattern__TRG">
+        <parameters reference="/12/@symbolicParameters.4"/>
+        <parameters reference="/12/@symbolicParameters.2"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="CreateAlgorithm__WHOLE">
+        <parameters reference="/12/@symbolicParameters.0"/>
+        <parameters reference="/12/@symbolicParameters.1"/>
+        <parameters reference="/12/@symbolicParameters.2"/>
+        <parameters reference="/12/@symbolicParameters.3"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="CreateAlgorithm__NO_FILTER_ACs_SRC">
+        <parameters reference="/12/@symbolicParameters.0"/>
+        <parameters reference="/12/@symbolicParameters.1"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="CreateAlgorithm__NO_FILTER_ACs_TRG">
+        <parameters reference="/12/@symbolicParameters.2"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="CreateAlgorithm__CONTEXT_CORR">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="ac">
+      <eClassifier xsi:type="ecore:EClass" href="../../Algorithms/model/Algorithms.ecore#//AlgorithmContainer"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="sc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Strategies/model/Strategies.ecore#//StrategyContainer"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="ac2sc">
+      <eClassifier xsi:type="ecore:EClass" href="../model/AlgorithmToStrategy_MA.ecore#//AlgorithmsToStrategiesContainerCorr"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/13/@symbolicParameters.2"/>
+        <parameters reference="/13/@symbolicParameters.0"/>
+        <eModelElement xsi:type="ecore:EReference" href="../model/AlgorithmToStrategy_MA.ecore#//AlgorithmsToStrategiesContainerCorr/source"/>
+      </constraints>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/13/@symbolicParameters.2"/>
+        <parameters reference="/13/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../model/AlgorithmToStrategy_MA.ecore#//AlgorithmsToStrategiesContainerCorr/target"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="CreateAlgorithm__CONTEXT_SRC">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="ac">
+      <eClassifier xsi:type="ecore:EClass" href="../../Algorithms/model/Algorithms.ecore#//AlgorithmContainer"/>
+    </symbolicParameters>
+    <bodies/>
+  </specification:Pattern>
+  <specification:Pattern name="CreateAlgorithm__CONTEXT_TRG">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="sc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Strategies/model/Strategies.ecore#//StrategyContainer"/>
+    </symbolicParameters>
+    <bodies/>
+  </specification:Pattern>
+  <specification:Pattern name="CreateAlgorithm__CORR">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="ac">
+      <eClassifier xsi:type="ecore:EClass" href="../../Algorithms/model/Algorithms.ecore#//AlgorithmContainer"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="sc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Strategies/model/Strategies.ecore#//StrategyContainer"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="ac2sc">
+      <eClassifier xsi:type="ecore:EClass" href="../model/AlgorithmToStrategy_MA.ecore#//AlgorithmsToStrategiesContainerCorr"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/16/@symbolicParameters.2"/>
+        <parameters reference="/16/@symbolicParameters.0"/>
+        <eModelElement xsi:type="ecore:EReference" href="../model/AlgorithmToStrategy_MA.ecore#//AlgorithmsToStrategiesContainerCorr/source"/>
+      </constraints>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/16/@symbolicParameters.2"/>
+        <parameters reference="/16/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../model/AlgorithmToStrategy_MA.ecore#//AlgorithmsToStrategiesContainerCorr/target"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="CreateAlgorithm__CONTEXT_CORR">
+        <parameters reference="/16/@symbolicParameters.0"/>
+        <parameters reference="/16/@symbolicParameters.1"/>
+        <parameters reference="/16/@symbolicParameters.2"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="CreateAlgorithm__NO_FILTER_ACs_SRC">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="ac">
+      <eClassifier xsi:type="ecore:EClass" href="../../Algorithms/model/Algorithms.ecore#//AlgorithmContainer"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="algo">
+      <eClassifier xsi:type="ecore:EClass" href="../../Algorithms/model/Algorithms.ecore#//Algorithm"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="CreateAlgorithm__SRC_REFINEMENT_INVOCATIONS">
+        <parameters reference="/17/@symbolicParameters.0"/>
+        <parameters reference="/17/@symbolicParameters.1"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" invokedPattern="CreateAlgorithm__algo_algorithms_incoming_DEC_SRC">
+        <parameters reference="/17/@symbolicParameters.0"/>
+        <parameters reference="/17/@symbolicParameters.1"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="CreateAlgorithm__NO_FILTER_ACs_TRG">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="sc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Strategies/model/Strategies.ecore#//StrategyContainer"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="CreateAlgorithm__TRG_REFINEMENT_INVOCATIONS">
+        <parameters reference="/18/@symbolicParameters.0"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="CreateAlgorithm__SRC">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="ac">
+      <eClassifier xsi:type="ecore:EClass" href="../../Algorithms/model/Algorithms.ecore#//AlgorithmContainer"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="algo">
+      <eClassifier xsi:type="ecore:EClass" href="../../Algorithms/model/Algorithms.ecore#//Algorithm"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/19/@symbolicParameters.0"/>
+        <parameters reference="/19/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../../Algorithms/model/Algorithms.ecore#//AlgorithmContainer/algorithms"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="CreateAlgorithm__CONTEXT_SRC">
+        <parameters reference="/19/@symbolicParameters.0"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="CreateAlgorithm__SRC_REFINEMENT_INVOCATIONS">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="ac">
+      <eClassifier xsi:type="ecore:EClass" href="../../Algorithms/model/Algorithms.ecore#//AlgorithmContainer"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="algo">
+      <eClassifier xsi:type="ecore:EClass" href="../../Algorithms/model/Algorithms.ecore#//Algorithm"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="CreateAlgorithm__SRC">
+        <parameters reference="/20/@symbolicParameters.0"/>
+        <parameters reference="/20/@symbolicParameters.1"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="CreateAlgorithm__TRG">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="sc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Strategies/model/Strategies.ecore#//StrategyContainer"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="CreateAlgorithm__CONTEXT_TRG">
+        <parameters reference="/21/@symbolicParameters.0"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="CreateAlgorithm__TRG_REFINEMENT_INVOCATIONS">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="sc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Strategies/model/Strategies.ecore#//StrategyContainer"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="CreateAlgorithm__TRG">
+        <parameters reference="/22/@symbolicParameters.0"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="CreateAlgorithm__WHOLE">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="ac">
+      <eClassifier xsi:type="ecore:EClass" href="../../Algorithms/model/Algorithms.ecore#//AlgorithmContainer"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="algo">
+      <eClassifier xsi:type="ecore:EClass" href="../../Algorithms/model/Algorithms.ecore#//Algorithm"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="sc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Strategies/model/Strategies.ecore#//StrategyContainer"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="ac2sc">
+      <eClassifier xsi:type="ecore:EClass" href="../model/AlgorithmToStrategy_MA.ecore#//AlgorithmsToStrategiesContainerCorr"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="CreateAlgorithm__SRC">
+        <parameters reference="/23/@symbolicParameters.0"/>
+        <parameters reference="/23/@symbolicParameters.1"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="CreateAlgorithm__TRG">
+        <parameters reference="/23/@symbolicParameters.2"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="CreateAlgorithm__CORR">
+        <parameters reference="/23/@symbolicParameters.0"/>
+        <parameters reference="/23/@symbolicParameters.2"/>
+        <parameters reference="/23/@symbolicParameters.3"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="CreateAlgorithm__algo_algorithms_incoming_DEC_SRC">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="ac">
+      <eClassifier xsi:type="ecore:EClass" href="../../Algorithms/model/Algorithms.ecore#//AlgorithmContainer"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="algo">
+      <eClassifier xsi:type="ecore:EClass" href="../../Algorithms/model/Algorithms.ecore#//Algorithm"/>
+    </symbolicParameters>
+    <bodies>
+      <localVariables xsi:type="emf:EMFVariable" name="algo_algorithms_DECNode">
+        <eClassifier xsi:type="ecore:EClass" href="../../Algorithms/model/Algorithms.ecore#//AlgorithmContainer"/>
+      </localVariables>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="CreateAlgorithm__algo_algorithms_incoming_SearchEdge_SRC">
+        <parameters reference="/24/@symbolicParameters.0"/>
+        <parameters reference="/24/@symbolicParameters.1"/>
+        <parameters reference="/24/@bodies.0/@localVariables.0"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="CreateAlgorithm__algo_algorithms_incoming_SearchEdge_SRC">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="ac">
+      <eClassifier xsi:type="ecore:EClass" href="../../Algorithms/model/Algorithms.ecore#//AlgorithmContainer"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="algo">
+      <eClassifier xsi:type="ecore:EClass" href="../../Algorithms/model/Algorithms.ecore#//Algorithm"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="algo_algorithms_DECNode">
+      <eClassifier xsi:type="ecore:EClass" href="../../Algorithms/model/Algorithms.ecore#//AlgorithmContainer"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/25/@symbolicParameters.0"/>
+        <parameters reference="/25/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../../Algorithms/model/Algorithms.ecore#//AlgorithmContainer/algorithms"/>
+      </constraints>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/25/@symbolicParameters.2"/>
+        <parameters reference="/25/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../../Algorithms/model/Algorithms.ecore#//AlgorithmContainer/algorithms"/>
+      </constraints>
+      <constraints xsi:type="relational:Unequal">
+        <parameters reference="/25/@symbolicParameters.0"/>
+        <parameters reference="/25/@symbolicParameters.2"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="CreateStrategy__CC">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="ac">
+      <eClassifier xsi:type="ecore:EClass" href="../../Algorithms/model/Algorithms.ecore#//AlgorithmContainer"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="sc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Strategies/model/Strategies.ecore#//StrategyContainer"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="strategy">
+      <eClassifier xsi:type="ecore:EClass" href="../../Strategies/model/Strategies.ecore#//Strategy"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="ac2sc">
+      <eClassifier xsi:type="ecore:EClass" href="../model/AlgorithmToStrategy_MA.ecore#//AlgorithmsToStrategiesContainerCorr"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="CreateStrategy__CC_REFINEMENT_INVOCATIONS">
+        <parameters reference="/26/@symbolicParameters.0"/>
+        <parameters reference="/26/@symbolicParameters.1"/>
+        <parameters reference="/26/@symbolicParameters.2"/>
+        <parameters reference="/26/@symbolicParameters.3"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="CreateStrategy__NO_FILTER_ACs_SRC">
+        <parameters reference="/26/@symbolicParameters.0"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="CreateStrategy__NO_FILTER_ACs_TRG">
+        <parameters reference="/26/@symbolicParameters.1"/>
+        <parameters reference="/26/@symbolicParameters.2"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="CreateStrategy__CC_REFINEMENT_INVOCATIONS">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="ac">
+      <eClassifier xsi:type="ecore:EClass" href="../../Algorithms/model/Algorithms.ecore#//AlgorithmContainer"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="sc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Strategies/model/Strategies.ecore#//StrategyContainer"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="strategy">
+      <eClassifier xsi:type="ecore:EClass" href="../../Strategies/model/Strategies.ecore#//Strategy"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="ac2sc">
+      <eClassifier xsi:type="ecore:EClass" href="../model/AlgorithmToStrategy_MA.ecore#//AlgorithmsToStrategiesContainerCorr"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="CreateStrategy__SRC">
+        <parameters reference="/27/@symbolicParameters.0"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="CreateStrategy__TRG">
+        <parameters reference="/27/@symbolicParameters.1"/>
+        <parameters reference="/27/@symbolicParameters.2"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="CreateStrategy__CONTEXT_CORR">
+        <parameters reference="/27/@symbolicParameters.0"/>
+        <parameters reference="/27/@symbolicParameters.1"/>
+        <parameters reference="/27/@symbolicParameters.3"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="CreateStrategy__CONTEXT_CORR">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="ac">
+      <eClassifier xsi:type="ecore:EClass" href="../../Algorithms/model/Algorithms.ecore#//AlgorithmContainer"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="sc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Strategies/model/Strategies.ecore#//StrategyContainer"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="ac2sc">
+      <eClassifier xsi:type="ecore:EClass" href="../model/AlgorithmToStrategy_MA.ecore#//AlgorithmsToStrategiesContainerCorr"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/28/@symbolicParameters.2"/>
+        <parameters reference="/28/@symbolicParameters.0"/>
+        <eModelElement xsi:type="ecore:EReference" href="../model/AlgorithmToStrategy_MA.ecore#//AlgorithmsToStrategiesContainerCorr/source"/>
+      </constraints>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/28/@symbolicParameters.2"/>
+        <parameters reference="/28/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../model/AlgorithmToStrategy_MA.ecore#//AlgorithmsToStrategiesContainerCorr/target"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="CreateStrategy__CONTEXT_SRC">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="ac">
+      <eClassifier xsi:type="ecore:EClass" href="../../Algorithms/model/Algorithms.ecore#//AlgorithmContainer"/>
+    </symbolicParameters>
+    <bodies/>
+  </specification:Pattern>
+  <specification:Pattern name="CreateStrategy__CONTEXT_TRG">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="sc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Strategies/model/Strategies.ecore#//StrategyContainer"/>
+    </symbolicParameters>
+    <bodies/>
+  </specification:Pattern>
+  <specification:Pattern name="CreateStrategy__NO_FILTER_ACs_SRC">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="ac">
+      <eClassifier xsi:type="ecore:EClass" href="../../Algorithms/model/Algorithms.ecore#//AlgorithmContainer"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="CreateStrategy__SRC_REFINEMENT_INVOCATIONS">
+        <parameters reference="/31/@symbolicParameters.0"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="CreateStrategy__NO_FILTER_ACs_TRG">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="sc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Strategies/model/Strategies.ecore#//StrategyContainer"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="strategy">
+      <eClassifier xsi:type="ecore:EClass" href="../../Strategies/model/Strategies.ecore#//Strategy"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="CreateStrategy__TRG_REFINEMENT_INVOCATIONS">
+        <parameters reference="/32/@symbolicParameters.0"/>
+        <parameters reference="/32/@symbolicParameters.1"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" invokedPattern="CreateStrategy__strategy_strategies_incoming_DEC_TRG">
+        <parameters reference="/32/@symbolicParameters.0"/>
+        <parameters reference="/32/@symbolicParameters.1"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="CreateStrategy__SRC">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="ac">
+      <eClassifier xsi:type="ecore:EClass" href="../../Algorithms/model/Algorithms.ecore#//AlgorithmContainer"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="CreateStrategy__CONTEXT_SRC">
+        <parameters reference="/33/@symbolicParameters.0"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="CreateStrategy__SRC_REFINEMENT_INVOCATIONS">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="ac">
+      <eClassifier xsi:type="ecore:EClass" href="../../Algorithms/model/Algorithms.ecore#//AlgorithmContainer"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="CreateStrategy__SRC">
+        <parameters reference="/34/@symbolicParameters.0"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="CreateStrategy__TRG">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="sc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Strategies/model/Strategies.ecore#//StrategyContainer"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="strategy">
+      <eClassifier xsi:type="ecore:EClass" href="../../Strategies/model/Strategies.ecore#//Strategy"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/35/@symbolicParameters.0"/>
+        <parameters reference="/35/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../../Strategies/model/Strategies.ecore#//StrategyContainer/strategies"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="CreateStrategy__CONTEXT_TRG">
+        <parameters reference="/35/@symbolicParameters.0"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="CreateStrategy__TRG_REFINEMENT_INVOCATIONS">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="sc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Strategies/model/Strategies.ecore#//StrategyContainer"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="strategy">
+      <eClassifier xsi:type="ecore:EClass" href="../../Strategies/model/Strategies.ecore#//Strategy"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="CreateStrategy__TRG">
+        <parameters reference="/36/@symbolicParameters.0"/>
+        <parameters reference="/36/@symbolicParameters.1"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="CreateStrategy__strategy_strategies_incoming_DEC_TRG">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="sc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Strategies/model/Strategies.ecore#//StrategyContainer"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="strategy">
+      <eClassifier xsi:type="ecore:EClass" href="../../Strategies/model/Strategies.ecore#//Strategy"/>
+    </symbolicParameters>
+    <bodies>
+      <localVariables xsi:type="emf:EMFVariable" name="strategy_strategies_DECNode">
+        <eClassifier xsi:type="ecore:EClass" href="../../Strategies/model/Strategies.ecore#//StrategyContainer"/>
+      </localVariables>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="CreateStrategy__strategy_strategies_incoming_SearchEdge_TRG">
+        <parameters reference="/37/@symbolicParameters.0"/>
+        <parameters reference="/37/@symbolicParameters.1"/>
+        <parameters reference="/37/@bodies.0/@localVariables.0"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="CreateStrategy__strategy_strategies_incoming_SearchEdge_TRG">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="sc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Strategies/model/Strategies.ecore#//StrategyContainer"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="strategy">
+      <eClassifier xsi:type="ecore:EClass" href="../../Strategies/model/Strategies.ecore#//Strategy"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="strategy_strategies_DECNode">
+      <eClassifier xsi:type="ecore:EClass" href="../../Strategies/model/Strategies.ecore#//StrategyContainer"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/38/@symbolicParameters.0"/>
+        <parameters reference="/38/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../../Strategies/model/Strategies.ecore#//StrategyContainer/strategies"/>
+      </constraints>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/38/@symbolicParameters.2"/>
+        <parameters reference="/38/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../../Strategies/model/Strategies.ecore#//StrategyContainer/strategies"/>
+      </constraints>
+      <constraints xsi:type="relational:Unequal">
+        <parameters reference="/38/@symbolicParameters.0"/>
+        <parameters reference="/38/@symbolicParameters.2"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="MarkedPattern__SRC">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="protocol">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="checkedObject">
+      <eClassifier xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/39/@symbolicParameters.0"/>
+        <parameters reference="/39/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication/createdSrc"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="TransferCorrsToAllAlgorhitms_GenForCC__CC">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="algo">
+      <eClassifier xsi:type="ecore:EClass" href="../../Algorithms/model/Algorithms.ecore#//Algorithm"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="strategy">
+      <eClassifier xsi:type="ecore:EClass" href="../../Strategies/model/Strategies.ecore#//Strategy"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="TransferCorrsToAllAlgorhitms__GEN_REFINEMENT_INVOCATIONS">
+        <parameters reference="/40/@symbolicParameters.0"/>
+        <parameters reference="/40/@symbolicParameters.1"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="TransferCorrsToAllAlgorhitms__CC">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="algo">
+      <eClassifier xsi:type="ecore:EClass" href="../../Algorithms/model/Algorithms.ecore#//Algorithm"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="strategy">
+      <eClassifier xsi:type="ecore:EClass" href="../../Strategies/model/Strategies.ecore#//Strategy"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="TransferCorrsToAllAlgorhitms__CC_REFINEMENT_INVOCATIONS">
+        <parameters reference="/41/@symbolicParameters.0"/>
+        <parameters reference="/41/@symbolicParameters.1"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="TransferCorrsToAllAlgorhitms__NO_FILTER_ACs_SRC">
+        <parameters reference="/41/@symbolicParameters.0"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="TransferCorrsToAllAlgorhitms__NO_FILTER_ACs_TRG">
+        <parameters reference="/41/@symbolicParameters.1"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="TransferCorrsToAllAlgorhitms__CC_REFINEMENT_INVOCATIONS">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="algo">
+      <eClassifier xsi:type="ecore:EClass" href="../../Algorithms/model/Algorithms.ecore#//Algorithm"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="strategy">
+      <eClassifier xsi:type="ecore:EClass" href="../../Strategies/model/Strategies.ecore#//Strategy"/>
+    </symbolicParameters>
+    <bodies>
+      <localVariables xsi:type="emf:EMFVariable" name="eMoflon_ProtocolNode">
+        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication"/>
+      </localVariables>
+      <localVariables xsi:type="emf:EMFVariable" name="ac">
+        <eClassifier xsi:type="ecore:EClass" href="../../Algorithms/model/Algorithms.ecore#//AlgorithmContainer"/>
+      </localVariables>
+      <localVariables xsi:type="emf:EMFVariable" name="sc">
+        <eClassifier xsi:type="ecore:EClass" href="../../Strategies/model/Strategies.ecore#//StrategyContainer"/>
+      </localVariables>
+      <localVariables xsi:type="emf:EMFVariable" name="ac2sc">
+        <eClassifier xsi:type="ecore:EClass" href="../model/AlgorithmToStrategy_MA.ecore#//AlgorithmsToStrategiesContainerCorr"/>
+      </localVariables>
+      <localVariables xsi:type="emf:EMFVariable" name="eMoflon_ProtocolNode_attr_EString">
+        <eClassifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </localVariables>
+      <localVariables xsi:type="emf:EMFVariable" name="eMoflon_ProtocolNode_attr_EBoolean">
+        <eClassifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      </localVariables>
+      <constants value="ACED000574000F437265617465416C676F726974686D"/>
+      <constants value="ACED0005737200116A6176612E6C616E672E426F6F6C65616ECD207280D59CFAEE0200015A000576616C7565787000"/>
+      <constraints xsi:type="emf:Attribute">
+        <parameters reference="/42/@bodies.0/@localVariables.0"/>
+        <parameters reference="/42/@bodies.0/@localVariables.4"/>
+        <eModelElement xsi:type="ecore:EAttribute" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication/name"/>
+      </constraints>
+      <constraints xsi:type="emf:Attribute">
+        <parameters reference="/42/@bodies.0/@localVariables.0"/>
+        <parameters reference="/42/@bodies.0/@localVariables.5"/>
+        <eModelElement xsi:type="ecore:EAttribute" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication/amalgamated"/>
+      </constraints>
+      <constraints xsi:type="relational:Equal">
+        <parameters reference="/42/@bodies.0/@localVariables.4"/>
+        <parameters reference="/42/@bodies.0/@constants.0"/>
+      </constraints>
+      <constraints xsi:type="relational:Equal">
+        <parameters reference="/42/@bodies.0/@localVariables.5"/>
+        <parameters reference="/42/@bodies.0/@constants.1"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="TransferCorrsToAllAlgorhitms__SRC">
+        <parameters reference="/42/@symbolicParameters.0"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="TransferCorrsToAllAlgorhitms__TRG">
+        <parameters reference="/42/@symbolicParameters.1"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="CreateAlgorithm__CONSISTENCY">
+        <parameters reference="/42/@bodies.0/@localVariables.1"/>
+        <parameters reference="/42/@symbolicParameters.0"/>
+        <parameters reference="/42/@bodies.0/@localVariables.2"/>
+        <parameters reference="/42/@bodies.0/@localVariables.3"/>
+        <parameters reference="/42/@bodies.0/@localVariables.0"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="TransferCorrsToAllAlgorhitms__CONTEXT_SRC">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="algo">
+      <eClassifier xsi:type="ecore:EClass" href="../../Algorithms/model/Algorithms.ecore#//Algorithm"/>
+    </symbolicParameters>
+    <bodies/>
+  </specification:Pattern>
+  <specification:Pattern name="TransferCorrsToAllAlgorhitms__CONTEXT_TRG">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="strategy">
+      <eClassifier xsi:type="ecore:EClass" href="../../Strategies/model/Strategies.ecore#//Strategy"/>
+    </symbolicParameters>
+    <bodies/>
+  </specification:Pattern>
+  <specification:Pattern name="TransferCorrsToAllAlgorhitms__GEN_REFINEMENT_INVOCATIONS">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="algo">
+      <eClassifier xsi:type="ecore:EClass" href="../../Algorithms/model/Algorithms.ecore#//Algorithm"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="strategy">
+      <eClassifier xsi:type="ecore:EClass" href="../../Strategies/model/Strategies.ecore#//Strategy"/>
+    </symbolicParameters>
+    <bodies>
+      <localVariables xsi:type="emf:EMFVariable" name="eMoflon_ProtocolNode">
+        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication"/>
+      </localVariables>
+      <localVariables xsi:type="emf:EMFVariable" name="ac">
+        <eClassifier xsi:type="ecore:EClass" href="../../Algorithms/model/Algorithms.ecore#//AlgorithmContainer"/>
+      </localVariables>
+      <localVariables xsi:type="emf:EMFVariable" name="sc">
+        <eClassifier xsi:type="ecore:EClass" href="../../Strategies/model/Strategies.ecore#//StrategyContainer"/>
+      </localVariables>
+      <localVariables xsi:type="emf:EMFVariable" name="ac2sc">
+        <eClassifier xsi:type="ecore:EClass" href="../model/AlgorithmToStrategy_MA.ecore#//AlgorithmsToStrategiesContainerCorr"/>
+      </localVariables>
+      <localVariables xsi:type="emf:EMFVariable" name="eMoflon_ProtocolNode_attr_EBoolean">
+        <eClassifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      </localVariables>
+      <localVariables xsi:type="emf:EMFVariable" name="eMoflon_ProtocolNode_attr_EString">
+        <eClassifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </localVariables>
+      <constants value="ACED0005737200116A6176612E6C616E672E426F6F6C65616ECD207280D59CFAEE0200015A000576616C7565787000"/>
+      <constants value="ACED000574000F437265617465416C676F726974686D"/>
+      <constraints xsi:type="emf:Attribute">
+        <parameters reference="/45/@bodies.0/@localVariables.0"/>
+        <parameters reference="/45/@bodies.0/@localVariables.4"/>
+        <eModelElement xsi:type="ecore:EAttribute" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication/amalgamated"/>
+      </constraints>
+      <constraints xsi:type="emf:Attribute">
+        <parameters reference="/45/@bodies.0/@localVariables.0"/>
+        <parameters reference="/45/@bodies.0/@localVariables.5"/>
+        <eModelElement xsi:type="ecore:EAttribute" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication/name"/>
+      </constraints>
+      <constraints xsi:type="relational:Equal">
+        <parameters reference="/45/@bodies.0/@localVariables.4"/>
+        <parameters reference="/45/@bodies.0/@constants.0"/>
+      </constraints>
+      <constraints xsi:type="relational:Equal">
+        <parameters reference="/45/@bodies.0/@localVariables.5"/>
+        <parameters reference="/45/@bodies.0/@constants.1"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="TransferCorrsToAllAlgorhitms__CONTEXT_SRC">
+        <parameters reference="/45/@symbolicParameters.0"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="TransferCorrsToAllAlgorhitms__CONTEXT_TRG">
+        <parameters reference="/45/@symbolicParameters.1"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="CreateAlgorithm__CONSISTENCY">
+        <parameters reference="/45/@bodies.0/@localVariables.1"/>
+        <parameters reference="/45/@symbolicParameters.0"/>
+        <parameters reference="/45/@bodies.0/@localVariables.2"/>
+        <parameters reference="/45/@bodies.0/@localVariables.3"/>
+        <parameters reference="/45/@bodies.0/@localVariables.0"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="TransferCorrsToAllAlgorhitms__NO_FILTER_ACs_SRC">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="algo">
+      <eClassifier xsi:type="ecore:EClass" href="../../Algorithms/model/Algorithms.ecore#//Algorithm"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="TransferCorrsToAllAlgorhitms__SRC_REFINEMENT_INVOCATIONS">
+        <parameters reference="/46/@symbolicParameters.0"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="TransferCorrsToAllAlgorhitms__NO_FILTER_ACs_TRG">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="strategy">
+      <eClassifier xsi:type="ecore:EClass" href="../../Strategies/model/Strategies.ecore#//Strategy"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="TransferCorrsToAllAlgorhitms__TRG_REFINEMENT_INVOCATIONS">
+        <parameters reference="/47/@symbolicParameters.0"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="TransferCorrsToAllAlgorhitms__SRC">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="algo">
+      <eClassifier xsi:type="ecore:EClass" href="../../Algorithms/model/Algorithms.ecore#//Algorithm"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="TransferCorrsToAllAlgorhitms__CONTEXT_SRC">
+        <parameters reference="/48/@symbolicParameters.0"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="TransferCorrsToAllAlgorhitms__SRC_REFINEMENT_INVOCATIONS">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="algo">
+      <eClassifier xsi:type="ecore:EClass" href="../../Algorithms/model/Algorithms.ecore#//Algorithm"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="TransferCorrsToAllAlgorhitms__SRC">
+        <parameters reference="/49/@symbolicParameters.0"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="TransferCorrsToAllAlgorhitms__TRG">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="strategy">
+      <eClassifier xsi:type="ecore:EClass" href="../../Strategies/model/Strategies.ecore#//Strategy"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="TransferCorrsToAllAlgorhitms__CONTEXT_TRG">
+        <parameters reference="/50/@symbolicParameters.0"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="TransferCorrsToAllAlgorhitms__TRG_REFINEMENT_INVOCATIONS">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="strategy">
+      <eClassifier xsi:type="ecore:EClass" href="../../Strategies/model/Strategies.ecore#//Strategy"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="TransferCorrsToAllAlgorhitms__TRG">
+        <parameters reference="/51/@symbolicParameters.0"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="TransferCorrsToAllStrategies_GenForCC__CC">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="algorithm">
+      <eClassifier xsi:type="ecore:EClass" href="../../Algorithms/model/Algorithms.ecore#//Algorithm"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="sc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Strategies/model/Strategies.ecore#//StrategyContainer"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="strategy">
+      <eClassifier xsi:type="ecore:EClass" href="../../Strategies/model/Strategies.ecore#//Strategy"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="TransferCorrsToAllStrategies__GEN_REFINEMENT_INVOCATIONS">
+        <parameters reference="/52/@symbolicParameters.0"/>
+        <parameters reference="/52/@symbolicParameters.1"/>
+        <parameters reference="/52/@symbolicParameters.2"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="TransferCorrsToAllStrategies__CC">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="algorithm">
+      <eClassifier xsi:type="ecore:EClass" href="../../Algorithms/model/Algorithms.ecore#//Algorithm"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="sc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Strategies/model/Strategies.ecore#//StrategyContainer"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="strategy">
+      <eClassifier xsi:type="ecore:EClass" href="../../Strategies/model/Strategies.ecore#//Strategy"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="TransferCorrsToAllStrategies__CC_REFINEMENT_INVOCATIONS">
+        <parameters reference="/53/@symbolicParameters.0"/>
+        <parameters reference="/53/@symbolicParameters.1"/>
+        <parameters reference="/53/@symbolicParameters.2"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="TransferCorrsToAllStrategies__NO_FILTER_ACs_SRC">
+        <parameters reference="/53/@symbolicParameters.0"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="TransferCorrsToAllStrategies__NO_FILTER_ACs_TRG">
+        <parameters reference="/53/@symbolicParameters.1"/>
+        <parameters reference="/53/@symbolicParameters.2"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="TransferCorrsToAllStrategies__CC_REFINEMENT_INVOCATIONS">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="algorithm">
+      <eClassifier xsi:type="ecore:EClass" href="../../Algorithms/model/Algorithms.ecore#//Algorithm"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="sc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Strategies/model/Strategies.ecore#//StrategyContainer"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="strategy">
+      <eClassifier xsi:type="ecore:EClass" href="../../Strategies/model/Strategies.ecore#//Strategy"/>
+    </symbolicParameters>
+    <bodies>
+      <localVariables xsi:type="emf:EMFVariable" name="eMoflon_ProtocolNode">
+        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication"/>
+      </localVariables>
+      <localVariables xsi:type="emf:EMFVariable" name="ac">
+        <eClassifier xsi:type="ecore:EClass" href="../../Algorithms/model/Algorithms.ecore#//AlgorithmContainer"/>
+      </localVariables>
+      <localVariables xsi:type="emf:EMFVariable" name="algo">
+        <eClassifier xsi:type="ecore:EClass" href="../../Algorithms/model/Algorithms.ecore#//Algorithm"/>
+      </localVariables>
+      <localVariables xsi:type="emf:EMFVariable" name="ac2sc">
+        <eClassifier xsi:type="ecore:EClass" href="../model/AlgorithmToStrategy_MA.ecore#//AlgorithmsToStrategiesContainerCorr"/>
+      </localVariables>
+      <localVariables xsi:type="emf:EMFVariable" name="eMoflon_ProtocolNode_attr_EString">
+        <eClassifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </localVariables>
+      <localVariables xsi:type="emf:EMFVariable" name="eMoflon_ProtocolNode_attr_EBoolean">
+        <eClassifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      </localVariables>
+      <constants value="ACED000574000F437265617465416C676F726974686D"/>
+      <constants value="ACED0005737200116A6176612E6C616E672E426F6F6C65616ECD207280D59CFAEE0200015A000576616C7565787000"/>
+      <constraints xsi:type="emf:Attribute">
+        <parameters reference="/54/@bodies.0/@localVariables.0"/>
+        <parameters reference="/54/@bodies.0/@localVariables.4"/>
+        <eModelElement xsi:type="ecore:EAttribute" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication/name"/>
+      </constraints>
+      <constraints xsi:type="emf:Attribute">
+        <parameters reference="/54/@bodies.0/@localVariables.0"/>
+        <parameters reference="/54/@bodies.0/@localVariables.5"/>
+        <eModelElement xsi:type="ecore:EAttribute" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication/amalgamated"/>
+      </constraints>
+      <constraints xsi:type="relational:Equal">
+        <parameters reference="/54/@bodies.0/@localVariables.4"/>
+        <parameters reference="/54/@bodies.0/@constants.0"/>
+      </constraints>
+      <constraints xsi:type="relational:Equal">
+        <parameters reference="/54/@bodies.0/@localVariables.5"/>
+        <parameters reference="/54/@bodies.0/@constants.1"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="TransferCorrsToAllStrategies__SRC">
+        <parameters reference="/54/@symbolicParameters.0"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="TransferCorrsToAllStrategies__TRG">
+        <parameters reference="/54/@symbolicParameters.1"/>
+        <parameters reference="/54/@symbolicParameters.2"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="CreateAlgorithm__CONSISTENCY">
+        <parameters reference="/54/@bodies.0/@localVariables.1"/>
+        <parameters reference="/54/@bodies.0/@localVariables.2"/>
+        <parameters reference="/54/@symbolicParameters.1"/>
+        <parameters reference="/54/@bodies.0/@localVariables.3"/>
+        <parameters reference="/54/@bodies.0/@localVariables.0"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="TransferCorrsToAllStrategies__CONTEXT_SRC">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="algorithm">
+      <eClassifier xsi:type="ecore:EClass" href="../../Algorithms/model/Algorithms.ecore#//Algorithm"/>
+    </symbolicParameters>
+    <bodies/>
+  </specification:Pattern>
+  <specification:Pattern name="TransferCorrsToAllStrategies__CONTEXT_TRG">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="sc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Strategies/model/Strategies.ecore#//StrategyContainer"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="strategy">
+      <eClassifier xsi:type="ecore:EClass" href="../../Strategies/model/Strategies.ecore#//Strategy"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/56/@symbolicParameters.0"/>
+        <parameters reference="/56/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../../Strategies/model/Strategies.ecore#//StrategyContainer/strategies"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="TransferCorrsToAllStrategies__GEN_REFINEMENT_INVOCATIONS">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="algorithm">
+      <eClassifier xsi:type="ecore:EClass" href="../../Algorithms/model/Algorithms.ecore#//Algorithm"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="sc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Strategies/model/Strategies.ecore#//StrategyContainer"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="strategy">
+      <eClassifier xsi:type="ecore:EClass" href="../../Strategies/model/Strategies.ecore#//Strategy"/>
+    </symbolicParameters>
+    <bodies>
+      <localVariables xsi:type="emf:EMFVariable" name="eMoflon_ProtocolNode">
+        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication"/>
+      </localVariables>
+      <localVariables xsi:type="emf:EMFVariable" name="ac">
+        <eClassifier xsi:type="ecore:EClass" href="../../Algorithms/model/Algorithms.ecore#//AlgorithmContainer"/>
+      </localVariables>
+      <localVariables xsi:type="emf:EMFVariable" name="algo">
+        <eClassifier xsi:type="ecore:EClass" href="../../Algorithms/model/Algorithms.ecore#//Algorithm"/>
+      </localVariables>
+      <localVariables xsi:type="emf:EMFVariable" name="ac2sc">
+        <eClassifier xsi:type="ecore:EClass" href="../model/AlgorithmToStrategy_MA.ecore#//AlgorithmsToStrategiesContainerCorr"/>
+      </localVariables>
+      <localVariables xsi:type="emf:EMFVariable" name="eMoflon_ProtocolNode_attr_EBoolean">
+        <eClassifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      </localVariables>
+      <localVariables xsi:type="emf:EMFVariable" name="eMoflon_ProtocolNode_attr_EString">
+        <eClassifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </localVariables>
+      <constants value="ACED0005737200116A6176612E6C616E672E426F6F6C65616ECD207280D59CFAEE0200015A000576616C7565787000"/>
+      <constants value="ACED000574000F437265617465416C676F726974686D"/>
+      <constraints xsi:type="emf:Attribute">
+        <parameters reference="/57/@bodies.0/@localVariables.0"/>
+        <parameters reference="/57/@bodies.0/@localVariables.4"/>
+        <eModelElement xsi:type="ecore:EAttribute" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication/amalgamated"/>
+      </constraints>
+      <constraints xsi:type="emf:Attribute">
+        <parameters reference="/57/@bodies.0/@localVariables.0"/>
+        <parameters reference="/57/@bodies.0/@localVariables.5"/>
+        <eModelElement xsi:type="ecore:EAttribute" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication/name"/>
+      </constraints>
+      <constraints xsi:type="relational:Equal">
+        <parameters reference="/57/@bodies.0/@localVariables.4"/>
+        <parameters reference="/57/@bodies.0/@constants.0"/>
+      </constraints>
+      <constraints xsi:type="relational:Equal">
+        <parameters reference="/57/@bodies.0/@localVariables.5"/>
+        <parameters reference="/57/@bodies.0/@constants.1"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="TransferCorrsToAllStrategies__CONTEXT_SRC">
+        <parameters reference="/57/@symbolicParameters.0"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="TransferCorrsToAllStrategies__CONTEXT_TRG">
+        <parameters reference="/57/@symbolicParameters.1"/>
+        <parameters reference="/57/@symbolicParameters.2"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="CreateAlgorithm__CONSISTENCY">
+        <parameters reference="/57/@bodies.0/@localVariables.1"/>
+        <parameters reference="/57/@bodies.0/@localVariables.2"/>
+        <parameters reference="/57/@symbolicParameters.1"/>
+        <parameters reference="/57/@bodies.0/@localVariables.3"/>
+        <parameters reference="/57/@bodies.0/@localVariables.0"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="TransferCorrsToAllStrategies__NO_FILTER_ACs_SRC">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="algorithm">
+      <eClassifier xsi:type="ecore:EClass" href="../../Algorithms/model/Algorithms.ecore#//Algorithm"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="TransferCorrsToAllStrategies__SRC_REFINEMENT_INVOCATIONS">
+        <parameters reference="/58/@symbolicParameters.0"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="TransferCorrsToAllStrategies__NO_FILTER_ACs_TRG">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="sc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Strategies/model/Strategies.ecore#//StrategyContainer"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="strategy">
+      <eClassifier xsi:type="ecore:EClass" href="../../Strategies/model/Strategies.ecore#//Strategy"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="TransferCorrsToAllStrategies__TRG_REFINEMENT_INVOCATIONS">
+        <parameters reference="/59/@symbolicParameters.0"/>
+        <parameters reference="/59/@symbolicParameters.1"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="TransferCorrsToAllStrategies__SRC">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="algorithm">
+      <eClassifier xsi:type="ecore:EClass" href="../../Algorithms/model/Algorithms.ecore#//Algorithm"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="TransferCorrsToAllStrategies__CONTEXT_SRC">
+        <parameters reference="/60/@symbolicParameters.0"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="TransferCorrsToAllStrategies__SRC_REFINEMENT_INVOCATIONS">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="algorithm">
+      <eClassifier xsi:type="ecore:EClass" href="../../Algorithms/model/Algorithms.ecore#//Algorithm"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="TransferCorrsToAllStrategies__SRC">
+        <parameters reference="/61/@symbolicParameters.0"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="TransferCorrsToAllStrategies__TRG">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="sc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Strategies/model/Strategies.ecore#//StrategyContainer"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="strategy">
+      <eClassifier xsi:type="ecore:EClass" href="../../Strategies/model/Strategies.ecore#//Strategy"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="TransferCorrsToAllStrategies__CONTEXT_TRG">
+        <parameters reference="/62/@symbolicParameters.0"/>
+        <parameters reference="/62/@symbolicParameters.1"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="TransferCorrsToAllStrategies__TRG_REFINEMENT_INVOCATIONS">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="sc">
+      <eClassifier xsi:type="ecore:EClass" href="../../Strategies/model/Strategies.ecore#//StrategyContainer"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="strategy">
+      <eClassifier xsi:type="ecore:EClass" href="../../Strategies/model/Strategies.ecore#//Strategy"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="TransferCorrsToAllStrategies__TRG">
+        <parameters reference="/63/@symbolicParameters.0"/>
+        <parameters reference="/63/@symbolicParameters.1"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+</xmi:XMI>

@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGEN;
-import org.emoflon.ibex.tgg.operational.util.IbexOptions;
+import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 
 import testsuite.ibex.performance.util.PerformanceTestUtil;
 
@@ -35,11 +35,6 @@ public class MODELGEN_App extends MODELGEN {
 		p = createResource(instancePath + "/protocol.xmi");
 		
 		EcoreUtil.resolveAll(rs);
-	}
-	
-	@Override
-	protected boolean protocol() {
-		return true;
 	}
 
 	protected static IbexOptions createIbexOptions() {

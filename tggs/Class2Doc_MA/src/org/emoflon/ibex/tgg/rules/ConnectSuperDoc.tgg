@@ -1,0 +1,30 @@
+#using Class2Doc_MA.*
+#using AttrCondDefLibrary.*
+
+#complement ConnectSuperDoc #for SubClass2SubDoc
+
+#source { 
+	
+}
+
+#target {
+	superDoc : Document{
+		-reference->anotherSuperDoc
+	}
+	
+	anotherSuperDoc : Document
+	
+	subDoc : Document {
+		++ -reference->anotherSuperDoc
+	}
+	
+	
+}
+
+#correspondence {
+	
+}
+
+#attributeConditions {
+	
+}

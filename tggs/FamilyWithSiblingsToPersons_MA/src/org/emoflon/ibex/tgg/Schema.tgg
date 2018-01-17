@@ -1,0 +1,27 @@
+#import "platform:/resource/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore"
+#import "platform:/resource/Persons/model/Persons.ecore"
+
+#schema FamilyWithSiblingsToPersons_MA
+	
+#source {
+	FamiliesWithSiblings
+}
+
+#target { 
+	Persons
+} 
+
+#correspondence {
+	FamiliesReg2PersonsRegCorr{
+		#src->FamilyRegister
+		#trg->PersonRegister
+	}
+	FamilyMember2Person{
+		#src->FamilyMember
+		#trg->Person
+	}
+}
+
+#attributeConditions {
+	
+}

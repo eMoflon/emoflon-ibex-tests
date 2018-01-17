@@ -1,5 +1,7 @@
 package org.benchmarx.classMultipleInheritanceHierarchy.core;
 
+import org.eclipse.emf.ecore.util.EcoreUtil;
+
 import classMultipleInheritanceHierarchy.Attribute;
 import classMultipleInheritanceHierarchy.ClassMultipleInheritanceHierarchyFactory;
 import classMultipleInheritanceHierarchy.ClassPackage;
@@ -31,6 +33,13 @@ public class ClassMultipleInheritanceHierarchyHelper {
 		attr.setType(type);
 		
 		c.getAttributes().add(attr);
+	}
+	
+	public void deleteClass(ClassPackage pkg, String name) {
+		Clazz toBeDeleted = pkg.getClasses().stream()
+				.filter(p -> p.getName().equals(name)).findAny().get();
+		//toBeDeleted.setSuperClass(null);
+		EcoreUtil.delete(toBeDeleted, true);
 	}
 
 }

@@ -18,9 +18,6 @@
     <createdSrc href="../resources/02_Family_OneMother.xmi#//@families.0"/>
     <contextSrc href="../resources/02_Family_OneMother.xmi#/"/>
     <contextTrg href="../resources/02_Person_OneFemale.xmi#/"/>
-    <nodeMappings key="family">
-      <value href="../resources/02_Family_OneMother.xmi#//@families.0"/>
-    </nodeMappings>
     <nodeMappings key="familyReg">
       <value href="../resources/02_Family_OneMother.xmi#/"/>
     </nodeMappings>
@@ -30,6 +27,9 @@
     <nodeMappings key="familyReg2personReg">
       <value href="corr.xmi#/0"/>
     </nodeMappings>
+    <nodeMappings key="family">
+      <value href="../resources/02_Family_OneMother.xmi#//@families.0"/>
+    </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
   <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="Mother2Female">
     <createdSrc href="../resources/02_Family_OneMother.xmi#//@families.0/@mother"/>
@@ -37,20 +37,20 @@
     <createdCorr href="corr.xmi#/1"/>
     <contextSrc href="../resources/02_Family_OneMother.xmi#//@families.0"/>
     <contextTrg href="../resources/02_Person_OneFemale.xmi#/"/>
+    <nodeMappings key="mother">
+      <value href="../resources/02_Family_OneMother.xmi#//@families.0/@mother"/>
+    </nodeMappings>
+    <nodeMappings key="femalePerson">
+      <value href="../resources/02_Person_OneFemale.xmi#//@persons.0"/>
+    </nodeMappings>
+    <nodeMappings key="personReg">
+      <value href="../resources/02_Person_OneFemale.xmi#/"/>
+    </nodeMappings>
     <nodeMappings key="mother2femalePerson">
       <value href="corr.xmi#/1"/>
     </nodeMappings>
     <nodeMappings key="family">
       <value href="../resources/02_Family_OneMother.xmi#//@families.0"/>
-    </nodeMappings>
-    <nodeMappings key="mother">
-      <value href="../resources/02_Family_OneMother.xmi#//@families.0/@mother"/>
-    </nodeMappings>
-    <nodeMappings key="personReg">
-      <value href="../resources/02_Person_OneFemale.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="femalePerson">
-      <value href="../resources/02_Person_OneFemale.xmi#//@persons.0"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
 </xmi:XMI>

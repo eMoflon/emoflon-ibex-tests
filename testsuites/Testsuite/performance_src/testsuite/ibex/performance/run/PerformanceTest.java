@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import java.util.function.Supplier;
 
-import org.emoflon.ibex.tgg.operational.OperationalStrategy;
+import org.emoflon.ibex.tgg.operational.strategies.OperationalStrategy;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesEngine;
 
 import testsuite.ibex.performance.util.Operationalization;
@@ -26,7 +26,7 @@ public abstract class PerformanceTest<O extends OperationalStrategy> {
 		this.op = op;
 		
 		long tic = System.nanoTime();
-		op.registerPatternMatchingEngine(new DemoclesEngine());
+		op.registerBlackInterpreter(new DemoclesEngine());
 		long toc = System.nanoTime();
 		
 		initialized = true;

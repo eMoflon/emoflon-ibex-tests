@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?eclipse version="3.0"?><plugin>
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated Strategy -->
+      <package
+            uri="platform:/plugin/Strategy/model/strategy.ecore"
+            class="Strategies.StrategiesPackage"
+            genModel="model/Strategies.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated Strategies -->
+      <package
+            uri="platform:/resource/Strategies/model/Strategies.ecore"
+            class="Strategies.StrategiesPackage"
+            genModel="model/Strategies.genmodel"/>
+   </extension>
+
+</plugin>
