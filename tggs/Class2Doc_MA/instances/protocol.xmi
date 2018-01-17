@@ -15,8 +15,8 @@
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
   <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="Class2Doc">
-    <createdSrc href="../resources/in/03_SubClassToDoc.xmi#//@classes.0"/>
-    <createdTrg href="../resources/expected/04_SubSubClassToDoc.xmi#//@documents.0"/>
+    <createdSrc href="../resources/in/03_SubClassToDoc.xmi#//@classes.1"/>
+    <createdTrg href="../resources/expected/04_SubSubClassToDoc.xmi#//@documents.1"/>
     <createdCorr href="corr.xmi#/1"/>
     <contextSrc href="../resources/in/03_SubClassToDoc.xmi#/"/>
     <contextTrg href="../resources/expected/04_SubSubClassToDoc.xmi#/"/>
@@ -33,15 +33,15 @@
       <value href="corr.xmi#/1"/>
     </nodeMappings>
     <nodeMappings key="doc">
-      <value href="../resources/expected/04_SubSubClassToDoc.xmi#//@documents.0"/>
+      <value href="../resources/expected/04_SubSubClassToDoc.xmi#//@documents.1"/>
     </nodeMappings>
     <nodeMappings key="class">
-      <value href="../resources/in/03_SubClassToDoc.xmi#//@classes.0"/>
+      <value href="../resources/in/03_SubClassToDoc.xmi#//@classes.1"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
   <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="Class2Doc">
-    <createdSrc href="../resources/in/03_SubClassToDoc.xmi#//@classes.1"/>
-    <createdTrg href="../resources/expected/04_SubSubClassToDoc.xmi#//@documents.1"/>
+    <createdSrc href="../resources/in/03_SubClassToDoc.xmi#//@classes.0"/>
+    <createdTrg href="../resources/expected/04_SubSubClassToDoc.xmi#//@documents.0"/>
     <createdCorr href="corr.xmi#/2"/>
     <contextSrc href="../resources/in/03_SubClassToDoc.xmi#/"/>
     <contextTrg href="../resources/expected/04_SubSubClassToDoc.xmi#/"/>
@@ -58,10 +58,10 @@
       <value href="corr.xmi#/2"/>
     </nodeMappings>
     <nodeMappings key="doc">
-      <value href="../resources/expected/04_SubSubClassToDoc.xmi#//@documents.1"/>
+      <value href="../resources/expected/04_SubSubClassToDoc.xmi#//@documents.0"/>
     </nodeMappings>
     <nodeMappings key="class">
-      <value href="../resources/in/03_SubClassToDoc.xmi#//@classes.1"/>
+      <value href="../resources/in/03_SubClassToDoc.xmi#//@classes.0"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
   <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="SubClass2SubDoc" amalgamated="true">
@@ -81,7 +81,7 @@
       <value href="../resources/expected/04_SubSubClassToDoc.xmi#//@documents.1"/>
     </nodeMappings>
     <nodeMappings key="c2d">
-      <value href="corr.xmi#/1"/>
+      <value href="corr.xmi#/2"/>
     </nodeMappings>
     <nodeMappings key="subClass">
       <value href="../resources/in/03_SubClassToDoc.xmi#//@classes.1"/>
@@ -90,7 +90,7 @@
       <value href="../resources/in/03_SubClassToDoc.xmi#//@classes.0"/>
     </nodeMappings>
     <nodeMappings key="subc2d">
-      <value href="corr.xmi#/2"/>
+      <value href="corr.xmi#/1"/>
     </nodeMappings>
     <nodeMappings key="superDoc">
       <value href="../resources/expected/04_SubSubClassToDoc.xmi#//@documents.0"/>

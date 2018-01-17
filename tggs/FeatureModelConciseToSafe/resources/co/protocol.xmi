@@ -1,79 +1,28 @@
 <?xml version="1.0" encoding="ASCII"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:org.emoflon.ibex.tgg.core.runtime="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore">
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="SolitaryFeatureRule">
-    <createdSrc href="src.xmi#/0/@root/@subfeatures.0"/>
-    <createdTrg href="trg.xmi#/0/@root/@solitarySubFeatures.0"/>
-    <createdCorr href="corr_inc.xmi#/8"/>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="CreateGroupsRule">
+    <createdSrc href="src.xmi#/0/@root/@groups.0"/>
+    <createdTrg href="trg.xmi#/0/@root/@groups.0"/>
+    <createdCorr href="corr_inc.xmi#/10"/>
     <contextSrc href="src.xmi#/0/@root"/>
     <contextTrg href="trg.xmi#/0/@root"/>
-    <nodeMappings key="c2c">
-      <value href="corr_inc.xmi#/8"/>
-    </nodeMappings>
-    <nodeMappings key="conciseChild">
-      <value href="src.xmi#/0/@root/@subfeatures.0"/>
-    </nodeMappings>
-    <nodeMappings key="safeChild">
-      <value href="trg.xmi#/0/@root/@solitarySubFeatures.0"/>
-    </nodeMappings>
-    <nodeMappings key="safeParent">
-      <value href="trg.xmi#/0/@root"/>
-    </nodeMappings>
-    <nodeMappings key="conciseParent">
-      <value href="src.xmi#/0/@root"/>
-    </nodeMappings>
-    <nodeMappings key="p2p">
-      <value href="corr_inc.xmi#/1"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="CreateGroupsRule">
-    <createdSrc href="src.xmi#/0/@root/@subfeatures.0/@groups.0"/>
-    <createdTrg href="trg.xmi#/0/@root/@solitarySubFeatures.0/@groups.0"/>
-    <createdCorr href="corr_inc.xmi#/11"/>
-    <contextSrc href="src.xmi#/0/@root/@subfeatures.0"/>
-    <contextTrg href="trg.xmi#/0/@root/@solitarySubFeatures.0"/>
     <nodeMappings key="safeGroup">
-      <value href="trg.xmi#/0/@root/@solitarySubFeatures.0/@groups.0"/>
+      <value href="trg.xmi#/0/@root/@groups.0"/>
     </nodeMappings>
     <nodeMappings key="conciseGroup">
-      <value href="src.xmi#/0/@root/@subfeatures.0/@groups.0"/>
+      <value href="src.xmi#/0/@root/@groups.0"/>
     </nodeMappings>
     <nodeMappings key="g2g">
-      <value href="corr_inc.xmi#/11"/>
+      <value href="corr_inc.xmi#/10"/>
     </nodeMappings>
     <nodeMappings key="safeParent">
-      <value href="trg.xmi#/0/@root/@solitarySubFeatures.0"/>
-    </nodeMappings>
-    <nodeMappings key="conciseParent">
-      <value href="src.xmi#/0/@root/@subfeatures.0"/>
-    </nodeMappings>
-    <nodeMappings key="p2p">
-      <value href="corr_inc.xmi#/8"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="RootAxiomRule">
-    <createdSrc href="src.xmi#/0"/>
-    <createdSrc href="src.xmi#/0/@root"/>
-    <createdTrg href="trg.xmi#/0"/>
-    <createdTrg href="trg.xmi#/0/@root"/>
-    <createdCorr href="corr_inc.xmi#/0"/>
-    <createdCorr href="corr_inc.xmi#/1"/>
-    <nodeMappings key="r2r">
-      <value href="corr_inc.xmi#/1"/>
-    </nodeMappings>
-    <nodeMappings key="safeRoot">
       <value href="trg.xmi#/0/@root"/>
     </nodeMappings>
-    <nodeMappings key="safeModel">
-      <value href="trg.xmi#/0"/>
-    </nodeMappings>
-    <nodeMappings key="m2m">
-      <value href="corr_inc.xmi#/0"/>
-    </nodeMappings>
-    <nodeMappings key="conciseModel">
-      <value href="src.xmi#/0"/>
-    </nodeMappings>
-    <nodeMappings key="conciseRoot">
+    <nodeMappings key="conciseParent">
       <value href="src.xmi#/0/@root"/>
+    </nodeMappings>
+    <nodeMappings key="p2p">
+      <value href="corr_inc.xmi#/1"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
   <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="RootAxiomRule">
@@ -102,7 +51,32 @@
       <value href="src.xmi#/1/@root"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="CreateGroupsRule">
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="CreateXOrRule">
+    <createdSrc href="src.xmi#/0/@root/@subfeatures.0/@groups.0"/>
+    <createdTrg href="trg.xmi#/0/@root/@solitarySubFeatures.0/@groups.0"/>
+    <createdCorr href="corr_inc.xmi#/11"/>
+    <contextSrc href="src.xmi#/0/@root/@subfeatures.0"/>
+    <contextTrg href="trg.xmi#/0/@root/@solitarySubFeatures.0"/>
+    <nodeMappings key="safeGroup">
+      <value href="trg.xmi#/0/@root/@solitarySubFeatures.0/@groups.0"/>
+    </nodeMappings>
+    <nodeMappings key="conciseGroup">
+      <value href="src.xmi#/0/@root/@subfeatures.0/@groups.0"/>
+    </nodeMappings>
+    <nodeMappings key="g2g">
+      <value href="corr_inc.xmi#/11"/>
+    </nodeMappings>
+    <nodeMappings key="safeParent">
+      <value href="trg.xmi#/0/@root/@solitarySubFeatures.0"/>
+    </nodeMappings>
+    <nodeMappings key="conciseParent">
+      <value href="src.xmi#/0/@root/@subfeatures.0"/>
+    </nodeMappings>
+    <nodeMappings key="p2p">
+      <value href="corr_inc.xmi#/8"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="CreateOrRule">
     <createdSrc href="src.xmi#/1/@root/@groups.1"/>
     <createdTrg href="trg.xmi#/1/@root/@groups.1"/>
     <createdCorr href="corr_inc.xmi#/9"/>
@@ -127,56 +101,6 @@
       <value href="corr_inc.xmi#/3"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="CreateGroupsRule">
-    <createdSrc href="src.xmi#/1/@root/@groups.0"/>
-    <createdTrg href="trg.xmi#/1/@root/@groups.0"/>
-    <createdCorr href="corr_inc.xmi#/5"/>
-    <contextSrc href="src.xmi#/1/@root"/>
-    <contextTrg href="trg.xmi#/1/@root"/>
-    <nodeMappings key="safeGroup">
-      <value href="trg.xmi#/1/@root/@groups.0"/>
-    </nodeMappings>
-    <nodeMappings key="conciseGroup">
-      <value href="src.xmi#/1/@root/@groups.0"/>
-    </nodeMappings>
-    <nodeMappings key="g2g">
-      <value href="corr_inc.xmi#/5"/>
-    </nodeMappings>
-    <nodeMappings key="safeParent">
-      <value href="trg.xmi#/1/@root"/>
-    </nodeMappings>
-    <nodeMappings key="conciseParent">
-      <value href="src.xmi#/1/@root"/>
-    </nodeMappings>
-    <nodeMappings key="p2p">
-      <value href="corr_inc.xmi#/3"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="CreateGroupsRule">
-    <createdSrc href="src.xmi#/0/@root/@groups.0"/>
-    <createdTrg href="trg.xmi#/0/@root/@groups.0"/>
-    <createdCorr href="corr_inc.xmi#/10"/>
-    <contextSrc href="src.xmi#/0/@root"/>
-    <contextTrg href="trg.xmi#/0/@root"/>
-    <nodeMappings key="safeGroup">
-      <value href="trg.xmi#/0/@root/@groups.0"/>
-    </nodeMappings>
-    <nodeMappings key="conciseGroup">
-      <value href="src.xmi#/0/@root/@groups.0"/>
-    </nodeMappings>
-    <nodeMappings key="g2g">
-      <value href="corr_inc.xmi#/10"/>
-    </nodeMappings>
-    <nodeMappings key="safeParent">
-      <value href="trg.xmi#/0/@root"/>
-    </nodeMappings>
-    <nodeMappings key="conciseParent">
-      <value href="src.xmi#/0/@root"/>
-    </nodeMappings>
-    <nodeMappings key="p2p">
-      <value href="corr_inc.xmi#/1"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
   <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="SolitaryFeatureRule">
     <createdSrc href="src.xmi#/1/@root/@subfeatures.0"/>
     <createdTrg href="trg.xmi#/1/@root/@solitarySubFeatures.0"/>
@@ -191,6 +115,82 @@
     </nodeMappings>
     <nodeMappings key="safeChild">
       <value href="trg.xmi#/1/@root/@solitarySubFeatures.0"/>
+    </nodeMappings>
+    <nodeMappings key="safeParent">
+      <value href="trg.xmi#/1/@root"/>
+    </nodeMappings>
+    <nodeMappings key="conciseParent">
+      <value href="src.xmi#/1/@root"/>
+    </nodeMappings>
+    <nodeMappings key="p2p">
+      <value href="corr_inc.xmi#/3"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="SolitaryFeatureRule">
+    <createdSrc href="src.xmi#/0/@root/@subfeatures.0"/>
+    <createdTrg href="trg.xmi#/0/@root/@solitarySubFeatures.0"/>
+    <createdCorr href="corr_inc.xmi#/8"/>
+    <contextSrc href="src.xmi#/0/@root"/>
+    <contextTrg href="trg.xmi#/0/@root"/>
+    <nodeMappings key="c2c">
+      <value href="corr_inc.xmi#/8"/>
+    </nodeMappings>
+    <nodeMappings key="conciseChild">
+      <value href="src.xmi#/0/@root/@subfeatures.0"/>
+    </nodeMappings>
+    <nodeMappings key="safeChild">
+      <value href="trg.xmi#/0/@root/@solitarySubFeatures.0"/>
+    </nodeMappings>
+    <nodeMappings key="safeParent">
+      <value href="trg.xmi#/0/@root"/>
+    </nodeMappings>
+    <nodeMappings key="conciseParent">
+      <value href="src.xmi#/0/@root"/>
+    </nodeMappings>
+    <nodeMappings key="p2p">
+      <value href="corr_inc.xmi#/1"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="RootAxiomRule">
+    <createdSrc href="src.xmi#/0"/>
+    <createdSrc href="src.xmi#/0/@root"/>
+    <createdTrg href="trg.xmi#/0"/>
+    <createdTrg href="trg.xmi#/0/@root"/>
+    <createdCorr href="corr_inc.xmi#/0"/>
+    <createdCorr href="corr_inc.xmi#/1"/>
+    <nodeMappings key="r2r">
+      <value href="corr_inc.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="safeRoot">
+      <value href="trg.xmi#/0/@root"/>
+    </nodeMappings>
+    <nodeMappings key="safeModel">
+      <value href="trg.xmi#/0"/>
+    </nodeMappings>
+    <nodeMappings key="m2m">
+      <value href="corr_inc.xmi#/0"/>
+    </nodeMappings>
+    <nodeMappings key="conciseModel">
+      <value href="src.xmi#/0"/>
+    </nodeMappings>
+    <nodeMappings key="conciseRoot">
+      <value href="src.xmi#/0/@root"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="CreateXOrRule">
+    <createdSrc href="src.xmi#/1/@root/@groups.0"/>
+    <createdTrg href="trg.xmi#/1/@root/@groups.0"/>
+    <createdCorr href="corr_inc.xmi#/5"/>
+    <contextSrc href="src.xmi#/1/@root"/>
+    <contextTrg href="trg.xmi#/1/@root"/>
+    <nodeMappings key="safeGroup">
+      <value href="trg.xmi#/1/@root/@groups.0"/>
+    </nodeMappings>
+    <nodeMappings key="conciseGroup">
+      <value href="src.xmi#/1/@root/@groups.0"/>
+    </nodeMappings>
+    <nodeMappings key="g2g">
+      <value href="corr_inc.xmi#/5"/>
     </nodeMappings>
     <nodeMappings key="safeParent">
       <value href="trg.xmi#/1/@root"/>
