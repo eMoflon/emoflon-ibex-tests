@@ -7,17 +7,16 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.ibex.tgg.operational.csp.constraints.factories.UserDefinedRuntimeTGGAttrConstraintFactory;
 import org.emoflon.ibex.tgg.operational.strategies.sync_opt.SYNC;
-import org.emoflon.ibex.tgg.operational.util.IbexOptions;
+import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesEngine;
 
 import Families.impl.FamiliesPackageImpl;
-import Persons.impl.PersonsPackageImpl;
 
 public class SYNC_OPT_App extends SYNC {
 
 	public SYNC_OPT_App(String projectName, String workspacePath, boolean debug) throws IOException {
 		super(createIbexOptions().projectName(projectName).workspacePath(workspacePath).debug(debug));
-		registerPatternMatchingEngine(new DemoclesEngine());
+		registerBlackInterpreter(new DemoclesEngine());
 	}
 
 	public static void main(String[] args) throws IOException {

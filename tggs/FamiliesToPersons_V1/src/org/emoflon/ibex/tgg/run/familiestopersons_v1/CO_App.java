@@ -3,10 +3,9 @@ package org.emoflon.ibex.tgg.run.familiestopersons_v1;
 import java.io.IOException;
 
 import org.apache.log4j.BasicConfigurator;
-import org.apache.commons.lang3.NotImplementedException;
 
 import org.emoflon.ibex.tgg.operational.csp.constraints.factories.UserDefinedRuntimeTGGAttrConstraintFactory;
-import org.emoflon.ibex.tgg.operational.util.IbexOptions;
+import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.co.CO;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesEngine;
 
@@ -17,7 +16,7 @@ public class CO_App extends CO {
 
 	public CO_App(String projectName, String workspacePath, boolean debug) throws IOException {
 		super(createIbexOptions().projectName(projectName).workspacePath(workspacePath).debug(debug));
-		registerPatternMatchingEngine(new DemoclesEngine());
+		registerBlackInterpreter(new DemoclesEngine());
 	}
 
 	public static void main(String[] args) throws IOException {
