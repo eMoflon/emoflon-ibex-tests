@@ -3,11 +3,11 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="AlgorithmToStrategy_MA" nsURI="platform:/resource/AlgorithmToStrategy_MA/model/AlgorithmToStrategy_MA.ecore"
     nsPrefix="AlgorithmToStrategy_MA">
   <eClassifiers xsi:type="ecore:EClass" name="AlgorithmsToStrategiesContainerCorr">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="ecore:EClass platform:/resource/Algorithm/model/Algorithms.ecore#//AlgorithmContainer"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="ecore:EClass platform:/resource/Strategy/model/Strategies.ecore#//StrategyContainer"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="ecore:EClass platform:/resource/Algorithms/model/Algorithms.ecore#//AlgorithmContainer"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="ecore:EClass platform:/resource/Strategies/model/Strategies.ecore#//StrategyContainer"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AlgorithmToStrategy">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="ecore:EClass platform:/resource/Algorithm/model/Algorithms.ecore#//Algorithm"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="ecore:EClass platform:/resource/Strategy/model/Strategies.ecore#//Strategy"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="ecore:EClass platform:/resource/Algorithms/model/Algorithms.ecore#//Algorithm"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="ecore:EClass platform:/resource/Strategies/model/Strategies.ecore#//Strategy"/>
   </eClassifiers>
 </ecore:EPackage>
