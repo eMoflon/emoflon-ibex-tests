@@ -19,24 +19,6 @@
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
   <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="SystemToNodeRule">
-    <createdSrc href="src.xmi#/2"/>
-    <createdTrg href="trg.xmi#/2"/>
-    <createdTrg href="trg.xmi#/2/@rootNode"/>
-    <createdCorr href="corr.xmi#/2"/>
-    <nodeMappings key="systemToNode">
-      <value href="corr.xmi#/2"/>
-    </nodeMappings>
-    <nodeMappings key="node">
-      <value href="trg.xmi#/2/@rootNode"/>
-    </nodeMappings>
-    <nodeMappings key="system">
-      <value href="src.xmi#/2"/>
-    </nodeMappings>
-    <nodeMappings key="file">
-      <value href="trg.xmi#/2"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="SystemToNodeRule">
     <createdSrc href="src.xmi#/4"/>
     <createdTrg href="trg.xmi#/4"/>
     <createdTrg href="trg.xmi#/4/@rootNode"/>
@@ -52,6 +34,24 @@
     </nodeMappings>
     <nodeMappings key="file">
       <value href="trg.xmi#/4"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="SystemToNodeRule">
+    <createdSrc href="src.xmi#/2"/>
+    <createdTrg href="trg.xmi#/2"/>
+    <createdTrg href="trg.xmi#/2/@rootNode"/>
+    <createdCorr href="corr.xmi#/2"/>
+    <nodeMappings key="systemToNode">
+      <value href="corr.xmi#/2"/>
+    </nodeMappings>
+    <nodeMappings key="node">
+      <value href="trg.xmi#/2/@rootNode"/>
+    </nodeMappings>
+    <nodeMappings key="system">
+      <value href="src.xmi#/2"/>
+    </nodeMappings>
+    <nodeMappings key="file">
+      <value href="trg.xmi#/2"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
   <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="SystemToNodeRule">

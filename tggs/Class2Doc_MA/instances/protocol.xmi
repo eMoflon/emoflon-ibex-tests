@@ -2,10 +2,10 @@
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:org.emoflon.ibex.tgg.core.runtime="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore">
   <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="Package2Container">
     <createdSrc href="../resources/in/03_SubClassToDoc.xmi#/"/>
-    <createdTrg href="../resources/expected/04_SubSubClassToDoc.xmi#/"/>
+    <createdTrg href="../resources/expected/03_SubClassToDoc.xmi#/"/>
     <createdCorr href="corr.xmi#/0"/>
     <nodeMappings key="container">
-      <value href="../resources/expected/04_SubSubClassToDoc.xmi#/"/>
+      <value href="../resources/expected/03_SubClassToDoc.xmi#/"/>
     </nodeMappings>
     <nodeMappings key="p2c">
       <value href="corr.xmi#/0"/>
@@ -15,13 +15,13 @@
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
   <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="Class2Doc">
-    <createdSrc href="../resources/in/03_SubClassToDoc.xmi#//@classes.0"/>
-    <createdTrg href="../resources/expected/04_SubSubClassToDoc.xmi#//@documents.0"/>
+    <createdSrc href="../resources/in/03_SubClassToDoc.xmi#//@classes.1"/>
+    <createdTrg href="../resources/expected/03_SubClassToDoc.xmi#//@documents.1"/>
     <createdCorr href="corr.xmi#/1"/>
     <contextSrc href="../resources/in/03_SubClassToDoc.xmi#/"/>
-    <contextTrg href="../resources/expected/04_SubSubClassToDoc.xmi#/"/>
+    <contextTrg href="../resources/expected/03_SubClassToDoc.xmi#/"/>
     <nodeMappings key="container">
-      <value href="../resources/expected/04_SubSubClassToDoc.xmi#/"/>
+      <value href="../resources/expected/03_SubClassToDoc.xmi#/"/>
     </nodeMappings>
     <nodeMappings key="p2c">
       <value href="corr.xmi#/0"/>
@@ -33,20 +33,20 @@
       <value href="corr.xmi#/1"/>
     </nodeMappings>
     <nodeMappings key="doc">
-      <value href="../resources/expected/04_SubSubClassToDoc.xmi#//@documents.0"/>
+      <value href="../resources/expected/03_SubClassToDoc.xmi#//@documents.1"/>
     </nodeMappings>
     <nodeMappings key="class">
-      <value href="../resources/in/03_SubClassToDoc.xmi#//@classes.0"/>
+      <value href="../resources/in/03_SubClassToDoc.xmi#//@classes.1"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
   <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="Class2Doc">
-    <createdSrc href="../resources/in/03_SubClassToDoc.xmi#//@classes.1"/>
-    <createdTrg href="../resources/expected/04_SubSubClassToDoc.xmi#//@documents.1"/>
+    <createdSrc href="../resources/in/03_SubClassToDoc.xmi#//@classes.0"/>
+    <createdTrg href="../resources/expected/03_SubClassToDoc.xmi#//@documents.0"/>
     <createdCorr href="corr.xmi#/2"/>
     <contextSrc href="../resources/in/03_SubClassToDoc.xmi#/"/>
-    <contextTrg href="../resources/expected/04_SubSubClassToDoc.xmi#/"/>
+    <contextTrg href="../resources/expected/03_SubClassToDoc.xmi#/"/>
     <nodeMappings key="container">
-      <value href="../resources/expected/04_SubSubClassToDoc.xmi#/"/>
+      <value href="../resources/expected/03_SubClassToDoc.xmi#/"/>
     </nodeMappings>
     <nodeMappings key="p2c">
       <value href="corr.xmi#/0"/>
@@ -58,30 +58,30 @@
       <value href="corr.xmi#/2"/>
     </nodeMappings>
     <nodeMappings key="doc">
-      <value href="../resources/expected/04_SubSubClassToDoc.xmi#//@documents.1"/>
+      <value href="../resources/expected/03_SubClassToDoc.xmi#//@documents.0"/>
     </nodeMappings>
     <nodeMappings key="class">
-      <value href="../resources/in/03_SubClassToDoc.xmi#//@classes.1"/>
+      <value href="../resources/in/03_SubClassToDoc.xmi#//@classes.0"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
   <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="SubClass2SubDoc" amalgamated="true">
     <contextSrc href="../resources/in/03_SubClassToDoc.xmi#/"/>
     <contextSrc href="../resources/in/03_SubClassToDoc.xmi#//@classes.1"/>
     <contextSrc href="../resources/in/03_SubClassToDoc.xmi#//@classes.0"/>
-    <contextTrg href="../resources/expected/04_SubSubClassToDoc.xmi#/"/>
-    <contextTrg href="../resources/expected/04_SubSubClassToDoc.xmi#//@documents.1"/>
-    <contextTrg href="../resources/expected/04_SubSubClassToDoc.xmi#//@documents.0"/>
+    <contextTrg href="../resources/expected/03_SubClassToDoc.xmi#/"/>
+    <contextTrg href="../resources/expected/03_SubClassToDoc.xmi#//@documents.1"/>
+    <contextTrg href="../resources/expected/03_SubClassToDoc.xmi#//@documents.0"/>
     <nodeMappings key="p">
       <value href="../resources/in/03_SubClassToDoc.xmi#/"/>
     </nodeMappings>
     <nodeMappings key="c">
-      <value href="../resources/expected/04_SubSubClassToDoc.xmi#/"/>
+      <value href="../resources/expected/03_SubClassToDoc.xmi#/"/>
     </nodeMappings>
     <nodeMappings key="subDoc">
-      <value href="../resources/expected/04_SubSubClassToDoc.xmi#//@documents.1"/>
+      <value href="../resources/expected/03_SubClassToDoc.xmi#//@documents.1"/>
     </nodeMappings>
     <nodeMappings key="c2d">
-      <value href="corr.xmi#/1"/>
+      <value href="corr.xmi#/2"/>
     </nodeMappings>
     <nodeMappings key="subClass">
       <value href="../resources/in/03_SubClassToDoc.xmi#//@classes.1"/>
@@ -90,24 +90,10 @@
       <value href="../resources/in/03_SubClassToDoc.xmi#//@classes.0"/>
     </nodeMappings>
     <nodeMappings key="subc2d">
-      <value href="corr.xmi#/2"/>
+      <value href="corr.xmi#/1"/>
     </nodeMappings>
     <nodeMappings key="superDoc">
-      <value href="../resources/expected/04_SubSubClassToDoc.xmi#//@documents.0"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="ConnectSubDoc">
-    <contextTrg href="../resources/expected/04_SubSubClassToDoc.xmi#//@documents.1"/>
-    <contextTrg href="../resources/expected/04_SubSubClassToDoc.xmi#//@documents.0"/>
-    <contextTrg href="../resources/expected/04_SubSubClassToDoc.xmi#//@documents.2"/>
-    <nodeMappings key="subDoc">
-      <value href="../resources/expected/04_SubSubClassToDoc.xmi#//@documents.1"/>
-    </nodeMappings>
-    <nodeMappings key="anotherSubDoc">
-      <value href="../resources/expected/04_SubSubClassToDoc.xmi#//@documents.2"/>
-    </nodeMappings>
-    <nodeMappings key="superDoc">
-      <value href="../resources/expected/04_SubSubClassToDoc.xmi#//@documents.0"/>
+      <value href="../resources/expected/03_SubClassToDoc.xmi#//@documents.0"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
 </xmi:XMI>

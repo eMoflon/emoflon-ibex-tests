@@ -28,7 +28,7 @@
     <edges name="attribute__clazz__clazz_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.0/@nodes.0" trgNode="//@rules.0/@nodes.1">
       <type href="platform:/resource/ClassInheritanceHierarchy/model/ClassInheritanceHierarchy.ecore#//Attribute/clazz"/>
     </edges>
-    <attributeConditionLibrary sorted_BWD="//@rules.0/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_FWD="//@rules.0/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_CC="//@rules.0/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_MODELGEN="//@rules.0/@attributeConditionLibrary/@tggAttributeConstraints.0">
+    <attributeConditionLibrary>
       <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0" parameters="//@rules.0/@attributeConditionLibrary/@parameterValues.0 //@rules.0/@attributeConditionLibrary/@parameterValues.1"/>
       <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.0" objectVar="//@rules.0/@nodes.0">
         <attribute href="platform:/resource/ClassInheritanceHierarchy/model/ClassInheritanceHierarchy.ecore#//NamedElement/name"/>
@@ -66,7 +66,7 @@
     <edges name="clazz__package__packageClass_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.1/@nodes.0" trgNode="//@rules.1/@nodes.1">
       <type href="platform:/resource/ClassInheritanceHierarchy/model/ClassInheritanceHierarchy.ecore#//Clazz/package"/>
     </edges>
-    <attributeConditionLibrary sorted_BWD="//@rules.1/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_FWD="//@rules.1/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_CC="//@rules.1/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_MODELGEN="//@rules.1/@attributeConditionLibrary/@tggAttributeConstraints.0">
+    <attributeConditionLibrary>
       <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0" parameters="//@rules.1/@attributeConditionLibrary/@parameterValues.0 //@rules.1/@attributeConditionLibrary/@parameterValues.1"/>
       <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.0" objectVar="//@rules.1/@nodes.0">
         <attribute href="platform:/resource/ClassInheritanceHierarchy/model/ClassInheritanceHierarchy.ecore#//NamedElement/name"/>
@@ -86,7 +86,7 @@
     <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="packageToDb" domainType="CORR" bindingType="CREATE" source="//@rules.2/@nodes.0" target="//@rules.2/@nodes.1">
       <type href="platform:/resource/ClassInhHier2DB_MA/model/ClassInhHier2DB_MA.ecore#//Package2DB"/>
     </nodes>
-    <attributeConditionLibrary sorted_BWD="//@rules.2/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_FWD="//@rules.2/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_CC="//@rules.2/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_MODELGEN="//@rules.2/@attributeConditionLibrary/@tggAttributeConstraints.0">
+    <attributeConditionLibrary>
       <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0" parameters="//@rules.2/@attributeConditionLibrary/@parameterValues.0 //@rules.2/@attributeConditionLibrary/@parameterValues.1"/>
       <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.0" objectVar="//@rules.2/@nodes.0">
         <attribute href="platform:/resource/ClassInheritanceHierarchy/model/ClassInheritanceHierarchy.ecore#//NamedElement/name"/>
@@ -148,7 +148,7 @@
     <edges name="superClazz__subClass__subClazz_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.3/@nodes.2" trgNode="//@rules.3/@nodes.1">
       <type href="platform:/resource/ClassInheritanceHierarchy/model/ClassInheritanceHierarchy.ecore#//Clazz/subClass"/>
     </edges>
-    <attributeConditionLibrary sorted_BWD="//@rules.3/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_FWD="//@rules.3/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_CC="//@rules.3/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_MODELGEN="//@rules.3/@attributeConditionLibrary/@tggAttributeConstraints.0">
+    <attributeConditionLibrary>
       <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0" parameters="//@rules.3/@attributeConditionLibrary/@parameterValues.0 //@rules.3/@attributeConditionLibrary/@parameterValues.1"/>
       <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.0" objectVar="//@rules.3/@nodes.1">
         <attribute href="platform:/resource/ClassInheritanceHierarchy/model/ClassInheritanceHierarchy.ecore#//NamedElement/name"/>
@@ -177,7 +177,7 @@
     <edges name="subTable__columns__transferCol_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.4/@nodes.2" trgNode="//@rules.4/@nodes.3">
       <type href="platform:/resource/Database/model/Database.ecore#//Table/columns"/>
     </edges>
-    <attributeConditionLibrary sorted_BWD="//@rules.4/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_FWD="//@rules.4/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_CC="//@rules.4/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_MODELGEN="//@rules.4/@attributeConditionLibrary/@tggAttributeConstraints.0">
+    <attributeConditionLibrary>
       <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0" parameters="//@rules.4/@attributeConditionLibrary/@parameterValues.0 //@rules.4/@attributeConditionLibrary/@parameterValues.1"/>
       <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.0" objectVar="//@rules.4/@nodes.1">
         <attribute href="platform:/resource/Database/model/Database.ecore#//Column/name"/>
@@ -224,7 +224,7 @@
     <edges name="subTable__columns__transferedCols_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.6/@nodes.2" trgNode="//@rules.6/@nodes.3">
       <type href="platform:/resource/Database/model/Database.ecore#//Table/columns"/>
     </edges>
-    <attributeConditionLibrary sorted_BWD="//@rules.6/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_FWD="//@rules.6/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_CC="//@rules.6/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_MODELGEN="//@rules.6/@attributeConditionLibrary/@tggAttributeConstraints.0">
+    <attributeConditionLibrary>
       <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0" parameters="//@rules.6/@attributeConditionLibrary/@parameterValues.0 //@rules.6/@attributeConditionLibrary/@parameterValues.1"/>
       <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.0" objectVar="//@rules.6/@nodes.1">
         <attribute href="platform:/resource/Database/model/Database.ecore#//Column/name"/>

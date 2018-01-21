@@ -34,7 +34,7 @@
     <edges name="doc__container__container_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.0/@nodes.3" trgNode="//@rules.0/@nodes.2">
       <type href="platform:/resource/Documents/model/Documents.ecore#//Document/container"/>
     </edges>
-    <attributeConditionLibrary sorted_BWD="//@rules.0/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_FWD="//@rules.0/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_CC="//@rules.0/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_MODELGEN="//@rules.0/@attributeConditionLibrary/@tggAttributeConstraints.0">
+    <attributeConditionLibrary>
       <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0" parameters="//@rules.0/@attributeConditionLibrary/@parameterValues.0 //@rules.0/@attributeConditionLibrary/@parameterValues.1"/>
       <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.0" objectVar="//@rules.0/@nodes.0">
         <attribute href="platform:/resource/ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//NamedElement/name"/>
@@ -54,7 +54,7 @@
     <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="p2c" domainType="CORR" bindingType="CREATE" source="//@rules.1/@nodes.0" target="//@rules.1/@nodes.1">
       <type href="platform:/resource/Class2Doc_MA/model/Class2Doc_MA.ecore#//classPackate2Container"/>
     </nodes>
-    <attributeConditionLibrary sorted_BWD="//@rules.1/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_FWD="//@rules.1/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_CC="//@rules.1/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_MODELGEN="//@rules.1/@attributeConditionLibrary/@tggAttributeConstraints.0">
+    <attributeConditionLibrary>
       <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0" parameters="//@rules.1/@attributeConditionLibrary/@parameterValues.0 //@rules.1/@attributeConditionLibrary/@parameterValues.1"/>
       <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.0" objectVar="//@rules.1/@nodes.0">
         <attribute href="platform:/resource/ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//NamedElement/name"/>

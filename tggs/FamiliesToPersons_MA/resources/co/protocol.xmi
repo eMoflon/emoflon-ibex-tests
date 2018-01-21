@@ -31,6 +31,28 @@
       <value href="src.xmi#//@families.0"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="Daughter2Female">
+    <createdSrc href="src.xmi#//@families.0/@daughters.0"/>
+    <createdTrg href="trg.xmi#//@persons.1"/>
+    <createdCorr href="corr.xmi#/2"/>
+    <contextSrc href="src.xmi#//@families.0"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="daughter2femalePerson">
+      <value href="corr.xmi#/2"/>
+    </nodeMappings>
+    <nodeMappings key="femalePerson">
+      <value href="trg.xmi#//@persons.1"/>
+    </nodeMappings>
+    <nodeMappings key="personReg">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="family">
+      <value href="src.xmi#//@families.0"/>
+    </nodeMappings>
+    <nodeMappings key="daughter">
+      <value href="src.xmi#//@families.0/@daughters.0"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
   <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="Father2Male">
     <createdSrc href="src.xmi#//@families.0/@father"/>
     <createdTrg href="trg.xmi#//@persons.0"/>
@@ -73,28 +95,6 @@
     </nodeMappings>
     <nodeMappings key="family">
       <value href="src.xmi#//@families.0"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="Daughter2Female">
-    <createdSrc href="src.xmi#//@families.0/@daughters.0"/>
-    <createdTrg href="trg.xmi#//@persons.1"/>
-    <createdCorr href="corr.xmi#/2"/>
-    <contextSrc href="src.xmi#//@families.0"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="daughter2femalePerson">
-      <value href="corr.xmi#/2"/>
-    </nodeMappings>
-    <nodeMappings key="femalePerson">
-      <value href="trg.xmi#//@persons.1"/>
-    </nodeMappings>
-    <nodeMappings key="personReg">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="family">
-      <value href="src.xmi#//@families.0"/>
-    </nodeMappings>
-    <nodeMappings key="daughter">
-      <value href="src.xmi#//@families.0/@daughters.0"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
 </xmi:XMI>

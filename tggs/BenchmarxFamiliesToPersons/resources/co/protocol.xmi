@@ -1,34 +1,5 @@
 <?xml version="1.0" encoding="ASCII"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:org.emoflon.ibex.tgg.core.runtime="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore">
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="DaughterOfExistingFamilyToFemale">
-    <createdSrc href="src.xmi#//@families.0/@daughters.0"/>
-    <createdTrg href="trg.xmi#//@persons.1"/>
-    <createdCorr href="corr_inc.xmi#/2"/>
-    <contextSrc href="src.xmi#//@families.0"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="p">
-      <value href="trg.xmi#//@persons.1"/>
-    </nodeMappings>
-    <nodeMappings key="persons">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="families2persons">
-      <value href="corr_inc.xmi#/0"/>
-    </nodeMappings>
-    <nodeMappings key="familyMember2Persons">
-      <value href="corr_inc.xmi#/2"/>
-    </nodeMappings>
-    <nodeMappings key="f">
-      <value href="src.xmi#//@families.0"/>
-    </nodeMappings>
-    <nodeMappings key="fm">
-      <value href="src.xmi#//@families.0/@daughters.0"/>
-    </nodeMappings>
-    <nodeMappings key="families">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
   <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="MotherToFemale">
     <createdSrc href="src.xmi#//@families.0"/>
     <createdSrc href="src.xmi#//@families.0/@mother"/>
@@ -67,6 +38,35 @@
     </nodeMappings>
     <nodeMappings key="families2persons">
       <value href="corr_inc.xmi#/0"/>
+    </nodeMappings>
+    <nodeMappings key="families">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="DaughterOfExistingFamilyToFemale">
+    <createdSrc href="src.xmi#//@families.0/@daughters.0"/>
+    <createdTrg href="trg.xmi#//@persons.1"/>
+    <createdCorr href="corr_inc.xmi#/2"/>
+    <contextSrc href="src.xmi#//@families.0"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="p">
+      <value href="trg.xmi#//@persons.1"/>
+    </nodeMappings>
+    <nodeMappings key="persons">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="families2persons">
+      <value href="corr_inc.xmi#/0"/>
+    </nodeMappings>
+    <nodeMappings key="familyMember2Persons">
+      <value href="corr_inc.xmi#/2"/>
+    </nodeMappings>
+    <nodeMappings key="f">
+      <value href="src.xmi#//@families.0"/>
+    </nodeMappings>
+    <nodeMappings key="fm">
+      <value href="src.xmi#//@families.0/@daughters.0"/>
     </nodeMappings>
     <nodeMappings key="families">
       <value href="src.xmi#/"/>
