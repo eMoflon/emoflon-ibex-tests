@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import org.emoflon.ibex.tgg.operational.strategies.co.CO;
 
-public class COTestCase {
+public class COTestCase extends TestCase {
 	protected CO checker;
 	
 	protected void runGenerator() throws IOException {
