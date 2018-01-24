@@ -76,7 +76,7 @@ public class IncrementalForward extends FamiliesToPersonsTestCase {
 	 * <b>Expect</b>: Change the name of the affected Persons in the Person Register
 	 * <b>Features</b>: fwd, attribute, fixed, structural, corr-based
 	 */
-	@Ignore("We do not support incremental attribute changes yet.")
+	@Ignore("Fails due to least change problems:  We revoke matches instead of fixing attribute values.")
 	@Test
 	public void testIncrementalRename() {
 		tool.performAndPropagateSourceEdit(util
