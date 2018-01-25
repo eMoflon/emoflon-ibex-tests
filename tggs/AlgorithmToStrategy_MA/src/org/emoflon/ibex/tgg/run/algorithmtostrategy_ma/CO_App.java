@@ -6,15 +6,18 @@ import org.apache.log4j.BasicConfigurator;
 import org.apache.commons.lang3.NotImplementedException;
 
 import org.emoflon.ibex.tgg.operational.csp.constraints.factories.UserDefinedRuntimeTGGAttrConstraintFactory;
-import org.emoflon.ibex.tgg.operational.util.IbexOptions;
+import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.co.CO;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesEngine;
+
+import Algorithms.impl.AlgorithmsPackageImpl;
+import Strategies.impl.StrategiesPackageImpl;
 
 public class CO_App extends CO {
 
 	public CO_App(String projectName, String workspacePath, boolean debug) throws IOException {
 		super(createIbexOptions().projectName(projectName).workspacePath(workspacePath).debug(debug));
-		registerPatternMatchingEngine(new DemoclesEngine());
+		registerBlackInterpreter(new DemoclesEngine());
 	}
 
 	public static void main(String[] args) throws IOException {
@@ -34,7 +37,8 @@ public class CO_App extends CO {
 
 	protected void registerUserMetamodels() throws IOException {
 		// Load and register source and target metamodels
-		throw new NotImplementedException("Please check that your source and target metamodels are loaded and registered.");
+		rs.getPackageRegistry().put("platform:/resource/Algorithm/model/Algorithms.ecore", AlgorithmsPackageImpl.init());
+		rs.getPackageRegistry().put("platform:/resource/Strategies/model/Strategies.ecore", StrategiesPackageImpl.init());
 		
 		// Register correspondence metamodel last
 		loadAndRegisterMetamodel(projectPath + "/model/" + projectPath + ".ecore");

@@ -4,7 +4,7 @@
     <createdSrc href="src.xmi#//@families.1"/>
     <createdSrc href="src.xmi#//@families.1/@mother"/>
     <createdTrg href="trg.xmi#//@persons.1"/>
-    <createdCorr href="corr_inc.xmi#/2"/>
+    <createdCorr href="corr.xmi#/2"/>
     <contextSrc href="src.xmi#/"/>
     <contextTrg href="trg.xmi#/"/>
     <nodeMappings key="p">
@@ -14,10 +14,10 @@
       <value href="trg.xmi#/"/>
     </nodeMappings>
     <nodeMappings key="families2persons">
-      <value href="corr_inc.xmi#/0"/>
+      <value href="corr.xmi#/0"/>
     </nodeMappings>
     <nodeMappings key="familyMember2Persons">
-      <value href="corr_inc.xmi#/2"/>
+      <value href="corr.xmi#/2"/>
     </nodeMappings>
     <nodeMappings key="f">
       <value href="src.xmi#//@families.1"/>
@@ -29,25 +29,11 @@
       <value href="src.xmi#/"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="Families2Persons">
-    <createdSrc href="src.xmi#/"/>
-    <createdTrg href="trg.xmi#/"/>
-    <createdCorr href="corr_inc.xmi#/0"/>
-    <nodeMappings key="persons">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="families2persons">
-      <value href="corr_inc.xmi#/0"/>
-    </nodeMappings>
-    <nodeMappings key="families">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
   <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="FatherToMale">
     <createdSrc href="src.xmi#//@families.0"/>
     <createdSrc href="src.xmi#//@families.0/@father"/>
     <createdTrg href="trg.xmi#//@persons.0"/>
-    <createdCorr href="corr_inc.xmi#/1"/>
+    <createdCorr href="corr.xmi#/1"/>
     <contextSrc href="src.xmi#/"/>
     <contextTrg href="trg.xmi#/"/>
     <nodeMappings key="p">
@@ -57,16 +43,30 @@
       <value href="trg.xmi#/"/>
     </nodeMappings>
     <nodeMappings key="families2persons">
-      <value href="corr_inc.xmi#/0"/>
+      <value href="corr.xmi#/0"/>
     </nodeMappings>
     <nodeMappings key="familyMember2Persons">
-      <value href="corr_inc.xmi#/1"/>
+      <value href="corr.xmi#/1"/>
     </nodeMappings>
     <nodeMappings key="f">
       <value href="src.xmi#//@families.0"/>
     </nodeMappings>
     <nodeMappings key="fm">
       <value href="src.xmi#//@families.0/@father"/>
+    </nodeMappings>
+    <nodeMappings key="families">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="Families2Persons">
+    <createdSrc href="src.xmi#/"/>
+    <createdTrg href="trg.xmi#/"/>
+    <createdCorr href="corr.xmi#/0"/>
+    <nodeMappings key="persons">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="families2persons">
+      <value href="corr.xmi#/0"/>
     </nodeMappings>
     <nodeMappings key="families">
       <value href="src.xmi#/"/>
