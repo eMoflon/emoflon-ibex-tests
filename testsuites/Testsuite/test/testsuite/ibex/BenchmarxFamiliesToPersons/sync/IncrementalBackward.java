@@ -156,7 +156,7 @@ public class IncrementalBackward extends FamiliesToPersonsTestCase {
 	 * <b>Expect</b> : Model states as described in the postcondition.<br/>
 	 * <b>Features</b>: bwd, attribute, structural, corr-based, runtime
 	 */
-	@Ignore("We do not support incrememental attribute changes yet.")
+	@Ignore("Fails due to least change problems:  We revoke matches instead of fixing attribute values.")
 	@Test
 	public void testIncrementalRenamingDynamic() {
 		util.configure()

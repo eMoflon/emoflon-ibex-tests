@@ -164,7 +164,7 @@
     <edges name="system__allTasks__invokedTask_eMoflonEdge" domainType="TRG" srcNode="//@rules.2/@nodes.3" trgNode="//@rules.2/@nodes.4">
       <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//SystemModule/allTasks"/>
     </edges>
-    <attributeConditionLibrary sorted_BWD="//@rules.2/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_FWD="//@rules.2/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_CC="//@rules.2/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_MODELGEN="//@rules.2/@attributeConditionLibrary/@tggAttributeConstraints.0">
+    <attributeConditionLibrary>
       <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0" parameters="//@rules.2/@attributeConditionLibrary/@parameterValues.0 //@rules.2/@attributeConditionLibrary/@parameterValues.1 //@rules.2/@attributeConditionLibrary/@parameterValues.2"/>
       <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.0" objectVar="//@rules.2/@nodes.2">
         <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
@@ -260,7 +260,7 @@
     <edges name="system__allTasks__task_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.3/@nodes.5" trgNode="//@rules.3/@nodes.7">
       <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//SystemModule/allTasks"/>
     </edges>
-    <attributeConditionLibrary sorted_BWD="//@rules.3/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_FWD="//@rules.3/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_CC="//@rules.3/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_MODELGEN="//@rules.3/@attributeConditionLibrary/@tggAttributeConstraints.0">
+    <attributeConditionLibrary>
       <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0" parameters="//@rules.3/@attributeConditionLibrary/@parameterValues.0 //@rules.3/@attributeConditionLibrary/@parameterValues.1 //@rules.3/@attributeConditionLibrary/@parameterValues.2"/>
       <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.0" objectVar="//@rules.3/@nodes.7">
         <attribute href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//Task/id"/>
@@ -360,7 +360,7 @@
     <edges name="importedModule__systemModule__system_eMoflonEdge" domainType="TRG" srcNode="//@rules.4/@nodes.7" trgNode="//@rules.4/@nodes.9">
       <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//Module/systemModule"/>
     </edges>
-    <attributeConditionLibrary sorted_BWD="//@rules.4/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_FWD="//@rules.4/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_CC="//@rules.4/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_MODELGEN="//@rules.4/@attributeConditionLibrary/@tggAttributeConstraints.0">
+    <attributeConditionLibrary>
       <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.1" parameters="//@rules.4/@attributeConditionLibrary/@parameterValues.0 //@rules.4/@attributeConditionLibrary/@parameterValues.1"/>
       <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.1/@parameterDefinitions.0" objectVar="//@rules.4/@nodes.0">
         <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
@@ -431,7 +431,7 @@
     <edges name="system__allTasks__invokedTask_eMoflonEdge" domainType="TRG" srcNode="//@rules.5/@nodes.7" trgNode="//@rules.5/@nodes.5">
       <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//SystemModule/allTasks"/>
     </edges>
-    <attributeConditionLibrary sorted_BWD="//@rules.5/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_FWD="//@rules.5/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_CC="//@rules.5/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_MODELGEN="//@rules.5/@attributeConditionLibrary/@tggAttributeConstraints.0">
+    <attributeConditionLibrary>
       <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0" parameters="//@rules.5/@attributeConditionLibrary/@parameterValues.0 //@rules.5/@attributeConditionLibrary/@parameterValues.1 //@rules.5/@attributeConditionLibrary/@parameterValues.2"/>
       <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.0" objectVar="//@rules.5/@nodes.1">
         <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
@@ -470,7 +470,7 @@
     <edges name="invocation__task__task_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.6/@nodes.3" trgNode="//@rules.6/@nodes.2">
       <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//Invocation/task"/>
     </edges>
-    <attributeConditionLibrary sorted_BWD="//@rules.6/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_FWD="//@rules.6/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_CC="//@rules.6/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_MODELGEN="//@rules.6/@attributeConditionLibrary/@tggAttributeConstraints.0">
+    <attributeConditionLibrary>
       <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0" parameters="//@rules.6/@attributeConditionLibrary/@parameterValues.0 //@rules.6/@attributeConditionLibrary/@parameterValues.1 //@rules.6/@attributeConditionLibrary/@parameterValues.2"/>
       <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.0" objectVar="//@rules.6/@nodes.0">
         <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
@@ -503,7 +503,7 @@
     <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="rootFolderToSystem" domainType="CORR" bindingType="CREATE" source="//@rules.8/@nodes.0" target="//@rules.8/@nodes.1">
       <type href="platform:/resource/ProcessCodeAdapter/model/ProcessCodeAdapter.ecore#//FolderToSystem"/>
     </nodes>
-    <attributeConditionLibrary sorted_BWD="//@rules.8/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_FWD="//@rules.8/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_CC="//@rules.8/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_MODELGEN="//@rules.8/@attributeConditionLibrary/@tggAttributeConstraints.0">
+    <attributeConditionLibrary>
       <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.1" parameters="//@rules.8/@attributeConditionLibrary/@parameterValues.0 //@rules.8/@attributeConditionLibrary/@parameterValues.1"/>
       <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.1/@parameterDefinitions.0" objectVar="//@rules.8/@nodes.0">
         <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
@@ -544,7 +544,7 @@
     <edges name="module__systemModule__system_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.9/@nodes.2" trgNode="//@rules.9/@nodes.3">
       <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//Module/systemModule"/>
     </edges>
-    <attributeConditionLibrary sorted_BWD="//@rules.9/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_FWD="//@rules.9/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_CC="//@rules.9/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_MODELGEN="//@rules.9/@attributeConditionLibrary/@tggAttributeConstraints.0">
+    <attributeConditionLibrary>
       <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.1" parameters="//@rules.9/@attributeConditionLibrary/@parameterValues.0 //@rules.9/@attributeConditionLibrary/@parameterValues.1"/>
       <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.1/@parameterDefinitions.0" objectVar="//@rules.9/@nodes.1">
         <attribute href="platform:/resource/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>

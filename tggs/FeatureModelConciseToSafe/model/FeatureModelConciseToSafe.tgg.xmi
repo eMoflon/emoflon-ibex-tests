@@ -73,7 +73,7 @@
     <edges name="safeModel__root__safeRoot_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.3/@nodes.2" trgNode="//@rules.3/@nodes.3">
       <type href="platform:/resource/FeatureModelSafe/model/FeatureModelSafe.ecore#//Model/root"/>
     </edges>
-    <attributeConditionLibrary sorted_BWD="//@rules.3/@attributeConditionLibrary/@tggAttributeConstraints.0 //@rules.3/@attributeConditionLibrary/@tggAttributeConstraints.1" sorted_FWD="//@rules.3/@attributeConditionLibrary/@tggAttributeConstraints.0 //@rules.3/@attributeConditionLibrary/@tggAttributeConstraints.1" sorted_CC="//@rules.3/@attributeConditionLibrary/@tggAttributeConstraints.0 //@rules.3/@attributeConditionLibrary/@tggAttributeConstraints.1" sorted_MODELGEN="//@rules.3/@attributeConditionLibrary/@tggAttributeConstraints.0 //@rules.3/@attributeConditionLibrary/@tggAttributeConstraints.1">
+    <attributeConditionLibrary>
       <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0" parameters="//@rules.3/@attributeConditionLibrary/@parameterValues.0 //@rules.3/@attributeConditionLibrary/@parameterValues.1"/>
       <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0" parameters="//@rules.3/@attributeConditionLibrary/@parameterValues.2 //@rules.3/@attributeConditionLibrary/@parameterValues.3"/>
       <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.0" objectVar="//@rules.3/@nodes.0">
@@ -115,7 +115,7 @@
     <edges name="safeParent__solitarySubFeatures__safeChild_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.4/@nodes.2" trgNode="//@rules.4/@nodes.3">
       <type href="platform:/resource/FeatureModelSafe/model/FeatureModelSafe.ecore#//Feature/solitarySubFeatures"/>
     </edges>
-    <attributeConditionLibrary sorted_BWD="//@rules.4/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_FWD="//@rules.4/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_CC="//@rules.4/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_MODELGEN="//@rules.4/@attributeConditionLibrary/@tggAttributeConstraints.0">
+    <attributeConditionLibrary>
       <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0" parameters="//@rules.4/@attributeConditionLibrary/@parameterValues.0 //@rules.4/@attributeConditionLibrary/@parameterValues.1"/>
       <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.0" objectVar="//@rules.4/@nodes.1">
         <attribute href="platform:/resource/FeatureModelConcise/model/FeatureModelConcise.ecore#//NamedElement/name"/>
@@ -168,7 +168,7 @@
     <edges name="safeGroup__members__safeChild_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.5/@nodes.4" trgNode="//@rules.5/@nodes.5">
       <type href="platform:/resource/FeatureModelSafe/model/FeatureModelSafe.ecore#//Group/members"/>
     </edges>
-    <attributeConditionLibrary sorted_BWD="//@rules.5/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_FWD="//@rules.5/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_CC="//@rules.5/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_MODELGEN="//@rules.5/@attributeConditionLibrary/@tggAttributeConstraints.0">
+    <attributeConditionLibrary>
       <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0" parameters="//@rules.5/@attributeConditionLibrary/@parameterValues.0 //@rules.5/@attributeConditionLibrary/@parameterValues.1"/>
       <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.0" objectVar="//@rules.5/@nodes.2">
         <attribute href="platform:/resource/FeatureModelConcise/model/FeatureModelConcise.ecore#//NamedElement/name"/>

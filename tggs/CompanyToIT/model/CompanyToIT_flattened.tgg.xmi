@@ -46,7 +46,7 @@
     <edges name="router__network__network_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.0/@nodes.5" trgNode="//@rules.0/@nodes.4">
       <type href="platform:/resource/ITLanguage/model/ITLanguage.ecore#//Router/network"/>
     </edges>
-    <attributeConditionLibrary sorted_BWD="//@rules.0/@attributeConditionLibrary/@tggAttributeConstraints.1 //@rules.0/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_FWD="//@rules.0/@attributeConditionLibrary/@tggAttributeConstraints.0 //@rules.0/@attributeConditionLibrary/@tggAttributeConstraints.1" sorted_CC="//@rules.0/@attributeConditionLibrary/@tggAttributeConstraints.0 //@rules.0/@attributeConditionLibrary/@tggAttributeConstraints.1" sorted_MODELGEN="//@rules.0/@attributeConditionLibrary/@tggAttributeConstraints.1 //@rules.0/@attributeConditionLibrary/@tggAttributeConstraints.0">
+    <attributeConditionLibrary>
       <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0" parameters="//@rules.0/@attributeConditionLibrary/@parameterValues.0 //@rules.0/@attributeConditionLibrary/@parameterValues.1"/>
       <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0" parameters="//@rules.0/@attributeConditionLibrary/@parameterValues.2 //@rules.0/@attributeConditionLibrary/@parameterValues.3"/>
       <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.0" objectVar="//@rules.0/@nodes.0">
@@ -79,7 +79,7 @@
     <edges name="company__ceo__ceo_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.1/@nodes.1" trgNode="//@rules.1/@nodes.0">
       <type href="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore#//Company/ceo"/>
     </edges>
-    <attributeConditionLibrary sorted_BWD="//@rules.1/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_FWD="//@rules.1/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_CC="//@rules.1/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_MODELGEN="//@rules.1/@attributeConditionLibrary/@tggAttributeConstraints.0">
+    <attributeConditionLibrary>
       <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0" parameters="//@rules.1/@attributeConditionLibrary/@parameterValues.0 //@rules.1/@attributeConditionLibrary/@parameterValues.1"/>
       <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.0" objectVar="//@rules.1/@nodes.1">
         <attribute href="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore#//Company/name"/>
@@ -150,7 +150,7 @@
     <edges name="router__network__network_eMoflonEdge" domainType="TRG" srcNode="//@rules.2/@nodes.7" trgNode="//@rules.2/@nodes.6">
       <type href="platform:/resource/ITLanguage/model/ITLanguage.ecore#//Router/network"/>
     </edges>
-    <attributeConditionLibrary sorted_BWD="//@rules.2/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_FWD="//@rules.2/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_CC="//@rules.2/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_MODELGEN="//@rules.2/@attributeConditionLibrary/@tggAttributeConstraints.0">
+    <attributeConditionLibrary>
       <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0" parameters="//@rules.2/@attributeConditionLibrary/@parameterValues.0 //@rules.2/@attributeConditionLibrary/@parameterValues.1"/>
       <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.0" objectVar="//@rules.2/@nodes.3">
         <attribute href="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore#//Employee/name"/>
@@ -221,7 +221,7 @@
     <edges name="router__network__network_eMoflonEdge" domainType="TRG" srcNode="//@rules.3/@nodes.7" trgNode="//@rules.3/@nodes.6">
       <type href="platform:/resource/ITLanguage/model/ITLanguage.ecore#//Router/network"/>
     </edges>
-    <attributeConditionLibrary sorted_BWD="//@rules.3/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_FWD="//@rules.3/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_CC="//@rules.3/@attributeConditionLibrary/@tggAttributeConstraints.0" sorted_MODELGEN="//@rules.3/@attributeConditionLibrary/@tggAttributeConstraints.0">
+    <attributeConditionLibrary>
       <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0" parameters="//@rules.3/@attributeConditionLibrary/@parameterValues.0 //@rules.3/@attributeConditionLibrary/@parameterValues.1"/>
       <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.0" objectVar="//@rules.3/@nodes.3">
         <attribute href="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore#//Employee/name"/>
