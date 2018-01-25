@@ -480,14 +480,14 @@
     <attributeConditionLibrary/>
   </rules>
   <rules name="IgnoreTwoFamilies">
-    <nodes name="f" bindingType="CREATE" incomingEdges="//@rules.16/@edges.0">
+    <nodes name="f" bindingType="CREATE" incomingEdges="//@rules.16/@edges.1">
       <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//Family"/>
       <attrExpr>
         <attribute href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//Family/name"/>
         <valueExpr xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGLiteralExpression" value="&quot;Test&quot;"/>
       </attrExpr>
     </nodes>
-    <nodes name="f2" bindingType="CREATE" incomingEdges="//@rules.16/@edges.1">
+    <nodes name="f2" bindingType="CREATE" incomingEdges="//@rules.16/@edges.0">
       <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//Family"/>
       <attrExpr>
         <attribute href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//Family/name"/>
@@ -503,10 +503,10 @@
     <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="fr2pr" domainType="CORR" source="//@rules.16/@nodes.2" target="//@rules.16/@nodes.3">
       <type href="platform:/resource/FamiliesToPersons_V0/model/FamiliesToPersons_V0.ecore#//RegisterToRegister"/>
     </nodes>
-    <edges name="fr__families__f_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.16/@nodes.2" trgNode="//@rules.16/@nodes.0">
+    <edges name="fr__families__f2_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.16/@nodes.2" trgNode="//@rules.16/@nodes.1">
       <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//FamilyRegister/families"/>
     </edges>
-    <edges name="fr__families__f2_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.16/@nodes.2" trgNode="//@rules.16/@nodes.1">
+    <edges name="fr__families__f_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.16/@nodes.2" trgNode="//@rules.16/@nodes.0">
       <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//FamilyRegister/families"/>
     </edges>
     <attributeConditionLibrary/>

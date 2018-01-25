@@ -613,7 +613,7 @@
     </attributeConditionLibrary>
   </rules>
   <rules name="NodeToInvocationRule">
-    <nodes name="file" incomingEdges="//@rules.7/@edges.0 //@rules.7/@edges.4" outgoingEdges="//@rules.7/@edges.9 //@rules.7/@edges.13" incomingCorrsSource="//@rules.7/@nodes.10">
+    <nodes name="file" incomingEdges="//@rules.7/@edges.1 //@rules.7/@edges.4" outgoingEdges="//@rules.7/@edges.10 //@rules.7/@edges.13" incomingCorrsSource="//@rules.7/@nodes.10">
       <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//File"/>
     </nodes>
     <nodes name="folder" incomingEdges="//@rules.7/@edges.9 //@rules.7/@edges.10" outgoingEdges="//@rules.7/@edges.0 //@rules.7/@edges.1">
@@ -629,7 +629,7 @@
         <valueExpr xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGLiteralExpression" value="&quot;INVOCATIONS&quot;"/>
       </attrExpr>
     </nodes>
-    <nodes name="otherFile" incomingEdges="//@rules.7/@edges.1" outgoingEdges="//@rules.7/@edges.10" incomingCorrsSource="//@rules.7/@nodes.11">
+    <nodes name="otherFile" incomingEdges="//@rules.7/@edges.0" outgoingEdges="//@rules.7/@edges.9" incomingCorrsSource="//@rules.7/@nodes.11">
       <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//File"/>
     </nodes>
     <nodes name="taskNode" incomingEdges="//@rules.7/@edges.3 //@rules.7/@edges.13" outgoingEdges="//@rules.7/@edges.4 //@rules.7/@edges.12">
@@ -656,10 +656,10 @@
     <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="invocationNodeToInvocation" domainType="CORR" bindingType="CREATE" source="//@rules.7/@nodes.2" target="//@rules.7/@nodes.6">
       <type href="platform:/resource/ProcessCodeAdapter/model/ProcessCodeAdapter.ecore#//NodeToInvocation"/>
     </nodes>
-    <edges name="folder__file__file_eMoflonEdge" srcNode="//@rules.7/@nodes.1" trgNode="//@rules.7/@nodes.0">
+    <edges name="folder__file__otherFile_eMoflonEdge" srcNode="//@rules.7/@nodes.1" trgNode="//@rules.7/@nodes.4">
       <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Folder/file"/>
     </edges>
-    <edges name="folder__file__otherFile_eMoflonEdge" srcNode="//@rules.7/@nodes.1" trgNode="//@rules.7/@nodes.4">
+    <edges name="folder__file__file_eMoflonEdge" srcNode="//@rules.7/@nodes.1" trgNode="//@rules.7/@nodes.0">
       <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Folder/file"/>
     </edges>
     <edges name="invocationNode__parentNode__invocationsNode_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.7/@nodes.2" trgNode="//@rules.7/@nodes.3">
@@ -683,10 +683,10 @@
     <edges name="task__invocations__invocation_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.7/@nodes.9" trgNode="//@rules.7/@nodes.6">
       <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//Task/invocations"/>
     </edges>
-    <edges name="file__folder__folder_eMoflonEdge" srcNode="//@rules.7/@nodes.0" trgNode="//@rules.7/@nodes.1">
+    <edges name="otherFile__folder__folder_eMoflonEdge" srcNode="//@rules.7/@nodes.4" trgNode="//@rules.7/@nodes.1">
       <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//File/folder"/>
     </edges>
-    <edges name="otherFile__folder__folder_eMoflonEdge" srcNode="//@rules.7/@nodes.4" trgNode="//@rules.7/@nodes.1">
+    <edges name="file__folder__folder_eMoflonEdge" srcNode="//@rules.7/@nodes.0" trgNode="//@rules.7/@nodes.1">
       <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//File/folder"/>
     </edges>
     <edges name="invocationsNode__children__invocationNode_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.7/@nodes.3" trgNode="//@rules.7/@nodes.2">
