@@ -8,6 +8,6 @@ public abstract class TestCase {
 	@BeforeClass
 	public static void init() {
 		BasicConfigurator.configure();
-		IbexOptions.blackInterpSupportsAttrConstrs = true;
+		IbexOptions.blackInterpSupportsAttrConstrs = false;
 	}
 }
