@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="ASCII"?>
-<Persons:PersonRegister xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Persons="platform:/plugin/Persons/model/Persons.ecore">
-  <persons xsi:type="Persons:Female" name="suspendisse, null"/>
-  <persons xsi:type="Persons:Male" name="torquent, null"/>
-  <persons xsi:type="Persons:Male" name="donec, null"/>
-  <persons xsi:type="Persons:Female" name="molestie, null"/>
+<Persons:PersonRegister
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:Persons="platform:/plugin/Persons/model/Persons.ecore">
+  <persons xsi:type="Persons:Female"
+      name="suspendisse, foo"/>
+  <persons xsi:type="Persons:Male"
+      name="torquent, foo"/>
+  <persons xsi:type="Persons:Male"
+      name="donec, foo"/>
+  <persons xsi:type="Persons:Female"
+      name="molestie, foo"/>
 </Persons:PersonRegister>
