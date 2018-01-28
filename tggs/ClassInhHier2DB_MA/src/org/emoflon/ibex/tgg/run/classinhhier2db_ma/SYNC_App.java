@@ -22,7 +22,7 @@ public class SYNC_App extends SYNC {
 	public static void main(String[] args) throws IOException {
 		BasicConfigurator.configure();
 
-		SYNC_App sync = new SYNC_App("ClassInhHier2DB_MA", "./../", false);
+		SYNC_App sync = new SYNC_App("ClassInhHier2DB_MA", "./../", true);
 		
 		logger.info("Starting SYNC");
 		long tic = System.currentTimeMillis();
@@ -46,7 +46,7 @@ public class SYNC_App extends SYNC {
 	
 	@Override
 	public void loadModels() throws IOException {
-		s = createResource(projectPath + "/instances/src.xmi");
+		s = loadResource(projectPath + "/instances/src.xmi");
 		t = createResource(projectPath + "/instances/trg.xmi");
 		c = createResource(projectPath + "/instances/corr.xmi");
 		p = createResource(projectPath + "/instances/protocol.xmi");

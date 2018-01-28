@@ -1,8 +1,21 @@
 <?xml version="1.0" encoding="ASCII"?>
 <Families:FamilyRegister xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:Families="platform:/plugin/Families/model/Families.ecore">
-  <families>
-    <father name="accumsan"/>
-    <mother name="est"/>
-    <daughters name="ad"/>
+  <families name="Skinner"/>
+  <families name="Flanders">
+    <father name="Ned"/>
+    <mother name="Maude"/>
+    <sons name="Rod"/>
+    <sons name="Todd"/>
+  </families>
+  <families name="Simpson">
+    <father name="Bart"/>
+  </families>
+  <families name="Simpson">
+    <father name="Homer"/>
+    <mother name="Marge"/>
+    <sons name="Bart"/>
+    <sons name="Bart"/>
+    <daughters name="Lisa"/>
+    <daughters name="Maggie"/>
   </families>
 </Families:FamilyRegister>

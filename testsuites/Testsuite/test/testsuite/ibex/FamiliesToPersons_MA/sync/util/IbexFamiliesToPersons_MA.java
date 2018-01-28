@@ -10,6 +10,7 @@ import org.emoflon.ibex.tgg.run.familiestopersons_ma.SYNC_App;
 import Families.FamiliesFactory;
 import Families.FamilyRegister;
 import Persons.PersonRegister;
+import testsuite.ibex.BenchmarxFamiliesToPersons.FamiliesToPersonsUpdatePolicy;
 import testsuite.ibex.testUtil.Decisions;
 import testsuite.ibex.testUtil.IbexAdapter;
 
@@ -35,6 +36,8 @@ public class IbexFamiliesToPersons_MA extends IbexAdapter<FamilyRegister, Person
 	public void setConfigurator(Configurator<Decisions> configurator) {
 		super.setConfigurator(configurator);
 		// TODO [Milica]: configure update policy for multi rules
+		
+		synchroniser.setUpdatePolicy(new F2PUpdatePolicy(configurator));
 	}
 
 }

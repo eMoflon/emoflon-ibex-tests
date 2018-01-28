@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="ASCII"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:org.emoflon.ibex.tgg.core.runtime="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore">
   <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="SystemToNodeRule">
-    <createdSrc href="src.xmi#/1"/>
-    <createdTrg href="trg.xmi#/1"/>
-    <createdTrg href="trg.xmi#/1/@rootNode"/>
-    <createdCorr href="corr.xmi#/1"/>
+    <createdSrc href="src.xmi#/2"/>
+    <createdTrg href="trg.xmi#/2"/>
+    <createdTrg href="trg.xmi#/2/@rootNode"/>
+    <createdCorr href="corr.xmi#/2"/>
     <nodeMappings key="systemToNode">
-      <value href="corr.xmi#/1"/>
+      <value href="corr.xmi#/2"/>
     </nodeMappings>
     <nodeMappings key="node">
-      <value href="trg.xmi#/1/@rootNode"/>
+      <value href="trg.xmi#/2/@rootNode"/>
     </nodeMappings>
     <nodeMappings key="system">
-      <value href="src.xmi#/1"/>
+      <value href="src.xmi#/2"/>
     </nodeMappings>
     <nodeMappings key="file">
-      <value href="trg.xmi#/1"/>
+      <value href="trg.xmi#/2"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
   <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="SystemToNodeRule">
@@ -37,21 +37,21 @@
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
   <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="SystemToNodeRule">
-    <createdSrc href="src.xmi#/2"/>
-    <createdTrg href="trg.xmi#/2"/>
-    <createdTrg href="trg.xmi#/2/@rootNode"/>
-    <createdCorr href="corr.xmi#/2"/>
+    <createdSrc href="src.xmi#/1"/>
+    <createdTrg href="trg.xmi#/1"/>
+    <createdTrg href="trg.xmi#/1/@rootNode"/>
+    <createdCorr href="corr.xmi#/1"/>
     <nodeMappings key="systemToNode">
-      <value href="corr.xmi#/2"/>
+      <value href="corr.xmi#/1"/>
     </nodeMappings>
     <nodeMappings key="node">
-      <value href="trg.xmi#/2/@rootNode"/>
+      <value href="trg.xmi#/1/@rootNode"/>
     </nodeMappings>
     <nodeMappings key="system">
-      <value href="src.xmi#/2"/>
+      <value href="src.xmi#/1"/>
     </nodeMappings>
     <nodeMappings key="file">
-      <value href="trg.xmi#/2"/>
+      <value href="trg.xmi#/1"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
   <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="SystemToNodeRule">

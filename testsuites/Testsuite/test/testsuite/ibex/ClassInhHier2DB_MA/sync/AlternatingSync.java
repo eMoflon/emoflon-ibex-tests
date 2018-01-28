@@ -7,7 +7,7 @@ import Database.DB;
 import testsuite.ibex.ClassInhHier2DB_MA.sync.util.SyncTestCaseCD2DB;
 
 
-@Ignore("Waiting for sync to be finished")
+//@Ignore("Waiting for sync to be finished")
 public class AlternatingSync extends SyncTestCaseCD2DB{
 		
 	@Test

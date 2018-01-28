@@ -164,11 +164,11 @@
     </correspondencePatterns>
     <attrConditions name="//@schema/@attributeCondDefs.0">
       <values xsi:type="tgg:LiteralExpression" value="&quot;, &quot;"/>
-      <values xsi:type="tgg:AttributeExpression" objectVar="//@complementRules.0/@sourcePatterns.1">
-        <attribute href="platform:/resource/Families/model/Families.ecore#//FamilyMember/name"/>
-      </values>
       <values xsi:type="tgg:AttributeExpression" objectVar="//@complementRules.0/@sourcePatterns.0">
         <attribute href="platform:/resource/Families/model/Families.ecore#//Family/name"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@complementRules.0/@sourcePatterns.1">
+        <attribute href="platform:/resource/Families/model/Families.ecore#//FamilyMember/name"/>
       </values>
       <values xsi:type="tgg:AttributeExpression" objectVar="//@complementRules.0/@targetPatterns.1">
         <attribute href="platform:/resource/Persons/model/Persons.ecore#//Person/name"/>
@@ -203,11 +203,11 @@
     </correspondencePatterns>
     <attrConditions name="//@schema/@attributeCondDefs.0">
       <values xsi:type="tgg:LiteralExpression" value="&quot;, &quot;"/>
-      <values xsi:type="tgg:AttributeExpression" objectVar="//@complementRules.1/@sourcePatterns.1">
-        <attribute href="platform:/resource/Families/model/Families.ecore#//FamilyMember/name"/>
-      </values>
       <values xsi:type="tgg:AttributeExpression" objectVar="//@complementRules.1/@sourcePatterns.0">
         <attribute href="platform:/resource/Families/model/Families.ecore#//Family/name"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@complementRules.1/@sourcePatterns.1">
+        <attribute href="platform:/resource/Families/model/Families.ecore#//FamilyMember/name"/>
       </values>
       <values xsi:type="tgg:AttributeExpression" objectVar="//@complementRules.1/@targetPatterns.1">
         <attribute href="platform:/resource/Persons/model/Persons.ecore#//Person/name"/>
@@ -242,11 +242,11 @@
     </correspondencePatterns>
     <attrConditions name="//@schema/@attributeCondDefs.0">
       <values xsi:type="tgg:LiteralExpression" value="&quot;, &quot;"/>
-      <values xsi:type="tgg:AttributeExpression" objectVar="//@complementRules.2/@sourcePatterns.1">
-        <attribute href="platform:/resource/Families/model/Families.ecore#//FamilyMember/name"/>
-      </values>
       <values xsi:type="tgg:AttributeExpression" objectVar="//@complementRules.2/@sourcePatterns.0">
         <attribute href="platform:/resource/Families/model/Families.ecore#//Family/name"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@complementRules.2/@sourcePatterns.1">
+        <attribute href="platform:/resource/Families/model/Families.ecore#//FamilyMember/name"/>
       </values>
       <values xsi:type="tgg:AttributeExpression" objectVar="//@complementRules.2/@targetPatterns.1">
         <attribute href="platform:/resource/Persons/model/Persons.ecore#//Person/name"/>
@@ -281,11 +281,11 @@
     </correspondencePatterns>
     <attrConditions name="//@schema/@attributeCondDefs.0">
       <values xsi:type="tgg:LiteralExpression" value="&quot;, &quot;"/>
-      <values xsi:type="tgg:AttributeExpression" objectVar="//@complementRules.3/@sourcePatterns.1">
-        <attribute href="platform:/resource/Families/model/Families.ecore#//FamilyMember/name"/>
-      </values>
       <values xsi:type="tgg:AttributeExpression" objectVar="//@complementRules.3/@sourcePatterns.0">
         <attribute href="platform:/resource/Families/model/Families.ecore#//Family/name"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@complementRules.3/@sourcePatterns.1">
+        <attribute href="platform:/resource/Families/model/Families.ecore#//FamilyMember/name"/>
       </values>
       <values xsi:type="tgg:AttributeExpression" objectVar="//@complementRules.3/@targetPatterns.1">
         <attribute href="platform:/resource/Persons/model/Persons.ecore#//Person/name"/>
