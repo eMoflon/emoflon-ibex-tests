@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:org.emoflon.ibex.tgg.core.runtime="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore">
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="FolderToSystemModule" final="true">
+    <createdSrc href="src.xmi#/"/>
+    <createdTrg href="trg.xmi#/0"/>
+    <createdCorr href="corr.xmi#/"/>
+    <nodeMappings key="folder">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="sysmod">
+      <value href="trg.xmi#/0"/>
+    </nodeMappings>
+    <nodeMappings key="folder2sysmod">
+      <value href="corr.xmi#/"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="FilesToModule" final="true">
+    <createdSrc href="src.xmi#//@file.3"/>
+    <createdSrc href="src.xmi#//@file.0"/>
+    <createdTrg href="trg.xmi#/1"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/0"/>
+    <nodeMappings key="foobaa">
+      <value href="trg.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="baa">
+      <value href="src.xmi#//@file.3"/>
+    </nodeMappings>
+    <nodeMappings key="folder">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="foo">
+      <value href="src.xmi#//@file.0"/>
+    </nodeMappings>
+    <nodeMappings key="sysmod">
+      <value href="trg.xmi#/0"/>
+    </nodeMappings>
+    <nodeMappings key="folder2sysmod">
+      <value href="corr.xmi#/"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="FilesToModule" final="true">
+    <createdSrc href="src.xmi#//@file.2"/>
+    <createdSrc href="src.xmi#//@file.1"/>
+    <createdTrg href="trg.xmi#/2"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/0"/>
+    <nodeMappings key="foobaa">
+      <value href="trg.xmi#/2"/>
+    </nodeMappings>
+    <nodeMappings key="baa">
+      <value href="src.xmi#//@file.2"/>
+    </nodeMappings>
+    <nodeMappings key="folder">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="foo">
+      <value href="src.xmi#//@file.1"/>
+    </nodeMappings>
+    <nodeMappings key="sysmod">
+      <value href="trg.xmi#/0"/>
+    </nodeMappings>
+    <nodeMappings key="folder2sysmod">
+      <value href="corr.xmi#/"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+</xmi:XMI>

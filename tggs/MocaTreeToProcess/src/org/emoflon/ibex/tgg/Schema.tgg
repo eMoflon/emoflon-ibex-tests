@@ -1,0 +1,23 @@
+#import "platform:/resource/MocaTree/model/MocaTree.ecore"
+#import "platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore"
+
+#schema MocaTreeToProcess
+	
+#source {
+	MocaTree
+}
+
+#target { 
+	ProcessDefinition
+} 
+
+#correspondence {
+	FolderToSystemModuleCorr{
+		#src->Folder
+		#trg->SystemModule
+	}
+}
+
+#attributeConditions {
+	
+}

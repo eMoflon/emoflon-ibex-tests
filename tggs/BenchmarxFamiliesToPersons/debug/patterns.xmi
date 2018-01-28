@@ -520,6 +520,196 @@
       </constraints>
     </bodies>
   </specification:Pattern>
+  <specification:Pattern name="MarkedPattern__LOCAL_MARKED__SRC">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="checkedObject">
+      <eClassifier xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    </symbolicParameters>
+    <bodies>
+      <localVariables xsi:type="emf:EMFVariable" name="protocol">
+        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication"/>
+      </localVariables>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/22/@bodies.0/@localVariables.0"/>
+        <parameters reference="/22/@symbolicParameters.0"/>
+        <eModelElement xsi:type="ecore:EReference" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication/createdSrc"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="MarkedPattern__SRC">
+        <parameters reference="/22/@bodies.0/@localVariables.0"/>
+        <parameters reference="/22/@symbolicParameters.0"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="MarkedPattern__LOCAL_MARKED__SRC">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="checkedObject">
+      <eClassifier xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    </symbolicParameters>
+    <bodies>
+      <localVariables xsi:type="emf:EMFVariable" name="protocol">
+        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication"/>
+      </localVariables>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/23/@bodies.0/@localVariables.0"/>
+        <parameters reference="/23/@symbolicParameters.0"/>
+        <eModelElement xsi:type="ecore:EReference" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication/createdSrc"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="MarkedPattern__SRC">
+        <parameters reference="/23/@bodies.0/@localVariables.0"/>
+        <parameters reference="/23/@symbolicParameters.0"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="MarkedPattern__LOCAL_MARKED__SRC">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="checkedObject">
+      <eClassifier xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    </symbolicParameters>
+    <bodies>
+      <localVariables xsi:type="emf:EMFVariable" name="protocol">
+        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication"/>
+      </localVariables>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/24/@bodies.0/@localVariables.0"/>
+        <parameters reference="/24/@symbolicParameters.0"/>
+        <eModelElement xsi:type="ecore:EReference" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication/createdSrc"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="MarkedPattern__SRC">
+        <parameters reference="/24/@bodies.0/@localVariables.0"/>
+        <parameters reference="/24/@symbolicParameters.0"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="MarkedPattern__LOCAL_MARKED__SRC">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="checkedObject">
+      <eClassifier xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    </symbolicParameters>
+    <bodies>
+      <localVariables xsi:type="emf:EMFVariable" name="protocol">
+        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication"/>
+      </localVariables>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/25/@bodies.0/@localVariables.0"/>
+        <parameters reference="/25/@symbolicParameters.0"/>
+        <eModelElement xsi:type="ecore:EReference" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication/createdSrc"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="MarkedPattern__SRC">
+        <parameters reference="/25/@bodies.0/@localVariables.0"/>
+        <parameters reference="/25/@symbolicParameters.0"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="MarkedPattern__LOCAL_MARKED__SRC">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="checkedObject">
+      <eClassifier xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    </symbolicParameters>
+    <bodies>
+      <localVariables xsi:type="emf:EMFVariable" name="protocol">
+        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication"/>
+      </localVariables>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/26/@bodies.0/@localVariables.0"/>
+        <parameters reference="/26/@symbolicParameters.0"/>
+        <eModelElement xsi:type="ecore:EReference" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication/createdSrc"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="MarkedPattern__SRC">
+        <parameters reference="/26/@bodies.0/@localVariables.0"/>
+        <parameters reference="/26/@symbolicParameters.0"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="MarkedPattern__LOCAL_MARKED__SRC">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="checkedObject">
+      <eClassifier xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    </symbolicParameters>
+    <bodies>
+      <localVariables xsi:type="emf:EMFVariable" name="protocol">
+        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication"/>
+      </localVariables>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/27/@bodies.0/@localVariables.0"/>
+        <parameters reference="/27/@symbolicParameters.0"/>
+        <eModelElement xsi:type="ecore:EReference" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication/createdSrc"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="MarkedPattern__SRC">
+        <parameters reference="/27/@bodies.0/@localVariables.0"/>
+        <parameters reference="/27/@symbolicParameters.0"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="MarkedPattern__LOCAL_MARKED__SRC">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="checkedObject">
+      <eClassifier xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    </symbolicParameters>
+    <bodies>
+      <localVariables xsi:type="emf:EMFVariable" name="protocol">
+        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication"/>
+      </localVariables>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/28/@bodies.0/@localVariables.0"/>
+        <parameters reference="/28/@symbolicParameters.0"/>
+        <eModelElement xsi:type="ecore:EReference" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication/createdSrc"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="MarkedPattern__SRC">
+        <parameters reference="/28/@bodies.0/@localVariables.0"/>
+        <parameters reference="/28/@symbolicParameters.0"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="MarkedPattern__LOCAL_MARKED__SRC">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="checkedObject">
+      <eClassifier xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    </symbolicParameters>
+    <bodies>
+      <localVariables xsi:type="emf:EMFVariable" name="protocol">
+        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication"/>
+      </localVariables>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/29/@bodies.0/@localVariables.0"/>
+        <parameters reference="/29/@symbolicParameters.0"/>
+        <eModelElement xsi:type="ecore:EReference" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication/createdSrc"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="MarkedPattern__SRC">
+        <parameters reference="/29/@bodies.0/@localVariables.0"/>
+        <parameters reference="/29/@symbolicParameters.0"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="MarkedPattern__LOCAL_MARKED__SRC">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="checkedObject">
+      <eClassifier xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    </symbolicParameters>
+    <bodies>
+      <localVariables xsi:type="emf:EMFVariable" name="protocol">
+        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication"/>
+      </localVariables>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/30/@bodies.0/@localVariables.0"/>
+        <parameters reference="/30/@symbolicParameters.0"/>
+        <eModelElement xsi:type="ecore:EReference" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication/createdSrc"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="MarkedPattern__SRC">
+        <parameters reference="/30/@bodies.0/@localVariables.0"/>
+        <parameters reference="/30/@symbolicParameters.0"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="MarkedPattern__LOCAL_MARKED__SRC">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="checkedObject">
+      <eClassifier xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    </symbolicParameters>
+    <bodies>
+      <localVariables xsi:type="emf:EMFVariable" name="protocol">
+        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication"/>
+      </localVariables>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/31/@bodies.0/@localVariables.0"/>
+        <parameters reference="/31/@symbolicParameters.0"/>
+        <eModelElement xsi:type="ecore:EReference" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication/createdSrc"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="MarkedPattern__SRC">
+        <parameters reference="/31/@bodies.0/@localVariables.0"/>
+        <parameters reference="/31/@symbolicParameters.0"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
   <specification:Pattern name="MarkedPattern__SRC">
     <symbolicParameters xsi:type="emf:EMFVariable" name="protocol">
       <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication"/>
@@ -529,8 +719,158 @@
     </symbolicParameters>
     <bodies>
       <constraints xsi:type="emf:Reference">
-        <parameters reference="/22/@symbolicParameters.0"/>
-        <parameters reference="/22/@symbolicParameters.1"/>
+        <parameters reference="/32/@symbolicParameters.0"/>
+        <parameters reference="/32/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication/createdSrc"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="MarkedPattern__SRC">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="protocol">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="checkedObject">
+      <eClassifier xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/33/@symbolicParameters.0"/>
+        <parameters reference="/33/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication/createdSrc"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="MarkedPattern__SRC">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="protocol">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="checkedObject">
+      <eClassifier xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/34/@symbolicParameters.0"/>
+        <parameters reference="/34/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication/createdSrc"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="MarkedPattern__SRC">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="protocol">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="checkedObject">
+      <eClassifier xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/35/@symbolicParameters.0"/>
+        <parameters reference="/35/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication/createdSrc"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="MarkedPattern__SRC">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="protocol">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="checkedObject">
+      <eClassifier xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/36/@symbolicParameters.0"/>
+        <parameters reference="/36/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication/createdSrc"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="MarkedPattern__SRC">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="protocol">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="checkedObject">
+      <eClassifier xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/37/@symbolicParameters.0"/>
+        <parameters reference="/37/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication/createdSrc"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="MarkedPattern__SRC">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="protocol">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="checkedObject">
+      <eClassifier xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/38/@symbolicParameters.0"/>
+        <parameters reference="/38/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication/createdSrc"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="MarkedPattern__SRC">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="protocol">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="checkedObject">
+      <eClassifier xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/39/@symbolicParameters.0"/>
+        <parameters reference="/39/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication/createdSrc"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="MarkedPattern__SRC">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="protocol">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="checkedObject">
+      <eClassifier xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/40/@symbolicParameters.0"/>
+        <parameters reference="/40/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication/createdSrc"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="MarkedPattern__SRC">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="protocol">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="checkedObject">
+      <eClassifier xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/41/@symbolicParameters.0"/>
+        <parameters reference="/41/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication/createdSrc"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="MarkedPattern__SRC">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="protocol">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="checkedObject">
+      <eClassifier xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/42/@symbolicParameters.0"/>
+        <parameters reference="/42/@symbolicParameters.1"/>
         <eModelElement xsi:type="ecore:EReference" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication/createdSrc"/>
       </constraints>
     </bodies>
@@ -553,14 +893,14 @@
     </symbolicParameters>
     <bodies>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="MotherOfExistingFamilyToFemale__FWD_REFINEMENT_INVOCATIONS">
-        <parameters reference="/23/@symbolicParameters.0"/>
-        <parameters reference="/23/@symbolicParameters.1"/>
-        <parameters reference="/23/@symbolicParameters.2"/>
-        <parameters reference="/23/@symbolicParameters.3"/>
-        <parameters reference="/23/@symbolicParameters.4"/>
+        <parameters reference="/43/@symbolicParameters.0"/>
+        <parameters reference="/43/@symbolicParameters.1"/>
+        <parameters reference="/43/@symbolicParameters.2"/>
+        <parameters reference="/43/@symbolicParameters.3"/>
+        <parameters reference="/43/@symbolicParameters.4"/>
       </constraints>
       <constraints xsi:type="specification:PatternInvocationConstraint" invokedPattern="MarkedPattern__LOCAL_MARKED__SRC">
-        <parameters reference="/23/@symbolicParameters.2"/>
+        <parameters reference="/43/@symbolicParameters.2"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -582,24 +922,24 @@
     </symbolicParameters>
     <bodies>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="MarkedPattern__LOCAL_MARKED__SRC">
-        <parameters reference="/24/@symbolicParameters.0"/>
+        <parameters reference="/44/@symbolicParameters.0"/>
       </constraints>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="MarkedPattern__LOCAL_MARKED__SRC">
-        <parameters reference="/24/@symbolicParameters.1"/>
+        <parameters reference="/44/@symbolicParameters.1"/>
       </constraints>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="ExistingFamily2Person__FWD_REFINEMENT_INVOCATIONS">
-        <parameters reference="/24/@symbolicParameters.0"/>
-        <parameters reference="/24/@symbolicParameters.1"/>
-        <parameters reference="/24/@symbolicParameters.2"/>
-        <parameters reference="/24/@symbolicParameters.3"/>
-        <parameters reference="/24/@symbolicParameters.4"/>
+        <parameters reference="/44/@symbolicParameters.0"/>
+        <parameters reference="/44/@symbolicParameters.1"/>
+        <parameters reference="/44/@symbolicParameters.2"/>
+        <parameters reference="/44/@symbolicParameters.3"/>
+        <parameters reference="/44/@symbolicParameters.4"/>
       </constraints>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="MotherToFemale__FWD_REFINEMENT_INVOCATIONS">
-        <parameters reference="/24/@symbolicParameters.0"/>
-        <parameters reference="/24/@symbolicParameters.1"/>
-        <parameters reference="/24/@symbolicParameters.2"/>
-        <parameters reference="/24/@symbolicParameters.3"/>
-        <parameters reference="/24/@symbolicParameters.4"/>
+        <parameters reference="/44/@symbolicParameters.0"/>
+        <parameters reference="/44/@symbolicParameters.1"/>
+        <parameters reference="/44/@symbolicParameters.2"/>
+        <parameters reference="/44/@symbolicParameters.3"/>
+        <parameters reference="/44/@symbolicParameters.4"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -621,17 +961,17 @@
     </symbolicParameters>
     <bodies>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="MotherToFemale__FWD_REFINEMENT_INVOCATIONS">
-        <parameters reference="/25/@symbolicParameters.0"/>
-        <parameters reference="/25/@symbolicParameters.1"/>
-        <parameters reference="/25/@symbolicParameters.2"/>
-        <parameters reference="/25/@symbolicParameters.3"/>
-        <parameters reference="/25/@symbolicParameters.4"/>
+        <parameters reference="/45/@symbolicParameters.0"/>
+        <parameters reference="/45/@symbolicParameters.1"/>
+        <parameters reference="/45/@symbolicParameters.2"/>
+        <parameters reference="/45/@symbolicParameters.3"/>
+        <parameters reference="/45/@symbolicParameters.4"/>
       </constraints>
       <constraints xsi:type="specification:PatternInvocationConstraint" invokedPattern="MarkedPattern__LOCAL_MARKED__SRC">
-        <parameters reference="/25/@symbolicParameters.0"/>
+        <parameters reference="/45/@symbolicParameters.0"/>
       </constraints>
       <constraints xsi:type="specification:PatternInvocationConstraint" invokedPattern="MarkedPattern__LOCAL_MARKED__SRC">
-        <parameters reference="/25/@symbolicParameters.2"/>
+        <parameters reference="/45/@symbolicParameters.2"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -653,18 +993,18 @@
     </symbolicParameters>
     <bodies>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="MotherToFemale__SRC">
-        <parameters reference="/26/@symbolicParameters.0"/>
-        <parameters reference="/26/@symbolicParameters.2"/>
+        <parameters reference="/46/@symbolicParameters.0"/>
+        <parameters reference="/46/@symbolicParameters.2"/>
       </constraints>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="MarkedPattern__LOCAL_MARKED__SRC">
-        <parameters reference="/26/@symbolicParameters.1"/>
+        <parameters reference="/46/@symbolicParameters.1"/>
       </constraints>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="FamilyMember2Person__FWD_REFINEMENT_INVOCATIONS">
-        <parameters reference="/26/@symbolicParameters.0"/>
-        <parameters reference="/26/@symbolicParameters.1"/>
-        <parameters reference="/26/@symbolicParameters.2"/>
-        <parameters reference="/26/@symbolicParameters.3"/>
-        <parameters reference="/26/@symbolicParameters.4"/>
+        <parameters reference="/46/@symbolicParameters.0"/>
+        <parameters reference="/46/@symbolicParameters.1"/>
+        <parameters reference="/46/@symbolicParameters.2"/>
+        <parameters reference="/46/@symbolicParameters.3"/>
+        <parameters reference="/46/@symbolicParameters.4"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -677,13 +1017,13 @@
     </symbolicParameters>
     <bodies>
       <constraints xsi:type="emf:Reference">
-        <parameters reference="/27/@symbolicParameters.0"/>
-        <parameters reference="/27/@symbolicParameters.1"/>
+        <parameters reference="/47/@symbolicParameters.0"/>
+        <parameters reference="/47/@symbolicParameters.1"/>
         <eModelElement xsi:type="ecore:EReference" href="../../../plugin/Families/model/Families.ecore#//Family/mother"/>
       </constraints>
       <constraints xsi:type="emf:Reference">
-        <parameters reference="/27/@symbolicParameters.1"/>
-        <parameters reference="/27/@symbolicParameters.0"/>
+        <parameters reference="/47/@symbolicParameters.1"/>
+        <parameters reference="/47/@symbolicParameters.0"/>
         <eModelElement xsi:type="ecore:EReference" href="../../../plugin/Families/model/Families.ecore#//FamilyMember/motherInverse"/>
       </constraints>
     </bodies>
@@ -706,14 +1046,14 @@
     </symbolicParameters>
     <bodies>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="SonOfExistingFamilyToMale__FWD_REFINEMENT_INVOCATIONS">
-        <parameters reference="/28/@symbolicParameters.0"/>
-        <parameters reference="/28/@symbolicParameters.1"/>
-        <parameters reference="/28/@symbolicParameters.2"/>
-        <parameters reference="/28/@symbolicParameters.3"/>
-        <parameters reference="/28/@symbolicParameters.4"/>
+        <parameters reference="/48/@symbolicParameters.0"/>
+        <parameters reference="/48/@symbolicParameters.1"/>
+        <parameters reference="/48/@symbolicParameters.2"/>
+        <parameters reference="/48/@symbolicParameters.3"/>
+        <parameters reference="/48/@symbolicParameters.4"/>
       </constraints>
       <constraints xsi:type="specification:PatternInvocationConstraint" invokedPattern="MarkedPattern__LOCAL_MARKED__SRC">
-        <parameters reference="/28/@symbolicParameters.2"/>
+        <parameters reference="/48/@symbolicParameters.2"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -735,24 +1075,24 @@
     </symbolicParameters>
     <bodies>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="MarkedPattern__LOCAL_MARKED__SRC">
-        <parameters reference="/29/@symbolicParameters.0"/>
+        <parameters reference="/49/@symbolicParameters.0"/>
       </constraints>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="MarkedPattern__LOCAL_MARKED__SRC">
-        <parameters reference="/29/@symbolicParameters.1"/>
+        <parameters reference="/49/@symbolicParameters.1"/>
       </constraints>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="ExistingFamily2Person__FWD_REFINEMENT_INVOCATIONS">
-        <parameters reference="/29/@symbolicParameters.0"/>
-        <parameters reference="/29/@symbolicParameters.1"/>
-        <parameters reference="/29/@symbolicParameters.2"/>
-        <parameters reference="/29/@symbolicParameters.3"/>
-        <parameters reference="/29/@symbolicParameters.4"/>
+        <parameters reference="/49/@symbolicParameters.0"/>
+        <parameters reference="/49/@symbolicParameters.1"/>
+        <parameters reference="/49/@symbolicParameters.2"/>
+        <parameters reference="/49/@symbolicParameters.3"/>
+        <parameters reference="/49/@symbolicParameters.4"/>
       </constraints>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="SonToMale__FWD_REFINEMENT_INVOCATIONS">
-        <parameters reference="/29/@symbolicParameters.0"/>
-        <parameters reference="/29/@symbolicParameters.1"/>
-        <parameters reference="/29/@symbolicParameters.2"/>
-        <parameters reference="/29/@symbolicParameters.3"/>
-        <parameters reference="/29/@symbolicParameters.4"/>
+        <parameters reference="/49/@symbolicParameters.0"/>
+        <parameters reference="/49/@symbolicParameters.1"/>
+        <parameters reference="/49/@symbolicParameters.2"/>
+        <parameters reference="/49/@symbolicParameters.3"/>
+        <parameters reference="/49/@symbolicParameters.4"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -774,17 +1114,17 @@
     </symbolicParameters>
     <bodies>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="SonToMale__FWD_REFINEMENT_INVOCATIONS">
-        <parameters reference="/30/@symbolicParameters.0"/>
-        <parameters reference="/30/@symbolicParameters.1"/>
-        <parameters reference="/30/@symbolicParameters.2"/>
-        <parameters reference="/30/@symbolicParameters.3"/>
-        <parameters reference="/30/@symbolicParameters.4"/>
+        <parameters reference="/50/@symbolicParameters.0"/>
+        <parameters reference="/50/@symbolicParameters.1"/>
+        <parameters reference="/50/@symbolicParameters.2"/>
+        <parameters reference="/50/@symbolicParameters.3"/>
+        <parameters reference="/50/@symbolicParameters.4"/>
       </constraints>
       <constraints xsi:type="specification:PatternInvocationConstraint" invokedPattern="MarkedPattern__LOCAL_MARKED__SRC">
-        <parameters reference="/30/@symbolicParameters.0"/>
+        <parameters reference="/50/@symbolicParameters.0"/>
       </constraints>
       <constraints xsi:type="specification:PatternInvocationConstraint" invokedPattern="MarkedPattern__LOCAL_MARKED__SRC">
-        <parameters reference="/30/@symbolicParameters.2"/>
+        <parameters reference="/50/@symbolicParameters.2"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -806,18 +1146,18 @@
     </symbolicParameters>
     <bodies>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="SonToMale__SRC">
-        <parameters reference="/31/@symbolicParameters.0"/>
-        <parameters reference="/31/@symbolicParameters.2"/>
+        <parameters reference="/51/@symbolicParameters.0"/>
+        <parameters reference="/51/@symbolicParameters.2"/>
       </constraints>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="MarkedPattern__LOCAL_MARKED__SRC">
-        <parameters reference="/31/@symbolicParameters.1"/>
+        <parameters reference="/51/@symbolicParameters.1"/>
       </constraints>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="FamilyMember2Person__FWD_REFINEMENT_INVOCATIONS">
-        <parameters reference="/31/@symbolicParameters.0"/>
-        <parameters reference="/31/@symbolicParameters.1"/>
-        <parameters reference="/31/@symbolicParameters.2"/>
-        <parameters reference="/31/@symbolicParameters.3"/>
-        <parameters reference="/31/@symbolicParameters.4"/>
+        <parameters reference="/51/@symbolicParameters.0"/>
+        <parameters reference="/51/@symbolicParameters.1"/>
+        <parameters reference="/51/@symbolicParameters.2"/>
+        <parameters reference="/51/@symbolicParameters.3"/>
+        <parameters reference="/51/@symbolicParameters.4"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -830,13 +1170,13 @@
     </symbolicParameters>
     <bodies>
       <constraints xsi:type="emf:Reference">
-        <parameters reference="/32/@symbolicParameters.0"/>
-        <parameters reference="/32/@symbolicParameters.1"/>
+        <parameters reference="/52/@symbolicParameters.0"/>
+        <parameters reference="/52/@symbolicParameters.1"/>
         <eModelElement xsi:type="ecore:EReference" href="../../../plugin/Families/model/Families.ecore#//Family/sons"/>
       </constraints>
       <constraints xsi:type="emf:Reference">
-        <parameters reference="/32/@symbolicParameters.1"/>
-        <parameters reference="/32/@symbolicParameters.0"/>
+        <parameters reference="/52/@symbolicParameters.1"/>
+        <parameters reference="/52/@symbolicParameters.0"/>
         <eModelElement xsi:type="ecore:EReference" href="../../../plugin/Families/model/Families.ecore#//FamilyMember/sonsInverse"/>
       </constraints>
     </bodies>

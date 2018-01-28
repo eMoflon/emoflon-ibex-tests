@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="ASCII"?>
+<org.emoflon.ibex.tgg.core.language:TGG xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.emoflon.ibex.tgg.core.language="platform:/plugin/org.emoflon.ibex.tgg.core.language/model/Language.ecore#/" name="MocaTreeToProcess">
+  <src href="platform:/resource/MocaTree/model/MocaTree.ecore#/"/>
+  <trg href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#/"/>
+  <corr href="platform:/resource/MocaTreeToProcess/model/MocaTreeToProcess.ecore#/"/>
+  <rules name="FilesToModule">
+    <nodes name="baa" bindingType="CREATE" incomingEdges="//@rules.0/@edges.3" outgoingEdges="//@rules.0/@edges.0">
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//File"/>
+    </nodes>
+    <nodes name="folder" incomingEdges="//@rules.0/@edges.0 //@rules.0/@edges.1" outgoingEdges="//@rules.0/@edges.3 //@rules.0/@edges.4" incomingCorrsSource="//@rules.0/@nodes.5">
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Folder"/>
+    </nodes>
+    <nodes name="foo" bindingType="CREATE" incomingEdges="//@rules.0/@edges.4" outgoingEdges="//@rules.0/@edges.1">
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//File"/>
+    </nodes>
+    <nodes name="foobaa" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.0/@edges.5" outgoingEdges="//@rules.0/@edges.2">
+      <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//Module"/>
+    </nodes>
+    <nodes name="sysmod" domainType="TRG" incomingEdges="//@rules.0/@edges.2" outgoingEdges="//@rules.0/@edges.5" incomingCorrsTarget="//@rules.0/@nodes.5">
+      <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//SystemModule"/>
+    </nodes>
+    <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="folder2sysmod" domainType="CORR" source="//@rules.0/@nodes.1" target="//@rules.0/@nodes.4">
+      <type href="platform:/resource/MocaTreeToProcess/model/MocaTreeToProcess.ecore#//FolderToSystemModuleCorr"/>
+    </nodes>
+    <edges name="baa__folder__folder_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.0/@nodes.0" trgNode="//@rules.0/@nodes.1">
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//File/folder"/>
+    </edges>
+    <edges name="foo__folder__folder_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.0/@nodes.2" trgNode="//@rules.0/@nodes.1">
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//File/folder"/>
+    </edges>
+    <edges name="foobaa__systemModule__sysmod_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.0/@nodes.3" trgNode="//@rules.0/@nodes.4">
+      <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//Module/systemModule"/>
+    </edges>
+    <edges name="folder__file__baa_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.0/@nodes.1" trgNode="//@rules.0/@nodes.0">
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Folder/file"/>
+    </edges>
+    <edges name="folder__file__foo_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.0/@nodes.1" trgNode="//@rules.0/@nodes.2">
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Folder/file"/>
+    </edges>
+    <edges name="sysmod__allModules__foobaa_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.0/@nodes.4" trgNode="//@rules.0/@nodes.3">
+      <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//SystemModule/allModules"/>
+    </edges>
+    <attributeConditionLibrary/>
+  </rules>
+  <rules name="FilesToTask">
+    <nodes name="baa" bindingType="CREATE" incomingEdges="//@rules.1/@edges.6" outgoingEdges="//@rules.1/@edges.0">
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//File"/>
+    </nodes>
+    <nodes name="baz" bindingType="CREATE" incomingEdges="//@rules.1/@edges.7" outgoingEdges="//@rules.1/@edges.1">
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//File"/>
+    </nodes>
+    <nodes name="folder" incomingEdges="//@rules.1/@edges.0 //@rules.1/@edges.1 //@rules.1/@edges.2" outgoingEdges="//@rules.1/@edges.6 //@rules.1/@edges.7 //@rules.1/@edges.8" incomingCorrsSource="//@rules.1/@nodes.7">
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Folder"/>
+    </nodes>
+    <nodes name="foo" bindingType="CREATE" incomingEdges="//@rules.1/@edges.8" outgoingEdges="//@rules.1/@edges.2">
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//File"/>
+    </nodes>
+    <nodes name="foobaa" domainType="TRG" incomingEdges="//@rules.1/@edges.5 //@rules.1/@edges.9" outgoingEdges="//@rules.1/@edges.3 //@rules.1/@edges.11">
+      <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//Module"/>
+    </nodes>
+    <nodes name="sysmod" domainType="TRG" incomingEdges="//@rules.1/@edges.3 //@rules.1/@edges.4" outgoingEdges="//@rules.1/@edges.9 //@rules.1/@edges.10" incomingCorrsTarget="//@rules.1/@nodes.7">
+      <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//SystemModule"/>
+    </nodes>
+    <nodes name="task" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.1/@edges.10 //@rules.1/@edges.11" outgoingEdges="//@rules.1/@edges.4 //@rules.1/@edges.5">
+      <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//Task"/>
+    </nodes>
+    <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="folder2sysmod" domainType="CORR" source="//@rules.1/@nodes.2" target="//@rules.1/@nodes.5">
+      <type href="platform:/resource/MocaTreeToProcess/model/MocaTreeToProcess.ecore#//FolderToSystemModuleCorr"/>
+    </nodes>
+    <edges name="baa__folder__folder_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.1/@nodes.0" trgNode="//@rules.1/@nodes.2">
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//File/folder"/>
+    </edges>
+    <edges name="baz__folder__folder_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.1/@nodes.1" trgNode="//@rules.1/@nodes.2">
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//File/folder"/>
+    </edges>
+    <edges name="foo__folder__folder_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.1/@nodes.3" trgNode="//@rules.1/@nodes.2">
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//File/folder"/>
+    </edges>
+    <edges name="foobaa__systemModule__sysmod_eMoflonEdge" domainType="TRG" srcNode="//@rules.1/@nodes.4" trgNode="//@rules.1/@nodes.5">
+      <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//Module/systemModule"/>
+    </edges>
+    <edges name="task__systemModule__sysmod_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.1/@nodes.6" trgNode="//@rules.1/@nodes.5">
+      <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//Task/systemModule"/>
+    </edges>
+    <edges name="task__module__foobaa_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.1/@nodes.6" trgNode="//@rules.1/@nodes.4">
+      <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//Task/module"/>
+    </edges>
+    <edges name="folder__file__baa_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.1/@nodes.2" trgNode="//@rules.1/@nodes.0">
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Folder/file"/>
+    </edges>
+    <edges name="folder__file__baz_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.1/@nodes.2" trgNode="//@rules.1/@nodes.1">
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Folder/file"/>
+    </edges>
+    <edges name="folder__file__foo_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.1/@nodes.2" trgNode="//@rules.1/@nodes.3">
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Folder/file"/>
+    </edges>
+    <edges name="sysmod__allModules__foobaa_eMoflonEdge" domainType="TRG" srcNode="//@rules.1/@nodes.5" trgNode="//@rules.1/@nodes.4">
+      <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//SystemModule/allModules"/>
+    </edges>
+    <edges name="sysmod__allTasks__task_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.1/@nodes.5" trgNode="//@rules.1/@nodes.6">
+      <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//SystemModule/allTasks"/>
+    </edges>
+    <edges name="foobaa__tasks__task_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.1/@nodes.4" trgNode="//@rules.1/@nodes.6">
+      <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//Module/tasks"/>
+    </edges>
+    <attributeConditionLibrary/>
+  </rules>
+  <rules name="FolderToSystemModule">
+    <nodes name="folder" bindingType="CREATE" incomingCorrsSource="//@rules.2/@nodes.2">
+      <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Folder"/>
+    </nodes>
+    <nodes name="sysmod" domainType="TRG" bindingType="CREATE" incomingCorrsTarget="//@rules.2/@nodes.2">
+      <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//SystemModule"/>
+    </nodes>
+    <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="folder2sysmod" domainType="CORR" bindingType="CREATE" source="//@rules.2/@nodes.0" target="//@rules.2/@nodes.1">
+      <type href="platform:/resource/MocaTreeToProcess/model/MocaTreeToProcess.ecore#//FolderToSystemModuleCorr"/>
+    </nodes>
+    <attributeConditionLibrary/>
+  </rules>
+  <attributeConstraintDefinitionLibrary/>
+</org.emoflon.ibex.tgg.core.language:TGG>

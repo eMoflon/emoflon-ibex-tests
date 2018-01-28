@@ -1,0 +1,39 @@
+#using MocaTreeToProcess.*
+#using AttrCondDefLibrary.*
+
+#rule FilesToTask #with MocaTreeToProcess
+
+#source { folder : Folder
+	++ foo : File {
+		++ -folder->folder
+	}
+	++ baa : File {
+		++ -folder->folder
+	}
+	++ baz : File {
+		++ -folder->folder
+	}
+	
+}
+
+#target {
+	sysmod : SystemModule
+	foobaa : Module {
+		-systemModule->sysmod
+	}
+	++ task : Task {
+		++ -systemModule->sysmod
+		++ -module->foobaa
+	}
+}
+
+#correspondence {
+	folder2sysmod : FolderToSystemModuleCorr {
+		#src->folder
+		#trg->sysmod
+	}
+}
+
+#attributeConditions {
+	
+}
