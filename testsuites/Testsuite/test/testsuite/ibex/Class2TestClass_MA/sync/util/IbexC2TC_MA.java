@@ -24,7 +24,7 @@ public class IbexC2TC_MA extends IbexAdapter<ClassPackage, DB> {
 			synchroniser = new SYNC_App("Class2TestClass_MA", testsuite.ibex.testUtil.Constants.workspacePath, false);
 				
 			ClassPackage pkg = ClassInheritanceHierarchyFactory.eINSTANCE.createClassPackage();
-			pkg.setName("P");
+			pkg.setName("p");
 				
 			synchroniser.getSourceResource().getContents().add(pkg);
 			synchroniser.forward();
