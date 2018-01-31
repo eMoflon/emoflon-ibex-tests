@@ -1,5 +1,6 @@
 package testsuite.ibex.FamiliesToPersons_MA.sync;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import testsuite.ibex.BenchmarxFamiliesToPersons.sync.IncrementalForward;
@@ -16,7 +17,8 @@ public class IncrementalForward_MA extends IncrementalForward {
 		tool = new IbexFamiliesToPersons_MA(projectName);
 	}
 	 
-	 @Override
+	//TODO:[Milica] Check if this is relevatn for MA
+	 @Ignore
 	 @Test
 	 public void testIncrementalMove() {
 		tool.performAndPropagateSourceEdit(util
@@ -41,7 +43,8 @@ public class IncrementalForward_MA extends IncrementalForward {
 		assertPostcondition("FamilyAfterMove", "PersonAfterMove");
 	}
 	 
-	 @Override
+	 //TODO:[Milica] Check if this is relevatn for MA
+	 @Ignore
 	 @Test
 	 public void testIncrementalMoveRoleChange() {
 		tool.performAndPropagateSourceEdit(util
