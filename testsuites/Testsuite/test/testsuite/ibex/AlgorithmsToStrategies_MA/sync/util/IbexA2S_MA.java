@@ -1,4 +1,4 @@
-package testsuite.ibex.AlgorithmsToStrategies.sync.util;
+package testsuite.ibex.AlgorithmsToStrategies_MA.sync.util;
 
 import java.io.IOException;
 

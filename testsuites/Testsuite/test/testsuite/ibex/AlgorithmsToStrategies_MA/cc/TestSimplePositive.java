@@ -1,4 +1,4 @@
-package testsuite.ibex.AlgorithmsToStrategies.cc;
+package testsuite.ibex.AlgorithmsToStrategies_MA.cc;
 
 import java.io.IOException;
 

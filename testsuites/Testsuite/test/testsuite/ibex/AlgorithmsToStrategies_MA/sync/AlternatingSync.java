@@ -1,4 +1,4 @@
-package testsuite.ibex.AlgorithmsToStrategies.sync;
+package testsuite.ibex.AlgorithmsToStrategies_MA.sync;
 
 import org.benchmarx.strategy.core.StrategyHelper;
 import org.junit.Ignore;
@@ -7,7 +7,7 @@ import org.junit.Test;
 import Algorithms.AlgorithmContainer;
 import Strategies.StrategyContainer;
 import benchmarx.algorithm.core.AlgorithmHelper;
-import testsuite.ibex.AlgorithmsToStrategies.sync.util.IbexA2S_MA;
+import testsuite.ibex.AlgorithmsToStrategies_MA.sync.util.IbexA2S_MA;
 import testsuite.ibex.testUtil.SyncTestCase;
 
 //@Ignore("Should work when sync is finalized.")
