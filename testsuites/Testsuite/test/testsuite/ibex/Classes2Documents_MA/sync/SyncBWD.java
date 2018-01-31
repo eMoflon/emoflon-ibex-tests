@@ -10,7 +10,7 @@ import classMultipleInheritanceHierarchy.ClassPackage;
 import testsuite.ibex.Classes2Documents_MA.sync.util.IbexClass2Doc_MA;
 import testsuite.ibex.testUtil.SyncTestCase;
 
-@Ignore("Until sync is finilized")
+//@Ignore("Until sync is finilized")
 public class SyncBWD extends SyncTestCase<ClassPackage, Container> {
 	
 	public final static String projectName = "Class2Doc_MA";

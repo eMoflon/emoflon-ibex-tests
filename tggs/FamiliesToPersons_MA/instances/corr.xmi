@@ -13,23 +13,23 @@
     <target xsi:type="Persons:Male" href="trg.xmi#//@persons.1"/>
   </FamiliesToPersons_MA:FamilyMember2Person>
   <FamiliesToPersons_MA:FamilyMember2Person>
-    <source href="src.xmi#//@families.3/@father"/>
-    <target xsi:type="Persons:Male" href="trg.xmi#//@persons.2"/>
-  </FamiliesToPersons_MA:FamilyMember2Person>
-  <FamiliesToPersons_MA:FamilyMember2Person>
-    <source href="src.xmi#//@families.3/@daughters.0"/>
-    <target xsi:type="Persons:Female" href="trg.xmi#//@persons.3"/>
-  </FamiliesToPersons_MA:FamilyMember2Person>
-  <FamiliesToPersons_MA:FamilyMember2Person>
     <source href="src.xmi#//@families.3/@daughters.1"/>
-    <target xsi:type="Persons:Female" href="trg.xmi#//@persons.4"/>
+    <target xsi:type="Persons:Female" href="trg.xmi#//@persons.2"/>
+  </FamiliesToPersons_MA:FamilyMember2Person>
+  <FamiliesToPersons_MA:FamilyMember2Person>
+    <source href="src.xmi#//@families.3/@father"/>
+    <target xsi:type="Persons:Male" href="trg.xmi#//@persons.3"/>
   </FamiliesToPersons_MA:FamilyMember2Person>
   <FamiliesToPersons_MA:FamilyMember2Person>
     <source href="src.xmi#//@families.3/@sons.0"/>
-    <target xsi:type="Persons:Male" href="trg.xmi#//@persons.5"/>
+    <target xsi:type="Persons:Male" href="trg.xmi#//@persons.4"/>
   </FamiliesToPersons_MA:FamilyMember2Person>
   <FamiliesToPersons_MA:FamilyMember2Person>
     <source href="src.xmi#//@families.3/@mother"/>
+    <target xsi:type="Persons:Female" href="trg.xmi#//@persons.5"/>
+  </FamiliesToPersons_MA:FamilyMember2Person>
+  <FamiliesToPersons_MA:FamilyMember2Person>
+    <source href="src.xmi#//@families.3/@daughters.0"/>
     <target xsi:type="Persons:Female" href="trg.xmi#//@persons.6"/>
   </FamiliesToPersons_MA:FamilyMember2Person>
   <FamiliesToPersons_MA:FamilyMember2Person>
@@ -37,15 +37,15 @@
     <target xsi:type="Persons:Male" href="trg.xmi#//@persons.7"/>
   </FamiliesToPersons_MA:FamilyMember2Person>
   <FamiliesToPersons_MA:FamilyMember2Person>
-    <source href="src.xmi#//@families.1/@sons.1"/>
+    <source href="src.xmi#//@families.1/@father"/>
     <target xsi:type="Persons:Male" href="trg.xmi#//@persons.8"/>
   </FamiliesToPersons_MA:FamilyMember2Person>
   <FamiliesToPersons_MA:FamilyMember2Person>
-    <source href="src.xmi#//@families.1/@father"/>
-    <target xsi:type="Persons:Male" href="trg.xmi#//@persons.9"/>
+    <source href="src.xmi#//@families.1/@mother"/>
+    <target xsi:type="Persons:Female" href="trg.xmi#//@persons.9"/>
   </FamiliesToPersons_MA:FamilyMember2Person>
   <FamiliesToPersons_MA:FamilyMember2Person>
-    <source href="src.xmi#//@families.1/@mother"/>
-    <target xsi:type="Persons:Female" href="trg.xmi#//@persons.10"/>
+    <source href="src.xmi#//@families.1/@sons.1"/>
+    <target xsi:type="Persons:Male" href="trg.xmi#//@persons.10"/>
   </FamiliesToPersons_MA:FamilyMember2Person>
 </xmi:XMI>

@@ -1,7 +1,5 @@
 package testsuite.ibex.FamiliesToPersons_MA.sync;
 
-import org.junit.Ignore;
-
 import testsuite.ibex.BenchmarxFamiliesToPersons.sync.BatchBwdENotP;
 import testsuite.ibex.FamiliesToPersons_MA.sync.util.IbexFamiliesToPersons_MA;
 

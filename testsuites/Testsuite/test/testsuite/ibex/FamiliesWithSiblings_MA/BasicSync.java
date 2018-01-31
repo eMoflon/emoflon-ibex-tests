@@ -11,7 +11,7 @@ import testsuite.ibex.FamiliesWithSiblings_MA.util.IbexFamilyWithSiblings;
 import testsuite.ibex.testUtil.SyncTestCase;
 
 
-@Ignore("Waiting for sync implementation")
+//@Ignore("Waiting for sync implementation")
 public class BasicSync extends SyncTestCase<FamilyRegister, PersonRegister>{
 
 	private static final String projectName = "FamilyWithSiblingsToPersons_MA";

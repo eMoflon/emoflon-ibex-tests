@@ -60,7 +60,7 @@ public class Batch extends SyncTestCase<ClassPackage, DB>{
 		assertPostcondition("in/02_ClassToTable_FWD", "expected/02_ClassToTable_FWD");
 	}
 	
-	@Ignore
+	//@Ignore
 	@Test
 	public void testSubClassToTable_FWD()
 	{
@@ -86,7 +86,7 @@ public class Batch extends SyncTestCase<ClassPackage, DB>{
 		assertPostcondition("in/03_AttributeToColumn_FWD", "expected/03_AttributeToColumn_FWD");
 	}
 	
-	@Ignore ("Fails due to not implemented logic for complement rules.")
+	//@Ignore ("Fails due to not implemented logic for complement rules.")
 	@Test
 	public void testSuperAttToSubTable_FWD() {
 		assertPrecondition("in/01_PackageToDatabase_FWD", "expected/01_PackageToDatabase_FWD");
@@ -100,7 +100,7 @@ public class Batch extends SyncTestCase<ClassPackage, DB>{
 		assertPostcondition("in/05_OneSuperAtt_FWD", "expected/05_OneSuperAtt_FWD");
 	}
 	
-	@Ignore ("Fails due to not implemented logic for complement rules.")
+	//@Ignore ("Fails due to not implemented logic for complement rules.")
 	@Test
 	public void testSubAttToSubTable_FWD() {
 		assertPrecondition("in/01_PackageToDatabase_FWD", "expected/01_PackageToDatabase_FWD");
@@ -115,7 +115,7 @@ public class Batch extends SyncTestCase<ClassPackage, DB>{
 		assertPostcondition("in/06_OneSuperAtt_OneSubAtt_FWD", "expected/06_OneSuperAtt_OneSubAtt_FWD");
 	}
 	
-	@Ignore ("Fails due to not implemented logic for complement rules.")
+	//@Ignore ("Fails due to not implemented logic for complement rules.")
 	@Test
 	public void testSuperSuperAttToSubTable_FWD() {
 		assertPrecondition("in/01_PackageToDatabase_FWD", "expected/01_PackageToDatabase_FWD");
@@ -131,7 +131,7 @@ public class Batch extends SyncTestCase<ClassPackage, DB>{
 		assertPostcondition("in/07_OneSuperSuperAtt_FWD", "expected/07_OneSuperSuperAtt_FWD");
 	}
 	
-	@Ignore ("Fails due to not implemented logic for complement rules.")
+	//@Ignore ("Fails due to not implemented logic for complement rules.")
 	@Test
 	public void testTwoDiffSuprtAttToSubTable_FWD() {
 		assertPrecondition("in/01_PackageToDatabase_FWD", "expected/01_PackageToDatabase_FWD");

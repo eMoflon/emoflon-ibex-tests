@@ -10,7 +10,7 @@ import Database.DB;
 import testsuite.ibex.ClassInhHier2DB_MA.sync.util.IbexCD2DB_MA;
 import testsuite.ibex.testUtil.SyncTestCase;
 
-@Ignore("Fails due to not implemented logic for sync complement rules.")
+//@Ignore("Fails due to not implemented logic for sync complement rules.")
 public class SimpleSync extends SyncTestCase<ClassPackage, DB>{
 	
 	public final static String projectName = "Class2TestClass_MA";
