@@ -1,24 +1,90 @@
 <?xml version="1.0" encoding="ASCII"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:emf="http://gervarro.org/democles/constraint/emf.ecore" xmlns:relational="http://gervarro.org/democles/specification/constraint/relational.ecore" xmlns:specification="http://gervarro.org/democles/specification.ecore">
+  <specification:Pattern name="FilesToModule__CC">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="baa">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/MocaTree/model/MocaTree.ecore#//File"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="folder">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/MocaTree/model/MocaTree.ecore#//Folder"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="foo">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/MocaTree/model/MocaTree.ecore#//File"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="foobaa">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/ProcessDefinition/model/ProcessDefinition.ecore#//Module"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="sysmod">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/ProcessDefinition/model/ProcessDefinition.ecore#//SystemModule"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="folder2sysmod">
+      <eClassifier xsi:type="ecore:EClass" href="../model/MocaTreeToProcess.ecore#//FolderToSystemModuleCorr"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="FilesToModule__CC_REFINEMENT_INVOCATIONS">
+        <parameters reference="/0/@symbolicParameters.0"/>
+        <parameters reference="/0/@symbolicParameters.1"/>
+        <parameters reference="/0/@symbolicParameters.2"/>
+        <parameters reference="/0/@symbolicParameters.3"/>
+        <parameters reference="/0/@symbolicParameters.4"/>
+        <parameters reference="/0/@symbolicParameters.5"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="FilesToModule__CC_REFINEMENT_INVOCATIONS">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="baa">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/MocaTree/model/MocaTree.ecore#//File"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="folder">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/MocaTree/model/MocaTree.ecore#//Folder"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="foo">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/MocaTree/model/MocaTree.ecore#//File"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="foobaa">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/ProcessDefinition/model/ProcessDefinition.ecore#//Module"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="sysmod">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/ProcessDefinition/model/ProcessDefinition.ecore#//SystemModule"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="folder2sysmod">
+      <eClassifier xsi:type="ecore:EClass" href="../model/MocaTreeToProcess.ecore#//FolderToSystemModuleCorr"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="FilesToModule__SRC">
+        <parameters reference="/1/@symbolicParameters.1"/>
+        <parameters reference="/1/@symbolicParameters.2"/>
+        <parameters reference="/1/@symbolicParameters.0"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="FilesToModule__TRG">
+        <parameters reference="/1/@symbolicParameters.4"/>
+        <parameters reference="/1/@symbolicParameters.3"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="FilesToModule__CONTEXT_CORR">
+        <parameters reference="/1/@symbolicParameters.1"/>
+        <parameters reference="/1/@symbolicParameters.4"/>
+        <parameters reference="/1/@symbolicParameters.5"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
   <specification:Pattern name="FilesToModule__CONTEXT_CORR">
     <symbolicParameters xsi:type="emf:EMFVariable" name="folder">
       <eClassifier xsi:type="ecore:EClass" href="../../../plugin/MocaTree/model/MocaTree.ecore#//Folder"/>
     </symbolicParameters>
     <symbolicParameters xsi:type="emf:EMFVariable" name="sysmod">
-      <eClassifier xsi:type="ecore:EClass" href="platform:/resource/../../../git/emoflon-ibex-tests/metamodels/ProcessDefinition/model/ProcessDefinition.ecore#//SystemModule"/>
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/ProcessDefinition/model/ProcessDefinition.ecore#//SystemModule"/>
     </symbolicParameters>
     <symbolicParameters xsi:type="emf:EMFVariable" name="folder2sysmod">
       <eClassifier xsi:type="ecore:EClass" href="../model/MocaTreeToProcess.ecore#//FolderToSystemModuleCorr"/>
     </symbolicParameters>
     <bodies>
       <constraints xsi:type="emf:Reference">
-        <parameters reference="/0/@symbolicParameters.2"/>
-        <parameters reference="/0/@symbolicParameters.0"/>
+        <parameters reference="/2/@symbolicParameters.2"/>
+        <parameters reference="/2/@symbolicParameters.0"/>
         <eModelElement xsi:type="ecore:EReference" href="../model/MocaTreeToProcess.ecore#//FolderToSystemModuleCorr/source"/>
       </constraints>
       <constraints xsi:type="emf:Reference">
-        <parameters reference="/0/@symbolicParameters.2"/>
-        <parameters reference="/0/@symbolicParameters.1"/>
+        <parameters reference="/2/@symbolicParameters.2"/>
+        <parameters reference="/2/@symbolicParameters.1"/>
         <eModelElement xsi:type="ecore:EReference" href="../model/MocaTreeToProcess.ecore#//FolderToSystemModuleCorr/target"/>
       </constraints>
     </bodies>
@@ -31,76 +97,9 @@
   </specification:Pattern>
   <specification:Pattern name="FilesToModule__CONTEXT_TRG">
     <symbolicParameters xsi:type="emf:EMFVariable" name="sysmod">
-      <eClassifier xsi:type="ecore:EClass" href="platform:/resource/../../../git/emoflon-ibex-tests/metamodels/ProcessDefinition/model/ProcessDefinition.ecore#//SystemModule"/>
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/ProcessDefinition/model/ProcessDefinition.ecore#//SystemModule"/>
     </symbolicParameters>
     <bodies/>
-  </specification:Pattern>
-  <specification:Pattern name="FilesToModule__FWD">
-    <symbolicParameters xsi:type="emf:EMFVariable" name="baa">
-      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/MocaTree/model/MocaTree.ecore#//File"/>
-    </symbolicParameters>
-    <symbolicParameters xsi:type="emf:EMFVariable" name="folder">
-      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/MocaTree/model/MocaTree.ecore#//Folder"/>
-    </symbolicParameters>
-    <symbolicParameters xsi:type="emf:EMFVariable" name="foo">
-      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/MocaTree/model/MocaTree.ecore#//File"/>
-    </symbolicParameters>
-    <symbolicParameters xsi:type="emf:EMFVariable" name="sysmod">
-      <eClassifier xsi:type="ecore:EClass" href="platform:/resource/../../../git/emoflon-ibex-tests/metamodels/ProcessDefinition/model/ProcessDefinition.ecore#//SystemModule"/>
-    </symbolicParameters>
-    <symbolicParameters xsi:type="emf:EMFVariable" name="folder2sysmod">
-      <eClassifier xsi:type="ecore:EClass" href="../model/MocaTreeToProcess.ecore#//FolderToSystemModuleCorr"/>
-    </symbolicParameters>
-    <bodies>
-      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="FilesToModule__FWD_REFINEMENT_INVOCATIONS">
-        <parameters reference="/3/@symbolicParameters.0"/>
-        <parameters reference="/3/@symbolicParameters.1"/>
-        <parameters reference="/3/@symbolicParameters.2"/>
-        <parameters reference="/3/@symbolicParameters.3"/>
-        <parameters reference="/3/@symbolicParameters.4"/>
-      </constraints>
-      <constraints xsi:type="specification:PatternInvocationConstraint" invokedPattern="MarkedPattern__LOCAL_MARKED__SRC">
-        <parameters reference="/3/@symbolicParameters.0"/>
-      </constraints>
-      <constraints xsi:type="specification:PatternInvocationConstraint" invokedPattern="MarkedPattern__LOCAL_MARKED__SRC">
-        <parameters reference="/3/@symbolicParameters.2"/>
-      </constraints>
-    </bodies>
-  </specification:Pattern>
-  <specification:Pattern name="FilesToModule__FWD_REFINEMENT_INVOCATIONS">
-    <symbolicParameters xsi:type="emf:EMFVariable" name="baa">
-      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/MocaTree/model/MocaTree.ecore#//File"/>
-    </symbolicParameters>
-    <symbolicParameters xsi:type="emf:EMFVariable" name="folder">
-      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/MocaTree/model/MocaTree.ecore#//Folder"/>
-    </symbolicParameters>
-    <symbolicParameters xsi:type="emf:EMFVariable" name="foo">
-      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/MocaTree/model/MocaTree.ecore#//File"/>
-    </symbolicParameters>
-    <symbolicParameters xsi:type="emf:EMFVariable" name="sysmod">
-      <eClassifier xsi:type="ecore:EClass" href="platform:/resource/../../../git/emoflon-ibex-tests/metamodels/ProcessDefinition/model/ProcessDefinition.ecore#//SystemModule"/>
-    </symbolicParameters>
-    <symbolicParameters xsi:type="emf:EMFVariable" name="folder2sysmod">
-      <eClassifier xsi:type="ecore:EClass" href="../model/MocaTreeToProcess.ecore#//FolderToSystemModuleCorr"/>
-    </symbolicParameters>
-    <bodies>
-      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="FilesToModule__SRC">
-        <parameters reference="/4/@symbolicParameters.1"/>
-        <parameters reference="/4/@symbolicParameters.2"/>
-        <parameters reference="/4/@symbolicParameters.0"/>
-      </constraints>
-      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="FilesToModule__CONTEXT_CORR">
-        <parameters reference="/4/@symbolicParameters.1"/>
-        <parameters reference="/4/@symbolicParameters.3"/>
-        <parameters reference="/4/@symbolicParameters.4"/>
-      </constraints>
-      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="FilesToModule__CONTEXT_TRG">
-        <parameters reference="/4/@symbolicParameters.3"/>
-      </constraints>
-      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="MarkedPattern__LOCAL_MARKED__SRC">
-        <parameters reference="/4/@symbolicParameters.1"/>
-      </constraints>
-    </bodies>
   </specification:Pattern>
   <specification:Pattern name="FilesToModule__SRC">
     <symbolicParameters xsi:type="emf:EMFVariable" name="folder">
@@ -142,25 +141,130 @@
       </constraints>
     </bodies>
   </specification:Pattern>
+  <specification:Pattern name="FilesToModule__TRG">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="sysmod">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/ProcessDefinition/model/ProcessDefinition.ecore#//SystemModule"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="foobaa">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/ProcessDefinition/model/ProcessDefinition.ecore#//Module"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/6/@symbolicParameters.1"/>
+        <parameters reference="/6/@symbolicParameters.0"/>
+        <eModelElement xsi:type="ecore:EReference" href="../../../plugin/ProcessDefinition/model/ProcessDefinition.ecore#//Module/systemModule"/>
+      </constraints>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/6/@symbolicParameters.0"/>
+        <parameters reference="/6/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../../../plugin/ProcessDefinition/model/ProcessDefinition.ecore#//SystemModule/allModules"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="FilesToModule__CONTEXT_TRG">
+        <parameters reference="/6/@symbolicParameters.0"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="FilesToTask__CC">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="baa">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/MocaTree/model/MocaTree.ecore#//File"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="baz">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/MocaTree/model/MocaTree.ecore#//File"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="folder">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/MocaTree/model/MocaTree.ecore#//Folder"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="foo">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/MocaTree/model/MocaTree.ecore#//File"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="foobaa">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/ProcessDefinition/model/ProcessDefinition.ecore#//Module"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="sysmod">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/ProcessDefinition/model/ProcessDefinition.ecore#//SystemModule"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="task">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/ProcessDefinition/model/ProcessDefinition.ecore#//Task"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="folder2sysmod">
+      <eClassifier xsi:type="ecore:EClass" href="../model/MocaTreeToProcess.ecore#//FolderToSystemModuleCorr"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="FilesToTask__CC_REFINEMENT_INVOCATIONS">
+        <parameters reference="/7/@symbolicParameters.0"/>
+        <parameters reference="/7/@symbolicParameters.1"/>
+        <parameters reference="/7/@symbolicParameters.2"/>
+        <parameters reference="/7/@symbolicParameters.3"/>
+        <parameters reference="/7/@symbolicParameters.4"/>
+        <parameters reference="/7/@symbolicParameters.5"/>
+        <parameters reference="/7/@symbolicParameters.6"/>
+        <parameters reference="/7/@symbolicParameters.7"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="FilesToTask__CC_REFINEMENT_INVOCATIONS">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="baa">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/MocaTree/model/MocaTree.ecore#//File"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="baz">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/MocaTree/model/MocaTree.ecore#//File"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="folder">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/MocaTree/model/MocaTree.ecore#//Folder"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="foo">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/MocaTree/model/MocaTree.ecore#//File"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="foobaa">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/ProcessDefinition/model/ProcessDefinition.ecore#//Module"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="sysmod">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/ProcessDefinition/model/ProcessDefinition.ecore#//SystemModule"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="task">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/ProcessDefinition/model/ProcessDefinition.ecore#//Task"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="folder2sysmod">
+      <eClassifier xsi:type="ecore:EClass" href="../model/MocaTreeToProcess.ecore#//FolderToSystemModuleCorr"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="FilesToTask__SRC">
+        <parameters reference="/8/@symbolicParameters.2"/>
+        <parameters reference="/8/@symbolicParameters.3"/>
+        <parameters reference="/8/@symbolicParameters.0"/>
+        <parameters reference="/8/@symbolicParameters.1"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="FilesToTask__TRG">
+        <parameters reference="/8/@symbolicParameters.5"/>
+        <parameters reference="/8/@symbolicParameters.4"/>
+        <parameters reference="/8/@symbolicParameters.6"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="FilesToTask__CONTEXT_CORR">
+        <parameters reference="/8/@symbolicParameters.2"/>
+        <parameters reference="/8/@symbolicParameters.5"/>
+        <parameters reference="/8/@symbolicParameters.7"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
   <specification:Pattern name="FilesToTask__CONTEXT_CORR">
     <symbolicParameters xsi:type="emf:EMFVariable" name="folder">
       <eClassifier xsi:type="ecore:EClass" href="../../../plugin/MocaTree/model/MocaTree.ecore#//Folder"/>
     </symbolicParameters>
     <symbolicParameters xsi:type="emf:EMFVariable" name="sysmod">
-      <eClassifier xsi:type="ecore:EClass" href="platform:/resource/../../../git/emoflon-ibex-tests/metamodels/ProcessDefinition/model/ProcessDefinition.ecore#//SystemModule"/>
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/ProcessDefinition/model/ProcessDefinition.ecore#//SystemModule"/>
     </symbolicParameters>
     <symbolicParameters xsi:type="emf:EMFVariable" name="folder2sysmod">
       <eClassifier xsi:type="ecore:EClass" href="../model/MocaTreeToProcess.ecore#//FolderToSystemModuleCorr"/>
     </symbolicParameters>
     <bodies>
       <constraints xsi:type="emf:Reference">
-        <parameters reference="/6/@symbolicParameters.2"/>
-        <parameters reference="/6/@symbolicParameters.0"/>
+        <parameters reference="/9/@symbolicParameters.2"/>
+        <parameters reference="/9/@symbolicParameters.0"/>
         <eModelElement xsi:type="ecore:EReference" href="../model/MocaTreeToProcess.ecore#//FolderToSystemModuleCorr/source"/>
       </constraints>
       <constraints xsi:type="emf:Reference">
-        <parameters reference="/6/@symbolicParameters.2"/>
-        <parameters reference="/6/@symbolicParameters.1"/>
+        <parameters reference="/9/@symbolicParameters.2"/>
+        <parameters reference="/9/@symbolicParameters.1"/>
         <eModelElement xsi:type="ecore:EReference" href="../model/MocaTreeToProcess.ecore#//FolderToSystemModuleCorr/target"/>
       </constraints>
     </bodies>
@@ -173,107 +277,21 @@
   </specification:Pattern>
   <specification:Pattern name="FilesToTask__CONTEXT_TRG">
     <symbolicParameters xsi:type="emf:EMFVariable" name="sysmod">
-      <eClassifier xsi:type="ecore:EClass" href="platform:/resource/../../../git/emoflon-ibex-tests/metamodels/ProcessDefinition/model/ProcessDefinition.ecore#//SystemModule"/>
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/ProcessDefinition/model/ProcessDefinition.ecore#//SystemModule"/>
     </symbolicParameters>
     <symbolicParameters xsi:type="emf:EMFVariable" name="foobaa">
-      <eClassifier xsi:type="ecore:EClass" href="platform:/resource/../../../git/emoflon-ibex-tests/metamodels/ProcessDefinition/model/ProcessDefinition.ecore#//Module"/>
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/ProcessDefinition/model/ProcessDefinition.ecore#//Module"/>
     </symbolicParameters>
     <bodies>
       <constraints xsi:type="emf:Reference">
-        <parameters reference="/8/@symbolicParameters.1"/>
-        <parameters reference="/8/@symbolicParameters.0"/>
-        <eModelElement xsi:type="ecore:EReference" href="platform:/resource/../../../git/emoflon-ibex-tests/metamodels/ProcessDefinition/model/ProcessDefinition.ecore#//Module/systemModule"/>
+        <parameters reference="/11/@symbolicParameters.1"/>
+        <parameters reference="/11/@symbolicParameters.0"/>
+        <eModelElement xsi:type="ecore:EReference" href="../../../plugin/ProcessDefinition/model/ProcessDefinition.ecore#//Module/systemModule"/>
       </constraints>
       <constraints xsi:type="emf:Reference">
-        <parameters reference="/8/@symbolicParameters.0"/>
-        <parameters reference="/8/@symbolicParameters.1"/>
-        <eModelElement xsi:type="ecore:EReference" href="platform:/resource/../../../git/emoflon-ibex-tests/metamodels/ProcessDefinition/model/ProcessDefinition.ecore#//SystemModule/allModules"/>
-      </constraints>
-    </bodies>
-  </specification:Pattern>
-  <specification:Pattern name="FilesToTask__FWD">
-    <symbolicParameters xsi:type="emf:EMFVariable" name="baa">
-      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/MocaTree/model/MocaTree.ecore#//File"/>
-    </symbolicParameters>
-    <symbolicParameters xsi:type="emf:EMFVariable" name="baz">
-      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/MocaTree/model/MocaTree.ecore#//File"/>
-    </symbolicParameters>
-    <symbolicParameters xsi:type="emf:EMFVariable" name="folder">
-      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/MocaTree/model/MocaTree.ecore#//Folder"/>
-    </symbolicParameters>
-    <symbolicParameters xsi:type="emf:EMFVariable" name="foo">
-      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/MocaTree/model/MocaTree.ecore#//File"/>
-    </symbolicParameters>
-    <symbolicParameters xsi:type="emf:EMFVariable" name="foobaa">
-      <eClassifier xsi:type="ecore:EClass" href="platform:/resource/../../../git/emoflon-ibex-tests/metamodels/ProcessDefinition/model/ProcessDefinition.ecore#//Module"/>
-    </symbolicParameters>
-    <symbolicParameters xsi:type="emf:EMFVariable" name="sysmod">
-      <eClassifier xsi:type="ecore:EClass" href="platform:/resource/../../../git/emoflon-ibex-tests/metamodels/ProcessDefinition/model/ProcessDefinition.ecore#//SystemModule"/>
-    </symbolicParameters>
-    <symbolicParameters xsi:type="emf:EMFVariable" name="folder2sysmod">
-      <eClassifier xsi:type="ecore:EClass" href="../model/MocaTreeToProcess.ecore#//FolderToSystemModuleCorr"/>
-    </symbolicParameters>
-    <bodies>
-      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="FilesToTask__FWD_REFINEMENT_INVOCATIONS">
-        <parameters reference="/9/@symbolicParameters.0"/>
-        <parameters reference="/9/@symbolicParameters.1"/>
-        <parameters reference="/9/@symbolicParameters.2"/>
-        <parameters reference="/9/@symbolicParameters.3"/>
-        <parameters reference="/9/@symbolicParameters.4"/>
-        <parameters reference="/9/@symbolicParameters.5"/>
-        <parameters reference="/9/@symbolicParameters.6"/>
-      </constraints>
-      <constraints xsi:type="specification:PatternInvocationConstraint" invokedPattern="MarkedPattern__LOCAL_MARKED__SRC">
-        <parameters reference="/9/@symbolicParameters.0"/>
-      </constraints>
-      <constraints xsi:type="specification:PatternInvocationConstraint" invokedPattern="MarkedPattern__LOCAL_MARKED__SRC">
-        <parameters reference="/9/@symbolicParameters.1"/>
-      </constraints>
-      <constraints xsi:type="specification:PatternInvocationConstraint" invokedPattern="MarkedPattern__LOCAL_MARKED__SRC">
-        <parameters reference="/9/@symbolicParameters.3"/>
-      </constraints>
-    </bodies>
-  </specification:Pattern>
-  <specification:Pattern name="FilesToTask__FWD_REFINEMENT_INVOCATIONS">
-    <symbolicParameters xsi:type="emf:EMFVariable" name="baa">
-      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/MocaTree/model/MocaTree.ecore#//File"/>
-    </symbolicParameters>
-    <symbolicParameters xsi:type="emf:EMFVariable" name="baz">
-      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/MocaTree/model/MocaTree.ecore#//File"/>
-    </symbolicParameters>
-    <symbolicParameters xsi:type="emf:EMFVariable" name="folder">
-      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/MocaTree/model/MocaTree.ecore#//Folder"/>
-    </symbolicParameters>
-    <symbolicParameters xsi:type="emf:EMFVariable" name="foo">
-      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/MocaTree/model/MocaTree.ecore#//File"/>
-    </symbolicParameters>
-    <symbolicParameters xsi:type="emf:EMFVariable" name="foobaa">
-      <eClassifier xsi:type="ecore:EClass" href="platform:/resource/../../../git/emoflon-ibex-tests/metamodels/ProcessDefinition/model/ProcessDefinition.ecore#//Module"/>
-    </symbolicParameters>
-    <symbolicParameters xsi:type="emf:EMFVariable" name="sysmod">
-      <eClassifier xsi:type="ecore:EClass" href="platform:/resource/../../../git/emoflon-ibex-tests/metamodels/ProcessDefinition/model/ProcessDefinition.ecore#//SystemModule"/>
-    </symbolicParameters>
-    <symbolicParameters xsi:type="emf:EMFVariable" name="folder2sysmod">
-      <eClassifier xsi:type="ecore:EClass" href="../model/MocaTreeToProcess.ecore#//FolderToSystemModuleCorr"/>
-    </symbolicParameters>
-    <bodies>
-      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="FilesToTask__SRC">
-        <parameters reference="/10/@symbolicParameters.2"/>
-        <parameters reference="/10/@symbolicParameters.3"/>
-        <parameters reference="/10/@symbolicParameters.0"/>
-        <parameters reference="/10/@symbolicParameters.1"/>
-      </constraints>
-      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="FilesToTask__CONTEXT_CORR">
-        <parameters reference="/10/@symbolicParameters.2"/>
-        <parameters reference="/10/@symbolicParameters.5"/>
-        <parameters reference="/10/@symbolicParameters.6"/>
-      </constraints>
-      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="FilesToTask__CONTEXT_TRG">
-        <parameters reference="/10/@symbolicParameters.5"/>
-        <parameters reference="/10/@symbolicParameters.4"/>
-      </constraints>
-      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="MarkedPattern__LOCAL_MARKED__SRC">
-        <parameters reference="/10/@symbolicParameters.2"/>
+        <parameters reference="/11/@symbolicParameters.0"/>
+        <parameters reference="/11/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../../../plugin/ProcessDefinition/model/ProcessDefinition.ecore#//SystemModule/allModules"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -292,72 +310,101 @@
     </symbolicParameters>
     <bodies>
       <constraints xsi:type="emf:Reference">
-        <parameters reference="/11/@symbolicParameters.1"/>
-        <parameters reference="/11/@symbolicParameters.0"/>
+        <parameters reference="/12/@symbolicParameters.1"/>
+        <parameters reference="/12/@symbolicParameters.0"/>
         <eModelElement xsi:type="ecore:EReference" href="../../../plugin/MocaTree/model/MocaTree.ecore#//File/folder"/>
       </constraints>
       <constraints xsi:type="emf:Reference">
-        <parameters reference="/11/@symbolicParameters.2"/>
-        <parameters reference="/11/@symbolicParameters.0"/>
+        <parameters reference="/12/@symbolicParameters.2"/>
+        <parameters reference="/12/@symbolicParameters.0"/>
         <eModelElement xsi:type="ecore:EReference" href="../../../plugin/MocaTree/model/MocaTree.ecore#//File/folder"/>
       </constraints>
       <constraints xsi:type="emf:Reference">
-        <parameters reference="/11/@symbolicParameters.3"/>
-        <parameters reference="/11/@symbolicParameters.0"/>
+        <parameters reference="/12/@symbolicParameters.3"/>
+        <parameters reference="/12/@symbolicParameters.0"/>
         <eModelElement xsi:type="ecore:EReference" href="../../../plugin/MocaTree/model/MocaTree.ecore#//File/folder"/>
       </constraints>
       <constraints xsi:type="emf:Reference">
-        <parameters reference="/11/@symbolicParameters.0"/>
-        <parameters reference="/11/@symbolicParameters.1"/>
+        <parameters reference="/12/@symbolicParameters.0"/>
+        <parameters reference="/12/@symbolicParameters.1"/>
         <eModelElement xsi:type="ecore:EReference" href="../../../plugin/MocaTree/model/MocaTree.ecore#//Folder/file"/>
       </constraints>
       <constraints xsi:type="emf:Reference">
-        <parameters reference="/11/@symbolicParameters.0"/>
-        <parameters reference="/11/@symbolicParameters.2"/>
+        <parameters reference="/12/@symbolicParameters.0"/>
+        <parameters reference="/12/@symbolicParameters.2"/>
         <eModelElement xsi:type="ecore:EReference" href="../../../plugin/MocaTree/model/MocaTree.ecore#//Folder/file"/>
       </constraints>
       <constraints xsi:type="emf:Reference">
-        <parameters reference="/11/@symbolicParameters.0"/>
-        <parameters reference="/11/@symbolicParameters.3"/>
+        <parameters reference="/12/@symbolicParameters.0"/>
+        <parameters reference="/12/@symbolicParameters.3"/>
         <eModelElement xsi:type="ecore:EReference" href="../../../plugin/MocaTree/model/MocaTree.ecore#//Folder/file"/>
       </constraints>
       <constraints xsi:type="relational:Unequal">
-        <parameters reference="/11/@symbolicParameters.1"/>
-        <parameters reference="/11/@symbolicParameters.2"/>
+        <parameters reference="/12/@symbolicParameters.1"/>
+        <parameters reference="/12/@symbolicParameters.2"/>
       </constraints>
       <constraints xsi:type="relational:Unequal">
-        <parameters reference="/11/@symbolicParameters.1"/>
-        <parameters reference="/11/@symbolicParameters.3"/>
+        <parameters reference="/12/@symbolicParameters.1"/>
+        <parameters reference="/12/@symbolicParameters.3"/>
       </constraints>
       <constraints xsi:type="relational:Unequal">
-        <parameters reference="/11/@symbolicParameters.2"/>
-        <parameters reference="/11/@symbolicParameters.3"/>
+        <parameters reference="/12/@symbolicParameters.2"/>
+        <parameters reference="/12/@symbolicParameters.3"/>
       </constraints>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="FilesToTask__CONTEXT_SRC">
-        <parameters reference="/11/@symbolicParameters.0"/>
+        <parameters reference="/12/@symbolicParameters.0"/>
       </constraints>
     </bodies>
   </specification:Pattern>
-  <specification:Pattern name="FolderToSystemModule__FWD">
+  <specification:Pattern name="FilesToTask__TRG">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="sysmod">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/ProcessDefinition/model/ProcessDefinition.ecore#//SystemModule"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="foobaa">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/ProcessDefinition/model/ProcessDefinition.ecore#//Module"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="task">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/ProcessDefinition/model/ProcessDefinition.ecore#//Task"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/13/@symbolicParameters.2"/>
+        <parameters reference="/13/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../../../plugin/ProcessDefinition/model/ProcessDefinition.ecore#//Task/module"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="FilesToTask__CONTEXT_TRG">
+        <parameters reference="/13/@symbolicParameters.0"/>
+        <parameters reference="/13/@symbolicParameters.1"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="FolderToSystemModule__CC">
     <symbolicParameters xsi:type="emf:EMFVariable" name="folder">
       <eClassifier xsi:type="ecore:EClass" href="../../../plugin/MocaTree/model/MocaTree.ecore#//Folder"/>
     </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="sysmod">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/ProcessDefinition/model/ProcessDefinition.ecore#//SystemModule"/>
+    </symbolicParameters>
     <bodies>
-      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="FolderToSystemModule__FWD_REFINEMENT_INVOCATIONS">
-        <parameters reference="/12/@symbolicParameters.0"/>
-      </constraints>
-      <constraints xsi:type="specification:PatternInvocationConstraint" invokedPattern="MarkedPattern__LOCAL_MARKED__SRC">
-        <parameters reference="/12/@symbolicParameters.0"/>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="FolderToSystemModule__CC_REFINEMENT_INVOCATIONS">
+        <parameters reference="/14/@symbolicParameters.0"/>
+        <parameters reference="/14/@symbolicParameters.1"/>
       </constraints>
     </bodies>
   </specification:Pattern>
-  <specification:Pattern name="FolderToSystemModule__FWD_REFINEMENT_INVOCATIONS">
+  <specification:Pattern name="FolderToSystemModule__CC_REFINEMENT_INVOCATIONS">
     <symbolicParameters xsi:type="emf:EMFVariable" name="folder">
       <eClassifier xsi:type="ecore:EClass" href="../../../plugin/MocaTree/model/MocaTree.ecore#//Folder"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="sysmod">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/ProcessDefinition/model/ProcessDefinition.ecore#//SystemModule"/>
     </symbolicParameters>
     <bodies>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="FolderToSystemModule__SRC">
-        <parameters reference="/13/@symbolicParameters.0"/>
+        <parameters reference="/15/@symbolicParameters.0"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="FolderToSystemModule__TRG">
+        <parameters reference="/15/@symbolicParameters.1"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -367,106 +414,10 @@
     </symbolicParameters>
     <bodies/>
   </specification:Pattern>
-  <specification:Pattern name="MarkedPattern__LOCAL_MARKED__SRC">
-    <symbolicParameters xsi:type="emf:EMFVariable" name="checkedObject">
-      <eClassifier xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  <specification:Pattern name="FolderToSystemModule__TRG">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="sysmod">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/ProcessDefinition/model/ProcessDefinition.ecore#//SystemModule"/>
     </symbolicParameters>
-    <bodies>
-      <localVariables xsi:type="emf:EMFVariable" name="protocol">
-        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication"/>
-      </localVariables>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/15/@bodies.0/@localVariables.0"/>
-        <parameters reference="/15/@symbolicParameters.0"/>
-        <eModelElement xsi:type="ecore:EReference" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication/createdSrc"/>
-      </constraints>
-      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="MarkedPattern__SRC">
-        <parameters reference="/15/@bodies.0/@localVariables.0"/>
-        <parameters reference="/15/@symbolicParameters.0"/>
-      </constraints>
-    </bodies>
-  </specification:Pattern>
-  <specification:Pattern name="MarkedPattern__LOCAL_MARKED__SRC">
-    <symbolicParameters xsi:type="emf:EMFVariable" name="checkedObject">
-      <eClassifier xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
-    </symbolicParameters>
-    <bodies>
-      <localVariables xsi:type="emf:EMFVariable" name="protocol">
-        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication"/>
-      </localVariables>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/16/@bodies.0/@localVariables.0"/>
-        <parameters reference="/16/@symbolicParameters.0"/>
-        <eModelElement xsi:type="ecore:EReference" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication/createdSrc"/>
-      </constraints>
-      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="MarkedPattern__SRC">
-        <parameters reference="/16/@bodies.0/@localVariables.0"/>
-        <parameters reference="/16/@symbolicParameters.0"/>
-      </constraints>
-    </bodies>
-  </specification:Pattern>
-  <specification:Pattern name="MarkedPattern__LOCAL_MARKED__SRC">
-    <symbolicParameters xsi:type="emf:EMFVariable" name="checkedObject">
-      <eClassifier xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
-    </symbolicParameters>
-    <bodies>
-      <localVariables xsi:type="emf:EMFVariable" name="protocol">
-        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication"/>
-      </localVariables>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/17/@bodies.0/@localVariables.0"/>
-        <parameters reference="/17/@symbolicParameters.0"/>
-        <eModelElement xsi:type="ecore:EReference" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication/createdSrc"/>
-      </constraints>
-      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="MarkedPattern__SRC">
-        <parameters reference="/17/@bodies.0/@localVariables.0"/>
-        <parameters reference="/17/@symbolicParameters.0"/>
-      </constraints>
-    </bodies>
-  </specification:Pattern>
-  <specification:Pattern name="MarkedPattern__SRC">
-    <symbolicParameters xsi:type="emf:EMFVariable" name="protocol">
-      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication"/>
-    </symbolicParameters>
-    <symbolicParameters xsi:type="emf:EMFVariable" name="checkedObject">
-      <eClassifier xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
-    </symbolicParameters>
-    <bodies>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/18/@symbolicParameters.0"/>
-        <parameters reference="/18/@symbolicParameters.1"/>
-        <eModelElement xsi:type="ecore:EReference" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication/createdSrc"/>
-      </constraints>
-    </bodies>
-  </specification:Pattern>
-  <specification:Pattern name="MarkedPattern__SRC">
-    <symbolicParameters xsi:type="emf:EMFVariable" name="protocol">
-      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication"/>
-    </symbolicParameters>
-    <symbolicParameters xsi:type="emf:EMFVariable" name="checkedObject">
-      <eClassifier xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
-    </symbolicParameters>
-    <bodies>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/19/@symbolicParameters.0"/>
-        <parameters reference="/19/@symbolicParameters.1"/>
-        <eModelElement xsi:type="ecore:EReference" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication/createdSrc"/>
-      </constraints>
-    </bodies>
-  </specification:Pattern>
-  <specification:Pattern name="MarkedPattern__SRC">
-    <symbolicParameters xsi:type="emf:EMFVariable" name="protocol">
-      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication"/>
-    </symbolicParameters>
-    <symbolicParameters xsi:type="emf:EMFVariable" name="checkedObject">
-      <eClassifier xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
-    </symbolicParameters>
-    <bodies>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/20/@symbolicParameters.0"/>
-        <parameters reference="/20/@symbolicParameters.1"/>
-        <eModelElement xsi:type="ecore:EReference" href="../../../plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication/createdSrc"/>
-      </constraints>
-    </bodies>
+    <bodies/>
   </specification:Pattern>
 </xmi:XMI>
