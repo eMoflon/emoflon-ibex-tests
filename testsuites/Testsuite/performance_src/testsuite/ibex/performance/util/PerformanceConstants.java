@@ -7,7 +7,7 @@ public class PerformanceConstants {
 	//-------------------  Performance tests -----------------------------------------------
 	
 	/** The timeout after which a performance test is aborted. */
-	public final static int timeout = 30; // in seconds
+	public final static int timeout = 10; // in seconds
 	
 	/** Defines how much memory may be allocated for the heap by the launched JavaVM. */
 	public final static String maxMemorySize = "1024M"; //"M" for megabyte, "G" for gigabyte
@@ -57,6 +57,6 @@ public class PerformanceConstants {
 	 * The model size used for some plots with a fixed size, where the TGG/Operationalization
 	 * can handle bigger sizes.
 	 * */
-	public static final int bigModelSize = 1000;
+	public static final int bigModelSize = 100;
 	
 }

@@ -16,6 +16,16 @@
 		#src->Folder
 		#trg->SystemModule
 	}
+	
+	FilesToModuleCorr{
+		#src->File
+		#trg->Module
+	}
+	
+	FilesToTaskCorr{
+		#src->File
+		#trg->Task
+	}
 }
 
 #attributeConditions {

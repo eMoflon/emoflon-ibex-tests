@@ -26,6 +26,16 @@
 		#src->folder
 		#trg->sysmod
 	}
+	
+	++foo2foobaa : FilesToModuleCorr {
+		#src->foo
+		#trg->foobaa
+	}
+	
+	++baa2foobaa : FilesToModuleCorr {
+		#src->baa
+		#trg->foobaa
+	}
 }
 
 #attributeConditions {

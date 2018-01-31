@@ -22,7 +22,6 @@
 		-systemModule->sysmod
 	}
 	++ task : Task {
-		++ -systemModule->sysmod
 		++ -module->foobaa
 	}
 }
@@ -31,6 +30,21 @@
 	folder2sysmod : FolderToSystemModuleCorr {
 		#src->folder
 		#trg->sysmod
+	}
+	
+	++ foo2task : FilesToTaskCorr {
+		#src->foo
+		#trg->task
+	}
+	
+	++ baa2task : FilesToTaskCorr {
+		#src->baa
+		#trg->task
+	}
+	
+	++ baz2task : FilesToTaskCorr {
+		#src->baz
+		#trg->task
 	}
 }
 

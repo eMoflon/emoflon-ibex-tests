@@ -22,7 +22,7 @@ public class CC_App extends CC {
 	public static void main(String[] args) throws IOException {
 		BasicConfigurator.configure();
 
-		CC_App cc = new CC_App("MocaTreeToProcess", "./../", false);
+		CC_App cc = new CC_App("MocaTreeToProcess", "./../", true);
 		
 		logger.info("Starting CC");
 		long tic = System.currentTimeMillis();

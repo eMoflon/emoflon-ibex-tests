@@ -3,48 +3,49 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="ProcessDefinition" nsURI="platform:/plugin/ProcessDefinition/model/ProcessDefinition.ecore"
     nsPrefix="ProcessDefinition">
   <eClassifiers xsi:type="ecore:EClass" name="Import">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="importingTask" upperBound="-1"
-        eType="#//Task" transient="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="module" upperBound="-1"
-        eType="#//Module"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="importingTask" lowerBound="1"
+        eType="#//Task" eOpposite="#//Task/imports"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="module" lowerBound="1"
+        eType="#//Module" eOpposite="#//Module/import"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Invocation">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="task" upperBound="-1" eType="#//Task"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="invokedTask" upperBound="-1"
-        eType="#//Task"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="task" lowerBound="1" eType="#//Task"
+        eOpposite="#//Task/invocations"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="invokedTask" lowerBound="1"
+        eType="#//Task" eOpposite="#//Task/invocation"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Module">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="systemModule" upperBound="-1"
-        eType="#//SystemModule"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="import" upperBound="-1"
-        eType="#//Import"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="systemModule" lowerBound="1"
+        eType="#//SystemModule" eOpposite="#//SystemModule/allModules"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="import" lowerBound="1"
+        eType="#//Import" eOpposite="#//Import/module"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="tasks" upperBound="-1"
         eType="#//Task" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" ordered="false"
-        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SystemModule">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="helper" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="helper" lowerBound="1"
         eType="#//facade/Helper" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="allTasks" upperBound="-1"
         eType="#//Task"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="allModules" upperBound="-1"
-        eType="#//Module" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" upperBound="-1"
+        eType="#//Module" containment="true" eOpposite="#//Module/systemModule"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Task">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="systemModule" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="systemModule" lowerBound="1"
         eType="#//SystemModule"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="module" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="module" lowerBound="1"
         eType="#//Module"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="invocation" upperBound="-1"
-        eType="#//Invocation"/>
+        eType="#//Invocation" eOpposite="#//Invocation/invokedTask"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="invocations" upperBound="-1"
-        eType="#//Invocation" containment="true"/>
+        eType="#//Invocation" containment="true" eOpposite="#//Invocation/task"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="imports" upperBound="-1"
-        eType="#//Import" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" ordered="false" upperBound="-1"
+        eType="#//Import" containment="true" eOpposite="#//Import/importingTask"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" ordered="false" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eSubpackages name="facade" nsURI="platform:/plugin/ProcessDefinition/model/ProcessDefinition.ecore#//facade"

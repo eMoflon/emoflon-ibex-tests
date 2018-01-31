@@ -9,6 +9,14 @@
       <source href="platform:/resource/MocaTree/model/MocaTree.ecore#//Folder"/>
       <target href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//SystemModule"/>
     </correspondenceTypes>
+    <correspondenceTypes name="FilesToModuleCorr">
+      <source href="platform:/resource/MocaTree/model/MocaTree.ecore#//File"/>
+      <target href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//Module"/>
+    </correspondenceTypes>
+    <correspondenceTypes name="FilesToTaskCorr">
+      <source href="platform:/resource/MocaTree/model/MocaTree.ecore#//File"/>
+      <target href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//Task"/>
+    </correspondenceTypes>
   </schema>
   <rules name="FilesToModule" schema="//@schema">
     <sourcePatterns name="baa">
@@ -41,7 +49,13 @@
     <targetPatterns name="sysmod">
       <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//SystemModule"/>
     </targetPatterns>
+    <correspondencePatterns name="baa2foobaa" type="//@schema/@correspondenceTypes.1" source="//@rules.0/@sourcePatterns.0" target="//@rules.0/@targetPatterns.0">
+      <op value="++"/>
+    </correspondencePatterns>
     <correspondencePatterns name="folder2sysmod" type="//@schema/@correspondenceTypes.0" source="//@rules.0/@sourcePatterns.1" target="//@rules.0/@targetPatterns.1"/>
+    <correspondencePatterns name="foo2foobaa" type="//@schema/@correspondenceTypes.1" source="//@rules.0/@sourcePatterns.2" target="//@rules.0/@targetPatterns.0">
+      <op value="++"/>
+    </correspondencePatterns>
   </rules>
   <rules name="FilesToTask" schema="//@schema">
     <sourcePatterns name="baa">
@@ -83,16 +97,21 @@
     <targetPatterns name="task">
       <op value="++"/>
       <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//Task"/>
-      <linkVariablePatterns target="//@rules.1/@targetPatterns.1">
-        <op value="++"/>
-        <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//Task/systemModule"/>
-      </linkVariablePatterns>
       <linkVariablePatterns target="//@rules.1/@targetPatterns.0">
         <op value="++"/>
         <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//Task/module"/>
       </linkVariablePatterns>
     </targetPatterns>
+    <correspondencePatterns name="baa2task" type="//@schema/@correspondenceTypes.2" source="//@rules.1/@sourcePatterns.0" target="//@rules.1/@targetPatterns.2">
+      <op value="++"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="baz2task" type="//@schema/@correspondenceTypes.2" source="//@rules.1/@sourcePatterns.1" target="//@rules.1/@targetPatterns.2">
+      <op value="++"/>
+    </correspondencePatterns>
     <correspondencePatterns name="folder2sysmod" type="//@schema/@correspondenceTypes.0" source="//@rules.1/@sourcePatterns.2" target="//@rules.1/@targetPatterns.1"/>
+    <correspondencePatterns name="foo2task" type="//@schema/@correspondenceTypes.2" source="//@rules.1/@sourcePatterns.3" target="//@rules.1/@targetPatterns.2">
+      <op value="++"/>
+    </correspondencePatterns>
   </rules>
   <rules name="FolderToSystemModule" schema="//@schema">
     <sourcePatterns name="folder">

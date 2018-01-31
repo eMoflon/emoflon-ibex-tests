@@ -6,4 +6,12 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="ecore:EClass platform:/resource/MocaTree/model/MocaTree.ecore#//Folder"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="ecore:EClass platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//SystemModule"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FilesToModuleCorr">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="ecore:EClass platform:/resource/MocaTree/model/MocaTree.ecore#//File"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="ecore:EClass platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//Module"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FilesToTaskCorr">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="ecore:EClass platform:/resource/MocaTree/model/MocaTree.ecore#//File"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="ecore:EClass platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//Task"/>
+  </eClassifiers>
 </ecore:EPackage>

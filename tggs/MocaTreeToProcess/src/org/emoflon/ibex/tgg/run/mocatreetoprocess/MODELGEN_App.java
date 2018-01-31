@@ -26,7 +26,8 @@ public class MODELGEN_App extends MODELGEN {
 		MODELGEN_App generator = new MODELGEN_App("MocaTreeToProcess", "./../", false);
 		
 		MODELGENStopCriterion stop = new MODELGENStopCriterion(generator.getTGG());
-		stop.setTimeOutInMS(500);
+		stop.setTimeOutInMS(300);
+		stop.setMaxRuleCount("FolderToSystemModule", 1);
 		generator.setStopCriterion(stop);
 		
 		logger.info("Starting MODELGEN");
