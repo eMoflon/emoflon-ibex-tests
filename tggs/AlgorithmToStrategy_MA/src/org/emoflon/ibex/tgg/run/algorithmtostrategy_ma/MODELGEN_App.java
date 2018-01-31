@@ -43,7 +43,6 @@ public class MODELGEN_App extends MODELGEN {
 		rs.getPackageRegistry().put("platform:/resource/Algorithm/model/Algorithms.ecore", AlgorithmsPackageImpl.init());
 		rs.getPackageRegistry().put("platform:/resource/Strategy/model/Strategy.ecore", StrategiesPackageImpl.init());
 		
-		
 		// Register correspondence metamodel last
 		loadAndRegisterMetamodel(projectPath + "/model/" + projectPath + ".ecore");
 	}
@@ -54,5 +53,5 @@ public class MODELGEN_App extends MODELGEN {
 		options.debug(false);
 		options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
 		return options;
-}
+	}
 }

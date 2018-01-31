@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="ASCII"?>
-<Families:FamilyRegister xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:Families="platform:/plugin/Families/model/Families.ecore">
-  <families>
-    <father name="torquent"/>
-    <mother name="molestie"/>
+<Families:FamilyRegister
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:Families="platform:/plugin/Families/model/Families.ecore">
+  <families
+      name="foo">
+    <father
+        name="torquent"/>
+    <mother
+        name="molestie"/>
     <sons name="donec"/>
-    <daughters name="suspendisse"/>
+    <daughters
+        name="suspendisse"/>
   </families>
 </Families:FamilyRegister>

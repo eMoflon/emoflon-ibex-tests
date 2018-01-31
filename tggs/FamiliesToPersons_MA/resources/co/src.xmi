@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="ASCII"?>
-<Families:FamilyRegister xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:Families="platform:/plugin/Families/model/Families.ecore">
-  <families>
-    <father name="accumsan"/>
-    <mother name="est"/>
-    <daughters name="ad"/>
+<Families:FamilyRegister
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:Families="platform:/plugin/Families/model/Families.ecore">
+  <families
+      name="foo">
+    <father
+        name="accumsan"/>
+    <mother
+        name="est"/>
+    <daughters
+        name="ad"/>
   </families>
 </Families:FamilyRegister>
