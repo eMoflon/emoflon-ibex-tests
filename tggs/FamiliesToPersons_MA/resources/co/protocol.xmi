@@ -11,7 +11,7 @@
       <value href="trg.xmi#/"/>
     </nodeMappings>
     <nodeMappings key="familyReg2personReg">
-      <value href="corr_inc.xmi#/"/>
+      <value href="corr.xmi#/0"/>
     </nodeMappings>
     <nodeMappings key="family">
       <value href="src.xmi#//@families.0"/>
@@ -20,9 +20,9 @@
   <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="Families2Persons">
     <createdSrc href="src.xmi#/"/>
     <createdTrg href="trg.xmi#/"/>
-    <createdCorr href="corr_inc.xmi#/"/>
+    <createdCorr href="corr.xmi#/0"/>
     <nodeMappings key="families2persons">
-      <value href="corr_inc.xmi#/"/>
+      <value href="corr.xmi#/0"/>
     </nodeMappings>
     <nodeMappings key="familyReg">
       <value href="src.xmi#/"/>

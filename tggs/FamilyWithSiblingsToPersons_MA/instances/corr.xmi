@@ -1,19 +1,5 @@
 <?xml version="1.0" encoding="ASCII"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:FamilyWithSiblingsToPersons_MA="platform:/resource/FamilyWithSiblingsToPersons_MA/model/FamilyWithSiblingsToPersons_MA.ecore" xmlns:Persons="platform:/plugin/Persons/model/Persons.ecore">
-  <FamilyWithSiblingsToPersons_MA:FamiliesReg2PersonsRegCorr>
-    <source href="src.xmi#/"/>
-    <target href="trg.xmi#/"/>
-  </FamilyWithSiblingsToPersons_MA:FamiliesReg2PersonsRegCorr>
-  <FamilyWithSiblingsToPersons_MA:FamilyMember2Person>
-    <source href="src.xmi#//@families.0/@father"/>
-    <target xsi:type="Persons:Male" href="trg.xmi#//@persons.0"/>
-  </FamilyWithSiblingsToPersons_MA:FamilyMember2Person>
-  <FamilyWithSiblingsToPersons_MA:FamilyMember2Person>
-    <source href="src.xmi#//@families.1/@mother"/>
-    <target xsi:type="Persons:Female" href="trg.xmi#//@persons.1"/>
-  </FamilyWithSiblingsToPersons_MA:FamilyMember2Person>
-  <FamilyWithSiblingsToPersons_MA:FamilyMember2Person>
-    <source href="src.xmi#//@families.2/@mother"/>
-    <target xsi:type="Persons:Female" href="trg.xmi#//@persons.2"/>
-  </FamilyWithSiblingsToPersons_MA:FamilyMember2Person>
-</xmi:XMI>
+<FamilyWithSiblingsToPersons_MA:FamiliesReg2PersonsRegCorr xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:FamilyWithSiblingsToPersons_MA="platform:/resource/FamilyWithSiblingsToPersons_MA/model/FamilyWithSiblingsToPersons_MA.ecore">
+  <source href="src.xmi#/"/>
+  <target href="trg.xmi#/"/>
+</FamilyWithSiblingsToPersons_MA:FamiliesReg2PersonsRegCorr>
