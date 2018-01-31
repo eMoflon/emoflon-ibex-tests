@@ -51,7 +51,7 @@ public class DatabaseHelper {
 	
 	public void renameColumnFromTable(DB db, String name, String newName, String tableName){
 		Table table = db.getTables().stream()
-				.filter(t -> t.getHeading().equals(name)).findAny().get();
+				.filter(t -> t.getHeading().equals(tableName)).findAny().get();
 		Optional<Column> toBeDeleted = table.getColumns().stream()
 				.filter(t -> t.getName().equals(name)).findAny();
 		toBeDeleted.ifPresent(t -> t.setName(newName));

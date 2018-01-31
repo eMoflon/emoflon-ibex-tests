@@ -11,7 +11,6 @@ import testsuite.ibex.FamiliesWithSiblings_MA.util.IbexFamilyWithSiblings;
 import testsuite.ibex.testUtil.SyncTestCase;
 
 
-//@Ignore("Waiting for sync implementation")
 public class BasicSync extends SyncTestCase<FamilyRegister, PersonRegister>{
 
 	private static final String projectName = "FamilyWithSiblingsToPersons_MA";
@@ -47,9 +46,9 @@ public class BasicSync extends SyncTestCase<FamilyRegister, PersonRegister>{
 		tool.performAndPropagateSourceEdit(r -> helperFamily.createFamily(r, "Test"));
 		tool.performAndPropagateSourceEdit(r -> helperFamily.addFatherToSpecificFamily(r, 0, "father1"));
 		tool.performAndPropagateSourceEdit(r -> helperFamily.createFamily(r, "Test"));
-		tool.performAndPropagateSourceEdit(r -> helperFamily.addMotherToSpecificFamily(r, 1, "mother1"));
+		tool.performAndPropagateSourceEdit(r -> helperFamily.addMotherToSpecificFamily(r, 1, "mother2"));
 		//------------
-		assertPostcondition("in/02_RegisterWithTwoFamiliesTwoSiblings", "expected/02_RegisterWithTwoFamiliesTwoSiblings");
+		assertPostcondition("in/02_RegisterWithTwoFamiliesTwoSiblings", "expected/02_RegisterWithTwoPeople");
 	}
 	
 	// Check names and how to adjust this!!! 
@@ -59,7 +58,7 @@ public class BasicSync extends SyncTestCase<FamilyRegister, PersonRegister>{
 		tool.performAndPropagateTargetEdit(r -> helperPerson.createHomer(r));
 		tool.performAndPropagateTargetEdit(r -> helperPerson.createMarge(r));
 		//------------
-		assertPostcondition("in/02_RegisterWithTwoFamiliesTwoSiblings", "expected/02_RegisterWithTwoFamiliesTwoSiblings");
+		assertPostcondition("in/02_RegisterWithTwoFamiliesTwoSiblings", "expected/02_RegisterWithTwoPeople");
 	}
 	
 	/*--------------------DELETE-------------------------------------*/
