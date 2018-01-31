@@ -5,15 +5,9 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:Persons="platform:/plugin/Persons/model/Persons.ecore">
   <persons xsi:type="Persons:Male"
-      name="father1, Test"/>
+      name="Simpson, Homer"/>
   <persons xsi:type="Persons:Female"
-      name="mother1, Test"/>
-  <persons xsi:type="Persons:Male"
-      name="father2, Test"/>
+      name="Simpson, Lisa"/>
   <persons xsi:type="Persons:Female"
-      name="mother2, Test"/>
-  <persons xsi:type="Persons:Female"
-      name="mother3, Test"/>
-  <persons xsi:type="Persons:Male"
-      name="father3, Test"/>
+      name="Simpson, Marge"/>
 </Persons:PersonRegister>

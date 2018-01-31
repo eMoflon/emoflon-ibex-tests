@@ -1,2 +1,12 @@
 <?xml version="1.0" encoding="ASCII"?>
-<FamiliesWithSiblings:FamilyRegister xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:FamiliesWithSiblings="platform:/plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore"/>
+<FamiliesWithSiblings:FamilyRegister xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:FamiliesWithSiblings="platform:/plugin/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore">
+  <families name="Simpson" siblings="//@families.1 //@families.2">
+    <father name="Homer"/>
+  </families>
+  <families name="Simpson" siblings="//@families.0 //@families.2">
+    <mother name="Marge"/>
+  </families>
+  <families name="Simpson" siblings="//@families.0 //@families.1">
+    <mother name="Lisa"/>
+  </families>
+</FamiliesWithSiblings:FamilyRegister>

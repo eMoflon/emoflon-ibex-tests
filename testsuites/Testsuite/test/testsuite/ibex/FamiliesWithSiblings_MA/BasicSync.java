@@ -2,12 +2,12 @@ package testsuite.ibex.FamiliesWithSiblings_MA;
 
 import org.benchmarx.familiessiblings.core.FamilySiblingsHelper;
 import org.benchmarx.persons.core.PersonHelper;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import FamiliesWithSiblings.FamilyRegister;
 import Persons.PersonRegister;
 import testsuite.ibex.FamiliesWithSiblings_MA.util.IbexFamilyWithSiblings;
+import testsuite.ibex.testUtil.Decisions;
 import testsuite.ibex.testUtil.SyncTestCase;
 
 
@@ -40,6 +40,7 @@ public class BasicSync extends SyncTestCase<FamilyRegister, PersonRegister>{
 	
 	/*--------------------CREATE-------------------------------------*/
 
+	
 	@Test
 	public void testSiblingFamilies_FWD()
 	{
@@ -47,30 +48,21 @@ public class BasicSync extends SyncTestCase<FamilyRegister, PersonRegister>{
 		tool.performAndPropagateSourceEdit(r -> helperFamily.addFatherToSpecificFamily(r, 0, "father1"));
 		tool.performAndPropagateSourceEdit(r -> helperFamily.createFamily(r, "Test"));
 		tool.performAndPropagateSourceEdit(r -> helperFamily.addMotherToSpecificFamily(r, 1, "mother2"));
+		tool.performAndPropagateSourceEdit(r -> helperFamily.createSiblingRelations(r, 0, 1));
 		//------------
 		assertPostcondition("in/02_RegisterWithTwoFamiliesTwoSiblings", "expected/02_RegisterWithTwoPeople");
 	}
 	
-	// Check names and how to adjust this!!! 
 	@Test
 	public void testSiblingFamilies_BWD() {
-		//TODO:[Milica] You will need Update Policy to prefer new family over existing!!
+		util.configure()
+			.makeDecision(Decisions.PREFER_EXISTING_FAMILY_TO_NEW, false)
+			.makeDecision(Decisions.PREFER_CREATING_PARENT_TO_CHILD, true);
 		tool.performAndPropagateTargetEdit(r -> helperPerson.createHomer(r));
 		tool.performAndPropagateTargetEdit(r -> helperPerson.createMarge(r));
+		tool.performAndPropagateTargetEdit(r -> helperPerson.createLisa(r));
 		//------------
-		assertPostcondition("in/02_RegisterWithTwoFamiliesTwoSiblings", "expected/02_RegisterWithTwoPeople");
+		assertPostcondition("in/03_RegisterWithThreeFamiliesThreeSiblings", "expected/03_RegisterWithThreePeople");
 	}
 	
-	/*--------------------DELETE-------------------------------------*/
-	
-	// 
-	
-	@Test
-	public void testDeleteOneFamily_FWD() {
-	}
-	
-	// This is not feasable at the moment because in BWD we do not support 1..* so Family can exist without members!
-	@Test
-	public void testDeleteOnePerson_BWD() {
-	}
 }
