@@ -23,21 +23,15 @@
       </parameterValues>
     </attributeConditionLibrary>
   </rules>
-  <rules name="Algorithm2Strategy" abstract="true">
-    <nodes name="ac" outgoingEdges="//@rules.1/@edges.0" incomingCorrsSource="//@rules.1/@nodes.5">
+  <rules name="CreateAlgorithm">
+    <nodes name="ac" outgoingEdges="//@rules.1/@edges.0" incomingCorrsSource="//@rules.1/@nodes.3">
       <type href="platform:/resource/Algorithms/model/Algorithms.ecore#//AlgorithmContainer"/>
     </nodes>
-    <nodes name="algo" bindingType="CREATE" incomingEdges="//@rules.1/@edges.0" incomingCorrsSource="//@rules.1/@nodes.4">
+    <nodes name="algo" bindingType="CREATE" incomingEdges="//@rules.1/@edges.0">
       <type href="platform:/resource/Algorithms/model/Algorithms.ecore#//Algorithm"/>
     </nodes>
-    <nodes name="sc" domainType="TRG" outgoingEdges="//@rules.1/@edges.1" incomingCorrsTarget="//@rules.1/@nodes.5">
+    <nodes name="sc" domainType="TRG" incomingCorrsTarget="//@rules.1/@nodes.3">
       <type href="platform:/resource/Strategies/model/Strategies.ecore#//StrategyContainer"/>
-    </nodes>
-    <nodes name="strategy" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.1/@edges.1" incomingCorrsTarget="//@rules.1/@nodes.4">
-      <type href="platform:/resource/Strategies/model/Strategies.ecore#//Strategy"/>
-    </nodes>
-    <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="a2s" domainType="CORR" bindingType="CREATE" source="//@rules.1/@nodes.1" target="//@rules.1/@nodes.3">
-      <type href="platform:/resource/AlgorithmToStrategy_MA/model/AlgorithmToStrategy_MA.ecore#//AlgorithmToStrategy"/>
     </nodes>
     <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="ac2sc" domainType="CORR" source="//@rules.1/@nodes.0" target="//@rules.1/@nodes.2">
       <type href="platform:/resource/AlgorithmToStrategy_MA/model/AlgorithmToStrategy_MA.ecore#//AlgorithmsToStrategiesContainerCorr"/>
@@ -45,67 +39,46 @@
     <edges name="ac__algorithms__algo_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.1/@nodes.0" trgNode="//@rules.1/@nodes.1">
       <type href="platform:/resource/Algorithms/model/Algorithms.ecore#//AlgorithmContainer/algorithms"/>
     </edges>
-    <edges name="sc__strategies__strategy_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.1/@nodes.2" trgNode="//@rules.1/@nodes.3">
-      <type href="platform:/resource/Strategies/model/Strategies.ecore#//StrategyContainer/strategies"/>
-    </edges>
-    <attributeConditionLibrary/>
-  </rules>
-  <rules name="CreateAlgorithm">
-    <nodes name="ac" outgoingEdges="//@rules.2/@edges.0" incomingCorrsSource="//@rules.2/@nodes.3">
-      <type href="platform:/resource/Algorithms/model/Algorithms.ecore#//AlgorithmContainer"/>
-    </nodes>
-    <nodes name="algo" bindingType="CREATE" incomingEdges="//@rules.2/@edges.0">
-      <type href="platform:/resource/Algorithms/model/Algorithms.ecore#//Algorithm"/>
-    </nodes>
-    <nodes name="sc" domainType="TRG" incomingCorrsTarget="//@rules.2/@nodes.3">
-      <type href="platform:/resource/Strategies/model/Strategies.ecore#//StrategyContainer"/>
-    </nodes>
-    <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="ac2sc" domainType="CORR" source="//@rules.2/@nodes.0" target="//@rules.2/@nodes.2">
-      <type href="platform:/resource/AlgorithmToStrategy_MA/model/AlgorithmToStrategy_MA.ecore#//AlgorithmsToStrategiesContainerCorr"/>
-    </nodes>
-    <edges name="ac__algorithms__algo_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.2/@nodes.0" trgNode="//@rules.2/@nodes.1">
-      <type href="platform:/resource/Algorithms/model/Algorithms.ecore#//AlgorithmContainer/algorithms"/>
-    </edges>
     <attributeConditionLibrary/>
   </rules>
   <rules name="CreateStrategy">
-    <nodes name="ac" incomingCorrsSource="//@rules.3/@nodes.3">
+    <nodes name="ac" incomingCorrsSource="//@rules.2/@nodes.3">
       <type href="platform:/resource/Algorithms/model/Algorithms.ecore#//AlgorithmContainer"/>
     </nodes>
-    <nodes name="sc" domainType="TRG" outgoingEdges="//@rules.3/@edges.0" incomingCorrsTarget="//@rules.3/@nodes.3">
+    <nodes name="sc" domainType="TRG" outgoingEdges="//@rules.2/@edges.0" incomingCorrsTarget="//@rules.2/@nodes.3">
       <type href="platform:/resource/Strategies/model/Strategies.ecore#//StrategyContainer"/>
     </nodes>
-    <nodes name="strategy" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.3/@edges.0">
+    <nodes name="strategy" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.2/@edges.0">
       <type href="platform:/resource/Strategies/model/Strategies.ecore#//Strategy"/>
     </nodes>
-    <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="ac2sc" domainType="CORR" source="//@rules.3/@nodes.0" target="//@rules.3/@nodes.1">
+    <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="ac2sc" domainType="CORR" source="//@rules.2/@nodes.0" target="//@rules.2/@nodes.1">
       <type href="platform:/resource/AlgorithmToStrategy_MA/model/AlgorithmToStrategy_MA.ecore#//AlgorithmsToStrategiesContainerCorr"/>
     </nodes>
-    <edges name="sc__strategies__strategy_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.3/@nodes.1" trgNode="//@rules.3/@nodes.2">
+    <edges name="sc__strategies__strategy_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.2/@nodes.1" trgNode="//@rules.2/@nodes.2">
       <type href="platform:/resource/Strategies/model/Strategies.ecore#//StrategyContainer/strategies"/>
     </edges>
     <attributeConditionLibrary/>
   </rules>
-  <rules xsi:type="org.emoflon.ibex.tgg.core.language:TGGComplementRule" name="TransferCorrsToAllAlgorhitms" bounded="true" kernel="//@rules.3">
-    <nodes name="algorithm" incomingCorrsSource="//@rules.4/@nodes.2">
+  <rules xsi:type="org.emoflon.ibex.tgg.core.language:TGGComplementRule" name="TransferCorrsToAllAlgorhitms" bounded="true" kernel="//@rules.2">
+    <nodes name="algorithm" incomingCorrsSource="//@rules.3/@nodes.2">
       <type href="platform:/resource/Algorithms/model/Algorithms.ecore#//Algorithm"/>
     </nodes>
-    <nodes name="strategy" domainType="TRG" incomingCorrsTarget="//@rules.4/@nodes.2">
+    <nodes name="strategy" domainType="TRG" incomingCorrsTarget="//@rules.3/@nodes.2">
       <type href="platform:/resource/Strategies/model/Strategies.ecore#//Strategy"/>
     </nodes>
-    <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="a2s" domainType="CORR" bindingType="CREATE" source="//@rules.4/@nodes.0" target="//@rules.4/@nodes.1">
+    <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="a2s" domainType="CORR" bindingType="CREATE" source="//@rules.3/@nodes.0" target="//@rules.3/@nodes.1">
       <type href="platform:/resource/AlgorithmToStrategy_MA/model/AlgorithmToStrategy_MA.ecore#//AlgorithmToStrategy"/>
     </nodes>
     <attributeConditionLibrary/>
   </rules>
-  <rules xsi:type="org.emoflon.ibex.tgg.core.language:TGGComplementRule" name="TransferCorrsToAllStrategies" bounded="true" kernel="//@rules.2">
-    <nodes name="algo" incomingCorrsSource="//@rules.5/@nodes.2">
+  <rules xsi:type="org.emoflon.ibex.tgg.core.language:TGGComplementRule" name="TransferCorrsToAllStrategies" bounded="true" kernel="//@rules.1">
+    <nodes name="algo" incomingCorrsSource="//@rules.4/@nodes.2">
       <type href="platform:/resource/Algorithms/model/Algorithms.ecore#//Algorithm"/>
     </nodes>
-    <nodes name="strat" domainType="TRG" incomingCorrsTarget="//@rules.5/@nodes.2">
+    <nodes name="strat" domainType="TRG" incomingCorrsTarget="//@rules.4/@nodes.2">
       <type href="platform:/resource/Strategies/model/Strategies.ecore#//Strategy"/>
     </nodes>
-    <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="a2s" domainType="CORR" bindingType="CREATE" source="//@rules.5/@nodes.0" target="//@rules.5/@nodes.1">
+    <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="a2s" domainType="CORR" bindingType="CREATE" source="//@rules.4/@nodes.0" target="//@rules.4/@nodes.1">
       <type href="platform:/resource/AlgorithmToStrategy_MA/model/AlgorithmToStrategy_MA.ecore#//AlgorithmToStrategy"/>
     </nodes>
     <attributeConditionLibrary/>

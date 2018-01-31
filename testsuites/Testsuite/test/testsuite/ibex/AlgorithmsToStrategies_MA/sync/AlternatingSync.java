@@ -1,7 +1,6 @@
 package testsuite.ibex.AlgorithmsToStrategies_MA.sync;
 
 import org.benchmarx.strategy.core.StrategyHelper;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import Algorithms.AlgorithmContainer;
@@ -10,7 +9,7 @@ import benchmarx.algorithm.core.AlgorithmHelper;
 import testsuite.ibex.AlgorithmsToStrategies_MA.sync.util.IbexA2S_MA;
 import testsuite.ibex.testUtil.SyncTestCase;
 
-//@Ignore("Should work when sync is finalized.")
+
 public class AlternatingSync extends SyncTestCase<AlgorithmContainer, StrategyContainer>{
 	
 	public final static String projectName = "AlgorithmToStrategy_MA";

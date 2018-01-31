@@ -1,7 +1,6 @@
 package testsuite.ibex.FamiliesToPersons_MA.sync.util;
 
 import java.util.HashSet;
-import java.util.Optional;
 import java.util.Set;
 
 import org.benchmarx.Configurator;

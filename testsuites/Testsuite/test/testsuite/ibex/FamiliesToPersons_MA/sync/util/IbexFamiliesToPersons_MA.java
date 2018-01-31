@@ -10,7 +10,6 @@ import org.emoflon.ibex.tgg.run.familiestopersons_ma.SYNC_App;
 import Families.FamiliesFactory;
 import Families.FamilyRegister;
 import Persons.PersonRegister;
-import testsuite.ibex.BenchmarxFamiliesToPersons.FamiliesToPersonsUpdatePolicy;
 import testsuite.ibex.testUtil.Decisions;
 import testsuite.ibex.testUtil.IbexAdapter;
 
