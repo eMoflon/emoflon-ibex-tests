@@ -97,6 +97,10 @@
     <targetPatterns name="task">
       <op value="++"/>
       <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//Task"/>
+      <linkVariablePatterns target="//@rules.1/@targetPatterns.0">
+        <op value="++"/>
+        <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//Task/systemModule"/>
+      </linkVariablePatterns>
       <linkVariablePatterns target="//@rules.1/@targetPatterns.1">
         <op value="++"/>
         <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//Task/module"/>

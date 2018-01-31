@@ -49,25 +49,25 @@
     <attributeConditionLibrary/>
   </rules>
   <rules name="FilesToTask">
-    <nodes name="folder" incomingEdges="//@rules.1/@edges.0 //@rules.1/@edges.1 //@rules.1/@edges.2" outgoingEdges="//@rules.1/@edges.5 //@rules.1/@edges.6 //@rules.1/@edges.7" incomingCorrsSource="//@rules.1/@nodes.7">
+    <nodes name="folder" incomingEdges="//@rules.1/@edges.0 //@rules.1/@edges.1 //@rules.1/@edges.2" outgoingEdges="//@rules.1/@edges.6 //@rules.1/@edges.7 //@rules.1/@edges.8" incomingCorrsSource="//@rules.1/@nodes.7">
       <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Folder"/>
     </nodes>
-    <nodes name="foo" bindingType="CREATE" incomingEdges="//@rules.1/@edges.5" outgoingEdges="//@rules.1/@edges.0" incomingCorrsSource="//@rules.1/@nodes.8">
+    <nodes name="foo" bindingType="CREATE" incomingEdges="//@rules.1/@edges.6" outgoingEdges="//@rules.1/@edges.0" incomingCorrsSource="//@rules.1/@nodes.8">
       <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//File"/>
     </nodes>
-    <nodes name="baa" bindingType="CREATE" incomingEdges="//@rules.1/@edges.6" outgoingEdges="//@rules.1/@edges.1" incomingCorrsSource="//@rules.1/@nodes.9">
+    <nodes name="baa" bindingType="CREATE" incomingEdges="//@rules.1/@edges.7" outgoingEdges="//@rules.1/@edges.1" incomingCorrsSource="//@rules.1/@nodes.9">
       <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//File"/>
     </nodes>
-    <nodes name="baz" bindingType="CREATE" incomingEdges="//@rules.1/@edges.7" outgoingEdges="//@rules.1/@edges.2" incomingCorrsSource="//@rules.1/@nodes.10">
+    <nodes name="baz" bindingType="CREATE" incomingEdges="//@rules.1/@edges.8" outgoingEdges="//@rules.1/@edges.2" incomingCorrsSource="//@rules.1/@nodes.10">
       <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//File"/>
     </nodes>
-    <nodes name="sysmod" domainType="TRG" incomingEdges="//@rules.1/@edges.3" outgoingEdges="//@rules.1/@edges.8" incomingCorrsTarget="//@rules.1/@nodes.7">
+    <nodes name="sysmod" domainType="TRG" incomingEdges="//@rules.1/@edges.3 //@rules.1/@edges.4" outgoingEdges="//@rules.1/@edges.9 //@rules.1/@edges.10" incomingCorrsTarget="//@rules.1/@nodes.7">
       <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//SystemModule"/>
     </nodes>
-    <nodes name="foobaa" domainType="TRG" incomingEdges="//@rules.1/@edges.4 //@rules.1/@edges.8" outgoingEdges="//@rules.1/@edges.3">
+    <nodes name="foobaa" domainType="TRG" incomingEdges="//@rules.1/@edges.5 //@rules.1/@edges.9" outgoingEdges="//@rules.1/@edges.3 //@rules.1/@edges.11">
       <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//Module"/>
     </nodes>
-    <nodes name="task" domainType="TRG" bindingType="CREATE" outgoingEdges="//@rules.1/@edges.4" incomingCorrsTarget="//@rules.1/@nodes.8 //@rules.1/@nodes.9 //@rules.1/@nodes.10">
+    <nodes name="task" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.1/@edges.10 //@rules.1/@edges.11" outgoingEdges="//@rules.1/@edges.4 //@rules.1/@edges.5" incomingCorrsTarget="//@rules.1/@nodes.8 //@rules.1/@nodes.9 //@rules.1/@nodes.10">
       <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//Task"/>
     </nodes>
     <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="folder2sysmod" domainType="CORR" source="//@rules.1/@nodes.0" target="//@rules.1/@nodes.4">
@@ -94,6 +94,9 @@
     <edges name="foobaa__systemModule__sysmod_eMoflonEdge" domainType="TRG" srcNode="//@rules.1/@nodes.5" trgNode="//@rules.1/@nodes.4">
       <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//Module/systemModule"/>
     </edges>
+    <edges name="task__systemModule__sysmod_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.1/@nodes.6" trgNode="//@rules.1/@nodes.4">
+      <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//Task/systemModule"/>
+    </edges>
     <edges name="task__module__foobaa_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.1/@nodes.6" trgNode="//@rules.1/@nodes.5">
       <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//Task/module"/>
     </edges>
@@ -108,6 +111,12 @@
     </edges>
     <edges name="sysmod__allModules__foobaa_eMoflonEdge" domainType="TRG" srcNode="//@rules.1/@nodes.4" trgNode="//@rules.1/@nodes.5">
       <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//SystemModule/allModules"/>
+    </edges>
+    <edges name="sysmod__allTasks__task_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.1/@nodes.4" trgNode="//@rules.1/@nodes.6">
+      <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//SystemModule/allTasks"/>
+    </edges>
+    <edges name="foobaa__tasks__task_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.1/@nodes.5" trgNode="//@rules.1/@nodes.6">
+      <type href="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//Module/tasks"/>
     </edges>
     <attributeConditionLibrary/>
   </rules>
