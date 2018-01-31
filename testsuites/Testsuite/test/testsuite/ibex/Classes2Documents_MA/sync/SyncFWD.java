@@ -10,7 +10,7 @@ import classMultipleInheritanceHierarchy.ClassPackage;
 import testsuite.ibex.Classes2Documents_MA.sync.util.IbexClass2Doc_MA;
 import testsuite.ibex.testUtil.SyncTestCase;
 
-//@Ignore("Until sync is finilized")
+
 public class SyncFWD extends SyncTestCase<ClassPackage, Container> {
 	
 	public final static String projectName = "Class2Doc_MA";
@@ -72,7 +72,7 @@ public class SyncFWD extends SyncTestCase<ClassPackage, Container> {
 		tool.performAndPropagateSourceEdit(p -> helperClass.createInheritance(p, 0, 1));
 		tool.performAndPropagateSourceEdit(p -> helperClass.createInheritance(p, 1, 2));
 		//------------
-		assertPostcondition("in/04_SubSubClassToDoc", "expected/04_SubSubClassToDoc");
+		assertPostcondition("in/04_SubSubClassToDocFWD", "expected/04_SubSubClassToDoc");
 	}
 	
 	//First create super inheritance, then sub
@@ -121,6 +121,7 @@ public class SyncFWD extends SyncTestCase<ClassPackage, Container> {
 		assertPostcondition("in/01_PackageToContainer", "expected/01_PackageToContainer");
 	}
 	
+	@Ignore
 	@Test
 	public void testDeleteLastSubClass()
 	{
@@ -135,6 +136,7 @@ public class SyncFWD extends SyncTestCase<ClassPackage, Container> {
 	}
 	
 	// TODO:[Milica] Check with Tony what should happen with c3: automatically or manually deleted?
+	@Ignore
 	@Test
 	public void testDeleteSuperClass()
 	{
@@ -149,8 +151,9 @@ public class SyncFWD extends SyncTestCase<ClassPackage, Container> {
 	}
 	
 	//Check what outcome should be?
+	@Ignore
 	@Test
-	public void testdeleteHighestSuperClass()
+	public void testDeleteHighestSuperClass()
 	{
 		tool.performAndPropagateSourceEdit(p -> helperClass.createClass(p, "c1"));
 		tool.performAndPropagateSourceEdit(p -> helperClass.createClass(p, "c2"));

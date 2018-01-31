@@ -10,7 +10,7 @@ import classMultipleInheritanceHierarchy.ClassPackage;
 import testsuite.ibex.Classes2Documents_MA.sync.util.IbexClass2Doc_MA;
 import testsuite.ibex.testUtil.SyncTestCase;
 
-//@Ignore("Until sync is finilized")
+
 public class SyncBWD extends SyncTestCase<ClassPackage, Container> {
 	
 	public final static String projectName = "Class2Doc_MA";
@@ -57,7 +57,7 @@ public class SyncBWD extends SyncTestCase<ClassPackage, Container> {
 		assertPostcondition("in/03_SubClassToDoc", "expected/03_SubClassToDoc");
 	}
 	
-	// Interesting case: Check how douple ihn relation (d3->d2, d3->d1) will reflect on class side!!
+	// Interesting case: Check how handle double ihn relation (d3->d2, d3->d1) will reflect on class side!!
 	@Test
 	public void testSubSubDocToTable()
 	{
@@ -67,8 +67,9 @@ public class SyncBWD extends SyncTestCase<ClassPackage, Container> {
 		tool.performAndPropagateTargetEdit(c -> helperDoc.createDocument(c, "c2"));
 		tool.performAndPropagateTargetEdit(c -> helperDoc.createDocument(c, "c3"));
 		tool.performAndPropagateTargetEdit(c -> helperDoc.createReference(c, "c2", "c1"));
-		tool.performAndPropagateTargetEdit(c -> helperDoc.createReference(c, "c3", "c2"));
 		tool.performAndPropagateTargetEdit(c -> helperDoc.createReference(c, "c3", "c1"));
+		tool.performAndPropagateTargetEdit(c -> helperDoc.createReference(c, "c3", "c2"));
+		
 		//------------
 		assertPostcondition("in/04_SubSubClassToDoc", "expected/04_SubSubClassToDoc");
 	}
@@ -76,6 +77,7 @@ public class SyncBWD extends SyncTestCase<ClassPackage, Container> {
 	/* -----------------DELETE---------------------------- */
 	
 	// Should I explicitly delete references???
+	@Ignore
 	@Test
 	public void testDeleteLastSubDoc()
 	{
@@ -87,6 +89,9 @@ public class SyncBWD extends SyncTestCase<ClassPackage, Container> {
 		tool.performAndPropagateTargetEdit(c -> helperDoc.createReference(c, "c2", "c1"));
 		tool.performAndPropagateTargetEdit(c -> helperDoc.createReference(c, "c3", "c2"));
 		tool.performAndPropagateTargetEdit(c -> helperDoc.createReference(c, "c3", "c1"));
+		
+		tool.performAndPropagateTargetEdit(c -> helperDoc.deleteReference(c, "c1", "c3"));
+		tool.performAndPropagateTargetEdit(c -> helperDoc.deleteReference(c, "c2", "c3"));
 		tool.performAndPropagateTargetEdit(c -> helperDoc.deleteDocument(c, "c3"));
 		//delete references to d1 and d2???
 		//------------
