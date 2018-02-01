@@ -1426,10 +1426,10 @@
     <nodes name="compositeBlock" domainType="TRG" outgoingEdges="//@rules.9/@edges.13 //@rules.9/@edges.14 //@rules.9/@edges.15 //@rules.9/@edges.16" incomingCorrsTarget="//@rules.9/@nodes.22 //@rules.9/@nodes.25">
       <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//CompositeBlock"/>
     </nodes>
-    <nodes name="expression" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.9/@edges.15 //@rules.9/@edges.22 //@rules.9/@edges.24 //@rules.9/@edges.26" outgoingEdges="//@rules.9/@edges.17 //@rules.9/@edges.18 //@rules.9/@edges.19 //@rules.9/@edges.20 //@rules.9/@edges.21" incomingCorrsTarget="//@rules.9/@nodes.27">
+    <nodes name="expression" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.9/@edges.15 //@rules.9/@edges.23 //@rules.9/@edges.24 //@rules.9/@edges.27" outgoingEdges="//@rules.9/@edges.17 //@rules.9/@edges.18 //@rules.9/@edges.19 //@rules.9/@edges.20 //@rules.9/@edges.21" incomingCorrsTarget="//@rules.9/@nodes.27">
       <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//OrGate"/>
     </nodes>
-    <nodes name="leftExtern" domainType="TRG" incomingEdges="//@rules.9/@edges.14 //@rules.9/@edges.23" incomingCorrsTarget="//@rules.9/@nodes.23">
+    <nodes name="leftExtern" domainType="TRG" incomingEdges="//@rules.9/@edges.14 //@rules.9/@edges.22" incomingCorrsTarget="//@rules.9/@nodes.23">
       <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//InputPort"/>
     </nodes>
     <nodes name="leftPort" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.9/@edges.17 //@rules.9/@edges.21" outgoingEdges="//@rules.9/@edges.22 //@rules.9/@edges.23">
@@ -1449,7 +1449,7 @@
     <nodes name="outExternal" domainType="TRG" incomingEdges="//@rules.9/@edges.16" outgoingEdges="//@rules.9/@edges.25" incomingCorrsTarget="//@rules.9/@nodes.24">
       <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//OutputPort"/>
     </nodes>
-    <nodes name="rightExtern" domainType="TRG" incomingEdges="//@rules.9/@edges.13 //@rules.9/@edges.27" incomingCorrsTarget="//@rules.9/@nodes.26">
+    <nodes name="rightExtern" domainType="TRG" incomingEdges="//@rules.9/@edges.13 //@rules.9/@edges.26" incomingCorrsTarget="//@rules.9/@nodes.26">
       <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//InputPort"/>
     </nodes>
     <nodes name="rightPort" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.9/@edges.19 //@rules.9/@edges.20" outgoingEdges="//@rules.9/@edges.26 //@rules.9/@edges.27">
@@ -1543,11 +1543,11 @@
     <edges name="expression__inputs__leftPort_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.9/@nodes.15" trgNode="//@rules.9/@nodes.17">
       <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Block/inputs"/>
     </edges>
-    <edges name="leftPort__block__expression_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.9/@nodes.17" trgNode="//@rules.9/@nodes.15">
-      <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Port/block"/>
-    </edges>
     <edges name="leftPort__src__leftExtern_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.9/@nodes.17" trgNode="//@rules.9/@nodes.16">
       <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Port/src"/>
+    </edges>
+    <edges name="leftPort__block__expression_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.9/@nodes.17" trgNode="//@rules.9/@nodes.15">
+      <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Port/block"/>
     </edges>
     <edges name="out__block__expression_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.9/@nodes.18" trgNode="//@rules.9/@nodes.15">
       <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Port/block"/>
@@ -1555,11 +1555,11 @@
     <edges name="outExternal__src__out_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.9/@nodes.19" trgNode="//@rules.9/@nodes.18">
       <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Port/src"/>
     </edges>
-    <edges name="rightPort__block__expression_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.9/@nodes.21" trgNode="//@rules.9/@nodes.15">
-      <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Port/block"/>
-    </edges>
     <edges name="rightPort__src__rightExtern_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.9/@nodes.21" trgNode="//@rules.9/@nodes.20">
       <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Port/src"/>
+    </edges>
+    <edges name="rightPort__block__expression_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.9/@nodes.21" trgNode="//@rules.9/@nodes.15">
+      <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Port/block"/>
     </edges>
     <edges name="vhdlNode__children__entityNode_eMoflonEdge" srcNode="//@rules.9/@nodes.13" trgNode="//@rules.9/@nodes.0">
       <type href="platform:/resource/MocaTree/model/MocaTree.ecore#//Node/children"/>

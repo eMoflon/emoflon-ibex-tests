@@ -40,6 +40,7 @@ public class CO_App extends CO {
 		
 		co.saveModels();
 		co.terminate();
+		logger.info(co.generateConsistencyReport());
 	}
 
 	protected void registerUserMetamodels() throws IOException {

@@ -1,0 +1,669 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:emf="http://gervarro.org/democles/constraint/emf.ecore" xmlns:specification="http://gervarro.org/democles/specification.ecore">
+  <specification:Pattern name="CreateGroupsRule__CONTEXT_CORR">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="conciseParent">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FeatureModelConcise/model/FeatureModelConcise.ecore#//Feature"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="safeParent">
+      <eClassifier xsi:type="ecore:EClass" href="platform:/resource/../../../git/emoflon-ibex-tests/metamodels/FeatureModelSafe/model/FeatureModelSafe.ecore#//Feature"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="p2p">
+      <eClassifier xsi:type="ecore:EClass" href="../model/FeatureModelConciseToSafe.ecore#//Feature2Feature"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/0/@symbolicParameters.2"/>
+        <parameters reference="/0/@symbolicParameters.0"/>
+        <eModelElement xsi:type="ecore:EReference" href="../model/FeatureModelConciseToSafe.ecore#//Feature2Feature/source"/>
+      </constraints>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/0/@symbolicParameters.2"/>
+        <parameters reference="/0/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../model/FeatureModelConciseToSafe.ecore#//Feature2Feature/target"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="CreateGroupsRule__CONTEXT_SRC">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="conciseParent">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FeatureModelConcise/model/FeatureModelConcise.ecore#//Feature"/>
+    </symbolicParameters>
+    <bodies/>
+  </specification:Pattern>
+  <specification:Pattern name="CreateGroupsRule__CONTEXT_TRG">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="safeParent">
+      <eClassifier xsi:type="ecore:EClass" href="platform:/resource/../../../git/emoflon-ibex-tests/metamodels/FeatureModelSafe/model/FeatureModelSafe.ecore#//Feature"/>
+    </symbolicParameters>
+    <bodies/>
+  </specification:Pattern>
+  <specification:Pattern name="CreateGroupsRule__FWD_OPT_REFINEMENT_INVOCATIONS">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="conciseGroup">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FeatureModelConcise/model/FeatureModelConcise.ecore#//Group"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="conciseParent">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FeatureModelConcise/model/FeatureModelConcise.ecore#//Feature"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="safeParent">
+      <eClassifier xsi:type="ecore:EClass" href="platform:/resource/../../../git/emoflon-ibex-tests/metamodels/FeatureModelSafe/model/FeatureModelSafe.ecore#//Feature"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="p2p">
+      <eClassifier xsi:type="ecore:EClass" href="../model/FeatureModelConciseToSafe.ecore#//Feature2Feature"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="CreateGroupsRule__SRC">
+        <parameters reference="/3/@symbolicParameters.1"/>
+        <parameters reference="/3/@symbolicParameters.0"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="CreateGroupsRule__CONTEXT_CORR">
+        <parameters reference="/3/@symbolicParameters.1"/>
+        <parameters reference="/3/@symbolicParameters.2"/>
+        <parameters reference="/3/@symbolicParameters.3"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="CreateGroupsRule__CONTEXT_TRG">
+        <parameters reference="/3/@symbolicParameters.2"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="CreateGroupsRule__SRC">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="conciseParent">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FeatureModelConcise/model/FeatureModelConcise.ecore#//Feature"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="conciseGroup">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FeatureModelConcise/model/FeatureModelConcise.ecore#//Group"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/4/@symbolicParameters.0"/>
+        <parameters reference="/4/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../../../plugin/FeatureModelConcise/model/FeatureModelConcise.ecore#//Feature/groups"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="CreateGroupsRule__CONTEXT_SRC">
+        <parameters reference="/4/@symbolicParameters.0"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="CreateOrRule__FWD_OPT">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="conciseGroup">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FeatureModelConcise/model/FeatureModelConcise.ecore#//OrGroup"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="conciseParent">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FeatureModelConcise/model/FeatureModelConcise.ecore#//Feature"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="safeParent">
+      <eClassifier xsi:type="ecore:EClass" href="platform:/resource/../../../git/emoflon-ibex-tests/metamodels/FeatureModelSafe/model/FeatureModelSafe.ecore#//Feature"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="p2p">
+      <eClassifier xsi:type="ecore:EClass" href="../model/FeatureModelConciseToSafe.ecore#//Feature2Feature"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="CreateOrRule__FWD_OPT_REFINEMENT_INVOCATIONS">
+        <parameters reference="/5/@symbolicParameters.0"/>
+        <parameters reference="/5/@symbolicParameters.1"/>
+        <parameters reference="/5/@symbolicParameters.2"/>
+        <parameters reference="/5/@symbolicParameters.3"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="CreateOrRule__FWD_OPT_REFINEMENT_INVOCATIONS">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="conciseGroup">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FeatureModelConcise/model/FeatureModelConcise.ecore#//OrGroup"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="conciseParent">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FeatureModelConcise/model/FeatureModelConcise.ecore#//Feature"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="safeParent">
+      <eClassifier xsi:type="ecore:EClass" href="platform:/resource/../../../git/emoflon-ibex-tests/metamodels/FeatureModelSafe/model/FeatureModelSafe.ecore#//Feature"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="p2p">
+      <eClassifier xsi:type="ecore:EClass" href="../model/FeatureModelConciseToSafe.ecore#//Feature2Feature"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="CreateOrRule__SRC">
+        <parameters reference="/6/@symbolicParameters.0"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="CreateGroupsRule__FWD_OPT_REFINEMENT_INVOCATIONS">
+        <parameters reference="/6/@symbolicParameters.0"/>
+        <parameters reference="/6/@symbolicParameters.1"/>
+        <parameters reference="/6/@symbolicParameters.2"/>
+        <parameters reference="/6/@symbolicParameters.3"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="CreateOrRule__SRC">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="conciseGroup">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FeatureModelConcise/model/FeatureModelConcise.ecore#//OrGroup"/>
+    </symbolicParameters>
+    <bodies/>
+  </specification:Pattern>
+  <specification:Pattern name="CreateXOrRule__FWD_OPT">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="conciseGroup">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FeatureModelConcise/model/FeatureModelConcise.ecore#//XorGroup"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="conciseParent">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FeatureModelConcise/model/FeatureModelConcise.ecore#//Feature"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="safeParent">
+      <eClassifier xsi:type="ecore:EClass" href="platform:/resource/../../../git/emoflon-ibex-tests/metamodels/FeatureModelSafe/model/FeatureModelSafe.ecore#//Feature"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="p2p">
+      <eClassifier xsi:type="ecore:EClass" href="../model/FeatureModelConciseToSafe.ecore#//Feature2Feature"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="CreateXOrRule__FWD_OPT_REFINEMENT_INVOCATIONS">
+        <parameters reference="/8/@symbolicParameters.0"/>
+        <parameters reference="/8/@symbolicParameters.1"/>
+        <parameters reference="/8/@symbolicParameters.2"/>
+        <parameters reference="/8/@symbolicParameters.3"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="CreateXOrRule__FWD_OPT_REFINEMENT_INVOCATIONS">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="conciseGroup">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FeatureModelConcise/model/FeatureModelConcise.ecore#//XorGroup"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="conciseParent">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FeatureModelConcise/model/FeatureModelConcise.ecore#//Feature"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="safeParent">
+      <eClassifier xsi:type="ecore:EClass" href="platform:/resource/../../../git/emoflon-ibex-tests/metamodels/FeatureModelSafe/model/FeatureModelSafe.ecore#//Feature"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="p2p">
+      <eClassifier xsi:type="ecore:EClass" href="../model/FeatureModelConciseToSafe.ecore#//Feature2Feature"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="CreateXOrRule__SRC">
+        <parameters reference="/9/@symbolicParameters.0"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="CreateGroupsRule__FWD_OPT_REFINEMENT_INVOCATIONS">
+        <parameters reference="/9/@symbolicParameters.0"/>
+        <parameters reference="/9/@symbolicParameters.1"/>
+        <parameters reference="/9/@symbolicParameters.2"/>
+        <parameters reference="/9/@symbolicParameters.3"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="CreateXOrRule__SRC">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="conciseGroup">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FeatureModelConcise/model/FeatureModelConcise.ecore#//XorGroup"/>
+    </symbolicParameters>
+    <bodies/>
+  </specification:Pattern>
+  <specification:Pattern name="OrRule__CONTEXT_SRC">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="conciseGroup">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FeatureModelConcise/model/FeatureModelConcise.ecore#//OrGroup"/>
+    </symbolicParameters>
+    <bodies/>
+  </specification:Pattern>
+  <specification:Pattern name="OrRule__CONTEXT_TRG">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="safeGroup">
+      <eClassifier xsi:type="ecore:EClass" href="platform:/resource/../../../git/emoflon-ibex-tests/metamodels/FeatureModelSafe/model/FeatureModelSafe.ecore#//OrGroup"/>
+    </symbolicParameters>
+    <bodies/>
+  </specification:Pattern>
+  <specification:Pattern name="OrRule__FWD_OPT">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="conciseChild">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FeatureModelConcise/model/FeatureModelConcise.ecore#//Feature"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="conciseGroup">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FeatureModelConcise/model/FeatureModelConcise.ecore#//OrGroup"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="conciseParent">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FeatureModelConcise/model/FeatureModelConcise.ecore#//Feature"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="safeGroup">
+      <eClassifier xsi:type="ecore:EClass" href="platform:/resource/../../../git/emoflon-ibex-tests/metamodels/FeatureModelSafe/model/FeatureModelSafe.ecore#//OrGroup"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="safeParent">
+      <eClassifier xsi:type="ecore:EClass" href="platform:/resource/../../../git/emoflon-ibex-tests/metamodels/FeatureModelSafe/model/FeatureModelSafe.ecore#//Feature"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="g2g">
+      <eClassifier xsi:type="ecore:EClass" href="../model/FeatureModelConciseToSafe.ecore#//Group2Group"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="p2p">
+      <eClassifier xsi:type="ecore:EClass" href="../model/FeatureModelConciseToSafe.ecore#//Feature2Feature"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="OrRule__FWD_OPT_REFINEMENT_INVOCATIONS">
+        <parameters reference="/13/@symbolicParameters.0"/>
+        <parameters reference="/13/@symbolicParameters.1"/>
+        <parameters reference="/13/@symbolicParameters.2"/>
+        <parameters reference="/13/@symbolicParameters.3"/>
+        <parameters reference="/13/@symbolicParameters.4"/>
+        <parameters reference="/13/@symbolicParameters.5"/>
+        <parameters reference="/13/@symbolicParameters.6"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="OrRule__FWD_OPT_REFINEMENT_INVOCATIONS">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="conciseChild">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FeatureModelConcise/model/FeatureModelConcise.ecore#//Feature"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="conciseGroup">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FeatureModelConcise/model/FeatureModelConcise.ecore#//OrGroup"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="conciseParent">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FeatureModelConcise/model/FeatureModelConcise.ecore#//Feature"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="safeGroup">
+      <eClassifier xsi:type="ecore:EClass" href="platform:/resource/../../../git/emoflon-ibex-tests/metamodels/FeatureModelSafe/model/FeatureModelSafe.ecore#//OrGroup"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="safeParent">
+      <eClassifier xsi:type="ecore:EClass" href="platform:/resource/../../../git/emoflon-ibex-tests/metamodels/FeatureModelSafe/model/FeatureModelSafe.ecore#//Feature"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="g2g">
+      <eClassifier xsi:type="ecore:EClass" href="../model/FeatureModelConciseToSafe.ecore#//Group2Group"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="p2p">
+      <eClassifier xsi:type="ecore:EClass" href="../model/FeatureModelConciseToSafe.ecore#//Feature2Feature"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="OrRule__SRC">
+        <parameters reference="/14/@symbolicParameters.1"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="OrRule__CONTEXT_TRG">
+        <parameters reference="/14/@symbolicParameters.3"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="SubFeatureRule__FWD_OPT_REFINEMENT_INVOCATIONS">
+        <parameters reference="/14/@symbolicParameters.0"/>
+        <parameters reference="/14/@symbolicParameters.1"/>
+        <parameters reference="/14/@symbolicParameters.2"/>
+        <parameters reference="/14/@symbolicParameters.3"/>
+        <parameters reference="/14/@symbolicParameters.4"/>
+        <parameters reference="/14/@symbolicParameters.5"/>
+        <parameters reference="/14/@symbolicParameters.6"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="OrRule__SRC">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="conciseGroup">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FeatureModelConcise/model/FeatureModelConcise.ecore#//OrGroup"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="OrRule__CONTEXT_SRC">
+        <parameters reference="/15/@symbolicParameters.0"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="RootAxiomRule__FWD_OPT">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="conciseModel">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FeatureModelConcise/model/FeatureModelConcise.ecore#//Model"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="conciseRoot">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FeatureModelConcise/model/FeatureModelConcise.ecore#//Feature"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="RootAxiomRule__FWD_OPT_REFINEMENT_INVOCATIONS">
+        <parameters reference="/16/@symbolicParameters.0"/>
+        <parameters reference="/16/@symbolicParameters.1"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="RootAxiomRule__FWD_OPT_REFINEMENT_INVOCATIONS">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="conciseModel">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FeatureModelConcise/model/FeatureModelConcise.ecore#//Model"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="conciseRoot">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FeatureModelConcise/model/FeatureModelConcise.ecore#//Feature"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="RootAxiomRule__SRC">
+        <parameters reference="/17/@symbolicParameters.0"/>
+        <parameters reference="/17/@symbolicParameters.1"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="RootAxiomRule__SRC">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="conciseModel">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FeatureModelConcise/model/FeatureModelConcise.ecore#//Model"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="conciseRoot">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FeatureModelConcise/model/FeatureModelConcise.ecore#//Feature"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/18/@symbolicParameters.0"/>
+        <parameters reference="/18/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../../../plugin/FeatureModelConcise/model/FeatureModelConcise.ecore#//Model/root"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="SolitaryFeatureRule__CONTEXT_CORR">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="conciseParent">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FeatureModelConcise/model/FeatureModelConcise.ecore#//Feature"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="safeParent">
+      <eClassifier xsi:type="ecore:EClass" href="platform:/resource/../../../git/emoflon-ibex-tests/metamodels/FeatureModelSafe/model/FeatureModelSafe.ecore#//Feature"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="p2p">
+      <eClassifier xsi:type="ecore:EClass" href="../model/FeatureModelConciseToSafe.ecore#//Feature2Feature"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/19/@symbolicParameters.2"/>
+        <parameters reference="/19/@symbolicParameters.0"/>
+        <eModelElement xsi:type="ecore:EReference" href="../model/FeatureModelConciseToSafe.ecore#//Feature2Feature/source"/>
+      </constraints>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/19/@symbolicParameters.2"/>
+        <parameters reference="/19/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../model/FeatureModelConciseToSafe.ecore#//Feature2Feature/target"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="SolitaryFeatureRule__CONTEXT_SRC">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="conciseParent">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FeatureModelConcise/model/FeatureModelConcise.ecore#//Feature"/>
+    </symbolicParameters>
+    <bodies/>
+  </specification:Pattern>
+  <specification:Pattern name="SolitaryFeatureRule__CONTEXT_TRG">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="safeParent">
+      <eClassifier xsi:type="ecore:EClass" href="platform:/resource/../../../git/emoflon-ibex-tests/metamodels/FeatureModelSafe/model/FeatureModelSafe.ecore#//Feature"/>
+    </symbolicParameters>
+    <bodies/>
+  </specification:Pattern>
+  <specification:Pattern name="SolitaryFeatureRule__FWD_OPT">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="conciseChild">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FeatureModelConcise/model/FeatureModelConcise.ecore#//Feature"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="conciseParent">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FeatureModelConcise/model/FeatureModelConcise.ecore#//Feature"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="safeParent">
+      <eClassifier xsi:type="ecore:EClass" href="platform:/resource/../../../git/emoflon-ibex-tests/metamodels/FeatureModelSafe/model/FeatureModelSafe.ecore#//Feature"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="p2p">
+      <eClassifier xsi:type="ecore:EClass" href="../model/FeatureModelConciseToSafe.ecore#//Feature2Feature"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="SolitaryFeatureRule__FWD_OPT_REFINEMENT_INVOCATIONS">
+        <parameters reference="/22/@symbolicParameters.0"/>
+        <parameters reference="/22/@symbolicParameters.1"/>
+        <parameters reference="/22/@symbolicParameters.2"/>
+        <parameters reference="/22/@symbolicParameters.3"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="SolitaryFeatureRule__FWD_OPT_REFINEMENT_INVOCATIONS">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="conciseChild">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FeatureModelConcise/model/FeatureModelConcise.ecore#//Feature"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="conciseParent">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FeatureModelConcise/model/FeatureModelConcise.ecore#//Feature"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="safeParent">
+      <eClassifier xsi:type="ecore:EClass" href="platform:/resource/../../../git/emoflon-ibex-tests/metamodels/FeatureModelSafe/model/FeatureModelSafe.ecore#//Feature"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="p2p">
+      <eClassifier xsi:type="ecore:EClass" href="../model/FeatureModelConciseToSafe.ecore#//Feature2Feature"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="SolitaryFeatureRule__SRC">
+        <parameters reference="/23/@symbolicParameters.1"/>
+        <parameters reference="/23/@symbolicParameters.0"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="SolitaryFeatureRule__CONTEXT_CORR">
+        <parameters reference="/23/@symbolicParameters.1"/>
+        <parameters reference="/23/@symbolicParameters.2"/>
+        <parameters reference="/23/@symbolicParameters.3"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="SolitaryFeatureRule__CONTEXT_TRG">
+        <parameters reference="/23/@symbolicParameters.2"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="SolitaryFeatureRule__SRC">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="conciseParent">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FeatureModelConcise/model/FeatureModelConcise.ecore#//Feature"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="conciseChild">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FeatureModelConcise/model/FeatureModelConcise.ecore#//Feature"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/24/@symbolicParameters.0"/>
+        <parameters reference="/24/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../../../plugin/FeatureModelConcise/model/FeatureModelConcise.ecore#//Feature/subfeatures"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="SolitaryFeatureRule__CONTEXT_SRC">
+        <parameters reference="/24/@symbolicParameters.0"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="SubFeatureRule__CONTEXT_CORR">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="conciseParent">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FeatureModelConcise/model/FeatureModelConcise.ecore#//Feature"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="conciseGroup">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FeatureModelConcise/model/FeatureModelConcise.ecore#//Group"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="safeParent">
+      <eClassifier xsi:type="ecore:EClass" href="platform:/resource/../../../git/emoflon-ibex-tests/metamodels/FeatureModelSafe/model/FeatureModelSafe.ecore#//Feature"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="safeGroup">
+      <eClassifier xsi:type="ecore:EClass" href="platform:/resource/../../../git/emoflon-ibex-tests/metamodels/FeatureModelSafe/model/FeatureModelSafe.ecore#//Group"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="p2p">
+      <eClassifier xsi:type="ecore:EClass" href="../model/FeatureModelConciseToSafe.ecore#//Feature2Feature"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="g2g">
+      <eClassifier xsi:type="ecore:EClass" href="../model/FeatureModelConciseToSafe.ecore#//Group2Group"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/25/@symbolicParameters.4"/>
+        <parameters reference="/25/@symbolicParameters.0"/>
+        <eModelElement xsi:type="ecore:EReference" href="../model/FeatureModelConciseToSafe.ecore#//Feature2Feature/source"/>
+      </constraints>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/25/@symbolicParameters.4"/>
+        <parameters reference="/25/@symbolicParameters.2"/>
+        <eModelElement xsi:type="ecore:EReference" href="../model/FeatureModelConciseToSafe.ecore#//Feature2Feature/target"/>
+      </constraints>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/25/@symbolicParameters.5"/>
+        <parameters reference="/25/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../model/FeatureModelConciseToSafe.ecore#//Group2Group/source"/>
+      </constraints>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/25/@symbolicParameters.5"/>
+        <parameters reference="/25/@symbolicParameters.3"/>
+        <eModelElement xsi:type="ecore:EReference" href="../model/FeatureModelConciseToSafe.ecore#//Group2Group/target"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="SubFeatureRule__CONTEXT_SRC">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="conciseParent">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FeatureModelConcise/model/FeatureModelConcise.ecore#//Feature"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="conciseGroup">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FeatureModelConcise/model/FeatureModelConcise.ecore#//Group"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/26/@symbolicParameters.0"/>
+        <parameters reference="/26/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../../../plugin/FeatureModelConcise/model/FeatureModelConcise.ecore#//Feature/groups"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="SubFeatureRule__CONTEXT_TRG">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="safeParent">
+      <eClassifier xsi:type="ecore:EClass" href="platform:/resource/../../../git/emoflon-ibex-tests/metamodels/FeatureModelSafe/model/FeatureModelSafe.ecore#//Feature"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="safeGroup">
+      <eClassifier xsi:type="ecore:EClass" href="platform:/resource/../../../git/emoflon-ibex-tests/metamodels/FeatureModelSafe/model/FeatureModelSafe.ecore#//Group"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/27/@symbolicParameters.0"/>
+        <parameters reference="/27/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="platform:/resource/../../../git/emoflon-ibex-tests/metamodels/FeatureModelSafe/model/FeatureModelSafe.ecore#//Feature/groups"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="SubFeatureRule__FWD_OPT_REFINEMENT_INVOCATIONS">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="conciseChild">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FeatureModelConcise/model/FeatureModelConcise.ecore#//Feature"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="conciseGroup">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FeatureModelConcise/model/FeatureModelConcise.ecore#//Group"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="conciseParent">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FeatureModelConcise/model/FeatureModelConcise.ecore#//Feature"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="safeGroup">
+      <eClassifier xsi:type="ecore:EClass" href="platform:/resource/../../../git/emoflon-ibex-tests/metamodels/FeatureModelSafe/model/FeatureModelSafe.ecore#//Group"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="safeParent">
+      <eClassifier xsi:type="ecore:EClass" href="platform:/resource/../../../git/emoflon-ibex-tests/metamodels/FeatureModelSafe/model/FeatureModelSafe.ecore#//Feature"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="g2g">
+      <eClassifier xsi:type="ecore:EClass" href="../model/FeatureModelConciseToSafe.ecore#//Group2Group"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="p2p">
+      <eClassifier xsi:type="ecore:EClass" href="../model/FeatureModelConciseToSafe.ecore#//Feature2Feature"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="SubFeatureRule__SRC">
+        <parameters reference="/28/@symbolicParameters.2"/>
+        <parameters reference="/28/@symbolicParameters.1"/>
+        <parameters reference="/28/@symbolicParameters.0"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="SubFeatureRule__CONTEXT_CORR">
+        <parameters reference="/28/@symbolicParameters.2"/>
+        <parameters reference="/28/@symbolicParameters.1"/>
+        <parameters reference="/28/@symbolicParameters.4"/>
+        <parameters reference="/28/@symbolicParameters.3"/>
+        <parameters reference="/28/@symbolicParameters.6"/>
+        <parameters reference="/28/@symbolicParameters.5"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="SubFeatureRule__CONTEXT_TRG">
+        <parameters reference="/28/@symbolicParameters.4"/>
+        <parameters reference="/28/@symbolicParameters.3"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="SubFeatureRule__SRC">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="conciseParent">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FeatureModelConcise/model/FeatureModelConcise.ecore#//Feature"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="conciseGroup">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FeatureModelConcise/model/FeatureModelConcise.ecore#//Group"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="conciseChild">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FeatureModelConcise/model/FeatureModelConcise.ecore#//Feature"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/29/@symbolicParameters.0"/>
+        <parameters reference="/29/@symbolicParameters.2"/>
+        <eModelElement xsi:type="ecore:EReference" href="../../../plugin/FeatureModelConcise/model/FeatureModelConcise.ecore#//Feature/subfeatures"/>
+      </constraints>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/29/@symbolicParameters.1"/>
+        <parameters reference="/29/@symbolicParameters.2"/>
+        <eModelElement xsi:type="ecore:EReference" href="../../../plugin/FeatureModelConcise/model/FeatureModelConcise.ecore#//Group/members"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="SubFeatureRule__CONTEXT_SRC">
+        <parameters reference="/29/@symbolicParameters.0"/>
+        <parameters reference="/29/@symbolicParameters.1"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="XOrRule__CONTEXT_SRC">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="conciseGroup">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FeatureModelConcise/model/FeatureModelConcise.ecore#//XorGroup"/>
+    </symbolicParameters>
+    <bodies/>
+  </specification:Pattern>
+  <specification:Pattern name="XOrRule__CONTEXT_TRG">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="safeGroup">
+      <eClassifier xsi:type="ecore:EClass" href="platform:/resource/../../../git/emoflon-ibex-tests/metamodels/FeatureModelSafe/model/FeatureModelSafe.ecore#//XorGroup"/>
+    </symbolicParameters>
+    <bodies/>
+  </specification:Pattern>
+  <specification:Pattern name="XOrRule__FWD_OPT">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="conciseChild">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FeatureModelConcise/model/FeatureModelConcise.ecore#//Feature"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="conciseGroup">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FeatureModelConcise/model/FeatureModelConcise.ecore#//XorGroup"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="conciseParent">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FeatureModelConcise/model/FeatureModelConcise.ecore#//Feature"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="safeGroup">
+      <eClassifier xsi:type="ecore:EClass" href="platform:/resource/../../../git/emoflon-ibex-tests/metamodels/FeatureModelSafe/model/FeatureModelSafe.ecore#//XorGroup"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="safeParent">
+      <eClassifier xsi:type="ecore:EClass" href="platform:/resource/../../../git/emoflon-ibex-tests/metamodels/FeatureModelSafe/model/FeatureModelSafe.ecore#//Feature"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="g2g">
+      <eClassifier xsi:type="ecore:EClass" href="../model/FeatureModelConciseToSafe.ecore#//Group2Group"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="p2p">
+      <eClassifier xsi:type="ecore:EClass" href="../model/FeatureModelConciseToSafe.ecore#//Feature2Feature"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="XOrRule__FWD_OPT_REFINEMENT_INVOCATIONS">
+        <parameters reference="/32/@symbolicParameters.0"/>
+        <parameters reference="/32/@symbolicParameters.1"/>
+        <parameters reference="/32/@symbolicParameters.2"/>
+        <parameters reference="/32/@symbolicParameters.3"/>
+        <parameters reference="/32/@symbolicParameters.4"/>
+        <parameters reference="/32/@symbolicParameters.5"/>
+        <parameters reference="/32/@symbolicParameters.6"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="XOrRule__FWD_OPT_REFINEMENT_INVOCATIONS">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="conciseChild">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FeatureModelConcise/model/FeatureModelConcise.ecore#//Feature"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="conciseGroup">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FeatureModelConcise/model/FeatureModelConcise.ecore#//XorGroup"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="conciseParent">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FeatureModelConcise/model/FeatureModelConcise.ecore#//Feature"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="safeGroup">
+      <eClassifier xsi:type="ecore:EClass" href="platform:/resource/../../../git/emoflon-ibex-tests/metamodels/FeatureModelSafe/model/FeatureModelSafe.ecore#//XorGroup"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="safeParent">
+      <eClassifier xsi:type="ecore:EClass" href="platform:/resource/../../../git/emoflon-ibex-tests/metamodels/FeatureModelSafe/model/FeatureModelSafe.ecore#//Feature"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="g2g">
+      <eClassifier xsi:type="ecore:EClass" href="../model/FeatureModelConciseToSafe.ecore#//Group2Group"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="p2p">
+      <eClassifier xsi:type="ecore:EClass" href="../model/FeatureModelConciseToSafe.ecore#//Feature2Feature"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="XOrRule__SRC">
+        <parameters reference="/33/@symbolicParameters.1"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="XOrRule__CONTEXT_TRG">
+        <parameters reference="/33/@symbolicParameters.3"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="SubFeatureRule__FWD_OPT_REFINEMENT_INVOCATIONS">
+        <parameters reference="/33/@symbolicParameters.0"/>
+        <parameters reference="/33/@symbolicParameters.1"/>
+        <parameters reference="/33/@symbolicParameters.2"/>
+        <parameters reference="/33/@symbolicParameters.3"/>
+        <parameters reference="/33/@symbolicParameters.4"/>
+        <parameters reference="/33/@symbolicParameters.5"/>
+        <parameters reference="/33/@symbolicParameters.6"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="XOrRule__SRC">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="conciseGroup">
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/FeatureModelConcise/model/FeatureModelConcise.ecore#//XorGroup"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="XOrRule__CONTEXT_SRC">
+        <parameters reference="/34/@symbolicParameters.0"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+</xmi:XMI>

@@ -1,19 +1,18 @@
-package org.emoflon.ibex.tgg.run.classinhhier2db;
+package org.emoflon.ibex.tgg.run.featuremodelconcisetosafe;
 
 import java.io.IOException;
 
 import org.apache.log4j.BasicConfigurator;
-import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.ibex.tgg.operational.csp.constraints.factories.UserDefinedRuntimeTGGAttrConstraintFactory;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
-import org.emoflon.ibex.tgg.operational.strategies.sync.*;
+import org.emoflon.ibex.tgg.operational.strategies.sync.FWD_OPT;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesEngine;
 
-import ClassInheritanceHierarchy.impl.ClassInheritanceHierarchyPackageImpl;
-import Database.impl.DatabasePackageImpl;
+import FeatureModelConcise.impl.FeatureModelConcisePackageImpl;
+import FeatureModelSafe.impl.FeatureModelSafePackageImpl;
 
 public class FWD_OPT_App extends FWD_OPT {
 
@@ -25,29 +24,28 @@ public class FWD_OPT_App extends FWD_OPT {
 	public static void main(String[] args) throws IOException {
 		BasicConfigurator.configure();
 
-		FWD_OPT_App sync = new FWD_OPT_App("ClassInhHier2DB", "./../", true);
+		FWD_OPT_App fwd_opt = new FWD_OPT_App("FeatureModelConciseToSafe", "./../", true);
 		
 		logger.info("Starting FWD_OPT");
 		long tic = System.currentTimeMillis();
-		sync.forward();
+		fwd_opt.run();
 		long toc = System.currentTimeMillis();
 		logger.info("Completed FWD_OPT in: " + (toc - tic) + " ms");
 		
-		sync.terminate();
-		sync.saveModels();
+		fwd_opt.saveModels();
+		fwd_opt.terminate();
 	}
-	
-	@Override
+
 	protected void registerUserMetamodels() throws IOException {
-		rs.getPackageRegistry().put("platform:/resource/ClassInheritanceHierarchy/model/ClassInheritanceHierarchy.ecore", ClassInheritanceHierarchyPackageImpl.init());
+		rs.getPackageRegistry().put("platform:/resource/FeatureModelConcise/model/FeatureModelConcise.ecore", FeatureModelConcisePackageImpl.init());
 		
 		// Load and register source and target metamodels
-		rs.getPackageRegistry().put("platform:/resource/Database/model/Database.ecore", DatabasePackageImpl.init());
-		Resource res = loadResource("platform:/resource/../../../git/emoflon-ibex-tests/metamodels/Database/model/Database.ecore");
+		rs.getPackageRegistry().put("platform:/resource/FeatureModelSafe/model/FeatureModelSafe.ecore", FeatureModelSafePackageImpl.init());
+		Resource res = loadResource("platform:/resource/../../../git/emoflon-ibex-tests/metamodels/FeatureModelSafe/model/FeatureModelSafe.ecore");
 		EPackage pack = (EPackage) res.getContents().get(0);
-		pack.setNsURI("platform:/plugin/Database/model/Database.ecore");
-		rs.getPackageRegistry().put("platform:/resource/Database/model/Database.ecore", pack);
-		rs.getPackageRegistry().put("platform:/plugin/Database/model/Database.ecore", pack);
+		pack.setNsURI("platform:/plugin/FeatureModelSafe/model/FeatureModelSafe.ecore");
+		rs.getPackageRegistry().put("platform:/resource/FeatureModelSafe/model/FeatureModelSafe.ecore", pack);
+		rs.getPackageRegistry().put("platform:/plugin/FeatureModelSafe/model/FeatureModelSafe.ecore", pack);
 		
 		// Register correspondence metamodel last
 		loadAndRegisterMetamodel(projectPath + "/model/" + projectPath + ".ecore");
@@ -64,11 +62,11 @@ public class FWD_OPT_App extends FWD_OPT {
 
 	}
 	
-	protected static IbexOptions createIbexOptions() {
-		IbexOptions options = new IbexOptions();
-		options.projectName("ClassInhHier2DB");
-		options.debug(true);
-		options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
-		return options;
+	private static IbexOptions createIbexOptions() {
+			IbexOptions options = new IbexOptions();
+			options.projectName("FeatureModelConciseToSafe");
+			options.debug(false);
+			options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
+			return options;
 	}
 }

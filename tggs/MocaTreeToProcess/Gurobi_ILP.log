@@ -4216,3 +4216,69 @@ Iteration    Objective       Primal Inf.    Dual Inf.      Time
 
 Solved in 0 iterations and 0.00 seconds
 Optimal objective -0.000000000e+00
+
+Gurobi 7.0.2 (win64, Java) logging started 02/01/18 14:28:59
+
+Warning: Gurobi version mismatch between Java 7.0.1 and C library 7.0.2
+Warning: Gurobi version mismatch between Java 7.0.1 and Jni 7.0.2
+Optimize a model with 16978 rows, 1221 columns and 35143 nonzeros
+Variable types: 0 continuous, 1221 integer (1221 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [2e+00, 1e+01]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 1e+00]
+Found heuristic solution: objective 2
+Presolve removed 16953 rows and 1181 columns
+Presolve time: 0.26s
+Presolved: 25 rows, 40 columns, 140 nonzeros
+Variable types: 0 continuous, 40 integer (40 binary)
+
+Root relaxation: objective 2.500000e+01, 27 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+*    0     0               0      25.0000000   25.00000  0.00%     -    0s
+
+Explored 0 nodes (27 simplex iterations) in 0.38 seconds
+Thread count was 2 (of 2 available processors)
+
+Solution count 2: 25 2 
+Pool objective bound 25
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 2.500000000000e+01, best bound 2.500000000000e+01, gap 0.0000%
+
+Gurobi 7.0.2 (win64, Java) logging started 02/01/18 14:38:49
+
+Warning: Gurobi version mismatch between Java 7.0.1 and C library 7.0.2
+Warning: Gurobi version mismatch between Java 7.0.1 and Jni 7.0.2
+Optimize a model with 16978 rows, 1221 columns and 35143 nonzeros
+Variable types: 0 continuous, 1221 integer (1221 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [2e+00, 1e+01]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 1e+00]
+Found heuristic solution: objective 2
+Presolve removed 16953 rows and 1181 columns
+Presolve time: 0.04s
+Presolved: 25 rows, 40 columns, 140 nonzeros
+Variable types: 0 continuous, 40 integer (40 binary)
+
+Root relaxation: objective 2.500000e+01, 26 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+*    0     0               0      25.0000000   25.00000  0.00%     -    0s
+
+Explored 0 nodes (26 simplex iterations) in 0.04 seconds
+Thread count was 2 (of 2 available processors)
+
+Solution count 2: 25 2 
+Pool objective bound 25
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 2.500000000000e+01, best bound 2.500000000000e+01, gap 0.0000%
