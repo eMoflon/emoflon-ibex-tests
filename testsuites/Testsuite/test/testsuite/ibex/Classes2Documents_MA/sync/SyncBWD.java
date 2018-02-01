@@ -76,8 +76,8 @@ public class SyncBWD extends SyncTestCase<ClassPackage, Container> {
 	
 	/* -----------------DELETE---------------------------- */
 	
-	// Should I explicitly delete references???
-	@Ignore
+	
+	@Ignore("Join failed error. Fails even with assertions switched off")
 	@Test
 	public void testDeleteLastSubDoc()
 	{
@@ -90,10 +90,10 @@ public class SyncBWD extends SyncTestCase<ClassPackage, Container> {
 		tool.performAndPropagateTargetEdit(c -> helperDoc.createReference(c, "c3", "c2"));
 		tool.performAndPropagateTargetEdit(c -> helperDoc.createReference(c, "c3", "c1"));
 		
-		tool.performAndPropagateTargetEdit(c -> helperDoc.deleteReference(c, "c1", "c3"));
-		tool.performAndPropagateTargetEdit(c -> helperDoc.deleteReference(c, "c2", "c3"));
+		tool.performAndPropagateTargetEdit(c -> helperDoc.deleteReference(c, "c3", "c1"));
+		tool.performAndPropagateTargetEdit(c -> helperDoc.deleteReference(c, "c3", "c1"));
 		tool.performAndPropagateTargetEdit(c -> helperDoc.deleteDocument(c, "c3"));
-		//delete references to d1 and d2???
+		
 		//------------
 		assertPostcondition("in/03_SubClassToDoc", "expected/03_SubClassToDoc");
 	}

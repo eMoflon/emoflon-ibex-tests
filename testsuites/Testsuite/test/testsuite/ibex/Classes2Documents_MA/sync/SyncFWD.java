@@ -121,7 +121,7 @@ public class SyncFWD extends SyncTestCase<ClassPackage, Container> {
 		assertPostcondition("in/01_PackageToContainer", "expected/01_PackageToContainer");
 	}
 	
-	@Ignore
+	@Ignore("Works only when assertions are switched off")
 	@Test
 	public void testDeleteLastSubClass()
 	{
@@ -135,10 +135,9 @@ public class SyncFWD extends SyncTestCase<ClassPackage, Container> {
 		assertPostcondition("in/03_SubClassToDoc", "expected/03_SubClassToDoc");
 	}
 	
-	// TODO:[Milica] Check with Tony what should happen with c3: automatically or manually deleted?
-	@Ignore
+	@Ignore("Works only when assertions are switched off")
 	@Test
-	public void testDeleteSuperClass()
+	public void testDeleteIntermediateSuperClass()
 	{
 		tool.performAndPropagateSourceEdit(p -> helperClass.createClass(p, "c1"));
 		tool.performAndPropagateSourceEdit(p -> helperClass.createClass(p, "c2"));
@@ -146,12 +145,13 @@ public class SyncFWD extends SyncTestCase<ClassPackage, Container> {
 		tool.performAndPropagateSourceEdit(p -> helperClass.createInheritance(p, 0, 1));
 		tool.performAndPropagateSourceEdit(p -> helperClass.createInheritance(p, 1, 2));
 		tool.performAndPropagateSourceEdit(p -> helperClass.deleteClass(p, "c2"));
+		tool.performAndPropagateSourceEdit(p -> helperClass.deleteClass(p, "c3"));
 		//------------
 		assertPostcondition("in/02_ClassToDoc", "expected/02_ClassToDoc");
 	}
 	
-	//Check what outcome should be?
-	@Ignore
+	//Hint: In this case outcome should be empty package. However TC demonstrate ability that if the highest class is delete sub can remain
+	@Ignore("Works only when assertions are switched off")
 	@Test
 	public void testDeleteHighestSuperClass()
 	{
@@ -166,7 +166,7 @@ public class SyncFWD extends SyncTestCase<ClassPackage, Container> {
 		tool.performAndPropagateSourceEdit(p -> helperClass.createInheritance(p, 2, 4));
 		tool.performAndPropagateSourceEdit(p -> helperClass.deleteClass(p, "c1"));
 		//------------
-		assertPostcondition("", "");
+		assertPostcondition("in/07_DeleteHighestSuperClass", "expected/07_DeleteHighestSuperClass");
 	}
 	
 	
