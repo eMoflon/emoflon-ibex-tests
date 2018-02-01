@@ -108,9 +108,8 @@ public class SyncForward extends SyncTestCaseCD2DB{
 		assertPostcondition("in/12_OneSuperAtt_OneSubAtt_OneSubAtt_FWD", "expected/12_OneSuperAtt_OneSubAtt_OneSubAtt_FWD");
 	}
 	
-	//TODO: [Milica] check how large model should be
 	@Test
-	public void testHugeModel() {
+	public void testLargeModel() {
 		tool.performAndPropagateSourceEdit(util.execute( (ClassPackage p) -> helperClass.createClass(p, "C1"))
 				.andThen( p -> helperClass.createAttributeInClass(p, "a1", null, 0))
 				.andThen( p -> helperClass.createSubClass(p, "SC1", 0))
@@ -159,7 +158,7 @@ public class SyncForward extends SyncTestCaseCD2DB{
 		assertPostcondition("in/01_PackageToDatabase_FWD", "expected/01_PackageToDatabase_FWD");
 	}
 	
-	@Ignore("Join failed error. Fails even with assertions switched off")
+	@Ignore("Works only when assertions are switched off")
 	@Test
 	public void testDeleteSubClass_FWD() {
 		createInheritance();
@@ -167,21 +166,22 @@ public class SyncForward extends SyncTestCaseCD2DB{
 		assertPostcondition("in/02_ClassToTable_FWD", "expected/02_ClassToTable_FWD");
 	}
 	
-	//TODO: [Milica] Check this scenario with Tony. In case of SuperClass deletion should all SubClasses be deleted as well?
 	@Ignore("Join failed error. Fails even with assertions switched off")
 	@Test
-	public void testDeleteSuperSubClass_FWD() {
+	public void testDeleteIntermediateSuperClass_FWD() {
 		createInheritance();
 		tool.performAndPropagateSourceEdit( p -> helperClass.createSubClass(p, "SC2", 1));
 		tool.performAndPropagateSourceEdit(p -> helperClass.deleteClass(p, "SC1"));
+		tool.performAndPropagateSourceEdit(p -> helperClass.deleteClass(p, "SC2"));
 		assertPostcondition("in/02_ClassToTable_FWD", "expected/02_ClassToTable_FWD");
 	}
 	
-	@Ignore("Check what should be outcome of this TC!")
+	@Ignore("Works only when assertions are switched off")
 	@Test
 	public void testDeleteSuperClass_FWD() {
 		createInheritance();
 		tool.performAndPropagateSourceEdit(p -> helperClass.deleteClass(p, "C1"));
+		tool.performAndPropagateSourceEdit(p -> helperClass.deleteClass(p, "SC1"));
 		assertPostcondition("in/01_PackageToDatabase_FWD", "expected/01_PackageToDatabase_FWD");
 	}
 	
