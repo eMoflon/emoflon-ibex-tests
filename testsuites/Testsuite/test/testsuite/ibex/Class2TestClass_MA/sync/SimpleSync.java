@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import ClassInheritanceHierarchy.ClassPackage;
 import Database.DB;
-import testsuite.ibex.ClassInhHier2DB_MA.sync.util.IbexCD2DB_MA;
+import testsuite.ibex.Class2TestClass_MA.sync.util.IbexC2TC_MA;
 import testsuite.ibex.testUtil.SyncTestCase;
 
 
@@ -16,7 +16,7 @@ public class SimpleSync extends SyncTestCase<ClassPackage, DB>{
 	public final static String projectName = "Class2TestClass_MA";
 	
 	public SimpleSync() {
-		super(new IbexCD2DB_MA(projectName));
+		super(new IbexC2TC_MA(projectName));
 	}
 	
 	ClassInheritanceHierarchyHelper helperClass;
@@ -37,6 +37,8 @@ public class SimpleSync extends SyncTestCase<ClassPackage, DB>{
 	public void test_PackageToTestSuiteFWD()
 	{
 		assertPostcondition("in/01_PackageToTestSuite_FWD", "expected/01_PackageToTestSuite_FWD");
+		
+		
 	}
 
 	@Test
@@ -50,6 +52,18 @@ public class SimpleSync extends SyncTestCase<ClassPackage, DB>{
 	}
 	
 	@Test
+	public void testThreeClassToTestClass_FWD()
+	{
+		assertPrecondition("in/01_PackageToTestSuite_FWD", "expected/01_PackageToTestSuite_FWD");
+		//------------
+		tool.performAndPropagateSourceEdit(p -> helperClass.createClass(p, "c1"));
+		tool.performAndPropagateSourceEdit(p -> helperClass.createClass(p, "c2"));
+		tool.performAndPropagateSourceEdit(p -> helperClass.createClass(p, "c3"));
+		//------------
+		assertPostcondition("in/03_ThreeClasses", "expected/05_ThreeTestClasses");
+	}
+	
+	@Test
 	public void testTestClassToClass_BWD()
 	{
 		assertPrecondition("in/01_PackageToTestSuite_FWD", "expected/01_PackageToTestSuite_FWD");
@@ -59,20 +73,36 @@ public class SimpleSync extends SyncTestCase<ClassPackage, DB>{
 		assertPostcondition("in/02_OneClass", "expected/02_OneTestClass");
 	}
 	
-	//Update policy needed!!!
-	@Ignore
 	@Test
-	public void testAddAdditionalTestClass_BWD()
+	public void testAddTestClassWithSameName_BWD()
+	{
+		assertPrecondition("in/01_PackageToTestSuite_FWD", "expected/01_PackageToTestSuite_FWD");
+		//------------ 
+		tool.performAndPropagateSourceEdit(p -> helperClass.createClass(p, "c1"));
+		tool.performAndPropagateTargetEdit(db -> helperDB.createTable(db, "c1"));
+		
+		//------------
+		assertPostcondition("in/02_OneClass", "expected/03_TwoTestClassesWithSameName");
+	}
+	
+	@Test
+	public void testAddTestClassWithDifferentName_BWD()
 	{
 		assertPrecondition("in/01_PackageToTestSuite_FWD", "expected/01_PackageToTestSuite_FWD");
 		//------------
 		tool.performAndPropagateSourceEdit(p -> helperClass.createClass(p, "c1"));
 		tool.performAndPropagateTargetEdit(db -> helperDB.createTable(db, "c1"));
+		tool.performAndPropagateTargetEdit(db -> helperDB.createTable(db, "c2"));
+		tool.performAndPropagateTargetEdit(db -> helperDB.createTable(db, "c2"));
+		tool.performAndPropagateTargetEdit(db -> helperDB.createTable(db, "c3"));
+		tool.performAndPropagateTargetEdit(db -> helperDB.createTable(db, "c3"));
 		//------------
-		assertPostcondition("in/02_OneClass", "expected/02_OneTestClass");
+		assertPostcondition("in/03_ThreeClasses", "expected/04_SixTestClasses");
 	}
+	
+	/* ----------------------- DELETION ----------------------------------------- */
 
-	@Ignore
+	@Ignore("Works only when assertions are switched off")
 	@Test
 	public void testDeleteFirstTestClass_BWD()
 	{
@@ -80,25 +110,24 @@ public class SimpleSync extends SyncTestCase<ClassPackage, DB>{
 		//------------
 		tool.performAndPropagateSourceEdit(p -> helperClass.createClass(p, "c1"));
 		tool.performAndPropagateTargetEdit(db -> helperDB.createTable(db, "c1"));
-		//tool.performAndPropagateTargetEdit(db -> helperDB.delete(db, "c1", 0));
+		tool.performAndPropagateTargetEdit(db -> helperDB.deleteTable(db, 0));
 		//------------
 		assertPostcondition("in/02_OneClass", "expected/02_OneTestClass");
 	}
 	
-	@Ignore
+	@Ignore("Works only when assertions are switched off")
 	@Test
 	public void testDeleteSecondTestClass_BWD()
 	{
 		assertPrecondition("in/01_PackageToTestSuite_FWD", "expected/01_PackageToTestSuite_FWD");
-		//------------
+		//------------ 
 		tool.performAndPropagateSourceEdit(p -> helperClass.createClass(p, "c1"));
 		tool.performAndPropagateTargetEdit(db -> helperDB.createTable(db, "c1"));
-		//tool.performAndPropagateTargetEdit(db -> helperDB.delete(db, "c1", 1));
-		//------------
+		tool.performAndPropagateTargetEdit(db -> helperDB.deleteTable(db, 1));
 		assertPostcondition("in/02_OneClass", "expected/02_OneTestClass");
 	}
 	
-	@Ignore
+	@Ignore("Works only when assertions are switched off")
 	@Test
 	public void testDeleteBothTestClasses_BWD()
 	{
@@ -106,23 +135,23 @@ public class SimpleSync extends SyncTestCase<ClassPackage, DB>{
 		//------------
 		tool.performAndPropagateSourceEdit(p -> helperClass.createClass(p, "c1"));
 		tool.performAndPropagateTargetEdit(db -> helperDB.createTable(db, "c1"));
-		//tool.performAndPropagateTargetEdit(db -> helperDB.delete(db, "c1", 1));
+		tool.performAndPropagateTargetEdit(db -> helperDB.deleteTable(db, 1));
+		tool.performAndPropagateTargetEdit(db -> helperDB.deleteTable(db, 0));
 		//------------
-		assertPostcondition("in/02_OneClass", "expected/02_OneTestClass");
+		assertPostcondition("in/02_OneClass", "expected/01_PackageToTestSuite_FWD");
 	}
 	
-	@Ignore
+	@Ignore("Works only when assertions are switched off")
 	@Test
-	public void testDeleteClass_BWD()
+	public void testDeleteClass_FWD()
 	{
 		assertPrecondition("in/01_PackageToTestSuite_FWD", "expected/01_PackageToTestSuite_FWD");
 		//------------
 		tool.performAndPropagateSourceEdit(p -> helperClass.createClass(p, "c1"));
 		tool.performAndPropagateTargetEdit(db -> helperDB.createTable(db, "c1"));
-		//tool.performAndPropagateSourceEdit(p -> helperClass.deleteClass);
+		tool.performAndPropagateSourceEdit(p -> helperClass.deleteClass(p, "c1"));
 		//------------
-		assertPostcondition("in/02_OneClass", "expected/02_OneTestClass");
+		assertPostcondition("in/01_PackageToTestSuite_FWD", "expected/01_PackageToTestSuite_FWD");
 	}
 	
-		
 }
