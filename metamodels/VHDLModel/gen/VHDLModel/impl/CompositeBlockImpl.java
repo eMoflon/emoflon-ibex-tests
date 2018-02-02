@@ -86,7 +86,6 @@ public class CompositeBlockImpl extends ComplexBlockImpl implements CompositeBlo
 	public void pullValue(Port port) {
 		// [user code injected with eMoflon]
 
-		// TODO: implement this method here but do not remove the injection marker 
 		throw new UnsupportedOperationException();
 	}
 

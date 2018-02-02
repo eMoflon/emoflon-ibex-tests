@@ -130,7 +130,6 @@ public class HelperImpl extends EObjectImpl implements Helper {
 	public void outputCycle(Task currentTask) {
 		// [user code injected with eMoflon]
 
-		// TODO: implement this method here but do not remove the injection marker 
 		throw new UnsupportedOperationException();
 	}
 
@@ -142,7 +141,6 @@ public class HelperImpl extends EObjectImpl implements Helper {
 	public void print(String message) {
 		// [user code injected with eMoflon]
 
-		// TODO: implement this method here but do not remove the injection marker 
 		throw new UnsupportedOperationException();
 	}
 
