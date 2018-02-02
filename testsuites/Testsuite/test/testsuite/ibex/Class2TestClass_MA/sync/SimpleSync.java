@@ -102,7 +102,8 @@ public class SimpleSync extends SyncTestCase<ClassPackage, DB>{
 	
 	/* ----------------------- DELETION ----------------------------------------- */
 
-	@Ignore("Works only when assertions are switched off")
+	// FIXME [Greg]
+	//@Ignore("Works only when assertions are switched off")
 	@Test
 	public void testDeleteFirstTestClass_BWD()
 	{
@@ -115,7 +116,8 @@ public class SimpleSync extends SyncTestCase<ClassPackage, DB>{
 		assertPostcondition("in/02_OneClass", "expected/02_OneTestClass");
 	}
 	
-	@Ignore("Works only when assertions are switched off")
+	// FIXME [Greg]
+	//@Ignore("Works only when assertions are switched off")
 	@Test
 	public void testDeleteSecondTestClass_BWD()
 	{
@@ -127,7 +129,7 @@ public class SimpleSync extends SyncTestCase<ClassPackage, DB>{
 		assertPostcondition("in/02_OneClass", "expected/02_OneTestClass");
 	}
 	
-	@Ignore("Works only when assertions are switched off")
+	//@Ignore("Works only when assertions are switched off")
 	@Test
 	public void testDeleteBothTestClasses_BWD()
 	{
@@ -141,7 +143,7 @@ public class SimpleSync extends SyncTestCase<ClassPackage, DB>{
 		assertPostcondition("in/02_OneClass", "expected/01_PackageToTestSuite_FWD");
 	}
 	
-	@Ignore("Works only when assertions are switched off")
+	//@Ignore("Works only when assertions are switched off")
 	@Test
 	public void testDeleteClass_FWD()
 	{

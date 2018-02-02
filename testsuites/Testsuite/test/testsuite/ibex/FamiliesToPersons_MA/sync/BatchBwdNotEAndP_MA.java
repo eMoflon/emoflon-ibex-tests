@@ -6,10 +6,8 @@ import testsuite.ibex.FamiliesToPersons_MA.sync.util.IbexFamiliesToPersons_MA;
 
 public class BatchBwdNotEAndP_MA extends BatchBwdNotEAndP {
 	
-	static { 
-		projectName = "FamiliesToPersons_MA";
-	}
-	 
+	
+	public final String projectName = "FamiliesToPersons_MA";
 	public BatchBwdNotEAndP_MA() {
 		tool = new IbexFamiliesToPersons_MA(projectName);
 	}

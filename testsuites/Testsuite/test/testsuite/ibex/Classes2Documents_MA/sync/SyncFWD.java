@@ -121,6 +121,7 @@ public class SyncFWD extends SyncTestCase<ClassPackage, Container> {
 		assertPostcondition("in/01_PackageToContainer", "expected/01_PackageToContainer");
 	}
 	
+	// FIXME [Greg]
 	@Ignore("Works only when assertions are switched off")
 	@Test
 	public void testDeleteLastSubClass()
@@ -135,7 +136,8 @@ public class SyncFWD extends SyncTestCase<ClassPackage, Container> {
 		assertPostcondition("in/03_SubClassToDoc", "expected/03_SubClassToDoc");
 	}
 	
-	@Ignore("Works only when assertions are switched off")
+	// FIXME [Greg]
+	@Ignore("Join failed error. Fails even with assertions switched off")
 	@Test
 	public void testDeleteIntermediateSuperClass()
 	{
@@ -151,7 +153,8 @@ public class SyncFWD extends SyncTestCase<ClassPackage, Container> {
 	}
 	
 	//Hint: In this case outcome should be empty package. However TC demonstrate ability that if the highest class is delete sub can remain
-	@Ignore("Works only when assertions are switched off")
+	// FIXME [Greg]
+	@Ignore("Join failed error. Fails even with assertions switched off")
 	@Test
 	public void testDeleteHighestSuperClass()
 	{

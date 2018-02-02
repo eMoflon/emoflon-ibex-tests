@@ -16,7 +16,8 @@ public class AlternatingSync extends SyncTestCaseCD2DB{
 		assertPostcondition("in/04_SubClassToTable_FWD", "expected/04_SubClassToTable_FWD");
 	}
 	
-	@Ignore("Works only when assertions are switched off")
+	// FIXME [Greg]
+	//@Ignore("Works only when assertions are switched off")
 	@Test
 	public void testAddSubAttributeDeleteColumn() {
 		tool.performAndPropagateTargetEdit(util.execute( (DB db) -> helperDB.createTable(db, "C1")));
@@ -28,6 +29,7 @@ public class AlternatingSync extends SyncTestCaseCD2DB{
 		assertPostcondition("in/04_SubClassToTable_FWD", "expected/04_SubClassToTable_FWD");
 	}
 	
+	// FIXME [Greg]
 	@Ignore("Join failed error. Fails even with assertions switched off")
 	@Test
 	public void testAddSuperAttributeDeleteColumn() {
@@ -41,7 +43,8 @@ public class AlternatingSync extends SyncTestCaseCD2DB{
 		assertPostcondition("in/04_SubClassToTable_FWD", "expected/04_SubClassToTable_FWD");
 	}
 	
-	@Ignore("Works only when assertions are switched off")
+	// FIXME [Greg]
+	//@Ignore("Works only when assertions are switched off")
 	@Test
 	public void testCreateSubClassDeleteSubTable() {
 		createInheritance();
@@ -49,7 +52,8 @@ public class AlternatingSync extends SyncTestCaseCD2DB{
 		assertPostcondition("in/02_ClassToTable_FWD", "expected/02_ClassToTable_FWD");
 	}
 	
-	@Ignore("Works only when assertions are switched off")
+	// FIXME [Greg]
+	@Ignore("Join failed error. Fails even with assertions switched off")
 	@Test
 	public void testCreateSuperClassDeleteSuperTable() {
 		createInheritance();

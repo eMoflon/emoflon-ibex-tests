@@ -10,10 +10,8 @@ import testsuite.ibex.testUtil.Decisions;
 
 public class IncrementalBackward_MA extends IncrementalBackward {
 	
-	static { 
-		projectName = "FamiliesToPersons_MA";
-	}
 	 
+	public final String projectName = "FamiliesToPersons_MA";
 	public IncrementalBackward_MA() {
 		tool = new IbexFamiliesToPersons_MA(projectName);
 	}

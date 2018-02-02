@@ -57,7 +57,7 @@ public class SyncBWD extends SyncTestCase<ClassPackage, Container> {
 		assertPostcondition("in/03_SubClassToDoc", "expected/03_SubClassToDoc");
 	}
 	
-	// Interesting case: Check how handle double ihn relation (d3->d2, d3->d1) will reflect on class side!!
+	@Ignore("Non-deterministing. Update policy needed.")
 	@Test
 	public void testSubSubDocToTable()
 	{
@@ -76,7 +76,7 @@ public class SyncBWD extends SyncTestCase<ClassPackage, Container> {
 	
 	/* -----------------DELETE---------------------------- */
 	
-	
+	// FIXME [Greg]
 	@Ignore("Join failed error. Fails even with assertions switched off")
 	@Test
 	public void testDeleteLastSubDoc()
