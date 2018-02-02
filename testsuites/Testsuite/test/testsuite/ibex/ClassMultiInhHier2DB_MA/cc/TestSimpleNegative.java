@@ -3,7 +3,6 @@ package testsuite.ibex.ClassMultiInhHier2DB_MA.cc;
 import java.io.IOException;
 
 import org.emoflon.ibex.tgg.run.classmultipleinhhier2db_ma.CC_App;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import testsuite.ibex.testUtil.CCTestCase;
@@ -66,7 +65,6 @@ public class TestSimpleNegative extends CCTestCase{
 		assert !checker.modelsAreConsistent();
 	}
 	
-	@Ignore("Possibly related to FIX ME in CC, regarding uniqueness.")
 	@Test
 	public void testTransitiveAttToSubTables2_V3() throws IOException {
 		createGenerator("in/08_OneSuperSuperAtt_OneSuperAtt_FWD", "expected/08_OneSuperSuperAtt_OneSuperAtt_INCONS_V3_FWD");
@@ -123,7 +121,7 @@ public class TestSimpleNegative extends CCTestCase{
 		assert !checker.modelsAreConsistent();
 	}
 	
-	@Ignore("Possibly related to FIX ME in CC, regarding uniqueness.")
+	//@Ignore("Possibly related to FIX ME in CC, regarding uniqueness.")
 	@Test
 	public void testTwoDiffTransitiveSuperToSubTables_V2() throws IOException {
 		createGenerator("in/11_TwoDiffTransitiveSuperAtt_OneSubAtt_FWD", "expected/11_TwoDiffTransitiveSuperAtt_OneSubAtt_INCONS_V2_FWD");

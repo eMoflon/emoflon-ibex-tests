@@ -76,6 +76,7 @@ public class IncrementalForward extends FamiliesToPersonsTestCase {
 	 * <b>Expect</b>: Change the name of the affected Persons in the Person Register
 	 * <b>Features</b>: fwd, attribute, fixed, structural, corr-based
 	 */
+	//FIXME [Lars Fritsche:  The fix-framework should solve this!]
 	@Ignore("Fails due to least change problems:  We revoke matches instead of fixing attribute values.")
 	@Test
 	public void testIncrementalRename() {
@@ -173,7 +174,6 @@ public class IncrementalForward extends FamiliesToPersonsTestCase {
 	 * should be retained.
 	 * <b>Features</b>: fwd, structural, add+del, fixed 
 	 */
-	
 	@Ignore ("Fails due to least change problems.")
 	@Test
 	public void testIncrementalMoveRoleChange() {

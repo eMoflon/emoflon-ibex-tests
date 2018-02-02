@@ -7,13 +7,11 @@ import org.benchmarx.database.core.DatabaseHelper;
 import org.emoflon.ibex.tgg.operational.matches.IMatch;
 import org.emoflon.ibex.tgg.operational.matches.ImmutableMatchContainer;
 import org.emoflon.ibex.tgg.operational.updatepolicy.UpdatePolicy;
-import org.junit.Ignore;
 
 import ClassInheritanceHierarchy.ClassPackage;
 import Database.DB;
 import testsuite.ibex.testUtil.SyncTestCase;
 
-@Ignore("Waiting for sync to be finished")
 public class SyncTestCaseCD2DB extends SyncTestCase<ClassPackage, DB>{
 
 public final static String projectName = "ClassInhHier2DB_MA";

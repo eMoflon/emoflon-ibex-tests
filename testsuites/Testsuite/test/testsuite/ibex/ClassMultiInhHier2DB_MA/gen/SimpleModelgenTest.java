@@ -114,6 +114,7 @@ public class SimpleModelgenTest extends ModelGenTestCase<ClassPackage, DB>{
 			assertPostcondition("in/10_TwoDiffSuperAtt_FWD", "expected/10_TwoDiffSuperAtt_FWD");
 	}
 	
+	//FIXME [Milica]:  Implement update policy perhaps? Or delete the test.
 	@Ignore ("Cannot be tested due to Update Policy cannot support this scenario.")
 	@Test
 	public void testTwoTransitiveSuperClassesToSubTables() throws IOException {
@@ -122,7 +123,6 @@ public class SimpleModelgenTest extends ModelGenTestCase<ClassPackage, DB>{
 			stop.setMaxRuleCount("ClassToTable", 5);
 			stop.setMaxRuleCount("AttributeToColumn", 4);
 			stop.setMaxRuleCount("SubClassToTable", 4);
-			//generator.setUpdatePolicy(new CreateAttributesUpdatePolicy());
 			runGenerator(stop);
 			assertPostcondition("in/11_TwoDiffTransitiveSuperAtt_FWD", "expected/11_TwoDiffTransitiveSuperAtt_FWD");
 	}
