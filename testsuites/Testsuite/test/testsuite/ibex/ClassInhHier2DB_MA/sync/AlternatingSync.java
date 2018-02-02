@@ -7,7 +7,6 @@ import Database.DB;
 import testsuite.ibex.ClassInhHier2DB_MA.sync.util.SyncTestCaseCD2DB;
 
 
-@Ignore("Waiting for sync to be finished")
 public class AlternatingSync extends SyncTestCaseCD2DB{
 		
 	@Test
@@ -17,7 +16,8 @@ public class AlternatingSync extends SyncTestCaseCD2DB{
 		assertPostcondition("in/04_SubClassToTable_FWD", "expected/04_SubClassToTable_FWD");
 	}
 	
-	
+	// FIXME [Greg]
+	//@Ignore("Works only when assertions are switched off")
 	@Test
 	public void testAddSubAttributeDeleteColumn() {
 		tool.performAndPropagateTargetEdit(util.execute( (DB db) -> helperDB.createTable(db, "C1")));
@@ -29,7 +29,8 @@ public class AlternatingSync extends SyncTestCaseCD2DB{
 		assertPostcondition("in/04_SubClassToTable_FWD", "expected/04_SubClassToTable_FWD");
 	}
 	
-	@Ignore("Fails. Column a1 still remains in SC1 Table.")
+	// FIXME [Greg]
+	@Ignore("Join failed error. Fails even with assertions switched off")
 	@Test
 	public void testAddSuperAttributeDeleteColumn() {
 		tool.performAndPropagateTargetEdit(util.execute( (DB db) -> helperDB.createTable(db, "C1")));
@@ -42,6 +43,8 @@ public class AlternatingSync extends SyncTestCaseCD2DB{
 		assertPostcondition("in/04_SubClassToTable_FWD", "expected/04_SubClassToTable_FWD");
 	}
 	
+	// FIXME [Greg]
+	//@Ignore("Works only when assertions are switched off")
 	@Test
 	public void testCreateSubClassDeleteSubTable() {
 		createInheritance();
@@ -49,10 +52,12 @@ public class AlternatingSync extends SyncTestCaseCD2DB{
 		assertPostcondition("in/02_ClassToTable_FWD", "expected/02_ClassToTable_FWD");
 	}
 	
-	@Ignore("Fails. Creates some crazy empty corrs.")
+	// FIXME [Greg]
+	@Ignore("Join failed error. Fails even with assertions switched off")
 	@Test
 	public void testCreateSuperClassDeleteSuperTable() {
 		createInheritance();
+		tool.performAndPropagateTargetEdit(db -> helperDB.deleteTable(db, "SC1"));
 		tool.performAndPropagateTargetEdit(db -> helperDB.deleteTable(db, "C1"));
 		assertPostcondition("in/01_PackageToDatabase_FWD", "expected/01_PackageToDatabase_FWD");
 	}

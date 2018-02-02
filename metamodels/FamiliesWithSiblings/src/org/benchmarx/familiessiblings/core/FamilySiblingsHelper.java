@@ -75,6 +75,14 @@ public class FamilySiblingsHelper {
 		builder.family(name);
 	}
 	
+	public void createSiblingRelations(FamilyRegister register, int posA, int posB) {
+		builder = new FamilySiblingsRegisterBuilder(register);
+		Family familyA = register.getFamilies().get(posA);
+		Family familyB = register.getFamilies().get(posB);
+		familyA.getSiblings().add(familyB);
+		familyB.getSiblings().add(familyA);
+	}
+	
 	public void addFatherToSpecificFamily(FamilyRegister register, int pos, String name) {
 		Family family = register.getFamilies().get(pos);
 		FamilyMember mem = FamiliesWithSiblingsFactory.eINSTANCE.createFamilyMember();

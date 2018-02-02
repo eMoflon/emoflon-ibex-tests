@@ -6,18 +6,16 @@ import org.junit.Test;
 import testsuite.ibex.BenchmarxFamiliesToPersons.sync.IncrementalForward;
 import testsuite.ibex.FamiliesToPersons_MA.sync.util.IbexFamiliesToPersons_MA;
 
-@Ignore("Fails due to not implemented logic for complement rules.")
+
 public class IncrementalForward_MA extends IncrementalForward {
 	
-	static { 
-		projectName = "FamiliesToPersons_MA";
-	}
-	 
+	public final String projectName = "FamiliesToPersons_MA";
 	public IncrementalForward_MA() {
 		tool = new IbexFamiliesToPersons_MA(projectName);
 	}
 	 
-	 @Override
+	//TODO:[Milica] Check if this is relevatn for MA
+	 @Ignore
 	 @Test
 	 public void testIncrementalMove() {
 		tool.performAndPropagateSourceEdit(util
@@ -42,7 +40,8 @@ public class IncrementalForward_MA extends IncrementalForward {
 		assertPostcondition("FamilyAfterMove", "PersonAfterMove");
 	}
 	 
-	 @Override
+	 //TODO:[Milica] Check if this is relevatn for MA
+	 @Ignore
 	 @Test
 	 public void testIncrementalMoveRoleChange() {
 		tool.performAndPropagateSourceEdit(util

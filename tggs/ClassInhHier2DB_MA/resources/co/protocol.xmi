@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:org.emoflon.ibex.tgg.core.runtime="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore">
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PackageToDatabaseRule">
+    <createdSrc href="src.xmi#/"/>
+    <createdTrg href="trg.xmi#/"/>
+    <createdCorr href="corr.xmi#/0"/>
+    <nodeMappings key="packageToDb">
+      <value href="corr.xmi#/0"/>
+    </nodeMappings>
+    <nodeMappings key="package">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="db">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="AttributeToColumnRule" amalgamated="true">
+    <createdSrc href="src.xmi#//@classes.1/@attributes.0"/>
+    <createdTrg href="trg.xmi#//@tables.1/@columns.0"/>
+    <contextSrc href="src.xmi#//@classes.1"/>
+    <contextTrg href="trg.xmi#//@tables.1"/>
+    <nodeMappings key="col">
+      <value href="trg.xmi#//@tables.1/@columns.0"/>
+    </nodeMappings>
+    <nodeMappings key="clazzToTable">
+      <value href="corr.xmi#/2"/>
+    </nodeMappings>
+    <nodeMappings key="attribute">
+      <value href="src.xmi#//@classes.1/@attributes.0"/>
+    </nodeMappings>
+    <nodeMappings key="clazz">
+      <value href="src.xmi#//@classes.1"/>
+    </nodeMappings>
+    <nodeMappings key="table">
+      <value href="trg.xmi#//@tables.1"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="ClassToTableRule">
+    <createdSrc href="src.xmi#//@classes.0"/>
+    <createdTrg href="trg.xmi#//@tables.0"/>
+    <createdCorr href="corr.xmi#/1"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="packageToDb">
+      <value href="corr.xmi#/0"/>
+    </nodeMappings>
+    <nodeMappings key="packageClass">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="clazzToTable">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="clazz">
+      <value href="src.xmi#//@classes.0"/>
+    </nodeMappings>
+    <nodeMappings key="db">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="table">
+      <value href="trg.xmi#//@tables.0"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="SubClassToTable" amalgamated="true">
+    <createdSrc href="src.xmi#//@classes.1"/>
+    <createdTrg href="trg.xmi#//@tables.1"/>
+    <createdCorr href="corr.xmi#/2"/>
+    <createdCorr href="corr.xmi#/3"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextSrc href="src.xmi#//@classes.0"/>
+    <contextTrg href="trg.xmi#/"/>
+    <contextTrg href="trg.xmi#//@tables.0"/>
+    <nodeMappings key="superTable">
+      <value href="trg.xmi#//@tables.0"/>
+    </nodeMappings>
+    <nodeMappings key="subClazzToSubTable">
+      <value href="corr.xmi#/2"/>
+    </nodeMappings>
+    <nodeMappings key="package">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="superClass2SuperTable">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="subClazz">
+      <value href="src.xmi#//@classes.1"/>
+    </nodeMappings>
+    <nodeMappings key="superClazz">
+      <value href="src.xmi#//@classes.0"/>
+    </nodeMappings>
+    <nodeMappings key="subTable">
+      <value href="trg.xmi#//@tables.1"/>
+    </nodeMappings>
+    <nodeMappings key="superClazzToSubTable">
+      <value href="corr.xmi#/3"/>
+    </nodeMappings>
+    <nodeMappings key="db">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+</xmi:XMI>

@@ -23,11 +23,10 @@
       <type href="platform:/resource/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//Family/familiesInverse"/>
     </edges>
     <attributeConditionLibrary>
-      <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0" parameters="//@rules.0/@attributeConditionLibrary/@parameterValues.0 //@rules.0/@attributeConditionLibrary/@parameterValues.1"/>
+      <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0" parameters="//@rules.0/@attributeConditionLibrary/@parameterValues.0"/>
       <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.0" objectVar="//@rules.0/@nodes.0">
         <attribute href="platform:/resource/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//Family/name"/>
       </parameterValues>
-      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGLiteralExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.1" value="&quot;f&quot;"/>
     </attributeConditionLibrary>
   </rules>
   <rules name="Families2Persons">
@@ -96,11 +95,11 @@
     <attributeConditionLibrary>
       <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.2" parameters="//@rules.3/@attributeConditionLibrary/@parameterValues.0 //@rules.3/@attributeConditionLibrary/@parameterValues.1 //@rules.3/@attributeConditionLibrary/@parameterValues.2 //@rules.3/@attributeConditionLibrary/@parameterValues.3"/>
       <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGLiteralExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.2/@parameterDefinitions.0" value="&quot;, &quot;"/>
-      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.2/@parameterDefinitions.1" objectVar="//@rules.3/@nodes.1">
-        <attribute href="platform:/resource/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//FamilyMember/name"/>
-      </parameterValues>
-      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.2/@parameterDefinitions.2" objectVar="//@rules.3/@nodes.0">
+      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.2/@parameterDefinitions.1" objectVar="//@rules.3/@nodes.0">
         <attribute href="platform:/resource/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//Family/name"/>
+      </parameterValues>
+      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.2/@parameterDefinitions.2" objectVar="//@rules.3/@nodes.1">
+        <attribute href="platform:/resource/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//FamilyMember/name"/>
       </parameterValues>
       <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.2/@parameterDefinitions.3" objectVar="//@rules.3/@nodes.3">
         <attribute href="platform:/resource/Persons/model/Persons.ecore#//Person/name"/>
@@ -138,11 +137,11 @@
     <attributeConditionLibrary>
       <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.2" parameters="//@rules.4/@attributeConditionLibrary/@parameterValues.0 //@rules.4/@attributeConditionLibrary/@parameterValues.1 //@rules.4/@attributeConditionLibrary/@parameterValues.2 //@rules.4/@attributeConditionLibrary/@parameterValues.3"/>
       <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGLiteralExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.2/@parameterDefinitions.0" value="&quot;, &quot;"/>
-      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.2/@parameterDefinitions.1" objectVar="//@rules.4/@nodes.1">
-        <attribute href="platform:/resource/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//FamilyMember/name"/>
-      </parameterValues>
-      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.2/@parameterDefinitions.2" objectVar="//@rules.4/@nodes.0">
+      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.2/@parameterDefinitions.1" objectVar="//@rules.4/@nodes.0">
         <attribute href="platform:/resource/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//Family/name"/>
+      </parameterValues>
+      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.2/@parameterDefinitions.2" objectVar="//@rules.4/@nodes.1">
+        <attribute href="platform:/resource/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//FamilyMember/name"/>
       </parameterValues>
       <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.2/@parameterDefinitions.3" objectVar="//@rules.4/@nodes.3">
         <attribute href="platform:/resource/Persons/model/Persons.ecore#//Person/name"/>
@@ -180,11 +179,11 @@
     <attributeConditionLibrary>
       <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.2" parameters="//@rules.5/@attributeConditionLibrary/@parameterValues.0 //@rules.5/@attributeConditionLibrary/@parameterValues.1 //@rules.5/@attributeConditionLibrary/@parameterValues.2 //@rules.5/@attributeConditionLibrary/@parameterValues.3"/>
       <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGLiteralExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.2/@parameterDefinitions.0" value="&quot;, &quot;"/>
-      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.2/@parameterDefinitions.1" objectVar="//@rules.5/@nodes.1">
-        <attribute href="platform:/resource/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//FamilyMember/name"/>
-      </parameterValues>
-      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.2/@parameterDefinitions.2" objectVar="//@rules.5/@nodes.0">
+      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.2/@parameterDefinitions.1" objectVar="//@rules.5/@nodes.0">
         <attribute href="platform:/resource/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//Family/name"/>
+      </parameterValues>
+      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.2/@parameterDefinitions.2" objectVar="//@rules.5/@nodes.1">
+        <attribute href="platform:/resource/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//FamilyMember/name"/>
       </parameterValues>
       <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.2/@parameterDefinitions.3" objectVar="//@rules.5/@nodes.3">
         <attribute href="platform:/resource/Persons/model/Persons.ecore#//Person/name"/>
@@ -222,11 +221,11 @@
     <attributeConditionLibrary>
       <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.2" parameters="//@rules.6/@attributeConditionLibrary/@parameterValues.0 //@rules.6/@attributeConditionLibrary/@parameterValues.1 //@rules.6/@attributeConditionLibrary/@parameterValues.2 //@rules.6/@attributeConditionLibrary/@parameterValues.3"/>
       <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGLiteralExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.2/@parameterDefinitions.0" value="&quot;, &quot;"/>
-      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.2/@parameterDefinitions.1" objectVar="//@rules.6/@nodes.1">
-        <attribute href="platform:/resource/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//FamilyMember/name"/>
-      </parameterValues>
-      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.2/@parameterDefinitions.2" objectVar="//@rules.6/@nodes.0">
+      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.2/@parameterDefinitions.1" objectVar="//@rules.6/@nodes.0">
         <attribute href="platform:/resource/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//Family/name"/>
+      </parameterValues>
+      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.2/@parameterDefinitions.2" objectVar="//@rules.6/@nodes.1">
+        <attribute href="platform:/resource/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore#//FamilyMember/name"/>
       </parameterValues>
       <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.2/@parameterDefinitions.3" objectVar="//@rules.6/@nodes.3">
         <attribute href="platform:/resource/Persons/model/Persons.ecore#//Person/name"/>
@@ -234,32 +233,18 @@
     </attributeConditionLibrary>
   </rules>
   <attributeConstraintDefinitionLibrary>
-    <tggAttributeConstraintDefinitions name="setDefaultString" userDefined="false">
-      <parameterDefinitions name="variableString">
-        <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      </parameterDefinitions>
-      <parameterDefinitions name="defaultString">
+    <tggAttributeConstraintDefinitions name="setRandomString" userDefined="false">
+      <parameterDefinitions name="a">
         <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </parameterDefinitions>
       <syncAdornments>
         <value>B</value>
-        <value>B</value>
-      </syncAdornments>
-      <syncAdornments>
-        <value>F</value>
-        <value>B</value>
       </syncAdornments>
       <genAdornments>
-        <value>B</value>
-        <value>B</value>
+        <value>F</value>
       </genAdornments>
       <genAdornments>
-        <value>F</value>
         <value>B</value>
-      </genAdornments>
-      <genAdornments>
-        <value>F</value>
-        <value>F</value>
       </genAdornments>
     </tggAttributeConstraintDefinitions>
     <tggAttributeConstraintDefinitions name="eq_string" userDefined="false">

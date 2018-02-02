@@ -245,7 +245,7 @@ public class IncrementalBackward extends FamiliesToPersonsTestCase {
 	 * <b>Features</b>: bwd, add, operational, runtime
 	 */
 	
-	@Ignore ("Fails due to least change problems.")
+	@Ignore ("Operational is hard to handle is MA")
 	@Test
 	public void testIncrementalOperational() {
 		util.configure()

@@ -31,7 +31,7 @@
 }
 
 #attributeConditions {
-	concat(", ", father.name, family.name, malePerson.name)
+	concat(", ", family.name, father.name, malePerson.name)
 }
 
 
