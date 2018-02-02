@@ -1,0 +1,36 @@
+#using Class2Doc_MA.*
+#using AttrCondDefLibrary.*
+
+#rule Class2Doc #with Class2Doc_MA
+
+#source { 
+	package : ClassPackage{
+		++ -classes->class
+	}
+	
+	++class : Clazz
+}
+
+#target {
+	container : Container{
+	 ++-documents->doc
+	}
+	
+	++doc : Document
+}
+
+#correspondence {
+	p2c : classPackate2Container{
+		#src->package
+		#trg->container
+	}
+	
+	++ c2d : class2doc {
+		#src->class
+		#trg->doc
+	}
+}
+
+#attributeConditions {
+	eq_string(class.name, doc.name)
+}

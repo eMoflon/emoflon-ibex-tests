@@ -15,15 +15,14 @@ import testsuite.ibex.testUtil.SyncTestCase;
 
 public abstract class FamiliesToPersonsTestCase extends SyncTestCase<FamilyRegister, PersonRegister> {
 	public FamiliesToPersonsTestCase() {
-		super(new IbexFamiliesToPersons(projectName));
+		super(new IbexFamiliesToPersons("BenchmarxFamiliesToPersons"));
 	}
-
-	protected static String projectName = "BenchmarxFamiliesToPersons";
-
+	
 	protected Comparator<FamilyRegister> familiesComparator;
 	protected Comparator<PersonRegister> personsComparator;
 	protected FamilyHelper helperFamily;
 	protected PersonHelper helperPerson;
+	protected final String projectName = "BenchmarxFamiliesToPersons";
 
 
 	@Override
