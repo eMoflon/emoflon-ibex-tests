@@ -3,6 +3,7 @@ package testsuite.ibex.BlockDiagramCodeAdapter.co;
 import java.io.IOException;
 
 import org.emoflon.ibex.tgg.run.blockdiagramcodeadapter.CO_App;
+import org.junit.Assert;
 import org.junit.Test;
 
 import testsuite.ibex.testUtil.COTestCase;
@@ -17,14 +18,14 @@ public class TestBlockDiagramCodeAdapter extends COTestCase{
 	public void testSimplePositive() throws IOException {
 		createGenerator("src", "trg", "corr");
 		runGenerator();
-		assert checker.modelsAreConsistent();
+		Assert.assertTrue(checker.modelsAreConsistent());
 	}
 	
 	@Test
 	public void testWrongLink() throws IOException {
 		createGenerator("src", "trg", "corr_inc");
 		runGenerator();
-		assert !checker.modelsAreConsistent();
+		Assert.assertFalse(checker.modelsAreConsistent());
 	}
 }
 

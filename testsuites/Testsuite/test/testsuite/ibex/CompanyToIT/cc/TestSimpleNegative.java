@@ -3,6 +3,7 @@ package testsuite.ibex.CompanyToIT.cc;
 import java.io.IOException;
 
 import org.emoflon.ibex.tgg.run.companytoit.CC_App;
+import org.junit.Assert;
 import org.junit.Test;
 
 import testsuite.ibex.testUtil.CCTestCase;
@@ -17,13 +18,13 @@ public class TestSimpleNegative extends CCTestCase {
 	public void testCompanyToRouter() throws IOException {
 		createGenerator("in/Company_FWD", "expected/Admin_FWD");
 		runGenerator();
-		assert !checker.modelsAreConsistent();
+		Assert.assertTrue(!checker.modelsAreConsistent());
 	}
 	
 	@Test
 	public void testAdminToLaptop() throws IOException {
 		createGenerator("in/Admin_FWD", "expected/Employee_Laptop_FWD");
 		runGenerator();
-		assert !checker.modelsAreConsistent();
+		Assert.assertTrue(!checker.modelsAreConsistent());
 	}
 }

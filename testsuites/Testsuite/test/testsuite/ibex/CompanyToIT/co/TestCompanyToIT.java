@@ -3,6 +3,7 @@ package testsuite.ibex.CompanyToIT.co;
 import java.io.IOException;
 
 import org.emoflon.ibex.tgg.run.companytoit.CO_App;
+import org.junit.Assert;
 import org.junit.Test;
 
 import testsuite.ibex.testUtil.COTestCase;
@@ -17,13 +18,13 @@ public class TestCompanyToIT extends COTestCase{
 	public void testSimplePositive() throws IOException {
 		createGenerator("src", "trg", "corr");
 		runGenerator();
-		assert checker.modelsAreConsistent();
+		Assert.assertTrue(checker.modelsAreConsistent());
 	}
 	
 	@Test
 	public void testCyclicWrongLinks() throws IOException {
 		createGenerator("src", "trg", "corr_inc");
 		runGenerator();
-		assert !checker.modelsAreConsistent();
+		Assert.assertTrue(!checker.modelsAreConsistent());
 	}
 }
