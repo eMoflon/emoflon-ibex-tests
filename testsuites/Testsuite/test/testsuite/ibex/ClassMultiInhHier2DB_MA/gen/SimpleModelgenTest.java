@@ -7,13 +7,11 @@ import org.benchmarx.database.core.DatabaseComparator;
 import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGENStopCriterion;
 import org.emoflon.ibex.tgg.run.classmultipleinhhier2db_ma.MODELGEN_App;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import Database.DB;
 import classMultipleInheritanceHierarchy.ClassPackage;
 import language.TGGRule;
-import testsuite.ibex.ClassMultiInhHier2DB_MA.gen.CreateAttributesUpdatePolicy;
 import testsuite.ibex.testUtil.ModelGenTestCase;
 
 public class SimpleModelgenTest extends ModelGenTestCase<ClassPackage, DB>{
@@ -112,19 +110,6 @@ public class SimpleModelgenTest extends ModelGenTestCase<ClassPackage, DB>{
 			generator.setUpdatePolicy(new CreateMultipleInhUpdatePolicy());
 			runGenerator(stop);
 			assertPostcondition("in/10_TwoDiffSuperAtt_FWD", "expected/10_TwoDiffSuperAtt_FWD");
-	}
-	
-	//FIXME [Milica]:  Implement update policy perhaps? Or delete the test.
-	@Ignore ("Cannot be tested due to Update Policy cannot support this scenario.")
-	@Test
-	public void testTwoTransitiveSuperClassesToSubTables() throws IOException {
-
-			stop.setMaxRuleCount("PackageToDatabase", 1);
-			stop.setMaxRuleCount("ClassToTable", 5);
-			stop.setMaxRuleCount("AttributeToColumn", 4);
-			stop.setMaxRuleCount("SubClassToTable", 4);
-			runGenerator(stop);
-			assertPostcondition("in/11_TwoDiffTransitiveSuperAtt_FWD", "expected/11_TwoDiffTransitiveSuperAtt_FWD");
 	}
 
 }

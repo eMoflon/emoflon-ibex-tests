@@ -8,6 +8,7 @@ import org.emoflon.ibex.tgg.compiler.patterns.PatternSuffixes;
 import org.emoflon.ibex.tgg.operational.matches.IMatch;
 import org.emoflon.ibex.tgg.operational.matches.ImmutableMatchContainer;
 import org.emoflon.ibex.tgg.operational.updatepolicy.UpdatePolicy;
+import org.emoflon.ibex.tgg.util.MAUtil;
 
 import testsuite.ibex.testUtil.Decisions;
 
@@ -48,7 +49,7 @@ public class F2PUpdatePolicy extends UpdatePolicy {
 	}
 	
 	private boolean usesExistingFamily(IMatch m) {
-		return ! m.patternName().contains("FFF");
+		return ! m.patternName().contains(MAUtil.FUSED);
 	}
 
 	private void handlePrefsForParents(Set<IMatch> matches) {

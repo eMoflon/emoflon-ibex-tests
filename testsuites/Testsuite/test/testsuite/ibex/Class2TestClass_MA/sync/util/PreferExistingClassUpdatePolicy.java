@@ -7,6 +7,7 @@ import org.emoflon.ibex.tgg.compiler.patterns.PatternSuffixes;
 import org.emoflon.ibex.tgg.operational.matches.IMatch;
 import org.emoflon.ibex.tgg.operational.matches.ImmutableMatchContainer;
 import org.emoflon.ibex.tgg.operational.updatepolicy.UpdatePolicy;
+import org.emoflon.ibex.tgg.util.MAUtil;
 
 public class PreferExistingClassUpdatePolicy extends UpdatePolicy{
 	
@@ -37,7 +38,7 @@ public class PreferExistingClassUpdatePolicy extends UpdatePolicy{
 	}
 	
 	private boolean usesExistingClass(IMatch m) {
-		return ! (m.patternName().contains("FFF"));
+		return ! (m.patternName().contains(MAUtil.FUSED));
 	}
 
 
