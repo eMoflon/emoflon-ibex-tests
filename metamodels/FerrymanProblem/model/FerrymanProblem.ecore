@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="FerrymanProblem" nsURI="platform:/resource/FerrymanProblem/model/FerrymanProblem.ecore"
+    nsPrefix="FerrymanProblem">
+  <eClassifiers xsi:type="ecore:EClass" name="Model">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="leftBank" lowerBound="1"
+        eType="#//Bank"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rightBank" lowerBound="1"
+        eType="#//Bank" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subjects" upperBound="-1"
+        eType="#//Subject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Bank"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Subject" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="isAt" lowerBound="1" eType="#//Bank"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FerryMan" eSuperTypes="#//Subject"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Thing" abstract="true" eSuperTypes="#//Subject">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="likesToEat" upperBound="-1"
+        eType="#//Thing"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Wolf" eSuperTypes="#//Thing"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Goat" eSuperTypes="#//Thing"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Cabbage" eSuperTypes="#//Thing"/>
+</ecore:EPackage>
