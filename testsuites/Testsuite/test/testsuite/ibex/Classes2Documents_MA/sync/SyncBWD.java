@@ -57,7 +57,8 @@ public class SyncBWD extends SyncTestCase<ClassPackage, Container> {
 		assertPostcondition("in/03_SubClassToDoc", "expected/03_SubClassToDoc");
 	}
 	
-	@Ignore("Non-deterministing. Update policy needed.")
+	//FIXME [Milica]:  Implement update policy perhaps?  Or delete the test.
+	@Ignore("Non-deterministic. Update policy needed.")
 	@Test
 	public void testSubSubDocToTable()
 	{
@@ -76,8 +77,6 @@ public class SyncBWD extends SyncTestCase<ClassPackage, Container> {
 	
 	/* -----------------DELETE---------------------------- */
 	
-	// FIXME [Greg]
-	@Ignore("Join failed error. Fails even with assertions switched off")
 	@Test
 	public void testDeleteLastSubDoc()
 	{
@@ -109,7 +108,6 @@ public class SyncBWD extends SyncTestCase<ClassPackage, Container> {
 		tool.performAndPropagateTargetEdit(c -> helperDoc.createReference(c, "c3", "c2"));
 		tool.performAndPropagateTargetEdit(c -> helperDoc.createReference(c, "c3", "c1"));
 		tool.performAndPropagateTargetEdit(c -> helperDoc.deleteDocument(c, "c2"));
-		//delete references to d1???
 		//------------
 		assertPostcondition("in/02_ClassToDoc", "expected/02_ClassToDoc");
 	}

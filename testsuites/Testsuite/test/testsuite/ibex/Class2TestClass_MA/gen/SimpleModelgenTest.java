@@ -47,8 +47,6 @@ public class SimpleModelgenTest extends ModelGenTestCase<ClassPackage, DB>{
 	public void testClassToTestClass() throws IOException {
 		stop.setMaxRuleCount("Package2TestSuite", 1);
 		stop.setMaxRuleCount("CreateClass", 1);
-		// For every Class there should be at least one TestClass
-		// TODO: [Milica] Implement possibility for complement rules to be 0..* or 1..*
 		UpdatePolicy newUP = new RandomMatchUpdatePolicy();
 		newUP.setBoundForComplementRule("CreateTestClass", 1, true);
 		generator.setUpdatePolicy(newUP);

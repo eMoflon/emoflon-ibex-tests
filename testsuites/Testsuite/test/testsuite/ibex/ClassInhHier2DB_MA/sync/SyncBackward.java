@@ -1,6 +1,5 @@
 package testsuite.ibex.ClassInhHier2DB_MA.sync;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 import Database.DB;
@@ -46,7 +45,6 @@ public class SyncBackward extends SyncTestCaseCD2DB{
 	
 	//-----------TESTING_DELETION----------------
 	
-	//@Ignore("Works only when assertions are switched off")
 	@Test
 	public void testDeleteTableThatIsSubClass_BWD() {
 		createTables();
@@ -54,7 +52,6 @@ public class SyncBackward extends SyncTestCaseCD2DB{
 		assertPostcondition("in/02_ClassToTable_FWD", "expected/02_ClassToTable_FWD");
 	}
 	
-	//@Ignore("Works only when assertions are switched off")
 	@Test
 	public void testDeleteTableThatIsSuperClass_BWD() {
 		createTables();
@@ -64,7 +61,6 @@ public class SyncBackward extends SyncTestCaseCD2DB{
 	}
 	
 	
-	//@Ignore("Works only when assertions are switched off")
 	@Test
 	public void testDeleteColumn_BWD() {
 		createTablesWithColumns();
@@ -75,7 +71,6 @@ public class SyncBackward extends SyncTestCaseCD2DB{
 	
 	//-----------TESTING_RENAMING----------------
 	
-	//@Ignore("Works only when assertions are switched off")
 	@Test
 	public void testRenameTable_BWD() {
 		createTables();
@@ -83,7 +78,6 @@ public class SyncBackward extends SyncTestCaseCD2DB{
 		assertPostcondition("in/SubClassToTable_Rename_BWD", "expected/SubClassToTable_Rename_BWD");
 	}
 	
-	//@Ignore("Works only when assertions are switched off")
 	@Test
 	public void testRenameColumn_BWD() {
 		createTablesWithColumns();

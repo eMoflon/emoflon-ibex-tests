@@ -2,7 +2,6 @@ package testsuite.ibex.FamiliesToPersons_V1.sync;
 
 import org.benchmarx.simplefamilies.core.SimpleFamiliesHelper;
 import org.benchmarx.simplepersons.core.SimplePersonsHelper;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import SimpleFamilies.FamilyRegister;
@@ -31,7 +30,6 @@ public class AlignmentBased extends SyncTestCase<FamilyRegister, PersonRegister>
 		return projectName;
 	}
 	
-	@Ignore("Not yet implemented")
 	public void testRenameMother()
 	{
 		// No precondition!

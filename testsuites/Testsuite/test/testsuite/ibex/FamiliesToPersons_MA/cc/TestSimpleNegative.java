@@ -2,17 +2,16 @@ package testsuite.ibex.FamiliesToPersons_MA.cc;
 
 import java.io.IOException;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 public class TestSimpleNegative extends FamiliesToPersons_MA_CCTestCase {
 	
-	@Ignore("This tests is ok if 0..* cardinatlity for Family is supported.")
+	// This test assumes that 0..* cardinality for Family is expected
 	@Test
 	public void testRegisters() throws IOException {
 		createGenerator("01_OneFamily", "01_RootElementPersons");
 		runGenerator();
-		assert !checker.modelsAreConsistent();
+		assert checker.modelsAreConsistent();
 	}
 	
 	@Test
