@@ -32,7 +32,7 @@ public class AlternatingSync extends SyncTestCaseCD2DB{
 		tool.performAndPropagateSourceEdit(p -> helperClass.createSubClass(p, "SC1", 0));
 		//add attribute
 		tool.performAndPropagateSourceEdit( p -> helperClass.createAttributeInClass(p, "a1", "String", 0));
-		assertPostcondition("in/05_OneSuperAtt_FWD", "expected/05_OneSuperAtt_FWD");
+		assertPostcondition("in/05_OneSuperAttString_FWD", "expected/05_OneSuperAtt_FWD");
 		//delete column
 		tool.performAndPropagateTargetEdit(db -> helperDB.deleteColumnFromTable(db, "a1", "C1"));
 		tool.performAndPropagateTargetEdit(db -> helperDB.deleteColumnFromTable(db, "a1", "SC1"));

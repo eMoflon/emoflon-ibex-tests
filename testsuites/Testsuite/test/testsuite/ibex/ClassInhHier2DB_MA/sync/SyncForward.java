@@ -1,6 +1,5 @@
 package testsuite.ibex.ClassInhHier2DB_MA.sync;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 import ClassInheritanceHierarchy.ClassPackage;
@@ -39,8 +38,6 @@ public class SyncForward extends SyncTestCaseCD2DB{
 	}
 	
 	//Test when first super attribute is created
-	//FIXME [Milica]:  Why is this failing?
-	@Ignore("Clarify")
 	@Test
 	public void testSuperAttToSubTable_FWD() {
 		assertPrecondition("in/01_PackageToDatabase_FWD", "expected/01_PackageToDatabase_FWD");
@@ -53,8 +50,6 @@ public class SyncForward extends SyncTestCaseCD2DB{
 	}
 	
 	//Test when first subclass is created
-	//FIXME [Milica]:  Why is this failing?
-	@Ignore("Clarify")
 	@Test
 	public void testSuperAttToSubTable_FWD2() {
 		assertPrecondition("in/01_PackageToDatabase_FWD", "expected/01_PackageToDatabase_FWD");
@@ -184,8 +179,6 @@ public class SyncForward extends SyncTestCaseCD2DB{
 		assertPostcondition("in/01_PackageToDatabase_FWD", "expected/01_PackageToDatabase_FWD");
 	}
 	
-	//FIXME [Milica]:  Why is this failing?
-	@Ignore("Clarify")
 	@Test
 	public void testDeleteSubAttribute_FWD() {
 		createInheritanceWithAttributes();
