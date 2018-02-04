@@ -2,7 +2,6 @@ package testsuite.ibex.Classes2Documents_MA.sync;
 
 import org.benchmarx.classMultipleInheritanceHierarchy.core.ClassMultipleInheritanceHierarchyHelper;
 import org.benchmarx.documents.core.DocumentsHelper;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import Documents.Container;
@@ -55,24 +54,6 @@ public class SyncBWD extends SyncTestCase<ClassPackage, Container> {
 		tool.performAndPropagateTargetEdit(c -> helperDoc.createReference(c, "c2", "c1"));
 		//------------
 		assertPostcondition("in/03_SubClassToDoc", "expected/03_SubClassToDoc");
-	}
-	
-	//FIXME [Milica]:  Implement update policy perhaps?  Or delete the test.
-	@Ignore("Non-deterministic. Update policy needed.")
-	@Test
-	public void testSubSubDocToTable()
-	{
-		assertPrecondition("in/01_PackageToContainer", "expected/01_PackageToContainer");
-		//------------
-		tool.performAndPropagateTargetEdit(c -> helperDoc.createDocument(c, "c1"));
-		tool.performAndPropagateTargetEdit(c -> helperDoc.createDocument(c, "c2"));
-		tool.performAndPropagateTargetEdit(c -> helperDoc.createDocument(c, "c3"));
-		tool.performAndPropagateTargetEdit(c -> helperDoc.createReference(c, "c2", "c1"));
-		tool.performAndPropagateTargetEdit(c -> helperDoc.createReference(c, "c3", "c1"));
-		tool.performAndPropagateTargetEdit(c -> helperDoc.createReference(c, "c3", "c2"));
-		
-		//------------
-		assertPostcondition("in/04_SubSubClassToDoc", "expected/04_SubSubClassToDoc");
 	}
 	
 	/* -----------------DELETE---------------------------- */
