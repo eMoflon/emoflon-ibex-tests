@@ -28,8 +28,8 @@ public class TestContainmentConstraints extends FamiliesToPersonsModelGenTestCas
 	 * correctly prevents the application of ConnectFather on an already connected mother.
 	 * @throws IOException
 	 */
-	@Test
 	@Ignore("Waiting for fix for issue #11 on emoflon-ibex-democles")
+	@Test
 	public void testContainmentConstraintForDifferentContainmentReference() throws IOException {
 		stop.setMaxRuleCount("HandleRegisters", 1);
 		stop.setMaxRuleCount("IgnoreFamily", 1);

@@ -29,5 +29,5 @@
 }
 
 #attributeConditions {
-	concat(", ", mother.name, family.name, femalePerson.name)
+	concat(", ", family.name, mother.name, femalePerson.name)
 }

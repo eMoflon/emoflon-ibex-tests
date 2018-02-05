@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-SymbolicName: SheRememberedCaterpillars;singleton:=true
+Export-Package: SheRememberedCaterpillars.util,
+ SheRememberedCaterpillars.impl,
+ SheRememberedCaterpillars
+Bundle-Name: SheRememberedCaterpillars
+Bundle-Version: 0.0.1.qualifier
+Require-Bundle: org.eclipse.emf.ecore,
+ org.eclipse.emf.ecore.xmi,
+ org.moflon.core.utilities
+Bundle-ManifestVersion: 2
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-Vendor: eMoflon::IBeX Developers

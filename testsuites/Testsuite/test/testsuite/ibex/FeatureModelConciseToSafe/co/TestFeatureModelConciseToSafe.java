@@ -3,6 +3,7 @@ package testsuite.ibex.FeatureModelConciseToSafe.co;
 import java.io.IOException;
 
 import org.emoflon.ibex.tgg.run.featuremodelconcisetosafe.CO_App;
+import org.junit.Assert;
 import org.junit.Test;
 
 import org.emoflon.ibex.tgg.run.featuremodelconcisetosafe.FWD_OPT_App;
@@ -29,13 +30,13 @@ public class TestFeatureModelConciseToSafe extends COTestCase {
 	public void testSimplePositive() throws IOException {
 		createGenerator("src", "trg", "corr");
 		runGenerator();
-		assert checker.modelsAreConsistent();
+		Assert.assertTrue(checker.modelsAreConsistent());
 	}
 	
 	@Test
 	public void testMissingLink() throws IOException {
 		createGenerator("src", "trg", "corr_inc");
 		runGenerator();
-		assert !checker.modelsAreConsistent();
+		Assert.assertTrue(!checker.modelsAreConsistent());
 	}
 }

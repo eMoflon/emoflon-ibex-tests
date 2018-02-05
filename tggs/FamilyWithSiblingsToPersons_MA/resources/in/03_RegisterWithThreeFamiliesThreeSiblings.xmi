@@ -4,27 +4,21 @@
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:FamiliesWithSiblings="platform:/resource/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore">
   <families
-      name="Test"
+      name="Simpson"
       siblings="//@families.1 //@families.2">
-    <father
-        name="father1"/>
     <mother
-        name="mother1"/>
+        name="Marge"/>
   </families>
   <families
-      name="Test"
+      name="Simpson"
       siblings="//@families.0 //@families.2">
     <father
-        name="father2"/>
-    <mother
-        name="mother2"/>
+        name="Homer"/>
   </families>
   <families
-      name="Test"
+      name="Simpson"
       siblings="//@families.0 //@families.1">
-    <father
-        name="father3"/>
     <mother
-        name="mother3"/>
+        name="Lisa"/>
   </families>
 </FamiliesWithSiblings:FamilyRegister>

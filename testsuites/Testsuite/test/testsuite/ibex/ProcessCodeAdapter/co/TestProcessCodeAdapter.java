@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import org.emoflon.ibex.tgg.run.processcodeadapter.FWD_OPT_App;
 import org.emoflon.ibex.tgg.run.processcodeadapter.CO_App;
+import org.junit.Assert;
 import org.junit.Test;
 
 import testsuite.ibex.testUtil.COTestCase;
@@ -29,13 +30,13 @@ public class TestProcessCodeAdapter extends COTestCase{
 	public void testSimplePositive() throws IOException {
 		createGenerator("src", "trg", "corr");
 		runGenerator();
-		assert checker.modelsAreConsistent();
+		Assert.assertTrue(checker.modelsAreConsistent());
 	}
 	
 	@Test
 	public void testWrongLinks() throws IOException {
 		createGenerator("src", "trg", "corr_inc");
 		runGenerator();
-		assert !checker.modelsAreConsistent();
+		Assert.assertTrue(!checker.modelsAreConsistent());
 	}
 }

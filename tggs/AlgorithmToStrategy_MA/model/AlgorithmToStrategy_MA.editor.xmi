@@ -71,7 +71,7 @@
       </values>
     </attrConditions>
   </rules>
-  <rules name="Algorithm2Strategy" abstractRule="true" schema="//@schema">
+  <rules name="CreateAlgorithm" schema="//@schema">
     <sourcePatterns name="ac">
       <type href="platform:/resource/Algorithms/model/Algorithms.ecore#//AlgorithmContainer"/>
       <linkVariablePatterns target="//@rules.1/@sourcePatterns.1">
@@ -85,36 +85,8 @@
     </sourcePatterns>
     <targetPatterns name="sc">
       <type href="platform:/resource/Strategies/model/Strategies.ecore#//StrategyContainer"/>
-      <linkVariablePatterns target="//@rules.1/@targetPatterns.1">
-        <op value="++"/>
-        <type href="platform:/resource/Strategies/model/Strategies.ecore#//StrategyContainer/strategies"/>
-      </linkVariablePatterns>
-    </targetPatterns>
-    <targetPatterns name="strategy">
-      <op value="++"/>
-      <type href="platform:/resource/Strategies/model/Strategies.ecore#//Strategy"/>
     </targetPatterns>
     <correspondencePatterns name="ac2sc" type="//@schema/@correspondenceTypes.0" source="//@rules.1/@sourcePatterns.0" target="//@rules.1/@targetPatterns.0"/>
-    <correspondencePatterns name="a2s" type="//@schema/@correspondenceTypes.1" source="//@rules.1/@sourcePatterns.1" target="//@rules.1/@targetPatterns.1">
-      <op value="++"/>
-    </correspondencePatterns>
-  </rules>
-  <rules name="CreateAlgorithm" schema="//@schema">
-    <sourcePatterns name="ac">
-      <type href="platform:/resource/Algorithms/model/Algorithms.ecore#//AlgorithmContainer"/>
-      <linkVariablePatterns target="//@rules.2/@sourcePatterns.1">
-        <op value="++"/>
-        <type href="platform:/resource/Algorithms/model/Algorithms.ecore#//AlgorithmContainer/algorithms"/>
-      </linkVariablePatterns>
-    </sourcePatterns>
-    <sourcePatterns name="algo">
-      <op value="++"/>
-      <type href="platform:/resource/Algorithms/model/Algorithms.ecore#//Algorithm"/>
-    </sourcePatterns>
-    <targetPatterns name="sc">
-      <type href="platform:/resource/Strategies/model/Strategies.ecore#//StrategyContainer"/>
-    </targetPatterns>
-    <correspondencePatterns name="ac2sc" type="//@schema/@correspondenceTypes.0" source="//@rules.2/@sourcePatterns.0" target="//@rules.2/@targetPatterns.0"/>
   </rules>
   <rules name="CreateStrategy" schema="//@schema">
     <sourcePatterns name="ac">
@@ -122,7 +94,7 @@
     </sourcePatterns>
     <targetPatterns name="sc">
       <type href="platform:/resource/Strategies/model/Strategies.ecore#//StrategyContainer"/>
-      <linkVariablePatterns target="//@rules.3/@targetPatterns.1">
+      <linkVariablePatterns target="//@rules.2/@targetPatterns.1">
         <op value="++"/>
         <type href="platform:/resource/Strategies/model/Strategies.ecore#//StrategyContainer/strategies"/>
       </linkVariablePatterns>
@@ -131,9 +103,9 @@
       <op value="++"/>
       <type href="platform:/resource/Strategies/model/Strategies.ecore#//Strategy"/>
     </targetPatterns>
-    <correspondencePatterns name="ac2sc" type="//@schema/@correspondenceTypes.0" source="//@rules.3/@sourcePatterns.0" target="//@rules.3/@targetPatterns.0"/>
+    <correspondencePatterns name="ac2sc" type="//@schema/@correspondenceTypes.0" source="//@rules.2/@sourcePatterns.0" target="//@rules.2/@targetPatterns.0"/>
   </rules>
-  <complementRules name="TransferCorrsToAllAlgorhitms" kernel="//@rules.3">
+  <complementRules name="TransferCorrsToAllAlgorhitms" kernel="//@rules.2">
     <sourcePatterns name="algorithm">
       <type href="platform:/resource/Algorithms/model/Algorithms.ecore#//Algorithm"/>
     </sourcePatterns>
@@ -144,7 +116,7 @@
       <op value="++"/>
     </correspondencePatterns>
   </complementRules>
-  <complementRules name="TransferCorrsToAllStrategies" kernel="//@rules.2">
+  <complementRules name="TransferCorrsToAllStrategies" kernel="//@rules.1">
     <sourcePatterns name="algo">
       <type href="platform:/resource/Algorithms/model/Algorithms.ecore#//Algorithm"/>
     </sourcePatterns>

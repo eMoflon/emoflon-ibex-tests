@@ -124,38 +124,12 @@ public class IncrementalBackward extends FamiliesToPersonsTestCase {
 	}
 	
 	/**
-	 * Same test as testIncremenalDeletions1, but with expected behaviour that can
-	 * be modelled with TGG.  Note that this is not the behaviour as specified in the F2P benchmarx!
-	 */
-	//FIXME [Greg]:  This causes an AssertionError that I don't understand.  When assertions are ignored all works as expected.
-	@Ignore
-	@Test
-	public void testIncrementalDeletions2() {
-		util.configure()
-			.makeDecision(Decisions.PREFER_EXISTING_FAMILY_TO_NEW, true)
-			.makeDecision(Decisions.PREFER_CREATING_PARENT_TO_CHILD, true);
-		tool.performAndPropagateTargetEdit(helperPerson::createHomer);
-		// reconfigure, to allow the creation of a child in the existing family
-		util.configure()
-			.makeDecision(Decisions.PREFER_EXISTING_FAMILY_TO_NEW, true)
-			.makeDecision(Decisions.PREFER_CREATING_PARENT_TO_CHILD, false);
-		tool.performAndPropagateTargetEdit(helperPerson::createMaggie);	
-		tool.performIdleTargetEdit(helperPerson::setBirthdaysOfSimpson);
-		assertPrecondition("Pre_IncrBwdFamilyFatherChild", "Pre_IncrBwdPerson");
-		
-		//------------		
-		tool.performAndPropagateTargetEdit(helperPerson::deleteHomer);
-		tool.performAndPropagateTargetEdit(helperPerson::deleteMaggie);
-		assertPostcondition("FamilyAfterBwdDeletion2", "PersonAfterBwdDeletion2");
-		//------------
-	}
-	
-	/**
 	 * <b>Test</b> for renaming of a Person in a PersonRegister after the initial
 	 * register has been transformed into a family model.<br/>
 	 * <b>Expect</b> : Model states as described in the postcondition.<br/>
 	 * <b>Features</b>: bwd, attribute, structural, corr-based, runtime
 	 */
+	//FIXME [Lars Fritsche:  The fix-framework should solve this!]
 	@Ignore("Fails due to least change problems:  We revoke matches instead of fixing attribute values.")
 	@Test
 	public void testIncrementalRenamingDynamic() {
@@ -245,7 +219,7 @@ public class IncrementalBackward extends FamiliesToPersonsTestCase {
 	 * <b>Features</b>: bwd, add, operational, runtime
 	 */
 	
-	@Ignore ("Fails due to least change problems.")
+	@Ignore ("We do not support operational deltas (ordered) yet")
 	@Test
 	public void testIncrementalOperational() {
 		util.configure()

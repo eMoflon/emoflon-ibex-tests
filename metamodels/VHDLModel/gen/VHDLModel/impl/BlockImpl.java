@@ -128,7 +128,6 @@ public abstract class BlockImpl extends EObjectImpl implements Block {
 	public void eval() {
 		// [user code injected with eMoflon]
 
-		// TODO: implement this method here but do not remove the injection marker 
 		throw new UnsupportedOperationException();
 	}
 

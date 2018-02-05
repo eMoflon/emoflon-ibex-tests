@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="ASCII"?>
-<Persons:PersonRegister xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Persons="platform:/plugin/Persons/model/Persons.ecore">
-  <persons xsi:type="Persons:Female" name="ad, foo"/>
-  <persons xsi:type="Persons:Male" name="accumsan, foo"/>
-  <persons xsi:type="Persons:Female" name="est, foo"/>
+<Persons:PersonRegister
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:Persons="platform:/plugin/Persons/model/Persons.ecore">
+  <persons xsi:type="Persons:Male"
+      name="foo, accumsan"/>
+  <persons xsi:type="Persons:Female"
+      name="foo, ad"
+      birthday="0001-01-01T00:00:00.000+0100"/>
+  <persons xsi:type="Persons:Female"
+      name="foo, est"/>
 </Persons:PersonRegister>

@@ -28,11 +28,11 @@ public class DocumentsHelper {
 		EcoreUtil.delete(toBeDeleted, true);
 	}
 	
-	public void deleteReference(Container c, String doc1, String doc2) {
+	public void deleteReference(Container c, String from, String to) {
 		Document d1 = c.getDocuments().stream()
-				.filter(a -> a.getName().equals(doc1)).findAny().get();
+				.filter(a -> a.getName().equals(from)).findAny().get();
 		Document d2 = c.getDocuments().stream()
-				.filter(a -> a.getName().equals(doc2)).findAny().get();
+				.filter(a -> a.getName().equals(to)).findAny().get();
 		d1.getReference().remove(d2);
 	}
 

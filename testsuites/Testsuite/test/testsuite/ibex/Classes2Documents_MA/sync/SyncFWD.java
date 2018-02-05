@@ -2,7 +2,6 @@ package testsuite.ibex.Classes2Documents_MA.sync;
 
 import org.benchmarx.classMultipleInheritanceHierarchy.core.ClassMultipleInheritanceHierarchyHelper;
 import org.benchmarx.documents.core.DocumentsHelper;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import Documents.Container;
@@ -10,7 +9,7 @@ import classMultipleInheritanceHierarchy.ClassPackage;
 import testsuite.ibex.Classes2Documents_MA.sync.util.IbexClass2Doc_MA;
 import testsuite.ibex.testUtil.SyncTestCase;
 
-@Ignore("Until sync is finilized")
+
 public class SyncFWD extends SyncTestCase<ClassPackage, Container> {
 	
 	public final static String projectName = "Class2Doc_MA";
@@ -72,7 +71,7 @@ public class SyncFWD extends SyncTestCase<ClassPackage, Container> {
 		tool.performAndPropagateSourceEdit(p -> helperClass.createInheritance(p, 0, 1));
 		tool.performAndPropagateSourceEdit(p -> helperClass.createInheritance(p, 1, 2));
 		//------------
-		assertPostcondition("in/04_SubSubClassToDoc", "expected/04_SubSubClassToDoc");
+		assertPostcondition("in/04_SubSubClassToDocFWD", "expected/04_SubSubClassToDoc");
 	}
 	
 	//First create super inheritance, then sub
@@ -126,17 +125,16 @@ public class SyncFWD extends SyncTestCase<ClassPackage, Container> {
 	{
 		tool.performAndPropagateSourceEdit(p -> helperClass.createClass(p, "c1"));
 		tool.performAndPropagateSourceEdit(p -> helperClass.createClass(p, "c2"));
-		tool.performAndPropagateSourceEdit(p -> helperClass.createClass(p, "c3"));
 		tool.performAndPropagateSourceEdit(p -> helperClass.createInheritance(p, 0, 1));
-		tool.performAndPropagateSourceEdit(p -> helperClass.createInheritance(p, 1, 2));
-		tool.performAndPropagateSourceEdit(p -> helperClass.deleteClass(p, "c3"));
+		tool.performAndPropagateSourceEdit(util.execute((ClassPackage p) -> helperClass.createClass(p, "c3"))
+				.andThen(p -> helperClass.createInheritance(p, 1, 2))
+				.andThen(p -> helperClass.deleteClass(p, "c3")));
 		//------------
 		assertPostcondition("in/03_SubClassToDoc", "expected/03_SubClassToDoc");
 	}
 	
-	// TODO:[Milica] Check with Tony what should happen with c3: automatically or manually deleted?
 	@Test
-	public void testDeleteSuperClass()
+	public void testDeleteIntermediateSuperClass()
 	{
 		tool.performAndPropagateSourceEdit(p -> helperClass.createClass(p, "c1"));
 		tool.performAndPropagateSourceEdit(p -> helperClass.createClass(p, "c2"));
@@ -144,13 +142,13 @@ public class SyncFWD extends SyncTestCase<ClassPackage, Container> {
 		tool.performAndPropagateSourceEdit(p -> helperClass.createInheritance(p, 0, 1));
 		tool.performAndPropagateSourceEdit(p -> helperClass.createInheritance(p, 1, 2));
 		tool.performAndPropagateSourceEdit(p -> helperClass.deleteClass(p, "c2"));
+		tool.performAndPropagateSourceEdit(p -> helperClass.deleteClass(p, "c3"));
 		//------------
 		assertPostcondition("in/02_ClassToDoc", "expected/02_ClassToDoc");
 	}
 	
-	//Check what outcome should be?
 	@Test
-	public void testdeleteHighestSuperClass()
+	public void testDeleteHighestSuperClass()
 	{
 		tool.performAndPropagateSourceEdit(p -> helperClass.createClass(p, "c1"));
 		tool.performAndPropagateSourceEdit(p -> helperClass.createClass(p, "c2"));
@@ -163,7 +161,7 @@ public class SyncFWD extends SyncTestCase<ClassPackage, Container> {
 		tool.performAndPropagateSourceEdit(p -> helperClass.createInheritance(p, 2, 4));
 		tool.performAndPropagateSourceEdit(p -> helperClass.deleteClass(p, "c1"));
 		//------------
-		assertPostcondition("", "");
+		assertPostcondition("in/07_DeleteHighestSuperClass", "expected/07_DeleteHighestSuperClass");
 	}
 	
 	

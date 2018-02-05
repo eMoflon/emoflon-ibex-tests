@@ -3,6 +3,7 @@ package testsuite.ibex.ClassInhHier2DB.co;
 import java.io.IOException;
 
 import org.emoflon.ibex.tgg.run.classinhhier2db.CO_App;
+import org.junit.Assert;
 import org.junit.Test;
 
 import org.emoflon.ibex.tgg.run.classinhhier2db.FWD_OPT_App;
@@ -29,13 +30,13 @@ public class TestClassInhHier2DB extends COTestCase {
 	public void testSimplePositive() throws IOException {
 		createGenerator("src", "trg", "corr");
 		runGenerator();
-		assert checker.modelsAreConsistent();
+		Assert.assertTrue(checker.modelsAreConsistent());
 	}
 	
 	@Test
 	public void testTwoWrongLinks() throws IOException {
 		createGenerator("src", "trg", "corr_inc");
 		runGenerator();
-		assert !checker.modelsAreConsistent();
+		Assert.assertTrue(!checker.modelsAreConsistent());
 	}
 }
