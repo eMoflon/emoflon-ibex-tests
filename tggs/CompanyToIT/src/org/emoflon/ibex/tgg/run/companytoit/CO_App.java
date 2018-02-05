@@ -6,7 +6,6 @@ import org.apache.log4j.BasicConfigurator;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.ibex.tgg.operational.csp.constraints.factories.UserDefinedRuntimeTGGAttrConstraintFactory;
 import org.emoflon.ibex.tgg.operational.strategies.co.CO;
-import org.emoflon.ibex.tgg.run.companytoit._RegistrationHelper;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesEngine;
 
@@ -40,6 +39,7 @@ public class CO_App extends CO {
 		
 		co.saveModels();
 		co.terminate();
+		
 		logger.info(co.generateConsistencyReport());
 	}
 
@@ -52,7 +52,6 @@ public class CO_App extends CO {
 		loadAndRegisterMetamodel(projectPath + "/model/" + projectPath + ".ecore");
 	}
 	
-	/*
 	@Override
 	public void loadModels() throws IOException {
 		s = loadResource(projectPath + "/resources/co/"+srcPath+".xmi");
@@ -62,7 +61,6 @@ public class CO_App extends CO {
 	
 		EcoreUtil.resolveAll(rs);
 	}
-	*/
 	
 	@Override
 	public void saveModels() throws IOException {

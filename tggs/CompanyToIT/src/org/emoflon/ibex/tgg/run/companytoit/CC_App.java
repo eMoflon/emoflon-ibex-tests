@@ -2,7 +2,6 @@ package org.emoflon.ibex.tgg.run.companytoit;
 
 import java.io.IOException;
 
-import org.apache.log4j.BasicConfigurator;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.ibex.tgg.operational.csp.constraints.factories.UserDefinedRuntimeTGGAttrConstraintFactory;
 import org.emoflon.ibex.tgg.operational.strategies.cc.CC;
@@ -24,22 +23,6 @@ public class CC_App extends CC {
 		registerBlackInterpreter(new DemoclesEngine());
 	}
 
-	public static void main(String[] args) throws IOException {
-		BasicConfigurator.configure();
-
-		CC_App cc = new CC_App("CompanyToIT", "./../", true, "src", "trg");
-		
-		logger.info("Starting CC");
-		long tic = System.currentTimeMillis();
-		cc.run();
-		long toc = System.currentTimeMillis();
-		logger.info("Completed CC in: " + (toc - tic) + " ms");
-		
-		cc.saveModels();
-		cc.terminate();
-		logger.info(cc.generateConsistencyReport());	
-	}
-	
 	@Override
 	protected void registerUserMetamodels() throws IOException {		
 		rs.getPackageRegistry().put("platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore", CompanyLanguagePackageImpl.init());
@@ -51,8 +34,8 @@ public class CC_App extends CC {
 	
 	@Override
 	public void loadModels() throws IOException {
-		s = loadResource(projectPath + "/instances/"+srcPath+".xmi");
-		t = loadResource(projectPath + "/instances/"+trgPath+".xmi");
+		s = loadResource(projectPath + "/resources/"+srcPath+".xmi");
+		t = loadResource(projectPath + "/resources/"+trgPath+".xmi");
 		c = createResource(projectPath + "/instances/corr.xmi");
 		p = createResource(projectPath + "/instances/protocol.xmi");
 	

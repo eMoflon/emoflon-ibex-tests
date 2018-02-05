@@ -1,4 +1,4 @@
-package org.emoflon.ibex.tgg.run.algorithmtostrategy_ma;
+package org.emoflon.ibex.tgg.run.classinhhier2db_ma;
 
 import java.io.IOException;
 
@@ -11,8 +11,8 @@ import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.sync.FWD_OPT;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesEngine;
 
-import Algorithms.impl.AlgorithmsPackageImpl;
-import Strategies.impl.StrategiesPackageImpl;
+import ClassInheritanceHierarchy.impl.ClassInheritanceHierarchyPackageImpl;
+import Database.impl.DatabasePackageImpl;
 
 public class FWD_OPT_App extends FWD_OPT {
 
@@ -24,7 +24,7 @@ public class FWD_OPT_App extends FWD_OPT {
 	public static void main(String[] args) throws IOException {
 		BasicConfigurator.configure();
 
-		FWD_OPT_App fwd_opt = new FWD_OPT_App("AlgorithmToStrategy_MA", "./../", true);
+		FWD_OPT_App fwd_opt = new FWD_OPT_App("ClassInhHier2DB_MA", "./../", false);
 		
 		logger.info("Starting FWD_OPT");
 		long tic = System.currentTimeMillis();
@@ -35,18 +35,19 @@ public class FWD_OPT_App extends FWD_OPT {
 		fwd_opt.saveModels();
 		fwd_opt.terminate();
 	}
-
+	
+	@Override
 	protected void registerUserMetamodels() throws IOException {
-		rs.getPackageRegistry().put("platform:/resource/Algorithm/model/Algorithms.ecore", AlgorithmsPackageImpl.init());
+		rs.getPackageRegistry().put("platform:/resource/ClassInheritanceHierarchy/model/ClassInheritanceHierarchy.ecore", ClassInheritanceHierarchyPackageImpl.init());
 		
 		// Load and register source and target metamodels
-		rs.getPackageRegistry().put("platform:/resource/Strategy/model/Strategies.ecore", StrategiesPackageImpl.init());
-		Resource res = loadResource("platform:/resource/../metamodels/Strategy/model/Strategies.ecore");
+		rs.getPackageRegistry().put("platform:/resource/Database/model/Database.ecore", DatabasePackageImpl.init());
+		Resource res = loadResource("platform:/resource/../../../git/emoflon-ibex-tests/metamodels/Database/model/Database.ecore");
 		EPackage pack = (EPackage) res.getContents().get(0);
-		pack.setNsURI("platform:/plugin/Strategy/model/Strategies.ecore");
-		rs.getPackageRegistry().put("platform:/resource/Strategy/model/Strategies.ecore", pack);
-		rs.getPackageRegistry().put("platform:/plugin/Strategy/model/Strategies.ecore", pack);
-			
+		pack.setNsURI("platform:/plugin/Database/model/Database.ecore");
+		rs.getPackageRegistry().put("platform:/resource/Database/model/Database.ecore", pack);
+		rs.getPackageRegistry().put("platform:/plugin/Database/model/Database.ecore", pack);
+		
 		// Register correspondence metamodel last
 		loadAndRegisterMetamodel(projectPath + "/model/" + projectPath + ".ecore");
 	}
@@ -64,7 +65,7 @@ public class FWD_OPT_App extends FWD_OPT {
 	
 	private static IbexOptions createIbexOptions() {
 			IbexOptions options = new IbexOptions();
-			options.projectName("AlgorithmToStrategy_MA");
+			options.projectName("ClassInhHier2DB_MA");
 			options.debug(false);
 			options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
 			return options;

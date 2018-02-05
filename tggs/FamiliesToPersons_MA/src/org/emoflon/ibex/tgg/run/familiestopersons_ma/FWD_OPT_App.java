@@ -1,4 +1,4 @@
-package org.emoflon.ibex.tgg.run.algorithmtostrategy_ma;
+package org.emoflon.ibex.tgg.run.familiestopersons_ma;
 
 import java.io.IOException;
 
@@ -11,8 +11,7 @@ import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.sync.FWD_OPT;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesEngine;
 
-import Algorithms.impl.AlgorithmsPackageImpl;
-import Strategies.impl.StrategiesPackageImpl;
+import Families.impl.FamiliesPackageImpl;
 
 public class FWD_OPT_App extends FWD_OPT {
 
@@ -24,7 +23,7 @@ public class FWD_OPT_App extends FWD_OPT {
 	public static void main(String[] args) throws IOException {
 		BasicConfigurator.configure();
 
-		FWD_OPT_App fwd_opt = new FWD_OPT_App("AlgorithmToStrategy_MA", "./../", true);
+		FWD_OPT_App fwd_opt = new FWD_OPT_App("FamiliesToPersons_MA", "./../", true);
 		
 		logger.info("Starting FWD_OPT");
 		long tic = System.currentTimeMillis();
@@ -36,17 +35,15 @@ public class FWD_OPT_App extends FWD_OPT {
 		fwd_opt.terminate();
 	}
 
+	@Override
 	protected void registerUserMetamodels() throws IOException {
-		rs.getPackageRegistry().put("platform:/resource/Algorithm/model/Algorithms.ecore", AlgorithmsPackageImpl.init());
+		rs.getPackageRegistry().put("platform:/resource/Families/model/Families.ecore", FamiliesPackageImpl.init());
 		
-		// Load and register source and target metamodels
-		rs.getPackageRegistry().put("platform:/resource/Strategy/model/Strategies.ecore", StrategiesPackageImpl.init());
-		Resource res = loadResource("platform:/resource/../metamodels/Strategy/model/Strategies.ecore");
+		Resource res = loadResource("platform:/resource/../../benchmarx/examples/familiestopersons/metamodels/Persons/model/Persons.ecore");
 		EPackage pack = (EPackage) res.getContents().get(0);
-		pack.setNsURI("platform:/plugin/Strategy/model/Strategies.ecore");
-		rs.getPackageRegistry().put("platform:/resource/Strategy/model/Strategies.ecore", pack);
-		rs.getPackageRegistry().put("platform:/plugin/Strategy/model/Strategies.ecore", pack);
-			
+		rs.getResources().remove(res);
+		rs.getPackageRegistry().put("platform:/resource/Persons/model/Persons.ecore", pack);
+		
 		// Register correspondence metamodel last
 		loadAndRegisterMetamodel(projectPath + "/model/" + projectPath + ".ecore");
 	}
@@ -64,7 +61,7 @@ public class FWD_OPT_App extends FWD_OPT {
 	
 	private static IbexOptions createIbexOptions() {
 			IbexOptions options = new IbexOptions();
-			options.projectName("AlgorithmToStrategy_MA");
+			options.projectName("FamiliesToPersons_MA");
 			options.debug(false);
 			options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
 			return options;

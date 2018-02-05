@@ -53,10 +53,10 @@ public class FWD_OPT_App extends FWD_OPT {
 	
 	@Override
 	public void loadModels() throws IOException {
-		s = loadResource(projectPath + "/instances/src.xmi");
-		t = createResource(projectPath + "/instances/trg.xmi");
-		c = createResource(projectPath + "/instances/corr.xmi");
-		p = createResource(projectPath + "/instances/protocol.xmi");
+		s = loadResource(projectPath + "/resources/co/src.xmi");
+		t = createResource(projectPath + "/resources/co/trg.xmi");
+		c = createResource(projectPath + "/resources/co/corr.xmi");
+		p = createResource(projectPath + "/resources/co/protocol.xmi");
 		
 		EcoreUtil.resolveAll(rs);
 

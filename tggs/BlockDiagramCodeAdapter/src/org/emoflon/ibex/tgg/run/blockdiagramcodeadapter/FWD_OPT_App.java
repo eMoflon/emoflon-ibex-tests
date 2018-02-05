@@ -1,4 +1,4 @@
-package org.emoflon.ibex.tgg.run.algorithmtostrategy_ma;
+package org.emoflon.ibex.tgg.run.blockdiagramcodeadapter;
 
 import java.io.IOException;
 
@@ -11,8 +11,7 @@ import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.sync.FWD_OPT;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesEngine;
 
-import Algorithms.impl.AlgorithmsPackageImpl;
-import Strategies.impl.StrategiesPackageImpl;
+import MocaTree.impl.MocaTreePackageImpl;
 
 public class FWD_OPT_App extends FWD_OPT {
 
@@ -24,7 +23,7 @@ public class FWD_OPT_App extends FWD_OPT {
 	public static void main(String[] args) throws IOException {
 		BasicConfigurator.configure();
 
-		FWD_OPT_App fwd_opt = new FWD_OPT_App("AlgorithmToStrategy_MA", "./../", true);
+		FWD_OPT_App fwd_opt = new FWD_OPT_App ("BlockDiagramCodeAdapter", "./../", false);
 		
 		logger.info("Starting FWD_OPT");
 		long tic = System.currentTimeMillis();
@@ -37,15 +36,14 @@ public class FWD_OPT_App extends FWD_OPT {
 	}
 
 	protected void registerUserMetamodels() throws IOException {
-		rs.getPackageRegistry().put("platform:/resource/Algorithm/model/Algorithms.ecore", AlgorithmsPackageImpl.init());
-		
 		// Load and register source and target metamodels
-		rs.getPackageRegistry().put("platform:/resource/Strategy/model/Strategies.ecore", StrategiesPackageImpl.init());
-		Resource res = loadResource("platform:/resource/../metamodels/Strategy/model/Strategies.ecore");
+		rs.getPackageRegistry().put("platform:/resource/MocaTree/model/MocaTree.ecore", MocaTreePackageImpl.init());
+		
+		Resource res = loadResource("platform:/resource/../../../git/emoflon-ibex-tests/metamodels/BlockDiagram/model/BlockDiagram.ecore");
 		EPackage pack = (EPackage) res.getContents().get(0);
-		pack.setNsURI("platform:/plugin/Strategy/model/Strategies.ecore");
-		rs.getPackageRegistry().put("platform:/resource/Strategy/model/Strategies.ecore", pack);
-		rs.getPackageRegistry().put("platform:/plugin/Strategy/model/Strategies.ecore", pack);
+		pack.setNsURI("platform:/plugin/BlockDiagram/model/BlockDiagram.ecore");
+		rs.getPackageRegistry().put("platform:/resource/BlockDiagram/model/BlockDiagram.ecore", pack);
+		rs.getPackageRegistry().put("platform:/plugin/BlockDiagram/model/BlockDiagram.ecore", pack);
 			
 		// Register correspondence metamodel last
 		loadAndRegisterMetamodel(projectPath + "/model/" + projectPath + ".ecore");
@@ -57,14 +55,13 @@ public class FWD_OPT_App extends FWD_OPT {
 		t = createResource(projectPath + "/resources/co/trg.xmi");
 		c = createResource(projectPath + "/resources/co/corr.xmi");
 		p = createResource(projectPath + "/resources/co/protocol.xmi");
-		
+	
 		EcoreUtil.resolveAll(rs);
-
 	}
 	
 	private static IbexOptions createIbexOptions() {
 			IbexOptions options = new IbexOptions();
-			options.projectName("AlgorithmToStrategy_MA");
+			options.projectName("BlockDiagramCodeAdapter");
 			options.debug(false);
 			options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
 			return options;
