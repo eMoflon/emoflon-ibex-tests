@@ -5,11 +5,12 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:Persons="platform:/plugin/Persons/model/Persons.ecore">
   <persons xsi:type="Persons:Female"
-      name="suspendisse, foo"/>
+      name="foo, suspendisse"/>
   <persons xsi:type="Persons:Male"
-      name="torquent, foo"/>
+      name="foo, torquent"/>
   <persons xsi:type="Persons:Male"
-      name="donec, foo"/>
+      name="foo, donec"
+      birthday="0001-01-01T00:00:00.000+0100"/>
   <persons xsi:type="Persons:Female"
-      name="molestie, foo"/>
+      name="foo, molestie"/>
 </Persons:PersonRegister>

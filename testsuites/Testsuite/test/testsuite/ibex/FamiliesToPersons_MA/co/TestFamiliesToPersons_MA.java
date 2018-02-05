@@ -15,8 +15,6 @@ public class TestFamiliesToPersons_MA extends COTestCase {
 		checker = new CO_App("FamiliesToPersons_MA", testsuite.ibex.testUtil.Constants.workspacePath, false, srcInstance, trgInstance, corrInstance);
 	}
 	
-	//FIXME[Nils]: Why is this failing?
-	@Ignore
 	@Test
 	public void testSimplePositive() throws IOException {
 		createGenerator("src", "trg", "corr");

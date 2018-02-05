@@ -22,8 +22,6 @@ public class TestSimplePositive extends FamiliesToPersons_MA_CCTestCase {
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}
 	
-	//FIXME[Milica]:  Why is this failing?
-	@Ignore
 	@Test
 	public void testOneMother() throws IOException {
 		createGenerator("02_Family_OneMother", "02_Person_OneFemale");
@@ -31,8 +29,6 @@ public class TestSimplePositive extends FamiliesToPersons_MA_CCTestCase {
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}
 	
-	//FIXME[Milica]:  Why is this failing?
-	@Ignore
 	@Test
 	public void testOneMotherOneFather() throws IOException {
 		createGenerator("02_Family_OneMotherOneFather", "02_Person_OneFemaleOneMale");
@@ -40,8 +36,6 @@ public class TestSimplePositive extends FamiliesToPersons_MA_CCTestCase {
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}
 	
-	//FIXME[Milica]:  Why is this failing?
-	@Ignore
 	@Test
 	public void testAllFamilyRoles() throws IOException {
 		createGenerator("02_Family_AllRoles", "02_Person_AllRoles");
