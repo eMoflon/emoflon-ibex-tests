@@ -3,7 +3,6 @@ package testsuite.ibex.FamiliesToPersons_MA.cc;
 import java.io.IOException;
 
 import org.junit.Assert;
-import org.junit.Ignore;
 import org.junit.Test;
 
 public class TestSimplePositive extends FamiliesToPersons_MA_CCTestCase {
