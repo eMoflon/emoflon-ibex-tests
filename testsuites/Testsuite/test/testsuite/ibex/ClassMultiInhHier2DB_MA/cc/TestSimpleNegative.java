@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import org.emoflon.ibex.tgg.run.classmultipleinhhier2db_ma.CC_App;
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import testsuite.ibex.testUtil.CCTestCase;
@@ -66,6 +67,7 @@ public class TestSimpleNegative extends CCTestCase{
 		Assert.assertTrue(!checker.modelsAreConsistent());
 	}
 	
+	@Ignore("Appears to be non-deterministic!")
 	@Test
 	public void testTransitiveAttToSubTables2_V3() throws IOException {
 		createGenerator("in/08_OneSuperSuperAtt_OneSuperAtt_FWD", "expected/08_OneSuperSuperAtt_OneSuperAtt_INCONS_V3_FWD");
