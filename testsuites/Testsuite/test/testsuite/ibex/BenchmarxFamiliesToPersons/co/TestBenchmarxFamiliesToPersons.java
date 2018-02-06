@@ -6,6 +6,7 @@ import org.emoflon.ibex.tgg.run.benchmarxfamiliestopersons.CO_App;
 import org.emoflon.ibex.tgg.run.benchmarxfamiliestopersons.FWD_OPT_App;
 import org.junit.Test;
 
+import org.junit.Assert;
 import testsuite.ibex.testUtil.COTestCase;
 
 public class TestBenchmarxFamiliesToPersons extends COTestCase{
@@ -29,13 +30,13 @@ public class TestBenchmarxFamiliesToPersons extends COTestCase{
 	public void testSimplePositive() throws IOException {
 		createGenerator("src", "trg", "corr");
 		runGenerator();
-		assert checker.modelsAreConsistent();
+		Assert.assertTrue(checker.modelsAreConsistent());
 	}
 	
 	@Test
 	public void testSuperfluousLink() throws IOException {
 		createGenerator("src", "trg", "corr_inc");
 		runGenerator();
-		assert !checker.modelsAreConsistent();
+		Assert.assertFalse(checker.modelsAreConsistent());
 	}
 }
