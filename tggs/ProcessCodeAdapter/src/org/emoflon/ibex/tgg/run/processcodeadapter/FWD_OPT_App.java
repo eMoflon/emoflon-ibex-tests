@@ -40,10 +40,10 @@ public class FWD_OPT_App extends FWD_OPT {
 		rs.getPackageRegistry().put("platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore", ProcessDefinitionPackageImpl.init());
 		
 		// Load and register source and target metamodels
-		rs.getPackageRegistry().put("platform:/resource/MocaTree/model/MocaTree.ecore", MocaTreePackageImpl.init());
-		Resource res = loadResource("platform:/resource/../../../git/emoflon-ibex-tests/metamodels/MocaTree/model/MocaTree.ecore");
+		//rs.getPackageRegistry().put("platform:/resource/MocaTree/model/MocaTree.ecore", MocaTreePackageImpl.init());
+		Resource res = loadResource("platform:/resource/../metamodels/MocaTree/model/MocaTree.ecore");
 		EPackage pack = (EPackage) res.getContents().get(0);
-		pack.setNsURI("platform:/plugin/MocaTree/model/MocaTree.ecore");
+		//pack.setNsURI("platform:/plugin/MocaTree/model/MocaTree.ecore");
 		rs.getPackageRegistry().put("platform:/resource/MocaTree/model/MocaTree.ecore", pack);
 		rs.getPackageRegistry().put("platform:/plugin/MocaTree/model/MocaTree.ecore", pack);
 			

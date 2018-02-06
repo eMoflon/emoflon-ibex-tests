@@ -7,6 +7,8 @@ import org.emoflon.ibex.tgg.run.benchmarxfamiliestopersons.FWD_OPT_App;
 import org.junit.Test;
 
 import org.junit.Assert;
+import org.junit.Ignore;
+
 import testsuite.ibex.testUtil.COTestCase;
 
 public class TestBenchmarxFamiliesToPersons extends COTestCase{

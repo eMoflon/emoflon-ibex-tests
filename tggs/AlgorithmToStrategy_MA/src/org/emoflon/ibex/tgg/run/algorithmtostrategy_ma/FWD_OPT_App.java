@@ -40,10 +40,10 @@ public class FWD_OPT_App extends FWD_OPT {
 		rs.getPackageRegistry().put("platform:/resource/Algorithm/model/Algorithms.ecore", AlgorithmsPackageImpl.init());
 		
 		// Load and register source and target metamodels
-		rs.getPackageRegistry().put("platform:/resource/Strategy/model/Strategies.ecore", StrategiesPackageImpl.init());
+		//rs.getPackageRegistry().put("platform:/resource/Strategy/model/Strategies.ecore", StrategiesPackageImpl.init());
 		Resource res = loadResource("platform:/resource/../metamodels/Strategy/model/Strategies.ecore");
 		EPackage pack = (EPackage) res.getContents().get(0);
-		pack.setNsURI("platform:/plugin/Strategy/model/Strategies.ecore");
+		//pack.setNsURI("platform:/plugin/Strategy/model/Strategies.ecore");
 		rs.getPackageRegistry().put("platform:/resource/Strategy/model/Strategies.ecore", pack);
 		rs.getPackageRegistry().put("platform:/plugin/Strategy/model/Strategies.ecore", pack);
 			

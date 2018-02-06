@@ -39,9 +39,9 @@ public class FWD_OPT_App extends FWD_OPT {
 		// Load and register source and target metamodels
 		rs.getPackageRegistry().put("platform:/resource/MocaTree/model/MocaTree.ecore", MocaTreePackageImpl.init());
 		
-		Resource res = loadResource("platform:/resource/../../../git/emoflon-ibex-tests/metamodels/BlockLanguage/model/BlockLanguage.ecore");
+		Resource res = loadResource("platform:/resource/../metamodels/BlockLanguage/model/BlockLanguage.ecore");
 		EPackage pack = (EPackage) res.getContents().get(0);
-		pack.setNsURI("platform:/plugin/BlockLanguage/model/BlockLanguage.ecore");
+		//pack.setNsURI("platform:/plugin/BlockLanguage/model/BlockLanguage.ecore");
 		rs.getPackageRegistry().put("platform:/resource/BlockLanguage/model/BlockLanguage.ecore", pack);
 		rs.getPackageRegistry().put("platform:/plugin/BlockLanguage/model/BlockLanguage.ecore", pack);
 			

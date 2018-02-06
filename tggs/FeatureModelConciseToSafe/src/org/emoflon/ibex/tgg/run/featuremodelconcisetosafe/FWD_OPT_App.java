@@ -40,10 +40,10 @@ public class FWD_OPT_App extends FWD_OPT {
 		rs.getPackageRegistry().put("platform:/resource/FeatureModelConcise/model/FeatureModelConcise.ecore", FeatureModelConcisePackageImpl.init());
 		
 		// Load and register source and target metamodels
-		rs.getPackageRegistry().put("platform:/resource/FeatureModelSafe/model/FeatureModelSafe.ecore", FeatureModelSafePackageImpl.init());
-		Resource res = loadResource("platform:/resource/../../../git/emoflon-ibex-tests/metamodels/FeatureModelSafe/model/FeatureModelSafe.ecore");
+		//rs.getPackageRegistry().put("platform:/resource/FeatureModelSafe/model/FeatureModelSafe.ecore", FeatureModelSafePackageImpl.init());
+		Resource res = loadResource("platform:/resource/../metamodels/FeatureModelSafe/model/FeatureModelSafe.ecore");
 		EPackage pack = (EPackage) res.getContents().get(0);
-		pack.setNsURI("platform:/plugin/FeatureModelSafe/model/FeatureModelSafe.ecore");
+		//pack.setNsURI("platform:/plugin/FeatureModelSafe/model/FeatureModelSafe.ecore");
 		rs.getPackageRegistry().put("platform:/resource/FeatureModelSafe/model/FeatureModelSafe.ecore", pack);
 		rs.getPackageRegistry().put("platform:/plugin/FeatureModelSafe/model/FeatureModelSafe.ecore", pack);
 		

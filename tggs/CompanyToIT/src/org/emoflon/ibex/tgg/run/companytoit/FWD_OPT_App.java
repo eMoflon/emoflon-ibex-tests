@@ -42,10 +42,10 @@ public class FWD_OPT_App extends FWD_OPT {
 		rs.getPackageRegistry().put("platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore", CompanyLanguagePackageImpl.init());
 		
 		// Load and register source and target metamodels
-		rs.getPackageRegistry().put("platform:/resource/ITLanguage/model/ITLanguage.ecore", ITLanguagePackageImpl.init());
-		Resource res = loadResource("platform:/resource/../../../git/emoflon-ibex-tests/metamodels/ITLanguage/model/ITLanguage.ecore");
+		//rs.getPackageRegistry().put("platform:/resource/ITLanguage/model/ITLanguage.ecore", ITLanguagePackageImpl.init());
+		Resource res = loadResource("platform:/resource/../metamodels/ITLanguage/model/ITLanguage.ecore");
 		EPackage pack = (EPackage) res.getContents().get(0);
-		pack.setNsURI("platform:/plugin/ITLanguage/model/ITLanguage.ecore");
+		//pack.setNsURI("platform:/plugin/ITLanguage/model/ITLanguage.ecore");
 		rs.getPackageRegistry().put("platform:/resource/ITLanguage/model/ITLanguage.ecore", pack);
 		rs.getPackageRegistry().put("platform:/plugin/ITLanguage/model/ITLanguage.ecore", pack);
 		
