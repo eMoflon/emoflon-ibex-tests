@@ -20,6 +20,8 @@ public class TestProcessCodeAdapter extends COTestCase{
 		forward = new FWD_OPT_App("ProcessCodeAdapter", testsuite.ibex.testUtil.Constants.workspacePath, false);
 	}
 	
+	//FIXME[Nils]
+	@Ignore
 	@Test
 	public void testFWD_OPT() throws IOException {
 		createTransformation();

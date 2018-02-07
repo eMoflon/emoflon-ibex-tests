@@ -4,10 +4,8 @@ import java.io.IOException;
 
 import org.emoflon.ibex.tgg.run.blockcodeadapter.CO_App;
 import org.emoflon.ibex.tgg.run.blockcodeadapter.FWD_OPT_App;
-import org.junit.Test;
-
 import org.junit.Assert;
-import org.junit.Ignore;
+import org.junit.Test;
 
 import testsuite.ibex.testUtil.COTestCase;
 

@@ -114,4 +114,8 @@ public abstract class IbexAdapter<S extends EObject, T extends EObject> extends 
 			e.printStackTrace();
 		}
 	}
+
+	public ResourceSet getResourceSet() {
+		return synchroniser.getResourceSet();
+	}
 }
