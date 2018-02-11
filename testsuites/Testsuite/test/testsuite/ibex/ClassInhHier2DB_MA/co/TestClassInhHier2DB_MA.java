@@ -21,7 +21,7 @@ public class TestClassInhHier2DB_MA extends COTestCase {
 	}
 	
 	//FIXME[Nils]
-	@Ignore
+	//@Ignore --> Bad Padding Exception deep inside Democles initializations
 	@Test
 	public void testFWD_OPT() throws IOException {
 		createTransformation();

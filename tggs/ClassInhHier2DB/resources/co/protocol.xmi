@@ -1,92 +1,15 @@
 <?xml version="1.0" encoding="ASCII"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:org.emoflon.ibex.tgg.core.runtime="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore">
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PackageToDatabaseRule" final="true">
-    <createdSrc href="src.xmi#/"/>
-    <createdTrg href="trg.xmi#/0"/>
-    <createdCorr href="corr.xmi#/0"/>
-    <nodeMappings key="classpackage">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="packageToDatabase">
-      <value href="corr.xmi#/0"/>
-    </nodeMappings>
-    <nodeMappings key="db">
-      <value href="trg.xmi#/0"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="ClassToTableRule" final="true">
-    <createdSrc href="src.xmi#//@classes.1"/>
-    <createdTrg href="trg.xmi#/1"/>
-    <createdCorr href="corr.xmi#/1"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/0"/>
-    <nodeMappings key="classpackage">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="packageToDatabase">
-      <value href="corr.xmi#/0"/>
-    </nodeMappings>
-    <nodeMappings key="clazzToTable">
-      <value href="corr.xmi#/1"/>
-    </nodeMappings>
-    <nodeMappings key="clazz">
-      <value href="src.xmi#//@classes.1"/>
-    </nodeMappings>
-    <nodeMappings key="db">
-      <value href="trg.xmi#/0"/>
-    </nodeMappings>
-    <nodeMappings key="table">
-      <value href="trg.xmi#/1"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="ClassToTableRule" final="true">
-    <createdSrc href="src.xmi#//@classes.0"/>
-    <createdTrg href="trg.xmi#/2"/>
-    <createdCorr href="corr.xmi#/2"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/0"/>
-    <nodeMappings key="classpackage">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="packageToDatabase">
-      <value href="corr.xmi#/0"/>
-    </nodeMappings>
-    <nodeMappings key="clazzToTable">
-      <value href="corr.xmi#/2"/>
-    </nodeMappings>
-    <nodeMappings key="clazz">
-      <value href="src.xmi#//@classes.0"/>
-    </nodeMappings>
-    <nodeMappings key="db">
-      <value href="trg.xmi#/0"/>
-    </nodeMappings>
-    <nodeMappings key="table">
-      <value href="trg.xmi#/2"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="AttributeToColumnRule" final="true">
-    <createdSrc href="src.xmi#//@classes.0/@attributes.0"/>
-    <createdTrg href="trg.xmi#/3"/>
-    <createdCorr href="corr.xmi#/3"/>
-    <contextSrc href="src.xmi#//@classes.0"/>
-    <contextTrg href="trg.xmi#/2"/>
-    <nodeMappings key="attributeToColumn">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="column">
-      <value href="trg.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="clazzToTable">
-      <value href="corr.xmi#/2"/>
-    </nodeMappings>
-    <nodeMappings key="attribute">
-      <value href="src.xmi#//@classes.0/@attributes.0"/>
-    </nodeMappings>
-    <nodeMappings key="clazz">
-      <value href="src.xmi#//@classes.0"/>
-    </nodeMappings>
-    <nodeMappings key="table">
-      <value href="trg.xmi#/2"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-</xmi:XMI>
+<org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:org.emoflon.ibex.tgg.core.runtime="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore" name="PackageToDatabaseRule">
+  <createdSrc href="src.xmi#/"/>
+  <createdTrg href="trg.xmi#/"/>
+  <createdCorr href="corr_inc.xmi#/0"/>
+  <nodeMappings key="classpackage">
+    <value href="src.xmi#/"/>
+  </nodeMappings>
+  <nodeMappings key="packageToDatabase">
+    <value href="corr_inc.xmi#/0"/>
+  </nodeMappings>
+  <nodeMappings key="db">
+    <value href="trg.xmi#/"/>
+  </nodeMappings>
+</org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>

@@ -20,8 +20,8 @@ public class TestProcessCodeAdapter extends COTestCase{
 		forward = new FWD_OPT_App("ProcessCodeAdapter", testsuite.ibex.testUtil.Constants.workspacePath, false);
 	}
 	
-	//FIXME[Nils]
-	@Ignore
+	//FIXME [Nils]
+	//@Ignore --> Feature-ID for the inverse EMFEdge of allModules (outgoing from SystemModule) is 0
 	@Test
 	public void testFWD_OPT() throws IOException {
 		createTransformation();

@@ -21,7 +21,7 @@ public class TestBlockDiagramCodeAdapter extends COTestCase{
 	}
 	
 	//FIXME[Nils]
-	@Ignore
+	//@Ignore --> file Edge cannot be added 
 	@Test
 	public void testFWD_OPT() throws IOException {
 		createTransformation();

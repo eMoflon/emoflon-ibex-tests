@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="ASCII"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:org.emoflon.ibex.tgg.core.runtime="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore">
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="AlgoContainerToStrategyContainer" final="true">
-    <createdSrc href="src.xmi#/"/>
-    <createdTrg href="trg.xmi#/"/>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="AlgoContainerToStrategyContainer">
+    <createdSrc href="../resources/in/03_OneAlgo.xmi#/"/>
+    <createdTrg href="../resources/expected/01_ContainersOnly.xmi#/"/>
     <createdCorr href="corr.xmi#/"/>
     <nodeMappings key="sc">
-      <value href="trg.xmi#/"/>
+      <value href="../resources/expected/01_ContainersOnly.xmi#/"/>
     </nodeMappings>
     <nodeMappings key="ac">
-      <value href="src.xmi#/"/>
+      <value href="../resources/in/03_OneAlgo.xmi#/"/>
     </nodeMappings>
     <nodeMappings key="ac2sc">
       <value href="corr.xmi#/"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="CreateAlgorithm" final="true">
-    <createdSrc href="src.xmi#//@algorithms.0"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/"/>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="CreateAlgorithm" amalgamated="true">
+    <createdSrc href="../resources/in/03_OneAlgo.xmi#//@algorithms.0"/>
+    <contextSrc href="../resources/in/03_OneAlgo.xmi#/"/>
+    <contextTrg href="../resources/expected/01_ContainersOnly.xmi#/"/>
     <nodeMappings key="sc">
-      <value href="trg.xmi#/"/>
+      <value href="../resources/expected/01_ContainersOnly.xmi#/"/>
     </nodeMappings>
     <nodeMappings key="ac">
-      <value href="src.xmi#/"/>
+      <value href="../resources/in/03_OneAlgo.xmi#/"/>
     </nodeMappings>
     <nodeMappings key="ac2sc">
       <value href="corr.xmi#/"/>
     </nodeMappings>
     <nodeMappings key="algo">
-      <value href="src.xmi#//@algorithms.0"/>
+      <value href="../resources/in/03_OneAlgo.xmi#//@algorithms.0"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
 </xmi:XMI>
