@@ -20,8 +20,7 @@ public class TestClassInhHier2DB_MA extends COTestCase {
 		forward = new FWD_OPT_App("ClassInhHier2DB_MA", testsuite.ibex.testUtil.Constants.workspacePath, false);
 	}
 	
-	//FIXME[Nils]
-	//@Ignore --> Bad Padding Exception deep inside Democles initializations
+	@Ignore //--> Bad Padding Exception deep inside Democles initializations
 	@Test
 	public void testFWD_OPT() throws IOException {
 		createTransformation();

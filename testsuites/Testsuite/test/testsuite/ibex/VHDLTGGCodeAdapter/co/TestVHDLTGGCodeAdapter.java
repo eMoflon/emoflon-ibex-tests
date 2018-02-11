@@ -20,8 +20,7 @@ public class TestVHDLTGGCodeAdapter extends COTestCase{
 		forward = new FWD_OPT_App("VHDLTGGCodeAdapter", testsuite.ibex.testUtil.Constants.workspacePath, false);
 	}
 	
-	//FIXME [Nils]
-	//@Ignore --> featureID is 0 when trying to add the edge spec__blocks__composite_eMoflonEdge
+	@Ignore //--> featureID is 0 when trying to add the edge spec__blocks__composite_eMoflonEdge
 	//        --> probably problems with containment yes or no
 	@Test
 	public void testFWD_OPT() throws IOException {

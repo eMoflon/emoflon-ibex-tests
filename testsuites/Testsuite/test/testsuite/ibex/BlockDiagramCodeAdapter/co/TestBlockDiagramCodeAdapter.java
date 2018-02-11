@@ -20,8 +20,7 @@ public class TestBlockDiagramCodeAdapter extends COTestCase{
 		forward = new FWD_OPT_App("BlockDiagramCodeAdapter", testsuite.ibex.testUtil.Constants.workspacePath, false);
 	}
 	
-	//FIXME[Nils]
-	//@Ignore --> file Edge cannot be added 
+	@Ignore //--> file Edge cannot be added 
 	@Test
 	public void testFWD_OPT() throws IOException {
 		createTransformation();
