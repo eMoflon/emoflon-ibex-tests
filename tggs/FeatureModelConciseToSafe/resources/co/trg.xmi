@@ -14,10 +14,10 @@
   <FeatureModelSafe:Model name="mauris">
     <root name="bibendum">
       <solitarySubFeatures name="mollis"/>
-      <groups xsi:type="FeatureModelSafe:OrGroup"/>
       <groups xsi:type="FeatureModelSafe:XorGroup">
         <members name="consequat"/>
       </groups>
+      <groups xsi:type="FeatureModelSafe:OrGroup"/>
     </root>
   </FeatureModelSafe:Model>
 </xmi:XMI>

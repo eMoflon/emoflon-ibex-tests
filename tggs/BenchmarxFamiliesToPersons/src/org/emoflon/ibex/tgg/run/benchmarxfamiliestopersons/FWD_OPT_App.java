@@ -25,7 +25,7 @@ public class FWD_OPT_App extends FWD_OPT {
 	public static void main(String[] args) throws IOException {
 		BasicConfigurator.configure();
 
-		FWD_OPT_App sync = new FWD_OPT_App("BenchmarxFamiliesToPersons", "./../", true);
+		FWD_OPT_App sync = new FWD_OPT_App("BenchmarxFamiliesToPersons", "./../", false);
 		
 		logger.info("Starting SYNC");
 		long tic = System.currentTimeMillis();

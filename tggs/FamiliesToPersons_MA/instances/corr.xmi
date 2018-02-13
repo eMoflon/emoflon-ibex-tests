@@ -5,15 +5,15 @@
     <target href="trg.xmi#/"/>
   </FamiliesToPersons_MA:FamiliesReg2PersonsRegCorr>
   <FamiliesToPersons_MA:FamilyMember2Person>
-    <source href="src.xmi#//@families.0/@father"/>
-    <target xsi:type="Persons:Male" href="trg.xmi#//@persons.0"/>
+    <source href="src.xmi#//@families.0/@mother"/>
+    <target xsi:type="Persons:Female" href="trg.xmi#//@persons.2"/>
   </FamiliesToPersons_MA:FamilyMember2Person>
   <FamiliesToPersons_MA:FamilyMember2Person>
-    <source href="src.xmi#//@families.1/@father"/>
+    <source href="src.xmi#//@families.0/@father"/>
     <target xsi:type="Persons:Male" href="trg.xmi#//@persons.1"/>
   </FamiliesToPersons_MA:FamilyMember2Person>
   <FamiliesToPersons_MA:FamilyMember2Person>
-    <source href="src.xmi#//@families.1/@mother"/>
-    <target xsi:type="Persons:Female" href="trg.xmi#//@persons.2"/>
+    <source href="src.xmi#//@families.1/@father"/>
+    <target xsi:type="Persons:Male" href="trg.xmi#//@persons.0"/>
   </FamiliesToPersons_MA:FamilyMember2Person>
 </xmi:XMI>

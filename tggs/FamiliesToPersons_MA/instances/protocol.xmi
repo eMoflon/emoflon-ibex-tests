@@ -18,8 +18,11 @@
     <createdSrc href="src.xmi#//@families.0"/>
     <contextSrc href="src.xmi#/"/>
     <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="malePerson">
-      <value href="trg.xmi#//@persons.0"/>
+    <nodeMappings key="mother">
+      <value href="src.xmi#//@families.0/@mother"/>
+    </nodeMappings>
+    <nodeMappings key="femalePerson">
+      <value href="trg.xmi#//@persons.2"/>
     </nodeMappings>
     <nodeMappings key="familyReg">
       <value href="src.xmi#/"/>
@@ -27,27 +30,27 @@
     <nodeMappings key="personReg">
       <value href="trg.xmi#/"/>
     </nodeMappings>
+    <nodeMappings key="mother2femalePerson">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
     <nodeMappings key="familyReg2personReg">
       <value href="corr.xmi#/0"/>
-    </nodeMappings>
-    <nodeMappings key="father">
-      <value href="src.xmi#//@families.0/@father"/>
-    </nodeMappings>
-    <nodeMappings key="father2malePerson">
-      <value href="corr.xmi#/1"/>
     </nodeMappings>
     <nodeMappings key="family">
       <value href="src.xmi#//@families.0"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="Father2Male" final="true">
-    <createdSrc href="src.xmi#//@families.0/@father"/>
-    <createdTrg href="trg.xmi#//@persons.0"/>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="Mother2Female" final="true">
+    <createdSrc href="src.xmi#//@families.0/@mother"/>
+    <createdTrg href="trg.xmi#//@persons.2"/>
     <createdCorr href="corr.xmi#/1"/>
     <contextSrc href="src.xmi#//@families.0"/>
     <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="malePerson">
-      <value href="trg.xmi#//@persons.0"/>
+    <nodeMappings key="mother">
+      <value href="src.xmi#//@families.0/@mother"/>
+    </nodeMappings>
+    <nodeMappings key="femalePerson">
+      <value href="trg.xmi#//@persons.2"/>
     </nodeMappings>
     <nodeMappings key="familyReg">
       <value href="src.xmi#/"/>
@@ -55,14 +58,34 @@
     <nodeMappings key="personReg">
       <value href="trg.xmi#/"/>
     </nodeMappings>
+    <nodeMappings key="mother2femalePerson">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
     <nodeMappings key="familyReg2personReg">
       <value href="corr.xmi#/0"/>
+    </nodeMappings>
+    <nodeMappings key="family">
+      <value href="src.xmi#//@families.0"/>
+    </nodeMappings>
+    <nodeMappings key="CreateFamily_eMoflon_ProtocolNode" value="/1"/>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="Father2Male" final="true">
+    <createdSrc href="src.xmi#//@families.0/@father"/>
+    <createdTrg href="trg.xmi#//@persons.1"/>
+    <createdCorr href="corr.xmi#/2"/>
+    <contextSrc href="src.xmi#//@families.0"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="malePerson">
+      <value href="trg.xmi#//@persons.1"/>
+    </nodeMappings>
+    <nodeMappings key="personReg">
+      <value href="trg.xmi#/"/>
     </nodeMappings>
     <nodeMappings key="father">
       <value href="src.xmi#//@families.0/@father"/>
     </nodeMappings>
     <nodeMappings key="father2malePerson">
-      <value href="corr.xmi#/1"/>
+      <value href="corr.xmi#/2"/>
     </nodeMappings>
     <nodeMappings key="family">
       <value href="src.xmi#//@families.0"/>
@@ -74,7 +97,7 @@
     <contextSrc href="src.xmi#/"/>
     <contextTrg href="trg.xmi#/"/>
     <nodeMappings key="malePerson">
-      <value href="trg.xmi#//@persons.1"/>
+      <value href="trg.xmi#//@persons.0"/>
     </nodeMappings>
     <nodeMappings key="familyReg">
       <value href="src.xmi#/"/>
@@ -89,7 +112,7 @@
       <value href="src.xmi#//@families.1/@father"/>
     </nodeMappings>
     <nodeMappings key="father2malePerson">
-      <value href="corr.xmi#/2"/>
+      <value href="corr.xmi#/3"/>
     </nodeMappings>
     <nodeMappings key="family">
       <value href="src.xmi#//@families.1"/>
@@ -97,12 +120,12 @@
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
   <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="Father2Male" final="true">
     <createdSrc href="src.xmi#//@families.1/@father"/>
-    <createdTrg href="trg.xmi#//@persons.1"/>
-    <createdCorr href="corr.xmi#/2"/>
+    <createdTrg href="trg.xmi#//@persons.0"/>
+    <createdCorr href="corr.xmi#/3"/>
     <contextSrc href="src.xmi#//@families.1"/>
     <contextTrg href="trg.xmi#/"/>
     <nodeMappings key="malePerson">
-      <value href="trg.xmi#//@persons.1"/>
+      <value href="trg.xmi#//@persons.0"/>
     </nodeMappings>
     <nodeMappings key="familyReg">
       <value href="src.xmi#/"/>
@@ -117,34 +140,11 @@
       <value href="src.xmi#//@families.1/@father"/>
     </nodeMappings>
     <nodeMappings key="father2malePerson">
-      <value href="corr.xmi#/2"/>
-    </nodeMappings>
-    <nodeMappings key="family">
-      <value href="src.xmi#//@families.1"/>
-    </nodeMappings>
-    <nodeMappings key="CreateFamily_eMoflon_ProtocolNode" value="/3"/>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="Mother2Female" final="true">
-    <createdSrc href="src.xmi#//@families.1/@mother"/>
-    <createdTrg href="trg.xmi#//@persons.2"/>
-    <createdCorr href="corr.xmi#/3"/>
-    <contextSrc href="src.xmi#//@families.1"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="mother">
-      <value href="src.xmi#//@families.1/@mother"/>
-    </nodeMappings>
-    <nodeMappings key="femalePerson">
-      <value href="trg.xmi#//@persons.2"/>
-    </nodeMappings>
-    <nodeMappings key="personReg">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="mother2femalePerson">
       <value href="corr.xmi#/3"/>
     </nodeMappings>
     <nodeMappings key="family">
       <value href="src.xmi#//@families.1"/>
     </nodeMappings>
-    <nodeMappings key="CreateFamily_eMoflon_ProtocolNode" value="/3"/>
+    <nodeMappings key="CreateFamily_eMoflon_ProtocolNode" value="/4"/>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
 </xmi:XMI>

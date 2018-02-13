@@ -14,11 +14,11 @@ import testsuite.ibex.testUtil.COTestCase;
 public class TestBenchmarxFamiliesToPersons extends COTestCase{
 
 	public void createGenerator(String srcInstance, String trgInstance, String corrInstance) throws IOException {
-		checker = new CO_App("BenchmarxFamiliesToPersons", testsuite.ibex.testUtil.Constants.workspacePath, false, srcInstance, trgInstance, corrInstance);
+		checker = new CO_App("BenchmarxFamiliesToPersons", testsuite.ibex.testUtil.Constants.workspacePath, true, srcInstance, trgInstance, corrInstance);
 	}
 	
 	public void createTransformation() throws IOException {
-		forward = new FWD_OPT_App("BenchmarxFamiliesToPersons", testsuite.ibex.testUtil.Constants.workspacePath, false);
+		forward = new FWD_OPT_App("BenchmarxFamiliesToPersons", testsuite.ibex.testUtil.Constants.workspacePath, true);
 	}
 	
 	@Test
