@@ -8,6 +8,9 @@
       <groups xsi:type="FeatureModelSafe:OrGroup"/>
     </root>
   </FeatureModelSafe:Model>
+  <FeatureModelSafe:Model name="elit">
+    <root name="tellus"/>
+  </FeatureModelSafe:Model>
   <FeatureModelSafe:Model name="mauris">
     <root name="bibendum">
       <solitarySubFeatures name="mollis"/>
@@ -16,8 +19,5 @@
       </groups>
       <groups xsi:type="FeatureModelSafe:OrGroup"/>
     </root>
-  </FeatureModelSafe:Model>
-  <FeatureModelSafe:Model name="elit">
-    <root name="tellus"/>
   </FeatureModelSafe:Model>
 </xmi:XMI>

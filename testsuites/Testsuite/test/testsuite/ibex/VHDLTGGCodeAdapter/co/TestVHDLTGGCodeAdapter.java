@@ -2,8 +2,10 @@ package testsuite.ibex.VHDLTGGCodeAdapter.co;
 
 import java.io.IOException;
 
+import org.emoflon.ibex.tgg.run.vhdltggcodeadapter.FWD_OPT_App;
 import org.emoflon.ibex.tgg.run.vhdltggcodeadapter.CO_App;
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import testsuite.ibex.testUtil.COTestCase;
@@ -12,6 +14,19 @@ public class TestVHDLTGGCodeAdapter extends COTestCase{
 
 	public void createGenerator(String srcInstance, String trgInstance, String corrInstance) throws IOException {
 		checker = new CO_App("VHDLTGGCodeAdapter", testsuite.ibex.testUtil.Constants.workspacePath, false, srcInstance, trgInstance, corrInstance);
+	}
+	
+	public void createTransformation() throws IOException {
+		forward = new FWD_OPT_App("VHDLTGGCodeAdapter", testsuite.ibex.testUtil.Constants.workspacePath, false);
+	}
+	
+	@Ignore //--> featureID is 0 when trying to add the edge spec__blocks__composite_eMoflonEdge
+	//        --> probably problems with containment yes or no
+	@Test
+	public void testFWD_OPT() throws IOException {
+		createTransformation();
+		runForward();
+		testSimplePositive();
 	}
 	
 	@Test

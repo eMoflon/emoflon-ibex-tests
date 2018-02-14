@@ -21,7 +21,7 @@ public class SYNC_App extends SYNC {
 
 	public static void main(String[] args) throws IOException {
 		BasicConfigurator.configure();
-
+		
 		SYNC_App sync = new SYNC_App("FamiliesToPersons_MA", "./../", false);
 		
 		logger.info("Starting SYNC");

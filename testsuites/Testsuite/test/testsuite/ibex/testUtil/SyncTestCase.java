@@ -1,6 +1,5 @@
 package testsuite.ibex.testUtil;
 
-import org.benchmarx.BXTool;
 import org.benchmarx.util.BenchmarxUtil;
 import org.eclipse.emf.ecore.EObject;
 import org.junit.After;
@@ -9,7 +8,7 @@ import org.junit.Before;
 public abstract class SyncTestCase<S extends EObject, T extends EObject> extends TestCase {
 	private final String resourcePath = "../../../tggs/"+getProjectName()+"/resources/";
 
-	protected BXTool<S, T, Decisions> tool;
+	protected IbexAdapter<S, T> tool;
 	protected BenchmarxUtil<S, T, Decisions> util;
 	
 	protected SyncTestCase(IbexAdapter<S, T> tool) {
@@ -37,10 +36,10 @@ public abstract class SyncTestCase<S extends EObject, T extends EObject> extends
 	}
 
 	protected void assertPrecondition(String source, String target) {
-		util.assertPrecondition(resourcePath+source, resourcePath+target);
+		util.assertPrecondition(tool.getResourceSet(), resourcePath+source, resourcePath+target);
 	}
 	
 	protected void assertPostcondition(String source, String target) {
-		util.assertPostcondition(resourcePath+source, resourcePath+target);
+		util.assertPostcondition(tool.getResourceSet(), resourcePath+source, resourcePath+target);
 	}
 }
