@@ -3,7 +3,6 @@ package org.emoflon.ibex.tgg.run.companytoit;
 import java.io.IOException;
 
 import org.apache.log4j.BasicConfigurator;
-import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -13,7 +12,6 @@ import org.emoflon.ibex.tgg.operational.strategies.sync.*;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesEngine;
 
 import CompanyLanguage.impl.CompanyLanguagePackageImpl;
-import ITLanguage.impl.ITLanguagePackageImpl;
 
 public class FWD_OPT_App extends FWD_OPT {
 

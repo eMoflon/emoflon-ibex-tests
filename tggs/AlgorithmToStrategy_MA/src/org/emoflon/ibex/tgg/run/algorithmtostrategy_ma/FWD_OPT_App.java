@@ -12,7 +12,6 @@ import org.emoflon.ibex.tgg.operational.strategies.sync.FWD_OPT;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesEngine;
 
 import Algorithms.impl.AlgorithmsPackageImpl;
-import Strategies.impl.StrategiesPackageImpl;
 
 public class FWD_OPT_App extends FWD_OPT {
 

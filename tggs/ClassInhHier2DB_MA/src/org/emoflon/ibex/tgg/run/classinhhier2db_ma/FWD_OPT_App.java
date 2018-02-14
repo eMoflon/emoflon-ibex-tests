@@ -12,7 +12,6 @@ import org.emoflon.ibex.tgg.operational.strategies.sync.FWD_OPT;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesEngine;
 
 import ClassInheritanceHierarchy.impl.ClassInheritanceHierarchyPackageImpl;
-import Database.impl.DatabasePackageImpl;
 
 public class FWD_OPT_App extends FWD_OPT {
 

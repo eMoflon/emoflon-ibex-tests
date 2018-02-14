@@ -12,7 +12,6 @@ import org.emoflon.ibex.tgg.operational.strategies.sync.FWD_OPT;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesEngine;
 
 import FeatureModelConcise.impl.FeatureModelConcisePackageImpl;
-import FeatureModelSafe.impl.FeatureModelSafePackageImpl;
 
 public class FWD_OPT_App extends FWD_OPT {
 

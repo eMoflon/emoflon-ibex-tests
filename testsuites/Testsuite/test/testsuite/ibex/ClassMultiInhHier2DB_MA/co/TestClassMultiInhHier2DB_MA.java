@@ -4,7 +4,6 @@ import java.io.IOException;
 
 import org.emoflon.ibex.tgg.run.classmultipleinhhier2db_ma.CO_App;
 import org.junit.Assert;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import org.emoflon.ibex.tgg.run.classmultipleinhhier2db_ma.FWD_OPT_App;

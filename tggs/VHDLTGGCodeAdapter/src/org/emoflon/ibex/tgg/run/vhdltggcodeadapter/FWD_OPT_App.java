@@ -11,7 +11,6 @@ import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.sync.*;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesEngine;
 
-import MocaTree.impl.MocaTreePackageImpl;
 import VHDLModel.impl.VHDLModelPackageImpl;
 
 public class FWD_OPT_App extends FWD_OPT {
