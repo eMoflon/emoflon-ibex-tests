@@ -12,32 +12,34 @@ import testsuite.ibex.testUtil.COTestCase;
 
 public class TestProcessCodeAdapter extends COTestCase{
 
-	public void createGenerator(String srcInstance, String trgInstance, String corrInstance) throws IOException {
-		checker = new CO_App("ProcessCodeAdapter", testsuite.ibex.testUtil.Constants.workspacePath, false, srcInstance, trgInstance, corrInstance);
+	public void createGenerator(String srcInstance, String trgInstance, String corrInstance, String protInstance) throws IOException {
+		checker = new CO_App("ProcessCodeAdapter", testsuite.ibex.testUtil.Constants.workspacePath, false, srcInstance, trgInstance, corrInstance, protInstance);
 	}
 	
-	public void createTransformation() throws IOException {
-		forward = new FWD_OPT_App("ProcessCodeAdapter", testsuite.ibex.testUtil.Constants.workspacePath, false);
+	public void createTransformation(String srcInstance, String trgInstance, String corrInstance, String protInstance) throws IOException {
+		forward = new FWD_OPT_App("ProcessCodeAdapter", testsuite.ibex.testUtil.Constants.workspacePath, false, srcInstance, trgInstance, corrInstance, protInstance);
 	}
 
 	@Ignore //--> Feature-ID for the inverse EMFEdge of allModules (outgoing from SystemModule) is 0
 	@Test
 	public void testFWD_OPT() throws IOException {
-		createTransformation();
+		createTransformation("/instances/src", "/instances/trg", "/instances/corr", "/instances/protocol");
 		runForward();
-		testSimplePositive();
+		createGenerator("/instances/src", "/instances/trg", "/instances/corr", "/instances/protocol");
+		runGenerator();
+		Assert.assertTrue(checker.modelsAreConsistent());
 	}
 	
 	@Test
 	public void testSimplePositive() throws IOException {
-		createGenerator("src", "trg", "corr");
+		createGenerator("/resources/co/src", "/resources/co/trg", "/resources/co/corr", "/resources/co/protocol");
 		runGenerator();
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}
 	
 	@Test
 	public void testWrongLinks() throws IOException {
-		createGenerator("src", "trg", "corr_inc");
+		createGenerator("/resources/co/src", "/resources/co/trg", "/resources/co/corr_inc", "/resources/co/protocol");
 		runGenerator();
 		Assert.assertTrue(!checker.modelsAreConsistent());
 	}
