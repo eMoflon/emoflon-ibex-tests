@@ -4,7 +4,6 @@ import java.io.IOException;
 
 import org.emoflon.ibex.tgg.run.classinhhier2db.CO_App;
 import org.junit.Assert;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import org.emoflon.ibex.tgg.run.classinhhier2db.FWD_OPT_App;
@@ -12,32 +11,33 @@ import testsuite.ibex.testUtil.COTestCase;
 
 public class TestClassInhHier2DB extends COTestCase {
 
-	public void createGenerator(String srcInstance, String trgInstance, String corrInstance) throws IOException {
-		checker = new CO_App("ClassInhHier2DB", testsuite.ibex.testUtil.Constants.workspacePath, false, srcInstance, trgInstance, corrInstance);
+	public void createGenerator(String srcInstance, String trgInstance, String corrInstance, String protInstance) throws IOException {
+		checker = new CO_App("ClassInhHier2DB", testsuite.ibex.testUtil.Constants.workspacePath, false, srcInstance, trgInstance, corrInstance, protInstance);
 	}
 	
-	public void createTransformation() throws IOException {
-		forward = new FWD_OPT_App("ClassInhHier2DB", testsuite.ibex.testUtil.Constants.workspacePath, false);
+	public void createTransformation(String srcInstance, String trgInstance, String corrInstance, String protInstance) throws IOException {
+		forward = new FWD_OPT_App("ClassInhHier2DB", testsuite.ibex.testUtil.Constants.workspacePath, false, srcInstance, trgInstance, corrInstance, protInstance);
 	}
 	
 	@Test
 	public void testFWD_OPT() throws IOException {
-		createTransformation();
+		createTransformation("/instances/src", "/instances/trg", "/instances/corr", "/instances/protocol");
 		runForward();
-		testSimplePositive();
-	}
-	
-	@Test
-	public void testSimplePositive() throws IOException {
-		createGenerator("src", "trg", "corr");
+		createGenerator("/instances/src", "/instances/trg", "/instances/corr", "/instances/protocol");
 		runGenerator();
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}
 	
 	@Test
-	@Ignore //Seems to be non-deterministic
+	public void testSimplePositive() throws IOException {
+		createGenerator("/resources/co/src", "/resources/co/trg", "/resources/co/corr", "/resources/co/protocol");
+		runGenerator();
+		Assert.assertTrue(checker.modelsAreConsistent());
+	}
+	
+	@Test
 	public void testTwoWrongLinks() throws IOException {
-		createGenerator("src", "trg", "corr_inc");
+		createGenerator("/resources/co/src", "/resources/co/trg", "/resources/co/corr_inc", "/resources/co/protocol");
 		runGenerator();
 		Assert.assertTrue(!checker.modelsAreConsistent());
 	}

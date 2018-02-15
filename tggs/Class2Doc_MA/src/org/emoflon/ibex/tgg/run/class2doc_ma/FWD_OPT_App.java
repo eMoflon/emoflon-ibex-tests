@@ -1,17 +1,14 @@
-package org.emoflon.ibex.tgg.run.blockcodeadapter;
+package org.emoflon.ibex.tgg.run.class2doc_ma;
 
 import java.io.IOException;
 
 import org.apache.log4j.BasicConfigurator;
-import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.ibex.tgg.operational.csp.constraints.factories.UserDefinedRuntimeTGGAttrConstraintFactory;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.sync.FWD_OPT;
+import org.emoflon.ibex.tgg.run.class2doc_ma.FWD_OPT_App;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesEngine;
-
-import MocaTree.impl.MocaTreePackageImpl;
 
 public class FWD_OPT_App extends FWD_OPT {
 
@@ -33,7 +30,7 @@ public class FWD_OPT_App extends FWD_OPT {
 	public static void main(String[] args) throws IOException {
 		BasicConfigurator.configure();
 
-		FWD_OPT_App fwd_opt = new FWD_OPT_App("BlockCodeAdapter", "./../", true, "/resources/co/src", "/resources/co/trg", 
+		FWD_OPT_App fwd_opt = new FWD_OPT_App ("Class2Doc_MA", "./../", true, "/resources/co/src", "/resources/co/trg", 
 				"/resources/co/corr", "/resources/co/protocol");
 		
 		logger.info("Starting FWD_OPT");
@@ -47,17 +44,18 @@ public class FWD_OPT_App extends FWD_OPT {
 	}
 
 	protected void registerUserMetamodels() throws IOException {
-		// Load and register source and target metamodels
-		rs.getPackageRegistry().put("platform:/resource/MocaTree/model/MocaTree.ecore", MocaTreePackageImpl.init());
-		
-		Resource res = loadResource("platform:/resource/../metamodels/BlockLanguage/model/BlockLanguage.ecore");
-		EPackage pack = (EPackage) res.getContents().get(0);
-		//pack.setNsURI("platform:/plugin/BlockLanguage/model/BlockLanguage.ecore");
-		rs.getPackageRegistry().put("platform:/resource/BlockLanguage/model/BlockLanguage.ecore", pack);
-		rs.getPackageRegistry().put("platform:/plugin/BlockLanguage/model/BlockLanguage.ecore", pack);
+		_RegistrationHelper.registerMetamodels(rs, this);
 			
 		// Register correspondence metamodel last
 		loadAndRegisterMetamodel(projectPath + "/model/" + projectPath + ".ecore");
+	}
+	
+	private static IbexOptions createIbexOptions() {
+			IbexOptions options = new IbexOptions();
+			options.projectName("Class2Doc_MA");
+			options.debug(false);
+			options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
+			return options;
 	}
 	
 	@Override
@@ -68,13 +66,5 @@ public class FWD_OPT_App extends FWD_OPT {
 		p = createResource(projectPath +protPath+".xmi");
 	
 		EcoreUtil.resolveAll(rs);
-	}
-	
-	private static IbexOptions createIbexOptions() {
-			IbexOptions options = new IbexOptions();
-			options.projectName("BlockCodeAdapter");
-			options.debug(false);
-			options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
-			return options;
 	}
 }
