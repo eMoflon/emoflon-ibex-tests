@@ -15,15 +15,26 @@ import Algorithms.impl.AlgorithmsPackageImpl;
 
 public class FWD_OPT_App extends FWD_OPT {
 
-	public FWD_OPT_App(String projectName, String workspacePath, boolean debug) throws IOException {
+	String srcPath;
+	String trgPath;
+	String corrPath;
+	String protPath;
+	
+	public FWD_OPT_App(String projectName, String workspacePath, boolean debug, String srcPath, String trgPath, 
+			String corrPath, String protPath) throws IOException {
 		super(createIbexOptions().projectName(projectName).workspacePath(workspacePath).debug(debug));
+		this.srcPath = srcPath;
+		this.trgPath = trgPath;
+		this.corrPath = corrPath;
+		this.protPath = protPath;
 		registerBlackInterpreter(new DemoclesEngine());
 	}
 
 	public static void main(String[] args) throws IOException {
 		BasicConfigurator.configure();
 
-		FWD_OPT_App fwd_opt = new FWD_OPT_App("AlgorithmToStrategy_MA", "./../", true);
+		FWD_OPT_App fwd_opt = new FWD_OPT_App("AlgorithmToStrategy_MA", "./../", true, "/resources/co/src", "/resources/co/trg", 
+				"/resources/co/corr", "/resources/co/protocol");
 		
 		logger.info("Starting FWD_OPT");
 		long tic = System.currentTimeMillis();
@@ -52,13 +63,12 @@ public class FWD_OPT_App extends FWD_OPT {
 	
 	@Override
 	public void loadModels() throws IOException {
-		s = loadResource(projectPath + "/resources/co/src.xmi");
-		t = createResource(projectPath + "/resources/co/trg.xmi");
-		c = createResource(projectPath + "/resources/co/corr.xmi");
-		p = createResource(projectPath + "/resources/co/protocol.xmi");
-		
+		s = loadResource(projectPath +srcPath+".xmi");
+		t = loadResource(projectPath +trgPath+".xmi");
+		c = loadResource(projectPath +corrPath+".xmi");
+		p = createResource(projectPath +protPath+".xmi");
+	
 		EcoreUtil.resolveAll(rs);
-
 	}
 	
 	private static IbexOptions createIbexOptions() {

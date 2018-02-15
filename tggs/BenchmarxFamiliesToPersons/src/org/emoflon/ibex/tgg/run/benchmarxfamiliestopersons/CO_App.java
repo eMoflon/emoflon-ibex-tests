@@ -17,19 +17,23 @@ public class CO_App extends CO {
 	String srcPath;
 	String trgPath;
 	String corrPath;
+	String protPath;
 	
-	public CO_App(String projectName, String workspacePath, boolean debug, String srcPath, String trgPath, String corrPath) throws IOException {
+	public CO_App(String projectName, String workspacePath, boolean debug, String srcPath, String trgPath, 
+			String corrPath, String protPath) throws IOException {
 		super(createIbexOptions().projectName(projectName).workspacePath(workspacePath).debug(debug));
 		this.srcPath = srcPath;
 		this.trgPath = trgPath;
 		this.corrPath = corrPath;
+		this.protPath = protPath;
 		registerBlackInterpreter(new DemoclesEngine());
 	}
 
 	public static void main(String[] args) throws IOException {
 		BasicConfigurator.configure();
 
-		CO_App co = new CO_App("BenchmarxFamiliesToPersons", "./../", true, "src", "trg", "corr");
+		CO_App co = new CO_App("BenchmarxFamiliesToPersons", "./../", true, "/resources/co/src", "/resources/co/trg", 
+				"/resources/co/corr", "/resources/co/protocol");
 		
 		logger.info("Starting CO");
 		long tic = System.currentTimeMillis();
@@ -54,10 +58,10 @@ public class CO_App extends CO {
 	
 	@Override
 	public void loadModels() throws IOException {
-		s = loadResource(projectPath + "/resources/co/"+srcPath+".xmi");
-		t = loadResource(projectPath + "/resources/co/"+trgPath+".xmi");
-		c = loadResource(projectPath + "/resources/co/"+corrPath+".xmi");
-		p = createResource(projectPath + "/resources/co/protocol.xmi");
+		s = loadResource(projectPath +srcPath+".xmi");
+		t = loadResource(projectPath +trgPath+".xmi");
+		c = loadResource(projectPath +corrPath+".xmi");
+		p = createResource(projectPath +protPath+".xmi");
 	
 		EcoreUtil.resolveAll(rs);
 	}

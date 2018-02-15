@@ -1,6 +1,5 @@
 package org.emoflon.ibex.tgg.run.mocatreetoprocess;
 
-import org.apache.commons.lang3.NotImplementedException;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 
 import MocaTree.impl.MocaTreePackageImpl;
