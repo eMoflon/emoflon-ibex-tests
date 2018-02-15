@@ -55,7 +55,7 @@ public final static String projectName = "ClassInhHier2DB_MA";
 	public IMatch getMatch(ImmutableMatchContainer matchContainer, String preferedRule) {
 		Optional<IMatch> match = matchContainer.getMatches()
 				.stream()
-				.filter(m -> m.patternName().contains(preferedRule))
+				.filter(m -> m.getPatternName().contains(preferedRule))
 				.findAny();
 		return match.orElse(matchContainer.getNextRandom());
 	}

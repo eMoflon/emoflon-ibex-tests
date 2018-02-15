@@ -22,7 +22,7 @@ public class CreateSingleTransitiveInhUpdatePolicy extends CreateAttributesUpdat
 	protected Optional<IMatch> forceInheritanceCreation(ImmutableMatchContainer matchContainer) {
 		Optional<IMatch> match = matchContainer.getMatches()
 				.stream()
-				.filter(m -> m.patternName().equals("SubClassToTable__GEN"))
+				.filter(m -> m.getPatternName().equals("SubClassToTable__GEN"))
 				.filter(m -> {
 					Clazz clazz = (Clazz) m.get("subClazz");
 					return clazz.getSuperClass().isEmpty();

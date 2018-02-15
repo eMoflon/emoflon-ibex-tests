@@ -22,7 +22,7 @@ public class CreateUpdatePolicy extends UpdatePolicy {
 	protected Optional<IMatch> forceClassCreation(ImmutableMatchContainer matchContainer) {
 		Optional<IMatch> match = matchContainer.getMatches()
 				.stream()
-				.filter(m -> m.patternName().equals("Class2Doc__GEN"))
+				.filter(m -> m.getPatternName().equals("Class2Doc__GEN"))
 				.findAny();
 		return match;
 	}
@@ -30,7 +30,7 @@ public class CreateUpdatePolicy extends UpdatePolicy {
 	protected Optional<IMatch> forceInheritanceCreation(ImmutableMatchContainer matchContainer) {
 		Optional<IMatch> match = matchContainer.getMatches()
 				.stream()
-				.filter(m -> m.patternName().equals("SubClass2SubDoc__GEN"))
+				.filter(m -> m.getPatternName().equals("SubClass2SubDoc__GEN"))
 				.findAny();
 		return match;
 	}

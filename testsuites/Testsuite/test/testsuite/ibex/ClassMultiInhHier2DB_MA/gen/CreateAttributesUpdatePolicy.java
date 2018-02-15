@@ -27,7 +27,7 @@ public class CreateAttributesUpdatePolicy extends UpdatePolicy {
 	protected Optional<IMatch> forceClassCreation(ImmutableMatchContainer matchContainer) {
 		Optional<IMatch> match = matchContainer.getMatches()
 				.stream()
-				.filter(m -> m.patternName().equals("ClassToTable__GEN"))
+				.filter(m -> m.getPatternName().equals("ClassToTable__GEN"))
 				.findAny();
 		return match;
 	}
@@ -35,7 +35,7 @@ public class CreateAttributesUpdatePolicy extends UpdatePolicy {
 	protected Optional<IMatch> forceInheritanceCreation(ImmutableMatchContainer matchContainer) {
 		Optional<IMatch> match = matchContainer.getMatches()
 				.stream()
-				.filter(m -> m.patternName().equals("SubClassToTable__GEN"))
+				.filter(m -> m.getPatternName().equals("SubClassToTable__GEN"))
 				.findAny();
 		return match;
 	}
@@ -43,7 +43,7 @@ public class CreateAttributesUpdatePolicy extends UpdatePolicy {
 	protected Optional<IMatch> getNonAttributeMatch(ImmutableMatchContainer matchContainer) {
 		Optional<IMatch> match = matchContainer.getMatches()
 				  .stream()
-				  .filter(m -> ! m.patternName().equals("AttributeToColumn__GEN"))
+				  .filter(m -> ! m.getPatternName().equals("AttributeToColumn__GEN"))
 				  .findAny();
 		return match;
 	}
@@ -51,7 +51,7 @@ public class CreateAttributesUpdatePolicy extends UpdatePolicy {
 	protected Optional<IMatch> getAttributeMatchForSubClass(ImmutableMatchContainer matchContainer) {
 		Optional<IMatch> match = matchContainer.getMatches()
 		  		.stream()
-		  		.filter(m -> m.patternName().equals("AttributeToColumn__GEN"))
+		  		.filter(m -> m.getPatternName().equals("AttributeToColumn__GEN"))
 		  		.filter(m -> {
 					Clazz clazz = (Clazz) m.get("clazz");
 					return !clazz.getSuperClass().isEmpty();
@@ -63,7 +63,7 @@ public class CreateAttributesUpdatePolicy extends UpdatePolicy {
 	protected Optional<IMatch> getAttributeMatchForEmptySuperClass(ImmutableMatchContainer matchContainer) {
 		Optional<IMatch> match = matchContainer.getMatches()
 				.stream()
-				.filter(m -> m.patternName().equals("AttributeToColumn__GEN"))
+				.filter(m -> m.getPatternName().equals("AttributeToColumn__GEN"))
 				.filter(m -> {
 					Clazz clazz = (Clazz) m.get("clazz");
 					return clazz.getSuperClass().isEmpty() && clazz.getAttributes().isEmpty();

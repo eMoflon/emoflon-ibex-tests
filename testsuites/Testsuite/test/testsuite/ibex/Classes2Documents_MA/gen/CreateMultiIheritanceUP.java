@@ -19,7 +19,7 @@ public class CreateMultiIheritanceUP extends CreateUpdatePolicy{
 	protected Optional<IMatch> forceInheritanceCreation(ImmutableMatchContainer matchContainer) {
 		Optional<IMatch> match = matchContainer.getMatches()
 				.stream()
-				.filter(m -> m.patternName().equals("SubClass2SubDoc__GEN"))
+				.filter(m -> m.getPatternName().equals("SubClass2SubDoc__GEN"))
 				.filter(m -> {
 					Clazz clazz = (Clazz) m.get("subClass");
 					return clazz.getSuperClass().isEmpty();
