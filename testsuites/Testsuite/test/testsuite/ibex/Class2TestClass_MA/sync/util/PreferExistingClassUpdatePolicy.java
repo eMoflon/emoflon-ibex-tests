@@ -22,7 +22,7 @@ public class PreferExistingClassUpdatePolicy extends UpdatePolicy{
 	}
 
 	private boolean isIrrelevantMatchForSync(IMatch m) {
-		return m.patternName().endsWith(PatternSuffixes.CONSISTENCY);
+		return m.getPatternName().endsWith(PatternSuffixes.CONSISTENCY);
 	}
 
 	private void handlePrefsForExistingClass(Set<IMatch> matches) {
@@ -38,7 +38,7 @@ public class PreferExistingClassUpdatePolicy extends UpdatePolicy{
 	}
 	
 	private boolean usesExistingClass(IMatch m) {
-		return ! (m.patternName().contains(MAUtil.FUSED));
+		return ! (m.getPatternName().contains(MAUtil.FUSED));
 	}
 
 

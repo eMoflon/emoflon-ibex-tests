@@ -32,7 +32,7 @@ public class F2PUpdatePolicy extends UpdatePolicy {
 	}
 
 	private boolean isIrrelevantMatchForSync(IMatch m) {
-		return m.patternName().endsWith(PatternSuffixes.CONSISTENCY);
+		return m.getPatternName().endsWith(PatternSuffixes.CONSISTENCY);
 	}
 
 	private void handlePrefsForExistingFamily(Set<IMatch> matches) {
@@ -49,7 +49,7 @@ public class F2PUpdatePolicy extends UpdatePolicy {
 	}
 	
 	private boolean usesExistingFamily(IMatch m) {
-		return ! m.patternName().contains(MAUtil.FUSED);
+		return !m.getPatternName().contains(MAUtil.FUSED);
 	}
 
 	private void handlePrefsForParents(Set<IMatch> matches) {
@@ -65,11 +65,11 @@ public class F2PUpdatePolicy extends UpdatePolicy {
 	}
 
 	private boolean isParentRule(IMatch m) {
-		return m.patternName().contains("Mother") || m.patternName().contains("Father");
+		return m.getPatternName().contains("Mother") || m.getPatternName().contains("Father");
 	}
 
 	private boolean isChildRule(IMatch m) {
-		return m.patternName().contains("Son") || m.patternName().contains("Daughter");
+		return m.getPatternName().contains("Son") || m.getPatternName().contains("Daughter");
 	}
 
 	private boolean atLeastOneChildCanBeCreated(Set<IMatch> matches) {
