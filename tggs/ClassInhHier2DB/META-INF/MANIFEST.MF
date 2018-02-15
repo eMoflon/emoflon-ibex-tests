@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-SymbolicName: ClassInhHier2DB;singleton:=true
-Bundle-Name: testsuite1_ClassInhHier2DB
+Bundle-Name: ClassInhHier2DB
 Bundle-Version: 1.0
 Require-Bundle: org.eclipse.emf.ecore.xmi,
  org.apache.log4j,
@@ -23,9 +23,10 @@ Require-Bundle: org.eclipse.emf.ecore.xmi,
  Benchmarx;bundle-version="1.0.0",
  ClassInheritanceHierarchy;bundle-version="1.0.0",
  Database;bundle-version="1.0.0",
- org.emoflon.ibex.tgg.core.language;bundle-version="1.0.0",
- org.emoflon.ibex.tgg.core.runtime;bundle-version="1.0.0",
- org.emoflon.ibex.tgg.runtime.democles;bundle-version="1.0.0"
+ org.emoflon.ibex.common,
+ org.emoflon.ibex.tgg.core.language,
+ org.emoflon.ibex.tgg.core.runtime,
+ org.emoflon.ibex.tgg.runtime.democles
 Bundle-ManifestVersion: 2
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
