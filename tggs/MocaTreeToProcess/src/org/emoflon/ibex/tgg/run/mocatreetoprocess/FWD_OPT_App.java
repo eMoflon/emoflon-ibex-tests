@@ -33,8 +33,8 @@ public class FWD_OPT_App extends FWD_OPT {
 	public static void main(String[] args) throws IOException {
 		BasicConfigurator.configure();
 		
-		FWD_OPT_App sync = new FWD_OPT_App("MocaTreeToProcess", "./../", true, "/resources/co/src", "/resources/co/trg", 
-				"/resources/co/corr", "/resources/co/protocol");
+		FWD_OPT_App sync = new FWD_OPT_App("MocaTreeToProcess", "./../", true, "/instances/src", "/instances/trg", 
+				"/instances/corr", "/instances/protocol");
 		
 		logger.info("Starting SYNC");
 		long tic = System.currentTimeMillis();
@@ -56,15 +56,16 @@ public class FWD_OPT_App extends FWD_OPT {
 		EcoreUtil.resolveAll(rs);
 	}
 	
+	@Override
 	protected void registerUserMetamodels() throws IOException {
 		// Load and register source and target metamodels
 		rs.getPackageRegistry().put("platform:/resource/MocaTree/model/MocaTree.ecore", MocaTreePackageImpl.init());
 		//rs.getPackageRegistry().put("platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore", ProcessDefinitionPackageImpl.init());
 		//loadAndRegisterMetamodel("platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore");
 		
-		Resource res = loadResource("platform:/resource/../../../git/emoflon-ibex-tests/metamodels/ProcessDefinition/model/ProcessDefinition.ecore");
+		Resource res = loadResource("platform:/resource/../metamodels/ProcessDefinition/model/ProcessDefinition.ecore");
 		EPackage pack = (EPackage) res.getContents().get(0);
-		pack.setNsURI("platform:/plugin/ProcessDefinition/model/ProcessDefinition.ecore");
+		//pack.setNsURI("platform:/plugin/ProcessDefinition/model/ProcessDefinition.ecore");
 		//rs.getResources().remove(res);
 		rs.getPackageRegistry().put("platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore", pack);
 		

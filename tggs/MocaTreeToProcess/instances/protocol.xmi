@@ -1,32 +1,18 @@
 <?xml version="1.0" encoding="ASCII"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:org.emoflon.ibex.tgg.core.runtime="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore">
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="FolderToSystemModule" final="true">
-    <createdSrc href="src.xmi#/"/>
-    <createdTrg href="trg.xmi#/0"/>
-    <createdCorr href="corr.xmi#/0"/>
-    <nodeMappings key="folder">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="sysmod">
-      <value href="trg.xmi#/0"/>
-    </nodeMappings>
-    <nodeMappings key="folder2sysmod">
-      <value href="corr.xmi#/0"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="FilesToModule" final="true">
-    <createdSrc href="src.xmi#//@file.4"/>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="FilesToModule">
+    <createdSrc href="src.xmi#//@file.0"/>
     <createdSrc href="src.xmi#//@file.2"/>
-    <createdTrg href="trg.xmi#/1"/>
+    <createdTrg href="trg.xmi#//@allModules.0"/>
     <createdCorr href="corr.xmi#/1"/>
     <createdCorr href="corr.xmi#/2"/>
     <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/0"/>
+    <contextTrg href="trg.xmi#/"/>
     <nodeMappings key="foobaa">
-      <value href="trg.xmi#/1"/>
+      <value href="trg.xmi#//@allModules.0"/>
     </nodeMappings>
     <nodeMappings key="baa">
-      <value href="src.xmi#//@file.4"/>
+      <value href="src.xmi#//@file.0"/>
     </nodeMappings>
     <nodeMappings key="folder">
       <value href="src.xmi#/"/>
@@ -35,7 +21,7 @@
       <value href="src.xmi#//@file.2"/>
     </nodeMappings>
     <nodeMappings key="sysmod">
-      <value href="trg.xmi#/0"/>
+      <value href="trg.xmi#/"/>
     </nodeMappings>
     <nodeMappings key="folder2sysmod">
       <value href="corr.xmi#/0"/>
@@ -47,46 +33,60 @@
       <value href="corr.xmi#/2"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="FilesToTask" final="true">
-    <createdSrc href="src.xmi#//@file.1"/>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="FolderToSystemModule">
+    <createdSrc href="src.xmi#/"/>
+    <createdTrg href="trg.xmi#/"/>
+    <createdCorr href="corr.xmi#/0"/>
+    <nodeMappings key="folder">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="sysmod">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="folder2sysmod">
+      <value href="corr.xmi#/0"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="FilesToTask">
     <createdSrc href="src.xmi#//@file.3"/>
-    <createdSrc href="src.xmi#//@file.0"/>
-    <createdTrg href="trg.xmi#/2"/>
-    <createdCorr href="corr.xmi#/3"/>
+    <createdSrc href="src.xmi#//@file.4"/>
+    <createdSrc href="src.xmi#//@file.1"/>
+    <createdTrg href="trg.xmi#//@allModules.0/@tasks.0"/>
     <createdCorr href="corr.xmi#/4"/>
+    <createdCorr href="corr.xmi#/3"/>
     <createdCorr href="corr.xmi#/5"/>
     <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/1"/>
-    <contextTrg href="trg.xmi#/0"/>
+    <contextTrg href="trg.xmi#//@allModules.0"/>
+    <contextTrg href="trg.xmi#/"/>
     <nodeMappings key="foobaa">
-      <value href="trg.xmi#/1"/>
+      <value href="trg.xmi#//@allModules.0"/>
     </nodeMappings>
     <nodeMappings key="baa">
-      <value href="src.xmi#//@file.1"/>
+      <value href="src.xmi#//@file.3"/>
     </nodeMappings>
     <nodeMappings key="folder">
       <value href="src.xmi#/"/>
     </nodeMappings>
     <nodeMappings key="task">
-      <value href="trg.xmi#/2"/>
+      <value href="trg.xmi#//@allModules.0/@tasks.0"/>
     </nodeMappings>
     <nodeMappings key="foo">
-      <value href="src.xmi#//@file.0"/>
+      <value href="src.xmi#//@file.1"/>
     </nodeMappings>
     <nodeMappings key="sysmod">
-      <value href="trg.xmi#/0"/>
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="baa2task">
+      <value href="corr.xmi#/4"/>
+    </nodeMappings>
+    <nodeMappings key="baz2task">
+      <value href="corr.xmi#/3"/>
     </nodeMappings>
     <nodeMappings key="folder2sysmod">
       <value href="corr.xmi#/0"/>
     </nodeMappings>
-    <nodeMappings key="baa2task">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="baz2task">
-      <value href="corr.xmi#/4"/>
-    </nodeMappings>
     <nodeMappings key="baz">
-      <value href="src.xmi#//@file.3"/>
+      <value href="src.xmi#//@file.4"/>
     </nodeMappings>
     <nodeMappings key="foo2task">
       <value href="corr.xmi#/5"/>
