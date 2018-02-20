@@ -9,7 +9,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.ibex.tgg.operational.csp.constraints.factories.UserDefinedRuntimeTGGAttrConstraintFactory;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.sync.FWD_OPT;
-import org.emoflon.ibex.tgg.runtime.engine.DemoclesEngine;
+import org.emoflon.ibex.tgg.runtime.engine.DemoclesTGGEngine;
 
 import ProcessDefinition.impl.ProcessDefinitionPackageImpl;
 
@@ -27,7 +27,7 @@ public class FWD_OPT_App extends FWD_OPT {
 		this.trgPath = trgPath;
 		this.corrPath = corrPath;
 		this.protPath = protPath;
-		registerBlackInterpreter(new DemoclesEngine());
+		registerBlackInterpreter(new DemoclesTGGEngine());
 	}
 
 	public static void main(String[] args) throws IOException {

@@ -7,7 +7,7 @@ import org.emoflon.ibex.tgg.operational.csp.constraints.factories.UserDefinedRun
 import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGEN;
 import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGENStopCriterion;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
-import org.emoflon.ibex.tgg.runtime.engine.DemoclesEngine;
+import org.emoflon.ibex.tgg.runtime.engine.DemoclesTGGEngine;
 
 import BlockDiagram.impl.BlockDiagramPackageImpl;
 import MocaTree.impl.MocaTreePackageImpl;
@@ -19,7 +19,7 @@ public class MODELGEN_App extends MODELGEN {
 				.projectName(projectName)
 				.workspacePath(workspacePath)
 				.debug(debug));
-		registerBlackInterpreter(new DemoclesEngine());
+		registerBlackInterpreter(new DemoclesTGGEngine());
 	}
 
 	public static void main(String[] args) throws IOException {

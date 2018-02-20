@@ -24,7 +24,7 @@ public class CreateAttributesUpdatePolicy extends UpdatePolicy {
 	private Optional<IMatch> getNonAttributeMatch(ImmutableMatchContainer matchContainer) {
 		Optional<IMatch> findMatch = matchContainer.getMatches()
 				  .stream()
-				  .filter(m -> ! m.patternName().equals("AttributeToColumnRule__GEN"))
+				  .filter(m -> ! m.getPatternName().equals("AttributeToColumnRule__GEN"))
 				  .findAny();
 		return findMatch;
 	}
@@ -32,7 +32,7 @@ public class CreateAttributesUpdatePolicy extends UpdatePolicy {
 	private Optional<IMatch> getAttributeMatchForSubClass(ImmutableMatchContainer matchContainer) {
 		Optional<IMatch> match = matchContainer.getMatches()
 		  		.stream()
-		  		.filter(m -> m.patternName().equals("AttributeToColumnRule__GEN"))
+		  		.filter(m -> m.getPatternName().equals("AttributeToColumnRule__GEN"))
 		  		.filter(m -> {
 					Clazz clazz = (Clazz) m.get("clazz");
 					return clazz.getSuperClass() != null;
@@ -44,7 +44,7 @@ public class CreateAttributesUpdatePolicy extends UpdatePolicy {
 	private Optional<IMatch> getAttributeMatchForEmptySuperClass(ImmutableMatchContainer matchContainer) {
 		Optional<IMatch> match = matchContainer.getMatches()
 				.stream()
-				.filter(m -> m.patternName().equals("AttributeToColumnRule__GEN"))
+				.filter(m -> m.getPatternName().equals("AttributeToColumnRule__GEN"))
 				.filter(m -> {
 					Clazz clazz = (Clazz) m.get("clazz");
 					return clazz.getSuperClass() == null && clazz.getAttributes().isEmpty();

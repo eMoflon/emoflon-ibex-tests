@@ -8,7 +8,7 @@ import org.emoflon.ibex.tgg.operational.csp.constraints.factories.UserDefinedRun
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.co.CO;
 import org.emoflon.ibex.tgg.run.algorithmtostrategy_ma.CO_App;
-import org.emoflon.ibex.tgg.runtime.engine.DemoclesEngine;
+import org.emoflon.ibex.tgg.runtime.engine.DemoclesTGGEngine;
 
 public class CO_App extends CO {
 
@@ -24,7 +24,7 @@ public class CO_App extends CO {
 		this.trgPath = trgPath;
 		this.corrPath = corrPath;
 		this.protPath = protPath;
-		registerBlackInterpreter(new DemoclesEngine());
+		registerBlackInterpreter(new DemoclesTGGEngine());
 	}
 
 	public static void main(String[] args) throws IOException {

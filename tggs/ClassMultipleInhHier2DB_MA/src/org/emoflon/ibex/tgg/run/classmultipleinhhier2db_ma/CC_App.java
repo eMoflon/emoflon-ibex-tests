@@ -7,7 +7,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.ibex.tgg.operational.csp.constraints.factories.UserDefinedRuntimeTGGAttrConstraintFactory;
 import org.emoflon.ibex.tgg.operational.strategies.cc.CC;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
-import org.emoflon.ibex.tgg.runtime.engine.DemoclesEngine;
+import org.emoflon.ibex.tgg.runtime.engine.DemoclesTGGEngine;
 
 import Database.impl.DatabasePackageImpl;
 import classMultipleInheritanceHierarchy.impl.ClassMultipleInheritanceHierarchyPackageImpl;
@@ -22,12 +22,12 @@ public class CC_App extends CC {
 		super(createIbexOptions().projectName(projectName).workspacePath(workspacePath).debug(debug));
 		this.srcPath = srcPath;
 		this.trgPath = trgPath;
-		registerBlackInterpreter(new DemoclesEngine());
+		registerBlackInterpreter(new DemoclesTGGEngine());
 	}
 
 	public CC_App(String projectName, String workspacePath, boolean debug) throws IOException {
 		super(createIbexOptions().projectName(projectName).workspacePath(workspacePath).debug(debug));
-		registerBlackInterpreter(new DemoclesEngine());
+		registerBlackInterpreter(new DemoclesTGGEngine());
 	}
 
 	public static void main(String[] args) throws IOException {
