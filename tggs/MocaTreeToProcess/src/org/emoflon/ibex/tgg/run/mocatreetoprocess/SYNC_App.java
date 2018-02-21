@@ -55,7 +55,7 @@ public class SYNC_App extends SYNC {
 	
 	private static IbexOptions createIbexOptions() {
 		IbexOptions options = new IbexOptions();
-		options.projectName("MocaTreeToProcess");
+		options.projectPath("MocaTreeToProcess");
 		options.debug(true);
 		options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
 		return options;

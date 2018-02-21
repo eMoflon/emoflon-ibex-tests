@@ -82,7 +82,7 @@ public class CC_App extends CC {
 	
 	private static IbexOptions createIbexOptions() {
 		IbexOptions options = new IbexOptions();
-		options.projectName("ClassInhHier2DB_MA");
+		options.projectPath("ClassInhHier2DB_MA");
 		options.debug(false);
 		options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
 		return options;

@@ -62,7 +62,7 @@ public class FWD_OPT_App extends FWD_OPT {
 	
 	private static IbexOptions createIbexOptions() {
 			IbexOptions options = new IbexOptions();
-			options.projectName("FamiliesToPersons_V0");
+			options.projectPath("FamiliesToPersons_V0");
 			options.debug(false);
 			options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
 			return options;

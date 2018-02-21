@@ -50,7 +50,7 @@ public class MODELGEN_App extends MODELGEN {
 	
 	private static IbexOptions createIbexOptions() {
 		IbexOptions options = new IbexOptions();
-		options.projectName("ClassInhHier2DB");
+		options.projectPath("ClassInhHier2DB");
 		options.debug(false);
 		options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
 		return options;
