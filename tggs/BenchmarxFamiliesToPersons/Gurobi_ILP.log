@@ -1901,3 +1901,234 @@ Pool objective bound 20
 
 Optimal solution found (tolerance 1.00e-04)
 Best objective 2.000000000000e+01, best bound 2.000000000000e+01, gap 0.0000%
+
+Gurobi 7.0.2 (win64, Java) logging started 02/21/18 10:57:05
+
+Warning: Gurobi version mismatch between Java 7.0.1 and C library 7.0.2
+Warning: Gurobi version mismatch between Java 7.0.1 and Jni 7.0.2
+Optimize a model with 0 rows, 0 columns and 0 nonzeros
+Coefficient statistics:
+  Matrix range     [0e+00, 0e+00]
+  Objective range  [0e+00, 0e+00]
+  Bounds range     [0e+00, 0e+00]
+  RHS range        [0e+00, 0e+00]
+Presolve time: 0.08s
+Presolve: All rows and columns removed
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0   -0.0000000e+00   0.000000e+00   0.000000e+00      0s
+
+Solved in 0 iterations and 0.16 seconds
+Optimal objective -0.000000000e+00
+
+Gurobi 7.0.2 (win64, Java) logging started 02/21/18 10:58:03
+
+Warning: Gurobi version mismatch between Java 7.0.1 and C library 7.0.2
+Warning: Gurobi version mismatch between Java 7.0.1 and Jni 7.0.2
+Optimize a model with 69 rows, 7 columns and 114 nonzeros
+Variable types: 0 continuous, 7 integer (7 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 6e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 1e+00]
+Found heuristic solution: objective 1
+Presolve removed 64 rows and 3 columns
+Presolve time: 0.03s
+Presolved: 5 rows, 4 columns, 10 nonzeros
+Found heuristic solution: objective 16.0000000
+Variable types: 0 continuous, 4 integer (4 binary)
+
+Root relaxation: cutoff, 2 iterations, 0.01 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0     cutoff    0        16.00000   18.99998  18.7%     -    0s
+
+Explored 0 nodes (2 simplex iterations) in 0.13 seconds
+Thread count was 2 (of 2 available processors)
+
+Solution count 2: 16 7 
+Pool objective bound 16
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 1.600000000000e+01, best bound 1.600000000000e+01, gap 0.0000%
+
+Gurobi 7.0.2 (win64, Java) logging started 02/21/18 11:01:31
+
+Warning: Gurobi version mismatch between Java 7.0.1 and C library 7.0.2
+Warning: Gurobi version mismatch between Java 7.0.1 and Jni 7.0.2
+Optimize a model with 0 rows, 0 columns and 0 nonzeros
+Coefficient statistics:
+  Matrix range     [0e+00, 0e+00]
+  Objective range  [0e+00, 0e+00]
+  Bounds range     [0e+00, 0e+00]
+  RHS range        [0e+00, 0e+00]
+Presolve time: 0.00s
+Presolve: All rows and columns removed
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0   -0.0000000e+00   0.000000e+00   0.000000e+00      0s
+
+Solved in 0 iterations and 0.00 seconds
+Optimal objective -0.000000000e+00
+
+Gurobi 7.0.2 (win64, Java) logging started 02/21/18 11:07:04
+
+Warning: Gurobi version mismatch between Java 7.0.1 and C library 7.0.2
+Warning: Gurobi version mismatch between Java 7.0.1 and Jni 7.0.2
+Optimize a model with 0 rows, 0 columns and 0 nonzeros
+Coefficient statistics:
+  Matrix range     [0e+00, 0e+00]
+  Objective range  [0e+00, 0e+00]
+  Bounds range     [0e+00, 0e+00]
+  RHS range        [0e+00, 0e+00]
+Presolve time: 0.00s
+Presolve: All rows and columns removed
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0   -0.0000000e+00   0.000000e+00   0.000000e+00      0s
+
+Solved in 0 iterations and 0.00 seconds
+Optimal objective -0.000000000e+00
+
+Gurobi 7.0.2 (win64, Java) logging started 02/21/18 11:07:15
+
+Warning: Gurobi version mismatch between Java 7.0.1 and C library 7.0.2
+Warning: Gurobi version mismatch between Java 7.0.1 and Jni 7.0.2
+Optimize a model with 0 rows, 0 columns and 0 nonzeros
+Coefficient statistics:
+  Matrix range     [0e+00, 0e+00]
+  Objective range  [0e+00, 0e+00]
+  Bounds range     [0e+00, 0e+00]
+  RHS range        [0e+00, 0e+00]
+Presolve time: 0.00s
+Presolve: All rows and columns removed
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0   -0.0000000e+00   0.000000e+00   0.000000e+00      0s
+
+Solved in 0 iterations and 0.00 seconds
+Optimal objective -0.000000000e+00
+
+Gurobi 7.0.2 (win64, Java) logging started 02/21/18 11:16:07
+
+Warning: Gurobi version mismatch between Java 7.0.1 and C library 7.0.2
+Warning: Gurobi version mismatch between Java 7.0.1 and Jni 7.0.2
+Optimize a model with 272 rows, 27 columns and 479 nonzeros
+Variable types: 0 continuous, 27 integer (27 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 3e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 1e+00]
+Found heuristic solution: objective 1
+Presolve removed 272 rows and 27 columns
+Presolve time: 0.00s
+Presolve: All rows and columns removed
+
+Explored 0 nodes (0 simplex iterations) in 0.00 seconds
+Thread count was 1 (of 2 available processors)
+
+Solution count 1: 10 
+Pool objective bound 10
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 1.000000000000e+01, best bound 1.000000000000e+01, gap 0.0000%
+
+Gurobi 7.0.2 (win64, Java) logging started 02/21/18 11:35:56
+
+Warning: Gurobi version mismatch between Java 7.0.1 and C library 7.0.2
+Warning: Gurobi version mismatch between Java 7.0.1 and Jni 7.0.2
+Optimize a model with 272 rows, 27 columns and 479 nonzeros
+Variable types: 0 continuous, 27 integer (27 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 3e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 1e+00]
+Found heuristic solution: objective 1
+Presolve removed 272 rows and 27 columns
+Presolve time: 0.00s
+Presolve: All rows and columns removed
+
+Explored 0 nodes (0 simplex iterations) in 0.00 seconds
+Thread count was 1 (of 2 available processors)
+
+Solution count 1: 10 
+Pool objective bound 10
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 1.000000000000e+01, best bound 1.000000000000e+01, gap 0.0000%
+
+Gurobi 7.0.2 (win64, Java) logging started 02/21/18 11:36:24
+
+Warning: Gurobi version mismatch between Java 7.0.1 and C library 7.0.2
+Warning: Gurobi version mismatch between Java 7.0.1 and Jni 7.0.2
+Optimize a model with 72 rows, 7 columns and 108 nonzeros
+Variable types: 0 continuous, 7 integer (7 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 6e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 1e+00]
+Found heuristic solution: objective 1
+Presolve removed 72 rows and 7 columns
+Presolve time: 0.00s
+Presolve: All rows and columns removed
+
+Explored 0 nodes (0 simplex iterations) in 0.00 seconds
+Thread count was 1 (of 2 available processors)
+
+Solution count 1: 19 
+Pool objective bound 19
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 1.900000000000e+01, best bound 1.900000000000e+01, gap 0.0000%
+
+Gurobi 7.0.2 (win64, Java) logging started 02/21/18 11:36:34
+
+Warning: Gurobi version mismatch between Java 7.0.1 and C library 7.0.2
+Warning: Gurobi version mismatch between Java 7.0.1 and Jni 7.0.2
+Optimize a model with 272 rows, 27 columns and 479 nonzeros
+Variable types: 0 continuous, 27 integer (27 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 3e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 1e+00]
+Found heuristic solution: objective 1
+Presolve removed 272 rows and 27 columns
+Presolve time: 0.01s
+Presolve: All rows and columns removed
+
+Explored 0 nodes (0 simplex iterations) in 0.01 seconds
+Thread count was 1 (of 2 available processors)
+
+Solution count 1: 10 
+Pool objective bound 10
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 1.000000000000e+01, best bound 1.000000000000e+01, gap 0.0000%
+
+Gurobi 7.0.2 (win64, Java) logging started 02/21/18 11:53:20
+
+Warning: Gurobi version mismatch between Java 7.0.1 and C library 7.0.2
+Warning: Gurobi version mismatch between Java 7.0.1 and Jni 7.0.2
+Optimize a model with 272 rows, 27 columns and 479 nonzeros
+Variable types: 0 continuous, 27 integer (27 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 3e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 1e+00]
+Found heuristic solution: objective 1
+Presolve removed 272 rows and 27 columns
+Presolve time: 0.00s
+Presolve: All rows and columns removed
+
+Explored 0 nodes (0 simplex iterations) in 0.00 seconds
+Thread count was 1 (of 2 available processors)
+
+Solution count 1: 10 
+Pool objective bound 10
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 1.000000000000e+01, best bound 1.000000000000e+01, gap 0.0000%

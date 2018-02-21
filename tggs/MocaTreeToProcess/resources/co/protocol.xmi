@@ -1,19 +1,5 @@
 <?xml version="1.0" encoding="ASCII"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:org.emoflon.ibex.tgg.core.runtime="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore">
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="FolderToSystemModule">
-    <createdSrc href="src.xmi#/"/>
-    <createdTrg href="trg.xmi#/"/>
-    <createdCorr href="corr_inc.xmi#/0"/>
-    <nodeMappings key="folder">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="sysmod">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="folder2sysmod">
-      <value href="corr_inc.xmi#/0"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
   <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="FilesToModule">
     <createdSrc href="src.xmi#//@file.4"/>
     <createdSrc href="src.xmi#//@file.3"/>
@@ -45,6 +31,20 @@
     </nodeMappings>
     <nodeMappings key="foo2foobaa">
       <value href="corr_inc.xmi#/1"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="FolderToSystemModule">
+    <createdSrc href="src.xmi#/"/>
+    <createdTrg href="trg.xmi#/"/>
+    <createdCorr href="corr_inc.xmi#/0"/>
+    <nodeMappings key="folder">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="sysmod">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="folder2sysmod">
+      <value href="corr_inc.xmi#/0"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
 </xmi:XMI>

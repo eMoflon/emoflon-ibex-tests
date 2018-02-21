@@ -5,15 +5,15 @@
     <target href="trg.xmi#/"/>
   </BenchmarxFamiliesToPersons:FamiliesToPersonsCorr>
   <BenchmarxFamiliesToPersons:FamilyMemberToPerson>
-    <source href="src.xmi#//@families.0/@mother"/>
+    <source href="src.xmi#//@families.1/@mother"/>
     <target xsi:type="Persons:Female" href="trg.xmi#//@persons.0"/>
   </BenchmarxFamiliesToPersons:FamilyMemberToPerson>
   <BenchmarxFamiliesToPersons:FamilyMemberToPerson>
-    <source href="src.xmi#//@families.0/@daughters.0"/>
+    <source href="src.xmi#//@families.0/@mother"/>
     <target xsi:type="Persons:Female" href="trg.xmi#//@persons.1"/>
   </BenchmarxFamiliesToPersons:FamilyMemberToPerson>
   <BenchmarxFamiliesToPersons:FamilyMemberToPerson>
-    <source href="src.xmi#//@families.1/@sons.0"/>
+    <source href="src.xmi#//@families.2/@sons.0"/>
     <target xsi:type="Persons:Male" href="trg.xmi#//@persons.2"/>
   </BenchmarxFamiliesToPersons:FamilyMemberToPerson>
 </xmi:XMI>
