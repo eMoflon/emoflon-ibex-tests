@@ -26,13 +26,13 @@
 			</arguments>
 		</buildCommand>
 		<buildCommand>
-			<name>org.moflon.ide.core.runtime.builders.RepositoryBuilder</name>
+			<name>org.moflon.emf.build.MoflonEmfBuilder</name>
 			<arguments>
 			</arguments>
 		</buildCommand>
 	</buildSpec>
 	<natures>
-		<nature>org.moflon.ide.ui.runtime.natures.RepositoryNature</nature>
+		<nature>org.moflon.emf.build.MoflonEmfNature</nature>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.eclipse.pde.PluginNature</nature>
 		<nature>org.eclipse.xtext.ui.shared.xtextNature</nature>
