@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FerrymanProblem:Model
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:FerrymanProblem="platform:/resource/FerrymanProblem/model/FerrymanProblem.ecore">
+  <leftBank/>
+  <rightBank/>
+  <subjects
+      xsi:type="FerrymanProblem:FerryMan"
+      isAt="//@leftBank"/>
+  <subjects
+      xsi:type="FerrymanProblem:Wolf"
+      isAt="//@leftBank"
+      likesToEat="//@subjects.2"/>
+  <subjects
+      xsi:type="FerrymanProblem:Goat"
+      isAt="//@leftBank"
+      likesToEat="//@subjects.3"/>
+  <subjects
+      xsi:type="FerrymanProblem:Cabbage"
+      isAt="//@leftBank"/>
+</FerrymanProblem:Model>

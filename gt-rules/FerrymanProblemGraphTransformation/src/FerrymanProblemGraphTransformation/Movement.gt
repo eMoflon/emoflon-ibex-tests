@@ -1,0 +1,24 @@
+import "platform:/resource/FerrymanProblem/model/FerrymanProblem.ecore"
+
+/**
+ * At the end all things must be at the right bank.
+ */
+rule checkAllThingsAtRightBank {
+	model: Model {
+		rightBank -> rightBank
+	}
+
+	rightBank: Bank
+
+	wolf: Wolf {
+		isAt -> rightBank
+	}
+
+	goat: Goat {
+		isAt -> rightBank
+	}
+
+	cabbage: Cabbage {
+		isAt -> rightBank
+	}
+}
