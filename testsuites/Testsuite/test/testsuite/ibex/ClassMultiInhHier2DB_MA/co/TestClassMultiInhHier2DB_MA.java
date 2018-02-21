@@ -2,8 +2,10 @@ package testsuite.ibex.ClassMultiInhHier2DB_MA.co;
 
 import java.io.IOException;
 
+import org.emoflon.ibex.tgg.run.classmultipleinhhier2db_ma.BWD_OPT_App;
 import org.emoflon.ibex.tgg.run.classmultipleinhhier2db_ma.CO_App;
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import org.emoflon.ibex.tgg.run.classmultipleinhhier2db_ma.FWD_OPT_App;
@@ -19,11 +21,25 @@ public class TestClassMultiInhHier2DB_MA extends COTestCase {
 		forward = new FWD_OPT_App("ClassMultipleInhHier2DB_MA", testsuite.ibex.testUtil.Constants.workspacePath, false, srcInstance, trgInstance, corrInstance, protInstance);
 	}
 	
+	public void createBackward(String srcInstance, String trgInstance, String corrInstance, String protInstance) throws IOException {
+		backward = new BWD_OPT_App("ClassMultipleInhHier2DB_MA", testsuite.ibex.testUtil.Constants.workspacePath, false, srcInstance, trgInstance, corrInstance, protInstance);
+	}
+	
 	@Test
 	public void testFWD_OPT() throws IOException {
-		createTransformation("/instances/src", "/instances/trg", "/instances/corr", "/instances/protocol");
+		createTransformation("/resources/co/src", "/resources/co/trg-tmp", "/resources/co/corr-tmp", "/resources/co/prot-tmp");
 		runForward();
-		createGenerator("/instances/src", "/instances/trg", "/instances/corr", "/instances/protocol");
+		createGenerator("/resources/co/src", "/resources/co/trg-tmp", "/resources/co/corr-tmp", "/resources/co/prot-tmp");
+		runGenerator();
+		Assert.assertTrue(checker.modelsAreConsistent());
+	}
+	
+	@Test
+	@Ignore //Does not terminate, as expected :-)
+	public void testBWD_OPT() throws IOException {
+		createBackward("/resources/co/src-tmp", "/resources/co/trg", "/resources/co/corr-tmp", "/resources/co/prot-tmp");
+		runBackward();
+		createGenerator("/resources/co/src-tmp", "/resources/co/trg", "/resources/co/corr-tmp", "/resources/co/prot-tmp");
 		runGenerator();
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}

@@ -3,6 +3,7 @@ package testsuite.ibex.ProcessCodeAdapter.co;
 import java.io.IOException;
 
 import org.emoflon.ibex.tgg.run.processcodeadapter.FWD_OPT_App;
+import org.emoflon.ibex.tgg.run.processcodeadapter.BWD_OPT_App;
 import org.emoflon.ibex.tgg.run.processcodeadapter.CO_App;
 import org.junit.Assert;
 import org.junit.Ignore;
@@ -19,13 +20,26 @@ public class TestProcessCodeAdapter extends COTestCase{
 	public void createTransformation(String srcInstance, String trgInstance, String corrInstance, String protInstance) throws IOException {
 		forward = new FWD_OPT_App("ProcessCodeAdapter", testsuite.ibex.testUtil.Constants.workspacePath, false, srcInstance, trgInstance, corrInstance, protInstance);
 	}
+	
+	public void createBackward(String srcInstance, String trgInstance, String corrInstance, String protInstance) throws IOException {
+		backward = new BWD_OPT_App("ProcessCodeAdapter", testsuite.ibex.testUtil.Constants.workspacePath, false, srcInstance, trgInstance, corrInstance, protInstance);
+	}
 
 	@Ignore //--> Feature-ID for the inverse EMFEdge of allModules (outgoing from SystemModule) is 0
 	@Test
 	public void testFWD_OPT() throws IOException {
-		createTransformation("/instances/src", "/instances/trg", "/instances/corr", "/instances/protocol");
+		createTransformation("/resources/co/src", "/resources/co/trg-tmp", "/resources/co/corr-tmp", "/resources/co/prot-tmp");
 		runForward();
-		createGenerator("/instances/src", "/instances/trg", "/instances/corr", "/instances/protocol");
+		createGenerator("/resources/co/src", "/resources/co/trg-tmp", "/resources/co/corr-tmp", "/resources/co/prot-tmp");
+		runGenerator();
+		Assert.assertTrue(checker.modelsAreConsistent());
+	}
+	
+	@Test
+	public void testBWD_OPT() throws IOException {
+		createBackward("/resources/co/src-tmp", "/resources/co/trg", "/resources/co/corr-tmp", "/resources/co/prot-tmp");
+		runBackward();
+		createGenerator("/resources/co/src-tmp", "/resources/co/trg", "/resources/co/corr-tmp", "/resources/co/prot-tmp");
 		runGenerator();
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}

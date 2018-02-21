@@ -1,4 +1,4 @@
-package org.emoflon.ibex.tgg.run.benchmarxfamiliestopersons;
+package org.emoflon.ibex.tgg.run.mocatreetoprocess;
 
 import java.io.IOException;
 
@@ -11,7 +11,7 @@ import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.sync.BWD_OPT;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesTGGEngine;
 
-import Persons.impl.PersonsPackageImpl;
+import ProcessDefinition.impl.ProcessDefinitionPackageImpl;
 
 public class BWD_OPT_App extends BWD_OPT {
 
@@ -22,7 +22,7 @@ public class BWD_OPT_App extends BWD_OPT {
 	
 	public BWD_OPT_App(String projectName, String workspacePath, boolean debug, String srcPath, String trgPath, 
 			String corrPath, String protPath) throws IOException {
-		super(createIbexOptions());
+		super(createIbexOptions().projectName(projectName).workspacePath(workspacePath).debug(debug));
 		this.srcPath = srcPath;
 		this.trgPath = trgPath;
 		this.corrPath = corrPath;
@@ -33,8 +33,8 @@ public class BWD_OPT_App extends BWD_OPT {
 	public static void main(String[] args) throws IOException {
 		BasicConfigurator.configure();
 
-		BWD_OPT_App bwd_opt = new BWD_OPT_App("BenchmarxFamiliesToPersons", "./../", true, "/resources/co/src", "/resources/co/trg", 
-				"/resources/co/corr", "/resources/co/protocol");
+		BWD_OPT_App bwd_opt = new BWD_OPT_App("MocaTreeToProcess", "./../", true, "/instances/src", "/instances/trg", 
+				"/instances/corr", "/instances/protocol");
 		
 		logger.info("Starting BWD_OPT");
 		long tic = System.currentTimeMillis();
@@ -48,12 +48,18 @@ public class BWD_OPT_App extends BWD_OPT {
 
 	@Override
 	protected void registerUserMetamodels() throws IOException {
-		rs.getPackageRegistry().put("platform:/resource/Persons/model/Persons.ecore", PersonsPackageImpl.init());
+		// Load and register source and target metamodels
+		rs.getPackageRegistry().put("platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore", ProcessDefinitionPackageImpl.init());
+		//rs.getPackageRegistry().put("platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore", ProcessDefinitionPackageImpl.init());
+		//loadAndRegisterMetamodel("platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore");
 		
-		Resource res = loadResource("platform:/resource/../../benchmarx/examples/familiestopersons/metamodels/Families/model/Families.ecore");
+		Resource res = loadResource("platform:/resource/../metamodels/MocaTree/model/MocaTree.ecore");
 		EPackage pack = (EPackage) res.getContents().get(0);
-		rs.getResources().remove(res);
-		rs.getPackageRegistry().put("platform:/resource/Families/model/Families.ecore", pack);
+		//pack.setNsURI("platform:/plugin/ProcessDefinition/model/ProcessDefinition.ecore");
+		//rs.getResources().remove(res);
+		rs.getPackageRegistry().put("platform:/resource/MocaTree/model/MocaTree.ecore", pack);
+		
+		rs.getPackageRegistry().put("platform:/plugin/MocaTree/model/MocaTree.ecore", pack);
 		
 		// Register correspondence metamodel last
 		loadAndRegisterMetamodel(projectPath + "/model/" + projectPath + ".ecore");
@@ -71,7 +77,7 @@ public class BWD_OPT_App extends BWD_OPT {
 	
 	private static IbexOptions createIbexOptions() {
 			IbexOptions options = new IbexOptions();
-			options.projectName("BenchmarxFamiliesToPersons");
+			options.projectName("MocaTreeToProcess");
 			options.debug(false);
 			options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
 			return options;

@@ -28,19 +28,18 @@ public class TestBenchmarxFamiliesToPersons extends COTestCase{
 	
 	@Test
 	public void testFWD_OPT() throws IOException {
-		createForward("/instances/src", "/instances/trg", "/instances/corr", "/instances/protocol");
+		createForward("/resources/co/src", "/resources/co/trg-tmp", "/resources/co/corr-tmp", "/resources/co/prot-tmp");
 		runForward();
-		createGenerator("/instances/src", "/instances/trg", "/instances/corr", "/instances/protocol");
+		createGenerator("/resources/co/src", "/resources/co/trg-tmp", "/resources/co/corr-tmp", "/resources/co/prot-tmp");
 		runGenerator();
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}
 	
 	@Test
-	@Ignore
 	public void testBWD_OPT() throws IOException {
-		createBackward("/instances/src", "/instances/trg", "/instances/corr", "/instances/protocol");
-		runForward();
-		createGenerator("/instances/src", "/instances/trg", "/instances/corr", "/instances/protocol");
+		createBackward("/resources/co/src", "/resources/co/trg-tmp", "/resources/co/corr-tmp", "/resources/co/prot-tmp");
+		runBackward();
+		createGenerator("/resources/co/src", "/resources/co/trg-tmp", "/resources/co/corr-tmp", "/resources/co/prot-tmp");
 		runGenerator();
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}
