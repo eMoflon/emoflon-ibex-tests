@@ -63,7 +63,7 @@ public class CO_App extends CO {
 	
 	private static IbexOptions createIbexOptions() {
 			IbexOptions options = new IbexOptions();
-			options.projectName("FamiliesToPersons_V1");
+			options.projectPath("FamiliesToPersons_V1");
 			options.debug(false);
 			options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
 			return options;

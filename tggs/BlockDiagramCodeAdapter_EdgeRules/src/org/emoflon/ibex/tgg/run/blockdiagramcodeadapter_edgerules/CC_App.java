@@ -63,7 +63,7 @@ public class CC_App extends CC {
 	
 	private static IbexOptions createIbexOptions() {
 		IbexOptions options = new IbexOptions();
-		options.projectName("BlockDiagramCodeAdapter_EdgeRules");
+		options.projectPath("BlockDiagramCodeAdapter_EdgeRules");
 		options.debug(false);
 		options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
 		return options;

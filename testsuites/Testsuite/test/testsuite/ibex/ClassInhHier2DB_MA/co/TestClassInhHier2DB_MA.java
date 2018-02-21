@@ -3,7 +3,6 @@ package testsuite.ibex.ClassInhHier2DB_MA.co;
 import java.io.IOException;
 
 import org.emoflon.ibex.tgg.run.classinhhier2db_ma.FWD_OPT_App;
-import org.emoflon.ibex.tgg.run.classinhhier2db_ma.BWD_OPT_App;
 import org.emoflon.ibex.tgg.run.classinhhier2db_ma.CO_App;
 import org.junit.Assert;
 import org.junit.Ignore;
@@ -21,26 +20,12 @@ public class TestClassInhHier2DB_MA extends COTestCase {
 		forward = new FWD_OPT_App("ClassInhHier2DB_MA", testsuite.ibex.testUtil.Constants.workspacePath, false, srcInstance, trgInstance, corrInstance, protInstance);
 	}
 	
-	public void createBackward(String srcInstance, String trgInstance, String corrInstance, String protInstance) throws IOException {
-		backward = new BWD_OPT_App("ClassInhHier2DB_MA", testsuite.ibex.testUtil.Constants.workspacePath, false, srcInstance, trgInstance, corrInstance, protInstance);
-	}
-	
-	@Ignore //--> Bad Padding Exception deep inside Democles initializations
+	//@Ignore //--> Bad Padding Exception deep inside Democles initializations
 	@Test
 	public void testFWD_OPT() throws IOException {
-		createTransformation("/resources/co/src", "/resources/co/trg-tmp", "/resources/co/corr-tmp", "/resources/co/prot-tmp");
+		createTransformation("/instances/src", "/instances/trg", "/instances/corr", "/instances/protocol");
 		runForward();
-		createGenerator("/resources/co/src", "/resources/co/trg-tmp", "/resources/co/corr-tmp", "/resources/co/prot-tmp");
-		runGenerator();
-		Assert.assertTrue(checker.modelsAreConsistent());
-	}
-	
-	@Test
-	@Ignore //Does not terminate, as expected :-)
-	public void testBWD_OPT() throws IOException {
-		createBackward("/resources/co/src-tmp", "/resources/co/trg", "/resources/co/corr-tmp", "/resources/co/prot-tmp");
-		runBackward();
-		createGenerator("/resources/co/src-tmp", "/resources/co/trg", "/resources/co/corr-tmp", "/resources/co/prot-tmp");
+		createGenerator("/instances/src", "/instances/trg", "/instances/corr", "/instances/protocol");
 		runGenerator();
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}

@@ -56,7 +56,7 @@ public class CC_App extends CC {
 	
 	private static IbexOptions createIbexOptions() {
 		IbexOptions options = new IbexOptions();
-		options.projectName("FamilyWithSiblingsToPersons_MA");
+		options.projectPath("FamilyWithSiblingsToPersons_MA");
 		options.debug(false);
 		options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
 		return options;
