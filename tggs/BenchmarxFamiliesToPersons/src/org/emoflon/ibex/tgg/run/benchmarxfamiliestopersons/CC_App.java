@@ -47,7 +47,7 @@ public class CC_App extends CC {
 	
 	protected static IbexOptions createIbexOptions() {
 		IbexOptions options = new IbexOptions();
-		options.projectName("BenchmarxFamiliesToPersons");
+		options.projectPath("BenchmarxFamiliesToPersons");
 		options.debug(false);
 		options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
 		return options;

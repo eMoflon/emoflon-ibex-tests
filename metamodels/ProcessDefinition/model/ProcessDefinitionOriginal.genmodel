@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/ProcessDefinition/gen" modelPluginID="ProcessDefinition"
+    modelName="ProcessDefinitionOriginal" updateClasspath="false" codeFormatting="true"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
+    operationReflection="true">
+  <foreignModel>ProcessDefinitionOriginal.ecore</foreignModel>
+  <genPackages prefix="ProcessDefinition" disposableProviderFactory="true" ecorePackage="ProcessDefinitionOriginal.ecore#/">
+    <genClasses ecoreClass="ProcessDefinitionOriginal.ecore#//Import">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ProcessDefinitionOriginal.ecore#//Import/importingTask"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ProcessDefinitionOriginal.ecore#//Import/module"/>
+    </genClasses>
+    <genClasses ecoreClass="ProcessDefinitionOriginal.ecore#//Invocation">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ProcessDefinitionOriginal.ecore#//Invocation/task"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ProcessDefinitionOriginal.ecore#//Invocation/invokedTask"/>
+    </genClasses>
+    <genClasses ecoreClass="ProcessDefinitionOriginal.ecore#//Module">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ProcessDefinitionOriginal.ecore#//Module/systemModule"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ProcessDefinitionOriginal.ecore#//Module/import"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ProcessDefinitionOriginal.ecore#//Module/tasks"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ProcessDefinitionOriginal.ecore#//Module/description"/>
+    </genClasses>
+    <genClasses ecoreClass="ProcessDefinitionOriginal.ecore#//SystemModule">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ProcessDefinitionOriginal.ecore#//SystemModule/helper"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ProcessDefinitionOriginal.ecore#//SystemModule/allTasks"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ProcessDefinitionOriginal.ecore#//SystemModule/allModules"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ProcessDefinitionOriginal.ecore#//SystemModule/name"/>
+    </genClasses>
+    <genClasses ecoreClass="ProcessDefinitionOriginal.ecore#//Task">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ProcessDefinitionOriginal.ecore#//Task/systemModule"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ProcessDefinitionOriginal.ecore#//Task/module"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ProcessDefinitionOriginal.ecore#//Task/invocation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ProcessDefinitionOriginal.ecore#//Task/invocations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ProcessDefinitionOriginal.ecore#//Task/imports"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ProcessDefinitionOriginal.ecore#//Task/id"/>
+    </genClasses>
+    <nestedGenPackages prefix="Facade" disposableProviderFactory="true" ecorePackage="ProcessDefinitionOriginal.ecore#//facade">
+      <genClasses ecoreClass="ProcessDefinitionOriginal.ecore#//facade/Helper">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference ProcessDefinitionOriginal.ecore#//facade/Helper/coloredTask"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference ProcessDefinitionOriginal.ecore#//facade/Helper/visitedTasks"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference ProcessDefinitionOriginal.ecore#//facade/Helper/tasks"/>
+        <genOperations ecoreOperation="ProcessDefinitionOriginal.ecore#//facade/Helper/outputCycle">
+          <genParameters ecoreParameter="ProcessDefinitionOriginal.ecore#//facade/Helper/outputCycle/currentTask"/>
+        </genOperations>
+        <genOperations ecoreOperation="ProcessDefinitionOriginal.ecore#//facade/Helper/print">
+          <genParameters ecoreParameter="ProcessDefinitionOriginal.ecore#//facade/Helper/print/message"/>
+        </genOperations>
+      </genClasses>
+    </nestedGenPackages>
+  </genPackages>
+</genmodel:GenModel>

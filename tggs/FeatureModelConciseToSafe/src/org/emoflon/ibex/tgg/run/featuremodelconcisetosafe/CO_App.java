@@ -76,7 +76,7 @@ public class CO_App extends CO {
 	
 	protected static IbexOptions createIbexOptions() {
 		IbexOptions options = new IbexOptions();
-		options.projectName("BenchmarxFamiliesToPersons");
+		options.projectPath("FeatureModelConciseToSafe");
 		options.debug(false);
 		options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
 		return options;

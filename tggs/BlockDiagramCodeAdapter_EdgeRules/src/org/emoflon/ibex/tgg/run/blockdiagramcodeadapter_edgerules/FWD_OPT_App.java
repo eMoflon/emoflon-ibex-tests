@@ -52,7 +52,7 @@ public class FWD_OPT_App extends FWD_OPT {
 	
 	private static IbexOptions createIbexOptions() {
 			IbexOptions options = new IbexOptions();
-			options.projectName("BlockDiagramCodeAdapter_EdgeRules");
+			options.projectPath("BlockDiagramCodeAdapter_EdgeRules");
 			options.debug(false);
 			options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
 			return options;

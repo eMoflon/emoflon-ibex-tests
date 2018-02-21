@@ -74,7 +74,7 @@ public class FWD_OPT_App extends FWD_OPT {
 	
 	protected static IbexOptions createIbexOptions() {
 		IbexOptions options = new IbexOptions();
-		options.projectName("CompanyToIT");
+		options.projectPath("CompanyToIT");
 		options.debug(true);
 		options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
 		return options;
