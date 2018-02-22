@@ -4,11 +4,10 @@ import java.io.IOException;
 
 import org.emoflon.ibex.tgg.run.classmultipleinhhier2db_ma.BWD_OPT_App;
 import org.emoflon.ibex.tgg.run.classmultipleinhhier2db_ma.CO_App;
+import org.emoflon.ibex.tgg.run.classmultipleinhhier2db_ma.FWD_OPT_App;
 import org.junit.Assert;
-import org.junit.Ignore;
 import org.junit.Test;
 
-import org.emoflon.ibex.tgg.run.classmultipleinhhier2db_ma.FWD_OPT_App;
 import testsuite.ibex.testUtil.COTestCase;
 
 public class TestClassMultiInhHier2DB_MA extends COTestCase {
@@ -35,7 +34,6 @@ public class TestClassMultiInhHier2DB_MA extends COTestCase {
 	}
 	
 	@Test
-	@Ignore //Does not terminate, as expected :-)
 	public void testBWD_OPT() throws IOException {
 		createBackward("/resources/co/src-tmp", "/resources/co/trg", "/resources/co/corr-tmp", "/resources/co/prot-tmp");
 		runBackward();

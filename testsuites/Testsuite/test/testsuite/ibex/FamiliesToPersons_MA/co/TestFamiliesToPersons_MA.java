@@ -6,7 +6,6 @@ import org.emoflon.ibex.tgg.run.familiestopersons_ma.BWD_OPT_App;
 import org.emoflon.ibex.tgg.run.familiestopersons_ma.CO_App;
 import org.emoflon.ibex.tgg.run.familiestopersons_ma.FWD_OPT_App;
 import org.junit.Assert;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import testsuite.ibex.testUtil.COTestCase;
@@ -34,7 +33,6 @@ public class TestFamiliesToPersons_MA extends COTestCase {
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}
 	
-	@Ignore("To be expected for now:  Solution is to ignore TGG rules that are not progressive in the direction of translation")
 	@Test
 	public void testBWD_OPT() throws IOException {
 		createBackward("/resources/co/src-tmp", "/resources/co/trg", "/resources/co/corr-tmp", "/resources/co/prot-tmp");

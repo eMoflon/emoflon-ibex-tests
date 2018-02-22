@@ -25,7 +25,7 @@ public class TestProcessCodeAdapter extends COTestCase{
 		backward = new BWD_OPT_App("ProcessCodeAdapter", testsuite.ibex.testUtil.Constants.workspacePath, false, srcInstance, trgInstance, corrInstance, protInstance);
 	}
 
-	@Ignore //--> Feature-ID for the inverse EMFEdge of allModules (outgoing from SystemModule) is 0
+	@Ignore("Feature-ID for the inverse EMFEdge of allModules (outgoing from SystemModule) is 0")
 	@Test
 	public void testFWD_OPT() throws IOException {
 		createTransformation("/resources/co/src", "/resources/co/trg-tmp", "/resources/co/corr-tmp", "/resources/co/prot-tmp");

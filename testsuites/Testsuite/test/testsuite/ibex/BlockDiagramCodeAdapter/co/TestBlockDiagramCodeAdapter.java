@@ -25,7 +25,7 @@ public class TestBlockDiagramCodeAdapter extends COTestCase{
 		backward = new BWD_OPT_App("BlockDiagramCodeAdapter", testsuite.ibex.testUtil.Constants.workspacePath, false, srcInstance, trgInstance, corrInstance, protInstance);
 	}
 	
-	@Ignore //--> file Edge cannot be added 
+	@Ignore("file Edge cannot be added, no idea why") 
 	@Test
 	public void testFWD_OPT() throws IOException {
 		createTransformation("/resources/co/src", "/resources/co/trg-tmp", "/resources/co/corr-tmp", "/resources/co/prot-tmp");

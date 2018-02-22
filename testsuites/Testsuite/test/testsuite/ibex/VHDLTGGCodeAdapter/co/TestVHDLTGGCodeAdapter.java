@@ -25,8 +25,7 @@ public class TestVHDLTGGCodeAdapter extends COTestCase{
 		backward = new BWD_OPT_App("VHDLTGGCodeAdapter", testsuite.ibex.testUtil.Constants.workspacePath, false, srcInstance, trgInstance, corrInstance, protInstance);
 	}
 	
-	@Ignore //--> featureID is 0 when trying to add the edge spec__blocks__composite_eMoflonEdge
-	//        --> probably problems with containment yes or no
+	@Ignore("featureID is 0 when trying to add the edge spec__blocks__composite_eMoflonEdge --> probably problems with containment yes or no")
 	@Test
 	public void testFWD_OPT() throws IOException {
 		createTransformation("/resources/co/src", "/resources/co/trg-tmp", "/resources/co/corr-tmp", "/resources/co/prot-tmp");
