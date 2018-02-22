@@ -11,7 +11,7 @@ import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.sync.BWD_OPT;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesTGGEngine;
 
-import BlockLanguage.impl.BlockLanguagePackageImpl;
+import BlockDiagram.impl.BlockDiagramPackageImpl;
 
 public class BWD_OPT_App extends BWD_OPT {
 
@@ -52,7 +52,7 @@ public class BWD_OPT_App extends BWD_OPT {
 
 	protected void registerUserMetamodels() throws IOException {
 		// Load and register source and target metamodels
-		rs.getPackageRegistry().put("platform:/resource/BlockLanguage/model/BlockLanguage.ecore", BlockLanguagePackageImpl.init());
+		rs.getPackageRegistry().put("platform:/resource/BlockDiagram/model/BlockDiagram.ecore", BlockDiagramPackageImpl.init());
 		
 		Resource res = loadResource("platform:/resource/../metamodels/MocaTree/model/MocaTree.ecore");
 		EPackage pack = (EPackage) res.getContents().get(0);
