@@ -15,24 +15,24 @@
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
   <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="FilesToModule">
-    <createdSrc href="src.xmi#//@file.3"/>
     <createdSrc href="src.xmi#//@file.4"/>
+    <createdSrc href="src.xmi#//@file.3"/>
     <createdTrg href="trg.xmi#//@allModules.0"/>
-    <createdCorr href="corr_inc.xmi#/1"/>
     <createdCorr href="corr_inc.xmi#/2"/>
+    <createdCorr href="corr_inc.xmi#/1"/>
     <contextSrc href="src.xmi#/"/>
     <contextTrg href="trg.xmi#/"/>
     <nodeMappings key="foobaa">
       <value href="trg.xmi#//@allModules.0"/>
     </nodeMappings>
     <nodeMappings key="baa">
-      <value href="src.xmi#//@file.3"/>
+      <value href="src.xmi#//@file.4"/>
     </nodeMappings>
     <nodeMappings key="folder">
       <value href="src.xmi#/"/>
     </nodeMappings>
     <nodeMappings key="foo">
-      <value href="src.xmi#//@file.4"/>
+      <value href="src.xmi#//@file.3"/>
     </nodeMappings>
     <nodeMappings key="sysmod">
       <value href="trg.xmi#/"/>
@@ -41,10 +41,10 @@
       <value href="corr_inc.xmi#/0"/>
     </nodeMappings>
     <nodeMappings key="baa2foobaa">
-      <value href="corr_inc.xmi#/1"/>
+      <value href="corr_inc.xmi#/2"/>
     </nodeMappings>
     <nodeMappings key="foo2foobaa">
-      <value href="corr_inc.xmi#/2"/>
+      <value href="corr_inc.xmi#/1"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
 </xmi:XMI>

@@ -51,7 +51,6 @@ public class BWD_OPT_App extends BWD_OPT {
 		
 		Resource res = loadResource("platform:/resource/../metamodels/MocaTree/model/MocaTree.ecore");
 		EPackage pack = (EPackage) res.getContents().get(0);
-		//pack.setNsURI("platform:/plugin/BlockLanguage/model/BlockLanguage.ecore");
 		rs.getPackageRegistry().put("platform:/resource/MocaTree/model/MocaTree.ecore", pack);
 		rs.getPackageRegistry().put("platform:/plugin/MocaTree/model/MocaTree.ecore", pack);
 			
