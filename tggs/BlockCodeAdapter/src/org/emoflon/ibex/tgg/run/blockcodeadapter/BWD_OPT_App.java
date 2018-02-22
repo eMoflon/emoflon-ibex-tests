@@ -12,7 +12,6 @@ import org.emoflon.ibex.tgg.operational.strategies.sync.BWD_OPT;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesTGGEngine;
 
 import BlockLanguage.impl.BlockLanguagePackageImpl;
-import MocaTree.impl.MocaTreePackageImpl;
 
 public class BWD_OPT_App extends BWD_OPT {
 

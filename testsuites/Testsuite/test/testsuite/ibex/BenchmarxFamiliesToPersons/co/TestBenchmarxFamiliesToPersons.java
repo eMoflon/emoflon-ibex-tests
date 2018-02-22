@@ -5,10 +5,8 @@ import java.io.IOException;
 import org.emoflon.ibex.tgg.run.benchmarxfamiliestopersons.BWD_OPT_App;
 import org.emoflon.ibex.tgg.run.benchmarxfamiliestopersons.CO_App;
 import org.emoflon.ibex.tgg.run.benchmarxfamiliestopersons.FWD_OPT_App;
-import org.junit.Test;
-
 import org.junit.Assert;
-import org.junit.Ignore;
+import org.junit.Test;
 
 import testsuite.ibex.testUtil.COTestCase;
 
