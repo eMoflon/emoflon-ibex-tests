@@ -2,7 +2,7 @@ import "platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore"
 
 rule findDaughter {
 	family: Family {
-		daughters -> member	
+		-daughters -> member	
 	}
 
 	member: FamilyMember
@@ -10,7 +10,7 @@ rule findDaughter {
 
 rule findFather {
 	family: Family {
-		father -> member	
+		-father -> member	
 	}
 
 	member: FamilyMember
@@ -18,7 +18,7 @@ rule findFather {
 
 rule findMother {
 	family: Family {
-		mother -> member	
+		-mother -> member	
 	}
 
 	member: FamilyMember
@@ -26,7 +26,7 @@ rule findMother {
 
 rule findSon {
 	family: Family {
-		sons -> member	
+		-sons -> member	
 	}
 
 	member: FamilyMember

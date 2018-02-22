@@ -36,34 +36,28 @@ public class SheRememberedCaterpillarsTest extends GTTestCase<SheRememberedCater
 	}
 
 	@Test
-	public void test() {
+	public void testFindCharacters() {
 		SheRememberedCaterpillarsGraphTransformationAPI api = this.initAPI("SheRememberedCaterpillars",
 				"SheRememberedCaterpillars.xmi");
-
 		assertEquals(2, api.findCharacter().countMatches());
 		assertTrue(api.findCharacterNotOnExit().findAnyMatch().isPresent());
 		assertTrue(api.findCharacterOnExit().findAnyMatch().isPresent());
 	}
-	
+
 	@Test
 	public void testNoIllegalSituation() {
-		SheRememberedCaterpillarsGraphTransformationAPI api = this.initAPI("SheRememberedCaterpillars", "SheRememberedCaterpillars.xmi");
-		
+		SheRememberedCaterpillarsGraphTransformationAPI api = this.initAPI("SheRememberedCaterpillars",
+				"SheRememberedCaterpillars.xmi");
 		assertFalse(api.noTwoCharactersOnAnExitPlatform().findAnyMatch().isPresent());
 	}
-	
+
 	@Test
 	public void testIllegalSituation() {
-		SheRememberedCaterpillarsGraphTransformationAPI api = this.initAPI("SheRememberedCaterpillars", "SheRememberedCaterpillarsIllegal.xmi");
-		
+		SheRememberedCaterpillarsGraphTransformationAPI api = this.initAPI("SheRememberedCaterpillars",
+				"SheRememberedCaterpillarsIllegal.xmi");
 		assertTrue(api.noTwoCharactersOnAnExitPlatform().findAnyMatch().isPresent());
 		assertEquals(2, api.noTwoCharactersOnAnExitPlatform().countMatches());
-		assertTrue(
-			api.noTwoCharactersOnAnExitPlatform()
-				.findAnyMatch()
-				.map(NoTwoCharactersOnAnExitPlatformMatch::getPlatform)
-				.map(ExitPlatform.class::isInstance)
-				.get()
-		);
+		assertTrue(api.noTwoCharactersOnAnExitPlatform().findAnyMatch()
+				.map(NoTwoCharactersOnAnExitPlatformMatch::getPlatform).map(ExitPlatform.class::isInstance).get());
 	}
 }

@@ -5,7 +5,7 @@ import "platform:/resource/SheRememberedCaterpillars/model/SheRememberedCaterpil
  */
 rule findCharacter() {
 	character: Character {
-		standsOn -> platform
+		-standsOn -> platform
 	}
 
 	platform: Platform
@@ -16,7 +16,7 @@ rule findCharacter() {
  */
 rule findCharacterOnExit {
 	character: Character {
-		standsOn -> exit
+		-standsOn -> exit
 	}
 
 	exit: ExitPlatform
@@ -27,7 +27,7 @@ rule findCharacterOnExit {
  */
 rule findCharacterNotOnExit {
 	character: Character {
-		standsOn -> platform
+		-standsOn -> platform
 	}
 
 	platform: SimplePlatform

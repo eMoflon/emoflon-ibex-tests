@@ -5,20 +5,20 @@ import "platform:/resource/FerrymanProblem/model/FerrymanProblem.ecore"
  */
 rule checkAllThingsAtRightBank {
 	model: Model {
-		rightBank -> rightBank
+		-rightBank -> rightBank
 	}
 
 	rightBank: Bank
 
 	wolf: Wolf {
-		isAt -> rightBank
+		-isAt -> rightBank
 	}
 
 	goat: Goat {
-		isAt -> rightBank
+		-isAt -> rightBank
 	}
 
 	cabbage: Cabbage {
-		isAt -> rightBank
+		-isAt -> rightBank
 	}
 }
