@@ -8,6 +8,8 @@ import org.emoflon.ibex.tgg.run.companytoit.FWD_OPT_App;
 import org.junit.Test;
 
 import org.junit.Assert;
+import org.junit.Ignore;
+
 import testsuite.ibex.testUtil.COTestCase;
 
 public class TestCompanyToIT extends COTestCase{
@@ -34,6 +36,7 @@ public class TestCompanyToIT extends COTestCase{
 	}
 	
 	@Test
+	@Ignore
 	public void testBWD_OPT() throws IOException {
 		createBackward("/resources/co/src-tmp", "/resources/co/trg", "/resources/co/corr-tmp", "/resources/co/prot-tmp");
 		runBackward();
