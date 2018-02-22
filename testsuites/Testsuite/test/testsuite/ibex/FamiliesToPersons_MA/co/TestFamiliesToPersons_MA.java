@@ -34,6 +34,7 @@ public class TestFamiliesToPersons_MA extends COTestCase {
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}
 	
+	@Ignore("To be expected for now:  Solution is to ignore TGG rules that are not progressive in the direction of translation")
 	@Test
 	@Ignore
 	public void testBWD_OPT() throws IOException {
