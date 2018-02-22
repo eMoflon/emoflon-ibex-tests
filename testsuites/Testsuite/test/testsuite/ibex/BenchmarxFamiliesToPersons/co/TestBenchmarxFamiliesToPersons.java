@@ -5,10 +5,8 @@ import java.io.IOException;
 import org.emoflon.ibex.tgg.run.benchmarxfamiliestopersons.BWD_OPT_App;
 import org.emoflon.ibex.tgg.run.benchmarxfamiliestopersons.CO_App;
 import org.emoflon.ibex.tgg.run.benchmarxfamiliestopersons.FWD_OPT_App;
-import org.junit.Test;
-
 import org.junit.Assert;
-import org.junit.Ignore;
+import org.junit.Test;
 
 import testsuite.ibex.testUtil.COTestCase;
 
@@ -35,6 +33,7 @@ public class TestBenchmarxFamiliesToPersons extends COTestCase{
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}
 	
+
 	@Test
 	public void testBWD_OPT() throws IOException {
 		createBackward("/resources/co/src", "/resources/co/trg-tmp", "/resources/co/corr-tmp", "/resources/co/prot-tmp");

@@ -10,14 +10,20 @@ import org.emoflon.ibex.tgg.operational.csp.constraints.factories.UserDefinedRun
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.sync.BWD_OPT;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesTGGEngine;
+
 import BlockLanguage.impl.BlockLanguagePackageImpl;
 
 public class BWD_OPT_App extends BWD_OPT {
 
-	String srcPath;
-	String trgPath;
-	String corrPath;
-	String protPath;
+	private String srcPath;
+	private String trgPath;
+	private String corrPath;
+	private String protPath;
+	
+	public BWD_OPT_App() throws IOException {
+		super(createIbexOptions());
+		registerBlackInterpreter(new DemoclesTGGEngine());
+	}
 	
 	public BWD_OPT_App(String projectName, String workspacePath, boolean debug, String srcPath, String trgPath, 
 			String corrPath, String protPath) throws IOException {
@@ -32,8 +38,7 @@ public class BWD_OPT_App extends BWD_OPT {
 	public static void main(String[] args) throws IOException {
 		BasicConfigurator.configure();
 
-		BWD_OPT_App bwd_opt = new BWD_OPT_App("BlockCodeAdapter", "./../", true, "/resources/co/src", "/resources/co/trg", 
-				"/resources/co/corr", "/resources/co/protocol");
+		BWD_OPT_App bwd_opt = new BWD_OPT_App();
 		
 		logger.info("Starting BWD_OPT");
 		long tic = System.currentTimeMillis();
@@ -71,6 +76,7 @@ public class BWD_OPT_App extends BWD_OPT {
 	private static IbexOptions createIbexOptions() {
 			IbexOptions options = new IbexOptions();
 			options.projectName("BlockDiagramCodeAdapter");
+			options.projectPath("BlockDiagramCodeAdapter");
 			options.debug(false);
 			options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
 			return options;

@@ -12,7 +12,6 @@ import org.emoflon.ibex.tgg.operational.strategies.sync.BWD_OPT;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesTGGEngine;
 
 import BlockLanguage.impl.BlockLanguagePackageImpl;
-import MocaTree.impl.MocaTreePackageImpl;
 
 public class BWD_OPT_App extends BWD_OPT {
 
@@ -73,7 +72,7 @@ public class BWD_OPT_App extends BWD_OPT {
 	
 	private static IbexOptions createIbexOptions() {
 			IbexOptions options = new IbexOptions();
-			options.projectName("BlockCodeAdapter");
+			options.projectPath("BlockCodeAdapter");
 			options.debug(false);
 			options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
 			return options;

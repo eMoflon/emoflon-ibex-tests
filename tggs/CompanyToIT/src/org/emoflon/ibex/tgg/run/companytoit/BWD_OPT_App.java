@@ -74,7 +74,7 @@ public class BWD_OPT_App extends BWD_OPT {
 	
 	private static IbexOptions createIbexOptions() {
 			IbexOptions options = new IbexOptions();
-			options.projectName("CompanyToIT");
+			options.projectPath("CompanyToIT");
 			options.debug(false);
 			options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
 			return options;

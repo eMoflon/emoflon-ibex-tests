@@ -1013,13 +1013,13 @@
         <attribute href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Port/name"/>
         <valueExp xsi:type="tgg:LiteralExpression" value="&quot;AND.in1&quot;"/>
       </attributeAssignments>
-      <linkVariablePatterns target="//@rules.7/@targetPatterns.2">
-        <op value="++"/>
-        <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Port/src"/>
-      </linkVariablePatterns>
       <linkVariablePatterns target="//@rules.7/@targetPatterns.1">
         <op value="++"/>
         <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Port/block"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.7/@targetPatterns.2">
+        <op value="++"/>
+        <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Port/src"/>
       </linkVariablePatterns>
     </targetPatterns>
     <targetPatterns name="out">
@@ -1051,13 +1051,13 @@
         <attribute href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Port/name"/>
         <valueExp xsi:type="tgg:LiteralExpression" value="&quot;AND.in2&quot;"/>
       </attributeAssignments>
-      <linkVariablePatterns target="//@rules.7/@targetPatterns.6">
-        <op value="++"/>
-        <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Port/src"/>
-      </linkVariablePatterns>
       <linkVariablePatterns target="//@rules.7/@targetPatterns.1">
         <op value="++"/>
         <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Port/block"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.7/@targetPatterns.6">
+        <op value="++"/>
+        <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Port/src"/>
       </linkVariablePatterns>
     </targetPatterns>
     <correspondencePatterns name="andNode2Gate" type="//@schema/@correspondenceTypes.1" source="//@rules.7/@sourcePatterns.1" target="//@rules.7/@targetPatterns.1">
@@ -1474,13 +1474,13 @@
         <attribute href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Port/name"/>
         <valueExp xsi:type="tgg:LiteralExpression" value="&quot;OR.in1&quot;"/>
       </attributeAssignments>
-      <linkVariablePatterns target="//@rules.9/@targetPatterns.2">
-        <op value="++"/>
-        <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Port/src"/>
-      </linkVariablePatterns>
       <linkVariablePatterns target="//@rules.9/@targetPatterns.1">
         <op value="++"/>
         <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Port/block"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.9/@targetPatterns.2">
+        <op value="++"/>
+        <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Port/src"/>
       </linkVariablePatterns>
     </targetPatterns>
     <targetPatterns name="out">
@@ -1512,13 +1512,13 @@
         <attribute href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Port/name"/>
         <valueExp xsi:type="tgg:LiteralExpression" value="&quot;OR.in2&quot;"/>
       </attributeAssignments>
-      <linkVariablePatterns target="//@rules.9/@targetPatterns.6">
-        <op value="++"/>
-        <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Port/src"/>
-      </linkVariablePatterns>
       <linkVariablePatterns target="//@rules.9/@targetPatterns.1">
         <op value="++"/>
         <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Port/block"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.9/@targetPatterns.6">
+        <op value="++"/>
+        <type href="platform:/resource/VHDLModel/model/VHDLModel.ecore#//Port/src"/>
       </linkVariablePatterns>
     </targetPatterns>
     <correspondencePatterns name="gate2composite" type="//@schema/@correspondenceTypes.2" source="//@rules.9/@sourcePatterns.2" target="//@rules.9/@targetPatterns.0"/>

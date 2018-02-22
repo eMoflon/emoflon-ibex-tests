@@ -22,7 +22,7 @@ public class BWD_OPT_App extends BWD_OPT {
 	
 	public BWD_OPT_App(String projectName, String workspacePath, boolean debug, String srcPath, String trgPath, 
 			String corrPath, String protPath) throws IOException {
-		super(createIbexOptions());
+		super(createIbexOptions().projectName(projectName).workspacePath(workspacePath).debug(debug));
 		this.srcPath = srcPath;
 		this.trgPath = trgPath;
 		this.corrPath = corrPath;
@@ -71,7 +71,7 @@ public class BWD_OPT_App extends BWD_OPT {
 	
 	private static IbexOptions createIbexOptions() {
 			IbexOptions options = new IbexOptions();
-			options.projectName("BenchmarxFamiliesToPersons");
+			options.projectPath("BenchmarxFamiliesToPersons");
 			options.debug(false);
 			options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
 			return options;
