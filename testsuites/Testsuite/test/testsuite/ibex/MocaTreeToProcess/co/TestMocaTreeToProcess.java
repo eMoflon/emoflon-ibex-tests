@@ -3,7 +3,8 @@ package testsuite.ibex.MocaTreeToProcess.co;
 import java.io.IOException;
 
 import org.emoflon.ibex.tgg.run.mocatreetoprocess.BWD_OPT_App;
-import org.emoflon.ibex.tgg.run.mocatreetoprocess.*;
+import org.emoflon.ibex.tgg.run.mocatreetoprocess.CO_App;
+import org.emoflon.ibex.tgg.run.mocatreetoprocess.FWD_OPT_App;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -32,6 +33,7 @@ public class TestMocaTreeToProcess extends COTestCase {
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}
 	
+
 	@Test
 	public void testBWD_OPT() throws IOException {
 		createBackward("/resources/co/src-tmp", "/resources/co/trg", "/resources/co/corr-tmp", "/resources/co/prot-tmp");

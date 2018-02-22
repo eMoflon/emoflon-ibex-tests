@@ -35,6 +35,7 @@ public class TestBlockDiagramCodeAdapter extends COTestCase{
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}
 	
+
 	@Test
 	public void testBWD_OPT() throws IOException {
 		createBackward("/resources/co/src-tmp", "/resources/co/trg", "/resources/co/corr-tmp", "/resources/co/prot-tmp");

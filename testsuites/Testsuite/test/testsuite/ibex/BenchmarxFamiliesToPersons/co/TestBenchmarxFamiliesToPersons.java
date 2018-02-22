@@ -33,6 +33,7 @@ public class TestBenchmarxFamiliesToPersons extends COTestCase{
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}
 	
+
 	@Test
 	public void testBWD_OPT() throws IOException {
 		createBackward("/resources/co/src", "/resources/co/trg-tmp", "/resources/co/corr-tmp", "/resources/co/prot-tmp");
