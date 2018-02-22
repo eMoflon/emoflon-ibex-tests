@@ -9,6 +9,9 @@ import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.co.CO;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesTGGEngine;
 
+import MocaTree.impl.MocaTreePackageImpl;
+import ProcessDefinition.impl.ProcessDefinitionPackageImpl;
+
 public class CO_App extends CO {
 
 	String srcPath;
@@ -43,10 +46,30 @@ public class CO_App extends CO {
 		logger.info(co.generateConsistencyReport());
 	}
 
+	/*@Override
 	protected void registerUserMetamodels() throws IOException {
-
-		_RegistrationHelper.registerMetamodels(rs);
-			
+		// Load and register source and target metamodels
+		rs.getPackageRegistry().put("platform:/resource/MocaTree/model/MocaTree.ecore", MocaTreePackageImpl.init());
+		//rs.getPackageRegistry().put("platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore", ProcessDefinitionPackageImpl.init());
+		//loadAndRegisterMetamodel("platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore");
+		
+		Resource res = loadResource("platform:/resource/../../../git/emoflon-ibex-tests/metamodels/ProcessDefinition/model/ProcessDefinition.ecore");
+		EPackage pack = (EPackage) res.getContents().get(0);
+		pack.setNsURI("platform:/plugin/ProcessDefinition/model/ProcessDefinition.ecore");
+		//rs.getResources().remove(res);
+		rs.getPackageRegistry().put("platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore", pack);
+		
+		rs.getPackageRegistry().put("platform:/plugin/ProcessDefinition/model/ProcessDefinition.ecore", pack);
+		
+		// Register correspondence metamodel last
+		loadAndRegisterMetamodel(projectPath + "/model/" + projectPath + ".ecore");
+	}*/
+	
+	protected void registerUserMetamodels() throws IOException {
+		// Load and register source and target metamodels
+		rs.getPackageRegistry().put("platform:/resource/MocaTree/model/MocaTree.ecore", MocaTreePackageImpl.init());
+		rs.getPackageRegistry().put("platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore", ProcessDefinitionPackageImpl.init());
+		
 		// Register correspondence metamodel last
 		loadAndRegisterMetamodel(projectPath + "/model/" + projectPath + ".ecore");
 	}
