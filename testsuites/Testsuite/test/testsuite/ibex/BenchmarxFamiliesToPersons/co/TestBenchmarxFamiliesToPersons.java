@@ -36,9 +36,9 @@ public class TestBenchmarxFamiliesToPersons extends COTestCase{
 
 	@Test
 	public void testBWD_OPT() throws IOException {
-		createBackward("/resources/co/src", "/resources/co/trg-tmp", "/resources/co/corr-tmp", "/resources/co/prot-tmp");
+		createBackward("/resources/co/src-tmp", "/resources/co/trg", "/resources/co/corr-tmp", "/resources/co/prot-tmp");
 		runBackward();
-		createGenerator("/resources/co/src", "/resources/co/trg-tmp", "/resources/co/corr-tmp", "/resources/co/prot-tmp");
+		createGenerator("/resources/co/src-tmp", "/resources/co/trg", "/resources/co/corr-tmp", "/resources/co/prot-tmp");
 		runGenerator();
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}
