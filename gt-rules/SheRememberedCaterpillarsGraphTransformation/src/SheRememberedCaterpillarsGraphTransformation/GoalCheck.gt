@@ -1,0 +1,34 @@
+import "platform:/resource/SheRememberedCaterpillars/model/SheRememberedCaterpillars.ecore"
+
+/**
+ * Find a character.
+ */
+rule findCharacter() {
+	character: Character {
+		standsOn -> platform
+	}
+
+	platform: Platform
+}
+
+/*
+ * Check whether characters are on exit.
+ */
+rule findCharacterOnExit {
+	character: Character {
+		standsOn -> exit
+	}
+
+	exit: ExitPlatform
+}
+
+/*
+ * Find a character who is not on an exit platform. 
+ */
+rule findCharacterNotOnExit {
+	character: Character {
+		standsOn -> platform
+	}
+
+	platform: SimplePlatform
+}

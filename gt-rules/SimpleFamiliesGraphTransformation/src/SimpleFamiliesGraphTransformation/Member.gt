@@ -1,0 +1,33 @@
+import "platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore"
+
+rule findDaughter {
+	family: Family {
+		daughters -> member	
+	}
+
+	member: FamilyMember
+}
+
+rule findFather {
+	family: Family {
+		father -> member	
+	}
+
+	member: FamilyMember
+}
+
+rule findMother {
+	family: Family {
+		mother -> member	
+	}
+
+	member: FamilyMember
+}
+
+rule findSon {
+	family: Family {
+		sons -> member	
+	}
+
+	member: FamilyMember
+}
