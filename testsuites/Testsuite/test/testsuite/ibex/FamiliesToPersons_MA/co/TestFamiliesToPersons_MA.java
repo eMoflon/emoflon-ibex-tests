@@ -36,7 +36,6 @@ public class TestFamiliesToPersons_MA extends COTestCase {
 	
 	@Ignore("To be expected for now:  Solution is to ignore TGG rules that are not progressive in the direction of translation")
 	@Test
-	@Ignore
 	public void testBWD_OPT() throws IOException {
 		createBackward("/resources/co/src-tmp", "/resources/co/trg", "/resources/co/corr-tmp", "/resources/co/prot-tmp");
 		runBackward();
