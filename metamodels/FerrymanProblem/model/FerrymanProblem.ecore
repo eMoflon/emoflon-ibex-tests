@@ -4,11 +4,11 @@
     nsPrefix="FerrymanProblem">
   <eClassifiers xsi:type="ecore:EClass" name="Model">
     <eStructuralFeatures xsi:type="ecore:EReference" name="leftBank" lowerBound="1"
-        eType="#//Bank"/>
+        eType="#//Bank" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="rightBank" lowerBound="1"
         eType="#//Bank" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="subjects" upperBound="-1"
-        eType="#//Subject"/>
+        eType="#//Subject" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Bank"/>
   <eClassifiers xsi:type="ecore:EClass" name="Subject" abstract="true">

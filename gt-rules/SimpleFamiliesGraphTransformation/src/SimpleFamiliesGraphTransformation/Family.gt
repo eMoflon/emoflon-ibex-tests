@@ -1,0 +1,5 @@
+import "platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore"
+
+rule findFamily {
+	family: Family
+}
