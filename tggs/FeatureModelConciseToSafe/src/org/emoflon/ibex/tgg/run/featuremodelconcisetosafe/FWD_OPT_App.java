@@ -33,8 +33,8 @@ public class FWD_OPT_App extends FWD_OPT {
 	public static void main(String[] args) throws IOException {
 		BasicConfigurator.configure();
 
-		FWD_OPT_App fwd_opt = new FWD_OPT_App("FeatureModelConciseToSafe", "./../", true, "/resources/co/src", "/resources/co/trg", 
-				"/resources/co/corr", "/resources/co/protocol");
+		FWD_OPT_App fwd_opt = new FWD_OPT_App("FeatureModelConciseToSafe", "./../", true, "/instances/src", "/instances/trg", 
+				"/instances/corr", "/instances/protocol");
 		
 		logger.info("Starting FWD_OPT");
 		long tic = System.currentTimeMillis();

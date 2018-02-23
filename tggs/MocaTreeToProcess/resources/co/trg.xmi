@@ -1,15 +1,6 @@
 <?xml version="1.0" encoding="ASCII"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ProcessDefinition="platform:/plugin/ProcessDefinition/model/ProcessDefinition.ecore">
-  <ProcessDefinition:SystemModule/>
-  <ProcessDefinition:SystemModule/>
-  <ProcessDefinition:SystemModule allTasks="/2/@allModules.0/@tasks.0">
-    <allModules>
-      <tasks systemModule="/2"/>
-    </allModules>
-  </ProcessDefinition:SystemModule>
-  <ProcessDefinition:SystemModule allTasks="/3/@allModules.0/@tasks.0">
-    <allModules>
-      <tasks systemModule="/3"/>
-    </allModules>
-  </ProcessDefinition:SystemModule>
-</xmi:XMI>
+<ProcessDefinition:SystemModule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ProcessDefinition="platform:/plugin/ProcessDefinition/model/ProcessDefinition.ecore" allTasks="//@allModules.0/@tasks.0">
+  <allModules>
+    <tasks systemModule="/"/>
+  </allModules>
+</ProcessDefinition:SystemModule>

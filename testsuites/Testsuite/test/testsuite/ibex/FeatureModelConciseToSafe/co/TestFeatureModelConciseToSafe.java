@@ -2,6 +2,7 @@ package testsuite.ibex.FeatureModelConciseToSafe.co;
 
 import java.io.IOException;
 
+import org.emoflon.ibex.tgg.run.featuremodelconcisetosafe.BWD_OPT_App;
 import org.emoflon.ibex.tgg.run.featuremodelconcisetosafe.CO_App;
 import org.junit.Assert;
 import org.junit.Test;
@@ -19,11 +20,24 @@ public class TestFeatureModelConciseToSafe extends COTestCase {
 		forward = new FWD_OPT_App("FeatureModelConciseToSafe", testsuite.ibex.testUtil.Constants.workspacePath, false, srcInstance, trgInstance, corrInstance, protInstance);
 	}
 	
+	public void createBackward(String srcInstance, String trgInstance, String corrInstance, String protInstance) throws IOException {
+		backward = new BWD_OPT_App("FeatureModelConciseToSafe", testsuite.ibex.testUtil.Constants.workspacePath, false, srcInstance, trgInstance, corrInstance, protInstance);
+	}
+	
 	@Test
 	public void testFWD_OPT() throws IOException {
-		createTransformation("/instances/src", "/instances/trg", "/instances/corr", "/instances/protocol");
+		createTransformation("/resources/co/src", "/resources/co/trg-tmp", "/resources/co/corr-tmp", "/resources/co/prot-tmp");
 		runForward();
-		createGenerator("/instances/src", "/instances/trg", "/instances/corr", "/instances/protocol");
+		createGenerator("/resources/co/src", "/resources/co/trg-tmp", "/resources/co/corr-tmp", "/resources/co/prot-tmp");
+		runGenerator();
+		Assert.assertTrue(checker.modelsAreConsistent());
+	}
+	
+	@Test
+	public void testBWD_OPT() throws IOException {
+		createBackward("/resources/co/src-tmp", "/resources/co/trg", "/resources/co/corr-tmp", "/resources/co/prot-tmp");
+		runBackward();
+		createGenerator("/resources/co/src-tmp", "/resources/co/trg", "/resources/co/corr-tmp", "/resources/co/prot-tmp");
 		runGenerator();
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}

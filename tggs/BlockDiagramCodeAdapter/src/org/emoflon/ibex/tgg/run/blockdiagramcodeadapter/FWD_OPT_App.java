@@ -15,10 +15,10 @@ import MocaTree.impl.MocaTreePackageImpl;
 
 public class FWD_OPT_App extends FWD_OPT {
 
-	String srcPath;
-	String trgPath;
-	String corrPath;
-	String protPath;
+	private String srcPath;
+	private String trgPath;
+	private String corrPath;
+	private String protPath;
 	
 	public FWD_OPT_App(String projectName, String workspacePath, boolean debug, String srcPath, String trgPath, 
 			String corrPath, String protPath) throws IOException {
