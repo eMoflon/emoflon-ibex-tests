@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="ASCII"?>
 <org.emoflon.ibex.tgg.core.language:TGG xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.emoflon.ibex.tgg.core.language="platform:/plugin/org.emoflon.ibex.tgg.core.language/model/Language.ecore#/" xmlns:org.emoflon.ibex.tgg.core.language.misc.expressions="platform:/plugin/org.emoflon.ibex.tgg.core.language/model/Language.ecore#/misc/expressions" name="ClassMultipleInhHier2DB_MA">
-  <src href="platform:/resource/ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#/"/>
+  <src href="platform:/resource/ClassMultipleInheritanceHierarchy/model/ClassMultipleInheritanceHierarchy.ecore#/"/>
   <trg href="platform:/resource/Database/model/Database.ecore#/"/>
   <corr href="platform:/resource/ClassMultipleInhHier2DB_MA/model/ClassMultipleInhHier2DB_MA.ecore#/"/>
   <rules name="AttributeToColumn">
     <nodes name="clazz" incomingEdges="//@rules.0/@edges.2" outgoingEdges="//@rules.0/@edges.0" incomingCorrsSource="//@rules.0/@nodes.4">
-      <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Clazz"/>
+      <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/ClassMultipleInheritanceHierarchy.ecore#//Clazz"/>
     </nodes>
     <nodes name="attribute" bindingType="CREATE" incomingEdges="//@rules.0/@edges.0" outgoingEdges="//@rules.0/@edges.2">
-      <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Attribute"/>
+      <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/ClassMultipleInheritanceHierarchy.ecore#//Attribute"/>
     </nodes>
     <nodes name="table" domainType="TRG" outgoingEdges="//@rules.0/@edges.1" incomingCorrsTarget="//@rules.0/@nodes.4">
       <type href="platform:/resource/Database/model/Database.ecore#//Table"/>
@@ -20,18 +20,18 @@
       <type href="platform:/resource/ClassMultipleInhHier2DB_MA/model/ClassMultipleInhHier2DB_MA.ecore#//Clazz2DirectTable"/>
     </nodes>
     <edges name="clazz__attributes__attribute_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.0/@nodes.0" trgNode="//@rules.0/@nodes.1">
-      <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Clazz/attributes"/>
+      <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/ClassMultipleInheritanceHierarchy.ecore#//Clazz/attributes"/>
     </edges>
     <edges name="table__columns__col_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.0/@nodes.2" trgNode="//@rules.0/@nodes.3">
       <type href="platform:/resource/Database/model/Database.ecore#//Table/columns"/>
     </edges>
     <edges name="attribute__clazz__clazz_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.0/@nodes.1" trgNode="//@rules.0/@nodes.0">
-      <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Attribute/clazz"/>
+      <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/ClassMultipleInheritanceHierarchy.ecore#//Attribute/clazz"/>
     </edges>
     <attributeConditionLibrary>
       <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0" parameters="//@rules.0/@attributeConditionLibrary/@parameterValues.0 //@rules.0/@attributeConditionLibrary/@parameterValues.1"/>
       <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.0" objectVar="//@rules.0/@nodes.1">
-        <attribute href="platform:/resource/ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//NamedElement/name"/>
+        <attribute href="platform:/resource/ClassMultipleInheritanceHierarchy/model/ClassMultipleInheritanceHierarchy.ecore#//NamedElement/name"/>
       </parameterValues>
       <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.1" objectVar="//@rules.0/@nodes.3">
         <attribute href="platform:/resource/Database/model/Database.ecore#//Column/name"/>
@@ -40,10 +40,10 @@
   </rules>
   <rules name="ClassToTable">
     <nodes name="packageClass" incomingEdges="//@rules.1/@edges.2" outgoingEdges="//@rules.1/@edges.0" incomingCorrsSource="//@rules.1/@nodes.4">
-      <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//ClassPackage"/>
+      <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/ClassMultipleInheritanceHierarchy.ecore#//ClassPackage"/>
     </nodes>
     <nodes name="clazz" bindingType="CREATE" incomingEdges="//@rules.1/@edges.0" outgoingEdges="//@rules.1/@edges.2" incomingCorrsSource="//@rules.1/@nodes.5">
-      <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Clazz"/>
+      <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/ClassMultipleInheritanceHierarchy.ecore#//Clazz"/>
     </nodes>
     <nodes name="db" domainType="TRG" outgoingEdges="//@rules.1/@edges.1" incomingCorrsTarget="//@rules.1/@nodes.4">
       <type href="platform:/resource/Database/model/Database.ecore#//DB"/>
@@ -58,18 +58,18 @@
       <type href="platform:/resource/ClassMultipleInhHier2DB_MA/model/ClassMultipleInhHier2DB_MA.ecore#//Clazz2DirectTable"/>
     </nodes>
     <edges name="packageClass__classes__clazz_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.1/@nodes.0" trgNode="//@rules.1/@nodes.1">
-      <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//ClassPackage/classes"/>
+      <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/ClassMultipleInheritanceHierarchy.ecore#//ClassPackage/classes"/>
     </edges>
     <edges name="db__tables__table_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.1/@nodes.2" trgNode="//@rules.1/@nodes.3">
       <type href="platform:/resource/Database/model/Database.ecore#//DB/tables"/>
     </edges>
     <edges name="clazz__package__packageClass_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.1/@nodes.1" trgNode="//@rules.1/@nodes.0">
-      <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Clazz/package"/>
+      <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/ClassMultipleInheritanceHierarchy.ecore#//Clazz/package"/>
     </edges>
     <attributeConditionLibrary>
       <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0" parameters="//@rules.1/@attributeConditionLibrary/@parameterValues.0 //@rules.1/@attributeConditionLibrary/@parameterValues.1"/>
       <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.0" objectVar="//@rules.1/@nodes.1">
-        <attribute href="platform:/resource/ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//NamedElement/name"/>
+        <attribute href="platform:/resource/ClassMultipleInheritanceHierarchy/model/ClassMultipleInheritanceHierarchy.ecore#//NamedElement/name"/>
       </parameterValues>
       <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.1" objectVar="//@rules.1/@nodes.3">
         <attribute href="platform:/resource/Database/model/Database.ecore#//Table/heading"/>
@@ -78,7 +78,7 @@
   </rules>
   <rules name="PackageToDatabase">
     <nodes name="package" bindingType="CREATE" incomingCorrsSource="//@rules.2/@nodes.2">
-      <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//ClassPackage"/>
+      <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/ClassMultipleInheritanceHierarchy.ecore#//ClassPackage"/>
     </nodes>
     <nodes name="db" domainType="TRG" bindingType="CREATE" incomingCorrsTarget="//@rules.2/@nodes.2">
       <type href="platform:/resource/Database/model/Database.ecore#//DB"/>
@@ -89,7 +89,7 @@
     <attributeConditionLibrary>
       <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0" parameters="//@rules.2/@attributeConditionLibrary/@parameterValues.0 //@rules.2/@attributeConditionLibrary/@parameterValues.1"/>
       <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.0" objectVar="//@rules.2/@nodes.0">
-        <attribute href="platform:/resource/ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//NamedElement/name"/>
+        <attribute href="platform:/resource/ClassMultipleInheritanceHierarchy/model/ClassMultipleInheritanceHierarchy.ecore#//NamedElement/name"/>
       </parameterValues>
       <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.1" objectVar="//@rules.2/@nodes.1">
         <attribute href="platform:/resource/Database/model/Database.ecore#//DB/title"/>
@@ -99,33 +99,33 @@
   <rules name="SubClassToTable">
     <nacs name="NoDoubleEdges">
       <nodes name="superClazz" incomingEdges="//@rules.3/@nacs.0/@edges.0">
-        <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Clazz"/>
+        <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/ClassMultipleInheritanceHierarchy.ecore#//Clazz"/>
       </nodes>
       <nodes name="subClazz" outgoingEdges="//@rules.3/@nacs.0/@edges.0">
-        <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Clazz"/>
+        <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/ClassMultipleInheritanceHierarchy.ecore#//Clazz"/>
       </nodes>
       <edges name="subClazz__superClass__superClazz_eMoflonEdge" srcNode="//@rules.3/@nacs.0/@nodes.1" trgNode="//@rules.3/@nacs.0/@nodes.0">
-        <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Clazz/superClass"/>
+        <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/ClassMultipleInheritanceHierarchy.ecore#//Clazz/superClass"/>
       </edges>
       <attributeConditionLibrary/>
     </nacs>
     <nacs name="NoSimpleCycles">
       <nodes name="superClazz" outgoingEdges="//@rules.3/@nacs.1/@edges.0">
-        <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Clazz"/>
+        <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/ClassMultipleInheritanceHierarchy.ecore#//Clazz"/>
       </nodes>
       <nodes name="subClazz" incomingEdges="//@rules.3/@nacs.1/@edges.0">
-        <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Clazz"/>
+        <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/ClassMultipleInheritanceHierarchy.ecore#//Clazz"/>
       </nodes>
       <edges name="superClazz__superClass__subClazz_eMoflonEdge" srcNode="//@rules.3/@nacs.1/@nodes.0" trgNode="//@rules.3/@nacs.1/@nodes.1">
-        <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Clazz/superClass"/>
+        <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/ClassMultipleInheritanceHierarchy.ecore#//Clazz/superClass"/>
       </edges>
       <attributeConditionLibrary/>
     </nacs>
     <nodes name="superClazz" incomingEdges="//@rules.3/@edges.0" incomingCorrsSource="//@rules.3/@nodes.4 //@rules.3/@nodes.6">
-      <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Clazz"/>
+      <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/ClassMultipleInheritanceHierarchy.ecore#//Clazz"/>
     </nodes>
     <nodes name="subClazz" outgoingEdges="//@rules.3/@edges.0" incomingCorrsSource="//@rules.3/@nodes.5">
-      <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Clazz"/>
+      <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/ClassMultipleInheritanceHierarchy.ecore#//Clazz"/>
     </nodes>
     <nodes name="superTable" domainType="TRG" incomingCorrsTarget="//@rules.3/@nodes.4">
       <type href="platform:/resource/Database/model/Database.ecore#//Table"/>
@@ -143,16 +143,16 @@
       <type href="platform:/resource/ClassMultipleInhHier2DB_MA/model/ClassMultipleInhHier2DB_MA.ecore#//Clazz2SubTable"/>
     </nodes>
     <edges name="subClazz__superClass__superClazz_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.3/@nodes.1" trgNode="//@rules.3/@nodes.0">
-      <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Clazz/superClass"/>
+      <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/ClassMultipleInheritanceHierarchy.ecore#//Clazz/superClass"/>
     </edges>
     <attributeConditionLibrary/>
   </rules>
   <rules xsi:type="org.emoflon.ibex.tgg.core.language:TGGComplementRule" name="TransferDirectSuperClazzToAllSubSubTablesCorrs" bounded="true" kernel="//@rules.3">
     <nodes name="superClazz" incomingCorrsSource="//@rules.4/@nodes.4">
-      <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Clazz"/>
+      <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/ClassMultipleInheritanceHierarchy.ecore#//Clazz"/>
     </nodes>
     <nodes name="subClazz" incomingCorrsSource="//@rules.4/@nodes.3">
-      <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Clazz"/>
+      <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/ClassMultipleInheritanceHierarchy.ecore#//Clazz"/>
     </nodes>
     <nodes name="subSubTable" domainType="TRG" incomingCorrsTarget="//@rules.4/@nodes.3 //@rules.4/@nodes.4">
       <type href="platform:/resource/Database/model/Database.ecore#//Table"/>
@@ -167,7 +167,7 @@
   </rules>
   <rules xsi:type="org.emoflon.ibex.tgg.core.language:TGGComplementRule" name="TransferSuperAttributes" bounded="true" kernel="//@rules.0">
     <nodes name="clazz" incomingCorrsSource="//@rules.5/@nodes.4">
-      <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Clazz"/>
+      <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/ClassMultipleInheritanceHierarchy.ecore#//Clazz"/>
     </nodes>
     <nodes name="col" domainType="TRG">
       <type href="platform:/resource/Database/model/Database.ecore#//Column"/>
@@ -225,7 +225,7 @@
   </rules>
   <rules xsi:type="org.emoflon.ibex.tgg.core.language:TGGComplementRule" name="TransferSuperColsToSubSubTables" bounded="true" kernel="//@rules.3">
     <nodes name="subClazz" incomingCorrsSource="//@rules.7/@nodes.5">
-      <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Clazz"/>
+      <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/ClassMultipleInheritanceHierarchy.ecore#//Clazz"/>
     </nodes>
     <nodes name="superTable" domainType="TRG" outgoingEdges="//@rules.7/@edges.0">
       <type href="platform:/resource/Database/model/Database.ecore#//Table"/>
@@ -260,10 +260,10 @@
   </rules>
   <rules xsi:type="org.emoflon.ibex.tgg.core.language:TGGComplementRule" name="TransferTransitiveSuperClazzesToSubSubTablesCorrs" bounded="true" kernel="//@rules.3">
     <nodes name="subClazz" incomingCorrsSource="//@rules.8/@nodes.5">
-      <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Clazz"/>
+      <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/ClassMultipleInheritanceHierarchy.ecore#//Clazz"/>
     </nodes>
     <nodes name="transitiveSuperClass" incomingCorrsSource="//@rules.8/@nodes.4 //@rules.8/@nodes.6">
-      <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Clazz"/>
+      <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/ClassMultipleInheritanceHierarchy.ecore#//Clazz"/>
     </nodes>
     <nodes name="superTable" domainType="TRG" incomingCorrsTarget="//@rules.8/@nodes.4">
       <type href="platform:/resource/Database/model/Database.ecore#//Table"/>
@@ -284,7 +284,7 @@
   </rules>
   <rules xsi:type="org.emoflon.ibex.tgg.core.language:TGGComplementRule" name="TransferTransitiveSuperClazzesToSubTableCorrs" bounded="true" kernel="//@rules.3">
     <nodes name="transitiveSuperClass" incomingCorrsSource="//@rules.9/@nodes.3 //@rules.9/@nodes.4">
-      <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore#//Clazz"/>
+      <type href="platform:/resource/ClassMultipleInheritanceHierarchy/model/ClassMultipleInheritanceHierarchy.ecore#//Clazz"/>
     </nodes>
     <nodes name="superTable" domainType="TRG" incomingCorrsTarget="//@rules.9/@nodes.3">
       <type href="platform:/resource/Database/model/Database.ecore#//Table"/>
