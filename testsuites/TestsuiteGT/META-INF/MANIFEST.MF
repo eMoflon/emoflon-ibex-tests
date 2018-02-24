@@ -4,10 +4,7 @@ Bundle-Name: Tests for Graph Transformation Examples
 Bundle-SymbolicName: TestsuiteGT;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: %providerName
-Require-Bundle: org.apache.commons.logging,
- org.eclipse.core.runtime,
- org.eclipse.xtext,
- org.eclipse.xtext.xbase,
+Require-Bundle: org.eclipse.emf.ecore.xmi,
  org.emoflon.ibex.common,
  org.emoflon.ibex.gt,
  org.emoflon.ibex.gt.democles,

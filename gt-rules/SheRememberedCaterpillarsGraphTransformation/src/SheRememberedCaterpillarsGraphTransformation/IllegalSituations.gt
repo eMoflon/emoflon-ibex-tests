@@ -1,14 +1,13 @@
 import "platform:/resource/SheRememberedCaterpillars/model/SheRememberedCaterpillars.ecore"
 
 rule noTwoCharactersOnAnExitPlatform {
-	
-	char1:Character {
-		standsOn->platform
+	char1: Character {
+		-standsOn -> platform
 	}
-	
-	char2:Character {
-		standsOn->platform
+
+	char2: Character {
+		-standsOn -> platform
 	}
-	
-	platform:Platform
+
+	platform: Platform
 }

@@ -31,7 +31,7 @@ public class FerrymanProblemTest extends GTTestCase<FerrymanProblemGraphTransfor
 	}
 
 	@Test
-	public void test() {
+	public void testCheckAllAtRightBank() {
 		FerrymanProblemGraphTransformationAPI api = this.initAPI("FerrymanProblem", "FerrymanProblemInit.xmi");
 		assertFalse(api.checkAllThingsAtRightBank().findAnyMatch().isPresent());
 	}
