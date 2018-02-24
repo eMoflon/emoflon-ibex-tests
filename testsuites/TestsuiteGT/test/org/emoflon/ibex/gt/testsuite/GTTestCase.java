@@ -47,6 +47,12 @@ public abstract class GTTestCase<API extends GraphTransformationAPI> {
 	 */
 	protected abstract API getAPI(final IPatternInterpreter engine, final ResourceSet model);
 
+	/**
+	 * Defines the meta-model packages as a mapping between their URI and the
+	 * EPackage.
+	 * 
+	 * @return a Map containing the meta-model packages
+	 */
 	protected abstract Map<String, EPackage> getMetaModelPackages();
 
 	/**
@@ -58,14 +64,44 @@ public abstract class GTTestCase<API extends GraphTransformationAPI> {
 	 *            the name of the model file
 	 * @return the created API
 	 */
-	protected API initAPI(final String name, final String modelFileName, final EPackage... packages) {
+	protected API initAPI(final String name, final String modelFileName) {
 		DemoclesGTEngine engine = new DemoclesGTEngine();
 		engine.setDebugPath("./debug/" + name);
+		return this.getAPI(engine, this.initResourceSet(modelFileName));
+	}
 
+	/**
+	 * Initializes the API for the tests.
+	 * 
+	 * @param name
+	 *            the name of the API which is tested.
+	 * @param model
+	 *            the model file
+	 * @return the created API
+	 */
+	protected API initAPI(final String name, final ResourceSet model) {
+		DemoclesGTEngine engine = new DemoclesGTEngine();
+		engine.setDebugPath("./debug/" + name);
+		return this.getAPI(engine, model);
+	}
+
+	/**
+	 * Initializes the resource set with the given name.
+	 * 
+	 * The resource is created in the instances directory. The content of the
+	 * resource file is copied to the newly created file (optional).
+	 * 
+	 * @param modelInstanceFileName
+	 *            the name of the model file
+	 * @param resourceFileName
+	 *            the name of the resource file to copy
+	 * @return a resource set containing the model file
+	 */
+	protected ResourceSet initResourceSet(final String modelInstanceFileName, final String resourceFileName) {
 		Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
 		reg.getExtensionToFactoryMap().put("xmi", new XMIResourceFactoryImpl());
 
-		URI instanceURI = URI.createFileURI(instancesPath + modelFileName);
+		URI instanceURI = URI.createFileURI(instancesPath + modelInstanceFileName);
 		ResourceSet resourceSet = new ResourceSetImpl();
 		Registry packageRegistry = resourceSet.getPackageRegistry();
 		this.getMetaModelPackages().forEach((eNS_URI, eINSTANCE) -> packageRegistry.put(eNS_URI, eINSTANCE));
@@ -74,18 +110,36 @@ public abstract class GTTestCase<API extends GraphTransformationAPI> {
 
 		// If a file with the given name exists in the resource folder, copy its
 		// contents to the instance file.
-		File file = new File(resourcePath + modelFileName);
-		if (file.exists()) {
-			URI resourceURI = URI.createFileURI(resourcePath + modelFileName);
-			Resource res = resourceSet.getResource(resourceURI, true);
-			instanceResource.getContents().addAll(res.getContents());
+		if (null != resourceFileName) {
+			File file = new File(resourcePath + resourceFileName);
+			if (file.exists()) {
+				URI resourceURI = URI.createFileURI(resourcePath + resourceFileName);
+				Resource res = resourceSet.getResource(resourceURI, true);
+				instanceResource.getContents().addAll(res.getContents());
+			}
 		}
 
+		// Save the resource.
 		try {
 			instanceResource.save(null);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return this.getAPI(engine, resourceSet);
+		return resourceSet;
+	}
+
+	/**
+	 * Initializes the resource set with the given name.
+	 * 
+	 * The resource is created in the instances directory. If a equally named
+	 * resource exists in the resources directory, its content is copied to the new
+	 * resource.
+	 * 
+	 * @param modelInstanceFileName
+	 *            the name of the model file
+	 * @return a resource set containing the model file
+	 */
+	protected ResourceSet initResourceSet(final String modelInstanceFileName) {
+		return this.initResourceSet(modelInstanceFileName, modelInstanceFileName);
 	}
 }

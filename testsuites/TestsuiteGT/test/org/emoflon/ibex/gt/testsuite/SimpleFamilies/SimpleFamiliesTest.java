@@ -3,6 +3,8 @@ package org.emoflon.ibex.gt.testsuite.SimpleFamilies;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -15,6 +17,9 @@ import org.emoflon.ibex.common.operational.IPatternInterpreter;
 import org.emoflon.ibex.gt.testsuite.GTTestCase;
 import org.junit.Test;
 
+import SimpleFamilies.Family;
+import SimpleFamilies.FamilyRegister;
+import SimpleFamilies.SimpleFamiliesFactory;
 import SimpleFamilies.SimpleFamiliesPackage;
 import SimpleFamiliesGraphTransformation.api.SimpleFamiliesGraphTransformationAPI;
 
@@ -22,6 +27,8 @@ import SimpleFamiliesGraphTransformation.api.SimpleFamiliesGraphTransformationAP
  * JUnit tests for SimpleFamilies Graph Transformation API
  */
 public class SimpleFamiliesTest extends GTTestCase<SimpleFamiliesGraphTransformationAPI> {
+	private boolean familyDeleted = false;
+
 	@Override
 	protected SimpleFamiliesGraphTransformationAPI getAPI(final IPatternInterpreter engine, final ResourceSet model) {
 		return new SimpleFamiliesGraphTransformationAPI(engine, model, GTTestCase.workspacePath);
@@ -35,7 +42,7 @@ public class SimpleFamiliesTest extends GTTestCase<SimpleFamiliesGraphTransforma
 	}
 
 	@Test
-	public void test() {
+	public void testConstraints() {
 		SimpleFamiliesGraphTransformationAPI api = this.initAPI("SimpleFamilies", "FamilyRegister.xmi");
 
 		assertEquals(1, api.findRegister().countMatches());
@@ -50,5 +57,41 @@ public class SimpleFamiliesTest extends GTTestCase<SimpleFamiliesGraphTransforma
 		assertEquals(2, api.findMother().countMatches());
 		assertEquals(2, api.findDaughter().countMatches());
 		assertEquals(1, api.findSon().countMatches());
+	}
+
+	@Test
+	public void testMatchNotifications() throws IOException {
+		ResourceSet model = this.initResourceSet("FamilyRegister2.xmi", "FamilyRegister.xmi");
+		SimpleFamiliesGraphTransformationAPI api = this.initAPI("SimpleFamilies", model);
+
+		// Get the list of family names.
+		List<String> namesOfFamilies = api.findFamily().findMatches().stream() //
+				.map(m -> m.getFamily().getName()).collect(Collectors.toList());
+
+		// Register subscriptions.
+		api.findFamily().findMatches().stream().filter(m -> m.getFamily().getName().equals("Watson")).findAny()
+				.ifPresent(m -> api.findFamily().whenMatchDisappears(m, x -> this.familyDeleted = true));
+
+		List<String> namesOfNewFamilies = new ArrayList<String>();
+		api.findFamily().subscribeAppearing(m -> namesOfNewFamilies.add(m.getFamily().getName()));
+		api.findFamily().subscribeAppearing(m -> namesOfFamilies.add(m.getFamily().getName()));
+
+		List<String> namesOfRemovedFamilies = new ArrayList<String>();
+		api.findFamily().subscribeDisappearing(m -> namesOfRemovedFamilies.add(m.getFamily().getName()));
+		api.findFamily().subscribeDisappearing(m -> namesOfFamilies.remove(m.getFamily().getName()));
+
+		// Remove Watson family, add Smith family.
+		FamilyRegister register = (FamilyRegister) model.getResources().get(0).getContents().get(0);
+		register.getFamilies().remove(1);
+		Family family = SimpleFamiliesFactory.eINSTANCE.createFamily();
+		family.setName("Smith");
+		register.getFamilies().add(family);
+		model.getResources().get(0).save(null);
+
+		api.updateMatches();
+		assertEquals(Arrays.asList("Smith"), namesOfNewFamilies);
+		assertEquals(Arrays.asList("Watson"), namesOfRemovedFamilies);
+		assertEquals(Arrays.asList("Simpson", "Smith"), namesOfFamilies);
+		assertTrue(this.familyDeleted);
 	}
 }
