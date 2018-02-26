@@ -23,6 +23,11 @@ import SheRememberedCaterpillarsGraphTransformation.api.matches.NoTwoCharactersO
  */
 public class SheRememberedCaterpillarsTest extends GTTestCase<SheRememberedCaterpillarsGraphTransformationAPI> {
 	@Override
+	public String getTestName() {
+		return "SheRememberedCaterpillars";
+	}
+
+	@Override
 	protected SheRememberedCaterpillarsGraphTransformationAPI getAPI(final IPatternInterpreter engine,
 			final ResourceSet model) {
 		return new SheRememberedCaterpillarsGraphTransformationAPI(engine, model, GTTestCase.workspacePath);
@@ -37,8 +42,7 @@ public class SheRememberedCaterpillarsTest extends GTTestCase<SheRememberedCater
 
 	@Test
 	public void testFindCharacters() {
-		SheRememberedCaterpillarsGraphTransformationAPI api = this.initAPI("SheRememberedCaterpillars",
-				"SheRememberedCaterpillars.xmi");
+		SheRememberedCaterpillarsGraphTransformationAPI api = this.initAPI("SheRememberedCaterpillars.xmi");
 		assertEquals(2, api.findCharacter().countMatches());
 		assertTrue(api.findCharacterNotOnExit().findAnyMatch().isPresent());
 		assertTrue(api.findCharacterOnExit().findAnyMatch().isPresent());
@@ -46,15 +50,13 @@ public class SheRememberedCaterpillarsTest extends GTTestCase<SheRememberedCater
 
 	@Test
 	public void testNoIllegalSituation() {
-		SheRememberedCaterpillarsGraphTransformationAPI api = this.initAPI("SheRememberedCaterpillars",
-				"SheRememberedCaterpillars.xmi");
+		SheRememberedCaterpillarsGraphTransformationAPI api = this.initAPI("SheRememberedCaterpillars.xmi");
 		assertFalse(api.noTwoCharactersOnAnExitPlatform().findAnyMatch().isPresent());
 	}
 
 	@Test
 	public void testIllegalSituation() {
-		SheRememberedCaterpillarsGraphTransformationAPI api = this.initAPI("SheRememberedCaterpillars",
-				"SheRememberedCaterpillarsIllegal.xmi");
+		SheRememberedCaterpillarsGraphTransformationAPI api = this.initAPI("TwoCharactersAtSameExit.xmi");
 		assertTrue(api.noTwoCharactersOnAnExitPlatform().findAnyMatch().isPresent());
 		assertEquals(2, api.noTwoCharactersOnAnExitPlatform().countMatches());
 		assertTrue(api.noTwoCharactersOnAnExitPlatform().findAnyMatch()

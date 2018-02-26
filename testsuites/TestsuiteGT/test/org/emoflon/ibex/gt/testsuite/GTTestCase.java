@@ -1,5 +1,8 @@
 package org.emoflon.ibex.gt.testsuite;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.Map;
@@ -13,6 +16,7 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.emoflon.ibex.common.operational.IPatternInterpreter;
 import org.emoflon.ibex.gt.api.GraphTransformationAPI;
+import org.emoflon.ibex.gt.api.GraphTransformationRule;
 import org.emoflon.ibex.gt.democles.runtime.DemoclesGTEngine;
 
 /**
@@ -41,6 +45,14 @@ public abstract class GTTestCase<API extends GraphTransformationAPI> {
 	private static String resourcePath = "./resources/";
 
 	/**
+	 * Returns the name of the test which is used as a name of the subdirectory
+	 * within the folders debug, instances and resources.
+	 * 
+	 * @return the test name
+	 */
+	protected abstract String getTestName();
+
+	/**
 	 * Creates an API instance. This method must be implemented for each API.
 	 * 
 	 * @return the created API
@@ -58,30 +70,26 @@ public abstract class GTTestCase<API extends GraphTransformationAPI> {
 	/**
 	 * Initializes the API for the tests.
 	 * 
-	 * @param name
-	 *            the name of the API which is tested.
 	 * @param modelFileName
 	 *            the name of the model file
 	 * @return the created API
 	 */
-	protected API initAPI(final String name, final String modelFileName) {
+	protected API initAPI(final String modelFileName) {
 		DemoclesGTEngine engine = new DemoclesGTEngine();
-		engine.setDebugPath("./debug/" + name);
+		engine.setDebugPath("./debug/" + this.getTestName());
 		return this.getAPI(engine, this.initResourceSet(modelFileName));
 	}
 
 	/**
 	 * Initializes the API for the tests.
 	 * 
-	 * @param name
-	 *            the name of the API which is tested.
 	 * @param model
 	 *            the model file
 	 * @return the created API
 	 */
-	protected API initAPI(final String name, final ResourceSet model) {
+	protected API initAPI(final ResourceSet model) {
 		DemoclesGTEngine engine = new DemoclesGTEngine();
-		engine.setDebugPath("./debug/" + name);
+		engine.setDebugPath("./debug/" + this.getTestName());
 		return this.getAPI(engine, model);
 	}
 
@@ -101,7 +109,7 @@ public abstract class GTTestCase<API extends GraphTransformationAPI> {
 		Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
 		reg.getExtensionToFactoryMap().put("xmi", new XMIResourceFactoryImpl());
 
-		URI instanceURI = URI.createFileURI(instancesPath + modelInstanceFileName);
+		URI instanceURI = URI.createFileURI(instancesPath + this.getTestName() + "/" + modelInstanceFileName);
 		ResourceSet resourceSet = new ResourceSetImpl();
 		Registry packageRegistry = resourceSet.getPackageRegistry();
 		this.getMetaModelPackages().forEach((eNS_URI, eINSTANCE) -> packageRegistry.put(eNS_URI, eINSTANCE));
@@ -111,9 +119,10 @@ public abstract class GTTestCase<API extends GraphTransformationAPI> {
 		// If a file with the given name exists in the resource folder, copy its
 		// contents to the instance file.
 		if (null != resourceFileName) {
-			File file = new File(resourcePath + resourceFileName);
+			String path = resourcePath + this.getTestName() + "/" + resourceFileName;
+			File file = new File(path);
 			if (file.exists()) {
-				URI resourceURI = URI.createFileURI(resourcePath + resourceFileName);
+				URI resourceURI = URI.createFileURI(path);
 				Resource res = resourceSet.getResource(resourceURI, true);
 				instanceResource.getContents().addAll(res.getContents());
 			}
@@ -141,5 +150,16 @@ public abstract class GTTestCase<API extends GraphTransformationAPI> {
 	 */
 	protected ResourceSet initResourceSet(final String modelInstanceFileName) {
 		return this.initResourceSet(modelInstanceFileName, modelInstanceFileName);
+	}
+
+	/**
+	 * Asserts that there are no matches for the rule
+	 * 
+	 * @param rule
+	 *            the rule
+	 */
+	public static void assertNoMatch(GraphTransformationRule<?, ?> rule) {
+		assertEquals(0, rule.countMatches());
+		assertFalse(rule.findAnyMatch().isPresent());
 	}
 }

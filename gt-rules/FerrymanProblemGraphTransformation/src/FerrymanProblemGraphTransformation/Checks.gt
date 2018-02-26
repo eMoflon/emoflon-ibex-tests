@@ -1,0 +1,23 @@
+import "platform:/resource/FerrymanProblem/model/FerrymanProblem.ecore"
+
+/**
+ * Checks whether a thing can eat another.
+ */
+rule canEat() {
+	bankOfFerryMan: Bank
+
+	ferryMan: FerryMan {
+		-isAt -> bankOfFerryMan
+	}
+
+	bankOfThings: Bank
+
+	eatingThing: Thing {
+		-isAt -> bankOfThings
+		-likesToEat -> eatenThing
+	}
+
+	eatenThing: Thing {
+		-isAt -> bankOfThings
+	}
+}
