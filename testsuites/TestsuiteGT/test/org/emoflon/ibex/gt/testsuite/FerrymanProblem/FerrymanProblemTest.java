@@ -4,7 +4,6 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Optional;
 
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.ResourceSet;
@@ -49,9 +48,8 @@ public class FerrymanProblemTest extends GTTestCase<FerrymanProblemGraphTransfor
 	@Test
 	public void testCheckWolfCanEatGoat() {
 		FerrymanProblemGraphTransformationAPI api = this.initAPI("WolfAndGoat.xmi");
-		Optional<CanEatMatch> match = api.canEat().findAnyMatch();
-		assertTrue(match.isPresent());
-		assertTrue(match.get().getEatingThing() instanceof Wolf);
-		assertTrue(match.get().getEatenThing() instanceof Goat);
+		CanEatMatch match = assertAnyMatchExists(api.canEat());
+		assertTrue(match.getEater() instanceof Wolf);
+		assertTrue(match.getEaten() instanceof Goat);
 	}
 }

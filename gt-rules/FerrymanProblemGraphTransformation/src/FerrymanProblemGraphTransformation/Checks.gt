@@ -12,12 +12,12 @@ rule canEat() {
 
 	bankOfThings: Bank
 
-	eatingThing: Thing {
+	eater: Thing {
 		-isAt -> bankOfThings
-		-likesToEat -> eatenThing
+		-likesToEat -> eaten
 	}
 
-	eatenThing: Thing {
+	eaten: Thing {
 		-isAt -> bankOfThings
 	}
 }

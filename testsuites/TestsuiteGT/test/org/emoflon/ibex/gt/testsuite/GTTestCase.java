@@ -2,10 +2,12 @@ package org.emoflon.ibex.gt.testsuite;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.Map;
+import java.util.Optional;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EPackage;
@@ -16,6 +18,7 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.emoflon.ibex.common.operational.IPatternInterpreter;
 import org.emoflon.ibex.gt.api.GraphTransformationAPI;
+import org.emoflon.ibex.gt.api.GraphTransformationMatch;
 import org.emoflon.ibex.gt.api.GraphTransformationRule;
 import org.emoflon.ibex.gt.democles.runtime.DemoclesGTEngine;
 
@@ -158,8 +161,34 @@ public abstract class GTTestCase<API extends GraphTransformationAPI> {
 	 * @param rule
 	 *            the rule
 	 */
-	public static void assertNoMatch(GraphTransformationRule<?, ?> rule) {
+	public static void assertNoMatch(final GraphTransformationRule<?, ?> rule) {
 		assertEquals(0, rule.countMatches());
 		assertFalse(rule.findAnyMatch().isPresent());
+	}
+
+	/**
+	 * Asserts that any match for the rule exists and returns the match.
+	 * 
+	 * @param rule
+	 *            the rule
+	 * @return the match
+	 */
+	public static <M extends GraphTransformationMatch<M, R>, R extends GraphTransformationRule<M, R>> M assertAnyMatchExists(
+			final R rule) {
+		Optional<M> match = (Optional<M>) rule.findAnyMatch();
+		assertTrue(match.isPresent());
+		return match.get();
+	}
+
+	/**
+	 * Asserts that the rule has the expected number of matches.
+	 * 
+	 * @param expectedMatchCount
+	 *            the expected number of matches
+	 * @param rule
+	 *            the rule
+	 */
+	public static void assertMatchCount(final int expectedMatchCount, final GraphTransformationRule<?, ?> rule) {
+		assertEquals(expectedMatchCount, rule.countMatches());
 	}
 }

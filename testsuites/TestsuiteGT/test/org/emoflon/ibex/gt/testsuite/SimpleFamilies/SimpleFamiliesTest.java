@@ -50,18 +50,18 @@ public class SimpleFamiliesTest extends GTTestCase<SimpleFamiliesGraphTransforma
 	public void testConstraints() {
 		SimpleFamiliesGraphTransformationAPI api = this.initAPI("FamilyRegister.xmi");
 
-		assertEquals(1, api.findRegister().countMatches());
-		assertTrue(api.findRegister().findAnyMatch().isPresent());
-
-		assertEquals(2, api.findFamily().countMatches());
+		assertMatchCount(1, api.findRegister());
+		assertAnyMatchExists(api.findRegister());
+		
+		assertMatchCount(2, api.findFamily());
 		List<String> familyNames = api.findFamily().findMatches().stream().map(m -> m.getFamily().getName())
 				.collect(Collectors.toList());
 		assertEquals(Arrays.asList("Simpson", "Watson"), familyNames);
 
-		assertEquals(2, api.findFather().countMatches());
-		assertEquals(2, api.findMother().countMatches());
-		assertEquals(2, api.findDaughter().countMatches());
-		assertEquals(1, api.findSon().countMatches());
+		assertMatchCount(2, api.findFather());
+		assertMatchCount(2, api.findMother());
+		assertMatchCount(2, api.findDaughter());
+		assertMatchCount(1, api.findSon());
 	}
 
 	@Test
