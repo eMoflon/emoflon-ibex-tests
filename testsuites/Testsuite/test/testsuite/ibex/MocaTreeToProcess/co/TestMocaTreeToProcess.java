@@ -17,7 +17,7 @@ public class TestMocaTreeToProcess extends COTestCase {
 	}
 	
 	public void createTransformation(String srcInstance, String trgInstance, String corrInstance, String protInstance) throws IOException {
-		forward = new FWD_OPT_App("MocaTreeToProcess", testsuite.ibex.testUtil.Constants.workspacePath, false, srcInstance, trgInstance, corrInstance, protInstance);
+		forward = new FWD_OPT_App("MocaTreeToProcess", testsuite.ibex.testUtil.Constants.workspacePath, true, srcInstance, trgInstance, corrInstance, protInstance);
 	}
 	
 	public void createBackward(String srcInstance, String trgInstance, String corrInstance, String protInstance) throws IOException {

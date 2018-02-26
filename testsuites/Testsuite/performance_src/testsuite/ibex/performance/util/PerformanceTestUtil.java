@@ -8,20 +8,28 @@ import java.util.stream.Collectors;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGENStopCriterion;
+import org.emoflon.ibex.tgg.operational.strategies.sync.BWD_OPT;
+import org.emoflon.ibex.tgg.operational.strategies.sync.FWD_OPT;
 
 import BlockDiagram.impl.BlockDiagramPackageImpl;
 import BlockLanguage.impl.BlockLanguagePackageImpl;
 import ClassInheritanceHierarchy.impl.ClassInheritanceHierarchyPackageImpl;
 import CompanyLanguage.impl.CompanyLanguagePackageImpl;
 import Database.impl.DatabasePackageImpl;
+import Families.impl.FamiliesPackageImpl;
+import FeatureModelConcise.impl.FeatureModelConcisePackageImpl;
+import FeatureModelSafe.impl.FeatureModelSafePackageImpl;
 import ITLanguage.impl.ITLanguagePackageImpl;
 import MocaTree.impl.MocaTreePackageImpl;
+import Persons.impl.PersonsPackageImpl;
 import ProcessDefinition.impl.ProcessDefinitionPackageImpl;
 import SimpleFamilies.impl.SimpleFamiliesPackageImpl;
 import SimplePersons.impl.SimplePersonsPackageImpl;
 import VHDLModel.impl.VHDLModelPackageImpl;
+import classMultipleInheritanceHierarchy.impl.ClassMultipleInheritanceHierarchyPackageImpl;
 import language.TGG;
 import language.TGGRule;
 import language.TGGRuleEdge;
@@ -30,68 +38,149 @@ import testsuite.ibex.testUtil.Constants;
 
 public class PerformanceTestUtil {
 	
-	/** 
-	 * Registers the meta models of the used TGG. For each new TGG,
+	public class RegistrationData {
+		private String srcMetaModel;
+		String trgMetaModel;
+		EPackage srcPackage;
+		EPackage trgPackage;
+		
+		public RegistrationData(String srcMetaModel, String trgMetaModel, EPackage srcPackage, EPackage trgPackage) {
+			this.srcMetaModel = srcMetaModel;
+			this.trgMetaModel = trgMetaModel;
+			this.srcPackage = srcPackage;
+			this.trgPackage = trgPackage;
+		}
+	}
+	
+	/**
+	 * Returns a data object for registering a meta model. For each new TGG,
 	 * the meta models that need to be registered need to be added here.
-	 *  */
-	public void registerUserMetamodels(String projectPath, ResourceSet rs) throws IOException {
+	 */
+	public RegistrationData getRegistrationData(String projectPath) {
 		String srcMetaModel = "";
 		String trgMetaModel = "";
 		EPackage srcPackage = null;
 		EPackage trgPackage = null;
-		switch (projectPath) {
-			case Constants.blockCodeAdapter:
-				srcMetaModel = "MocaTree";
-				trgMetaModel = "BlockLanguage";
-				srcPackage = MocaTreePackageImpl.init();
-				trgPackage = BlockLanguagePackageImpl.init();
-				break;
-			case Constants.blockDiagramCodeAdapter:
-				srcMetaModel = "BlockDiagram";
-				trgMetaModel = "MocaTree";
-				srcPackage = BlockDiagramPackageImpl.init();
-				trgPackage = MocaTreePackageImpl.init();
-				break;
-			case Constants.classInhHier2DB:
-				srcMetaModel = "ClassInheritanceHierarchy";
-				trgMetaModel = "Database";
-				srcPackage = ClassInheritanceHierarchyPackageImpl.init();
-				trgPackage = DatabasePackageImpl.init();
-				break;
-			case Constants.companyToIT:
-				srcMetaModel = "CompanyLanguage";
-				trgMetaModel = "ITLanguage";
-				srcPackage = CompanyLanguagePackageImpl.init();
-				trgPackage = ITLanguagePackageImpl.init();
-				break;
-			case Constants.familiesToPersons_V0:
-			case Constants.familiesToPersons_V1:
-				srcMetaModel = "SimpleFamilies";
-				trgMetaModel = "SimplePersons";
-				srcPackage = SimpleFamiliesPackageImpl.init();
-				trgPackage = SimplePersonsPackageImpl.init();
-				break;
-			case Constants.processCodeAdapter:
-				srcMetaModel = "MocaTree";
-				trgMetaModel = "ProcessDefinition";
-				srcPackage = MocaTreePackageImpl.init();
-				trgPackage = ProcessDefinitionPackageImpl.init();
-				break;
-			case Constants.vhdlTGGCodeAdapter:
-				srcMetaModel = "MocaTree";
-				trgMetaModel = "VHDLModel";
-				srcPackage = MocaTreePackageImpl.init();
-				trgPackage = VHDLModelPackageImpl.init();
-				break;
-			default:
-				throw new IllegalArgumentException("ProjectName parameter does not specify a supported TGG. "
-						+ "New TGGs have to be manually added to the PerformanceTestUtil class.");
-		};
 		
-		rs.getURIConverter().getURIMap().put(URI.createURI("platform:/plugin/"+srcMetaModel+"/"), URI.createURI("platform:/resource/"+srcMetaModel+"/"));
-		rs.getURIConverter().getURIMap().put(URI.createURI("platform:/plugin/"+trgMetaModel+"/"), URI.createURI("platform:/resource/"+trgMetaModel+"/"));
-		rs.getPackageRegistry().put("platform:/resource/"+srcMetaModel+"/model/"+srcMetaModel+".ecore", srcPackage);
-		rs.getPackageRegistry().put("platform:/resource/"+trgMetaModel+"/model/"+trgMetaModel+".ecore", trgPackage);
+		switch (projectPath) {
+		case Constants.blockCodeAdapter:
+			srcMetaModel = "MocaTree";
+			trgMetaModel = "BlockLanguage";
+			srcPackage = MocaTreePackageImpl.init();
+			trgPackage = BlockLanguagePackageImpl.init();
+			break;
+		case Constants.blockDiagramCodeAdapter:
+			srcMetaModel = "BlockDiagram";
+			trgMetaModel = "MocaTree";
+			srcPackage = BlockDiagramPackageImpl.init();
+			trgPackage = MocaTreePackageImpl.init();
+			break;
+		case Constants.classInhHier2DB:
+			srcMetaModel = "ClassInheritanceHierarchy";
+			trgMetaModel = "Database";
+			srcPackage = ClassInheritanceHierarchyPackageImpl.init();
+			trgPackage = DatabasePackageImpl.init();
+			break;
+		case Constants.classInhHier2DB_MA:
+			srcMetaModel = "ClassInheritanceHierarchy";
+			trgMetaModel = "Database";
+			srcPackage = ClassInheritanceHierarchyPackageImpl.init();
+			trgPackage = DatabasePackageImpl.init();
+			break;
+		case Constants.classMultiInhHier2DB_MA:
+			srcMetaModel = "ClassMultipleInheritanceHierarchy";
+			trgMetaModel = "Database";
+			srcPackage = ClassMultipleInheritanceHierarchyPackageImpl.init();
+			trgPackage = DatabasePackageImpl.init();
+			break;	
+		case Constants.companyToIT:
+			srcMetaModel = "CompanyLanguage";
+			trgMetaModel = "ITLanguage";
+			srcPackage = CompanyLanguagePackageImpl.init();
+			trgPackage = ITLanguagePackageImpl.init();
+			break;
+		case Constants.familiesToPersons_MA:
+			srcMetaModel = "Families";
+			trgMetaModel = "Persons";
+			srcPackage = FamiliesPackageImpl.init();
+			trgPackage = PersonsPackageImpl.init();
+			break;
+		case Constants.familiesToPersons_V0:
+		case Constants.familiesToPersons_V1:
+			srcMetaModel = "SimpleFamilies";
+			trgMetaModel = "SimplePersons";
+			srcPackage = SimpleFamiliesPackageImpl.init();
+			trgPackage = SimplePersonsPackageImpl.init();
+			break;
+		case Constants.featureModelConciseToSafe:
+			srcMetaModel = "FeatureModelConcise";
+			trgMetaModel = "FeatureModelSafe";
+			srcPackage = FeatureModelConcisePackageImpl.init();
+			trgPackage = FeatureModelSafePackageImpl.init();
+			break;
+		case Constants.processCodeAdapter:
+			srcMetaModel = "MocaTree";
+			trgMetaModel = "ProcessDefinition";
+			srcPackage = MocaTreePackageImpl.init();
+			trgPackage = ProcessDefinitionPackageImpl.init();
+			break;
+		case Constants.vhdlTGGCodeAdapter:
+			srcMetaModel = "MocaTree";
+			trgMetaModel = "VHDLModel";
+			srcPackage = MocaTreePackageImpl.init();
+			trgPackage = VHDLModelPackageImpl.init();
+			break;
+		default:
+			throw new IllegalArgumentException("ProjectName parameter does not specify a supported TGG. "
+					+ "New TGGs have to be manually added to the PerformanceTestUtil class.");
+		}
+		
+		return new RegistrationData(srcMetaModel, trgMetaModel, srcPackage, trgPackage);
+	}
+	
+	/** 
+	 * Registers the meta models of the used TGG for CC, CO, SYNC and MODELGEN. 
+	 *  */
+	public void registerUserMetamodels(String projectPath, ResourceSet rs) throws IOException {
+		
+		RegistrationData data = getRegistrationData(projectPath);
+		
+		rs.getURIConverter().getURIMap().put(URI.createURI("platform:/plugin/"+data.srcMetaModel+"/"), URI.createURI("platform:/resource/"+data.srcMetaModel+"/"));
+		rs.getURIConverter().getURIMap().put(URI.createURI("platform:/plugin/"+data.trgMetaModel+"/"), URI.createURI("platform:/resource/"+data.trgMetaModel+"/"));
+		rs.getPackageRegistry().put("platform:/resource/"+data.srcMetaModel+"/model/"+data.srcMetaModel+".ecore", data.srcPackage);
+		rs.getPackageRegistry().put("platform:/resource/"+data.trgMetaModel+"/model/"+data.trgMetaModel+".ecore", data.trgPackage);
+	}
+	
+	/** 
+	 * Registers the meta models of the used TGG for FWD_OPT. 
+	 *  */
+	public void registerUserMetamodelsFWD_OPT(String projectPath, ResourceSet rs, FWD_OPT op) throws IOException {
+		
+		RegistrationData data = getRegistrationData(projectPath);
+		
+		rs.getPackageRegistry().put("platform:/resource/"+data.srcMetaModel+"/model/"+data.srcMetaModel+".ecore", data.srcPackage);
+		
+		// Load and register source and target metamodels
+		Resource res = op.loadResource("platform:/resource/../metamodels/"+data.srcMetaModel+"/model/"+data.srcMetaModel+".ecore");
+		EPackage pack = (EPackage) res.getContents().get(0);
+		rs.getPackageRegistry().put("platform:/resource/" +data.trgMetaModel+ "/model/" +data.trgMetaModel+ ".ecore", pack);
+		rs.getPackageRegistry().put("platform:/plugin/" +data.trgMetaModel+ "/model/" +data.trgMetaModel+ ".ecore", pack);
+	}
+	
+	/** 
+	 * Registers the meta models of the used TGG for BWD_OPT. 
+	 *  */
+	public void registerUserMetamodelsBWD_OPT(String projectPath, ResourceSet rs, BWD_OPT op) throws IOException {
+		
+		RegistrationData data = getRegistrationData(projectPath);
+		
+		rs.getPackageRegistry().put("platform:/resource/" +data.trgMetaModel+ "/model/" +data.trgMetaModel+ ".ecore", data.trgPackage);
+		
+		// Load and register source and target metamodels
+		Resource res = op.loadResource("platform:/resource/../metamodels/"+data.trgMetaModel+"/model/"+data.trgMetaModel+".ecore");
+		EPackage pack = (EPackage) res.getContents().get(0);
+		rs.getPackageRegistry().put("platform:/resource/"+data.srcMetaModel+"/model/"+ data.srcMetaModel +".ecore", pack);
+		rs.getPackageRegistry().put("platform:/plugin/"+ data.srcMetaModel +"/model/"+ data.srcMetaModel +".ecore", pack);
 	}
 
 	/**
@@ -121,19 +210,28 @@ public class PerformanceTestUtil {
 			stop.setMaxElementCount(size);
 			
 			switch (tgg.getName()) {
-				case "BlockCodeAdapter":
+				case Constants.blockCodeAdapter:
 					stop.setMaxRuleCount("File2SpecRule", 1);
 					break;
-				case "BlockDiagramCodeAdapter":
+				case Constants.blockDiagramCodeAdapter:
 					stop.setMaxRuleCount("SystemToNodeRule", 1);
 					break;
-				case "ClassInhHier2DB":
+				case Constants.classInhHier2DB:
 					stop.setMaxRuleCount("PackageToDatabaseRule", 1);
 					break;
-				case "CompanyToIT":
+				case Constants.classInhHier2DB_MA:
+					stop.setMaxRuleCount("PackageToDatabaseRule", 1);
+					break;
+				case Constants.classMultiInhHier2DB_MA:
+					stop.setMaxRuleCount("PackageToDatabase", 1);
+					break;	
+				case Constants.companyToIT:
 					stop.setMaxRuleCount("CompanyToITRule", 1);
 					break;
-				case "FamiliesToPersons_V0":
+				case Constants.familiesToPersons_MA:
+					stop.setMaxRuleCount("FamiliesToPersons", 1);
+					break;
+				case Constants.familiesToPersons_V0:
 					stop.setMaxRuleCount("HandleRegisters", 1);
 					stop.setMaxRuleCount("HandleFamilyReg", 0);
 					stop.setMaxRuleCount("HandleRegistersLoose", 0);
@@ -143,13 +241,15 @@ public class PerformanceTestUtil {
 					stop.setMaxRuleCount("FatherToNothing", 0);
 					stop.setMaxRuleCount("ReplaceFatherWithSon", 0);
 					break;
-				case "FamiliesToPersons_V1":
+				case Constants.familiesToPersons_V1:
 					stop.setMaxRuleCount("HandleRegisters", 1);
 					break;
-				case "ProcessCodeAdapter":
+				case Constants.featureModelConciseToSafe:
+					stop.setMaxRuleCount("RootAxiomRule", 1);
+				case Constants.processCodeAdapter:
 					stop.setMaxRuleCount("RootToSystemRule", 1);
 					break;
-				case "VHDLTGGCodeAdapter":
+				case Constants.vhdlTGGCodeAdapter:
 					stop.setMaxRuleCount("File2VHDLSpec", 1);
 					break;
 				default:
