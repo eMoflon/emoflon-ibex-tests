@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.emoflon.ibex.common.operational.IPatternInterpreter;
+import org.emoflon.ibex.common.operational.IContextPatternInterpreter;
 import org.emoflon.ibex.gt.testsuite.GTTestCase;
 import org.junit.Test;
 
@@ -35,7 +35,7 @@ public class SimpleFamiliesTest extends GTTestCase<SimpleFamiliesGraphTransforma
 	}
 
 	@Override
-	protected SimpleFamiliesGraphTransformationAPI getAPI(final IPatternInterpreter engine, final ResourceSet model) {
+	protected SimpleFamiliesGraphTransformationAPI getAPI(final IContextPatternInterpreter engine, final ResourceSet model) {
 		return new SimpleFamiliesGraphTransformationAPI(engine, model, GTTestCase.workspacePath);
 	}
 

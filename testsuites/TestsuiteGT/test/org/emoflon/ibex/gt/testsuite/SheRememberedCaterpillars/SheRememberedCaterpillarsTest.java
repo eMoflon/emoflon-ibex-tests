@@ -7,7 +7,7 @@ import java.util.Map;
 
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.emoflon.ibex.common.operational.IPatternInterpreter;
+import org.emoflon.ibex.common.operational.IContextPatternInterpreter;
 import org.emoflon.ibex.gt.testsuite.GTTestCase;
 import org.junit.Test;
 
@@ -26,7 +26,7 @@ public class SheRememberedCaterpillarsTest extends GTTestCase<SheRememberedCater
 	}
 
 	@Override
-	protected SheRememberedCaterpillarsGraphTransformationAPI getAPI(final IPatternInterpreter engine,
+	protected SheRememberedCaterpillarsGraphTransformationAPI getAPI(final IContextPatternInterpreter engine,
 			final ResourceSet model) {
 		return new SheRememberedCaterpillarsGraphTransformationAPI(engine, model, GTTestCase.workspacePath);
 	}

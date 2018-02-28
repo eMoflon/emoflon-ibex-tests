@@ -7,7 +7,7 @@ import java.util.Map;
 
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.emoflon.ibex.common.operational.IPatternInterpreter;
+import org.emoflon.ibex.common.operational.IContextPatternInterpreter;
 import org.emoflon.ibex.gt.testsuite.GTTestCase;
 import org.junit.Test;
 
@@ -27,7 +27,7 @@ public class FerrymanProblemTest extends GTTestCase<FerrymanProblemGraphTransfor
 	}
 
 	@Override
-	protected FerrymanProblemGraphTransformationAPI getAPI(final IPatternInterpreter engine, final ResourceSet model) {
+	protected FerrymanProblemGraphTransformationAPI getAPI(final IContextPatternInterpreter engine, final ResourceSet model) {
 		return new FerrymanProblemGraphTransformationAPI(engine, model, GTTestCase.workspacePath);
 	}
 

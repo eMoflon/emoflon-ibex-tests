@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
-import org.emoflon.ibex.common.operational.IPatternInterpreter;
+import org.emoflon.ibex.common.operational.IContextPatternInterpreter;
 import org.emoflon.ibex.gt.api.GraphTransformationAPI;
 import org.emoflon.ibex.gt.api.GraphTransformationMatch;
 import org.emoflon.ibex.gt.api.GraphTransformationRule;
@@ -60,7 +60,7 @@ public abstract class GTTestCase<API extends GraphTransformationAPI> {
 	 * 
 	 * @return the created API
 	 */
-	protected abstract API getAPI(final IPatternInterpreter engine, final ResourceSet model);
+	protected abstract API getAPI(final IContextPatternInterpreter engine, final ResourceSet model);
 
 	/**
 	 * Defines the meta-model packages as a mapping between their URI and the
