@@ -91,7 +91,6 @@ public class SimpleFamiliesTest extends GTTestCase<SimpleFamiliesGraphTransforma
 		Family family = SimpleFamiliesFactory.eINSTANCE.createFamily();
 		family.setName("Smith");
 		register.getFamilies().add(family);
-		model.getResources().get(0).save(null);
 
 		api.updateMatches();
 		assertEquals(Arrays.asList("Smith"), namesOfNewFamilies);
