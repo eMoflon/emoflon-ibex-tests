@@ -27,7 +27,8 @@ public class FerrymanProblemTest extends GTTestCase<FerrymanProblemGraphTransfor
 	}
 
 	@Override
-	protected FerrymanProblemGraphTransformationAPI getAPI(final IContextPatternInterpreter engine, final ResourceSet model) {
+	protected FerrymanProblemGraphTransformationAPI getAPI(final IContextPatternInterpreter engine,
+			final ResourceSet model) {
 		return new FerrymanProblemGraphTransformationAPI(engine, model, GTTestCase.workspacePath);
 	}
 
@@ -51,5 +52,12 @@ public class FerrymanProblemTest extends GTTestCase<FerrymanProblemGraphTransfor
 		CanEatMatch match = assertAnyMatchExists(api.canEat());
 		assertTrue(match.getEater() instanceof Wolf);
 		assertTrue(match.getEaten() instanceof Goat);
+	}
+
+	@Test
+	public void testMovement() {
+		ResourceSet model = this.initResourceSet("MovementTest.xmi", "Start.xmi");
+		FerrymanProblemGraphTransformationAPI api = this.initAPI(model);
+		api.moveToOtherBank().execute();
 	}
 }
