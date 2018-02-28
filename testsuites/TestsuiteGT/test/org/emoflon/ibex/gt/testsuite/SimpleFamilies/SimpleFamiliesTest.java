@@ -30,6 +30,11 @@ public class SimpleFamiliesTest extends GTTestCase<SimpleFamiliesGraphTransforma
 	private boolean familyDeleted = false;
 
 	@Override
+	public String getTestName() {
+		return "SimpleFamilies";
+	}
+
+	@Override
 	protected SimpleFamiliesGraphTransformationAPI getAPI(final IPatternInterpreter engine, final ResourceSet model) {
 		return new SimpleFamiliesGraphTransformationAPI(engine, model, GTTestCase.workspacePath);
 	}
@@ -43,26 +48,26 @@ public class SimpleFamiliesTest extends GTTestCase<SimpleFamiliesGraphTransforma
 
 	@Test
 	public void testConstraints() {
-		SimpleFamiliesGraphTransformationAPI api = this.initAPI("SimpleFamilies", "FamilyRegister.xmi");
+		SimpleFamiliesGraphTransformationAPI api = this.initAPI("FamilyRegister.xmi");
 
-		assertEquals(1, api.findRegister().countMatches());
-		assertTrue(api.findRegister().findAnyMatch().isPresent());
-
-		assertEquals(2, api.findFamily().countMatches());
+		assertMatchCount(1, api.findRegister());
+		assertAnyMatchExists(api.findRegister());
+		
+		assertMatchCount(2, api.findFamily());
 		List<String> familyNames = api.findFamily().findMatches().stream().map(m -> m.getFamily().getName())
 				.collect(Collectors.toList());
 		assertEquals(Arrays.asList("Simpson", "Watson"), familyNames);
 
-		assertEquals(2, api.findFather().countMatches());
-		assertEquals(2, api.findMother().countMatches());
-		assertEquals(2, api.findDaughter().countMatches());
-		assertEquals(1, api.findSon().countMatches());
+		assertMatchCount(2, api.findFather());
+		assertMatchCount(2, api.findMother());
+		assertMatchCount(2, api.findDaughter());
+		assertMatchCount(1, api.findSon());
 	}
 
 	@Test
 	public void testMatchNotifications() throws IOException {
 		ResourceSet model = this.initResourceSet("FamilyRegister2.xmi", "FamilyRegister.xmi");
-		SimpleFamiliesGraphTransformationAPI api = this.initAPI("SimpleFamilies", model);
+		SimpleFamiliesGraphTransformationAPI api = this.initAPI(model);
 
 		// Get the list of family names.
 		List<String> namesOfFamilies = api.findFamily().findMatches().stream() //
@@ -86,7 +91,6 @@ public class SimpleFamiliesTest extends GTTestCase<SimpleFamiliesGraphTransforma
 		Family family = SimpleFamiliesFactory.eINSTANCE.createFamily();
 		family.setName("Smith");
 		register.getFamilies().add(family);
-		model.getResources().get(0).save(null);
 
 		api.updateMatches();
 		assertEquals(Arrays.asList("Smith"), namesOfNewFamilies);
