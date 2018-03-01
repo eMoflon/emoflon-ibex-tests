@@ -48,7 +48,8 @@ public class SimpleFamiliesTest extends GTTestCase<SimpleFamiliesGraphTransforma
 
 	@Test
 	public void testConstraints() {
-		SimpleFamiliesGraphTransformationAPI api = this.initAPI("FamilyRegister.xmi");
+		ResourceSet model = this.initResourceSet("FamilyRegister.xmi");
+		SimpleFamiliesGraphTransformationAPI api = this.initAPI(model);
 
 		assertMatchCount(1, api.findRegister());
 		assertAnyMatchExists(api.findRegister());
@@ -101,7 +102,8 @@ public class SimpleFamiliesTest extends GTTestCase<SimpleFamiliesGraphTransforma
 
 	@Test
 	public void testCreateAndDeleteRegister() {
-		SimpleFamiliesGraphTransformationAPI api = this.initAPI("CreateAndDeleteRegister.xmi");
+		ResourceSet model = this.initResourceSet("CreateAndDeleteRegister.xmi");
+		SimpleFamiliesGraphTransformationAPI api = this.initAPI(model);
 		assertNoMatch(api.findRegister());
 		// TODO does not work yet
 		// Optional<CreateRegisterMatch> registerMatch = api.createRegister().execute();

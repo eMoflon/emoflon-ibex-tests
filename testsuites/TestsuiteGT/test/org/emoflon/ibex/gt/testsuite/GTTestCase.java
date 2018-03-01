@@ -73,19 +73,6 @@ public abstract class GTTestCase<API extends GraphTransformationAPI> {
 	/**
 	 * Initializes the API for the tests.
 	 * 
-	 * @param modelFileName
-	 *            the name of the model file
-	 * @return the created API
-	 */
-	protected API initAPI(final String modelFileName) {
-		DemoclesGTEngine engine = new DemoclesGTEngine();
-		engine.setDebugPath("./debug/" + this.getTestName());
-		return this.getAPI(engine, this.initResourceSet(modelFileName));
-	}
-
-	/**
-	 * Initializes the API for the tests.
-	 * 
 	 * @param model
 	 *            the model file
 	 * @return the created API
@@ -157,6 +144,22 @@ public abstract class GTTestCase<API extends GraphTransformationAPI> {
 	}
 
 	/**
+	 * Saves the resource set.
+	 * 
+	 * @param resourceSet
+	 *            the resource set
+	 */
+	protected static void saveResourceSet(final ResourceSet resourceSet) {
+		resourceSet.getResources().forEach(resource -> {
+			try {
+				resource.save(null);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		});
+	}
+
+	/**
 	 * Asserts that there are no matches for the rule
 	 * 
 	 * @param rule
@@ -188,7 +191,7 @@ public abstract class GTTestCase<API extends GraphTransformationAPI> {
 	 *            the rule to execute
 	 * @return the match
 	 */
-	public static <M extends GraphTransformationMatch<M, R>, R extends GraphTransformationRule<M, R>> M assertMatchAfterExecution(
+	public static <M extends GraphTransformationMatch<M, R>, R extends GraphTransformationRule<M, R>> M assertMatchAfterApplication(
 			final R rule) {
 		Optional<M> match = (Optional<M>) rule.execute();
 		assertTrue(match.isPresent());

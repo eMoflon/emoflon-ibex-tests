@@ -40,7 +40,8 @@ public class SheRememberedCaterpillarsTest extends GTTestCase<SheRememberedCater
 
 	@Test
 	public void testFindCharacters() {
-		SheRememberedCaterpillarsGraphTransformationAPI api = this.initAPI("SheRememberedCaterpillars.xmi");
+		ResourceSet model = this.initResourceSet("SheRememberedCaterpillars.xmi");
+		SheRememberedCaterpillarsGraphTransformationAPI api = this.initAPI(model);
 		assertMatchCount(2, api.findCharacter());
 		assertAnyMatchExists(api.findCharacterNotOnExit());
 		assertAnyMatchExists(api.findCharacterOnExit());
@@ -48,13 +49,15 @@ public class SheRememberedCaterpillarsTest extends GTTestCase<SheRememberedCater
 
 	@Test
 	public void testNoIllegalSituation() {
-		SheRememberedCaterpillarsGraphTransformationAPI api = this.initAPI("SheRememberedCaterpillars.xmi");
+		ResourceSet model = this.initResourceSet("SheRememberedCaterpillars.xmi");
+		SheRememberedCaterpillarsGraphTransformationAPI api = this.initAPI(model);
 		assertNoMatch(api.noTwoCharactersOnAnExitPlatform());
 	}
 
 	@Test
 	public void testIllegalSituation() {
-		SheRememberedCaterpillarsGraphTransformationAPI api = this.initAPI("TwoCharactersAtSameExit.xmi");
+		ResourceSet model = this.initResourceSet("TwoCharactersAtSameExit.xmi");
+		SheRememberedCaterpillarsGraphTransformationAPI api = this.initAPI(model);
 		assertAnyMatchExists(api.noTwoCharactersOnAnExitPlatform());
 		assertMatchCount(2, api.noTwoCharactersOnAnExitPlatform());
 		assertTrue(api.noTwoCharactersOnAnExitPlatform().findAnyMatch()

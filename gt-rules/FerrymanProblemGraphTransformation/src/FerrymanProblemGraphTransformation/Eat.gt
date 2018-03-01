@@ -21,3 +21,26 @@ rule canEat() {
 		-isAt -> bankOfThings
 	}
 }
+
+/**
+ * If the ferryman is not on the same bank, 
+ * the wolf can eat the goat and the goat can eat the cabbage.
+ */
+rule eat {
+	bankOfFerryMan: Bank
+
+	bankOfThings: Bank
+
+	ferryMan: FerryMan {
+		-isAt -> bankOfFerryMan
+	}
+
+	eater: Thing {
+		-isAt -> bankOfThings
+		-- -likesToEat -> eaten
+	}
+
+	-- eaten: Thing {
+		-- -isAt -> bankOfThings
+	}
+}

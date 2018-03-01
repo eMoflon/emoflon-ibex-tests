@@ -16,6 +16,7 @@ import FerrymanProblem.Goat;
 import FerrymanProblem.Wolf;
 import FerrymanProblemGraphTransformation.api.FerrymanProblemGraphTransformationAPI;
 import FerrymanProblemGraphTransformation.api.matches.CanEatMatch;
+import FerrymanProblemGraphTransformation.api.matches.EatMatch;
 
 /**
  * JUnit tests for FerrymanProblem Graph Transformation API
@@ -41,18 +42,41 @@ public class FerrymanProblemTest extends GTTestCase<FerrymanProblemGraphTransfor
 
 	@Test
 	public void testStart() {
-		FerrymanProblemGraphTransformationAPI api = this.initAPI("Start.xmi");
+		ResourceSet model = this.initResourceSet("Start.xmi");
+		FerrymanProblemGraphTransformationAPI api = this.initAPI(model);
 		assertNoMatch(api.canEat());
 		assertNoMatch(api.checkAllThingsAtRightBank());
 		assertNoMatch(api.findSubjectsOnRightBank());
 	}
 
 	@Test
-	public void testWolfEatsGoat() {
-		FerrymanProblemGraphTransformationAPI api = this.initAPI("WolfEatsGoat.xmi");
+	public void testWolfCanEatGoat() {
+		ResourceSet model = this.initResourceSet("WolfCanEatGoat.xmi", "WolfEatsGoat.xmi");
+		FerrymanProblemGraphTransformationAPI api = this.initAPI(model);
+		assertMatchCount(2, api.findSubjectsOnLeftBank());
+		assertMatchCount(2, api.findSubjectsOnRightBank());
+
 		CanEatMatch match = assertAnyMatchExists(api.canEat());
 		assertTrue(match.getEater() instanceof Wolf);
 		assertTrue(match.getEaten() instanceof Goat);
+	}
+
+	@Test
+	public void testWolfEatsGoat() {
+		ResourceSet model = this.initResourceSet("WolfEatsGoat.xmi");
+		FerrymanProblemGraphTransformationAPI api = this.initAPI(model);
+		assertMatchCount(2, api.findSubjectsOnLeftBank());
+		assertMatchCount(2, api.findSubjectsOnRightBank());
+
+		EatMatch match = assertMatchAfterApplication(api.eat());
+		assertTrue(match.getEater() instanceof Wolf);
+		assertTrue(match.getEaten() instanceof Goat);
+
+		// Test whether the goat was killed.
+		assertMatchCount(1, api.findSubjectsOnLeftBank());
+		assertMatchCount(2, api.findSubjectsOnRightBank());
+
+		saveResourceSet(model);
 	}
 
 	@Test
@@ -62,10 +86,10 @@ public class FerrymanProblemTest extends GTTestCase<FerrymanProblemGraphTransfor
 		assertMatchCount(4, api.findSubjectsOnLeftBank());
 		assertMatchCount(0, api.findSubjectsOnRightBank());
 
-		assertMatchAfterExecution(api.moveToOtherBank());
+		assertMatchAfterApplication(api.moveToOtherBank());
 		assertMatchCount(2, api.findSubjectsOnLeftBank());
 		assertMatchCount(2, api.findSubjectsOnRightBank());
 
-		api.save();
+		saveResourceSet(model);
 	}
 }
