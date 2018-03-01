@@ -128,6 +128,7 @@ public abstract class GTTestCase<API extends GraphTransformationAPI> {
 				URI resourceURI = URI.createFileURI(path);
 				Resource res = resourceSet.getResource(resourceURI, true);
 				instanceResource.getContents().addAll(res.getContents());
+				resourceSet.getResources().remove(res);
 			}
 		}
 
@@ -176,6 +177,20 @@ public abstract class GTTestCase<API extends GraphTransformationAPI> {
 	public static <M extends GraphTransformationMatch<M, R>, R extends GraphTransformationRule<M, R>> M assertAnyMatchExists(
 			final R rule) {
 		Optional<M> match = (Optional<M>) rule.findAnyMatch();
+		assertTrue(match.isPresent());
+		return match.get();
+	}
+
+	/**
+	 * Executes the rule, asserts that a match exists and returns the match
+	 * 
+	 * @param rule
+	 *            the rule to execute
+	 * @return the match
+	 */
+	public static <M extends GraphTransformationMatch<M, R>, R extends GraphTransformationRule<M, R>> M assertMatchAfterExecution(
+			final R rule) {
+		Optional<M> match = (Optional<M>) rule.execute();
 		assertTrue(match.isPresent());
 		return match.get();
 	}

@@ -65,8 +65,8 @@ public class SimpleFamiliesTest extends GTTestCase<SimpleFamiliesGraphTransforma
 	}
 
 	@Test
-	public void testMatchNotifications() {
-		ResourceSet model = this.initResourceSet("FamilyRegister2.xmi", "FamilyRegister.xmi");
+	public void testNotifications() {
+		ResourceSet model = this.initResourceSet("Notifications.xmi", "FamilyRegister.xmi");
 		SimpleFamiliesGraphTransformationAPI api = this.initAPI(model);
 
 		// Get the list of family names.
@@ -98,24 +98,29 @@ public class SimpleFamiliesTest extends GTTestCase<SimpleFamiliesGraphTransforma
 		assertEquals(Arrays.asList("Simpson", "Smith"), namesOfFamilies);
 		assertTrue(this.familyDeleted);
 	}
-	
+
 	@Test
 	public void testCreateAndDeleteRegister() {
-		SimpleFamiliesGraphTransformationAPI api = this.initAPI("testCreateAndDeleteRegister.xmi");
+		SimpleFamiliesGraphTransformationAPI api = this.initAPI("CreateAndDeleteRegister.xmi");
 		assertNoMatch(api.findRegister());
 		// TODO does not work yet
-//		api.createRegister().execute();
-//		assertMatchCount(1, api.findRegister());
-//		api.deleteRegister().execute();
-//		assertNoMatch(api.findRegister());
+		// Optional<CreateRegisterMatch> registerMatch = api.createRegister().execute();
+		// assertTrue(registerMatch.isPresent());
+		// assertMatchCount(1, api.findRegister());
+		// api.deleteRegister().execute();
+		// assertNoMatch(api.findRegister());
+		api.save();
 	}
 
 	@Test
 	public void testCreateFamily() {
 		ResourceSet model = this.initResourceSet("CreateFamily.xmi", "FamilyRegister.xmi");
 		SimpleFamiliesGraphTransformationAPI api = this.initAPI(model);
+
 		assertMatchCount(2, api.findFamily());
 		api.createFamily().execute();
 		assertMatchCount(3, api.findFamily());
+
+		api.save();
 	}
 }
