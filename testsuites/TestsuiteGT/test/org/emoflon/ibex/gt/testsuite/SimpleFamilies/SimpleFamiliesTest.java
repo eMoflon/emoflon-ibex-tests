@@ -111,7 +111,7 @@ public class SimpleFamiliesTest extends GTTestCase<SimpleFamiliesGraphTransforma
 		// assertMatchCount(1, api.findRegister());
 		// api.deleteRegister().execute();
 		// assertNoMatch(api.findRegister());
-		api.save();
+		saveResourceSet(model);
 	}
 
 	@Test
@@ -120,9 +120,9 @@ public class SimpleFamiliesTest extends GTTestCase<SimpleFamiliesGraphTransforma
 		SimpleFamiliesGraphTransformationAPI api = this.initAPI(model);
 
 		assertMatchCount(2, api.findFamily());
-		api.createFamily().execute();
+		api.createFamily().apply();
 		assertMatchCount(3, api.findFamily());
 
-		api.save();
+		saveResourceSet(model);
 	}
 }

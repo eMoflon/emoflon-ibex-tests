@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.emoflon.ibex.common.operational.IContextPatternInterpreter;
 import org.emoflon.ibex.gt.api.GraphTransformationAPI;
+import org.emoflon.ibex.gt.api.GraphTransformationApplicableRule;
 import org.emoflon.ibex.gt.api.GraphTransformationMatch;
 import org.emoflon.ibex.gt.api.GraphTransformationRule;
 import org.emoflon.ibex.gt.democles.runtime.DemoclesGTEngine;
@@ -191,9 +192,9 @@ public abstract class GTTestCase<API extends GraphTransformationAPI> {
 	 *            the rule to execute
 	 * @return the match
 	 */
-	public static <M extends GraphTransformationMatch<M, R>, R extends GraphTransformationRule<M, R>> M assertMatchAfterApplication(
+	public static <M extends GraphTransformationMatch<M, R>, R extends GraphTransformationApplicableRule<M, R>> M assertMatchAfterApplication(
 			final R rule) {
-		Optional<M> match = (Optional<M>) rule.execute();
+		Optional<M> match = (Optional<M>) rule.apply();
 		assertTrue(match.isPresent());
 		return match.get();
 	}
