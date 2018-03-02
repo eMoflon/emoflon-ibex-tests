@@ -76,7 +76,7 @@ public class SimpleFamiliesTest extends GTTestCase<SimpleFamiliesGraphTransforma
 
 		// Register subscriptions.
 		api.findFamily().findMatches().stream().filter(m -> m.getFamily().getName().equals("Watson")).findAny()
-				.ifPresent(m -> api.findFamily().whenMatchDisappears(m, x -> this.familyDeleted = true));
+				.ifPresent(m -> api.findFamily().subscribeMatchDisappears(m, x -> this.familyDeleted = true));
 
 		List<String> namesOfNewFamilies = new ArrayList<String>();
 		api.findFamily().subscribeAppearing(m -> namesOfNewFamilies.add(m.getFamily().getName()));
