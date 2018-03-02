@@ -15,6 +15,7 @@ public class CO_App extends CO {
 	public CO_App(String projectName, String workspacePath, boolean debug, String modelPath) throws IOException {
 		super(createIbexOptions()
 				.projectName(projectName)
+				.projectPath(projectName)
 				.workspacePath(workspacePath)
 				.debug(debug));
 		this.modelPath = modelPath;

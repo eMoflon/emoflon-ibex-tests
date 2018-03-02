@@ -1,0 +1,48 @@
+#using MoDiscoIbexTGG.*
+#using AttrCondDefLibrary.*
+
+ #rule FieldDec2Property #with MoDiscoIbexTGG
+
+#source { 
+	jOwnerType : ClassDeclaration{
+		++-bodyDeclarations->jField
+	}
+	
+	++jField : FieldDeclaration{
+		++-fragments->vdf
+	}
+	
+
+	
+	++vdf : VariableDeclarationFragment{
+		
+	}
+
+}
+
+#target {
+	uOwnerType : Class{
+		++-ownedAttribute->property
+	}
+	
+	++property : Property{
+
+	}
+	
+}
+
+#correspondence {
+	jo2uo : JavaType2UMLType{
+		#src->jOwnerType
+		#trg->uOwnerType
+	}
+		
+	++f2p : FieldDec2Property{
+		#src->jField
+		#trg->property
+	}
+}
+
+#attributeConditions {
+	eq_string(vdf.name,property.name)
+}

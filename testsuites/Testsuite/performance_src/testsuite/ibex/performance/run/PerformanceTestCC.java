@@ -39,5 +39,6 @@ public class PerformanceTestCC extends PerformanceTest<CC>{
 	@Override
 	protected Operationalization getOpType() {
 		return Operationalization.CC;
+		//return null;
 	}
 }

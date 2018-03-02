@@ -16,6 +16,7 @@ public class SYNC_App extends SYNC {
 	public SYNC_App(String projectName, String workspacePath, boolean debug, String instancePath, boolean isFwd, boolean isIncr) throws IOException {
 		super(createIbexOptions()
 				.projectName(projectName)
+				.projectPath(projectName)
 				.workspacePath(workspacePath)
 				.debug(debug));
 		this.instancePath = instancePath;

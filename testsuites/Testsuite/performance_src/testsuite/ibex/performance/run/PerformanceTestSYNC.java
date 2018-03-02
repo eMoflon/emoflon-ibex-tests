@@ -63,7 +63,7 @@ public class PerformanceTestSYNC extends PerformanceTest<SYNC> {
 			SYNC sync = transformator.get();
 			ExecutorService es = Executors.newSingleThreadExecutor();
 			System.out.println((isFwd ? Operationalization.FWD : Operationalization.BWD)+": size="+size+": "+(i+1)+"-th execution started.");
-
+			
 			if (useTimeouts)
 				try {
 					Future<Long> initResult = es.submit(() -> timedInit(sync));
@@ -94,9 +94,11 @@ public class PerformanceTestSYNC extends PerformanceTest<SYNC> {
 
 		TestDataPoint batchData = new TestDataPoint(initTimes, batchExecutionTimes);
 		batchData.testCase = new TestCaseParameters(tgg.getName(), isFwd ? Operationalization.FWD : Operationalization.BWD, size);
+		//batchData.testCase = new TestCaseParameters(tgg.getName(), null, size);
 		
 		TestDataPoint incData = new TestDataPoint(initTimes, incrementalExecutionTimes);
 		incData.testCase = new TestCaseParameters(tgg.getName(), isFwd ? Operationalization.INCREMENTAL_FWD : Operationalization.INCREMENTAL_BWD, size);
+		//batchData.testCase = new TestCaseParameters(tgg.getName(), null, size);
 		
 		return Arrays.asList(batchData, incData);
 	}
@@ -104,5 +106,6 @@ public class PerformanceTestSYNC extends PerformanceTest<SYNC> {
 	@Override
 	protected Operationalization getOpType() {
 		return opType;
+		//return null;
 	}
 }

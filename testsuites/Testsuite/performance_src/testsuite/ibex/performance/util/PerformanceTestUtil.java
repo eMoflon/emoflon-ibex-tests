@@ -87,7 +87,7 @@ public class PerformanceTestUtil {
 			srcPackage = ClassInheritanceHierarchyPackageImpl.init();
 			trgPackage = DatabasePackageImpl.init();
 			break;
-		case Constants.classMultiInhHier2DB_MA:
+		case Constants.classMultipleInhHier2DB_MA:
 			srcMetaModel = "ClassMultipleInheritanceHierarchy";
 			trgMetaModel = "Database";
 			srcPackage = ClassMultipleInheritanceHierarchyPackageImpl.init();
@@ -161,7 +161,7 @@ public class PerformanceTestUtil {
 		rs.getPackageRegistry().put("platform:/resource/"+data.srcMetaModel+"/model/"+data.srcMetaModel+".ecore", data.srcPackage);
 		
 		// Load and register source and target metamodels
-		Resource res = op.loadResource("platform:/resource/../metamodels/"+data.srcMetaModel+"/model/"+data.srcMetaModel+".ecore");
+		Resource res = op.loadResource("platform:/resource/../metamodels/"+data.trgMetaModel+"/model/"+data.trgMetaModel+".ecore");
 		EPackage pack = (EPackage) res.getContents().get(0);
 		rs.getPackageRegistry().put("platform:/resource/" +data.trgMetaModel+ "/model/" +data.trgMetaModel+ ".ecore", pack);
 		rs.getPackageRegistry().put("platform:/plugin/" +data.trgMetaModel+ "/model/" +data.trgMetaModel+ ".ecore", pack);
@@ -177,7 +177,7 @@ public class PerformanceTestUtil {
 		rs.getPackageRegistry().put("platform:/resource/" +data.trgMetaModel+ "/model/" +data.trgMetaModel+ ".ecore", data.trgPackage);
 		
 		// Load and register source and target metamodels
-		Resource res = op.loadResource("platform:/resource/../metamodels/"+data.trgMetaModel+"/model/"+data.trgMetaModel+".ecore");
+		Resource res = op.loadResource("platform:/resource/../metamodels/"+data.srcMetaModel+"/model/"+data.srcMetaModel+".ecore");
 		EPackage pack = (EPackage) res.getContents().get(0);
 		rs.getPackageRegistry().put("platform:/resource/"+data.srcMetaModel+"/model/"+ data.srcMetaModel +".ecore", pack);
 		rs.getPackageRegistry().put("platform:/plugin/"+ data.srcMetaModel +"/model/"+ data.srcMetaModel +".ecore", pack);
@@ -222,7 +222,7 @@ public class PerformanceTestUtil {
 				case Constants.classInhHier2DB_MA:
 					stop.setMaxRuleCount("PackageToDatabaseRule", 1);
 					break;
-				case Constants.classMultiInhHier2DB_MA:
+				case Constants.classMultipleInhHier2DB_MA:
 					stop.setMaxRuleCount("PackageToDatabase", 1);
 					break;	
 				case Constants.companyToIT:
@@ -246,6 +246,7 @@ public class PerformanceTestUtil {
 					break;
 				case Constants.featureModelConciseToSafe:
 					stop.setMaxRuleCount("RootAxiomRule", 1);
+					break;
 				case Constants.processCodeAdapter:
 					stop.setMaxRuleCount("RootToSystemRule", 1);
 					break;

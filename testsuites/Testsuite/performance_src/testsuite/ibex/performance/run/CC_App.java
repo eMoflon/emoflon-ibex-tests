@@ -14,6 +14,7 @@ public class CC_App extends CC {
 	public CC_App(String projectName, String workspacePath, boolean debug, String modelPath) throws IOException {
 		super(createIbexOptions()
 				.projectName(projectName)
+				.projectPath(projectName)
 				.workspacePath(workspacePath)
 				.debug(debug));
 		this.modelPath = modelPath;

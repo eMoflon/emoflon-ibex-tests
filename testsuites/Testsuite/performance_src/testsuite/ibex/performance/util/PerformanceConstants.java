@@ -7,18 +7,18 @@ public class PerformanceConstants {
 	//-------------------  Performance tests -----------------------------------------------
 	
 	/** The timeout after which a performance test is aborted. */
-	public final static int timeout = 10; // in seconds
+	public final static int timeout = 1000; // in seconds
 	
 	/** Defines how much memory may be allocated for the heap by the launched JavaVM. */
 	public final static String maxMemorySize = "1024M"; //"M" for megabyte, "G" for gigabyte
 	
 	/** Model sizes for which test cases shall be generated and executed. */
-	public final static int[] modelSizes = {10, 50,
-											 100, 500, 
-											 1000, 5000,
+	public final static int[] modelSizes = {//10, 50,
+											 100//, 500, 
+											 /*1000, 5000,
 											 10000, 50000,
 											 100000, 500000,
-											 1000000
+											 1000000*/
 	};
 
 	/** Number of repetitions per test case. Final result is the median of all repetitions. */
@@ -51,7 +51,7 @@ public class PerformanceConstants {
 	 * The model size used for most plots with a fixed size. Should be low enough that most
 	 * TGGs/Operationalizations do not timeout/run out of memory for this size.
 	 * */
-	public static final int standardModelSize = 50;
+	public static final int standardModelSize = 100;
 	
 	/**
 	 * The model size used for some plots with a fixed size, where the TGG/Operationalization

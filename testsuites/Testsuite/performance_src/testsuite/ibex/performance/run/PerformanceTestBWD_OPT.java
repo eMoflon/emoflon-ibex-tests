@@ -22,7 +22,7 @@ public class PerformanceTestBWD_OPT extends PerformanceTest<BWD_OPT> {
 		long[] executionTimes = new long[repetitions];
 		
 		for (int i = 0; i < repetitions; i++) {
-			System.out.println("CC: size="+size+": "+(i+1)+"-th execution started.");
+			System.out.println("BWD_OPT: size="+size+": "+(i+1)+"-th execution started.");
 			
 			data.add(timedExecutionAndInit(checker, size));
 			initTimes[i] = data.get(i).initTimes[0];
@@ -38,7 +38,7 @@ public class PerformanceTestBWD_OPT extends PerformanceTest<BWD_OPT> {
 
 	@Override
 	protected Operationalization getOpType() {
-		return null;
-		//return Operationalization.BWD_OPT;
+		//return null;
+		return Operationalization.BWD_OPT;
 	}
 }

@@ -30,7 +30,7 @@ public class PlotGenerator {
 		test.testData = collector.getData();
 		
 		// save data in tables suited for the plots and create the plots
-		test.saveDataForTGGsWithoutRefinement();
+		//test.saveDataForTGGsWithoutRefinement();
 		for (Operationalization op : Operationalization.values()) {
 			test.saveDataForAllTGGsDiagram(op);
 			test.saveDataForAllTGGsInitDiagram(op);

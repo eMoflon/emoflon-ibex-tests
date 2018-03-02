@@ -15,8 +15,11 @@ import java.util.function.Function;
 import java.util.function.Supplier;
 
 import org.emoflon.ibex.tgg.operational.strategies.cc.CC;
+import org.emoflon.ibex.tgg.operational.strategies.co.CO;
 import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGEN;
 import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGENStopCriterion;
+import org.emoflon.ibex.tgg.operational.strategies.sync.BWD_OPT;
+import org.emoflon.ibex.tgg.operational.strategies.sync.FWD_OPT;
 import org.emoflon.ibex.tgg.operational.strategies.sync.SYNC;
 import org.emoflon.ibex.tgg.operational.updatepolicy.NextMatchUpdatePolicy;
 import org.emoflon.ibex.tgg.operational.updatepolicy.RandomMatchUpdatePolicy;
@@ -24,9 +27,15 @@ import org.emoflon.ibex.tgg.operational.updatepolicy.TimedUpdatePolicy;
 
 import gurobi.GRBException;
 import language.TGG;
+import testsuite.ibex.performance.run.BWD_OPT_App;
 import testsuite.ibex.performance.run.CC_App;
+import testsuite.ibex.performance.run.CO_App;
+import testsuite.ibex.performance.run.FWD_OPT_App;
 import testsuite.ibex.performance.run.MODELGEN_App;
+import testsuite.ibex.performance.run.PerformanceTestBWD_OPT;
 import testsuite.ibex.performance.run.PerformanceTestCC;
+import testsuite.ibex.performance.run.PerformanceTestCO;
+import testsuite.ibex.performance.run.PerformanceTestFWD_OPT;
 import testsuite.ibex.performance.run.PerformanceTestMODELGEN;
 import testsuite.ibex.performance.run.PerformanceTestSYNC;
 import testsuite.ibex.performance.run.SYNC_App;
@@ -79,10 +88,19 @@ public class TestDataCollector {
 			case BWD:
 				this.collectBWDData(tggName, modelSize);
 				break;
+			case CO:
+				this.collectCOData(tggName, modelSize);
+				break;
+			case FWD_OPT:
+				this.collectFWD_OPTData(tggName, modelSize);
+				break;
+			case BWD_OPT:
+				this.collectBWD_OPTData(tggName, modelSize);
+				break;
 			case INCREMENTAL_FWD:
 			case INCREMENTAL_BWD:
 				throw new IllegalArgumentException("A test case should not contain the operationalization "
-						+"INCREMENTAL_FWD/INCREMENTAL_BWD because both batch and incremental SYNC are included in the FWD/BWD test cases.");
+						+"INCREMENTAL_FWD/INCREMENTAL_BWD because both batch and incremental SYNC are included in the FWD/BWD test cases.");		
 		}
 		
 		saveData();	
@@ -180,6 +198,30 @@ public class TestDataCollector {
 		}
 	}
 	
+	private void collectCOData(String tggName, int size) throws IOException {
+		PerformanceTestCO test = new PerformanceTestCO();
+
+		Supplier<CO> checker = () -> {
+			try {
+				CO co = new CO_App(tggName, Constants.workspacePath, false, size+"Element");
+				co.setUpdatePolicy(new TimedUpdatePolicy(new NextMatchUpdatePolicy(), PerformanceConstants.timeout, TimeUnit.SECONDS));
+				return co;
+			} catch (IOException e) {
+				e.printStackTrace();
+				return null;
+			}
+		};
+		
+		System.out.println("Collecting CO data for "+tggName+", size: "+size);
+		TestDataPoint point;
+		try {
+			point = test.repeatedTimedExecutionAndInit(checker, size, repetitions);
+			data.add(point);
+		} catch (GRBException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	private void collectFWDData(String tggName, int size) throws IOException {
 		PerformanceTestSYNC test = new PerformanceTestSYNC();
 		
@@ -198,6 +240,54 @@ public class TestDataCollector {
 		System.out.println("Collecting SYNC data for "+tggName+", size: "+size);
 		List<TestDataPoint> points = test.timedExecutionAndInit(transformator, size, repetitions, true, incEditor.getEdit(tggName, true));
 		data.addAll(points);
+	}
+	
+	private void collectFWD_OPTData(String tggName, int size) throws IOException {
+		PerformanceTestFWD_OPT test = new PerformanceTestFWD_OPT();
+		
+		Supplier<FWD_OPT> transformator = () -> {
+			try {
+				FWD_OPT fwd_opt = new FWD_OPT_App(tggName, Constants.workspacePath, false, size+"Element");
+				fwd_opt.setUpdatePolicy(new TimedUpdatePolicy(new NextMatchUpdatePolicy(), PerformanceConstants.timeout, TimeUnit.SECONDS));
+				return fwd_opt;
+			} catch (IOException e) {
+				e.printStackTrace();
+				return null;
+			}
+		};
+
+		System.out.println("Collecting FWD_OPT data for "+tggName+", size: "+size);
+		TestDataPoint point;
+		try {
+			point = test.repeatedTimedExecutionAndInit(transformator, size, repetitions);
+			data.add(point);
+		} catch (GRBException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	private void collectBWD_OPTData(String tggName, int size) throws IOException {
+		PerformanceTestBWD_OPT test = new PerformanceTestBWD_OPT();
+		
+		Supplier<BWD_OPT> transformator = () -> {
+			try {
+				BWD_OPT bwd_opt = new BWD_OPT_App(tggName, Constants.workspacePath, false, size+"Element");
+				bwd_opt.setUpdatePolicy(new TimedUpdatePolicy(new NextMatchUpdatePolicy(), PerformanceConstants.timeout, TimeUnit.SECONDS));
+				return bwd_opt;
+			} catch (IOException e) {
+				e.printStackTrace();
+				return null;
+			}
+		};
+
+		System.out.println("Collecting FWD_OPT data for "+tggName+", size: "+size);
+		TestDataPoint point;
+		try {
+			point = test.repeatedTimedExecutionAndInit(transformator, size, repetitions);
+			data.add(point);
+		} catch (GRBException e) {
+			e.printStackTrace();
+		}
 	}
 	
 

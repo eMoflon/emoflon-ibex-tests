@@ -8,7 +8,7 @@ public class Constants {
 	public final static String blockDiagramCodeAdapter = "BlockDiagramCodeAdapter";
 	public final static String classInhHier2DB = "ClassInhHier2DB";
 	public final static String classInhHier2DB_MA = "ClassInhHier2DB_MA";
-	public final static String classMultiInhHier2DB_MA = "ClassMultiInhHier2DB_MA";
+	public final static String classMultipleInhHier2DB_MA = "ClassMultipleInhHier2DB_MA";
 	public final static String companyToIT = "CompanyToIT";
 	public final static String familiesToPersons_MA = "FamiliesToPersons_MA";
 	public final static String familiesToPersons_V0 = "FamiliesToPersons_V0";
@@ -22,9 +22,9 @@ public class Constants {
 												 blockDiagramCodeAdapter,
 												 classInhHier2DB,
 												 classInhHier2DB_MA,
-												 classMultiInhHier2DB_MA,
+												 classMultipleInhHier2DB_MA,
 												 companyToIT,
-												 familiesToPersons_MA,
+												 //familiesToPersons_MA,
 												 familiesToPersons_V0,
 												 familiesToPersons_V1,
 												 featureModelConciseToSafe,
