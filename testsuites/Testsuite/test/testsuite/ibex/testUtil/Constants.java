@@ -22,12 +22,13 @@ public class Constants {
 												 blockDiagramCodeAdapter,
 												 classInhHier2DB,
 												 classInhHier2DB_MA,
-												 classMultipleInhHier2DB_MA,
+												 //classMultipleInhHier2DB_MA,
 												 companyToIT,
 												 //familiesToPersons_MA,
 												 familiesToPersons_V0,
 												 familiesToPersons_V1,
 												 featureModelConciseToSafe,
 												 processCodeAdapter,
-												 vhdlTGGCodeAdapter};
+												 vhdlTGGCodeAdapter
+												 };
 }
