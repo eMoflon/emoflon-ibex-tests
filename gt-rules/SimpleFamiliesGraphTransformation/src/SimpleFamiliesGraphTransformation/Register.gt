@@ -1,5 +1,13 @@
 import "platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore"
 
+rule createRegister {
+	++ register: FamilyRegister
+}
+
+rule deleteRegister {
+	-- register: FamilyRegister
+}
+
 rule findRegister {
 	register: FamilyRegister
 }

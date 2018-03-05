@@ -16,8 +16,9 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
-import org.emoflon.ibex.common.operational.IPatternInterpreter;
+import org.emoflon.ibex.common.operational.IContextPatternInterpreter;
 import org.emoflon.ibex.gt.api.GraphTransformationAPI;
+import org.emoflon.ibex.gt.api.GraphTransformationApplicableRule;
 import org.emoflon.ibex.gt.api.GraphTransformationMatch;
 import org.emoflon.ibex.gt.api.GraphTransformationRule;
 import org.emoflon.ibex.gt.democles.runtime.DemoclesGTEngine;
@@ -60,7 +61,7 @@ public abstract class GTTestCase<API extends GraphTransformationAPI> {
 	 * 
 	 * @return the created API
 	 */
-	protected abstract API getAPI(final IPatternInterpreter engine, final ResourceSet model);
+	protected abstract API getAPI(final IContextPatternInterpreter engine, final ResourceSet model);
 
 	/**
 	 * Defines the meta-model packages as a mapping between their URI and the
@@ -69,19 +70,6 @@ public abstract class GTTestCase<API extends GraphTransformationAPI> {
 	 * @return a Map containing the meta-model packages
 	 */
 	protected abstract Map<String, EPackage> getMetaModelPackages();
-
-	/**
-	 * Initializes the API for the tests.
-	 * 
-	 * @param modelFileName
-	 *            the name of the model file
-	 * @return the created API
-	 */
-	protected API initAPI(final String modelFileName) {
-		DemoclesGTEngine engine = new DemoclesGTEngine();
-		engine.setDebugPath("./debug/" + this.getTestName());
-		return this.getAPI(engine, this.initResourceSet(modelFileName));
-	}
 
 	/**
 	 * Initializes the API for the tests.
@@ -128,6 +116,7 @@ public abstract class GTTestCase<API extends GraphTransformationAPI> {
 				URI resourceURI = URI.createFileURI(path);
 				Resource res = resourceSet.getResource(resourceURI, true);
 				instanceResource.getContents().addAll(res.getContents());
+				resourceSet.getResources().remove(res);
 			}
 		}
 
@@ -156,6 +145,22 @@ public abstract class GTTestCase<API extends GraphTransformationAPI> {
 	}
 
 	/**
+	 * Saves the resource set.
+	 * 
+	 * @param resourceSet
+	 *            the resource set
+	 */
+	protected static void saveResourceSet(final ResourceSet resourceSet) {
+		resourceSet.getResources().forEach(resource -> {
+			try {
+				resource.save(null);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		});
+	}
+
+	/**
 	 * Asserts that there are no matches for the rule
 	 * 
 	 * @param rule
@@ -176,6 +181,20 @@ public abstract class GTTestCase<API extends GraphTransformationAPI> {
 	public static <M extends GraphTransformationMatch<M, R>, R extends GraphTransformationRule<M, R>> M assertAnyMatchExists(
 			final R rule) {
 		Optional<M> match = (Optional<M>) rule.findAnyMatch();
+		assertTrue(match.isPresent());
+		return match.get();
+	}
+
+	/**
+	 * Executes the rule, asserts that a match exists and returns the match
+	 * 
+	 * @param rule
+	 *            the rule to execute
+	 * @return the match
+	 */
+	public static <M extends GraphTransformationMatch<M, R>, R extends GraphTransformationApplicableRule<M, R>> M assertMatchAfterApplication(
+			final R rule) {
+		Optional<M> match = (Optional<M>) rule.apply();
 		assertTrue(match.isPresent());
 		return match.get();
 	}

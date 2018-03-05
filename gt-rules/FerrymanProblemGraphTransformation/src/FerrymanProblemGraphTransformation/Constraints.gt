@@ -1,0 +1,25 @@
+import "platform:/resource/FerrymanProblem/model/FerrymanProblem.ecore"
+
+rule findSubjectsOnLeftBank {
+	model: Model {
+		-leftBank -> bank
+	}
+
+	bank: Bank
+
+	subject: Subject {
+		-isAt -> bank
+	}
+}
+
+rule findSubjectsOnRightBank {
+	model: Model {
+		-rightBank -> bank
+	}
+
+	bank: Bank
+
+	subject: Subject {
+		-isAt -> bank
+	}
+}

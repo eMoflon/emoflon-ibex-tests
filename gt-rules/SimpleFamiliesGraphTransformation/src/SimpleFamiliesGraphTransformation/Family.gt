@@ -1,5 +1,21 @@
 import "platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore"
 
+rule createFamily {
+	register: FamilyRegister {
+		++ -families -> family
+	}
+
+	++ family: Family
+}
+
+rule deleteFamily {
+	register: FamilyRegister {
+		-- -families -> family
+	}
+
+	-- family: Family
+}
+
 rule findFamily {
 	family: Family
 }
