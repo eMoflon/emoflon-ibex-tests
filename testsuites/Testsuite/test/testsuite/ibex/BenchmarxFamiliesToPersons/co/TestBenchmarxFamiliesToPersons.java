@@ -13,7 +13,7 @@ import testsuite.ibex.testUtil.COTestCase;
 public class TestBenchmarxFamiliesToPersons extends COTestCase{
 
 	public void createGenerator(String srcInstance, String trgInstance, String corrInstance, String protInstance) throws IOException {
-		checker = new CO_App("BenchmarxFamiliesToPersons", testsuite.ibex.testUtil.Constants.workspacePath, false, srcInstance, trgInstance, corrInstance, protInstance);
+		checker = new CO_App("BenchmarxFamiliesToPersons", testsuite.ibex.testUtil.Constants.workspacePath, true, srcInstance, trgInstance, corrInstance, protInstance);
 	}
 	
 	public void createForward(String srcInstance, String trgInstance, String corrInstance, String protInstance) throws IOException {

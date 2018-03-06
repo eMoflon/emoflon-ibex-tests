@@ -12,7 +12,7 @@ import testsuite.ibex.testUtil.CCTestCase;
 public class TestCC extends CCTestCase {
 
 	public void createGenerator(String srcInstance, String trgInstance) throws IOException {
-		checker = new CC_App("CompanyToIT", testsuite.ibex.testUtil.Constants.workspacePath, false, srcInstance, trgInstance);
+		checker = new CC_App("CompanyToIT", testsuite.ibex.testUtil.Constants.workspacePath, true, srcInstance, trgInstance);
 	}
 	
 	@Test

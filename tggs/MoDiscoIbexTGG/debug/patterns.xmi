@@ -93,17 +93,15 @@
       <eClassifier xsi:type="ecore:EClass" href="../metamodels/java.ecore#//ClassDeclaration"/>
     </symbolicParameters>
     <bodies>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/5/@symbolicParameters.0"/>
-        <parameters reference="/5/@symbolicParameters.1"/>
-        <eModelElement xsi:type="ecore:EReference" href="../metamodels/java.ecore#//Package/ownedElements"/>
-      </constraints>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/5/@symbolicParameters.1"/>
-        <parameters reference="/5/@symbolicParameters.0"/>
-        <eModelElement xsi:type="ecore:EReference" href="../metamodels/java.ecore#//AbstractTypeDeclaration/package"/>
-      </constraints>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="ClassDec2Class__CONTEXT_SRC">
+        <parameters reference="/5/@symbolicParameters.0"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="java.Package_java.Package.ownedElements_java.ClassDeclaration___EDGE">
+        <parameters reference="/5/@symbolicParameters.0"/>
+        <parameters reference="/5/@symbolicParameters.1"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="java.ClassDeclaration_java.AbstractTypeDeclaration.package_java.Package___EDGE">
+        <parameters reference="/5/@symbolicParameters.1"/>
         <parameters reference="/5/@symbolicParameters.0"/>
       </constraints>
     </bodies>
@@ -201,17 +199,15 @@
       <eClassifier xsi:type="ecore:EClass" href="../metamodels/java.ecore#//EnumDeclaration"/>
     </symbolicParameters>
     <bodies>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/11/@symbolicParameters.0"/>
-        <parameters reference="/11/@symbolicParameters.1"/>
-        <eModelElement xsi:type="ecore:EReference" href="../metamodels/java.ecore#//Package/ownedElements"/>
-      </constraints>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/11/@symbolicParameters.1"/>
-        <parameters reference="/11/@symbolicParameters.0"/>
-        <eModelElement xsi:type="ecore:EReference" href="../metamodels/java.ecore#//AbstractTypeDeclaration/package"/>
-      </constraints>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="EnumDec2Enum__CONTEXT_SRC">
+        <parameters reference="/11/@symbolicParameters.0"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="java.Package_java.Package.ownedElements_java.EnumDeclaration___EDGE">
+        <parameters reference="/11/@symbolicParameters.0"/>
+        <parameters reference="/11/@symbolicParameters.1"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="java.EnumDeclaration_java.AbstractTypeDeclaration.package_java.Package___EDGE">
+        <parameters reference="/11/@symbolicParameters.1"/>
         <parameters reference="/11/@symbolicParameters.0"/>
       </constraints>
     </bodies>
@@ -324,28 +320,24 @@
       <eClassifier xsi:type="ecore:EClass" href="../metamodels/java.ecore#//VariableDeclarationFragment"/>
     </symbolicParameters>
     <bodies>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/17/@symbolicParameters.0"/>
-        <parameters reference="/17/@symbolicParameters.1"/>
-        <eModelElement xsi:type="ecore:EReference" href="../metamodels/java.ecore#//AbstractTypeDeclaration/bodyDeclarations"/>
-      </constraints>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/17/@symbolicParameters.1"/>
-        <parameters reference="/17/@symbolicParameters.2"/>
-        <eModelElement xsi:type="ecore:EReference" href="../metamodels/java.ecore#//AbstractVariablesContainer/fragments"/>
-      </constraints>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/17/@symbolicParameters.1"/>
-        <parameters reference="/17/@symbolicParameters.0"/>
-        <eModelElement xsi:type="ecore:EReference" href="../metamodels/java.ecore#//BodyDeclaration/abstractTypeDeclaration"/>
-      </constraints>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/17/@symbolicParameters.2"/>
-        <parameters reference="/17/@symbolicParameters.1"/>
-        <eModelElement xsi:type="ecore:EReference" href="../metamodels/java.ecore#//VariableDeclarationFragment/variablesContainer"/>
-      </constraints>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="FieldDec2Property__CONTEXT_SRC">
         <parameters reference="/17/@symbolicParameters.0"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="java.ClassDeclaration_java.AbstractTypeDeclaration.bodyDeclarations_java.FieldDeclaration___EDGE">
+        <parameters reference="/17/@symbolicParameters.0"/>
+        <parameters reference="/17/@symbolicParameters.1"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="java.FieldDeclaration_java.AbstractVariablesContainer.fragments_java.VariableDeclarationFragment___EDGE">
+        <parameters reference="/17/@symbolicParameters.1"/>
+        <parameters reference="/17/@symbolicParameters.2"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="java.FieldDeclaration_java.BodyDeclaration.abstractTypeDeclaration_java.ClassDeclaration___EDGE">
+        <parameters reference="/17/@symbolicParameters.1"/>
+        <parameters reference="/17/@symbolicParameters.0"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="java.VariableDeclarationFragment_java.VariableDeclarationFragment.variablesContainer_java.FieldDeclaration___EDGE">
+        <parameters reference="/17/@symbolicParameters.2"/>
+        <parameters reference="/17/@symbolicParameters.1"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -378,19 +370,17 @@
       <eClassifier xsi:type="ecore:EClass" href="../metamodels/java.ecore#//AbstractVariablesContainer"/>
     </symbolicParameters>
     <bodies>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/19/@symbolicParameters.0"/>
-        <parameters reference="/19/@symbolicParameters.1"/>
-        <eModelElement xsi:type="ecore:EReference" href="../metamodels/java.ecore#//AbstractVariablesContainer/fragments"/>
-      </constraints>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/19/@symbolicParameters.2"/>
-        <parameters reference="/19/@symbolicParameters.1"/>
-        <eModelElement xsi:type="ecore:EReference" href="../metamodels/java.ecore#//AbstractVariablesContainer/fragments"/>
-      </constraints>
       <constraints xsi:type="relational:Unequal">
         <parameters reference="/19/@symbolicParameters.0"/>
         <parameters reference="/19/@symbolicParameters.2"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="java.FieldDeclaration_java.AbstractVariablesContainer.fragments_java.VariableDeclarationFragment___EDGE">
+        <parameters reference="/19/@symbolicParameters.0"/>
+        <parameters reference="/19/@symbolicParameters.1"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="java.AbstractVariablesContainer_java.AbstractVariablesContainer.fragments_java.VariableDeclarationFragment___EDGE">
+        <parameters reference="/19/@symbolicParameters.2"/>
+        <parameters reference="/19/@symbolicParameters.1"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -487,17 +477,15 @@
       <eClassifier xsi:type="ecore:EClass" href="../metamodels/java.ecore#//InterfaceDeclaration"/>
     </symbolicParameters>
     <bodies>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/25/@symbolicParameters.0"/>
-        <parameters reference="/25/@symbolicParameters.1"/>
-        <eModelElement xsi:type="ecore:EReference" href="../metamodels/java.ecore#//Package/ownedElements"/>
-      </constraints>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/25/@symbolicParameters.1"/>
-        <parameters reference="/25/@symbolicParameters.0"/>
-        <eModelElement xsi:type="ecore:EReference" href="../metamodels/java.ecore#//AbstractTypeDeclaration/package"/>
-      </constraints>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="InterfaceDec2Interface__CONTEXT_SRC">
+        <parameters reference="/25/@symbolicParameters.0"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="java.Package_java.Package.ownedElements_java.InterfaceDeclaration___EDGE">
+        <parameters reference="/25/@symbolicParameters.0"/>
+        <parameters reference="/25/@symbolicParameters.1"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="java.InterfaceDeclaration_java.AbstractTypeDeclaration.package_java.Package___EDGE">
+        <parameters reference="/25/@symbolicParameters.1"/>
         <parameters reference="/25/@symbolicParameters.0"/>
       </constraints>
     </bodies>
@@ -643,19 +631,17 @@
       <eClassifier xsi:type="ecore:EClass" href="../metamodels/java.ecore#//Package"/>
     </symbolicParameters>
     <bodies>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/31/@symbolicParameters.0"/>
-        <parameters reference="/31/@symbolicParameters.1"/>
-        <eModelElement xsi:type="ecore:EReference" href="../metamodels/java.ecore#//Model/ownedElements"/>
-      </constraints>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/31/@symbolicParameters.1"/>
-        <parameters reference="/31/@symbolicParameters.0"/>
-        <eModelElement xsi:type="ecore:EReference" href="../metamodels/java.ecore#//Package/model"/>
-      </constraints>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="JavaModelToUMLModel_EdgeRule__CONTEXT_SRC">
         <parameters reference="/31/@symbolicParameters.0"/>
         <parameters reference="/31/@symbolicParameters.1"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="java.Model_java.Model.ownedElements_java.Package___EDGE">
+        <parameters reference="/31/@symbolicParameters.0"/>
+        <parameters reference="/31/@symbolicParameters.1"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="java.Package_java.Package.model_java.Model___EDGE">
+        <parameters reference="/31/@symbolicParameters.1"/>
+        <parameters reference="/31/@symbolicParameters.0"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -830,19 +816,17 @@
       <eClassifier xsi:type="ecore:EClass" href="../metamodels/java.ecore#//Package"/>
     </symbolicParameters>
     <bodies>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/40/@symbolicParameters.0"/>
-        <parameters reference="/40/@symbolicParameters.1"/>
-        <eModelElement xsi:type="ecore:EReference" href="../metamodels/java.ecore#//Package/ownedPackages"/>
-      </constraints>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/40/@symbolicParameters.1"/>
-        <parameters reference="/40/@symbolicParameters.0"/>
-        <eModelElement xsi:type="ecore:EReference" href="../metamodels/java.ecore#//Package/package"/>
-      </constraints>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="JavaPackageToUMLPackage_EdgeRule__CONTEXT_SRC">
         <parameters reference="/40/@symbolicParameters.0"/>
         <parameters reference="/40/@symbolicParameters.1"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="java.Package_java.Package.ownedPackages_java.Package___EDGE">
+        <parameters reference="/40/@symbolicParameters.0"/>
+        <parameters reference="/40/@symbolicParameters.1"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="java.Package_java.Package.package_java.Package___EDGE">
+        <parameters reference="/40/@symbolicParameters.1"/>
+        <parameters reference="/40/@symbolicParameters.0"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -1864,17 +1848,15 @@
       <eClassifier xsi:type="ecore:EClass" href="../metamodels/java.ecore#//SingleVariableDeclaration"/>
     </symbolicParameters>
     <bodies>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/102/@symbolicParameters.0"/>
-        <parameters reference="/102/@symbolicParameters.1"/>
-        <eModelElement xsi:type="ecore:EReference" href="../metamodels/java.ecore#//AbstractMethodDeclaration/parameters"/>
-      </constraints>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/102/@symbolicParameters.1"/>
-        <parameters reference="/102/@symbolicParameters.0"/>
-        <eModelElement xsi:type="ecore:EReference" href="../metamodels/java.ecore#//SingleVariableDeclaration/methodDeclaration"/>
-      </constraints>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="VariableDec2Parameter__CONTEXT_SRC">
+        <parameters reference="/102/@symbolicParameters.0"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="java.MethodDeclaration_java.AbstractMethodDeclaration.parameters_java.SingleVariableDeclaration___EDGE">
+        <parameters reference="/102/@symbolicParameters.0"/>
+        <parameters reference="/102/@symbolicParameters.1"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="java.SingleVariableDeclaration_java.SingleVariableDeclaration.methodDeclaration_java.MethodDeclaration___EDGE">
+        <parameters reference="/102/@symbolicParameters.1"/>
         <parameters reference="/102/@symbolicParameters.0"/>
       </constraints>
     </bodies>
@@ -1908,19 +1890,321 @@
       <eClassifier xsi:type="ecore:EClass" href="../metamodels/java.ecore#//AbstractMethodDeclaration"/>
     </symbolicParameters>
     <bodies>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/104/@symbolicParameters.0"/>
-        <parameters reference="/104/@symbolicParameters.1"/>
-        <eModelElement xsi:type="ecore:EReference" href="../metamodels/java.ecore#//AbstractMethodDeclaration/parameters"/>
-      </constraints>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/104/@symbolicParameters.2"/>
-        <parameters reference="/104/@symbolicParameters.1"/>
-        <eModelElement xsi:type="ecore:EReference" href="../metamodels/java.ecore#//AbstractMethodDeclaration/parameters"/>
-      </constraints>
       <constraints xsi:type="relational:Unequal">
         <parameters reference="/104/@symbolicParameters.0"/>
         <parameters reference="/104/@symbolicParameters.2"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="java.MethodDeclaration_java.AbstractMethodDeclaration.parameters_java.SingleVariableDeclaration___EDGE">
+        <parameters reference="/104/@symbolicParameters.0"/>
+        <parameters reference="/104/@symbolicParameters.1"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="java.AbstractMethodDeclaration_java.AbstractMethodDeclaration.parameters_java.SingleVariableDeclaration___EDGE">
+        <parameters reference="/104/@symbolicParameters.2"/>
+        <parameters reference="/104/@symbolicParameters.1"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="java.AbstractMethodDeclaration_java.AbstractMethodDeclaration.parameters_java.SingleVariableDeclaration___EDGE">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="source">
+      <eClassifier xsi:type="ecore:EClass" href="../metamodels/java.ecore#//AbstractMethodDeclaration"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="target">
+      <eClassifier xsi:type="ecore:EClass" href="../metamodels/java.ecore#//SingleVariableDeclaration"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/105/@symbolicParameters.0"/>
+        <parameters reference="/105/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../metamodels/java.ecore#//AbstractMethodDeclaration/parameters"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="java.AbstractVariablesContainer_java.AbstractVariablesContainer.fragments_java.VariableDeclarationFragment___EDGE">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="source">
+      <eClassifier xsi:type="ecore:EClass" href="../metamodels/java.ecore#//AbstractVariablesContainer"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="target">
+      <eClassifier xsi:type="ecore:EClass" href="../metamodels/java.ecore#//VariableDeclarationFragment"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/106/@symbolicParameters.0"/>
+        <parameters reference="/106/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../metamodels/java.ecore#//AbstractVariablesContainer/fragments"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="java.ClassDeclaration_java.AbstractTypeDeclaration.bodyDeclarations_java.FieldDeclaration___EDGE">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="source">
+      <eClassifier xsi:type="ecore:EClass" href="../metamodels/java.ecore#//ClassDeclaration"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="target">
+      <eClassifier xsi:type="ecore:EClass" href="../metamodels/java.ecore#//FieldDeclaration"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/107/@symbolicParameters.0"/>
+        <parameters reference="/107/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../metamodels/java.ecore#//AbstractTypeDeclaration/bodyDeclarations"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="java.ClassDeclaration_java.AbstractTypeDeclaration.package_java.Package___EDGE">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="source">
+      <eClassifier xsi:type="ecore:EClass" href="../metamodels/java.ecore#//ClassDeclaration"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="target">
+      <eClassifier xsi:type="ecore:EClass" href="../metamodels/java.ecore#//Package"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/108/@symbolicParameters.0"/>
+        <parameters reference="/108/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../metamodels/java.ecore#//AbstractTypeDeclaration/package"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="java.EnumDeclaration_java.AbstractTypeDeclaration.package_java.Package___EDGE">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="source">
+      <eClassifier xsi:type="ecore:EClass" href="../metamodels/java.ecore#//EnumDeclaration"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="target">
+      <eClassifier xsi:type="ecore:EClass" href="../metamodels/java.ecore#//Package"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/109/@symbolicParameters.0"/>
+        <parameters reference="/109/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../metamodels/java.ecore#//AbstractTypeDeclaration/package"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="java.FieldDeclaration_java.AbstractVariablesContainer.fragments_java.VariableDeclarationFragment___EDGE">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="source">
+      <eClassifier xsi:type="ecore:EClass" href="../metamodels/java.ecore#//FieldDeclaration"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="target">
+      <eClassifier xsi:type="ecore:EClass" href="../metamodels/java.ecore#//VariableDeclarationFragment"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/110/@symbolicParameters.0"/>
+        <parameters reference="/110/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../metamodels/java.ecore#//AbstractVariablesContainer/fragments"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="java.FieldDeclaration_java.AbstractVariablesContainer.fragments_java.VariableDeclarationFragment___EDGE">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="source">
+      <eClassifier xsi:type="ecore:EClass" href="../metamodels/java.ecore#//FieldDeclaration"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="target">
+      <eClassifier xsi:type="ecore:EClass" href="../metamodels/java.ecore#//VariableDeclarationFragment"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/111/@symbolicParameters.0"/>
+        <parameters reference="/111/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../metamodels/java.ecore#//AbstractVariablesContainer/fragments"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="java.FieldDeclaration_java.BodyDeclaration.abstractTypeDeclaration_java.ClassDeclaration___EDGE">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="source">
+      <eClassifier xsi:type="ecore:EClass" href="../metamodels/java.ecore#//FieldDeclaration"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="target">
+      <eClassifier xsi:type="ecore:EClass" href="../metamodels/java.ecore#//ClassDeclaration"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/112/@symbolicParameters.0"/>
+        <parameters reference="/112/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../metamodels/java.ecore#//BodyDeclaration/abstractTypeDeclaration"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="java.InterfaceDeclaration_java.AbstractTypeDeclaration.package_java.Package___EDGE">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="source">
+      <eClassifier xsi:type="ecore:EClass" href="../metamodels/java.ecore#//InterfaceDeclaration"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="target">
+      <eClassifier xsi:type="ecore:EClass" href="../metamodels/java.ecore#//Package"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/113/@symbolicParameters.0"/>
+        <parameters reference="/113/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../metamodels/java.ecore#//AbstractTypeDeclaration/package"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="java.MethodDeclaration_java.AbstractMethodDeclaration.parameters_java.SingleVariableDeclaration___EDGE">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="source">
+      <eClassifier xsi:type="ecore:EClass" href="../metamodels/java.ecore#//MethodDeclaration"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="target">
+      <eClassifier xsi:type="ecore:EClass" href="../metamodels/java.ecore#//SingleVariableDeclaration"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/114/@symbolicParameters.0"/>
+        <parameters reference="/114/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../metamodels/java.ecore#//AbstractMethodDeclaration/parameters"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="java.MethodDeclaration_java.AbstractMethodDeclaration.parameters_java.SingleVariableDeclaration___EDGE">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="source">
+      <eClassifier xsi:type="ecore:EClass" href="../metamodels/java.ecore#//MethodDeclaration"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="target">
+      <eClassifier xsi:type="ecore:EClass" href="../metamodels/java.ecore#//SingleVariableDeclaration"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/115/@symbolicParameters.0"/>
+        <parameters reference="/115/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../metamodels/java.ecore#//AbstractMethodDeclaration/parameters"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="java.Model_java.Model.ownedElements_java.Package___EDGE">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="source">
+      <eClassifier xsi:type="ecore:EClass" href="../metamodels/java.ecore#//Model"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="target">
+      <eClassifier xsi:type="ecore:EClass" href="../metamodels/java.ecore#//Package"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/116/@symbolicParameters.0"/>
+        <parameters reference="/116/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../metamodels/java.ecore#//Model/ownedElements"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="java.Package_java.Package.model_java.Model___EDGE">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="source">
+      <eClassifier xsi:type="ecore:EClass" href="../metamodels/java.ecore#//Package"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="target">
+      <eClassifier xsi:type="ecore:EClass" href="../metamodels/java.ecore#//Model"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/117/@symbolicParameters.0"/>
+        <parameters reference="/117/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../metamodels/java.ecore#//Package/model"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="java.Package_java.Package.ownedElements_java.ClassDeclaration___EDGE">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="source">
+      <eClassifier xsi:type="ecore:EClass" href="../metamodels/java.ecore#//Package"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="target">
+      <eClassifier xsi:type="ecore:EClass" href="../metamodels/java.ecore#//ClassDeclaration"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/118/@symbolicParameters.0"/>
+        <parameters reference="/118/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../metamodels/java.ecore#//Package/ownedElements"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="java.Package_java.Package.ownedElements_java.EnumDeclaration___EDGE">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="source">
+      <eClassifier xsi:type="ecore:EClass" href="../metamodels/java.ecore#//Package"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="target">
+      <eClassifier xsi:type="ecore:EClass" href="../metamodels/java.ecore#//EnumDeclaration"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/119/@symbolicParameters.0"/>
+        <parameters reference="/119/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../metamodels/java.ecore#//Package/ownedElements"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="java.Package_java.Package.ownedElements_java.InterfaceDeclaration___EDGE">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="source">
+      <eClassifier xsi:type="ecore:EClass" href="../metamodels/java.ecore#//Package"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="target">
+      <eClassifier xsi:type="ecore:EClass" href="../metamodels/java.ecore#//InterfaceDeclaration"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/120/@symbolicParameters.0"/>
+        <parameters reference="/120/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../metamodels/java.ecore#//Package/ownedElements"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="java.Package_java.Package.ownedPackages_java.Package___EDGE">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="source">
+      <eClassifier xsi:type="ecore:EClass" href="../metamodels/java.ecore#//Package"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="target">
+      <eClassifier xsi:type="ecore:EClass" href="../metamodels/java.ecore#//Package"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/121/@symbolicParameters.0"/>
+        <parameters reference="/121/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../metamodels/java.ecore#//Package/ownedPackages"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="java.Package_java.Package.package_java.Package___EDGE">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="source">
+      <eClassifier xsi:type="ecore:EClass" href="../metamodels/java.ecore#//Package"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="target">
+      <eClassifier xsi:type="ecore:EClass" href="../metamodels/java.ecore#//Package"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/122/@symbolicParameters.0"/>
+        <parameters reference="/122/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../metamodels/java.ecore#//Package/package"/>
+      </constraints>
+      <constraints xsi:type="relational:Unequal">
+        <parameters reference="/122/@symbolicParameters.0"/>
+        <parameters reference="/122/@symbolicParameters.1"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="java.SingleVariableDeclaration_java.SingleVariableDeclaration.methodDeclaration_java.MethodDeclaration___EDGE">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="source">
+      <eClassifier xsi:type="ecore:EClass" href="../metamodels/java.ecore#//SingleVariableDeclaration"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="target">
+      <eClassifier xsi:type="ecore:EClass" href="../metamodels/java.ecore#//MethodDeclaration"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/123/@symbolicParameters.0"/>
+        <parameters reference="/123/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../metamodels/java.ecore#//SingleVariableDeclaration/methodDeclaration"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="java.VariableDeclarationFragment_java.VariableDeclarationFragment.variablesContainer_java.FieldDeclaration___EDGE">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="source">
+      <eClassifier xsi:type="ecore:EClass" href="../metamodels/java.ecore#//VariableDeclarationFragment"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="target">
+      <eClassifier xsi:type="ecore:EClass" href="../metamodels/java.ecore#//FieldDeclaration"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/124/@symbolicParameters.0"/>
+        <parameters reference="/124/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../metamodels/java.ecore#//VariableDeclarationFragment/variablesContainer"/>
       </constraints>
     </bodies>
   </specification:Pattern>
