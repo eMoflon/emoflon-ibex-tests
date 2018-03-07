@@ -50,7 +50,7 @@ class GNUPlotScripts {
 		var script = '''
 			«commonHistogramScriptParts("AllTGGs", title)»
 			set title "Comparison of TGG execution times for models of size «PlotGenerator.standardModelSize» - «op»"
-			set yrange [1:10000]
+			set yrange [1:100000]
 			plot \
 			newhistogram lt 3, \
 			"«dataPath»«title».dat" using ($2/«timeFactor»):xtic(1) ti col
@@ -89,7 +89,7 @@ class GNUPlotScripts {
 			set style histogram cluster gap 1 title offset 0, -2
 			set rmargin 8
 			set bmargin 9
-			set yrange [0.1:10000]
+			set yrange [0.1:100000]
 			plot \
 			newhistogram lt 3 "ClassInhHier2DB", \
 			"«dataPath»«title».dat" using ($2/«timeFactor»):xtic(1) ti col, \
@@ -104,7 +104,7 @@ class GNUPlotScripts {
 			«commonHistogramScriptParts("InitTimes", title)»
 			set title "Execution times of initialization - «tgg»:«op»"
 			set xlabel "model size"
-			set yrange [0.1:10000]
+			set yrange [0.1:100000]
 			plot \
 			newhistogram lt 3, \
 			"«dataPath»«title».dat" using ($2/«timeFactor»):xtic(1) ti col

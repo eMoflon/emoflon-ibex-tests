@@ -51,7 +51,7 @@ public class PerformanceConstants {
 	 * The model size used for most plots with a fixed size. Should be low enough that most
 	 * TGGs/Operationalizations do not timeout/run out of memory for this size.
 	 * */
-	public static final int standardModelSize = 2000;
+	public static final int standardModelSize = 8000;
 	
 	/**
 	 * The model size used for some plots with a fixed size, where the TGG/Operationalization
