@@ -142,6 +142,7 @@ public class TestSYNC extends CompleteSyncTestCase {
 	}
 	
 	@Test
+	@Ignore
 	public void testFWD() throws IOException {
 		createForward("/resources/large_scale/src", "/resources/large_scale/trg-tmp", "/resources/large_scale/corr-tmp", "/resources/large_scale/prot-tmp");
 		runForward();
@@ -151,6 +152,7 @@ public class TestSYNC extends CompleteSyncTestCase {
 	}
 	
 	@Test
+	@Ignore
 	public void testBWD() throws IOException {
 		createBackward("/resources/large_scale/src-tmp", "/resources/large_scale/trg", "/resources/large_scale/corr-tmp", "/resources/large_scale/prot-tmp");
 		runBackward();
