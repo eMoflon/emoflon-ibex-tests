@@ -1,8 +1,13 @@
 package org.emoflon.ibex.gt.testsuite;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.Map;
+import java.util.Optional;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EPackage;
@@ -11,8 +16,11 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
-import org.emoflon.ibex.common.operational.IPatternInterpreter;
+import org.emoflon.ibex.common.operational.IContextPatternInterpreter;
 import org.emoflon.ibex.gt.api.GraphTransformationAPI;
+import org.emoflon.ibex.gt.api.GraphTransformationApplicableRule;
+import org.emoflon.ibex.gt.api.GraphTransformationMatch;
+import org.emoflon.ibex.gt.api.GraphTransformationRule;
 import org.emoflon.ibex.gt.democles.runtime.DemoclesGTEngine;
 
 /**
@@ -41,11 +49,19 @@ public abstract class GTTestCase<API extends GraphTransformationAPI> {
 	private static String resourcePath = "./resources/";
 
 	/**
+	 * Returns the name of the test which is used as a name of the subdirectory
+	 * within the folders debug, instances and resources.
+	 * 
+	 * @return the test name
+	 */
+	protected abstract String getTestName();
+
+	/**
 	 * Creates an API instance. This method must be implemented for each API.
 	 * 
 	 * @return the created API
 	 */
-	protected abstract API getAPI(final IPatternInterpreter engine, final ResourceSet model);
+	protected abstract API getAPI(final IContextPatternInterpreter engine, final ResourceSet model);
 
 	/**
 	 * Defines the meta-model packages as a mapping between their URI and the
@@ -58,30 +74,13 @@ public abstract class GTTestCase<API extends GraphTransformationAPI> {
 	/**
 	 * Initializes the API for the tests.
 	 * 
-	 * @param name
-	 *            the name of the API which is tested.
-	 * @param modelFileName
-	 *            the name of the model file
-	 * @return the created API
-	 */
-	protected API initAPI(final String name, final String modelFileName) {
-		DemoclesGTEngine engine = new DemoclesGTEngine();
-		engine.setDebugPath("./debug/" + name);
-		return this.getAPI(engine, this.initResourceSet(modelFileName));
-	}
-
-	/**
-	 * Initializes the API for the tests.
-	 * 
-	 * @param name
-	 *            the name of the API which is tested.
 	 * @param model
 	 *            the model file
 	 * @return the created API
 	 */
-	protected API initAPI(final String name, final ResourceSet model) {
+	protected API initAPI(final ResourceSet model) {
 		DemoclesGTEngine engine = new DemoclesGTEngine();
-		engine.setDebugPath("./debug/" + name);
+		engine.setDebugPath("./debug/" + this.getTestName());
 		return this.getAPI(engine, model);
 	}
 
@@ -101,7 +100,7 @@ public abstract class GTTestCase<API extends GraphTransformationAPI> {
 		Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
 		reg.getExtensionToFactoryMap().put("xmi", new XMIResourceFactoryImpl());
 
-		URI instanceURI = URI.createFileURI(instancesPath + modelInstanceFileName);
+		URI instanceURI = URI.createFileURI(instancesPath + this.getTestName() + "/" + modelInstanceFileName);
 		ResourceSet resourceSet = new ResourceSetImpl();
 		Registry packageRegistry = resourceSet.getPackageRegistry();
 		this.getMetaModelPackages().forEach((eNS_URI, eINSTANCE) -> packageRegistry.put(eNS_URI, eINSTANCE));
@@ -111,11 +110,13 @@ public abstract class GTTestCase<API extends GraphTransformationAPI> {
 		// If a file with the given name exists in the resource folder, copy its
 		// contents to the instance file.
 		if (null != resourceFileName) {
-			File file = new File(resourcePath + resourceFileName);
+			String path = resourcePath + this.getTestName() + "/" + resourceFileName;
+			File file = new File(path);
 			if (file.exists()) {
-				URI resourceURI = URI.createFileURI(resourcePath + resourceFileName);
+				URI resourceURI = URI.createFileURI(path);
 				Resource res = resourceSet.getResource(resourceURI, true);
 				instanceResource.getContents().addAll(res.getContents());
+				resourceSet.getResources().remove(res);
 			}
 		}
 
@@ -141,5 +142,72 @@ public abstract class GTTestCase<API extends GraphTransformationAPI> {
 	 */
 	protected ResourceSet initResourceSet(final String modelInstanceFileName) {
 		return this.initResourceSet(modelInstanceFileName, modelInstanceFileName);
+	}
+
+	/**
+	 * Saves the resource set.
+	 * 
+	 * @param resourceSet
+	 *            the resource set
+	 */
+	protected static void saveResourceSet(final ResourceSet resourceSet) {
+		resourceSet.getResources().forEach(resource -> {
+			try {
+				resource.save(null);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		});
+	}
+
+	/**
+	 * Asserts that there are no matches for the rule
+	 * 
+	 * @param rule
+	 *            the rule
+	 */
+	public static void assertNoMatch(final GraphTransformationRule<?, ?> rule) {
+		assertEquals(0, rule.countMatches());
+		assertFalse(rule.findAnyMatch().isPresent());
+	}
+
+	/**
+	 * Asserts that any match for the rule exists and returns the match.
+	 * 
+	 * @param rule
+	 *            the rule
+	 * @return the match
+	 */
+	public static <M extends GraphTransformationMatch<M, R>, R extends GraphTransformationRule<M, R>> M assertAnyMatchExists(
+			final R rule) {
+		Optional<M> match = (Optional<M>) rule.findAnyMatch();
+		assertTrue(match.isPresent());
+		return match.get();
+	}
+
+	/**
+	 * Executes the rule, asserts that a match exists and returns the match
+	 * 
+	 * @param rule
+	 *            the rule to execute
+	 * @return the match
+	 */
+	public static <M extends GraphTransformationMatch<M, R>, R extends GraphTransformationApplicableRule<M, R>> M assertMatchAfterApplication(
+			final R rule) {
+		Optional<M> match = (Optional<M>) rule.apply();
+		assertTrue(match.isPresent());
+		return match.get();
+	}
+
+	/**
+	 * Asserts that the rule has the expected number of matches.
+	 * 
+	 * @param expectedMatchCount
+	 *            the expected number of matches
+	 * @param rule
+	 *            the rule
+	 */
+	public static void assertMatchCount(final int expectedMatchCount, final GraphTransformationRule<?, ?> rule) {
+		assertEquals(expectedMatchCount, rule.countMatches());
 	}
 }

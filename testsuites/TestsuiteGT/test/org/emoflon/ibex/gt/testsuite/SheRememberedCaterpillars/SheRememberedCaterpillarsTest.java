@@ -1,7 +1,5 @@
 package org.emoflon.ibex.gt.testsuite.SheRememberedCaterpillars;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import java.util.HashMap;
@@ -9,7 +7,7 @@ import java.util.Map;
 
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.emoflon.ibex.common.operational.IPatternInterpreter;
+import org.emoflon.ibex.common.operational.IContextPatternInterpreter;
 import org.emoflon.ibex.gt.testsuite.GTTestCase;
 import org.junit.Test;
 
@@ -23,7 +21,12 @@ import SheRememberedCaterpillarsGraphTransformation.api.matches.NoTwoCharactersO
  */
 public class SheRememberedCaterpillarsTest extends GTTestCase<SheRememberedCaterpillarsGraphTransformationAPI> {
 	@Override
-	protected SheRememberedCaterpillarsGraphTransformationAPI getAPI(final IPatternInterpreter engine,
+	public String getTestName() {
+		return "SheRememberedCaterpillars";
+	}
+
+	@Override
+	protected SheRememberedCaterpillarsGraphTransformationAPI getAPI(final IContextPatternInterpreter engine,
 			final ResourceSet model) {
 		return new SheRememberedCaterpillarsGraphTransformationAPI(engine, model, GTTestCase.workspacePath);
 	}
@@ -37,26 +40,26 @@ public class SheRememberedCaterpillarsTest extends GTTestCase<SheRememberedCater
 
 	@Test
 	public void testFindCharacters() {
-		SheRememberedCaterpillarsGraphTransformationAPI api = this.initAPI("SheRememberedCaterpillars",
-				"SheRememberedCaterpillars.xmi");
-		assertEquals(2, api.findCharacter().countMatches());
-		assertTrue(api.findCharacterNotOnExit().findAnyMatch().isPresent());
-		assertTrue(api.findCharacterOnExit().findAnyMatch().isPresent());
+		ResourceSet model = this.initResourceSet("SheRememberedCaterpillars.xmi");
+		SheRememberedCaterpillarsGraphTransformationAPI api = this.initAPI(model);
+		assertMatchCount(2, api.findCharacter());
+		assertAnyMatchExists(api.findCharacterNotOnExit());
+		assertAnyMatchExists(api.findCharacterOnExit());
 	}
 
 	@Test
 	public void testNoIllegalSituation() {
-		SheRememberedCaterpillarsGraphTransformationAPI api = this.initAPI("SheRememberedCaterpillars",
-				"SheRememberedCaterpillars.xmi");
-		assertFalse(api.noTwoCharactersOnAnExitPlatform().findAnyMatch().isPresent());
+		ResourceSet model = this.initResourceSet("SheRememberedCaterpillars.xmi");
+		SheRememberedCaterpillarsGraphTransformationAPI api = this.initAPI(model);
+		assertNoMatch(api.noTwoCharactersOnAnExitPlatform());
 	}
 
 	@Test
 	public void testIllegalSituation() {
-		SheRememberedCaterpillarsGraphTransformationAPI api = this.initAPI("SheRememberedCaterpillars",
-				"SheRememberedCaterpillarsIllegal.xmi");
-		assertTrue(api.noTwoCharactersOnAnExitPlatform().findAnyMatch().isPresent());
-		assertEquals(2, api.noTwoCharactersOnAnExitPlatform().countMatches());
+		ResourceSet model = this.initResourceSet("TwoCharactersAtSameExit.xmi");
+		SheRememberedCaterpillarsGraphTransformationAPI api = this.initAPI(model);
+		assertAnyMatchExists(api.noTwoCharactersOnAnExitPlatform());
+		assertMatchCount(2, api.noTwoCharactersOnAnExitPlatform());
 		assertTrue(api.noTwoCharactersOnAnExitPlatform().findAnyMatch()
 				.map(NoTwoCharactersOnAnExitPlatformMatch::getPlatform).map(ExitPlatform.class::isInstance).get());
 	}
