@@ -13,15 +13,15 @@ import testsuite.ibex.testUtil.COTestCase;
 public class TestClassMultiInhHier2DB_MA extends COTestCase {
 
 	public void createGenerator(String srcInstance, String trgInstance, String corrInstance, String protInstance) throws IOException {
-		checker = new CO_App("ClassMultipleInhHier2DB_MA", testsuite.ibex.testUtil.Constants.workspacePath, false, srcInstance, trgInstance, corrInstance, protInstance);
+		checker = new CO_App("ClassMultipleInhHier2DB_MA", testsuite.ibex.testUtil.Constants.workspacePath, false, srcInstance, trgInstance, corrInstance, protInstance, this.ilpSolver);
 	}
 	
 	public void createTransformation(String srcInstance, String trgInstance, String corrInstance, String protInstance) throws IOException {
-		forward = new FWD_OPT_App("ClassMultipleInhHier2DB_MA", testsuite.ibex.testUtil.Constants.workspacePath, false, srcInstance, trgInstance, corrInstance, protInstance);
+		forward = new FWD_OPT_App("ClassMultipleInhHier2DB_MA", testsuite.ibex.testUtil.Constants.workspacePath, false, srcInstance, trgInstance, corrInstance, protInstance, this.ilpSolver);
 	}
 	
 	public void createBackward(String srcInstance, String trgInstance, String corrInstance, String protInstance) throws IOException {
-		backward = new BWD_OPT_App("ClassMultipleInhHier2DB_MA", testsuite.ibex.testUtil.Constants.workspacePath, false, srcInstance, trgInstance, corrInstance, protInstance);
+		backward = new BWD_OPT_App("ClassMultipleInhHier2DB_MA", testsuite.ibex.testUtil.Constants.workspacePath, false, srcInstance, trgInstance, corrInstance, protInstance, this.ilpSolver);
 	}
 	
 	@Test

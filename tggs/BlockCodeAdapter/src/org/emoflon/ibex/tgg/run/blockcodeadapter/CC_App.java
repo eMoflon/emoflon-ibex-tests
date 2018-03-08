@@ -7,6 +7,7 @@ import org.emoflon.ibex.tgg.operational.csp.constraints.factories.UserDefinedRun
 import org.emoflon.ibex.tgg.operational.strategies.cc.CC;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesTGGEngine;
+import org.emoflon.ibex.tgg.util.ilp.ILPFactory.SupportedILPSolver;
 
 import BlockLanguage.impl.BlockLanguagePackageImpl;
 import MocaTree.impl.MocaTreePackageImpl;
@@ -16,8 +17,8 @@ public class CC_App extends CC {
 	private String trgPath;
 
 	public CC_App(String projectName, String workspacePath, boolean debug,
-			String srcPath, String trgPath) throws IOException {
-		super(createIbexOptions().projectName(projectName).workspacePath(workspacePath).debug(debug));
+			String srcPath, String trgPath, SupportedILPSolver ilpSolver) throws IOException {
+		super(createIbexOptions().projectName(projectName).workspacePath(workspacePath).debug(debug).setIlpSolver(ilpSolver));
 		this.srcPath = srcPath;
 		this.trgPath = trgPath;
 		registerBlackInterpreter(new DemoclesTGGEngine());

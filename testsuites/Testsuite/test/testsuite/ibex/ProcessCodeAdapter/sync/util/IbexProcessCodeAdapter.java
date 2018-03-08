@@ -5,6 +5,7 @@ import java.io.IOException;
 import org.benchmarx.mocaTree.core.MocaTreeFolderComparator;
 import org.benchmarx.processDefinition.core.ProcessDefinitionComparator;
 import org.emoflon.ibex.tgg.run.processcodeadapter.SYNC_App;
+import org.emoflon.ibex.tgg.util.ilp.ILPFactory.SupportedILPSolver;
 
 import MocaTree.Folder;
 import MocaTree.MocaTreeFactory;
@@ -27,7 +28,7 @@ public class IbexProcessCodeAdapter extends IbexAdapter<Folder, SystemModule>   
 	@Override
 	public void initiateSynchronisationDialogue() {
 		try {
-			synchroniser = new SYNC_App(projectName, testsuite.ibex.testUtil.Constants.workspacePath, false);
+			synchroniser = new SYNC_App(projectName, testsuite.ibex.testUtil.Constants.workspacePath, false, SupportedILPSolver.Gurobi);
 			
 			Folder folder = MocaTreeFactory.eINSTANCE.createFolder();
 			folder.setName("Example");
