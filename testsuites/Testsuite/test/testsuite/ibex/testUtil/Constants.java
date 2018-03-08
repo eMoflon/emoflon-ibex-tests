@@ -17,14 +17,12 @@ public class Constants {
 	public final static String processCodeAdapter = "ProcessCodeAdapter";
 	public final static String vhdlTGGCodeAdapter = "VHDLTGGCodeAdapter";
 		
-	public final static String[] testProjects = {//benchmarxFamiliesToPersons,
-			 									 blockCodeAdapter,
+	public final static String[] testProjects = {
+												 blockCodeAdapter,
 												 blockDiagramCodeAdapter,
 												 classInhHier2DB,
 												 classInhHier2DB_MA,
-												 //classMultipleInhHier2DB_MA,
 												 companyToIT,
-												 //familiesToPersons_MA,
 												 familiesToPersons_V0,
 												 familiesToPersons_V1,
 												 featureModelConciseToSafe,
