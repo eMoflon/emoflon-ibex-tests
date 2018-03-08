@@ -1,98 +1,9 @@
 <?xml version="1.0" encoding="ASCII"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:org.emoflon.ibex.tgg.core.runtime="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore">
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="JavaPackageToUMLPackage">
-    <createdSrc href="src.xmi#//@ownedElements.7"/>
-    <createdTrg href="trg.xmi#//@packagedElement.74"/>
-    <createdCorr href="corr.xmi#/95"/>
-    <nodeMappings key="jp">
-      <value href="src.xmi#//@ownedElements.7"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#//@packagedElement.74"/>
-    </nodeMappings>
-    <nodeMappings key="jp2up">
-      <value href="corr.xmi#/95"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveType2PrimitiveType">
-    <createdSrc href="src.xmi#//@orphanTypes.70"/>
-    <createdTrg href="trg.xmi#//@packagedElement.93"/>
-    <createdCorr href="corr.xmi#/78"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jm">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.93"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/78"/>
-    </nodeMappings>
-    <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.70"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveType2PrimitiveType">
-    <createdSrc href="src.xmi#//@orphanTypes.66"/>
-    <createdTrg href="trg.xmi#//@packagedElement.55"/>
-    <createdCorr href="corr.xmi#/73"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jm">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.55"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/73"/>
-    </nodeMappings>
-    <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.66"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeByte">
-    <createdSrc href="src.xmi#//@orphanTypes.74"/>
-    <createdTrg href="trg.xmi#//@packagedElement.100"/>
-    <createdCorr href="corr.xmi#/82"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jm">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.100"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/82"/>
-    </nodeMappings>
-    <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.74"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
   <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="JavaModelToUMLModel_EdgeRule">
     <contextSrc href="src.xmi#//@ownedElements.3"/>
     <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#//@packagedElement.88"/>
+    <contextTrg href="trg.xmi#//@packagedElement.100"/>
     <contextTrg href="trg.xmi#/"/>
     <nodeMappings key="upp">
       <value href="trg.xmi#/"/>
@@ -104,560 +15,23 @@
       <value href="src.xmi#/"/>
     </nodeMappings>
     <nodeMappings key="up">
-      <value href="trg.xmi#//@packagedElement.88"/>
+      <value href="trg.xmi#//@packagedElement.100"/>
     </nodeMappings>
     <nodeMappings key="jpp2upp">
-      <value href="corr.xmi#/3"/>
+      <value href="corr.xmi#/1"/>
     </nodeMappings>
     <nodeMappings key="jp2up">
-      <value href="corr.xmi#/41"/>
+      <value href="corr.xmi#/73"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
   <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeBoolean">
-    <createdSrc href="src.xmi#//@orphanTypes.20"/>
-    <createdTrg href="trg.xmi#//@packagedElement.12"/>
-    <createdCorr href="corr.xmi#/26"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jm">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.12"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/26"/>
-    </nodeMappings>
-    <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.20"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeShort">
-    <createdSrc href="src.xmi#//@orphanTypes.38"/>
-    <createdTrg href="trg.xmi#//@packagedElement.70"/>
-    <createdCorr href="corr.xmi#/45"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jm">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.70"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/45"/>
-    </nodeMappings>
-    <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.38"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="JavaModelToUMLModel_EdgeRule">
-    <contextSrc href="src.xmi#//@ownedElements.1"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#//@packagedElement.69"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="upp">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jp">
-      <value href="src.xmi#//@ownedElements.1"/>
-    </nodeMappings>
-    <nodeMappings key="jpp">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#//@packagedElement.69"/>
-    </nodeMappings>
-    <nodeMappings key="jpp2upp">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jp2up">
-      <value href="corr.xmi#/10"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeByte">
-    <createdSrc href="src.xmi#//@orphanTypes.19"/>
-    <createdTrg href="trg.xmi#//@packagedElement.49"/>
-    <createdCorr href="corr.xmi#/25"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jm">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.49"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/25"/>
-    </nodeMappings>
-    <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.19"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveType2PrimitiveType">
-    <createdSrc href="src.xmi#//@orphanTypes.60"/>
-    <createdTrg href="trg.xmi#//@packagedElement.48"/>
-    <createdCorr href="corr.xmi#/67"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jm">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.48"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/67"/>
-    </nodeMappings>
-    <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.60"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveType2PrimitiveType">
-    <createdSrc href="src.xmi#//@orphanTypes.48"/>
-    <createdTrg href="trg.xmi#//@packagedElement.42"/>
-    <createdCorr href="corr.xmi#/55"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jm">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.42"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/55"/>
-    </nodeMappings>
-    <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.48"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveType2PrimitiveType">
-    <createdSrc href="src.xmi#//@orphanTypes.42"/>
-    <createdTrg href="trg.xmi#//@packagedElement.37"/>
-    <createdCorr href="corr.xmi#/49"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jm">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.37"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/49"/>
-    </nodeMappings>
-    <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.42"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeInt">
-    <createdSrc href="src.xmi#//@orphanTypes.72"/>
-    <createdTrg href="trg.xmi#//@packagedElement.64"/>
-    <createdCorr href="corr.xmi#/80"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jm">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.64"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/80"/>
-    </nodeMappings>
-    <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.72"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeVoid">
-    <createdSrc href="src.xmi#//@orphanTypes.59"/>
-    <createdTrg href="trg.xmi#//@packagedElement.75"/>
-    <createdCorr href="corr.xmi#/66"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jm">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.75"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/66"/>
-    </nodeMappings>
-    <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.59"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeInt">
-    <createdSrc href="src.xmi#//@orphanTypes.28"/>
-    <createdTrg href="trg.xmi#//@packagedElement.32"/>
-    <createdCorr href="corr.xmi#/34"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jm">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.32"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/34"/>
-    </nodeMappings>
-    <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.28"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeLong">
-    <createdSrc href="src.xmi#//@orphanTypes.34"/>
-    <createdTrg href="trg.xmi#//@packagedElement.41"/>
-    <createdCorr href="corr.xmi#/40"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jm">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.41"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/40"/>
-    </nodeMappings>
-    <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.34"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="JavaPackageToUMLPackage">
-    <createdSrc href="src.xmi#//@ownedElements.0"/>
-    <createdTrg href="trg.xmi#//@packagedElement.56"/>
-    <createdCorr href="corr.xmi#/1"/>
-    <nodeMappings key="jp">
-      <value href="src.xmi#//@ownedElements.0"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#//@packagedElement.56"/>
-    </nodeMappings>
-    <nodeMappings key="jp2up">
-      <value href="corr.xmi#/1"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeDouble">
-    <createdSrc href="src.xmi#//@orphanTypes.85"/>
-    <createdTrg href="trg.xmi#//@packagedElement.17"/>
-    <createdCorr href="corr.xmi#/93"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jm">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.17"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/93"/>
-    </nodeMappings>
-    <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.85"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveType2PrimitiveType">
-    <createdSrc href="src.xmi#//@orphanTypes.82"/>
-    <createdTrg href="trg.xmi#//@packagedElement.82"/>
-    <createdCorr href="corr.xmi#/90"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jm">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.82"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/90"/>
-    </nodeMappings>
-    <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.82"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveType2PrimitiveType">
-    <createdSrc href="src.xmi#//@orphanTypes.90"/>
-    <createdTrg href="trg.xmi#//@packagedElement.21"/>
-    <createdCorr href="corr.xmi#/99"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jm">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.21"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/99"/>
-    </nodeMappings>
-    <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.90"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveType2PrimitiveType">
-    <createdSrc href="src.xmi#//@orphanTypes.88"/>
-    <createdTrg href="trg.xmi#//@packagedElement.53"/>
-    <createdCorr href="corr.xmi#/97"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jm">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.53"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/97"/>
-    </nodeMappings>
-    <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.88"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveType2PrimitiveType">
-    <createdSrc href="src.xmi#//@orphanTypes.21"/>
-    <createdTrg href="trg.xmi#//@packagedElement.36"/>
-    <createdCorr href="corr.xmi#/27"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jm">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.36"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/27"/>
-    </nodeMappings>
-    <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.21"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeDouble">
-    <createdSrc href="src.xmi#//@orphanTypes.92"/>
-    <createdTrg href="trg.xmi#//@packagedElement.87"/>
-    <createdCorr href="corr.xmi#/101"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jm">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.87"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/101"/>
-    </nodeMappings>
-    <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.92"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveType2PrimitiveType">
-    <createdSrc href="src.xmi#//@orphanTypes.3"/>
-    <createdTrg href="trg.xmi#//@packagedElement.83"/>
-    <createdCorr href="corr.xmi#/7"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jm">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.83"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/7"/>
-    </nodeMappings>
-    <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.3"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeDouble">
-    <createdSrc href="src.xmi#//@orphanTypes.83"/>
-    <createdTrg href="trg.xmi#//@packagedElement.5"/>
-    <createdCorr href="corr.xmi#/91"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jm">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.5"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/91"/>
-    </nodeMappings>
-    <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.83"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="JavaModelToUMLModel_EdgeRule">
-    <contextSrc href="src.xmi#//@ownedElements.5"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#//@packagedElement.81"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="upp">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jp">
-      <value href="src.xmi#//@ownedElements.5"/>
-    </nodeMappings>
-    <nodeMappings key="jpp">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#//@packagedElement.81"/>
-    </nodeMappings>
-    <nodeMappings key="jpp2upp">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jp2up">
-      <value href="corr.xmi#/2"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveType2PrimitiveType">
-    <createdSrc href="src.xmi#//@orphanTypes.29"/>
-    <createdTrg href="trg.xmi#//@packagedElement.59"/>
-    <createdCorr href="corr.xmi#/35"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jm">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.59"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/35"/>
-    </nodeMappings>
-    <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.29"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeLong">
-    <createdSrc href="src.xmi#//@orphanTypes.45"/>
+    <createdSrc href="src.xmi#//@orphanTypes.73"/>
     <createdTrg href="trg.xmi#//@packagedElement.4"/>
-    <createdCorr href="corr.xmi#/52"/>
+    <createdCorr href="corr.xmi#/81"/>
     <contextSrc href="src.xmi#/"/>
     <contextTrg href="trg.xmi#/"/>
     <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
+      <value href="corr.xmi#/1"/>
     </nodeMappings>
     <nodeMappings key="jm">
       <value href="src.xmi#/"/>
@@ -669,739 +43,50 @@
       <value href="trg.xmi#/"/>
     </nodeMappings>
     <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/52"/>
+      <value href="corr.xmi#/81"/>
     </nodeMappings>
     <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.45"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveType2PrimitiveType">
-    <createdSrc href="src.xmi#//@orphanTypes.57"/>
-    <createdTrg href="trg.xmi#//@packagedElement.80"/>
-    <createdCorr href="corr.xmi#/64"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jm">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.80"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/64"/>
-    </nodeMappings>
-    <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.57"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeVoid">
-    <createdSrc href="src.xmi#//@orphanTypes.79"/>
-    <createdTrg href="trg.xmi#//@packagedElement.39"/>
-    <createdCorr href="corr.xmi#/87"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jm">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.39"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/87"/>
-    </nodeMappings>
-    <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.79"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveType2PrimitiveType">
-    <createdSrc href="src.xmi#//@orphanTypes.25"/>
-    <createdTrg href="trg.xmi#//@packagedElement.78"/>
-    <createdCorr href="corr.xmi#/31"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jm">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.78"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/31"/>
-    </nodeMappings>
-    <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.25"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeChar">
-    <createdSrc href="src.xmi#//@orphanTypes.71"/>
-    <createdTrg href="trg.xmi#//@packagedElement.14"/>
-    <createdCorr href="corr.xmi#/79"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jm">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.14"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/79"/>
-    </nodeMappings>
-    <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.71"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeInt">
-    <createdSrc href="src.xmi#//@orphanTypes.18"/>
-    <createdTrg href="trg.xmi#//@packagedElement.71"/>
-    <createdCorr href="corr.xmi#/24"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jm">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.71"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/24"/>
-    </nodeMappings>
-    <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.18"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="JavaPackageToUMLPackage">
-    <createdSrc href="src.xmi#//@ownedElements.3"/>
-    <createdTrg href="trg.xmi#//@packagedElement.88"/>
-    <createdCorr href="corr.xmi#/41"/>
-    <nodeMappings key="jp">
-      <value href="src.xmi#//@ownedElements.3"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#//@packagedElement.88"/>
-    </nodeMappings>
-    <nodeMappings key="jp2up">
-      <value href="corr.xmi#/41"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeBoolean">
-    <createdSrc href="src.xmi#//@orphanTypes.43"/>
-    <createdTrg href="trg.xmi#//@packagedElement.66"/>
-    <createdCorr href="corr.xmi#/50"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jm">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.66"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/50"/>
-    </nodeMappings>
-    <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.43"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="JavaPackageToUMLPackage">
-    <createdSrc href="src.xmi#//@ownedElements.4"/>
-    <createdTrg href="trg.xmi#//@packagedElement.7"/>
-    <createdCorr href="corr.xmi#/0"/>
-    <nodeMappings key="jp">
-      <value href="src.xmi#//@ownedElements.4"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#//@packagedElement.7"/>
-    </nodeMappings>
-    <nodeMappings key="jp2up">
-      <value href="corr.xmi#/0"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeInt">
-    <createdSrc href="src.xmi#//@orphanTypes.86"/>
-    <createdTrg href="trg.xmi#//@packagedElement.67"/>
-    <createdCorr href="corr.xmi#/94"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jm">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.67"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/94"/>
-    </nodeMappings>
-    <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.86"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveType2PrimitiveType">
-    <createdSrc href="src.xmi#//@orphanTypes.22"/>
-    <createdTrg href="trg.xmi#//@packagedElement.45"/>
-    <createdCorr href="corr.xmi#/28"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jm">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.45"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/28"/>
-    </nodeMappings>
-    <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.22"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeFloat">
-    <createdSrc href="src.xmi#//@orphanTypes.87"/>
-    <createdTrg href="trg.xmi#//@packagedElement.33"/>
-    <createdCorr href="corr.xmi#/96"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jm">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.33"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/96"/>
-    </nodeMappings>
-    <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.87"/>
+      <value href="src.xmi#//@orphanTypes.73"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
   <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="JavaModelToUMLModel_EdgeRule">
-    <contextSrc href="src.xmi#//@ownedElements.4"/>
+    <contextSrc href="src.xmi#//@ownedElements.1"/>
     <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#//@packagedElement.7"/>
+    <contextTrg href="trg.xmi#//@packagedElement.75"/>
     <contextTrg href="trg.xmi#/"/>
     <nodeMappings key="upp">
       <value href="trg.xmi#/"/>
     </nodeMappings>
     <nodeMappings key="jp">
-      <value href="src.xmi#//@ownedElements.4"/>
+      <value href="src.xmi#//@ownedElements.1"/>
     </nodeMappings>
     <nodeMappings key="jpp">
       <value href="src.xmi#/"/>
     </nodeMappings>
     <nodeMappings key="up">
-      <value href="trg.xmi#//@packagedElement.7"/>
+      <value href="trg.xmi#//@packagedElement.75"/>
     </nodeMappings>
     <nodeMappings key="jpp2upp">
-      <value href="corr.xmi#/3"/>
+      <value href="corr.xmi#/1"/>
     </nodeMappings>
     <nodeMappings key="jp2up">
-      <value href="corr.xmi#/0"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeBoolean">
-    <createdSrc href="src.xmi#//@orphanTypes.75"/>
-    <createdTrg href="trg.xmi#//@packagedElement.6"/>
-    <createdCorr href="corr.xmi#/83"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jm">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.6"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/83"/>
-    </nodeMappings>
-    <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.75"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeVoid">
-    <createdSrc href="src.xmi#//@orphanTypes.6"/>
-    <createdTrg href="trg.xmi#//@packagedElement.46"/>
-    <createdCorr href="corr.xmi#/11"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jm">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.46"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/11"/>
-    </nodeMappings>
-    <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.6"/>
+      <value href="corr.xmi#/38"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
   <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveType2PrimitiveType">
-    <createdSrc href="src.xmi#//@orphanTypes.5"/>
-    <createdTrg href="trg.xmi#//@packagedElement.92"/>
-    <createdCorr href="corr.xmi#/9"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jm">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.92"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/9"/>
-    </nodeMappings>
-    <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.5"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="JavaModelToUMLModel_EdgeRule">
-    <contextSrc href="src.xmi#//@ownedElements.7"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#//@packagedElement.74"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="upp">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jp">
-      <value href="src.xmi#//@ownedElements.7"/>
-    </nodeMappings>
-    <nodeMappings key="jpp">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#//@packagedElement.74"/>
-    </nodeMappings>
-    <nodeMappings key="jpp2upp">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jp2up">
-      <value href="corr.xmi#/95"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveType2PrimitiveType">
-    <createdSrc href="src.xmi#//@orphanTypes.0"/>
-    <createdTrg href="trg.xmi#//@packagedElement.0"/>
-    <createdCorr href="corr.xmi#/4"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jm">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.0"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/4"/>
-    </nodeMappings>
-    <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.0"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeByte">
-    <createdSrc href="src.xmi#//@orphanTypes.53"/>
-    <createdTrg href="trg.xmi#//@packagedElement.9"/>
-    <createdCorr href="corr.xmi#/60"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jm">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.9"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/60"/>
-    </nodeMappings>
-    <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.53"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeBoolean">
-    <createdSrc href="src.xmi#//@orphanTypes.49"/>
-    <createdTrg href="trg.xmi#//@packagedElement.101"/>
-    <createdCorr href="corr.xmi#/56"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jm">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.101"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/56"/>
-    </nodeMappings>
-    <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.49"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveType2PrimitiveType">
-    <createdSrc href="src.xmi#//@orphanTypes.68"/>
-    <createdTrg href="trg.xmi#//@packagedElement.52"/>
-    <createdCorr href="corr.xmi#/75"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jm">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.52"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/75"/>
-    </nodeMappings>
-    <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.68"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeChar">
-    <createdSrc href="src.xmi#//@orphanTypes.33"/>
-    <createdTrg href="trg.xmi#//@packagedElement.40"/>
-    <createdCorr href="corr.xmi#/39"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jm">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.40"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/39"/>
-    </nodeMappings>
-    <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.33"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="JavaModelToUMLModel_EdgeRule">
-    <contextSrc href="src.xmi#//@ownedElements.6"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#//@packagedElement.90"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="upp">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jp">
-      <value href="src.xmi#//@ownedElements.6"/>
-    </nodeMappings>
-    <nodeMappings key="jpp">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#//@packagedElement.90"/>
-    </nodeMappings>
-    <nodeMappings key="jpp2upp">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jp2up">
-      <value href="corr.xmi#/76"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveType2PrimitiveType">
-    <createdSrc href="src.xmi#//@orphanTypes.16"/>
-    <createdTrg href="trg.xmi#//@packagedElement.19"/>
-    <createdCorr href="corr.xmi#/22"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jm">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.19"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/22"/>
-    </nodeMappings>
-    <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.16"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeLong">
-    <createdSrc href="src.xmi#//@orphanTypes.46"/>
-    <createdTrg href="trg.xmi#//@packagedElement.18"/>
-    <createdCorr href="corr.xmi#/53"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jm">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.18"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/53"/>
-    </nodeMappings>
-    <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.46"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeLong">
-    <createdSrc href="src.xmi#//@orphanTypes.7"/>
-    <createdTrg href="trg.xmi#//@packagedElement.85"/>
-    <createdCorr href="corr.xmi#/12"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jm">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.85"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/12"/>
-    </nodeMappings>
-    <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.7"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveType2PrimitiveType">
-    <createdSrc href="src.xmi#//@orphanTypes.31"/>
-    <createdTrg href="trg.xmi#//@packagedElement.94"/>
-    <createdCorr href="corr.xmi#/37"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jm">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.94"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/37"/>
-    </nodeMappings>
-    <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.31"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveType2PrimitiveType">
-    <createdSrc href="src.xmi#//@orphanTypes.47"/>
-    <createdTrg href="trg.xmi#//@packagedElement.98"/>
-    <createdCorr href="corr.xmi#/54"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jm">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.98"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/54"/>
-    </nodeMappings>
-    <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.47"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeBoolean">
-    <createdSrc href="src.xmi#//@orphanTypes.81"/>
-    <createdTrg href="trg.xmi#//@packagedElement.3"/>
-    <createdCorr href="corr.xmi#/89"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jm">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.3"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/89"/>
-    </nodeMappings>
-    <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.81"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="JavaModelToUMLModel_EdgeRule">
-    <contextSrc href="src.xmi#//@ownedElements.2"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#//@packagedElement.22"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="upp">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jp">
-      <value href="src.xmi#//@ownedElements.2"/>
-    </nodeMappings>
-    <nodeMappings key="jpp">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#//@packagedElement.22"/>
-    </nodeMappings>
-    <nodeMappings key="jpp2upp">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jp2up">
-      <value href="corr.xmi#/15"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="JavaPackageToUMLPackage">
-    <createdSrc href="src.xmi#//@ownedElements.2"/>
-    <createdTrg href="trg.xmi#//@packagedElement.22"/>
-    <createdCorr href="corr.xmi#/15"/>
-    <nodeMappings key="jp">
-      <value href="src.xmi#//@ownedElements.2"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#//@packagedElement.22"/>
-    </nodeMappings>
-    <nodeMappings key="jp2up">
-      <value href="corr.xmi#/15"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeLong">
     <createdSrc href="src.xmi#//@orphanTypes.62"/>
-    <createdTrg href="trg.xmi#//@packagedElement.11"/>
+    <createdTrg href="trg.xmi#//@packagedElement.81"/>
     <createdCorr href="corr.xmi#/69"/>
     <contextSrc href="src.xmi#/"/>
     <contextTrg href="trg.xmi#/"/>
     <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
+      <value href="corr.xmi#/1"/>
     </nodeMappings>
     <nodeMappings key="jm">
       <value href="src.xmi#/"/>
     </nodeMappings>
     <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.11"/>
+      <value href="trg.xmi#//@packagedElement.81"/>
     </nodeMappings>
     <nodeMappings key="up">
       <value href="trg.xmi#/"/>
@@ -1414,113 +99,13 @@
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
   <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveType2PrimitiveType">
-    <createdSrc href="src.xmi#//@orphanTypes.8"/>
-    <createdTrg href="trg.xmi#//@packagedElement.15"/>
-    <createdCorr href="corr.xmi#/13"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jm">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.15"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/13"/>
-    </nodeMappings>
-    <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.8"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeChar">
-    <createdSrc href="src.xmi#//@orphanTypes.37"/>
-    <createdTrg href="trg.xmi#//@packagedElement.10"/>
-    <createdCorr href="corr.xmi#/44"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jm">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.10"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/44"/>
-    </nodeMappings>
-    <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.37"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeVoid">
-    <createdSrc href="src.xmi#//@orphanTypes.39"/>
-    <createdTrg href="trg.xmi#//@packagedElement.44"/>
-    <createdCorr href="corr.xmi#/46"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jm">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.44"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/46"/>
-    </nodeMappings>
-    <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.39"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveType2PrimitiveType">
-    <createdSrc href="src.xmi#//@orphanTypes.23"/>
-    <createdTrg href="trg.xmi#//@packagedElement.60"/>
-    <createdCorr href="corr.xmi#/29"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jm">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.60"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/29"/>
-    </nodeMappings>
-    <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.23"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeByte">
-    <createdSrc href="src.xmi#//@orphanTypes.67"/>
+    <createdSrc href="src.xmi#//@orphanTypes.91"/>
     <createdTrg href="trg.xmi#//@packagedElement.73"/>
-    <createdCorr href="corr.xmi#/74"/>
+    <createdCorr href="corr.xmi#/100"/>
     <contextSrc href="src.xmi#/"/>
     <contextTrg href="trg.xmi#/"/>
     <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
+      <value href="corr.xmi#/1"/>
     </nodeMappings>
     <nodeMappings key="jm">
       <value href="src.xmi#/"/>
@@ -1532,26 +117,40 @@
       <value href="trg.xmi#/"/>
     </nodeMappings>
     <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/74"/>
+      <value href="corr.xmi#/100"/>
     </nodeMappings>
     <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.67"/>
+      <value href="src.xmi#//@orphanTypes.91"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="JavaPackageToUMLPackage">
+    <createdSrc href="src.xmi#//@ownedElements.7"/>
+    <createdTrg href="trg.xmi#//@packagedElement.90"/>
+    <createdCorr href="corr.xmi#/95"/>
+    <nodeMappings key="jp">
+      <value href="src.xmi#//@ownedElements.7"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#//@packagedElement.90"/>
+    </nodeMappings>
+    <nodeMappings key="jp2up">
+      <value href="corr.xmi#/95"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
   <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveType2PrimitiveType">
     <createdSrc href="src.xmi#//@orphanTypes.93"/>
-    <createdTrg href="trg.xmi#//@packagedElement.29"/>
+    <createdTrg href="trg.xmi#//@packagedElement.63"/>
     <createdCorr href="corr.xmi#/102"/>
     <contextSrc href="src.xmi#/"/>
     <contextTrg href="trg.xmi#/"/>
     <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
+      <value href="corr.xmi#/1"/>
     </nodeMappings>
     <nodeMappings key="jm">
       <value href="src.xmi#/"/>
     </nodeMappings>
     <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.29"/>
+      <value href="trg.xmi#//@packagedElement.63"/>
     </nodeMappings>
     <nodeMappings key="up">
       <value href="trg.xmi#/"/>
@@ -1563,153 +162,331 @@
       <value href="src.xmi#//@orphanTypes.93"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeLong">
-    <createdSrc href="src.xmi#//@orphanTypes.52"/>
-    <createdTrg href="trg.xmi#//@packagedElement.20"/>
-    <createdCorr href="corr.xmi#/59"/>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeVoid">
+    <createdSrc href="src.xmi#//@orphanTypes.64"/>
+    <createdTrg href="trg.xmi#//@packagedElement.30"/>
+    <createdCorr href="corr.xmi#/71"/>
     <contextSrc href="src.xmi#/"/>
     <contextTrg href="trg.xmi#/"/>
     <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
+      <value href="corr.xmi#/1"/>
     </nodeMappings>
     <nodeMappings key="jm">
       <value href="src.xmi#/"/>
     </nodeMappings>
     <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.20"/>
+      <value href="trg.xmi#//@packagedElement.30"/>
     </nodeMappings>
     <nodeMappings key="up">
       <value href="trg.xmi#/"/>
     </nodeMappings>
     <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/59"/>
+      <value href="corr.xmi#/71"/>
     </nodeMappings>
     <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.52"/>
+      <value href="src.xmi#//@orphanTypes.64"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeFloat">
-    <createdSrc href="src.xmi#//@orphanTypes.54"/>
-    <createdTrg href="trg.xmi#//@packagedElement.43"/>
-    <createdCorr href="corr.xmi#/61"/>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeVoid">
+    <createdSrc href="src.xmi#//@orphanTypes.30"/>
+    <createdTrg href="trg.xmi#//@packagedElement.96"/>
+    <createdCorr href="corr.xmi#/34"/>
     <contextSrc href="src.xmi#/"/>
     <contextTrg href="trg.xmi#/"/>
     <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
+      <value href="corr.xmi#/1"/>
     </nodeMappings>
     <nodeMappings key="jm">
       <value href="src.xmi#/"/>
     </nodeMappings>
     <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.43"/>
+      <value href="trg.xmi#//@packagedElement.96"/>
     </nodeMappings>
     <nodeMappings key="up">
       <value href="trg.xmi#/"/>
     </nodeMappings>
     <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/61"/>
+      <value href="corr.xmi#/34"/>
     </nodeMappings>
     <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.54"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeChar">
-    <createdSrc href="src.xmi#//@orphanTypes.77"/>
-    <createdTrg href="trg.xmi#//@packagedElement.62"/>
-    <createdCorr href="corr.xmi#/85"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jm">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.62"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/85"/>
-    </nodeMappings>
-    <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.77"/>
+      <value href="src.xmi#//@orphanTypes.30"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
   <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="JavaPackageToUMLPackage">
     <createdSrc href="src.xmi#//@ownedElements.1"/>
-    <createdTrg href="trg.xmi#//@packagedElement.69"/>
-    <createdCorr href="corr.xmi#/10"/>
+    <createdTrg href="trg.xmi#//@packagedElement.75"/>
+    <createdCorr href="corr.xmi#/38"/>
     <nodeMappings key="jp">
       <value href="src.xmi#//@ownedElements.1"/>
     </nodeMappings>
     <nodeMappings key="up">
-      <value href="trg.xmi#//@packagedElement.69"/>
+      <value href="trg.xmi#//@packagedElement.75"/>
     </nodeMappings>
     <nodeMappings key="jp2up">
-      <value href="corr.xmi#/10"/>
+      <value href="corr.xmi#/38"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
   <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveType2PrimitiveType">
-    <createdSrc href="src.xmi#//@orphanTypes.10"/>
-    <createdTrg href="trg.xmi#//@packagedElement.2"/>
-    <createdCorr href="corr.xmi#/16"/>
+    <createdSrc href="src.xmi#//@orphanTypes.72"/>
+    <createdTrg href="trg.xmi#//@packagedElement.12"/>
+    <createdCorr href="corr.xmi#/80"/>
     <contextSrc href="src.xmi#/"/>
     <contextTrg href="trg.xmi#/"/>
     <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
+      <value href="corr.xmi#/1"/>
     </nodeMappings>
     <nodeMappings key="jm">
       <value href="src.xmi#/"/>
     </nodeMappings>
     <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.2"/>
+      <value href="trg.xmi#//@packagedElement.12"/>
     </nodeMappings>
     <nodeMappings key="up">
       <value href="trg.xmi#/"/>
     </nodeMappings>
     <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/16"/>
+      <value href="corr.xmi#/80"/>
     </nodeMappings>
     <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.10"/>
+      <value href="src.xmi#//@orphanTypes.72"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
   <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveType2PrimitiveType">
-    <createdSrc href="src.xmi#//@orphanTypes.13"/>
-    <createdTrg href="trg.xmi#//@packagedElement.50"/>
-    <createdCorr href="corr.xmi#/19"/>
+    <createdSrc href="src.xmi#//@orphanTypes.12"/>
+    <createdTrg href="trg.xmi#//@packagedElement.27"/>
+    <createdCorr href="corr.xmi#/15"/>
     <contextSrc href="src.xmi#/"/>
     <contextTrg href="trg.xmi#/"/>
     <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
+      <value href="corr.xmi#/1"/>
     </nodeMappings>
     <nodeMappings key="jm">
       <value href="src.xmi#/"/>
     </nodeMappings>
     <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.50"/>
+      <value href="trg.xmi#//@packagedElement.27"/>
     </nodeMappings>
     <nodeMappings key="up">
       <value href="trg.xmi#/"/>
     </nodeMappings>
     <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/19"/>
+      <value href="corr.xmi#/15"/>
     </nodeMappings>
     <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.13"/>
+      <value href="src.xmi#//@orphanTypes.12"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeDouble">
+    <createdSrc href="src.xmi#//@orphanTypes.44"/>
+    <createdTrg href="trg.xmi#//@packagedElement.38"/>
+    <createdCorr href="corr.xmi#/50"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="jm2up">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jm">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="umpt">
+      <value href="trg.xmi#//@packagedElement.38"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jpt2upt2">
+      <value href="corr.xmi#/50"/>
+    </nodeMappings>
+    <nodeMappings key="jpt">
+      <value href="src.xmi#//@orphanTypes.44"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeDouble">
+    <createdSrc href="src.xmi#//@orphanTypes.39"/>
+    <createdTrg href="trg.xmi#//@packagedElement.94"/>
+    <createdCorr href="corr.xmi#/45"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="jm2up">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jm">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="umpt">
+      <value href="trg.xmi#//@packagedElement.94"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jpt2upt2">
+      <value href="corr.xmi#/45"/>
+    </nodeMappings>
+    <nodeMappings key="jpt">
+      <value href="src.xmi#//@orphanTypes.39"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
   <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeChar">
-    <createdSrc href="src.xmi#//@orphanTypes.58"/>
-    <createdTrg href="trg.xmi#//@packagedElement.47"/>
-    <createdCorr href="corr.xmi#/65"/>
+    <createdSrc href="src.xmi#//@orphanTypes.19"/>
+    <createdTrg href="trg.xmi#//@packagedElement.13"/>
+    <createdCorr href="corr.xmi#/23"/>
     <contextSrc href="src.xmi#/"/>
     <contextTrg href="trg.xmi#/"/>
     <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jm">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="umpt">
+      <value href="trg.xmi#//@packagedElement.13"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jpt2upt2">
+      <value href="corr.xmi#/23"/>
+    </nodeMappings>
+    <nodeMappings key="jpt">
+      <value href="src.xmi#//@orphanTypes.19"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeBoolean">
+    <createdSrc href="src.xmi#//@orphanTypes.24"/>
+    <createdTrg href="trg.xmi#//@packagedElement.49"/>
+    <createdCorr href="corr.xmi#/28"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="jm2up">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jm">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="umpt">
+      <value href="trg.xmi#//@packagedElement.49"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jpt2upt2">
+      <value href="corr.xmi#/28"/>
+    </nodeMappings>
+    <nodeMappings key="jpt">
+      <value href="src.xmi#//@orphanTypes.24"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeVoid">
+    <createdSrc href="src.xmi#//@orphanTypes.43"/>
+    <createdTrg href="trg.xmi#//@packagedElement.92"/>
+    <createdCorr href="corr.xmi#/49"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="jm2up">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jm">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="umpt">
+      <value href="trg.xmi#//@packagedElement.92"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jpt2upt2">
+      <value href="corr.xmi#/49"/>
+    </nodeMappings>
+    <nodeMappings key="jpt">
+      <value href="src.xmi#//@orphanTypes.43"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="JavaPackageToUMLPackage">
+    <createdSrc href="src.xmi#//@ownedElements.3"/>
+    <createdTrg href="trg.xmi#//@packagedElement.100"/>
+    <createdCorr href="corr.xmi#/73"/>
+    <nodeMappings key="jp">
+      <value href="src.xmi#//@ownedElements.3"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#//@packagedElement.100"/>
+    </nodeMappings>
+    <nodeMappings key="jp2up">
+      <value href="corr.xmi#/73"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveType2PrimitiveType">
+    <createdSrc href="src.xmi#//@orphanTypes.40"/>
+    <createdTrg href="trg.xmi#//@packagedElement.18"/>
+    <createdCorr href="corr.xmi#/46"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="jm2up">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jm">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="umpt">
+      <value href="trg.xmi#//@packagedElement.18"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jpt2upt2">
+      <value href="corr.xmi#/46"/>
+    </nodeMappings>
+    <nodeMappings key="jpt">
+      <value href="src.xmi#//@orphanTypes.40"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveType2PrimitiveType">
+    <createdSrc href="src.xmi#//@orphanTypes.88"/>
+    <createdTrg href="trg.xmi#//@packagedElement.54"/>
+    <createdCorr href="corr.xmi#/97"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="jm2up">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jm">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="umpt">
+      <value href="trg.xmi#//@packagedElement.54"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jpt2upt2">
+      <value href="corr.xmi#/97"/>
+    </nodeMappings>
+    <nodeMappings key="jpt">
+      <value href="src.xmi#//@orphanTypes.88"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="JavaPackageToUMLPackage">
+    <createdSrc href="src.xmi#//@ownedElements.6"/>
+    <createdTrg href="trg.xmi#//@packagedElement.23"/>
+    <createdCorr href="corr.xmi#/2"/>
+    <nodeMappings key="jp">
+      <value href="src.xmi#//@ownedElements.6"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#//@packagedElement.23"/>
+    </nodeMappings>
+    <nodeMappings key="jp2up">
+      <value href="corr.xmi#/2"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeDouble">
+    <createdSrc href="src.xmi#//@orphanTypes.14"/>
+    <createdTrg href="trg.xmi#//@packagedElement.47"/>
+    <createdCorr href="corr.xmi#/17"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="jm2up">
+      <value href="corr.xmi#/1"/>
     </nodeMappings>
     <nodeMappings key="jm">
       <value href="src.xmi#/"/>
@@ -1721,133 +498,20 @@
       <value href="trg.xmi#/"/>
     </nodeMappings>
     <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/65"/>
+      <value href="corr.xmi#/17"/>
     </nodeMappings>
     <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.58"/>
+      <value href="src.xmi#//@orphanTypes.14"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="JavaPackageToUMLPackage">
-    <createdSrc href="src.xmi#//@ownedElements.6"/>
-    <createdTrg href="trg.xmi#//@packagedElement.90"/>
-    <createdCorr href="corr.xmi#/76"/>
-    <nodeMappings key="jp">
-      <value href="src.xmi#//@ownedElements.6"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#//@packagedElement.90"/>
-    </nodeMappings>
-    <nodeMappings key="jp2up">
-      <value href="corr.xmi#/76"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeLong">
-    <createdSrc href="src.xmi#//@orphanTypes.63"/>
-    <createdTrg href="trg.xmi#//@packagedElement.97"/>
-    <createdCorr href="corr.xmi#/70"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jm">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.97"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/70"/>
-    </nodeMappings>
-    <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.63"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveType2PrimitiveType">
-    <createdSrc href="src.xmi#//@orphanTypes.56"/>
-    <createdTrg href="trg.xmi#//@packagedElement.51"/>
-    <createdCorr href="corr.xmi#/63"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jm">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.51"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/63"/>
-    </nodeMappings>
-    <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.56"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeFloat">
-    <createdSrc href="src.xmi#//@orphanTypes.32"/>
-    <createdTrg href="trg.xmi#//@packagedElement.65"/>
-    <createdCorr href="corr.xmi#/38"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jm">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.65"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/38"/>
-    </nodeMappings>
-    <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.32"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="JavaModelToUMLModel_EdgeRule">
-    <contextSrc href="src.xmi#//@ownedElements.0"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#//@packagedElement.56"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="upp">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jp">
-      <value href="src.xmi#//@ownedElements.0"/>
-    </nodeMappings>
-    <nodeMappings key="jpp">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#//@packagedElement.56"/>
-    </nodeMappings>
-    <nodeMappings key="jpp2upp">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jp2up">
-      <value href="corr.xmi#/1"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeShort">
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeByte">
     <createdSrc href="src.xmi#//@orphanTypes.80"/>
     <createdTrg href="trg.xmi#//@packagedElement.72"/>
     <createdCorr href="corr.xmi#/88"/>
     <contextSrc href="src.xmi#/"/>
     <contextTrg href="trg.xmi#/"/>
     <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
+      <value href="corr.xmi#/1"/>
     </nodeMappings>
     <nodeMappings key="jm">
       <value href="src.xmi#/"/>
@@ -1865,667 +529,63 @@
       <value href="src.xmi#//@orphanTypes.80"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveType2PrimitiveType">
-    <createdSrc href="src.xmi#//@orphanTypes.15"/>
-    <createdTrg href="trg.xmi#//@packagedElement.99"/>
-    <createdCorr href="corr.xmi#/21"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jm">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.99"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/21"/>
-    </nodeMappings>
-    <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.15"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveType2PrimitiveType">
-    <createdSrc href="src.xmi#//@orphanTypes.76"/>
-    <createdTrg href="trg.xmi#//@packagedElement.68"/>
-    <createdCorr href="corr.xmi#/84"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jm">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.68"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/84"/>
-    </nodeMappings>
-    <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.76"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeLong">
-    <createdSrc href="src.xmi#//@orphanTypes.14"/>
-    <createdTrg href="trg.xmi#//@packagedElement.30"/>
-    <createdCorr href="corr.xmi#/20"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jm">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.30"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/20"/>
-    </nodeMappings>
-    <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.14"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveType2PrimitiveType">
-    <createdSrc href="src.xmi#//@orphanTypes.9"/>
-    <createdTrg href="trg.xmi#//@packagedElement.31"/>
-    <createdCorr href="corr.xmi#/14"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jm">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.31"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/14"/>
-    </nodeMappings>
-    <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.9"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveType2PrimitiveType">
-    <createdSrc href="src.xmi#//@orphanTypes.11"/>
-    <createdTrg href="trg.xmi#//@packagedElement.27"/>
-    <createdCorr href="corr.xmi#/17"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jm">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.27"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/17"/>
-    </nodeMappings>
-    <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.11"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeInt">
-    <createdSrc href="src.xmi#//@orphanTypes.64"/>
-    <createdTrg href="trg.xmi#//@packagedElement.95"/>
-    <createdCorr href="corr.xmi#/71"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jm">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.95"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/71"/>
-    </nodeMappings>
-    <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.64"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeLong">
-    <createdSrc href="src.xmi#//@orphanTypes.36"/>
-    <createdTrg href="trg.xmi#//@packagedElement.63"/>
-    <createdCorr href="corr.xmi#/43"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jm">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.63"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/43"/>
-    </nodeMappings>
-    <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.36"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveType2PrimitiveType">
-    <createdSrc href="src.xmi#//@orphanTypes.61"/>
-    <createdTrg href="trg.xmi#//@packagedElement.61"/>
-    <createdCorr href="corr.xmi#/68"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jm">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.61"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/68"/>
-    </nodeMappings>
-    <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.61"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveType2PrimitiveType">
-    <createdSrc href="src.xmi#//@orphanTypes.51"/>
-    <createdTrg href="trg.xmi#//@packagedElement.58"/>
-    <createdCorr href="corr.xmi#/58"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jm">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.58"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/58"/>
-    </nodeMappings>
-    <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.51"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeBoolean">
-    <createdSrc href="src.xmi#//@orphanTypes.30"/>
-    <createdTrg href="trg.xmi#//@packagedElement.89"/>
-    <createdCorr href="corr.xmi#/36"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jm">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.89"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/36"/>
-    </nodeMappings>
-    <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.30"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="JavaModelToUMLModel">
-    <createdSrc href="src.xmi#/"/>
-    <createdTrg href="trg.xmi#/"/>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeDouble">
+    <createdSrc href="src.xmi#//@orphanTypes.0"/>
+    <createdTrg href="trg.xmi#//@packagedElement.19"/>
     <createdCorr href="corr.xmi#/3"/>
-    <nodeMappings key="jp">
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="jm2up">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jm">
       <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="umpt">
+      <value href="trg.xmi#//@packagedElement.19"/>
     </nodeMappings>
     <nodeMappings key="up">
       <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jpt2upt2">
+      <value href="corr.xmi#/3"/>
+    </nodeMappings>
+    <nodeMappings key="jpt">
+      <value href="src.xmi#//@orphanTypes.0"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="JavaModelToUMLModel_EdgeRule">
+    <contextSrc href="src.xmi#//@ownedElements.2"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#//@packagedElement.41"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="upp">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jp">
+      <value href="src.xmi#//@ownedElements.2"/>
+    </nodeMappings>
+    <nodeMappings key="jpp">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#//@packagedElement.41"/>
+    </nodeMappings>
+    <nodeMappings key="jpp2upp">
+      <value href="corr.xmi#/1"/>
     </nodeMappings>
     <nodeMappings key="jp2up">
-      <value href="corr.xmi#/3"/>
+      <value href="corr.xmi#/19"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
   <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveType2PrimitiveType">
-    <createdSrc href="src.xmi#//@orphanTypes.35"/>
-    <createdTrg href="trg.xmi#//@packagedElement.76"/>
-    <createdCorr href="corr.xmi#/42"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jm">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.76"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/42"/>
-    </nodeMappings>
-    <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.35"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveType2PrimitiveType">
-    <createdSrc href="src.xmi#//@orphanTypes.24"/>
-    <createdTrg href="trg.xmi#//@packagedElement.77"/>
-    <createdCorr href="corr.xmi#/30"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jm">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.77"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/30"/>
-    </nodeMappings>
-    <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.24"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveType2PrimitiveType">
-    <createdSrc href="src.xmi#//@orphanTypes.84"/>
-    <createdTrg href="trg.xmi#//@packagedElement.16"/>
-    <createdCorr href="corr.xmi#/92"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jm">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.16"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/92"/>
-    </nodeMappings>
-    <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.84"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveType2PrimitiveType">
-    <createdSrc href="src.xmi#//@orphanTypes.91"/>
-    <createdTrg href="trg.xmi#//@packagedElement.26"/>
-    <createdCorr href="corr.xmi#/100"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jm">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.26"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/100"/>
-    </nodeMappings>
-    <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.91"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="JavaPackageToUMLPackage">
-    <createdSrc href="src.xmi#//@ownedElements.5"/>
-    <createdTrg href="trg.xmi#//@packagedElement.81"/>
-    <createdCorr href="corr.xmi#/2"/>
-    <nodeMappings key="jp">
-      <value href="src.xmi#//@ownedElements.5"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#//@packagedElement.81"/>
-    </nodeMappings>
-    <nodeMappings key="jp2up">
-      <value href="corr.xmi#/2"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveType2PrimitiveType">
-    <createdSrc href="src.xmi#//@orphanTypes.73"/>
-    <createdTrg href="trg.xmi#//@packagedElement.91"/>
-    <createdCorr href="corr.xmi#/81"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jm">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.91"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/81"/>
-    </nodeMappings>
-    <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.73"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveType2PrimitiveType">
-    <createdSrc href="src.xmi#//@orphanTypes.12"/>
-    <createdTrg href="trg.xmi#//@packagedElement.13"/>
-    <createdCorr href="corr.xmi#/18"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jm">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.13"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/18"/>
-    </nodeMappings>
-    <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.12"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveType2PrimitiveType">
-    <createdSrc href="src.xmi#//@orphanTypes.26"/>
-    <createdTrg href="trg.xmi#//@packagedElement.96"/>
-    <createdCorr href="corr.xmi#/32"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jm">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.96"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/32"/>
-    </nodeMappings>
-    <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.26"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeByte">
-    <createdSrc href="src.xmi#//@orphanTypes.44"/>
-    <createdTrg href="trg.xmi#//@packagedElement.86"/>
-    <createdCorr href="corr.xmi#/51"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jm">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.86"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/51"/>
-    </nodeMappings>
-    <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.44"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveType2PrimitiveType">
-    <createdSrc href="src.xmi#//@orphanTypes.65"/>
-    <createdTrg href="trg.xmi#//@packagedElement.57"/>
-    <createdCorr href="corr.xmi#/72"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jm">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.57"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/72"/>
-    </nodeMappings>
-    <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.65"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveType2PrimitiveType">
-    <createdSrc href="src.xmi#//@orphanTypes.27"/>
-    <createdTrg href="trg.xmi#//@packagedElement.8"/>
-    <createdCorr href="corr.xmi#/33"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jm">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.8"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/33"/>
-    </nodeMappings>
-    <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.27"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveType2PrimitiveType">
-    <createdSrc href="src.xmi#//@orphanTypes.1"/>
-    <createdTrg href="trg.xmi#//@packagedElement.24"/>
-    <createdCorr href="corr.xmi#/5"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jm">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.24"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/5"/>
-    </nodeMappings>
-    <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.1"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeLong">
-    <createdSrc href="src.xmi#//@orphanTypes.89"/>
-    <createdTrg href="trg.xmi#//@packagedElement.1"/>
-    <createdCorr href="corr.xmi#/98"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jm">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.1"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/98"/>
-    </nodeMappings>
-    <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.89"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveType2PrimitiveType">
-    <createdSrc href="src.xmi#//@orphanTypes.40"/>
-    <createdTrg href="trg.xmi#//@packagedElement.84"/>
-    <createdCorr href="corr.xmi#/47"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jm">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.84"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/47"/>
-    </nodeMappings>
-    <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.40"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveType2PrimitiveType">
-    <createdSrc href="src.xmi#//@orphanTypes.55"/>
-    <createdTrg href="trg.xmi#//@packagedElement.38"/>
-    <createdCorr href="corr.xmi#/62"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jm">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.38"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/62"/>
-    </nodeMappings>
-    <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.55"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeInt">
-    <createdSrc href="src.xmi#//@orphanTypes.17"/>
-    <createdTrg href="trg.xmi#//@packagedElement.28"/>
-    <createdCorr href="corr.xmi#/23"/>
-    <contextSrc href="src.xmi#/"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
-    </nodeMappings>
-    <nodeMappings key="jm">
-      <value href="src.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.28"/>
-    </nodeMappings>
-    <nodeMappings key="up">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/23"/>
-    </nodeMappings>
-    <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.17"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveType2PrimitiveType">
-    <createdSrc href="src.xmi#//@orphanTypes.41"/>
+    <createdSrc href="src.xmi#//@orphanTypes.45"/>
     <createdTrg href="trg.xmi#//@packagedElement.34"/>
-    <createdCorr href="corr.xmi#/48"/>
+    <createdCorr href="corr.xmi#/52"/>
     <contextSrc href="src.xmi#/"/>
     <contextTrg href="trg.xmi#/"/>
     <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
+      <value href="corr.xmi#/1"/>
     </nodeMappings>
     <nodeMappings key="jm">
       <value href="src.xmi#/"/>
@@ -2537,26 +597,529 @@
       <value href="trg.xmi#/"/>
     </nodeMappings>
     <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/48"/>
+      <value href="corr.xmi#/52"/>
     </nodeMappings>
     <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.41"/>
+      <value href="src.xmi#//@orphanTypes.45"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeInt">
-    <createdSrc href="src.xmi#//@orphanTypes.78"/>
-    <createdTrg href="trg.xmi#//@packagedElement.79"/>
-    <createdCorr href="corr.xmi#/86"/>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeBoolean">
+    <createdSrc href="src.xmi#//@orphanTypes.50"/>
+    <createdTrg href="trg.xmi#//@packagedElement.10"/>
+    <createdCorr href="corr.xmi#/57"/>
     <contextSrc href="src.xmi#/"/>
     <contextTrg href="trg.xmi#/"/>
     <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
+      <value href="corr.xmi#/1"/>
     </nodeMappings>
     <nodeMappings key="jm">
       <value href="src.xmi#/"/>
     </nodeMappings>
     <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.79"/>
+      <value href="trg.xmi#//@packagedElement.10"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jpt2upt2">
+      <value href="corr.xmi#/57"/>
+    </nodeMappings>
+    <nodeMappings key="jpt">
+      <value href="src.xmi#//@orphanTypes.50"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeChar">
+    <createdSrc href="src.xmi#//@orphanTypes.47"/>
+    <createdTrg href="trg.xmi#//@packagedElement.84"/>
+    <createdCorr href="corr.xmi#/54"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="jm2up">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jm">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="umpt">
+      <value href="trg.xmi#//@packagedElement.84"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jpt2upt2">
+      <value href="corr.xmi#/54"/>
+    </nodeMappings>
+    <nodeMappings key="jpt">
+      <value href="src.xmi#//@orphanTypes.47"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveType2PrimitiveType">
+    <createdSrc href="src.xmi#//@orphanTypes.89"/>
+    <createdTrg href="trg.xmi#//@packagedElement.93"/>
+    <createdCorr href="corr.xmi#/98"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="jm2up">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jm">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="umpt">
+      <value href="trg.xmi#//@packagedElement.93"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jpt2upt2">
+      <value href="corr.xmi#/98"/>
+    </nodeMappings>
+    <nodeMappings key="jpt">
+      <value href="src.xmi#//@orphanTypes.89"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeVoid">
+    <createdSrc href="src.xmi#//@orphanTypes.79"/>
+    <createdTrg href="trg.xmi#//@packagedElement.39"/>
+    <createdCorr href="corr.xmi#/87"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="jm2up">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jm">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="umpt">
+      <value href="trg.xmi#//@packagedElement.39"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jpt2upt2">
+      <value href="corr.xmi#/87"/>
+    </nodeMappings>
+    <nodeMappings key="jpt">
+      <value href="src.xmi#//@orphanTypes.79"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeFloat">
+    <createdSrc href="src.xmi#//@orphanTypes.34"/>
+    <createdTrg href="trg.xmi#//@packagedElement.14"/>
+    <createdCorr href="corr.xmi#/39"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="jm2up">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jm">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="umpt">
+      <value href="trg.xmi#//@packagedElement.14"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jpt2upt2">
+      <value href="corr.xmi#/39"/>
+    </nodeMappings>
+    <nodeMappings key="jpt">
+      <value href="src.xmi#//@orphanTypes.34"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeChar">
+    <createdSrc href="src.xmi#//@orphanTypes.86"/>
+    <createdTrg href="trg.xmi#//@packagedElement.66"/>
+    <createdCorr href="corr.xmi#/94"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="jm2up">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jm">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="umpt">
+      <value href="trg.xmi#//@packagedElement.66"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jpt2upt2">
+      <value href="corr.xmi#/94"/>
+    </nodeMappings>
+    <nodeMappings key="jpt">
+      <value href="src.xmi#//@orphanTypes.86"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeDouble">
+    <createdSrc href="src.xmi#//@orphanTypes.92"/>
+    <createdTrg href="trg.xmi#//@packagedElement.69"/>
+    <createdCorr href="corr.xmi#/101"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="jm2up">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jm">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="umpt">
+      <value href="trg.xmi#//@packagedElement.69"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jpt2upt2">
+      <value href="corr.xmi#/101"/>
+    </nodeMappings>
+    <nodeMappings key="jpt">
+      <value href="src.xmi#//@orphanTypes.92"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="JavaPackageToUMLPackage">
+    <createdSrc href="src.xmi#//@ownedElements.0"/>
+    <createdTrg href="trg.xmi#//@packagedElement.80"/>
+    <createdCorr href="corr.xmi#/0"/>
+    <nodeMappings key="jp">
+      <value href="src.xmi#//@ownedElements.0"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#//@packagedElement.80"/>
+    </nodeMappings>
+    <nodeMappings key="jp2up">
+      <value href="corr.xmi#/0"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeBoolean">
+    <createdSrc href="src.xmi#//@orphanTypes.23"/>
+    <createdTrg href="trg.xmi#//@packagedElement.60"/>
+    <createdCorr href="corr.xmi#/27"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="jm2up">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jm">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="umpt">
+      <value href="trg.xmi#//@packagedElement.60"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jpt2upt2">
+      <value href="corr.xmi#/27"/>
+    </nodeMappings>
+    <nodeMappings key="jpt">
+      <value href="src.xmi#//@orphanTypes.23"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveType2PrimitiveType">
+    <createdSrc href="src.xmi#//@orphanTypes.87"/>
+    <createdTrg href="trg.xmi#//@packagedElement.29"/>
+    <createdCorr href="corr.xmi#/96"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="jm2up">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jm">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="umpt">
+      <value href="trg.xmi#//@packagedElement.29"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jpt2upt2">
+      <value href="corr.xmi#/96"/>
+    </nodeMappings>
+    <nodeMappings key="jpt">
+      <value href="src.xmi#//@orphanTypes.87"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeShort">
+    <createdSrc href="src.xmi#//@orphanTypes.77"/>
+    <createdTrg href="trg.xmi#//@packagedElement.98"/>
+    <createdCorr href="corr.xmi#/85"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="jm2up">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jm">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="umpt">
+      <value href="trg.xmi#//@packagedElement.98"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jpt2upt2">
+      <value href="corr.xmi#/85"/>
+    </nodeMappings>
+    <nodeMappings key="jpt">
+      <value href="src.xmi#//@orphanTypes.77"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveType2PrimitiveType">
+    <createdSrc href="src.xmi#//@orphanTypes.66"/>
+    <createdTrg href="trg.xmi#//@packagedElement.22"/>
+    <createdCorr href="corr.xmi#/74"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="jm2up">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jm">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="umpt">
+      <value href="trg.xmi#//@packagedElement.22"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jpt2upt2">
+      <value href="corr.xmi#/74"/>
+    </nodeMappings>
+    <nodeMappings key="jpt">
+      <value href="src.xmi#//@orphanTypes.66"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="JavaPackageToUMLPackage">
+    <createdSrc href="src.xmi#//@ownedElements.5"/>
+    <createdTrg href="trg.xmi#//@packagedElement.57"/>
+    <createdCorr href="corr.xmi#/51"/>
+    <nodeMappings key="jp">
+      <value href="src.xmi#//@ownedElements.5"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#//@packagedElement.57"/>
+    </nodeMappings>
+    <nodeMappings key="jp2up">
+      <value href="corr.xmi#/51"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeBoolean">
+    <createdSrc href="src.xmi#//@orphanTypes.48"/>
+    <createdTrg href="trg.xmi#//@packagedElement.0"/>
+    <createdCorr href="corr.xmi#/55"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="jm2up">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jm">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="umpt">
+      <value href="trg.xmi#//@packagedElement.0"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jpt2upt2">
+      <value href="corr.xmi#/55"/>
+    </nodeMappings>
+    <nodeMappings key="jpt">
+      <value href="src.xmi#//@orphanTypes.48"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeShort">
+    <createdSrc href="src.xmi#//@orphanTypes.52"/>
+    <createdTrg href="trg.xmi#//@packagedElement.11"/>
+    <createdCorr href="corr.xmi#/59"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="jm2up">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jm">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="umpt">
+      <value href="trg.xmi#//@packagedElement.11"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jpt2upt2">
+      <value href="corr.xmi#/59"/>
+    </nodeMappings>
+    <nodeMappings key="jpt">
+      <value href="src.xmi#//@orphanTypes.52"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveType2PrimitiveType">
+    <createdSrc href="src.xmi#//@orphanTypes.74"/>
+    <createdTrg href="trg.xmi#//@packagedElement.35"/>
+    <createdCorr href="corr.xmi#/82"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="jm2up">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jm">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="umpt">
+      <value href="trg.xmi#//@packagedElement.35"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jpt2upt2">
+      <value href="corr.xmi#/82"/>
+    </nodeMappings>
+    <nodeMappings key="jpt">
+      <value href="src.xmi#//@orphanTypes.74"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveType2PrimitiveType">
+    <createdSrc href="src.xmi#//@orphanTypes.51"/>
+    <createdTrg href="trg.xmi#//@packagedElement.46"/>
+    <createdCorr href="corr.xmi#/58"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="jm2up">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jm">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="umpt">
+      <value href="trg.xmi#//@packagedElement.46"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jpt2upt2">
+      <value href="corr.xmi#/58"/>
+    </nodeMappings>
+    <nodeMappings key="jpt">
+      <value href="src.xmi#//@orphanTypes.51"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeFloat">
+    <createdSrc href="src.xmi#//@orphanTypes.70"/>
+    <createdTrg href="trg.xmi#//@packagedElement.68"/>
+    <createdCorr href="corr.xmi#/78"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="jm2up">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jm">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="umpt">
+      <value href="trg.xmi#//@packagedElement.68"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jpt2upt2">
+      <value href="corr.xmi#/78"/>
+    </nodeMappings>
+    <nodeMappings key="jpt">
+      <value href="src.xmi#//@orphanTypes.70"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveType2PrimitiveType">
+    <createdSrc href="src.xmi#//@orphanTypes.3"/>
+    <createdTrg href="trg.xmi#//@packagedElement.97"/>
+    <createdCorr href="corr.xmi#/6"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="jm2up">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jm">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="umpt">
+      <value href="trg.xmi#//@packagedElement.97"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jpt2upt2">
+      <value href="corr.xmi#/6"/>
+    </nodeMappings>
+    <nodeMappings key="jpt">
+      <value href="src.xmi#//@orphanTypes.3"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveType2PrimitiveType">
+    <createdSrc href="src.xmi#//@orphanTypes.17"/>
+    <createdTrg href="trg.xmi#//@packagedElement.82"/>
+    <createdCorr href="corr.xmi#/21"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="jm2up">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jm">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="umpt">
+      <value href="trg.xmi#//@packagedElement.82"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jpt2upt2">
+      <value href="corr.xmi#/21"/>
+    </nodeMappings>
+    <nodeMappings key="jpt">
+      <value href="src.xmi#//@orphanTypes.17"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveType2PrimitiveType">
+    <createdSrc href="src.xmi#//@orphanTypes.9"/>
+    <createdTrg href="trg.xmi#//@packagedElement.20"/>
+    <createdCorr href="corr.xmi#/12"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="jm2up">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jm">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="umpt">
+      <value href="trg.xmi#//@packagedElement.20"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jpt2upt2">
+      <value href="corr.xmi#/12"/>
+    </nodeMappings>
+    <nodeMappings key="jpt">
+      <value href="src.xmi#//@orphanTypes.9"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeShort">
+    <createdSrc href="src.xmi#//@orphanTypes.78"/>
+    <createdTrg href="trg.xmi#//@packagedElement.56"/>
+    <createdCorr href="corr.xmi#/86"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="jm2up">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jm">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="umpt">
+      <value href="trg.xmi#//@packagedElement.56"/>
     </nodeMappings>
     <nodeMappings key="up">
       <value href="trg.xmi#/"/>
@@ -2569,44 +1132,356 @@
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
   <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveType2PrimitiveType">
-    <createdSrc href="src.xmi#//@orphanTypes.2"/>
-    <createdTrg href="trg.xmi#//@packagedElement.35"/>
-    <createdCorr href="corr.xmi#/6"/>
+    <createdSrc href="src.xmi#//@orphanTypes.58"/>
+    <createdTrg href="trg.xmi#//@packagedElement.61"/>
+    <createdCorr href="corr.xmi#/65"/>
     <contextSrc href="src.xmi#/"/>
     <contextTrg href="trg.xmi#/"/>
     <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
+      <value href="corr.xmi#/1"/>
     </nodeMappings>
     <nodeMappings key="jm">
       <value href="src.xmi#/"/>
     </nodeMappings>
     <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.35"/>
+      <value href="trg.xmi#//@packagedElement.61"/>
     </nodeMappings>
     <nodeMappings key="up">
       <value href="trg.xmi#/"/>
     </nodeMappings>
     <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/6"/>
+      <value href="corr.xmi#/65"/>
     </nodeMappings>
     <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.2"/>
+      <value href="src.xmi#//@orphanTypes.58"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
   <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveType2PrimitiveType">
-    <createdSrc href="src.xmi#//@orphanTypes.69"/>
-    <createdTrg href="trg.xmi#//@packagedElement.25"/>
-    <createdCorr href="corr.xmi#/77"/>
+    <createdSrc href="src.xmi#//@orphanTypes.16"/>
+    <createdTrg href="trg.xmi#//@packagedElement.83"/>
+    <createdCorr href="corr.xmi#/20"/>
     <contextSrc href="src.xmi#/"/>
     <contextTrg href="trg.xmi#/"/>
     <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
+      <value href="corr.xmi#/1"/>
     </nodeMappings>
     <nodeMappings key="jm">
       <value href="src.xmi#/"/>
     </nodeMappings>
     <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.25"/>
+      <value href="trg.xmi#//@packagedElement.83"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jpt2upt2">
+      <value href="corr.xmi#/20"/>
+    </nodeMappings>
+    <nodeMappings key="jpt">
+      <value href="src.xmi#//@orphanTypes.16"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveType2PrimitiveType">
+    <createdSrc href="src.xmi#//@orphanTypes.13"/>
+    <createdTrg href="trg.xmi#//@packagedElement.8"/>
+    <createdCorr href="corr.xmi#/16"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="jm2up">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jm">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="umpt">
+      <value href="trg.xmi#//@packagedElement.8"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jpt2upt2">
+      <value href="corr.xmi#/16"/>
+    </nodeMappings>
+    <nodeMappings key="jpt">
+      <value href="src.xmi#//@orphanTypes.13"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeLong">
+    <createdSrc href="src.xmi#//@orphanTypes.18"/>
+    <createdTrg href="trg.xmi#//@packagedElement.58"/>
+    <createdCorr href="corr.xmi#/22"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="jm2up">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jm">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="umpt">
+      <value href="trg.xmi#//@packagedElement.58"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jpt2upt2">
+      <value href="corr.xmi#/22"/>
+    </nodeMappings>
+    <nodeMappings key="jpt">
+      <value href="src.xmi#//@orphanTypes.18"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeShort">
+    <createdSrc href="src.xmi#//@orphanTypes.31"/>
+    <createdTrg href="trg.xmi#//@packagedElement.89"/>
+    <createdCorr href="corr.xmi#/35"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="jm2up">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jm">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="umpt">
+      <value href="trg.xmi#//@packagedElement.89"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jpt2upt2">
+      <value href="corr.xmi#/35"/>
+    </nodeMappings>
+    <nodeMappings key="jpt">
+      <value href="src.xmi#//@orphanTypes.31"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeByte">
+    <createdSrc href="src.xmi#//@orphanTypes.29"/>
+    <createdTrg href="trg.xmi#//@packagedElement.31"/>
+    <createdCorr href="corr.xmi#/33"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="jm2up">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jm">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="umpt">
+      <value href="trg.xmi#//@packagedElement.31"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jpt2upt2">
+      <value href="corr.xmi#/33"/>
+    </nodeMappings>
+    <nodeMappings key="jpt">
+      <value href="src.xmi#//@orphanTypes.29"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="JavaModelToUMLModel_EdgeRule">
+    <contextSrc href="src.xmi#//@ownedElements.6"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#//@packagedElement.23"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="upp">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jp">
+      <value href="src.xmi#//@ownedElements.6"/>
+    </nodeMappings>
+    <nodeMappings key="jpp">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#//@packagedElement.23"/>
+    </nodeMappings>
+    <nodeMappings key="jpp2upp">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jp2up">
+      <value href="corr.xmi#/2"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveType2PrimitiveType">
+    <createdSrc href="src.xmi#//@orphanTypes.57"/>
+    <createdTrg href="trg.xmi#//@packagedElement.79"/>
+    <createdCorr href="corr.xmi#/64"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="jm2up">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jm">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="umpt">
+      <value href="trg.xmi#//@packagedElement.79"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jpt2upt2">
+      <value href="corr.xmi#/64"/>
+    </nodeMappings>
+    <nodeMappings key="jpt">
+      <value href="src.xmi#//@orphanTypes.57"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveType2PrimitiveType">
+    <createdSrc href="src.xmi#//@orphanTypes.5"/>
+    <createdTrg href="trg.xmi#//@packagedElement.87"/>
+    <createdCorr href="corr.xmi#/8"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="jm2up">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jm">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="umpt">
+      <value href="trg.xmi#//@packagedElement.87"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jpt2upt2">
+      <value href="corr.xmi#/8"/>
+    </nodeMappings>
+    <nodeMappings key="jpt">
+      <value href="src.xmi#//@orphanTypes.5"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeInt">
+    <createdSrc href="src.xmi#//@orphanTypes.32"/>
+    <createdTrg href="trg.xmi#//@packagedElement.50"/>
+    <createdCorr href="corr.xmi#/36"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="jm2up">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jm">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="umpt">
+      <value href="trg.xmi#//@packagedElement.50"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jpt2upt2">
+      <value href="corr.xmi#/36"/>
+    </nodeMappings>
+    <nodeMappings key="jpt">
+      <value href="src.xmi#//@orphanTypes.32"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveType2PrimitiveType">
+    <createdSrc href="src.xmi#//@orphanTypes.60"/>
+    <createdTrg href="trg.xmi#//@packagedElement.42"/>
+    <createdCorr href="corr.xmi#/67"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="jm2up">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jm">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="umpt">
+      <value href="trg.xmi#//@packagedElement.42"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jpt2upt2">
+      <value href="corr.xmi#/67"/>
+    </nodeMappings>
+    <nodeMappings key="jpt">
+      <value href="src.xmi#//@orphanTypes.60"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="JavaModelToUMLModel_EdgeRule">
+    <contextSrc href="src.xmi#//@ownedElements.4"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#//@packagedElement.15"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="upp">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jp">
+      <value href="src.xmi#//@ownedElements.4"/>
+    </nodeMappings>
+    <nodeMappings key="jpp">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#//@packagedElement.15"/>
+    </nodeMappings>
+    <nodeMappings key="jpp2upp">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jp2up">
+      <value href="corr.xmi#/40"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeChar">
+    <createdSrc href="src.xmi#//@orphanTypes.28"/>
+    <createdTrg href="trg.xmi#//@packagedElement.53"/>
+    <createdCorr href="corr.xmi#/32"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="jm2up">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jm">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="umpt">
+      <value href="trg.xmi#//@packagedElement.53"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jpt2upt2">
+      <value href="corr.xmi#/32"/>
+    </nodeMappings>
+    <nodeMappings key="jpt">
+      <value href="src.xmi#//@orphanTypes.28"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="JavaModelToUMLModel">
+    <createdSrc href="src.xmi#/"/>
+    <createdTrg href="trg.xmi#/"/>
+    <createdCorr href="corr.xmi#/1"/>
+    <nodeMappings key="jp">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jp2up">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeInt">
+    <createdSrc href="src.xmi#//@orphanTypes.69"/>
+    <createdTrg href="trg.xmi#//@packagedElement.71"/>
+    <createdCorr href="corr.xmi#/77"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="jm2up">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jm">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="umpt">
+      <value href="trg.xmi#//@packagedElement.71"/>
     </nodeMappings>
     <nodeMappings key="up">
       <value href="trg.xmi#/"/>
@@ -2618,54 +1493,1179 @@
       <value href="src.xmi#//@orphanTypes.69"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeDouble">
-    <createdSrc href="src.xmi#//@orphanTypes.4"/>
-    <createdTrg href="trg.xmi#//@packagedElement.23"/>
-    <createdCorr href="corr.xmi#/8"/>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveType2PrimitiveType">
+    <createdSrc href="src.xmi#//@orphanTypes.35"/>
+    <createdTrg href="trg.xmi#//@packagedElement.99"/>
+    <createdCorr href="corr.xmi#/41"/>
     <contextSrc href="src.xmi#/"/>
     <contextTrg href="trg.xmi#/"/>
     <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
+      <value href="corr.xmi#/1"/>
     </nodeMappings>
     <nodeMappings key="jm">
       <value href="src.xmi#/"/>
     </nodeMappings>
     <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.23"/>
+      <value href="trg.xmi#//@packagedElement.99"/>
     </nodeMappings>
     <nodeMappings key="up">
       <value href="trg.xmi#/"/>
     </nodeMappings>
     <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/8"/>
+      <value href="corr.xmi#/41"/>
+    </nodeMappings>
+    <nodeMappings key="jpt">
+      <value href="src.xmi#//@orphanTypes.35"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveType2PrimitiveType">
+    <createdSrc href="src.xmi#//@orphanTypes.36"/>
+    <createdTrg href="trg.xmi#//@packagedElement.44"/>
+    <createdCorr href="corr.xmi#/42"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="jm2up">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jm">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="umpt">
+      <value href="trg.xmi#//@packagedElement.44"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jpt2upt2">
+      <value href="corr.xmi#/42"/>
+    </nodeMappings>
+    <nodeMappings key="jpt">
+      <value href="src.xmi#//@orphanTypes.36"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="JavaModelToUMLModel_EdgeRule">
+    <contextSrc href="src.xmi#//@ownedElements.0"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#//@packagedElement.80"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="upp">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jp">
+      <value href="src.xmi#//@ownedElements.0"/>
+    </nodeMappings>
+    <nodeMappings key="jpp">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#//@packagedElement.80"/>
+    </nodeMappings>
+    <nodeMappings key="jpp2upp">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jp2up">
+      <value href="corr.xmi#/0"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveType2PrimitiveType">
+    <createdSrc href="src.xmi#//@orphanTypes.56"/>
+    <createdTrg href="trg.xmi#//@packagedElement.59"/>
+    <createdCorr href="corr.xmi#/63"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="jm2up">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jm">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="umpt">
+      <value href="trg.xmi#//@packagedElement.59"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jpt2upt2">
+      <value href="corr.xmi#/63"/>
+    </nodeMappings>
+    <nodeMappings key="jpt">
+      <value href="src.xmi#//@orphanTypes.56"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeBoolean">
+    <createdSrc href="src.xmi#//@orphanTypes.10"/>
+    <createdTrg href="trg.xmi#//@packagedElement.77"/>
+    <createdCorr href="corr.xmi#/13"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="jm2up">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jm">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="umpt">
+      <value href="trg.xmi#//@packagedElement.77"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jpt2upt2">
+      <value href="corr.xmi#/13"/>
+    </nodeMappings>
+    <nodeMappings key="jpt">
+      <value href="src.xmi#//@orphanTypes.10"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveType2PrimitiveType">
+    <createdSrc href="src.xmi#//@orphanTypes.37"/>
+    <createdTrg href="trg.xmi#//@packagedElement.25"/>
+    <createdCorr href="corr.xmi#/43"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="jm2up">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jm">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="umpt">
+      <value href="trg.xmi#//@packagedElement.25"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jpt2upt2">
+      <value href="corr.xmi#/43"/>
+    </nodeMappings>
+    <nodeMappings key="jpt">
+      <value href="src.xmi#//@orphanTypes.37"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveType2PrimitiveType">
+    <createdSrc href="src.xmi#//@orphanTypes.61"/>
+    <createdTrg href="trg.xmi#//@packagedElement.40"/>
+    <createdCorr href="corr.xmi#/68"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="jm2up">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jm">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="umpt">
+      <value href="trg.xmi#//@packagedElement.40"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jpt2upt2">
+      <value href="corr.xmi#/68"/>
+    </nodeMappings>
+    <nodeMappings key="jpt">
+      <value href="src.xmi#//@orphanTypes.61"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeShort">
+    <createdSrc href="src.xmi#//@orphanTypes.82"/>
+    <createdTrg href="trg.xmi#//@packagedElement.85"/>
+    <createdCorr href="corr.xmi#/90"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="jm2up">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jm">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="umpt">
+      <value href="trg.xmi#//@packagedElement.85"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jpt2upt2">
+      <value href="corr.xmi#/90"/>
+    </nodeMappings>
+    <nodeMappings key="jpt">
+      <value href="src.xmi#//@orphanTypes.82"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveType2PrimitiveType">
+    <createdSrc href="src.xmi#//@orphanTypes.71"/>
+    <createdTrg href="trg.xmi#//@packagedElement.45"/>
+    <createdCorr href="corr.xmi#/79"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="jm2up">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jm">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="umpt">
+      <value href="trg.xmi#//@packagedElement.45"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jpt2upt2">
+      <value href="corr.xmi#/79"/>
+    </nodeMappings>
+    <nodeMappings key="jpt">
+      <value href="src.xmi#//@orphanTypes.71"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeDouble">
+    <createdSrc href="src.xmi#//@orphanTypes.75"/>
+    <createdTrg href="trg.xmi#//@packagedElement.3"/>
+    <createdCorr href="corr.xmi#/83"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="jm2up">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jm">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="umpt">
+      <value href="trg.xmi#//@packagedElement.3"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jpt2upt2">
+      <value href="corr.xmi#/83"/>
+    </nodeMappings>
+    <nodeMappings key="jpt">
+      <value href="src.xmi#//@orphanTypes.75"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeChar">
+    <createdSrc href="src.xmi#//@orphanTypes.85"/>
+    <createdTrg href="trg.xmi#//@packagedElement.101"/>
+    <createdCorr href="corr.xmi#/93"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="jm2up">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jm">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="umpt">
+      <value href="trg.xmi#//@packagedElement.101"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jpt2upt2">
+      <value href="corr.xmi#/93"/>
+    </nodeMappings>
+    <nodeMappings key="jpt">
+      <value href="src.xmi#//@orphanTypes.85"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeByte">
+    <createdSrc href="src.xmi#//@orphanTypes.68"/>
+    <createdTrg href="trg.xmi#//@packagedElement.55"/>
+    <createdCorr href="corr.xmi#/76"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="jm2up">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jm">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="umpt">
+      <value href="trg.xmi#//@packagedElement.55"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jpt2upt2">
+      <value href="corr.xmi#/76"/>
+    </nodeMappings>
+    <nodeMappings key="jpt">
+      <value href="src.xmi#//@orphanTypes.68"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeInt">
+    <createdSrc href="src.xmi#//@orphanTypes.59"/>
+    <createdTrg href="trg.xmi#//@packagedElement.67"/>
+    <createdCorr href="corr.xmi#/66"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="jm2up">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jm">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="umpt">
+      <value href="trg.xmi#//@packagedElement.67"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jpt2upt2">
+      <value href="corr.xmi#/66"/>
+    </nodeMappings>
+    <nodeMappings key="jpt">
+      <value href="src.xmi#//@orphanTypes.59"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeShort">
+    <createdSrc href="src.xmi#//@orphanTypes.15"/>
+    <createdTrg href="trg.xmi#//@packagedElement.48"/>
+    <createdCorr href="corr.xmi#/18"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="jm2up">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jm">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="umpt">
+      <value href="trg.xmi#//@packagedElement.48"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jpt2upt2">
+      <value href="corr.xmi#/18"/>
+    </nodeMappings>
+    <nodeMappings key="jpt">
+      <value href="src.xmi#//@orphanTypes.15"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeBoolean">
+    <createdSrc href="src.xmi#//@orphanTypes.67"/>
+    <createdTrg href="trg.xmi#//@packagedElement.88"/>
+    <createdCorr href="corr.xmi#/75"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="jm2up">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jm">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="umpt">
+      <value href="trg.xmi#//@packagedElement.88"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jpt2upt2">
+      <value href="corr.xmi#/75"/>
+    </nodeMappings>
+    <nodeMappings key="jpt">
+      <value href="src.xmi#//@orphanTypes.67"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeDouble">
+    <createdSrc href="src.xmi#//@orphanTypes.21"/>
+    <createdTrg href="trg.xmi#//@packagedElement.74"/>
+    <createdCorr href="corr.xmi#/25"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="jm2up">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jm">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="umpt">
+      <value href="trg.xmi#//@packagedElement.74"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jpt2upt2">
+      <value href="corr.xmi#/25"/>
+    </nodeMappings>
+    <nodeMappings key="jpt">
+      <value href="src.xmi#//@orphanTypes.21"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveType2PrimitiveType">
+    <createdSrc href="src.xmi#//@orphanTypes.1"/>
+    <createdTrg href="trg.xmi#//@packagedElement.64"/>
+    <createdCorr href="corr.xmi#/4"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="jm2up">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jm">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="umpt">
+      <value href="trg.xmi#//@packagedElement.64"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jpt2upt2">
+      <value href="corr.xmi#/4"/>
+    </nodeMappings>
+    <nodeMappings key="jpt">
+      <value href="src.xmi#//@orphanTypes.1"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeByte">
+    <createdSrc href="src.xmi#//@orphanTypes.65"/>
+    <createdTrg href="trg.xmi#//@packagedElement.70"/>
+    <createdCorr href="corr.xmi#/72"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="jm2up">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jm">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="umpt">
+      <value href="trg.xmi#//@packagedElement.70"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jpt2upt2">
+      <value href="corr.xmi#/72"/>
+    </nodeMappings>
+    <nodeMappings key="jpt">
+      <value href="src.xmi#//@orphanTypes.65"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeShort">
+    <createdSrc href="src.xmi#//@orphanTypes.6"/>
+    <createdTrg href="trg.xmi#//@packagedElement.9"/>
+    <createdCorr href="corr.xmi#/9"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="jm2up">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jm">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="umpt">
+      <value href="trg.xmi#//@packagedElement.9"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jpt2upt2">
+      <value href="corr.xmi#/9"/>
+    </nodeMappings>
+    <nodeMappings key="jpt">
+      <value href="src.xmi#//@orphanTypes.6"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeBoolean">
+    <createdSrc href="src.xmi#//@orphanTypes.76"/>
+    <createdTrg href="trg.xmi#//@packagedElement.76"/>
+    <createdCorr href="corr.xmi#/84"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="jm2up">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jm">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="umpt">
+      <value href="trg.xmi#//@packagedElement.76"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jpt2upt2">
+      <value href="corr.xmi#/84"/>
+    </nodeMappings>
+    <nodeMappings key="jpt">
+      <value href="src.xmi#//@orphanTypes.76"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="JavaPackageToUMLPackage">
+    <createdSrc href="src.xmi#//@ownedElements.2"/>
+    <createdTrg href="trg.xmi#//@packagedElement.41"/>
+    <createdCorr href="corr.xmi#/19"/>
+    <nodeMappings key="jp">
+      <value href="src.xmi#//@ownedElements.2"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#//@packagedElement.41"/>
+    </nodeMappings>
+    <nodeMappings key="jp2up">
+      <value href="corr.xmi#/19"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeLong">
+    <createdSrc href="src.xmi#//@orphanTypes.26"/>
+    <createdTrg href="trg.xmi#//@packagedElement.17"/>
+    <createdCorr href="corr.xmi#/30"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="jm2up">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jm">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="umpt">
+      <value href="trg.xmi#//@packagedElement.17"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jpt2upt2">
+      <value href="corr.xmi#/30"/>
+    </nodeMappings>
+    <nodeMappings key="jpt">
+      <value href="src.xmi#//@orphanTypes.26"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeChar">
+    <createdSrc href="src.xmi#//@orphanTypes.63"/>
+    <createdTrg href="trg.xmi#//@packagedElement.37"/>
+    <createdCorr href="corr.xmi#/70"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="jm2up">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jm">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="umpt">
+      <value href="trg.xmi#//@packagedElement.37"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jpt2upt2">
+      <value href="corr.xmi#/70"/>
+    </nodeMappings>
+    <nodeMappings key="jpt">
+      <value href="src.xmi#//@orphanTypes.63"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveType2PrimitiveType">
+    <createdSrc href="src.xmi#//@orphanTypes.2"/>
+    <createdTrg href="trg.xmi#//@packagedElement.2"/>
+    <createdCorr href="corr.xmi#/5"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="jm2up">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jm">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="umpt">
+      <value href="trg.xmi#//@packagedElement.2"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jpt2upt2">
+      <value href="corr.xmi#/5"/>
+    </nodeMappings>
+    <nodeMappings key="jpt">
+      <value href="src.xmi#//@orphanTypes.2"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveType2PrimitiveType">
+    <createdSrc href="src.xmi#//@orphanTypes.33"/>
+    <createdTrg href="trg.xmi#//@packagedElement.7"/>
+    <createdCorr href="corr.xmi#/37"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="jm2up">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jm">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="umpt">
+      <value href="trg.xmi#//@packagedElement.7"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jpt2upt2">
+      <value href="corr.xmi#/37"/>
+    </nodeMappings>
+    <nodeMappings key="jpt">
+      <value href="src.xmi#//@orphanTypes.33"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveType2PrimitiveType">
+    <createdSrc href="src.xmi#//@orphanTypes.22"/>
+    <createdTrg href="trg.xmi#//@packagedElement.6"/>
+    <createdCorr href="corr.xmi#/26"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="jm2up">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jm">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="umpt">
+      <value href="trg.xmi#//@packagedElement.6"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jpt2upt2">
+      <value href="corr.xmi#/26"/>
+    </nodeMappings>
+    <nodeMappings key="jpt">
+      <value href="src.xmi#//@orphanTypes.22"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="JavaModelToUMLModel_EdgeRule">
+    <contextSrc href="src.xmi#//@ownedElements.5"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#//@packagedElement.57"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="upp">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jp">
+      <value href="src.xmi#//@ownedElements.5"/>
+    </nodeMappings>
+    <nodeMappings key="jpp">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#//@packagedElement.57"/>
+    </nodeMappings>
+    <nodeMappings key="jpp2upp">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jp2up">
+      <value href="corr.xmi#/51"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeFloat">
+    <createdSrc href="src.xmi#//@orphanTypes.42"/>
+    <createdTrg href="trg.xmi#//@packagedElement.62"/>
+    <createdCorr href="corr.xmi#/48"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="jm2up">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jm">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="umpt">
+      <value href="trg.xmi#//@packagedElement.62"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jpt2upt2">
+      <value href="corr.xmi#/48"/>
+    </nodeMappings>
+    <nodeMappings key="jpt">
+      <value href="src.xmi#//@orphanTypes.42"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="JavaPackageToUMLPackage">
+    <createdSrc href="src.xmi#//@ownedElements.4"/>
+    <createdTrg href="trg.xmi#//@packagedElement.15"/>
+    <createdCorr href="corr.xmi#/40"/>
+    <nodeMappings key="jp">
+      <value href="src.xmi#//@ownedElements.4"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#//@packagedElement.15"/>
+    </nodeMappings>
+    <nodeMappings key="jp2up">
+      <value href="corr.xmi#/40"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveType2PrimitiveType">
+    <createdSrc href="src.xmi#//@orphanTypes.25"/>
+    <createdTrg href="trg.xmi#//@packagedElement.36"/>
+    <createdCorr href="corr.xmi#/29"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="jm2up">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jm">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="umpt">
+      <value href="trg.xmi#//@packagedElement.36"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jpt2upt2">
+      <value href="corr.xmi#/29"/>
+    </nodeMappings>
+    <nodeMappings key="jpt">
+      <value href="src.xmi#//@orphanTypes.25"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeChar">
+    <createdSrc href="src.xmi#//@orphanTypes.4"/>
+    <createdTrg href="trg.xmi#//@packagedElement.26"/>
+    <createdCorr href="corr.xmi#/7"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="jm2up">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jm">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="umpt">
+      <value href="trg.xmi#//@packagedElement.26"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jpt2upt2">
+      <value href="corr.xmi#/7"/>
     </nodeMappings>
     <nodeMappings key="jpt">
       <value href="src.xmi#//@orphanTypes.4"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeBoolean">
-    <createdSrc href="src.xmi#//@orphanTypes.50"/>
-    <createdTrg href="trg.xmi#//@packagedElement.54"/>
-    <createdCorr href="corr.xmi#/57"/>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeByte">
+    <createdSrc href="src.xmi#//@orphanTypes.84"/>
+    <createdTrg href="trg.xmi#//@packagedElement.52"/>
+    <createdCorr href="corr.xmi#/92"/>
     <contextSrc href="src.xmi#/"/>
     <contextTrg href="trg.xmi#/"/>
     <nodeMappings key="jm2up">
-      <value href="corr.xmi#/3"/>
+      <value href="corr.xmi#/1"/>
     </nodeMappings>
     <nodeMappings key="jm">
       <value href="src.xmi#/"/>
     </nodeMappings>
     <nodeMappings key="umpt">
-      <value href="trg.xmi#//@packagedElement.54"/>
+      <value href="trg.xmi#//@packagedElement.52"/>
     </nodeMappings>
     <nodeMappings key="up">
       <value href="trg.xmi#/"/>
     </nodeMappings>
     <nodeMappings key="jpt2upt2">
-      <value href="corr.xmi#/57"/>
+      <value href="corr.xmi#/92"/>
     </nodeMappings>
     <nodeMappings key="jpt">
-      <value href="src.xmi#//@orphanTypes.50"/>
+      <value href="src.xmi#//@orphanTypes.84"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveType2PrimitiveType">
+    <createdSrc href="src.xmi#//@orphanTypes.83"/>
+    <createdTrg href="trg.xmi#//@packagedElement.86"/>
+    <createdCorr href="corr.xmi#/91"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="jm2up">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jm">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="umpt">
+      <value href="trg.xmi#//@packagedElement.86"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jpt2upt2">
+      <value href="corr.xmi#/91"/>
+    </nodeMappings>
+    <nodeMappings key="jpt">
+      <value href="src.xmi#//@orphanTypes.83"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeDouble">
+    <createdSrc href="src.xmi#//@orphanTypes.90"/>
+    <createdTrg href="trg.xmi#//@packagedElement.91"/>
+    <createdCorr href="corr.xmi#/99"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="jm2up">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jm">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="umpt">
+      <value href="trg.xmi#//@packagedElement.91"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jpt2upt2">
+      <value href="corr.xmi#/99"/>
+    </nodeMappings>
+    <nodeMappings key="jpt">
+      <value href="src.xmi#//@orphanTypes.90"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeByte">
+    <createdSrc href="src.xmi#//@orphanTypes.8"/>
+    <createdTrg href="trg.xmi#//@packagedElement.16"/>
+    <createdCorr href="corr.xmi#/11"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="jm2up">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jm">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="umpt">
+      <value href="trg.xmi#//@packagedElement.16"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jpt2upt2">
+      <value href="corr.xmi#/11"/>
+    </nodeMappings>
+    <nodeMappings key="jpt">
+      <value href="src.xmi#//@orphanTypes.8"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeLong">
+    <createdSrc href="src.xmi#//@orphanTypes.54"/>
+    <createdTrg href="trg.xmi#//@packagedElement.28"/>
+    <createdCorr href="corr.xmi#/61"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="jm2up">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jm">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="umpt">
+      <value href="trg.xmi#//@packagedElement.28"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jpt2upt2">
+      <value href="corr.xmi#/61"/>
+    </nodeMappings>
+    <nodeMappings key="jpt">
+      <value href="src.xmi#//@orphanTypes.54"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveType2PrimitiveType">
+    <createdSrc href="src.xmi#//@orphanTypes.7"/>
+    <createdTrg href="trg.xmi#//@packagedElement.95"/>
+    <createdCorr href="corr.xmi#/10"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="jm2up">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jm">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="umpt">
+      <value href="trg.xmi#//@packagedElement.95"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jpt2upt2">
+      <value href="corr.xmi#/10"/>
+    </nodeMappings>
+    <nodeMappings key="jpt">
+      <value href="src.xmi#//@orphanTypes.7"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeFloat">
+    <createdSrc href="src.xmi#//@orphanTypes.49"/>
+    <createdTrg href="trg.xmi#//@packagedElement.32"/>
+    <createdCorr href="corr.xmi#/56"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="jm2up">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jm">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="umpt">
+      <value href="trg.xmi#//@packagedElement.32"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jpt2upt2">
+      <value href="corr.xmi#/56"/>
+    </nodeMappings>
+    <nodeMappings key="jpt">
+      <value href="src.xmi#//@orphanTypes.49"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeShort">
+    <createdSrc href="src.xmi#//@orphanTypes.11"/>
+    <createdTrg href="trg.xmi#//@packagedElement.43"/>
+    <createdCorr href="corr.xmi#/14"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="jm2up">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jm">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="umpt">
+      <value href="trg.xmi#//@packagedElement.43"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jpt2upt2">
+      <value href="corr.xmi#/14"/>
+    </nodeMappings>
+    <nodeMappings key="jpt">
+      <value href="src.xmi#//@orphanTypes.11"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeVoid">
+    <createdSrc href="src.xmi#//@orphanTypes.81"/>
+    <createdTrg href="trg.xmi#//@packagedElement.65"/>
+    <createdCorr href="corr.xmi#/89"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="jm2up">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jm">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="umpt">
+      <value href="trg.xmi#//@packagedElement.65"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jpt2upt2">
+      <value href="corr.xmi#/89"/>
+    </nodeMappings>
+    <nodeMappings key="jpt">
+      <value href="src.xmi#//@orphanTypes.81"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeDouble">
+    <createdSrc href="src.xmi#//@orphanTypes.41"/>
+    <createdTrg href="trg.xmi#//@packagedElement.33"/>
+    <createdCorr href="corr.xmi#/47"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="jm2up">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jm">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="umpt">
+      <value href="trg.xmi#//@packagedElement.33"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jpt2upt2">
+      <value href="corr.xmi#/47"/>
+    </nodeMappings>
+    <nodeMappings key="jpt">
+      <value href="src.xmi#//@orphanTypes.41"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="JavaModelToUMLModel_EdgeRule">
+    <contextSrc href="src.xmi#//@ownedElements.7"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#//@packagedElement.90"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="upp">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jp">
+      <value href="src.xmi#//@ownedElements.7"/>
+    </nodeMappings>
+    <nodeMappings key="jpp">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#//@packagedElement.90"/>
+    </nodeMappings>
+    <nodeMappings key="jpp2upp">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jp2up">
+      <value href="corr.xmi#/95"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeChar">
+    <createdSrc href="src.xmi#//@orphanTypes.46"/>
+    <createdTrg href="trg.xmi#//@packagedElement.1"/>
+    <createdCorr href="corr.xmi#/53"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="jm2up">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jm">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="umpt">
+      <value href="trg.xmi#//@packagedElement.1"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jpt2upt2">
+      <value href="corr.xmi#/53"/>
+    </nodeMappings>
+    <nodeMappings key="jpt">
+      <value href="src.xmi#//@orphanTypes.46"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveType2PrimitiveType">
+    <createdSrc href="src.xmi#//@orphanTypes.55"/>
+    <createdTrg href="trg.xmi#//@packagedElement.51"/>
+    <createdCorr href="corr.xmi#/62"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="jm2up">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jm">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="umpt">
+      <value href="trg.xmi#//@packagedElement.51"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jpt2upt2">
+      <value href="corr.xmi#/62"/>
+    </nodeMappings>
+    <nodeMappings key="jpt">
+      <value href="src.xmi#//@orphanTypes.55"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeChar">
+    <createdSrc href="src.xmi#//@orphanTypes.27"/>
+    <createdTrg href="trg.xmi#//@packagedElement.5"/>
+    <createdCorr href="corr.xmi#/31"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="jm2up">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jm">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="umpt">
+      <value href="trg.xmi#//@packagedElement.5"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jpt2upt2">
+      <value href="corr.xmi#/31"/>
+    </nodeMappings>
+    <nodeMappings key="jpt">
+      <value href="src.xmi#//@orphanTypes.27"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeInt">
+    <createdSrc href="src.xmi#//@orphanTypes.38"/>
+    <createdTrg href="trg.xmi#//@packagedElement.21"/>
+    <createdCorr href="corr.xmi#/44"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="jm2up">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jm">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="umpt">
+      <value href="trg.xmi#//@packagedElement.21"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jpt2upt2">
+      <value href="corr.xmi#/44"/>
+    </nodeMappings>
+    <nodeMappings key="jpt">
+      <value href="src.xmi#//@orphanTypes.38"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveTypeShort">
+    <createdSrc href="src.xmi#//@orphanTypes.20"/>
+    <createdTrg href="trg.xmi#//@packagedElement.24"/>
+    <createdCorr href="corr.xmi#/24"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="jm2up">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jm">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="umpt">
+      <value href="trg.xmi#//@packagedElement.24"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jpt2upt2">
+      <value href="corr.xmi#/24"/>
+    </nodeMappings>
+    <nodeMappings key="jpt">
+      <value href="src.xmi#//@orphanTypes.20"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="PrimitiveType2PrimitiveType">
+    <createdSrc href="src.xmi#//@orphanTypes.53"/>
+    <createdTrg href="trg.xmi#//@packagedElement.78"/>
+    <createdCorr href="corr.xmi#/60"/>
+    <contextSrc href="src.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="jm2up">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="jm">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="umpt">
+      <value href="trg.xmi#//@packagedElement.78"/>
+    </nodeMappings>
+    <nodeMappings key="up">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="jpt2upt2">
+      <value href="corr.xmi#/60"/>
+    </nodeMappings>
+    <nodeMappings key="jpt">
+      <value href="src.xmi#//@orphanTypes.53"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
 </xmi:XMI>
