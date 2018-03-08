@@ -13,6 +13,7 @@ import java.util.stream.Collectors;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.emoflon.ibex.common.operational.IContextPatternInterpreter;
+import org.emoflon.ibex.common.operational.PushoutSemantics;
 import org.emoflon.ibex.gt.testsuite.GTTestCase;
 import org.junit.Test;
 
@@ -124,6 +125,54 @@ public class SimpleFamiliesTest extends GTTestCase<SimpleFamiliesGraphTransforma
 		assertMatchCount(2, api.findFamily());
 		api.createFamily().apply();
 		assertMatchCount(3, api.findFamily());
+
+		saveResourceSet(model);
+	}
+
+	@Test
+	public void testDeleteFamilySPO() {
+		ResourceSet model = this.initResourceSet("DeleteFamilySPO.xmi", "FamilyRegister.xmi");
+		SimpleFamiliesGraphTransformationAPI api = this.initAPI(model);
+
+		assertMatchCount(2, api.findFamily());
+		api.deleteFamily().apply();
+		assertMatchCount(1, api.findFamily());
+
+		saveResourceSet(model);
+	}
+
+	@Test
+	public void testDeleteFamilyObjectSPO() {
+		ResourceSet model = this.initResourceSet("DeleteFamilyObjectSPO.xmi", "FamilyRegister.xmi");
+		SimpleFamiliesGraphTransformationAPI api = this.initAPI(model);
+
+		assertMatchCount(2, api.findFamily());
+		api.deleteFamilyObject().apply();
+		assertMatchCount(1, api.findFamily());
+
+		saveResourceSet(model);
+	}
+
+	@Test
+	public void testDeleteFamilyDPO() {
+		ResourceSet model = this.initResourceSet("DeleteFamilyDPO.xmi", "FamilyRegister.xmi");
+		SimpleFamiliesGraphTransformationAPI api = this.initAPI(model);
+
+		assertMatchCount(2, api.findFamily());
+		api.deleteFamily().apply(PushoutSemantics.DPO);
+		assertMatchCount(1, api.findFamily());
+
+		saveResourceSet(model);
+	}
+
+	@Test
+	public void testDeleteFamilyObjectDPO() {
+		ResourceSet model = this.initResourceSet("DeleteFamilyObjectDPO.xmi", "FamilyRegister.xmi");
+		SimpleFamiliesGraphTransformationAPI api = this.initAPI(model);
+
+		assertMatchCount(2, api.findFamily());
+		api.deleteFamilyObject().apply(PushoutSemantics.DPO);
+		assertMatchCount(2, api.findFamily());
 
 		saveResourceSet(model);
 	}

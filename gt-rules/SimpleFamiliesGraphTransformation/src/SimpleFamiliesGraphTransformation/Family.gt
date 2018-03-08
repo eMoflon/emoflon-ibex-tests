@@ -16,6 +16,10 @@ rule deleteFamily {
 	-- family: Family
 }
 
+rule deleteFamilyObject {
+	-- family: Family
+}
+
 rule findFamily {
 	family: Family
 }
