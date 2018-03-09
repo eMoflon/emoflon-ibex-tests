@@ -107,11 +107,11 @@ public class SimpleFamiliesTest extends GTTestCase<SimpleFamiliesGraphTransforma
 		SimpleFamiliesGraphTransformationAPI api = this.initAPI(model);
 		assertNoMatch(api.findRegister());
 
-		assertMatchCount(1, api.createRegister());
-		assertMatchAfterApplication(api.createRegister());
+		assertMatchCount(1, api.createRegister()); // create rule is applicable
+		assertApplicable(api.createRegister().apply());
 		assertMatchCount(1, api.findRegister());
 
-		assertMatchAfterApplication(api.deleteRegister());
+		assertApplicable(api.deleteRegister().apply());
 		assertNoMatch(api.findRegister());
 
 		saveResourceSet(model);
@@ -130,49 +130,36 @@ public class SimpleFamiliesTest extends GTTestCase<SimpleFamiliesGraphTransforma
 	}
 
 	@Test
-	public void testDeleteFamilySPO() {
-		ResourceSet model = this.initResourceSet("DeleteFamilySPO.xmi", "FamilyRegister.xmi");
+	public void testDeleteFamily() {
+		ResourceSet model = this.initResourceSet("DeleteFamily.xmi", "FamilyRegister.xmi");
 		SimpleFamiliesGraphTransformationAPI api = this.initAPI(model);
 
 		assertMatchCount(2, api.findFamily());
-		api.deleteFamily().apply();
+		// DPO: Families have members, so they cannot be deleted.
+		assertNotApplicable(api.deleteFamily().apply(PushoutSemantics.DPO));
+		assertMatchCount(2, api.findFamily());
+
+		// SPO: Deletion is possible, references to members deleted as well.
+		assertApplicable(api.deleteFamily().apply(PushoutSemantics.SPO));
 		assertMatchCount(1, api.findFamily());
 
 		saveResourceSet(model);
 	}
 
 	@Test
-	public void testDeleteFamilyObjectSPO() {
-		ResourceSet model = this.initResourceSet("DeleteFamilyObjectSPO.xmi", "FamilyRegister.xmi");
+	public void testDeleteRegister() {
+		System.out.println("testDeleteRegisterDPO");
+		ResourceSet model = this.initResourceSet("DeleteRegister.xmi", "FamilyRegister.xmi");
 		SimpleFamiliesGraphTransformationAPI api = this.initAPI(model);
 
-		assertMatchCount(2, api.findFamily());
-		api.deleteFamilyObject().apply();
-		assertMatchCount(1, api.findFamily());
+		assertMatchCount(1, api.findRegister());
+		// DPO: Register has families, so the register cannot be deleted.
+		assertNotApplicable(api.deleteRegister().apply(PushoutSemantics.DPO));
+		assertMatchCount(1, api.findRegister());
 
-		saveResourceSet(model);
-	}
-
-	@Test
-	public void testDeleteFamilyDPO() {
-		ResourceSet model = this.initResourceSet("DeleteFamilyDPO.xmi", "FamilyRegister.xmi");
-		SimpleFamiliesGraphTransformationAPI api = this.initAPI(model);
-
-		assertMatchCount(2, api.findFamily());
-		api.deleteFamily().apply(PushoutSemantics.DPO);
-		assertMatchCount(1, api.findFamily());
-
-		saveResourceSet(model);
-	}
-
-	@Test
-	public void testDeleteFamilyObjectDPO() {
-		ResourceSet model = this.initResourceSet("DeleteFamilyObjectDPO.xmi", "FamilyRegister.xmi");
-		SimpleFamiliesGraphTransformationAPI api = this.initAPI(model);
-
-		assertMatchCount(2, api.findFamily());
-		api.deleteFamilyObject().apply(PushoutSemantics.DPO);
-		assertMatchCount(2, api.findFamily());
+		// SPO: Deletion is possible, deleted families as well.
+		assertApplicable(api.deleteRegister().apply(PushoutSemantics.SPO));
+		assertMatchCount(0, api.findRegister());
 
 		saveResourceSet(model);
 	}

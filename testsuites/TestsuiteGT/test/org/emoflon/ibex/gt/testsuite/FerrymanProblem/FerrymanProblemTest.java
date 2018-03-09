@@ -8,6 +8,7 @@ import java.util.Map;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.emoflon.ibex.common.operational.IContextPatternInterpreter;
+import org.emoflon.ibex.common.operational.PushoutSemantics;
 import org.emoflon.ibex.gt.testsuite.GTTestCase;
 import org.junit.Test;
 
@@ -68,7 +69,7 @@ public class FerrymanProblemTest extends GTTestCase<FerrymanProblemGraphTransfor
 		assertMatchCount(2, api.findSubjectsOnLeftBank());
 		assertMatchCount(2, api.findSubjectsOnRightBank());
 
-		EatMatch match = assertMatchAfterApplication(api.eat());
+		EatMatch match = assertApplicable(api.eat().apply());
 		assertTrue(match.getEater() instanceof Wolf);
 		assertTrue(match.getEaten() instanceof Goat);
 
@@ -86,9 +87,24 @@ public class FerrymanProblemTest extends GTTestCase<FerrymanProblemGraphTransfor
 		assertMatchCount(4, api.findSubjectsOnLeftBank());
 		assertMatchCount(0, api.findSubjectsOnRightBank());
 
-		assertMatchAfterApplication(api.moveToOtherBank());
+		assertApplicable(api.moveToOtherBank().apply());
 		assertMatchCount(2, api.findSubjectsOnLeftBank());
 		assertMatchCount(2, api.findSubjectsOnRightBank());
+
+		saveResourceSet(model);
+	}
+
+	@Test
+	public void testPushoutSemanticsKillGoat() {
+		ResourceSet model = this.initResourceSet("KillGoatSPO.xmi", "Start.xmi");
+		FerrymanProblemGraphTransformationAPI api = this.initAPI(model);
+
+		assertMatchCount(1, api.findGoat());
+		assertNotApplicable(api.killGoat().apply(PushoutSemantics.DPO));
+		assertMatchCount(1, api.findGoat());
+
+		assertApplicable(api.killGoat().apply());
+		assertNoMatch(api.findGoat());
 
 		saveResourceSet(model);
 	}
