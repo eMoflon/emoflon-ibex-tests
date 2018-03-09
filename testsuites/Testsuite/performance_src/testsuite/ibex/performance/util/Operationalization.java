@@ -8,8 +8,8 @@ public enum Operationalization {
 	INCREMENTAL_FWD,
 	INCREMENTAL_BWD,
 	CO,
-	FWD_OPT,
-	BWD_OPT,
 	INITIAL_FWD,
-	INITIAL_BWD
+	INITIAL_BWD,
+	FWD_OPT,
+	BWD_OPT
 }
