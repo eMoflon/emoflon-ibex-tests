@@ -7,7 +7,7 @@ import org.junit.Test;
 import SimpleFamiliesGraphTransformation.api.SimpleFamiliesGraphTransformationAPI;
 
 /**
- * JUnit tests for notifications in the SimpleFamilies Graph Transformation API
+ * Tests for rule applications with the SimpleFamilies Graph Transformation API.
  */
 public class SimpleFamiliesRuleApplicationTest extends SimpleFamiliesAbstractTest {
 	@Test
@@ -39,7 +39,7 @@ public class SimpleFamiliesRuleApplicationTest extends SimpleFamiliesAbstractTes
 	}
 
 	@Test
-	public void deleteAnyFamily() {
+	public void deleteAnyFamilyForDifferentPushoutApproaches() {
 		ResourceSet model = this.initResourceSet("DeleteAnyFamily.xmi", "FamilyRegister.xmi");
 		SimpleFamiliesGraphTransformationAPI api = this.initAPI(model);
 
@@ -56,7 +56,7 @@ public class SimpleFamiliesRuleApplicationTest extends SimpleFamiliesAbstractTes
 	}
 
 	@Test
-	public void deleteRegister() {
+	public void deleteRegisterForDifferentPushoutApproaches() {
 		ResourceSet model = this.initResourceSet("DeleteRegister.xmi", "FamilyRegister.xmi");
 		SimpleFamiliesGraphTransformationAPI api = this.initAPI(model);
 

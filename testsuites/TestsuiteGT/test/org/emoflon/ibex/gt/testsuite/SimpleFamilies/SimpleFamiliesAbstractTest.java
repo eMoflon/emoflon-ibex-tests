@@ -12,7 +12,8 @@ import SimpleFamilies.SimpleFamiliesPackage;
 import SimpleFamiliesGraphTransformation.api.SimpleFamiliesGraphTransformationAPI;
 
 /**
- * Abstract JUnit test class for SimpleFamilies Graph Transformation API
+ * Abstract test class for the SimpleFamilies Graph Transformation API. All
+ * tests for this API should inherit from this class.
  */
 public abstract class SimpleFamiliesAbstractTest extends GTTestCase<SimpleFamiliesGraphTransformationAPI> {
 	@Override

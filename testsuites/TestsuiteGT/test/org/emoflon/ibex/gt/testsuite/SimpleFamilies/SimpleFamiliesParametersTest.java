@@ -11,7 +11,8 @@ import SimpleFamiliesGraphTransformation.api.matches.DeleteFamilyMatch;
 import SimpleFamiliesGraphTransformation.api.matches.FindFamilyMatch;
 
 /**
- * JUnit tests for parameters in the SimpleFamilies Graph Transformation API
+ * Tests for applications of parameterized rules with the SimpleFamilies Graph
+ * Transformation API.
  */
 public class SimpleFamiliesParametersTest extends SimpleFamiliesAbstractTest {
 	@Test

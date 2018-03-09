@@ -17,8 +17,8 @@ import SimpleFamilies.SimpleFamiliesFactory;
 import SimpleFamiliesGraphTransformation.api.SimpleFamiliesGraphTransformationAPI;
 
 /**
- * JUnit tests for simple constraints and notifications in the SimpleFamilies
- * Graph Transformation API
+ * Tests for simple constraints and notifications in the SimpleFamilies Graph
+ * Transformation API
  */
 public class SimpleFamiliesConstraintsTest extends SimpleFamiliesAbstractTest {
 	private boolean familyDeleted = false;
