@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.emoflon.ibex.common.operational.IContextPatternInterpreter;
-import org.emoflon.ibex.common.operational.PushoutSemantics;
+import org.emoflon.ibex.common.operational.PushoutApproach;
 import org.emoflon.ibex.gt.testsuite.GTTestCase;
 import org.junit.Test;
 
@@ -136,11 +136,11 @@ public class SimpleFamiliesTest extends GTTestCase<SimpleFamiliesGraphTransforma
 
 		assertMatchCount(2, api.findFamily());
 		// DPO: Families have members, so they cannot be deleted.
-		assertNotApplicable(api.deleteFamily().apply(PushoutSemantics.DPO));
+		assertNotApplicable(api.deleteFamily().apply(PushoutApproach.DPO));
 		assertMatchCount(2, api.findFamily());
 
 		// SPO: Deletion is possible, references to members deleted as well.
-		assertApplicable(api.deleteFamily().apply(PushoutSemantics.SPO));
+		assertApplicable(api.deleteFamily().apply(PushoutApproach.SPO));
 		assertMatchCount(1, api.findFamily());
 
 		saveResourceSet(model);
@@ -153,11 +153,11 @@ public class SimpleFamiliesTest extends GTTestCase<SimpleFamiliesGraphTransforma
 
 		assertMatchCount(1, api.findRegister());
 		// DPO: Register has families, so the register cannot be deleted.
-		assertNotApplicable(api.deleteRegister().apply(PushoutSemantics.DPO));
+		assertNotApplicable(api.deleteRegister().apply(PushoutApproach.DPO));
 		assertMatchCount(1, api.findRegister());
 
 		// SPO: Deletion is possible, deleted families as well.
-		assertApplicable(api.deleteRegister().apply(PushoutSemantics.SPO));
+		assertApplicable(api.deleteRegister().apply(PushoutApproach.SPO));
 		assertMatchCount(0, api.findRegister());
 
 		saveResourceSet(model);

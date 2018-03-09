@@ -8,7 +8,7 @@ import java.util.Map;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.emoflon.ibex.common.operational.IContextPatternInterpreter;
-import org.emoflon.ibex.common.operational.PushoutSemantics;
+import org.emoflon.ibex.common.operational.PushoutApproach;
 import org.emoflon.ibex.gt.testsuite.GTTestCase;
 import org.junit.Test;
 
@@ -100,7 +100,7 @@ public class FerrymanProblemTest extends GTTestCase<FerrymanProblemGraphTransfor
 		FerrymanProblemGraphTransformationAPI api = this.initAPI(model);
 
 		assertMatchCount(1, api.findGoat());
-		assertNotApplicable(api.killGoat().apply(PushoutSemantics.DPO));
+		assertNotApplicable(api.killGoat().apply(PushoutApproach.DPO));
 		assertMatchCount(1, api.findGoat());
 
 		assertApplicable(api.killGoat().apply());
