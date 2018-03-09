@@ -9,7 +9,5 @@ public enum Operationalization {
 	INCREMENTAL_BWD,
 	CO,
 	FWD_OPT,
-	BWD_OPT,
-	INITIAL_FWD,
-	INITIAL_BWD
+	BWD_OPT
 }

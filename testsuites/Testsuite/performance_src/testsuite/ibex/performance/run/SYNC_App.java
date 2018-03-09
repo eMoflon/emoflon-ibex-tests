@@ -9,9 +9,9 @@ import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import testsuite.ibex.performance.util.PerformanceTestUtil;
 
 public class SYNC_App extends SYNC {
-	protected String instancePath;
-	protected boolean isFwd;
-	protected boolean isIncr;
+	private String instancePath;
+	private boolean isFwd;
+	private boolean isIncr;
 
 	public SYNC_App(String projectName, String workspacePath, boolean debug, String instancePath, boolean isFwd, boolean isIncr) throws IOException {
 		super(createIbexOptions()
