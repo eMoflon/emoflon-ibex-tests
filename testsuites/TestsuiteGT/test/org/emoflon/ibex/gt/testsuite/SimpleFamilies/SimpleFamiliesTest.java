@@ -130,8 +130,8 @@ public class SimpleFamiliesTest extends GTTestCase<SimpleFamiliesGraphTransforma
 	}
 
 	@Test
-	public void testDeleteFamily() {
-		ResourceSet model = this.initResourceSet("DeleteFamily.xmi", "FamilyRegister.xmi");
+	public void testDeleteAnyFamily() {
+		ResourceSet model = this.initResourceSet("DeleteAnyFamily.xmi", "FamilyRegister.xmi");
 		SimpleFamiliesGraphTransformationAPI api = this.initAPI(model);
 
 		assertMatchCount(2, api.findFamily());
@@ -148,7 +148,6 @@ public class SimpleFamiliesTest extends GTTestCase<SimpleFamiliesGraphTransforma
 
 	@Test
 	public void testDeleteRegister() {
-		System.out.println("testDeleteRegisterDPO");
 		ResourceSet model = this.initResourceSet("DeleteRegister.xmi", "FamilyRegister.xmi");
 		SimpleFamiliesGraphTransformationAPI api = this.initAPI(model);
 
