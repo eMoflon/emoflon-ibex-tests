@@ -22,6 +22,8 @@ import SimpleFamilies.FamilyRegister;
 import SimpleFamilies.SimpleFamiliesFactory;
 import SimpleFamilies.SimpleFamiliesPackage;
 import SimpleFamiliesGraphTransformation.api.SimpleFamiliesGraphTransformationAPI;
+import SimpleFamiliesGraphTransformation.api.matches.DeleteFamilyMatch;
+import SimpleFamiliesGraphTransformation.api.matches.FindFamilyMatch;
 
 /**
  * JUnit tests for SimpleFamilies Graph Transformation API
@@ -159,6 +161,37 @@ public class SimpleFamiliesTest extends GTTestCase<SimpleFamiliesGraphTransforma
 		// SPO: Deletion is possible, deleted families as well.
 		assertApplicable(api.deleteRegister().apply(PushoutApproach.SPO));
 		assertMatchCount(0, api.findRegister());
+
+		saveResourceSet(model);
+	}
+
+	@Test
+	public void testDeleteWatsonFamilyWithFamilyBinding() {
+		ResourceSet model = this.initResourceSet("DeleteWatsonFamilyWithFamilyBinding.xmi", "FamilyRegister.xmi");
+		SimpleFamiliesGraphTransformationAPI api = this.initAPI(model);
+
+		Family watsonFamily = api.findFamily().findMatches().stream()
+				.filter(m -> m.getFamily().getName().equals("Watson")) //
+				.map(m -> m.getFamily()) //
+				.findAny().get();
+		DeleteFamilyMatch m = assertApplicable(api.deleteFamily().bindFamily(watsonFamily).apply());
+		assertMatchCount(1, api.findFamily());
+		assertEquals("Watson", m.getFamily().getName());
+
+		saveResourceSet(model);
+	}
+	
+	@Test
+	public void testDeleteWatsonFamilyWithMatchBinding() {
+		ResourceSet model = this.initResourceSet("DeleteWatsonFamilyWithMatchBinding.xmi", "FamilyRegister.xmi");
+		SimpleFamiliesGraphTransformationAPI api = this.initAPI(model);
+
+		FindFamilyMatch watsonMatch = api.findFamily().findMatches().stream()
+				.filter(m -> m.getFamily().getName().equals("Watson")) //
+				.findAny().get();
+		DeleteFamilyMatch m = assertApplicable(api.deleteFamily().bind(watsonMatch.toIMatch()).apply());
+		assertMatchCount(1, api.findFamily());
+		assertEquals("Watson", m.getFamily().getName());
 
 		saveResourceSet(model);
 	}
