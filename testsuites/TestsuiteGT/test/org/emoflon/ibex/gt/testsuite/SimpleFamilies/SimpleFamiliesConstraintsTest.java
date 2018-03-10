@@ -5,54 +5,30 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
-import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.emoflon.ibex.common.operational.IContextPatternInterpreter;
-import org.emoflon.ibex.gt.testsuite.GTTestCase;
 import org.junit.Test;
 
 import SimpleFamilies.Family;
 import SimpleFamilies.FamilyRegister;
 import SimpleFamilies.SimpleFamiliesFactory;
-import SimpleFamilies.SimpleFamiliesPackage;
 import SimpleFamiliesGraphTransformation.api.SimpleFamiliesGraphTransformationAPI;
 
 /**
- * JUnit tests for SimpleFamilies Graph Transformation API
+ * Tests for simple constraints and notifications in the SimpleFamilies Graph
+ * Transformation API
  */
-public class SimpleFamiliesTest extends GTTestCase<SimpleFamiliesGraphTransformationAPI> {
+public class SimpleFamiliesConstraintsTest extends SimpleFamiliesAbstractTest {
 	private boolean familyDeleted = false;
 
-	@Override
-	public String getTestName() {
-		return "SimpleFamilies";
-	}
-
-	@Override
-	protected SimpleFamiliesGraphTransformationAPI getAPI(final IContextPatternInterpreter engine,
-			final ResourceSet model) {
-		return new SimpleFamiliesGraphTransformationAPI(engine, model, GTTestCase.workspacePath);
-	}
-
-	@Override
-	protected Map<String, EPackage> getMetaModelPackages() {
-		HashMap<String, EPackage> map = new HashMap<String, EPackage>();
-		map.put(SimpleFamiliesPackage.eNS_URI, SimpleFamiliesPackage.eINSTANCE);
-		return map;
-	}
-
 	@Test
-	public void testConstraints() {
+	public void constraints() {
 		ResourceSet model = this.initResourceSet("FamilyRegister.xmi");
 		SimpleFamiliesGraphTransformationAPI api = this.initAPI(model);
 
 		assertMatchCount(1, api.findRegister());
-		assertAnyMatchExists(api.findRegister());
 
 		assertMatchCount(2, api.findFamily());
 		List<String> familyNames = api.findFamily().findMatches().stream().map(m -> m.getFamily().getName())
@@ -66,7 +42,7 @@ public class SimpleFamiliesTest extends GTTestCase<SimpleFamiliesGraphTransforma
 	}
 
 	@Test
-	public void testNotifications() {
+	public void notifications() {
 		ResourceSet model = this.initResourceSet("Notifications.xmi", "FamilyRegister.xmi");
 		SimpleFamiliesGraphTransformationAPI api = this.initAPI(model);
 
@@ -98,33 +74,5 @@ public class SimpleFamiliesTest extends GTTestCase<SimpleFamiliesGraphTransforma
 		assertEquals(Arrays.asList("Watson"), namesOfRemovedFamilies);
 		assertEquals(Arrays.asList("Simpson", "Smith"), namesOfFamilies);
 		assertTrue(this.familyDeleted);
-	}
-
-	@Test
-	public void testCreateAndDeleteRegister() {
-		ResourceSet model = this.initResourceSet("CreateAndDeleteRegister.xmi");
-		SimpleFamiliesGraphTransformationAPI api = this.initAPI(model);
-		assertNoMatch(api.findRegister());
-
-		assertMatchCount(1, api.createRegister());
-		assertMatchAfterApplication(api.createRegister());
-		assertMatchCount(1, api.findRegister());
-
-		assertMatchAfterApplication(api.deleteRegister());
-		assertNoMatch(api.findRegister());
-
-		saveResourceSet(model);
-	}
-
-	@Test
-	public void testCreateFamily() {
-		ResourceSet model = this.initResourceSet("CreateFamily.xmi", "FamilyRegister.xmi");
-		SimpleFamiliesGraphTransformationAPI api = this.initAPI(model);
-
-		assertMatchCount(2, api.findFamily());
-		api.createFamily().apply();
-		assertMatchCount(3, api.findFamily());
-
-		saveResourceSet(model);
 	}
 }

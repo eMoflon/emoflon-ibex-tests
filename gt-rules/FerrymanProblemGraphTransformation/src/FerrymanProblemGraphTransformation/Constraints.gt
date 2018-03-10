@@ -23,3 +23,27 @@ rule findSubjectsOnRightBank {
 		-isAt -> bank
 	}
 }
+
+rule findCabbage {
+	bank: Bank
+
+	cabbage: Cabbage {
+		-isAt -> bank
+	}
+}
+
+rule findGoat {
+	bank: Bank
+
+	goat: Goat {
+		-isAt -> bank
+	}
+}
+
+rule findWolf {
+	bank: Bank
+
+	wolf: Wolf {
+		-isAt -> bank
+	}
+}

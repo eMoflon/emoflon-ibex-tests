@@ -44,3 +44,11 @@ rule eat {
 		-- -isAt -> bankOfThings
 	}
 }
+
+rule killGoat {
+	-- goat: Goat {
+		-- -isAt -> bank
+	}
+
+	bank: Bank
+}
