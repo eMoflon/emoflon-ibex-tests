@@ -1,10 +1,15 @@
 package org.emoflon.ibex.gt.testsuite.SimpleFamilies;
 
+import static org.junit.Assert.assertEquals;
+
+import java.util.function.Supplier;
+
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.emoflon.ibex.common.operational.PushoutApproach;
 import org.junit.Test;
 
 import SimpleFamiliesGraphTransformation.api.SimpleFamiliesGraphTransformationAPI;
+import SimpleFamiliesGraphTransformation.api.matches.FindFamilyMatch;
 
 /**
  * Tests for rule applications with the SimpleFamilies Graph Transformation API.
@@ -34,6 +39,23 @@ public class SimpleFamiliesRuleApplicationTest extends SimpleFamiliesAbstractTes
 		assertMatchCount(2, api.findFamily());
 		api.createFamily().apply();
 		assertMatchCount(3, api.findFamily());
+
+		saveResourceSet(model);
+	}
+
+	@Test
+	public void createFamilies() {
+		ResourceSet model = this.initResourceSet("CreateFamilies.xmi", "FamilyRegister.xmi");
+		SimpleFamiliesGraphTransformationAPI api = this.initAPI(model);
+
+		assertMatchCount(2, api.findFamily());
+		assertEquals(20, api.createFamily().apply(20).size());
+		assertMatchCount(22, api.findFamily());
+
+		Supplier<FindFamilyMatch> findNullFamily = () -> api.findFamily().findMatches().stream()
+				.filter(m -> m.getFamily().getName() == null).findAny().orElse(null);
+		assertEquals(20, api.deleteFamily().bindAndApply(findNullFamily).size());
+		assertMatchCount(2, api.findFamily());
 
 		saveResourceSet(model);
 	}

@@ -39,7 +39,7 @@ public class SimpleFamiliesParametersTest extends SimpleFamiliesAbstractTest {
 		FindFamilyMatch watsonMatch = api.findFamily().findMatches().stream()
 				.filter(m -> m.getFamily().getName().equals("Watson")) //
 				.findAny().get();
-		DeleteFamilyMatch m = assertApplicable(api.deleteFamily().bind(watsonMatch.toIMatch()).apply());
+		DeleteFamilyMatch m = assertApplicable(api.deleteFamily().bindAndApply(watsonMatch));
 		assertMatchCount(1, api.findFamily());
 		assertEquals("Watson", m.getFamily().getName());
 
