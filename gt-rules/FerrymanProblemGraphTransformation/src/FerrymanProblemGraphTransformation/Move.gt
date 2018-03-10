@@ -24,10 +24,24 @@ rule checkAllThingsAtRightBank {
 }
 
 /**
+ * The ferryman can move with an empty boat to the other bank.
+ */
+rule move {
+	bankBefore: Bank
+
+	bankAfter: Bank
+
+	ferryMan: FerryMan {
+		-- -isAt -> bankBefore
+		++ -isAt -> bankAfter
+	}
+}
+
+/**
  * If the ferryman is on the left bank, he can move one thing to the right.
  * If the ferryman is on the right bank, he can move one thing to the left.
  */
-rule moveToOtherBank {
+rule moveThing {
 	bankBefore: Bank
 
 	bankAfter: Bank

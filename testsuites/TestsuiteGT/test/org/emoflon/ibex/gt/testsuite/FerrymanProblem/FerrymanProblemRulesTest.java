@@ -6,6 +6,7 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.emoflon.ibex.common.operational.PushoutApproach;
 import org.junit.Test;
 
+import FerrymanProblem.Cabbage;
 import FerrymanProblem.Goat;
 import FerrymanProblem.Wolf;
 import FerrymanProblemGraphTransformation.api.FerrymanProblemGraphTransformationAPI;
@@ -36,13 +37,67 @@ public class FerrymanProblemRulesTest extends FerrymanProblemAbstractTest {
 
 	@Test
 	public void move() {
-		ResourceSet model = this.initResourceSet("Movement.xmi", "Start.xmi");
+		ResourceSet model = this.initResourceSet("Move.xmi", "Start.xmi");
 		FerrymanProblemGraphTransformationAPI api = this.initAPI(model);
+
 		assertMatchCount(4, api.findSubjectsOnLeftBank());
 		assertMatchCount(0, api.findSubjectsOnRightBank());
 
-		assertApplicable(api.moveToOtherBank().apply());
+		assertApplicable(api.moveThing().apply());
 		assertMatchCount(2, api.findSubjectsOnLeftBank());
+		assertMatchCount(2, api.findSubjectsOnRightBank());
+
+		saveResourceSet(model);
+	}
+
+	@Test
+	public void moveAllSuccess() {
+		ResourceSet model = this.initResourceSet("MoveAllSuccess.xmi", "Start.xmi");
+		FerrymanProblemGraphTransformationAPI api = this.initAPI(model);
+
+		assertMatchCount(4, api.findSubjectsOnLeftBank());
+		assertMatchCount(0, api.findSubjectsOnRightBank());
+
+		// Apply eat as soon as possible.
+		api.eat().subscribeAppearing(m -> api.eat().apply(m));
+
+		Cabbage cabbage = api.findCabbage().findAnyMatch().get().getCabbage();
+		Goat goat = api.findGoat().findAnyMatch().get().getGoat();
+		Wolf wolf = api.findWolf().findAnyMatch().get().getWolf();
+
+		assertApplicable(api.moveThing().bindThing(goat).apply());
+		assertApplicable(api.move().apply());
+		assertApplicable(api.moveThing().bindThing(cabbage).apply());
+		assertApplicable(api.moveThing().bindThing(goat).apply());
+		assertApplicable(api.moveThing().bindThing(wolf).apply());
+		assertApplicable(api.move().apply());
+		assertApplicable(api.moveThing().bindThing(goat).apply());
+
+		assertMatchCount(0, api.findSubjectsOnLeftBank());
+		assertMatchCount(4, api.findSubjectsOnRightBank());
+
+		saveResourceSet(model);
+	}
+
+	@Test
+	public void moveAllFail() {
+		ResourceSet model = this.initResourceSet("MoveAllFail.xmi", "Start.xmi");
+		FerrymanProblemGraphTransformationAPI api = this.initAPI(model);
+
+		assertMatchCount(4, api.findSubjectsOnLeftBank());
+		assertMatchCount(0, api.findSubjectsOnRightBank());
+
+		// Apply eat as soon as possible.
+		api.eat().subscribeAppearing(m -> api.eat().apply(m));
+
+		Wolf wolf = api.findWolf().findAnyMatch().get().getWolf();
+		assertApplicable(api.moveThing().bindThing(wolf).apply());
+
+		// Need to call updateMatches here to trigger notifications.
+		api.updateMatches();
+
+		assertNoMatch(api.findCabbage());
+		assertMatchCount(1, api.findSubjectsOnLeftBank());
 		assertMatchCount(2, api.findSubjectsOnRightBank());
 
 		saveResourceSet(model);
