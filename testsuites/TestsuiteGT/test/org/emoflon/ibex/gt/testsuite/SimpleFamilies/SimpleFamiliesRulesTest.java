@@ -14,7 +14,7 @@ import SimpleFamiliesGraphTransformation.api.matches.FindFamilyMatch;
 /**
  * Tests for rule applications with the SimpleFamilies Graph Transformation API.
  */
-public class SimpleFamiliesRuleApplicationTest extends SimpleFamiliesAbstractTest {
+public class SimpleFamiliesRulesTest extends SimpleFamiliesAbstractTest {
 	@Test
 	public void createAndDeleteRegister() {
 		ResourceSet model = this.initResourceSet("CreateAndDeleteRegister.xmi");

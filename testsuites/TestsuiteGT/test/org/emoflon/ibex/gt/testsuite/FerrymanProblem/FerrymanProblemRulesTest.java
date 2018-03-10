@@ -15,7 +15,7 @@ import FerrymanProblemGraphTransformation.api.matches.EatMatch;
  * Tests for rule applications with the FerrymanProblem Graph Transformation
  * API.
  */
-public class FerrymanProblemRuleApplicationTest extends FerrymanProblemAbstractTest {
+public class FerrymanProblemRulesTest extends FerrymanProblemAbstractTest {
 	@Test
 	public void wolfEatsGoat() {
 		ResourceSet model = this.initResourceSet("WolfEatsGoat.xmi");
