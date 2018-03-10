@@ -59,7 +59,7 @@ public class FerrymanProblemRulesTest extends FerrymanProblemAbstractTest {
 		assertMatchCount(0, api.findSubjectsOnRightBank());
 
 		// Apply eat as soon as possible.
-		api.eat().subscribeAppearing(m -> api.eat().apply(m));
+		api.eat().applyWheneverApplicable();
 
 		Cabbage cabbage = api.findCabbage().findAnyMatch().get().getCabbage();
 		Goat goat = api.findGoat().findAnyMatch().get().getGoat();
@@ -88,17 +88,22 @@ public class FerrymanProblemRulesTest extends FerrymanProblemAbstractTest {
 		assertMatchCount(0, api.findSubjectsOnRightBank());
 
 		// Apply eat as soon as possible.
-		api.eat().subscribeAppearing(m -> api.eat().apply(m));
+		api.eat().applyWheneverApplicable();
 
 		Wolf wolf = api.findWolf().findAnyMatch().get().getWolf();
 		assertApplicable(api.moveThing().bindThing(wolf).apply());
 
 		// Need to call updateMatches here to trigger notifications.
-		api.updateMatches();
+		api.updateMatches(); // Goat eats the cabbage.
+
+		assertApplicable(api.moveThing().bindThing(wolf).apply());
+		assertApplicable(api.move().apply());
+
+		api.updateMatches(); // Wolf eats the goat.
 
 		assertNoMatch(api.findCabbage());
 		assertMatchCount(1, api.findSubjectsOnLeftBank());
-		assertMatchCount(2, api.findSubjectsOnRightBank());
+		assertMatchCount(1, api.findSubjectsOnRightBank());
 
 		saveResourceSet(model);
 	}
