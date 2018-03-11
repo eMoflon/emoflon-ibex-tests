@@ -1,5 +1,6 @@
 package testsuite.ibex.performance;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -8,7 +9,11 @@ import java.io.ObjectOutputStream;
 import java.nio.file.Files;
 import java.nio.file.NoSuchFileException;
 import java.nio.file.Paths;
+import java.text.DateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
@@ -47,69 +52,75 @@ import testsuite.ibex.performance.util.TestDataPoint;
 import testsuite.ibex.testUtil.Constants;
 
 public class TestDataCollector {
-	
-	private static final String dataLocation = "performance/data/allTestDataPoints.ser";
-	
+
+	public static final String dataLocation = "performance/data/allTestDataPoints.ser";
+	public static final String evalLocation = "performance/evaluation";
+
 	public int[] modelSizes = PerformanceConstants.modelSizes;
 	public int repetitions = PerformanceConstants.repetitions;
-	
+
 	private IncrementalEditor incEditor = new IncrementalEditor();
 	private PerformanceTestUtil util = new PerformanceTestUtil();
 	private List<TestDataPoint> data;
-	
+
 	/**
-	 * @param args[0] Boolean value which determines if the collected data should be reset.
-	 * 				  Used in the first run of a new test data collection.
-	 * @param args[1] The name of the TGG.
-	 * @param args[2] The name of the operationalization.
-	 * @param args[3] The model size.
+	 * @param args[0]
+	 *            Boolean value which determines if the collected data should be
+	 *            reset. Used in the first run of a new test data collection.
+	 * @param args[1]
+	 *            The name of the TGG.
+	 * @param args[2]
+	 *            The name of the operationalization.
+	 * @param args[3]
+	 *            The model size.
 	 * 
-	 * */
+	 */
 	public static void main(String[] args) throws IOException {
 		TestDataCollector collector = new TestDataCollector();
 		if (Boolean.parseBoolean(args[0]))
 			collector.deleteData();
 		collector.executeAndSave(args[1], Operationalization.valueOf(args[2]), Integer.parseInt(args[3]));
 	}
-	
-	private void executeAndSave(String tggName, Operationalization operationalization, int modelSize) throws IOException {
+
+	private void executeAndSave(String tggName, Operationalization operationalization, int modelSize)
+			throws IOException {
 		loadData();
-		
+
 		switch (operationalization) {
-			case MODELGEN:
-				this.collectMODELGENData(tggName, modelSize);
-				break;
-			case CC:
-				this.collectCCData(tggName, modelSize);
-				break;
-			case FWD:
-				this.collectFWDData(tggName, modelSize);
-				break;
-			case BWD:
-				this.collectBWDData(tggName, modelSize);
-				break;
-			case CO:
-				this.collectCOData(tggName, modelSize);
-				break;
-			case FWD_OPT:
-				this.collectFWD_OPTData(tggName, modelSize);
-				break;
-			case BWD_OPT:
-				this.collectBWD_OPTData(tggName, modelSize);
-				break;
-			case INCREMENTAL_FWD:
-			case INCREMENTAL_BWD:
-				throw new IllegalArgumentException("A test case should not contain the operationalization "
-						+"INCREMENTAL_FWD/INCREMENTAL_BWD because both batch and incremental SYNC are included in the FWD/BWD test cases.");		
+		case MODELGEN:
+			this.collectMODELGENData(tggName, modelSize);
+			break;
+		case CC:
+			this.collectCCData(tggName, modelSize);
+			break;
+		case FWD:
+			this.collectFWDData(tggName, modelSize);
+			break;
+		case BWD:
+			this.collectBWDData(tggName, modelSize);
+			break;
+		case CO:
+			this.collectCOData(tggName, modelSize);
+			break;
+		case FWD_OPT:
+			this.collectFWD_OPTData(tggName, modelSize);
+			break;
+		case BWD_OPT:
+			this.collectBWD_OPTData(tggName, modelSize);
+			break;
+		case INCREMENTAL_FWD:
+		case INCREMENTAL_BWD:
+			throw new IllegalArgumentException("A test case should not contain the operationalization "
+					+ "INCREMENTAL_FWD/INCREMENTAL_BWD because both batch and incremental SYNC are included in the FWD/BWD test cases.");
 		}
-		
-		saveData();	
+
+		saveData();
 	}
 
 	public List<TestDataPoint> getData() {
 		if (data == null)
 			loadData();
-		
+
 		return data;
 	}
 
@@ -118,18 +129,63 @@ public class TestDataCollector {
 		try {
 			FileInputStream file = new FileInputStream(dataLocation);
 			ObjectInputStream in = new ObjectInputStream(file);
-			data = (List<TestDataPoint>)in.readObject();
+			data = (List<TestDataPoint>) in.readObject();
 			in.close();
 			file.close();
-		} catch(IOException e) {
+
+			// Copy data to evaluation folder
+			LocalDateTime now = LocalDateTime.now();
+			FileOutputStream copy = new FileOutputStream(evalLocation + "/" + String.format("%02d%02d-%02d%02d.ser",
+					now.getMonthValue(), now.getDayOfMonth(), now.getHour(), now.getMinute()));
+			ObjectOutputStream out = new ObjectOutputStream(copy);
+			out.writeObject(data);
+			out.close();
+			copy.close();
+
+		} catch (IOException e) {
 			data = new ArrayList<>();
-		} catch(ClassNotFoundException e) {
+		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
-		
+
 		return data;
 	}
-	
+
+	@SuppressWarnings("unchecked")
+	/**
+	 * Loads all data from the SER files in the evaluation data directory
+	 * 
+	 * @return Mapping of data file and the data points
+	 */
+	public HashMap<String, List<TestDataPoint>> loadEvaluationData() {
+		HashMap<String, List<TestDataPoint>> result = new HashMap<>();
+		try {
+			File folder = new File(evalLocation);
+
+			// all files in the specified directory are iterated
+			for (File file : folder.listFiles()) {
+
+				// only SER files should be handled
+				if (file.getName().endsWith(".ser")) {
+					FileInputStream stream = new FileInputStream(file);
+					ObjectInputStream in = new ObjectInputStream(stream);
+					data = (List<TestDataPoint>) in.readObject();
+					result.put(file.getName().replace(".ser", ""), data);
+					in.close();
+					stream.close();
+				}
+			}
+		} catch (IOException e) {
+			data = new ArrayList<>();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (NullPointerException e) {
+			e.printStackTrace();
+		}
+
+		return result;
+	}
+
 	private void saveData() {
 		try {
 			FileOutputStream file = new FileOutputStream(dataLocation);
@@ -137,15 +193,15 @@ public class TestDataCollector {
 			out.writeObject(data);
 			out.close();
 			file.close();
-		} catch(IOException e) {
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 	private void deleteData() {
 		try {
 			Files.delete(Paths.get(dataLocation));
-		} catch(NoSuchFileException e) {
+		} catch (NoSuchFileException e) {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -157,20 +213,21 @@ public class TestDataCollector {
 		Supplier<MODELGEN> generator = () -> {
 			try {
 				MODELGEN gen = new MODELGEN_App(tggName, Constants.workspacePath, false,
-						tggName+"/instances/"+size+"Element");
-				gen.setUpdatePolicy(new TimedUpdatePolicy(new RandomMatchUpdatePolicy(), PerformanceConstants.timeout, TimeUnit.SECONDS));
+						tggName + "/instances/" + size + "Element");
+				gen.setUpdatePolicy(new TimedUpdatePolicy(new RandomMatchUpdatePolicy(), PerformanceConstants.timeout,
+						TimeUnit.SECONDS));
 				return gen;
 			} catch (IOException e) {
 				e.printStackTrace();
 				return null;
 			}
 		};
-		
+
 		Function<TGG, MODELGENStopCriterion> stops = util.createStopCriterion(tggName, size);
 
-		System.out.println("Collecting MODELGEN data for "+tggName+", size: "+size);
+		System.out.println("Collecting MODELGEN data for " + tggName + ", size: " + size);
 		TestDataPoint point = test.repeatedTimedExecutionAndInit(generator, stops, size, repetitions);
-		
+
 		data.add(point);
 	}
 
@@ -179,16 +236,17 @@ public class TestDataCollector {
 
 		Supplier<CC> checker = () -> {
 			try {
-				CC cc = new CC_App(tggName, Constants.workspacePath, false, size+"Element");
-				cc.setUpdatePolicy(new TimedUpdatePolicy(new NextMatchUpdatePolicy(), PerformanceConstants.timeout, TimeUnit.SECONDS));
+				CC cc = new CC_App(tggName, Constants.workspacePath, false, size + "Element");
+				cc.setUpdatePolicy(new TimedUpdatePolicy(new NextMatchUpdatePolicy(), PerformanceConstants.timeout,
+						TimeUnit.SECONDS));
 				return cc;
 			} catch (IOException e) {
 				e.printStackTrace();
 				return null;
 			}
 		};
-		
-		System.out.println("Collecting CC data for "+tggName+", size: "+size);
+
+		System.out.println("Collecting CC data for " + tggName + ", size: " + size);
 		TestDataPoint point;
 		try {
 			point = test.repeatedTimedExecutionAndInit(checker, size, repetitions);
@@ -197,22 +255,23 @@ public class TestDataCollector {
 			e.printStackTrace();
 		}
 	}
-	
+
 	private void collectCOData(String tggName, int size) throws IOException {
 		PerformanceTestCO test = new PerformanceTestCO();
 
 		Supplier<CO> checker = () -> {
 			try {
-				CO co = new CO_App(tggName, Constants.workspacePath, false, size+"Element");
-				co.setUpdatePolicy(new TimedUpdatePolicy(new NextMatchUpdatePolicy(), PerformanceConstants.timeout, TimeUnit.SECONDS));
+				CO co = new CO_App(tggName, Constants.workspacePath, false, size + "Element");
+				co.setUpdatePolicy(new TimedUpdatePolicy(new NextMatchUpdatePolicy(), PerformanceConstants.timeout,
+						TimeUnit.SECONDS));
 				return co;
 			} catch (IOException e) {
 				e.printStackTrace();
 				return null;
 			}
 		};
-		
-		System.out.println("Collecting CO data for "+tggName+", size: "+size);
+
+		System.out.println("Collecting CO data for " + tggName + ", size: " + size);
 		TestDataPoint point;
 		try {
 			point = test.repeatedTimedExecutionAndInit(checker, size, repetitions);
@@ -221,15 +280,16 @@ public class TestDataCollector {
 			e.printStackTrace();
 		}
 	}
-	
+
 	private void collectFWDData(String tggName, int size) throws IOException {
 		PerformanceTestSYNC test = new PerformanceTestSYNC();
-		
+
 		Supplier<SYNC> transformator = () -> {
 			try {
 				SYNC sync = new SYNC_App(tggName, Constants.workspacePath, false,
-						tggName+"/instances/"+size+"Element", true, false);
-				sync.setUpdatePolicy(new TimedUpdatePolicy(new NextMatchUpdatePolicy(), PerformanceConstants.timeout, TimeUnit.SECONDS));
+						tggName + "/instances/" + size + "Element", true, false);
+				sync.setUpdatePolicy(new TimedUpdatePolicy(new NextMatchUpdatePolicy(), PerformanceConstants.timeout,
+						TimeUnit.SECONDS));
 				return sync;
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -237,18 +297,20 @@ public class TestDataCollector {
 			}
 		};
 
-		System.out.println("Collecting SYNC data for "+tggName+", size: "+size);
-		List<TestDataPoint> points = test.timedExecutionAndInit(transformator, size, repetitions, true, incEditor.getEdit(tggName, true));
+		System.out.println("Collecting SYNC data for " + tggName + ", size: " + size);
+		List<TestDataPoint> points = test.timedExecutionAndInit(transformator, size, repetitions, true,
+				incEditor.getEdit(tggName, true));
 		data.addAll(points);
 	}
-	
+
 	private void collectFWD_OPTData(String tggName, int size) throws IOException {
 		PerformanceTestFWD_OPT test = new PerformanceTestFWD_OPT();
-		
+
 		Supplier<FWD_OPT> transformator = () -> {
 			try {
-				FWD_OPT fwd_opt = new FWD_OPT_App(tggName, Constants.workspacePath, false, size+"Element");
-				fwd_opt.setUpdatePolicy(new TimedUpdatePolicy(new NextMatchUpdatePolicy(), PerformanceConstants.timeout, TimeUnit.SECONDS));
+				FWD_OPT fwd_opt = new FWD_OPT_App(tggName, Constants.workspacePath, false, size + "Element");
+				fwd_opt.setUpdatePolicy(new TimedUpdatePolicy(new NextMatchUpdatePolicy(), PerformanceConstants.timeout,
+						TimeUnit.SECONDS));
 				return fwd_opt;
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -256,7 +318,7 @@ public class TestDataCollector {
 			}
 		};
 
-		System.out.println("Collecting FWD_OPT data for "+tggName+", size: "+size);
+		System.out.println("Collecting FWD_OPT data for " + tggName + ", size: " + size);
 		TestDataPoint point;
 		try {
 			point = test.repeatedTimedExecutionAndInit(transformator, size, repetitions);
@@ -265,14 +327,15 @@ public class TestDataCollector {
 			e.printStackTrace();
 		}
 	}
-	
+
 	private void collectBWD_OPTData(String tggName, int size) throws IOException {
 		PerformanceTestBWD_OPT test = new PerformanceTestBWD_OPT();
-		
+
 		Supplier<BWD_OPT> transformator = () -> {
 			try {
-				BWD_OPT bwd_opt = new BWD_OPT_App(tggName, Constants.workspacePath, false, size+"Element");
-				bwd_opt.setUpdatePolicy(new TimedUpdatePolicy(new NextMatchUpdatePolicy(), PerformanceConstants.timeout, TimeUnit.SECONDS));
+				BWD_OPT bwd_opt = new BWD_OPT_App(tggName, Constants.workspacePath, false, size + "Element");
+				bwd_opt.setUpdatePolicy(new TimedUpdatePolicy(new NextMatchUpdatePolicy(), PerformanceConstants.timeout,
+						TimeUnit.SECONDS));
 				return bwd_opt;
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -280,7 +343,7 @@ public class TestDataCollector {
 			}
 		};
 
-		System.out.println("Collecting FWD_OPT data for "+tggName+", size: "+size);
+		System.out.println("Collecting FWD_OPT data for " + tggName + ", size: " + size);
 		TestDataPoint point;
 		try {
 			point = test.repeatedTimedExecutionAndInit(transformator, size, repetitions);
@@ -289,22 +352,22 @@ public class TestDataCollector {
 			e.printStackTrace();
 		}
 	}
-	
 
 	private void collectBWDData(String tggName, int size) throws IOException {
 		PerformanceTestSYNC test = new PerformanceTestSYNC();
-	
+
 		Supplier<SYNC> transformator = () -> {
 			try {
-				return new SYNC_App(tggName, Constants.workspacePath, false,
-						tggName+"/instances/"+size+"Element", false, false);
+				return new SYNC_App(tggName, Constants.workspacePath, false, tggName + "/instances/" + size + "Element",
+						false, false);
 			} catch (IOException e) {
 				e.printStackTrace();
 				return null;
 			}
 		};
-		
-		List<TestDataPoint> points = test.timedExecutionAndInit(transformator, size, repetitions, false, incEditor.getEdit(tggName, false));
+
+		List<TestDataPoint> points = test.timedExecutionAndInit(transformator, size, repetitions, false,
+				incEditor.getEdit(tggName, false));
 		data.addAll(points);
 	}
 }

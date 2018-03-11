@@ -1,8 +1,16 @@
 package testsuite.ibex.performance.util;
 
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -308,4 +316,41 @@ public class PerformanceTestUtil {
 				&& e1.getSrcNode().equals(e2.getTrgNode())
 				&& e1.getTrgNode().equals(e2.getSrcNode());
 	}
+	
+	/**
+	 * Concatenates the Strings in contents with tabs. Used to define one line for
+	 * the .dat file, where the columns are separated by tabs.
+	 */
+	public String makeLine(String... contents) {
+		return String.join("	", contents);
+	}
+	
+	/**
+	 * Saves the data for one plot in the specified file.
+	 */
+	public void saveData(List<String> data, String fileName) {
+		try {
+			Path file = Paths.get("performance/data/" + fileName + ".dat");
+			Files.write(file, data);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	/**
+	 * Sort a hash-map by its values
+	 * @param map: Given hash-map
+	 * @return: Sorted hash-map
+	 */
+	public static <K, V extends Comparable<? super V>> HashMap<K, V> sortByValue(Map<K, V> map) {
+        List<Entry<K, V>> list = new ArrayList<>(map.entrySet());
+        list.sort((o1, o2) -> o1.getValue().compareTo(o2.getValue()));
+
+        HashMap<K, V> result = new HashMap<>();
+        for (Entry<K, V> entry : list) {
+            result.put(entry.getKey(), entry.getValue());
+        }
+
+        return result;
+    }
 }

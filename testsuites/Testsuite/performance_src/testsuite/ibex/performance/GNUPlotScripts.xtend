@@ -45,6 +45,21 @@ class GNUPlotScripts {
 			set grid
 		'''
 	}
+	
+	def testHistogramScriptParts(String diagramType, String fileName) {
+		return '''
+			set terminal «terminal»
+			set output "«plotPath»«diagramType»/«fileName».«output»"
+			set style data histogram
+			set style histogram cluster gap 1
+			set style fill solid border -1
+			set boxwidth 0.9
+			set ylabel "average rank"
+			set xtic rotate by -45 noenhanced
+			set key top left
+			set grid
+		'''
+	}
 
 	def allTGGsComparison(String title, String op) {
 		var script = '''
@@ -108,6 +123,18 @@ class GNUPlotScripts {
 			plot \
 			newhistogram lt 3, \
 			"«dataPath»«title».dat" using ($2/«timeFactor»):xtic(1) ti col
+		'''
+		createPlot(title, script);
+	}
+	
+	def allTestsComparison(String title, String op) {
+		var script = '''
+			«testHistogramScriptParts("AllTests", title)»
+			set title "Comparison of average ranks among tests for models of size «PlotGenerator.standardModelSize» - «op»"
+			set yrange [1:10]
+			plot \
+			newhistogram lt 3, \
+			"«dataPath»«title».dat" using ($2):xtic(1) ti col
 		'''
 		createPlot(title, script);
 	}
