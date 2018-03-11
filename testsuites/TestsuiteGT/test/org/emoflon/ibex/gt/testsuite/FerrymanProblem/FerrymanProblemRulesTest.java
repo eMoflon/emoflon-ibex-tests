@@ -3,7 +3,6 @@ package org.emoflon.ibex.gt.testsuite.FerrymanProblem;
 import static org.junit.Assert.assertTrue;
 
 import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.emoflon.ibex.common.operational.PushoutApproach;
 import org.junit.Test;
 
 import FerrymanProblem.Cabbage;
@@ -59,7 +58,7 @@ public class FerrymanProblemRulesTest extends FerrymanProblemAbstractTest {
 		assertMatchCount(0, api.findSubjectsOnRightBank());
 
 		// Apply eat as soon as possible.
-		api.eat().applyWheneverApplicable();
+		api.eat().enableAutoApply();
 
 		Cabbage cabbage = api.findCabbage().findAnyMatch().get().getCabbage();
 		Goat goat = api.findGoat().findAnyMatch().get().getGoat();
@@ -88,7 +87,7 @@ public class FerrymanProblemRulesTest extends FerrymanProblemAbstractTest {
 		assertMatchCount(0, api.findSubjectsOnRightBank());
 
 		// Apply eat as soon as possible.
-		api.eat().applyWheneverApplicable();
+		api.eat().enableAutoApply();
 
 		Wolf wolf = api.findWolf().findAnyMatch().get().getWolf();
 		assertApplicable(api.moveThing().bindThing(wolf).apply());
@@ -114,7 +113,7 @@ public class FerrymanProblemRulesTest extends FerrymanProblemAbstractTest {
 		FerrymanProblemGraphTransformationAPI api = this.initAPI(model);
 
 		assertMatchCount(1, api.findGoat());
-		assertNotApplicable(api.killGoat().apply(PushoutApproach.DPO));
+		assertNotApplicable(api.killGoat().setDPO().apply());
 		assertMatchCount(1, api.findGoat());
 
 		assertApplicable(api.killGoat().apply());
