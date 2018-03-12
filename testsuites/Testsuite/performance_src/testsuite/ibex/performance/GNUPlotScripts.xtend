@@ -142,7 +142,7 @@ class GNUPlotScripts {
 		createPlot(title, script);
 	}
 	
-	def allTestsComparison(String title, String op) {
+	def allTestsComparisonOnRanks(String title, String op) {
 		var script = '''
 			«testHistogramScriptParts(title)»
 			set title "Comparison of average ranks among tests for models of size «PlotGenerator.standardModelSize» - «op»"
@@ -150,6 +150,18 @@ class GNUPlotScripts {
 			plot \
 			newhistogram lt 3, \
 			"«evalDataPath»«title».dat" using ($2):xtic(1) ti col
+		'''
+		createEvalPlot(title, script);
+	}
+	
+	def allTestsComparisonOnValues(String title, String op) {
+		var script = '''
+			«testHistogramScriptParts(title)»
+			set title "Comparison of average execution times among tests for models of size «PlotGenerator.standardModelSize» - «op»"
+			set yrange [1:100000]
+			plot \
+			newhistogram lt 3, \
+			"«evalDataPath»«title».dat" using ($2/«timeFactor»):xtic(1) ti col
 		'''
 		createEvalPlot(title, script);
 	}

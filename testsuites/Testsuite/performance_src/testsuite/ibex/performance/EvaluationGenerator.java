@@ -272,7 +272,29 @@ public class EvaluationGenerator {
 	}
 	
 	/**
-	 * Computes the average rank of a test with respect to the execution times
+	 * Computes the average execution time of a test.
+	 * @param list: List of relevant test data points
+	 * @param test: Name of the test
+	 * @return Average execution time
+	 */
+	double averageExecutionTime(List<TestDataPoint> list, String test) {
+		double nominator = 0;
+		int denominator = 0;
+
+		for (TestDataPoint p : list) {
+			for (TestCaseValue tcv : mappedTestData.get(p.testCase.hashCode())) {
+				if (tcv.test.equals(test)) {
+					nominator += tcv.getExecutionTime();
+					denominator++;
+				}
+			}
+		}
+
+		return nominator / denominator;
+	}
+	
+	/**
+	 * Computes the average rank of a test with respect to the execution times.
 	 * @param list: List of relevant test data points
 	 * @param test: Name of the test
 	 * @return Average rank
@@ -298,19 +320,24 @@ public class EvaluationGenerator {
 	 */
 	public void saveDataPerTestDiagram() {
 		// get data for plot
-		List<Pair<String, Double>> testToRank = new ArrayList<>();
+		List<Pair<String, Double>> testToValue = new ArrayList<>();
+ 		List<Pair<String, Double>> testToRank = new ArrayList<>();
 		Set<String> tests = evaluationData.keySet();
 
 		for (String test : tests) {
-			double rank = averageExecutionRank(
-					util.filterTestResults(evaluationData.get(test), null, null, PerformanceConstants.standardModelSize),
-					test);
+			double value = averageExecutionTime(util.filterTestResults(evaluationData.get(test), null, null, 
+					PerformanceConstants.standardModelSize), test);
+			double rank = averageExecutionRank(util.filterTestResults(evaluationData.get(test), null, null, 
+					PerformanceConstants.standardModelSize), test);
 
 			if (rank != Double.NaN)
 				testToRank.add(Pair.newInstance(test, rank));
+			
+			if (value != Double.NaN)
+				testToValue.add(Pair.newInstance(test, value));
 		}
 
-		createEvaluationDiagram(testToRank, "Overall");
+		createEvaluationDiagram(testToValue, testToRank, "Overall");
 	}
 	
 	/**
@@ -319,19 +346,24 @@ public class EvaluationGenerator {
 	 */
 	public void saveDataPerTestAndTGGDiagram(String tgg) {
 		// get data for plot
-		List<Pair<String, Double>> testToRank = new ArrayList<>();
-		Set<String> tests = evaluationData.keySet();
+				List<Pair<String, Double>> testToValue = new ArrayList<>();
+		 		List<Pair<String, Double>> testToRank = new ArrayList<>();
+				Set<String> tests = evaluationData.keySet();
 
-		for (String test : tests) {
-			double rank = averageExecutionRank(
-					util.filterTestResults(evaluationData.get(test), tgg, null, PerformanceConstants.standardModelSize),
-					test);
+				for (String test : tests) {
+					double value = averageExecutionTime(util.filterTestResults(evaluationData.get(test), tgg, null, 
+							PerformanceConstants.standardModelSize), test);
+					double rank = averageExecutionRank(util.filterTestResults(evaluationData.get(test), tgg, null, 
+							PerformanceConstants.standardModelSize), test);
 
-			if (rank != Double.NaN)
-				testToRank.add(Pair.newInstance(test, rank));
-		}
+					if (rank != Double.NaN)
+						testToRank.add(Pair.newInstance(test, rank));
+					
+					if (value != Double.NaN)
+						testToValue.add(Pair.newInstance(test, value));
+				}
 
-		createEvaluationDiagram(testToRank, tgg);
+		createEvaluationDiagram(testToValue, testToRank, tgg);
 	}
 	
 	/**
@@ -341,40 +373,59 @@ public class EvaluationGenerator {
 	@SuppressWarnings("static-access")
 	public void saveDataPerTestAndOperationalizationDiagram(Operationalization op) {
 		// get data for plot
-		List<Pair<String, Double>> testToRank = new ArrayList<>();
+		List<Pair<String, Double>> testToValue = new ArrayList<>();
+ 		List<Pair<String, Double>> testToRank = new ArrayList<>();
 		Set<String> tests = evaluationData.keySet();
 
 		for (String test : tests) {
-			double rank = averageExecutionRank(
-					util.filterTestResults(evaluationData.get(test), null, op, PerformanceConstants.standardModelSize),
-					test);
+			double value = averageExecutionTime(util.filterTestResults(evaluationData.get(test), null, op, 
+					PerformanceConstants.standardModelSize), test);
+			double rank = averageExecutionRank(util.filterTestResults(evaluationData.get(test), null, op, 
+					PerformanceConstants.standardModelSize), test);
 
 			if (rank != Double.NaN)
 				testToRank.add(Pair.newInstance(test, rank));
+			
+			if (value != Double.NaN)
+				testToValue.add(Pair.newInstance(test, value));
 		}
 
-		createEvaluationDiagram(testToRank, op.name());
+		createEvaluationDiagram(testToValue, testToRank, op.name());
 	}
 	
 	/**
 	 * Sorts the average rank data and creates a plot
+	 * @param testToValue: Execution time data for each test run
 	 * @param testToRank: Rank data for each test run
 	 * @param name: Name of the diagram to be created
 	 */
-	private void createEvaluationDiagram(List<Pair<String, Double>> testToRank, String name) {
+	private void createEvaluationDiagram(List<Pair<String, Double>> testToValue, List<Pair<String, Double>> testToRank, 
+			String name) {
 		testToRank.sort(new RankComparator());
+		testToValue.sort(new RankComparator());
 
-		// arrange data in lines
-		List<String> diagramStrings = new ArrayList<>();
-		diagramStrings.add(util.makeLine("Test", "AverageRank"));
+		// arrange time data in lines
+		List<String> valueStrings = new ArrayList<>();
+		valueStrings.add(util.makeLine("Test", "AverageExecutionTime"));
+
+		for (Pair<String, Double> test : testToValue) {
+			valueStrings.add(util.makeLine(test.getLeft(), test.getRight() + ""));
+		}
+		
+		// arrange rank data in lines
+		List<String> rankStrings = new ArrayList<>();
+		rankStrings.add(util.makeLine("Test", "AverageRank"));
 
 		for (Pair<String, Double> test : testToRank) {
-			diagramStrings.add(util.makeLine(test.getLeft(), test.getRight() + ""));
+			rankStrings.add(util.makeLine(test.getLeft(), test.getRight() + ""));
 		}
 
-		// save data in file
-		util.saveData(diagramStrings, "AllTests" + name, "performance/evaluation/data/");
-		// create plot
-		scripts.allTestsComparison("AllTests" + name, name);
+		// save data in files
+		util.saveData(valueStrings, "AllTestValues" + name, "performance/evaluation/data/");
+		util.saveData(rankStrings, "AllTestRanks" + name, "performance/evaluation/data/");
+		
+		// create plots
+		scripts.allTestsComparisonOnValues("AllTestValues" + name, name);
+		scripts.allTestsComparisonOnRanks("AllTestRanks" + name, name);
 	}
 }
