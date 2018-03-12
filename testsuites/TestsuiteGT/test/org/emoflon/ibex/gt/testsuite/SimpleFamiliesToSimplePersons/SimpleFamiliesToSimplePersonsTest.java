@@ -68,38 +68,45 @@ public class SimpleFamiliesToSimplePersonsTest extends GTTestCase<SimpleFamilies
 				familiesAPI.findFamily().bindRegister(familyRegister).findMatches().forEach(familyMatch -> {
 					Family family = familyMatch.getFamily();
 					familiesAPI.findFather().bindFamily(family).forEachMatch(fatherMatch -> {
-						syncMale(personsAPI, personRegister, fatherMatch.getFamily(), fatherMatch.getMember());
+						memberToMale(personsAPI, personRegister, fatherMatch.getFamily(), fatherMatch.getMember());
 					});
 					familiesAPI.findSon().bindFamily(family).forEachMatch(sonMatch -> {
-						syncMale(personsAPI, personRegister, sonMatch.getFamily(), sonMatch.getMember());
+						memberToMale(personsAPI, personRegister, sonMatch.getFamily(), sonMatch.getMember());
 					});
 					familiesAPI.findMother().bindFamily(family).forEachMatch(fatherMatch -> {
-						syncFemale(personsAPI, personRegister, fatherMatch.getFamily(), fatherMatch.getMember());
+						memberToFemale(personsAPI, personRegister, fatherMatch.getFamily(), fatherMatch.getMember());
 					});
 					familiesAPI.findDaughter().bindFamily(family).forEachMatch(sonMatch -> {
-						syncFemale(personsAPI, personRegister, sonMatch.getFamily(), sonMatch.getMember());
+						memberToFemale(personsAPI, personRegister, sonMatch.getFamily(), sonMatch.getMember());
 					});
 				});
 			});
 		});
 
+		assertMatchCount(2, personsAPI.findRegister());
+		assertMatchCount(4, personsAPI.findFemale());
+		assertMatchCount(4, personsAPI.findMale());
+		assertMatchCount(8, personsAPI.findPerson());
+
 		saveResourceSet(familiesModel);
 		saveResourceSet(personsModel);
 	}
 
-	private void syncMale(SimplePersonsGraphTransformationAPI personsAPI, PersonRegister personRegister, Family family,
-			FamilyMember member) {
-		String fullName = family.getName() + ", " + member.getName();
+	private String getFullName(final Family family, final FamilyMember member) {
+		return family.getName() + ", " + member.getName();
+	}
+
+	private void memberToMale(final SimplePersonsGraphTransformationAPI personsAPI, final PersonRegister personRegister,
+			final Family family, final FamilyMember member) {
 		personsAPI.createMale().bindRegister(personRegister).apply().ifPresent(personMatch -> {
-			personMatch.getPerson().setName(fullName);
+			personMatch.getPerson().setName(this.getFullName(family, member));
 		});
 	}
 
-	private void syncFemale(SimplePersonsGraphTransformationAPI personsAPI, PersonRegister personRegister,
-			Family family, FamilyMember member) {
-		String fullName = family.getName() + ", " + member.getName();
+	private void memberToFemale(final SimplePersonsGraphTransformationAPI personsAPI,
+			final PersonRegister personRegister, final Family family, final FamilyMember member) {
 		personsAPI.createFemale().bindRegister(personRegister).apply().ifPresent(personMatch -> {
-			personMatch.getPerson().setName(fullName);
+			personMatch.getPerson().setName(this.getFullName(family, member));
 		});
 	}
 }

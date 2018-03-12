@@ -1,15 +1,15 @@
 import "platform:/resource/SimplePersons/model/SimplePersons.ecore"
 
-rule findRegister() {
+rule findRegister {
 	register: PersonRegister
 }
 
-rule createRegister() {
+rule createRegister {
 	++ register: PersonRegister
 }
 
 // TODO: createPerson rule as super rule for createFemale and createMale
-rule createFemale() {
+rule createFemale {
 	++ person: Female
 
 	register: PersonRegister {
@@ -17,10 +17,22 @@ rule createFemale() {
 	}
 }
 
-rule createMale() {
+rule createMale {
 	++ person: Male
 
 	register: PersonRegister {
 		++ -persons -> person
 	}
+}
+
+rule findPerson {
+	person: Person
+}
+
+rule findMale {
+	person: Male
+}
+
+rule findFemale {
+	person: Female
 }
