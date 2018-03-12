@@ -1,13 +1,5 @@
 import "platform:/resource/SimplePersons/model/SimplePersons.ecore"
 
-rule findRegister {
-	register: PersonRegister
-}
-
-rule createRegister {
-	++ register: PersonRegister
-}
-
 // TODO: createPerson rule as super rule for createFemale and createMale
 rule createFemale {
 	++ person: Female
