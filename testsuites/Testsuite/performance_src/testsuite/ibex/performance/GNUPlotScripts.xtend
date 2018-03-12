@@ -34,8 +34,8 @@ class GNUPlotScripts {
 	}
 	
 		/**
-	 * Saves the script for the specified plot and the plot itself as files
-	 * in the corresponding folders in the "performance/" directory of the testsuite.
+	 * Saves the script for the specified evaluation plot and the plot itself as files
+	 * in the corresponding folders in the "performance/evaluation/" directory of the testsuite.
 	 * @param title The name of the plot that shall be created.
 	 * @param script The script for the plot in a single String.
 	 */

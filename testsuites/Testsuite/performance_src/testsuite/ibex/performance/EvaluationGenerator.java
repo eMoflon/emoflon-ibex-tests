@@ -20,6 +20,12 @@ import testsuite.ibex.performance.util.TestCaseParameters;
 import testsuite.ibex.performance.util.TestDataPoint;
 import testsuite.ibex.testUtil.Constants;
 
+/**
+ * Tool for comparing several performance tests with the same configuration but different options, e.g. for pattern 
+ * matching
+ * @author Nils Weidmann
+ *
+ */
 public class EvaluationGenerator {
 
 	private PerformanceTestUtil util = new PerformanceTestUtil();
@@ -28,6 +34,12 @@ public class EvaluationGenerator {
 	private long maxTime = PerformanceConstants.timeout * TimeUnit.NANOSECONDS.convert(1, TimeUnit.SECONDS);
 	private GNUPlotScripts scripts = new GNUPlotScripts();
 
+	/**
+	 * Combines all relevant information about one test case, including the parameters, times for execution and 
+	 * initialization and the correspondence ranks in comparison to the other tests
+	 * @author Nils Weidmann
+	 *
+	 */
 	public class TestCaseValue {
 		private String test;
 		private TestCaseParameters tcp;
@@ -71,7 +83,12 @@ public class EvaluationGenerator {
 			return tcp;
 		}
 	}
-
+	
+	/**
+	 * Compares the execution time of TestCaseValues
+	 * @author Nils Weidmann
+	 *
+	 */
 	public class ExecutionTimeComparator implements Comparator<TestCaseValue> {
 
 		@Override
@@ -84,7 +101,12 @@ public class EvaluationGenerator {
 				return 1;
 		}
 	}
-
+	
+	/**
+	 * Compares the initialization time of TestCaseValues
+	 * @author Nils Weidmann
+	 *
+	 */
 	public class InitTimeComparator implements Comparator<TestCaseValue> {
 
 		@Override
@@ -97,7 +119,12 @@ public class EvaluationGenerator {
 				return 1;
 		}
 	}
-
+	
+	/**
+	 * Compares average ranks of two test runs
+	 * @author Nils
+	 *
+	 */
 	public class RankComparator implements Comparator<Pair<String, Double>> {
 
 		@Override
@@ -160,7 +187,12 @@ public class EvaluationGenerator {
 
 		return dataStrings;
 	}
-
+	
+	/**
+	 * Saves the complete evaluation report
+	 * @param data: Evaluation report
+	 * @param fileName: Location on disk
+	 */
 	public void saveFullReport(List<String> data, String fileName) {
 		try {
 			Path file = Paths.get(fileName);
@@ -169,7 +201,12 @@ public class EvaluationGenerator {
 			e.printStackTrace();
 		}
 	}
-
+	
+	/**
+	 * Generates a mapping of test case parameters and the corresponding data points of the respective test runs.
+	 * The ranks for execution time and initialization time are computed as well.
+	 * @param testData: Mapping of test run and the corresponding data points
+	 */
 	private void mapTestData(HashMap<String, List<TestDataPoint>> testData) {
 
 		for (String tgg : Constants.testProjects)
@@ -233,7 +270,13 @@ public class EvaluationGenerator {
 			}
 		}
 	}
-
+	
+	/**
+	 * Computes the average rank of a test with respect to the execution times
+	 * @param list: List of relevant test data points
+	 * @param test: Name of the test
+	 * @return Average rank
+	 */
 	double averageExecutionRank(List<TestDataPoint> list, String test) {
 		double nominator = 0;
 		int denominator = 0;
@@ -249,7 +292,10 @@ public class EvaluationGenerator {
 
 		return nominator / denominator;
 	}
-
+	
+	/**
+	 * Saves and plots the average ranks per test run for all tggs and operationalizations
+	 */
 	public void saveDataPerTestDiagram() {
 		// get data for plot
 		List<Pair<String, Double>> testToRank = new ArrayList<>();
@@ -266,7 +312,11 @@ public class EvaluationGenerator {
 
 		createEvaluationDiagram(testToRank, "Overall");
 	}
-
+	
+	/**
+	 * Saves and plots the average ranks per test run for a given TGG
+	 * @param tgg: Given TGG
+	 */
 	public void saveDataPerTestAndTGGDiagram(String tgg) {
 		// get data for plot
 		List<Pair<String, Double>> testToRank = new ArrayList<>();
@@ -283,7 +333,11 @@ public class EvaluationGenerator {
 
 		createEvaluationDiagram(testToRank, tgg);
 	}
-
+	
+	/**
+	 * Saves and plots the average ranks per test run for a given operationalization
+	 * @param op: Given operationalization
+	 */
 	@SuppressWarnings("static-access")
 	public void saveDataPerTestAndOperationalizationDiagram(Operationalization op) {
 		// get data for plot
@@ -301,7 +355,12 @@ public class EvaluationGenerator {
 
 		createEvaluationDiagram(testToRank, op.name());
 	}
-
+	
+	/**
+	 * Sorts the average rank data and creates a plot
+	 * @param testToRank: Rank data for each test run
+	 * @param name: Name of the diagram to be created
+	 */
 	private void createEvaluationDiagram(List<Pair<String, Double>> testToRank, String name) {
 		testToRank.sort(new RankComparator());
 
