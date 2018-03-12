@@ -25,6 +25,7 @@ public class MODELGEN_App extends MODELGEN {
 		MODELGEN_App generator = new MODELGEN_App("FamiliesToPersons_V1", "./../", true);
 		
 		MODELGENStopCriterion stop = new MODELGENStopCriterion(generator.getTGG());
+//		stop.setMaxRuleCount("HandleRegisters", 1);
 		stop.setTimeOutInMS(1000);
 		generator.setStopCriterion(stop);
 		

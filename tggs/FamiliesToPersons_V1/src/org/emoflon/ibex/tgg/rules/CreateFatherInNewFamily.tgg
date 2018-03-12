@@ -1,7 +1,7 @@
 #using FamiliesToPersons_V1.*
 #using AttrCondDefLibrary.*
 
-#rule CreateMotherInNewFamily #with FamiliesToPersons_V1
+#rule CreateFatherInNewFamily #with FamiliesToPersons_V1
 
 #source { 
 	reg:FamilyRegister {
@@ -10,10 +10,12 @@
 	
 	++ family:Family {
 		name := "Test"
-		++-mother->m
+		++-father->f
 	}
 	
-	++ m:FamilyMember
+	++ f:FamilyMember {
+		name := "father"
+	}
 }
 
 #target {
@@ -21,7 +23,9 @@
 		++ -persons->p
 	}
 	
-	++ p:Female
+	++ p:Male {
+		name := "father"
+	}
 }
 
 #correspondence {
@@ -31,20 +35,16 @@
 	}
 	
 	++ m2p:FamilyMemberToPerson {
-		#src->m
+		#src->f
 		#trg->p
 	}
 }
 
 #attributeConditions {
-	 eq_string(p.name, m.name)
 }
 
-#nac NoOtherFamily #for CreateMotherInNewFamily
+#nac NoOtherFamily #for CreateFatherInNewFamily
 
 #source {
-	d:FamilyMember
-	other:Family {
-		-daughters->d
-	}
+	other:Family
 }
