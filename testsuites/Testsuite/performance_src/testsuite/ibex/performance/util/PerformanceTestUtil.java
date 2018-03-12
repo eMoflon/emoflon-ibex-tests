@@ -328,9 +328,9 @@ public class PerformanceTestUtil {
 	/**
 	 * Saves the data for one plot in the specified file.
 	 */
-	public void saveData(List<String> data, String fileName) {
+	public void saveData(List<String> data, String fileName, String path) {
 		try {
-			Path file = Paths.get("performance/data/" + fileName + ".dat");
+			Path file = Paths.get(path + fileName + ".dat");
 			Files.write(file, data);
 		} catch (IOException e) {
 			e.printStackTrace();

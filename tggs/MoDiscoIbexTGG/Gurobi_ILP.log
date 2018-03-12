@@ -177,3 +177,28 @@ Pool objective bound 23769
 
 Optimal solution found (tolerance 1.00e-04)
 Best objective 2.376900000000e+04, best bound 2.376900000000e+04, gap 0.0000%
+
+Gurobi 7.0.2 (win64, Java) logging started 03/12/18 14:23:26
+
+Warning: Gurobi version mismatch between Java 7.0.1 and C library 7.0.2
+Warning: Gurobi version mismatch between Java 7.0.1 and Jni 7.0.2
+Optimize a model with 1133 rows, 205 columns and 2215 nonzeros
+Variable types: 0 continuous, 205 integer (205 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [3e+00, 5e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 1e+00]
+Found heuristic solution: objective 385
+Presolve removed 1133 rows and 205 columns
+Presolve time: 0.00s
+Presolve: All rows and columns removed
+
+Explored 0 nodes (0 simplex iterations) in 0.02 seconds
+Thread count was 1 (of 2 available processors)
+
+Solution count 1: 521 
+Pool objective bound 521
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 5.210000000000e+02, best bound 5.210000000000e+02, gap 0.0000%

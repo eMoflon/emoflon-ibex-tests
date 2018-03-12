@@ -1,21 +1,13 @@
 package testsuite.ibex.performance;
 
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Set;
-import java.util.concurrent.TimeUnit;
-
 import testsuite.ibex.performance.GNUPlotScripts;
 import testsuite.ibex.performance.util.Operationalization;
 import testsuite.ibex.performance.util.PerformanceConstants;
 import testsuite.ibex.performance.util.PerformanceTestUtil;
-import testsuite.ibex.performance.util.TestCaseParameters;
 import testsuite.ibex.performance.util.TestDataPoint;
 import testsuite.ibex.testUtil.Constants;
 
@@ -43,9 +35,10 @@ public class PlotGenerator {
 				test.saveDataForModelSizeDiagram(tgg, op);
 			}
 		}
+		
+		// copy SER file to the evaluation folder for evaluation purposes
+		collector.copyData();
 	}
-
-
 
 	public void saveDataForAllTGGsDiagram(Operationalization op) {
 		// get data for plot
@@ -62,7 +55,7 @@ public class PlotGenerator {
 		}
 
 		// save data in file
-		util.saveData(diagramStrings, "AllTGGs" + op);
+		util.saveData(diagramStrings, "AllTGGs" + op, "performance/data/");
 		// create plot
 		scripts.allTGGsComparison("AllTGGs" + op, op.name());
 	}
@@ -87,7 +80,7 @@ public class PlotGenerator {
 		}
 
 		// save data in file
-		util.saveData(diagramStrings, "TGGsWithoutRefinement");
+		util.saveData(diagramStrings, "TGGsWithoutRefinement", "performance/data/");
 		// create plot
 		scripts.tggsWithoutRefinementComparison("TGGsWithoutRefinement");
 	}
@@ -107,7 +100,7 @@ public class PlotGenerator {
 		}
 
 		// save data in file
-		util.saveData(diagramStrings, "ModelSize" + op + "_" + tgg);
+		util.saveData(diagramStrings, "ModelSize" + op + "_" + tgg, "performance/data/");
 		// create plot
 		scripts.modelSizeComparison("ModelSize" + op + "_" + tgg, tgg, op.toString());
 	}
@@ -127,7 +120,7 @@ public class PlotGenerator {
 		}
 
 		// save data in file
-		util.saveData(diagramStrings, "InitTimes" + op + "_" + tgg);
+		util.saveData(diagramStrings, "InitTimes" + op + "_" + tgg, "performance/data/");
 		// create plot
 		scripts.initTimes("InitTimes" + op + "_" + tgg, tgg, op.toString());
 	}
@@ -147,7 +140,7 @@ public class PlotGenerator {
 		}
 
 		// save data in file
-		util.saveData(diagramStrings, "AllTGGsInit" + op);
+		util.saveData(diagramStrings, "AllTGGsInit" + op, "performance/data/");
 		// create plot
 		scripts.allTGGsInitComparison("AllTGGsInit" + op, op.toString());
 

@@ -2,6 +2,7 @@ package testsuite.ibex.performance;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -132,16 +133,6 @@ public class TestDataCollector {
 			data = (List<TestDataPoint>) in.readObject();
 			in.close();
 			file.close();
-
-			// Copy data to evaluation folder
-			LocalDateTime now = LocalDateTime.now();
-			FileOutputStream copy = new FileOutputStream(evalLocation + "/" + String.format("%02d%02d-%02d%02d.ser",
-					now.getMonthValue(), now.getDayOfMonth(), now.getHour(), now.getMinute()));
-			ObjectOutputStream out = new ObjectOutputStream(copy);
-			out.writeObject(data);
-			out.close();
-			copy.close();
-
 		} catch (IOException e) {
 			data = new ArrayList<>();
 		} catch (ClassNotFoundException e) {
@@ -369,5 +360,25 @@ public class TestDataCollector {
 		List<TestDataPoint> points = test.timedExecutionAndInit(transformator, size, repetitions, false,
 				incEditor.getEdit(tggName, false));
 		data.addAll(points);
+	}
+
+	/**
+	 * Copies the data collected in the SER file during the test run into the evaluation folder
+	 */
+	public void copyData() {
+		// Copy data to evaluation folder
+		try {
+			LocalDateTime now = LocalDateTime.now();
+			FileOutputStream copy = new FileOutputStream(evalLocation + "/" + String.format("%02d%02d-%02d%02d.ser",
+					now.getMonthValue(), now.getDayOfMonth(), now.getHour(), now.getMinute()));
+			ObjectOutputStream out = new ObjectOutputStream(copy);
+			out.writeObject(data);
+			out.close();
+			copy.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 }
