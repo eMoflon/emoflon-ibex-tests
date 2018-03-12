@@ -1,0 +1,64 @@
+import "platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore"
+import "platform:/resource/SimplePersons/model/SimplePersons.ecore"
+
+rule familyRegisterToPersonRegister {
+	familyRegister: FamilyRegister
+
+	++ personRegister: PersonRegister
+}
+
+rule motherToFemale {
+	family: Family {
+		-mother -> member
+	}
+
+	member: FamilyMember
+
+	personRegister: PersonRegister {
+		++ -persons -> person
+	}
+
+	++ person: Female
+}
+
+rule daughterToFemale {
+	family: Family {
+		-daughters -> member
+	}
+
+	member: FamilyMember
+
+	personRegister: PersonRegister {
+		++ -persons -> person
+	}
+
+	++ person: Female
+}
+
+rule fatherToMale {
+	family: Family {
+		-father -> member
+	}
+
+	member: FamilyMember
+
+	personRegister: PersonRegister {
+		++ -persons -> person
+	}
+
+	++ person: Male
+}
+
+rule sonToMale {
+	family: Family {
+		-sons -> member
+	}
+
+	member: FamilyMember
+
+	personRegister: PersonRegister {
+		++ -persons -> person
+	}
+
+	++ person: Male
+}
