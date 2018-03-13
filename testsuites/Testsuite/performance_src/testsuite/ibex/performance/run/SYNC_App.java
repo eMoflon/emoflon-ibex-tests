@@ -26,7 +26,7 @@ public class SYNC_App extends SYNC {
 
 	@Override
 	protected void registerUserMetamodels() throws IOException {
-		new PerformanceTestUtil().registerUserMetamodels(projectPath, rs);
+		new PerformanceTestUtil().registerUserMetamodels(projectPath, rs, this);
 		
 		// Register correspondence metamodel last
 		loadAndRegisterMetamodel(projectPath + "/model/" + projectPath + ".ecore");

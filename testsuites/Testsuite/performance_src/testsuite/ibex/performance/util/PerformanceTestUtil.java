@@ -18,16 +18,19 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.emoflon.ibex.tgg.operational.strategies.OperationalStrategy;
 import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGENStopCriterion;
 import org.emoflon.ibex.tgg.operational.strategies.sync.BWD_OPT;
 import org.emoflon.ibex.tgg.operational.strategies.sync.FWD_OPT;
 
+import Algorithms.impl.AlgorithmsPackageImpl;
 import BlockDiagram.impl.BlockDiagramPackageImpl;
 import BlockLanguage.impl.BlockLanguagePackageImpl;
 import ClassInheritanceHierarchy.impl.ClassInheritanceHierarchyPackageImpl;
 import CompanyLanguage.impl.CompanyLanguagePackageImpl;
 import Database.impl.DatabasePackageImpl;
 import Families.impl.FamiliesPackageImpl;
+import FamiliesWithSiblings.impl.FamiliesWithSiblingsPackageImpl;
 import FeatureModelConcise.impl.FeatureModelConcisePackageImpl;
 import FeatureModelSafe.impl.FeatureModelSafePackageImpl;
 import ITLanguage.impl.ITLanguagePackageImpl;
@@ -36,6 +39,7 @@ import Persons.impl.PersonsPackageImpl;
 import ProcessDefinition.impl.ProcessDefinitionPackageImpl;
 import SimpleFamilies.impl.SimpleFamiliesPackageImpl;
 import SimplePersons.impl.SimplePersonsPackageImpl;
+import Strategies.impl.StrategiesPackageImpl;
 import VHDLModel.impl.VHDLModelPackageImpl;
 import classMultipleInheritanceHierarchy.impl.ClassMultipleInheritanceHierarchyPackageImpl;
 import language.TGG;
@@ -63,14 +67,27 @@ public class PerformanceTestUtil {
 	/**
 	 * Returns a data object for registering a meta model. For each new TGG,
 	 * the meta models that need to be registered need to be added here.
+	 * @throws IOException 
 	 */
-	public RegistrationData getRegistrationData(String projectPath) {
+	public RegistrationData getRegistrationData(String projectPath, OperationalStrategy op) throws IOException {
 		String srcMetaModel = "";
 		String trgMetaModel = "";
 		EPackage srcPackage = null;
 		EPackage trgPackage = null;
 		
 		switch (projectPath) {
+		case Constants.algorithmToStrategy_MA:
+			srcMetaModel = "Algorithms";
+			trgMetaModel = "Strategies";
+			srcPackage = AlgorithmsPackageImpl.init();
+			trgPackage = StrategiesPackageImpl.init();
+			break;
+		case Constants.benchmarxFamiliesToPersons:
+			srcMetaModel = "Families";
+			trgMetaModel = "Persons";
+			srcPackage = FamiliesPackageImpl.init();
+			trgPackage = PersonsPackageImpl.init();
+			break;
 		case Constants.blockCodeAdapter:
 			srcMetaModel = "MocaTree";
 			trgMetaModel = "BlockLanguage";
@@ -78,6 +95,12 @@ public class PerformanceTestUtil {
 			trgPackage = BlockLanguagePackageImpl.init();
 			break;
 		case Constants.blockDiagramCodeAdapter:
+			srcMetaModel = "BlockDiagram";
+			trgMetaModel = "MocaTree";
+			srcPackage = BlockDiagramPackageImpl.init();
+			trgPackage = MocaTreePackageImpl.init();
+			break;
+		case Constants.blockDiagramCodeAdapter_EdgeRules:
 			srcMetaModel = "BlockDiagram";
 			trgMetaModel = "MocaTree";
 			srcPackage = BlockDiagramPackageImpl.init();
@@ -120,11 +143,23 @@ public class PerformanceTestUtil {
 			srcPackage = SimpleFamiliesPackageImpl.init();
 			trgPackage = SimplePersonsPackageImpl.init();
 			break;
+		case Constants.familyWithSiblingsToPerson_MA:
+			srcMetaModel = "FamiliesWithSiblings";
+			trgMetaModel = "Persons";
+			srcPackage = FamiliesWithSiblingsPackageImpl.init();
+			trgPackage = PersonsPackageImpl.init();
+			break;
 		case Constants.featureModelConciseToSafe:
 			srcMetaModel = "FeatureModelConcise";
 			trgMetaModel = "FeatureModelSafe";
 			srcPackage = FeatureModelConcisePackageImpl.init();
 			trgPackage = FeatureModelSafePackageImpl.init();
+			break;
+		case Constants.moDiscoIbexTGG:
+			srcMetaModel = "java";
+			trgMetaModel = "UML";
+			srcPackage = (EPackage) op.loadResource("platform:/resource/../metamodels/UML/model/UML.ecore").getContents().get(0);
+			trgPackage = (EPackage) op.loadResource("platform:/resource/../metamodels/java/model/java.ecore").getContents().get(0);
 			break;
 		case Constants.processCodeAdapter:
 			srcMetaModel = "MocaTree";
@@ -149,9 +184,9 @@ public class PerformanceTestUtil {
 	/** 
 	 * Registers the meta models of the used TGG for CC, CO, SYNC and MODELGEN. 
 	 *  */
-	public void registerUserMetamodels(String projectPath, ResourceSet rs) throws IOException {
+	public void registerUserMetamodels(String projectPath, ResourceSet rs, OperationalStrategy op) throws IOException {
 		
-		RegistrationData data = getRegistrationData(projectPath);
+		RegistrationData data = getRegistrationData(projectPath, op);
 		
 		rs.getURIConverter().getURIMap().put(URI.createURI("platform:/plugin/"+data.srcMetaModel+"/"), URI.createURI("platform:/resource/"+data.srcMetaModel+"/"));
 		rs.getURIConverter().getURIMap().put(URI.createURI("platform:/plugin/"+data.trgMetaModel+"/"), URI.createURI("platform:/resource/"+data.trgMetaModel+"/"));
@@ -164,7 +199,7 @@ public class PerformanceTestUtil {
 	 *  */
 	public void registerUserMetamodelsFWD_OPT(String projectPath, ResourceSet rs, FWD_OPT op) throws IOException {
 		
-		RegistrationData data = getRegistrationData(projectPath);
+		RegistrationData data = getRegistrationData(projectPath, op);
 		
 		rs.getPackageRegistry().put("platform:/resource/"+data.srcMetaModel+"/model/"+data.srcMetaModel+".ecore", data.srcPackage);
 		
@@ -180,7 +215,7 @@ public class PerformanceTestUtil {
 	 *  */
 	public void registerUserMetamodelsBWD_OPT(String projectPath, ResourceSet rs, BWD_OPT op) throws IOException {
 		
-		RegistrationData data = getRegistrationData(projectPath);
+		RegistrationData data = getRegistrationData(projectPath, op);
 		
 		rs.getPackageRegistry().put("platform:/resource/" +data.trgMetaModel+ "/model/" +data.trgMetaModel+ ".ecore", data.trgPackage);
 		
@@ -218,10 +253,19 @@ public class PerformanceTestUtil {
 			stop.setMaxElementCount(size);
 			
 			switch (tgg.getName()) {
+				case Constants.algorithmToStrategy_MA:
+					stop.setMaxRuleCount("AlgoContainerToStrategyContainer", 1);
+					break;
+				case Constants.benchmarxFamiliesToPersons:
+					stop.setMaxRuleCount("Families2Persons", 1);
+					break;
 				case Constants.blockCodeAdapter:
 					stop.setMaxRuleCount("File2SpecRule", 1);
 					break;
 				case Constants.blockDiagramCodeAdapter:
+					stop.setMaxRuleCount("SystemToNodeRule", 1);
+					break;
+				case Constants.blockDiagramCodeAdapter_EdgeRules:
 					stop.setMaxRuleCount("SystemToNodeRule", 1);
 					break;
 				case Constants.classInhHier2DB:
@@ -252,8 +296,13 @@ public class PerformanceTestUtil {
 				case Constants.familiesToPersons_V1:
 					stop.setMaxRuleCount("HandleRegisters", 1);
 					break;
+				case Constants.familyWithSiblingsToPerson_MA:
+					break;
 				case Constants.featureModelConciseToSafe:
 					stop.setMaxRuleCount("RootAxiomRule", 1);
+					break;
+				case Constants.moDiscoIbexTGG:
+					stop.setMaxRuleCount("JavaModelToUMLModel", 1);
 					break;
 				case Constants.processCodeAdapter:
 					stop.setMaxRuleCount("RootToSystemRule", 1);

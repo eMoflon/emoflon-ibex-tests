@@ -23,7 +23,7 @@ public class CO_App extends CO {
 
 	@Override
 	protected void registerUserMetamodels() throws IOException {
-		new PerformanceTestUtil().registerUserMetamodels(projectPath, rs);
+		new PerformanceTestUtil().registerUserMetamodels(projectPath, rs, this);
 		
 		// Register correspondence metamodel last
 		loadAndRegisterMetamodel(projectPath + "/model/" + projectPath + ".ecore");
