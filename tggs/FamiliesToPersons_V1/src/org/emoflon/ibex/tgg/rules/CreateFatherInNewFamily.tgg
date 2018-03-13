@@ -46,5 +46,8 @@
 #nac NoOtherFamily #for CreateFatherInNewFamily
 
 #source {
+//	reg:FamilyRegister {
+//		-families->other
+//	}
 	other:Family
 }

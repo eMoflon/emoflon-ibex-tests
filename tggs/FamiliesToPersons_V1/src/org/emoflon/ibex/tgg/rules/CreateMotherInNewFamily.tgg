@@ -43,8 +43,5 @@
 #nac NoOtherFamily #for CreateMotherInNewFamily
 
 #source {
-	d:FamilyMember
-	other:Family {
-		-daughters->d
-	}
+	other:Family
 }

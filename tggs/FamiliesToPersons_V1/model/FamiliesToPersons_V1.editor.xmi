@@ -207,14 +207,18 @@
     </sourcePatterns>
   </nacs>
   <nacs name="NoOtherFamily" rule="//@rules.2">
-    <sourcePatterns name="d">
-      <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//FamilyMember"/>
-    </sourcePatterns>
     <sourcePatterns name="other">
       <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//Family"/>
-      <linkVariablePatterns target="//@nacs.1/@sourcePatterns.0">
-        <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//Family/daughters"/>
-      </linkVariablePatterns>
     </sourcePatterns>
+  </nacs>
+  <nacs name="NoDuplicatedFamilyRegister" rule="//@rules.3">
+    <sourcePatterns name="other">
+      <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//FamilyRegister"/>
+    </sourcePatterns>
+  </nacs>
+  <nacs name="NoDuplicatedpersonRegister" rule="//@rules.3">
+    <targetPatterns name="other">
+      <type href="platform:/resource/SimplePersons/model/SimplePersons.ecore#//PersonRegister"/>
+    </targetPatterns>
   </nacs>
 </tgg:TripleGraphGrammarFile>

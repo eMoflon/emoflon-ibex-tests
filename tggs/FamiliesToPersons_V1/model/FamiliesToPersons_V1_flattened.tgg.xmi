@@ -97,15 +97,9 @@
   </rules>
   <rules name="CreateMotherInNewFamily">
     <nacs name="NoOtherFamily">
-      <nodes name="d" incomingEdges="//@rules.2/@nacs.0/@edges.0">
-        <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//FamilyMember"/>
-      </nodes>
-      <nodes name="other" outgoingEdges="//@rules.2/@nacs.0/@edges.0">
+      <nodes name="other">
         <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//Family"/>
       </nodes>
-      <edges name="other__daughters__d_eMoflonEdge" srcNode="//@rules.2/@nacs.0/@nodes.1" trgNode="//@rules.2/@nacs.0/@nodes.0">
-        <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//Family/daughters"/>
-      </edges>
       <attributeConditionLibrary/>
     </nacs>
     <nodes name="family" bindingType="CREATE" incomingEdges="//@rules.2/@edges.1" outgoingEdges="//@rules.2/@edges.0">
@@ -153,6 +147,18 @@
     </attributeConditionLibrary>
   </rules>
   <rules name="HandleRegisters">
+    <nacs name="NoDuplicatedFamilyRegister">
+      <nodes name="other">
+        <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//FamilyRegister"/>
+      </nodes>
+      <attributeConditionLibrary/>
+    </nacs>
+    <nacs name="NoDuplicatedpersonRegister">
+      <nodes name="other" domainType="TRG">
+        <type href="platform:/resource/SimplePersons/model/SimplePersons.ecore#//PersonRegister"/>
+      </nodes>
+      <attributeConditionLibrary/>
+    </nacs>
     <nodes name="fr" bindingType="CREATE" incomingCorrsSource="//@rules.3/@nodes.2">
       <type href="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore#//FamilyRegister"/>
     </nodes>
