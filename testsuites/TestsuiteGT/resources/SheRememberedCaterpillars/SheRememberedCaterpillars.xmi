@@ -13,10 +13,13 @@
       charactersStandingOn="//@characters.0"
       connectedBy="//@objects.2"/>
   <objects xsi:type="SheRememberedCaterpillars:SimplePlatform"
+      neighbors="//@objects.4 //@objects.3"
       connectedBy="//@objects.2"/>
   <objects xsi:type="SheRememberedCaterpillars:Bridge"
       connects="//@objects.0 //@objects.1"/>
   <objects xsi:type="SheRememberedCaterpillars:ExitPlatform"
       charactersStandingOn="//@characters.1"
-      neighbors="//@objects.0"/>
+      neighbors="//@objects.1"/>
+  <objects xsi:type="SheRememberedCaterpillars:ExitPlatform"
+      neighbors="//@objects.1"/>
 </SheRememberedCaterpillars:Game>

@@ -1,0 +1,9 @@
+import "platform:/resource/SimplePersons/model/SimplePersons.ecore"
+
+rule findRegister {
+	register: PersonRegister
+}
+
+rule createRegister {
+	++ register: PersonRegister
+}

@@ -10,30 +10,33 @@ import SheRememberedCaterpillarsGraphTransformation.api.SheRememberedCaterpillar
 import SheRememberedCaterpillarsGraphTransformation.api.matches.NoTwoCharactersOnAnExitPlatformMatch;
 
 /**
- * Tests for simple constraints with the SheRememberedCaterpillars Graph
+ * Tests for rule applications with the SheRememberedCaterpillars Graph
  * Transformation API.
  */
 public class SheRememberedCaterpillarsConstraintsTest extends SheRememberedCaterpillarsAbstractTest {
 	@Test
-	public void testFindCharacters() {
+	public void findCharacters() {
 		ResourceSet model = this.initResourceSet("SheRememberedCaterpillars.xmi");
 		SheRememberedCaterpillarsGraphTransformationAPI api = this.initAPI(model);
+
 		assertMatchCount(2, api.findCharacter());
 		assertAnyMatchExists(api.findCharacterNotOnExit());
 		assertAnyMatchExists(api.findCharacterOnExit());
 	}
 
 	@Test
-	public void testNoIllegalSituation() {
+	public void noIllegalSituation() {
 		ResourceSet model = this.initResourceSet("SheRememberedCaterpillars.xmi");
 		SheRememberedCaterpillarsGraphTransformationAPI api = this.initAPI(model);
+
 		assertNoMatch(api.noTwoCharactersOnAnExitPlatform());
 	}
 
 	@Test
-	public void testIllegalSituation() {
+	public void illegalSituation() {
 		ResourceSet model = this.initResourceSet("TwoCharactersAtSameExit.xmi");
 		SheRememberedCaterpillarsGraphTransformationAPI api = this.initAPI(model);
+
 		assertAnyMatchExists(api.noTwoCharactersOnAnExitPlatform());
 		assertMatchCount(2, api.noTwoCharactersOnAnExitPlatform());
 		assertTrue(api.noTwoCharactersOnAnExitPlatform().findAnyMatch()

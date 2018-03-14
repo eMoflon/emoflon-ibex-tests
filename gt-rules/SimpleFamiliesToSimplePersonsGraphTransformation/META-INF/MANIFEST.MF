@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: SimpleFamiliesToSimplePersonsGraphTransformation
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: SimpleFamiliesToSimplePersonsGraphTransformation; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.emoflon.ibex.common,
+ org.emoflon.ibex.gt,
+ SimpleFamilies,
+ SimplePersons
+Import-Package: org.apache.log4j,
+ org.apache.commons.logging
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: SimpleFamiliesToSimplePersonsGraphTransformation.api,
+ SimpleFamiliesToSimplePersonsGraphTransformation.api.matches,
+ SimpleFamiliesToSimplePersonsGraphTransformation.api.rules

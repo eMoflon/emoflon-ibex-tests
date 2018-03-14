@@ -71,6 +71,17 @@ public abstract class GTTestCase<API extends GraphTransformationAPI> {
 	protected abstract Map<String, EPackage> getMetaModelPackages();
 
 	/**
+	 * Initializes Democles for the tests.
+	 * 
+	 * @return the DemoclesGTEngine
+	 */
+	protected DemoclesGTEngine initDemocles() {
+		DemoclesGTEngine engine = new DemoclesGTEngine();
+		engine.setDebugPath("./debug/" + this.getTestName());
+		return engine;
+	}
+
+	/**
 	 * Initializes the API for the tests.
 	 * 
 	 * @param model
@@ -78,9 +89,7 @@ public abstract class GTTestCase<API extends GraphTransformationAPI> {
 	 * @return the created API
 	 */
 	protected API initAPI(final ResourceSet model) {
-		DemoclesGTEngine engine = new DemoclesGTEngine();
-		engine.setDebugPath("./debug/" + this.getTestName());
-		return this.getAPI(engine, model);
+		return this.getAPI(this.initDemocles(), model);
 	}
 
 	/**
