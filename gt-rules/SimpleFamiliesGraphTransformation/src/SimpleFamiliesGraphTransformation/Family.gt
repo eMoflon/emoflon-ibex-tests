@@ -17,5 +17,9 @@ rule deleteFamily {
 }
 
 rule findFamily {
+	register: FamilyRegister {
+		-families -> family
+	}
+
 	family: Family
 }
