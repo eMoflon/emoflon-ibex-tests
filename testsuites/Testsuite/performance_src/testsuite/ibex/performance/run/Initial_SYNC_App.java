@@ -24,5 +24,9 @@ public class Initial_SYNC_App extends SYNC_App {
 		else 
 			return patternName.endsWith(PatternSuffixes.BWD);
 	}
-
+	
+	@Override
+	public void saveModels() {
+		// Models needn't be saved for all Operationalizations except MODELGEN
+	}
 }

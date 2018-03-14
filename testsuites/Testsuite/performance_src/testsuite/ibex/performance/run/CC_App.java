@@ -38,6 +38,11 @@ public class CC_App extends CC {
 		EcoreUtil.resolveAll(rs);
 	}
 	
+	@Override
+	public void saveModels() {
+		// Models needn't be saved for all Operationalizations except MODELGEN
+	}
+	
 	protected static IbexOptions createIbexOptions() {
 		IbexOptions options = new IbexOptions();
 		return options;
