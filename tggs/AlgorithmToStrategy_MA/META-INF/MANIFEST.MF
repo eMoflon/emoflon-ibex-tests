@@ -3,7 +3,6 @@ Bundle-SymbolicName: AlgorithmToStrategy_MA;singleton:=true
 Bundle-Name: AlgorithmToStrategy_MA
 Bundle-Version: 1.0
 Require-Bundle: Algorithms;bundle-version="1.0.0",
- Strategies;bundle-version="1.0.0",
  Benchmarx;bundle-version="1.0.0",
  org.gervarro.democles.common,
  org.gervarro.democles.specification.emf,
@@ -25,7 +24,8 @@ Require-Bundle: Algorithms;bundle-version="1.0.0",
  org.emoflon.ibex.common,
  org.emoflon.ibex.tgg.core.language,
  org.emoflon.ibex.tgg.core.runtime,
- org.emoflon.ibex.tgg.runtime.democles
+ org.emoflon.ibex.tgg.runtime.democles,
+ Strategies;bundle-version="1.0.0"
 Bundle-ManifestVersion: 2
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8

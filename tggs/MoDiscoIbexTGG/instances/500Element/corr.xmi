@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:MoDiscoIbexTGG="platform:/resource/MoDiscoIbexTGG/model/MoDiscoIbexTGG.ecore" xmlns:java="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore" xmlns:uml="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore">
+  <MoDiscoIbexTGG:JavaModel2UMLPackage>
+    <source href="src.xmi#/"/>
+    <target href="trg.xmi#/"/>
+  </MoDiscoIbexTGG:JavaModel2UMLPackage>
+  <MoDiscoIbexTGG:JavaPackage2UmlPackage>
+    <source href="src.xmi#//@ownedElements.0"/>
+    <target href="trg.xmi#//@packagedElement.3"/>
+  </MoDiscoIbexTGG:JavaPackage2UmlPackage>
+  <MoDiscoIbexTGG:JavaType2UMLType>
+    <source xsi:type="java:EnumDeclaration" href="src.xmi#//@ownedElements.0/@ownedElements.0"/>
+    <target xsi:type="uml:Enumeration" href="trg.xmi#//@packagedElement.3/@packagedElement.0"/>
+  </MoDiscoIbexTGG:JavaType2UMLType>
+  <MoDiscoIbexTGG:JavaType2UMLType>
+    <source xsi:type="java:PrimitiveTypeVoid" href="src.xmi#//@orphanTypes.0"/>
+    <target xsi:type="uml:PrimitiveType" href="trg.xmi#//@packagedElement.0"/>
+  </MoDiscoIbexTGG:JavaType2UMLType>
+  <MoDiscoIbexTGG:JavaType2UMLType>
+    <source xsi:type="java:PrimitiveTypeShort" href="src.xmi#//@orphanTypes.1"/>
+    <target xsi:type="uml:PrimitiveType" href="trg.xmi#//@packagedElement.1"/>
+  </MoDiscoIbexTGG:JavaType2UMLType>
+  <MoDiscoIbexTGG:JavaType2UMLType>
+    <source xsi:type="java:PrimitiveTypeChar" href="src.xmi#//@orphanTypes.2"/>
+    <target xsi:type="uml:PrimitiveType" href="trg.xmi#//@packagedElement.2"/>
+  </MoDiscoIbexTGG:JavaType2UMLType>
+  <MoDiscoIbexTGG:JavaPackage2UmlPackage>
+    <source href="src.xmi#//@ownedElements.1"/>
+    <target href="trg.xmi#//@packagedElement.5"/>
+  </MoDiscoIbexTGG:JavaPackage2UmlPackage>
+  <MoDiscoIbexTGG:JavaType2UMLType>
+    <source xsi:type="java:ClassDeclaration" href="src.xmi#//@ownedElements.1/@ownedElements.0"/>
+    <target xsi:type="uml:Class" href="trg.xmi#//@packagedElement.5/@packagedElement.0"/>
+  </MoDiscoIbexTGG:JavaType2UMLType>
+  <MoDiscoIbexTGG:JavaType2UMLType>
+    <source xsi:type="java:EnumDeclaration" href="src.xmi#//@ownedElements.0/@ownedElements.1"/>
+    <target xsi:type="uml:Enumeration" href="trg.xmi#//@packagedElement.3/@packagedElement.1"/>
+  </MoDiscoIbexTGG:JavaType2UMLType>
+  <MoDiscoIbexTGG:JavaType2UMLType>
+    <source xsi:type="java:PrimitiveTypeFloat" href="src.xmi#//@orphanTypes.3"/>
+    <target xsi:type="uml:PrimitiveType" href="trg.xmi#//@packagedElement.4"/>
+  </MoDiscoIbexTGG:JavaType2UMLType>
+  <MoDiscoIbexTGG:FieldDec2Property>
+    <source href="src.xmi#//@ownedElements.1/@ownedElements.0/@bodyDeclarations.0"/>
+    <target href="trg.xmi#//@packagedElement.5/@packagedElement.0/@ownedAttribute.0"/>
+  </MoDiscoIbexTGG:FieldDec2Property>
+  <MoDiscoIbexTGG:MethodDec2Operation>
+    <source href="src.xmi#//@ownedElements.0/@ownedElements.1/@bodyDeclarations.0"/>
+    <target href="trg.xmi#//@packagedElement.3/@packagedElement.1/@ownedOperation.0"/>
+  </MoDiscoIbexTGG:MethodDec2Operation>
+  <MoDiscoIbexTGG:JavaType2UMLType>
+    <source xsi:type="java:EnumDeclaration" href="src.xmi#//@ownedElements.1/@ownedElements.1"/>
+    <target xsi:type="uml:Enumeration" href="trg.xmi#//@packagedElement.5/@packagedElement.1"/>
+  </MoDiscoIbexTGG:JavaType2UMLType>
+  <MoDiscoIbexTGG:JavaType2UMLType>
+    <source xsi:type="java:EnumDeclaration" href="src.xmi#//@ownedElements.1/@ownedElements.2"/>
+    <target xsi:type="uml:Enumeration" href="trg.xmi#//@packagedElement.5/@packagedElement.2"/>
+  </MoDiscoIbexTGG:JavaType2UMLType>
+  <MoDiscoIbexTGG:MethodDec2Operation>
+    <source href="src.xmi#//@ownedElements.1/@ownedElements.0/@bodyDeclarations.1"/>
+    <target href="trg.xmi#//@packagedElement.5/@packagedElement.0/@ownedOperation.0"/>
+  </MoDiscoIbexTGG:MethodDec2Operation>
+  <MoDiscoIbexTGG:MethodDec2Operation>
+    <source href="src.xmi#//@ownedElements.1/@ownedElements.0/@bodyDeclarations.2"/>
+    <target href="trg.xmi#//@packagedElement.5/@packagedElement.0/@ownedOperation.1"/>
+  </MoDiscoIbexTGG:MethodDec2Operation>
+  <MoDiscoIbexTGG:JavaType2UMLType>
+    <source xsi:type="java:PrimitiveTypeByte" href="src.xmi#//@orphanTypes.4"/>
+    <target xsi:type="uml:PrimitiveType" href="trg.xmi#//@packagedElement.6"/>
+  </MoDiscoIbexTGG:JavaType2UMLType>
+  <MoDiscoIbexTGG:JavaType2UMLType>
+    <source xsi:type="java:PrimitiveTypeVoid" href="src.xmi#//@orphanTypes.5"/>
+    <target xsi:type="uml:PrimitiveType" href="trg.xmi#//@packagedElement.7"/>
+  </MoDiscoIbexTGG:JavaType2UMLType>
+  <MoDiscoIbexTGG:JavaType2UMLType>
+    <source xsi:type="java:PrimitiveTypeVoid" href="src.xmi#//@orphanTypes.6"/>
+    <target xsi:type="uml:PrimitiveType" href="trg.xmi#//@packagedElement.8"/>
+  </MoDiscoIbexTGG:JavaType2UMLType>
+  <MoDiscoIbexTGG:JavaType2UMLType>
+    <source xsi:type="java:PrimitiveTypeLong" href="src.xmi#//@orphanTypes.7"/>
+    <target xsi:type="uml:PrimitiveType" href="trg.xmi#//@packagedElement.9"/>
+  </MoDiscoIbexTGG:JavaType2UMLType>
+  <MoDiscoIbexTGG:JavaType2UMLType>
+    <source xsi:type="java:PrimitiveTypeShort" href="src.xmi#//@orphanTypes.8"/>
+    <target xsi:type="uml:PrimitiveType" href="trg.xmi#//@packagedElement.10"/>
+  </MoDiscoIbexTGG:JavaType2UMLType>
+  <MoDiscoIbexTGG:JavaType2UMLType>
+    <source xsi:type="java:InterfaceDeclaration" href="src.xmi#//@ownedElements.1/@ownedElements.3"/>
+    <target xsi:type="uml:Interface" href="trg.xmi#//@packagedElement.5/@packagedElement.3"/>
+  </MoDiscoIbexTGG:JavaType2UMLType>
+  <MoDiscoIbexTGG:VariableDec2Parameter>
+    <source xsi:type="java:SingleVariableDeclaration" href="src.xmi#//@ownedElements.0/@ownedElements.1/@bodyDeclarations.0/@parameters.0"/>
+    <target href="trg.xmi#//@packagedElement.3/@packagedElement.1/@ownedOperation.0/@ownedParameter.0"/>
+  </MoDiscoIbexTGG:VariableDec2Parameter>
+  <MoDiscoIbexTGG:JavaType2UMLType>
+    <source xsi:type="java:PrimitiveTypeDouble" href="src.xmi#//@orphanTypes.9"/>
+    <target xsi:type="uml:PrimitiveType" href="trg.xmi#//@packagedElement.11"/>
+  </MoDiscoIbexTGG:JavaType2UMLType>
+  <MoDiscoIbexTGG:FieldDec2Property>
+    <source href="src.xmi#//@ownedElements.1/@ownedElements.0/@bodyDeclarations.3"/>
+    <target href="trg.xmi#//@packagedElement.5/@packagedElement.0/@ownedAttribute.1"/>
+  </MoDiscoIbexTGG:FieldDec2Property>
+  <MoDiscoIbexTGG:JavaType2UMLType>
+    <source xsi:type="java:PrimitiveTypeVoid" href="src.xmi#//@orphanTypes.10"/>
+    <target xsi:type="uml:PrimitiveType" href="trg.xmi#//@packagedElement.12"/>
+  </MoDiscoIbexTGG:JavaType2UMLType>
+  <MoDiscoIbexTGG:JavaType2UMLType>
+    <source xsi:type="java:PrimitiveTypeChar" href="src.xmi#//@orphanTypes.11"/>
+    <target xsi:type="uml:PrimitiveType" href="trg.xmi#//@packagedElement.13"/>
+  </MoDiscoIbexTGG:JavaType2UMLType>
+  <MoDiscoIbexTGG:FieldDec2Property>
+    <source href="src.xmi#//@ownedElements.1/@ownedElements.0/@bodyDeclarations.4"/>
+    <target href="trg.xmi#//@packagedElement.5/@packagedElement.0/@ownedAttribute.2"/>
+  </MoDiscoIbexTGG:FieldDec2Property>
+  <MoDiscoIbexTGG:JavaType2UMLType>
+    <source xsi:type="java:PrimitiveTypeBoolean" href="src.xmi#//@orphanTypes.12"/>
+    <target xsi:type="uml:PrimitiveType" href="trg.xmi#//@packagedElement.14"/>
+  </MoDiscoIbexTGG:JavaType2UMLType>
+  <MoDiscoIbexTGG:VariableDec2Parameter>
+    <source xsi:type="java:SingleVariableDeclaration" href="src.xmi#//@ownedElements.1/@ownedElements.0/@bodyDeclarations.1/@parameters.0"/>
+    <target href="trg.xmi#//@packagedElement.5/@packagedElement.0/@ownedOperation.0/@ownedParameter.0"/>
+  </MoDiscoIbexTGG:VariableDec2Parameter>
+  <MoDiscoIbexTGG:JavaType2UMLType>
+    <source xsi:type="java:InterfaceDeclaration" href="src.xmi#//@ownedElements.0/@ownedElements.2"/>
+    <target xsi:type="uml:Interface" href="trg.xmi#//@packagedElement.3/@packagedElement.2"/>
+  </MoDiscoIbexTGG:JavaType2UMLType>
+  <MoDiscoIbexTGG:MethodDec2Operation>
+    <source href="src.xmi#//@ownedElements.1/@ownedElements.1/@bodyDeclarations.0"/>
+    <target href="trg.xmi#//@packagedElement.5/@packagedElement.1/@ownedOperation.0"/>
+  </MoDiscoIbexTGG:MethodDec2Operation>
+  <MoDiscoIbexTGG:JavaType2UMLType>
+    <source xsi:type="java:EnumDeclaration" href="src.xmi#//@ownedElements.0/@ownedElements.3"/>
+    <target xsi:type="uml:Enumeration" href="trg.xmi#//@packagedElement.3/@packagedElement.3"/>
+  </MoDiscoIbexTGG:JavaType2UMLType>
+  <MoDiscoIbexTGG:JavaType2UMLType>
+    <source xsi:type="java:PrimitiveTypeShort" href="src.xmi#//@orphanTypes.13"/>
+    <target xsi:type="uml:PrimitiveType" href="trg.xmi#//@packagedElement.15"/>
+  </MoDiscoIbexTGG:JavaType2UMLType>
+  <MoDiscoIbexTGG:JavaType2UMLType>
+    <source xsi:type="java:PrimitiveTypeLong" href="src.xmi#//@orphanTypes.14"/>
+    <target xsi:type="uml:PrimitiveType" href="trg.xmi#//@packagedElement.16"/>
+  </MoDiscoIbexTGG:JavaType2UMLType>
+  <MoDiscoIbexTGG:VariableDec2Parameter>
+    <source xsi:type="java:SingleVariableDeclaration" href="src.xmi#//@ownedElements.1/@ownedElements.0/@bodyDeclarations.2/@parameters.0"/>
+    <target href="trg.xmi#//@packagedElement.5/@packagedElement.0/@ownedOperation.1/@ownedParameter.0"/>
+  </MoDiscoIbexTGG:VariableDec2Parameter>
+  <MoDiscoIbexTGG:JavaType2UMLType>
+    <source xsi:type="java:ClassDeclaration" href="src.xmi#//@ownedElements.0/@ownedElements.4"/>
+    <target xsi:type="uml:Class" href="trg.xmi#//@packagedElement.3/@packagedElement.4"/>
+  </MoDiscoIbexTGG:JavaType2UMLType>
+  <MoDiscoIbexTGG:JavaType2UMLType>
+    <source xsi:type="java:PrimitiveTypeLong" href="src.xmi#//@orphanTypes.15"/>
+    <target xsi:type="uml:PrimitiveType" href="trg.xmi#//@packagedElement.17"/>
+  </MoDiscoIbexTGG:JavaType2UMLType>
+  <MoDiscoIbexTGG:VariableDec2Parameter>
+    <source xsi:type="java:SingleVariableDeclaration" href="src.xmi#//@ownedElements.1/@ownedElements.0/@bodyDeclarations.1/@parameters.1"/>
+    <target href="trg.xmi#//@packagedElement.5/@packagedElement.0/@ownedOperation.0/@ownedParameter.1"/>
+  </MoDiscoIbexTGG:VariableDec2Parameter>
+  <MoDiscoIbexTGG:JavaType2UMLType>
+    <source xsi:type="java:EnumDeclaration" href="src.xmi#//@ownedElements.0/@ownedElements.5"/>
+    <target xsi:type="uml:Enumeration" href="trg.xmi#//@packagedElement.3/@packagedElement.5"/>
+  </MoDiscoIbexTGG:JavaType2UMLType>
+  <MoDiscoIbexTGG:MethodDec2Operation>
+    <source href="src.xmi#//@ownedElements.1/@ownedElements.0/@bodyDeclarations.5"/>
+    <target href="trg.xmi#//@packagedElement.5/@packagedElement.0/@ownedOperation.2"/>
+  </MoDiscoIbexTGG:MethodDec2Operation>
+  <MoDiscoIbexTGG:JavaType2UMLType>
+    <source xsi:type="java:PrimitiveTypeByte" href="src.xmi#//@orphanTypes.16"/>
+    <target xsi:type="uml:PrimitiveType" href="trg.xmi#//@packagedElement.18"/>
+  </MoDiscoIbexTGG:JavaType2UMLType>
+  <MoDiscoIbexTGG:JavaType2UMLType>
+    <source xsi:type="java:PrimitiveTypeLong" href="src.xmi#//@orphanTypes.17"/>
+    <target xsi:type="uml:PrimitiveType" href="trg.xmi#//@packagedElement.19"/>
+  </MoDiscoIbexTGG:JavaType2UMLType>
+  <MoDiscoIbexTGG:MethodDec2Operation>
+    <source href="src.xmi#//@ownedElements.1/@ownedElements.3/@bodyDeclarations.0"/>
+    <target href="trg.xmi#//@packagedElement.5/@packagedElement.3/@ownedOperation.0"/>
+  </MoDiscoIbexTGG:MethodDec2Operation>
+  <MoDiscoIbexTGG:JavaType2UMLType>
+    <source xsi:type="java:PrimitiveTypeInt" href="src.xmi#//@orphanTypes.18"/>
+    <target xsi:type="uml:PrimitiveType" href="trg.xmi#//@packagedElement.20"/>
+  </MoDiscoIbexTGG:JavaType2UMLType>
+  <MoDiscoIbexTGG:JavaType2UMLType>
+    <source xsi:type="java:PrimitiveTypeInt" href="src.xmi#//@orphanTypes.19"/>
+    <target xsi:type="uml:PrimitiveType" href="trg.xmi#//@packagedElement.21"/>
+  </MoDiscoIbexTGG:JavaType2UMLType>
+  <MoDiscoIbexTGG:VariableDec2Parameter>
+    <source xsi:type="java:SingleVariableDeclaration" href="src.xmi#//@ownedElements.1/@ownedElements.3/@bodyDeclarations.0/@parameters.0"/>
+    <target href="trg.xmi#//@packagedElement.5/@packagedElement.3/@ownedOperation.0/@ownedParameter.0"/>
+  </MoDiscoIbexTGG:VariableDec2Parameter>
+  <MoDiscoIbexTGG:VariableDec2Parameter>
+    <source xsi:type="java:SingleVariableDeclaration" href="src.xmi#//@ownedElements.1/@ownedElements.1/@bodyDeclarations.0/@parameters.0"/>
+    <target href="trg.xmi#//@packagedElement.5/@packagedElement.1/@ownedOperation.0/@ownedParameter.0"/>
+  </MoDiscoIbexTGG:VariableDec2Parameter>
+  <MoDiscoIbexTGG:JavaType2UMLType>
+    <source xsi:type="java:PrimitiveTypeInt" href="src.xmi#//@orphanTypes.20"/>
+    <target xsi:type="uml:PrimitiveType" href="trg.xmi#//@packagedElement.22"/>
+  </MoDiscoIbexTGG:JavaType2UMLType>
+  <MoDiscoIbexTGG:JavaPackage2UmlPackage>
+    <source href="src.xmi#//@ownedElements.2"/>
+    <target href="trg.xmi#//@packagedElement.31"/>
+  </MoDiscoIbexTGG:JavaPackage2UmlPackage>
+  <MoDiscoIbexTGG:MethodDec2Operation>
+    <source href="src.xmi#//@ownedElements.1/@ownedElements.3/@bodyDeclarations.1"/>
+    <target href="trg.xmi#//@packagedElement.5/@packagedElement.3/@ownedOperation.1"/>
+  </MoDiscoIbexTGG:MethodDec2Operation>
+  <MoDiscoIbexTGG:MethodDec2Operation>
+    <source href="src.xmi#//@ownedElements.0/@ownedElements.3/@bodyDeclarations.0"/>
+    <target href="trg.xmi#//@packagedElement.3/@packagedElement.3/@ownedOperation.0"/>
+  </MoDiscoIbexTGG:MethodDec2Operation>
+  <MoDiscoIbexTGG:MethodDec2Operation>
+    <source href="src.xmi#//@ownedElements.0/@ownedElements.0/@bodyDeclarations.0"/>
+    <target href="trg.xmi#//@packagedElement.3/@packagedElement.0/@ownedOperation.0"/>
+  </MoDiscoIbexTGG:MethodDec2Operation>
+  <MoDiscoIbexTGG:VariableDec2Parameter>
+    <source xsi:type="java:SingleVariableDeclaration" href="src.xmi#//@ownedElements.1/@ownedElements.1/@bodyDeclarations.0/@parameters.1"/>
+    <target href="trg.xmi#//@packagedElement.5/@packagedElement.1/@ownedOperation.0/@ownedParameter.1"/>
+  </MoDiscoIbexTGG:VariableDec2Parameter>
+  <MoDiscoIbexTGG:MethodDec2Operation>
+    <source href="src.xmi#//@ownedElements.0/@ownedElements.0/@bodyDeclarations.1"/>
+    <target href="trg.xmi#//@packagedElement.3/@packagedElement.0/@ownedOperation.1"/>
+  </MoDiscoIbexTGG:MethodDec2Operation>
+  <MoDiscoIbexTGG:MethodDec2Operation>
+    <source href="src.xmi#//@ownedElements.0/@ownedElements.2/@bodyDeclarations.0"/>
+    <target href="trg.xmi#//@packagedElement.3/@packagedElement.2/@ownedOperation.0"/>
+  </MoDiscoIbexTGG:MethodDec2Operation>
+  <MoDiscoIbexTGG:MethodDec2Operation>
+    <source href="src.xmi#//@ownedElements.0/@ownedElements.0/@bodyDeclarations.2"/>
+    <target href="trg.xmi#//@packagedElement.3/@packagedElement.0/@ownedOperation.2"/>
+  </MoDiscoIbexTGG:MethodDec2Operation>
+  <MoDiscoIbexTGG:JavaType2UMLType>
+    <source xsi:type="java:EnumDeclaration" href="src.xmi#//@ownedElements.1/@ownedElements.4"/>
+    <target xsi:type="uml:Enumeration" href="trg.xmi#//@packagedElement.5/@packagedElement.4"/>
+  </MoDiscoIbexTGG:JavaType2UMLType>
+  <MoDiscoIbexTGG:FieldDec2Property>
+    <source href="src.xmi#//@ownedElements.1/@ownedElements.0/@bodyDeclarations.6"/>
+    <target href="trg.xmi#//@packagedElement.5/@packagedElement.0/@ownedAttribute.3"/>
+  </MoDiscoIbexTGG:FieldDec2Property>
+  <MoDiscoIbexTGG:JavaType2UMLType>
+    <source xsi:type="java:PrimitiveTypeShort" href="src.xmi#//@orphanTypes.21"/>
+    <target xsi:type="uml:PrimitiveType" href="trg.xmi#//@packagedElement.23"/>
+  </MoDiscoIbexTGG:JavaType2UMLType>
+  <MoDiscoIbexTGG:JavaType2UMLType>
+    <source xsi:type="java:PrimitiveTypeLong" href="src.xmi#//@orphanTypes.22"/>
+    <target xsi:type="uml:PrimitiveType" href="trg.xmi#//@packagedElement.24"/>
+  </MoDiscoIbexTGG:JavaType2UMLType>
+  <MoDiscoIbexTGG:JavaType2UMLType>
+    <source xsi:type="java:PrimitiveTypeVoid" href="src.xmi#//@orphanTypes.23"/>
+    <target xsi:type="uml:PrimitiveType" href="trg.xmi#//@packagedElement.25"/>
+  </MoDiscoIbexTGG:JavaType2UMLType>
+  <MoDiscoIbexTGG:VariableDec2Parameter>
+    <source xsi:type="java:SingleVariableDeclaration" href="src.xmi#//@ownedElements.1/@ownedElements.3/@bodyDeclarations.0/@parameters.1"/>
+    <target href="trg.xmi#//@packagedElement.5/@packagedElement.3/@ownedOperation.0/@ownedParameter.1"/>
+  </MoDiscoIbexTGG:VariableDec2Parameter>
+  <MoDiscoIbexTGG:VariableDec2Parameter>
+    <source xsi:type="java:SingleVariableDeclaration" href="src.xmi#//@ownedElements.1/@ownedElements.0/@bodyDeclarations.5/@parameters.0"/>
+    <target href="trg.xmi#//@packagedElement.5/@packagedElement.0/@ownedOperation.2/@ownedParameter.0"/>
+  </MoDiscoIbexTGG:VariableDec2Parameter>
+  <MoDiscoIbexTGG:VariableDec2Parameter>
+    <source xsi:type="java:SingleVariableDeclaration" href="src.xmi#//@ownedElements.0/@ownedElements.0/@bodyDeclarations.1/@parameters.0"/>
+    <target href="trg.xmi#//@packagedElement.3/@packagedElement.0/@ownedOperation.1/@ownedParameter.0"/>
+  </MoDiscoIbexTGG:VariableDec2Parameter>
+  <MoDiscoIbexTGG:VariableDec2Parameter>
+    <source xsi:type="java:SingleVariableDeclaration" href="src.xmi#//@ownedElements.0/@ownedElements.2/@bodyDeclarations.0/@parameters.0"/>
+    <target href="trg.xmi#//@packagedElement.3/@packagedElement.2/@ownedOperation.0/@ownedParameter.0"/>
+  </MoDiscoIbexTGG:VariableDec2Parameter>
+  <MoDiscoIbexTGG:JavaType2UMLType>
+    <source xsi:type="java:InterfaceDeclaration" href="src.xmi#//@ownedElements.2/@ownedElements.0"/>
+    <target xsi:type="uml:Interface" href="trg.xmi#//@packagedElement.31/@packagedElement.0"/>
+  </MoDiscoIbexTGG:JavaType2UMLType>
+  <MoDiscoIbexTGG:VariableDec2Parameter>
+    <source xsi:type="java:SingleVariableDeclaration" href="src.xmi#//@ownedElements.1/@ownedElements.0/@bodyDeclarations.5/@parameters.1"/>
+    <target href="trg.xmi#//@packagedElement.5/@packagedElement.0/@ownedOperation.2/@ownedParameter.1"/>
+  </MoDiscoIbexTGG:VariableDec2Parameter>
+  <MoDiscoIbexTGG:JavaType2UMLType>
+    <source xsi:type="java:PrimitiveTypeBoolean" href="src.xmi#//@orphanTypes.24"/>
+    <target xsi:type="uml:PrimitiveType" href="trg.xmi#//@packagedElement.26"/>
+  </MoDiscoIbexTGG:JavaType2UMLType>
+  <MoDiscoIbexTGG:JavaType2UMLType>
+    <source xsi:type="java:EnumDeclaration" href="src.xmi#//@ownedElements.2/@ownedElements.1"/>
+    <target xsi:type="uml:Enumeration" href="trg.xmi#//@packagedElement.31/@packagedElement.1"/>
+  </MoDiscoIbexTGG:JavaType2UMLType>
+  <MoDiscoIbexTGG:VariableDec2Parameter>
+    <source xsi:type="java:SingleVariableDeclaration" href="src.xmi#//@ownedElements.0/@ownedElements.2/@bodyDeclarations.0/@parameters.1"/>
+    <target href="trg.xmi#//@packagedElement.3/@packagedElement.2/@ownedOperation.0/@ownedParameter.1"/>
+  </MoDiscoIbexTGG:VariableDec2Parameter>
+  <MoDiscoIbexTGG:FieldDec2Property>
+    <source href="src.xmi#//@ownedElements.1/@ownedElements.0/@bodyDeclarations.7"/>
+    <target href="trg.xmi#//@packagedElement.5/@packagedElement.0/@ownedAttribute.4"/>
+  </MoDiscoIbexTGG:FieldDec2Property>
+  <MoDiscoIbexTGG:JavaType2UMLType>
+    <source xsi:type="java:PrimitiveTypeChar" href="src.xmi#//@orphanTypes.25"/>
+    <target xsi:type="uml:PrimitiveType" href="trg.xmi#//@packagedElement.27"/>
+  </MoDiscoIbexTGG:JavaType2UMLType>
+  <MoDiscoIbexTGG:JavaType2UMLType>
+    <source xsi:type="java:PrimitiveTypeLong" href="src.xmi#//@orphanTypes.26"/>
+    <target xsi:type="uml:PrimitiveType" href="trg.xmi#//@packagedElement.28"/>
+  </MoDiscoIbexTGG:JavaType2UMLType>
+  <MoDiscoIbexTGG:VariableDec2Parameter>
+    <source xsi:type="java:SingleVariableDeclaration" href="src.xmi#//@ownedElements.0/@ownedElements.2/@bodyDeclarations.0/@parameters.2"/>
+    <target href="trg.xmi#//@packagedElement.3/@packagedElement.2/@ownedOperation.0/@ownedParameter.2"/>
+  </MoDiscoIbexTGG:VariableDec2Parameter>
+  <MoDiscoIbexTGG:MethodDec2Operation>
+    <source href="src.xmi#//@ownedElements.1/@ownedElements.4/@bodyDeclarations.0"/>
+    <target href="trg.xmi#//@packagedElement.5/@packagedElement.4/@ownedOperation.0"/>
+  </MoDiscoIbexTGG:MethodDec2Operation>
+  <MoDiscoIbexTGG:JavaType2UMLType>
+    <source xsi:type="java:PrimitiveTypeShort" href="src.xmi#//@orphanTypes.27"/>
+    <target xsi:type="uml:PrimitiveType" href="trg.xmi#//@packagedElement.29"/>
+  </MoDiscoIbexTGG:JavaType2UMLType>
+  <MoDiscoIbexTGG:JavaType2UMLType>
+    <source xsi:type="java:EnumDeclaration" href="src.xmi#//@ownedElements.1/@ownedElements.5"/>
+    <target xsi:type="uml:Enumeration" href="trg.xmi#//@packagedElement.5/@packagedElement.5"/>
+  </MoDiscoIbexTGG:JavaType2UMLType>
+  <MoDiscoIbexTGG:VariableDec2Parameter>
+    <source xsi:type="java:SingleVariableDeclaration" href="src.xmi#//@ownedElements.1/@ownedElements.0/@bodyDeclarations.2/@parameters.1"/>
+    <target href="trg.xmi#//@packagedElement.5/@packagedElement.0/@ownedOperation.1/@ownedParameter.1"/>
+  </MoDiscoIbexTGG:VariableDec2Parameter>
+  <MoDiscoIbexTGG:FieldDec2Property>
+    <source href="src.xmi#//@ownedElements.1/@ownedElements.0/@bodyDeclarations.8"/>
+    <target href="trg.xmi#//@packagedElement.5/@packagedElement.0/@ownedAttribute.5"/>
+  </MoDiscoIbexTGG:FieldDec2Property>
+  <MoDiscoIbexTGG:JavaType2UMLType>
+    <source xsi:type="java:PrimitiveTypeDouble" href="src.xmi#//@orphanTypes.28"/>
+    <target xsi:type="uml:PrimitiveType" href="trg.xmi#//@packagedElement.30"/>
+  </MoDiscoIbexTGG:JavaType2UMLType>
+  <MoDiscoIbexTGG:MethodDec2Operation>
+    <source href="src.xmi#//@ownedElements.1/@ownedElements.4/@bodyDeclarations.1"/>
+    <target href="trg.xmi#//@packagedElement.5/@packagedElement.4/@ownedOperation.1"/>
+  </MoDiscoIbexTGG:MethodDec2Operation>
+  <MoDiscoIbexTGG:MethodDec2Operation>
+    <source href="src.xmi#//@ownedElements.1/@ownedElements.4/@bodyDeclarations.2"/>
+    <target href="trg.xmi#//@packagedElement.5/@packagedElement.4/@ownedOperation.2"/>
+  </MoDiscoIbexTGG:MethodDec2Operation>
+  <MoDiscoIbexTGG:FieldDec2Property>
+    <source href="src.xmi#//@ownedElements.0/@ownedElements.4/@bodyDeclarations.0"/>
+    <target href="trg.xmi#//@packagedElement.3/@packagedElement.4/@ownedAttribute.0"/>
+  </MoDiscoIbexTGG:FieldDec2Property>
+  <MoDiscoIbexTGG:JavaType2UMLType>
+    <source xsi:type="java:EnumDeclaration" href="src.xmi#//@ownedElements.2/@ownedElements.2"/>
+    <target xsi:type="uml:Enumeration" href="trg.xmi#//@packagedElement.31/@packagedElement.2"/>
+  </MoDiscoIbexTGG:JavaType2UMLType>
+  <MoDiscoIbexTGG:VariableDec2Parameter>
+    <source xsi:type="java:SingleVariableDeclaration" href="src.xmi#//@ownedElements.1/@ownedElements.0/@bodyDeclarations.1/@parameters.2"/>
+    <target href="trg.xmi#//@packagedElement.5/@packagedElement.0/@ownedOperation.0/@ownedParameter.2"/>
+  </MoDiscoIbexTGG:VariableDec2Parameter>
+  <MoDiscoIbexTGG:VariableDec2Parameter>
+    <source xsi:type="java:SingleVariableDeclaration" href="src.xmi#//@ownedElements.0/@ownedElements.2/@bodyDeclarations.0/@parameters.3"/>
+    <target href="trg.xmi#//@packagedElement.3/@packagedElement.2/@ownedOperation.0/@ownedParameter.3"/>
+  </MoDiscoIbexTGG:VariableDec2Parameter>
+  <MoDiscoIbexTGG:VariableDec2Parameter>
+    <source xsi:type="java:SingleVariableDeclaration" href="src.xmi#//@ownedElements.1/@ownedElements.4/@bodyDeclarations.0/@parameters.0"/>
+    <target href="trg.xmi#//@packagedElement.5/@packagedElement.4/@ownedOperation.0/@ownedParameter.0"/>
+  </MoDiscoIbexTGG:VariableDec2Parameter>
+  <MoDiscoIbexTGG:VariableDec2Parameter>
+    <source xsi:type="java:SingleVariableDeclaration" href="src.xmi#//@ownedElements.0/@ownedElements.1/@bodyDeclarations.0/@parameters.1"/>
+    <target href="trg.xmi#//@packagedElement.3/@packagedElement.1/@ownedOperation.0/@ownedParameter.1"/>
+  </MoDiscoIbexTGG:VariableDec2Parameter>
+  <MoDiscoIbexTGG:JavaPackage2UmlPackage>
+    <source href="src.xmi#//@ownedElements.3"/>
+    <target href="trg.xmi#//@packagedElement.33"/>
+  </MoDiscoIbexTGG:JavaPackage2UmlPackage>
+  <MoDiscoIbexTGG:VariableDec2Parameter>
+    <source xsi:type="java:SingleVariableDeclaration" href="src.xmi#//@ownedElements.0/@ownedElements.1/@bodyDeclarations.0/@parameters.2"/>
+    <target href="trg.xmi#//@packagedElement.3/@packagedElement.1/@ownedOperation.0/@ownedParameter.2"/>
+  </MoDiscoIbexTGG:VariableDec2Parameter>
+  <MoDiscoIbexTGG:VariableDec2Parameter>
+    <source xsi:type="java:SingleVariableDeclaration" href="src.xmi#//@ownedElements.0/@ownedElements.3/@bodyDeclarations.0/@parameters.0"/>
+    <target href="trg.xmi#//@packagedElement.3/@packagedElement.3/@ownedOperation.0/@ownedParameter.0"/>
+  </MoDiscoIbexTGG:VariableDec2Parameter>
+  <MoDiscoIbexTGG:JavaType2UMLType>
+    <source xsi:type="java:PrimitiveTypeShort" href="src.xmi#//@orphanTypes.29"/>
+    <target xsi:type="uml:PrimitiveType" href="trg.xmi#//@packagedElement.32"/>
+  </MoDiscoIbexTGG:JavaType2UMLType>
+  <MoDiscoIbexTGG:JavaType2UMLType>
+    <source xsi:type="java:InterfaceDeclaration" href="src.xmi#//@ownedElements.3/@ownedElements.0"/>
+    <target xsi:type="uml:Interface" href="trg.xmi#//@packagedElement.33/@packagedElement.0"/>
+  </MoDiscoIbexTGG:JavaType2UMLType>
+  <MoDiscoIbexTGG:JavaPackage2UmlPackage>
+    <source href="src.xmi#//@ownedElements.1/@ownedPackages.0"/>
+    <target href="trg.xmi#//@packagedElement.5/@packagedElement.6"/>
+  </MoDiscoIbexTGG:JavaPackage2UmlPackage>
+  <MoDiscoIbexTGG:VariableDec2Parameter>
+    <source xsi:type="java:SingleVariableDeclaration" href="src.xmi#//@ownedElements.1/@ownedElements.3/@bodyDeclarations.1/@parameters.0"/>
+    <target href="trg.xmi#//@packagedElement.5/@packagedElement.3/@ownedOperation.1/@ownedParameter.0"/>
+  </MoDiscoIbexTGG:VariableDec2Parameter>
+  <MoDiscoIbexTGG:JavaType2UMLType>
+    <source xsi:type="java:ClassDeclaration" href="src.xmi#//@ownedElements.3/@ownedElements.1"/>
+    <target xsi:type="uml:Class" href="trg.xmi#//@packagedElement.33/@packagedElement.1"/>
+  </MoDiscoIbexTGG:JavaType2UMLType>
+  <MoDiscoIbexTGG:JavaType2UMLType>
+    <source xsi:type="java:EnumDeclaration" href="src.xmi#//@ownedElements.1/@ownedPackages.0/@ownedElements.0"/>
+    <target xsi:type="uml:Enumeration" href="trg.xmi#//@packagedElement.5/@packagedElement.6/@packagedElement.0"/>
+  </MoDiscoIbexTGG:JavaType2UMLType>
+  <MoDiscoIbexTGG:MethodDec2Operation>
+    <source href="src.xmi#//@ownedElements.2/@ownedElements.2/@bodyDeclarations.0"/>
+    <target href="trg.xmi#//@packagedElement.31/@packagedElement.2/@ownedOperation.0"/>
+  </MoDiscoIbexTGG:MethodDec2Operation>
+</xmi:XMI>
