@@ -1,7 +1,7 @@
-package org.benchmarx.strategy.core;
+package benchmarx.algorithm.core;
 
-import Strategies.Strategy;
-import Strategies.StrategyContainer;
+import Algorithms.Algorithm;
+import Algorithms.AlgorithmContainer;
 import java.util.ArrayList;
 import java.util.List;
 import org.benchmarx.emf.Comparator;
@@ -10,41 +10,41 @@ import org.eclipse.xtend2.lib.StringConcatenation;
 import org.junit.Assert;
 
 @SuppressWarnings("all")
-public class StrategyComparator implements Comparator<StrategyContainer> {
+public class AlgorithmComparator implements Comparator<AlgorithmContainer> {
   /**
    * checkAttributeValues determines if equality requires equal values in all EAttributes.
    * MODELGEN tests cannot handle this and therefore require checkAttributeValues == false.
    */
   @Override
-  public void assertEquals(final StrategyContainer expected, final StrategyContainer actual) {
-    Assert.assertTrue(this.stringify(expected).startsWith("StrategyContainer"));
+  public void assertEquals(final AlgorithmContainer expected, final AlgorithmContainer actual) {
+    Assert.assertTrue(this.stringify(expected).startsWith("AlgorithmContainer"));
     Assert.assertEquals(this.stringify(expected), this.stringify(actual));
   }
   
-  public String stringify(final StrategyContainer strategyContainer) {
+  public String stringify(final AlgorithmContainer AlgorithmContainer) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("StrategyContainer {");
+    _builder.append("AlgorithmContainer {");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("name = \"StrategyContainer\",");
+    _builder.append("name = \"AlgorithmContainer\",");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("strategies = [");
+    _builder.append("algorithms = [");
     _builder.newLine();
     _builder.append("\t");
-    EList<Strategy> _strategies = strategyContainer.getStrategies();
-    final List<Strategy> sortedList = new ArrayList<Strategy>(_strategies);
+    EList<Algorithm> _algorithms = AlgorithmContainer.getAlgorithms();
+    final List<Algorithm> sortedList = new ArrayList<Algorithm>(_algorithms);
     _builder.newLineIfNotEmpty();
     {
       boolean _hasElements = false;
-      for(final Strategy c : sortedList) {
+      for(final Algorithm c : sortedList) {
         if (!_hasElements) {
           _hasElements = true;
         } else {
           _builder.appendImmediate(", ", "\t");
         }
         _builder.append("\t");
-        _builder.append("s", "\t");
+        _builder.append("a", "\t");
         _builder.newLineIfNotEmpty();
       }
     }
