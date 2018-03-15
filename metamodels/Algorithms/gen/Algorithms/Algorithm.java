@@ -1,6 +1,6 @@
 /**
  */
-package gen.Algorithms;
+package Algorithms;
 
 import org.eclipse.emf.ecore.EObject;
 // <-- [user defined imports]

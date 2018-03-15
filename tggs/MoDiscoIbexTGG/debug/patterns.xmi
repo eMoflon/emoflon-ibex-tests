@@ -11,15 +11,13 @@
       <eClassifier xsi:type="ecore:EClass" href="../model/MoDiscoIbexTGG.ecore#//JavaPackage2UmlPackage"/>
     </symbolicParameters>
     <bodies>
-      <constraints xsi:type="emf:Reference">
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="MoDiscoIbexTGG.JavaPackage2UmlPackage_MoDiscoIbexTGG.JavaPackage2UmlPackage.source_java.Package___EDGE">
         <parameters reference="/0/@symbolicParameters.2"/>
         <parameters reference="/0/@symbolicParameters.0"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/MoDiscoIbexTGG.ecore#//JavaPackage2UmlPackage/source"/>
       </constraints>
-      <constraints xsi:type="emf:Reference">
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="MoDiscoIbexTGG.JavaPackage2UmlPackage_MoDiscoIbexTGG.JavaPackage2UmlPackage.target_uml.Package___EDGE">
         <parameters reference="/0/@symbolicParameters.2"/>
         <parameters reference="/0/@symbolicParameters.1"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/MoDiscoIbexTGG.ecore#//JavaPackage2UmlPackage/target"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -31,10 +29,9 @@
       <localVariables xsi:type="emf:EMFVariable" name="jp2up">
         <eClassifier xsi:type="ecore:EClass" href="../model/MoDiscoIbexTGG.ecore#//JavaPackage2UmlPackage"/>
       </localVariables>
-      <constraints xsi:type="emf:Reference">
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="MoDiscoIbexTGG.JavaPackage2UmlPackage_MoDiscoIbexTGG.JavaPackage2UmlPackage.source_java.Package___EDGE">
         <parameters reference="/1/@bodies.0/@localVariables.0"/>
         <parameters reference="/1/@symbolicParameters.0"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/MoDiscoIbexTGG.ecore#//JavaPackage2UmlPackage/source"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -46,10 +43,9 @@
       <localVariables xsi:type="emf:EMFVariable" name="jp2up">
         <eClassifier xsi:type="ecore:EClass" href="../model/MoDiscoIbexTGG.ecore#//JavaPackage2UmlPackage"/>
       </localVariables>
-      <constraints xsi:type="emf:Reference">
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="MoDiscoIbexTGG.JavaPackage2UmlPackage_MoDiscoIbexTGG.JavaPackage2UmlPackage.target_uml.Package___EDGE">
         <parameters reference="/2/@bodies.0/@localVariables.0"/>
         <parameters reference="/2/@symbolicParameters.0"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/MoDiscoIbexTGG.ecore#//JavaPackage2UmlPackage/target"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -135,15 +131,13 @@
       <eClassifier xsi:type="ecore:EClass" href="../model/MoDiscoIbexTGG.ecore#//JavaPackage2UmlPackage"/>
     </symbolicParameters>
     <bodies>
-      <constraints xsi:type="emf:Reference">
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="MoDiscoIbexTGG.JavaPackage2UmlPackage_MoDiscoIbexTGG.JavaPackage2UmlPackage.source_java.Package___EDGE">
         <parameters reference="/6/@symbolicParameters.2"/>
         <parameters reference="/6/@symbolicParameters.0"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/MoDiscoIbexTGG.ecore#//JavaPackage2UmlPackage/source"/>
       </constraints>
-      <constraints xsi:type="emf:Reference">
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="MoDiscoIbexTGG.JavaPackage2UmlPackage_MoDiscoIbexTGG.JavaPackage2UmlPackage.target_uml.Package___EDGE">
         <parameters reference="/6/@symbolicParameters.2"/>
         <parameters reference="/6/@symbolicParameters.1"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/MoDiscoIbexTGG.ecore#//JavaPackage2UmlPackage/target"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -155,10 +149,9 @@
       <localVariables xsi:type="emf:EMFVariable" name="jp2up">
         <eClassifier xsi:type="ecore:EClass" href="../model/MoDiscoIbexTGG.ecore#//JavaPackage2UmlPackage"/>
       </localVariables>
-      <constraints xsi:type="emf:Reference">
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="MoDiscoIbexTGG.JavaPackage2UmlPackage_MoDiscoIbexTGG.JavaPackage2UmlPackage.source_java.Package___EDGE">
         <parameters reference="/7/@bodies.0/@localVariables.0"/>
         <parameters reference="/7/@symbolicParameters.0"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/MoDiscoIbexTGG.ecore#//JavaPackage2UmlPackage/source"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -170,10 +163,9 @@
       <localVariables xsi:type="emf:EMFVariable" name="jp2up">
         <eClassifier xsi:type="ecore:EClass" href="../model/MoDiscoIbexTGG.ecore#//JavaPackage2UmlPackage"/>
       </localVariables>
-      <constraints xsi:type="emf:Reference">
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="MoDiscoIbexTGG.JavaPackage2UmlPackage_MoDiscoIbexTGG.JavaPackage2UmlPackage.target_uml.Package___EDGE">
         <parameters reference="/8/@bodies.0/@localVariables.0"/>
         <parameters reference="/8/@symbolicParameters.0"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/MoDiscoIbexTGG.ecore#//JavaPackage2UmlPackage/target"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -259,15 +251,13 @@
       <eClassifier xsi:type="ecore:EClass" href="../model/MoDiscoIbexTGG.ecore#//JavaType2UMLType"/>
     </symbolicParameters>
     <bodies>
-      <constraints xsi:type="emf:Reference">
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="MoDiscoIbexTGG.JavaType2UMLType_MoDiscoIbexTGG.JavaType2UMLType.source_java.Type___EDGE">
         <parameters reference="/12/@symbolicParameters.2"/>
         <parameters reference="/12/@symbolicParameters.0"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/MoDiscoIbexTGG.ecore#//JavaType2UMLType/source"/>
       </constraints>
-      <constraints xsi:type="emf:Reference">
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="MoDiscoIbexTGG.JavaType2UMLType_MoDiscoIbexTGG.JavaType2UMLType.target_uml.Type___EDGE">
         <parameters reference="/12/@symbolicParameters.2"/>
         <parameters reference="/12/@symbolicParameters.1"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/MoDiscoIbexTGG.ecore#//JavaType2UMLType/target"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -279,10 +269,9 @@
       <localVariables xsi:type="emf:EMFVariable" name="jo2uo">
         <eClassifier xsi:type="ecore:EClass" href="../model/MoDiscoIbexTGG.ecore#//JavaType2UMLType"/>
       </localVariables>
-      <constraints xsi:type="emf:Reference">
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="MoDiscoIbexTGG.JavaType2UMLType_MoDiscoIbexTGG.JavaType2UMLType.source_java.Type___EDGE">
         <parameters reference="/13/@bodies.0/@localVariables.0"/>
         <parameters reference="/13/@symbolicParameters.0"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/MoDiscoIbexTGG.ecore#//JavaType2UMLType/source"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -294,10 +283,9 @@
       <localVariables xsi:type="emf:EMFVariable" name="jo2uo">
         <eClassifier xsi:type="ecore:EClass" href="../model/MoDiscoIbexTGG.ecore#//JavaType2UMLType"/>
       </localVariables>
-      <constraints xsi:type="emf:Reference">
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="MoDiscoIbexTGG.JavaType2UMLType_MoDiscoIbexTGG.JavaType2UMLType.target_uml.Type___EDGE">
         <parameters reference="/14/@bodies.0/@localVariables.0"/>
         <parameters reference="/14/@symbolicParameters.0"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/MoDiscoIbexTGG.ecore#//JavaType2UMLType/target"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -449,15 +437,13 @@
       <eClassifier xsi:type="ecore:EClass" href="../model/MoDiscoIbexTGG.ecore#//JavaPackage2UmlPackage"/>
     </symbolicParameters>
     <bodies>
-      <constraints xsi:type="emf:Reference">
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="MoDiscoIbexTGG.JavaPackage2UmlPackage_MoDiscoIbexTGG.JavaPackage2UmlPackage.source_java.Package___EDGE">
         <parameters reference="/20/@symbolicParameters.2"/>
         <parameters reference="/20/@symbolicParameters.0"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/MoDiscoIbexTGG.ecore#//JavaPackage2UmlPackage/source"/>
       </constraints>
-      <constraints xsi:type="emf:Reference">
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="MoDiscoIbexTGG.JavaPackage2UmlPackage_MoDiscoIbexTGG.JavaPackage2UmlPackage.target_uml.Package___EDGE">
         <parameters reference="/20/@symbolicParameters.2"/>
         <parameters reference="/20/@symbolicParameters.1"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/MoDiscoIbexTGG.ecore#//JavaPackage2UmlPackage/target"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -469,10 +455,9 @@
       <localVariables xsi:type="emf:EMFVariable" name="jp2up">
         <eClassifier xsi:type="ecore:EClass" href="../model/MoDiscoIbexTGG.ecore#//JavaPackage2UmlPackage"/>
       </localVariables>
-      <constraints xsi:type="emf:Reference">
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="MoDiscoIbexTGG.JavaPackage2UmlPackage_MoDiscoIbexTGG.JavaPackage2UmlPackage.source_java.Package___EDGE">
         <parameters reference="/21/@bodies.0/@localVariables.0"/>
         <parameters reference="/21/@symbolicParameters.0"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/MoDiscoIbexTGG.ecore#//JavaPackage2UmlPackage/source"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -484,10 +469,9 @@
       <localVariables xsi:type="emf:EMFVariable" name="jp2up">
         <eClassifier xsi:type="ecore:EClass" href="../model/MoDiscoIbexTGG.ecore#//JavaPackage2UmlPackage"/>
       </localVariables>
-      <constraints xsi:type="emf:Reference">
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="MoDiscoIbexTGG.JavaPackage2UmlPackage_MoDiscoIbexTGG.JavaPackage2UmlPackage.target_uml.Package___EDGE">
         <parameters reference="/22/@bodies.0/@localVariables.0"/>
         <parameters reference="/22/@symbolicParameters.0"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/MoDiscoIbexTGG.ecore#//JavaPackage2UmlPackage/target"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -582,25 +566,21 @@
       <eClassifier xsi:type="ecore:EClass" href="../model/MoDiscoIbexTGG.ecore#//JavaModel2UMLPackage"/>
     </symbolicParameters>
     <bodies>
-      <constraints xsi:type="emf:Reference">
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="MoDiscoIbexTGG.JavaPackage2UmlPackage_MoDiscoIbexTGG.JavaPackage2UmlPackage.source_java.Package___EDGE">
         <parameters reference="/26/@symbolicParameters.4"/>
         <parameters reference="/26/@symbolicParameters.1"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/MoDiscoIbexTGG.ecore#//JavaPackage2UmlPackage/source"/>
       </constraints>
-      <constraints xsi:type="emf:Reference">
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="MoDiscoIbexTGG.JavaPackage2UmlPackage_MoDiscoIbexTGG.JavaPackage2UmlPackage.target_uml.Package___EDGE">
         <parameters reference="/26/@symbolicParameters.4"/>
         <parameters reference="/26/@symbolicParameters.3"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/MoDiscoIbexTGG.ecore#//JavaPackage2UmlPackage/target"/>
       </constraints>
-      <constraints xsi:type="emf:Reference">
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="MoDiscoIbexTGG.JavaModel2UMLPackage_MoDiscoIbexTGG.JavaModel2UMLPackage.source_java.Model___EDGE">
         <parameters reference="/26/@symbolicParameters.5"/>
         <parameters reference="/26/@symbolicParameters.0"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/MoDiscoIbexTGG.ecore#//JavaModel2UMLPackage/source"/>
       </constraints>
-      <constraints xsi:type="emf:Reference">
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="MoDiscoIbexTGG.JavaModel2UMLPackage_MoDiscoIbexTGG.JavaModel2UMLPackage.target_uml.Package___EDGE">
         <parameters reference="/26/@symbolicParameters.5"/>
         <parameters reference="/26/@symbolicParameters.2"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/MoDiscoIbexTGG.ecore#//JavaModel2UMLPackage/target"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -618,15 +598,13 @@
       <localVariables xsi:type="emf:EMFVariable" name="jpp2upp">
         <eClassifier xsi:type="ecore:EClass" href="../model/MoDiscoIbexTGG.ecore#//JavaModel2UMLPackage"/>
       </localVariables>
-      <constraints xsi:type="emf:Reference">
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="MoDiscoIbexTGG.JavaPackage2UmlPackage_MoDiscoIbexTGG.JavaPackage2UmlPackage.source_java.Package___EDGE">
         <parameters reference="/27/@bodies.0/@localVariables.0"/>
         <parameters reference="/27/@symbolicParameters.1"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/MoDiscoIbexTGG.ecore#//JavaPackage2UmlPackage/source"/>
       </constraints>
-      <constraints xsi:type="emf:Reference">
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="MoDiscoIbexTGG.JavaModel2UMLPackage_MoDiscoIbexTGG.JavaModel2UMLPackage.source_java.Model___EDGE">
         <parameters reference="/27/@bodies.0/@localVariables.1"/>
         <parameters reference="/27/@symbolicParameters.0"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/MoDiscoIbexTGG.ecore#//JavaModel2UMLPackage/source"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -644,19 +622,17 @@
       <localVariables xsi:type="emf:EMFVariable" name="jpp2upp">
         <eClassifier xsi:type="ecore:EClass" href="../model/MoDiscoIbexTGG.ecore#//JavaModel2UMLPackage"/>
       </localVariables>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/28/@bodies.0/@localVariables.0"/>
-        <parameters reference="/28/@symbolicParameters.1"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/MoDiscoIbexTGG.ecore#//JavaPackage2UmlPackage/target"/>
-      </constraints>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/28/@bodies.0/@localVariables.1"/>
-        <parameters reference="/28/@symbolicParameters.0"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/MoDiscoIbexTGG.ecore#//JavaModel2UMLPackage/target"/>
-      </constraints>
       <constraints xsi:type="relational:Unequal">
         <parameters reference="/28/@symbolicParameters.0"/>
         <parameters reference="/28/@symbolicParameters.1"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="MoDiscoIbexTGG.JavaPackage2UmlPackage_MoDiscoIbexTGG.JavaPackage2UmlPackage.target_uml.Package___EDGE">
+        <parameters reference="/28/@bodies.0/@localVariables.0"/>
+        <parameters reference="/28/@symbolicParameters.1"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="MoDiscoIbexTGG.JavaModel2UMLPackage_MoDiscoIbexTGG.JavaModel2UMLPackage.target_uml.Package___EDGE">
+        <parameters reference="/28/@bodies.0/@localVariables.1"/>
+        <parameters reference="/28/@symbolicParameters.0"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -796,29 +772,25 @@
       <eClassifier xsi:type="ecore:EClass" href="../model/MoDiscoIbexTGG.ecore#//JavaPackage2UmlPackage"/>
     </symbolicParameters>
     <bodies>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/35/@symbolicParameters.4"/>
-        <parameters reference="/35/@symbolicParameters.1"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/MoDiscoIbexTGG.ecore#//JavaPackage2UmlPackage/source"/>
-      </constraints>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/35/@symbolicParameters.4"/>
-        <parameters reference="/35/@symbolicParameters.3"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/MoDiscoIbexTGG.ecore#//JavaPackage2UmlPackage/target"/>
-      </constraints>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/35/@symbolicParameters.5"/>
-        <parameters reference="/35/@symbolicParameters.0"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/MoDiscoIbexTGG.ecore#//JavaPackage2UmlPackage/source"/>
-      </constraints>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/35/@symbolicParameters.5"/>
-        <parameters reference="/35/@symbolicParameters.2"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/MoDiscoIbexTGG.ecore#//JavaPackage2UmlPackage/target"/>
-      </constraints>
       <constraints xsi:type="relational:Unequal">
         <parameters reference="/35/@symbolicParameters.4"/>
         <parameters reference="/35/@symbolicParameters.5"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="MoDiscoIbexTGG.JavaPackage2UmlPackage_MoDiscoIbexTGG.JavaPackage2UmlPackage.source_java.Package___EDGE">
+        <parameters reference="/35/@symbolicParameters.4"/>
+        <parameters reference="/35/@symbolicParameters.1"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="MoDiscoIbexTGG.JavaPackage2UmlPackage_MoDiscoIbexTGG.JavaPackage2UmlPackage.target_uml.Package___EDGE">
+        <parameters reference="/35/@symbolicParameters.4"/>
+        <parameters reference="/35/@symbolicParameters.3"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="MoDiscoIbexTGG.JavaPackage2UmlPackage_MoDiscoIbexTGG.JavaPackage2UmlPackage.source_java.Package___EDGE">
+        <parameters reference="/35/@symbolicParameters.5"/>
+        <parameters reference="/35/@symbolicParameters.0"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="MoDiscoIbexTGG.JavaPackage2UmlPackage_MoDiscoIbexTGG.JavaPackage2UmlPackage.target_uml.Package___EDGE">
+        <parameters reference="/35/@symbolicParameters.5"/>
+        <parameters reference="/35/@symbolicParameters.2"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -836,19 +808,17 @@
       <localVariables xsi:type="emf:EMFVariable" name="jpp2upp">
         <eClassifier xsi:type="ecore:EClass" href="../model/MoDiscoIbexTGG.ecore#//JavaPackage2UmlPackage"/>
       </localVariables>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/36/@bodies.0/@localVariables.0"/>
-        <parameters reference="/36/@symbolicParameters.1"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/MoDiscoIbexTGG.ecore#//JavaPackage2UmlPackage/source"/>
-      </constraints>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/36/@bodies.0/@localVariables.1"/>
-        <parameters reference="/36/@symbolicParameters.0"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/MoDiscoIbexTGG.ecore#//JavaPackage2UmlPackage/source"/>
-      </constraints>
       <constraints xsi:type="relational:Unequal">
         <parameters reference="/36/@bodies.0/@localVariables.0"/>
         <parameters reference="/36/@bodies.0/@localVariables.1"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="MoDiscoIbexTGG.JavaPackage2UmlPackage_MoDiscoIbexTGG.JavaPackage2UmlPackage.source_java.Package___EDGE">
+        <parameters reference="/36/@bodies.0/@localVariables.0"/>
+        <parameters reference="/36/@symbolicParameters.1"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="MoDiscoIbexTGG.JavaPackage2UmlPackage_MoDiscoIbexTGG.JavaPackage2UmlPackage.source_java.Package___EDGE">
+        <parameters reference="/36/@bodies.0/@localVariables.1"/>
+        <parameters reference="/36/@symbolicParameters.0"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -866,16 +836,6 @@
       <localVariables xsi:type="emf:EMFVariable" name="jpp2upp">
         <eClassifier xsi:type="ecore:EClass" href="../model/MoDiscoIbexTGG.ecore#//JavaPackage2UmlPackage"/>
       </localVariables>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/37/@bodies.0/@localVariables.0"/>
-        <parameters reference="/37/@symbolicParameters.1"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/MoDiscoIbexTGG.ecore#//JavaPackage2UmlPackage/target"/>
-      </constraints>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/37/@bodies.0/@localVariables.1"/>
-        <parameters reference="/37/@symbolicParameters.0"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/MoDiscoIbexTGG.ecore#//JavaPackage2UmlPackage/target"/>
-      </constraints>
       <constraints xsi:type="relational:Unequal">
         <parameters reference="/37/@bodies.0/@localVariables.0"/>
         <parameters reference="/37/@bodies.0/@localVariables.1"/>
@@ -883,6 +843,14 @@
       <constraints xsi:type="relational:Unequal">
         <parameters reference="/37/@symbolicParameters.0"/>
         <parameters reference="/37/@symbolicParameters.1"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="MoDiscoIbexTGG.JavaPackage2UmlPackage_MoDiscoIbexTGG.JavaPackage2UmlPackage.target_uml.Package___EDGE">
+        <parameters reference="/37/@bodies.0/@localVariables.0"/>
+        <parameters reference="/37/@symbolicParameters.1"/>
+      </constraints>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="MoDiscoIbexTGG.JavaPackage2UmlPackage_MoDiscoIbexTGG.JavaPackage2UmlPackage.target_uml.Package___EDGE">
+        <parameters reference="/37/@bodies.0/@localVariables.1"/>
+        <parameters reference="/37/@symbolicParameters.0"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -1013,15 +981,13 @@
       <eClassifier xsi:type="ecore:EClass" href="../model/MoDiscoIbexTGG.ecore#//JavaType2UMLType"/>
     </symbolicParameters>
     <bodies>
-      <constraints xsi:type="emf:Reference">
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="MoDiscoIbexTGG.JavaType2UMLType_MoDiscoIbexTGG.JavaType2UMLType.source_java.Type___EDGE">
         <parameters reference="/44/@symbolicParameters.2"/>
         <parameters reference="/44/@symbolicParameters.0"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/MoDiscoIbexTGG.ecore#//JavaType2UMLType/source"/>
       </constraints>
-      <constraints xsi:type="emf:Reference">
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="MoDiscoIbexTGG.JavaType2UMLType_MoDiscoIbexTGG.JavaType2UMLType.target_uml.Type___EDGE">
         <parameters reference="/44/@symbolicParameters.2"/>
         <parameters reference="/44/@symbolicParameters.1"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/MoDiscoIbexTGG.ecore#//JavaType2UMLType/target"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -1033,10 +999,9 @@
       <localVariables xsi:type="emf:EMFVariable" name="cd2c">
         <eClassifier xsi:type="ecore:EClass" href="../model/MoDiscoIbexTGG.ecore#//JavaType2UMLType"/>
       </localVariables>
-      <constraints xsi:type="emf:Reference">
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="MoDiscoIbexTGG.JavaType2UMLType_MoDiscoIbexTGG.JavaType2UMLType.source_java.Type___EDGE">
         <parameters reference="/45/@bodies.0/@localVariables.0"/>
         <parameters reference="/45/@symbolicParameters.0"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/MoDiscoIbexTGG.ecore#//JavaType2UMLType/source"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -1048,10 +1013,9 @@
       <localVariables xsi:type="emf:EMFVariable" name="cd2c">
         <eClassifier xsi:type="ecore:EClass" href="../model/MoDiscoIbexTGG.ecore#//JavaType2UMLType"/>
       </localVariables>
-      <constraints xsi:type="emf:Reference">
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="MoDiscoIbexTGG.JavaType2UMLType_MoDiscoIbexTGG.JavaType2UMLType.target_uml.Type___EDGE">
         <parameters reference="/46/@bodies.0/@localVariables.0"/>
         <parameters reference="/46/@symbolicParameters.0"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/MoDiscoIbexTGG.ecore#//JavaType2UMLType/target"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -1129,15 +1093,13 @@
       <eClassifier xsi:type="ecore:EClass" href="../model/MoDiscoIbexTGG.ecore#//JavaType2UMLType"/>
     </symbolicParameters>
     <bodies>
-      <constraints xsi:type="emf:Reference">
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="MoDiscoIbexTGG.JavaType2UMLType_MoDiscoIbexTGG.JavaType2UMLType.source_java.Type___EDGE">
         <parameters reference="/50/@symbolicParameters.2"/>
         <parameters reference="/50/@symbolicParameters.0"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/MoDiscoIbexTGG.ecore#//JavaType2UMLType/source"/>
       </constraints>
-      <constraints xsi:type="emf:Reference">
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="MoDiscoIbexTGG.JavaType2UMLType_MoDiscoIbexTGG.JavaType2UMLType.target_uml.Type___EDGE">
         <parameters reference="/50/@symbolicParameters.2"/>
         <parameters reference="/50/@symbolicParameters.1"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/MoDiscoIbexTGG.ecore#//JavaType2UMLType/target"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -1149,10 +1111,9 @@
       <localVariables xsi:type="emf:EMFVariable" name="cd2c">
         <eClassifier xsi:type="ecore:EClass" href="../model/MoDiscoIbexTGG.ecore#//JavaType2UMLType"/>
       </localVariables>
-      <constraints xsi:type="emf:Reference">
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="MoDiscoIbexTGG.JavaType2UMLType_MoDiscoIbexTGG.JavaType2UMLType.source_java.Type___EDGE">
         <parameters reference="/51/@bodies.0/@localVariables.0"/>
         <parameters reference="/51/@symbolicParameters.0"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/MoDiscoIbexTGG.ecore#//JavaType2UMLType/source"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -1164,10 +1125,9 @@
       <localVariables xsi:type="emf:EMFVariable" name="cd2c">
         <eClassifier xsi:type="ecore:EClass" href="../model/MoDiscoIbexTGG.ecore#//JavaType2UMLType"/>
       </localVariables>
-      <constraints xsi:type="emf:Reference">
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="MoDiscoIbexTGG.JavaType2UMLType_MoDiscoIbexTGG.JavaType2UMLType.target_uml.Type___EDGE">
         <parameters reference="/52/@bodies.0/@localVariables.0"/>
         <parameters reference="/52/@symbolicParameters.0"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/MoDiscoIbexTGG.ecore#//JavaType2UMLType/target"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -1245,15 +1205,13 @@
       <eClassifier xsi:type="ecore:EClass" href="../model/MoDiscoIbexTGG.ecore#//JavaType2UMLType"/>
     </symbolicParameters>
     <bodies>
-      <constraints xsi:type="emf:Reference">
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="MoDiscoIbexTGG.JavaType2UMLType_MoDiscoIbexTGG.JavaType2UMLType.source_java.Type___EDGE">
         <parameters reference="/56/@symbolicParameters.2"/>
         <parameters reference="/56/@symbolicParameters.0"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/MoDiscoIbexTGG.ecore#//JavaType2UMLType/source"/>
       </constraints>
-      <constraints xsi:type="emf:Reference">
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="MoDiscoIbexTGG.JavaType2UMLType_MoDiscoIbexTGG.JavaType2UMLType.target_uml.Type___EDGE">
         <parameters reference="/56/@symbolicParameters.2"/>
         <parameters reference="/56/@symbolicParameters.1"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/MoDiscoIbexTGG.ecore#//JavaType2UMLType/target"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -1265,10 +1223,9 @@
       <localVariables xsi:type="emf:EMFVariable" name="cd2c">
         <eClassifier xsi:type="ecore:EClass" href="../model/MoDiscoIbexTGG.ecore#//JavaType2UMLType"/>
       </localVariables>
-      <constraints xsi:type="emf:Reference">
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="MoDiscoIbexTGG.JavaType2UMLType_MoDiscoIbexTGG.JavaType2UMLType.source_java.Type___EDGE">
         <parameters reference="/57/@bodies.0/@localVariables.0"/>
         <parameters reference="/57/@symbolicParameters.0"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/MoDiscoIbexTGG.ecore#//JavaType2UMLType/source"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -1280,10 +1237,9 @@
       <localVariables xsi:type="emf:EMFVariable" name="cd2c">
         <eClassifier xsi:type="ecore:EClass" href="../model/MoDiscoIbexTGG.ecore#//JavaType2UMLType"/>
       </localVariables>
-      <constraints xsi:type="emf:Reference">
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="MoDiscoIbexTGG.JavaType2UMLType_MoDiscoIbexTGG.JavaType2UMLType.target_uml.Type___EDGE">
         <parameters reference="/58/@bodies.0/@localVariables.0"/>
         <parameters reference="/58/@symbolicParameters.0"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/MoDiscoIbexTGG.ecore#//JavaType2UMLType/target"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -1393,6 +1349,126 @@
       </constraints>
     </bodies>
   </specification:Pattern>
+  <specification:Pattern name="MoDiscoIbexTGG.JavaModel2UMLPackage_MoDiscoIbexTGG.JavaModel2UMLPackage.source_java.Model___EDGE">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="source">
+      <eClassifier xsi:type="ecore:EClass" href="../model/MoDiscoIbexTGG.ecore#//JavaModel2UMLPackage"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="target">
+      <eClassifier xsi:type="ecore:EClass" href="../metamodels/java.ecore#//Model"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/65/@symbolicParameters.0"/>
+        <parameters reference="/65/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../model/MoDiscoIbexTGG.ecore#//JavaModel2UMLPackage/source"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="MoDiscoIbexTGG.JavaModel2UMLPackage_MoDiscoIbexTGG.JavaModel2UMLPackage.target_uml.Package___EDGE">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="source">
+      <eClassifier xsi:type="ecore:EClass" href="../model/MoDiscoIbexTGG.ecore#//JavaModel2UMLPackage"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="target">
+      <eClassifier xsi:type="ecore:EClass" href="../metamodels/UML.ecore#//Package"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/66/@symbolicParameters.0"/>
+        <parameters reference="/66/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../model/MoDiscoIbexTGG.ecore#//JavaModel2UMLPackage/target"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="MoDiscoIbexTGG.JavaPackage2UmlPackage_MoDiscoIbexTGG.JavaPackage2UmlPackage.source_java.Package___EDGE">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="source">
+      <eClassifier xsi:type="ecore:EClass" href="../model/MoDiscoIbexTGG.ecore#//JavaPackage2UmlPackage"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="target">
+      <eClassifier xsi:type="ecore:EClass" href="../metamodels/java.ecore#//Package"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/67/@symbolicParameters.0"/>
+        <parameters reference="/67/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../model/MoDiscoIbexTGG.ecore#//JavaPackage2UmlPackage/source"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="MoDiscoIbexTGG.JavaPackage2UmlPackage_MoDiscoIbexTGG.JavaPackage2UmlPackage.target_uml.Package___EDGE">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="source">
+      <eClassifier xsi:type="ecore:EClass" href="../model/MoDiscoIbexTGG.ecore#//JavaPackage2UmlPackage"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="target">
+      <eClassifier xsi:type="ecore:EClass" href="../metamodels/UML.ecore#//Package"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/68/@symbolicParameters.0"/>
+        <parameters reference="/68/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../model/MoDiscoIbexTGG.ecore#//JavaPackage2UmlPackage/target"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="MoDiscoIbexTGG.JavaType2UMLType_MoDiscoIbexTGG.JavaType2UMLType.source_java.Type___EDGE">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="source">
+      <eClassifier xsi:type="ecore:EClass" href="../model/MoDiscoIbexTGG.ecore#//JavaType2UMLType"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="target">
+      <eClassifier xsi:type="ecore:EClass" href="../metamodels/java.ecore#//Type"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/69/@symbolicParameters.0"/>
+        <parameters reference="/69/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../model/MoDiscoIbexTGG.ecore#//JavaType2UMLType/source"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="MoDiscoIbexTGG.JavaType2UMLType_MoDiscoIbexTGG.JavaType2UMLType.target_uml.Type___EDGE">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="source">
+      <eClassifier xsi:type="ecore:EClass" href="../model/MoDiscoIbexTGG.ecore#//JavaType2UMLType"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="target">
+      <eClassifier xsi:type="ecore:EClass" href="../metamodels/UML.ecore#//Type"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/70/@symbolicParameters.0"/>
+        <parameters reference="/70/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../model/MoDiscoIbexTGG.ecore#//JavaType2UMLType/target"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="MoDiscoIbexTGG.MethodDec2Operation_MoDiscoIbexTGG.MethodDec2Operation.source_java.MethodDeclaration___EDGE">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="source">
+      <eClassifier xsi:type="ecore:EClass" href="../model/MoDiscoIbexTGG.ecore#//MethodDec2Operation"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="target">
+      <eClassifier xsi:type="ecore:EClass" href="../metamodels/java.ecore#//MethodDeclaration"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/71/@symbolicParameters.0"/>
+        <parameters reference="/71/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../model/MoDiscoIbexTGG.ecore#//MethodDec2Operation/source"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
+  <specification:Pattern name="MoDiscoIbexTGG.MethodDec2Operation_MoDiscoIbexTGG.MethodDec2Operation.target_uml.Operation___EDGE">
+    <symbolicParameters xsi:type="emf:EMFVariable" name="source">
+      <eClassifier xsi:type="ecore:EClass" href="../model/MoDiscoIbexTGG.ecore#//MethodDec2Operation"/>
+    </symbolicParameters>
+    <symbolicParameters xsi:type="emf:EMFVariable" name="target">
+      <eClassifier xsi:type="ecore:EClass" href="../metamodels/UML.ecore#//Operation"/>
+    </symbolicParameters>
+    <bodies>
+      <constraints xsi:type="emf:Reference">
+        <parameters reference="/72/@symbolicParameters.0"/>
+        <parameters reference="/72/@symbolicParameters.1"/>
+        <eModelElement xsi:type="ecore:EReference" href="../model/MoDiscoIbexTGG.ecore#//MethodDec2Operation/target"/>
+      </constraints>
+    </bodies>
+  </specification:Pattern>
   <specification:Pattern name="PrimitiveType2PrimitiveType__CONTEXT_CORR">
     <symbolicParameters xsi:type="emf:EMFVariable" name="jm">
       <eClassifier xsi:type="ecore:EClass" href="../metamodels/java.ecore#//Model"/>
@@ -1405,13 +1481,13 @@
     </symbolicParameters>
     <bodies>
       <constraints xsi:type="emf:Reference">
-        <parameters reference="/65/@symbolicParameters.2"/>
-        <parameters reference="/65/@symbolicParameters.0"/>
+        <parameters reference="/73/@symbolicParameters.2"/>
+        <parameters reference="/73/@symbolicParameters.0"/>
         <eModelElement xsi:type="ecore:EReference" href="../model/MoDiscoIbexTGG.ecore#//JavaModel2UMLPackage/source"/>
       </constraints>
       <constraints xsi:type="emf:Reference">
-        <parameters reference="/65/@symbolicParameters.2"/>
-        <parameters reference="/65/@symbolicParameters.1"/>
+        <parameters reference="/73/@symbolicParameters.2"/>
+        <parameters reference="/73/@symbolicParameters.1"/>
         <eModelElement xsi:type="ecore:EReference" href="../model/MoDiscoIbexTGG.ecore#//JavaModel2UMLPackage/target"/>
       </constraints>
     </bodies>
@@ -1425,8 +1501,8 @@
         <eClassifier xsi:type="ecore:EClass" href="../model/MoDiscoIbexTGG.ecore#//JavaModel2UMLPackage"/>
       </localVariables>
       <constraints xsi:type="emf:Reference">
-        <parameters reference="/66/@bodies.0/@localVariables.0"/>
-        <parameters reference="/66/@symbolicParameters.0"/>
+        <parameters reference="/74/@bodies.0/@localVariables.0"/>
+        <parameters reference="/74/@symbolicParameters.0"/>
         <eModelElement xsi:type="ecore:EReference" href="../model/MoDiscoIbexTGG.ecore#//JavaModel2UMLPackage/source"/>
       </constraints>
     </bodies>
@@ -1440,8 +1516,8 @@
         <eClassifier xsi:type="ecore:EClass" href="../model/MoDiscoIbexTGG.ecore#//JavaModel2UMLPackage"/>
       </localVariables>
       <constraints xsi:type="emf:Reference">
-        <parameters reference="/67/@bodies.0/@localVariables.0"/>
-        <parameters reference="/67/@symbolicParameters.0"/>
+        <parameters reference="/75/@bodies.0/@localVariables.0"/>
+        <parameters reference="/75/@symbolicParameters.0"/>
         <eModelElement xsi:type="ecore:EReference" href="../model/MoDiscoIbexTGG.ecore#//JavaModel2UMLPackage/target"/>
       </constraints>
     </bodies>
@@ -1461,16 +1537,16 @@
     </symbolicParameters>
     <bodies>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="PrimitiveType2PrimitiveType__SRC">
-        <parameters reference="/68/@symbolicParameters.0"/>
-        <parameters reference="/68/@symbolicParameters.1"/>
+        <parameters reference="/76/@symbolicParameters.0"/>
+        <parameters reference="/76/@symbolicParameters.1"/>
       </constraints>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="PrimitiveType2PrimitiveType__CONTEXT_CORR">
-        <parameters reference="/68/@symbolicParameters.0"/>
-        <parameters reference="/68/@symbolicParameters.2"/>
-        <parameters reference="/68/@symbolicParameters.3"/>
+        <parameters reference="/76/@symbolicParameters.0"/>
+        <parameters reference="/76/@symbolicParameters.2"/>
+        <parameters reference="/76/@symbolicParameters.3"/>
       </constraints>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="PrimitiveType2PrimitiveType__CONTEXT_TRG">
-        <parameters reference="/68/@symbolicParameters.2"/>
+        <parameters reference="/76/@symbolicParameters.2"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -1483,12 +1559,12 @@
     </symbolicParameters>
     <bodies>
       <constraints xsi:type="emf:Reference">
-        <parameters reference="/69/@symbolicParameters.0"/>
-        <parameters reference="/69/@symbolicParameters.1"/>
+        <parameters reference="/77/@symbolicParameters.0"/>
+        <parameters reference="/77/@symbolicParameters.1"/>
         <eModelElement xsi:type="ecore:EReference" href="../metamodels/java.ecore#//Model/orphanTypes"/>
       </constraints>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="PrimitiveType2PrimitiveType__CONTEXT_SRC">
-        <parameters reference="/69/@symbolicParameters.0"/>
+        <parameters reference="/77/@symbolicParameters.0"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -1507,10 +1583,10 @@
     </symbolicParameters>
     <bodies>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="PrimitiveTypeBoolean__FWD_OPT_REFINEMENT_INVOCATIONS">
-        <parameters reference="/70/@symbolicParameters.0"/>
-        <parameters reference="/70/@symbolicParameters.1"/>
-        <parameters reference="/70/@symbolicParameters.2"/>
-        <parameters reference="/70/@symbolicParameters.3"/>
+        <parameters reference="/78/@symbolicParameters.0"/>
+        <parameters reference="/78/@symbolicParameters.1"/>
+        <parameters reference="/78/@symbolicParameters.2"/>
+        <parameters reference="/78/@symbolicParameters.3"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -1529,13 +1605,13 @@
     </symbolicParameters>
     <bodies>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="PrimitiveTypeBoolean__SRC">
-        <parameters reference="/71/@symbolicParameters.1"/>
+        <parameters reference="/79/@symbolicParameters.1"/>
       </constraints>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="PrimitiveType2PrimitiveType__FWD_OPT_REFINEMENT_INVOCATIONS">
-        <parameters reference="/71/@symbolicParameters.0"/>
-        <parameters reference="/71/@symbolicParameters.1"/>
-        <parameters reference="/71/@symbolicParameters.2"/>
-        <parameters reference="/71/@symbolicParameters.3"/>
+        <parameters reference="/79/@symbolicParameters.0"/>
+        <parameters reference="/79/@symbolicParameters.1"/>
+        <parameters reference="/79/@symbolicParameters.2"/>
+        <parameters reference="/79/@symbolicParameters.3"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -1560,10 +1636,10 @@
     </symbolicParameters>
     <bodies>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="PrimitiveTypeByte__FWD_OPT_REFINEMENT_INVOCATIONS">
-        <parameters reference="/73/@symbolicParameters.0"/>
-        <parameters reference="/73/@symbolicParameters.1"/>
-        <parameters reference="/73/@symbolicParameters.2"/>
-        <parameters reference="/73/@symbolicParameters.3"/>
+        <parameters reference="/81/@symbolicParameters.0"/>
+        <parameters reference="/81/@symbolicParameters.1"/>
+        <parameters reference="/81/@symbolicParameters.2"/>
+        <parameters reference="/81/@symbolicParameters.3"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -1582,13 +1658,13 @@
     </symbolicParameters>
     <bodies>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="PrimitiveTypeByte__SRC">
-        <parameters reference="/74/@symbolicParameters.1"/>
+        <parameters reference="/82/@symbolicParameters.1"/>
       </constraints>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="PrimitiveType2PrimitiveType__FWD_OPT_REFINEMENT_INVOCATIONS">
-        <parameters reference="/74/@symbolicParameters.0"/>
-        <parameters reference="/74/@symbolicParameters.1"/>
-        <parameters reference="/74/@symbolicParameters.2"/>
-        <parameters reference="/74/@symbolicParameters.3"/>
+        <parameters reference="/82/@symbolicParameters.0"/>
+        <parameters reference="/82/@symbolicParameters.1"/>
+        <parameters reference="/82/@symbolicParameters.2"/>
+        <parameters reference="/82/@symbolicParameters.3"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -1613,10 +1689,10 @@
     </symbolicParameters>
     <bodies>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="PrimitiveTypeChar__FWD_OPT_REFINEMENT_INVOCATIONS">
-        <parameters reference="/76/@symbolicParameters.0"/>
-        <parameters reference="/76/@symbolicParameters.1"/>
-        <parameters reference="/76/@symbolicParameters.2"/>
-        <parameters reference="/76/@symbolicParameters.3"/>
+        <parameters reference="/84/@symbolicParameters.0"/>
+        <parameters reference="/84/@symbolicParameters.1"/>
+        <parameters reference="/84/@symbolicParameters.2"/>
+        <parameters reference="/84/@symbolicParameters.3"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -1635,13 +1711,13 @@
     </symbolicParameters>
     <bodies>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="PrimitiveTypeChar__SRC">
-        <parameters reference="/77/@symbolicParameters.1"/>
+        <parameters reference="/85/@symbolicParameters.1"/>
       </constraints>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="PrimitiveType2PrimitiveType__FWD_OPT_REFINEMENT_INVOCATIONS">
-        <parameters reference="/77/@symbolicParameters.0"/>
-        <parameters reference="/77/@symbolicParameters.1"/>
-        <parameters reference="/77/@symbolicParameters.2"/>
-        <parameters reference="/77/@symbolicParameters.3"/>
+        <parameters reference="/85/@symbolicParameters.0"/>
+        <parameters reference="/85/@symbolicParameters.1"/>
+        <parameters reference="/85/@symbolicParameters.2"/>
+        <parameters reference="/85/@symbolicParameters.3"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -1666,10 +1742,10 @@
     </symbolicParameters>
     <bodies>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="PrimitiveTypeDouble__FWD_OPT_REFINEMENT_INVOCATIONS">
-        <parameters reference="/79/@symbolicParameters.0"/>
-        <parameters reference="/79/@symbolicParameters.1"/>
-        <parameters reference="/79/@symbolicParameters.2"/>
-        <parameters reference="/79/@symbolicParameters.3"/>
+        <parameters reference="/87/@symbolicParameters.0"/>
+        <parameters reference="/87/@symbolicParameters.1"/>
+        <parameters reference="/87/@symbolicParameters.2"/>
+        <parameters reference="/87/@symbolicParameters.3"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -1688,13 +1764,13 @@
     </symbolicParameters>
     <bodies>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="PrimitiveTypeDouble__SRC">
-        <parameters reference="/80/@symbolicParameters.1"/>
+        <parameters reference="/88/@symbolicParameters.1"/>
       </constraints>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="PrimitiveType2PrimitiveType__FWD_OPT_REFINEMENT_INVOCATIONS">
-        <parameters reference="/80/@symbolicParameters.0"/>
-        <parameters reference="/80/@symbolicParameters.1"/>
-        <parameters reference="/80/@symbolicParameters.2"/>
-        <parameters reference="/80/@symbolicParameters.3"/>
+        <parameters reference="/88/@symbolicParameters.0"/>
+        <parameters reference="/88/@symbolicParameters.1"/>
+        <parameters reference="/88/@symbolicParameters.2"/>
+        <parameters reference="/88/@symbolicParameters.3"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -1719,10 +1795,10 @@
     </symbolicParameters>
     <bodies>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="PrimitiveTypeFloat__FWD_OPT_REFINEMENT_INVOCATIONS">
-        <parameters reference="/82/@symbolicParameters.0"/>
-        <parameters reference="/82/@symbolicParameters.1"/>
-        <parameters reference="/82/@symbolicParameters.2"/>
-        <parameters reference="/82/@symbolicParameters.3"/>
+        <parameters reference="/90/@symbolicParameters.0"/>
+        <parameters reference="/90/@symbolicParameters.1"/>
+        <parameters reference="/90/@symbolicParameters.2"/>
+        <parameters reference="/90/@symbolicParameters.3"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -1741,13 +1817,13 @@
     </symbolicParameters>
     <bodies>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="PrimitiveTypeFloat__SRC">
-        <parameters reference="/83/@symbolicParameters.1"/>
+        <parameters reference="/91/@symbolicParameters.1"/>
       </constraints>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="PrimitiveType2PrimitiveType__FWD_OPT_REFINEMENT_INVOCATIONS">
-        <parameters reference="/83/@symbolicParameters.0"/>
-        <parameters reference="/83/@symbolicParameters.1"/>
-        <parameters reference="/83/@symbolicParameters.2"/>
-        <parameters reference="/83/@symbolicParameters.3"/>
+        <parameters reference="/91/@symbolicParameters.0"/>
+        <parameters reference="/91/@symbolicParameters.1"/>
+        <parameters reference="/91/@symbolicParameters.2"/>
+        <parameters reference="/91/@symbolicParameters.3"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -1772,10 +1848,10 @@
     </symbolicParameters>
     <bodies>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="PrimitiveTypeInt__FWD_OPT_REFINEMENT_INVOCATIONS">
-        <parameters reference="/85/@symbolicParameters.0"/>
-        <parameters reference="/85/@symbolicParameters.1"/>
-        <parameters reference="/85/@symbolicParameters.2"/>
-        <parameters reference="/85/@symbolicParameters.3"/>
+        <parameters reference="/93/@symbolicParameters.0"/>
+        <parameters reference="/93/@symbolicParameters.1"/>
+        <parameters reference="/93/@symbolicParameters.2"/>
+        <parameters reference="/93/@symbolicParameters.3"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -1794,13 +1870,13 @@
     </symbolicParameters>
     <bodies>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="PrimitiveTypeInt__SRC">
-        <parameters reference="/86/@symbolicParameters.1"/>
+        <parameters reference="/94/@symbolicParameters.1"/>
       </constraints>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="PrimitiveType2PrimitiveType__FWD_OPT_REFINEMENT_INVOCATIONS">
-        <parameters reference="/86/@symbolicParameters.0"/>
-        <parameters reference="/86/@symbolicParameters.1"/>
-        <parameters reference="/86/@symbolicParameters.2"/>
-        <parameters reference="/86/@symbolicParameters.3"/>
+        <parameters reference="/94/@symbolicParameters.0"/>
+        <parameters reference="/94/@symbolicParameters.1"/>
+        <parameters reference="/94/@symbolicParameters.2"/>
+        <parameters reference="/94/@symbolicParameters.3"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -1825,10 +1901,10 @@
     </symbolicParameters>
     <bodies>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="PrimitiveTypeLong__FWD_OPT_REFINEMENT_INVOCATIONS">
-        <parameters reference="/88/@symbolicParameters.0"/>
-        <parameters reference="/88/@symbolicParameters.1"/>
-        <parameters reference="/88/@symbolicParameters.2"/>
-        <parameters reference="/88/@symbolicParameters.3"/>
+        <parameters reference="/96/@symbolicParameters.0"/>
+        <parameters reference="/96/@symbolicParameters.1"/>
+        <parameters reference="/96/@symbolicParameters.2"/>
+        <parameters reference="/96/@symbolicParameters.3"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -1847,13 +1923,13 @@
     </symbolicParameters>
     <bodies>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="PrimitiveTypeLong__SRC">
-        <parameters reference="/89/@symbolicParameters.1"/>
+        <parameters reference="/97/@symbolicParameters.1"/>
       </constraints>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="PrimitiveType2PrimitiveType__FWD_OPT_REFINEMENT_INVOCATIONS">
-        <parameters reference="/89/@symbolicParameters.0"/>
-        <parameters reference="/89/@symbolicParameters.1"/>
-        <parameters reference="/89/@symbolicParameters.2"/>
-        <parameters reference="/89/@symbolicParameters.3"/>
+        <parameters reference="/97/@symbolicParameters.0"/>
+        <parameters reference="/97/@symbolicParameters.1"/>
+        <parameters reference="/97/@symbolicParameters.2"/>
+        <parameters reference="/97/@symbolicParameters.3"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -1878,10 +1954,10 @@
     </symbolicParameters>
     <bodies>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="PrimitiveTypeShort__FWD_OPT_REFINEMENT_INVOCATIONS">
-        <parameters reference="/91/@symbolicParameters.0"/>
-        <parameters reference="/91/@symbolicParameters.1"/>
-        <parameters reference="/91/@symbolicParameters.2"/>
-        <parameters reference="/91/@symbolicParameters.3"/>
+        <parameters reference="/99/@symbolicParameters.0"/>
+        <parameters reference="/99/@symbolicParameters.1"/>
+        <parameters reference="/99/@symbolicParameters.2"/>
+        <parameters reference="/99/@symbolicParameters.3"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -1900,13 +1976,13 @@
     </symbolicParameters>
     <bodies>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="PrimitiveTypeShort__SRC">
-        <parameters reference="/92/@symbolicParameters.1"/>
+        <parameters reference="/100/@symbolicParameters.1"/>
       </constraints>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="PrimitiveType2PrimitiveType__FWD_OPT_REFINEMENT_INVOCATIONS">
-        <parameters reference="/92/@symbolicParameters.0"/>
-        <parameters reference="/92/@symbolicParameters.1"/>
-        <parameters reference="/92/@symbolicParameters.2"/>
-        <parameters reference="/92/@symbolicParameters.3"/>
+        <parameters reference="/100/@symbolicParameters.0"/>
+        <parameters reference="/100/@symbolicParameters.1"/>
+        <parameters reference="/100/@symbolicParameters.2"/>
+        <parameters reference="/100/@symbolicParameters.3"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -1931,10 +2007,10 @@
     </symbolicParameters>
     <bodies>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="PrimitiveTypeVoid__FWD_OPT_REFINEMENT_INVOCATIONS">
-        <parameters reference="/94/@symbolicParameters.0"/>
-        <parameters reference="/94/@symbolicParameters.1"/>
-        <parameters reference="/94/@symbolicParameters.2"/>
-        <parameters reference="/94/@symbolicParameters.3"/>
+        <parameters reference="/102/@symbolicParameters.0"/>
+        <parameters reference="/102/@symbolicParameters.1"/>
+        <parameters reference="/102/@symbolicParameters.2"/>
+        <parameters reference="/102/@symbolicParameters.3"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -1953,13 +2029,13 @@
     </symbolicParameters>
     <bodies>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="PrimitiveTypeVoid__SRC">
-        <parameters reference="/95/@symbolicParameters.1"/>
+        <parameters reference="/103/@symbolicParameters.1"/>
       </constraints>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="PrimitiveType2PrimitiveType__FWD_OPT_REFINEMENT_INVOCATIONS">
-        <parameters reference="/95/@symbolicParameters.0"/>
-        <parameters reference="/95/@symbolicParameters.1"/>
-        <parameters reference="/95/@symbolicParameters.2"/>
-        <parameters reference="/95/@symbolicParameters.3"/>
+        <parameters reference="/103/@symbolicParameters.0"/>
+        <parameters reference="/103/@symbolicParameters.1"/>
+        <parameters reference="/103/@symbolicParameters.2"/>
+        <parameters reference="/103/@symbolicParameters.3"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -1980,15 +2056,13 @@
       <eClassifier xsi:type="ecore:EClass" href="../model/MoDiscoIbexTGG.ecore#//MethodDec2Operation"/>
     </symbolicParameters>
     <bodies>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/97/@symbolicParameters.2"/>
-        <parameters reference="/97/@symbolicParameters.0"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/MoDiscoIbexTGG.ecore#//MethodDec2Operation/source"/>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="MoDiscoIbexTGG.MethodDec2Operation_MoDiscoIbexTGG.MethodDec2Operation.source_java.MethodDeclaration___EDGE">
+        <parameters reference="/105/@symbolicParameters.2"/>
+        <parameters reference="/105/@symbolicParameters.0"/>
       </constraints>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/97/@symbolicParameters.2"/>
-        <parameters reference="/97/@symbolicParameters.1"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/MoDiscoIbexTGG.ecore#//MethodDec2Operation/target"/>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="MoDiscoIbexTGG.MethodDec2Operation_MoDiscoIbexTGG.MethodDec2Operation.target_uml.Operation___EDGE">
+        <parameters reference="/105/@symbolicParameters.2"/>
+        <parameters reference="/105/@symbolicParameters.1"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -2000,10 +2074,9 @@
       <localVariables xsi:type="emf:EMFVariable" name="md2o">
         <eClassifier xsi:type="ecore:EClass" href="../model/MoDiscoIbexTGG.ecore#//MethodDec2Operation"/>
       </localVariables>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/98/@bodies.0/@localVariables.0"/>
-        <parameters reference="/98/@symbolicParameters.0"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/MoDiscoIbexTGG.ecore#//MethodDec2Operation/source"/>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="MoDiscoIbexTGG.MethodDec2Operation_MoDiscoIbexTGG.MethodDec2Operation.source_java.MethodDeclaration___EDGE">
+        <parameters reference="/106/@bodies.0/@localVariables.0"/>
+        <parameters reference="/106/@symbolicParameters.0"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -2015,10 +2088,9 @@
       <localVariables xsi:type="emf:EMFVariable" name="md2o">
         <eClassifier xsi:type="ecore:EClass" href="../model/MoDiscoIbexTGG.ecore#//MethodDec2Operation"/>
       </localVariables>
-      <constraints xsi:type="emf:Reference">
-        <parameters reference="/99/@bodies.0/@localVariables.0"/>
-        <parameters reference="/99/@symbolicParameters.0"/>
-        <eModelElement xsi:type="ecore:EReference" href="../model/MoDiscoIbexTGG.ecore#//MethodDec2Operation/target"/>
+      <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="MoDiscoIbexTGG.MethodDec2Operation_MoDiscoIbexTGG.MethodDec2Operation.target_uml.Operation___EDGE">
+        <parameters reference="/107/@bodies.0/@localVariables.0"/>
+        <parameters reference="/107/@symbolicParameters.0"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -2037,14 +2109,14 @@
     </symbolicParameters>
     <bodies>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="VariableDec2Parameter__FWD_OPT_REFINEMENT_INVOCATIONS">
-        <parameters reference="/100/@symbolicParameters.0"/>
-        <parameters reference="/100/@symbolicParameters.1"/>
-        <parameters reference="/100/@symbolicParameters.2"/>
-        <parameters reference="/100/@symbolicParameters.3"/>
+        <parameters reference="/108/@symbolicParameters.0"/>
+        <parameters reference="/108/@symbolicParameters.1"/>
+        <parameters reference="/108/@symbolicParameters.2"/>
+        <parameters reference="/108/@symbolicParameters.3"/>
       </constraints>
       <constraints xsi:type="specification:PatternInvocationConstraint" invokedPattern="VariableDec2Parameter__variableDec_parameters_incoming_DEC_SRC">
-        <parameters reference="/100/@symbolicParameters.0"/>
-        <parameters reference="/100/@symbolicParameters.1"/>
+        <parameters reference="/108/@symbolicParameters.0"/>
+        <parameters reference="/108/@symbolicParameters.1"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -2063,16 +2135,16 @@
     </symbolicParameters>
     <bodies>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="VariableDec2Parameter__SRC">
-        <parameters reference="/101/@symbolicParameters.0"/>
-        <parameters reference="/101/@symbolicParameters.1"/>
+        <parameters reference="/109/@symbolicParameters.0"/>
+        <parameters reference="/109/@symbolicParameters.1"/>
       </constraints>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="VariableDec2Parameter__CONTEXT_CORR">
-        <parameters reference="/101/@symbolicParameters.0"/>
-        <parameters reference="/101/@symbolicParameters.2"/>
-        <parameters reference="/101/@symbolicParameters.3"/>
+        <parameters reference="/109/@symbolicParameters.0"/>
+        <parameters reference="/109/@symbolicParameters.2"/>
+        <parameters reference="/109/@symbolicParameters.3"/>
       </constraints>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="VariableDec2Parameter__CONTEXT_TRG">
-        <parameters reference="/101/@symbolicParameters.2"/>
+        <parameters reference="/109/@symbolicParameters.2"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -2085,15 +2157,15 @@
     </symbolicParameters>
     <bodies>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="VariableDec2Parameter__CONTEXT_SRC">
-        <parameters reference="/102/@symbolicParameters.0"/>
+        <parameters reference="/110/@symbolicParameters.0"/>
       </constraints>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="java.AbstractMethodDeclaration_java.AbstractMethodDeclaration.parameters_java.SingleVariableDeclaration___EDGE">
-        <parameters reference="/102/@symbolicParameters.0"/>
-        <parameters reference="/102/@symbolicParameters.1"/>
+        <parameters reference="/110/@symbolicParameters.0"/>
+        <parameters reference="/110/@symbolicParameters.1"/>
       </constraints>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="java.SingleVariableDeclaration_java.SingleVariableDeclaration.methodDeclaration_java.AbstractMethodDeclaration___EDGE">
-        <parameters reference="/102/@symbolicParameters.1"/>
-        <parameters reference="/102/@symbolicParameters.0"/>
+        <parameters reference="/110/@symbolicParameters.1"/>
+        <parameters reference="/110/@symbolicParameters.0"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -2109,9 +2181,9 @@
         <eClassifier xsi:type="ecore:EClass" href="../metamodels/java.ecore#//AbstractMethodDeclaration"/>
       </localVariables>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="VariableDec2Parameter__variableDec_parameters_incoming_SearchEdge_SRC">
-        <parameters reference="/103/@symbolicParameters.0"/>
-        <parameters reference="/103/@symbolicParameters.1"/>
-        <parameters reference="/103/@bodies.0/@localVariables.0"/>
+        <parameters reference="/111/@symbolicParameters.0"/>
+        <parameters reference="/111/@symbolicParameters.1"/>
+        <parameters reference="/111/@bodies.0/@localVariables.0"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -2127,16 +2199,16 @@
     </symbolicParameters>
     <bodies>
       <constraints xsi:type="relational:Unequal">
-        <parameters reference="/104/@symbolicParameters.0"/>
-        <parameters reference="/104/@symbolicParameters.2"/>
+        <parameters reference="/112/@symbolicParameters.0"/>
+        <parameters reference="/112/@symbolicParameters.2"/>
       </constraints>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="java.AbstractMethodDeclaration_java.AbstractMethodDeclaration.parameters_java.SingleVariableDeclaration___EDGE">
-        <parameters reference="/104/@symbolicParameters.0"/>
-        <parameters reference="/104/@symbolicParameters.1"/>
+        <parameters reference="/112/@symbolicParameters.0"/>
+        <parameters reference="/112/@symbolicParameters.1"/>
       </constraints>
       <constraints xsi:type="specification:PatternInvocationConstraint" positive="true" invokedPattern="java.AbstractMethodDeclaration_java.AbstractMethodDeclaration.parameters_java.SingleVariableDeclaration___EDGE">
-        <parameters reference="/104/@symbolicParameters.2"/>
-        <parameters reference="/104/@symbolicParameters.1"/>
+        <parameters reference="/112/@symbolicParameters.2"/>
+        <parameters reference="/112/@symbolicParameters.1"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -2149,8 +2221,8 @@
     </symbolicParameters>
     <bodies>
       <constraints xsi:type="emf:Reference">
-        <parameters reference="/105/@symbolicParameters.0"/>
-        <parameters reference="/105/@symbolicParameters.1"/>
+        <parameters reference="/113/@symbolicParameters.0"/>
+        <parameters reference="/113/@symbolicParameters.1"/>
         <eModelElement xsi:type="ecore:EReference" href="../metamodels/java.ecore#//AbstractMethodDeclaration/parameters"/>
       </constraints>
     </bodies>
@@ -2164,8 +2236,8 @@
     </symbolicParameters>
     <bodies>
       <constraints xsi:type="emf:Reference">
-        <parameters reference="/106/@symbolicParameters.0"/>
-        <parameters reference="/106/@symbolicParameters.1"/>
+        <parameters reference="/114/@symbolicParameters.0"/>
+        <parameters reference="/114/@symbolicParameters.1"/>
         <eModelElement xsi:type="ecore:EReference" href="../metamodels/java.ecore#//AbstractTypeDeclaration/bodyDeclarations"/>
       </constraints>
     </bodies>
@@ -2179,8 +2251,8 @@
     </symbolicParameters>
     <bodies>
       <constraints xsi:type="emf:Reference">
-        <parameters reference="/107/@symbolicParameters.0"/>
-        <parameters reference="/107/@symbolicParameters.1"/>
+        <parameters reference="/115/@symbolicParameters.0"/>
+        <parameters reference="/115/@symbolicParameters.1"/>
         <eModelElement xsi:type="ecore:EReference" href="../metamodels/java.ecore#//AbstractTypeDeclaration/package"/>
       </constraints>
     </bodies>
@@ -2194,8 +2266,8 @@
     </symbolicParameters>
     <bodies>
       <constraints xsi:type="emf:Reference">
-        <parameters reference="/108/@symbolicParameters.0"/>
-        <parameters reference="/108/@symbolicParameters.1"/>
+        <parameters reference="/116/@symbolicParameters.0"/>
+        <parameters reference="/116/@symbolicParameters.1"/>
         <eModelElement xsi:type="ecore:EReference" href="../metamodels/java.ecore#//AbstractVariablesContainer/fragments"/>
       </constraints>
     </bodies>
@@ -2209,13 +2281,13 @@
     </symbolicParameters>
     <bodies>
       <constraints xsi:type="emf:Reference">
-        <parameters reference="/109/@symbolicParameters.0"/>
-        <parameters reference="/109/@symbolicParameters.1"/>
+        <parameters reference="/117/@symbolicParameters.0"/>
+        <parameters reference="/117/@symbolicParameters.1"/>
         <eModelElement xsi:type="ecore:EReference" href="../metamodels/java.ecore#//BodyDeclaration/abstractTypeDeclaration"/>
       </constraints>
       <constraints xsi:type="relational:Unequal">
-        <parameters reference="/109/@symbolicParameters.0"/>
-        <parameters reference="/109/@symbolicParameters.1"/>
+        <parameters reference="/117/@symbolicParameters.0"/>
+        <parameters reference="/117/@symbolicParameters.1"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -2228,8 +2300,8 @@
     </symbolicParameters>
     <bodies>
       <constraints xsi:type="emf:Reference">
-        <parameters reference="/110/@symbolicParameters.0"/>
-        <parameters reference="/110/@symbolicParameters.1"/>
+        <parameters reference="/118/@symbolicParameters.0"/>
+        <parameters reference="/118/@symbolicParameters.1"/>
         <eModelElement xsi:type="ecore:EReference" href="../metamodels/java.ecore#//Model/ownedElements"/>
       </constraints>
     </bodies>
@@ -2243,8 +2315,8 @@
     </symbolicParameters>
     <bodies>
       <constraints xsi:type="emf:Reference">
-        <parameters reference="/111/@symbolicParameters.0"/>
-        <parameters reference="/111/@symbolicParameters.1"/>
+        <parameters reference="/119/@symbolicParameters.0"/>
+        <parameters reference="/119/@symbolicParameters.1"/>
         <eModelElement xsi:type="ecore:EReference" href="../metamodels/java.ecore#//Package/model"/>
       </constraints>
     </bodies>
@@ -2258,8 +2330,8 @@
     </symbolicParameters>
     <bodies>
       <constraints xsi:type="emf:Reference">
-        <parameters reference="/112/@symbolicParameters.0"/>
-        <parameters reference="/112/@symbolicParameters.1"/>
+        <parameters reference="/120/@symbolicParameters.0"/>
+        <parameters reference="/120/@symbolicParameters.1"/>
         <eModelElement xsi:type="ecore:EReference" href="../metamodels/java.ecore#//Package/ownedElements"/>
       </constraints>
     </bodies>
@@ -2273,8 +2345,8 @@
     </symbolicParameters>
     <bodies>
       <constraints xsi:type="emf:Reference">
-        <parameters reference="/113/@symbolicParameters.0"/>
-        <parameters reference="/113/@symbolicParameters.1"/>
+        <parameters reference="/121/@symbolicParameters.0"/>
+        <parameters reference="/121/@symbolicParameters.1"/>
         <eModelElement xsi:type="ecore:EReference" href="../metamodels/java.ecore#//Package/ownedPackages"/>
       </constraints>
     </bodies>
@@ -2288,13 +2360,13 @@
     </symbolicParameters>
     <bodies>
       <constraints xsi:type="emf:Reference">
-        <parameters reference="/114/@symbolicParameters.0"/>
-        <parameters reference="/114/@symbolicParameters.1"/>
+        <parameters reference="/122/@symbolicParameters.0"/>
+        <parameters reference="/122/@symbolicParameters.1"/>
         <eModelElement xsi:type="ecore:EReference" href="../metamodels/java.ecore#//Package/package"/>
       </constraints>
       <constraints xsi:type="relational:Unequal">
-        <parameters reference="/114/@symbolicParameters.0"/>
-        <parameters reference="/114/@symbolicParameters.1"/>
+        <parameters reference="/122/@symbolicParameters.0"/>
+        <parameters reference="/122/@symbolicParameters.1"/>
       </constraints>
     </bodies>
   </specification:Pattern>
@@ -2307,8 +2379,8 @@
     </symbolicParameters>
     <bodies>
       <constraints xsi:type="emf:Reference">
-        <parameters reference="/115/@symbolicParameters.0"/>
-        <parameters reference="/115/@symbolicParameters.1"/>
+        <parameters reference="/123/@symbolicParameters.0"/>
+        <parameters reference="/123/@symbolicParameters.1"/>
         <eModelElement xsi:type="ecore:EReference" href="../metamodels/java.ecore#//SingleVariableDeclaration/methodDeclaration"/>
       </constraints>
     </bodies>
@@ -2322,8 +2394,8 @@
     </symbolicParameters>
     <bodies>
       <constraints xsi:type="emf:Reference">
-        <parameters reference="/116/@symbolicParameters.0"/>
-        <parameters reference="/116/@symbolicParameters.1"/>
+        <parameters reference="/124/@symbolicParameters.0"/>
+        <parameters reference="/124/@symbolicParameters.1"/>
         <eModelElement xsi:type="ecore:EReference" href="../metamodels/java.ecore#//VariableDeclarationFragment/variablesContainer"/>
       </constraints>
     </bodies>
