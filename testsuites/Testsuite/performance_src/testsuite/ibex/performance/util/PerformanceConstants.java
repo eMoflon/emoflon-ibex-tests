@@ -15,10 +15,10 @@ public class PerformanceConstants {
 	/** Model sizes for which test cases shall be generated and executed. */
 	public final static int[] modelSizes = {
 											500,
-											/*1000,
+											1000,
 											2000,
 											4000,
-											8000*/
+											8000
 	};
 
 	/** Number of repetitions per test case. Final result is the median of all repetitions. */
