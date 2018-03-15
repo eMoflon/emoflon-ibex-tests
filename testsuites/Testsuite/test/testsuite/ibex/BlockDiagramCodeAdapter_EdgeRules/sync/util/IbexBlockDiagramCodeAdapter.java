@@ -28,7 +28,7 @@ public class IbexBlockDiagramCodeAdapter extends IbexAdapter<BlockSystem, File> 
 	@Override
 	public void initiateSynchronisationDialogue() {
 		try {
-			synchroniser = new SYNC_App("BlockDiagramCodeAdapter_EdgeRules", testsuite.ibex.testUtil.Constants.workspacePath, true);
+			synchroniser = new SYNC_App("BlockDiagramCodeAdapter_EdgeRules", testsuite.ibex.testUtil.Constants.workspacePath, false);
 			
 			BlockSystem bs = BlockDiagramFactory.eINSTANCE.createBlockSystem();
 			bs.setName("aBlockSystem");

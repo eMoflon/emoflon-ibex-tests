@@ -38,7 +38,6 @@ public class PerformanceTestFWD_OPT extends PerformanceTest<FWD_OPT>{
 
 	@Override
 	protected Operationalization getOpType() {
-		//return null;
 		return Operationalization.FWD_OPT;
 	}
 }

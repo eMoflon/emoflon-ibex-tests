@@ -106,6 +106,5 @@ public class PerformanceTestSYNC extends PerformanceTest<SYNC> {
 	@Override
 	protected Operationalization getOpType() {
 		return opType;
-		//return null;
 	}
 }

@@ -38,7 +38,6 @@ public class PerformanceTestBWD_OPT extends PerformanceTest<BWD_OPT> {
 
 	@Override
 	protected Operationalization getOpType() {
-		//return null;
 		return Operationalization.BWD_OPT;
 	}
 }

@@ -38,7 +38,6 @@ public class PerformanceTestCO extends PerformanceTest<CO>{
 
 	@Override
 	protected Operationalization getOpType() {
-		//return null;
 		return Operationalization.CO;
 	}
 }

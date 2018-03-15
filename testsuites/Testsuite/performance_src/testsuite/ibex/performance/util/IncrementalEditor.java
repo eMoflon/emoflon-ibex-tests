@@ -94,8 +94,6 @@ public class IncrementalEditor {
 			default:
 				return (e) -> {};
 		}
-		
-		//throw new IllegalArgumentException("There is no edit for the "+(isFwd ? "source" : "target")+" model of the TGG "+tggName+".");
 	}
 	
 	public void mocaBlockAddNode(EObject file) {
@@ -154,9 +152,5 @@ public class IncrementalEditor {
 	
 	public void vhdlAddCompositeBlock(EObject specification) {
 		vhdlModels.createTopLevelBlock((VHDLSpecification)specification, "newCompositeBlock");
-	}
-	
-	public void dummy(EObject dummy) {
-		
 	}
 }

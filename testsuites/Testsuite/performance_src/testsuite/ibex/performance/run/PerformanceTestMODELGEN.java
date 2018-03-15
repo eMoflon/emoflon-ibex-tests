@@ -63,6 +63,5 @@ public class PerformanceTestMODELGEN extends PerformanceTest<MODELGEN> {
 	@Override
 	protected Operationalization getOpType() {
 		return Operationalization.MODELGEN;
-		//return null;
 	}
 }

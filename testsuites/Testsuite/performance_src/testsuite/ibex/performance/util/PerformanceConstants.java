@@ -22,7 +22,7 @@ public class PerformanceConstants {
 	};
 
 	/** Number of repetitions per test case. Final result is the median of all repetitions. */
-	public final static int repetitions = 1;
+	public final static int repetitions = 3;
 
 	//-------------------------  Plots -----------------------------------------------------
 	
