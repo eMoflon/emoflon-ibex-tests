@@ -92,7 +92,7 @@ public class IncrementalEditor {
 				else
 					return this::vhdlAddCompositeBlock;
 			default:
-				return this::dummy;
+				return (e) -> {};
 		}
 		
 		//throw new IllegalArgumentException("There is no edit for the "+(isFwd ? "source" : "target")+" model of the TGG "+tggName+".");

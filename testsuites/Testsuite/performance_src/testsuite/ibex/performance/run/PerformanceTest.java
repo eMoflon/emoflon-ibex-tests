@@ -68,7 +68,7 @@ public abstract class PerformanceTest<O extends OperationalStrategy> {
 	    	
 		    Future<Long> initResult = es.submit(() -> timedInit(op));
 		    initTime[0] = initResult.get(useTimeouts ? PerformanceConstants.timeout : Long.MAX_VALUE, TimeUnit.SECONDS);
-
+		    
 		    Future<Long> executionResult = es.submit(() -> timedExecution());
 		    execTime[0] = executionResult.get(useTimeouts ? PerformanceConstants.timeout : Long.MAX_VALUE, TimeUnit.SECONDS);
 	    } catch (TimeoutException e) {
