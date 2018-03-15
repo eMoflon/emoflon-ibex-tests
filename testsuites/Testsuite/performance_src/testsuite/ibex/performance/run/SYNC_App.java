@@ -10,7 +10,7 @@ import testsuite.ibex.performance.util.PerformanceTestUtil;
 
 public class SYNC_App extends SYNC {
 	private String instancePath;
-	private boolean isFwd;
+	protected boolean isFwd;
 	private boolean isIncr;
 
 	public SYNC_App(String projectName, String workspacePath, boolean debug, String instancePath, boolean isFwd, boolean isIncr) throws IOException {
