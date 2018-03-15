@@ -24,7 +24,6 @@ import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGEN;
 import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGENStopCriterion;
 import org.emoflon.ibex.tgg.operational.strategies.sync.BWD_OPT;
 import org.emoflon.ibex.tgg.operational.strategies.sync.FWD_OPT;
-import org.emoflon.ibex.tgg.operational.strategies.sync.SYNC;
 import org.emoflon.ibex.tgg.operational.updatepolicy.NextMatchUpdatePolicy;
 import org.emoflon.ibex.tgg.operational.updatepolicy.RandomMatchUpdatePolicy;
 import org.emoflon.ibex.tgg.operational.updatepolicy.TimedUpdatePolicy;
@@ -316,8 +315,8 @@ public class TestDataCollector {
 		};
 
 		System.out.println("Collecting INITIAL_SYNC data for " + tggName + ", size: " + size);
-		List<TestDataPoint> points = test.timedExecutionAndInit(transformator, size, repetitions,
-				Operationalization.INITIAL_FWD, incEditor.getEdit(tggName, true));
+		test.timedExecutionAndInit(transformator, size, repetitions, Operationalization.INITIAL_FWD,
+				incEditor.getEdit(tggName, true));
 	}
 
 	private void collectFWD_OPTData(String tggName, int size) throws IOException {
