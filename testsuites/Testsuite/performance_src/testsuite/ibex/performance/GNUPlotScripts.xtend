@@ -17,6 +17,9 @@ class GNUPlotScripts {
 	private static final String plotPath = "performance/plots/"
 	private static final String scriptPath = "performance/gnuplot_scripts/"
 	private static final String dataPath = "performance/data/"
+	private static final String evalDataPath = "performance/evaluation/data/"
+	private static final String evalScriptPath = "performance/evaluation/gnuplot_scripts/"
+	private static final String evalPlotPath = "performance/evaluation/plots/"
 	
 	/**
 	 * Saves the script for the specified plot and the plot itself as files
@@ -28,6 +31,18 @@ class GNUPlotScripts {
 		var lines = script.split("\n\n")
 		Files.write(Paths.get(scriptPath+title+".gp"), lines)
 		Runtime.runtime.exec(gnuplotCommand + " "+scriptPath+title+".gp").waitFor()
+	}
+	
+		/**
+	 * Saves the script for the specified evaluation plot and the plot itself as files
+	 * in the corresponding folders in the "performance/evaluation/" directory of the testsuite.
+	 * @param title The name of the plot that shall be created.
+	 * @param script The script for the plot in a single String.
+	 */
+	def createEvalPlot(String title, String script) {
+		var lines = script.split("\n\n")
+		Files.write(Paths.get(evalScriptPath+title+".gp"), lines)
+		Runtime.runtime.exec(gnuplotCommand + " "+evalScriptPath+title+".gp").waitFor()
 	}
 	
 	def commonHistogramScriptParts(String diagramType, String fileName) {
@@ -45,12 +60,27 @@ class GNUPlotScripts {
 			set grid
 		'''
 	}
+	
+	def testHistogramScriptParts(String fileName) {
+		return '''
+			set terminal «terminal»
+			set output "«evalPlotPath»«fileName».«output»"
+			set style data histogram
+			set style histogram cluster gap 1
+			set style fill solid border -1
+			set boxwidth 0.9
+			set ylabel "average rank"
+			set xtic rotate by -45 noenhanced
+			set key top left
+			set grid
+		'''
+	}
 
 	def allTGGsComparison(String title, String op) {
 		var script = '''
 			«commonHistogramScriptParts("AllTGGs", title)»
 			set title "Comparison of TGG execution times for models of size «PlotGenerator.standardModelSize» - «op»"
-			set yrange [1:10000]
+			set yrange [1:100000]
 			plot \
 			newhistogram lt 3, \
 			"«dataPath»«title».dat" using ($2/«timeFactor»):xtic(1) ti col
@@ -89,7 +119,7 @@ class GNUPlotScripts {
 			set style histogram cluster gap 1 title offset 0, -2
 			set rmargin 8
 			set bmargin 9
-			set yrange [0.1:10000]
+			set yrange [0.1:100000]
 			plot \
 			newhistogram lt 3 "ClassInhHier2DB", \
 			"«dataPath»«title».dat" using ($2/«timeFactor»):xtic(1) ti col, \
@@ -104,11 +134,35 @@ class GNUPlotScripts {
 			«commonHistogramScriptParts("InitTimes", title)»
 			set title "Execution times of initialization - «tgg»:«op»"
 			set xlabel "model size"
-			set yrange [0.1:10000]
+			set yrange [0.1:100000]
 			plot \
 			newhistogram lt 3, \
 			"«dataPath»«title».dat" using ($2/«timeFactor»):xtic(1) ti col
 		'''
 		createPlot(title, script);
+	}
+	
+	def allTestsComparisonOnRanks(String title, String op) {
+		var script = '''
+			«testHistogramScriptParts(title)»
+			set title "Comparison of average ranks among tests for models of size «PlotGenerator.standardModelSize» - «op»"
+			set yrange [1:10]
+			plot \
+			newhistogram lt 3, \
+			"«evalDataPath»«title».dat" using ($2):xtic(1) ti col
+		'''
+		createEvalPlot(title, script);
+	}
+	
+	def allTestsComparisonOnValues(String title, String op) {
+		var script = '''
+			«testHistogramScriptParts(title)»
+			set title "Comparison of average execution times among tests for models of size «PlotGenerator.standardModelSize» - «op»"
+			set yrange [1:100000]
+			plot \
+			newhistogram lt 3, \
+			"«evalDataPath»«title».dat" using ($2/«timeFactor»):xtic(1) ti col
+		'''
+		createEvalPlot(title, script);
 	}
 }

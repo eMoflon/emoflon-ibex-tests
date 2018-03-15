@@ -1,0 +1,48 @@
+#using MoDiscoIbexTGG.*
+#using AttrCondDefLibrary.*
+
+#rule VariableDec2Parameter #with MoDiscoIbexTGG
+
+#source { 
+	method : MethodDeclaration {
+		++ -parameters->variableDec
+	}
+	
+	++ variableDec : SingleVariableDeclaration{
+
+	}
+	
+
+	
+
+	
+}
+
+#target {
+	operation : Operation {
+		++ -ownedParameter->param
+	}
+	++ param : Parameter{
+
+	}
+
+}
+
+#correspondence {	
+	md2o : MethodDec2Operation {
+		#src->method
+		#trg->operation
+	}
+	
+	
+	++ vd2p : VariableDec2Parameter {
+		#src->variableDec
+		#trg->param
+	}
+	
+	
+}
+
+#attributeConditions {
+	eq_string(variableDec.name, param.name)
+}

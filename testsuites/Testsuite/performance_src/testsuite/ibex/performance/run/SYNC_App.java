@@ -9,13 +9,14 @@ import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import testsuite.ibex.performance.util.PerformanceTestUtil;
 
 public class SYNC_App extends SYNC {
-	private String instancePath;
-	private boolean isFwd;
-	private boolean isIncr;
+	protected String instancePath;
+	protected boolean isFwd;
+	protected boolean isIncr;
 
 	public SYNC_App(String projectName, String workspacePath, boolean debug, String instancePath, boolean isFwd, boolean isIncr) throws IOException {
 		super(createIbexOptions()
 				.projectName(projectName)
+				.projectPath(projectName)
 				.workspacePath(workspacePath)
 				.debug(debug));
 		this.instancePath = instancePath;
@@ -25,7 +26,7 @@ public class SYNC_App extends SYNC {
 
 	@Override
 	protected void registerUserMetamodels() throws IOException {
-		new PerformanceTestUtil().registerUserMetamodels(projectPath, rs);
+		new PerformanceTestUtil().registerUserMetamodels(projectPath, rs, this);
 		
 		// Register correspondence metamodel last
 		loadAndRegisterMetamodel(projectPath + "/model/" + projectPath + ".ecore");
@@ -57,7 +58,12 @@ public class SYNC_App extends SYNC {
 		
 		EcoreUtil.resolveAll(rs);
 	}
-
+	
+	@Override
+	public void saveModels() {
+		// Models needn't be saved for all Operationalizations except MODELGEN
+	}
+	
 	protected static IbexOptions createIbexOptions() {
 		IbexOptions options = new IbexOptions();
 		return options;

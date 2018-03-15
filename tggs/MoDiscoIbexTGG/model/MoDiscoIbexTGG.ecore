@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="MoDiscoIbexTGG" nsURI="platform:/resource/MoDiscoIbexTGG/model/MoDiscoIbexTGG.ecore"
+    nsPrefix="MoDiscoIbexTGG">
+  <eClassifiers xsi:type="ecore:EClass" name="JavaPackage2UmlPackage">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="ecore:EClass platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//Package"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="ecore:EClass platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//Package"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="JavaModel2UMLPackage">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="ecore:EClass platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//Model"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="ecore:EClass platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//Package"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="JavaType2UMLType">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="ecore:EClass platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//Type"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="ecore:EClass platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//Type"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MethodDec2Operation">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="ecore:EClass platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//MethodDeclaration"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="ecore:EClass platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//Operation"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="VariableDec2Parameter">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="ecore:EClass platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//VariableDeclaration"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="ecore:EClass platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//Parameter"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TypeAccess2Generalization">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="ecore:EClass platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//TypeAccess"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="ecore:EClass platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//Generalization"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TypeAccess2InterfaceRealization">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="ecore:EClass platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//TypeAccess"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="ecore:EClass platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//InterfaceRealization"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FieldDec2Property">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="ecore:EClass platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//FieldDeclaration"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="ecore:EClass platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//Property"/>
+  </eClassifiers>
+</ecore:EPackage>

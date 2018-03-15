@@ -1,0 +1,581 @@
+<?xml version="1.0" encoding="ASCII"?>
+<tgg:TripleGraphGrammarFile xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tgg="http://www.moflon.org/ide/tgg/mosl/TGG">
+  <imports name="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore"/>
+  <imports name="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore"/>
+  <schema name="MoDiscoIbexTGG">
+    <sourceTypes href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#/"/>
+    <targetTypes href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#/"/>
+    <correspondenceTypes name="JavaPackage2UmlPackage">
+      <source href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//Package"/>
+      <target href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//Package"/>
+    </correspondenceTypes>
+    <correspondenceTypes name="JavaModel2UMLPackage">
+      <source href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//Model"/>
+      <target href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//Package"/>
+    </correspondenceTypes>
+    <correspondenceTypes name="JavaType2UMLType">
+      <source href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//Type"/>
+      <target href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//Type"/>
+    </correspondenceTypes>
+    <correspondenceTypes name="MethodDec2Operation">
+      <source href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//MethodDeclaration"/>
+      <target href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//Operation"/>
+    </correspondenceTypes>
+    <correspondenceTypes name="VariableDec2Parameter">
+      <source href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//VariableDeclaration"/>
+      <target href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//Parameter"/>
+    </correspondenceTypes>
+    <correspondenceTypes name="TypeAccess2Generalization">
+      <source href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//TypeAccess"/>
+      <target href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//Generalization"/>
+    </correspondenceTypes>
+    <correspondenceTypes name="TypeAccess2InterfaceRealization">
+      <source href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//TypeAccess"/>
+      <target href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//InterfaceRealization"/>
+    </correspondenceTypes>
+    <correspondenceTypes name="FieldDec2Property">
+      <source href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//FieldDeclaration"/>
+      <target href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//Property"/>
+    </correspondenceTypes>
+    <attributeCondDefs name="isInParameter" userDefined="true">
+      <params paramName="parameter">
+        <type href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//ParameterDirectionKind"/>
+      </params>
+      <allowedSyncAdornments>
+        <value>F</value>
+      </allowedSyncAdornments>
+      <allowedSyncAdornments>
+        <value>B</value>
+      </allowedSyncAdornments>
+      <allowedGenAdornments>
+        <value>F</value>
+      </allowedGenAdornments>
+      <allowedGenAdornments>
+        <value>B</value>
+      </allowedGenAdornments>
+    </attributeCondDefs>
+    <attributeCondDefs name="isReturn" userDefined="true">
+      <params paramName="parameter">
+        <type href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//ParameterDirectionKind"/>
+      </params>
+      <allowedSyncAdornments>
+        <value>F</value>
+      </allowedSyncAdornments>
+      <allowedSyncAdornments>
+        <value>B</value>
+      </allowedSyncAdornments>
+      <allowedGenAdornments>
+        <value>F</value>
+      </allowedGenAdornments>
+      <allowedGenAdornments>
+        <value>B</value>
+      </allowedGenAdornments>
+    </attributeCondDefs>
+    <attributeCondDefs name="proxyToUmlModelName" userDefined="true">
+      <params paramName="proxy">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      </params>
+      <params paramName="umlModelName">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </params>
+      <allowedSyncAdornments>
+        <value>B</value>
+        <value>B</value>
+      </allowedSyncAdornments>
+      <allowedSyncAdornments>
+        <value>F</value>
+        <value>B</value>
+      </allowedSyncAdornments>
+      <allowedGenAdornments>
+        <value>F</value>
+        <value>B</value>
+      </allowedGenAdornments>
+    </attributeCondDefs>
+    <attributeCondDefs name="eq_string">
+      <params paramName="a">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </params>
+      <params paramName="b">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </params>
+      <allowedSyncAdornments>
+        <value>B</value>
+        <value>B</value>
+      </allowedSyncAdornments>
+      <allowedSyncAdornments>
+        <value>B</value>
+        <value>F</value>
+      </allowedSyncAdornments>
+      <allowedSyncAdornments>
+        <value>F</value>
+        <value>B</value>
+      </allowedSyncAdornments>
+      <allowedGenAdornments>
+        <value>B</value>
+        <value>B</value>
+      </allowedGenAdornments>
+      <allowedGenAdornments>
+        <value>B</value>
+        <value>F</value>
+      </allowedGenAdornments>
+      <allowedGenAdornments>
+        <value>F</value>
+        <value>B</value>
+      </allowedGenAdornments>
+      <allowedGenAdornments>
+        <value>F</value>
+        <value>F</value>
+      </allowedGenAdornments>
+    </attributeCondDefs>
+  </schema>
+  <rules name="FieldDec2Property" schema="//@schema">
+    <sourcePatterns name="jOwnerType">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//ClassDeclaration"/>
+      <linkVariablePatterns target="//@rules.0/@sourcePatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//AbstractTypeDeclaration/bodyDeclarations"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="jField">
+      <op value="++"/>
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//FieldDeclaration"/>
+      <linkVariablePatterns target="//@rules.0/@sourcePatterns.2">
+        <op value="++"/>
+        <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//AbstractVariablesContainer/fragments"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="vdf">
+      <op value="++"/>
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//VariableDeclarationFragment"/>
+    </sourcePatterns>
+    <targetPatterns name="uOwnerType">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//Class"/>
+      <linkVariablePatterns target="//@rules.0/@targetPatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//StructuredClassifier/ownedAttribute"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="property">
+      <op value="++"/>
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//Property"/>
+    </targetPatterns>
+    <correspondencePatterns name="jo2uo" type="//@schema/@correspondenceTypes.2" source="//@rules.0/@sourcePatterns.0" target="//@rules.0/@targetPatterns.0"/>
+    <correspondencePatterns name="f2p" type="//@schema/@correspondenceTypes.7" source="//@rules.0/@sourcePatterns.1" target="//@rules.0/@targetPatterns.1">
+      <op value="++"/>
+    </correspondencePatterns>
+    <attrConditions name="//@schema/@attributeCondDefs.3">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.0/@sourcePatterns.2">
+        <attribute href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//NamedElement/name"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.0/@targetPatterns.1">
+        <attribute href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//NamedElement/name"/>
+      </values>
+    </attrConditions>
+  </rules>
+  <rules name="MethodDec2Operation4Class" schema="//@schema">
+    <supertypes href="platform:/resource/MoDiscoIbexTGG/src/org/emoflon/ibex/tgg/rules/methods/MethodDec2Operation4Class.tgg#|0"/>
+    <sourcePatterns name="classDec">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//ClassDeclaration"/>
+    </sourcePatterns>
+    <targetPatterns name="umlClass">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//Class"/>
+      <linkVariablePatterns target="//@rules.1/@targetPatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//Class/ownedOperation"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="operation">
+      <op value="++"/>
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//Operation"/>
+    </targetPatterns>
+    <correspondencePatterns name="cd2c" type="//@schema/@correspondenceTypes.2" source="//@rules.1/@sourcePatterns.0" target="//@rules.1/@targetPatterns.0"/>
+  </rules>
+  <rules name="MethodDec2Operation4Enum" schema="//@schema">
+    <supertypes href="platform:/resource/MoDiscoIbexTGG/src/org/emoflon/ibex/tgg/rules/methods/MethodDec2Operation4Class.tgg#|10"/>
+    <sourcePatterns name="classDec">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//EnumDeclaration"/>
+    </sourcePatterns>
+    <targetPatterns name="umlClass">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//Enumeration"/>
+      <linkVariablePatterns target="//@rules.2/@targetPatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//DataType/ownedOperation"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="operation">
+      <op value="++"/>
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//Operation"/>
+    </targetPatterns>
+    <correspondencePatterns name="cd2c" type="//@schema/@correspondenceTypes.2" source="//@rules.2/@sourcePatterns.0" target="//@rules.2/@targetPatterns.0"/>
+  </rules>
+  <rules name="MethodDec2Operation4Interface" schema="//@schema">
+    <supertypes href="platform:/resource/MoDiscoIbexTGG/src/org/emoflon/ibex/tgg/rules/methods/MethodDec2Operation4Interface.tgg#|0"/>
+    <sourcePatterns name="classDec">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//InterfaceDeclaration"/>
+    </sourcePatterns>
+    <targetPatterns name="umlClass">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//Interface"/>
+      <linkVariablePatterns target="//@rules.3/@targetPatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//Interface/ownedOperation"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="operation">
+      <op value="++"/>
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//Operation"/>
+    </targetPatterns>
+    <correspondencePatterns name="cd2c" type="//@schema/@correspondenceTypes.2" source="//@rules.3/@sourcePatterns.0" target="//@rules.3/@targetPatterns.0"/>
+  </rules>
+  <rules name="MethodDec2Operation4_Abstract" abstractRule="true" schema="//@schema">
+    <sourcePatterns name="classDec">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//AbstractTypeDeclaration"/>
+      <linkVariablePatterns target="//@rules.4/@sourcePatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//AbstractTypeDeclaration/bodyDeclarations"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="method">
+      <op value="++"/>
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//MethodDeclaration"/>
+    </sourcePatterns>
+    <targetPatterns name="operation">
+      <op value="++"/>
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//Operation"/>
+    </targetPatterns>
+    <correspondencePatterns name="md2o" type="//@schema/@correspondenceTypes.3" source="//@rules.4/@sourcePatterns.1" target="//@rules.4/@targetPatterns.0">
+      <op value="++"/>
+    </correspondencePatterns>
+    <attrConditions name="//@schema/@attributeCondDefs.3">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.4/@sourcePatterns.1">
+        <attribute href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//NamedElement/name"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.4/@targetPatterns.0">
+        <attribute href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//NamedElement/name"/>
+      </values>
+    </attrConditions>
+  </rules>
+  <rules name="VariableDec2Parameter" schema="//@schema">
+    <sourcePatterns name="method">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//MethodDeclaration"/>
+      <linkVariablePatterns target="//@rules.5/@sourcePatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//AbstractMethodDeclaration/parameters"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="variableDec">
+      <op value="++"/>
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//SingleVariableDeclaration"/>
+    </sourcePatterns>
+    <targetPatterns name="operation">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//Operation"/>
+      <linkVariablePatterns target="//@rules.5/@targetPatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//BehavioralFeature/ownedParameter"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="param">
+      <op value="++"/>
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//Parameter"/>
+    </targetPatterns>
+    <correspondencePatterns name="md2o" type="//@schema/@correspondenceTypes.3" source="//@rules.5/@sourcePatterns.0" target="//@rules.5/@targetPatterns.0"/>
+    <correspondencePatterns name="vd2p" type="//@schema/@correspondenceTypes.4" source="//@rules.5/@sourcePatterns.1" target="//@rules.5/@targetPatterns.1">
+      <op value="++"/>
+    </correspondencePatterns>
+    <attrConditions name="//@schema/@attributeCondDefs.3">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.5/@sourcePatterns.1">
+        <attribute href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//NamedElement/name"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.5/@targetPatterns.1">
+        <attribute href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//NamedElement/name"/>
+      </values>
+    </attrConditions>
+  </rules>
+  <rules name="JavaModelToUMLModel" schema="//@schema">
+    <sourcePatterns name="jp">
+      <op value="++"/>
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//Model"/>
+    </sourcePatterns>
+    <targetPatterns name="up">
+      <op value="++"/>
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//Model"/>
+    </targetPatterns>
+    <correspondencePatterns name="jp2up" type="//@schema/@correspondenceTypes.1" source="//@rules.6/@sourcePatterns.0" target="//@rules.6/@targetPatterns.0">
+      <op value="++"/>
+    </correspondencePatterns>
+    <attrConditions name="//@schema/@attributeCondDefs.3">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.6/@targetPatterns.0">
+        <attribute href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//NamedElement/name"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.6/@sourcePatterns.0">
+        <attribute href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//Model/name"/>
+      </values>
+    </attrConditions>
+  </rules>
+  <rules name="JavaPackageToUMLPackage" schema="//@schema">
+    <sourcePatterns name="jp">
+      <op value="++"/>
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//Package"/>
+    </sourcePatterns>
+    <targetPatterns name="up">
+      <op value="++"/>
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//Package"/>
+    </targetPatterns>
+    <correspondencePatterns name="jp2up" type="//@schema/@correspondenceTypes.0" source="//@rules.7/@sourcePatterns.0" target="//@rules.7/@targetPatterns.0">
+      <op value="++"/>
+    </correspondencePatterns>
+    <attrConditions name="//@schema/@attributeCondDefs.3">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.7/@targetPatterns.0">
+        <attribute href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//NamedElement/name"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.7/@sourcePatterns.0">
+        <attribute href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//NamedElement/name"/>
+      </values>
+    </attrConditions>
+  </rules>
+  <rules name="JavaPackageToUMLPackage_EdgeRule" schema="//@schema">
+    <sourcePatterns name="jpp">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//Package"/>
+      <linkVariablePatterns target="//@rules.8/@sourcePatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//Package/ownedPackages"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="jp">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//Package"/>
+    </sourcePatterns>
+    <targetPatterns name="upp">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//Package"/>
+      <linkVariablePatterns target="//@rules.8/@targetPatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//Package/packagedElement"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="up">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//Package"/>
+    </targetPatterns>
+    <correspondencePatterns name="jp2up" type="//@schema/@correspondenceTypes.0" source="//@rules.8/@sourcePatterns.1" target="//@rules.8/@targetPatterns.1"/>
+    <correspondencePatterns name="jpp2upp" type="//@schema/@correspondenceTypes.0" source="//@rules.8/@sourcePatterns.0" target="//@rules.8/@targetPatterns.0"/>
+  </rules>
+  <rules name="JavaModelToUMLModel_EdgeRule" schema="//@schema">
+    <sourcePatterns name="jpp">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//Model"/>
+      <linkVariablePatterns target="//@rules.9/@sourcePatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//Model/ownedElements"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="jp">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//Package"/>
+    </sourcePatterns>
+    <targetPatterns name="upp">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//Model"/>
+      <linkVariablePatterns target="//@rules.9/@targetPatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//Package/packagedElement"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="up">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//Package"/>
+    </targetPatterns>
+    <correspondencePatterns name="jp2up" type="//@schema/@correspondenceTypes.0" source="//@rules.9/@sourcePatterns.1" target="//@rules.9/@targetPatterns.1"/>
+    <correspondencePatterns name="jpp2upp" type="//@schema/@correspondenceTypes.1" source="//@rules.9/@sourcePatterns.0" target="//@rules.9/@targetPatterns.0"/>
+  </rules>
+  <rules name="ClassDec2Class" schema="//@schema">
+    <sourcePatterns name="jPackage">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//Package"/>
+      <linkVariablePatterns target="//@rules.10/@sourcePatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//Package/ownedElements"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="classDec">
+      <op value="++"/>
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//ClassDeclaration"/>
+    </sourcePatterns>
+    <targetPatterns name="umlPackage">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//Package"/>
+      <linkVariablePatterns target="//@rules.10/@targetPatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//Package/packagedElement"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="umlClass">
+      <op value="++"/>
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//Class"/>
+    </targetPatterns>
+    <correspondencePatterns name="jp2up" type="//@schema/@correspondenceTypes.0" source="//@rules.10/@sourcePatterns.0" target="//@rules.10/@targetPatterns.0"/>
+    <correspondencePatterns name="cd2c" type="//@schema/@correspondenceTypes.2" source="//@rules.10/@sourcePatterns.1" target="//@rules.10/@targetPatterns.1">
+      <op value="++"/>
+    </correspondencePatterns>
+    <attrConditions name="//@schema/@attributeCondDefs.3">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.10/@sourcePatterns.1">
+        <attribute href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//NamedElement/name"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.10/@targetPatterns.1">
+        <attribute href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//NamedElement/name"/>
+      </values>
+    </attrConditions>
+  </rules>
+  <rules name="EnumDec2Enum" schema="//@schema">
+    <sourcePatterns name="jPackage">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//Package"/>
+      <linkVariablePatterns target="//@rules.11/@sourcePatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//Package/ownedElements"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="enumDec">
+      <op value="++"/>
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//EnumDeclaration"/>
+    </sourcePatterns>
+    <targetPatterns name="umlPackage">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//Package"/>
+      <linkVariablePatterns target="//@rules.11/@targetPatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//Package/packagedElement"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="umlEnum">
+      <op value="++"/>
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//Enumeration"/>
+    </targetPatterns>
+    <correspondencePatterns name="jp2up" type="//@schema/@correspondenceTypes.0" source="//@rules.11/@sourcePatterns.0" target="//@rules.11/@targetPatterns.0"/>
+    <correspondencePatterns name="cd2c" type="//@schema/@correspondenceTypes.2" source="//@rules.11/@sourcePatterns.1" target="//@rules.11/@targetPatterns.1">
+      <op value="++"/>
+    </correspondencePatterns>
+    <attrConditions name="//@schema/@attributeCondDefs.3">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.11/@sourcePatterns.1">
+        <attribute href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//NamedElement/name"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.11/@targetPatterns.1">
+        <attribute href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//NamedElement/name"/>
+      </values>
+    </attrConditions>
+  </rules>
+  <rules name="InterfaceDec2Interface" schema="//@schema">
+    <sourcePatterns name="jPackage">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//Package"/>
+      <linkVariablePatterns target="//@rules.12/@sourcePatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//Package/ownedElements"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="interfaceDec">
+      <op value="++"/>
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//InterfaceDeclaration"/>
+    </sourcePatterns>
+    <targetPatterns name="umlPackage">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//Package"/>
+      <linkVariablePatterns target="//@rules.12/@targetPatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//Package/packagedElement"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="umlInterface">
+      <op value="++"/>
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//Interface"/>
+    </targetPatterns>
+    <correspondencePatterns name="jp2up" type="//@schema/@correspondenceTypes.0" source="//@rules.12/@sourcePatterns.0" target="//@rules.12/@targetPatterns.0"/>
+    <correspondencePatterns name="cd2c" type="//@schema/@correspondenceTypes.2" source="//@rules.12/@sourcePatterns.1" target="//@rules.12/@targetPatterns.1">
+      <op value="++"/>
+    </correspondencePatterns>
+    <attrConditions name="//@schema/@attributeCondDefs.3">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.12/@sourcePatterns.1">
+        <attribute href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//NamedElement/name"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.12/@targetPatterns.1">
+        <attribute href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//NamedElement/name"/>
+      </values>
+    </attrConditions>
+  </rules>
+  <rules name="PrimitiveType2PrimitiveType" abstractRule="true" schema="//@schema">
+    <sourcePatterns name="jm">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//Model"/>
+      <linkVariablePatterns target="//@rules.13/@sourcePatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//Model/orphanTypes"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="jpt">
+      <op value="++"/>
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//PrimitiveType"/>
+    </sourcePatterns>
+    <targetPatterns name="up">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//Package"/>
+      <linkVariablePatterns target="//@rules.13/@targetPatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//Package/packagedElement"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="umpt">
+      <op value="++"/>
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//PrimitiveType"/>
+    </targetPatterns>
+    <correspondencePatterns name="jm2up" type="//@schema/@correspondenceTypes.1" source="//@rules.13/@sourcePatterns.0" target="//@rules.13/@targetPatterns.0"/>
+    <correspondencePatterns name="jpt2upt2" type="//@schema/@correspondenceTypes.2" source="//@rules.13/@sourcePatterns.1" target="//@rules.13/@targetPatterns.1">
+      <op value="++"/>
+    </correspondencePatterns>
+    <attrConditions name="//@schema/@attributeCondDefs.3">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.13/@sourcePatterns.1">
+        <attribute href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//NamedElement/name"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.13/@targetPatterns.1">
+        <attribute href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//NamedElement/name"/>
+      </values>
+    </attrConditions>
+  </rules>
+  <rules name="PrimitiveTypeBoolean" supertypes="//@rules.13" schema="//@schema">
+    <sourcePatterns name="jpt">
+      <op value="++"/>
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//PrimitiveTypeBoolean"/>
+    </sourcePatterns>
+  </rules>
+  <rules name="PrimitiveTypeByte" supertypes="//@rules.13" schema="//@schema">
+    <sourcePatterns name="jpt">
+      <op value="++"/>
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//PrimitiveTypeByte"/>
+    </sourcePatterns>
+  </rules>
+  <rules name="PrimitiveTypeChar" supertypes="//@rules.13" schema="//@schema">
+    <sourcePatterns name="jpt">
+      <op value="++"/>
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//PrimitiveTypeChar"/>
+    </sourcePatterns>
+  </rules>
+  <rules name="PrimitiveTypeDouble" supertypes="//@rules.13" schema="//@schema">
+    <sourcePatterns name="jpt">
+      <op value="++"/>
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//PrimitiveTypeDouble"/>
+    </sourcePatterns>
+  </rules>
+  <rules name="PrimitiveTypeShort" supertypes="//@rules.13" schema="//@schema">
+    <sourcePatterns name="jpt">
+      <op value="++"/>
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//PrimitiveTypeShort"/>
+    </sourcePatterns>
+  </rules>
+  <rules name="PrimitiveTypeFloat" supertypes="//@rules.13" schema="//@schema">
+    <sourcePatterns name="jpt">
+      <op value="++"/>
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//PrimitiveTypeFloat"/>
+    </sourcePatterns>
+  </rules>
+  <rules name="PrimitiveTypeInt" supertypes="//@rules.13" schema="//@schema">
+    <sourcePatterns name="jpt">
+      <op value="++"/>
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//PrimitiveTypeInt"/>
+    </sourcePatterns>
+  </rules>
+  <rules name="PrimitiveTypeLong" supertypes="//@rules.13" schema="//@schema">
+    <sourcePatterns name="jpt">
+      <op value="++"/>
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//PrimitiveTypeLong"/>
+    </sourcePatterns>
+  </rules>
+  <rules name="PrimitiveTypeVoid" supertypes="//@rules.13" schema="//@schema">
+    <sourcePatterns name="jpt">
+      <op value="++"/>
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//PrimitiveTypeVoid"/>
+    </sourcePatterns>
+  </rules>
+</tgg:TripleGraphGrammarFile>

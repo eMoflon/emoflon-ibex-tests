@@ -1,0 +1,578 @@
+<?xml version="1.0" encoding="ASCII"?>
+<org.emoflon.ibex.tgg.core.language:TGG xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.emoflon.ibex.tgg.core.language="platform:/plugin/org.emoflon.ibex.tgg.core.language/model/Language.ecore#/" xmlns:org.emoflon.ibex.tgg.core.language.misc.expressions="platform:/plugin/org.emoflon.ibex.tgg.core.language/model/Language.ecore#/misc/expressions" name="MoDiscoIbexTGG">
+  <src href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#/"/>
+  <trg href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#/"/>
+  <corr href="platform:/resource/MoDiscoIbexTGG/model/MoDiscoIbexTGG.ecore#/"/>
+  <rules name="FieldDec2Property">
+    <nodes name="jOwnerType" incomingEdges="//@rules.0/@edges.3" outgoingEdges="//@rules.0/@edges.0" incomingCorrsSource="//@rules.0/@nodes.5">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//ClassDeclaration"/>
+    </nodes>
+    <nodes name="jField" bindingType="CREATE" incomingEdges="//@rules.0/@edges.0 //@rules.0/@edges.4" outgoingEdges="//@rules.0/@edges.1 //@rules.0/@edges.3" incomingCorrsSource="//@rules.0/@nodes.6">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//FieldDeclaration"/>
+    </nodes>
+    <nodes name="vdf" bindingType="CREATE" incomingEdges="//@rules.0/@edges.1" outgoingEdges="//@rules.0/@edges.4">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//VariableDeclarationFragment"/>
+    </nodes>
+    <nodes name="uOwnerType" domainType="TRG" outgoingEdges="//@rules.0/@edges.2" incomingCorrsTarget="//@rules.0/@nodes.5">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//Class"/>
+    </nodes>
+    <nodes name="property" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.0/@edges.2" incomingCorrsTarget="//@rules.0/@nodes.6">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//Property"/>
+    </nodes>
+    <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="jo2uo" domainType="CORR" source="//@rules.0/@nodes.0" target="//@rules.0/@nodes.3">
+      <type href="platform:/resource/MoDiscoIbexTGG/model/MoDiscoIbexTGG.ecore#//JavaType2UMLType"/>
+    </nodes>
+    <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="f2p" domainType="CORR" bindingType="CREATE" source="//@rules.0/@nodes.1" target="//@rules.0/@nodes.4">
+      <type href="platform:/resource/MoDiscoIbexTGG/model/MoDiscoIbexTGG.ecore#//FieldDec2Property"/>
+    </nodes>
+    <edges name="jOwnerType__bodyDeclarations__jField_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.0/@nodes.0" trgNode="//@rules.0/@nodes.1">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//AbstractTypeDeclaration/bodyDeclarations"/>
+    </edges>
+    <edges name="jField__fragments__vdf_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.0/@nodes.1" trgNode="//@rules.0/@nodes.2">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//AbstractVariablesContainer/fragments"/>
+    </edges>
+    <edges name="uOwnerType__ownedAttribute__property_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.0/@nodes.3" trgNode="//@rules.0/@nodes.4">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//StructuredClassifier/ownedAttribute"/>
+    </edges>
+    <edges name="jField__abstractTypeDeclaration__jOwnerType_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.0/@nodes.1" trgNode="//@rules.0/@nodes.0">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//BodyDeclaration/abstractTypeDeclaration"/>
+    </edges>
+    <edges name="vdf__variablesContainer__jField_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.0/@nodes.2" trgNode="//@rules.0/@nodes.1">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//VariableDeclarationFragment/variablesContainer"/>
+    </edges>
+    <attributeConditionLibrary>
+      <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.3" parameters="//@rules.0/@attributeConditionLibrary/@parameterValues.0 //@rules.0/@attributeConditionLibrary/@parameterValues.1"/>
+      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.3/@parameterDefinitions.0" objectVar="//@rules.0/@nodes.2">
+        <attribute href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//NamedElement/name"/>
+      </parameterValues>
+      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.3/@parameterDefinitions.1" objectVar="//@rules.0/@nodes.4">
+        <attribute href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//NamedElement/name"/>
+      </parameterValues>
+    </attributeConditionLibrary>
+  </rules>
+  <rules name="MethodDec2Operation4Class" refines="//@rules.4">
+    <nodes name="classDec" incomingCorrsSource="//@rules.1/@nodes.3">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//ClassDeclaration"/>
+    </nodes>
+    <nodes name="umlClass" domainType="TRG" incomingEdges="//@rules.1/@edges.1" outgoingEdges="//@rules.1/@edges.0" incomingCorrsTarget="//@rules.1/@nodes.3">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//Class"/>
+    </nodes>
+    <nodes name="operation" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.1/@edges.0" outgoingEdges="//@rules.1/@edges.1">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//Operation"/>
+    </nodes>
+    <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="cd2c" domainType="CORR" source="//@rules.1/@nodes.0" target="//@rules.1/@nodes.1">
+      <type href="platform:/resource/MoDiscoIbexTGG/model/MoDiscoIbexTGG.ecore#//JavaType2UMLType"/>
+    </nodes>
+    <edges name="umlClass__ownedOperation__operation_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.1/@nodes.1" trgNode="//@rules.1/@nodes.2">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//Class/ownedOperation"/>
+    </edges>
+    <edges name="operation__class__umlClass_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.1/@nodes.2" trgNode="//@rules.1/@nodes.1">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//Operation/class"/>
+    </edges>
+    <attributeConditionLibrary/>
+  </rules>
+  <rules name="MethodDec2Operation4Enum" refines="//@rules.4">
+    <nodes name="classDec" incomingCorrsSource="//@rules.2/@nodes.3">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//EnumDeclaration"/>
+    </nodes>
+    <nodes name="umlClass" domainType="TRG" incomingEdges="//@rules.2/@edges.1" outgoingEdges="//@rules.2/@edges.0" incomingCorrsTarget="//@rules.2/@nodes.3">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//Enumeration"/>
+    </nodes>
+    <nodes name="operation" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.2/@edges.0" outgoingEdges="//@rules.2/@edges.1">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//Operation"/>
+    </nodes>
+    <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="cd2c" domainType="CORR" source="//@rules.2/@nodes.0" target="//@rules.2/@nodes.1">
+      <type href="platform:/resource/MoDiscoIbexTGG/model/MoDiscoIbexTGG.ecore#//JavaType2UMLType"/>
+    </nodes>
+    <edges name="umlClass__ownedOperation__operation_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.2/@nodes.1" trgNode="//@rules.2/@nodes.2">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//DataType/ownedOperation"/>
+    </edges>
+    <edges name="operation__datatype__umlClass_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.2/@nodes.2" trgNode="//@rules.2/@nodes.1">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//Operation/datatype"/>
+    </edges>
+    <attributeConditionLibrary/>
+  </rules>
+  <rules name="MethodDec2Operation4Interface" refines="//@rules.4">
+    <nodes name="classDec" incomingCorrsSource="//@rules.3/@nodes.3">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//InterfaceDeclaration"/>
+    </nodes>
+    <nodes name="umlClass" domainType="TRG" incomingEdges="//@rules.3/@edges.1" outgoingEdges="//@rules.3/@edges.0" incomingCorrsTarget="//@rules.3/@nodes.3">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//Interface"/>
+    </nodes>
+    <nodes name="operation" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.3/@edges.0" outgoingEdges="//@rules.3/@edges.1">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//Operation"/>
+    </nodes>
+    <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="cd2c" domainType="CORR" source="//@rules.3/@nodes.0" target="//@rules.3/@nodes.1">
+      <type href="platform:/resource/MoDiscoIbexTGG/model/MoDiscoIbexTGG.ecore#//JavaType2UMLType"/>
+    </nodes>
+    <edges name="umlClass__ownedOperation__operation_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.3/@nodes.1" trgNode="//@rules.3/@nodes.2">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//Interface/ownedOperation"/>
+    </edges>
+    <edges name="operation__interface__umlClass_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.3/@nodes.2" trgNode="//@rules.3/@nodes.1">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//Operation/interface"/>
+    </edges>
+    <attributeConditionLibrary/>
+  </rules>
+  <rules name="MethodDec2Operation4_Abstract" abstract="true">
+    <nodes name="classDec" incomingEdges="//@rules.4/@edges.1" outgoingEdges="//@rules.4/@edges.0">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//AbstractTypeDeclaration"/>
+    </nodes>
+    <nodes name="method" bindingType="CREATE" incomingEdges="//@rules.4/@edges.0" outgoingEdges="//@rules.4/@edges.1" incomingCorrsSource="//@rules.4/@nodes.3">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//MethodDeclaration"/>
+    </nodes>
+    <nodes name="operation" domainType="TRG" bindingType="CREATE" incomingCorrsTarget="//@rules.4/@nodes.3">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//Operation"/>
+    </nodes>
+    <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="md2o" domainType="CORR" bindingType="CREATE" source="//@rules.4/@nodes.1" target="//@rules.4/@nodes.2">
+      <type href="platform:/resource/MoDiscoIbexTGG/model/MoDiscoIbexTGG.ecore#//MethodDec2Operation"/>
+    </nodes>
+    <edges name="classDec__bodyDeclarations__method_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.4/@nodes.0" trgNode="//@rules.4/@nodes.1">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//AbstractTypeDeclaration/bodyDeclarations"/>
+    </edges>
+    <edges name="method__abstractTypeDeclaration__classDec_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.4/@nodes.1" trgNode="//@rules.4/@nodes.0">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//BodyDeclaration/abstractTypeDeclaration"/>
+    </edges>
+    <attributeConditionLibrary>
+      <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.3" parameters="//@rules.4/@attributeConditionLibrary/@parameterValues.0 //@rules.4/@attributeConditionLibrary/@parameterValues.1"/>
+      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.3/@parameterDefinitions.0" objectVar="//@rules.4/@nodes.1">
+        <attribute href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//NamedElement/name"/>
+      </parameterValues>
+      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.3/@parameterDefinitions.1" objectVar="//@rules.4/@nodes.2">
+        <attribute href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//NamedElement/name"/>
+      </parameterValues>
+    </attributeConditionLibrary>
+  </rules>
+  <rules name="VariableDec2Parameter">
+    <nodes name="method" incomingEdges="//@rules.5/@edges.2" outgoingEdges="//@rules.5/@edges.0" incomingCorrsSource="//@rules.5/@nodes.4">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//MethodDeclaration"/>
+    </nodes>
+    <nodes name="variableDec" bindingType="CREATE" incomingEdges="//@rules.5/@edges.0" outgoingEdges="//@rules.5/@edges.2" incomingCorrsSource="//@rules.5/@nodes.5">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//SingleVariableDeclaration"/>
+    </nodes>
+    <nodes name="operation" domainType="TRG" outgoingEdges="//@rules.5/@edges.1" incomingCorrsTarget="//@rules.5/@nodes.4">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//Operation"/>
+    </nodes>
+    <nodes name="param" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.5/@edges.1" incomingCorrsTarget="//@rules.5/@nodes.5">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//Parameter"/>
+    </nodes>
+    <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="md2o" domainType="CORR" source="//@rules.5/@nodes.0" target="//@rules.5/@nodes.2">
+      <type href="platform:/resource/MoDiscoIbexTGG/model/MoDiscoIbexTGG.ecore#//MethodDec2Operation"/>
+    </nodes>
+    <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="vd2p" domainType="CORR" bindingType="CREATE" source="//@rules.5/@nodes.1" target="//@rules.5/@nodes.3">
+      <type href="platform:/resource/MoDiscoIbexTGG/model/MoDiscoIbexTGG.ecore#//VariableDec2Parameter"/>
+    </nodes>
+    <edges name="method__parameters__variableDec_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.5/@nodes.0" trgNode="//@rules.5/@nodes.1">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//AbstractMethodDeclaration/parameters"/>
+    </edges>
+    <edges name="operation__ownedParameter__param_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.5/@nodes.2" trgNode="//@rules.5/@nodes.3">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//BehavioralFeature/ownedParameter"/>
+    </edges>
+    <edges name="variableDec__methodDeclaration__method_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.5/@nodes.1" trgNode="//@rules.5/@nodes.0">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//SingleVariableDeclaration/methodDeclaration"/>
+    </edges>
+    <attributeConditionLibrary>
+      <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.3" parameters="//@rules.5/@attributeConditionLibrary/@parameterValues.0 //@rules.5/@attributeConditionLibrary/@parameterValues.1"/>
+      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.3/@parameterDefinitions.0" objectVar="//@rules.5/@nodes.1">
+        <attribute href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//NamedElement/name"/>
+      </parameterValues>
+      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.3/@parameterDefinitions.1" objectVar="//@rules.5/@nodes.3">
+        <attribute href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//NamedElement/name"/>
+      </parameterValues>
+    </attributeConditionLibrary>
+  </rules>
+  <rules name="JavaModelToUMLModel">
+    <nodes name="jp" bindingType="CREATE" incomingCorrsSource="//@rules.6/@nodes.2">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//Model"/>
+    </nodes>
+    <nodes name="up" domainType="TRG" bindingType="CREATE" incomingCorrsTarget="//@rules.6/@nodes.2">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//Model"/>
+    </nodes>
+    <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="jp2up" domainType="CORR" bindingType="CREATE" source="//@rules.6/@nodes.0" target="//@rules.6/@nodes.1">
+      <type href="platform:/resource/MoDiscoIbexTGG/model/MoDiscoIbexTGG.ecore#//JavaModel2UMLPackage"/>
+    </nodes>
+    <attributeConditionLibrary>
+      <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.3" parameters="//@rules.6/@attributeConditionLibrary/@parameterValues.0 //@rules.6/@attributeConditionLibrary/@parameterValues.1"/>
+      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.3/@parameterDefinitions.0" objectVar="//@rules.6/@nodes.1">
+        <attribute href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//NamedElement/name"/>
+      </parameterValues>
+      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.3/@parameterDefinitions.1" objectVar="//@rules.6/@nodes.0">
+        <attribute href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//Model/name"/>
+      </parameterValues>
+    </attributeConditionLibrary>
+  </rules>
+  <rules name="JavaPackageToUMLPackage">
+    <nodes name="jp" bindingType="CREATE" incomingCorrsSource="//@rules.7/@nodes.2">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//Package"/>
+    </nodes>
+    <nodes name="up" domainType="TRG" bindingType="CREATE" incomingCorrsTarget="//@rules.7/@nodes.2">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//Package"/>
+    </nodes>
+    <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="jp2up" domainType="CORR" bindingType="CREATE" source="//@rules.7/@nodes.0" target="//@rules.7/@nodes.1">
+      <type href="platform:/resource/MoDiscoIbexTGG/model/MoDiscoIbexTGG.ecore#//JavaPackage2UmlPackage"/>
+    </nodes>
+    <attributeConditionLibrary>
+      <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.3" parameters="//@rules.7/@attributeConditionLibrary/@parameterValues.0 //@rules.7/@attributeConditionLibrary/@parameterValues.1"/>
+      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.3/@parameterDefinitions.0" objectVar="//@rules.7/@nodes.1">
+        <attribute href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//NamedElement/name"/>
+      </parameterValues>
+      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.3/@parameterDefinitions.1" objectVar="//@rules.7/@nodes.0">
+        <attribute href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//NamedElement/name"/>
+      </parameterValues>
+    </attributeConditionLibrary>
+  </rules>
+  <rules name="JavaPackageToUMLPackage_EdgeRule">
+    <nodes name="jpp" incomingEdges="//@rules.8/@edges.2" outgoingEdges="//@rules.8/@edges.0" incomingCorrsSource="//@rules.8/@nodes.5">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//Package"/>
+    </nodes>
+    <nodes name="jp" incomingEdges="//@rules.8/@edges.0" outgoingEdges="//@rules.8/@edges.2" incomingCorrsSource="//@rules.8/@nodes.4">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//Package"/>
+    </nodes>
+    <nodes name="upp" domainType="TRG" outgoingEdges="//@rules.8/@edges.1" incomingCorrsTarget="//@rules.8/@nodes.5">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//Package"/>
+    </nodes>
+    <nodes name="up" domainType="TRG" incomingEdges="//@rules.8/@edges.1" incomingCorrsTarget="//@rules.8/@nodes.4">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//Package"/>
+    </nodes>
+    <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="jp2up" domainType="CORR" source="//@rules.8/@nodes.1" target="//@rules.8/@nodes.3">
+      <type href="platform:/resource/MoDiscoIbexTGG/model/MoDiscoIbexTGG.ecore#//JavaPackage2UmlPackage"/>
+    </nodes>
+    <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="jpp2upp" domainType="CORR" source="//@rules.8/@nodes.0" target="//@rules.8/@nodes.2">
+      <type href="platform:/resource/MoDiscoIbexTGG/model/MoDiscoIbexTGG.ecore#//JavaPackage2UmlPackage"/>
+    </nodes>
+    <edges name="jpp__ownedPackages__jp_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.8/@nodes.0" trgNode="//@rules.8/@nodes.1">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//Package/ownedPackages"/>
+    </edges>
+    <edges name="upp__packagedElement__up_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.8/@nodes.2" trgNode="//@rules.8/@nodes.3">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//Package/packagedElement"/>
+    </edges>
+    <edges name="jp__package__jpp_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.8/@nodes.1" trgNode="//@rules.8/@nodes.0">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//Package/package"/>
+    </edges>
+    <attributeConditionLibrary/>
+  </rules>
+  <rules name="JavaModelToUMLModel_EdgeRule">
+    <nodes name="jpp" incomingEdges="//@rules.9/@edges.2" outgoingEdges="//@rules.9/@edges.0" incomingCorrsSource="//@rules.9/@nodes.5">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//Model"/>
+    </nodes>
+    <nodes name="jp" incomingEdges="//@rules.9/@edges.0" outgoingEdges="//@rules.9/@edges.2" incomingCorrsSource="//@rules.9/@nodes.4">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//Package"/>
+    </nodes>
+    <nodes name="upp" domainType="TRG" outgoingEdges="//@rules.9/@edges.1" incomingCorrsTarget="//@rules.9/@nodes.5">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//Model"/>
+    </nodes>
+    <nodes name="up" domainType="TRG" incomingEdges="//@rules.9/@edges.1" incomingCorrsTarget="//@rules.9/@nodes.4">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//Package"/>
+    </nodes>
+    <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="jp2up" domainType="CORR" source="//@rules.9/@nodes.1" target="//@rules.9/@nodes.3">
+      <type href="platform:/resource/MoDiscoIbexTGG/model/MoDiscoIbexTGG.ecore#//JavaPackage2UmlPackage"/>
+    </nodes>
+    <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="jpp2upp" domainType="CORR" source="//@rules.9/@nodes.0" target="//@rules.9/@nodes.2">
+      <type href="platform:/resource/MoDiscoIbexTGG/model/MoDiscoIbexTGG.ecore#//JavaModel2UMLPackage"/>
+    </nodes>
+    <edges name="jpp__ownedElements__jp_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.9/@nodes.0" trgNode="//@rules.9/@nodes.1">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//Model/ownedElements"/>
+    </edges>
+    <edges name="upp__packagedElement__up_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.9/@nodes.2" trgNode="//@rules.9/@nodes.3">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//Package/packagedElement"/>
+    </edges>
+    <edges name="jp__model__jpp_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.9/@nodes.1" trgNode="//@rules.9/@nodes.0">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//Package/model"/>
+    </edges>
+    <attributeConditionLibrary/>
+  </rules>
+  <rules name="ClassDec2Class">
+    <nodes name="jPackage" incomingEdges="//@rules.10/@edges.2" outgoingEdges="//@rules.10/@edges.0" incomingCorrsSource="//@rules.10/@nodes.4">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//Package"/>
+    </nodes>
+    <nodes name="classDec" bindingType="CREATE" incomingEdges="//@rules.10/@edges.0" outgoingEdges="//@rules.10/@edges.2" incomingCorrsSource="//@rules.10/@nodes.5">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//ClassDeclaration"/>
+    </nodes>
+    <nodes name="umlPackage" domainType="TRG" outgoingEdges="//@rules.10/@edges.1" incomingCorrsTarget="//@rules.10/@nodes.4">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//Package"/>
+    </nodes>
+    <nodes name="umlClass" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.10/@edges.1" incomingCorrsTarget="//@rules.10/@nodes.5">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//Class"/>
+    </nodes>
+    <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="jp2up" domainType="CORR" source="//@rules.10/@nodes.0" target="//@rules.10/@nodes.2">
+      <type href="platform:/resource/MoDiscoIbexTGG/model/MoDiscoIbexTGG.ecore#//JavaPackage2UmlPackage"/>
+    </nodes>
+    <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="cd2c" domainType="CORR" bindingType="CREATE" source="//@rules.10/@nodes.1" target="//@rules.10/@nodes.3">
+      <type href="platform:/resource/MoDiscoIbexTGG/model/MoDiscoIbexTGG.ecore#//JavaType2UMLType"/>
+    </nodes>
+    <edges name="jPackage__ownedElements__classDec_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.10/@nodes.0" trgNode="//@rules.10/@nodes.1">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//Package/ownedElements"/>
+    </edges>
+    <edges name="umlPackage__packagedElement__umlClass_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.10/@nodes.2" trgNode="//@rules.10/@nodes.3">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//Package/packagedElement"/>
+    </edges>
+    <edges name="classDec__package__jPackage_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.10/@nodes.1" trgNode="//@rules.10/@nodes.0">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//AbstractTypeDeclaration/package"/>
+    </edges>
+    <attributeConditionLibrary>
+      <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.3" parameters="//@rules.10/@attributeConditionLibrary/@parameterValues.0 //@rules.10/@attributeConditionLibrary/@parameterValues.1"/>
+      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.3/@parameterDefinitions.0" objectVar="//@rules.10/@nodes.1">
+        <attribute href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//NamedElement/name"/>
+      </parameterValues>
+      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.3/@parameterDefinitions.1" objectVar="//@rules.10/@nodes.3">
+        <attribute href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//NamedElement/name"/>
+      </parameterValues>
+    </attributeConditionLibrary>
+  </rules>
+  <rules name="EnumDec2Enum">
+    <nodes name="jPackage" incomingEdges="//@rules.11/@edges.2" outgoingEdges="//@rules.11/@edges.0" incomingCorrsSource="//@rules.11/@nodes.4">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//Package"/>
+    </nodes>
+    <nodes name="enumDec" bindingType="CREATE" incomingEdges="//@rules.11/@edges.0" outgoingEdges="//@rules.11/@edges.2" incomingCorrsSource="//@rules.11/@nodes.5">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//EnumDeclaration"/>
+    </nodes>
+    <nodes name="umlPackage" domainType="TRG" outgoingEdges="//@rules.11/@edges.1" incomingCorrsTarget="//@rules.11/@nodes.4">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//Package"/>
+    </nodes>
+    <nodes name="umlEnum" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.11/@edges.1" incomingCorrsTarget="//@rules.11/@nodes.5">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//Enumeration"/>
+    </nodes>
+    <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="jp2up" domainType="CORR" source="//@rules.11/@nodes.0" target="//@rules.11/@nodes.2">
+      <type href="platform:/resource/MoDiscoIbexTGG/model/MoDiscoIbexTGG.ecore#//JavaPackage2UmlPackage"/>
+    </nodes>
+    <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="cd2c" domainType="CORR" bindingType="CREATE" source="//@rules.11/@nodes.1" target="//@rules.11/@nodes.3">
+      <type href="platform:/resource/MoDiscoIbexTGG/model/MoDiscoIbexTGG.ecore#//JavaType2UMLType"/>
+    </nodes>
+    <edges name="jPackage__ownedElements__enumDec_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.11/@nodes.0" trgNode="//@rules.11/@nodes.1">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//Package/ownedElements"/>
+    </edges>
+    <edges name="umlPackage__packagedElement__umlEnum_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.11/@nodes.2" trgNode="//@rules.11/@nodes.3">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//Package/packagedElement"/>
+    </edges>
+    <edges name="enumDec__package__jPackage_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.11/@nodes.1" trgNode="//@rules.11/@nodes.0">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//AbstractTypeDeclaration/package"/>
+    </edges>
+    <attributeConditionLibrary>
+      <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.3" parameters="//@rules.11/@attributeConditionLibrary/@parameterValues.0 //@rules.11/@attributeConditionLibrary/@parameterValues.1"/>
+      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.3/@parameterDefinitions.0" objectVar="//@rules.11/@nodes.1">
+        <attribute href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//NamedElement/name"/>
+      </parameterValues>
+      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.3/@parameterDefinitions.1" objectVar="//@rules.11/@nodes.3">
+        <attribute href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//NamedElement/name"/>
+      </parameterValues>
+    </attributeConditionLibrary>
+  </rules>
+  <rules name="InterfaceDec2Interface">
+    <nodes name="jPackage" incomingEdges="//@rules.12/@edges.2" outgoingEdges="//@rules.12/@edges.0" incomingCorrsSource="//@rules.12/@nodes.4">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//Package"/>
+    </nodes>
+    <nodes name="interfaceDec" bindingType="CREATE" incomingEdges="//@rules.12/@edges.0" outgoingEdges="//@rules.12/@edges.2" incomingCorrsSource="//@rules.12/@nodes.5">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//InterfaceDeclaration"/>
+    </nodes>
+    <nodes name="umlPackage" domainType="TRG" outgoingEdges="//@rules.12/@edges.1" incomingCorrsTarget="//@rules.12/@nodes.4">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//Package"/>
+    </nodes>
+    <nodes name="umlInterface" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.12/@edges.1" incomingCorrsTarget="//@rules.12/@nodes.5">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//Interface"/>
+    </nodes>
+    <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="jp2up" domainType="CORR" source="//@rules.12/@nodes.0" target="//@rules.12/@nodes.2">
+      <type href="platform:/resource/MoDiscoIbexTGG/model/MoDiscoIbexTGG.ecore#//JavaPackage2UmlPackage"/>
+    </nodes>
+    <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="cd2c" domainType="CORR" bindingType="CREATE" source="//@rules.12/@nodes.1" target="//@rules.12/@nodes.3">
+      <type href="platform:/resource/MoDiscoIbexTGG/model/MoDiscoIbexTGG.ecore#//JavaType2UMLType"/>
+    </nodes>
+    <edges name="jPackage__ownedElements__interfaceDec_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.12/@nodes.0" trgNode="//@rules.12/@nodes.1">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//Package/ownedElements"/>
+    </edges>
+    <edges name="umlPackage__packagedElement__umlInterface_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.12/@nodes.2" trgNode="//@rules.12/@nodes.3">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//Package/packagedElement"/>
+    </edges>
+    <edges name="interfaceDec__package__jPackage_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.12/@nodes.1" trgNode="//@rules.12/@nodes.0">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//AbstractTypeDeclaration/package"/>
+    </edges>
+    <attributeConditionLibrary>
+      <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.3" parameters="//@rules.12/@attributeConditionLibrary/@parameterValues.0 //@rules.12/@attributeConditionLibrary/@parameterValues.1"/>
+      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.3/@parameterDefinitions.0" objectVar="//@rules.12/@nodes.1">
+        <attribute href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//NamedElement/name"/>
+      </parameterValues>
+      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.3/@parameterDefinitions.1" objectVar="//@rules.12/@nodes.3">
+        <attribute href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//NamedElement/name"/>
+      </parameterValues>
+    </attributeConditionLibrary>
+  </rules>
+  <rules name="PrimitiveType2PrimitiveType" abstract="true">
+    <nodes name="jm" outgoingEdges="//@rules.13/@edges.0" incomingCorrsSource="//@rules.13/@nodes.4">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//Model"/>
+    </nodes>
+    <nodes name="jpt" bindingType="CREATE" incomingEdges="//@rules.13/@edges.0" incomingCorrsSource="//@rules.13/@nodes.5">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//PrimitiveType"/>
+    </nodes>
+    <nodes name="up" domainType="TRG" outgoingEdges="//@rules.13/@edges.1" incomingCorrsTarget="//@rules.13/@nodes.4">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//Package"/>
+    </nodes>
+    <nodes name="umpt" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.13/@edges.1" incomingCorrsTarget="//@rules.13/@nodes.5">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//PrimitiveType"/>
+    </nodes>
+    <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="jm2up" domainType="CORR" source="//@rules.13/@nodes.0" target="//@rules.13/@nodes.2">
+      <type href="platform:/resource/MoDiscoIbexTGG/model/MoDiscoIbexTGG.ecore#//JavaModel2UMLPackage"/>
+    </nodes>
+    <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="jpt2upt2" domainType="CORR" bindingType="CREATE" source="//@rules.13/@nodes.1" target="//@rules.13/@nodes.3">
+      <type href="platform:/resource/MoDiscoIbexTGG/model/MoDiscoIbexTGG.ecore#//JavaType2UMLType"/>
+    </nodes>
+    <edges name="jm__orphanTypes__jpt_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.13/@nodes.0" trgNode="//@rules.13/@nodes.1">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//Model/orphanTypes"/>
+    </edges>
+    <edges name="up__packagedElement__umpt_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.13/@nodes.2" trgNode="//@rules.13/@nodes.3">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//Package/packagedElement"/>
+    </edges>
+    <attributeConditionLibrary>
+      <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.3" parameters="//@rules.13/@attributeConditionLibrary/@parameterValues.0 //@rules.13/@attributeConditionLibrary/@parameterValues.1"/>
+      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.3/@parameterDefinitions.0" objectVar="//@rules.13/@nodes.1">
+        <attribute href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//NamedElement/name"/>
+      </parameterValues>
+      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.misc.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.3/@parameterDefinitions.1" objectVar="//@rules.13/@nodes.3">
+        <attribute href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//NamedElement/name"/>
+      </parameterValues>
+    </attributeConditionLibrary>
+  </rules>
+  <rules name="PrimitiveTypeBoolean" refines="//@rules.13">
+    <nodes name="jpt" bindingType="CREATE">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//PrimitiveTypeBoolean"/>
+    </nodes>
+    <attributeConditionLibrary/>
+  </rules>
+  <rules name="PrimitiveTypeByte" refines="//@rules.13">
+    <nodes name="jpt" bindingType="CREATE">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//PrimitiveTypeByte"/>
+    </nodes>
+    <attributeConditionLibrary/>
+  </rules>
+  <rules name="PrimitiveTypeChar" refines="//@rules.13">
+    <nodes name="jpt" bindingType="CREATE">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//PrimitiveTypeChar"/>
+    </nodes>
+    <attributeConditionLibrary/>
+  </rules>
+  <rules name="PrimitiveTypeDouble" refines="//@rules.13">
+    <nodes name="jpt" bindingType="CREATE">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//PrimitiveTypeDouble"/>
+    </nodes>
+    <attributeConditionLibrary/>
+  </rules>
+  <rules name="PrimitiveTypeShort" refines="//@rules.13">
+    <nodes name="jpt" bindingType="CREATE">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//PrimitiveTypeShort"/>
+    </nodes>
+    <attributeConditionLibrary/>
+  </rules>
+  <rules name="PrimitiveTypeFloat" refines="//@rules.13">
+    <nodes name="jpt" bindingType="CREATE">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//PrimitiveTypeFloat"/>
+    </nodes>
+    <attributeConditionLibrary/>
+  </rules>
+  <rules name="PrimitiveTypeInt" refines="//@rules.13">
+    <nodes name="jpt" bindingType="CREATE">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//PrimitiveTypeInt"/>
+    </nodes>
+    <attributeConditionLibrary/>
+  </rules>
+  <rules name="PrimitiveTypeLong" refines="//@rules.13">
+    <nodes name="jpt" bindingType="CREATE">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//PrimitiveTypeLong"/>
+    </nodes>
+    <attributeConditionLibrary/>
+  </rules>
+  <rules name="PrimitiveTypeVoid" refines="//@rules.13">
+    <nodes name="jpt" bindingType="CREATE">
+      <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//PrimitiveTypeVoid"/>
+    </nodes>
+    <attributeConditionLibrary/>
+  </rules>
+  <attributeConstraintDefinitionLibrary>
+    <tggAttributeConstraintDefinitions name="isInParameter">
+      <parameterDefinitions name="parameter">
+        <type href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//ParameterDirectionKind"/>
+      </parameterDefinitions>
+      <syncAdornments>
+        <value>F</value>
+      </syncAdornments>
+      <syncAdornments>
+        <value>B</value>
+      </syncAdornments>
+      <genAdornments>
+        <value>F</value>
+      </genAdornments>
+      <genAdornments>
+        <value>B</value>
+      </genAdornments>
+    </tggAttributeConstraintDefinitions>
+    <tggAttributeConstraintDefinitions name="isReturn">
+      <parameterDefinitions name="parameter">
+        <type href="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore#//ParameterDirectionKind"/>
+      </parameterDefinitions>
+      <syncAdornments>
+        <value>F</value>
+      </syncAdornments>
+      <syncAdornments>
+        <value>B</value>
+      </syncAdornments>
+      <genAdornments>
+        <value>F</value>
+      </genAdornments>
+      <genAdornments>
+        <value>B</value>
+      </genAdornments>
+    </tggAttributeConstraintDefinitions>
+    <tggAttributeConstraintDefinitions name="proxyToUmlModelName">
+      <parameterDefinitions name="proxy">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      </parameterDefinitions>
+      <parameterDefinitions name="umlModelName">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </parameterDefinitions>
+      <syncAdornments>
+        <value>B</value>
+        <value>B</value>
+      </syncAdornments>
+      <syncAdornments>
+        <value>F</value>
+        <value>B</value>
+      </syncAdornments>
+      <genAdornments>
+        <value>F</value>
+        <value>B</value>
+      </genAdornments>
+    </tggAttributeConstraintDefinitions>
+    <tggAttributeConstraintDefinitions name="eq_string" userDefined="false">
+      <parameterDefinitions name="a">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </parameterDefinitions>
+      <parameterDefinitions name="b">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </parameterDefinitions>
+      <syncAdornments>
+        <value>B</value>
+        <value>B</value>
+      </syncAdornments>
+      <syncAdornments>
+        <value>B</value>
+        <value>F</value>
+      </syncAdornments>
+      <syncAdornments>
+        <value>F</value>
+        <value>B</value>
+      </syncAdornments>
+      <genAdornments>
+        <value>B</value>
+        <value>B</value>
+      </genAdornments>
+      <genAdornments>
+        <value>B</value>
+        <value>F</value>
+      </genAdornments>
+      <genAdornments>
+        <value>F</value>
+        <value>B</value>
+      </genAdornments>
+      <genAdornments>
+        <value>F</value>
+        <value>F</value>
+      </genAdornments>
+    </tggAttributeConstraintDefinitions>
+  </attributeConstraintDefinitionLibrary>
+</org.emoflon.ibex.tgg.core.language:TGG>
