@@ -23,7 +23,7 @@ public class MODELGEN_App extends MODELGEN {
 		MODELGEN_App generator = new MODELGEN_App();
 		
 		MODELGENStopCriterion stop = new MODELGENStopCriterion(generator.getTGG());
-		stop.setTimeOutInMS(10000);
+		stop.setTimeOutInMS(1000);
 		stop.setMaxRuleCount("JavaModelToUMLModel", 1);
 		generator.setStopCriterion(stop);
 		

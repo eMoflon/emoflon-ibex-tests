@@ -3,7 +3,7 @@ package org.emoflon.ibex.tgg.run.modiscoibextgg;
 import java.io.IOException;
 
 import org.apache.log4j.BasicConfigurator;
-
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.ibex.tgg.operational.csp.constraints.factories.UserDefinedRuntimeTGGAttrConstraintFactory;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.sync.BWD_OPT;
@@ -57,5 +57,15 @@ public class BWD_OPT_App extends BWD_OPT {
 			options.debug(false);
 			options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
 			return options;
+	}
+	
+	@Override
+	public void loadModels() throws IOException {
+		s = createResource(projectPath +srcPath+".xmi");
+		t = loadResource(projectPath +trgPath+".xmi");
+		c = createResource(projectPath +corrPath+".xmi");
+		p = createResource(projectPath +protPath+".xmi");
+	
+		EcoreUtil.resolveAll(rs);
 	}
 }

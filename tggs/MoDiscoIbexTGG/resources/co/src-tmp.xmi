@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="ASCII"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:java="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore">
   <java:Package name="mus">
-    <ownedElements xsi:type="java:InterfaceDeclaration" name="dictumst">
-      <bodyDeclarations xsi:type="java:MethodDeclaration" name="condimentum">
-        <parameters name="duis"/>
-        <parameters name="justo"/>
-        <parameters name="scelerisque"/>
-        <parameters name="ac"/>
-      </bodyDeclarations>
-      <bodyDeclarations xsi:type="java:MethodDeclaration" name="consequat">
-        <parameters name="viverra"/>
-      </bodyDeclarations>
-    </ownedElements>
+    <ownedElements xsi:type="java:InterfaceDeclaration" name="venenatis"/>
     <ownedElements xsi:type="java:InterfaceDeclaration" name="sed">
       <bodyDeclarations xsi:type="java:MethodDeclaration" name="consectetur">
         <parameters name="id"/>
@@ -35,62 +25,72 @@
         <fragments name="vivamus"/>
       </bodyDeclarations>
     </ownedElements>
-    <ownedElements xsi:type="java:InterfaceDeclaration" name="venenatis"/>
+    <ownedElements xsi:type="java:InterfaceDeclaration" name="dictumst">
+      <bodyDeclarations xsi:type="java:MethodDeclaration" name="consequat">
+        <parameters name="viverra"/>
+      </bodyDeclarations>
+      <bodyDeclarations xsi:type="java:MethodDeclaration" name="condimentum">
+        <parameters name="duis"/>
+        <parameters name="justo"/>
+        <parameters name="scelerisque"/>
+        <parameters name="ac"/>
+      </bodyDeclarations>
+    </ownedElements>
     <ownedElements xsi:type="java:InterfaceDeclaration" name="tristique"/>
   </java:Package>
   <java:Model name="donec">
     <ownedElements name="luctus">
-      <ownedElements xsi:type="java:ClassDeclaration" name="accumsan">
-        <bodyDeclarations xsi:type="java:MethodDeclaration" name="dapibus"/>
-        <bodyDeclarations xsi:type="java:FieldDeclaration">
-          <fragments name="tempor"/>
-        </bodyDeclarations>
-        <bodyDeclarations xsi:type="java:FieldDeclaration">
-          <fragments name="ultricies"/>
-        </bodyDeclarations>
-        <bodyDeclarations xsi:type="java:FieldDeclaration">
-          <fragments name="aptent"/>
-        </bodyDeclarations>
-        <bodyDeclarations xsi:type="java:FieldDeclaration">
-          <fragments name="nulla"/>
-        </bodyDeclarations>
-      </ownedElements>
-      <ownedElements xsi:type="java:InterfaceDeclaration" name="parturient"/>
-      <ownedElements xsi:type="java:ClassDeclaration" name="volutpat">
-        <bodyDeclarations xsi:type="java:FieldDeclaration">
-          <fragments name="pellentesque"/>
-        </bodyDeclarations>
-        <bodyDeclarations xsi:type="java:FieldDeclaration">
-          <fragments name="duis"/>
-        </bodyDeclarations>
-        <bodyDeclarations xsi:type="java:MethodDeclaration" name="est"/>
-      </ownedElements>
       <ownedElements xsi:type="java:InterfaceDeclaration" name="sit">
         <bodyDeclarations xsi:type="java:MethodDeclaration" name="ultrices">
           <parameters name="dolor"/>
         </bodyDeclarations>
       </ownedElements>
-      <ownedElements xsi:type="java:EnumDeclaration" name="elementum"/>
-      <ownedElements xsi:type="java:EnumDeclaration" name="arcu"/>
-      <ownedElements xsi:type="java:ClassDeclaration" name="felis">
+      <ownedElements xsi:type="java:ClassDeclaration" name="accumsan">
         <bodyDeclarations xsi:type="java:FieldDeclaration">
-          <fragments name="mollis"/>
+          <fragments name="nulla"/>
+        </bodyDeclarations>
+        <bodyDeclarations xsi:type="java:MethodDeclaration" name="dapibus"/>
+        <bodyDeclarations xsi:type="java:FieldDeclaration">
+          <fragments name="tempor"/>
+        </bodyDeclarations>
+        <bodyDeclarations xsi:type="java:FieldDeclaration">
+          <fragments name="aptent"/>
+        </bodyDeclarations>
+        <bodyDeclarations xsi:type="java:FieldDeclaration">
+          <fragments name="ultricies"/>
         </bodyDeclarations>
       </ownedElements>
       <ownedElements xsi:type="java:ClassDeclaration" name="facilisi">
         <bodyDeclarations xsi:type="java:MethodDeclaration" name="purus"/>
       </ownedElements>
+      <ownedElements xsi:type="java:ClassDeclaration" name="volutpat">
+        <bodyDeclarations xsi:type="java:MethodDeclaration" name="est"/>
+        <bodyDeclarations xsi:type="java:FieldDeclaration">
+          <fragments name="duis"/>
+        </bodyDeclarations>
+        <bodyDeclarations xsi:type="java:FieldDeclaration">
+          <fragments name="pellentesque"/>
+        </bodyDeclarations>
+      </ownedElements>
+      <ownedElements xsi:type="java:EnumDeclaration" name="elementum"/>
+      <ownedElements xsi:type="java:EnumDeclaration" name="arcu"/>
+      <ownedElements xsi:type="java:InterfaceDeclaration" name="parturient"/>
+      <ownedElements xsi:type="java:ClassDeclaration" name="felis">
+        <bodyDeclarations xsi:type="java:FieldDeclaration">
+          <fragments name="mollis"/>
+        </bodyDeclarations>
+      </ownedElements>
     </ownedElements>
+    <orphanTypes xsi:type="java:PrimitiveTypeBoolean" name="fames"/>
+    <orphanTypes xsi:type="java:PrimitiveTypeChar" name="accumsan"/>
+    <orphanTypes xsi:type="java:PrimitiveTypeFloat" name="vivamus"/>
+    <orphanTypes xsi:type="java:PrimitiveTypeChar" name="inceptos"/>
+    <orphanTypes xsi:type="java:PrimitiveTypeInt" name="aenean"/>
+    <orphanTypes xsi:type="java:PrimitiveTypeInt" name="aenean"/>
+    <orphanTypes xsi:type="java:PrimitiveTypeInt" name="fusce"/>
+    <orphanTypes xsi:type="java:PrimitiveTypeFloat" name="ullamcorper"/>
+    <orphanTypes xsi:type="java:PrimitiveTypeDouble" name="ligula"/>
     <orphanTypes xsi:type="java:PrimitiveTypeByte" name="felis"/>
-    <orphanTypes xsi:type="java:PrimitiveTypeDouble" name="ullamcorper"/>
-    <orphanTypes xsi:type="java:PrimitiveTypeChar" name="ligula"/>
-    <orphanTypes xsi:type="java:PrimitiveTypeShort" name="inceptos"/>
-    <orphanTypes xsi:type="java:PrimitiveTypeFloat" name="accumsan"/>
-    <orphanTypes xsi:type="java:PrimitiveTypeVoid" name="fusce"/>
-    <orphanTypes xsi:type="java:PrimitiveTypeLong" name="aenean"/>
-    <orphanTypes xsi:type="java:PrimitiveTypeFloat" name="aenean"/>
-    <orphanTypes xsi:type="java:PrimitiveTypeShort" name="maecenas"/>
-    <orphanTypes xsi:type="java:PrimitiveTypeLong" name="fames"/>
-    <orphanTypes xsi:type="java:PrimitiveTypeByte" name="vivamus"/>
+    <orphanTypes xsi:type="java:PrimitiveTypeVoid" name="maecenas"/>
   </java:Model>
 </xmi:XMI>
