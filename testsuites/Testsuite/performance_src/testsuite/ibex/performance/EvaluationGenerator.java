@@ -370,7 +370,6 @@ public class EvaluationGenerator {
 	 * Saves and plots the average ranks per test run for a given operationalization
 	 * @param op: Given operationalization
 	 */
-	@SuppressWarnings("static-access")
 	public void saveDataPerTestAndOperationalizationDiagram(Operationalization op) {
 		// get data for plot
 		List<Pair<String, Double>> testToValue = new ArrayList<>();

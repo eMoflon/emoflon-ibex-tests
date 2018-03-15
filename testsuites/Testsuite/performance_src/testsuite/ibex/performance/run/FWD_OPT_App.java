@@ -2,7 +2,6 @@ package testsuite.ibex.performance.run;
 
 import java.io.IOException;
 
-import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.sync.FWD_OPT;
@@ -24,7 +23,7 @@ public class FWD_OPT_App extends FWD_OPT {
 	@Override
 	protected void registerUserMetamodels() throws IOException {
 		new PerformanceTestUtil().registerUserMetamodelsFWD_OPT(projectPath, rs, this);
-		//new PerformanceTestUtil().registerUserMetamodels(projectPath, rs);
+		
 		// Register correspondence metamodel last
 		loadAndRegisterMetamodel(projectPath + "/model/" + projectPath + ".ecore");
 	}

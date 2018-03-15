@@ -172,7 +172,8 @@
       </values>
     </attrConditions>
   </rules>
-  <rules name="MethodDec2Operation4Class" supertypes="//@rules.4" schema="//@schema">
+  <rules name="MethodDec2Operation4Class" schema="//@schema">
+    <supertypes href="platform:/resource/MoDiscoIbexTGG/src/org/emoflon/ibex/tgg/rules/methods/MethodDec2Operation4Class.tgg#|0"/>
     <sourcePatterns name="classDec">
       <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//ClassDeclaration"/>
     </sourcePatterns>
@@ -189,7 +190,8 @@
     </targetPatterns>
     <correspondencePatterns name="cd2c" type="//@schema/@correspondenceTypes.2" source="//@rules.1/@sourcePatterns.0" target="//@rules.1/@targetPatterns.0"/>
   </rules>
-  <rules name="MethodDec2Operation4Enum" supertypes="//@rules.4" schema="//@schema">
+  <rules name="MethodDec2Operation4Enum" schema="//@schema">
+    <supertypes href="platform:/resource/MoDiscoIbexTGG/src/org/emoflon/ibex/tgg/rules/methods/MethodDec2Operation4Class.tgg#|10"/>
     <sourcePatterns name="classDec">
       <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//EnumDeclaration"/>
     </sourcePatterns>
@@ -206,7 +208,8 @@
     </targetPatterns>
     <correspondencePatterns name="cd2c" type="//@schema/@correspondenceTypes.2" source="//@rules.2/@sourcePatterns.0" target="//@rules.2/@targetPatterns.0"/>
   </rules>
-  <rules name="MethodDec2Operation4Interface" supertypes="//@rules.4" schema="//@schema">
+  <rules name="MethodDec2Operation4Interface" schema="//@schema">
+    <supertypes href="platform:/resource/MoDiscoIbexTGG/src/org/emoflon/ibex/tgg/rules/methods/MethodDec2Operation4Interface.tgg#|0"/>
     <sourcePatterns name="classDec">
       <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//InterfaceDeclaration"/>
     </sourcePatterns>
@@ -223,7 +226,7 @@
     </targetPatterns>
     <correspondencePatterns name="cd2c" type="//@schema/@correspondenceTypes.2" source="//@rules.3/@sourcePatterns.0" target="//@rules.3/@targetPatterns.0"/>
   </rules>
-  <rules name="MethodDec2Operation_Abstract" abstractRule="true" schema="//@schema">
+  <rules name="MethodDec2Operation4_Abstract" abstractRule="true" schema="//@schema">
     <sourcePatterns name="classDec">
       <type href="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore#//AbstractTypeDeclaration"/>
       <linkVariablePatterns target="//@rules.4/@sourcePatterns.1">

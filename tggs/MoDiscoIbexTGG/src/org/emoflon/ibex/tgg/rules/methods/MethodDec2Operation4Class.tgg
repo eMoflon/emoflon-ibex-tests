@@ -1,7 +1,7 @@
 #using MoDiscoIbexTGG.*
 #using AttrCondDefLibrary.*
 
-#rule MethodDec2Operation4Class #extends MethodDec2Operation_Abstract #with MoDiscoIbexTGG
+#rule MethodDec2Operation4Class #extends MethodDec2Operation4_Abstract #with MoDiscoIbexTGG
 
 #source { 
 
@@ -31,7 +31,7 @@
 }
 
 
-#rule MethodDec2Operation4Enum #extends MethodDec2Operation_Abstract #with MoDiscoIbexTGG
+#rule MethodDec2Operation4Enum #extends MethodDec2Operation4_Abstract #with MoDiscoIbexTGG
 
 #source { 
 
