@@ -37,6 +37,7 @@ import testsuite.ibex.performance.run.BWD_OPT_App;
 import testsuite.ibex.performance.run.CC_App;
 import testsuite.ibex.performance.run.CO_App;
 import testsuite.ibex.performance.run.FWD_OPT_App;
+import testsuite.ibex.performance.run.Initial_SYNC_App;
 import testsuite.ibex.performance.run.MODELGEN_App;
 import testsuite.ibex.performance.run.PerformanceTestBWD_OPT;
 import testsuite.ibex.performance.run.PerformanceTestCC;
@@ -108,6 +109,12 @@ public class TestDataCollector {
 			break;
 		case BWD_OPT:
 			this.collectBWD_OPTData(tggName, modelSize);
+			break;
+		case INITIAL_FWD:
+			this.collectINITIAL_FWDData(tggName, modelSize);
+			break;
+		case INITIAL_BWD:
+			this.collectINITIAL_BWDData(tggName, modelSize);
 			break;
 		case INCREMENTAL_FWD:
 		case INCREMENTAL_BWD:
@@ -275,9 +282,9 @@ public class TestDataCollector {
 	private void collectFWDData(String tggName, int size) throws IOException {
 		PerformanceTestSYNC test = new PerformanceTestSYNC();
 
-		Supplier<SYNC> transformator = () -> {
+		Supplier<SYNC_App> transformator = () -> {
 			try {
-				SYNC sync = new SYNC_App(tggName, Constants.workspacePath, false,
+				SYNC_App sync = new SYNC_App(tggName, Constants.workspacePath, false,
 						tggName + "/instances/" + size + "Element", true, false);
 				sync.setUpdatePolicy(new TimedUpdatePolicy(new NextMatchUpdatePolicy(), PerformanceConstants.timeout,
 						TimeUnit.SECONDS));
@@ -289,9 +296,30 @@ public class TestDataCollector {
 		};
 
 		System.out.println("Collecting SYNC data for " + tggName + ", size: " + size);
-		List<TestDataPoint> points = test.timedExecutionAndInit(transformator, size, repetitions, true,
-				incEditor.getEdit(tggName, true));
+		List<TestDataPoint> points = test.timedExecutionAndInit(transformator, size, repetitions,
+				Operationalization.FWD, incEditor.getEdit(tggName, true));
 		data.addAll(points);
+	}
+
+	private void collectINITIAL_FWDData(String tggName, int size) throws IOException {
+		PerformanceTestSYNC test = new PerformanceTestSYNC();
+
+		Supplier<SYNC_App> transformator = () -> {
+			try {
+				SYNC_App sync = new Initial_SYNC_App(tggName, Constants.workspacePath, false,
+						tggName + "/instances/" + size + "Element", true, false);
+				sync.setUpdatePolicy(new TimedUpdatePolicy(new NextMatchUpdatePolicy(), PerformanceConstants.timeout,
+						TimeUnit.SECONDS));
+				return sync;
+			} catch (IOException e) {
+				e.printStackTrace();
+				return null;
+			}
+		};
+
+		System.out.println("Collecting INITIAL_SYNC data for " + tggName + ", size: " + size);
+		List<TestDataPoint> points = test.timedExecutionAndInit(transformator, size, repetitions,
+				Operationalization.INITIAL_FWD, incEditor.getEdit(tggName, true));
 	}
 
 	private void collectFWD_OPTData(String tggName, int size) throws IOException {
@@ -347,23 +375,48 @@ public class TestDataCollector {
 	private void collectBWDData(String tggName, int size) throws IOException {
 		PerformanceTestSYNC test = new PerformanceTestSYNC();
 
-		Supplier<SYNC> transformator = () -> {
+		Supplier<SYNC_App> transformator = () -> {
 			try {
-				return new SYNC_App(tggName, Constants.workspacePath, false, tggName + "/instances/" + size + "Element",
-						false, false);
+				SYNC_App sync = new SYNC_App(tggName, Constants.workspacePath, false,
+						tggName + "/instances/" + size + "Element", false, false);
+				sync.setUpdatePolicy(new TimedUpdatePolicy(new NextMatchUpdatePolicy(), PerformanceConstants.timeout,
+						TimeUnit.SECONDS));
+				return sync;
 			} catch (IOException e) {
 				e.printStackTrace();
 				return null;
 			}
 		};
 
-		List<TestDataPoint> points = test.timedExecutionAndInit(transformator, size, repetitions, false,
-				incEditor.getEdit(tggName, false));
+		List<TestDataPoint> points = test.timedExecutionAndInit(transformator, size, repetitions,
+				Operationalization.BWD, incEditor.getEdit(tggName, false));
+		data.addAll(points);
+	}
+
+	private void collectINITIAL_BWDData(String tggName, int size) throws IOException {
+		PerformanceTestSYNC test = new PerformanceTestSYNC();
+
+		Supplier<SYNC_App> transformator = () -> {
+			try {
+				SYNC_App sync = new Initial_SYNC_App(tggName, Constants.workspacePath, false,
+						tggName + "/instances/" + size + "Element", false, false);
+				sync.setUpdatePolicy(new TimedUpdatePolicy(new NextMatchUpdatePolicy(), PerformanceConstants.timeout,
+						TimeUnit.SECONDS));
+				return sync;
+			} catch (IOException e) {
+				e.printStackTrace();
+				return null;
+			}
+		};
+
+		List<TestDataPoint> points = test.timedExecutionAndInit(transformator, size, repetitions,
+				Operationalization.INITIAL_BWD, incEditor.getEdit(tggName, false));
 		data.addAll(points);
 	}
 
 	/**
-	 * Copies the data collected in the SER file during the test run into the evaluation folder
+	 * Copies the data collected in the SER file during the test run into the
+	 * evaluation folder
 	 */
 	public void copyData() {
 		// Copy data to evaluation folder

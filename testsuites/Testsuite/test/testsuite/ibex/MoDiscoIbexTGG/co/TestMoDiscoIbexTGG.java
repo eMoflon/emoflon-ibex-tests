@@ -46,7 +46,7 @@ public class TestMoDiscoIbexTGG extends COTestCase {
 	
 	@Test
 	public void testSimplePositive() throws IOException {
-		createGenerator("/instances/src", "/instances/trg", "/instances/corr", "/instances/protocol");
+		createGenerator("/resources/co/src", "/resources/co/trg", "/resources/co/corr", "/resources/co/protocol");
 		runGenerator();
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}
