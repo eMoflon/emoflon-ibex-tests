@@ -10,9 +10,7 @@ import java.io.ObjectOutputStream;
 import java.nio.file.Files;
 import java.nio.file.NoSuchFileException;
 import java.nio.file.Paths;
-import java.text.DateFormat;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -363,7 +361,8 @@ public class TestDataCollector {
 	}
 
 	/**
-	 * Copies the data collected in the SER file during the test run into the evaluation folder
+	 * Copies the data collected in the SER file during the test run into the
+	 * evaluation folder
 	 */
 	public void copyData() {
 		// Copy data to evaluation folder
