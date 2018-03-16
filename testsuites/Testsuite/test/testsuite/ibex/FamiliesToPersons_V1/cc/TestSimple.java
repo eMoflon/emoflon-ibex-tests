@@ -15,24 +15,10 @@ public class TestSimple extends CCTestCase {
 	}
 
 	@Test
-	public void testCreateThreeRegisters() throws IOException {
-		createGenerator("threeFamilyReg", "threePersonReg");
-		runGenerator();
-		Assert.assertFalse(checker.modelsAreConsistent());
-	}
-	
-	@Test
 	public void testCreateSingleRegisters() throws IOException {
 		createGenerator("singleFamilyReg", "singlePersonReg");
 		runGenerator();
 		Assert.assertTrue(checker.modelsAreConsistent());
-	}
-	
-	@Test
-	public void testCreateTwoFathers() throws IOException {
-		createGenerator("twoFamiliesWithFathers", "PersonRegisterWith2MalePersons");
-		runGenerator();
-		Assert.assertFalse(checker.modelsAreConsistent());
 	}
 	
 	@Test
