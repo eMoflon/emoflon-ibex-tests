@@ -35,7 +35,7 @@ public class CC_App extends CC {
 		CC_App cc;
 		BasicConfigurator.configure();
 
-		cc = new CC_App("ClassInhHier2DB_MA", "./../", true, "../instances/src", "../instances/trg");
+		cc = new CC_App("ClassInhHier2DB_MA", "./../", true, "../instances/src", "../instances/trg", SupportedILPSolver.Gurobi);
 		
 		logger.info("Starting CC");
 		long tic = System.currentTimeMillis();
