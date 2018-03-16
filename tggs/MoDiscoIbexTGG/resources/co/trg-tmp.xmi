@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uml="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore">
+  <uml:Model name="donec">
+    <packagedElement xsi:type="uml:PrimitiveType" name="ligula"/>
+    <packagedElement xsi:type="uml:PrimitiveType" name="fusce"/>
+    <packagedElement xsi:type="uml:PrimitiveType" name="aenean"/>
+    <packagedElement xsi:type="uml:PrimitiveType" name="inceptos"/>
+    <packagedElement xsi:type="uml:PrimitiveType" name="felis"/>
+    <packagedElement xsi:type="uml:PrimitiveType" name="vivamus"/>
+    <packagedElement xsi:type="uml:PrimitiveType" name="maecenas"/>
+    <packagedElement xsi:type="uml:PrimitiveType" name="accumsan"/>
+    <packagedElement xsi:type="uml:PrimitiveType" name="fames"/>
+    <packagedElement xsi:type="uml:PrimitiveType" name="ullamcorper"/>
+    <packagedElement xsi:type="uml:PrimitiveType" name="aenean"/>
+    <packagedElement xsi:type="uml:Package" name="luctus">
+      <packagedElement xsi:type="uml:Interface" name="parturient"/>
+      <packagedElement xsi:type="uml:Class" name="facilisi">
+        <ownedOperation name="purus"/>
+      </packagedElement>
+      <packagedElement xsi:type="uml:Class" name="accumsan">
+        <ownedAttribute name="nulla"/>
+        <ownedAttribute name="aptent"/>
+        <ownedAttribute name="tempor"/>
+        <ownedAttribute name="ultricies"/>
+        <ownedOperation name="dapibus"/>
+      </packagedElement>
+      <packagedElement xsi:type="uml:Interface" name="sit">
+        <ownedOperation name="ultrices">
+          <ownedParameter name="dolor"/>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xsi:type="uml:Class" name="volutpat">
+        <ownedAttribute name="duis"/>
+        <ownedAttribute name="pellentesque"/>
+        <ownedOperation name="est"/>
+      </packagedElement>
+      <packagedElement xsi:type="uml:Class" name="felis">
+        <ownedAttribute name="mollis"/>
+      </packagedElement>
+      <packagedElement xsi:type="uml:Enumeration" name="arcu"/>
+      <packagedElement xsi:type="uml:Enumeration" name="elementum"/>
+    </packagedElement>
+  </uml:Model>
+  <uml:Package name="mus">
+    <packagedElement xsi:type="uml:Interface" name="sed">
+      <ownedOperation name="consectetur">
+        <ownedParameter name="id"/>
+        <ownedParameter name="nisi"/>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Enumeration" name="purus">
+      <ownedOperation name="ultrices">
+        <ownedParameter name="enim"/>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Class" name="est">
+      <ownedAttribute name="vivamus"/>
+      <ownedOperation name="odio"/>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Interface" name="dictumst">
+      <ownedOperation name="condimentum">
+        <ownedParameter name="justo"/>
+        <ownedParameter name="ac"/>
+        <ownedParameter name="scelerisque"/>
+        <ownedParameter name="duis"/>
+      </ownedOperation>
+      <ownedOperation name="consequat">
+        <ownedParameter name="viverra"/>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Interface" name="venenatis"/>
+    <packagedElement xsi:type="uml:Class" name="sociis"/>
+    <packagedElement xsi:type="uml:Class" name="enim">
+      <ownedAttribute name="venenatis"/>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Interface" name="tristique"/>
+  </uml:Package>
+</xmi:XMI>

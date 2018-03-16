@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Tests for Graph Transformation Examples
 Bundle-SymbolicName: TestsuiteGT;singleton:=true
 Bundle-Version: 1.0.0.qualifier
-Bundle-Vendor: %providerName
+Bundle-Vendor: eMoflon::IBeX Developers
 Require-Bundle: org.eclipse.emf.ecore.xmi,
  org.emoflon.ibex.common,
  org.emoflon.ibex.gt,
@@ -27,6 +27,9 @@ Require-Bundle: org.eclipse.emf.ecore.xmi,
  SheRememberedCaterpillars,
  SheRememberedCaterpillarsGraphTransformation,
  SimpleFamilies,
- SimpleFamiliesGraphTransformation
+ SimpleFamiliesGraphTransformation,
+ SimpleFamiliesToSimplePersonsGraphTransformation,
+ SimplePersons,
+ SimplePersonsGraphTransformation
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8

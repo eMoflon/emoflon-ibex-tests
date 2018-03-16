@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <psf version="2.0">
 <provider id="org.eclipse.egit.core.GitProvider">
-<project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,metamodels/Algorithm"/>
+<project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,metamodels/Algorithms"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,tggs/AlgorithmToStrategy_MA"/>
 <project reference="1.0,https://github.com/eMoflon/benchmarx.git,master,core/Benchmarx"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,tggs/BenchmarxFamiliesToPersons"/>
@@ -35,6 +35,7 @@
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,metamodels/ITLanguage"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,metamodels/MocaTree"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,tggs/MocaTreeToProcess"/>
+<project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,tggs/MoDiscoIbexTGG"/>
 <project reference="1.0,https://github.com/eMoflon/benchmarx.git,master,examples/familiestopersons/metamodels/Persons"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,tggs/ProcessCodeAdapter"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,metamodels/ProcessDefinition"/>
@@ -42,17 +43,21 @@
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,gt-rules/SheRememberedCaterpillarsGraphTransformation"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,metamodels/SimpleFamilies"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,gt-rules/SimpleFamiliesGraphTransformation"/>
+<project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,gt-rules/SimpleFamiliesToSimplePersonsGraphTransformation"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,metamodels/SimplePersons"/>
-<project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,metamodels/Strategy"/>
+<project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,gt-rules/SimplePersonsGraphTransformation"/>
+<project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,metamodels/Strategies"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,testsuites/Testsuite"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,testsuites/TestsuiteGT"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,metamodels/VHDLModel"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,tggs/VHDLTGGCodeAdapter"/>
 </provider>
 <workingSets editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" id="1519241320202_7" label="gt-rules" name="gt-rules">
+<item elementID="=SimplePersonsGraphTransformation" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=SheRememberedCaterpillarsGraphTransformation" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=FerrymanProblemGraphTransformation" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=SimpleFamiliesGraphTransformation" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=SimpleFamiliesToSimplePersonsGraphTransformation" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 </workingSets>
 <workingSets editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" id="1496664564939_2" label="metamodels" name="metamodels">
 <item elementID="=FeatureModelSafe" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
@@ -84,7 +89,6 @@
 <item elementID="=TestsuiteGT" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 </workingSets>
 <workingSets editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" id="1502102466131_5" label="tggs" name="tggs">
-<item elementID="=ClassMultipleInhHier2DB_MA" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=CompanyToIT" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=BlockCodeAdapter" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=BlockDiagramCodeAdapter" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
@@ -92,7 +96,6 @@
 <item elementID="=BenchmarxFamiliesToPersons" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=BlockDiagramCodeAdapter_EdgeRules" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=ProcessCodeAdapter" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=FeatureModelConciseToSafe" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=FamiliesToPersons_V1" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=ClassInhHier2DB_MA" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=ClassInhHier2DB" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
@@ -100,8 +103,11 @@
 <item elementID="=FamilyWithSiblingsToPersons_MA" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=AlgorithmToStrategy_MA" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=VHDLTGGCodeAdapter" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=MoDiscoIbexTGG" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=MocaTreeToProcess" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=FamiliesToPersons_V0" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=FamiliesToPersons_MA" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=ClassMultipleInhHier2DB_MA" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=FeatureModelConciseToSafe" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 </workingSets>
 </psf>

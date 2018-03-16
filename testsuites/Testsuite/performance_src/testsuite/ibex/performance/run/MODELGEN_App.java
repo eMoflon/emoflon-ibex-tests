@@ -14,6 +14,7 @@ public class MODELGEN_App extends MODELGEN {
 	public MODELGEN_App(String projectName, String workspacePath, boolean debug, String instancePath) throws IOException {
 		super(createIbexOptions()
 				.projectName(projectName)
+				.projectPath(projectName)
 				.workspacePath(workspacePath)
 				.debug(debug));
 		this.instancePath = instancePath;
@@ -21,7 +22,7 @@ public class MODELGEN_App extends MODELGEN {
 
 	@Override
 	protected void registerUserMetamodels() throws IOException {
-		new PerformanceTestUtil().registerUserMetamodels(projectPath, rs);
+		new PerformanceTestUtil().registerUserMetamodels(projectPath, rs, this);
 		
 		// Register correspondence metamodel last
 		loadAndRegisterMetamodel(projectPath + "/model/" + projectPath + ".ecore");

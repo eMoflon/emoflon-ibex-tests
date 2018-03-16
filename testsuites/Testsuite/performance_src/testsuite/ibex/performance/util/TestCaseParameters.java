@@ -36,4 +36,9 @@ public class TestCaseParameters implements Serializable {
 	public String toString() {
 		return tgg+"_"+op.name()+"_"+modelSize;
 	}
+	
+	@Override
+	public int hashCode() {
+		return tgg.hashCode() + op.hashCode() + new Integer(modelSize).hashCode();
+	}
 }

@@ -14,6 +14,7 @@ public class CC_App extends CC {
 	public CC_App(String projectName, String workspacePath, boolean debug, String modelPath) throws IOException {
 		super(createIbexOptions()
 				.projectName(projectName)
+				.projectPath(projectName)
 				.workspacePath(workspacePath)
 				.debug(debug));
 		this.modelPath = modelPath;
@@ -21,7 +22,7 @@ public class CC_App extends CC {
 
 	@Override
 	protected void registerUserMetamodels() throws IOException {
-		new PerformanceTestUtil().registerUserMetamodels(projectPath, rs);
+		new PerformanceTestUtil().registerUserMetamodels(projectPath, rs, this);
 		
 		// Register correspondence metamodel last
 		loadAndRegisterMetamodel(projectPath + "/model/" + projectPath + ".ecore");
@@ -35,6 +36,11 @@ public class CC_App extends CC {
 		p = createResource(projectPath + "/instances/"+modelPath+"/protocol.xmi");
 	
 		EcoreUtil.resolveAll(rs);
+	}
+	
+	@Override
+	public void saveModels() {
+		// Models needn't be saved for all Operationalizations except MODELGEN
 	}
 	
 	protected static IbexOptions createIbexOptions() {
