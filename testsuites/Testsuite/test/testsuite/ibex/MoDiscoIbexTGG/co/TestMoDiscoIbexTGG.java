@@ -14,15 +14,15 @@ import testsuite.ibex.testUtil.COTestCase;
 public class TestMoDiscoIbexTGG extends COTestCase {
 
 	public void createGenerator(String srcInstance, String trgInstance, String corrInstance, String protInstance) throws IOException {
-		checker = new CO_App("MoDiscoIbexTGG", testsuite.ibex.testUtil.Constants.workspacePath, false, srcInstance, trgInstance, corrInstance, protInstance);
+		checker = new CO_App("MoDiscoIbexTGG", testsuite.ibex.testUtil.Constants.workspacePath, false, srcInstance, trgInstance, corrInstance, protInstance, ilpSolver);
 	}
 	
 	public void createTransformation(String srcInstance, String trgInstance, String corrInstance, String protInstance) throws IOException {
-		forward = new FWD_OPT_App("MoDiscoIbexTGG", testsuite.ibex.testUtil.Constants.workspacePath, false, srcInstance, trgInstance, corrInstance, protInstance);
+		forward = new FWD_OPT_App("MoDiscoIbexTGG", testsuite.ibex.testUtil.Constants.workspacePath, false, srcInstance, trgInstance, corrInstance, protInstance, ilpSolver);
 	}
 	
 	public void createBackward(String srcInstance, String trgInstance, String corrInstance, String protInstance) throws IOException {
-		backward = new BWD_OPT_App("MoDiscoIbexTGG", testsuite.ibex.testUtil.Constants.workspacePath, false, srcInstance, trgInstance, corrInstance, protInstance);
+		backward = new BWD_OPT_App("MoDiscoIbexTGG", testsuite.ibex.testUtil.Constants.workspacePath, false, srcInstance, trgInstance, corrInstance, protInstance, ilpSolver);
 	}
 	
 	@Test

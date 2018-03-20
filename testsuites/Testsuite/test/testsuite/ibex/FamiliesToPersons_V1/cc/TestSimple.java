@@ -11,7 +11,7 @@ import testsuite.ibex.testUtil.CCTestCase;
 public class TestSimple extends CCTestCase {
 
 	public void createGenerator(String srcInstance, String trgInstance) throws IOException {
-		checker = new CC_App("FamiliesToPersons_V1", testsuite.ibex.testUtil.Constants.workspacePath, false, srcInstance, trgInstance);
+		checker = new CC_App("FamiliesToPersons_V1", testsuite.ibex.testUtil.Constants.workspacePath, false, srcInstance, trgInstance, ilpSolver);
 	}
 
 	@Test
