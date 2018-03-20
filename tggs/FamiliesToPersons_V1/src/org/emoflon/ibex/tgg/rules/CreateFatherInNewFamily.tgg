@@ -1,0 +1,53 @@
+#using FamiliesToPersons_V1.*
+#using AttrCondDefLibrary.*
+
+#rule CreateFatherInNewFamily #with FamiliesToPersons_V1
+
+#source { 
+	reg:FamilyRegister {
+		++ -families->family
+	}	
+	
+	++ family:Family {
+		name := "Test"
+		++-father->f
+	}
+	
+	++ f:FamilyMember {
+		name := "father"
+	}
+}
+
+#target {
+	preg:PersonRegister {
+		++ -persons->p
+	}
+	
+	++ p:Male {
+		name := "father"
+	}
+}
+
+#correspondence {
+	reg2reg:RegisterToRegister{
+		#src->reg
+		#trg->preg
+	}
+	
+	++ m2p:FamilyMemberToPerson {
+		#src->f
+		#trg->p
+	}
+}
+
+#attributeConditions {
+}
+
+#nac NoOtherFamily #for CreateFatherInNewFamily
+
+#source {
+//	reg:FamilyRegister {
+//		-families->other
+//	}
+	other:Family
+}

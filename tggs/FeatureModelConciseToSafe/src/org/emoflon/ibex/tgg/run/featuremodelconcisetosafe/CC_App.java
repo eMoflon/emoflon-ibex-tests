@@ -9,6 +9,7 @@ import org.emoflon.ibex.tgg.operational.csp.constraints.factories.UserDefinedRun
 import org.emoflon.ibex.tgg.operational.strategies.cc.CC;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesTGGEngine;
+import org.emoflon.ibex.tgg.util.ilp.ILPFactory.SupportedILPSolver;
 
 import FeatureModelConcise.impl.FeatureModelConcisePackageImpl;
 import FeatureModelSafe.impl.FeatureModelSafePackageImpl;
@@ -17,8 +18,8 @@ public class CC_App extends CC {
 	private String srcPath;
 	private String trgPath;
 	
-	public CC_App(String projectName, String workspacePath, boolean debug, String srcPath, String trgPath) throws IOException {
-		super(createIbexOptions().projectName(projectName).workspacePath(workspacePath).debug(debug));
+	public CC_App(String projectName, String workspacePath, boolean debug, String srcPath, String trgPath, SupportedILPSolver ilpSolver) throws IOException {
+		super(createIbexOptions().projectName(projectName).workspacePath(workspacePath).debug(debug).setIlpSolver(ilpSolver));
 		this.srcPath = srcPath;
 		this.trgPath = trgPath;
 		registerBlackInterpreter(new DemoclesTGGEngine());
@@ -27,7 +28,7 @@ public class CC_App extends CC {
 	public static void main(String[] args) throws IOException {
 		BasicConfigurator.configure();
 
-		CC_App cc = new CC_App("FeatureModelConciseToSafe", "./../", false, "src", "trg");
+		CC_App cc = new CC_App("FeatureModelConciseToSafe", "./../", false, "src", "trg", SupportedILPSolver.Gurobi);
 		
 		logger.info("Starting CC");
 		long tic = System.currentTimeMillis();

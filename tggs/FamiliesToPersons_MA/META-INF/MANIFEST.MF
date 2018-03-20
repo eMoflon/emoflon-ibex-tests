@@ -25,7 +25,9 @@ Require-Bundle: org.gervarro.democles.common,
  org.emoflon.ibex.tgg.runtime.democles,
  Benchmarx;bundle-version="1.0.0",
  Families;bundle-version="1.0.0",
- Persons;bundle-version="1.0.0"
+ Persons;bundle-version="1.0.0",
+ org.sat4j.core;bundle-version="2.3.5",
+ org.sat4j.pb;bundle-version="2.3.5"
 Bundle-ManifestVersion: 2
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8

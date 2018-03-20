@@ -130,7 +130,7 @@ public class TestSYNC extends CompleteSyncTestCase {
 	}
 	
 	public void createGenerator(String srcInstance, String trgInstance, String corrInstance, String protInstance) throws IOException {
-		checker = new CO_App("CompanyToIT", testsuite.ibex.testUtil.Constants.workspacePath, false, srcInstance, trgInstance, corrInstance, protInstance);
+		checker = new CO_App("CompanyToIT", testsuite.ibex.testUtil.Constants.workspacePath, false, srcInstance, trgInstance, corrInstance, protInstance, ilpSolver);
 	}
 	
 	public void createForward(String srcInstance, String trgInstance, String corrInstance, String protInstance) throws IOException {

@@ -18,5 +18,14 @@
 	}
 }
 
-#attributeConditions {
+#nac NoDuplicatedFamilyRegister #for HandleRegisters
+
+#source {
+	other:FamilyRegister
+}
+
+#nac NoDuplicatedpersonRegister #for HandleRegisters
+
+#target {
+	other:PersonRegister
 }
