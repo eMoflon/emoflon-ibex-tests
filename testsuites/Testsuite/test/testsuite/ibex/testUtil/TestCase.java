@@ -11,7 +11,13 @@ public abstract class TestCase {
 	
 	@Before
 	public void initIbexOptions() {
-		ilpSolver = SupportedILPSolver.valueOf(System.getenv("ilpSolver"));
+		try {
+			ilpSolver = SupportedILPSolver.valueOf(System.getenv("ilpSolver"));
+		}
+		catch (Exception e) {
+			System.err.println("ILP solver is not specified. Defaulting to SAT4J");
+			ilpSolver = SupportedILPSolver.Sat4J;
+		}
 	}
 	
 	@BeforeClass
