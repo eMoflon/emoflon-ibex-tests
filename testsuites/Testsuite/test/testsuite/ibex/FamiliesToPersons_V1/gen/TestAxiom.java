@@ -17,7 +17,6 @@ public class TestAxiom extends FamiliesToPersonsModelGenTestCase {
 	public void testMultipleRoots() throws IOException {
 		stop.setMaxRuleCount("HandleRegisters", 3);
 		runGenerator(stop);
-		//assertPostcondition("multipleFamilyReg", "multiplePersonReg");
 		assertPostcondition("singleFamilyReg", "singlePersonReg");
 	}
 }
