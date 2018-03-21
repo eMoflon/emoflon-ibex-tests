@@ -1,0 +1,11 @@
+import "platform:/resource/SheRememberedCaterpillars/model/SheRememberedCaterpillars.ecore"
+
+rule createBlueCharacter() {
+	game: Game {
+		++ -characters -> character
+	}
+
+	++ character: Character {
+		.color := enum::BLUE
+	}
+}

@@ -8,6 +8,16 @@ rule createFamily {
 	++ family: Family
 }
 
+rule createMillerFamily {
+	register: FamilyRegister {
+		++ -families -> family
+	}
+
+	++ family: Family {
+		.name := "Miller"
+	}
+}
+
 rule deleteFamily {
 	register: FamilyRegister {
 		-- -families -> family

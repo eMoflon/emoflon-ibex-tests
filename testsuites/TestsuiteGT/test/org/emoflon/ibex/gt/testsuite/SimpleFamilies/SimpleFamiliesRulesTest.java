@@ -43,6 +43,18 @@ public class SimpleFamiliesRulesTest extends SimpleFamiliesAbstractTest {
 	}
 
 	@Test
+	public void createMillerFamily() {
+		ResourceSet model = this.initResourceSet("CreateMillerFamily.xmi", "FamilyRegister.xmi");
+		SimpleFamiliesGraphTransformationAPI api = this.initAPI(model);
+
+		assertMatchCount(2, api.findFamily());
+		api.createMillerFamily().apply();
+		assertMatchCount(3, api.findFamily());
+
+		saveResourceSet(model);
+	}
+
+	@Test
 	public void createFamilies() {
 		ResourceSet model = this.initResourceSet("CreateFamilies.xmi", "FamilyRegister.xmi");
 		SimpleFamiliesGraphTransformationAPI api = this.initAPI(model);
