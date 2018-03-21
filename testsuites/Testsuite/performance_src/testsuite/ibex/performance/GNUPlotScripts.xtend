@@ -21,6 +21,8 @@ class GNUPlotScripts {
 	private static final String evalScriptPath = "performance/evaluation/gnuplot_scripts/"
 	private static final String evalPlotPath = "performance/evaluation/plots/"
 	
+	private static final int max_y_axis = 1000;
+	
 	/**
 	 * Saves the script for the specified plot and the plot itself as files
 	 * in the corresponding folders in the "performance/" directory of the testsuite.
@@ -80,7 +82,7 @@ class GNUPlotScripts {
 		var script = '''
 			«commonHistogramScriptParts("AllTGGs", title)»
 			set title "Comparison of TGG execution times for models of size «PlotGenerator.standardModelSize» - «op»"
-			set yrange [1:100000]
+			set yrange [1:«max_y_axis»]
 			plot \
 			newhistogram lt 3, \
 			"«dataPath»«title».dat" using ($2/«timeFactor»):xtic(1) ti col
@@ -92,7 +94,7 @@ class GNUPlotScripts {
 		var script = '''
 			«commonHistogramScriptParts("AllTGGsInit", title)»
 			set title "Comparison of TGG initialization times for models of size «PlotGenerator.standardModelSize» - «op»"
-			set yrange [10:100000]
+			set yrange [10:«max_y_axis»]
 			plot \
 			newhistogram lt 3, \
 			"«dataPath»«title».dat" using ($2/«timeFactor»):xtic(1) ti col
@@ -119,7 +121,7 @@ class GNUPlotScripts {
 			set style histogram cluster gap 1 title offset 0, -2
 			set rmargin 8
 			set bmargin 9
-			set yrange [0.1:100000]
+			set yrange [0.1:«max_y_axis»]
 			plot \
 			newhistogram lt 3 "ClassInhHier2DB", \
 			"«dataPath»«title».dat" using ($2/«timeFactor»):xtic(1) ti col, \
@@ -134,7 +136,7 @@ class GNUPlotScripts {
 			«commonHistogramScriptParts("InitTimes", title)»
 			set title "Execution times of initialization - «tgg»:«op»"
 			set xlabel "model size"
-			set yrange [0.1:100000]
+			set yrange [0.1:«max_y_axis»]
 			plot \
 			newhistogram lt 3, \
 			"«dataPath»«title».dat" using ($2/«timeFactor»):xtic(1) ti col
@@ -158,7 +160,7 @@ class GNUPlotScripts {
 		var script = '''
 			«testHistogramScriptParts(title)»
 			set title "Comparison of average execution times among tests for models of size «PlotGenerator.standardModelSize» - «op»"
-			set yrange [1:100000]
+			set yrange [1:«max_y_axis»]
 			plot \
 			newhistogram lt 3, \
 			"«evalDataPath»«title».dat" using ($2/«timeFactor»):xtic(1) ti col
