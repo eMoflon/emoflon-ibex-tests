@@ -46,25 +46,6 @@ public class CO_App extends CO {
 		co.terminate();
 		logger.info(co.generateConsistencyReport());
 	}
-
-	/*@Override
-	protected void registerUserMetamodels() throws IOException {
-		// Load and register source and target metamodels
-		rs.getPackageRegistry().put("platform:/resource/MocaTree/model/MocaTree.ecore", MocaTreePackageImpl.init());
-		//rs.getPackageRegistry().put("platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore", ProcessDefinitionPackageImpl.init());
-		//loadAndRegisterMetamodel("platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore");
-		
-		Resource res = loadResource("platform:/resource/../../../git/emoflon-ibex-tests/metamodels/ProcessDefinition/model/ProcessDefinition.ecore");
-		EPackage pack = (EPackage) res.getContents().get(0);
-		pack.setNsURI("platform:/plugin/ProcessDefinition/model/ProcessDefinition.ecore");
-		//rs.getResources().remove(res);
-		rs.getPackageRegistry().put("platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore", pack);
-		
-		rs.getPackageRegistry().put("platform:/plugin/ProcessDefinition/model/ProcessDefinition.ecore", pack);
-		
-		// Register correspondence metamodel last
-		loadAndRegisterMetamodel(projectPath + "/model/" + projectPath + ".ecore");
-	}*/
 	
 	protected void registerUserMetamodels() throws IOException {
 		// Load and register source and target metamodels
