@@ -1,10 +1,22 @@
 import "platform:/resource/SheRememberedCaterpillars/model/SheRememberedCaterpillars.ecore"
 
 /**
- * Find a character.
+ * Find a character on its platform.
  */
 rule findCharacter() {
 	character: Character {
+		-standsOn -> platform
+	}
+
+	platform: Platform
+}
+
+/**
+ * Find a character with the given color on its platform.
+ */
+rule findCharacterOfColor(color: COLOR) {
+	character: Character {
+		.color == param::color
 		-standsOn -> platform
 	}
 

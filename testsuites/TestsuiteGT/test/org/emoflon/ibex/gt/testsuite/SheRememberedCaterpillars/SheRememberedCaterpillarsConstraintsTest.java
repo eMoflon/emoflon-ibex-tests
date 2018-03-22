@@ -5,6 +5,7 @@ import static org.junit.Assert.assertTrue;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.junit.Test;
 
+import SheRememberedCaterpillars.COLOR;
 import SheRememberedCaterpillars.ExitPlatform;
 import SheRememberedCaterpillarsGraphTransformation.api.SheRememberedCaterpillarsGraphTransformationAPI;
 import SheRememberedCaterpillarsGraphTransformation.api.matches.NoTwoCharactersOnAnExitPlatformMatch;
@@ -22,6 +23,16 @@ public class SheRememberedCaterpillarsConstraintsTest extends SheRememberedCater
 		assertMatchCount(2, api.findCharacter());
 		assertAnyMatchExists(api.findCharacterNotOnExit());
 		assertAnyMatchExists(api.findCharacterOnExit());
+	}
+
+	@Test
+	public void findCharactersOfColor() {
+		ResourceSet model = this.initResourceSet("SheRememberedCaterpillars.xmi");
+		SheRememberedCaterpillarsGraphTransformationAPI api = this.initAPI(model);
+
+		assertMatchCount(1, api.findCharacterOfColor(COLOR.BLUE));
+		assertMatchCount(1, api.findCharacterOfColor(COLOR.RED));
+		assertMatchCount(0, api.findCharacterOfColor(COLOR.PURPLE));
 	}
 
 	@Test
