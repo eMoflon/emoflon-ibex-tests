@@ -6,6 +6,7 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.junit.Test;
 
 import SheRememberedCaterpillarsGraphTransformation.api.SheRememberedCaterpillarsGraphTransformationAPI;
+import SheRememberedCaterpillarsGraphTransformation.api.matches.CreateBlueCharacterMatch;
 import SheRememberedCaterpillars.COLOR;
 import SheRememberedCaterpillars.Character;
 
@@ -35,8 +36,8 @@ public class SheRememberedCaterpillarsRulesTest extends SheRememberedCaterpillar
 		ResourceSet model = this.initResourceSet("BlueCharacter.xmi", "EmptyGame.xmi");
 		SheRememberedCaterpillarsGraphTransformationAPI api = this.initAPI(model);
 
-		assertApplicable(api.createBlueCharacter().apply());
-		assertEquals(COLOR.BLUE, api.findCharacter().findAnyMatch().get().getCharacter().getColor());
+		CreateBlueCharacterMatch m = assertApplicable(api.createBlueCharacter().apply());
+		assertEquals(COLOR.BLUE, m.getCharacter().getColor());
 
 		saveResourceSet(model);
 	}
