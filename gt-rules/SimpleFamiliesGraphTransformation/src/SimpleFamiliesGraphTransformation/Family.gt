@@ -45,6 +45,26 @@ rule findFamily {
 	family: Family
 }
 
+rule findSimpsonFamily() {
+	register: FamilyRegister {
+		-families -> family
+	}
+
+	family: Family {
+		.name == "Simpson"
+	}
+}
+
+rule findFamilyButNotSimpson() {
+	register: FamilyRegister {
+		-families -> family
+	}
+
+	family: Family {
+		.name != "Simpson"
+	}
+}
+
 rule findFamilyByName(name: EString) {
 	register: FamilyRegister {
 		-families -> family

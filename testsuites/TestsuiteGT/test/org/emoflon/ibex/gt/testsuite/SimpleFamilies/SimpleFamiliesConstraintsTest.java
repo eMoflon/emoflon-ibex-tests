@@ -42,6 +42,18 @@ public class SimpleFamiliesConstraintsTest extends SimpleFamiliesAbstractTest {
 	}
 
 	@Test
+	public void findSimpsonFamily() {
+		ResourceSet model = this.initResourceSet("FamilyRegister.xmi");
+		SimpleFamiliesGraphTransformationAPI api = this.initAPI(model);
+
+		assertMatchCount(1, api.findSimpsonFamily());
+		assertEquals("Simpson", api.findSimpsonFamily().findAnyMatch().get().getFamily().getName());
+
+		assertMatchCount(1, api.findFamilyButNotSimpson());
+		assertEquals("Watson", api.findFamilyButNotSimpson().findAnyMatch().get().getFamily().getName());
+	}
+
+	@Test
 	public void parameterizedAttributeConstraintsForEquality() {
 		ResourceSet model = this.initResourceSet("FamilyRegister.xmi");
 		SimpleFamiliesGraphTransformationAPI api = this.initAPI(model);
