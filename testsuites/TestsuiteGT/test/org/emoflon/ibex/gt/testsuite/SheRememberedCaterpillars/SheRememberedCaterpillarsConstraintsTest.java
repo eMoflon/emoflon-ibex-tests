@@ -8,7 +8,7 @@ import org.junit.Test;
 import SheRememberedCaterpillars.COLOR;
 import SheRememberedCaterpillars.ExitPlatform;
 import SheRememberedCaterpillarsGraphTransformation.api.SheRememberedCaterpillarsGraphTransformationAPI;
-import SheRememberedCaterpillarsGraphTransformation.api.matches.NoTwoCharactersOnAnExitPlatformMatch;
+import SheRememberedCaterpillarsGraphTransformation.api.matches.FindTwoCharactersOnAnExitPlatformMatch;
 
 /**
  * Tests for rule applications with the SheRememberedCaterpillars Graph
@@ -40,7 +40,7 @@ public class SheRememberedCaterpillarsConstraintsTest extends SheRememberedCater
 		ResourceSet model = this.initResourceSet("SheRememberedCaterpillars.xmi");
 		SheRememberedCaterpillarsGraphTransformationAPI api = this.initAPI(model);
 
-		assertNoMatch(api.noTwoCharactersOnAnExitPlatform());
+		assertNoMatch(api.findTwoCharactersOnAnExitPlatform());
 	}
 
 	@Test
@@ -48,9 +48,9 @@ public class SheRememberedCaterpillarsConstraintsTest extends SheRememberedCater
 		ResourceSet model = this.initResourceSet("TwoCharactersAtSameExit.xmi");
 		SheRememberedCaterpillarsGraphTransformationAPI api = this.initAPI(model);
 
-		assertAnyMatchExists(api.noTwoCharactersOnAnExitPlatform());
-		assertMatchCount(2, api.noTwoCharactersOnAnExitPlatform());
-		assertTrue(api.noTwoCharactersOnAnExitPlatform().findAnyMatch()
-				.map(NoTwoCharactersOnAnExitPlatformMatch::getPlatform).map(ExitPlatform.class::isInstance).get());
+		assertAnyMatchExists(api.findTwoCharactersOnAnExitPlatform());
+		assertMatchCount(2, api.findTwoCharactersOnAnExitPlatform());
+		assertTrue(api.findTwoCharactersOnAnExitPlatform().findAnyMatch()
+				.map(FindTwoCharactersOnAnExitPlatformMatch::getPlatform).map(ExitPlatform.class::isInstance).get());
 	}
 }

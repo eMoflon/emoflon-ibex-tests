@@ -1,6 +1,10 @@
 import "platform:/resource/SheRememberedCaterpillars/model/SheRememberedCaterpillars.ecore"
 
-rule noTwoCharactersOnAnExitPlatform {
+/**
+ * Checks whether two characters stand on an exit platform.
+ * This is forbidden, so any matches for this pattern are illegal.
+ */
+rule findTwoCharactersOnAnExitPlatform {
 	char1: Character {
 		-standsOn -> platform
 	}

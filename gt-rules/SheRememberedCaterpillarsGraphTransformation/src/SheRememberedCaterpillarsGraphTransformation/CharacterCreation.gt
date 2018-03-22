@@ -1,5 +1,8 @@
 import "platform:/resource/SheRememberedCaterpillars/model/SheRememberedCaterpillars.ecore"
 
+/**
+ * Creates a blue character.
+ */
 rule createBlueCharacter() {
 	game: Game {
 		++ -characters -> character

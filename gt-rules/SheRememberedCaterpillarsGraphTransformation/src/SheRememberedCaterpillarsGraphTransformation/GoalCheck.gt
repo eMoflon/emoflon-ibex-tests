@@ -1,7 +1,7 @@
 import "platform:/resource/SheRememberedCaterpillars/model/SheRememberedCaterpillars.ecore"
 
 /**
- * Find a character on its platform.
+ * Finds a character on its platform.
  */
 rule findCharacter() {
 	character: Character {
@@ -12,7 +12,7 @@ rule findCharacter() {
 }
 
 /**
- * Find a character with the given color on its platform.
+ * Finds a character with the given color on its platform.
  */
 rule findCharacterOfColor(color: COLOR) {
 	character: Character {
@@ -24,7 +24,7 @@ rule findCharacterOfColor(color: COLOR) {
 }
 
 /*
- * Check whether characters are on exit.
+ * Checks whether characters are on exit.
  */
 rule findCharacterOnExit {
 	character: Character {
@@ -35,7 +35,7 @@ rule findCharacterOnExit {
 }
 
 /*
- * Find a character who is not on an exit platform. 
+ * Finds a character who is not on an exit platform. 
  */
 rule findCharacterNotOnExit {
 	character: Character {
