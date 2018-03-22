@@ -36,7 +36,7 @@ public class SimpleFamiliesRulesTest extends SimpleFamiliesAbstractTest {
 		SimpleFamiliesGraphTransformationAPI api = this.initAPI(model);
 
 		assertMatchCount(2, api.findFamily());
-		api.createFamily().apply();
+		assertApplicable(api.createFamily("Smith").apply());
 		assertMatchCount(3, api.findFamily());
 
 		saveResourceSet(model);
@@ -60,7 +60,7 @@ public class SimpleFamiliesRulesTest extends SimpleFamiliesAbstractTest {
 		SimpleFamiliesGraphTransformationAPI api = this.initAPI(model);
 
 		assertMatchCount(2, api.findFamily());
-		assertEquals(20, api.createFamily().apply(20).size());
+		assertEquals(20, api.createUnnamedFamily().apply(20).size());
 		assertMatchCount(22, api.findFamily());
 
 		Supplier<FindFamilyMatch> findNullFamily = () -> api.findFamily().findMatches().stream()

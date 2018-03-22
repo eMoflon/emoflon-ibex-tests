@@ -1,6 +1,17 @@
+import "http://www.eclipse.org/emf/2002/Ecore"
 import "platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore"
 
-rule createFamily {
+rule createFamily(name: EString) {
+	register: FamilyRegister {
+		++ -families -> family
+	}
+
+	++ family: Family {
+		.name := param::name
+	}
+}
+
+rule createUnnamedFamily {
 	register: FamilyRegister {
 		++ -families -> family
 	}
