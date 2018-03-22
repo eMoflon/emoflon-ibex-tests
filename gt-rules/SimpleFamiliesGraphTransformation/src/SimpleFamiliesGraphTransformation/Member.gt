@@ -1,5 +1,9 @@
+import "http://www.eclipse.org/emf/2002/Ecore"
 import "platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore"
 
+/**
+ * Finds a daughter.
+ */
 rule findDaughter {
 	family: Family {
 		-daughters -> member
@@ -8,6 +12,9 @@ rule findDaughter {
 	member: FamilyMember
 }
 
+/**
+ * Finds a father.
+ */
 rule findFather {
 	family: Family {
 		-father -> member
@@ -16,6 +23,9 @@ rule findFather {
 	member: FamilyMember
 }
 
+/**
+ * Finds a mother.
+ */
 rule findMother {
 	family: Family {
 		-mother -> member
@@ -24,10 +34,22 @@ rule findMother {
 	member: FamilyMember
 }
 
+/**
+ * Finds a son.
+ */
 rule findSon {
 	family: Family {
 		-sons -> member
 	}
 
 	member: FamilyMember
+}
+
+/**
+ * Finds a family member by his/her first name.
+ */
+rule findMemberByFirstName(firstName: EString) {
+	member: FamilyMember {
+		.name == param::firstName
+	}
 }

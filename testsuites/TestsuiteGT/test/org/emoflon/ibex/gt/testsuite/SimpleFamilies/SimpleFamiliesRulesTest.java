@@ -2,7 +2,10 @@ package org.emoflon.ibex.gt.testsuite.SimpleFamilies;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.function.Supplier;
+import java.util.stream.Collectors;
 
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.junit.Test;
@@ -103,5 +106,19 @@ public class SimpleFamiliesRulesTest extends SimpleFamiliesAbstractTest {
 		assertMatchCount(0, api.findRegister());
 
 		saveResourceSet(model);
+	}
+
+	@Test
+	public void renameFamily() {
+		ResourceSet model = this.initResourceSet("RenameFamlily.xmi", "FamilyRegister.xmi");
+		SimpleFamiliesGraphTransformationAPI api = this.initAPI(model);
+
+		assertApplicable(api.renameFamily("Watson", "Watson-Smith").apply());
+		saveResourceSet(model);
+		
+		List<String> familyNames = api.findFamily().findMatches().stream() //
+				.map(m -> m.getFamily().getName()) //
+				.collect(Collectors.toList());
+		assertEquals(Arrays.asList("Simpson", "Watson-Smith"), familyNames);
 	}
 }

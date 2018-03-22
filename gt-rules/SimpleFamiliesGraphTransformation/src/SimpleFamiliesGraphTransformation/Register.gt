@@ -1,13 +1,22 @@
 import "platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore"
 
+/**
+ * Creates a new register.
+ */
 rule createRegister {
 	++ register: FamilyRegister
 }
 
+/**
+ * Deletes the register.
+ */
 rule deleteRegister {
 	-- register: FamilyRegister
 }
 
+/**
+ * Finds a register.
+ */
 rule findRegister {
 	register: FamilyRegister
 }
