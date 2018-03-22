@@ -42,6 +42,36 @@ public class SimpleFamiliesConstraintsTest extends SimpleFamiliesAbstractTest {
 	}
 
 	@Test
+	public void parameterizedAttributeConstraintsForEquality() {
+		ResourceSet model = this.initResourceSet("FamilyRegister.xmi");
+		SimpleFamiliesGraphTransformationAPI api = this.initAPI(model);
+
+		assertMatchCount(1, api.findFamilyByName("Simpson"));
+		assertMatchCount(1, api.findFamilyByName("Watson"));
+		assertMatchCount(0, api.findFamilyByName("Smith"));
+
+		assertMatchCount(1, api.findFamilyNotNamed("Simpson"));
+		assertMatchCount(1, api.findFamilyNotNamed("Watson"));
+		assertMatchCount(2, api.findFamilyNotNamed("Smith"));
+		assertEquals("Watson", api.findFamilyNotNamed("Simpson").findAnyMatch().get().getFamily().getName());
+		assertEquals("Simpson", api.findFamilyNotNamed("Watson").findAnyMatch().get().getFamily().getName());
+	}
+
+	@Test
+	public void parameterizedAttributeConstraintsForGreater() {
+		ResourceSet model = this.initResourceSet("FamilyRegister.xmi");
+		SimpleFamiliesGraphTransformationAPI api = this.initAPI(model);
+
+		assertMatchCount(2, api.findFamilyWithNameGreaterThan("S"));
+		assertMatchCount(1, api.findFamilyWithNameGreaterThan("Smith"));
+		assertMatchCount(0, api.findFamilyWithNameGreaterThan("Watson"));
+
+		assertMatchCount(2, api.findFamilyWithNameGreaterOrEqualThan("A"));
+		assertMatchCount(1, api.findFamilyWithNameGreaterOrEqualThan("T"));
+		assertMatchCount(0, api.findFamilyWithNameGreaterOrEqualThan("X"));
+	}
+
+	@Test
 	public void notifications() {
 		ResourceSet model = this.initResourceSet("Notifications.xmi", "FamilyRegister.xmi");
 		SimpleFamiliesGraphTransformationAPI api = this.initAPI(model);

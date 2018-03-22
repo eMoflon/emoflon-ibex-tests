@@ -44,3 +44,50 @@ rule findFamily {
 
 	family: Family
 }
+
+rule findFamilyByName(name: EString) {
+	register: FamilyRegister {
+		-families -> family
+	}
+
+	family: Family {
+		.name == param::name
+	}
+}
+
+rule findFamilyNotNamed(name: EString) {
+	register: FamilyRegister {
+		-families -> family
+	}
+
+	family: Family {
+		.name != param::name
+	}
+}
+
+rule findFamilyWithNameGreaterThan(name: EString) {
+	register: FamilyRegister {
+		-families -> family
+	}
+
+	family: Family {
+		.name > param::name
+	}
+}
+
+rule findFamilyWithNameGreaterOrEqualThan(name: EString) {
+	register: FamilyRegister {
+		-families -> family
+	}
+
+	family: Family {
+		.name >= param::name
+	}
+}
+
+rule renameFamily(oldName: EString, newName: EString) {
+	family: Family {
+		.name == param::oldName
+		.name := param::newName
+	}
+}
