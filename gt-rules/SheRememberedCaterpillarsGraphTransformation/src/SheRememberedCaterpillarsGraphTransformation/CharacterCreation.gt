@@ -1,6 +1,22 @@
 import "platform:/resource/SheRememberedCaterpillars/model/SheRememberedCaterpillars.ecore"
 
 /**
+ * Creates a character.
+ */
+rule createCharacter(color: COLOR) {
+	game: Game {
+		++ -characters -> character
+	}
+
+	++ character: Character {
+		.color := param::color
+		++ -standsOn -> platform
+	}
+
+	platform: Platform
+}
+
+/**
  * Creates a blue character.
  */
 rule createBlueCharacter() {
@@ -10,5 +26,40 @@ rule createBlueCharacter() {
 
 	++ character: Character {
 		.color := enum::BLUE
+		++ -standsOn -> platform
 	}
+
+	platform: Platform
+}
+
+/**
+ * Creates a red character.
+ */
+rule createRedCharacter() {
+	game: Game {
+		++ -characters -> character
+	}
+
+	++ character: Character {
+		.color := enum::RED
+		++ -standsOn -> platform
+	}
+
+	platform: Platform
+}
+
+/**
+ * Creates a purple character.
+ */
+rule createPurpleCharacter() {
+	game: Game {
+		++ -characters -> character
+	}
+
+	++ character: Character {
+		.color := enum::BLUE
+		++ -standsOn -> platform
+	}
+
+	platform: Platform
 }

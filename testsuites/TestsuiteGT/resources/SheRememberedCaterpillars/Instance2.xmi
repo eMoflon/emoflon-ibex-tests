@@ -4,7 +4,13 @@
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:SheRememberedCaterpillars="platform:/resource/SheRememberedCaterpillars/model/SheRememberedCaterpillars.ecore">
+  <characters
+      standsOn="//@objects.0"/>
+  <characters
+      color="RED"
+      standsOn="//@objects.0"/>
   <objects xsi:type="SheRememberedCaterpillars:SimplePlatform"
+      charactersStandingOn="//@characters.0 //@characters.1"
       neighbors="//@objects.1"/>
   <objects xsi:type="SheRememberedCaterpillars:ExitPlatform"
       neighbors="//@objects.0"/>

@@ -17,7 +17,7 @@ import SheRememberedCaterpillarsGraphTransformation.api.matches.FindTwoCharacter
 public class SheRememberedCaterpillarsConstraintsTest extends SheRememberedCaterpillarsAbstractTest {
 	@Test
 	public void findCharacters() {
-		ResourceSet model = this.initResourceSet("SheRememberedCaterpillars.xmi");
+		ResourceSet model = this.initResourceSet("Instance1.xmi");
 		SheRememberedCaterpillarsGraphTransformationAPI api = this.initAPI(model);
 
 		assertMatchCount(2, api.findCharacter());
@@ -27,7 +27,7 @@ public class SheRememberedCaterpillarsConstraintsTest extends SheRememberedCater
 
 	@Test
 	public void findCharactersOfColor() {
-		ResourceSet model = this.initResourceSet("SheRememberedCaterpillars.xmi");
+		ResourceSet model = this.initResourceSet("Instance1.xmi");
 		SheRememberedCaterpillarsGraphTransformationAPI api = this.initAPI(model);
 
 		assertMatchCount(1, api.findCharacterOfColor(COLOR.BLUE));
