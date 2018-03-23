@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.junit.Test;
 
 import SimpleFamilies.Family;
+import SimpleFamilies.FamilyMember;
 import SimpleFamilies.FamilyRegister;
 import SimpleFamiliesGraphTransformation.api.SimpleFamiliesGraphTransformationAPI;
 import SimpleFamiliesGraphTransformation.api.matches.DeleteFamilyMatch;
@@ -202,6 +203,30 @@ public class SimpleFamiliesRulesTest extends SimpleFamiliesAbstractTest {
 
 		assertMatchCount(1, api.findMemberByFirstName("Sherlock"));
 		assertMatchCount(1, api.findMemberByFirstName("John"));
+
+		saveResourceSet(model);
+	}
+
+	@Test
+	public void wedding() {
+		ResourceSet model = this.initResourceSet("Wedding.xmi", "TwoFamilies.xmi");
+		SimpleFamiliesGraphTransformationAPI api = this.initAPI(model);
+
+		FamilyMember jason = api.findMemberByFirstName("Jason").findAnyMatch().get().getMember();
+		FamilyMember sarah = api.findMemberByFirstName("Sarah").findAnyMatch().get().getMember();
+
+		assertMatchCount(1, api.findFamilyByName("Jackson"));
+		assertApplicable(api.marry("Jackson").bindBride(sarah).bindGroom(jason).apply());
+		assertMatchCount(2, api.findFamilyByName("Jackson"));
+
+		assertMatchCount(0, api.findDaughter());
+		assertMatchCount(0, api.findSon());
+		assertApplicable(api.daughterBorn("Rachel").bindMother(sarah).apply());
+		assertApplicable(api.sonBorn("Daniel").bindMother(sarah).apply());
+		assertMatchCount(1, api.findDaughter());
+		assertMatchCount(1, api.findSon());
+		assertMatchCount(1, api.findMemberByFirstName("Daniel"));
+		assertMatchCount(1, api.findMemberByFirstName("Rachel"));
 
 		saveResourceSet(model);
 	}
