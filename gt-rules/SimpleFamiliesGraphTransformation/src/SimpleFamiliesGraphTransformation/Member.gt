@@ -2,6 +2,58 @@ import "http://www.eclipse.org/emf/2002/Ecore"
 import "platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore"
 
 /**
+ * Adds a daughter with the given first name to an existing family.
+ */
+rule addDaughter(name: EString) {
+	family: Family {
+		++ -daughters -> member
+	}
+
+	++ member: FamilyMember {
+		.name := param::name
+	}
+}
+
+/**
+ * Adds a father with the given first name to an existing family.
+ */
+rule addFather(name: EString) {
+	family: Family {
+		++ -father -> member
+	}
+
+	++ member: FamilyMember {
+		.name := param::name
+	}
+}
+
+/**
+ * Adds a mother with the given first name to an existing family.
+ */
+rule addMother(name: EString) {
+	family: Family {
+		++ -mother -> member
+	}
+
+	++ member: FamilyMember {
+		.name := param::name
+	}
+}
+
+/**
+ * Adds a son with the given first name to an existing family.
+ */
+rule addSon(name: EString) {
+	family: Family {
+		++ -sons -> member
+	}
+
+	++ member: FamilyMember {
+		.name := param::name
+	}
+}
+
+/**
  * Finds a daughter.
  */
 rule findDaughter {
