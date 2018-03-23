@@ -29,9 +29,9 @@ public class SimpleFamiliesConstraintsTest extends SimpleFamiliesAbstractTest {
 		SimpleFamiliesGraphTransformationAPI api = this.initAPI(model);
 
 		assertMatchCount(1, api.findRegister());
-
 		assertMatchCount(2, api.findFamily());
-		List<String> familyNames = api.findFamily().findMatches().stream().map(m -> m.getFamily().getName())
+		List<String> familyNames = api.findFamily().findMatches().stream() //
+				.map(m -> m.getFamily().getName()) //
 				.collect(Collectors.toList());
 		assertEquals(Arrays.asList("Simpson", "Watson"), familyNames);
 

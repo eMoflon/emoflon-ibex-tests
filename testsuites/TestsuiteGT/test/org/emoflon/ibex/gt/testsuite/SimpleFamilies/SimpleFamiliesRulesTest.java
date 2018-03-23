@@ -28,8 +28,8 @@ public class SimpleFamiliesRulesTest extends SimpleFamiliesAbstractTest {
 	public void createAndDeleteRegister() {
 		ResourceSet model = this.initResourceSet("CreateAndDeleteRegister.xmi");
 		SimpleFamiliesGraphTransformationAPI api = this.initAPI(model);
+		
 		assertNoMatch(api.findRegister());
-
 		assertMatchCount(1, api.createRegister()); // create rule is applicable
 		assertApplicable(api.createRegister().apply());
 		assertMatchCount(1, api.findRegister());
