@@ -1,6 +1,23 @@
+import "http://www.eclipse.org/emf/2002/Ecore"
 import "platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore"
 
-rule createFamily {
+/**
+ * Creates a family with the given name.
+ */
+rule createFamily(name: EString) {
+	register: FamilyRegister {
+		++ -families -> family
+	}
+
+	++ family: Family {
+		.name := param::name
+	}
+}
+
+/**
+ * Creates a family without a name.
+ */
+rule createUnnamedFamily {
 	register: FamilyRegister {
 		++ -families -> family
 	}
@@ -8,6 +25,22 @@ rule createFamily {
 	++ family: Family
 }
 
+/**
+ * Creates a family named "Miller".
+ */
+rule createMillerFamily {
+	register: FamilyRegister {
+		++ -families -> family
+	}
+
+	++ family: Family {
+		.name := "Miller"
+	}
+}
+
+/**
+ * Deletes any family.
+ */
 rule deleteFamily {
 	register: FamilyRegister {
 		-- -families -> family
@@ -16,10 +49,102 @@ rule deleteFamily {
 	-- family: Family
 }
 
+/**
+ * Finds any family.
+ */
 rule findFamily {
 	register: FamilyRegister {
 		-families -> family
 	}
 
 	family: Family
+}
+
+/**
+ * Finds a family named Simpson.
+ */
+rule findSimpsonFamily() {
+	register: FamilyRegister {
+		-families -> family
+	}
+
+	family: Family {
+		.name == "Simpson"
+	}
+}
+
+/**
+ * Finds any family not named Simpson.
+ */
+rule findFamilyButNotSimpson() {
+	register: FamilyRegister {
+		-families -> family
+	}
+
+	family: Family {
+		.name != "Simpson"
+	}
+}
+
+/**
+ * Finds a family with the given name.
+ */
+rule findFamilyByName(name: EString) {
+	register: FamilyRegister {
+		-families -> family
+	}
+
+	family: Family {
+		.name == param::name
+	}
+}
+
+/**
+ * Finds a family not named as the given name.
+ */
+rule findFamilyNotNamed(name: EString) {
+	register: FamilyRegister {
+		-families -> family
+	}
+
+	family: Family {
+		.name != param::name
+	}
+}
+
+/**
+ * Finds a family with a name which is lexicographically greater the given name.
+ */
+rule findFamilyWithNameGreaterThan(name: EString) {
+	register: FamilyRegister {
+		-families -> family
+	}
+
+	family: Family {
+		.name > param::name
+	}
+}
+
+/**
+ * Finds a family with a name which is lexicographically greater than
+ * or equal to the given name.
+ */
+rule findFamilyWithNameGreaterOrEqualThan(name: EString) {
+	register: FamilyRegister {
+		-families -> family
+	}
+
+	family: Family {
+		.name >= param::name
+	}
+}
+
+/**
+ * Renames a family.
+ */
+rule renameFamily(oldName: EString, newName: EString) {
+	family: Family {
+		.name == param::oldName
+		.name := param::newName
+	}
 }

@@ -1,6 +1,9 @@
 import "platform:/resource/FerrymanProblem/model/FerrymanProblem.ecore"
 
-rule findSubjectsOnLeftBank {
+/**
+ * Finds a subject on the left bank.
+ */
+rule findSubjectOnLeftBank {
 	model: Model {
 		-leftBank -> bank
 	}
@@ -12,7 +15,10 @@ rule findSubjectsOnLeftBank {
 	}
 }
 
-rule findSubjectsOnRightBank {
+/**
+ * Finds a subject on the right bank
+ */
+rule findSubjectOnRightBank {
 	model: Model {
 		-rightBank -> bank
 	}
@@ -24,6 +30,33 @@ rule findSubjectsOnRightBank {
 	}
 }
 
+/**
+ * Checks whether all things are at the right bank.
+ * This should hold at the end.
+ */
+rule checkAllThingsAtRightBank {
+	model: Model {
+		-rightBank -> rightBank
+	}
+
+	rightBank: Bank
+
+	wolf: Wolf {
+		-isAt -> rightBank
+	}
+
+	goat: Goat {
+		-isAt -> rightBank
+	}
+
+	cabbage: Cabbage {
+		-isAt -> rightBank
+	}
+}
+
+/**
+ * Finds the cabbage.
+ */
 rule findCabbage {
 	bank: Bank
 
@@ -32,6 +65,9 @@ rule findCabbage {
 	}
 }
 
+/**
+ * Finds the goat
+ */
 rule findGoat {
 	bank: Bank
 
@@ -40,6 +76,9 @@ rule findGoat {
 	}
 }
 
+/**
+ * Finds the wolf.
+ */
 rule findWolf {
 	bank: Bank
 

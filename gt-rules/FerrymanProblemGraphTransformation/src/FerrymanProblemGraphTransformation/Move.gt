@@ -1,30 +1,7 @@
 import "platform:/resource/FerrymanProblem/model/FerrymanProblem.ecore"
 
 /**
- * At the end all things must be at the right bank.
- */
-rule checkAllThingsAtRightBank {
-	model: Model {
-		-rightBank -> rightBank
-	}
-
-	rightBank: Bank
-
-	wolf: Wolf {
-		-isAt -> rightBank
-	}
-
-	goat: Goat {
-		-isAt -> rightBank
-	}
-
-	cabbage: Cabbage {
-		-isAt -> rightBank
-	}
-}
-
-/**
- * The ferryman can move with an empty boat to the other bank.
+ * Moves the ferryman to another bank.
  */
 rule move {
 	bankBefore: Bank
@@ -38,8 +15,7 @@ rule move {
 }
 
 /**
- * If the ferryman is on the left bank, he can move one thing to the right.
- * If the ferryman is on the right bank, he can move one thing to the left.
+ * Moves the ferryman and a thing to another bank.
  */
 rule moveThing {
 	bankBefore: Bank

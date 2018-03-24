@@ -19,17 +19,19 @@ public class FerrymanProblemConstraintsTest extends FerrymanProblemAbstractTest 
 	public void constraints() {
 		ResourceSet model = this.initResourceSet("Start.xmi");
 		FerrymanProblemGraphTransformationAPI api = this.initAPI(model);
+
 		assertNoMatch(api.canEat());
 		assertNoMatch(api.checkAllThingsAtRightBank());
-		assertNoMatch(api.findSubjectsOnRightBank());
+		assertNoMatch(api.findSubjectOnRightBank());
 	}
 
 	@Test
 	public void canWolfEatGoat() {
 		ResourceSet model = this.initResourceSet("WolfCanEatGoat.xmi", "WolfEatsGoat.xmi");
 		FerrymanProblemGraphTransformationAPI api = this.initAPI(model);
-		assertMatchCount(2, api.findSubjectsOnLeftBank());
-		assertMatchCount(2, api.findSubjectsOnRightBank());
+
+		assertMatchCount(2, api.findSubjectOnLeftBank());
+		assertMatchCount(2, api.findSubjectOnRightBank());
 
 		CanEatMatch match = assertAnyMatchExists(api.canEat());
 		assertTrue(match.getEater() instanceof Wolf);

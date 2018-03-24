@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ASCII"?>
+<SheRememberedCaterpillars:Game
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:SheRememberedCaterpillars="platform:/resource/SheRememberedCaterpillars/model/SheRememberedCaterpillars.ecore">
+  <objects xsi:type="SheRememberedCaterpillars:SimplePlatform"
+      neighbors="//@objects.1"/>
+  <objects xsi:type="SheRememberedCaterpillars:ExitPlatform"
+      neighbors="//@objects.0"/>
+</SheRememberedCaterpillars:Game>

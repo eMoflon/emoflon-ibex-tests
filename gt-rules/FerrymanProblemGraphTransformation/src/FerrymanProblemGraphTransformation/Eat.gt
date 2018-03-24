@@ -45,6 +45,9 @@ rule eat {
 	}
 }
 
+/**
+ * Deletes the goat.
+ */
 rule killGoat {
 	-- goat: Goat {
 		-- -isAt -> bank

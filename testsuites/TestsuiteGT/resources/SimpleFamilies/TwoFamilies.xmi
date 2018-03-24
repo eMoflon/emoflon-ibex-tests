@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SimpleFamilies:FamilyRegister
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:SimpleFamilies="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore">
+  <families
+      name="Jackson">
+    <father
+        name="James"/>
+    <mother
+        name="Jennifer"/>
+    <sons name="Jason"/>
+  </families>
+  <families
+      name="Smith">
+    <father
+        name="Samuel"/>
+    <mother
+        name="Sally"/>
+    <daughters
+        name="Sarah"/>
+  </families>
+</SimpleFamilies:FamilyRegister>

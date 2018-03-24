@@ -1,0 +1,58 @@
+import "platform:/resource/SheRememberedCaterpillars/model/SheRememberedCaterpillars.ecore"
+
+/*
+ * If a blue and a red character are on the same platform,
+ * they can be replaced by a purple character.
+ */
+rule transformBlueAndRedToPurpleCharacter {
+	-- blueCharacter: Character {
+		.color == enum::BLUE
+		-- -standsOn -> platform
+	}
+
+	-- redCharacter: Character {
+		.color == enum::RED
+		-- -standsOn -> platform
+	}
+
+	++ purpleCharacter: Character {
+		.color := enum::PURPLE
+		++ -standsOn -> platform
+	}
+
+	platform: Platform
+
+	game: Game {
+		-- -characters -> blueCharacter
+		-- -characters -> redCharacter
+		++ -characters -> purpleCharacter
+	}
+}
+
+/*
+ * A purple character can be transformed into a blue and a red one. 
+ */
+rule transformPurpleToBlueAndRedCharacter {
+	++ blueCharacter: Character {
+		.color := enum::BLUE
+		++ -standsOn -> platform
+	}
+
+	++ redCharacter: Character {
+		.color := enum::RED
+		++ -standsOn -> platform
+	}
+
+	-- purpleCharacter: Character {
+		.color == enum::PURPLE
+		-- -standsOn -> platform
+	}
+
+	platform: Platform
+	
+	game: Game {
+		++ -characters -> blueCharacter
+		++ -characters -> redCharacter
+		-- -characters -> purpleCharacter
+	}
+}

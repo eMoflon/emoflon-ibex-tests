@@ -62,16 +62,20 @@ public class SimpleFamiliesToSimplePersons2Test extends GTTestCase<SimpleFamilie
 				familiesAPI.findFamily().bindRegister(familyRegister).findMatches().forEach(familyMatch -> {
 					Family family = familyMatch.getFamily();
 					familiesAPI.findFather().bindFamily(family).forEachMatch(fatherMatch -> {
-						memberToMale(personsAPI, personRegister, fatherMatch.getFamily(), fatherMatch.getMember());
+						personsAPI.createMale(this.getFullName(family, fatherMatch.getMember()))
+								.bindRegister(personRegister).apply();
 					});
 					familiesAPI.findSon().bindFamily(family).forEachMatch(sonMatch -> {
-						memberToMale(personsAPI, personRegister, sonMatch.getFamily(), sonMatch.getMember());
+						personsAPI.createMale(this.getFullName(family, sonMatch.getMember()))
+								.bindRegister(personRegister).apply();
 					});
-					familiesAPI.findMother().bindFamily(family).forEachMatch(fatherMatch -> {
-						memberToFemale(personsAPI, personRegister, fatherMatch.getFamily(), fatherMatch.getMember());
+					familiesAPI.findMother().bindFamily(family).forEachMatch(motherMatch -> {
+						personsAPI.createFemale(this.getFullName(family, motherMatch.getMember()))
+								.bindRegister(personRegister).apply();
 					});
-					familiesAPI.findDaughter().bindFamily(family).forEachMatch(sonMatch -> {
-						memberToFemale(personsAPI, personRegister, sonMatch.getFamily(), sonMatch.getMember());
+					familiesAPI.findDaughter().bindFamily(family).forEachMatch(daughterMatch -> {
+						personsAPI.createFemale(this.getFullName(family, daughterMatch.getMember()))
+								.bindRegister(personRegister).apply();
 					});
 				});
 			});
@@ -88,19 +92,5 @@ public class SimpleFamiliesToSimplePersons2Test extends GTTestCase<SimpleFamilie
 
 	private String getFullName(final Family family, final FamilyMember member) {
 		return family.getName() + ", " + member.getName();
-	}
-
-	private void memberToMale(final SimplePersonsGraphTransformationAPI personsAPI, final PersonRegister personRegister,
-			final Family family, final FamilyMember member) {
-		personsAPI.createMale().bindRegister(personRegister).apply().ifPresent(personMatch -> {
-			personMatch.getPerson().setName(this.getFullName(family, member));
-		});
-	}
-
-	private void memberToFemale(final SimplePersonsGraphTransformationAPI personsAPI,
-			final PersonRegister personRegister, final Family family, final FamilyMember member) {
-		personsAPI.createFemale().bindRegister(personRegister).apply().ifPresent(personMatch -> {
-			personMatch.getPerson().setName(this.getFullName(family, member));
-		});
 	}
 }

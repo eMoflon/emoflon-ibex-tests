@@ -8,6 +8,7 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.emoflon.ibex.common.operational.IContextPatternInterpreter;
 import org.emoflon.ibex.gt.testsuite.GTTestCase;
 
+import SheRememberedCaterpillars.COLOR;
 import SheRememberedCaterpillars.SheRememberedCaterpillarsPackage;
 import SheRememberedCaterpillarsGraphTransformation.api.SheRememberedCaterpillarsGraphTransformationAPI;
 
@@ -33,5 +34,12 @@ public abstract class SheRememberedCaterpillarsAbstractTest
 		HashMap<String, EPackage> map = new HashMap<String, EPackage>();
 		map.put(SheRememberedCaterpillarsPackage.eNS_URI, SheRememberedCaterpillarsPackage.eINSTANCE);
 		return map;
+	}
+
+	public static void assertCharacterColorCount(final SheRememberedCaterpillarsGraphTransformationAPI api,
+			final int blueCount, final int redCount, final int purpleCount) {
+		assertMatchCount(blueCount, api.findCharacterOfColor(COLOR.BLUE));
+		assertMatchCount(redCount, api.findCharacterOfColor(COLOR.RED));
+		assertMatchCount(purpleCount, api.findCharacterOfColor(COLOR.PURPLE));
 	}
 }

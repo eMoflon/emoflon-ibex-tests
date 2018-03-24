@@ -1,12 +1,18 @@
 import "platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore"
 import "platform:/resource/SimplePersons/model/SimplePersons.ecore"
 
+/**
+ * Creates a family register for a person register.
+ */
 rule familyRegisterToPersonRegister {
 	familyRegister: FamilyRegister
 
 	++ personRegister: PersonRegister
 }
 
+/**
+ * Creates a female for a mother.
+ */
 rule motherToFemale {
 	family: Family {
 		-mother -> member
@@ -21,6 +27,9 @@ rule motherToFemale {
 	++ person: Female
 }
 
+/**
+ * Creates a female for a daughter.
+ */
 rule daughterToFemale {
 	family: Family {
 		-daughters -> member
@@ -35,6 +44,9 @@ rule daughterToFemale {
 	++ person: Female
 }
 
+/**
+ * Creates a male for a father.
+ */
 rule fatherToMale {
 	family: Family {
 		-father -> member
@@ -49,6 +61,9 @@ rule fatherToMale {
 	++ person: Male
 }
 
+/**
+ * Creates a male for a son.
+ */
 rule sonToMale {
 	family: Family {
 		-sons -> member

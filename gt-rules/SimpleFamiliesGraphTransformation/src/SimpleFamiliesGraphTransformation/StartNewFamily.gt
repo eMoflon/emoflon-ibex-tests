@@ -1,0 +1,61 @@
+import "http://www.eclipse.org/emf/2002/Ecore"
+import "platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore"
+
+/**
+ * Two family members start a new family.
+ */
+rule marry(familyName: EString) {
+	bride: FamilyMember
+
+	brideFamily: Family {
+		-- -daughters -> bride
+	}
+
+	groom: FamilyMember
+
+	groomFamily: Family {
+		-- -sons -> groom
+	}
+
+	register: FamilyRegister {
+		++ -families -> newFamily
+	}
+
+	++ newFamily: Family {
+		.name := param::familyName
+		++ -father -> groom
+		++ -mother -> bride
+	}
+}
+
+/**
+ * Adds a daughter to the mother's family.
+ */
+rule daughterBorn(firstName: EString) {
+	mother: FamilyMember
+
+	family: Family {
+		-mother -> mother
+		++ -daughters -> child
+	}
+
+	++ child: FamilyMember {
+		.name := param::firstName
+	}
+}
+
+/**
+ * Adds a son to the mother's family.
+ */
+rule sonBorn(firstName: EString) {
+	mother: FamilyMember
+
+	family: Family {
+		-mother -> mother
+		++ -sons -> child
+	}
+
+	++ child: FamilyMember {
+		.name := param::firstName
+	}
+}

@@ -7,6 +7,7 @@ Bundle-SymbolicName: SimpleFamiliesToSimplePersonsGraphTransformation; singleton
 Bundle-ActivationPolicy: lazy
 Require-Bundle: org.emoflon.ibex.common,
  org.emoflon.ibex.gt,
+ org.emoflon.ibex.gt.democles,
  SimpleFamilies,
  SimplePersons
 Import-Package: org.apache.log4j,
