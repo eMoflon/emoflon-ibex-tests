@@ -20,6 +20,7 @@
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,metamodels/CompanyLanguage"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,tggs/CompanyToIT"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,metamodels/Database"/>
+<project reference="1.0,https://github.com/mde-lab-sessions/running-example-for-lecture.git,master,de.upb.mbse.taxcalculationexample.businessrules"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,metamodels/Documents"/>
 <project reference="1.0,https://github.com/eMoflon/benchmarx.git,master,examples/familiestopersons/metamodels/Families"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,tggs/FamiliesToPersons_MA"/>
@@ -87,8 +88,10 @@
 <item elementID="=Testsuite" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=Benchmarx" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=TestsuiteGT" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=de.upb.mbse.taxcalculationexample.businessrules" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 </workingSets>
 <workingSets editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" id="1502102466131_5" label="tggs" name="tggs">
+<item elementID="=ClassMultipleInhHier2DB_MA" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=CompanyToIT" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=BlockCodeAdapter" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=BlockDiagramCodeAdapter" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
@@ -96,6 +99,7 @@
 <item elementID="=BenchmarxFamiliesToPersons" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=BlockDiagramCodeAdapter_EdgeRules" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=ProcessCodeAdapter" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=FeatureModelConciseToSafe" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=FamiliesToPersons_V1" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=ClassInhHier2DB_MA" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=ClassInhHier2DB" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
@@ -107,7 +111,5 @@
 <item elementID="=MocaTreeToProcess" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=FamiliesToPersons_V0" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=FamiliesToPersons_MA" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=ClassMultipleInhHier2DB_MA" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=FeatureModelConciseToSafe" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 </workingSets>
 </psf>
