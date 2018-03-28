@@ -123,13 +123,5 @@ public class TestSimpleNegative extends CCTestCase{
 		runGenerator();
 		Assert.assertTrue(!checker.modelsAreConsistent());
 	}
-	
-	@Ignore("Possibly related to FIX ME in CC, regarding uniqueness.")
-	@Test
-	public void testTwoDiffTransitiveSuperToSubTables_V2() throws IOException {
-		createGenerator("in/11_TwoDiffTransitiveSuperAtt_OneSubAtt_FWD", "expected/11_TwoDiffTransitiveSuperAtt_OneSubAtt_INCONS_V2_FWD");
-		runGenerator();
-		Assert.assertTrue(!checker.modelsAreConsistent());
-	}
 
 }
