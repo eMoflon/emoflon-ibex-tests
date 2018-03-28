@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import org.emoflon.ibex.tgg.run.algorithmtostrategy_ma.CC_App;
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import testsuite.ibex.testUtil.CCTestCase;
@@ -45,6 +46,14 @@ public class TestSimplePositive extends CCTestCase {
 	@Test
 	public void testCreateThreeAlgosFourStrategy() throws IOException {
 		createGenerator("in/05_ThreeAlgosFourStrategy", "expected/05_ThreeAlgosFourStrategy");
+		runGenerator();
+		Assert.assertTrue(checker.modelsAreConsistent());
+	}
+	
+	@Ignore("Fails for now because generating cyclig constraints does not terminate!")
+	@Test
+	public void testBigModels() throws IOException {
+		createGenerator("in/06_BigModel", "expected/06_BigModel");
 		runGenerator();
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}
