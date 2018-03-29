@@ -1,6 +1,5 @@
 package testsuite.ibex.ClassInhHier2DB_MA.sync;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 import Database.DB;
