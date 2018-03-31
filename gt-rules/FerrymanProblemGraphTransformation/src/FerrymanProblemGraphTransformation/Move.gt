@@ -17,16 +17,8 @@ rule move {
 /**
  * Moves the ferryman and a thing to another bank.
  */
-rule moveThing {
-	bankBefore: Bank
-
-	bankAfter: Bank
-
-	ferryMan: FerryMan {
-		-- -isAt -> bankBefore
-		++ -isAt -> bankAfter
-	}
-
+rule moveThing
+refines move {
 	thing: Thing {
 		-- -isAt -> bankBefore
 		++ -isAt -> bankAfter

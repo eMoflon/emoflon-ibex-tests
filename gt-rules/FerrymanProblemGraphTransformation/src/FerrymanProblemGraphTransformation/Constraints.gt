@@ -1,65 +1,78 @@
 import "platform:/resource/FerrymanProblem/model/FerrymanProblem.ecore"
 
 /**
- * Finds a subject on the left bank.
+ * Finds any bank.
  */
-rule findSubjectOnLeftBank {
+rule findBank {
+	bank: Bank
+}
+
+/**
+ * Finds the left bank.
+ */
+rule findLeftBank
+refines findBank {
 	model: Model {
 		-leftBank -> bank
 	}
+}
 
-	bank: Bank
+/**
+ * Finds the right bank.
+ */
+rule findRightBank
+refines findBank {
+	model: Model {
+		-rightBank -> bank
+	}
+}
 
+/**
+ * Finds a subject on its bank.
+ */
+rule findSubjectOnBank
+refines findBank {
 	subject: Subject {
 		-isAt -> bank
 	}
 }
 
 /**
- * Finds a subject on the right bank
+ * Finds a subject on the left bank.
  */
-rule findSubjectOnRightBank {
-	model: Model {
-		-rightBank -> bank
-	}
+rule findSubjectOnLeftBank
+refines findSubjectOnBank, findLeftBank
 
-	bank: Bank
-
-	subject: Subject {
-		-isAt -> bank
-	}
-}
+/**
+ * Finds a subject on the right bank.
+ */
+rule findSubjectOnRightBank
+refines findSubjectOnBank, findRightBank
 
 /**
  * Checks whether all things are at the right bank.
  * This should hold at the end.
  */
-rule checkAllThingsAtRightBank {
-	model: Model {
-		-rightBank -> rightBank
-	}
-
-	rightBank: Bank
-
+rule checkAllThingsAtRightBank
+refines findRightBank {
 	wolf: Wolf {
-		-isAt -> rightBank
+		-isAt -> bank
 	}
 
 	goat: Goat {
-		-isAt -> rightBank
+		-isAt -> bank
 	}
 
 	cabbage: Cabbage {
-		-isAt -> rightBank
+		-isAt -> bank
 	}
 }
 
 /**
  * Finds the cabbage.
  */
-rule findCabbage {
-	bank: Bank
-
+rule findCabbage
+refines findBank {
 	cabbage: Cabbage {
 		-isAt -> bank
 	}
@@ -68,9 +81,8 @@ rule findCabbage {
 /**
  * Finds the goat
  */
-rule findGoat {
-	bank: Bank
-
+rule findGoat
+refines findBank {
 	goat: Goat {
 		-isAt -> bank
 	}
@@ -79,9 +91,8 @@ rule findGoat {
 /**
  * Finds the wolf.
  */
-rule findWolf {
-	bank: Bank
-
+rule findWolf
+refines findBank{
 	wolf: Wolf {
 		-isAt -> bank
 	}

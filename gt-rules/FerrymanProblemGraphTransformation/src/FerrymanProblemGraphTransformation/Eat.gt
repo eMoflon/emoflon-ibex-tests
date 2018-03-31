@@ -1,23 +1,15 @@
 import "platform:/resource/FerrymanProblem/model/FerrymanProblem.ecore"
 
-/**
- * Checks whether a thing can eat another.
- */
-rule canEat() {
+abstract rule findFerryManAndThingOnDifferentBanks {
 	bankOfFerryMan: Bank
+
+	bankOfThings: Bank
 
 	ferryMan: FerryMan {
 		-isAt -> bankOfFerryMan
 	}
 
-	bankOfThings: Bank
-
 	eater: Thing {
-		-isAt -> bankOfThings
-		-likesToEat -> eaten
-	}
-
-	eaten: Thing {
 		-isAt -> bankOfThings
 	}
 }
@@ -26,22 +18,28 @@ rule canEat() {
  * If the ferryman is not on the same bank, 
  * the wolf can eat the goat and the goat can eat the cabbage.
  */
-rule eat {
-	bankOfFerryMan: Bank
-
-	bankOfThings: Bank
-
-	ferryMan: FerryMan {
-		-isAt -> bankOfFerryMan
-	}
-
+rule eat
+refines findFerryManAndThingOnDifferentBanks {
 	eater: Thing {
-		-isAt -> bankOfThings
 		-- -likesToEat -> eaten
 	}
 
 	-- eaten: Thing {
 		-- -isAt -> bankOfThings
+	}
+}
+
+/**
+ * Checks whether a thing can eat another.
+ */
+rule canEat
+refines findFerryManAndThingOnDifferentBanks {
+	eater: Thing {
+		-likesToEat -> eaten
+	}
+
+	eaten: Thing {
+		-isAt -> bankOfThings
 	}
 }
 

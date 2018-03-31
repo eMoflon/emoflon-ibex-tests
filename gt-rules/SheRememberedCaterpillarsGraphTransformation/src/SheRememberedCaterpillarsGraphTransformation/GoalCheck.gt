@@ -14,13 +14,11 @@ rule findCharacter() {
 /**
  * Finds a character with the given color on its platform.
  */
-rule findCharacterOfColor(color: COLOR) {
+rule findCharacterOfColor(color: COLOR)
+refines findCharacter {
 	character: Character {
 		.color == param::color
-		-standsOn -> platform
 	}
-
-	platform: Platform
 }
 
 /*
