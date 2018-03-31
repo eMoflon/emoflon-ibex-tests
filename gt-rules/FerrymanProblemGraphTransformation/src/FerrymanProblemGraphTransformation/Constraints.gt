@@ -92,7 +92,7 @@ refines findBank {
  * Finds the wolf.
  */
 rule findWolf
-refines findBank{
+refines findBank {
 	wolf: Wolf {
 		-isAt -> bank
 	}

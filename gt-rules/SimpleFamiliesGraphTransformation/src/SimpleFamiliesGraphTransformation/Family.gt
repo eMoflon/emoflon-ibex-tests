@@ -25,18 +25,15 @@ rule createUnnamedFamily {
 /**
  * Creates a family named "Miller".
  */
-rule createMillerFamily {
-	register: FamilyRegister {
-		++ -families -> family
-	}
-
+rule createMillerFamily
+refines createUnnamedFamily {
 	++ family: Family {
 		.name := "Miller"
 	}
 }
 
 /**
- * Deletes any family.
+ * Deletes the matched family.
  */
 rule deleteFamily {
 	register: FamilyRegister {

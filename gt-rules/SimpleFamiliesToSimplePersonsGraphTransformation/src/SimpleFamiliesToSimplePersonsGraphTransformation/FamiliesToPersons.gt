@@ -10,6 +10,9 @@ rule familyRegisterToPersonRegister {
 	++ personRegister: PersonRegister
 }
 
+/**
+ * Creates a person for a member.
+ */
 abstract rule memberToPerson {
 	member: FamilyMember
 
@@ -20,6 +23,9 @@ abstract rule memberToPerson {
 	++ person: Person
 }
 
+/**
+ * Creates a female for a member.
+ */
 abstract rule memberToFemale
 refines memberToPerson {
 	++ person: Female
@@ -45,6 +51,9 @@ refines memberToFemale {
 	}
 }
 
+/**
+ * Creates a male for a member.
+ */
 abstract rule memberToMale
 refines memberToPerson {
 	++ person: Male
