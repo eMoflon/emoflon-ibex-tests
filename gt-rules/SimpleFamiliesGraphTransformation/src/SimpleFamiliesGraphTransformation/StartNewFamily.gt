@@ -31,12 +31,11 @@ rule marry(familyName: EString) {
 /**
  * Adds a daughter to the mother's family.
  */
-rule daughterBorn(firstName: EString) {
+abstract rule childBorn(firstName: EString) {
 	mother: FamilyMember
 
 	family: Family {
 		-mother -> mother
-		++ -daughters -> child
 	}
 
 	++ child: FamilyMember {
@@ -45,17 +44,40 @@ rule daughterBorn(firstName: EString) {
 }
 
 /**
+ * Adds a daughter to the mother's family.
+ */
+rule daughterBorn(firstName: EString)
+refines childBorn {
+	family: Family {
+		++ -daughters -> child
+	}
+}
+
+/**
  * Adds a son to the mother's family.
  */
-rule sonBorn(firstName: EString) {
+rule sonBorn(firstName: EString)
+refines childBorn {
+	family: Family {
+		++ -sons -> child
+	}
+}
+
+/**
+ * Adds a son to the mother's family who is named as his father.
+ */
+rule sonBornNamedAsFather {
+	father: FamilyMember
+
 	mother: FamilyMember
 
 	family: Family {
+		-father -> father
 		-mother -> mother
 		++ -sons -> child
 	}
 
 	++ child: FamilyMember {
-		.name := param::firstName
+		.name := father.name
 	}
 }
