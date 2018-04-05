@@ -3,7 +3,7 @@ import "platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore"
 /**
  * Finds a family with the father named as his son (one of his sons).
  */
-rule findFatherAndSonWithSameName() {
+pattern findFatherAndSonWithSameName() {
 	family: Family {
 		-father -> father
 		-sons -> son

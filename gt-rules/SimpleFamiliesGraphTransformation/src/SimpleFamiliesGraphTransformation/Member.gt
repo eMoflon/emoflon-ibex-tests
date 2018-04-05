@@ -49,14 +49,14 @@ refines addMember {
 	}
 }
 
-abstract rule findMember {
+abstract pattern findMember {
 	member: FamilyMember
 }
 
 /**
  * Finds a daughter.
  */
-rule findDaughter
+pattern findDaughter
 refines findMember {
 	family: Family {
 		-daughters -> member
@@ -66,7 +66,7 @@ refines findMember {
 /**
  * Finds a father.
  */
-rule findFather
+pattern findFather
 refines findMember {
 	family: Family {
 		-father -> member
@@ -76,7 +76,7 @@ refines findMember {
 /**
  * Finds a mother.
  */
-rule findMother
+pattern findMother
 refines findMember {
 	family: Family {
 		-mother -> member
@@ -86,7 +86,7 @@ refines findMember {
 /**
  * Finds a son.
  */
-rule findSon
+pattern findSon
 refines findMember {
 	family: Family {
 		-sons -> member
@@ -96,7 +96,7 @@ refines findMember {
 /**
  * Finds a family member by his/her first name.
  */
-rule findMemberByFirstName(firstName: EString) {
+pattern findMemberByFirstName(firstName: EString) {
 	member: FamilyMember {
 		.name == param::firstName
 	}

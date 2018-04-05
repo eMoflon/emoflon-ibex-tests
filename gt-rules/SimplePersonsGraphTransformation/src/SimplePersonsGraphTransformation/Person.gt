@@ -30,20 +30,20 @@ refines createPerson {
 /**
  * Finds a person.
  */
-rule findPerson {
+pattern findPerson {
 	person: Person
 }
 
 /**
  * Finds a male.
  */
-rule findMale {
+pattern findMale {
 	person: Male
 }
 
 /**
  * Finds a female.
  */
-rule findFemale {
+pattern findFemale {
 	person: Female
 }

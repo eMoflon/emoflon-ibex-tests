@@ -3,14 +3,14 @@ import "platform:/resource/FerrymanProblem/model/FerrymanProblem.ecore"
 /**
  * Finds any bank.
  */
-rule findBank {
+pattern findBank {
 	bank: Bank
 }
 
 /**
  * Finds the left bank.
  */
-rule findLeftBank
+pattern findLeftBank
 refines findBank {
 	model: Model {
 		-leftBank -> bank
@@ -20,7 +20,7 @@ refines findBank {
 /**
  * Finds the right bank.
  */
-rule findRightBank
+pattern findRightBank
 refines findBank {
 	model: Model {
 		-rightBank -> bank
@@ -30,7 +30,7 @@ refines findBank {
 /**
  * Finds a subject on its bank.
  */
-rule findSubjectOnBank
+pattern findSubjectOnBank
 refines findBank {
 	subject: Subject {
 		-isAt -> bank
@@ -40,20 +40,20 @@ refines findBank {
 /**
  * Finds a subject on the left bank.
  */
-rule findSubjectOnLeftBank
+pattern findSubjectOnLeftBank
 refines findSubjectOnBank, findLeftBank
 
 /**
  * Finds a subject on the right bank.
  */
-rule findSubjectOnRightBank
+pattern findSubjectOnRightBank
 refines findSubjectOnBank, findRightBank
 
 /**
  * Checks whether all things are at the right bank.
  * This should hold at the end.
  */
-rule checkAllThingsAtRightBank
+pattern checkAllThingsAtRightBank
 refines findRightBank {
 	wolf: Wolf {
 		-isAt -> bank
@@ -71,7 +71,7 @@ refines findRightBank {
 /**
  * Finds the cabbage.
  */
-rule findCabbage
+pattern findCabbage
 refines findBank {
 	cabbage: Cabbage {
 		-isAt -> bank
@@ -81,7 +81,7 @@ refines findBank {
 /**
  * Finds the goat
  */
-rule findGoat
+pattern findGoat
 refines findBank {
 	goat: Goat {
 		-isAt -> bank
@@ -91,7 +91,7 @@ refines findBank {
 /**
  * Finds the wolf.
  */
-rule findWolf
+pattern findWolf
 refines findBank {
 	wolf: Wolf {
 		-isAt -> bank

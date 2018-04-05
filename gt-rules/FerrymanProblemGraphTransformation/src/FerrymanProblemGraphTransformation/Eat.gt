@@ -1,6 +1,6 @@
 import "platform:/resource/FerrymanProblem/model/FerrymanProblem.ecore"
 
-abstract rule findFerryManAndThingOnDifferentBanks {
+abstract pattern findFerryManAndThingOnDifferentBanks {
 	bankOfFerryMan: Bank
 
 	bankOfThings: Bank
@@ -32,7 +32,7 @@ refines findFerryManAndThingOnDifferentBanks {
 /**
  * Checks whether a thing can eat another.
  */
-rule canEat
+pattern canEat
 refines findFerryManAndThingOnDifferentBanks {
 	eater: Thing {
 		-likesToEat -> eaten

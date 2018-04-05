@@ -17,6 +17,6 @@ rule deleteRegister {
 /**
  * Finds a register.
  */
-rule findRegister {
+pattern findRegister {
 	register: FamilyRegister
 }

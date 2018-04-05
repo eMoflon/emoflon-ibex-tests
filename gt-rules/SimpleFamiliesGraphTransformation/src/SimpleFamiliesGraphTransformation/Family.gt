@@ -46,7 +46,7 @@ rule deleteFamily {
 /**
  * Finds any family.
  */
-rule findFamily {
+pattern findFamily {
 	register: FamilyRegister {
 		-families -> family
 	}
@@ -57,7 +57,7 @@ rule findFamily {
 /**
  * Finds a family named Simpson.
  */
-rule findSimpsonFamily
+pattern findSimpsonFamily
 refines findFamily {
 	family: Family {
 		.name == "Simpson"
@@ -67,7 +67,7 @@ refines findFamily {
 /**
  * Finds any family not named Simpson.
  */
-rule findFamilyButNotSimpson
+pattern findFamilyButNotSimpson
 refines findFamily {
 	family: Family {
 		.name != "Simpson"
@@ -77,7 +77,7 @@ refines findFamily {
 /**
  * Finds a family with the given name.
  */
-rule findFamilyByName(name: EString)
+pattern findFamilyByName(name: EString)
 refines findFamily {
 	family: Family {
 		.name == param::name
@@ -87,7 +87,7 @@ refines findFamily {
 /**
  * Finds a family not named as the given name.
  */
-rule findFamilyNotNamed(name: EString)
+pattern findFamilyNotNamed(name: EString)
 refines findFamily {
 	family: Family {
 		.name != param::name
@@ -97,7 +97,7 @@ refines findFamily {
 /**
  * Finds a family with a name which is lexicographically greater the given name.
  */
-rule findFamilyWithNameGreaterThan(name: EString)
+pattern findFamilyWithNameGreaterThan(name: EString)
 refines findFamily {
 	family: Family {
 		.name > param::name
@@ -108,7 +108,7 @@ refines findFamily {
  * Finds a family with a name which is lexicographically greater than
  * or equal to the given name.
  */
-rule findFamilyWithNameGreaterOrEqualThan(name: EString)
+pattern findFamilyWithNameGreaterOrEqualThan(name: EString)
 refines findFamily {
 	family: Family {
 		.name >= param::name
