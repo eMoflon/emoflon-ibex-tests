@@ -28,7 +28,7 @@ public class SimpleFamiliesRulesTest extends SimpleFamiliesAbstractTest {
 	public void createAndDeleteRegister() {
 		ResourceSet model = this.initResourceSet("CreateAndDeleteRegister.xmi");
 		SimpleFamiliesGraphTransformationAPI api = this.initAPI(model);
-		
+
 		assertNoMatch(api.findRegister());
 		assertMatchCount(1, api.createRegister()); // create rule is applicable
 		assertApplicable(api.createRegister().apply());
@@ -227,6 +227,19 @@ public class SimpleFamiliesRulesTest extends SimpleFamiliesAbstractTest {
 		assertMatchCount(1, api.findSon());
 		assertMatchCount(1, api.findMemberByFirstName("Daniel"));
 		assertMatchCount(1, api.findMemberByFirstName("Rachel"));
+
+		saveResourceSet(model);
+	}
+
+	@Test
+	public void sonBornNamedAsFather() {
+		ResourceSet model = this.initResourceSet("SonBornNamedAsFather.xmi", "TwoFamilies.xmi");
+		SimpleFamiliesGraphTransformationAPI api = this.initAPI(model);
+
+		assertMatchCount(0, api.findFatherAndSonWithSameName());
+		FamilyMember sarah = api.findMemberByFirstName("Sally").findAnyMatch().get().getMember();
+		assertApplicable(api.sonBornNamedAsFather().bindMother(sarah).apply());
+		assertMatchCount(1, api.findFatherAndSonWithSameName());
 
 		saveResourceSet(model);
 	}

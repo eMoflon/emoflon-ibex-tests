@@ -4,11 +4,8 @@ import "platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore"
 /**
  * Creates a family with the given name.
  */
-rule createFamily(name: EString) {
-	register: FamilyRegister {
-		++ -families -> family
-	}
-
+rule createFamily(name: EString)
+refines createUnnamedFamily {
 	++ family: Family {
 		.name := param::name
 	}
@@ -28,18 +25,15 @@ rule createUnnamedFamily {
 /**
  * Creates a family named "Miller".
  */
-rule createMillerFamily {
-	register: FamilyRegister {
-		++ -families -> family
-	}
-
+rule createMillerFamily
+refines createUnnamedFamily {
 	++ family: Family {
 		.name := "Miller"
 	}
 }
 
 /**
- * Deletes any family.
+ * Deletes the matched family.
  */
 rule deleteFamily {
 	register: FamilyRegister {
@@ -52,7 +46,7 @@ rule deleteFamily {
 /**
  * Finds any family.
  */
-rule findFamily {
+pattern findFamily {
 	register: FamilyRegister {
 		-families -> family
 	}
@@ -63,11 +57,8 @@ rule findFamily {
 /**
  * Finds a family named Simpson.
  */
-rule findSimpsonFamily() {
-	register: FamilyRegister {
-		-families -> family
-	}
-
+pattern findSimpsonFamily
+refines findFamily {
 	family: Family {
 		.name == "Simpson"
 	}
@@ -76,11 +67,8 @@ rule findSimpsonFamily() {
 /**
  * Finds any family not named Simpson.
  */
-rule findFamilyButNotSimpson() {
-	register: FamilyRegister {
-		-families -> family
-	}
-
+pattern findFamilyButNotSimpson
+refines findFamily {
 	family: Family {
 		.name != "Simpson"
 	}
@@ -89,11 +77,8 @@ rule findFamilyButNotSimpson() {
 /**
  * Finds a family with the given name.
  */
-rule findFamilyByName(name: EString) {
-	register: FamilyRegister {
-		-families -> family
-	}
-
+pattern findFamilyByName(name: EString)
+refines findFamily {
 	family: Family {
 		.name == param::name
 	}
@@ -102,11 +87,8 @@ rule findFamilyByName(name: EString) {
 /**
  * Finds a family not named as the given name.
  */
-rule findFamilyNotNamed(name: EString) {
-	register: FamilyRegister {
-		-families -> family
-	}
-
+pattern findFamilyNotNamed(name: EString)
+refines findFamily {
 	family: Family {
 		.name != param::name
 	}
@@ -115,11 +97,8 @@ rule findFamilyNotNamed(name: EString) {
 /**
  * Finds a family with a name which is lexicographically greater the given name.
  */
-rule findFamilyWithNameGreaterThan(name: EString) {
-	register: FamilyRegister {
-		-families -> family
-	}
-
+pattern findFamilyWithNameGreaterThan(name: EString)
+refines findFamily {
 	family: Family {
 		.name > param::name
 	}
@@ -129,11 +108,8 @@ rule findFamilyWithNameGreaterThan(name: EString) {
  * Finds a family with a name which is lexicographically greater than
  * or equal to the given name.
  */
-rule findFamilyWithNameGreaterOrEqualThan(name: EString) {
-	register: FamilyRegister {
-		-families -> family
-	}
-
+pattern findFamilyWithNameGreaterOrEqualThan(name: EString)
+refines findFamily {
 	family: Family {
 		.name >= param::name
 	}

@@ -11,69 +11,70 @@ rule familyRegisterToPersonRegister {
 }
 
 /**
- * Creates a female for a mother.
+ * Creates a person for a member.
  */
-rule motherToFemale {
-	family: Family {
-		-mother -> member
-	}
-
+abstract rule memberToPerson {
 	member: FamilyMember
 
 	personRegister: PersonRegister {
 		++ -persons -> person
 	}
 
+	++ person: Person
+}
+
+/**
+ * Creates a female for a member.
+ */
+abstract rule memberToFemale
+refines memberToPerson {
 	++ person: Female
+}
+
+/**
+ * Creates a female for a mother.
+ */
+rule motherToFemale
+refines memberToFemale {
+	family: Family {
+		-mother -> member
+	}
 }
 
 /**
  * Creates a female for a daughter.
  */
-rule daughterToFemale {
+rule daughterToFemale
+refines memberToFemale {
 	family: Family {
 		-daughters -> member
 	}
+}
 
-	member: FamilyMember
-
-	personRegister: PersonRegister {
-		++ -persons -> person
-	}
-
-	++ person: Female
+/**
+ * Creates a male for a member.
+ */
+abstract rule memberToMale
+refines memberToPerson {
+	++ person: Male
 }
 
 /**
  * Creates a male for a father.
  */
-rule fatherToMale {
+rule fatherToMale
+refines memberToMale {
 	family: Family {
 		-father -> member
 	}
-
-	member: FamilyMember
-
-	personRegister: PersonRegister {
-		++ -persons -> person
-	}
-
-	++ person: Male
 }
 
 /**
  * Creates a male for a son.
  */
-rule sonToMale {
+rule sonToMale
+refines memberToMale {
 	family: Family {
 		-sons -> member
 	}
-
-	member: FamilyMember
-
-	personRegister: PersonRegister {
-		++ -persons -> person
-	}
-
-	++ person: Male
 }

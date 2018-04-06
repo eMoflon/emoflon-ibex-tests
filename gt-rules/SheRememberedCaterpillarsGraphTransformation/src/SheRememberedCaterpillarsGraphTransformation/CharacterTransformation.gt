@@ -49,7 +49,7 @@ rule transformPurpleToBlueAndRedCharacter {
 	}
 
 	platform: Platform
-	
+
 	game: Game {
 		++ -characters -> blueCharacter
 		++ -characters -> redCharacter

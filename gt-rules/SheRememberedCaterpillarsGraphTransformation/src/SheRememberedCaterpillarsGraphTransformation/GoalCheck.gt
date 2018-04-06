@@ -3,7 +3,7 @@ import "platform:/resource/SheRememberedCaterpillars/model/SheRememberedCaterpil
 /**
  * Finds a character on its platform.
  */
-rule findCharacter() {
+pattern findCharacter() {
 	character: Character {
 		-standsOn -> platform
 	}
@@ -14,19 +14,17 @@ rule findCharacter() {
 /**
  * Finds a character with the given color on its platform.
  */
-rule findCharacterOfColor(color: COLOR) {
+pattern findCharacterOfColor(color: COLOR)
+refines findCharacter {
 	character: Character {
 		.color == param::color
-		-standsOn -> platform
 	}
-
-	platform: Platform
 }
 
 /*
  * Checks whether characters are on exit.
  */
-rule findCharacterOnExit {
+pattern findCharacterOnExit {
 	character: Character {
 		-standsOn -> exit
 	}
@@ -37,7 +35,7 @@ rule findCharacterOnExit {
 /*
  * Finds a character who is not on an exit platform. 
  */
-rule findCharacterNotOnExit {
+pattern findCharacterNotOnExit {
 	character: Character {
 		-standsOn -> platform
 	}
