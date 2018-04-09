@@ -1,106 +1,102 @@
 import "http://www.eclipse.org/emf/2002/Ecore"
 import "platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore"
 
-/**
- * Adds a daughter with the given first name to an existing family.
- */
-rule addDaughter(name: EString) {
-	family: Family {
-		++ -daughters -> member
-	}
+abstract rule addMember(name: EString) {
+	family: Family
 
 	++ member: FamilyMember {
 		.name := param::name
+	}
+}
+
+/**
+ * Adds a daughter with the given first name to an existing family.
+ */
+rule addDaughter(name: EString)
+refines addMember {
+	family: Family {
+		++ -daughters -> member
 	}
 }
 
 /**
  * Adds a father with the given first name to an existing family.
  */
-rule addFather(name: EString) {
+rule addFather(name: EString)
+refines addMember {
 	family: Family {
 		++ -father -> member
-	}
-
-	++ member: FamilyMember {
-		.name := param::name
 	}
 }
 
 /**
  * Adds a mother with the given first name to an existing family.
  */
-rule addMother(name: EString) {
+rule addMother(name: EString)
+refines addMember {
 	family: Family {
 		++ -mother -> member
-	}
-
-	++ member: FamilyMember {
-		.name := param::name
 	}
 }
 
 /**
  * Adds a son with the given first name to an existing family.
  */
-rule addSon(name: EString) {
+rule addSon(name: EString)
+refines addMember {
 	family: Family {
 		++ -sons -> member
 	}
+}
 
-	++ member: FamilyMember {
-		.name := param::name
-	}
+abstract pattern findMember {
+	member: FamilyMember
 }
 
 /**
  * Finds a daughter.
  */
-rule findDaughter {
+pattern findDaughter
+refines findMember {
 	family: Family {
 		-daughters -> member
 	}
-
-	member: FamilyMember
 }
 
 /**
  * Finds a father.
  */
-rule findFather {
+pattern findFather
+refines findMember {
 	family: Family {
 		-father -> member
 	}
-
-	member: FamilyMember
 }
 
 /**
  * Finds a mother.
  */
-rule findMother {
+pattern findMother
+refines findMember {
 	family: Family {
 		-mother -> member
 	}
-
-	member: FamilyMember
 }
 
 /**
  * Finds a son.
  */
-rule findSon {
+pattern findSon
+refines findMember {
 	family: Family {
 		-sons -> member
 	}
-
-	member: FamilyMember
 }
 
 /**
  * Finds a family member by his/her first name.
  */
-rule findMemberByFirstName(firstName: EString) {
+pattern findMemberByFirstName(firstName: EString) {
 	member: FamilyMember {
 		.name == param::firstName
 	}

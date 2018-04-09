@@ -1,0 +1,17 @@
+import "platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore"
+
+/**
+ * Finds a family with the father named as his son (one of his sons).
+ */
+pattern findFatherAndSonWithSameName() {
+	family: Family {
+		-father -> father
+		-sons -> son
+	}
+
+	father: FamilyMember
+
+	son: FamilyMember {
+		.name == father.name
+	}
+}
