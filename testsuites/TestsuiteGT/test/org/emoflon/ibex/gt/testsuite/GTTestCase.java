@@ -19,7 +19,7 @@ import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.emoflon.ibex.common.operational.IContextPatternInterpreter;
 import org.emoflon.ibex.gt.api.GraphTransformationAPI;
 import org.emoflon.ibex.gt.api.GraphTransformationMatch;
-import org.emoflon.ibex.gt.api.GraphTransformationRule;
+import org.emoflon.ibex.gt.api.GraphTransformationPattern;
 import org.emoflon.ibex.gt.democles.runtime.DemoclesGTEngine;
 
 /**
@@ -176,7 +176,7 @@ public abstract class GTTestCase<API extends GraphTransformationAPI> {
 	 * @param rule
 	 *            the rule
 	 */
-	public static void assertNoMatch(final GraphTransformationRule<?, ?> rule) {
+	public static void assertNoMatch(final GraphTransformationPattern<?, ?> rule) {
 		assertEquals(0, rule.countMatches());
 		assertFalse(rule.findAnyMatch().isPresent());
 	}
@@ -188,7 +188,7 @@ public abstract class GTTestCase<API extends GraphTransformationAPI> {
 	 *            the rule
 	 * @return the match
 	 */
-	public static <M extends GraphTransformationMatch<M, R>, R extends GraphTransformationRule<M, R>> M assertAnyMatchExists(
+	public static <M extends GraphTransformationMatch<M, R>, R extends GraphTransformationPattern<M, R>> M assertAnyMatchExists(
 			final R rule) {
 		Optional<M> match = (Optional<M>) rule.findAnyMatch();
 		assertTrue(match.isPresent());
@@ -203,7 +203,7 @@ public abstract class GTTestCase<API extends GraphTransformationAPI> {
 	 * @param rule
 	 *            the rule
 	 */
-	public static void assertMatchCount(final int expectedMatchCount, final GraphTransformationRule<?, ?> rule) {
+	public static void assertMatchCount(final int expectedMatchCount, final GraphTransformationPattern<?, ?> rule) {
 		assertEquals(expectedMatchCount, rule.countMatches());
 	}
 
