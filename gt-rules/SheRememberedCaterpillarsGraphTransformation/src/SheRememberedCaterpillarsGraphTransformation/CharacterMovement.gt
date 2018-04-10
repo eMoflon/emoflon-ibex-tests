@@ -1,56 +1,54 @@
 import "platform:/resource/SheRememberedCaterpillars/model/SheRememberedCaterpillars.ecore"
 
-// TODO The following rules can be simplified with rule refinement.
 /*
  * Move a character from a platform to another.  
  */
-rule moveCharacterToNeighboringPlatform {
+abstract rule moveCharacter {
 	character: Character {
 		-- -standsOn -> platform1
 		++ -standsOn -> platform2
 	}
 
+	platform1: Platform
+
+	platform2: Platform
+}
+
+/*
+ * Move a character from a platform to another.  
+ */
+rule moveCharacterToNeighboringPlatform
+refines moveCharacter {
 	platform1: Platform {
 		-neighbors -> platform2
 	}
+}
 
-	platform2: Platform
+abstract rule moveCharacterAcrossPlatformConnector
+refines moveCharacter {
+	platform1: SimplePlatform
+
+	platform2: SimplePlatform
 }
 
 /**
  * Move a character from a platform to another crossing a bridge.
  */
-rule moveCharacterAcrossBridge {
-	character: Character {
-		-- -standsOn -> platform1
-		++ -standsOn -> platform2
-	}
-
+rule moveCharacterAcrossBridge
+refines moveCharacterAcrossPlatformConnector {
 	bridge: Bridge {
 		-connects -> platform1
 		-connects -> platform2
 	}
-
-	platform1: SimplePlatform
-
-	platform2: SimplePlatform
 }
 
 /**
  * Move a character from a platform to another one behind a wall.
  */
-rule moveCharacterOverWall {
-	character: Character {
-		-- -standsOn -> platform1
-		++ -standsOn -> platform2
-	}
-
+rule moveCharacterOverWall
+refines moveCharacterAcrossPlatformConnector {
 	wall: Wall {
 		-connects -> platform1
 		-connects -> platform2
 	}
-
-	platform1: SimplePlatform
-
-	platform2: SimplePlatform
 }

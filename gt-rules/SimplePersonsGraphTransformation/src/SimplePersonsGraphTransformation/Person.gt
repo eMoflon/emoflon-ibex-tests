@@ -1,49 +1,49 @@
 import "http://www.eclipse.org/emf/2002/Ecore"
 import "platform:/resource/SimplePersons/model/SimplePersons.ecore"
 
-/**
- * Creates a female.
- */
-rule createFemale(name: EString) {
-	++ person: Female {
+abstract rule createPerson(name: EString) {
+	++ person: Person {
 		.name := param::name
 	}
 
 	register: PersonRegister {
 		++ -persons -> person
 	}
+}
+
+/**
+ * Creates a female.
+ */
+rule createFemale(name: EString)
+refines createPerson {
+	++ person: Female
 }
 
 /**
  * Creates a person.
  */
-rule createMale(name: EString) {
-	++ person: Male {
-		.name := param::name
-	}
-
-	register: PersonRegister {
-		++ -persons -> person
-	}
+rule createMale(name: EString)
+refines createPerson {
+	++ person: Male
 }
 
 /**
  * Finds a person.
  */
-rule findPerson {
+pattern findPerson {
 	person: Person
 }
 
 /**
  * Finds a male.
  */
-rule findMale {
+pattern findMale {
 	person: Male
 }
 
 /**
  * Finds a female.
  */
-rule findFemale {
+pattern findFemale {
 	person: Female
 }
