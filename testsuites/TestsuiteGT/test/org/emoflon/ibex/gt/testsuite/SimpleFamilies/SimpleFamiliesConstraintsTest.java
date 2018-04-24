@@ -117,4 +117,15 @@ public class SimpleFamiliesConstraintsTest extends SimpleFamiliesAbstractTest {
 		assertEquals(Arrays.asList("Simpson", "Smith"), namesOfFamilies);
 		assertTrue(this.familyDeleted);
 	}
+
+	@Test
+	public void findMembersByPAC() {
+		ResourceSet model = this.initResourceSet("FamilyRegister.xmi");
+		SimpleFamiliesGraphTransformationAPI api = this.initAPI(model);
+
+		assertMatchCount(2, api.findFatherWithCondition());
+		assertMatchCount(2, api.findMotherWithCondition());
+		assertMatchCount(2, api.findDaughterWithCondition());
+		assertMatchCount(1, api.findSonWithCondition());
+	}
 }

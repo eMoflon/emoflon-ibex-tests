@@ -1,0 +1,42 @@
+import "platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore"
+
+abstract pattern findMemberInFamily
+refines findMember {
+	family: Family
+}
+
+/**
+ * Finds a daughter in a family.
+ */
+pattern findDaughterWithCondition
+refines findMemberInFamily
+when memberIsDaughterInFamily
+
+condition memberIsDaughterInFamily = enforce findDaughter
+
+/**
+ * Finds a father in a family.
+ */
+pattern findFatherWithCondition
+refines findMemberInFamily
+when memberIsFatherInFamily
+
+condition memberIsFatherInFamily = enforce findFather
+
+/**
+ * Finds a mother in a family.
+ */
+pattern findMotherWithCondition
+refines findMemberInFamily
+when memberIsMotherInFamily
+
+condition memberIsMotherInFamily = enforce findMother
+
+/**
+ * Finds a son in a family.
+ */
+pattern findSonWithCondition
+refines findMemberInFamily
+when memberIsSonInFamily
+
+condition memberIsSonInFamily = enforce findSon
