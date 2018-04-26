@@ -38,30 +38,15 @@ condition memberIsSonInFamily = enforce findSon
 
 /**
  * Finds a family member who is not a son.
- * (Test for negative application condition)
  */
 pattern findMemberExceptSonWithCondition
 refines findMember
 when memberIsNotSonInFamily
 
-condition memberIsNotSonInFamily = forbid findSonWithLocalFamily && enforce senselessPattern
-
-pattern findSonWithLocalFamily
-refines findMember {
-	_family: Family {
-		-sons -> member
-	}
-}
-
-pattern senselessPattern {
-	family: Family
-
-	member: FamilyMember
-}
+condition memberIsNotSonInFamily = forbid findSon
 
 /**
  * Finds a son in the Simpson family.
- * (test for conjunction)
  */
 pattern findSonInSimpsonFamily
 refines findMember {
