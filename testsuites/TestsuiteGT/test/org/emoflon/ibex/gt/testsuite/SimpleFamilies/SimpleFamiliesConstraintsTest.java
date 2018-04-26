@@ -128,4 +128,27 @@ public class SimpleFamiliesConstraintsTest extends SimpleFamiliesAbstractTest {
 		assertMatchCount(2, api.findDaughterWithCondition());
 		assertMatchCount(1, api.findSonWithCondition());
 	}
+
+	@Test
+	public void findMembersByPAC2() {
+		ResourceSet model = this.initResourceSet("FamilyRegister.xmi");
+		SimpleFamiliesGraphTransformationAPI api = this.initAPI(model);
+
+		api.findMemberExceptSonWithCondition().forEachMatch(m -> {
+			System.out.println("Found " + m);
+		});
+		assertMatchCount(6, api.findMemberExceptSonWithCondition());
+	}
+
+	@Test
+	public void findMembersAnd() {
+		ResourceSet model = this.initResourceSet("FamilyRegister.xmi");
+		SimpleFamiliesGraphTransformationAPI api = this.initAPI(model);
+
+		api.findSonInSimpsonFamily().forEachMatch(m -> {
+			System.out.println("Simpson son: " + m);
+		});
+		assertMatchCount(1, api.findSonInSimpsonFamily());
+		assertEquals("Bart", api.findSonInSimpsonFamily().findAnyMatch().get().getMember().getName());
+	}
 }

@@ -1,15 +1,10 @@
 import "platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore"
 
-abstract pattern findMemberInFamily
-refines findMember {
-	family: Family
-}
-
 /**
  * Finds a daughter in a family.
  */
 pattern findDaughterWithCondition
-refines findMemberInFamily
+refines findMember
 when memberIsDaughterInFamily
 
 condition memberIsDaughterInFamily = enforce findDaughter
@@ -18,7 +13,7 @@ condition memberIsDaughterInFamily = enforce findDaughter
  * Finds a father in a family.
  */
 pattern findFatherWithCondition
-refines findMemberInFamily
+refines findMember
 when memberIsFatherInFamily
 
 condition memberIsFatherInFamily = enforce findFather
@@ -27,7 +22,7 @@ condition memberIsFatherInFamily = enforce findFather
  * Finds a mother in a family.
  */
 pattern findMotherWithCondition
-refines findMemberInFamily
+refines findMember
 when memberIsMotherInFamily
 
 condition memberIsMotherInFamily = enforce findMother
@@ -36,7 +31,44 @@ condition memberIsMotherInFamily = enforce findMother
  * Finds a son in a family.
  */
 pattern findSonWithCondition
-refines findMemberInFamily
+refines findMember
 when memberIsSonInFamily
 
 condition memberIsSonInFamily = enforce findSon
+
+/**
+ * Finds a family member who is not a son.
+ * (Test for negative application condition)
+ */
+pattern findMemberExceptSonWithCondition
+refines findMember
+when memberIsNotSonInFamily
+
+condition memberIsNotSonInFamily = forbid findSonWithLocalFamily && enforce senselessPattern
+
+pattern findSonWithLocalFamily
+refines findMember {
+	_family: Family {
+		-sons -> member
+	}
+}
+
+pattern senselessPattern {
+	family: Family
+
+	member: FamilyMember
+}
+
+/**
+ * Finds a son in the Simpson family.
+ * (test for conjunction)
+ */
+pattern findSonInSimpsonFamily
+refines findMember {
+	family: Family
+}
+when memberIsSonInSimpsonFamily
+
+condition memberIsSonInSimpsonFamily = check memberIsSonInFamily && check familyNamedSimpson
+
+condition familyNamedSimpson = enforce findSimpsonFamily
