@@ -57,3 +57,22 @@ when memberIsSonInSimpsonFamily
 condition memberIsSonInSimpsonFamily = check memberIsSonInFamily && check familyNamedSimpson
 
 condition familyNamedSimpson = enforce findSimpsonFamily
+
+/**
+ * Finds a son who is member of the Simpson family or named Bart.
+ */
+pattern findSonInSimpsonFamilyOrNamedBart
+refines findMember {
+	family: Family {
+		-sons -> member
+	}
+}
+when memberIsSonInSimpsonFamily || memberIsNamedBart
+
+condition memberIsNamedBart = enforce findMemberNamedBart
+
+abstract pattern findMemberNamedBart {
+	member: FamilyMember {
+		.name == "Bart"
+	}
+}
