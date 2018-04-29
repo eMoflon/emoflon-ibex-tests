@@ -36,7 +36,7 @@ public class SheRememberedCaterpillarsRulesTest extends SheRememberedCaterpillar
 		assertCharacterColorCount(api, 0, 0, 0);
 		assertApplicable(api.createBlueCharacter().apply()).getCharacter();
 		assertApplicable(api.createRedCharacter().apply()).getCharacter();
-		assertApplicable(api.createCharacter(COLOR.PURPLE).apply()).getCharacter();
+		assertApplicable(api.createCharacterOfColor(COLOR.PURPLE).apply()).getCharacter();
 		assertCharacterColorCount(api, 1, 1, 1);
 
 		saveResourceSet(model);
