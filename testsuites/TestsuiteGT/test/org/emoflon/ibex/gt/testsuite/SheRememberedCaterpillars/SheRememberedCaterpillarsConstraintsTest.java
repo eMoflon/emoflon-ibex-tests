@@ -53,4 +53,12 @@ public class SheRememberedCaterpillarsConstraintsTest extends SheRememberedCater
 		assertTrue(api.findTwoCharactersOnAnExitPlatform().findAnyMatch()
 				.map(FindTwoCharactersOnAnExitPlatformMatch::getPlatform).map(ExitPlatform.class::isInstance).get());
 	}
+
+	@Test
+	public void findEmptyExit() {
+		ResourceSet model = this.initResourceSet("Instance1.xmi");
+		SheRememberedCaterpillarsGraphTransformationAPI api = this.initAPI(model);
+
+		assertMatchCount(1, api.findEmptyExit());
+	}
 }

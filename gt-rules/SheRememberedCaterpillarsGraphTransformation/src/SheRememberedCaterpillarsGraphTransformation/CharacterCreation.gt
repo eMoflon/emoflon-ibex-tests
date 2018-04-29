@@ -1,6 +1,6 @@
 import "platform:/resource/SheRememberedCaterpillars/model/SheRememberedCaterpillars.ecore"
 
-abstract rule createColoredCharacter {
+abstract rule createCharacter {
 	game: Game {
 		++ -characters -> character
 	}
@@ -15,8 +15,8 @@ abstract rule createColoredCharacter {
 /**
  * Creates a character.
  */
-rule createCharacter(color: COLOR)
-refines createColoredCharacter {
+rule createCharacterOfColor(color: COLOR)
+refines createCharacter {
 	++ character: Character {
 		.color := param::color
 	}
@@ -26,7 +26,7 @@ refines createColoredCharacter {
  * Creates a blue character.
  */
 rule createBlueCharacter
-refines createColoredCharacter {
+refines createCharacter {
 	++ character: Character {
 		.color := enum::BLUE
 	}
@@ -36,7 +36,7 @@ refines createColoredCharacter {
  * Creates a red character.
  */
 rule createRedCharacter
-refines createColoredCharacter {
+refines createCharacter {
 	++ character: Character {
 		.color := enum::RED
 	}
@@ -46,7 +46,7 @@ refines createColoredCharacter {
  * Creates a purple character.
  */
 rule createPurpleCharacter
-refines createColoredCharacter {
+refines createCharacter {
 	++ character: Character {
 		.color := enum::BLUE
 	}
