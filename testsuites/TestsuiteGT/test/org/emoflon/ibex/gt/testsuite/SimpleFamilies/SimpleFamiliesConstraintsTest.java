@@ -160,8 +160,49 @@ public class SimpleFamiliesConstraintsTest extends SimpleFamiliesAbstractTest {
 		ResourceSet model = this.initResourceSet("FamilyRegister.xmi");
 		SimpleFamiliesGraphTransformationAPI api = this.initAPI(model);
 
-		// This needs the removal of duplicates (match for Bart found by both
-		// alternatives!).
+		// Needs the removal of duplicates (match for Bart found by both alternatives!).
 		assertMatchCount(1, api.findSonInSimpsonFamilyOrNamedBart());
+	}
+
+	@Test
+	public void findHalfOrphans() {
+		ResourceSet model = this.initResourceSet("FamilyRegister2.xmi");
+		SimpleFamiliesGraphTransformationAPI api = this.initAPI(model);
+
+		assertMatchCount(4, api.findHalfOrphan());
+		List<String> halfOrphans = api.findHalfOrphan().findMatches().stream() //
+				.map(m -> m.getChild().getName() + " " + m.getFamily().getName()) //
+				.sorted() //
+				.collect(Collectors.toList());
+		List<String> expected = Arrays.asList("Charlotte Cooper", "Jason Jackson", "Oliver Owen", "Thea Thompson");
+		assertEquals(expected, halfOrphans);
+	}
+
+	@Test
+	public void findOrphans() {
+		ResourceSet model = this.initResourceSet("FamilyRegister2.xmi");
+		SimpleFamiliesGraphTransformationAPI api = this.initAPI(model);
+
+		Family adamsFamily = api.findFamilyByName("Adams").findAnyMatch().get().getFamily();
+		assertMatchCount(2, api.findOrphan().bindFamily(adamsFamily));
+		assertMatchCount(3, api.findOrphan());
+	}
+
+	@Test
+	public void findChildrenWithTwoParents() {
+		ResourceSet model = this.initResourceSet("FamilyRegister2.xmi");
+		SimpleFamiliesGraphTransformationAPI api = this.initAPI(model);
+
+		assertMatchCount(1, api.findChildrenWithTwoParents());
+	}
+
+	@Test
+	public void findSingleParent() {
+		ResourceSet model = this.initResourceSet("FamilyRegister2.xmi");
+		SimpleFamiliesGraphTransformationAPI api = this.initAPI(model);
+
+		assertMatchCount(4, api.findSingleParent());
+		assertMatchCount(2, api.findSingleFather());
+		assertMatchCount(2, api.findSingleMother());
 	}
 }

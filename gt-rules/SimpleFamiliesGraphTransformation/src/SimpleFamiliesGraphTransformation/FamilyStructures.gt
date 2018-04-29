@@ -15,3 +15,153 @@ pattern findFatherAndSonWithSameName() {
 		.name == father.name
 	}
 }
+
+/**
+ * Finds a child.
+ */
+abstract pattern findChild {
+	family: Family
+
+	child: FamilyMember
+}
+
+/**
+ * Finds any daughters.
+ */
+abstract pattern findDaughterInFamily
+refines findChild {
+	family: Family {
+		-daughters -> child
+	}
+}
+
+/**
+ * Finds any sons.
+ */
+abstract pattern findSonInFamily
+refines findChild {
+	family: Family {
+		-sons -> child
+	}
+}
+
+/**
+ * Finds a child who has no parents in its family.
+ */
+pattern findOrphan
+refines findChild
+when daughterHasNoParent || sonHasNoParent
+
+condition daughterHasNoParent = check childIsDaugher && check memberIsNoParent
+
+condition sonHasNoParent = check childIsSon && check memberIsNoParent
+
+condition childIsDaugher = enforce findDaughterInFamily
+
+condition childIsSon = enforce findSonInFamily
+
+condition memberIsNoParent = check memberIsNoMother && check memberIsNoFather
+
+condition memberIsNoMother = forbid findMother
+
+condition memberIsNoFather = forbid findFather
+
+/**
+ * Finds a child with just one parent in its family.
+ */
+pattern findHalfOrphan
+refines findChild
+when daughterHasOnlyFather || daughterHasOnlyMother //
+|| sonHasOnlyFather || sonHasOnlyMother
+
+condition daughterHasOnlyFather = check childIsDaugher && check memberIsSingleFather
+
+condition daughterHasOnlyMother = check childIsDaugher && check memberIsSingleMother
+
+condition sonHasOnlyFather = check childIsSon && check memberIsSingleFather
+
+condition sonHasOnlyMother = check childIsSon && check memberIsSingleMother
+
+condition memberIsSingleFather = check memberIsFather && check memberIsNoMother
+
+condition memberIsSingleMother = check memberIsMother && check memberIsNoFather
+
+condition memberIsFather = enforce findFather
+
+condition memberIsMother = enforce findMother
+
+/**
+ * Finds a child who have both a father and a mother in its family.
+ */
+pattern findChildrenWithTwoParents
+refines findChild
+when daughterHasTwoParents || sonHasTwoParents
+
+condition daughterHasTwoParents = check childIsDaugher && check twoParents
+
+condition sonHasTwoParents = check childIsSon && check twoParents
+
+condition twoParents = check memberIsMother && check memberIsFather
+
+/**
+ * Finds a parent.
+ */
+abstract pattern findParent {
+	family: Family
+
+	parent: FamilyMember
+}
+
+/**
+ * Finds any father.
+ */
+abstract pattern findFatherInFamily
+refines findParent {
+	family: Family {
+		-father -> parent
+	}
+}
+
+/**
+ * Finds any mother.
+ */
+abstract pattern findMotherInFamily
+refines findParent {
+	family: Family {
+		-mother -> parent
+	}
+}
+
+/**
+ * Finds a single father.
+ */
+pattern findSingleFather
+refines findParent
+when fatherIsSingleFatherOfDaughter || fatherIsSingleFatherOfSon
+
+condition fatherIsSingleFatherOfDaughter = check parentIsSingleFather && check childIsDaugher
+
+condition fatherIsSingleFatherOfSon = check parentIsSingleFather && check childIsSon
+
+condition parentIsSingleFather = enforce findFatherInFamily && check memberIsNoMother
+
+/**
+ * Finds a single mother.
+ */
+pattern findSingleMother
+refines findParent
+when motherIsSingleMotherOfDaughter || motherIsSingleMotherOfSon
+
+condition motherIsSingleMotherOfDaughter = check parentIsSingleMother && check childIsDaugher
+
+condition motherIsSingleMotherOfSon = check parentIsSingleMother && check childIsSon
+
+condition parentIsSingleMother = enforce findMotherInFamily && check memberIsNoFather
+
+/**
+ * Finds a single parent (father or mother).
+ */
+pattern findSingleParent
+refines findParent
+when fatherIsSingleFatherOfDaughter || fatherIsSingleFatherOfSon //
+|| motherIsSingleMotherOfDaughter || motherIsSingleMotherOfSon
