@@ -42,3 +42,13 @@ pattern findCharacterNotOnExit {
 
 	platform: SimplePlatform
 }
+
+/**
+ * Finds an empty exit platform.
+ */
+pattern findEmptyExit {
+	exit: ExitPlatform	
+}
+when noCharacterOnExit
+
+condition noCharacterOnExit = forbid findCharacterOnExit

@@ -1,0 +1,78 @@
+import "platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore"
+
+/**
+ * Finds a daughter in a family.
+ */
+pattern findDaughterWithCondition
+refines findMember
+when memberIsDaughterInFamily
+
+condition memberIsDaughterInFamily = enforce findDaughter
+
+/**
+ * Finds a father in a family.
+ */
+pattern findFatherWithCondition
+refines findMember
+when memberIsFatherInFamily
+
+condition memberIsFatherInFamily = enforce findFather
+
+/**
+ * Finds a mother in a family.
+ */
+pattern findMotherWithCondition
+refines findMember
+when memberIsMotherInFamily
+
+condition memberIsMotherInFamily = enforce findMother
+
+/**
+ * Finds a son in a family.
+ */
+pattern findSonWithCondition
+refines findMember
+when memberIsSonInFamily
+
+condition memberIsSonInFamily = enforce findSon
+
+/**
+ * Finds a family member who is not a son.
+ */
+pattern findMemberExceptSonWithCondition
+refines findMember
+when memberIsNotSonInFamily
+
+condition memberIsNotSonInFamily = forbid findSon
+
+/**
+ * Finds a son in the Simpson family.
+ */
+pattern findSonInSimpsonFamily
+refines findMember {
+	family: Family
+}
+when memberIsSonInSimpsonFamily
+
+condition memberIsSonInSimpsonFamily = check memberIsSonInFamily && check familyNamedSimpson
+
+condition familyNamedSimpson = enforce findSimpsonFamily
+
+/**
+ * Finds a son who is member of the Simpson family or named Bart.
+ */
+pattern findSonInSimpsonFamilyOrNamedBart
+refines findMember {
+	family: Family {
+		-sons -> member
+	}
+}
+when memberIsSonInSimpsonFamily || memberIsNamedBart
+
+condition memberIsNamedBart = enforce findMemberNamedBart
+
+abstract pattern findMemberNamedBart {
+	member: FamilyMember {
+		.name == "Bart"
+	}
+}
