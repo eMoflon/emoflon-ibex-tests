@@ -1,7 +1,7 @@
 import "platform:/resource/SimplePersons/model/SimplePersons.ecore"
 
 /**
- * Creates a person register
+ * Creates a person register.
  */
 rule createRegister {
 	++ register: PersonRegister

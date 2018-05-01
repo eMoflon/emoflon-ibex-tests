@@ -1,5 +1,8 @@
 import "platform:/resource/SheRememberedCaterpillars/model/SheRememberedCaterpillars.ecore"
 
+/**
+ * Create a character.
+ */
 abstract rule createCharacter {
 	game: Game {
 		++ -characters -> character
@@ -13,7 +16,7 @@ abstract rule createCharacter {
 }
 
 /**
- * Creates a character.
+ * Creates a character of the given color.
  */
 rule createCharacterOfColor(color: COLOR)
 refines createCharacter {

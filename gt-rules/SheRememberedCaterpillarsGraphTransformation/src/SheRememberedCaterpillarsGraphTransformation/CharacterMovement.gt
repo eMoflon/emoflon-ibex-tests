@@ -1,6 +1,6 @@
 import "platform:/resource/SheRememberedCaterpillars/model/SheRememberedCaterpillars.ecore"
 
-/*
+/**
  * Move a character from a platform to another.  
  */
 abstract rule moveCharacter {
@@ -14,7 +14,7 @@ abstract rule moveCharacter {
 	platform2: Platform
 }
 
-/*
+/**
  * Move a character from a platform to another.  
  */
 rule moveCharacterToNeighboringPlatform
@@ -24,6 +24,9 @@ refines moveCharacter {
 	}
 }
 
+/**
+ * Move a character from a platform to another via a platform connector.
+ */
 abstract rule moveCharacterAcrossPlatformConnector
 refines moveCharacter {
 	platform1: SimplePlatform
@@ -42,7 +45,7 @@ refines moveCharacterAcrossPlatformConnector {
 	}
 }
 
-/**
+/*
  * Move a character from a platform to another one behind a wall.
  */
 rule moveCharacterOverWall

@@ -71,6 +71,9 @@ when memberIsSonInSimpsonFamily || memberIsNamedBart
 
 condition memberIsNamedBart = enforce findMemberNamedBart
 
+/**
+ * Finds a family member named Bart.
+ */
 abstract pattern findMemberNamedBart {
 	member: FamilyMember {
 		.name == "Bart"
