@@ -52,15 +52,15 @@ pattern findOrphan
 refines findChild
 when daughterHasNoParent || sonHasNoParent
 
-condition daughterHasNoParent = check childIsDaugher && check memberIsNoParent
+condition daughterHasNoParent = childIsDaugher && memberIsNoParent
 
-condition sonHasNoParent = check childIsSon && check memberIsNoParent
+condition sonHasNoParent = childIsSon && memberIsNoParent
 
 condition childIsDaugher = enforce findDaughterInFamily
 
 condition childIsSon = enforce findSonInFamily
 
-condition memberIsNoParent = check memberIsNoMother && check memberIsNoFather
+condition memberIsNoParent = memberIsNoMother && memberIsNoFather
 
 condition memberIsNoMother = forbid findMother
 
@@ -76,17 +76,17 @@ when childIsDaughterWithSingleFather
   || childIsSonWithSingleFather
   || childIsSonWithSingleMother
 
-condition childIsDaughterWithSingleFather = check childIsDaugher && check memberIsSingleFather
+condition childIsDaughterWithSingleFather = childIsDaugher && memberIsSingleFather
 
-condition childIsDaughterWithSingleMother = check childIsDaugher && check memberIsSingleMother
+condition childIsDaughterWithSingleMother = childIsDaugher && memberIsSingleMother
 
-condition childIsSonWithSingleFather = check childIsSon && check memberIsSingleFather
+condition childIsSonWithSingleFather = childIsSon && memberIsSingleFather
 
-condition childIsSonWithSingleMother = check childIsSon && check memberIsSingleMother
+condition childIsSonWithSingleMother = childIsSon && memberIsSingleMother
 
-condition memberIsSingleFather = check memberIsFather && check memberIsNoMother
+condition memberIsSingleFather = memberIsFather && memberIsNoMother
 
-condition memberIsSingleMother = check memberIsMother && check memberIsNoFather
+condition memberIsSingleMother = memberIsMother && memberIsNoFather
 
 condition memberIsFather = enforce findFather
 
@@ -99,11 +99,11 @@ pattern findChildrenWithTwoParents
 refines findChild
 when daughterHasTwoParents || sonHasTwoParents
 
-condition daughterHasTwoParents = check childIsDaugher && check twoParents
+condition daughterHasTwoParents = childIsDaugher && twoParents
 
-condition sonHasTwoParents = check childIsSon && check twoParents
+condition sonHasTwoParents = childIsSon && twoParents
 
-condition twoParents = check memberIsMother && check memberIsFather
+condition twoParents = memberIsMother && memberIsFather
 
 /**
  * Finds a parent.
@@ -141,11 +141,11 @@ pattern findSingleFather
 refines findParent
 when fatherIsSingleFatherOfDaughter || fatherIsSingleFatherOfSon
 
-condition fatherIsSingleFatherOfDaughter = check parentIsSingleFather && check childIsDaugher
+condition fatherIsSingleFatherOfDaughter = parentIsSingleFather && childIsDaugher
 
-condition fatherIsSingleFatherOfSon = check parentIsSingleFather && check childIsSon
+condition fatherIsSingleFatherOfSon = parentIsSingleFather && childIsSon
 
-condition parentIsSingleFather = enforce findFatherInFamily && check memberIsNoMother
+condition parentIsSingleFather = enforce findFatherInFamily && memberIsNoMother
 
 /**
  * Finds a single mother.
@@ -154,11 +154,11 @@ pattern findSingleMother
 refines findParent
 when motherIsSingleMotherOfDaughter || motherIsSingleMotherOfSon
 
-condition motherIsSingleMotherOfDaughter = check parentIsSingleMother && check childIsDaugher
+condition motherIsSingleMotherOfDaughter = parentIsSingleMother && childIsDaugher
 
-condition motherIsSingleMotherOfSon = check parentIsSingleMother && check childIsSon
+condition motherIsSingleMotherOfSon = parentIsSingleMother && childIsSon
 
-condition parentIsSingleMother = enforce findMotherInFamily && check memberIsNoFather
+condition parentIsSingleMother = enforce findMotherInFamily && memberIsNoFather
 
 /**
  * Finds a single parent (father or mother).

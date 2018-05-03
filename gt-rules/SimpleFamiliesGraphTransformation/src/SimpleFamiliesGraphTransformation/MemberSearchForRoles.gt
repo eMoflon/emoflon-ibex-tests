@@ -54,7 +54,7 @@ refines findMember {
 }
 when memberIsSonInSimpsonFamily
 
-condition memberIsSonInSimpsonFamily = check memberIsSonInFamily && check familyNamedSimpson
+condition memberIsSonInSimpsonFamily = memberIsSonInFamily && familyNamedSimpson
 
 condition familyNamedSimpson = enforce findSimpsonFamily
 
