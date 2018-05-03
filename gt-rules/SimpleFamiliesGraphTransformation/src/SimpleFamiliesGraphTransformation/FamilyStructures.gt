@@ -71,16 +71,18 @@ condition memberIsNoFather = forbid findFather
  */
 pattern findHalfOrphan
 refines findChild
-when daughterHasOnlyFather || daughterHasOnlyMother //
-|| sonHasOnlyFather || sonHasOnlyMother
+when childIsDaughterWithSingleFather
+  || childIsDaughterWithSingleMother
+  || childIsSonWithSingleFather
+  || childIsSonWithSingleMother
 
-condition daughterHasOnlyFather = check childIsDaugher && check memberIsSingleFather
+condition childIsDaughterWithSingleFather = check childIsDaugher && check memberIsSingleFather
 
-condition daughterHasOnlyMother = check childIsDaugher && check memberIsSingleMother
+condition childIsDaughterWithSingleMother = check childIsDaugher && check memberIsSingleMother
 
-condition sonHasOnlyFather = check childIsSon && check memberIsSingleFather
+condition childIsSonWithSingleFather = check childIsSon && check memberIsSingleFather
 
-condition sonHasOnlyMother = check childIsSon && check memberIsSingleMother
+condition childIsSonWithSingleMother = check childIsSon && check memberIsSingleMother
 
 condition memberIsSingleFather = check memberIsFather && check memberIsNoMother
 
@@ -163,5 +165,7 @@ condition parentIsSingleMother = enforce findMotherInFamily && check memberIsNoF
  */
 pattern findSingleParent
 refines findParent
-when fatherIsSingleFatherOfDaughter || fatherIsSingleFatherOfSon //
-|| motherIsSingleMotherOfDaughter || motherIsSingleMotherOfSon
+when fatherIsSingleFatherOfDaughter
+  || fatherIsSingleFatherOfSon
+  || motherIsSingleMotherOfDaughter
+  || motherIsSingleMotherOfSon
