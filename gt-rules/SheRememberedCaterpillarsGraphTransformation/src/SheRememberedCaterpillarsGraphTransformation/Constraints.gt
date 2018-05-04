@@ -1,0 +1,93 @@
+import "platform:/resource/SheRememberedCaterpillars/model/SheRememberedCaterpillars.ecore"
+
+/**
+ * Finds a simple platform.
+ */
+abstract pattern findSimplePlatform {
+	platform: SimplePlatform
+}
+
+pattern findStandalonePlatform
+refines findSimplePlatform
+when platformIsStandalone
+
+condition platformIsStandalone = platformHasNoNeighbors && platformHasNoConnections
+
+/**
+ * Finds a simple platform which has just one connection to another platform.
+ */
+pattern findDeadEnd
+refines findSimplePlatform
+when platformHasOnlyOneNeighborAndNoConnections || platformHasOnlyOneConnectionAndNoNeighbors
+
+condition platformHasOnlyOneNeighborAndNoConnections = platformHasExactlyOneNeighbor
+	&& platformHasNoConnections
+
+condition platformHasOnlyOneConnectionAndNoNeighbors = platformHasExactlyOneConnection
+	&& platformHasNoNeighbors
+
+/**
+ * Finds a simple platform which has (at least) one neighbor.
+ */
+pattern findPlatformWithNeighbor
+refines findSimplePlatform {
+	platform: SimplePlatform {
+		-neighbors -> _neighbor
+	}
+
+	_neighbor: Platform
+}
+
+/**
+ * Finds a simple platform which has (at least) two neighbors.
+ */
+pattern findPlatformWithTwoNeighbors
+refines findPlatformWithNeighbor {
+	platform: SimplePlatform {
+		-neighbors -> _neighbor2
+	}
+
+	_neighbor2: Platform
+}
+
+condition platformHasAtLeastOneNeighbor = enforce findPlatformWithNeighbor
+
+condition platformHasNoNeighbors = forbid findPlatformWithNeighbor
+
+condition platformHasAtMostOneNeighbor = forbid findPlatformWithTwoNeighbors
+
+condition platformHasExactlyOneNeighbor = platformHasAtLeastOneNeighbor
+	&& platformHasAtMostOneNeighbor
+
+/**
+ * Finds a simple platform which is connected with (at least) one platform connector.
+ */
+pattern findPlatformWithConnection
+refines findSimplePlatform {
+	platform: SimplePlatform {
+		-connectedBy -> _connector
+	}
+
+	_connector: PlatformConnector
+}
+
+/**
+ * Finds a simple platform which is connected with (at least) two platform connectors.
+ */
+pattern findPlatformWithTwoConnections
+refines findPlatformWithConnection {
+	platform: SimplePlatform {
+		-connectedBy -> _connector2
+	}
+
+	_connector2: PlatformConnector
+}
+
+condition platformHasAtLeastOneConnection = enforce findPlatformWithConnection
+
+condition platformHasNoConnections = forbid findPlatformWithConnection
+
+condition platformHasAtMostOneConnection = forbid findPlatformWithTwoConnections
+
+condition platformHasExactlyOneConnection = platformHasAtLeastOneConnection
+	&& platformHasAtMostOneConnection
