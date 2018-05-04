@@ -79,6 +79,7 @@ public class SheRememberedCaterpillarsConstraintsTest extends SheRememberedCater
 		ResourceSet model = this.initResourceSet("Instance3.xmi");
 		SheRememberedCaterpillarsGraphTransformationAPI api = this.initAPI(model);
 
+		assertMatchCount(1, api.findPlatformWithExactlyOneNeighbor());
 		assertMatchCount(2, api.findPlatformWithNeighbor());
 		assertMatchCount(1, api.findPlatformWithTwoNeighbors());
 	}

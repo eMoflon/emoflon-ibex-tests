@@ -60,6 +60,13 @@ condition platformHasExactlyOneNeighbor = platformHasAtLeastOneNeighbor
 	&& platformHasAtMostOneNeighbor
 
 /**
+ * Finds a simple platform with just one neighbor.
+ */
+pattern findPlatformWithExactlyOneNeighbor
+refines findSimplePlatform
+when platformHasExactlyOneNeighbor
+
+/**
  * Finds a simple platform which is connected with (at least) one platform connector.
  */
 pattern findPlatformWithConnection
