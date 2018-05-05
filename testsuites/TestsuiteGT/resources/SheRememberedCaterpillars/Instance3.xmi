@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SheRememberedCaterpillars:Game
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:SheRememberedCaterpillars="platform:/resource/SheRememberedCaterpillars/model/SheRememberedCaterpillars.ecore">
+  <characters
+      standsOn="//@objects.0"/>
+  <characters
+      color="RED"
+      standsOn="//@objects.4"/>
+  <objects xsi:type="SheRememberedCaterpillars:SimplePlatform"
+      charactersStandingOn="//@characters.0"
+      connectedBy="//@objects.1"/>
+  <objects xsi:type="SheRememberedCaterpillars:Bridge"
+      connects="//@objects.0 //@objects.2"/>
+  <objects xsi:type="SheRememberedCaterpillars:SimplePlatform"
+      neighbors="//@objects.3 //@objects.4"
+      connectedBy="//@objects.1"/>
+  <objects xsi:type="SheRememberedCaterpillars:ExitPlatform"
+      neighbors="//@objects.2"/>
+  <objects xsi:type="SheRememberedCaterpillars:ExitPlatform"
+      charactersStandingOn="//@characters.1"
+      neighbors="//@objects.2 //@objects.5"/>
+  <objects xsi:type="SheRememberedCaterpillars:SimplePlatform"
+      neighbors="//@objects.4"/>
+  <objects xsi:type="SheRememberedCaterpillars:SimplePlatform"/>
+</SheRememberedCaterpillars:Game>

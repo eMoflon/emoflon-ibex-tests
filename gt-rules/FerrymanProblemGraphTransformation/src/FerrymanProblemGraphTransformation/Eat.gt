@@ -1,5 +1,8 @@
 import "platform:/resource/FerrymanProblem/model/FerrymanProblem.ecore"
 
+/**
+ * Finds a thing which is on a different bank than the ferryman.
+ */
 abstract pattern findFerryManAndThingOnDifferentBanks {
 	bankOfFerryMan: Bank
 

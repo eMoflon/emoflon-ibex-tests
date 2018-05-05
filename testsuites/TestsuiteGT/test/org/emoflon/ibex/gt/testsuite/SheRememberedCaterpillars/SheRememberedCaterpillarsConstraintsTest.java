@@ -8,6 +8,7 @@ import org.junit.Test;
 import SheRememberedCaterpillars.COLOR;
 import SheRememberedCaterpillars.ExitPlatform;
 import SheRememberedCaterpillarsGraphTransformation.api.SheRememberedCaterpillarsGraphTransformationAPI;
+import SheRememberedCaterpillarsGraphTransformation.api.matches.FindStandalonePlatformMatch;
 import SheRememberedCaterpillarsGraphTransformation.api.matches.FindTwoCharactersOnAnExitPlatformMatch;
 
 /**
@@ -60,5 +61,42 @@ public class SheRememberedCaterpillarsConstraintsTest extends SheRememberedCater
 		SheRememberedCaterpillarsGraphTransformationAPI api = this.initAPI(model);
 
 		assertMatchCount(1, api.findEmptyExit());
+	}
+
+	@Test
+	public void findStandalonePlatform() {
+		ResourceSet model = this.initResourceSet("Instance3.xmi");
+		SheRememberedCaterpillarsGraphTransformationAPI api = this.initAPI(model);
+
+		assertMatchCount(1, api.findStandalonePlatform());
+		FindStandalonePlatformMatch m = assertAnyMatchExists(api.findStandalonePlatform());
+		assertTrue(m.getPlatform().getNeighbors().isEmpty());
+		assertTrue(m.getPlatform().getConnectedBy() == null);
+	}
+
+	@Test
+	public void findPlatformWithNeighbors() {
+		ResourceSet model = this.initResourceSet("Instance3.xmi");
+		SheRememberedCaterpillarsGraphTransformationAPI api = this.initAPI(model);
+
+		assertMatchCount(1, api.findPlatformWithExactlyOneNeighbor());
+		assertMatchCount(2, api.findPlatformWithNeighbor());
+		assertMatchCount(1, api.findPlatformWithTwoNeighbors());
+	}
+
+	@Test
+	public void findPlatformWithConnections() {
+		ResourceSet model = this.initResourceSet("Instance3.xmi");
+		SheRememberedCaterpillarsGraphTransformationAPI api = this.initAPI(model);
+
+		assertMatchCount(2, api.findPlatformWithConnection());
+		assertMatchCount(0, api.findPlatformWithTwoConnections());
+	}
+
+	@Test
+	public void findDeadEnd() {
+		ResourceSet model = this.initResourceSet("Instance3.xmi");
+		SheRememberedCaterpillarsGraphTransformationAPI api = this.initAPI(model);
+		assertMatchCount(2, api.findDeadEnd());
 	}
 }

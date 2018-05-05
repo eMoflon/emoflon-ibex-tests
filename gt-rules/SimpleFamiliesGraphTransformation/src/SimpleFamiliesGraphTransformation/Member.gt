@@ -1,9 +1,10 @@
 import "http://www.eclipse.org/emf/2002/Ecore"
 import "platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore"
 
+/**
+ * Adds a member with the given first name.
+ */
 abstract rule addMember(name: EString) {
-	family: Family
-
 	++ member: FamilyMember {
 		.name := param::name
 	}
@@ -49,6 +50,9 @@ refines addMember {
 	}
 }
 
+/**
+ * Finds a family member.
+ */
 abstract pattern findMember {
 	member: FamilyMember
 }

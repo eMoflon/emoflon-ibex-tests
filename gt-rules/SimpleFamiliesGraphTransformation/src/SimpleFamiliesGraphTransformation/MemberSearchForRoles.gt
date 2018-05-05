@@ -54,7 +54,7 @@ refines findMember {
 }
 when memberIsSonInSimpsonFamily
 
-condition memberIsSonInSimpsonFamily = check memberIsSonInFamily && check familyNamedSimpson
+condition memberIsSonInSimpsonFamily = memberIsSonInFamily && familyNamedSimpson
 
 condition familyNamedSimpson = enforce findSimpsonFamily
 
@@ -71,6 +71,9 @@ when memberIsSonInSimpsonFamily || memberIsNamedBart
 
 condition memberIsNamedBart = enforce findMemberNamedBart
 
+/**
+ * Finds a family member named Bart.
+ */
 abstract pattern findMemberNamedBart {
 	member: FamilyMember {
 		.name == "Bart"

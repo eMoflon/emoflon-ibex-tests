@@ -1,6 +1,9 @@
 import "http://www.eclipse.org/emf/2002/Ecore"
 import "platform:/resource/SimplePersons/model/SimplePersons.ecore"
 
+/**
+ * Create a person.
+ */
 abstract rule createPerson(name: EString) {
 	++ person: Person {
 		.name := param::name
