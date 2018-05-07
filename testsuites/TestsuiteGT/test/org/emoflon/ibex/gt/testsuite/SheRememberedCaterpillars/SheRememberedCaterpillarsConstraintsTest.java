@@ -94,9 +94,18 @@ public class SheRememberedCaterpillarsConstraintsTest extends SheRememberedCater
 	}
 
 	@Test
+	public void findPlatformWithTwoWays() {
+		ResourceSet model = this.initResourceSet("Instance3.xmi");
+		SheRememberedCaterpillarsGraphTransformationAPI api = this.initAPI(model);
+
+		assertMatchCount(1, api.findPlatformWithTwoWays());
+	}
+
+	@Test
 	public void findDeadEnd() {
 		ResourceSet model = this.initResourceSet("Instance3.xmi");
 		SheRememberedCaterpillarsGraphTransformationAPI api = this.initAPI(model);
+
 		assertMatchCount(2, api.findDeadEnd());
 	}
 }

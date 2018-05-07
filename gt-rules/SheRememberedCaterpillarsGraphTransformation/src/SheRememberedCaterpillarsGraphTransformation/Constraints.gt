@@ -27,6 +27,22 @@ condition platformHasOnlyOneConnectionAndNoNeighbors = platformHasExactlyOneConn
 	&& platformHasNoNeighbors
 
 /**
+ * Finds a simple platform which has at least two ways to another platform.
+ */
+pattern findPlatformWithTwoWays
+refines findSimplePlatform
+when platformHasAtLeastTwoNeighbors
+  || platformHasAtLeastTwoConnections
+  || platformHasNeighborAndConnection
+
+condition platformHasAtLeastTwoNeighbors = enforce findPlatformWithTwoNeighbors
+
+condition platformHasAtLeastTwoConnections = enforce findPlatformWithTwoConnections
+
+condition platformHasNeighborAndConnection = platformHasExactlyOneNeighbor
+	&& platformHasExactlyOneConnection
+
+/**
  * Finds a simple platform which has (at least) one neighbor.
  */
 pattern findPlatformWithNeighbor
