@@ -10,19 +10,26 @@
       color="RED"
       standsOn="//@objects.4"/>
   <objects xsi:type="SheRememberedCaterpillars:SimplePlatform"
+      name="s1"
       charactersStandingOn="//@characters.0"
       connectedBy="//@objects.1"/>
   <objects xsi:type="SheRememberedCaterpillars:Bridge"
+      name="b1"
       connects="//@objects.0 //@objects.2"/>
   <objects xsi:type="SheRememberedCaterpillars:SimplePlatform"
+      name="s2"
       neighbors="//@objects.3 //@objects.4"
       connectedBy="//@objects.1"/>
   <objects xsi:type="SheRememberedCaterpillars:ExitPlatform"
+      name="e1"
       neighbors="//@objects.2"/>
   <objects xsi:type="SheRememberedCaterpillars:ExitPlatform"
+      name="e2"
       charactersStandingOn="//@characters.1"
       neighbors="//@objects.2 //@objects.5"/>
   <objects xsi:type="SheRememberedCaterpillars:SimplePlatform"
+      name="s3"
       neighbors="//@objects.4"/>
-  <objects xsi:type="SheRememberedCaterpillars:SimplePlatform"/>
+  <objects xsi:type="SheRememberedCaterpillars:SimplePlatform"
+      name="s4"/>
 </SheRememberedCaterpillars:Game>

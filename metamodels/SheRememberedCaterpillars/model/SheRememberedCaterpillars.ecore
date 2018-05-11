@@ -8,11 +8,14 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="objects" upperBound="-1"
         eType="#//PlatformObject" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Character" eSuperTypes="#//Colored">
+  <eClassifiers xsi:type="ecore:EClass" name="NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Character" eSuperTypes="#//Colored #//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="standsOn" lowerBound="1"
         eType="#//Platform" eOpposite="#//Platform/charactersStandingOn"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="PlatformObject" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PlatformObject" abstract="true" eSuperTypes="#//NamedElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="Platform" abstract="true" eSuperTypes="#//PlatformObject">
     <eStructuralFeatures xsi:type="ecore:EReference" name="charactersStandingOn" upperBound="-1"
         eType="#//Character" eOpposite="#//Character/standsOn"/>
