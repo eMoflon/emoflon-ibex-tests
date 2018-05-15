@@ -51,8 +51,8 @@ public class INITIAL_BWD_App extends SYNC {
 	}
 	
 	protected void registerUserMetamodels() throws IOException {
-		_RegistrationHelper.registerMetamodels(rs, this);
-			
+		//_RegistrationHelper.registerMetamodels(rs, this);
+		
 		// Register correspondence metamodel last
 		loadAndRegisterMetamodel(options.projectPath() + "/model/" + options.projectName() + ".ecore");
 	}

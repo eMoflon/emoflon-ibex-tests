@@ -1,4 +1,4 @@
-package org.emoflon.ibex.tgg.run.mocatreetoprocess;
+package org.emoflon.ibex.tgg.run.class2doc_ma;
 
 import java.io.IOException;
 
@@ -11,9 +11,9 @@ import org.emoflon.ibex.tgg.operational.strategies.sync.SYNC;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesTGGEngine;
 
-public class INITIAL_FWD_App extends SYNC {
+public class INITIAL_BWD_App extends SYNC {
 
-	public INITIAL_FWD_App() throws IOException {
+	public INITIAL_BWD_App() throws IOException {
 		super(createIbexOptions());
 		registerBlackInterpreter(new DemoclesTGGEngine());
 	}
@@ -21,22 +21,22 @@ public class INITIAL_FWD_App extends SYNC {
 	public static void main(String[] args) throws IOException {
 		Logger.getRootLogger().setLevel(Level.INFO);
 
-		INITIAL_FWD_App init_fwd = new INITIAL_FWD_App();
+		INITIAL_BWD_App init_bwd = new INITIAL_BWD_App();
 		
-		logger.info("Starting INITIAL FWD");
+		logger.info("Starting INITIAL BWD");
 		long tic = System.currentTimeMillis();
-		init_fwd.forward();
+		init_bwd.forward();
 		long toc = System.currentTimeMillis();
-		logger.info("Completed INITIAL FWD in: " + (toc - tic) + " ms");
+		logger.info("Completed INITIAL BWD in: " + (toc - tic) + " ms");
 		
-		init_fwd.saveModels();
-		init_fwd.terminate();
+		init_bwd.saveModels();
+		init_bwd.terminate();
 	}
 	
 	@Override
 	public void loadModels() throws IOException {
-		s = loadResource(projectPath + "/instances/src.xmi");
-		t = createResource(projectPath + "/instances/trg.xmi");
+		t = loadResource(projectPath + "/instances/trg.xmi");
+		s = createResource(projectPath + "/instances/src.xmi");
 		c = createResource(projectPath + "/instances/corr.xmi");
 		p = createResource(projectPath + "/instances/protocol.xmi");
 		
@@ -45,13 +45,13 @@ public class INITIAL_FWD_App extends SYNC {
 	
 	@Override
 	public void saveModels() throws IOException {
-		t.save(null);
+		s.save(null);
 		c.save(null);
 		p.save(null);
 	}
 	
 	protected void registerUserMetamodels() throws IOException {
-		//_RegistrationHelper.registerMetamodels(rs, this);
+		_RegistrationHelper.registerMetamodels(rs, this);
 			
 		// Register correspondence metamodel last
 		loadAndRegisterMetamodel(options.projectPath() + "/model/" + options.projectName() + ".ecore");
@@ -59,8 +59,8 @@ public class INITIAL_FWD_App extends SYNC {
 	
 	private static IbexOptions createIbexOptions() {
 		IbexOptions options = new IbexOptions();
-		options.projectName("MocaTreeToProcess");
-		options.projectPath("MocaTreeToProcess");
+		options.projectName("Class2Doc_MA");
+		options.projectPath("Class2Doc_MA");
 		options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
 		return options;
 	}

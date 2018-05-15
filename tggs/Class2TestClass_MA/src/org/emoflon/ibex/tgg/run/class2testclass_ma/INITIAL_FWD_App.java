@@ -1,4 +1,4 @@
-package org.emoflon.ibex.tgg.run.mocatreetoprocess;
+package org.emoflon.ibex.tgg.run.class2testclass_ma;
 
 import java.io.IOException;
 
@@ -51,7 +51,7 @@ public class INITIAL_FWD_App extends SYNC {
 	}
 	
 	protected void registerUserMetamodels() throws IOException {
-		//_RegistrationHelper.registerMetamodels(rs, this);
+		_RegistrationHelper.registerMetamodels(rs, this);
 			
 		// Register correspondence metamodel last
 		loadAndRegisterMetamodel(options.projectPath() + "/model/" + options.projectName() + ".ecore");
@@ -59,8 +59,8 @@ public class INITIAL_FWD_App extends SYNC {
 	
 	private static IbexOptions createIbexOptions() {
 		IbexOptions options = new IbexOptions();
-		options.projectName("MocaTreeToProcess");
-		options.projectPath("MocaTreeToProcess");
+		options.projectName("Class2TestClass_MA");
+		options.projectPath("Class2TestClass_MA");
 		options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
 		return options;
 	}
