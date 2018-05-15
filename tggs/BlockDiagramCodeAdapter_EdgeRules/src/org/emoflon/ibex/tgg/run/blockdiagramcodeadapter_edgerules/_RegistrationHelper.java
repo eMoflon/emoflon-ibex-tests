@@ -1,4 +1,4 @@
-package org.emoflon.ibex.tgg.run.blockcodeadapter;
+package org.emoflon.ibex.tgg.run.blockdiagramcodeadapter_edgerules;
 
 import java.io.IOException;
 
@@ -37,8 +37,8 @@ public class _RegistrationHelper {
 	/** Create default options **/
 	public static IbexOptions createIbexOptions() {
 		IbexOptions options = new IbexOptions();
-		options.projectName("BlockCodeAdapter");
-		options.projectPath("BlockCodeAdapter");
+		options.projectName("BlockDiagramCodeAdapter_EdgeRules");
+		options.projectPath("BlockDiagramCodeAdapter_EdgeRules");
 		options.debug(false);
 		options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
 		return options;

@@ -1,4 +1,4 @@
-package org.emoflon.ibex.tgg.run.blockcodeadapter;
+package org.emoflon.ibex.tgg.run.familywithsiblingstopersons_ma;
 
 import java.io.IOException;
 
@@ -37,8 +37,8 @@ public class _RegistrationHelper {
 	/** Create default options **/
 	public static IbexOptions createIbexOptions() {
 		IbexOptions options = new IbexOptions();
-		options.projectName("BlockCodeAdapter");
-		options.projectPath("BlockCodeAdapter");
+		options.projectName("FamilyWithSiblingsToPersons_MA");
+		options.projectPath("FamilyWithSiblingsToPersons_MA");
 		options.debug(false);
 		options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
 		return options;

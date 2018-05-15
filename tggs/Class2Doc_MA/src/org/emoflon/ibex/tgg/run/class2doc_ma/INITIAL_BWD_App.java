@@ -5,10 +5,6 @@ import java.io.IOException;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
-<<<<<<< Updated upstream
-import org.emoflon.ibex.tgg.operational.csp.constraints.factories.UserDefinedRuntimeTGGAttrConstraintFactory;
-=======
->>>>>>> Stashed changes
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.sync.SYNC;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -28,11 +24,7 @@ public class INITIAL_BWD_App extends SYNC {
 		
 		logger.info("Starting INITIAL BWD");
 		long tic = System.currentTimeMillis();
-<<<<<<< Updated upstream
-		init_bwd.forward();
-=======
 		init_bwd.backward();
->>>>>>> Stashed changes
 		long toc = System.currentTimeMillis();
 		logger.info("Completed INITIAL BWD in: " + (toc - tic) + " ms");
 		
@@ -42,17 +34,10 @@ public class INITIAL_BWD_App extends SYNC {
 	
 	@Override
 	public void loadModels() throws IOException {
-<<<<<<< Updated upstream
-		t = loadResource(projectPath + "/instances/trg.xmi");
-		s = createResource(projectPath + "/instances/src.xmi");
-		c = createResource(projectPath + "/instances/corr.xmi");
-		p = createResource(projectPath + "/instances/protocol.xmi");
-=======
 		t = loadResource(options.projectPath() + "/instances/trg.xmi");
 		s = createResource(options.projectPath() + "/instances/src.xmi");
 		c = createResource(options.projectPath() + "/instances/corr.xmi");
 		p = createResource(options.projectPath() + "/instances/protocol.xmi");
->>>>>>> Stashed changes
 		
 		EcoreUtil.resolveAll(rs);
 	}
@@ -72,14 +57,6 @@ public class INITIAL_BWD_App extends SYNC {
 	}
 	
 	private static IbexOptions createIbexOptions() {
-<<<<<<< Updated upstream
-		IbexOptions options = new IbexOptions();
-		options.projectName("Class2Doc_MA");
-		options.projectPath("Class2Doc_MA");
-		options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
-		return options;
-=======
 		return _RegistrationHelper.createIbexOptions();
->>>>>>> Stashed changes
 	}
 }

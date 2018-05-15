@@ -35,10 +35,10 @@ public class INITIAL_BWD_App extends SYNC {
 	
 	@Override
 	public void loadModels() throws IOException {
-		t = loadResource(projectPath + "/instances/trg.xmi");
-		s = createResource(projectPath + "/instances/src.xmi");
-		c = createResource(projectPath + "/instances/corr.xmi");
-		p = createResource(projectPath + "/instances/protocol.xmi");
+		t = loadResource(options.projectPath() + "/instances/trg.xmi");
+		s = createResource(options.projectPath() + "/instances/src.xmi");
+		c = createResource(options.projectPath() + "/instances/corr.xmi");
+		p = createResource(options.projectPath() + "/instances/protocol.xmi");
 		
 		EcoreUtil.resolveAll(rs);
 	}

@@ -1,4 +1,4 @@
-package org.emoflon.ibex.tgg.run.featuremodelconcisetosafe;
+package org.emoflon.ibex.tgg.run.benchmarxfamiliestopersons;
 
 import java.io.IOException;
 
@@ -7,6 +7,9 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.emoflon.ibex.tgg.operational.strategies.OperationalStrategy;
 
+import org.emoflon.ibex.tgg.operational.csp.constraints.factories.UserDefinedRuntimeTGGAttrConstraintFactory;
+import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
+import org.emoflon.ibex.tgg.operational.strategies.OperationalStrategy;
 
 public class _RegistrationHelper {
 
@@ -29,5 +32,15 @@ public class _RegistrationHelper {
 		// URI value = URI.createURI(pathToEcoreFile);
 		// strategy.loadAndRegisterMetamodel(pathToEcoreFile);
 		// rs.getURIConverter().getURIMap().put(key, value);
+	}
+	
+	/** Create default options **/
+	public static IbexOptions createIbexOptions() {
+		IbexOptions options = new IbexOptions();
+		options.projectName("BenchmarxFamiliesToPersons");
+		options.projectPath("BenchmarxFamiliesToPersons");
+		options.debug(false);
+		options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
+		return options;
 	}
 }
