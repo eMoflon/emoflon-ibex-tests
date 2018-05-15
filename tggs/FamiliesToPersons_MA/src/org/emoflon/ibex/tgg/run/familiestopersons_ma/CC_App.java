@@ -53,17 +53,17 @@ public class CC_App extends CC {
 		
 		
 		// Register correspondence metamodel last
-		loadAndRegisterMetamodel(projectPath + "/model/" + projectPath + ".ecore");
+		loadAndRegisterMetamodel(options.projectPath() + "/model/" + options.projectPath() + ".ecore");
 	}
 	
 	@Override
 	public void loadModels() throws IOException {
-		s = loadResource(projectPath + "/resources/"+srcPath+".xmi");
-		t = loadResource(projectPath + "/resources/"+trgPath+".xmi");
-		//s = loadResource(projectPath + "/resources/01_OneFamily.xmi");
-		//t = loadResource(projectPath + "/resources/01_RootElementPersons.xmi");
-		c = createResource(projectPath + "/instances/corr.xmi");
-		p = createResource(projectPath + "/instances/protocol.xmi");
+		s = loadResource(options.projectPath() + "/resources/"+srcPath+".xmi");
+		t = loadResource(options.projectPath() + "/resources/"+trgPath+".xmi");
+		//s = loadResource(options.projectPath() + "/resources/01_OneFamily.xmi");
+		//t = loadResource(options.projectPath() + "/resources/01_RootElementPersons.xmi");
+		c = createResource(options.projectPath() + "/instances/corr.xmi");
+		p = createResource(options.projectPath() + "/instances/protocol.xmi");
 	
 		EcoreUtil.resolveAll(rs);
 	}

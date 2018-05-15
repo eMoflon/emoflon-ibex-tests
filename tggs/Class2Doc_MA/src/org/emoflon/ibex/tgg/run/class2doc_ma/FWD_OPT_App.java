@@ -47,7 +47,7 @@ public class FWD_OPT_App extends FWD_OPT {
 		_RegistrationHelper.registerMetamodels(rs, this);
 			
 		// Register correspondence metamodel last
-		loadAndRegisterMetamodel(projectPath + "/model/" + projectPath + ".ecore");
+		loadAndRegisterMetamodel(options.projectPath() + "/model/" + options.projectPath() + ".ecore");
 	}
 	
 	private static IbexOptions createIbexOptions() {
@@ -60,10 +60,10 @@ public class FWD_OPT_App extends FWD_OPT {
 	
 	@Override
 	public void loadModels() throws IOException {
-		s = loadResource(projectPath +srcPath+".xmi");
-		t = createResource(projectPath +trgPath+".xmi");
-		c = createResource(projectPath +corrPath+".xmi");
-		p = createResource(projectPath +protPath+".xmi");
+		s = loadResource(options.projectPath() +srcPath+".xmi");
+		t = createResource(options.projectPath() +trgPath+".xmi");
+		c = createResource(options.projectPath() +corrPath+".xmi");
+		p = createResource(options.projectPath() +protPath+".xmi");
 	
 		EcoreUtil.resolveAll(rs);
 	}

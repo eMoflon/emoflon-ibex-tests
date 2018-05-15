@@ -49,7 +49,7 @@ public class MODELGEN_App extends MODELGEN {
 		//throw new NotImplementedException("Please check that your source and target metamodels are loaded and registered.");
 		
 		// Register correspondence metamodel last
-		loadAndRegisterMetamodel(projectPath + "/model/" + projectPath + ".ecore");
+		loadAndRegisterMetamodel(options.projectPath() + "/model/" + options.projectPath() + ".ecore");
 	}
 	
 	private static IbexOptions createIbexOptions() {

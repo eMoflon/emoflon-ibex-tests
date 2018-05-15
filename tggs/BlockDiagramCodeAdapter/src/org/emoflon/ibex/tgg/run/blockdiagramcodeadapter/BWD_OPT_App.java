@@ -61,15 +61,15 @@ public class BWD_OPT_App extends BWD_OPT {
 		rs.getPackageRegistry().put("platform:/plugin/MocaTree/model/MocaTree.ecore", pack);
 			
 		// Register correspondence metamodel last
-		loadAndRegisterMetamodel(projectPath + "/model/" + projectPath + ".ecore");
+		loadAndRegisterMetamodel(options.projectPath() + "/model/" + options.projectPath() + ".ecore");
 	}
 	
 	@Override
 	public void loadModels() throws IOException {
-		s = createResource(projectPath +srcPath+".xmi");
-		t = loadResource(projectPath +trgPath+".xmi");
-		c = createResource(projectPath +corrPath+".xmi");
-		p = createResource(projectPath +protPath+".xmi");
+		s = createResource(options.projectPath() +srcPath+".xmi");
+		t = loadResource(options.projectPath() +trgPath+".xmi");
+		c = createResource(options.projectPath() +corrPath+".xmi");
+		p = createResource(options.projectPath() +protPath+".xmi");
 	
 		EcoreUtil.resolveAll(rs);
 	}

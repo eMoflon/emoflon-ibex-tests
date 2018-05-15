@@ -48,15 +48,15 @@ public class CO_App extends CO {
 		_RegistrationHelper.registerMetamodels(rs, this);
 			
 		// Register correspondence metamodel last
-		loadAndRegisterMetamodel(projectPath + "/model/" + projectPath + ".ecore");
+		loadAndRegisterMetamodel(options.projectPath() + "/model/" + options.projectPath() + ".ecore");
 	}
 	
 	@Override
 	public void loadModels() throws IOException {
-		s = loadResource(projectPath +srcPath+".xmi");
-		t = loadResource(projectPath +trgPath+".xmi");
-		c = loadResource(projectPath +corrPath+".xmi");
-		p = createResource(projectPath +protPath+".xmi");
+		s = loadResource(options.projectPath() +srcPath+".xmi");
+		t = loadResource(options.projectPath() +trgPath+".xmi");
+		c = loadResource(options.projectPath() +corrPath+".xmi");
+		p = createResource(options.projectPath() +protPath+".xmi");
 	
 		EcoreUtil.resolveAll(rs);
 	}

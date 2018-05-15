@@ -23,18 +23,18 @@ public class CO_App extends CO {
 
 	@Override
 	protected void registerUserMetamodels() throws IOException {
-		new PerformanceTestUtil().registerUserMetamodels(projectPath, rs, this);
+		new PerformanceTestUtil().registerUserMetamodels(options.projectPath(), rs, this);
 		
 		// Register correspondence metamodel last
-		loadAndRegisterMetamodel(projectPath + "/model/" + projectPath + ".ecore");
+		loadAndRegisterMetamodel(options.projectPath() + "/model/" + options.projectPath() + ".ecore");
 	}
 	
 	@Override
 	public void loadModels() throws IOException {
-		s = loadResource(projectPath + "/instances/"+modelPath+"/src.xmi");
-		t = loadResource(projectPath + "/instances/"+modelPath+"/trg.xmi");
-		c = loadResource(projectPath + "/instances/"+modelPath+"/corr.xmi");
-		p = createResource(projectPath + "/instances/"+modelPath+"/protocol.xmi");
+		s = loadResource(options.projectPath() + "/instances/"+modelPath+"/src.xmi");
+		t = loadResource(options.projectPath() + "/instances/"+modelPath+"/trg.xmi");
+		c = loadResource(options.projectPath() + "/instances/"+modelPath+"/corr.xmi");
+		p = createResource(options.projectPath() + "/instances/"+modelPath+"/protocol.xmi");
 	
 		EcoreUtil.resolveAll(rs);
 	}

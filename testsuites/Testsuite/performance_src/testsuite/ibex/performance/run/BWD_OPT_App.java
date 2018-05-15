@@ -23,18 +23,18 @@ public class BWD_OPT_App extends BWD_OPT {
 
 	@Override
 	protected void registerUserMetamodels() throws IOException {
-		new PerformanceTestUtil().registerUserMetamodelsBWD_OPT(projectPath, rs, this);
+		new PerformanceTestUtil().registerUserMetamodelsBWD_OPT(options.projectPath(), rs, this);
 		
 		// Register correspondence metamodel last
-		loadAndRegisterMetamodel(projectPath + "/model/" + projectPath + ".ecore");
+		loadAndRegisterMetamodel(options.projectPath() + "/model/" + options.projectPath() + ".ecore");
 	}
 	
 	@Override
 	public void loadModels() throws IOException {
-		s = createResource(projectPath + "/instances/"+modelPath+"/src.xmi");
-		t = loadResource(projectPath + "/instances/"+modelPath+"/trg.xmi");
-		c = createResource(projectPath + "/instances/"+modelPath+"/corr.xmi");
-		p = createResource(projectPath + "/instances/"+modelPath+"/protocol.xmi");
+		s = createResource(options.projectPath() + "/instances/"+modelPath+"/src.xmi");
+		t = loadResource(options.projectPath() + "/instances/"+modelPath+"/trg.xmi");
+		c = createResource(options.projectPath() + "/instances/"+modelPath+"/corr.xmi");
+		p = createResource(options.projectPath() + "/instances/"+modelPath+"/protocol.xmi");
 	
 		EcoreUtil.resolveAll(rs);
 	}

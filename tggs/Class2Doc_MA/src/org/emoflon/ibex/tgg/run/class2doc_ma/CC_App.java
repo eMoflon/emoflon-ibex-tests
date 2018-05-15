@@ -52,7 +52,7 @@ public class CC_App extends CC {
 		rs.getPackageRegistry().put("platform:/resource/Documents/model/Documents.ecore", DocumentsPackageImpl.init());
 		
 		// Register correspondence metamodel last
-		loadAndRegisterMetamodel(projectPath + "/model/" + projectPath + ".ecore");
+		loadAndRegisterMetamodel(options.projectPath() + "/model/" + options.projectPath() + ".ecore");
 	}
 	
 	private static IbexOptions createIbexOptions() {
@@ -65,12 +65,12 @@ public class CC_App extends CC {
 	
 	@Override
 	public void loadModels() throws IOException {
-		s = loadResource(projectPath + "/resources/"+srcPath+".xmi");
-		t = loadResource(projectPath + "/resources/"+trgPath+".xmi");
-		//s = loadResource(projectPath + "/instances/src.xmi");
-		//t = loadResource(projectPath + "/instances/trg.xmi");
-		c = createResource(projectPath + "/instances/corr.xmi");
-		p = createResource(projectPath + "/instances/protocol.xmi");
+		s = loadResource(options.projectPath() + "/resources/"+srcPath+".xmi");
+		t = loadResource(options.projectPath() + "/resources/"+trgPath+".xmi");
+		//s = loadResource(options.projectPath() + "/instances/src.xmi");
+		//t = loadResource(options.projectPath() + "/instances/trg.xmi");
+		c = createResource(options.projectPath() + "/instances/corr.xmi");
+		p = createResource(options.projectPath() + "/instances/protocol.xmi");
 	
 		EcoreUtil.resolveAll(rs);
 	}

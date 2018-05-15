@@ -42,7 +42,7 @@ public class CC_App extends CC {
 		loadAndRegisterMetamodel("platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore");
 			
 		// Register correspondence metamodel last
-		loadAndRegisterMetamodel(projectPath + "/model/" + projectPath + ".ecore");
+		loadAndRegisterMetamodel(options.projectPath() + "/model/" + options.projectPath() + ".ecore");
 	}
 	
 	private static IbexOptions createIbexOptions() {
@@ -56,10 +56,10 @@ public class CC_App extends CC {
 	
 	@Override
 	public void loadModels() throws IOException {
-		s = loadResource(projectPath +srcPath+".xmi");
-		t = loadResource(projectPath +trgPath+".xmi");
-		c = createResource(projectPath +corrPath+".xmi");
-		p = createResource(projectPath +protPath+".xmi");
+		s = loadResource(options.projectPath() +srcPath+".xmi");
+		t = loadResource(options.projectPath() +trgPath+".xmi");
+		c = createResource(options.projectPath() +corrPath+".xmi");
+		p = createResource(options.projectPath() +protPath+".xmi");
 	
 		EcoreUtil.resolveAll(rs);
 	}

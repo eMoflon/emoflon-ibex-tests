@@ -5,7 +5,10 @@ import java.io.IOException;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
+<<<<<<< Updated upstream
 import org.emoflon.ibex.tgg.operational.csp.constraints.factories.UserDefinedRuntimeTGGAttrConstraintFactory;
+=======
+>>>>>>> Stashed changes
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.sync.SYNC;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -35,10 +38,17 @@ public class INITIAL_FWD_App extends SYNC {
 	
 	@Override
 	public void loadModels() throws IOException {
+<<<<<<< Updated upstream
 		s = loadResource(projectPath + "/instances/src.xmi");
 		t = createResource(projectPath + "/instances/trg.xmi");
 		c = createResource(projectPath + "/instances/corr.xmi");
 		p = createResource(projectPath + "/instances/protocol.xmi");
+=======
+		s = loadResource(options.projectPath() + "/instances/src.xmi");
+		t = createResource(options.projectPath() + "/instances/trg.xmi");
+		c = createResource(options.projectPath() + "/instances/corr.xmi");
+		p = createResource(options.projectPath() + "/instances/protocol.xmi");
+>>>>>>> Stashed changes
 		
 		EcoreUtil.resolveAll(rs);
 	}
@@ -58,10 +68,14 @@ public class INITIAL_FWD_App extends SYNC {
 	}
 	
 	private static IbexOptions createIbexOptions() {
+<<<<<<< Updated upstream
 		IbexOptions options = new IbexOptions();
 		options.projectName("BenchmarxFamiliesToPersons");
 		options.projectPath("BenchmarxFamiliesToPersons");
 		options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
 		return options;
+=======
+		return _RegistrationHelper.createIbexOptions();
+>>>>>>> Stashed changes
 	}
 }

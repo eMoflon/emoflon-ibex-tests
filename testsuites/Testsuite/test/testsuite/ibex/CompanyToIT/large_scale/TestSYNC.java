@@ -43,10 +43,10 @@ public class TestSYNC extends CompleteSyncTestCase {
 		
 		@Override
 		public void loadModels() throws IOException {
-			s = loadResource(projectPath + srcPath + ".xmi");
-			t = createResource(projectPath + trgPath + ".xmi");
-			c = createResource(projectPath + corrPath + ".xmi");
-			p = createResource(projectPath + protPath + ".xmi");
+			s = loadResource(options.projectPath() + srcPath + ".xmi");
+			t = createResource(options.projectPath() + trgPath + ".xmi");
+			c = createResource(options.projectPath() + corrPath + ".xmi");
+			p = createResource(options.projectPath() + protPath + ".xmi");
 			
 			EcoreUtil.resolveAll(rs);
 		}
@@ -64,7 +64,7 @@ public class TestSYNC extends CompleteSyncTestCase {
 			rs.getPackageRegistry().put("platform:/resource/ITLanguage/model/ITLanguage.ecore", ITLanguagePackageImpl.init());
 			
 			// Register correspondence metamodel last
-			loadAndRegisterMetamodel(projectPath + "/model/" + projectPath + ".ecore");
+			loadAndRegisterMetamodel(options.projectPath() + "/model/" + options.projectPath() + ".ecore");
 		}
 	}
 	
@@ -93,10 +93,10 @@ public class TestSYNC extends CompleteSyncTestCase {
 		
 		@Override
 		public void loadModels() throws IOException {
-			s = createResource(projectPath + srcPath + ".xmi");
-			t = loadResource(projectPath + trgPath + ".xmi");
-			c = createResource(projectPath + corrPath + ".xmi");
-			p = createResource(projectPath + protPath + ".xmi");
+			s = createResource(options.projectPath() + srcPath + ".xmi");
+			t = loadResource(options.projectPath() + trgPath + ".xmi");
+			c = createResource(options.projectPath() + corrPath + ".xmi");
+			p = createResource(options.projectPath() + protPath + ".xmi");
 			
 			EcoreUtil.resolveAll(rs);
 		}
@@ -114,7 +114,7 @@ public class TestSYNC extends CompleteSyncTestCase {
 			rs.getPackageRegistry().put("platform:/resource/ITLanguage/model/ITLanguage.ecore", ITLanguagePackageImpl.init());
 			
 			// Register correspondence metamodel last
-			loadAndRegisterMetamodel(projectPath + "/model/" + projectPath + ".ecore");
+			loadAndRegisterMetamodel(options.projectPath() + "/model/" + options.projectPath() + ".ecore");
 		}
 	}
 	

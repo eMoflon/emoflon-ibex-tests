@@ -22,18 +22,18 @@ public class FWD_OPT_App extends FWD_OPT {
 
 	@Override
 	protected void registerUserMetamodels() throws IOException {
-		new PerformanceTestUtil().registerUserMetamodelsFWD_OPT(projectPath, rs, this);
+		new PerformanceTestUtil().registerUserMetamodelsFWD_OPT(options.projectPath(), rs, this);
 		
 		// Register correspondence metamodel last
-		loadAndRegisterMetamodel(projectPath + "/model/" + projectPath + ".ecore");
+		loadAndRegisterMetamodel(options.projectPath() + "/model/" + options.projectPath() + ".ecore");
 	}
 	
 	@Override
 	public void loadModels() throws IOException {
-		s = loadResource(projectPath + "/instances/"+modelPath+"/src.xmi");
-		t = createResource(projectPath + "/instances/"+modelPath+"/trg.xmi");
-		c = createResource(projectPath + "/instances/"+modelPath+"/corr.xmi");
-		p = createResource(projectPath + "/instances/"+modelPath+"/protocol.xmi");
+		s = loadResource(options.projectPath() + "/instances/"+modelPath+"/src.xmi");
+		t = createResource(options.projectPath() + "/instances/"+modelPath+"/trg.xmi");
+		c = createResource(options.projectPath() + "/instances/"+modelPath+"/corr.xmi");
+		p = createResource(options.projectPath() + "/instances/"+modelPath+"/protocol.xmi");
 	
 		EcoreUtil.resolveAll(rs);
 	}

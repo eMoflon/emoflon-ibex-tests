@@ -55,16 +55,16 @@ public class CC_App extends CC {
 
 		
 		// Register correspondence metamodel last
-		loadAndRegisterMetamodel(projectPath + "/model/" + projectPath + ".ecore");
+		loadAndRegisterMetamodel(options.projectPath() + "/model/" + options.projectPath() + ".ecore");
 	}
 	
 	/*
 	@Override
 	public void loadModels() throws IOException {
-		s = loadResource(projectPath + "/instances/src3.xmi");
-		t = loadResource(projectPath + "/instances/trg3.xmi");
-		c = createResource(projectPath + "/instances/corr.xmi");
-		p = createResource(projectPath + "/instances/protocol.xmi");
+		s = loadResource(options.projectPath() + "/instances/src3.xmi");
+		t = loadResource(options.projectPath() + "/instances/trg3.xmi");
+		c = createResource(options.projectPath() + "/instances/corr.xmi");
+		p = createResource(options.projectPath() + "/instances/protocol.xmi");
 	
 		EcoreUtil.resolveAll(rs);
 	}
@@ -73,10 +73,10 @@ public class CC_App extends CC {
 	
 	@Override
 	public void loadModels() throws IOException {
-		s = loadResource(projectPath + "/resources/"+srcPath+".xmi");
-		t = loadResource(projectPath + "/resources/"+trgPath+".xmi");
-		c = createResource(projectPath + "/instances/corr.xmi");
-		p = createResource(projectPath + "/instances/protocol.xmi");
+		s = loadResource(options.projectPath() + "/resources/"+srcPath+".xmi");
+		t = loadResource(options.projectPath() + "/resources/"+trgPath+".xmi");
+		c = createResource(options.projectPath() + "/instances/corr.xmi");
+		p = createResource(options.projectPath() + "/instances/protocol.xmi");
 	
 		EcoreUtil.resolveAll(rs);
 	}

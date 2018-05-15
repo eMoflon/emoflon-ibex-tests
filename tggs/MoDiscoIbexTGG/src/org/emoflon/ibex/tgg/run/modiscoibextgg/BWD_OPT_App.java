@@ -48,7 +48,7 @@ public class BWD_OPT_App extends BWD_OPT {
 		loadAndRegisterMetamodel("platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore");
 			
 		// Register correspondence metamodel last
-		loadAndRegisterMetamodel(projectPath + "/model/" + projectPath + ".ecore");
+		loadAndRegisterMetamodel(options.projectPath() + "/model/" + options.projectPath() + ".ecore");
 	}
 	
 	private static IbexOptions createIbexOptions() {
@@ -62,10 +62,10 @@ public class BWD_OPT_App extends BWD_OPT {
 	
 	@Override
 	public void loadModels() throws IOException {
-		s = createResource(projectPath +srcPath+".xmi");
-		t = loadResource(projectPath +trgPath+".xmi");
-		c = createResource(projectPath +corrPath+".xmi");
-		p = createResource(projectPath +protPath+".xmi");
+		s = createResource(options.projectPath() +srcPath+".xmi");
+		t = loadResource(options.projectPath() +trgPath+".xmi");
+		c = createResource(options.projectPath() +corrPath+".xmi");
+		p = createResource(options.projectPath() +protPath+".xmi");
 	
 		EcoreUtil.resolveAll(rs);
 	}

@@ -36,7 +36,7 @@ public class SYNC_App extends SYNC {
 		loadAndRegisterMetamodel("platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore");
 			
 		// Register correspondence metamodel last
-		loadAndRegisterMetamodel(projectPath + "/model/" + projectPath + ".ecore");
+		loadAndRegisterMetamodel(options.projectPath() + "/model/" + options.projectPath() + ".ecore");
 	}
 	
 	private static IbexOptions createIbexOptions() {
@@ -50,10 +50,10 @@ public class SYNC_App extends SYNC {
 	
 	@Override
 	public void loadModels() throws IOException {
-		s = loadResource(projectPath + "/instances/src.xmi");
-		t = createResource(projectPath + "/instances/trg.xmi");
-		c = createResource(projectPath + "/instances/corr.xmi");
-		p = createResource(projectPath + "/instances/protocol.xmi");
+		s = loadResource(options.projectPath() + "/instances/src.xmi");
+		t = createResource(options.projectPath() + "/instances/trg.xmi");
+		c = createResource(options.projectPath() + "/instances/corr.xmi");
+		p = createResource(options.projectPath() + "/instances/protocol.xmi");
 
 		EcoreUtil.resolveAll(rs);
 	}
