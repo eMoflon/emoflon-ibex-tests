@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ClassMultipleInheritanceHierarchyGraphTransformation
+Bundle-Vendor: eMoflon::IBeX Developers
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: ClassMultipleInheritanceHierarchyGraphTransformation; singleton:=true
+Require-Bundle: org.emoflon.ibex.common,
+ org.emoflon.ibex.gt,
+ org.emoflon.ibex.gt.democles,
+ ClassMultipleInheritanceHierarchy
+Bundle-ActivationPolicy: lazy
+Import-Package: org.apache.log4j,
+ org.apache.commons.logging
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: ClassMultipleInheritanceHierarchyGraphTransformation.api,
+ ClassMultipleInheritanceHierarchyGraphTransformation.api.matches,
+ ClassMultipleInheritanceHierarchyGraphTransformation.api.rules
+Automatic-Module-Name: ClassMultipleInheritanceHierarchyGraphTransformation
