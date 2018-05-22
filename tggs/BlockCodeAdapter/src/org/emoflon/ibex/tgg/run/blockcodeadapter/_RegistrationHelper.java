@@ -3,13 +3,11 @@ package org.emoflon.ibex.tgg.run.blockcodeadapter;
 import java.io.IOException;
 
 import org.apache.commons.lang3.NotImplementedException;
-import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.emoflon.ibex.tgg.operational.strategies.OperationalStrategy;
 
 import org.emoflon.ibex.tgg.operational.csp.constraints.factories.UserDefinedRuntimeTGGAttrConstraintFactory;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
-import org.emoflon.ibex.tgg.operational.strategies.OperationalStrategy;
 
 public class _RegistrationHelper {
 

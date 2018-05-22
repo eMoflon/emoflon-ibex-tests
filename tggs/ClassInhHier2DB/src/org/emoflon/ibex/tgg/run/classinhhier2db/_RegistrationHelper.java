@@ -3,7 +3,6 @@ package org.emoflon.ibex.tgg.run.classinhhier2db;
 import java.io.IOException;
 
 import org.apache.commons.lang3.NotImplementedException;
-import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.emoflon.ibex.tgg.operational.strategies.OperationalStrategy;
 
