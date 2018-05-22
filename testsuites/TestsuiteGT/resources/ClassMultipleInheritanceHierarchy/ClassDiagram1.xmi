@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classMultipleInheritanceHierarchy:ClassPackage
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:classMultipleInheritanceHierarchy="platform:/resource/ClassMultipleInheritanceHierarchy/model/ClassMultipleInheritanceHierarchy.ecore"
+    name="TestPackage">
+  <classes name="TestA"/>
+  <classes name="TestB"/>
+  <classes name="TestC"/>
+  <classes name="SubA"
+      superClass="//@classes.0"/>
+  <classes name="SubB"
+      superClass="//@classes.1"/>
+  <classes name="SubAB"
+      superClass="//@classes.0 //@classes.1"/>
+</classMultipleInheritanceHierarchy:ClassPackage>

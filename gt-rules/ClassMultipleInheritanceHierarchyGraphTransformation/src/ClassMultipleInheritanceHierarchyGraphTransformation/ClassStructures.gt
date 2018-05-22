@@ -1,10 +1,23 @@
 import "http://www.eclipse.org/emf/2002/Ecore"
 import "platform:/resource/ClassMultipleInheritanceHierarchy/model/ClassMultipleInheritanceHierarchy.ecore"
 
+/**
+ * Finds a package.
+ */
+pattern findPackage {
+	package: ClassPackage
+}
+
+/**
+ * Find a class.
+ */
 pattern findClass {
 	clazz: Clazz
 }
 
+/**
+ * Finds a class by its name.
+ */
 pattern findClassByName(name: EString)
 refines findClass {
 	clazz: Clazz {
@@ -12,6 +25,9 @@ refines findClass {
 	}
 }
 
+/**
+ * Finds a class by its name and package name.
+ */
 pattern findClassByQualifiedName(packageName: EString, className: EString)
 refines findClass {
 	package: ClassPackage {
@@ -24,7 +40,10 @@ refines findClass {
 	}
 }
 
-pattern findSubClass
+/**
+ * Finds a super class.
+ */
+pattern findSuperClass
 refines findClass {
 	superClass: Clazz
 
@@ -33,7 +52,10 @@ refines findClass {
 	}
 }
 
-pattern findSuperClass
+/**
+ * Finds a sub class.
+ */
+pattern findSubClass
 refines findClass {
 	clazz: Clazz
 
