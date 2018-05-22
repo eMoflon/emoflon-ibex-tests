@@ -1,0 +1,32 @@
+import "http://www.eclipse.org/emf/2002/Ecore"
+import "platform:/resource/ClassMultipleInheritanceHierarchy/model/ClassMultipleInheritanceHierarchy.ecore"
+
+/**
+ * Deletes a package.
+ */
+rule deletePackage {
+	-- package: ClassPackage
+}
+when isEmptyPackage
+
+condition isEmptyPackage = forbid findClassInPackage
+
+/**
+ * Deletes the package with the given name.
+ */
+rule deletePackageByName(name: EString) {
+	-- package: ClassPackage {
+		.name == param::name
+	}
+}
+
+/**
+ * Deletes a class.
+ */
+rule deleteClass {
+	-- clazz: Clazz
+
+	package: ClassPackage {
+		-- -classes -> clazz
+	}
+}

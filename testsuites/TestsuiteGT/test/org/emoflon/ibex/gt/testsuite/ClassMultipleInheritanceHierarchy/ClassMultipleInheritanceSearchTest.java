@@ -7,8 +7,8 @@ import ClassMultipleInheritanceHierarchyGraphTransformation.api.ClassMultipleInh
 import classMultipleInheritanceHierarchy.Clazz;
 
 /**
- * Tests for simple constraints with the FerrymanProblem Graph Transformation
- * API.
+ * Tests for pattern matching with the ClassMultipleInheritanceHierarchy Graph
+ * Transformation API.
  */
 public class ClassMultipleInheritanceSearchTest extends ClassMultipleInheritanceHierarchyAbstractTest {
 

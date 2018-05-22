@@ -9,10 +9,20 @@ pattern findPackage {
 }
 
 /**
- * Find a class.
+ * Finds a class.
  */
 pattern findClass {
 	clazz: Clazz
+}
+
+/**
+ * Finds a class in a package.
+ */
+pattern findClassInPackage
+refines findClass {
+	package: ClassPackage {
+		-classes -> clazz
+	}
 }
 
 /**
