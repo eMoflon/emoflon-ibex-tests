@@ -1,5 +1,10 @@
 package org.emoflon.ibex.gt.testsuite.ClassMultipleInheritanceHierarchy;
 
+import static org.junit.Assert.assertEquals;
+
+import java.util.HashSet;
+import java.util.Set;
+
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.junit.Test;
 
@@ -33,5 +38,22 @@ public class ClassMultipleInheritanceSearchTest extends ClassMultipleInheritance
 		Clazz subAB = assertAnyMatchExists(api.findClassByQualifiedName("TestPackage", "SubAB")).getClazz();
 		assertMatchCount(2, api.findSuperClass().bindClazz(subAB));
 		assertMatchCount(0, api.findSubClass().bindClazz(subAB));
+	}
+
+	@Test
+	public void notifyIfTwoClassesOfTheSameName() {
+		ResourceSet model = this.initResourceSet("Constraints1.xmi", "ClassDiagram1.xmi");
+		ClassMultipleInheritanceHierarchyGraphTransformationAPI api = this.initAPI(model);
+
+		Set<Clazz> classes = new HashSet<Clazz>();
+		api.findTwoClassesOfSameName().subscribeAppearing(m -> {
+			classes.add(m.getClazz1());
+			classes.add(m.getClazz2());
+		});
+
+		assertApplicable(api.createClass("TestA").apply());
+		assertEquals(2, classes.size());
+
+		saveResourceSet(model);
 	}
 }
