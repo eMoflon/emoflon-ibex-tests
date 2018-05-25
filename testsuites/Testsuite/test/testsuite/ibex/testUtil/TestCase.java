@@ -1,6 +1,8 @@
 package testsuite.ibex.testUtil;
 
 import org.apache.log4j.BasicConfigurator;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 import org.emoflon.ibex.tgg.util.ilp.ILPFactory.SupportedILPSolver;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -29,5 +31,6 @@ public abstract class TestCase {
 	@BeforeClass
 	public static void init() {
 		BasicConfigurator.configure();
+		Logger.getRootLogger().setLevel(Level.INFO);
 	}
 }
