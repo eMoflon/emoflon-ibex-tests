@@ -1,0 +1,17 @@
+import "platform:/resource/ClassMultipleInheritanceHierarchy/model/ClassMultipleInheritanceHierarchy.ecore"
+
+/**
+ * Finds two classes of the same name in the same package.
+ */
+pattern findTwoClassesOfSameName() {
+	package: ClassPackage {
+		-classes -> clazz1
+		-classes -> clazz2
+	}
+
+	clazz1: Clazz
+
+	clazz2: Clazz {
+		.name == clazz1.name
+	}
+}

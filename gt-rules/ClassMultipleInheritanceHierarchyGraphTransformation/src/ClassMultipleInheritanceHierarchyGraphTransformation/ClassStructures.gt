@@ -1,0 +1,75 @@
+import "http://www.eclipse.org/emf/2002/Ecore"
+import "platform:/resource/ClassMultipleInheritanceHierarchy/model/ClassMultipleInheritanceHierarchy.ecore"
+
+/**
+ * Finds a package.
+ */
+pattern findPackage {
+	package: ClassPackage
+}
+
+/**
+ * Finds a class.
+ */
+pattern findClass {
+	clazz: Clazz
+}
+
+/**
+ * Finds a class in a package.
+ */
+pattern findClassInPackage
+refines findClass {
+	package: ClassPackage {
+		-classes -> clazz
+	}
+}
+
+/**
+ * Finds a class by its name.
+ */
+pattern findClassByName(name: EString)
+refines findClass {
+	clazz: Clazz {
+		.name == param::name
+	}
+}
+
+/**
+ * Finds a class by its name and package name.
+ */
+pattern findClassByQualifiedName(packageName: EString, className: EString)
+refines findClass {
+	package: ClassPackage {
+		.name == param::packageName
+		-classes -> clazz
+	}
+
+	clazz: Clazz {
+		.name == param::className
+	}
+}
+
+/**
+ * Finds a super class.
+ */
+pattern findSuperClass
+refines findClass {
+	superClass: Clazz
+
+	clazz: Clazz {
+		-superClass -> superClass
+	}
+}
+
+/**
+ * Finds a sub class.
+ */
+pattern findSubClass
+refines findClass {
+	clazz: Clazz
+
+	subClass: Clazz {
+		-superClass -> clazz
+	}
+}
