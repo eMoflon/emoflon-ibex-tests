@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="bpmn2InstanceRepresentation" nsURI="platform:/resource/BPMNInstanceRepresentation/model/BPMNInstanceRepresentation.ecore"
+    nsPrefix="bpmn2InstanceRepresentation">
+  <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+    <details key="documentation" value="Meta-model for the instance representation of Business Process Model and Notation (BPMN)"/>
+  </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="ProcessIR" eSuperTypes="../../BPMN/model/BPMN.ecore#//Process">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="activeTasks" upperBound="-1"
+        eType="#//TaskIR"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TaskIR" eSuperTypes="../../BPMN/model/BPMN.ecore#//Task">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lifecycle" lowerBound="1"
+        eType="#//Lifecycle" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Lifecycle">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="activeState" eType="#//StateName"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="StateName">
+    <eLiterals name="READY"/>
+    <eLiterals name="ACTIVE" value="1"/>
+    <eLiterals name="INACTIVE" value="2"/>
+    <eLiterals name="CLOSED" value="3"/>
+  </eClassifiers>
+  <eSubpackages name="change" nsURI="platform:/resource/BPMNInstanceRepresentation/model/BPMNInstanceRepresentation.ecore/change"
+      nsPrefix="change">
+    <eClassifiers xsi:type="ecore:EClass" name="Mapping">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="maps" upperBound="-1"
+          eType="#//change/Map" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Map">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isOverrideAble" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="oldTaskInstance" lowerBound="1"
+          eType="#//TaskIR"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="newTaskInstance" lowerBound="1"
+          eType="#//TaskIR"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="underspecification" nsURI="platform:/resource/BPMNInstanceRepresentation/model/BPMNInstanceRepresentation.ecore/underspecification"
+      nsPrefix="underspecification">
+    <eClassifiers xsi:type="ecore:EClass" name="ProcessFragment" eSuperTypes="../../BPMN/model/BPMN.ecore#//Process">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="startSymbol" lowerBound="1"
+          eType="#//underspecification/ProcessFragmentStartEvent"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="endSymbol" lowerBound="1"
+          eType="#//underspecification/ProcessFragmentEndEvent"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Placeholder" eSuperTypes="../../BPMN/model/BPMN.ecore#//SubProcess">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="binds" eType="#//underspecification/ProcessFragment"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ProcessFragmentIR" eSuperTypes="#//underspecification/ProcessFragment #//ProcessIR">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="binds" eType="#//underspecification/Placeholder">
+        <eAnnotations source="Redefinition">
+          <details key="binds" value="PlaceholderIR&#xD;&#xA;"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="PlaceholderIR" eSuperTypes="#//underspecification/Placeholder">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="lifecycle" lowerBound="1"
+          eType="#//Lifecycle" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ProcessFragmentEndEvent" eSuperTypes="../../BPMN/model/BPMN.ecore#//EndEvent"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ProcessFragmentStartEvent" eSuperTypes="../../BPMN/model/BPMN.ecore#//StartEvent"/>
+  </eSubpackages>
+</ecore:EPackage>
