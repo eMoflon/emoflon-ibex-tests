@@ -1,0 +1,64 @@
+import "platform:/resource/BPMN/model/BPMN.ecore"
+import "platform:/resource/BPMNInstanceRepresentation/model/BPMNInstanceRepresentation.ecore"
+
+rule addNode {
+	from: TaskIR {
+		-outgoing -> flow
+		-lifecycle -> lcfrom
+	}
+
+	lcfrom: Lifecycle {
+		.activeState != enum::CLOSED
+	}
+
+	to: TaskIR {
+		-- -incoming -> flow
+		++ -incoming -> newFlow
+		-lifecycle -> lcto
+	}
+
+	lcto: Lifecycle {
+		.activeState != enum::CLOSED
+	}
+
+	flow: SequenceFlow
+
+	++ newTask: TaskIR {
+		++ -outgoing -> newFlow
+		++ -incoming -> flow
+		++ -lifecycle -> lcnew
+	}
+
+	++ lcnew: Lifecycle {
+		.activeState := enum::INACTIVE
+	}
+
+	++ newFlow: SequenceFlow
+
+	processIR: ProcessIR {
+		++ -flowElements -> newTask
+		++ -flowElements -> newFlow
+		-flowElements -> from
+		-flowElements -> to
+		-flowElements -> flow
+	}
+}
+when inactiveTasks
+
+condition inactiveTasks = forbid activeFromTask && forbid activeToTask
+
+pattern activeFromTask {
+	from: TaskIR
+
+	processIR: ProcessIR {
+		-activeTasks -> from
+	}
+}
+
+pattern activeToTask {
+	to: TaskIR
+
+	processIR: ProcessIR {
+		-activeTasks -> to
+	}
+}

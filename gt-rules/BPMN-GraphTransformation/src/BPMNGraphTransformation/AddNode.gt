@@ -1,0 +1,21 @@
+import "platform:/resource/BPMN/model/BPMN.ecore"
+
+rule addNode {
+	from: Task {
+		-outgoing -> flow
+	}
+
+	to: Task {
+		-- -incoming -> flow
+		++ -incoming -> newFlow
+	}
+
+	flow: SequenceFlow
+
+	++ t: Task {
+		++ -outgoing -> newFlow
+		++ -incoming -> flow
+	}
+
+	++ newFlow: SequenceFlow
+}
