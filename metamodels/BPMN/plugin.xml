@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?eclipse version="3.0"?><plugin>
+  <extension point="org.eclipse.emf.ecore.generated_package">
+    <package class="bpmn2.Bpmn2Package" genModel="model/BPMN.genmodel" uri="http://www.omg.org/spec/BPMN/20100524/MODEL-XMI"/>
+  </extension>
+</plugin>
