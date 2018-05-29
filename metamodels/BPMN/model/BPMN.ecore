@@ -1775,8 +1775,7 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="categorizedFlowElements"
-        ordered="false" upperBound="-1" eType="#//FlowElement" changeable="false"
-        volatile="true" transient="true" derived="true" resolveProxies="false"/>
+        ordered="false" upperBound="-1" eType="#//FlowElement"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Choreography" eSuperTypes="#//Collaboration #//FlowElementsContainer">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
@@ -2497,8 +2496,7 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" ordered="false" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" volatile="true"
-        derived="true"/>
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="textFormat" ordered="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="text/plain">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
@@ -2818,8 +2816,7 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="body" ordered="false" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" volatile="true"
-        derived="true"/>
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="evaluatesToTypeRef" ordered="false"
         lowerBound="1" eType="#//ItemDefinition">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
@@ -3132,11 +3129,9 @@
       <details key="abstract" value="true"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="incomingConversationLinks"
-        ordered="false" upperBound="-1" eType="#//ConversationLink" changeable="false"
-        volatile="true" transient="true" derived="true" resolveProxies="false"/>
+        ordered="false" upperBound="-1" eType="#//ConversationLink"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="outgoingConversationLinks"
-        ordered="false" upperBound="-1" eType="#//ConversationLink" changeable="false"
-        volatile="true" transient="true" derived="true"/>
+        ordered="false" upperBound="-1" eType="#//ConversationLink"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Interface" eSuperTypes="#//RootElement">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
