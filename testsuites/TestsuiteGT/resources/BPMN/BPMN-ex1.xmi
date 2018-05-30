@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:bpmn2="platform:/resource/BPMN/model/BPMN.ecore">
+  <bpmn2:Task
+      name="Task 1"
+      outgoing="/2"/>
+  <bpmn2:Task
+      name="Task 2"
+      incoming="/2"/>
+  <bpmn2:SequenceFlow
+      name=""
+      sourceRef="/0"
+      targetRef="/1"/>
+</xmi:XMI>
