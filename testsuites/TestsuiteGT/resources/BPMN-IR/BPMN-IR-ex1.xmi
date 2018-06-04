@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:bpmn2="platform:/resource/BPMN/model/BPMN.ecore"
+    xmlns:bpmn2InstanceRepresentation="platform:/resource/BPMNInstanceRepresentation/model/BPMNInstanceRepresentation.ecore">
+  <bpmn2InstanceRepresentation:ProcessIR
+      id=""
+      name="My Example Process"
+      processType="Public"
+      activeTasks="/1"/>
+  <bpmn2InstanceRepresentation:TaskIR
+      name="A"
+      outgoing="/3">
+    <lifecycle/>
+  </bpmn2InstanceRepresentation:TaskIR>
+  <bpmn2InstanceRepresentation:TaskIR
+      name="B"
+      incoming="/3">
+    <lifecycle/>
+  </bpmn2InstanceRepresentation:TaskIR>
+  <bpmn2:SequenceFlow
+      name=""
+      sourceRef="/1"
+      targetRef="/2"/>
+</xmi:XMI>

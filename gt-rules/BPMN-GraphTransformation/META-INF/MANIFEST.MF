@@ -4,9 +4,9 @@ Bundle-SymbolicName: BPMN-GraphTransformation;singleton:=true
 Export-Package: BPMNGraphTransformation.api,
  BPMNGraphTransformation.api.matches,
  BPMNGraphTransformation.api.rules,
- BPMNInstanceRepresentationGraphTransformation.api,
- BPMNInstanceRepresentationGraphTransformation.api.matches,
- BPMNInstanceRepresentationGraphTransformation.api.rules
+ BPMNIRGraphTransformation.api,
+ BPMNIRGraphTransformation.api.matches,
+ BPMNIRGraphTransformation.api.rules
 Bundle-Name: BPMN-GT
 Bundle-Version: 1.0.0.qualifier
 Require-Bundle: BPMN,

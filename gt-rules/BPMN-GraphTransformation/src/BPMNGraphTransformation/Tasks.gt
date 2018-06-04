@@ -18,13 +18,9 @@ pattern findTaskByName(name: EString) {
 }
 
 /**
- * Add a task.
+ * Adds a task.
  */
-rule addTask {
-	++ task: Task
-}
-
-abstract rule insertTask(name: EString) {
+abstract rule addTask(name: EString) {
 	++ newTask: Task {
 		.name := param::name
 	}
@@ -35,8 +31,8 @@ abstract rule insertTask(name: EString) {
 /**
  * Inserts a task before another task.
  */
-rule insertTaskBefore
-refines insertTask {
+rule addTaskBefore
+refines addTask {
 	to: Task {
 		++ -incoming -> newFlow
 	}
@@ -49,8 +45,8 @@ refines insertTask {
 /**
  * Inserts a task between two other tasks.
  */
-rule insertTaskBetween
-refines insertTask {
+rule addTaskBetween
+refines addTask {
 	from: Task {
 		-outgoing -> flow
 	}
@@ -71,8 +67,8 @@ refines insertTask {
 /**
  * Inserts a task after another task.
  */
-rule insertTaskAfter
-refines insertTask {
+rule addTaskAfter
+refines addTask {
 	from: Task {
 		++ -outgoing -> newFlow
 	}
@@ -80,4 +76,11 @@ refines insertTask {
 	++ newTask: Task {
 		++ -incoming -> newFlow
 	}
+}
+
+/**
+ * Removes a task.
+ */
+rule removeTask {
+	-- task: Task
 }

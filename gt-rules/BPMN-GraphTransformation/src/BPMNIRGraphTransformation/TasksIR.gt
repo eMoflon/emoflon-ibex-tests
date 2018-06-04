@@ -1,7 +1,26 @@
+import "http://www.eclipse.org/emf/2002/Ecore"
 import "platform:/resource/BPMN/model/BPMN.ecore"
 import "platform:/resource/BPMNInstanceRepresentation/model/BPMNInstanceRepresentation.ecore"
 
-rule addNode {
+pattern findTaskIR {
+	task: TaskIR
+}
+
+abstract rule addInactiveTaskIR(name: EString) {
+	++ newTask: TaskIR {
+		++ -lifecycle -> lcnew
+	}
+
+	++ lcnew: Lifecycle {
+		.activeState := enum::INACTIVE
+	}
+}
+
+/**
+ * Adds an inactive task to between two tasks.The existing tasks must not be closed.
+ */
+rule addInactiveTaskIRBetweenTasks
+refines addInactiveTaskIR {
 	from: TaskIR {
 		-outgoing -> flow
 		-lifecycle -> lcfrom
@@ -26,25 +45,20 @@ rule addNode {
 	++ newTask: TaskIR {
 		++ -outgoing -> newFlow
 		++ -incoming -> flow
-		++ -lifecycle -> lcnew
-	}
-
-	++ lcnew: Lifecycle {
-		.activeState := enum::INACTIVE
 	}
 
 	++ newFlow: SequenceFlow
-
-	processIR: ProcessIR {
-		++ -flowElements -> newTask
-		++ -flowElements -> newFlow
-		-flowElements -> from
-		-flowElements -> to
-		-flowElements -> flow
-	}
+	
+//	processIR: ProcessIR {
+//		++ -flowElements -> newTask
+//		++ -flowElements -> newFlow
+//		-flowElements -> from
+//		-flowElements -> to
+//		-flowElements -> flow
+//	}
 }
-when inactiveTasks
 
+//when inactiveTasks
 condition inactiveTasks = forbid activeFromTask && forbid activeToTask
 
 pattern activeFromTask {

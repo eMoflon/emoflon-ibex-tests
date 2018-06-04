@@ -1,4 +1,4 @@
-package org.emoflon.ibex.gt.testsuite.BPMN;
+package org.emoflon.ibex.gt.testsuite.BPMNIR;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -8,24 +8,24 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.emoflon.ibex.common.operational.IContextPatternInterpreter;
 import org.emoflon.ibex.gt.testsuite.GTTestCase;
 
-import BPMNGraphTransformation.api.BPMNGraphTransformationAPI;
+import BPMNIRGraphTransformation.api.BPMNIRGraphTransformationAPI;
 import bpmn2.Bpmn2Package;
 import bpmn2InstanceRepresentation.Bpmn2InstanceRepresentationPackage;
 
 /**
- * Abstract test class for the BPMN Graph Transformation API. All tests for this
- * API should inherit from this class.
+ * Abstract test class for the BPMN IR Graph Transformation API. All tests for
+ * this API should inherit from this class.
  */
-public class BPMNAbstractTest extends GTTestCase<BPMNGraphTransformationAPI> {
+public class BPMNIRAbstractTest extends GTTestCase<BPMNIRGraphTransformationAPI> {
 
 	@Override
 	protected String getTestName() {
-		return "BPMN";
+		return "BPMN-IR";
 	}
 
 	@Override
-	protected BPMNGraphTransformationAPI getAPI(final IContextPatternInterpreter engine, final ResourceSet model) {
-		return new BPMNGraphTransformationAPI(engine, model, GTTestCase.workspacePath);
+	protected BPMNIRGraphTransformationAPI getAPI(final IContextPatternInterpreter engine, final ResourceSet model) {
+		return new BPMNIRGraphTransformationAPI(engine, model, GTTestCase.workspacePath);
 	}
 
 	@Override
