@@ -8,6 +8,7 @@ pattern findTaskIR {
 
 abstract rule addInactiveTaskIR(name: EString) {
 	++ newTask: TaskIR {
+		.name := param::name
 		++ -lifecycle -> lcnew
 	}
 
@@ -48,17 +49,17 @@ refines addInactiveTaskIR {
 	}
 
 	++ newFlow: SequenceFlow
-	
-//	processIR: ProcessIR {
-//		++ -flowElements -> newTask
-//		++ -flowElements -> newFlow
-//		-flowElements -> from
-//		-flowElements -> to
-//		-flowElements -> flow
-//	}
-}
 
-//when inactiveTasks
+	processIR: ProcessIR {
+		++ -flowElements -> newTask
+		++ -flowElements -> newFlow
+		-flowElements -> from
+		-flowElements -> to
+		-flowElements -> flow
+	}
+}
+when inactiveTasks
+
 condition inactiveTasks = forbid activeFromTask && forbid activeToTask
 
 pattern activeFromTask {

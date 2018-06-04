@@ -5,7 +5,8 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:bpmn2="platform:/resource/BPMN/model/BPMN.ecore"
     xmlns:bpmn2InstanceRepresentation="platform:/resource/BPMNInstanceRepresentation/model/BPMNInstanceRepresentation.ecore"
-    id="" name="My Example Process">
+    id="" name="My Example Process"
+    activeTasks="//@flowElements.0">
   <flowElements
       xsi:type="bpmn2InstanceRepresentation:TaskIR"
       name="A"

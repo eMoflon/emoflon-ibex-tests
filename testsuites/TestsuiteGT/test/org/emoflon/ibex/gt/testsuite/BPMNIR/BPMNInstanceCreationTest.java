@@ -18,4 +18,15 @@ public class BPMNInstanceCreationTest extends BPMNIRAbstractTest {
 
 		saveResourceSet(model);
 	}
+
+	@Test
+	public void insertTaskBetweenExistingTasksNotApplicable() {
+		ResourceSet model = this.initResourceSet("BPMN-IR-insertTaskBetween2.xmi", "BPMN-IR-ex2.xmi");
+		BPMNIRGraphTransformationAPI api = this.initAPI(model);
+
+		assertNotApplicable(api.addInactiveTaskIRBetweenTasks("C").apply());
+		assertMatchCount(2, api.findTaskIR());
+
+		saveResourceSet(model);
+	}
 }
