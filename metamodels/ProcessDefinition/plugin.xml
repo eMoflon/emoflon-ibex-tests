@@ -4,6 +4,6 @@
     <package class="ProcessDefinition.ProcessDefinitionPackage" genModel="model/ProcessDefinition.genmodel" uri="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore"/>
   </extension>
   <extension point="org.eclipse.emf.ecore.generated_package">
-    <package class="ProcessDefinition.facade.FacadePackage" genModel="model/ProcessDefinition.genmodel" uri="platform:/plugin/ProcessDefinition/model/ProcessDefinition.ecore#//facade"/>
+    <package class="ProcessDefinition.facade.FacadePackage" genModel="model/ProcessDefinition.genmodel" uri="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//facade"/>
   </extension>
 </plugin>

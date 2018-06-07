@@ -48,7 +48,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" ordered="false" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eSubpackages name="facade" nsURI="platform:/plugin/ProcessDefinition/model/ProcessDefinition.ecore#//facade"
+  <eSubpackages name="facade" nsURI="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//facade"
       nsPrefix="facade">
     <eClassifiers xsi:type="ecore:EClass" name="Helper">
       <eOperations name="outputCycle">
