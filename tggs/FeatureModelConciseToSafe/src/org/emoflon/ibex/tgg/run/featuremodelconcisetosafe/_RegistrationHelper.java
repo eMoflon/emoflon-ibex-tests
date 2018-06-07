@@ -19,8 +19,8 @@ public class _RegistrationHelper {
 	/** Load and register source and target metamodels */
 	public static void registerMetamodels(ResourceSet rs, OperationalStrategy strategy)  throws IOException {
 		// Load and register source and target metamodels
-		rs.getPackageRegistry().put("platform:/resource/FeatureModelConcise/model/FeatureModelConcise.ecore", FeatureModelConcisePackageImpl.init());
-		rs.getPackageRegistry().put("platform:/resource/FeatureModelSafe/model/FeatureModelSafe.ecore", FeatureModelSafePackageImpl.init());
+		FeatureModelConcisePackageImpl.init();
+		FeatureModelSafePackageImpl.init();
 		
 		if(strategy instanceof FWD_OPT) {
 			// Load and register source and target metamodels

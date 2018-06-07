@@ -18,8 +18,8 @@ public class _RegistrationHelper {
 	/** Load and register source and target metamodels */
 	public static void registerMetamodels(ResourceSet rs, OperationalStrategy strategy)  throws IOException {
 		// Load and register source and target metamodels
-		rs.getPackageRegistry().put("platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore", ProcessDefinitionPackageImpl.init());
-		rs.getPackageRegistry().put("platform:/resource/MocaTree/model/MocaTree.ecore", MocaTreePackageImpl.init());
+		ProcessDefinitionPackageImpl.init();
+		MocaTreePackageImpl.init();
 		
 		if(strategy instanceof FWD_OPT) {
 			// Load and register source and target metamodels

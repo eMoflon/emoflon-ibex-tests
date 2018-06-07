@@ -19,8 +19,8 @@ public class _RegistrationHelper {
 	/** Load and register source and target metamodels */
 	public static void registerMetamodels(ResourceSet rs, OperationalStrategy strategy)  throws IOException {
 		// Load and register source and target metamodels
-		rs.getPackageRegistry().put("platform:/resource/BlockLanguage/model/BlockLanguage.ecore", BlockLanguagePackageImpl.init());
-		rs.getPackageRegistry().put("platform:/resource/MocaTree/model/MocaTree.ecore", MocaTreePackageImpl.init());
+		BlockLanguagePackageImpl.init();
+		MocaTreePackageImpl.init();
 		
 		if(strategy instanceof FWD_OPT) {
 			Resource res = strategy.loadResource("platform:/resource/../metamodels/BlockLanguage/model/BlockLanguage.ecore");

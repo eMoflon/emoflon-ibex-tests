@@ -17,8 +17,8 @@ public class _RegistrationHelper {
 	/** Load and register source and target metamodels */
 	public static void registerMetamodels(ResourceSet rs, OperationalStrategy strategy)  throws IOException {
 		// Load and register source and target metamodels
-		rs.getPackageRegistry().put("platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore", SimpleFamiliesPackageImpl.init());
-		rs.getPackageRegistry().put("platform:/resource/SimplePersons/model/SimplePersons.ecore", SimplePersonsPackageImpl.init());
+		SimpleFamiliesPackageImpl.init();
+		SimplePersonsPackageImpl.init();
 		
 		if(strategy instanceof FWD_OPT) {
 		}

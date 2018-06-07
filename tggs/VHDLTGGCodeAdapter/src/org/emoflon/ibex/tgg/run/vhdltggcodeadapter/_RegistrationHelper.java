@@ -17,8 +17,8 @@ public class _RegistrationHelper {
 	/** Load and register source and target metamodels */
 	public static void registerMetamodels(ResourceSet rs, OperationalStrategy strategy)  throws IOException {
 		// Load and register source and target metamodels
-		rs.getPackageRegistry().put("platform:/resource/VHDLModel/model/VHDLModel.ecore", VHDLModelPackageImpl.init());
-		rs.getPackageRegistry().put("platform:/resource/MocaTree/model/MocaTree.ecore", MocaTreePackageImpl.init());
+		VHDLModelPackageImpl.init();
+		MocaTreePackageImpl.init();
 		
 		if(strategy instanceof FWD_OPT) {
 			// Load and register source and target metamodels

@@ -17,8 +17,8 @@ public class _RegistrationHelper {
 
 	/** Load and register source and target metamodels */
 	public static void registerMetamodels(ResourceSet rs, OperationalStrategy strategy)  throws IOException {
-		rs.getPackageRegistry().put("platform:/resource/Algorithm/model/Algorithms.ecore", AlgorithmsPackageImpl.init());
-		rs.getPackageRegistry().put("platform:/resource/Strategies/model/Strategies.ecore", StrategiesPackageImpl.init());
+		AlgorithmsPackageImpl.init();
+		StrategiesPackageImpl.init();
 		
 		if(strategy instanceof OPT) {
 			Resource res = strategy.loadResource("platform:/resource/../metamodels/Strategies/model/Strategies.ecore");

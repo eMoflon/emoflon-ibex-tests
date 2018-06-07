@@ -17,8 +17,8 @@ public class _RegistrationHelper {
 	/** Load and register source and target metamodels */
 	public static void registerMetamodels(ResourceSet rs, OperationalStrategy strategy)  throws IOException {
 		// Load and register source and target metamodels
-		rs.getPackageRegistry().put("platform:/resource/ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore", ClassMultipleInheritanceHierarchyPackageImpl.init());		
-		rs.getPackageRegistry().put("platform:/resource/Documents/model/Documents.ecore", DocumentsPackageImpl.init());
+		ClassMultipleInheritanceHierarchyPackageImpl.init();		
+		DocumentsPackageImpl.init();
 		
 		if(strategy instanceof FWD_OPT) {
 		}
