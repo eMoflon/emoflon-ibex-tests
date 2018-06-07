@@ -10,6 +10,9 @@
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,tggs/BlockDiagramCodeAdapter"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,tggs/BlockDiagramCodeAdapter_EdgeRules"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,metamodels/BlockLanguage"/>
+<project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,metamodels/BPMN"/>
+<project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,gt-rules/BPMN-GraphTransformation"/>
+<project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,metamodels/BPMNInstanceRepresentation"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,tggs/Class2Doc_MA"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,tggs/Class2TestClass_MA"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,metamodels/ClassInheritanceHierarchy"/>
@@ -55,12 +58,13 @@
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,tggs/VHDLTGGCodeAdapter"/>
 </provider>
 <workingSets editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" id="1519241320202_7" label="gt-rules" name="gt-rules">
+<item elementID="=ClassMultipleInheritanceHierarchyGraphTransformation" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=SimplePersonsGraphTransformation" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=SheRememberedCaterpillarsGraphTransformation" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=FerrymanProblemGraphTransformation" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=SimpleFamiliesGraphTransformation" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=SimpleFamiliesToSimplePersonsGraphTransformation" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=ClassMultipleInheritanceHierarchyGraphTransformation" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=BPMN-GraphTransformation" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 </workingSets>
 <workingSets editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" id="1496664564939_2" label="metamodels" name="metamodels">
 <item elementID="=FeatureModelSafe" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
@@ -85,6 +89,8 @@
 <item elementID="=BlockDiagram" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=MocaTree" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=ClassInheritanceHierarchy" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=BPMN" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=BPMNInstanceRepresentation" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 </workingSets>
 <workingSets editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" id="1496664579737_3" label="testsuites" name="testsuites">
 <item elementID="=Testsuite" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
