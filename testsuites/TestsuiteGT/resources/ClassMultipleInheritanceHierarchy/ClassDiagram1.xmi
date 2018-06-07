@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<classMultipleInheritanceHierarchy:ClassPackage
+<ClassMultipleInheritanceHierarchy:ClassPackage
     xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI"
-    xmlns:classMultipleInheritanceHierarchy="platform:/resource/ClassMultipleInheritanceHierarchy/model/ClassMultipleInheritanceHierarchy.ecore"
+    xmlns:ClassMultipleInheritanceHierarchy="platform:/resource/ClassMultipleInheritanceHierarchy/model/ClassMultipleInheritanceHierarchy.ecore"
     name="TestPackage">
   <classes name="TestA"/>
   <classes name="TestB"/>
@@ -13,4 +13,4 @@
       superClass="//@classes.1"/>
   <classes name="SubAB"
       superClass="//@classes.0 //@classes.1"/>
-</classMultipleInheritanceHierarchy:ClassPackage>
+</ClassMultipleInheritanceHierarchy:ClassPackage>
