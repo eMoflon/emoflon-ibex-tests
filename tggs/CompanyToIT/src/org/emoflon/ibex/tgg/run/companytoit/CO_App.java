@@ -5,13 +5,10 @@ import java.io.IOException;
 import org.apache.log4j.BasicConfigurator;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.ibex.tgg.operational.csp.constraints.factories.UserDefinedRuntimeTGGAttrConstraintFactory;
-import org.emoflon.ibex.tgg.operational.strategies.co.CO;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
+import org.emoflon.ibex.tgg.operational.strategies.co.CO;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesTGGEngine;
 import org.emoflon.ibex.tgg.util.ilp.ILPFactory.SupportedILPSolver;
-
-import CompanyLanguage.impl.CompanyLanguagePackageImpl;
-import ITLanguage.impl.ITLanguagePackageImpl;
 
 public class CO_App extends CO {
 
@@ -48,11 +45,10 @@ public class CO_App extends CO {
 		logger.info(co.generateConsistencyReport());
 	}
 
+	@Override
 	protected void registerUserMetamodels() throws IOException {
-		// Load and register source and target metamodels
-		rs.getPackageRegistry().put("platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore", CompanyLanguagePackageImpl.init());
-		rs.getPackageRegistry().put("platform:/resource/ITLanguage/model/ITLanguage.ecore", ITLanguagePackageImpl.init());
-		
+		_RegistrationHelper.registerMetamodels(rs, this);
+			
 		// Register correspondence metamodel last
 		loadAndRegisterMetamodel(options.projectPath() + "/model/" + options.projectPath() + ".ecore");
 	}

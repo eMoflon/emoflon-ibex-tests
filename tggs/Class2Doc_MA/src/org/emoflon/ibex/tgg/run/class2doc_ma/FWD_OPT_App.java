@@ -43,6 +43,7 @@ public class FWD_OPT_App extends FWD_OPT {
 		fwd_opt.terminate();
 	}
 
+	@Override
 	protected void registerUserMetamodels() throws IOException {
 		_RegistrationHelper.registerMetamodels(rs, this);
 			

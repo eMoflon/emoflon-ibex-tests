@@ -47,12 +47,10 @@ public class CC_App extends CC {
 		cc.terminate();
 	}
 	
+	@Override
 	protected void registerUserMetamodels() throws IOException {
-		rs.getPackageRegistry().put("platform:/resource/ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore", ClassMultipleInheritanceHierarchyPackageImpl.init());
-		rs.getPackageRegistry().put("platform:/resource/Database/model/Database.ecore", DatabasePackageImpl.init());
-
-		//throw new NotImplementedException("Please check that your source and target metamodels are loaded and registered.");
-		
+		_RegistrationHelper.registerMetamodels(rs, this);
+			
 		// Register correspondence metamodel last
 		loadAndRegisterMetamodel(options.projectPath() + "/model/" + options.projectPath() + ".ecore");
 	}

@@ -3,16 +3,12 @@ package org.emoflon.ibex.tgg.run.featuremodelconcisetosafe;
 import java.io.IOException;
 
 import org.apache.log4j.BasicConfigurator;
-import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.ibex.tgg.operational.csp.constraints.factories.UserDefinedRuntimeTGGAttrConstraintFactory;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.sync.BWD_OPT;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesTGGEngine;
 import org.emoflon.ibex.tgg.util.ilp.ILPFactory.SupportedILPSolver;
-
-import FeatureModelSafe.impl.FeatureModelSafePackageImpl;
 
 public class BWD_OPT_App extends BWD_OPT {
 
@@ -47,17 +43,10 @@ public class BWD_OPT_App extends BWD_OPT {
 		bwd_opt.terminate();
 	}
 
+	@Override
 	protected void registerUserMetamodels() throws IOException {
-		rs.getPackageRegistry().put("platform:/resource/FeatureModelSafe/model/FeatureModelSafe.ecore", FeatureModelSafePackageImpl.init());
-		
-		// Load and register source and target metamodels
-		//rs.getPackageRegistry().put("platform:/resource/FeatureModelSafe/model/FeatureModelSafe.ecore", FeatureModelSafePackageImpl.init());
-		Resource res = loadResource("platform:/resource/../metamodels/FeatureModelConcise/model/FeatureModelConcise.ecore");
-		EPackage pack = (EPackage) res.getContents().get(0);
-		//pack.setNsURI("platform:/plugin/FeatureModelSafe/model/FeatureModelSafe.ecore");
-		rs.getPackageRegistry().put("platform:/resource/FeatureModelConcise/model/FeatureModelConcise.ecore", pack);
-		rs.getPackageRegistry().put("platform:/plugin/FeatureModelConcise/model/FeatureModelConcise.ecore", pack);
-		
+		_RegistrationHelper.registerMetamodels(rs, this);
+			
 		// Register correspondence metamodel last
 		loadAndRegisterMetamodel(options.projectPath() + "/model/" + options.projectPath() + ".ecore");
 	}

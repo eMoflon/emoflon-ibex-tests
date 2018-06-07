@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ASCII"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="BlockLanguage" nsURI="platform:/plugin/BlockLanguage/model/BlockLanguage.ecore"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="BlockLanguage" nsURI="platform:/resource/BlockLanguage/model/BlockLanguage.ecore"
     nsPrefix="BlockLanguage">
   <eClassifiers xsi:type="ecore:EClass" name="Block">
     <eStructuralFeatures xsi:type="ecore:EReference" name="ports" upperBound="-1"

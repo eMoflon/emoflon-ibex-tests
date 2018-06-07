@@ -48,11 +48,10 @@ public class CO_App extends CO {
 		logger.info(co.generateConsistencyReport());
 	}
 
+	@Override
 	protected void registerUserMetamodels() throws IOException {
-		// Load and register source and target metamodels
-		rs.getPackageRegistry().put("platform:/resource/BlockLanguage/model/BlockLanguage.ecore", BlockLanguagePackageImpl.init());
-		rs.getPackageRegistry().put("platform:/resource/MocaTree/model/MocaTree.ecore", MocaTreePackageImpl.init());
-		
+		_RegistrationHelper.registerMetamodels(rs, this);
+			
 		// Register correspondence metamodel last
 		loadAndRegisterMetamodel(options.projectPath() + "/model/" + options.projectPath() + ".ecore");
 	}

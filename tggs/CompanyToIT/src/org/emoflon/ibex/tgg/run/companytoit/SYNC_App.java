@@ -1,14 +1,12 @@
 package org.emoflon.ibex.tgg.run.companytoit;
 
 import java.io.IOException;
+
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.ibex.tgg.operational.csp.constraints.factories.UserDefinedRuntimeTGGAttrConstraintFactory;
-import org.emoflon.ibex.tgg.operational.strategies.sync.SYNC;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
+import org.emoflon.ibex.tgg.operational.strategies.sync.SYNC;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesTGGEngine;
-
-import CompanyLanguage.impl.CompanyLanguagePackageImpl;
-import ITLanguage.impl.ITLanguagePackageImpl;
 
 public class SYNC_App extends SYNC {
 
@@ -29,9 +27,8 @@ public class SYNC_App extends SYNC {
 	
 	@Override
 	protected void registerUserMetamodels() throws IOException {
-		rs.getPackageRegistry().put("platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore", CompanyLanguagePackageImpl.init());
-		rs.getPackageRegistry().put("platform:/resource/ITLanguage/model/ITLanguage.ecore", ITLanguagePackageImpl.init());
-		
+		_RegistrationHelper.registerMetamodels(rs, this);
+			
 		// Register correspondence metamodel last
 		loadAndRegisterMetamodel(options.projectPath() + "/model/" + options.projectPath() + ".ecore");
 	}

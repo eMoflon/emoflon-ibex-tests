@@ -2,6 +2,6 @@
 <?eclipse version="3.0"?><!--
 --><plugin>
   <extension point="org.eclipse.emf.ecore.generated_package">
-    <package class="MocaTree.MocaTreePackage" genModel="model/MocaTree.genmodel" uri="platform:/plugin/MocaTree/model/MocaTree.ecore"/>
+    <package class="MocaTree.MocaTreePackage" genModel="model/MocaTree.genmodel" uri="platform:/resource/MocaTree/model/MocaTree.ecore"/>
   </extension>
 </plugin>

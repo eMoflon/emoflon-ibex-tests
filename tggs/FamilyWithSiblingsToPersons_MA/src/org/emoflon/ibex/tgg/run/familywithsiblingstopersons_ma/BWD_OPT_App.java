@@ -3,7 +3,6 @@ package org.emoflon.ibex.tgg.run.familywithsiblingstopersons_ma;
 import java.io.IOException;
 
 import org.apache.log4j.BasicConfigurator;
-
 import org.emoflon.ibex.tgg.operational.csp.constraints.factories.UserDefinedRuntimeTGGAttrConstraintFactory;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.sync.BWD_OPT;
@@ -31,6 +30,7 @@ public class BWD_OPT_App extends BWD_OPT {
 		bwd_opt.terminate();
 	}
 
+	@Override
 	protected void registerUserMetamodels() throws IOException {
 		_RegistrationHelper.registerMetamodels(rs, this);
 			

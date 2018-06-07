@@ -37,9 +37,9 @@ public class CC_App extends CC {
 		logger.info(cc.generateConsistencyReport());			
 	}
 
+	@Override
 	protected void registerUserMetamodels() throws IOException {
-		loadAndRegisterMetamodel("platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore");
-		loadAndRegisterMetamodel("platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore");
+		_RegistrationHelper.registerMetamodels(rs, this);
 			
 		// Register correspondence metamodel last
 		loadAndRegisterMetamodel(options.projectPath() + "/model/" + options.projectPath() + ".ecore");

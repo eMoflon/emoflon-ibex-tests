@@ -9,9 +9,6 @@ import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.cc.CC;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesTGGEngine;
 
-import FamiliesWithSiblings.impl.FamiliesWithSiblingsPackageImpl;
-import Persons.impl.PersonsPackageImpl;
-
 public class CC_App extends CC {
 	
 	private String srcPath;
@@ -46,10 +43,10 @@ public class CC_App extends CC {
 		logger.info(cc.generateConsistencyReport());
 	}
 
+	@Override
 	protected void registerUserMetamodels() throws IOException {
-		rs.getPackageRegistry().put("platform:/resource/FamiliesWithSiblings/model/FamiliesWithSiblings.ecore", FamiliesWithSiblingsPackageImpl.init());
-		rs.getPackageRegistry().put("platform:/resource/Persons/model/Persons.ecore", PersonsPackageImpl.init());
-		
+		_RegistrationHelper.registerMetamodels(rs, this);
+			
 		// Register correspondence metamodel last
 		loadAndRegisterMetamodel(options.projectPath() + "/model/" + options.projectPath() + ".ecore");
 	}

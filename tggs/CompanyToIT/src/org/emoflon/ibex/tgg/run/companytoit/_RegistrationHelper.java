@@ -2,31 +2,39 @@ package org.emoflon.ibex.tgg.run.companytoit;
 
 import java.io.IOException;
 
-import org.apache.commons.lang3.NotImplementedException;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.emoflon.ibex.tgg.operational.strategies.OperationalStrategy;
+import org.emoflon.ibex.tgg.operational.strategies.sync.BWD_OPT;
+import org.emoflon.ibex.tgg.operational.strategies.sync.FWD_OPT;
+
+import CompanyLanguage.impl.CompanyLanguagePackageImpl;
+import ITLanguage.impl.ITLanguagePackageImpl;
 
 
 public class _RegistrationHelper {
 
 	/** Load and register source and target metamodels */
 	public static void registerMetamodels(ResourceSet rs, OperationalStrategy strategy)  throws IOException {
-		throw new NotImplementedException("You need to register your source and target metamodels.");
+		// Load and register source and target metamodels
+		rs.getPackageRegistry().put("platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore", CompanyLanguagePackageImpl.init());
+		rs.getPackageRegistry().put("platform:/resource/ITLanguage/model/ITLanguage.ecore", ITLanguagePackageImpl.init());
 		
-		// For both source and target metamodels (and any other dependencies you might require)
+		if(strategy instanceof FWD_OPT) {
+			// Load and register source and target metamodels
+			Resource res = strategy.loadResource("platform:/resource/../metamodels/ITLanguage/model/ITLanguage.ecore");
+			EPackage pack = (EPackage) res.getContents().get(0);
+			rs.getPackageRegistry().put("platform:/resource/ITLanguage/model/ITLanguage.ecore", pack);
+			rs.getPackageRegistry().put("platform:/plugin/ITLanguage/model/ITLanguage.ecore", pack);
+		}
 		
-		// Option 1 (recommended): If you have generated code for your metamodel <Foo> and use eMoflon projects and defaults,
-		//                         just add the project Foo as a plugin dependency and simply use:
-		// FooPackageImpl.init();
-
-		// Option 2:  If you wish to use the .ecore file directly without generating code
-		// strategy.loadAndRegisterMetamodel("<pathToEcoreFile>");
-		
-		// Option 3 (advanced): If you have an .ecore file with an arbitrary URI "<URIOfPackage>"
-		// String pathToEcoreFile = "<pathToEcoreFile>";
-		// URI key = URI.createURI("<URIOfPackage>");
-		// URI value = URI.createURI(pathToEcoreFile);
-		// strategy.loadAndRegisterMetamodel(pathToEcoreFile);
-		// rs.getURIConverter().getURIMap().put(key, value);
+		if(strategy instanceof BWD_OPT) {
+			// Load and register source and target metamodels
+			Resource res = strategy.loadResource("platform:/resource/../metamodels/CompanyLanguage/model/CompanyLanguage.ecore");
+			EPackage pack = (EPackage) res.getContents().get(0);
+			rs.getPackageRegistry().put("platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore", pack);
+			rs.getPackageRegistry().put("platform:/plugin/CompanyLanguage/model/CompanyLanguage.ecore", pack);
+		}
 	}
 }

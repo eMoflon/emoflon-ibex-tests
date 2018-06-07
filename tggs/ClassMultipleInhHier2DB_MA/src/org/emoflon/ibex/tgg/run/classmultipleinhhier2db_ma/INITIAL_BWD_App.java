@@ -50,11 +50,12 @@ public class INITIAL_BWD_App extends SYNC {
 		p.save(null);
 	}
 	
+	@Override
 	protected void registerUserMetamodels() throws IOException {
 		_RegistrationHelper.registerMetamodels(rs, this);
 			
 		// Register correspondence metamodel last
-		loadAndRegisterMetamodel(options.projectPath() + "/model/" + options.projectName() + ".ecore");
+		loadAndRegisterMetamodel(options.projectPath() + "/model/" + options.projectPath() + ".ecore");
 	}
 	
 	private static IbexOptions createIbexOptions() {

@@ -9,9 +9,6 @@ import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.sync.SYNC;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesTGGEngine;
 
-import Documents.impl.DocumentsPackageImpl;
-import classMultipleInheritanceHierarchy.impl.ClassMultipleInheritanceHierarchyPackageImpl;
-
 public class SYNC_App extends SYNC {
 
 	public SYNC_App(String projectName, String workspacePath, boolean debug) throws IOException {
@@ -34,10 +31,10 @@ public class SYNC_App extends SYNC {
 		sync.terminate();
 	}
 
+	@Override
 	protected void registerUserMetamodels() throws IOException {
-		rs.getPackageRegistry().put("platform:/resource/ClassMultipleInheritanceHierarchy/model/classMultipleInheritanceHierarchy.ecore", ClassMultipleInheritanceHierarchyPackageImpl.init());		
-		rs.getPackageRegistry().put("platform:/resource/Documents/model/Documents.ecore", DocumentsPackageImpl.init());
-		
+		_RegistrationHelper.registerMetamodels(rs, this);
+			
 		// Register correspondence metamodel last
 		loadAndRegisterMetamodel(options.projectPath() + "/model/" + options.projectPath() + ".ecore");
 	}

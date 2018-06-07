@@ -47,15 +47,9 @@ public class FWD_OPT_App extends FWD_OPT {
 		fwd_opt.terminate();
 	}
 
+	@Override
 	protected void registerUserMetamodels() throws IOException {
-		// Load and register source and target metamodels
-		rs.getPackageRegistry().put("platform:/resource/MocaTree/model/MocaTree.ecore", MocaTreePackageImpl.init());
-		
-		Resource res = loadResource("platform:/resource/../metamodels/BlockLanguage/model/BlockLanguage.ecore");
-		EPackage pack = (EPackage) res.getContents().get(0);
-		//pack.setNsURI("platform:/plugin/BlockLanguage/model/BlockLanguage.ecore");
-		rs.getPackageRegistry().put("platform:/resource/BlockLanguage/model/BlockLanguage.ecore", pack);
-		rs.getPackageRegistry().put("platform:/plugin/BlockLanguage/model/BlockLanguage.ecore", pack);
+		_RegistrationHelper.registerMetamodels(rs, this);
 			
 		// Register correspondence metamodel last
 		loadAndRegisterMetamodel(options.projectPath() + "/model/" + options.projectPath() + ".ecore");

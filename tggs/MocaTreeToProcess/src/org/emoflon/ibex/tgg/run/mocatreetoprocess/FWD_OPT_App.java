@@ -3,16 +3,12 @@ package org.emoflon.ibex.tgg.run.mocatreetoprocess;
 import java.io.IOException;
 
 import org.apache.log4j.BasicConfigurator;
-import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.ibex.tgg.operational.csp.constraints.factories.UserDefinedRuntimeTGGAttrConstraintFactory;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.sync.FWD_OPT;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesTGGEngine;
 import org.emoflon.ibex.tgg.util.ilp.ILPFactory.SupportedILPSolver;
-
-import MocaTree.impl.MocaTreePackageImpl;
 
 public class FWD_OPT_App extends FWD_OPT {
 
@@ -59,19 +55,8 @@ public class FWD_OPT_App extends FWD_OPT {
 	
 	@Override
 	protected void registerUserMetamodels() throws IOException {
-		// Load and register source and target metamodels
-		rs.getPackageRegistry().put("platform:/resource/MocaTree/model/MocaTree.ecore", MocaTreePackageImpl.init());
-		//rs.getPackageRegistry().put("platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore", ProcessDefinitionPackageImpl.init());
-		//loadAndRegisterMetamodel("platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore");
-		
-		Resource res = loadResource("platform:/resource/../metamodels/ProcessDefinition/model/ProcessDefinition.ecore");
-		EPackage pack = (EPackage) res.getContents().get(0);
-		//pack.setNsURI("platform:/plugin/ProcessDefinition/model/ProcessDefinition.ecore");
-		//rs.getResources().remove(res);
-		rs.getPackageRegistry().put("platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore", pack);
-		
-		rs.getPackageRegistry().put("platform:/plugin/ProcessDefinition/model/ProcessDefinition.ecore", pack);
-		
+		_RegistrationHelper.registerMetamodels(rs, this);
+			
 		// Register correspondence metamodel last
 		loadAndRegisterMetamodel(options.projectPath() + "/model/" + options.projectPath() + ".ecore");
 	}

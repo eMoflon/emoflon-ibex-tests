@@ -31,6 +31,7 @@ public class BWD_OPT_App extends BWD_OPT {
 		bwd_opt.terminate();
 	}
 
+	@Override
 	protected void registerUserMetamodels() throws IOException {
 		_RegistrationHelper.registerMetamodels(rs, this);
 			

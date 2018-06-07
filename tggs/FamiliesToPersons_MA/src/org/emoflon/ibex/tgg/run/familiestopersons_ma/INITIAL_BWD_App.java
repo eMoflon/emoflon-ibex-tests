@@ -4,11 +4,10 @@ import java.io.IOException;
 
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
-
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.ibex.tgg.operational.csp.constraints.factories.UserDefinedRuntimeTGGAttrConstraintFactory;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.sync.SYNC;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesTGGEngine;
 
 public class INITIAL_BWD_App extends SYNC {
@@ -50,11 +49,12 @@ public class INITIAL_BWD_App extends SYNC {
 		p.save(null);
 	}
 	
+	@Override
 	protected void registerUserMetamodels() throws IOException {
 		_RegistrationHelper.registerMetamodels(rs, this);
 			
 		// Register correspondence metamodel last
-		loadAndRegisterMetamodel(options.projectPath() + "/model/" + options.projectName() + ".ecore");
+		loadAndRegisterMetamodel(options.projectPath() + "/model/" + options.projectPath() + ".ecore");
 	}
 	
 	private static IbexOptions createIbexOptions() {

@@ -47,10 +47,10 @@ public class CC_App extends CC {
 		logger.info(cc.generateConsistencyReport());			
 	}
 
+	@Override
 	protected void registerUserMetamodels() throws IOException {
-		rs.getPackageRegistry().put("platform:/resource/Algorithm/model/Algorithms.ecore", AlgorithmsPackageImpl.init());
-		rs.getPackageRegistry().put("platform:/resource/Strategies/model/Strategies.ecore", StrategiesPackageImpl.init());
-		
+		_RegistrationHelper.registerMetamodels(rs, this);
+			
 		// Register correspondence metamodel last
 		loadAndRegisterMetamodel(options.projectPath() + "/model/" + options.projectPath() + ".ecore");
 	}

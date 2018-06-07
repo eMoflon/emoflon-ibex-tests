@@ -44,6 +44,7 @@ public class CO_App extends CO {
 		logger.info(co.generateConsistencyReport());
 	}
 
+	@Override
 	protected void registerUserMetamodels() throws IOException {
 		_RegistrationHelper.registerMetamodels(rs, this);
 			

@@ -49,12 +49,7 @@ public class FWD_OPT_App extends FWD_OPT {
 	
 	@Override
 	protected void registerUserMetamodels() throws IOException {
-		rs.getPackageRegistry().put("platform:/resource/Families/model/Families.ecore", FamiliesPackageImpl.init());
-		
-		Resource res = loadResource("platform:/resource/../../benchmarx/examples/familiestopersons/metamodels/Persons/model/Persons.ecore");
-		EPackage pack = (EPackage) res.getContents().get(0);
-		rs.getResources().remove(res);
-		rs.getPackageRegistry().put("platform:/resource/Persons/model/Persons.ecore", pack);
+		_RegistrationHelper.registerMetamodels(rs, this);
 		
 		// Register correspondence metamodel last
 		loadAndRegisterMetamodel(options.projectPath() + "/model/" + options.projectPath() + ".ecore");

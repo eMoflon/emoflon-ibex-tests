@@ -3,7 +3,6 @@ package org.emoflon.ibex.tgg.run.modiscoibextgg;
 import java.io.IOException;
 
 import org.apache.log4j.BasicConfigurator;
-
 import org.emoflon.ibex.tgg.operational.csp.constraints.factories.UserDefinedRuntimeTGGAttrConstraintFactory;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGEN;
@@ -38,9 +37,9 @@ public class MODELGEN_App extends MODELGEN {
 		generator.terminate();
 	}
 
+	@Override
 	protected void registerUserMetamodels() throws IOException {
-		loadAndRegisterMetamodel("platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore");
-		loadAndRegisterMetamodel("platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore");
+		_RegistrationHelper.registerMetamodels(rs, this);
 			
 		// Register correspondence metamodel last
 		loadAndRegisterMetamodel(options.projectPath() + "/model/" + options.projectPath() + ".ecore");

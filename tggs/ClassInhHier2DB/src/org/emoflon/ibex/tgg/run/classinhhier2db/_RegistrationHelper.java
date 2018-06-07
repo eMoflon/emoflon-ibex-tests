@@ -2,31 +2,38 @@ package org.emoflon.ibex.tgg.run.classinhhier2db;
 
 import java.io.IOException;
 
-import org.apache.commons.lang3.NotImplementedException;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.emoflon.ibex.tgg.operational.strategies.OperationalStrategy;
+import org.emoflon.ibex.tgg.operational.strategies.sync.BWD_OPT;
+import org.emoflon.ibex.tgg.operational.strategies.sync.FWD_OPT;
 
+import ClassInheritanceHierarchy.impl.ClassInheritanceHierarchyPackageImpl;
+import Database.impl.DatabasePackageImpl;
 
 public class _RegistrationHelper {
 
 	/** Load and register source and target metamodels */
-	public static void registerMetamodels(ResourceSet rs, OperationalStrategy strategy)  throws IOException {
-		throw new NotImplementedException("You need to register your source and target metamodels.");
-		
-		// For both source and target metamodels (and any other dependencies you might require)
-		
-		// Option 1 (recommended): If you have generated code for your metamodel <Foo> and use eMoflon projects and defaults,
-		//                         just add the project Foo as a plugin dependency and simply use:
-		// FooPackageImpl.init();
+	public static void registerMetamodels(ResourceSet rs, OperationalStrategy strategy) throws IOException {
+		// Load and register source and target metamodels
+		rs.getPackageRegistry().put("platform:/resource/ClassInheritanceHierarchy/model/ClassInheritanceHierarchy.ecore", ClassInheritanceHierarchyPackageImpl.init());
+		rs.getPackageRegistry().put("platform:/resource/Database/model/Database.ecore", DatabasePackageImpl.init());
 
-		// Option 2:  If you wish to use the .ecore file directly without generating code
-		// strategy.loadAndRegisterMetamodel("<pathToEcoreFile>");
-		
-		// Option 3 (advanced): If you have an .ecore file with an arbitrary URI "<URIOfPackage>"
-		// String pathToEcoreFile = "<pathToEcoreFile>";
-		// URI key = URI.createURI("<URIOfPackage>");
-		// URI value = URI.createURI(pathToEcoreFile);
-		// strategy.loadAndRegisterMetamodel(pathToEcoreFile);
-		// rs.getURIConverter().getURIMap().put(key, value);
+		if (strategy instanceof FWD_OPT) {
+			Resource res = strategy.loadResource("platform:/resource/../metamodels/Database/model/Database.ecore");
+			EPackage pack = (EPackage) res.getContents().get(0);
+			// pack.setNsURI("platform:/plugin/Database/model/Database.ecore");
+			rs.getPackageRegistry().put("platform:/resource/Database/model/Database.ecore", pack);
+			rs.getPackageRegistry().put("platform:/plugin/Database/model/Database.ecore", pack);
+		}
+
+		if (strategy instanceof BWD_OPT) {
+			Resource res = strategy.loadResource("platform:/resource/../metamodels/ClassInheritanceHierarchy/model/ClassInheritanceHierarchy.ecore");
+			EPackage pack = (EPackage) res.getContents().get(0);
+			// pack.setNsURI("platform:/plugin/Database/model/Database.ecore");
+			rs.getPackageRegistry().put("platform:/resource/ClassInheritanceHierarchy/model/ClassInheritanceHierarchy.ecore", pack);
+			rs.getPackageRegistry().put("platform:/plugin/ClassInheritanceHierarchy/model/ClassInheritanceHierarchy.ecore", pack);
+		}
 	}
 }

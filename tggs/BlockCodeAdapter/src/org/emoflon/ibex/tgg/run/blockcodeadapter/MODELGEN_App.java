@@ -40,12 +40,10 @@ public class MODELGEN_App extends MODELGEN {
 		generator.terminate();
 	}
 	
+	@Override
 	protected void registerUserMetamodels() throws IOException {
-		rs.getURIConverter().getURIMap().put(URI.createURI("platform:/plugin/BlockLanguage/"), URI.createURI("platform:/resource/BlockLanguage/"));
-		rs.getURIConverter().getURIMap().put(URI.createURI("platform:/plugin/MocaTree/"), URI.createURI("platform:/resource/MocaTree/"));
-		rs.getPackageRegistry().put("platform:/resource/BlockLanguage/model/BlockLanguage.ecore", BlockLanguagePackageImpl.init());
-		rs.getPackageRegistry().put("platform:/resource/MocaTree/model/MocaTree.ecore", MocaTreePackageImpl.init());
-		
+		_RegistrationHelper.registerMetamodels(rs, this);
+			
 		// Register correspondence metamodel last
 		loadAndRegisterMetamodel(options.projectPath() + "/model/" + options.projectPath() + ".ecore");
 	}

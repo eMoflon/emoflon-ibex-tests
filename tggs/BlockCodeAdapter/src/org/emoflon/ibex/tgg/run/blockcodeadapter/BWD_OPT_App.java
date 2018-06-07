@@ -47,15 +47,9 @@ public class BWD_OPT_App extends BWD_OPT {
 		bwd_opt.terminate();
 	}
 
+	@Override
 	protected void registerUserMetamodels() throws IOException {
-		// Load and register source and target metamodels
-		rs.getPackageRegistry().put("platform:/resource/BlockLanguage/model/BlockLanguage.ecore", BlockLanguagePackageImpl.init());
-		
-		Resource res = loadResource("platform:/resource/../metamodels/MocaTree/model/MocaTree.ecore");
-		EPackage pack = (EPackage) res.getContents().get(0);
-		//pack.setNsURI("platform:/plugin/BlockLanguage/model/BlockLanguage.ecore");
-		rs.getPackageRegistry().put("platform:/resource/MocaTree/model/MocaTree.ecore", pack);
-		rs.getPackageRegistry().put("platform:/plugin/MocaTree/model/MocaTree.ecore", pack);
+		_RegistrationHelper.registerMetamodels(rs, this);
 			
 		// Register correspondence metamodel last
 		loadAndRegisterMetamodel(options.projectPath() + "/model/" + options.projectPath() + ".ecore");

@@ -7,7 +7,6 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.ibex.tgg.operational.csp.constraints.factories.UserDefinedRuntimeTGGAttrConstraintFactory;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.sync.FWD_OPT;
-import org.emoflon.ibex.tgg.run.familiestopersons_v0.FWD_OPT_App;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesTGGEngine;
 
 public class FWD_OPT_App extends FWD_OPT {
@@ -43,6 +42,7 @@ public class FWD_OPT_App extends FWD_OPT {
 		fwd_opt.terminate();
 	}
 
+	@Override
 	protected void registerUserMetamodels() throws IOException {
 		_RegistrationHelper.registerMetamodels(rs, this);
 			

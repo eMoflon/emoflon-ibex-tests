@@ -3,15 +3,11 @@ package org.emoflon.ibex.tgg.run.classinhhier2db;
 import java.io.IOException;
 
 import org.apache.log4j.BasicConfigurator;
-import org.eclipse.emf.common.util.URI;
 import org.emoflon.ibex.tgg.operational.csp.constraints.factories.UserDefinedRuntimeTGGAttrConstraintFactory;
+import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGEN;
 import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGENStopCriterion;
-import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesTGGEngine;
-
-import ClassInheritanceHierarchy.impl.ClassInheritanceHierarchyPackageImpl;
-import Database.impl.DatabasePackageImpl;
 
 public class MODELGEN_App extends MODELGEN {
 
@@ -39,12 +35,11 @@ public class MODELGEN_App extends MODELGEN {
 		generator.terminate();
 	}
 
+	@Override
 	protected void registerUserMetamodels() throws IOException {
-		rs.getURIConverter().getURIMap().put(URI.createURI("platform:/plugin/ClassInheritanceHierarchy/"), URI.createURI("platform:/resource/ClassInheritanceHierarchy/"));
-		rs.getURIConverter().getURIMap().put(URI.createURI("platform:/plugin/Database/"), URI.createURI("platform:/resource/Database/"));
-		rs.getPackageRegistry().put("platform:/resource/ClassInheritanceHierarchy/model/ClassInheritanceHierarchy.ecore", ClassInheritanceHierarchyPackageImpl.init());
-		rs.getPackageRegistry().put("platform:/resource/Database/model/Database.ecore", DatabasePackageImpl.init());
-		
+		_RegistrationHelper.registerMetamodels(rs, this);
+			
+		// Register correspondence metamodel last
 		loadAndRegisterMetamodel(options.projectPath() + "/model/" + options.projectPath() + ".ecore");
 	}
 	

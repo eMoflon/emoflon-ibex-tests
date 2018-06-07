@@ -2,34 +2,29 @@ package org.emoflon.ibex.tgg.run.familiestopersons_v1;
 
 import java.io.IOException;
 
-import org.apache.commons.lang3.NotImplementedException;
 import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.emoflon.ibex.tgg.operational.strategies.OperationalStrategy;
-
 import org.emoflon.ibex.tgg.operational.csp.constraints.factories.UserDefinedRuntimeTGGAttrConstraintFactory;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
+import org.emoflon.ibex.tgg.operational.strategies.OperationalStrategy;
+import org.emoflon.ibex.tgg.operational.strategies.sync.BWD_OPT;
+import org.emoflon.ibex.tgg.operational.strategies.sync.FWD_OPT;
+
+import SimpleFamilies.impl.SimpleFamiliesPackageImpl;
+import SimplePersons.impl.SimplePersonsPackageImpl;
 
 public class _RegistrationHelper {
 
 	/** Load and register source and target metamodels */
 	public static void registerMetamodels(ResourceSet rs, OperationalStrategy strategy)  throws IOException {
-		throw new NotImplementedException("You need to register your source and target metamodels.");
+		// Load and register source and target metamodels
+		rs.getPackageRegistry().put("platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore", SimpleFamiliesPackageImpl.init());
+		rs.getPackageRegistry().put("platform:/resource/SimplePersons/model/SimplePersons.ecore", SimplePersonsPackageImpl.init());
 		
-		// For both source and target metamodels (and any other dependencies you might require)
+		if(strategy instanceof FWD_OPT) {
+		}
 		
-		// Option 1 (recommended): If you have generated code for your metamodel <Foo> and use eMoflon projects and defaults,
-		//                         just add the project Foo as a plugin dependency and simply use:
-		// FooPackageImpl.init();
-
-		// Option 2:  If you wish to use the .ecore file directly without generating code
-		// strategy.loadAndRegisterMetamodel("<pathToEcoreFile>");
-		
-		// Option 3 (advanced): If you have an .ecore file with an arbitrary URI "<URIOfPackage>"
-		// String pathToEcoreFile = "<pathToEcoreFile>";
-		// URI key = URI.createURI("<URIOfPackage>");
-		// URI value = URI.createURI(pathToEcoreFile);
-		// strategy.loadAndRegisterMetamodel(pathToEcoreFile);
-		// rs.getURIConverter().getURIMap().put(key, value);
+		if(strategy instanceof BWD_OPT) {
+		}
 	}
 	
 	/** Create default options **/

@@ -7,7 +7,6 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.ibex.tgg.operational.csp.constraints.factories.UserDefinedRuntimeTGGAttrConstraintFactory;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.co.CO;
-import org.emoflon.ibex.tgg.run.class2doc_ma.CO_App;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesTGGEngine;
 
 public class CO_App extends CO {
@@ -44,6 +43,7 @@ public class CO_App extends CO {
 		logger.info(co.generateConsistencyReport());
 	}
 
+	@Override
 	protected void registerUserMetamodels() throws IOException {
 		_RegistrationHelper.registerMetamodels(rs, this);
 			

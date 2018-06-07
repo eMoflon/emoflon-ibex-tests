@@ -49,16 +49,8 @@ public class FWD_OPT_App extends FWD_OPT {
 
 	@Override
 	protected void registerUserMetamodels() throws IOException {
-		rs.getPackageRegistry().put("platform:/resource/ClassInheritanceHierarchy/model/ClassInheritanceHierarchy.ecore", ClassMultipleInheritanceHierarchyPackageImpl.init());
-		
-		// Load and register source and target metamodels
-		//rs.getPackageRegistry().put("platform:/resource/Database/model/Database.ecore", DatabasePackageImpl.init());
-		Resource res = loadResource("platform:/resource/../metamodels/Database/model/Database.ecore");
-		EPackage pack = (EPackage) res.getContents().get(0);
-		//pack.setNsURI("platform:/plugin/Database/model/Database.ecore");
-		rs.getPackageRegistry().put("platform:/resource/Database/model/Database.ecore", pack);
-		rs.getPackageRegistry().put("platform:/plugin/Database/model/Database.ecore", pack);
-		
+		_RegistrationHelper.registerMetamodels(rs, this);
+			
 		// Register correspondence metamodel last
 		loadAndRegisterMetamodel(options.projectPath() + "/model/" + options.projectPath() + ".ecore");
 	}
