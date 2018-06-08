@@ -3,7 +3,7 @@ package org.emoflon.ibex.tgg.run.blockdiagramcodeadapter_edgerules;
 import java.io.IOException;
 
 import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.emoflon.ibex.tgg.operational.csp.constraints.factories.UserDefinedRuntimeTGGAttrConstraintFactory;
+import org.emoflon.ibex.tgg.operational.csp.constraints.factories.blockdiagramcodeadapter_edgerules.UserDefinedRuntimeTGGAttrConstraintFactory;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.OperationalStrategy;
 import org.emoflon.ibex.tgg.operational.strategies.sync.BWD_OPT;

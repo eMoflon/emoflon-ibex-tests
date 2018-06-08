@@ -3,7 +3,6 @@ package org.emoflon.ibex.tgg.run.blockdiagramcodeadapter;
 import java.io.IOException;
 
 import org.apache.log4j.BasicConfigurator;
-import org.emoflon.ibex.tgg.operational.csp.constraints.factories.UserDefinedRuntimeTGGAttrConstraintFactory;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGEN;
 import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGENStopCriterion;
@@ -45,10 +44,6 @@ public class MODELGEN_App extends MODELGEN {
 	}
 	
 	private static IbexOptions createIbexOptions() {
-		IbexOptions options = new IbexOptions();
-		options.projectPath("BlockDiagramCodeAdapter");
-		options.debug(false);
-		options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
-		return options;
+		return _RegistrationHelper.createIbexOptions();
 	}
 }

@@ -3,7 +3,6 @@ package org.emoflon.ibex.tgg.run.mocatreetoprocess;
 import java.io.IOException;
 
 import org.apache.log4j.BasicConfigurator;
-import org.emoflon.ibex.tgg.operational.csp.constraints.factories.UserDefinedRuntimeTGGAttrConstraintFactory;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGEN;
 import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGENStopCriterion;
@@ -36,7 +35,7 @@ public class MODELGEN_App extends MODELGEN {
 		generator.terminate();
 	}
 
-	@Override
+	@Override	
 	protected void registerUserMetamodels() throws IOException {
 		_RegistrationHelper.registerMetamodels(rs, this);
 			
@@ -45,10 +44,6 @@ public class MODELGEN_App extends MODELGEN {
 	}
 	
 	private static IbexOptions createIbexOptions() {
-		IbexOptions options = new IbexOptions();
-		options.projectPath("MocaTreeToProcess");
-		options.debug(true);
-		options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
-		return options;
+		return _RegistrationHelper.createIbexOptions();
 	}
 }

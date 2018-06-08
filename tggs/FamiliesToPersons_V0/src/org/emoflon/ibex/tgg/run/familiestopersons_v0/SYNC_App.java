@@ -3,7 +3,6 @@ package org.emoflon.ibex.tgg.run.familiestopersons_v0;
 import java.io.IOException;
 
 import org.apache.log4j.BasicConfigurator;
-import org.emoflon.ibex.tgg.operational.csp.constraints.factories.UserDefinedRuntimeTGGAttrConstraintFactory;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.sync.SYNC;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesTGGEngine;
@@ -39,10 +38,6 @@ public class SYNC_App extends SYNC {
 	}
 	
 	private static IbexOptions createIbexOptions() {
-		IbexOptions options = new IbexOptions();
-		options.projectPath("FamiliesToPersons_V0");
-		options.debug(false);
-		options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
-		return options;
+		return _RegistrationHelper.createIbexOptions();
 	}
 }
