@@ -10,9 +10,6 @@ import org.emoflon.ibex.tgg.operational.strategies.cc.CC;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesTGGEngine;
 import org.emoflon.ibex.tgg.util.ilp.ILPFactory.SupportedILPSolver;
 
-import Algorithms.impl.AlgorithmsPackageImpl;
-import Strategies.impl.StrategiesPackageImpl;
-
 public class CC_App extends CC {
 	
 	private String srcPath;
@@ -54,18 +51,6 @@ public class CC_App extends CC {
 		// Register correspondence metamodel last
 		loadAndRegisterMetamodel(options.projectPath() + "/model/" + options.projectPath() + ".ecore");
 	}
-	
-	/*
-	@Override
-	public void loadModels() throws IOException {
-		s = loadResource(options.projectPath() + "/resources/"+srcPath+".xmi");
-		t = loadResource(options.projectPath() + "/resources/"+trgPath+".xmi");
-		c = createResource(options.projectPath() + "/instances/corr.xmi");
-		p = createResource(options.projectPath() + "/instances/protocol.xmi");
-	
-		EcoreUtil.resolveAll(rs);
-	}
-	*/
 	
 	@Override
 	public void loadModels() throws IOException {

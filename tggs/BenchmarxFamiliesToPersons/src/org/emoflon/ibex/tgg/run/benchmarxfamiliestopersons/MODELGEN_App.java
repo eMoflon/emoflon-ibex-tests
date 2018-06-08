@@ -9,9 +9,6 @@ import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGENStopCriterion;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesTGGEngine;
 
-import Families.impl.FamiliesPackageImpl;
-import Persons.impl.PersonsPackageImpl;
-
 public class MODELGEN_App extends MODELGEN {
 
 	public MODELGEN_App() throws IOException {

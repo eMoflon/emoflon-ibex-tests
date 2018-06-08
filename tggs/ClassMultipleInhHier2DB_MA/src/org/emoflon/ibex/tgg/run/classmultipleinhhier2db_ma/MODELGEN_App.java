@@ -9,9 +9,6 @@ import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGENStopCriterion;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesTGGEngine;
 
-import Database.impl.DatabasePackageImpl;
-import classMultipleInheritanceHierarchy.impl.ClassMultipleInheritanceHierarchyPackageImpl;
-
 public class MODELGEN_App extends MODELGEN {
 
 	public MODELGEN_App(String projectName, String workspacePath, boolean debug) throws IOException {

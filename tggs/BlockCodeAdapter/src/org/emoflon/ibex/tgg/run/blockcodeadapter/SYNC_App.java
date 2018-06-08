@@ -4,12 +4,9 @@ import java.io.IOException;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.ibex.tgg.operational.csp.constraints.factories.UserDefinedRuntimeTGGAttrConstraintFactory;
-import org.emoflon.ibex.tgg.operational.strategies.sync.SYNC;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
+import org.emoflon.ibex.tgg.operational.strategies.sync.SYNC;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesTGGEngine;
-
-import BlockLanguage.impl.BlockLanguagePackageImpl;
-import MocaTree.impl.MocaTreePackageImpl;
 
 public class SYNC_App extends SYNC {
 

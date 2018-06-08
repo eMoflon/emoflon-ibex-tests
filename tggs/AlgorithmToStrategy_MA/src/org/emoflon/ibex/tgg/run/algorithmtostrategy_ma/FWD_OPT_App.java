@@ -3,15 +3,11 @@ package org.emoflon.ibex.tgg.run.algorithmtostrategy_ma;
 import java.io.IOException;
 
 import org.apache.log4j.BasicConfigurator;
-import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.ibex.tgg.operational.csp.constraints.factories.UserDefinedRuntimeTGGAttrConstraintFactory;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.sync.FWD_OPT;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesTGGEngine;
-
-import Algorithms.impl.AlgorithmsPackageImpl;
 
 public class FWD_OPT_App extends FWD_OPT {
 

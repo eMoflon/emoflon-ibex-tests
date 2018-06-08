@@ -18,21 +18,29 @@ public class _RegistrationHelper {
 
 	/** Load and register source and target metamodels */
 	public static void registerMetamodels(ResourceSet rs, OperationalStrategy strategy)  throws IOException {
-		FamiliesPackageImpl.init();
-		PersonsPackageImpl.init();		
+		EPackage familyPack = null;
+		EPackage personsPack = null;
+
+		if (strategy instanceof FWD_OPT) {
+			Resource res = strategy.loadResource(
+					"platform:/resource/../../benchmarx/examples/familiestopersons/metamodels/Persons/model/Persons.ecore");
+			personsPack = (EPackage) res.getContents().get(0);
+			rs.getResources().remove(res);
+		} else if (strategy instanceof BWD_OPT) {
+			Resource res = strategy.loadResource(
+					"platform:/resource/../../benchmarx/examples/familiestopersons/metamodels/Families/model/Families.ecore");
+			familyPack = (EPackage) res.getContents().get(0);
+			rs.getResources().remove(res);
+		}
 		
-		if(strategy instanceof BWD_OPT) {
-			Resource res = strategy.loadResource("platform:/resource/../../benchmarx/examples/familiestopersons/metamodels/Families/model/Families.ecore");
-			EPackage pack = (EPackage) res.getContents().get(0);
-			rs.getResources().remove(res);
-			rs.getPackageRegistry().put("platform:/resource/Families/model/Families.ecore", pack);
-		}
-		if(strategy instanceof FWD_OPT) {
-			Resource res = strategy.loadResource("platform:/resource/../../benchmarx/examples/familiestopersons/metamodels/Persons/model/Persons.ecore");
-			EPackage pack = (EPackage) res.getContents().get(0);
-			rs.getResources().remove(res);
-			rs.getPackageRegistry().put("platform:/resource/Persons/model/Persons.ecore", pack);
-		}
+		if(familyPack == null)
+			familyPack = FamiliesPackageImpl.init();
+		
+		if(personsPack == null)
+			personsPack = PersonsPackageImpl.init();
+
+		rs.getPackageRegistry().put("platform:/resource/Families/model/Families.ecore", familyPack);
+		rs.getPackageRegistry().put("platform:/resource/Persons/model/Persons.ecore", personsPack);
 	}
 	
 	/** Create default options **/

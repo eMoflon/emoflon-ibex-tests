@@ -4,13 +4,10 @@ import java.io.IOException;
 
 import org.apache.log4j.BasicConfigurator;
 import org.emoflon.ibex.tgg.operational.csp.constraints.factories.UserDefinedRuntimeTGGAttrConstraintFactory;
+import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGEN;
 import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGENStopCriterion;
-import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesTGGEngine;
-
-import BlockDiagram.impl.BlockDiagramPackageImpl;
-import MocaTree.impl.MocaTreePackageImpl;
 
 public class MODELGEN_App extends MODELGEN {
 

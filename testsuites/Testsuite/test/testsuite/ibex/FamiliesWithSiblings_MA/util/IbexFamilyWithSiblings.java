@@ -15,29 +15,28 @@ import testsuite.ibex.testUtil.Decisions;
 import testsuite.ibex.testUtil.IbexAdapter;
 
 public class IbexFamilyWithSiblings extends IbexAdapter<FamilyRegister, PersonRegister> {
-	
-public IbexFamilyWithSiblings(String projectName) {
-	super(new FamiliesComparator(), new PersonsComparator(), projectName);
-}
 
-@Override
-public void initiateSynchronisationDialogue() {
-	try {
-		synchroniser = new SYNC_App(projectName, testsuite.ibex.testUtil.Constants.workspacePath, false);
-		
-		FamilyRegister reg =FamiliesWithSiblingsFactory.eINSTANCE.createFamilyRegister();
-		synchroniser.getSourceResource().getContents().add(reg);
-		synchroniser.forward();
-	} catch (IOException e) {
-		e.printStackTrace();
+	public IbexFamilyWithSiblings(String projectName) {
+		super(new FamiliesComparator(), new PersonsComparator(), projectName);
 	}
- }
-@Override
-public void setConfigurator(Configurator<Decisions> configurator) {
-	super.setConfigurator(configurator);
-	
-	synchroniser.setUpdatePolicy(new F2PUpdatePolicy(configurator));
-}
-	
-	
+
+	@Override
+	public void initiateSynchronisationDialogue() {
+		try {
+			synchroniser = new SYNC_App(projectName, testsuite.ibex.testUtil.Constants.workspacePath, false);
+
+			FamilyRegister reg = FamiliesWithSiblingsFactory.eINSTANCE.createFamilyRegister();
+			synchroniser.getSourceResource().getContents().add(reg);
+			synchroniser.forward();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public void setConfigurator(Configurator<Decisions> configurator) {
+		super.setConfigurator(configurator);
+		synchroniser.setUpdatePolicy(new F2PUpdatePolicy(configurator));
+	}
+
 }
