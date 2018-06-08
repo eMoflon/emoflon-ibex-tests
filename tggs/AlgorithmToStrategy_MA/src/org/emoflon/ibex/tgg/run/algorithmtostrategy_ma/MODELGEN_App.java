@@ -25,7 +25,7 @@ public class MODELGEN_App extends MODELGEN {
 		MODELGEN_App generator = new MODELGEN_App("AlgorithmToStrategy_MA", "./../", true);
 		
 		MODELGENStopCriterion stop = new MODELGENStopCriterion(generator.getTGG());
-		stop.setTimeOutInMS(150);
+		stop.setTimeOutInMS(1000);
 		stop.setMaxRuleCount("AlgoContainerToStrategyContainer", 1);
 		generator.setStopCriterion(stop);
 		

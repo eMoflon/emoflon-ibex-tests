@@ -3,15 +3,12 @@ package org.emoflon.ibex.tgg.run.algorithmtostrategy_ma;
 import java.io.IOException;
 
 import org.apache.log4j.BasicConfigurator;
-import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.ibex.tgg.operational.csp.constraints.factories.UserDefinedRuntimeTGGAttrConstraintFactory;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.sync.FWD_OPT;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesTGGEngine;
-
-import Algorithms.impl.AlgorithmsPackageImpl;
+import org.emoflon.ibex.tgg.util.ilp.ILPFactory.SupportedILPSolver;
 
 public class FWD_OPT_App extends FWD_OPT {
 
@@ -21,8 +18,8 @@ public class FWD_OPT_App extends FWD_OPT {
 	String protPath;
 	
 	public FWD_OPT_App(String projectName, String workspacePath, boolean debug, String srcPath, String trgPath, 
-			String corrPath, String protPath) throws IOException {
-		super(createIbexOptions().projectName(projectName).workspacePath(workspacePath).debug(debug));
+			String corrPath, String protPath, SupportedILPSolver ilpSolver) throws IOException {
+		super(createIbexOptions().projectName(projectName).workspacePath(workspacePath).debug(debug).setIlpSolver(ilpSolver));
 		this.srcPath = srcPath;
 		this.trgPath = trgPath;
 		this.corrPath = corrPath;
@@ -34,7 +31,7 @@ public class FWD_OPT_App extends FWD_OPT {
 		BasicConfigurator.configure();
 
 		FWD_OPT_App fwd_opt = new FWD_OPT_App("AlgorithmToStrategy_MA", "./../", true, "/resources/co/src", "/resources/co/trg", 
-				"/resources/co/corr", "/resources/co/protocol");
+				"/resources/co/corr", "/resources/co/protocol", SupportedILPSolver.Gurobi);
 		
 		logger.info("Starting FWD_OPT");
 		long tic = System.currentTimeMillis();
@@ -57,8 +54,8 @@ public class FWD_OPT_App extends FWD_OPT {
 	@Override
 	public void loadModels() throws IOException {
 		s = loadResource(options.projectPath() +srcPath+".xmi");
-		t = loadResource(options.projectPath() +trgPath+".xmi");
-		c = loadResource(options.projectPath() +corrPath+".xmi");
+		t = createResource(options.projectPath() +trgPath+".xmi");
+		c = createResource(options.projectPath() +corrPath+".xmi");
 		p = createResource(options.projectPath() +protPath+".xmi");
 	
 		EcoreUtil.resolveAll(rs);

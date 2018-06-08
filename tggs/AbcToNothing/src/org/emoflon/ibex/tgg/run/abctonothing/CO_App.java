@@ -8,18 +8,30 @@ import org.apache.log4j.Logger;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.co.CO;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesTGGEngine;
+import org.emoflon.ibex.tgg.util.ilp.ILPFactory.SupportedILPSolver;
 
 public class CO_App extends CO {
 
-	public CO_App() throws IOException {
-		super(createIbexOptions());
+	String srcPath;
+	String trgPath;
+	String corrPath;
+	String protPath;
+	
+	public CO_App(String projectName, String workspacePath, boolean debug, String srcPath, String trgPath, 
+			String corrPath, String protPath, SupportedILPSolver ilpSolver) throws IOException {
+		super(createIbexOptions().projectName(projectName).workspacePath(workspacePath).debug(debug).setIlpSolver(ilpSolver));
+		this.srcPath = srcPath;
+		this.trgPath = trgPath;
+		this.corrPath = corrPath;
+		this.protPath = protPath;
 		registerBlackInterpreter(new DemoclesTGGEngine());
 	}
 
 	public static void main(String[] args) throws IOException {
 		Logger.getRootLogger().setLevel(Level.INFO);
 
-		CO_App co = new CO_App();
+		CO_App co = new CO_App("AbcToNothing", "./../",  true, "/resources/co/src", "/resources/co/trg", 
+				"/resources/co/corr", "/resources/co/protocol", SupportedILPSolver.Gurobi);
 		
 		logger.info("Starting CO");
 		long tic = System.currentTimeMillis();
@@ -31,7 +43,6 @@ public class CO_App extends CO {
 		co.terminate();
 		logger.info(co.generateConsistencyReport());
 	}
-	
 	
 	protected void registerUserMetamodels() throws IOException {
 		_RegistrationHelper.registerMetamodels(rs, this);

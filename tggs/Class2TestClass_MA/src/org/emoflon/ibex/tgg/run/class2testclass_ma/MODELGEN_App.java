@@ -24,7 +24,7 @@ public class MODELGEN_App extends MODELGEN {
 		MODELGEN_App generator = new MODELGEN_App("Class2TestClass_MA", "./../", true);
 		
 		MODELGENStopCriterion stop = new MODELGENStopCriterion(generator.getTGG());
-		//stop.setTimeOutInMS(1000);
+		stop.setTimeOutInMS(1000);
 		
 		UpdatePolicy newUP = new RandomMatchUpdatePolicy();
 		newUP.setBoundForComplementRule("CreateTestClass", 2, true);
