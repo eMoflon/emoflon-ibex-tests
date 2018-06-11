@@ -10,9 +10,6 @@ import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesTGGEngine;
 import org.emoflon.ibex.tgg.util.ilp.ILPFactory.SupportedILPSolver;
 
-import Families.impl.FamiliesPackageImpl;
-import Persons.impl.PersonsPackageImpl;
-
 public class CO_App extends CO {
 
 	String srcPath;

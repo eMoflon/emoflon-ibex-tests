@@ -8,9 +8,6 @@ import org.emoflon.ibex.tgg.operational.strategies.cc.CC;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesTGGEngine;
 
-import Families.impl.FamiliesPackageImpl;
-import Persons.impl.PersonsPackageImpl;
-
 public class CC_App extends CC {
 
 	public CC_App() throws IOException {

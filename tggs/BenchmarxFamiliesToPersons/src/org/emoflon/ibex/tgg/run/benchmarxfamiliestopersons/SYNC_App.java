@@ -9,9 +9,6 @@ import org.emoflon.ibex.tgg.operational.strategies.sync.SYNC;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesTGGEngine;
 
-import Families.impl.FamiliesPackageImpl;
-import Persons.impl.PersonsPackageImpl;
-
 public class SYNC_App extends SYNC {
 
 	public SYNC_App(String projectName, String workspacePath, boolean debug) throws IOException {
