@@ -26,6 +26,7 @@ public class TestClasses2Documents_MA extends COTestCase {
 	}
 	
 	@Test
+	@Ignore("Democles error due to size of the Cartesian product.")
 	public void testFWD_OPT() throws IOException {
 		createForward("/resources/co/src", "/resources/co/trg-tmp", "/resources/co/corr-tmp", "/resources/co/prot-tmp");
 		runForward();
@@ -45,7 +46,7 @@ public class TestClasses2Documents_MA extends COTestCase {
 	}
 	
 	@Test
-	@Ignore("Democles might be to strict.")
+	@Ignore("Democles might be too strict.")
 	public void testSimplePositive() throws IOException {
 		createGenerator("/resources/co/src", "/resources/co/trg", "/resources/co/corr", "/resources/co/protocol");
 		runGenerator();
@@ -53,8 +54,7 @@ public class TestClasses2Documents_MA extends COTestCase {
 	}
 	
 	@Test
-	@Ignore("Wrong corr model misses up to now.")
-	public void testEmptyRootNodes() throws IOException {
+	public void testWrongLink() throws IOException {
 		createGenerator("/resources/co/src", "/resources/co/trg", "/resources/co/corr_inc", "/resources/co/protocol");
 		runGenerator();
 		Assert.assertFalse(checker.modelsAreConsistent());

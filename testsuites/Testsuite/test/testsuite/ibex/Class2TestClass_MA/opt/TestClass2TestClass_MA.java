@@ -52,8 +52,7 @@ public class TestClass2TestClass_MA extends COTestCase {
 	}
 	
 	@Test
-	@Ignore("Wrong corr model is missing up to now.")
-	public void testEmptyRootNodes() throws IOException {
+	public void testMissingLink() throws IOException {
 		createGenerator("/resources/co/src", "/resources/co/trg", "/resources/co/corr_inc", "/resources/co/protocol");
 		runGenerator();
 		Assert.assertFalse(checker.modelsAreConsistent());

@@ -15,7 +15,7 @@
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
   <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="CreateClass" amalgamated="true">
-    <createdSrc href="src-tmp.xmi#//@classes.0"/>
+    <createdSrc href="src-tmp.xmi#//@classes.5"/>
     <contextSrc href="src-tmp.xmi#/"/>
     <contextTrg href="trg.xmi#/"/>
     <nodeMappings key="testSuite">
@@ -28,43 +28,60 @@
       <value href="corr-tmp.xmi#/0"/>
     </nodeMappings>
     <nodeMappings key="class">
-      <value href="src-tmp.xmi#//@classes.0"/>
+      <value href="src-tmp.xmi#//@classes.5"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
   <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="CreateTestClass">
-    <createdTrg href="trg.xmi#//@tables.4"/>
-    <createdCorr href="corr-tmp.xmi#/1"/>
-    <contextSrc href="src-tmp.xmi#//@classes.0"/>
+    <createdTrg href="trg.xmi#//@tables.1"/>
+    <createdCorr href="corr-tmp.xmi#/6"/>
+    <contextSrc href="src-tmp.xmi#//@classes.5"/>
     <contextTrg href="trg.xmi#/"/>
     <nodeMappings key="testSuite">
       <value href="trg.xmi#/"/>
     </nodeMappings>
     <nodeMappings key="testClass">
-      <value href="trg.xmi#//@tables.4"/>
+      <value href="trg.xmi#//@tables.1"/>
     </nodeMappings>
     <nodeMappings key="class2testClass">
-      <value href="corr-tmp.xmi#/1"/>
+      <value href="corr-tmp.xmi#/6"/>
     </nodeMappings>
     <nodeMappings key="class">
-      <value href="src-tmp.xmi#//@classes.0"/>
+      <value href="src-tmp.xmi#//@classes.5"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="CreateClass" amalgamated="true">
+    <createdSrc href="src-tmp.xmi#//@classes.4"/>
+    <contextSrc href="src-tmp.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="testSuite">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="package">
+      <value href="src-tmp.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="package2testSuite">
+      <value href="corr-tmp.xmi#/0"/>
+    </nodeMappings>
+    <nodeMappings key="class">
+      <value href="src-tmp.xmi#//@classes.4"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
   <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="CreateTestClass">
-    <createdTrg href="trg.xmi#//@tables.5"/>
-    <createdCorr href="corr-tmp.xmi#/8"/>
-    <contextSrc href="src-tmp.xmi#//@classes.0"/>
+    <createdTrg href="trg.xmi#//@tables.2"/>
+    <createdCorr href="corr-tmp.xmi#/5"/>
+    <contextSrc href="src-tmp.xmi#//@classes.4"/>
     <contextTrg href="trg.xmi#/"/>
     <nodeMappings key="testSuite">
       <value href="trg.xmi#/"/>
     </nodeMappings>
     <nodeMappings key="testClass">
-      <value href="trg.xmi#//@tables.5"/>
+      <value href="trg.xmi#//@tables.2"/>
     </nodeMappings>
     <nodeMappings key="class2testClass">
-      <value href="corr-tmp.xmi#/8"/>
+      <value href="corr-tmp.xmi#/5"/>
     </nodeMappings>
     <nodeMappings key="class">
-      <value href="src-tmp.xmi#//@classes.0"/>
+      <value href="src-tmp.xmi#//@classes.4"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
   <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="CreateClass" amalgamated="true">
@@ -86,7 +103,7 @@
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
   <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="CreateTestClass">
     <createdTrg href="trg.xmi#//@tables.3"/>
-    <createdCorr href="corr-tmp.xmi#/6"/>
+    <createdCorr href="corr-tmp.xmi#/3"/>
     <contextSrc href="src-tmp.xmi#//@classes.2"/>
     <contextTrg href="trg.xmi#/"/>
     <nodeMappings key="testSuite">
@@ -96,32 +113,14 @@
       <value href="trg.xmi#//@tables.3"/>
     </nodeMappings>
     <nodeMappings key="class2testClass">
-      <value href="corr-tmp.xmi#/6"/>
-    </nodeMappings>
-    <nodeMappings key="class">
-      <value href="src-tmp.xmi#//@classes.2"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="CreateTestClass">
-    <createdTrg href="trg.xmi#//@tables.2"/>
-    <createdCorr href="corr-tmp.xmi#/4"/>
-    <contextSrc href="src-tmp.xmi#//@classes.2"/>
-    <contextTrg href="trg.xmi#/"/>
-    <nodeMappings key="testSuite">
-      <value href="trg.xmi#/"/>
-    </nodeMappings>
-    <nodeMappings key="testClass">
-      <value href="trg.xmi#//@tables.2"/>
-    </nodeMappings>
-    <nodeMappings key="class2testClass">
-      <value href="corr-tmp.xmi#/4"/>
+      <value href="corr-tmp.xmi#/3"/>
     </nodeMappings>
     <nodeMappings key="class">
       <value href="src-tmp.xmi#//@classes.2"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
   <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="CreateClass" amalgamated="true">
-    <createdSrc href="src-tmp.xmi#//@classes.1"/>
+    <createdSrc href="src-tmp.xmi#//@classes.6"/>
     <contextSrc href="src-tmp.xmi#/"/>
     <contextTrg href="trg.xmi#/"/>
     <nodeMappings key="testSuite">
@@ -134,43 +133,60 @@
       <value href="corr-tmp.xmi#/0"/>
     </nodeMappings>
     <nodeMappings key="class">
-      <value href="src-tmp.xmi#//@classes.1"/>
+      <value href="src-tmp.xmi#//@classes.6"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
   <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="CreateTestClass">
-    <createdTrg href="trg.xmi#//@tables.7"/>
-    <createdCorr href="corr-tmp.xmi#/2"/>
-    <contextSrc href="src-tmp.xmi#//@classes.1"/>
+    <createdTrg href="trg.xmi#//@tables.4"/>
+    <createdCorr href="corr-tmp.xmi#/7"/>
+    <contextSrc href="src-tmp.xmi#//@classes.6"/>
     <contextTrg href="trg.xmi#/"/>
     <nodeMappings key="testSuite">
       <value href="trg.xmi#/"/>
     </nodeMappings>
     <nodeMappings key="testClass">
-      <value href="trg.xmi#//@tables.7"/>
+      <value href="trg.xmi#//@tables.4"/>
     </nodeMappings>
     <nodeMappings key="class2testClass">
-      <value href="corr-tmp.xmi#/2"/>
+      <value href="corr-tmp.xmi#/7"/>
     </nodeMappings>
     <nodeMappings key="class">
-      <value href="src-tmp.xmi#//@classes.1"/>
+      <value href="src-tmp.xmi#//@classes.6"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="CreateClass" amalgamated="true">
+    <createdSrc href="src-tmp.xmi#//@classes.0"/>
+    <contextSrc href="src-tmp.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="testSuite">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="package">
+      <value href="src-tmp.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="package2testSuite">
+      <value href="corr-tmp.xmi#/0"/>
+    </nodeMappings>
+    <nodeMappings key="class">
+      <value href="src-tmp.xmi#//@classes.0"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
   <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="CreateTestClass">
-    <createdTrg href="trg.xmi#//@tables.6"/>
-    <createdCorr href="corr-tmp.xmi#/3"/>
-    <contextSrc href="src-tmp.xmi#//@classes.1"/>
+    <createdTrg href="trg.xmi#//@tables.0"/>
+    <createdCorr href="corr-tmp.xmi#/1"/>
+    <contextSrc href="src-tmp.xmi#//@classes.0"/>
     <contextTrg href="trg.xmi#/"/>
     <nodeMappings key="testSuite">
       <value href="trg.xmi#/"/>
     </nodeMappings>
     <nodeMappings key="testClass">
-      <value href="trg.xmi#//@tables.6"/>
+      <value href="trg.xmi#//@tables.0"/>
     </nodeMappings>
     <nodeMappings key="class2testClass">
-      <value href="corr-tmp.xmi#/3"/>
+      <value href="corr-tmp.xmi#/1"/>
     </nodeMappings>
     <nodeMappings key="class">
-      <value href="src-tmp.xmi#//@classes.1"/>
+      <value href="src-tmp.xmi#//@classes.0"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
   <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="CreateClass" amalgamated="true">
@@ -191,39 +207,91 @@
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
   <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="CreateTestClass">
-    <createdTrg href="trg.xmi#//@tables.0"/>
-    <createdCorr href="corr-tmp.xmi#/7"/>
+    <createdTrg href="trg.xmi#//@tables.6"/>
+    <createdCorr href="corr-tmp.xmi#/4"/>
     <contextSrc href="src-tmp.xmi#//@classes.3"/>
     <contextTrg href="trg.xmi#/"/>
     <nodeMappings key="testSuite">
       <value href="trg.xmi#/"/>
     </nodeMappings>
     <nodeMappings key="testClass">
-      <value href="trg.xmi#//@tables.0"/>
+      <value href="trg.xmi#//@tables.6"/>
     </nodeMappings>
     <nodeMappings key="class2testClass">
-      <value href="corr-tmp.xmi#/7"/>
+      <value href="corr-tmp.xmi#/4"/>
     </nodeMappings>
     <nodeMappings key="class">
       <value href="src-tmp.xmi#//@classes.3"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="CreateClass" amalgamated="true">
+    <createdSrc href="src-tmp.xmi#//@classes.1"/>
+    <contextSrc href="src-tmp.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="testSuite">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="package">
+      <value href="src-tmp.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="package2testSuite">
+      <value href="corr-tmp.xmi#/0"/>
+    </nodeMappings>
+    <nodeMappings key="class">
+      <value href="src-tmp.xmi#//@classes.1"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
   <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="CreateTestClass">
-    <createdTrg href="trg.xmi#//@tables.1"/>
-    <createdCorr href="corr-tmp.xmi#/5"/>
-    <contextSrc href="src-tmp.xmi#//@classes.3"/>
+    <createdTrg href="trg.xmi#//@tables.5"/>
+    <createdCorr href="corr-tmp.xmi#/2"/>
+    <contextSrc href="src-tmp.xmi#//@classes.1"/>
     <contextTrg href="trg.xmi#/"/>
     <nodeMappings key="testSuite">
       <value href="trg.xmi#/"/>
     </nodeMappings>
     <nodeMappings key="testClass">
-      <value href="trg.xmi#//@tables.1"/>
+      <value href="trg.xmi#//@tables.5"/>
     </nodeMappings>
     <nodeMappings key="class2testClass">
-      <value href="corr-tmp.xmi#/5"/>
+      <value href="corr-tmp.xmi#/2"/>
     </nodeMappings>
     <nodeMappings key="class">
-      <value href="src-tmp.xmi#//@classes.3"/>
+      <value href="src-tmp.xmi#//@classes.1"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="CreateClass" amalgamated="true">
+    <createdSrc href="src-tmp.xmi#//@classes.7"/>
+    <contextSrc href="src-tmp.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="testSuite">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="package">
+      <value href="src-tmp.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="package2testSuite">
+      <value href="corr-tmp.xmi#/0"/>
+    </nodeMappings>
+    <nodeMappings key="class">
+      <value href="src-tmp.xmi#//@classes.7"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="CreateTestClass">
+    <createdTrg href="trg.xmi#//@tables.7"/>
+    <createdCorr href="corr-tmp.xmi#/8"/>
+    <contextSrc href="src-tmp.xmi#//@classes.7"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="testSuite">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="testClass">
+      <value href="trg.xmi#//@tables.7"/>
+    </nodeMappings>
+    <nodeMappings key="class2testClass">
+      <value href="corr-tmp.xmi#/8"/>
+    </nodeMappings>
+    <nodeMappings key="class">
+      <value href="src-tmp.xmi#//@classes.7"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
 </xmi:XMI>

@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="ASCII"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:classMultipleInheritanceHierarchy="platform:/resource/ClassMultipleInheritanceHierarchy/model/ClassMultipleInheritanceHierarchy.ecore">
-  <classMultipleInheritanceHierarchy:ClassPackage name="p">
-    <classes name="c1"/>
-    <classes name="c2" superClass="/0/@classes.0"/>
-  </classMultipleInheritanceHierarchy:ClassPackage>
-  <classMultipleInheritanceHierarchy:ClassPackage name="p"/>
-</xmi:XMI>
+<classMultipleInheritanceHierarchy:ClassPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:classMultipleInheritanceHierarchy="platform:/resource/ClassMultipleInheritanceHierarchy/model/ClassMultipleInheritanceHierarchy.ecore" name="arcu">
+  <classes name="cras" superClass="//@classes.2"/>
+  <classes name="primis" superClass="//@classes.0"/>
+  <classes name="ornare"/>
+</classMultipleInheritanceHierarchy:ClassPackage>

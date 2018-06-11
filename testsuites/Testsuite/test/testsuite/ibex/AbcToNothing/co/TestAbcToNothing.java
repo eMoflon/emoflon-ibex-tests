@@ -6,6 +6,7 @@ import org.emoflon.ibex.tgg.run.abctonothing.BWD_OPT_App;
 import org.emoflon.ibex.tgg.run.abctonothing.CO_App;
 import org.emoflon.ibex.tgg.run.abctonothing.FWD_OPT_App;
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import testsuite.ibex.testUtil.COTestCase;
@@ -51,6 +52,7 @@ public class TestAbcToNothing extends COTestCase {
 	}
 	
 	@Test
+	@Ignore("Inconsistency cannot be caused by the corr model.")
 	public void testEmptyRootNodes() throws IOException {
 		createGenerator("/resources/co/src", "/resources/co/trg", "/resources/co/corr_inc", "/resources/co/protocol");
 		runGenerator();

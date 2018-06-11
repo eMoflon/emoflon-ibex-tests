@@ -45,7 +45,6 @@ public class TestAlgorithmsToStrategies_MA extends COTestCase {
 	}
 	
 	@Test
-	@Ignore
 	public void testSimplePositive() throws IOException {
 		createGenerator("/resources/co/src", "/resources/co/trg", "/resources/co/corr", "/resources/co/protocol");
 		runGenerator();

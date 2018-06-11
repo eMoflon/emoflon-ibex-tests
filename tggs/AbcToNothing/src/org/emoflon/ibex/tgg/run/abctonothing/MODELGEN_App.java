@@ -23,7 +23,8 @@ public class MODELGEN_App extends MODELGEN {
 		MODELGEN_App generator = new MODELGEN_App();
 		
 		MODELGENStopCriterion stop = new MODELGENStopCriterion(generator.getTGG());
-		stop.setTimeOutInMS(1000);
+		stop.setMaxRuleCount("ruleA", 1);
+		stop.setMaxRuleCount("ruleB", 1);
 		generator.setStopCriterion(stop);
 		
 		logger.info("Starting MODELGEN");

@@ -1,2 +1,19 @@
 <?xml version="1.0" encoding="ASCII"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI"/>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:org.emoflon.ibex.tgg.core.runtime="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore">
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="ruleA" final="true" amalgamated="true">
+    <createdSrc href="src.xmi#/"/>
+    <nodeMappings key="a">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="ruleB" final="true" amalgamated="true">
+    <createdSrc href="src.xmi#//@AtoC.0"/>
+    <contextSrc href="src.xmi#/"/>
+    <nodeMappings key="a">
+      <value href="src.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="c">
+      <value href="src.xmi#//@AtoC.0"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+</xmi:XMI>

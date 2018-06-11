@@ -16,7 +16,7 @@
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
   <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="Class2Doc">
     <createdSrc href="src-tmp.xmi#//@classes.0"/>
-    <createdTrg href="trg.xmi#//@documents.1"/>
+    <createdTrg href="trg.xmi#//@documents.2"/>
     <createdCorr href="corr-tmp.xmi#/1"/>
     <contextSrc href="src-tmp.xmi#/"/>
     <contextTrg href="trg.xmi#/"/>
@@ -36,12 +36,12 @@
       <value href="src-tmp.xmi#//@classes.0"/>
     </nodeMappings>
     <nodeMappings key="doc">
-      <value href="trg.xmi#//@documents.1"/>
+      <value href="trg.xmi#//@documents.2"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
   <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="Class2Doc">
     <createdSrc href="src-tmp.xmi#//@classes.1"/>
-    <createdTrg href="trg.xmi#//@documents.0"/>
+    <createdTrg href="trg.xmi#//@documents.1"/>
     <createdCorr href="corr-tmp.xmi#/2"/>
     <contextSrc href="src-tmp.xmi#/"/>
     <contextTrg href="trg.xmi#/"/>
@@ -61,13 +61,70 @@
       <value href="src-tmp.xmi#//@classes.1"/>
     </nodeMappings>
     <nodeMappings key="doc">
+      <value href="trg.xmi#//@documents.1"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="SubClass2SubDoc" amalgamated="true">
+    <contextSrc href="src-tmp.xmi#/"/>
+    <contextSrc href="src-tmp.xmi#//@classes.1"/>
+    <contextSrc href="src-tmp.xmi#//@classes.0"/>
+    <contextTrg href="trg.xmi#/"/>
+    <contextTrg href="trg.xmi#//@documents.1"/>
+    <contextTrg href="trg.xmi#//@documents.2"/>
+    <nodeMappings key="c">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="superDoc">
+      <value href="trg.xmi#//@documents.2"/>
+    </nodeMappings>
+    <nodeMappings key="p">
+      <value href="src-tmp.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="subClass">
+      <value href="src-tmp.xmi#//@classes.1"/>
+    </nodeMappings>
+    <nodeMappings key="subDoc">
+      <value href="trg.xmi#//@documents.1"/>
+    </nodeMappings>
+    <nodeMappings key="c2d">
+      <value href="corr-tmp.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="superClass">
+      <value href="src-tmp.xmi#//@classes.0"/>
+    </nodeMappings>
+    <nodeMappings key="subc2d">
+      <value href="corr-tmp.xmi#/2"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="Class2Doc">
+    <createdSrc href="src-tmp.xmi#//@classes.2"/>
+    <createdTrg href="trg.xmi#//@documents.0"/>
+    <createdCorr href="corr-tmp.xmi#/3"/>
+    <contextSrc href="src-tmp.xmi#/"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="package">
+      <value href="src-tmp.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="p2c">
+      <value href="corr-tmp.xmi#/0"/>
+    </nodeMappings>
+    <nodeMappings key="container">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="c2d">
+      <value href="corr-tmp.xmi#/3"/>
+    </nodeMappings>
+    <nodeMappings key="class">
+      <value href="src-tmp.xmi#//@classes.2"/>
+    </nodeMappings>
+    <nodeMappings key="doc">
       <value href="trg.xmi#//@documents.0"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
   <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="SubClass2SubDoc" amalgamated="true">
     <contextSrc href="src-tmp.xmi#/"/>
-    <contextSrc href="src-tmp.xmi#//@classes.0"/>
     <contextSrc href="src-tmp.xmi#//@classes.1"/>
+    <contextSrc href="src-tmp.xmi#//@classes.2"/>
     <contextTrg href="trg.xmi#/"/>
     <contextTrg href="trg.xmi#//@documents.1"/>
     <contextTrg href="trg.xmi#//@documents.0"/>
@@ -81,19 +138,51 @@
       <value href="src-tmp.xmi#/"/>
     </nodeMappings>
     <nodeMappings key="subClass">
-      <value href="src-tmp.xmi#//@classes.0"/>
+      <value href="src-tmp.xmi#//@classes.1"/>
     </nodeMappings>
     <nodeMappings key="subDoc">
       <value href="trg.xmi#//@documents.1"/>
     </nodeMappings>
     <nodeMappings key="c2d">
-      <value href="corr-tmp.xmi#/2"/>
+      <value href="corr-tmp.xmi#/3"/>
     </nodeMappings>
     <nodeMappings key="superClass">
-      <value href="src-tmp.xmi#//@classes.1"/>
+      <value href="src-tmp.xmi#//@classes.2"/>
     </nodeMappings>
     <nodeMappings key="subc2d">
+      <value href="corr-tmp.xmi#/2"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="SubClass2SubDoc" amalgamated="true">
+    <contextSrc href="src-tmp.xmi#/"/>
+    <contextSrc href="src-tmp.xmi#//@classes.2"/>
+    <contextSrc href="src-tmp.xmi#//@classes.0"/>
+    <contextTrg href="trg.xmi#/"/>
+    <contextTrg href="trg.xmi#//@documents.0"/>
+    <contextTrg href="trg.xmi#//@documents.2"/>
+    <nodeMappings key="c">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="superDoc">
+      <value href="trg.xmi#//@documents.2"/>
+    </nodeMappings>
+    <nodeMappings key="p">
+      <value href="src-tmp.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="subClass">
+      <value href="src-tmp.xmi#//@classes.2"/>
+    </nodeMappings>
+    <nodeMappings key="subDoc">
+      <value href="trg.xmi#//@documents.0"/>
+    </nodeMappings>
+    <nodeMappings key="c2d">
       <value href="corr-tmp.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="superClass">
+      <value href="src-tmp.xmi#//@classes.0"/>
+    </nodeMappings>
+    <nodeMappings key="subc2d">
+      <value href="corr-tmp.xmi#/3"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
 </xmi:XMI>
