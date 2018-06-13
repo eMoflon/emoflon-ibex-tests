@@ -5,6 +5,8 @@ import java.io.IOException;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.emoflon.ibex.tgg.operational.csp.constraints.factories.familiestopersons_ma.UserDefinedRuntimeTGGAttrConstraintFactory;
+import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.OperationalStrategy;
 import org.emoflon.ibex.tgg.operational.strategies.sync.BWD_OPT;
 import org.emoflon.ibex.tgg.operational.strategies.sync.FWD_OPT;
@@ -40,5 +42,15 @@ public class _RegistrationHelper {
 
 		rs.getPackageRegistry().put("platform:/resource/Families/model/Families.ecore", familyPack);
 		rs.getPackageRegistry().put("platform:/resource/Persons/model/Persons.ecore", personsPack);
+	}
+
+	/** Create default options **/
+	public static IbexOptions createIbexOptions() {
+		IbexOptions options = new IbexOptions();
+		options.projectName("FamiliesToPersons_MA");
+		options.projectPath("FamiliesToPersons_MA");
+		options.debug(false);
+		options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
+		return options;
 	}
 }

@@ -4,10 +4,8 @@ import java.io.IOException;
 
 import org.apache.log4j.BasicConfigurator;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.emoflon.ibex.tgg.operational.csp.constraints.factories.UserDefinedRuntimeTGGAttrConstraintFactory;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.sync.FWD_OPT;
-import org.emoflon.ibex.tgg.run.blockdiagramcodeadapter_edgerules.FWD_OPT_App;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesTGGEngine;
 
 public class FWD_OPT_App extends FWD_OPT {
@@ -52,11 +50,7 @@ public class FWD_OPT_App extends FWD_OPT {
 	}
 	
 	private static IbexOptions createIbexOptions() {
-			IbexOptions options = new IbexOptions();
-			options.projectPath("BlockDiagramCodeAdapter_EdgeRules");
-			options.debug(false);
-			options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
-			return options;
+		return _RegistrationHelper.createIbexOptions();
 	}
 
 	@Override
