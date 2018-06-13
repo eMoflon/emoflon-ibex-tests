@@ -3,7 +3,6 @@ package org.emoflon.ibex.tgg.run.class2doc_ma;
 import java.io.IOException;
 
 import org.apache.log4j.BasicConfigurator;
-import org.emoflon.ibex.tgg.operational.csp.constraints.factories.UserDefinedRuntimeTGGAttrConstraintFactory;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.sync.BWD_OPT;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesTGGEngine;
@@ -39,11 +38,6 @@ public class BWD_OPT_App extends BWD_OPT {
 	}
 	
 	private static IbexOptions createIbexOptions() {
-			IbexOptions options = new IbexOptions();
-			options.projectName("Class2Doc_MA");
-			options.projectPath("Class2Doc_MA");
-			options.debug(false);
-			options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
-			return options;
+		return _RegistrationHelper.createIbexOptions();
 	}
 }

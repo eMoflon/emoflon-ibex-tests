@@ -5,7 +5,7 @@ import java.io.IOException;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.emoflon.ibex.tgg.operational.csp.constraints.factories.UserDefinedRuntimeTGGAttrConstraintFactory;
+import org.emoflon.ibex.tgg.operational.csp.constraints.factories.algorithmtostrategy_ma.UserDefinedRuntimeTGGAttrConstraintFactory;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.OPT;
 import org.emoflon.ibex.tgg.operational.strategies.OperationalStrategy;
@@ -26,7 +26,7 @@ public class _RegistrationHelper {
 			rs.getPackageRegistry().put("platform:/resource/Strategies/model/Strategies.ecore", pack);
 		}
 	}
-	
+
 	/** Create default options **/
 	public static IbexOptions createIbexOptions() {
 		IbexOptions options = new IbexOptions();
