@@ -6,7 +6,6 @@ import org.emoflon.ibex.tgg.run.class2testclass_ma.BWD_OPT_App;
 import org.emoflon.ibex.tgg.run.class2testclass_ma.CO_App;
 import org.emoflon.ibex.tgg.run.class2testclass_ma.FWD_OPT_App;
 import org.junit.Assert;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import testsuite.ibex.testUtil.COTestCase;

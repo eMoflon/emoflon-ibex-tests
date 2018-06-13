@@ -3,10 +3,9 @@ package org.emoflon.ibex.tgg.run.abctonothing;
 import java.io.IOException;
 
 import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.emoflon.ibex.tgg.operational.strategies.OperationalStrategy;
-
-import org.emoflon.ibex.tgg.operational.csp.constraints.factories.UserDefinedRuntimeTGGAttrConstraintFactory;
+import org.emoflon.ibex.tgg.operational.csp.constraints.factories.abctonothing.UserDefinedRuntimeTGGAttrConstraintFactory;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
+import org.emoflon.ibex.tgg.operational.strategies.OperationalStrategy;
 
 public class _RegistrationHelper {
 

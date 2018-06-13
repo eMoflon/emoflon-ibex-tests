@@ -1,7 +1,9 @@
-package org.emoflon.ibex.tgg.operational.csp.constraints.factories;
+package org.emoflon.ibex.tgg.operational.csp.constraints.factories.abctonothing;
 
 import java.util.HashMap;
 import java.util.HashSet;			
+
+import org.emoflon.ibex.tgg.operational.csp.constraints.factories.RuntimeTGGAttrConstraintFactory;			
 
 
 public class UserDefinedRuntimeTGGAttrConstraintFactory extends RuntimeTGGAttrConstraintFactory {

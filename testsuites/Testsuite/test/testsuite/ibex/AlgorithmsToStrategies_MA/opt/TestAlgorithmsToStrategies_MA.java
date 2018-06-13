@@ -7,7 +7,6 @@ import org.emoflon.ibex.tgg.run.algorithmtostrategy_ma.CO_App;
 import org.emoflon.ibex.tgg.run.algorithmtostrategy_ma.FWD_OPT_App;
 import org.junit.Assert;
 import org.junit.Test;
-import org.junit.Ignore;
 
 import testsuite.ibex.testUtil.COTestCase;
 
