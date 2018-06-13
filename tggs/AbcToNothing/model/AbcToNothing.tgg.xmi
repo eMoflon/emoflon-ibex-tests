@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="ASCII"?>
+<org.emoflon.ibex.tgg.core.language:TGG xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.emoflon.ibex.tgg.core.language="platform:/plugin/org.emoflon.ibex.tgg.core.language/model/Language.ecore#/" name="AbcToNothing">
+  <src href="platform:/resource/AbcToNothing/metamodels/Abc.ecore#/"/>
+  <corr href="platform:/resource/AbcToNothing/model/AbcToNothing.ecore#/"/>
+  <rules name="ruleA">
+    <nodes name="a" bindingType="CREATE">
+      <type href="platform:/resource/AbcToNothing/metamodels/Abc.ecore#//A"/>
+    </nodes>
+    <attributeConditionLibrary/>
+  </rules>
+  <rules name="ruleB">
+    <nodes name="a" outgoingEdges="//@rules.1/@edges.0">
+      <type href="platform:/resource/AbcToNothing/metamodels/Abc.ecore#//A"/>
+    </nodes>
+    <nodes name="c" bindingType="CREATE" incomingEdges="//@rules.1/@edges.0">
+      <type href="platform:/resource/AbcToNothing/metamodels/Abc.ecore#//C"/>
+    </nodes>
+    <edges name="a__AtoC__c_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.1/@nodes.0" trgNode="//@rules.1/@nodes.1">
+      <type href="platform:/resource/AbcToNothing/metamodels/Abc.ecore#//A/AtoC"/>
+    </edges>
+    <attributeConditionLibrary/>
+  </rules>
+  <rules xsi:type="org.emoflon.ibex.tgg.core.language:TGGComplementRule" name="addB" kernel="//@rules.0">
+    <nodes name="b" bindingType="CREATE" incomingEdges="//@rules.2/@edges.0">
+      <type href="platform:/resource/AbcToNothing/metamodels/Abc.ecore#//classB"/>
+    </nodes>
+    <nodes name="a" outgoingEdges="//@rules.2/@edges.0">
+      <type href="platform:/resource/AbcToNothing/metamodels/Abc.ecore#//A"/>
+    </nodes>
+    <edges name="a__AtoB__b_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.2/@nodes.1" trgNode="//@rules.2/@nodes.0">
+      <type href="platform:/resource/AbcToNothing/metamodels/Abc.ecore#//A/AtoB"/>
+    </edges>
+    <attributeConditionLibrary/>
+  </rules>
+  <rules xsi:type="org.emoflon.ibex.tgg.core.language:TGGComplementRule" name="addBtoC" kernel="//@rules.1">
+    <nodes name="b" bindingType="CREATE" incomingEdges="//@rules.3/@edges.0">
+      <type href="platform:/resource/AbcToNothing/metamodels/Abc.ecore#//classB"/>
+    </nodes>
+    <nodes name="c" outgoingEdges="//@rules.3/@edges.0">
+      <type href="platform:/resource/AbcToNothing/metamodels/Abc.ecore#//C"/>
+    </nodes>
+    <edges name="c__CtoB__b_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.3/@nodes.1" trgNode="//@rules.3/@nodes.0">
+      <type href="platform:/resource/AbcToNothing/metamodels/Abc.ecore#//C/CtoB"/>
+    </edges>
+    <attributeConditionLibrary/>
+  </rules>
+  <attributeConstraintDefinitionLibrary/>
+</org.emoflon.ibex.tgg.core.language:TGG>
