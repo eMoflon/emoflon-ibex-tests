@@ -7,6 +7,7 @@ public class GTPerformanceTests {
 		int[] modelSizes = { 1000, 5000, 10000, 25000, 50000, 75000 };
 
 		new SheRememberedCaterpillarsPerformanceTest1().run(testsPerSize, modelSizes);
+		new SheRememberedCaterpillarsPerformanceTest2().run(testsPerSize, modelSizes);
 		new SimpleFamiliesPerformanceTest().run(testsPerSize, modelSizes);
 	}
 }

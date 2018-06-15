@@ -1,6 +1,7 @@
 package org.emoflon.ibex.gt.performance;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import SheRememberedCaterpillars.SimplePlatform;
@@ -15,11 +16,7 @@ public class SheRememberedCaterpillarsPerformanceTest1 extends GTPerformanceTest
 
 	@Override
 	protected List<String> getColumnNames() {
-		List<String> list = super.getColumnNames();
-		list.add("query duration");
-		list.add("add 100 platforms");
-		list.add("delete 100 platforms");
-		return list;
+		return Arrays.asList("init", "test", "query", "add 100 platforms", "delete 100 platforms");
 	}
 
 	@Override

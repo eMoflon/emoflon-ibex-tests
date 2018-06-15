@@ -5,7 +5,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -24,7 +23,7 @@ public abstract class GTPerformanceTest {
 	protected abstract String getTestName();
 
 	protected List<String> getColumnNames() {
-		return new ArrayList<String>(Arrays.asList("init duration", "test duration"));
+		return Arrays.asList("init", "test");
 	}
 
 	public static long timeDifference(final long start, final long end) {
@@ -42,10 +41,12 @@ public abstract class GTPerformanceTest {
 	 * @param testsPerSize
 	 *            the number of tests per size
 	 * @param modelSizes
-	 *            the model size to test
+	 *            the model sizes to test
 	 */
 	public void run(final int testsPerSize, final int[] modelSizes) {
 		System.out.println(getTestName());
+
+		prepare(modelSizes);
 
 		createFile();
 		for (int modelSize : modelSizes) {
@@ -54,6 +55,16 @@ public abstract class GTPerformanceTest {
 			}
 		}
 		closeFile();
+	}
+
+	/**
+	 * Prepares the tests.
+	 * 
+	 * @param modelSizes
+	 *            the model sizes to test
+	 */
+	protected void prepare(final int[] modelSizes) {
+		// Nothing.
 	}
 
 	/**
