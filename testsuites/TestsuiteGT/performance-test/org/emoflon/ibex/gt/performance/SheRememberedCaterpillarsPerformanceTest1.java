@@ -1,20 +1,24 @@
 package org.emoflon.ibex.gt.performance;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import SheRememberedCaterpillars.SimplePlatform;
 import SheRememberedCaterpillarsGraphTransformation.api.SheRememberedCaterpillarsGraphTransformationAPI;
 import SheRememberedCaterpillarsGraphTransformation.api.SheRememberedCaterpillarsGraphTransformationDemoclesApp;
 
-public class SheRememberedCaterpillarsCreationPerformanceTest extends GTPerformanceTest {
+public class SheRememberedCaterpillarsPerformanceTest1 extends GTPerformanceTest {
 
 	protected String getTestName() {
-		return "SheRememberedCaterpillars-createPlatforms";
+		return "SheRememberedCaterpillars1";
 	}
-	
+
 	@Override
 	protected List<String> getColumnNames() {
 		List<String> list = super.getColumnNames();
 		list.add("query duration");
+		list.add("add 100 platforms");
+		list.add("delete 100 platforms");
 		return list;
 	}
 
@@ -29,7 +33,7 @@ public class SheRememberedCaterpillarsCreationPerformanceTest extends GTPerforma
 		SheRememberedCaterpillarsGraphTransformationAPI api = app.initAPI();
 		long initEnd = System.nanoTime();
 
-		// Test.
+		// Create a model with the given size.
 		long testStart = System.nanoTime();
 		api.createGame().apply();
 		for (int i = 1; i <= modelSize; i++) {
@@ -40,7 +44,8 @@ public class SheRememberedCaterpillarsCreationPerformanceTest extends GTPerforma
 			}
 		}
 		long testEnd = System.nanoTime();
-		
+
+		// Execute query.
 		long queryStart = System.nanoTime();
 		int count = api.findStandalonePlatform().countMatches() + api.findEmptyExit().countMatches();
 		if (count != modelSize) {
@@ -48,10 +53,28 @@ public class SheRememberedCaterpillarsCreationPerformanceTest extends GTPerforma
 		}
 		long queryEnd = System.nanoTime();
 
+		// Add additional elements.
+		long addStart = System.nanoTime();
+		ArrayList<SimplePlatform> platforms = new ArrayList<SimplePlatform>();
+		for (int i = 1; i <= 100; i++) {
+			api.createPlatform().apply().ifPresent(m -> platforms.add(m.getPlatform()));
+		}
+		long addEnd = System.nanoTime();
+
+		// Delete specific elements.
+		long deleteStart = System.nanoTime();
+		for (SimplePlatform platform : platforms) {
+			api.deletePlatform().bindPlatform(platform).apply();
+		}
+		long deleteEnd = System.nanoTime();
+
 		long initDuration = timeDifference(initStart, initEnd);
 		long testDuration = timeDifference(testStart, testEnd);
 		long queryDuration = timeDifference(queryStart, queryEnd);
-		addResult(modelSize, initDuration, testDuration, queryDuration);
+		long addDuration = timeDifference(addStart, addEnd);
+		long deletionDuration = timeDifference(deleteStart, deleteEnd);
+
+		addResult(modelSize, initDuration, testDuration, queryDuration, addDuration, deletionDuration);
 		save(app);
 	}
 }

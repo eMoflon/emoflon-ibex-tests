@@ -7,11 +7,11 @@ import java.util.Random;
 import SimpleFamiliesGraphTransformation.api.SimpleFamiliesGraphTransformationAPI;
 import SimpleFamiliesGraphTransformation.api.SimpleFamiliesGraphTransformationDemoclesApp;
 
-public class SimpleFamiliesCreationPerformanceTest extends GTPerformanceTest {
+public class SimpleFamiliesPerformanceTest extends GTPerformanceTest {
 
 	@Override
 	protected String getTestName() {
-		return "SimpleFamilies-createFamilies";
+		return "SimpleFamilies";
 	}
 
 	@Override

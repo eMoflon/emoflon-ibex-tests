@@ -28,3 +28,10 @@ rule createExit {
 
 	++ exit: ExitPlatform
 }
+
+/**
+ * Deletes a platform.
+ */
+rule deletePlatform {
+	-- platform: Platform
+}
