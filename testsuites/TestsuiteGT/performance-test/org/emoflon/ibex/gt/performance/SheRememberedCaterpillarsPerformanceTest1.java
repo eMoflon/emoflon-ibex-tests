@@ -8,8 +8,20 @@ import SheRememberedCaterpillars.SimplePlatform;
 import SheRememberedCaterpillarsGraphTransformation.api.SheRememberedCaterpillarsGraphTransformationAPI;
 import SheRememberedCaterpillarsGraphTransformation.api.SheRememberedCaterpillarsGraphTransformationDemoclesApp;
 
+/**
+ * Performance test for the following steps
+ * <ul>
+ * <li>Initialize the API with an empty model.</li>
+ * <li>Create a new model with 1 game and x platforms (simple platform or exit
+ * randomly chosen).</li>
+ * <li>Find all matches for two patterns.</li>
+ * <li>Add 100 elements to the model.</li>
+ * <li>Delete the same 100 elements.</li>
+ * </ul>
+ */
 public class SheRememberedCaterpillarsPerformanceTest1 extends GTPerformanceTest {
 
+	@Override
 	protected String getTestName() {
 		return "SheRememberedCaterpillars1";
 	}

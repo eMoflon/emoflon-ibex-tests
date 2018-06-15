@@ -8,8 +8,16 @@ import org.eclipse.emf.common.util.URI;
 import SheRememberedCaterpillarsGraphTransformation.api.SheRememberedCaterpillarsGraphTransformationAPI;
 import SheRememberedCaterpillarsGraphTransformation.api.SheRememberedCaterpillarsGraphTransformationDemoclesApp;
 
+/**
+ * Performance test for the following steps
+ * <ul>
+ * <li>Initialize the API with a model of the given size (load model).</li>
+ * <li>Find all matches for two patterns.</li>
+ * </ul>
+ */
 public class SheRememberedCaterpillarsPerformanceTest2 extends GTPerformanceTest {
 
+	@Override
 	protected String getTestName() {
 		return "SheRememberedCaterpillars2";
 	}

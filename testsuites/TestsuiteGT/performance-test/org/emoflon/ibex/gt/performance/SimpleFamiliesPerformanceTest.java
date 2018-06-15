@@ -7,6 +7,13 @@ import java.util.Random;
 import SimpleFamiliesGraphTransformation.api.SimpleFamiliesGraphTransformationAPI;
 import SimpleFamiliesGraphTransformation.api.SimpleFamiliesGraphTransformationDemoclesApp;
 
+/**
+ * Performance test for the following steps
+ * <ul>
+ * <li>Initialize the API with an empty model.</li>
+ * <li>Create a new model with 1 register and x families).</li>
+ * </ul>
+ */
 public class SimpleFamiliesPerformanceTest extends GTPerformanceTest {
 
 	@Override
