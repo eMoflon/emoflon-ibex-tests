@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -14,93 +15,135 @@ import org.emoflon.ibex.gt.api.GraphTransformationApp;
 
 public abstract class GTPerformanceTest {
 	protected static final String RESULT_DIRECTORY = "performance/";
-	private static final char CSV_SEPARATOR = ';';
-	private static final char CSV_LINE_DELIMITER = '\n';
+	private static final String CSV_SEPARATOR = ";";
+	private static final String CSV_LINE_DELIMITER = "\n";
 	private static final DateFormat dateFormat = new SimpleDateFormat("yyyyMMdd-HHmmss");
 
-	private List<TestResult> results = new ArrayList<TestResult>();
+	private FileWriter writer;
 
 	protected abstract String getTestName();
 
-	protected abstract void run(final int modelSize);
+	protected List<String> getColumnNames() {
+		return new ArrayList<String>(Arrays.asList("init duration", "test duration"));
+	}
 
 	public static long timeDifference(final long start, final long end) {
 		return end - start;
 	}
 
-	public static String getDateString() {
+	private static String getDateString() {
 		return dateFormat.format(new Date());
 	}
 
-	public URI createDateURI(int modelSize) {
-		return URI.createFileURI(RESULT_DIRECTORY + getTestName() + "/model-" + modelSize + "-" + getDateString() + ".xmi");
-	}
+	/**
+	 * Runs <code>timesPerSize</code> tests for each size in the array
+	 * <code>modelSizes</code>.
+	 * 
+	 * @param testsPerSize
+	 *            the number of tests per size
+	 * @param modelSizes
+	 *            the model size to test
+	 */
+	public void run(final int testsPerSize, final int[] modelSizes) {
+		System.out.println(getTestName());
 
-	public void addResult(final int modelSize, final long initDuration, final long testDuration) {
-		System.out.println("model size: " + modelSize);
-		System.out.println("init: " + initDuration);
-		System.out.println("test: " + testDuration);
-		results.add(new TestResult(modelSize, initDuration, testDuration));
-		System.gc();
-	}
-
-	public void run(final int timesPerSize, final int[] modelSizes) {
+		createFile();
 		for (int modelSize : modelSizes) {
-			for (int i = 0; i < timesPerSize; i++) {
+			for (int i = 0; i < testsPerSize; i++) {
 				run(modelSize);
 			}
 		}
+		closeFile();
+	}
+
+	/**
+	 * Runs a single test for the given model size.
+	 * 
+	 * @param modelSize
+	 *            the model size to test
+	 */
+	protected abstract void run(final int modelSize);
+
+	/**
+	 * Creates an URI based on the name of the tests, the model size and the current
+	 * date and time.
+	 * 
+	 * @param modelSize
+	 *            the model size
+	 * @return the URI
+	 */
+	public URI createDateURI(int modelSize) {
+		return URI.createFileURI(String.format("%s/model-%s-%s.xmi", //
+				RESULT_DIRECTORY + getTestName(), modelSize, getDateString()));
+	}
+
+	/**
+	 * Creates a CSV file for the results and initializes the file writer.
+	 */
+	private void createFile() {
+		File file = new File(RESULT_DIRECTORY + getTestName() + "-" + getDateString() + ".csv");
+		file.getParentFile().mkdirs();
+
 		try {
-			export(RESULT_DIRECTORY + getTestName() + "-" + getDateString() + ".csv");
+			writer = new FileWriter(file);
+			writer.append("model size");
+			writer.append(CSV_SEPARATOR);
+			for (String n : getColumnNames()) {
+				writer.append(n);
+				writer.append(CSV_SEPARATOR);
+			}
+			writer.append(CSV_LINE_DELIMITER);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 
-	public void export(final String filePath) throws IOException {
-		File file = new File(filePath);
-		file.getParentFile().mkdirs();
-
-		FileWriter writer = new FileWriter(file);
-		writer.append("Model size");
-		writer.append(CSV_SEPARATOR);
-		writer.append("Init duration");
-		writer.append(CSV_SEPARATOR);
-		writer.append("Test duration");
-		writer.append(CSV_SEPARATOR);
-		writer.append(CSV_LINE_DELIMITER);
-
-		for (TestResult result : results) {
-			writer.append(String.valueOf(result.modelSize));
-			writer.append(CSV_SEPARATOR);
-			writer.append(String.valueOf(result.initDuration));
-			writer.append(CSV_SEPARATOR);
-			writer.append(String.valueOf(result.testDuration));
-			writer.append(CSV_SEPARATOR);
-			writer.append(CSV_LINE_DELIMITER);
+	/**
+	 * Writes a result to the CSV file.
+	 * 
+	 * @param durations
+	 *            the durations
+	 */
+	public void addResult(final int modelSize, long... durations) {
+		String s = modelSize + CSV_SEPARATOR;
+		for (long d : durations) {
+			s += d + CSV_SEPARATOR;
 		}
 
-		writer.flush();
-		writer.close();
+		System.out.println(s);
+		try {
+			writer.append(s);
+			writer.append(CSV_LINE_DELIMITER);
+			writer.flush();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		System.gc();
 	}
-	
+
+	/**
+	 * Close the CSV file.
+	 */
+	private void closeFile() {
+		try {
+			writer.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * Saves the resources of the given application.
+	 * 
+	 * @param app
+	 *            the GT app
+	 */
 	public void save(final GraphTransformationApp<?> app) {
 		try {
 			app.saveResourceSet();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-	}
-}
-
-class TestResult {
-	protected int modelSize;
-	protected long initDuration;
-	protected long testDuration;
-
-	public TestResult(final int modelSize, final long initDuration, final long testDuration) {
-		this.modelSize = modelSize;
-		this.initDuration = initDuration;
-		this.testDuration = testDuration;
 	}
 }
