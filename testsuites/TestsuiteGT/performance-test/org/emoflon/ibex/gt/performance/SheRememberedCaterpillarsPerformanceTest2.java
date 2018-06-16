@@ -24,7 +24,7 @@ public class SheRememberedCaterpillarsPerformanceTest2 extends GTPerformanceTest
 
 	@Override
 	protected List<String> getColumnNames() {
-		return Arrays.asList("init", "query");
+		return Arrays.asList("init", "update", "query");
 	}
 
 	@Override
@@ -61,6 +61,10 @@ public class SheRememberedCaterpillarsPerformanceTest2 extends GTPerformanceTest
 		SheRememberedCaterpillarsGraphTransformationAPI api = app.initAPI();
 		long initEnd = System.nanoTime();
 
+		long updateStart = System.nanoTime();
+		api.updateMatches();
+		long updateEnd = System.nanoTime();
+		
 		// Execute query.
 		long queryStart = System.nanoTime();
 		int count = api.findStandalonePlatform().countMatches() + api.findEmptyExit().countMatches();
@@ -70,9 +74,10 @@ public class SheRememberedCaterpillarsPerformanceTest2 extends GTPerformanceTest
 		long queryEnd = System.nanoTime();
 
 		long initDuration = timeDifference(initStart, initEnd);
+		long updateDuration = timeDifference(updateStart, updateEnd);
 		long queryDuration = timeDifference(queryStart, queryEnd);
 
-		addResult(modelSize, initDuration, queryDuration);
+		addResult(modelSize, initDuration, updateDuration, queryDuration);
 		save(app);
 	}
 }
