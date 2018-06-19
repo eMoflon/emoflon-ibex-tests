@@ -1,6 +1,5 @@
 package org.emoflon.ibex.gt.testsuite.SheRememberedCaterpillars;
 
-import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.junit.Test;
 
 import SheRememberedCaterpillarsGraphTransformation.api.SheRememberedCaterpillarsGraphTransformationAPI;
@@ -12,10 +11,10 @@ import SheRememberedCaterpillars.Character;
  * Transformation API.
  */
 public class SheRememberedCaterpillarsRulesTest extends SheRememberedCaterpillarsAbstractTest {
+
 	@Test
 	public void move() {
-		ResourceSet model = this.initResourceSet("Move.xmi", "Instance1.xmi");
-		SheRememberedCaterpillarsGraphTransformationAPI api = this.initAPI(model);
+		SheRememberedCaterpillarsGraphTransformationAPI api = this.init("Move.xmi", "Instance1.xmi");
 
 		Character blueCharacter = api.findCharacterNotOnExit() //
 				.findAnyMatch().get().getCharacter();
@@ -25,13 +24,12 @@ public class SheRememberedCaterpillarsRulesTest extends SheRememberedCaterpillar
 				.bindCharacter(blueCharacter).apply());
 		assertAnyMatchExists(api.findCharacterOnExit().bindCharacter(blueCharacter));
 
-		saveResourceSet(model);
+		save(api);
 	}
 
 	@Test
 	public void createCharacters() {
-		ResourceSet model = this.initResourceSet("CreateCharacters.xmi", "EmptyGame.xmi");
-		SheRememberedCaterpillarsGraphTransformationAPI api = this.initAPI(model);
+		SheRememberedCaterpillarsGraphTransformationAPI api = this.init("CreateCharacters.xmi", "EmptyGame.xmi");
 
 		assertCharacterColorCount(api, 0, 0, 0);
 		assertApplicable(api.createBlueCharacter().apply()).getCharacter();
@@ -39,13 +37,12 @@ public class SheRememberedCaterpillarsRulesTest extends SheRememberedCaterpillar
 		assertApplicable(api.createCharacterOfColor(COLOR.PURPLE).apply()).getCharacter();
 		assertCharacterColorCount(api, 1, 1, 1);
 
-		saveResourceSet(model);
+		save(api);
 	}
 
 	@Test
 	public void transformCharacters() {
-		ResourceSet model = this.initResourceSet("TransformCharacters.xmi", "Instance2.xmi");
-		SheRememberedCaterpillarsGraphTransformationAPI api = this.initAPI(model);
+		SheRememberedCaterpillarsGraphTransformationAPI api = this.init("TransformCharacters.xmi", "Instance2.xmi");
 
 		assertApplicable(api.transformBlueAndRedToPurpleCharacter().apply());
 		assertCharacterColorCount(api, 0, 0, 1);
@@ -53,6 +50,6 @@ public class SheRememberedCaterpillarsRulesTest extends SheRememberedCaterpillar
 		assertApplicable(api.transformPurpleToBlueAndRedCharacter().apply());
 		assertCharacterColorCount(api, 1, 1, 0);
 
-		saveResourceSet(model);
+		save(api);
 	}
 }

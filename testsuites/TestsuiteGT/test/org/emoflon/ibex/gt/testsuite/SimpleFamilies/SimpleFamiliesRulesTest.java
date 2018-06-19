@@ -10,7 +10,6 @@ import java.util.Map;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
-import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.junit.Test;
 
 import SimpleFamilies.Family;
@@ -24,10 +23,10 @@ import SimpleFamiliesGraphTransformation.api.matches.FindFamilyMatch;
  * Tests for rule applications with the SimpleFamilies Graph Transformation API.
  */
 public class SimpleFamiliesRulesTest extends SimpleFamiliesAbstractTest {
+
 	@Test
 	public void createAndDeleteRegister() {
-		ResourceSet model = this.initResourceSet("CreateAndDeleteRegister.xmi");
-		SimpleFamiliesGraphTransformationAPI api = this.initAPI(model);
+		SimpleFamiliesGraphTransformationAPI api = this.init("CreateAndDeleteRegister.xmi");
 
 		assertNoMatch(api.findRegister());
 		assertMatchCount(1, api.createRegister()); // create rule is applicable
@@ -37,37 +36,34 @@ public class SimpleFamiliesRulesTest extends SimpleFamiliesAbstractTest {
 		assertApplicable(api.deleteRegister().apply());
 		assertNoMatch(api.findRegister());
 
-		saveResourceSet(model);
+		save(api);
 	}
 
 	@Test
 	public void createFamily() {
-		ResourceSet model = this.initResourceSet("CreateFamily.xmi", "FamilyRegister.xmi");
-		SimpleFamiliesGraphTransformationAPI api = this.initAPI(model);
+		SimpleFamiliesGraphTransformationAPI api = this.init("CreateFamily.xmi", "FamilyRegister.xmi");
 
 		assertMatchCount(2, api.findFamily());
 		assertApplicable(api.createFamily("Smith").apply());
 		assertMatchCount(3, api.findFamily());
 
-		saveResourceSet(model);
+		save(api);
 	}
 
 	@Test
 	public void createMillerFamily() {
-		ResourceSet model = this.initResourceSet("CreateMillerFamily.xmi", "FamilyRegister.xmi");
-		SimpleFamiliesGraphTransformationAPI api = this.initAPI(model);
+		SimpleFamiliesGraphTransformationAPI api = this.init("CreateMillerFamily.xmi", "FamilyRegister.xmi");
 
 		assertMatchCount(2, api.findFamily());
 		api.createMillerFamily().apply();
 		assertMatchCount(3, api.findFamily());
 
-		saveResourceSet(model);
+		save(api);
 	}
 
 	@Test
 	public void create20Families() {
-		ResourceSet model = this.initResourceSet("Create20Families.xmi", "FamilyRegister.xmi");
-		SimpleFamiliesGraphTransformationAPI api = this.initAPI(model);
+		SimpleFamiliesGraphTransformationAPI api = this.init("Create20Families.xmi", "FamilyRegister.xmi");
 
 		assertMatchCount(2, api.findFamily());
 		assertEquals(20, api.createUnnamedFamily().apply(20).size());
@@ -78,13 +74,13 @@ public class SimpleFamiliesRulesTest extends SimpleFamiliesAbstractTest {
 		assertEquals(20, api.deleteFamily().bindAndApply(findNullFamily).size());
 		assertMatchCount(2, api.findFamily());
 
-		saveResourceSet(model);
+		save(api);
 	}
 
 	@Test
 	public void deleteWatsonFamilyWithFamilyBinding() {
-		ResourceSet model = this.initResourceSet("DeleteWatsonFamilyWithFamilyBinding.xmi", "FamilyRegister.xmi");
-		SimpleFamiliesGraphTransformationAPI api = this.initAPI(model);
+		SimpleFamiliesGraphTransformationAPI api = this.init("DeleteWatsonFamilyWithFamilyBinding.xmi",
+				"FamilyRegister.xmi");
 
 		Family watsonFamily = api.findFamily().findMatches().stream()
 				.filter(m -> m.getFamily().getName().equals("Watson")) //
@@ -94,13 +90,12 @@ public class SimpleFamiliesRulesTest extends SimpleFamiliesAbstractTest {
 		assertMatchCount(1, api.findFamily());
 		assertEquals("Watson", m.getFamily().getName());
 
-		saveResourceSet(model);
+		save(api);
 	}
 
 	@Test
 	public void deleteWatsonFamilyWithMatchBinding() {
-		ResourceSet model = this.initResourceSet("DeleteWatsonFamilyWithMatchBinding.xmi", "FamilyRegister.xmi");
-		SimpleFamiliesGraphTransformationAPI api = this.initAPI(model);
+		SimpleFamiliesGraphTransformationAPI api = this.init("DeleteWatsonFamilyWithMatchBinding.xmi", "FamilyRegister.xmi");
 
 		FindFamilyMatch watsonMatch = api.findFamily().findMatches().stream()
 				.filter(m -> m.getFamily().getName().equals("Watson")) //
@@ -109,13 +104,12 @@ public class SimpleFamiliesRulesTest extends SimpleFamiliesAbstractTest {
 		assertMatchCount(1, api.findFamily());
 		assertEquals("Watson", m.getFamily().getName());
 
-		saveResourceSet(model);
+		save(api);
 	}
 
 	@Test
 	public void deleteAnyFamilyForDifferentPushoutApproaches() {
-		ResourceSet model = this.initResourceSet("DeleteAnyFamily.xmi", "FamilyRegister.xmi");
-		SimpleFamiliesGraphTransformationAPI api = this.initAPI(model);
+		SimpleFamiliesGraphTransformationAPI api = this.init("DeleteAnyFamily.xmi", "FamilyRegister.xmi");
 
 		assertMatchCount(2, api.findFamily());
 		// DPO: Families have members, so they cannot be deleted.
@@ -126,13 +120,12 @@ public class SimpleFamiliesRulesTest extends SimpleFamiliesAbstractTest {
 		assertApplicable(api.deleteFamily().setSPO().apply());
 		assertMatchCount(1, api.findFamily());
 
-		saveResourceSet(model);
+		save(api);
 	}
 
 	@Test
 	public void deleteRegisterForDifferentPushoutApproaches() {
-		ResourceSet model = this.initResourceSet("DeleteRegister.xmi", "FamilyRegister.xmi");
-		SimpleFamiliesGraphTransformationAPI api = this.initAPI(model);
+		SimpleFamiliesGraphTransformationAPI api = this.init("DeleteRegister.xmi", "FamilyRegister.xmi");
 
 		assertMatchCount(1, api.findRegister());
 		// DPO: Register has families, so the register cannot be deleted.
@@ -143,27 +136,26 @@ public class SimpleFamiliesRulesTest extends SimpleFamiliesAbstractTest {
 		assertApplicable(api.deleteRegister().setSPO().apply());
 		assertMatchCount(0, api.findRegister());
 
-		saveResourceSet(model);
+		save(api);
 	}
 
 	@Test
 	public void renameFamily() {
-		ResourceSet model = this.initResourceSet("RenameFamily.xmi", "FamilyRegister.xmi");
-		SimpleFamiliesGraphTransformationAPI api = this.initAPI(model);
+		SimpleFamiliesGraphTransformationAPI api = this.init("RenameFamily.xmi", "FamilyRegister.xmi");
 
 		assertApplicable(api.renameFamily("Watson", "Watson-Smith").apply());
-		saveResourceSet(model);
 
 		List<String> familyNames = api.findFamily().findMatches().stream() //
 				.map(m -> m.getFamily().getName()) //
 				.collect(Collectors.toList());
 		assertEquals(Arrays.asList("Simpson", "Watson-Smith"), familyNames);
+
+		save(api);
 	}
 
 	@Test
 	public void createFamiliesWithMembers() {
-		ResourceSet model = this.initResourceSet("FamiliesWithMembers.xmi");
-		SimpleFamiliesGraphTransformationAPI api = this.initAPI(model);
+		SimpleFamiliesGraphTransformationAPI api = this.init("FamiliesWithMembers.xmi");
 
 		Map<String, FamilyRegister> familyNameToRegister = new HashMap<String, FamilyRegister>();
 		api.findFamily().subscribeAppearing(m -> {
@@ -204,13 +196,12 @@ public class SimpleFamiliesRulesTest extends SimpleFamiliesAbstractTest {
 		assertMatchCount(1, api.findMemberByFirstName("Sherlock"));
 		assertMatchCount(1, api.findMemberByFirstName("John"));
 
-		saveResourceSet(model);
+		save(api);
 	}
 
 	@Test
 	public void wedding() {
-		ResourceSet model = this.initResourceSet("Wedding.xmi", "TwoFamilies.xmi");
-		SimpleFamiliesGraphTransformationAPI api = this.initAPI(model);
+		SimpleFamiliesGraphTransformationAPI api = this.init("Wedding.xmi", "TwoFamilies.xmi");
 
 		FamilyMember jason = api.findMemberByFirstName("Jason").findAnyMatch().get().getMember();
 		FamilyMember sarah = api.findMemberByFirstName("Sarah").findAnyMatch().get().getMember();
@@ -228,19 +219,18 @@ public class SimpleFamiliesRulesTest extends SimpleFamiliesAbstractTest {
 		assertMatchCount(1, api.findMemberByFirstName("Daniel"));
 		assertMatchCount(1, api.findMemberByFirstName("Rachel"));
 
-		saveResourceSet(model);
+		save(api);
 	}
 
 	@Test
 	public void sonBornNamedAsFather() {
-		ResourceSet model = this.initResourceSet("SonBornNamedAsFather.xmi", "TwoFamilies.xmi");
-		SimpleFamiliesGraphTransformationAPI api = this.initAPI(model);
+		SimpleFamiliesGraphTransformationAPI api = this.init("SonBornNamedAsFather.xmi", "TwoFamilies.xmi");
 
 		assertMatchCount(0, api.findFatherAndSonWithSameName());
 		FamilyMember sarah = api.findMemberByFirstName("Sally").findAnyMatch().get().getMember();
 		assertApplicable(api.sonBornNamedAsFather().bindMother(sarah).apply());
 		assertMatchCount(1, api.findFatherAndSonWithSameName());
 
-		saveResourceSet(model);
+		save(api);
 	}
 }

@@ -2,7 +2,6 @@ package org.emoflon.ibex.gt.testsuite.SheRememberedCaterpillars;
 
 import static org.junit.Assert.assertTrue;
 
-import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.junit.Test;
 
 import SheRememberedCaterpillars.COLOR;
@@ -16,10 +15,10 @@ import SheRememberedCaterpillarsGraphTransformation.api.matches.FindTwoCharacter
  * Transformation API.
  */
 public class SheRememberedCaterpillarsConstraintsTest extends SheRememberedCaterpillarsAbstractTest {
+
 	@Test
 	public void findCharacters() {
-		ResourceSet model = this.initResourceSet("Instance1.xmi");
-		SheRememberedCaterpillarsGraphTransformationAPI api = this.initAPI(model);
+		SheRememberedCaterpillarsGraphTransformationAPI api = this.init("Instance1.xmi");
 
 		assertMatchCount(2, api.findCharacter());
 		assertAnyMatchExists(api.findCharacterNotOnExit());
@@ -28,8 +27,7 @@ public class SheRememberedCaterpillarsConstraintsTest extends SheRememberedCater
 
 	@Test
 	public void findCharactersOfColor() {
-		ResourceSet model = this.initResourceSet("Instance1.xmi");
-		SheRememberedCaterpillarsGraphTransformationAPI api = this.initAPI(model);
+		SheRememberedCaterpillarsGraphTransformationAPI api = this.init("Instance1.xmi");
 
 		assertMatchCount(1, api.findCharacterOfColor(COLOR.BLUE));
 		assertMatchCount(1, api.findCharacterOfColor(COLOR.RED));
@@ -38,16 +36,14 @@ public class SheRememberedCaterpillarsConstraintsTest extends SheRememberedCater
 
 	@Test
 	public void noIllegalSituation() {
-		ResourceSet model = this.initResourceSet("SheRememberedCaterpillars.xmi");
-		SheRememberedCaterpillarsGraphTransformationAPI api = this.initAPI(model);
+		SheRememberedCaterpillarsGraphTransformationAPI api = this.init("SheRememberedCaterpillars.xmi");
 
 		assertNoMatch(api.findTwoCharactersOnAnExitPlatform());
 	}
 
 	@Test
 	public void illegalSituation() {
-		ResourceSet model = this.initResourceSet("TwoCharactersAtSameExit.xmi");
-		SheRememberedCaterpillarsGraphTransformationAPI api = this.initAPI(model);
+		SheRememberedCaterpillarsGraphTransformationAPI api = this.init("TwoCharactersAtSameExit.xmi");
 
 		assertAnyMatchExists(api.findTwoCharactersOnAnExitPlatform());
 		assertMatchCount(2, api.findTwoCharactersOnAnExitPlatform());
@@ -57,16 +53,14 @@ public class SheRememberedCaterpillarsConstraintsTest extends SheRememberedCater
 
 	@Test
 	public void findEmptyExit() {
-		ResourceSet model = this.initResourceSet("Instance1.xmi");
-		SheRememberedCaterpillarsGraphTransformationAPI api = this.initAPI(model);
+		SheRememberedCaterpillarsGraphTransformationAPI api = this.init("Instance1.xmi");
 
 		assertMatchCount(1, api.findEmptyExit());
 	}
 
 	@Test
 	public void findStandalonePlatform() {
-		ResourceSet model = this.initResourceSet("Instance3.xmi");
-		SheRememberedCaterpillarsGraphTransformationAPI api = this.initAPI(model);
+		SheRememberedCaterpillarsGraphTransformationAPI api = this.init("Instance3.xmi");
 
 		assertMatchCount(1, api.findStandalonePlatform());
 		FindStandalonePlatformMatch m = assertAnyMatchExists(api.findStandalonePlatform());
@@ -76,8 +70,7 @@ public class SheRememberedCaterpillarsConstraintsTest extends SheRememberedCater
 
 	@Test
 	public void findPlatformWithNeighbors() {
-		ResourceSet model = this.initResourceSet("Instance3.xmi");
-		SheRememberedCaterpillarsGraphTransformationAPI api = this.initAPI(model);
+		SheRememberedCaterpillarsGraphTransformationAPI api = this.init("Instance3.xmi");
 
 		assertMatchCount(1, api.findPlatformWithExactlyOneNeighbor());
 		assertMatchCount(2, api.findPlatformWithNeighbor());
@@ -86,8 +79,7 @@ public class SheRememberedCaterpillarsConstraintsTest extends SheRememberedCater
 
 	@Test
 	public void findPlatformWithConnections() {
-		ResourceSet model = this.initResourceSet("Instance3.xmi");
-		SheRememberedCaterpillarsGraphTransformationAPI api = this.initAPI(model);
+		SheRememberedCaterpillarsGraphTransformationAPI api = this.init("Instance3.xmi");
 
 		assertMatchCount(2, api.findPlatformWithConnection());
 		assertMatchCount(0, api.findPlatformWithTwoConnections());
@@ -95,16 +87,14 @@ public class SheRememberedCaterpillarsConstraintsTest extends SheRememberedCater
 
 	@Test
 	public void findPlatformWithTwoWays() {
-		ResourceSet model = this.initResourceSet("Instance3.xmi");
-		SheRememberedCaterpillarsGraphTransformationAPI api = this.initAPI(model);
+		SheRememberedCaterpillarsGraphTransformationAPI api = this.init("Instance3.xmi");
 
 		assertMatchCount(1, api.findPlatformWithTwoWays());
 	}
 
 	@Test
 	public void findDeadEnd() {
-		ResourceSet model = this.initResourceSet("Instance3.xmi");
-		SheRememberedCaterpillarsGraphTransformationAPI api = this.initAPI(model);
+		SheRememberedCaterpillarsGraphTransformationAPI api = this.init("Instance3.xmi");
 
 		assertMatchCount(2, api.findDeadEnd());
 	}

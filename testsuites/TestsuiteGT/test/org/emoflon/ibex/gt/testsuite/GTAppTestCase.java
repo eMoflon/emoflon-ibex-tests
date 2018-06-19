@@ -10,9 +10,8 @@ import java.util.Optional;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
+import org.emoflon.ibex.common.operational.IContextPatternInterpreter;
 import org.emoflon.ibex.gt.api.GraphTransformationAPI;
 import org.emoflon.ibex.gt.api.GraphTransformationApp;
 import org.emoflon.ibex.gt.api.GraphTransformationMatch;
@@ -30,19 +29,19 @@ public abstract class GTAppTestCase<App extends GraphTransformationApp<API>, API
 	 * Relative path to the directory with the projects with the graph
 	 * transformation rules.
 	 */
-	public static String workspacePath = "../../gt-rules/";
+	protected static String workspacePath = "../../gt-rules/";
 
 	/**
 	 * Relative path to the instances directory. Files from this directory are
 	 * changed during the transformations.
 	 */
-	private static String instancesPath = "./instances/";
+	protected static String instancesPath = "./instances/";
 
 	/**
 	 * Relative path to the resources directory. Files from this directory are just
 	 * loaded, but never changed during transformation.
 	 */
-	private static String resourcePath = "./resources/";
+	protected static String resourcePath = "./resources/";
 
 	/**
 	 * Returns the name of the test which is used as a name of the subdirectory
@@ -64,10 +63,21 @@ public abstract class GTAppTestCase<App extends GraphTransformationApp<API>, API
 	 * 
 	 * @return the GT application.
 	 */
-	public App initApp() {
+	protected App initApp() {
 		App app = this.getApp();
 		app.setWorkspacePath(workspacePath);
 		return app;
+	}
+
+	/**
+	 * Initializes the engine.
+	 * 
+	 * @return the engine
+	 */
+	protected IContextPatternInterpreter initEngine() {
+		DemoclesGTEngine engine = new DemoclesGTEngine();
+		engine.setDebugPath("./debug/" + this.getTestName());
+		return engine;
 	}
 
 	/**
@@ -78,9 +88,7 @@ public abstract class GTAppTestCase<App extends GraphTransformationApp<API>, API
 	 * @return the created API
 	 */
 	protected API initAPI(final App app) {
-		DemoclesGTEngine engine = new DemoclesGTEngine();
-		engine.setDebugPath("./debug/" + this.getTestName());
-		return app.initAPI(engine);
+		return app.initAPI(initEngine());
 	}
 
 	/**
@@ -97,11 +105,7 @@ public abstract class GTAppTestCase<App extends GraphTransformationApp<API>, API
 	 *            the name of the resource file to copy
 	 * @return a resource set containing the model file
 	 */
-	protected ResourceSet initResourceSet(final App app, final String modelInstanceFileName,
-			final String resourceFileName) {
-		Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
-		reg.getExtensionToFactoryMap().put("xmi", new XMIResourceFactoryImpl());
-
+	protected void createModel(final App app, final String modelInstanceFileName, final String resourceFileName) {
 		URI instanceURI = URI.createFileURI(instancesPath + this.getTestName() + "/" + modelInstanceFileName);
 		Resource instanceResource = app.createModel(instanceURI);
 
@@ -123,7 +127,6 @@ public abstract class GTAppTestCase<App extends GraphTransformationApp<API>, API
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return app.getResourceSet();
 	}
 
 	/**
@@ -135,7 +138,7 @@ public abstract class GTAppTestCase<App extends GraphTransformationApp<API>, API
 	 */
 	protected API init(final String modelInstanceFileName) {
 		App app = initApp();
-		this.initResourceSet(app, modelInstanceFileName, modelInstanceFileName);
+		this.createModel(app, modelInstanceFileName, modelInstanceFileName);
 		return this.initAPI(app);
 	}
 
@@ -150,7 +153,7 @@ public abstract class GTAppTestCase<App extends GraphTransformationApp<API>, API
 	 */
 	protected API init(final String modelInstanceFileName, final String resourceFileName) {
 		App app = initApp();
-		this.initResourceSet(app, modelInstanceFileName, resourceFileName);
+		this.createModel(app, modelInstanceFileName, resourceFileName);
 		return this.initAPI(app);
 	}
 

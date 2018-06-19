@@ -1,45 +1,32 @@
 package org.emoflon.ibex.gt.testsuite.SimpleFamiliesToSimplePersons2;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.emoflon.ibex.common.operational.IContextPatternInterpreter;
-import org.emoflon.ibex.gt.democles.runtime.DemoclesGTEngine;
-import org.emoflon.ibex.gt.testsuite.GTTestCase;
+import org.eclipse.emf.common.util.URI;
+import org.emoflon.ibex.gt.testsuite.GTAppTestCase;
 import org.junit.Test;
 
 import SimpleFamilies.Family;
 import SimpleFamilies.FamilyMember;
 import SimpleFamilies.FamilyRegister;
-import SimpleFamilies.SimpleFamiliesPackage;
 import SimpleFamiliesGraphTransformation.api.SimpleFamiliesGraphTransformationAPI;
+import SimpleFamiliesGraphTransformation.api.SimpleFamiliesGraphTransformationApp;
 import SimplePersons.PersonRegister;
-import SimplePersons.SimplePersonsPackage;
 import SimplePersonsGraphTransformation.api.SimplePersonsGraphTransformationAPI;
+import SimplePersonsGraphTransformation.api.SimplePersonsGraphTransformationApp;
 
 /**
  * Tests for the SimpleFamilies and SimplePersons Graph Transformation API.
  */
-public class SimpleFamiliesToSimplePersons2Test extends GTTestCase<SimpleFamiliesGraphTransformationAPI> {
+public class SimpleFamiliesToSimplePersons2Test
+		extends GTAppTestCase<SimplePersonsGraphTransformationApp, SimplePersonsGraphTransformationAPI> {
+
 	@Override
 	public String getTestName() {
 		return "SimpleFamiliesToSimplePersons2";
 	}
 
 	@Override
-	protected SimpleFamiliesGraphTransformationAPI getAPI(final IContextPatternInterpreter engine,
-			final ResourceSet model) {
-		return new SimpleFamiliesGraphTransformationAPI(engine, model, GTTestCase.workspacePath);
-	}
-
-	@Override
-	protected Map<String, EPackage> getMetaModelPackages() {
-		HashMap<String, EPackage> map = new HashMap<String, EPackage>();
-		map.put(SimpleFamiliesPackage.eNS_URI, SimpleFamiliesPackage.eINSTANCE);
-		map.put(SimplePersonsPackage.eNS_URI, SimplePersonsPackage.eINSTANCE);
-		return map;
+	protected SimplePersonsGraphTransformationApp getApp() {
+		return new SimplePersonsGraphTransformationApp();
 	}
 
 	/**
@@ -48,12 +35,12 @@ public class SimpleFamiliesToSimplePersons2Test extends GTTestCase<SimpleFamilie
 	 */
 	@Test
 	public void simpleFamiliesToPersons2() {
-		ResourceSet familiesModel = initResourceSet("FamilyRegisters.xmi");
-		SimpleFamiliesGraphTransformationAPI familiesAPI = this.initAPI(familiesModel);
+		SimplePersonsGraphTransformationAPI personsAPI = this.init("PersonRegisters.xmi");
 
-		ResourceSet personsModel = initResourceSet("PersonRegisters.xmi");
-		SimplePersonsGraphTransformationAPI personsAPI = new SimplePersonsGraphTransformationAPI(new DemoclesGTEngine(),
-				personsModel, GTTestCase.workspacePath);
+		SimpleFamiliesGraphTransformationApp familiesApp = new SimpleFamiliesGraphTransformationApp();
+		familiesApp.setWorkspacePath(workspacePath);
+		familiesApp.loadModel(URI.createFileURI(resourcePath + this.getTestName() + "/" + "FamilyRegisters.xmi"));
+		SimpleFamiliesGraphTransformationAPI familiesAPI = familiesApp.initAPI(initEngine());
 
 		familiesAPI.findRegister().findMatches().forEach(familyRegisterMatch -> {
 			FamilyRegister familyRegister = familyRegisterMatch.getRegister();
@@ -86,8 +73,7 @@ public class SimpleFamiliesToSimplePersons2Test extends GTTestCase<SimpleFamilie
 		assertMatchCount(4, personsAPI.findMale());
 		assertMatchCount(8, personsAPI.findPerson());
 
-		saveResourceSet(familiesModel);
-		saveResourceSet(personsModel);
+		save(personsAPI);
 	}
 
 	private String getFullName(final Family family, final FamilyMember member) {

@@ -2,7 +2,6 @@ package org.emoflon.ibex.gt.testsuite.FerrymanProblem;
 
 import static org.junit.Assert.assertTrue;
 
-import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.junit.Test;
 
 import FerrymanProblem.Cabbage;
@@ -16,10 +15,10 @@ import FerrymanProblemGraphTransformation.api.matches.EatMatch;
  * API.
  */
 public class FerrymanProblemRulesTest extends FerrymanProblemAbstractTest {
+	
 	@Test
 	public void wolfEatsGoat() {
-		ResourceSet model = this.initResourceSet("WolfEatsGoat.xmi");
-		FerrymanProblemGraphTransformationAPI api = this.initAPI(model);
+		FerrymanProblemGraphTransformationAPI api = this.init("WolfEatsGoat.xmi");
 
 		assertMatchCount(2, api.findSubjectOnLeftBank());
 		assertMatchCount(2, api.findSubjectOnRightBank());
@@ -32,13 +31,12 @@ public class FerrymanProblemRulesTest extends FerrymanProblemAbstractTest {
 		assertMatchCount(1, api.findSubjectOnLeftBank());
 		assertMatchCount(2, api.findSubjectOnRightBank());
 
-		saveResourceSet(model);
+		save(api);
 	}
 
 	@Test
 	public void move() {
-		ResourceSet model = this.initResourceSet("Move.xmi", "Start.xmi");
-		FerrymanProblemGraphTransformationAPI api = this.initAPI(model);
+		FerrymanProblemGraphTransformationAPI api = this.init("Move.xmi", "Start.xmi");
 
 		assertMatchCount(4, api.findSubjectOnLeftBank());
 		assertMatchCount(0, api.findSubjectOnRightBank());
@@ -47,13 +45,12 @@ public class FerrymanProblemRulesTest extends FerrymanProblemAbstractTest {
 		assertMatchCount(2, api.findSubjectOnLeftBank());
 		assertMatchCount(2, api.findSubjectOnRightBank());
 
-		saveResourceSet(model);
+		save(api);
 	}
 
 	@Test
 	public void moveAllSuccess() {
-		ResourceSet model = this.initResourceSet("MoveAllSuccess.xmi", "Start.xmi");
-		FerrymanProblemGraphTransformationAPI api = this.initAPI(model);
+		FerrymanProblemGraphTransformationAPI api = this.init("MoveAllSuccess.xmi", "Start.xmi");
 
 		assertMatchCount(4, api.findSubjectOnLeftBank());
 		assertMatchCount(0, api.findSubjectOnRightBank());
@@ -76,13 +73,12 @@ public class FerrymanProblemRulesTest extends FerrymanProblemAbstractTest {
 		assertMatchCount(0, api.findSubjectOnLeftBank());
 		assertMatchCount(4, api.findSubjectOnRightBank());
 
-		saveResourceSet(model);
+		save(api);
 	}
 
 	@Test
 	public void moveAllFail() {
-		ResourceSet model = this.initResourceSet("MoveAllFail.xmi", "Start.xmi");
-		FerrymanProblemGraphTransformationAPI api = this.initAPI(model);
+		FerrymanProblemGraphTransformationAPI api = this.init("MoveAllFail.xmi", "Start.xmi");
 
 		assertMatchCount(4, api.findSubjectOnLeftBank());
 		assertMatchCount(0, api.findSubjectOnRightBank());
@@ -105,13 +101,12 @@ public class FerrymanProblemRulesTest extends FerrymanProblemAbstractTest {
 		assertMatchCount(1, api.findSubjectOnLeftBank());
 		assertMatchCount(1, api.findSubjectOnRightBank());
 
-		saveResourceSet(model);
+		save(api);
 	}
 
 	@Test
 	public void killGoatPushoutApproaches() {
-		ResourceSet model = this.initResourceSet("KillGoatSPO.xmi", "Start.xmi");
-		FerrymanProblemGraphTransformationAPI api = this.initAPI(model);
+		FerrymanProblemGraphTransformationAPI api = this.init("KillGoatSPO.xmi", "Start.xmi");
 
 		assertMatchCount(1, api.findGoat());
 		assertNotApplicable(api.killGoat().setDPO().apply());
@@ -120,6 +115,6 @@ public class FerrymanProblemRulesTest extends FerrymanProblemAbstractTest {
 		assertApplicable(api.killGoat().apply());
 		assertNoMatch(api.findGoat());
 
-		saveResourceSet(model);
+		save(api);
 	}
 }

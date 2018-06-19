@@ -2,7 +2,6 @@ package org.emoflon.ibex.gt.testsuite.ClassMultipleInheritanceHierarchy;
 
 import static org.junit.Assert.assertTrue;
 
-import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.junit.Test;
 
 import ClassMultipleInheritanceHierarchyGraphTransformation.api.ClassMultipleInheritanceHierarchyGraphTransformationAPI;
@@ -18,8 +17,8 @@ public class ClassMultipleInheritanceRulesTest extends ClassMultipleInheritanceH
 
 	@Test
 	public void createPackage() {
-		ResourceSet model = this.initResourceSet("ModifiedDiagram1.xmi", "ClassDiagram1.xmi");
-		ClassMultipleInheritanceHierarchyGraphTransformationAPI api = this.initAPI(model);
+		ClassMultipleInheritanceHierarchyGraphTransformationAPI api = this.init("ModifiedDiagram1.xmi",
+				"ClassDiagram1.xmi");
 
 		ClassPackage p = assertApplicable(api.createPackage("SecondPackage").apply()).getPackage();
 		assertMatchCount(2, api.findPackage());
@@ -35,13 +34,13 @@ public class ClassMultipleInheritanceRulesTest extends ClassMultipleInheritanceH
 		assertMatchCount(2, findPackages);
 		assertTrue(b.getSuperClass().contains(a));
 
-		saveResourceSet(model);
+		save(api);
 	}
 
 	@Test
 	public void addSuperClass() {
-		ResourceSet model = this.initResourceSet("ModifiedDiagram2.xmi", "ClassDiagram1.xmi");
-		ClassMultipleInheritanceHierarchyGraphTransformationAPI api = this.initAPI(model);
+		ClassMultipleInheritanceHierarchyGraphTransformationAPI api = this.init("ModifiedDiagram2.xmi",
+				"ClassDiagram1.xmi");
 
 		Clazz a = assertAnyMatchExists(api.findClassByName("TestA")).getClazz();
 		Clazz c = assertAnyMatchExists(api.findClassByName("TestC")).getClazz();
@@ -49,25 +48,25 @@ public class ClassMultipleInheritanceRulesTest extends ClassMultipleInheritanceH
 		assertApplicable(api.addSuperClass().bindClazz(c).bindSuperClass(a).apply());
 		assertMatchCount(3, api.findSubClass().bindClazz(a));
 
-		saveResourceSet(model);
+		save(api);
 	}
 
 	@Test
 	public void renameClass() {
-		ResourceSet model = this.initResourceSet("ModifiedDiagram3.xmi", "ClassDiagram1.xmi");
-		ClassMultipleInheritanceHierarchyGraphTransformationAPI api = this.initAPI(model);
+		ClassMultipleInheritanceHierarchyGraphTransformationAPI api = this.init("ModifiedDiagram3.xmi",
+				"ClassDiagram1.xmi");
 
 		assertApplicable(api.renameClass("TestA", "TestNew").apply());
 		assertNoMatch(api.findClassByName("TestA"));
 		assertMatchCount(1, api.findClassByName("TestNew"));
 
-		saveResourceSet(model);
+		save(api);
 	}
 
 	@Test
 	public void deletePackage() {
-		ResourceSet model = this.initResourceSet("ModifiedDiagram4.xmi", "ClassDiagram1.xmi");
-		ClassMultipleInheritanceHierarchyGraphTransformationAPI api = this.initAPI(model);
+		ClassMultipleInheritanceHierarchyGraphTransformationAPI api = this.init("ModifiedDiagram4.xmi",
+				"ClassDiagram1.xmi");
 
 		assertMatchCount(1, api.findPackage());
 		assertNotApplicable(api.deletePackage().apply());
@@ -75,6 +74,6 @@ public class ClassMultipleInheritanceRulesTest extends ClassMultipleInheritanceH
 		assertApplicable(api.deletePackageByName("TestPackage").apply());
 		assertMatchCount(0, api.findPackage());
 
-		saveResourceSet(model);
+		save(api);
 	}
 }

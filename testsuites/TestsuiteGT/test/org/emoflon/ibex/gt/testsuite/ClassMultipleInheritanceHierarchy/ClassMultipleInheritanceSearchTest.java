@@ -5,7 +5,6 @@ import static org.junit.Assert.assertEquals;
 import java.util.HashSet;
 import java.util.Set;
 
-import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.junit.Test;
 
 import ClassMultipleInheritanceHierarchyGraphTransformation.api.ClassMultipleInheritanceHierarchyGraphTransformationAPI;
@@ -19,8 +18,7 @@ public class ClassMultipleInheritanceSearchTest extends ClassMultipleInheritance
 
 	@Test
 	public void findPackageAndClasses() {
-		ResourceSet model = this.initResourceSet("ClassDiagram1.xmi");
-		ClassMultipleInheritanceHierarchyGraphTransformationAPI api = this.initAPI(model);
+		ClassMultipleInheritanceHierarchyGraphTransformationAPI api = this.init("ClassDiagram1.xmi");
 
 		assertMatchCount(1, api.findPackage());
 		assertMatchCount(6, api.findClass());
@@ -28,8 +26,7 @@ public class ClassMultipleInheritanceSearchTest extends ClassMultipleInheritance
 
 	@Test
 	public void findSubClasses() {
-		ResourceSet model = this.initResourceSet("ClassDiagram1.xmi");
-		ClassMultipleInheritanceHierarchyGraphTransformationAPI api = this.initAPI(model);
+		ClassMultipleInheritanceHierarchyGraphTransformationAPI api = this.init("ClassDiagram1.xmi");
 
 		Clazz testA = assertAnyMatchExists(api.findClassByName("TestA")).getClazz();
 		assertMatchCount(0, api.findSuperClass().bindClazz(testA));
@@ -42,8 +39,7 @@ public class ClassMultipleInheritanceSearchTest extends ClassMultipleInheritance
 
 	@Test
 	public void notifyIfTwoClassesOfTheSameName() {
-		ResourceSet model = this.initResourceSet("Constraints1.xmi", "ClassDiagram1.xmi");
-		ClassMultipleInheritanceHierarchyGraphTransformationAPI api = this.initAPI(model);
+		ClassMultipleInheritanceHierarchyGraphTransformationAPI api = this.init("Constraints1.xmi", "ClassDiagram1.xmi");
 
 		Set<Clazz> classes = new HashSet<Clazz>();
 		api.findTwoClassesOfSameName().subscribeAppearing(m -> {
@@ -54,6 +50,6 @@ public class ClassMultipleInheritanceSearchTest extends ClassMultipleInheritance
 		assertApplicable(api.createClass("TestA").apply());
 		assertEquals(2, classes.size());
 
-		saveResourceSet(model);
+		save(api);
 	}
 }
