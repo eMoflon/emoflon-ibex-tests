@@ -26,6 +26,7 @@ public class AlternatingSync extends SyncTestCaseCD2DB {
 		assertPostcondition("in/04_SubClassToTable_FWD", "expected/04_SubClassToTable_FWD");
 	}
 
+	@Ignore("TODO: Problems with deletion - non-deterministic!")
 	@Test
 	public void testCreateSubClassDeleteSubTable() {
 		createInheritance();
