@@ -56,7 +56,7 @@ public class SheRememberedCaterpillarsPerformanceTest1 extends GTPerformanceTest
 
 		// Execute query.
 		long queryStart = System.nanoTime();
-		int count = api.findStandalonePlatform().countMatches() + api.findEmptyExit().countMatches();
+		long count = api.findStandalonePlatform().countMatches() + api.findEmptyExit().countMatches();
 		if (count != modelSize) {
 			System.out.println("ERROR");
 		}
