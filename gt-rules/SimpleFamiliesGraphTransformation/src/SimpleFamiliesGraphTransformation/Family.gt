@@ -164,3 +164,18 @@ rule renameFamily(oldName: EString, newName: EString) {
 		.name := param::newName
 	}
 }
+
+/**
+ * Find three families of the same name.
+ */
+pattern findThreeFamiliesOfTheSameName {
+	family1: Family
+
+	family2: Family {
+		.name == family1.name
+	}
+
+	family3: Family {
+		.name == family1.name
+	}
+}
