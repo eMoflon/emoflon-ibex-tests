@@ -40,7 +40,7 @@ public class SimpleFamiliesConstraintsTest extends SimpleFamiliesAbstractTest {
 	}
 
 	@Test
-	public void findSimpsonFamily() {
+	public void countFamilyByName() {
 		SimpleFamiliesGraphTransformationAPI api = this.init("FamilyRegister.xmi");
 
 		assertMatchCount(1, api.findSimpsonFamily());
@@ -48,6 +48,23 @@ public class SimpleFamiliesConstraintsTest extends SimpleFamiliesAbstractTest {
 
 		assertMatchCount(1, api.findFamilyButNotSimpson());
 		assertEquals("Watson", api.findFamilyButNotSimpson().findAnyMatch().get().getFamily().getName());
+
+		assertMatchCount(2, api.findFamilyWithNameGreaterOrEqualThanSimpson());
+		assertMatchCount(1, api.findFamilyWithNameGreaterThanSimpson());
+		assertMatchCount(1, api.findFamilyWithNameSmallerOrEqualThanSimpson());
+		assertMatchCount(0, api.findFamilyWithNameSmallerThanSimpson());
+	}
+
+	@Test
+	public void countFamilyByName2() {
+		SimpleFamiliesGraphTransformationAPI api = this.init("FamilyRegister2.xmi");
+
+		assertMatchCount(0, api.findSimpsonFamily());
+		assertMatchCount(7, api.findFamilyButNotSimpson());
+		assertMatchCount(2, api.findFamilyWithNameGreaterOrEqualThanSimpson());
+		assertMatchCount(2, api.findFamilyWithNameGreaterThanSimpson());
+		assertMatchCount(5, api.findFamilyWithNameSmallerOrEqualThanSimpson());
+		assertMatchCount(5, api.findFamilyWithNameSmallerThanSimpson());
 	}
 
 	@Test

@@ -65,12 +65,52 @@ refines findFamily {
 }
 
 /**
- * Finds any family not named Simpson.
+ * Finds a family not named Simpson.
  */
 pattern findFamilyButNotSimpson
 refines findFamily {
 	family: Family {
 		.name != "Simpson"
+	}
+}
+
+/**
+ * Finds a family with a name lexicographically greater or equal than "Simpson".
+ */
+pattern findFamilyWithNameGreaterOrEqualThanSimpson
+refines findFamily {
+	family: Family {
+		.name >= "Simpson"
+	}
+}
+
+/**
+ * Finds a family with a name lexicographically greater than "Simpson".
+ */
+pattern findFamilyWithNameGreaterThanSimpson
+refines findFamily {
+	family: Family {
+		.name > "Simpson"
+	}
+}
+
+/**
+ * Finds a family with a name lexicographically smaller or equal than "Simpson".
+ */
+pattern findFamilyWithNameSmallerOrEqualThanSimpson
+refines findFamily {
+	family: Family {
+		.name <= "Simpson"
+	}
+}
+
+/**
+ * Finds a family with a name lexicographically smaller than "Simpson".
+ */
+pattern findFamilyWithNameSmallerThanSimpson
+refines findFamily {
+	family: Family {
+		.name < "Simpson"
 	}
 }
 
