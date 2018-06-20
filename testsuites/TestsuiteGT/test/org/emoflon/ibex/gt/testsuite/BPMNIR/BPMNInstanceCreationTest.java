@@ -11,7 +11,7 @@ public class BPMNInstanceCreationTest extends BPMNIRAbstractTest {
 		BPMNIRGraphTransformationAPI api = init("BPMN-IR-insertTaskBetween.xmi", "BPMN-IR-ex1.xmi");
 
 		assertMatchCount(2, api.findTaskIR());
-		assertApplicable(api.addInactiveTaskIRBetweenTasks("C").apply());
+		assertApplicable(api.addInactiveTaskIRBetweenTasks("C"));
 		assertMatchCount(3, api.findTaskIR());
 
 		saveAndTerminate(api);

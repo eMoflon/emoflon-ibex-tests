@@ -16,6 +16,7 @@ import org.emoflon.ibex.gt.api.GraphTransformationAPI;
 import org.emoflon.ibex.gt.api.GraphTransformationApp;
 import org.emoflon.ibex.gt.api.GraphTransformationMatch;
 import org.emoflon.ibex.gt.api.GraphTransformationPattern;
+import org.emoflon.ibex.gt.api.GraphTransformationRule;
 import org.emoflon.ibex.gt.democles.runtime.DemoclesGTEngine;
 
 /**
@@ -155,40 +156,41 @@ public abstract class GTAppTestCase<App extends GraphTransformationApp<API>, API
 	}
 
 	/**
-	 * Asserts that there are no matches for the rule
+	 * Asserts that there are no matches for the pattern.
 	 * 
-	 * @param rule
-	 *            the rule
+	 * @param pattern
+	 *            the pattern
 	 */
-	public static void assertNoMatch(final GraphTransformationPattern<?, ?> rule) {
-		assertEquals(0, rule.countMatches());
-		assertFalse(rule.findAnyMatch().isPresent());
+	public static void assertNoMatch(final GraphTransformationPattern<?, ?> pattern) {
+		assertEquals(0, pattern.countMatches());
+		assertFalse(pattern.findAnyMatch().isPresent());
 	}
 
 	/**
-	 * Asserts that any match for the rule exists and returns the match.
+	 * Asserts that any match for the pattern exists and returns the match.
 	 * 
-	 * @param rule
-	 *            the rule
+	 * @param pattern
+	 *            the pattern
 	 * @return the match
 	 */
-	public static <M extends GraphTransformationMatch<M, R>, R extends GraphTransformationPattern<M, R>> M assertAnyMatchExists(
-			final R rule) {
-		Optional<M> match = (Optional<M>) rule.findAnyMatch();
+	public static <M extends GraphTransformationMatch<M, P>, P extends GraphTransformationPattern<M, P>> M assertAnyMatchExists(
+			final P pattern) {
+		Optional<M> match = (Optional<M>) pattern.findAnyMatch();
 		assertTrue(match.isPresent());
+		assertEquals(pattern, match.get().getPattern());
 		return match.get();
 	}
 
 	/**
-	 * Asserts that the rule has the expected number of matches.
+	 * Asserts that the pattern has the expected number of matches.
 	 * 
 	 * @param expectedMatchCount
 	 *            the expected number of matches
-	 * @param rule
-	 *            the rule
+	 * @param pattern
+	 *            the pattern
 	 */
-	public static void assertMatchCount(final int expectedMatchCount, final GraphTransformationPattern<?, ?> rule) {
-		assertEquals(expectedMatchCount, rule.countMatches());
+	public static void assertMatchCount(final int expectedMatchCount, final GraphTransformationPattern<?, ?> pattern) {
+		assertEquals(expectedMatchCount, pattern.countMatches());
 	}
 
 	/**
@@ -204,7 +206,8 @@ public abstract class GTAppTestCase<App extends GraphTransformationApp<API>, API
 	}
 
 	/**
-	 * Asserts that a match exists after rule application and returns the match.
+	 * Asserts that a co-match exists after rule application and returns the
+	 * co-match.
 	 * 
 	 * @param applyResult
 	 *            the result of the apply call
@@ -214,5 +217,19 @@ public abstract class GTAppTestCase<App extends GraphTransformationApp<API>, API
 		Optional<M> match = (Optional<M>) applyResult;
 		assertTrue(match.isPresent());
 		return match.get();
+	}
+
+	/**
+	 * Asserts that a match exists before rule application, a co-match after rule
+	 * application exists as well and returns the co-match.
+	 * 
+	 * @param the
+	 *            rule
+	 * @return the match
+	 */
+	public static <M extends GraphTransformationMatch<M, R>, R extends GraphTransformationRule<M, R>> M assertApplicable(
+			final R rule) {
+		assertTrue(rule.isApplicable());
+		return assertApplicable(rule.apply());
 	}
 }

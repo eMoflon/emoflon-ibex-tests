@@ -15,7 +15,7 @@ import FerrymanProblemGraphTransformation.api.matches.EatMatch;
  * API.
  */
 public class FerrymanProblemRulesTest extends FerrymanProblemAbstractTest {
-	
+
 	@Test
 	public void wolfEatsGoat() {
 		FerrymanProblemGraphTransformationAPI api = this.init("WolfEatsGoat.xmi");
@@ -23,7 +23,7 @@ public class FerrymanProblemRulesTest extends FerrymanProblemAbstractTest {
 		assertMatchCount(2, api.findSubjectOnLeftBank());
 		assertMatchCount(2, api.findSubjectOnRightBank());
 
-		EatMatch match = assertApplicable(api.eat().apply());
+		EatMatch match = assertApplicable(api.eat());
 		assertTrue(match.getEater() instanceof Wolf);
 		assertTrue(match.getEaten() instanceof Goat);
 
@@ -41,7 +41,7 @@ public class FerrymanProblemRulesTest extends FerrymanProblemAbstractTest {
 		assertMatchCount(4, api.findSubjectOnLeftBank());
 		assertMatchCount(0, api.findSubjectOnRightBank());
 
-		assertApplicable(api.moveThing().apply());
+		assertApplicable(api.moveThing());
 		assertMatchCount(2, api.findSubjectOnLeftBank());
 		assertMatchCount(2, api.findSubjectOnRightBank());
 
@@ -62,13 +62,13 @@ public class FerrymanProblemRulesTest extends FerrymanProblemAbstractTest {
 		Goat goat = api.findGoat().findAnyMatch().get().getGoat();
 		Wolf wolf = api.findWolf().findAnyMatch().get().getWolf();
 
-		assertApplicable(api.moveThing().bindThing(goat).apply());
-		assertApplicable(api.move().apply());
-		assertApplicable(api.moveThing().bindThing(cabbage).apply());
-		assertApplicable(api.moveThing().bindThing(goat).apply());
-		assertApplicable(api.moveThing().bindThing(wolf).apply());
-		assertApplicable(api.move().apply());
-		assertApplicable(api.moveThing().bindThing(goat).apply());
+		assertApplicable(api.moveThing().bindThing(goat));
+		assertApplicable(api.move());
+		assertApplicable(api.moveThing().bindThing(cabbage));
+		assertApplicable(api.moveThing().bindThing(goat));
+		assertApplicable(api.moveThing().bindThing(wolf));
+		assertApplicable(api.move());
+		assertApplicable(api.moveThing().bindThing(goat));
 
 		assertMatchCount(0, api.findSubjectOnLeftBank());
 		assertMatchCount(4, api.findSubjectOnRightBank());
@@ -87,13 +87,13 @@ public class FerrymanProblemRulesTest extends FerrymanProblemAbstractTest {
 		api.eat().enableAutoApply();
 
 		Wolf wolf = api.findWolf().findAnyMatch().get().getWolf();
-		assertApplicable(api.moveThing().bindThing(wolf).apply());
+		assertApplicable(api.moveThing().bindThing(wolf));
 
 		// Need to call updateMatches here to trigger notifications.
 		api.updateMatches(); // Goat eats the cabbage.
 
-		assertApplicable(api.moveThing().bindThing(wolf).apply());
-		assertApplicable(api.move().apply());
+		assertApplicable(api.moveThing().bindThing(wolf));
+		assertApplicable(api.move());
 
 		api.updateMatches(); // Wolf eats the goat.
 
@@ -112,7 +112,7 @@ public class FerrymanProblemRulesTest extends FerrymanProblemAbstractTest {
 		assertNotApplicable(api.killGoat().setDPO().apply());
 		assertMatchCount(1, api.findGoat());
 
-		assertApplicable(api.killGoat().apply());
+		assertApplicable(api.killGoat());
 		assertNoMatch(api.findGoat());
 
 		saveAndTerminate(api);

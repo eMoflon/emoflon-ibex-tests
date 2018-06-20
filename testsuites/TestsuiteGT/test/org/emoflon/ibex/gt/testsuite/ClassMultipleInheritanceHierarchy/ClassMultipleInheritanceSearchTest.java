@@ -39,7 +39,8 @@ public class ClassMultipleInheritanceSearchTest extends ClassMultipleInheritance
 
 	@Test
 	public void notifyIfTwoClassesOfTheSameName() {
-		ClassMultipleInheritanceHierarchyGraphTransformationAPI api = this.init("Constraints1.xmi", "ClassDiagram1.xmi");
+		ClassMultipleInheritanceHierarchyGraphTransformationAPI api = this.init("Constraints1.xmi",
+				"ClassDiagram1.xmi");
 
 		Set<Clazz> classes = new HashSet<Clazz>();
 		api.findTwoClassesOfSameName().subscribeAppearing(m -> {
@@ -47,7 +48,7 @@ public class ClassMultipleInheritanceSearchTest extends ClassMultipleInheritance
 			classes.add(m.getClazz2());
 		});
 
-		assertApplicable(api.createClass("TestA").apply());
+		assertApplicable(api.createClass("TestA"));
 		assertEquals(2, classes.size());
 
 		saveAndTerminate(api);

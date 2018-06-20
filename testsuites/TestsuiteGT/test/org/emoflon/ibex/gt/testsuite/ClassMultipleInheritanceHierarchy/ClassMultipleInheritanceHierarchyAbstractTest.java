@@ -9,8 +9,8 @@ import ClassMultipleInheritanceHierarchyGraphTransformation.api.ClassMultipleInh
  * Abstract test class for the ClassMultipleInheritanceHierarchy Graph
  * Transformation API. All tests for this API should inherit from this class.
  */
-public class ClassMultipleInheritanceHierarchyAbstractTest
-		extends GTAppTestCase<ClassMultipleInheritanceHierarchyGraphTransformationApp, ClassMultipleInheritanceHierarchyGraphTransformationAPI> {
+public class ClassMultipleInheritanceHierarchyAbstractTest extends
+		GTAppTestCase<ClassMultipleInheritanceHierarchyGraphTransformationApp, ClassMultipleInheritanceHierarchyGraphTransformationAPI> {
 
 	@Override
 	protected String getTestName() {

@@ -20,17 +20,17 @@ public class ClassMultipleInheritanceRulesTest extends ClassMultipleInheritanceH
 		ClassMultipleInheritanceHierarchyGraphTransformationAPI api = this.init("ModifiedDiagram1.xmi",
 				"ClassDiagram1.xmi");
 
-		ClassPackage p = assertApplicable(api.createPackage("SecondPackage").apply()).getPackage();
+		ClassPackage p = assertApplicable(api.createPackage("SecondPackage")).getPackage();
 		assertMatchCount(2, api.findPackage());
 
 		FindClassInPackagePattern findPackages = api.findClassInPackage().bindPackage(p);
 
 		assertMatchCount(0, findPackages);
-		Clazz a = assertApplicable(api.createClass("SecondA").bindPackage(p).apply()).getClazz();
+		Clazz a = assertApplicable(api.createClass("SecondA").bindPackage(p)).getClazz();
 		assertMatchCount(1, findPackages);
 
 		Clazz b = assertApplicable(api.createClassAsSubClass("SecondB") //
-				.bindPackage(p).bindSuperClass(a).apply()).getClazz();
+				.bindPackage(p).bindSuperClass(a)).getClazz();
 		assertMatchCount(2, findPackages);
 		assertTrue(b.getSuperClass().contains(a));
 
@@ -45,7 +45,7 @@ public class ClassMultipleInheritanceRulesTest extends ClassMultipleInheritanceH
 		Clazz a = assertAnyMatchExists(api.findClassByName("TestA")).getClazz();
 		Clazz c = assertAnyMatchExists(api.findClassByName("TestC")).getClazz();
 
-		assertApplicable(api.addSuperClass().bindClazz(c).bindSuperClass(a).apply());
+		assertApplicable(api.addSuperClass().bindClazz(c).bindSuperClass(a));
 		assertMatchCount(3, api.findSubClass().bindClazz(a));
 
 		saveAndTerminate(api);
@@ -56,7 +56,7 @@ public class ClassMultipleInheritanceRulesTest extends ClassMultipleInheritanceH
 		ClassMultipleInheritanceHierarchyGraphTransformationAPI api = this.init("ModifiedDiagram3.xmi",
 				"ClassDiagram1.xmi");
 
-		assertApplicable(api.renameClass("TestA", "TestNew").apply());
+		assertApplicable(api.renameClass("TestA", "TestNew"));
 		assertNoMatch(api.findClassByName("TestA"));
 		assertMatchCount(1, api.findClassByName("TestNew"));
 
@@ -71,7 +71,7 @@ public class ClassMultipleInheritanceRulesTest extends ClassMultipleInheritanceH
 		assertMatchCount(1, api.findPackage());
 		assertNotApplicable(api.deletePackage().apply());
 		assertMatchCount(1, api.findPackage());
-		assertApplicable(api.deletePackageByName("TestPackage").apply());
+		assertApplicable(api.deletePackageByName("TestPackage"));
 		assertMatchCount(0, api.findPackage());
 
 		saveAndTerminate(api);

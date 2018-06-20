@@ -55,7 +55,7 @@ public class SimpleFamiliesConstraintsTest extends SimpleFamiliesAbstractTest {
 		assertMatchCount(1, api.findFamilyWithNameGreaterThanSimpson());
 		assertMatchCount(1, api.findFamilyWithNameSmallerOrEqualThanSimpson());
 		assertMatchCount(0, api.findFamilyWithNameSmallerThanSimpson());
-		
+
 		assertMatchCount(0, api.findThreeFamiliesOfTheSameName());
 	}
 
@@ -211,14 +211,14 @@ public class SimpleFamiliesConstraintsTest extends SimpleFamiliesAbstractTest {
 		assertMatchCount(2, api.findSingleFather());
 		assertMatchCount(2, api.findSingleMother());
 	}
-	
+
 	@Test
 	public void findThreeFamiliesWithTheSameName() {
 		SimpleFamiliesGraphTransformationAPI api = this.init("FamilyRegister3.xmi");
 
 		// 6 = 3 * 2 matches (each combination of the three "Simpson" families)
 		assertMatchCount(6, api.findThreeFamiliesOfTheSameName());
-		
+
 		Set<Family> families = new HashSet<Family>();
 		api.findThreeFamiliesOfTheSameName().forEachMatch(m -> {
 			families.add(m.getFamily1());

@@ -30,10 +30,10 @@ public class SimpleFamiliesRulesTest extends SimpleFamiliesAbstractTest {
 
 		assertNoMatch(api.findRegister());
 		assertMatchCount(1, api.createRegister()); // create rule is applicable
-		assertApplicable(api.createRegister().apply());
+		assertApplicable(api.createRegister());
 		assertMatchCount(1, api.findRegister());
 
-		assertApplicable(api.deleteRegister().apply());
+		assertApplicable(api.deleteRegister());
 		assertNoMatch(api.findRegister());
 
 		saveAndTerminate(api);
@@ -44,7 +44,7 @@ public class SimpleFamiliesRulesTest extends SimpleFamiliesAbstractTest {
 		SimpleFamiliesGraphTransformationAPI api = this.init("CreateFamily.xmi", "FamilyRegister.xmi");
 
 		assertMatchCount(2, api.findFamily());
-		assertApplicable(api.createFamily("Smith").apply());
+		assertApplicable(api.createFamily("Smith"));
 		assertMatchCount(3, api.findFamily());
 
 		saveAndTerminate(api);
@@ -86,7 +86,7 @@ public class SimpleFamiliesRulesTest extends SimpleFamiliesAbstractTest {
 				.filter(m -> m.getFamily().getName().equals("Watson")) //
 				.map(m -> m.getFamily()) //
 				.findAny().get();
-		DeleteFamilyMatch m = assertApplicable(api.deleteFamily().bindFamily(watsonFamily).apply());
+		DeleteFamilyMatch m = assertApplicable(api.deleteFamily().bindFamily(watsonFamily));
 		assertMatchCount(1, api.findFamily());
 		assertEquals("Watson", m.getFamily().getName());
 
@@ -95,7 +95,8 @@ public class SimpleFamiliesRulesTest extends SimpleFamiliesAbstractTest {
 
 	@Test
 	public void deleteWatsonFamilyWithMatchBinding() {
-		SimpleFamiliesGraphTransformationAPI api = this.init("DeleteWatsonFamilyWithMatchBinding.xmi", "FamilyRegister.xmi");
+		SimpleFamiliesGraphTransformationAPI api = this.init("DeleteWatsonFamilyWithMatchBinding.xmi",
+				"FamilyRegister.xmi");
 
 		FindFamilyMatch watsonMatch = api.findFamily().findMatches().stream()
 				.filter(m -> m.getFamily().getName().equals("Watson")) //
@@ -117,7 +118,7 @@ public class SimpleFamiliesRulesTest extends SimpleFamiliesAbstractTest {
 		assertMatchCount(2, api.findFamily());
 
 		// SPO: Deletion is possible, references to members deleted as well.
-		assertApplicable(api.deleteFamily().setSPO().apply());
+		assertApplicable(api.deleteFamily().setSPO());
 		assertMatchCount(1, api.findFamily());
 
 		saveAndTerminate(api);
@@ -133,7 +134,7 @@ public class SimpleFamiliesRulesTest extends SimpleFamiliesAbstractTest {
 		assertMatchCount(1, api.findRegister());
 
 		// SPO: Deletion is possible, deleted families as well.
-		assertApplicable(api.deleteRegister().setSPO().apply());
+		assertApplicable(api.deleteRegister().setSPO());
 		assertMatchCount(0, api.findRegister());
 
 		saveAndTerminate(api);
@@ -143,7 +144,7 @@ public class SimpleFamiliesRulesTest extends SimpleFamiliesAbstractTest {
 	public void renameFamily() {
 		SimpleFamiliesGraphTransformationAPI api = this.init("RenameFamily.xmi", "FamilyRegister.xmi");
 
-		assertApplicable(api.renameFamily("Watson", "Watson-Smith").apply());
+		assertApplicable(api.renameFamily("Watson", "Watson-Smith"));
 
 		List<String> familyNames = api.findFamily().findMatches().stream() //
 				.map(m -> m.getFamily().getName()) //
@@ -207,12 +208,12 @@ public class SimpleFamiliesRulesTest extends SimpleFamiliesAbstractTest {
 		FamilyMember sarah = api.findMemberByFirstName("Sarah").findAnyMatch().get().getMember();
 
 		assertMatchCount(1, api.findFamilyByName("Jackson"));
-		assertApplicable(api.marry("Jackson").bindBride(sarah).bindGroom(jason).apply());
+		assertApplicable(api.marry("Jackson").bindBride(sarah).bindGroom(jason));
 		assertMatchCount(2, api.findFamilyByName("Jackson"));
 
 		assertMatchCount(0, api.findDaughter());
 		assertMatchCount(0, api.findSon());
-		assertApplicable(api.daughterBorn("Rachel").bindMother(sarah).apply());
+		assertApplicable(api.daughterBorn("Rachel").bindMother(sarah));
 		assertApplicable(api.sonBorn("Daniel").bindMother(sarah).apply());
 		assertMatchCount(1, api.findDaughter());
 		assertMatchCount(1, api.findSon());
@@ -228,7 +229,7 @@ public class SimpleFamiliesRulesTest extends SimpleFamiliesAbstractTest {
 
 		assertMatchCount(0, api.findFatherAndSonWithSameName());
 		FamilyMember sarah = api.findMemberByFirstName("Sally").findAnyMatch().get().getMember();
-		assertApplicable(api.sonBornNamedAsFather().bindMother(sarah).apply());
+		assertApplicable(api.sonBornNamedAsFather().bindMother(sarah));
 		assertMatchCount(1, api.findFatherAndSonWithSameName());
 
 		saveAndTerminate(api);

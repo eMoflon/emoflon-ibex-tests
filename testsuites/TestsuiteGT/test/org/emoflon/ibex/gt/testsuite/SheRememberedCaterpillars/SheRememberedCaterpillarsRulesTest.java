@@ -16,12 +16,9 @@ public class SheRememberedCaterpillarsRulesTest extends SheRememberedCaterpillar
 	public void move() {
 		SheRememberedCaterpillarsGraphTransformationAPI api = this.init("Move.xmi", "Instance1.xmi");
 
-		Character blueCharacter = api.findCharacterNotOnExit() //
-				.findAnyMatch().get().getCharacter();
-		assertApplicable(api.moveCharacterAcrossBridge() //
-				.bindCharacter(blueCharacter).apply());
-		assertApplicable(api.moveCharacterToNeighboringPlatform() //
-				.bindCharacter(blueCharacter).apply());
+		Character blueCharacter = api.findCharacterNotOnExit().findAnyMatch().get().getCharacter();
+		assertApplicable(api.moveCharacterAcrossBridge().bindCharacter(blueCharacter));
+		assertApplicable(api.moveCharacterToNeighboringPlatform().bindCharacter(blueCharacter));
 		assertAnyMatchExists(api.findCharacterOnExit().bindCharacter(blueCharacter));
 
 		saveAndTerminate(api);
@@ -32,9 +29,9 @@ public class SheRememberedCaterpillarsRulesTest extends SheRememberedCaterpillar
 		SheRememberedCaterpillarsGraphTransformationAPI api = this.init("CreateCharacters.xmi", "EmptyGame.xmi");
 
 		assertCharacterColorCount(api, 0, 0, 0);
-		assertApplicable(api.createBlueCharacter().apply()).getCharacter();
-		assertApplicable(api.createRedCharacter().apply()).getCharacter();
-		assertApplicable(api.createCharacterOfColor(COLOR.PURPLE).apply()).getCharacter();
+		assertApplicable(api.createBlueCharacter()).getCharacter();
+		assertApplicable(api.createRedCharacter()).getCharacter();
+		assertApplicable(api.createCharacterOfColor(COLOR.PURPLE)).getCharacter();
 		assertCharacterColorCount(api, 1, 1, 1);
 
 		saveAndTerminate(api);
@@ -44,10 +41,10 @@ public class SheRememberedCaterpillarsRulesTest extends SheRememberedCaterpillar
 	public void transformCharacters() {
 		SheRememberedCaterpillarsGraphTransformationAPI api = this.init("TransformCharacters.xmi", "Instance2.xmi");
 
-		assertApplicable(api.transformBlueAndRedToPurpleCharacter().apply());
+		assertApplicable(api.transformBlueAndRedToPurpleCharacter());
 		assertCharacterColorCount(api, 0, 0, 1);
 
-		assertApplicable(api.transformPurpleToBlueAndRedCharacter().apply());
+		assertApplicable(api.transformPurpleToBlueAndRedCharacter());
 		assertCharacterColorCount(api, 1, 1, 0);
 
 		saveAndTerminate(api);
