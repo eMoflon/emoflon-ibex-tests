@@ -59,7 +59,7 @@ public class SimpleFamiliesToSimplePersonsTest extends
 
 		api.updateMatches();
 
-		save(api);
+		saveAndTerminate(api);
 
 		assertEquals(2, motherRule.countRuleApplications());
 		assertEquals(2, daughterRule.countRuleApplications());

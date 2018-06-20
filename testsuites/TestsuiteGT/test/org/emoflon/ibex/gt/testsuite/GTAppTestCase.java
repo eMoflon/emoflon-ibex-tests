@@ -163,7 +163,7 @@ public abstract class GTAppTestCase<App extends GraphTransformationApp<API>, API
 	 * @param resourceSet
 	 *            the resource set
 	 */
-	protected void save(final API api) {
+	protected void saveAndTerminate(final API api) {
 		api.getModel().getResources().forEach(resource -> {
 			if ((!resource.getURI().toString().endsWith("trash.xmi")) || resource.getContents().size() > 0) {
 				try {
@@ -173,6 +173,7 @@ public abstract class GTAppTestCase<App extends GraphTransformationApp<API>, API
 				}
 			}
 		});
+		api.terminate();
 	}
 
 	/**

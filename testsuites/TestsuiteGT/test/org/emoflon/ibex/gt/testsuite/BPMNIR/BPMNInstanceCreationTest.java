@@ -14,7 +14,7 @@ public class BPMNInstanceCreationTest extends BPMNIRAbstractTest {
 		assertApplicable(api.addInactiveTaskIRBetweenTasks("C").apply());
 		assertMatchCount(3, api.findTaskIR());
 
-		save(api);
+		saveAndTerminate(api);
 	}
 
 	@Test
@@ -24,6 +24,6 @@ public class BPMNInstanceCreationTest extends BPMNIRAbstractTest {
 		assertNotApplicable(api.addInactiveTaskIRBetweenTasks("C").apply());
 		assertMatchCount(2, api.findTaskIR());
 
-		save(api);
+		saveAndTerminate(api);
 	}
 }

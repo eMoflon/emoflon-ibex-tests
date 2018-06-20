@@ -17,7 +17,7 @@ public class BPMNModelCreationTest extends BPMNAbstractTest {
 		assertApplicable(api.addTaskBetween("Step between 1+2").apply());
 		assertMatchCount(3, api.findTask());
 
-		save(api);
+		saveAndTerminate(api);
 	}
 
 	@Test
@@ -37,6 +37,6 @@ public class BPMNModelCreationTest extends BPMNAbstractTest {
 		Task task3 = api.findTaskByName("Task 3").findAnyMatch().get().getTask();
 		assertEquals(task3, task2.getOutgoing().get(0).getTargetRef());
 
-		save(api);
+		saveAndTerminate(api);
 	}
 }

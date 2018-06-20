@@ -50,6 +50,6 @@ public class ClassMultipleInheritanceSearchTest extends ClassMultipleInheritance
 		assertApplicable(api.createClass("TestA").apply());
 		assertEquals(2, classes.size());
 
-		save(api);
+		saveAndTerminate(api);
 	}
 }

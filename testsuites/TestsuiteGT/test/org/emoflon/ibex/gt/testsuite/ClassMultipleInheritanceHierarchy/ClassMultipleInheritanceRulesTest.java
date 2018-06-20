@@ -34,7 +34,7 @@ public class ClassMultipleInheritanceRulesTest extends ClassMultipleInheritanceH
 		assertMatchCount(2, findPackages);
 		assertTrue(b.getSuperClass().contains(a));
 
-		save(api);
+		saveAndTerminate(api);
 	}
 
 	@Test
@@ -48,7 +48,7 @@ public class ClassMultipleInheritanceRulesTest extends ClassMultipleInheritanceH
 		assertApplicable(api.addSuperClass().bindClazz(c).bindSuperClass(a).apply());
 		assertMatchCount(3, api.findSubClass().bindClazz(a));
 
-		save(api);
+		saveAndTerminate(api);
 	}
 
 	@Test
@@ -60,7 +60,7 @@ public class ClassMultipleInheritanceRulesTest extends ClassMultipleInheritanceH
 		assertNoMatch(api.findClassByName("TestA"));
 		assertMatchCount(1, api.findClassByName("TestNew"));
 
-		save(api);
+		saveAndTerminate(api);
 	}
 
 	@Test
@@ -74,6 +74,6 @@ public class ClassMultipleInheritanceRulesTest extends ClassMultipleInheritanceH
 		assertApplicable(api.deletePackageByName("TestPackage").apply());
 		assertMatchCount(0, api.findPackage());
 
-		save(api);
+		saveAndTerminate(api);
 	}
 }

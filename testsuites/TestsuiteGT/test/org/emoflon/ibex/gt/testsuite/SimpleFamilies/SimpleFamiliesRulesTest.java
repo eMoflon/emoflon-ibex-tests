@@ -36,7 +36,7 @@ public class SimpleFamiliesRulesTest extends SimpleFamiliesAbstractTest {
 		assertApplicable(api.deleteRegister().apply());
 		assertNoMatch(api.findRegister());
 
-		save(api);
+		saveAndTerminate(api);
 	}
 
 	@Test
@@ -47,7 +47,7 @@ public class SimpleFamiliesRulesTest extends SimpleFamiliesAbstractTest {
 		assertApplicable(api.createFamily("Smith").apply());
 		assertMatchCount(3, api.findFamily());
 
-		save(api);
+		saveAndTerminate(api);
 	}
 
 	@Test
@@ -58,7 +58,7 @@ public class SimpleFamiliesRulesTest extends SimpleFamiliesAbstractTest {
 		api.createMillerFamily().apply();
 		assertMatchCount(3, api.findFamily());
 
-		save(api);
+		saveAndTerminate(api);
 	}
 
 	@Test
@@ -74,7 +74,7 @@ public class SimpleFamiliesRulesTest extends SimpleFamiliesAbstractTest {
 		assertEquals(20, api.deleteFamily().bindAndApply(findNullFamily).size());
 		assertMatchCount(2, api.findFamily());
 
-		save(api);
+		saveAndTerminate(api);
 	}
 
 	@Test
@@ -90,7 +90,7 @@ public class SimpleFamiliesRulesTest extends SimpleFamiliesAbstractTest {
 		assertMatchCount(1, api.findFamily());
 		assertEquals("Watson", m.getFamily().getName());
 
-		save(api);
+		saveAndTerminate(api);
 	}
 
 	@Test
@@ -104,7 +104,7 @@ public class SimpleFamiliesRulesTest extends SimpleFamiliesAbstractTest {
 		assertMatchCount(1, api.findFamily());
 		assertEquals("Watson", m.getFamily().getName());
 
-		save(api);
+		saveAndTerminate(api);
 	}
 
 	@Test
@@ -120,7 +120,7 @@ public class SimpleFamiliesRulesTest extends SimpleFamiliesAbstractTest {
 		assertApplicable(api.deleteFamily().setSPO().apply());
 		assertMatchCount(1, api.findFamily());
 
-		save(api);
+		saveAndTerminate(api);
 	}
 
 	@Test
@@ -136,7 +136,7 @@ public class SimpleFamiliesRulesTest extends SimpleFamiliesAbstractTest {
 		assertApplicable(api.deleteRegister().setSPO().apply());
 		assertMatchCount(0, api.findRegister());
 
-		save(api);
+		saveAndTerminate(api);
 	}
 
 	@Test
@@ -150,7 +150,7 @@ public class SimpleFamiliesRulesTest extends SimpleFamiliesAbstractTest {
 				.collect(Collectors.toList());
 		assertEquals(Arrays.asList("Simpson", "Watson-Smith"), familyNames);
 
-		save(api);
+		saveAndTerminate(api);
 	}
 
 	@Test
@@ -196,7 +196,7 @@ public class SimpleFamiliesRulesTest extends SimpleFamiliesAbstractTest {
 		assertMatchCount(1, api.findMemberByFirstName("Sherlock"));
 		assertMatchCount(1, api.findMemberByFirstName("John"));
 
-		save(api);
+		saveAndTerminate(api);
 	}
 
 	@Test
@@ -219,7 +219,7 @@ public class SimpleFamiliesRulesTest extends SimpleFamiliesAbstractTest {
 		assertMatchCount(1, api.findMemberByFirstName("Daniel"));
 		assertMatchCount(1, api.findMemberByFirstName("Rachel"));
 
-		save(api);
+		saveAndTerminate(api);
 	}
 
 	@Test
@@ -231,6 +231,6 @@ public class SimpleFamiliesRulesTest extends SimpleFamiliesAbstractTest {
 		assertApplicable(api.sonBornNamedAsFather().bindMother(sarah).apply());
 		assertMatchCount(1, api.findFatherAndSonWithSameName());
 
-		save(api);
+		saveAndTerminate(api);
 	}
 }

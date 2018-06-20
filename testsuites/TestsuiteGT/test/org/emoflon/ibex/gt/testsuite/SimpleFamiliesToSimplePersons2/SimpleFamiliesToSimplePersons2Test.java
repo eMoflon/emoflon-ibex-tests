@@ -73,7 +73,7 @@ public class SimpleFamiliesToSimplePersons2Test
 		assertMatchCount(4, personsAPI.findMale());
 		assertMatchCount(8, personsAPI.findPerson());
 
-		save(personsAPI);
+		saveAndTerminate(personsAPI);
 	}
 
 	private String getFullName(final Family family, final FamilyMember member) {

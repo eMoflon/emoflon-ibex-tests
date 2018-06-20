@@ -31,7 +31,7 @@ public class FerrymanProblemRulesTest extends FerrymanProblemAbstractTest {
 		assertMatchCount(1, api.findSubjectOnLeftBank());
 		assertMatchCount(2, api.findSubjectOnRightBank());
 
-		save(api);
+		saveAndTerminate(api);
 	}
 
 	@Test
@@ -45,7 +45,7 @@ public class FerrymanProblemRulesTest extends FerrymanProblemAbstractTest {
 		assertMatchCount(2, api.findSubjectOnLeftBank());
 		assertMatchCount(2, api.findSubjectOnRightBank());
 
-		save(api);
+		saveAndTerminate(api);
 	}
 
 	@Test
@@ -73,7 +73,7 @@ public class FerrymanProblemRulesTest extends FerrymanProblemAbstractTest {
 		assertMatchCount(0, api.findSubjectOnLeftBank());
 		assertMatchCount(4, api.findSubjectOnRightBank());
 
-		save(api);
+		saveAndTerminate(api);
 	}
 
 	@Test
@@ -101,7 +101,7 @@ public class FerrymanProblemRulesTest extends FerrymanProblemAbstractTest {
 		assertMatchCount(1, api.findSubjectOnLeftBank());
 		assertMatchCount(1, api.findSubjectOnRightBank());
 
-		save(api);
+		saveAndTerminate(api);
 	}
 
 	@Test
@@ -115,6 +115,6 @@ public class FerrymanProblemRulesTest extends FerrymanProblemAbstractTest {
 		assertApplicable(api.killGoat().apply());
 		assertNoMatch(api.findGoat());
 
-		save(api);
+		saveAndTerminate(api);
 	}
 }

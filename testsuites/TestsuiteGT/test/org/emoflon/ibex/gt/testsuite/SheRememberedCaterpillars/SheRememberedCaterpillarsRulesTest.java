@@ -24,7 +24,7 @@ public class SheRememberedCaterpillarsRulesTest extends SheRememberedCaterpillar
 				.bindCharacter(blueCharacter).apply());
 		assertAnyMatchExists(api.findCharacterOnExit().bindCharacter(blueCharacter));
 
-		save(api);
+		saveAndTerminate(api);
 	}
 
 	@Test
@@ -37,7 +37,7 @@ public class SheRememberedCaterpillarsRulesTest extends SheRememberedCaterpillar
 		assertApplicable(api.createCharacterOfColor(COLOR.PURPLE).apply()).getCharacter();
 		assertCharacterColorCount(api, 1, 1, 1);
 
-		save(api);
+		saveAndTerminate(api);
 	}
 
 	@Test
@@ -50,6 +50,6 @@ public class SheRememberedCaterpillarsRulesTest extends SheRememberedCaterpillar
 		assertApplicable(api.transformPurpleToBlueAndRedCharacter().apply());
 		assertCharacterColorCount(api, 1, 1, 0);
 
-		save(api);
+		saveAndTerminate(api);
 	}
 }
