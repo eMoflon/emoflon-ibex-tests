@@ -1,0 +1,46 @@
+#using AbcToNothing.*
+#using AttrCondDefLibrary.*
+
+#rule ruleB #with AbcToNothing
+
+#source { 
+	a: A {
+		++ -AtoC-> c 
+	}
+	
+	++ c : C 
+}
+
+#target {
+	
+}
+
+#correspondence {
+	
+}
+
+#attributeConditions {
+	
+}
+
+
+#complement addBtoC #for ruleB 
+
+#source { 
+	++ b : classB
+ 	c: C {
+		++ - CtoB -> b
+	} 
+}
+
+#target {
+	
+}
+
+#correspondence {
+	
+}
+
+#attributeConditions {
+	
+}

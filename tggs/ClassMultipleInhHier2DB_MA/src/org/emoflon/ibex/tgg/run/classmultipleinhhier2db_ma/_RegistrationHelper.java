@@ -5,13 +5,14 @@ import java.io.IOException;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.emoflon.ibex.tgg.operational.csp.constraints.factories.classmultipleinhhier2db_ma.UserDefinedRuntimeTGGAttrConstraintFactory;
+import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.OperationalStrategy;
 import org.emoflon.ibex.tgg.operational.strategies.sync.BWD_OPT;
 import org.emoflon.ibex.tgg.operational.strategies.sync.FWD_OPT;
 
 import Database.impl.DatabasePackageImpl;
 import classMultipleInheritanceHierarchy.impl.ClassMultipleInheritanceHierarchyPackageImpl;
-
 
 public class _RegistrationHelper {
 
@@ -34,5 +35,15 @@ public class _RegistrationHelper {
 			rs.getPackageRegistry().put("platform:/resource/ClassInheritanceHierarchy/model/classInheritanceHierarchy.ecore", pack);
 			rs.getPackageRegistry().put("platform:/plugin/ClassInheritanceHierarchy/model/classInheritanceHierarchy.ecore", pack);
 		}
+	}
+
+	/** Create default options **/
+	public static IbexOptions createIbexOptions() {
+		IbexOptions options = new IbexOptions();
+		options.projectName("ClassMultipleInhHier2DB_MA");
+		options.projectPath("ClassMultipleInhHier2DB_MA");
+		options.debug(false);
+		options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
+		return options;
 	}
 }
