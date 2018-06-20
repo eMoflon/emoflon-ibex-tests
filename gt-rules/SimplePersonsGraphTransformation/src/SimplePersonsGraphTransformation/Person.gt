@@ -40,13 +40,49 @@ pattern findPerson {
 /**
  * Finds a male.
  */
-pattern findMale {
+pattern findMale
+refines findPerson {
 	person: Male
 }
 
 /**
  * Finds a female.
  */
-pattern findFemale {
+pattern findFemale
+refines findPerson {
 	person: Female
+}
+
+/**
+ * Finds the first person when ordering the persons in the register alphabetically.
+ */
+pattern findFirstPerson
+refines findPerson
+when noPersonWithSmallerName
+
+condition noPersonWithSmallerName = forbid anotherPersonWithSmallerName
+
+abstract pattern anotherPersonWithSmallerName
+refines findPerson {
+	anotherPerson: Person {
+		.name < person.name
+	}
+}
+
+/**
+ * Finds the last person when ordering the persons in the register alphabetically.
+ */
+pattern findLastPerson
+refines findPerson
+when noPersonWithGreaterName
+
+condition noPersonWithGreaterName = forbid anotherPersonWithGreaterName
+
+abstract pattern anotherPersonWithGreaterName
+refines findPerson {
+	person: Person {
+		.name < anotherPerson.name
+	}
+
+	anotherPerson: Person
 }
