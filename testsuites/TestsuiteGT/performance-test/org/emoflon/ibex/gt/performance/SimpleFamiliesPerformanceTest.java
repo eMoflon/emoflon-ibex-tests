@@ -23,12 +23,12 @@ public class SimpleFamiliesPerformanceTest extends GTPerformanceTest {
 
 	@Override
 	public void run(int modelSize) {
-		SimpleFamiliesGraphTransformationDemoclesApp app = new SimpleFamiliesGraphTransformationDemoclesApp();
+		SimpleFamiliesGraphTransformationDemoclesApp app = new SimpleFamiliesGraphTransformationDemoclesApp(
+				WORKSPACE_PATH);
 
 		// Initialization.
 		long initStart = System.nanoTime();
 		app.createModel(createDateURI(modelSize));
-		app.setWorkspacePath("../../gt-rules/");
 		SimpleFamiliesGraphTransformationAPI api = app.initAPI();
 		long initEnd = System.nanoTime();
 

@@ -30,7 +30,7 @@ public class SimpleFamiliesToSimplePersonsTest extends
 
 	@Override
 	protected SimpleFamiliesToSimplePersonsGraphTransformationApp getApp() {
-		return new SimpleFamiliesToSimplePersonsGraphTransformationApp();
+		return new SimpleFamiliesToSimplePersonsGraphTransformationApp(initEngine(), workspacePath);
 	}
 
 	/**

@@ -26,7 +26,7 @@ public class SimpleFamiliesToSimplePersons2Test
 
 	@Override
 	protected SimplePersonsGraphTransformationApp getApp() {
-		return new SimplePersonsGraphTransformationApp();
+		return new SimplePersonsGraphTransformationApp(initEngine(), workspacePath);
 	}
 
 	/**
@@ -37,10 +37,10 @@ public class SimpleFamiliesToSimplePersons2Test
 	public void simpleFamiliesToPersons2() {
 		SimplePersonsGraphTransformationAPI personsAPI = this.init("PersonRegisters.xmi");
 
-		SimpleFamiliesGraphTransformationApp familiesApp = new SimpleFamiliesGraphTransformationApp();
-		familiesApp.setWorkspacePath(workspacePath);
+		SimpleFamiliesGraphTransformationApp familiesApp = new SimpleFamiliesGraphTransformationApp(initEngine(),
+				workspacePath);
 		familiesApp.loadModel(URI.createFileURI(resourcePath + this.getTestName() + "/" + "FamilyRegisters.xmi"));
-		SimpleFamiliesGraphTransformationAPI familiesAPI = familiesApp.initAPI(initEngine());
+		SimpleFamiliesGraphTransformationAPI familiesAPI = familiesApp.initAPI();
 
 		familiesAPI.findRegister().findMatches().forEach(familyRegisterMatch -> {
 			FamilyRegister familyRegister = familyRegisterMatch.getRegister();

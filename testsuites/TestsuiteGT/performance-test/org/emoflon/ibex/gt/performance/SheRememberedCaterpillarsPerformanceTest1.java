@@ -33,12 +33,12 @@ public class SheRememberedCaterpillarsPerformanceTest1 extends GTPerformanceTest
 
 	@Override
 	public void run(int modelSize) {
-		SheRememberedCaterpillarsGraphTransformationDemoclesApp app = new SheRememberedCaterpillarsGraphTransformationDemoclesApp();
+		SheRememberedCaterpillarsGraphTransformationDemoclesApp app = new SheRememberedCaterpillarsGraphTransformationDemoclesApp(
+				WORKSPACE_PATH);
 
 		// Initialization.
 		long initStart = System.nanoTime();
 		app.createModel(createDateURI(modelSize));
-		app.setWorkspacePath("../../gt-rules/");
 		SheRememberedCaterpillarsGraphTransformationAPI api = app.initAPI();
 		long initEnd = System.nanoTime();
 

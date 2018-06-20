@@ -59,17 +59,6 @@ public abstract class GTAppTestCase<App extends GraphTransformationApp<API>, API
 	protected abstract App getApp();
 
 	/**
-	 * Initializes the application with the correct workspace path.
-	 * 
-	 * @return the GT application.
-	 */
-	protected App initApp() {
-		App app = this.getApp();
-		app.setWorkspacePath(workspacePath);
-		return app;
-	}
-
-	/**
 	 * Initializes the engine.
 	 * 
 	 * @return the engine
@@ -78,17 +67,6 @@ public abstract class GTAppTestCase<App extends GraphTransformationApp<API>, API
 		DemoclesGTEngine engine = new DemoclesGTEngine();
 		engine.setDebugPath("./debug/" + this.getTestName());
 		return engine;
-	}
-
-	/**
-	 * Initializes the API with enabled debug mode.
-	 * 
-	 * @param model
-	 *            the model file
-	 * @return the created API
-	 */
-	protected API initAPI(final App app) {
-		return app.initAPI(initEngine());
 	}
 
 	/**
@@ -137,9 +115,9 @@ public abstract class GTAppTestCase<App extends GraphTransformationApp<API>, API
 	 * @return the API
 	 */
 	protected API init(final String modelInstanceFileName) {
-		App app = initApp();
+		App app = this.getApp();
 		this.createModel(app, modelInstanceFileName, modelInstanceFileName);
-		return this.initAPI(app);
+		return app.initAPI();
 	}
 
 	/**
@@ -152,9 +130,9 @@ public abstract class GTAppTestCase<App extends GraphTransformationApp<API>, API
 	 * @return the API
 	 */
 	protected API init(final String modelInstanceFileName, final String resourceFileName) {
-		App app = initApp();
+		App app = this.getApp();
 		this.createModel(app, modelInstanceFileName, resourceFileName);
-		return this.initAPI(app);
+		return app.initAPI();
 	}
 
 	/**

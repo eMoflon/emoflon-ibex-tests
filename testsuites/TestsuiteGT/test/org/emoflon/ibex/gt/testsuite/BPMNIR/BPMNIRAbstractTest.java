@@ -18,6 +18,6 @@ public class BPMNIRAbstractTest extends GTAppTestCase<BPMNIRGraphTransformationA
 
 	@Override
 	protected BPMNIRGraphTransformationApp getApp() {
-		return new BPMNIRGraphTransformationApp();
+		return new BPMNIRGraphTransformationApp(initEngine(), workspacePath);
 	}
 }

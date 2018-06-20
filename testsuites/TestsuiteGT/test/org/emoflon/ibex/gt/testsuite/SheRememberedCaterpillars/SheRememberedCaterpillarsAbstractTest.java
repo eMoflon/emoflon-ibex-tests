@@ -20,7 +20,7 @@ public abstract class SheRememberedCaterpillarsAbstractTest extends
 
 	@Override
 	protected SheRememberedCaterpillarsGraphTransformationApp getApp() {
-		return new SheRememberedCaterpillarsGraphTransformationApp();
+		return new SheRememberedCaterpillarsGraphTransformationApp(initEngine(), workspacePath);
 	}
 
 	public static void assertCharacterColorCount(final SheRememberedCaterpillarsGraphTransformationAPI api,

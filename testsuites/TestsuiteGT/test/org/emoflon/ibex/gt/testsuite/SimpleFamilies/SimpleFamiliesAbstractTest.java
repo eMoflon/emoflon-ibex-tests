@@ -19,6 +19,6 @@ public abstract class SimpleFamiliesAbstractTest
 
 	@Override
 	protected SimpleFamiliesGraphTransformationApp getApp() {
-		return new SimpleFamiliesGraphTransformationApp();
+		return new SimpleFamiliesGraphTransformationApp(initEngine(), workspacePath);
 	}
 }

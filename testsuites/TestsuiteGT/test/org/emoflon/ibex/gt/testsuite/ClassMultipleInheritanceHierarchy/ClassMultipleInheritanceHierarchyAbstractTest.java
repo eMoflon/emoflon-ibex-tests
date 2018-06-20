@@ -19,6 +19,6 @@ public class ClassMultipleInheritanceHierarchyAbstractTest
 
 	@Override
 	protected ClassMultipleInheritanceHierarchyGraphTransformationApp getApp() {
-		return new ClassMultipleInheritanceHierarchyGraphTransformationApp();
+		return new ClassMultipleInheritanceHierarchyGraphTransformationApp(initEngine(), workspacePath);
 	}
 }

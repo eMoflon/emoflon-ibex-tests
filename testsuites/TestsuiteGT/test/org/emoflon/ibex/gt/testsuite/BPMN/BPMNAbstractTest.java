@@ -18,6 +18,6 @@ public class BPMNAbstractTest extends GTAppTestCase<BPMNGraphTransformationApp, 
 
 	@Override
 	protected BPMNGraphTransformationApp getApp() {
-		return new BPMNGraphTransformationApp();
+		return new BPMNGraphTransformationApp(initEngine(), workspacePath);
 	}
 }

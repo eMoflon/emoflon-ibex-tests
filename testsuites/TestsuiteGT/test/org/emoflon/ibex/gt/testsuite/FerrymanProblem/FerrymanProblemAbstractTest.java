@@ -19,6 +19,6 @@ public abstract class FerrymanProblemAbstractTest
 
 	@Override
 	protected FerrymanProblemGraphTransformationApp getApp() {
-		return new FerrymanProblemGraphTransformationApp();
+		return new FerrymanProblemGraphTransformationApp(initEngine(), workspacePath);
 	}
 }

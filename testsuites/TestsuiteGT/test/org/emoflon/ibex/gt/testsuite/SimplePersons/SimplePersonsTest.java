@@ -21,7 +21,7 @@ public class SimplePersonsTest
 
 	@Override
 	protected SimplePersonsGraphTransformationApp getApp() {
-		return new SimplePersonsGraphTransformationApp();
+		return new SimplePersonsGraphTransformationApp(initEngine(), workspacePath);
 	}
 
 	@Test
