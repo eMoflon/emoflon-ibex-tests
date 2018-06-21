@@ -1,9 +1,7 @@
 package org.emoflon.ibex.gt.testsuite.SimpleFamilies;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
@@ -13,8 +11,6 @@ import java.util.stream.Collectors;
 import org.junit.Test;
 
 import SimpleFamilies.Family;
-import SimpleFamilies.FamilyRegister;
-import SimpleFamilies.SimpleFamiliesFactory;
 import SimpleFamiliesGraphTransformation.api.SimpleFamiliesGraphTransformationAPI;
 
 /**
@@ -22,7 +18,6 @@ import SimpleFamiliesGraphTransformation.api.SimpleFamiliesGraphTransformationAP
  * Transformation API
  */
 public class SimpleFamiliesConstraintsTest extends SimpleFamiliesAbstractTest {
-	private boolean familyDeleted = false;
 
 	@Test
 	public void constraints() {
@@ -97,40 +92,6 @@ public class SimpleFamiliesConstraintsTest extends SimpleFamiliesAbstractTest {
 		assertMatchCount(2, api.findFamilyWithNameGreaterOrEqualThan("A"));
 		assertMatchCount(1, api.findFamilyWithNameGreaterOrEqualThan("T"));
 		assertMatchCount(0, api.findFamilyWithNameGreaterOrEqualThan("X"));
-	}
-
-	@Test
-	public void notifications() {
-		SimpleFamiliesGraphTransformationAPI api = this.init("Notifications.xmi", "FamilyRegister.xmi");
-
-		// Get the list of family names.
-		List<String> namesOfFamilies = api.findFamily().findMatches().stream() //
-				.map(m -> m.getFamily().getName()).collect(Collectors.toList());
-
-		// Register subscriptions.
-		api.findFamily().findMatches().stream().filter(m -> m.getFamily().getName().equals("Watson")).findAny()
-				.ifPresent(m -> api.findFamily().subscribeMatchDisappears(m, x -> this.familyDeleted = true));
-
-		List<String> namesOfNewFamilies = new ArrayList<String>();
-		api.findFamily().subscribeAppearing(m -> namesOfNewFamilies.add(m.getFamily().getName()));
-		api.findFamily().subscribeAppearing(m -> namesOfFamilies.add(m.getFamily().getName()));
-
-		List<String> namesOfRemovedFamilies = new ArrayList<String>();
-		api.findFamily().subscribeDisappearing(m -> namesOfRemovedFamilies.add(m.getFamily().getName()));
-		api.findFamily().subscribeDisappearing(m -> namesOfFamilies.remove(m.getFamily().getName()));
-
-		// Remove Watson family, add Smith family.
-		FamilyRegister register = (FamilyRegister) api.getModel().getResources().get(0).getContents().get(0);
-		register.getFamilies().remove(1);
-		Family family = SimpleFamiliesFactory.eINSTANCE.createFamily();
-		family.setName("Smith");
-		register.getFamilies().add(family);
-
-		api.updateMatches();
-		assertEquals(Arrays.asList("Smith"), namesOfNewFamilies);
-		assertEquals(Arrays.asList("Watson"), namesOfRemovedFamilies);
-		assertEquals(Arrays.asList("Simpson", "Smith"), namesOfFamilies);
-		assertTrue(this.familyDeleted);
 	}
 
 	@Test
