@@ -48,6 +48,20 @@ public class SheRememberedCaterpillarsRulesTest extends SheRememberedCaterpillar
 	}
 
 	@Test
+	public void createGameDefaultResource() {
+		for (int i = 0; i < 2; i++) {
+			SheRememberedCaterpillarsGraphTransformationAPI api = this.init(i, "createGameDefaultResource-" + i,
+					"1.xmi", "2.xmi");
+
+			assertApplicable(api.createGame());
+			assertEquals(0, api.getModel().getResources().get(1 - i).getContents().size());
+			assertEquals(1, api.getModel().getResources().get(i).getContents().size());
+
+			saveAndTerminate(api);
+		}
+	}
+
+	@Test
 	public void createCharactersSubscriptions() {
 		SheRememberedCaterpillarsGraphTransformationAPI api = this.init("CreateCharactersSubscriptions.xmi",
 				"EmptyGame.xmi");

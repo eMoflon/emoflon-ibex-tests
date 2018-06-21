@@ -137,6 +137,26 @@ public abstract class GTAppTestCase<App extends GraphTransformationApp<API>, API
 	}
 
 	/**
+	 * Initializes an API with the model files on the given path.
+	 * 
+	 * @param defaultResourceIndex
+	 *            the index of the default resource
+	 * @param testName
+	 *            the name of the test
+	 * @param resourcesFileName
+	 *            the names of the resource files to copy
+	 * @return the API
+	 */
+	protected API init(final int defaultResourceIndex, final String testName, final String... resourcesFileName) {
+		App app = this.getApp();
+		for (final String file : resourcesFileName) {
+			this.createModel(app, testName + "-" + file, file);
+		}
+		app.setDefaultResource(app.getModel().getResources().get(defaultResourceIndex));
+		return app.initAPI();
+	}
+
+	/**
 	 * Saves the model.
 	 * 
 	 * @param resourceSet
