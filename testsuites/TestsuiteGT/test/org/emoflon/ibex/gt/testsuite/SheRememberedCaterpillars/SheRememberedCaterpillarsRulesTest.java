@@ -4,9 +4,13 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import java.util.function.Consumer;
+
 import org.junit.Test;
 
 import SheRememberedCaterpillarsGraphTransformation.api.SheRememberedCaterpillarsGraphTransformationAPI;
+import SheRememberedCaterpillarsGraphTransformation.api.matches.CreateBlueCharacterMatch;
+import SheRememberedCaterpillarsGraphTransformation.api.rules.CreateBlueCharacterRule;
 import SheRememberedCaterpillarsGraphTransformation.api.rules.CreateCharacterOfColorOnEmptyPlatformRule;
 import SheRememberedCaterpillarsGraphTransformation.api.rules.TransformBlueAndRedToPurpleCharacterRule;
 import SheRememberedCaterpillars.COLOR;
@@ -35,10 +39,36 @@ public class SheRememberedCaterpillarsRulesTest extends SheRememberedCaterpillar
 		SheRememberedCaterpillarsGraphTransformationAPI api = this.init("CreateCharacters.xmi", "EmptyGame.xmi");
 
 		assertCharacterColorCount(api, 0, 0, 0);
-		assertApplicable(api.createBlueCharacter()).getCharacter();
-		assertApplicable(api.createRedCharacter()).getCharacter();
-		assertApplicable(api.createCharacterOfColor(COLOR.PURPLE)).getCharacter();
+		assertApplicable(api.createBlueCharacter());
+		assertApplicable(api.createRedCharacter());
+		assertApplicable(api.createCharacterOfColor(COLOR.PURPLE));
 		assertCharacterColorCount(api, 1, 1, 1);
+
+		saveAndTerminate(api);
+	}
+
+	@Test
+	public void createCharactersSubscriptions() {
+		SheRememberedCaterpillarsGraphTransformationAPI api = this.init("CreateCharactersSubscriptions.xmi",
+				"EmptyGame.xmi");
+
+		CreateBlueCharacterRule pattern = api.createBlueCharacter();
+		Consumer<CreateBlueCharacterMatch> action = m -> m.getCharacter().setColor(COLOR.RED);
+		pattern.subscribeRuleApplications(action);
+		assertApplicable(pattern);
+		assertCharacterColorCount(api, 0, 1, 0); // rule application changes color directly after application to red
+
+		pattern.unsubscribeRuleApplications(action);
+		assertApplicable(pattern);
+		assertCharacterColorCount(api, 1, 1, 0); // now the created character remains blue!
+
+		pattern.subscribeRuleApplications(action);
+		assertApplicable(pattern);
+		assertCharacterColorCount(api, 1, 2, 0); // changed to red again
+
+		pattern.unsubscribeRuleApplications();
+		assertApplicable(pattern);
+		assertCharacterColorCount(api, 2, 2, 0); // now the created character remains blue again!
 
 		saveAndTerminate(api);
 	}
