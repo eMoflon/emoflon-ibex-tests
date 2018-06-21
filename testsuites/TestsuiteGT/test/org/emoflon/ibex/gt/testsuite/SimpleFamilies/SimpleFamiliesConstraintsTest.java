@@ -95,6 +95,19 @@ public class SimpleFamiliesConstraintsTest extends SimpleFamiliesAbstractTest {
 	}
 
 	@Test
+	public void parameterizedAttributeConstraintsForSmaller() {
+		SimpleFamiliesGraphTransformationAPI api = this.init("FamilyRegister.xmi");
+
+		assertMatchCount(0, api.findFamilyWithNameSmallerThan("R"));
+		assertMatchCount(1, api.findFamilyWithNameSmallerThan("Watson"));
+		assertMatchCount(2, api.findFamilyWithNameSmallerThan("Z"));
+
+		assertMatchCount(0, api.findFamilyWithNameSmallerOrEqualThan("R"));
+		assertMatchCount(1, api.findFamilyWithNameSmallerOrEqualThan("Simpson"));
+		assertMatchCount(2, api.findFamilyWithNameSmallerOrEqualThan("Watson"));
+	}
+
+	@Test
 	public void findMembersTestPositiveApplicationConditions() {
 		SimpleFamiliesGraphTransformationAPI api = this.init("FamilyRegister.xmi");
 

@@ -156,6 +156,27 @@ refines findFamily {
 }
 
 /**
+ * Finds a family with a name which is lexicographically smaller the given name.
+ */
+pattern findFamilyWithNameSmallerThan(name: EString)
+refines findFamily {
+	family: Family {
+		.name < param::name
+	}
+}
+
+/**
+ * Finds a family with a name which is lexicographically smaller than
+ * or equal to the given name.
+ */
+pattern findFamilyWithNameSmallerOrEqualThan(name: EString)
+refines findFamily {
+	family: Family {
+		.name <= param::name
+	}
+}
+
+/**
  * Renames a family.
  */
 rule renameFamily(oldName: EString, newName: EString) {
