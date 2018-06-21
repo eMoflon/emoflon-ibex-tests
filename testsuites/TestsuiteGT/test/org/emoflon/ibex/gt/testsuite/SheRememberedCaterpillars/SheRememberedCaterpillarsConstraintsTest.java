@@ -2,6 +2,7 @@ package org.emoflon.ibex.gt.testsuite.SheRememberedCaterpillars;
 
 import static org.junit.Assert.assertTrue;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import SheRememberedCaterpillars.COLOR;
@@ -97,5 +98,17 @@ public class SheRememberedCaterpillarsConstraintsTest extends SheRememberedCater
 		SheRememberedCaterpillarsGraphTransformationAPI api = this.init("Instance3.xmi");
 
 		assertMatchCount(2, api.findDeadEnd());
+	}
+
+	@Ignore("Invalid matches reported by Democles: https://github.com/eMoflon/emoflon-ibex-democles/issues/74")
+	@Test
+	public void findPlatformWithSelfNeighborship() {
+		SheRememberedCaterpillarsGraphTransformationAPI api = this.init("Instance1.xmi");
+
+		api.findPlatformSelfNeighbor().forEachMatch(m -> {
+			System.out.println(m);
+		});
+
+		assertMatchCount(0, api.findPlatformSelfNeighbor());
 	}
 }

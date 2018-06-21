@@ -114,3 +114,12 @@ condition platformHasAtMostOneConnection = forbid findPlatformWithTwoConnections
 
 condition platformHasExactlyOneConnection = platformHasAtLeastOneConnection
 	&& platformHasAtMostOneConnection
+
+/**
+ * Finds a platform which is a neighbor of itself.
+ */
+pattern findPlatformSelfNeighbor {
+	platform: Platform {
+		-neighbors -> platform
+	}
+}
