@@ -1,11 +1,14 @@
 package org.emoflon.ibex.gt.testsuite.SheRememberedCaterpillars;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
 import SheRememberedCaterpillarsGraphTransformation.api.SheRememberedCaterpillarsGraphTransformationAPI;
 import SheRememberedCaterpillarsGraphTransformation.api.rules.CreateCharacterOfColorOnEmptyPlatformRule;
+import SheRememberedCaterpillarsGraphTransformation.api.rules.TransformBlueAndRedToPurpleCharacterRule;
 import SheRememberedCaterpillars.COLOR;
 import SheRememberedCaterpillars.Character;
 
@@ -71,12 +74,30 @@ public class SheRememberedCaterpillarsRulesTest extends SheRememberedCaterpillar
 	@Test
 	public void transformCharacters() {
 		SheRememberedCaterpillarsGraphTransformationAPI api = this.init("TransformCharacters.xmi", "Instance2.xmi");
+		assertCharacterColorCount(api, 1, 1, 0);
 
 		assertApplicable(api.transformBlueAndRedToPurpleCharacter());
 		assertCharacterColorCount(api, 0, 0, 1);
 
 		assertApplicable(api.transformPurpleToBlueAndRedCharacter());
 		assertCharacterColorCount(api, 1, 1, 0);
+
+		saveAndTerminate(api);
+	}
+
+	@Test
+	public void transformCharactersAuto() {
+		SheRememberedCaterpillarsGraphTransformationAPI api = this.init("TransformCharactersAuto.xmi", "Instance2.xmi");
+
+		TransformBlueAndRedToPurpleCharacterRule autoToPurple = api.transformBlueAndRedToPurpleCharacter();
+		autoToPurple.enableAutoApply();
+		assertTrue(autoToPurple.isAutoApplyEnabled());
+		assertCharacterColorCount(api, 0, 0, 1);
+
+		autoToPurple.disableAutoApply();
+		assertFalse(autoToPurple.isAutoApplyEnabled());
+		assertApplicable(api.transformPurpleToBlueAndRedCharacter());
+		assertCharacterColorCount(api, 1, 1, 0); // check that disable autoApply worked!
 
 		saveAndTerminate(api);
 	}
