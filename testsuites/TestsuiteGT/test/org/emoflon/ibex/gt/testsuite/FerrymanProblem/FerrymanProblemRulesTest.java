@@ -1,5 +1,6 @@
 package org.emoflon.ibex.gt.testsuite.FerrymanProblem;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
@@ -9,6 +10,7 @@ import FerrymanProblem.Goat;
 import FerrymanProblem.Wolf;
 import FerrymanProblemGraphTransformation.api.FerrymanProblemGraphTransformationAPI;
 import FerrymanProblemGraphTransformation.api.matches.EatMatch;
+import FerrymanProblemGraphTransformation.api.rules.EatRule;
 
 /**
  * Tests for rule applications with the FerrymanProblem Graph Transformation
@@ -56,7 +58,8 @@ public class FerrymanProblemRulesTest extends FerrymanProblemAbstractTest {
 		assertMatchCount(0, api.findSubjectOnRightBank());
 
 		// Apply eat as soon as possible.
-		api.eat().enableAutoApply();
+		EatRule autoEat = api.eat();
+		autoEat.enableAutoApply();
 
 		Cabbage cabbage = api.findCabbage().findAnyMatch().get().getCabbage();
 		Goat goat = api.findGoat().findAnyMatch().get().getGoat();
@@ -72,6 +75,7 @@ public class FerrymanProblemRulesTest extends FerrymanProblemAbstractTest {
 
 		assertMatchCount(0, api.findSubjectOnLeftBank());
 		assertMatchCount(4, api.findSubjectOnRightBank());
+		assertEquals(0, autoEat.countRuleApplications());
 
 		saveAndTerminate(api);
 	}
@@ -84,22 +88,24 @@ public class FerrymanProblemRulesTest extends FerrymanProblemAbstractTest {
 		assertMatchCount(0, api.findSubjectOnRightBank());
 
 		// Apply eat as soon as possible.
-		api.eat().enableAutoApply();
+		EatRule autoEat = api.eat();
+		autoEat.enableAutoApply();
 
 		Wolf wolf = api.findWolf().findAnyMatch().get().getWolf();
 		assertApplicable(api.moveThing().bindThing(wolf));
 
-		// Need to call updateMatches here to trigger notifications.
-		api.updateMatches(); // Goat eats the cabbage.
+		// Goat eats the cabbage due to automatic rule application.
+		assertNoMatch(api.findCabbage());
 
 		assertApplicable(api.moveThing().bindThing(wolf));
 		assertApplicable(api.move());
 
-		api.updateMatches(); // Wolf eats the goat.
+		// Wolf eats the goat due to automatic rule application.
+		assertNoMatch(api.findGoat());
 
-		assertNoMatch(api.findCabbage());
 		assertMatchCount(1, api.findSubjectOnLeftBank());
 		assertMatchCount(1, api.findSubjectOnRightBank());
+		assertEquals(2, autoEat.countRuleApplications());
 
 		saveAndTerminate(api);
 	}
