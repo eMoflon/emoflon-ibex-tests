@@ -69,7 +69,7 @@ public class ClassMultipleInheritanceRulesTest extends ClassMultipleInheritanceH
 				"ClassDiagram1.xmi");
 
 		assertMatchCount(1, api.findPackage());
-		assertNotApplicable(api.deletePackage().apply());
+		assertNotApplicable(api.deletePackage());
 		assertMatchCount(1, api.findPackage());
 		assertApplicable(api.deletePackageByName("TestPackage"));
 		assertMatchCount(0, api.findPackage());

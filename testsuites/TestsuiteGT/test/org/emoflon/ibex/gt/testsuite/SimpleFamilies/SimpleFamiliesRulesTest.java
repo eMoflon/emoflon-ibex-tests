@@ -114,7 +114,7 @@ public class SimpleFamiliesRulesTest extends SimpleFamiliesAbstractTest {
 
 		assertMatchCount(2, api.findFamily());
 		// DPO: Families have members, so they cannot be deleted.
-		assertNotApplicable(api.deleteFamily().setDPO().apply());
+		assertNotApplicable(api.deleteFamily().setDPO());
 		assertMatchCount(2, api.findFamily());
 
 		// SPO: Deletion is possible, references to members deleted as well.
@@ -130,7 +130,7 @@ public class SimpleFamiliesRulesTest extends SimpleFamiliesAbstractTest {
 
 		assertMatchCount(1, api.findRegister());
 		// DPO: Register has families, so the register cannot be deleted.
-		assertNotApplicable(api.deleteRegister().setDPO().apply());
+		assertNotApplicable(api.deleteRegister().setDPO());
 		assertMatchCount(1, api.findRegister());
 
 		// SPO: Deletion is possible, deleted families as well.

@@ -109,7 +109,7 @@ public class FerrymanProblemRulesTest extends FerrymanProblemAbstractTest {
 		FerrymanProblemGraphTransformationAPI api = this.init("KillGoatSPO.xmi", "Start.xmi");
 
 		assertMatchCount(1, api.findGoat());
-		assertNotApplicable(api.killGoat().setDPO().apply());
+		assertNotApplicable(api.killGoat().setDPO());
 		assertMatchCount(1, api.findGoat());
 
 		assertApplicable(api.killGoat());

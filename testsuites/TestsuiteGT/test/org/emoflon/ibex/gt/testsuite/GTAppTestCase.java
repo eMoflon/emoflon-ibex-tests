@@ -194,15 +194,14 @@ public abstract class GTAppTestCase<App extends GraphTransformationApp<API>, API
 	}
 
 	/**
-	 * Asserts that no match exists after rule application.
+	 * Asserts that no co-match exists after rule application.
 	 * 
-	 * @param applyResult
-	 *            the result of the apply call
-	 * @return the match
+	 * @param rule
+	 *            the rule
 	 */
-	public static <M> void assertNotApplicable(final Optional<M> applyResult) {
-		Optional<M> match = (Optional<M>) applyResult;
-		assertFalse(match.isPresent());
+	public static <M extends GraphTransformationMatch<M, R>, R extends GraphTransformationRule<M, R>> void assertNotApplicable(
+			final R rule) {
+		assertFalse(rule.apply().isPresent());
 	}
 
 	/**
