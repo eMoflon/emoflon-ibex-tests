@@ -109,7 +109,7 @@ public class SimpleFamiliesRulesTest extends SimpleFamiliesAbstractTest {
 	}
 
 	@Test
-	public void deleteAnyFamilyForDifferentPushoutApproaches() {
+	public void deleteAnyFamilyForDifferentPushoutApproachesOnRuleLevel() {
 		SimpleFamiliesGraphTransformationAPI api = this.init("DeleteAnyFamily.xmi", "FamilyRegister.xmi");
 
 		assertMatchCount(2, api.findFamily());
@@ -125,7 +125,25 @@ public class SimpleFamiliesRulesTest extends SimpleFamiliesAbstractTest {
 	}
 
 	@Test
-	public void deleteRegisterForDifferentPushoutApproaches() {
+	public void deleteAnyFamilyForDifferentPushoutApproachesOnAPI() {
+		SimpleFamiliesGraphTransformationAPI api = this.init("DeleteAnyFamily2.xmi", "FamilyRegister.xmi");
+
+		assertMatchCount(2, api.findFamily());
+		// DPO: Families have members, so they cannot be deleted.
+		api.setDPO();
+		assertNotApplicable(api.deleteFamily());
+		assertMatchCount(2, api.findFamily());
+
+		// SPO: Deletion is possible, references to members deleted as well.
+		api.setSPO();
+		assertApplicable(api.deleteFamily());
+		assertMatchCount(1, api.findFamily());
+
+		saveAndTerminate(api);
+	}
+
+	@Test
+	public void deleteRegisterForDifferentPushoutApproachesOnRuleLevel() {
 		SimpleFamiliesGraphTransformationAPI api = this.init("DeleteRegister.xmi", "FamilyRegister.xmi");
 
 		assertMatchCount(1, api.findRegister());
