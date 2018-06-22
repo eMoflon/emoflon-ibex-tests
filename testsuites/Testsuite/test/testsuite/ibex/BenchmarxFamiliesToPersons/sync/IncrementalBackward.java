@@ -127,10 +127,9 @@ public class IncrementalBackward extends FamiliesToPersonsTestCase {
 	 * <b>Test</b> for renaming of a Person in a PersonRegister after the initial
 	 * register has been transformed into a family model.<br/>
 	 * <b>Expect</b> : Model states as described in the postcondition.<br/>
-	 * <b>Features</b>: bwd, attribute, structural, corr-based, runtime
+	 * <b>Features</b>: bwd, attribute, structural, corr-based, runtime, operational
 	 */
-	//FIXME [Lars Fritsche:  The fix-framework should solve this!]
-	@Ignore("Fails due to least change problems:  We revoke matches instead of fixing attribute values.")
+	@Ignore("Fails because we do not support operational deltas plus our repair strategy does no support repair behavior like that.")
 	@Test
 	public void testIncrementalRenamingDynamic() {
 		util.configure()
