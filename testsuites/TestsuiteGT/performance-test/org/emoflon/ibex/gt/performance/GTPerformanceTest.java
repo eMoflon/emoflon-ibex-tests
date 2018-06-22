@@ -13,6 +13,7 @@ import org.eclipse.emf.common.util.URI;
 import org.emoflon.ibex.gt.api.GraphTransformationApp;
 
 public abstract class GTPerformanceTest {
+	protected static final String WORKSPACE_PATH = "../../gt-rules/";
 	protected static final String RESULT_DIRECTORY = "performance/";
 	private static final String CSV_SEPARATOR = ";";
 	private static final String CSV_LINE_DELIMITER = "\n";
