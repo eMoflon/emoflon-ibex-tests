@@ -30,9 +30,8 @@ public class SheRememberedCaterpillarsPerformanceTest2 extends GTPerformanceTest
 	@Override
 	protected void prepare(int[] modelSizes) {
 		for (int modelSize : modelSizes) {
-			SheRememberedCaterpillarsGraphTransformationDemoclesApp app = new SheRememberedCaterpillarsGraphTransformationDemoclesApp();
+			SheRememberedCaterpillarsGraphTransformationDemoclesApp app = new SheRememberedCaterpillarsGraphTransformationDemoclesApp(WORKSPACE_PATH);
 			app.createModel(createURI(modelSize));
-			app.setWorkspacePath("../../gt-rules/");
 			SheRememberedCaterpillarsGraphTransformationAPI api = app.initAPI();
 			api.createGame().apply();
 			for (int i = 1; i <= modelSize; i++) {
@@ -52,12 +51,11 @@ public class SheRememberedCaterpillarsPerformanceTest2 extends GTPerformanceTest
 
 	@Override
 	public void run(int modelSize) {
-		SheRememberedCaterpillarsGraphTransformationDemoclesApp app = new SheRememberedCaterpillarsGraphTransformationDemoclesApp();
+		SheRememberedCaterpillarsGraphTransformationDemoclesApp app = new SheRememberedCaterpillarsGraphTransformationDemoclesApp(WORKSPACE_PATH);
 
 		// Initialization.
 		long initStart = System.nanoTime();
 		app.loadModel(createURI(modelSize));
-		app.setWorkspacePath("../../gt-rules/");
 		SheRememberedCaterpillarsGraphTransformationAPI api = app.initAPI();
 		long initEnd = System.nanoTime();
 
