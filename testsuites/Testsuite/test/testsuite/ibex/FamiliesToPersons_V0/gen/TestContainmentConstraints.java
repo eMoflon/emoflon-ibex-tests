@@ -2,7 +2,6 @@ package testsuite.ibex.FamiliesToPersons_V0.gen;
 
 import java.io.IOException;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 public class TestContainmentConstraints extends FamiliesToPersonsModelGenTestCase {
@@ -28,7 +27,6 @@ public class TestContainmentConstraints extends FamiliesToPersonsModelGenTestCas
 	 * correctly prevents the application of ConnectFather on an already connected mother.
 	 * @throws IOException
 	 */
-	@Ignore("Waiting for fix for issue #11 on emoflon-ibex-democles")
 	@Test
 	public void testContainmentConstraintForDifferentContainmentReference() throws IOException {
 		stop.setMaxRuleCount("HandleRegisters", 1);

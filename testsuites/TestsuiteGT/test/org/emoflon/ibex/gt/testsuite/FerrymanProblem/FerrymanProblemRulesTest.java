@@ -1,8 +1,8 @@
 package org.emoflon.ibex.gt.testsuite.FerrymanProblem;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.junit.Test;
 
 import FerrymanProblem.Cabbage;
@@ -10,21 +10,22 @@ import FerrymanProblem.Goat;
 import FerrymanProblem.Wolf;
 import FerrymanProblemGraphTransformation.api.FerrymanProblemGraphTransformationAPI;
 import FerrymanProblemGraphTransformation.api.matches.EatMatch;
+import FerrymanProblemGraphTransformation.api.rules.EatRule;
 
 /**
  * Tests for rule applications with the FerrymanProblem Graph Transformation
  * API.
  */
 public class FerrymanProblemRulesTest extends FerrymanProblemAbstractTest {
+
 	@Test
 	public void wolfEatsGoat() {
-		ResourceSet model = this.initResourceSet("WolfEatsGoat.xmi");
-		FerrymanProblemGraphTransformationAPI api = this.initAPI(model);
+		FerrymanProblemGraphTransformationAPI api = this.init("WolfEatsGoat.xmi");
 
 		assertMatchCount(2, api.findSubjectOnLeftBank());
 		assertMatchCount(2, api.findSubjectOnRightBank());
 
-		EatMatch match = assertApplicable(api.eat().apply());
+		EatMatch match = assertApplicable(api.eat());
 		assertTrue(match.getEater() instanceof Wolf);
 		assertTrue(match.getEaten() instanceof Goat);
 
@@ -32,94 +33,94 @@ public class FerrymanProblemRulesTest extends FerrymanProblemAbstractTest {
 		assertMatchCount(1, api.findSubjectOnLeftBank());
 		assertMatchCount(2, api.findSubjectOnRightBank());
 
-		saveResourceSet(model);
+		saveAndTerminate(api);
 	}
 
 	@Test
 	public void move() {
-		ResourceSet model = this.initResourceSet("Move.xmi", "Start.xmi");
-		FerrymanProblemGraphTransformationAPI api = this.initAPI(model);
+		FerrymanProblemGraphTransformationAPI api = this.init("Move.xmi", "Start.xmi");
 
 		assertMatchCount(4, api.findSubjectOnLeftBank());
 		assertMatchCount(0, api.findSubjectOnRightBank());
 
-		assertApplicable(api.moveThing().apply());
+		assertApplicable(api.moveThing());
 		assertMatchCount(2, api.findSubjectOnLeftBank());
 		assertMatchCount(2, api.findSubjectOnRightBank());
 
-		saveResourceSet(model);
+		saveAndTerminate(api);
 	}
 
 	@Test
 	public void moveAllSuccess() {
-		ResourceSet model = this.initResourceSet("MoveAllSuccess.xmi", "Start.xmi");
-		FerrymanProblemGraphTransformationAPI api = this.initAPI(model);
+		FerrymanProblemGraphTransformationAPI api = this.init("MoveAllSuccess.xmi", "Start.xmi");
 
 		assertMatchCount(4, api.findSubjectOnLeftBank());
 		assertMatchCount(0, api.findSubjectOnRightBank());
 
 		// Apply eat as soon as possible.
-		api.eat().enableAutoApply();
+		EatRule autoEat = api.eat();
+		autoEat.enableAutoApply();
 
 		Cabbage cabbage = api.findCabbage().findAnyMatch().get().getCabbage();
 		Goat goat = api.findGoat().findAnyMatch().get().getGoat();
 		Wolf wolf = api.findWolf().findAnyMatch().get().getWolf();
 
-		assertApplicable(api.moveThing().bindThing(goat).apply());
-		assertApplicable(api.move().apply());
-		assertApplicable(api.moveThing().bindThing(cabbage).apply());
-		assertApplicable(api.moveThing().bindThing(goat).apply());
-		assertApplicable(api.moveThing().bindThing(wolf).apply());
-		assertApplicable(api.move().apply());
-		assertApplicable(api.moveThing().bindThing(goat).apply());
+		assertApplicable(api.moveThing().bindThing(goat));
+		assertApplicable(api.move());
+		assertApplicable(api.moveThing().bindThing(cabbage));
+		assertApplicable(api.moveThing().bindThing(goat));
+		assertApplicable(api.moveThing().bindThing(wolf));
+		assertApplicable(api.move());
+		assertApplicable(api.moveThing().bindThing(goat));
 
 		assertMatchCount(0, api.findSubjectOnLeftBank());
 		assertMatchCount(4, api.findSubjectOnRightBank());
+		assertEquals(0, autoEat.countRuleApplications());
 
-		saveResourceSet(model);
+		saveAndTerminate(api);
 	}
 
 	@Test
 	public void moveAllFail() {
-		ResourceSet model = this.initResourceSet("MoveAllFail.xmi", "Start.xmi");
-		FerrymanProblemGraphTransformationAPI api = this.initAPI(model);
+		FerrymanProblemGraphTransformationAPI api = this.init("MoveAllFail.xmi", "Start.xmi");
 
 		assertMatchCount(4, api.findSubjectOnLeftBank());
 		assertMatchCount(0, api.findSubjectOnRightBank());
 
 		// Apply eat as soon as possible.
-		api.eat().enableAutoApply();
+		EatRule autoEat = api.eat();
+		autoEat.enableAutoApply();
 
 		Wolf wolf = api.findWolf().findAnyMatch().get().getWolf();
-		assertApplicable(api.moveThing().bindThing(wolf).apply());
+		assertApplicable(api.moveThing().bindThing(wolf));
 
-		// Need to call updateMatches here to trigger notifications.
-		api.updateMatches(); // Goat eats the cabbage.
-
-		assertApplicable(api.moveThing().bindThing(wolf).apply());
-		assertApplicable(api.move().apply());
-
-		api.updateMatches(); // Wolf eats the goat.
-
+		// Goat eats the cabbage due to automatic rule application.
 		assertNoMatch(api.findCabbage());
+
+		assertApplicable(api.moveThing().bindThing(wolf));
+		assertApplicable(api.move());
+
+		// Wolf eats the goat due to automatic rule application.
+		assertNoMatch(api.findGoat());
+
 		assertMatchCount(1, api.findSubjectOnLeftBank());
 		assertMatchCount(1, api.findSubjectOnRightBank());
+		assertEquals(2, autoEat.countRuleApplications());
 
-		saveResourceSet(model);
+		saveAndTerminate(api);
 	}
 
 	@Test
 	public void killGoatPushoutApproaches() {
-		ResourceSet model = this.initResourceSet("KillGoatSPO.xmi", "Start.xmi");
-		FerrymanProblemGraphTransformationAPI api = this.initAPI(model);
+		FerrymanProblemGraphTransformationAPI api = this.init("KillGoatSPO.xmi", "Start.xmi");
 
 		assertMatchCount(1, api.findGoat());
-		assertNotApplicable(api.killGoat().setDPO().apply());
+		assertNotApplicable(api.killGoat().setDPO());
 		assertMatchCount(1, api.findGoat());
 
-		assertApplicable(api.killGoat().apply());
+		assertApplicable(api.killGoat());
 		assertNoMatch(api.findGoat());
 
-		saveResourceSet(model);
+		saveAndTerminate(api);
 	}
 }

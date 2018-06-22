@@ -1,19 +1,16 @@
 package org.emoflon.ibex.gt.testsuite.SimpleFamilies;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
-import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
-import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.junit.Test;
 
 import SimpleFamilies.Family;
-import SimpleFamilies.FamilyRegister;
-import SimpleFamilies.SimpleFamiliesFactory;
 import SimpleFamiliesGraphTransformation.api.SimpleFamiliesGraphTransformationAPI;
 
 /**
@@ -21,12 +18,10 @@ import SimpleFamiliesGraphTransformation.api.SimpleFamiliesGraphTransformationAP
  * Transformation API
  */
 public class SimpleFamiliesConstraintsTest extends SimpleFamiliesAbstractTest {
-	private boolean familyDeleted = false;
 
 	@Test
 	public void constraints() {
-		ResourceSet model = this.initResourceSet("FamilyRegister.xmi");
-		SimpleFamiliesGraphTransformationAPI api = this.initAPI(model);
+		SimpleFamiliesGraphTransformationAPI api = this.init("FamilyRegister.xmi");
 
 		assertMatchCount(1, api.findRegister());
 		assertMatchCount(2, api.findFamily());
@@ -42,21 +37,38 @@ public class SimpleFamiliesConstraintsTest extends SimpleFamiliesAbstractTest {
 	}
 
 	@Test
-	public void findSimpsonFamily() {
-		ResourceSet model = this.initResourceSet("FamilyRegister.xmi");
-		SimpleFamiliesGraphTransformationAPI api = this.initAPI(model);
+	public void countFamilyByName() {
+		SimpleFamiliesGraphTransformationAPI api = this.init("FamilyRegister.xmi");
 
 		assertMatchCount(1, api.findSimpsonFamily());
 		assertEquals("Simpson", api.findSimpsonFamily().findAnyMatch().get().getFamily().getName());
 
 		assertMatchCount(1, api.findFamilyButNotSimpson());
 		assertEquals("Watson", api.findFamilyButNotSimpson().findAnyMatch().get().getFamily().getName());
+
+		assertMatchCount(2, api.findFamilyWithNameGreaterOrEqualThanSimpson());
+		assertMatchCount(1, api.findFamilyWithNameGreaterThanSimpson());
+		assertMatchCount(1, api.findFamilyWithNameSmallerOrEqualThanSimpson());
+		assertMatchCount(0, api.findFamilyWithNameSmallerThanSimpson());
+
+		assertMatchCount(0, api.findThreeFamiliesOfTheSameName());
+	}
+
+	@Test
+	public void countFamilyByName2() {
+		SimpleFamiliesGraphTransformationAPI api = this.init("FamilyRegister2.xmi");
+
+		assertMatchCount(0, api.findSimpsonFamily());
+		assertMatchCount(7, api.findFamilyButNotSimpson());
+		assertMatchCount(2, api.findFamilyWithNameGreaterOrEqualThanSimpson());
+		assertMatchCount(2, api.findFamilyWithNameGreaterThanSimpson());
+		assertMatchCount(5, api.findFamilyWithNameSmallerOrEqualThanSimpson());
+		assertMatchCount(5, api.findFamilyWithNameSmallerThanSimpson());
 	}
 
 	@Test
 	public void parameterizedAttributeConstraintsForEquality() {
-		ResourceSet model = this.initResourceSet("FamilyRegister.xmi");
-		SimpleFamiliesGraphTransformationAPI api = this.initAPI(model);
+		SimpleFamiliesGraphTransformationAPI api = this.init("FamilyRegister.xmi");
 
 		assertMatchCount(1, api.findFamilyByName("Simpson"));
 		assertMatchCount(1, api.findFamilyByName("Watson"));
@@ -71,8 +83,7 @@ public class SimpleFamiliesConstraintsTest extends SimpleFamiliesAbstractTest {
 
 	@Test
 	public void parameterizedAttributeConstraintsForGreater() {
-		ResourceSet model = this.initResourceSet("FamilyRegister.xmi");
-		SimpleFamiliesGraphTransformationAPI api = this.initAPI(model);
+		SimpleFamiliesGraphTransformationAPI api = this.init("FamilyRegister.xmi");
 
 		assertMatchCount(2, api.findFamilyWithNameGreaterThan("S"));
 		assertMatchCount(1, api.findFamilyWithNameGreaterThan("Smith"));
@@ -84,44 +95,21 @@ public class SimpleFamiliesConstraintsTest extends SimpleFamiliesAbstractTest {
 	}
 
 	@Test
-	public void notifications() {
-		ResourceSet model = this.initResourceSet("Notifications.xmi", "FamilyRegister.xmi");
-		SimpleFamiliesGraphTransformationAPI api = this.initAPI(model);
+	public void parameterizedAttributeConstraintsForSmaller() {
+		SimpleFamiliesGraphTransformationAPI api = this.init("FamilyRegister.xmi");
 
-		// Get the list of family names.
-		List<String> namesOfFamilies = api.findFamily().findMatches().stream() //
-				.map(m -> m.getFamily().getName()).collect(Collectors.toList());
+		assertMatchCount(0, api.findFamilyWithNameSmallerThan("R"));
+		assertMatchCount(1, api.findFamilyWithNameSmallerThan("Watson"));
+		assertMatchCount(2, api.findFamilyWithNameSmallerThan("Z"));
 
-		// Register subscriptions.
-		api.findFamily().findMatches().stream().filter(m -> m.getFamily().getName().equals("Watson")).findAny()
-				.ifPresent(m -> api.findFamily().subscribeMatchDisappears(m, x -> this.familyDeleted = true));
-
-		List<String> namesOfNewFamilies = new ArrayList<String>();
-		api.findFamily().subscribeAppearing(m -> namesOfNewFamilies.add(m.getFamily().getName()));
-		api.findFamily().subscribeAppearing(m -> namesOfFamilies.add(m.getFamily().getName()));
-
-		List<String> namesOfRemovedFamilies = new ArrayList<String>();
-		api.findFamily().subscribeDisappearing(m -> namesOfRemovedFamilies.add(m.getFamily().getName()));
-		api.findFamily().subscribeDisappearing(m -> namesOfFamilies.remove(m.getFamily().getName()));
-
-		// Remove Watson family, add Smith family.
-		FamilyRegister register = (FamilyRegister) model.getResources().get(0).getContents().get(0);
-		register.getFamilies().remove(1);
-		Family family = SimpleFamiliesFactory.eINSTANCE.createFamily();
-		family.setName("Smith");
-		register.getFamilies().add(family);
-
-		api.updateMatches();
-		assertEquals(Arrays.asList("Smith"), namesOfNewFamilies);
-		assertEquals(Arrays.asList("Watson"), namesOfRemovedFamilies);
-		assertEquals(Arrays.asList("Simpson", "Smith"), namesOfFamilies);
-		assertTrue(this.familyDeleted);
+		assertMatchCount(0, api.findFamilyWithNameSmallerOrEqualThan("R"));
+		assertMatchCount(1, api.findFamilyWithNameSmallerOrEqualThan("Simpson"));
+		assertMatchCount(2, api.findFamilyWithNameSmallerOrEqualThan("Watson"));
 	}
 
 	@Test
 	public void findMembersTestPositiveApplicationConditions() {
-		ResourceSet model = this.initResourceSet("FamilyRegister.xmi");
-		SimpleFamiliesGraphTransformationAPI api = this.initAPI(model);
+		SimpleFamiliesGraphTransformationAPI api = this.init("FamilyRegister.xmi");
 
 		assertMatchCount(2, api.findFatherWithCondition());
 		assertMatchCount(2, api.findMotherWithCondition());
@@ -131,16 +119,14 @@ public class SimpleFamiliesConstraintsTest extends SimpleFamiliesAbstractTest {
 
 	@Test
 	public void findMembersTestNegativeApplicationCondition() {
-		ResourceSet model = this.initResourceSet("FamilyRegister.xmi");
-		SimpleFamiliesGraphTransformationAPI api = this.initAPI(model);
+		SimpleFamiliesGraphTransformationAPI api = this.init("FamilyRegister.xmi");
 
 		assertMatchCount(6, api.findMemberExceptSonWithCondition());
 	}
 
 	@Test
 	public void findMembersTestAndCondition() {
-		ResourceSet model = this.initResourceSet("FamilyRegister.xmi");
-		SimpleFamiliesGraphTransformationAPI api = this.initAPI(model);
+		SimpleFamiliesGraphTransformationAPI api = this.init("FamilyRegister.xmi");
 
 		assertMatchCount(1, api.findSonInSimpsonFamily());
 		assertEquals("Bart", api.findSonInSimpsonFamily().findAnyMatch().get().getMember().getName());
@@ -148,8 +134,7 @@ public class SimpleFamiliesConstraintsTest extends SimpleFamiliesAbstractTest {
 
 	@Test
 	public void findMembersTestAlternatives() {
-		ResourceSet model = this.initResourceSet("FamilyRegister.xmi");
-		SimpleFamiliesGraphTransformationAPI api = this.initAPI(model);
+		SimpleFamiliesGraphTransformationAPI api = this.init("FamilyRegister.xmi");
 
 		assertMatchCount(4, api.findFemale());
 		assertMatchCount(3, api.findMale());
@@ -157,8 +142,7 @@ public class SimpleFamiliesConstraintsTest extends SimpleFamiliesAbstractTest {
 
 	@Test
 	public void findMembersTestAlternativesWithAttribute() {
-		ResourceSet model = this.initResourceSet("FamilyRegister.xmi");
-		SimpleFamiliesGraphTransformationAPI api = this.initAPI(model);
+		SimpleFamiliesGraphTransformationAPI api = this.init("FamilyRegister.xmi");
 
 		// Needs the removal of duplicates (match for Bart found by both alternatives!).
 		assertMatchCount(1, api.findSonInSimpsonFamilyOrNamedBart());
@@ -166,8 +150,7 @@ public class SimpleFamiliesConstraintsTest extends SimpleFamiliesAbstractTest {
 
 	@Test
 	public void findHalfOrphans() {
-		ResourceSet model = this.initResourceSet("FamilyRegister2.xmi");
-		SimpleFamiliesGraphTransformationAPI api = this.initAPI(model);
+		SimpleFamiliesGraphTransformationAPI api = this.init("FamilyRegister2.xmi");
 
 		assertMatchCount(4, api.findHalfOrphan());
 		List<String> halfOrphans = api.findHalfOrphan().findMatches().stream() //
@@ -180,8 +163,7 @@ public class SimpleFamiliesConstraintsTest extends SimpleFamiliesAbstractTest {
 
 	@Test
 	public void findOrphans() {
-		ResourceSet model = this.initResourceSet("FamilyRegister2.xmi");
-		SimpleFamiliesGraphTransformationAPI api = this.initAPI(model);
+		SimpleFamiliesGraphTransformationAPI api = this.init("FamilyRegister2.xmi");
 
 		Family adamsFamily = api.findFamilyByName("Adams").findAnyMatch().get().getFamily();
 		assertMatchCount(2, api.findOrphan().bindFamily(adamsFamily));
@@ -190,19 +172,34 @@ public class SimpleFamiliesConstraintsTest extends SimpleFamiliesAbstractTest {
 
 	@Test
 	public void findChildrenWithTwoParents() {
-		ResourceSet model = this.initResourceSet("FamilyRegister2.xmi");
-		SimpleFamiliesGraphTransformationAPI api = this.initAPI(model);
+		SimpleFamiliesGraphTransformationAPI api = this.init("FamilyRegister2.xmi");
 
 		assertMatchCount(1, api.findChildrenWithTwoParents());
 	}
 
 	@Test
 	public void findSingleParent() {
-		ResourceSet model = this.initResourceSet("FamilyRegister2.xmi");
-		SimpleFamiliesGraphTransformationAPI api = this.initAPI(model);
+		SimpleFamiliesGraphTransformationAPI api = this.init("FamilyRegister2.xmi");
 
 		assertMatchCount(4, api.findSingleParent());
 		assertMatchCount(2, api.findSingleFather());
 		assertMatchCount(2, api.findSingleMother());
+	}
+
+	@Test
+	public void findThreeFamiliesWithTheSameName() {
+		SimpleFamiliesGraphTransformationAPI api = this.init("FamilyRegister3.xmi");
+
+		// 6 = 3 * 2 matches (each combination of the three "Simpson" families)
+		assertMatchCount(6, api.findThreeFamiliesOfTheSameName());
+
+		Set<Family> families = new HashSet<Family>();
+		api.findThreeFamiliesOfTheSameName().forEachMatch(m -> {
+			families.add(m.getFamily1());
+			families.add(m.getFamily2());
+			families.add(m.getFamily3());
+		});
+		assertEquals(3, families.size());
+		assertEquals(1, families.stream().map(f -> f.getName()).distinct().count());
 	}
 }

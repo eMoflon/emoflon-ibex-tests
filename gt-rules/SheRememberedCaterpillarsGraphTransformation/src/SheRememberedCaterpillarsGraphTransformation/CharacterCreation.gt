@@ -26,6 +26,23 @@ refines createCharacter {
 }
 
 /**
+ * Creates another character, but not on an exit platform.
+ */
+rule createCharacterOfColorOnEmptyPlatform
+refines createCharacterOfColor
+when noOtherCharacterOnPlatform
+
+condition noOtherCharacterOnPlatform = forbid otherCharacterOnPlatform
+
+abstract pattern otherCharacterOnPlatform {
+	platform: Platform {
+		-charactersStandingOn -> anotherCharacter
+	}
+	
+	anotherCharacter: Character
+}
+
+/**
  * Creates a blue character.
  */
 rule createBlueCharacter
