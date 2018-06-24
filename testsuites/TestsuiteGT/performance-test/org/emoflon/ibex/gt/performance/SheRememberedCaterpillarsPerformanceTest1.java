@@ -28,7 +28,8 @@ public class SheRememberedCaterpillarsPerformanceTest1 extends GTPerformanceTest
 
 	@Override
 	protected List<String> getColumnNames() {
-		return Arrays.asList("init", "test", "query", "add 100 platforms", "delete 100 platforms");
+		return Arrays.asList("init", "test", "query count", "query all matches", "add 100 platforms",
+				"delete 100 specific platforms", "delete any 100 platforms");
 	}
 
 	@Override
@@ -54,13 +55,19 @@ public class SheRememberedCaterpillarsPerformanceTest1 extends GTPerformanceTest
 		}
 		long testEnd = System.nanoTime();
 
-		// Execute query.
-		long queryStart = System.nanoTime();
+		// Execute query for count.
+		long queryCountStart = System.nanoTime();
 		long count = api.findStandalonePlatform().countMatches() + api.findEmptyExit().countMatches();
 		if (count != modelSize) {
 			System.out.println("ERROR");
 		}
-		long queryEnd = System.nanoTime();
+		long queryCountEnd = System.nanoTime();
+
+		// Execute query for matches.
+		long queryMatchesStart = System.nanoTime();
+		api.findStandalonePlatform().findMatches();
+		api.findEmptyExit().findMatches();
+		long queryMatchesEnd = System.nanoTime();
 
 		// Add additional elements.
 		long addStart = System.nanoTime();
@@ -77,13 +84,24 @@ public class SheRememberedCaterpillarsPerformanceTest1 extends GTPerformanceTest
 		}
 		long deleteEnd = System.nanoTime();
 
+		// Delete any elements.
+		long deleteAnyStart = System.nanoTime();
+		int deletedElements = api.deletePlatform().apply(100).size();
+		if (deletedElements != 100) {
+			System.out.println("ERROR");
+		}
+		long deleteAnyEnd = System.nanoTime();
+
 		long initDuration = timeDifference(initStart, initEnd);
 		long testDuration = timeDifference(testStart, testEnd);
-		long queryDuration = timeDifference(queryStart, queryEnd);
+		long queryCountDuration = timeDifference(queryCountStart, queryCountEnd);
+		long queryMatchesDuration = timeDifference(queryMatchesStart, queryMatchesEnd);
 		long addDuration = timeDifference(addStart, addEnd);
 		long deletionDuration = timeDifference(deleteStart, deleteEnd);
+		long deletionAnyDuration = timeDifference(deleteAnyStart, deleteAnyEnd);
 
-		addResult(modelSize, initDuration, testDuration, queryDuration, addDuration, deletionDuration);
+		addResult(modelSize, initDuration, testDuration, queryCountDuration, queryMatchesDuration, addDuration,
+				deletionDuration, deletionAnyDuration);
 		save(app);
 	}
 }
