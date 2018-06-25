@@ -69,7 +69,7 @@ public class SimpleFamiliesRulesTest extends SimpleFamiliesAbstractTest {
 		assertEquals(20, api.createUnnamedFamily().apply(20).size());
 		assertMatchCount(22, api.findFamily());
 
-		Supplier<FindFamilyMatch> findNullFamily = () -> api.findFamily().findMatches().stream()
+		Supplier<FindFamilyMatch> findNullFamily = () -> api.findFamily().matchStream()
 				.filter(m -> m.getFamily().getName() == null).findAny().orElse(null);
 		assertEquals(20, api.deleteFamily().bindAndApply(findNullFamily).size());
 		assertMatchCount(2, api.findFamily());
@@ -82,7 +82,7 @@ public class SimpleFamiliesRulesTest extends SimpleFamiliesAbstractTest {
 		SimpleFamiliesGraphTransformationAPI api = this.init("DeleteWatsonFamilyWithFamilyBinding.xmi",
 				"FamilyRegister.xmi");
 
-		Family watsonFamily = api.findFamily().findMatches().stream()
+		Family watsonFamily = api.findFamily().matchStream() //
 				.filter(m -> m.getFamily().getName().equals("Watson")) //
 				.map(m -> m.getFamily()) //
 				.findAny().get();
@@ -98,7 +98,7 @@ public class SimpleFamiliesRulesTest extends SimpleFamiliesAbstractTest {
 		SimpleFamiliesGraphTransformationAPI api = this.init("DeleteWatsonFamilyWithMatchBinding.xmi",
 				"FamilyRegister.xmi");
 
-		FindFamilyMatch watsonMatch = api.findFamily().findMatches().stream()
+		FindFamilyMatch watsonMatch = api.findFamily().matchStream()
 				.filter(m -> m.getFamily().getName().equals("Watson")) //
 				.findAny().get();
 		DeleteFamilyMatch m = assertApplicable(api.deleteFamily().bindAndApply(watsonMatch));
@@ -164,7 +164,7 @@ public class SimpleFamiliesRulesTest extends SimpleFamiliesAbstractTest {
 
 		assertApplicable(api.renameFamily("Watson", "Watson-Smith"));
 
-		List<String> familyNames = api.findFamily().findMatches().stream() //
+		List<String> familyNames = api.findFamily().matchStream() //
 				.map(m -> m.getFamily().getName()) //
 				.collect(Collectors.toList());
 		assertEquals(Arrays.asList("Simpson", "Watson-Smith"), familyNames);

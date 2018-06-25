@@ -24,13 +24,14 @@ public class SheRememberedCaterpillarsPerformanceTest2 extends GTPerformanceTest
 
 	@Override
 	protected List<String> getColumnNames() {
-		return Arrays.asList("init", "update", "query");
+		return Arrays.asList("init", "update", "query count", "query all matches");
 	}
 
 	@Override
 	protected void prepare(int[] modelSizes) {
 		for (int modelSize : modelSizes) {
-			SheRememberedCaterpillarsGraphTransformationDemoclesApp app = new SheRememberedCaterpillarsGraphTransformationDemoclesApp(WORKSPACE_PATH);
+			SheRememberedCaterpillarsGraphTransformationDemoclesApp app = new SheRememberedCaterpillarsGraphTransformationDemoclesApp(
+					WORKSPACE_PATH);
 			app.createModel(createURI(modelSize));
 			SheRememberedCaterpillarsGraphTransformationAPI api = app.initAPI();
 			api.createGame().apply();
@@ -51,7 +52,8 @@ public class SheRememberedCaterpillarsPerformanceTest2 extends GTPerformanceTest
 
 	@Override
 	public void run(int modelSize) {
-		SheRememberedCaterpillarsGraphTransformationDemoclesApp app = new SheRememberedCaterpillarsGraphTransformationDemoclesApp(WORKSPACE_PATH);
+		SheRememberedCaterpillarsGraphTransformationDemoclesApp app = new SheRememberedCaterpillarsGraphTransformationDemoclesApp(
+				WORKSPACE_PATH);
 
 		// Initialization.
 		long initStart = System.nanoTime();
@@ -62,20 +64,27 @@ public class SheRememberedCaterpillarsPerformanceTest2 extends GTPerformanceTest
 		long updateStart = System.nanoTime();
 		api.updateMatches();
 		long updateEnd = System.nanoTime();
-		
-		// Execute query.
-		long queryStart = System.nanoTime();
+
+		// Execute query for count.
+		long queryCountStart = System.nanoTime();
 		long count = api.findStandalonePlatform().countMatches() + api.findEmptyExit().countMatches();
 		if (count != modelSize) {
 			System.out.println("ERROR");
 		}
-		long queryEnd = System.nanoTime();
+		long queryCountEnd = System.nanoTime();
+
+		// Execute query for matches.
+		long queryMatchesStart = System.nanoTime();
+		api.findStandalonePlatform().findMatches();
+		api.findEmptyExit().findMatches();
+		long queryMatchesEnd = System.nanoTime();
 
 		long initDuration = timeDifference(initStart, initEnd);
 		long updateDuration = timeDifference(updateStart, updateEnd);
-		long queryDuration = timeDifference(queryStart, queryEnd);
+		long queryCountDuration = timeDifference(queryCountStart, queryCountEnd);
+		long queryMatchesDuration = timeDifference(queryMatchesStart, queryMatchesEnd);
 
-		addResult(modelSize, initDuration, updateDuration, queryDuration);
+		addResult(modelSize, initDuration, updateDuration, queryCountDuration, queryMatchesDuration);
 		save(app);
 	}
 }

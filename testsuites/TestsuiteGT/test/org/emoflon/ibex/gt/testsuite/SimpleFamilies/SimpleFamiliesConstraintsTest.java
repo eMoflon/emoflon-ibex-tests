@@ -25,7 +25,7 @@ public class SimpleFamiliesConstraintsTest extends SimpleFamiliesAbstractTest {
 
 		assertMatchCount(1, api.findRegister());
 		assertMatchCount(2, api.findFamily());
-		List<String> familyNames = api.findFamily().findMatches().stream() //
+		List<String> familyNames = api.findFamily().matchStream() //
 				.map(m -> m.getFamily().getName()) //
 				.collect(Collectors.toList());
 		assertEquals(Arrays.asList("Simpson", "Watson"), familyNames);
@@ -153,7 +153,7 @@ public class SimpleFamiliesConstraintsTest extends SimpleFamiliesAbstractTest {
 		SimpleFamiliesGraphTransformationAPI api = this.init("FamilyRegister2.xmi");
 
 		assertMatchCount(4, api.findHalfOrphan());
-		List<String> halfOrphans = api.findHalfOrphan().findMatches().stream() //
+		List<String> halfOrphans = api.findHalfOrphan().matchStream() //
 				.map(m -> m.getChild().getName() + " " + m.getFamily().getName()) //
 				.sorted() //
 				.collect(Collectors.toList());

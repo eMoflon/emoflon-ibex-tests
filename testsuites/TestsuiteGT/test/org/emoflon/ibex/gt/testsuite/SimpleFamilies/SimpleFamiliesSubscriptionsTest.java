@@ -32,11 +32,14 @@ public class SimpleFamiliesSubscriptionsTest extends SimpleFamiliesAbstractTest 
 				"FamilyRegister.xmi");
 
 		// Get the list of family names.
-		List<String> namesOfFamilies = api.findFamily().findMatches().stream() //
-				.map(m -> m.getFamily().getName()).collect(Collectors.toList());
+		List<String> namesOfFamilies = api.findFamily().matchStream() //
+				.map(m -> m.getFamily().getName()) //
+				.collect(Collectors.toList());
 
 		// Register subscriptions.
-		api.findFamily().findMatches().stream().filter(m -> m.getFamily().getName().equals("Watson")).findAny()
+		api.findFamily().matchStream() //
+				.filter(m -> m.getFamily().getName().equals("Watson")) //
+				.findAny() //
 				.ifPresent(m -> api.findFamily().subscribeMatchDisappears(m, x -> this.familyDeleted = true));
 
 		List<String> namesOfNewFamilies = new ArrayList<String>();
@@ -89,7 +92,7 @@ public class SimpleFamiliesSubscriptionsTest extends SimpleFamiliesAbstractTest 
 
 		FindFamilyPattern familyPattern = api.findFamily();
 		Consumer<FindFamilyMatch> familyDisappearedAction = m -> familyDeleted2 = true;
-		FindFamilyMatch match = api.findFamily().findMatches().stream()
+		FindFamilyMatch match = api.findFamily().matchStream() //
 				.filter(m -> m.getFamily().getName().equals("Watson")).findAny().get();
 		familyPattern.subscribeMatchDisappears(match, familyDisappearedAction);
 		familyPattern.unsubscribeMatchDisappears(match, familyDisappearedAction);
