@@ -1,10 +1,7 @@
 package testsuite.ibex.BenchmarxFamiliesToPersons;
 
-import org.benchmarx.emf.Comparator;
-import org.benchmarx.families.core.FamiliesComparator;
 import org.benchmarx.families.core.FamilyHelper;
 import org.benchmarx.persons.core.PersonHelper;
-import org.benchmarx.persons.core.PersonsComparator;
 import org.benchmarx.util.BenchmarxUtil;
 
 import Families.FamiliesPackage;
@@ -15,14 +12,12 @@ import testsuite.ibex.testUtil.SyncTestCase;
 
 public abstract class FamiliesToPersonsTestCase extends SyncTestCase<FamilyRegister, PersonRegister> {
 	public FamiliesToPersonsTestCase() {
-		super(new IbexFamiliesToPersons("BenchmarxFamiliesToPersons"));
+		super(new IbexFamiliesToPersons(projectName));
 	}
 	
-	protected Comparator<FamilyRegister> familiesComparator;
-	protected Comparator<PersonRegister> personsComparator;
 	protected FamilyHelper helperFamily;
 	protected PersonHelper helperPerson;
-	protected final String projectName = "BenchmarxFamiliesToPersons";
+	protected final static String projectName = "BenchmarxFamiliesToPersons";
 
 
 	@Override
@@ -32,8 +27,6 @@ public abstract class FamiliesToPersonsTestCase extends SyncTestCase<FamilyRegis
 		PersonsPackage.eINSTANCE.getName();
 		
 		// Initialise all helpers
-		familiesComparator = new FamiliesComparator();
-		personsComparator = new PersonsComparator();
 		util = new BenchmarxUtil<>(tool);
 		helperFamily = new FamilyHelper();
 		helperPerson = new PersonHelper();
