@@ -46,6 +46,9 @@ public class _RegistrationHelper {
 		options.projectPath("VHDLTGGCodeAdapter");
 		options.debug(false);
 		options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
+		options.setCorrContextNodesAsLocalNodes(true);
+		options.minimumNumberOfEdgesToCreateEdgePatterns(2);
+		options.stronglyTypedEdgedPatterns(true);
 		return options;
 	}
 }
