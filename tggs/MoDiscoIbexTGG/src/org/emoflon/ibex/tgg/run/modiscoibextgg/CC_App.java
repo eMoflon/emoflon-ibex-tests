@@ -4,7 +4,6 @@ import java.io.IOException;
 
 import org.apache.log4j.BasicConfigurator;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.emoflon.ibex.tgg.operational.csp.constraints.factories.UserDefinedRuntimeTGGAttrConstraintFactory;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.cc.CC;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesTGGEngine;
@@ -46,12 +45,7 @@ public class CC_App extends CC {
 	}
 	
 	private static IbexOptions createIbexOptions() {
-			IbexOptions options = new IbexOptions();
-			options.projectName("MoDiscoIbexTGG");
-			options.projectPath("MoDiscoIbexTGG");
-			options.debug(false);
-			options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
-			return options;
+		return _RegistrationHelper.createIbexOptions();
 	}
 	
 	@Override

@@ -3,10 +3,10 @@ package testsuite.ibex.CompanyToIT.large_scale;
 import java.io.IOException;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.emoflon.ibex.tgg.operational.csp.constraints.factories.UserDefinedRuntimeTGGAttrConstraintFactory;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.sync.SYNC;
 import org.emoflon.ibex.tgg.run.companytoit.CO_App;
+import org.emoflon.ibex.tgg.run.vhdltggcodeadapter._RegistrationHelper;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesTGGEngine;
 import org.junit.Assert;
 import org.junit.Ignore;
@@ -122,11 +122,7 @@ public class TestSYNC extends CompleteSyncTestCase {
 	 * Create options for FWD_App and BWD_App
 	 */
 	private static IbexOptions createIbexOptions() {
-		IbexOptions options = new IbexOptions();
-		options.projectPath("CompanyToIT");
-		options.debug(false);
-		options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
-		return options;
+		return _RegistrationHelper.createIbexOptions();
 	}
 	
 	public void createGenerator(String srcInstance, String trgInstance, String corrInstance, String protInstance) throws IOException {

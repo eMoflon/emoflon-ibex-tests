@@ -6,7 +6,6 @@ import org.junit.Test;
 import ClassInheritanceHierarchy.ClassPackage;
 import testsuite.ibex.ClassInhHier2DB_MA.sync.util.SyncTestCaseCD2DB;
 
-
 public class SyncForward extends SyncTestCaseCD2DB{
 	
 	@Test
@@ -162,8 +161,7 @@ public class SyncForward extends SyncTestCaseCD2DB{
 		tool.performAndPropagateSourceEdit(p -> helperClass.deleteClass(p, "SC1"));
 		assertPostcondition("in/02_ClassToTable_FWD", "expected/02_ClassToTable_FWD");
 	}
-	
-	@Ignore("FIXME Greg:  Why does this fail? We use the same deletion strategy for all other test cases.")
+
 	@Test
 	public void testDeleteIntermediateSuperClass_FWD() {
 		createInheritance();
@@ -218,6 +216,7 @@ public class SyncForward extends SyncTestCaseCD2DB{
 		assertPostcondition("in/04_SubClassToTableRename_FWD", "expected/04_SubClassToTableRename_FWD");
 	}
 	
+	@Ignore("Non-deterministic behavior: https://github.com/eMoflon/emoflon-ibex-tests/issues/86")
 	@Test
 	public void testRenameAttribute_FWD() {
 		createInheritanceWithAttributes();

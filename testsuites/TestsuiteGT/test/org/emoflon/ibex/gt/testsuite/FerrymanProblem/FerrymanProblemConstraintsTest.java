@@ -2,7 +2,6 @@ package org.emoflon.ibex.gt.testsuite.FerrymanProblem;
 
 import static org.junit.Assert.assertTrue;
 
-import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.junit.Test;
 
 import FerrymanProblem.Goat;
@@ -15,10 +14,10 @@ import FerrymanProblemGraphTransformation.api.matches.CanEatMatch;
  * API.
  */
 public class FerrymanProblemConstraintsTest extends FerrymanProblemAbstractTest {
+
 	@Test
 	public void constraints() {
-		ResourceSet model = this.initResourceSet("Start.xmi");
-		FerrymanProblemGraphTransformationAPI api = this.initAPI(model);
+		FerrymanProblemGraphTransformationAPI api = this.init("Start.xmi");
 
 		assertNoMatch(api.canEat());
 		assertNoMatch(api.checkAllThingsAtRightBank());
@@ -27,8 +26,7 @@ public class FerrymanProblemConstraintsTest extends FerrymanProblemAbstractTest 
 
 	@Test
 	public void canWolfEatGoat() {
-		ResourceSet model = this.initResourceSet("WolfCanEatGoat.xmi", "WolfEatsGoat.xmi");
-		FerrymanProblemGraphTransformationAPI api = this.initAPI(model);
+		FerrymanProblemGraphTransformationAPI api = this.init("WolfCanEatGoat.xmi", "WolfEatsGoat.xmi");
 
 		assertMatchCount(2, api.findSubjectOnLeftBank());
 		assertMatchCount(2, api.findSubjectOnRightBank());

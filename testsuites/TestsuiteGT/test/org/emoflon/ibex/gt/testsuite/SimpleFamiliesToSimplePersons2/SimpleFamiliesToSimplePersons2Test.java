@@ -1,45 +1,37 @@
 package org.emoflon.ibex.gt.testsuite.SimpleFamiliesToSimplePersons2;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.emoflon.ibex.common.operational.IContextPatternInterpreter;
-import org.emoflon.ibex.gt.democles.runtime.DemoclesGTEngine;
-import org.emoflon.ibex.gt.testsuite.GTTestCase;
+import org.eclipse.emf.common.util.URI;
+import org.emoflon.ibex.gt.testsuite.GTAppTestCase;
 import org.junit.Test;
 
 import SimpleFamilies.Family;
 import SimpleFamilies.FamilyMember;
 import SimpleFamilies.FamilyRegister;
-import SimpleFamilies.SimpleFamiliesPackage;
 import SimpleFamiliesGraphTransformation.api.SimpleFamiliesGraphTransformationAPI;
+import SimpleFamiliesGraphTransformation.api.SimpleFamiliesGraphTransformationApp;
+import SimpleFamiliesGraphTransformation.api.matches.FindFamilyMatch;
+import SimpleFamiliesGraphTransformation.api.matches.FindRegisterMatch;
+import SimpleFamiliesGraphTransformation.api.rules.FindFamilyPattern;
 import SimplePersons.PersonRegister;
-import SimplePersons.SimplePersonsPackage;
 import SimplePersonsGraphTransformation.api.SimplePersonsGraphTransformationAPI;
+import SimplePersonsGraphTransformation.api.SimplePersonsGraphTransformationApp;
 
 /**
  * Tests for the SimpleFamilies and SimplePersons Graph Transformation API.
  */
-public class SimpleFamiliesToSimplePersons2Test extends GTTestCase<SimpleFamiliesGraphTransformationAPI> {
+public class SimpleFamiliesToSimplePersons2Test
+		extends GTAppTestCase<SimplePersonsGraphTransformationApp, SimplePersonsGraphTransformationAPI> {
+	SimplePersonsGraphTransformationAPI personsAPI;
+	SimpleFamiliesGraphTransformationAPI familiesAPI;
+
 	@Override
 	public String getTestName() {
 		return "SimpleFamiliesToSimplePersons2";
 	}
 
 	@Override
-	protected SimpleFamiliesGraphTransformationAPI getAPI(final IContextPatternInterpreter engine,
-			final ResourceSet model) {
-		return new SimpleFamiliesGraphTransformationAPI(engine, model, GTTestCase.workspacePath);
-	}
-
-	@Override
-	protected Map<String, EPackage> getMetaModelPackages() {
-		HashMap<String, EPackage> map = new HashMap<String, EPackage>();
-		map.put(SimpleFamiliesPackage.eNS_URI, SimpleFamiliesPackage.eINSTANCE);
-		map.put(SimplePersonsPackage.eNS_URI, SimplePersonsPackage.eINSTANCE);
-		return map;
+	protected SimplePersonsGraphTransformationApp getApp() {
+		return new SimplePersonsGraphTransformationApp(initEngine(), workspacePath);
 	}
 
 	/**
@@ -48,46 +40,52 @@ public class SimpleFamiliesToSimplePersons2Test extends GTTestCase<SimpleFamilie
 	 */
 	@Test
 	public void simpleFamiliesToPersons2() {
-		ResourceSet familiesModel = initResourceSet("FamilyRegisters.xmi");
-		SimpleFamiliesGraphTransformationAPI familiesAPI = this.initAPI(familiesModel);
+		personsAPI = this.init("PersonRegisters.xmi");
 
-		ResourceSet personsModel = initResourceSet("PersonRegisters.xmi");
-		SimplePersonsGraphTransformationAPI personsAPI = new SimplePersonsGraphTransformationAPI(new DemoclesGTEngine(),
-				personsModel, GTTestCase.workspacePath);
+		SimpleFamiliesGraphTransformationApp familiesApp = new SimpleFamiliesGraphTransformationApp(initEngine(),
+				workspacePath);
+		familiesApp.loadModel(URI.createFileURI(resourcePath + this.getTestName() + "/" + "FamilyRegisters.xmi"));
+		familiesAPI = familiesApp.initAPI();
 
-		familiesAPI.findRegister().findMatches().forEach(familyRegisterMatch -> {
-			FamilyRegister familyRegister = familyRegisterMatch.getRegister();
-			personsAPI.createRegister().apply().ifPresent(personRegisterMatch -> {
-				PersonRegister personRegister = personRegisterMatch.getRegister();
-				familiesAPI.findFamily().bindRegister(familyRegister).findMatches().forEach(familyMatch -> {
-					Family family = familyMatch.getFamily();
-					familiesAPI.findFather().bindFamily(family).forEachMatch(fatherMatch -> {
-						personsAPI.createMale(this.getFullName(family, fatherMatch.getMember()))
-								.bindRegister(personRegister).apply();
-					});
-					familiesAPI.findSon().bindFamily(family).forEachMatch(sonMatch -> {
-						personsAPI.createMale(this.getFullName(family, sonMatch.getMember()))
-								.bindRegister(personRegister).apply();
-					});
-					familiesAPI.findMother().bindFamily(family).forEachMatch(motherMatch -> {
-						personsAPI.createFemale(this.getFullName(family, motherMatch.getMember()))
-								.bindRegister(personRegister).apply();
-					});
-					familiesAPI.findDaughter().bindFamily(family).forEachMatch(daughterMatch -> {
-						personsAPI.createFemale(this.getFullName(family, daughterMatch.getMember()))
-								.bindRegister(personRegister).apply();
-					});
-				});
-			});
-		});
+		transformRegisters();
 
 		assertMatchCount(2, personsAPI.findRegister());
 		assertMatchCount(4, personsAPI.findFemale());
 		assertMatchCount(4, personsAPI.findMale());
 		assertMatchCount(8, personsAPI.findPerson());
 
-		saveResourceSet(familiesModel);
-		saveResourceSet(personsModel);
+		saveAndTerminate(personsAPI);
+	}
+
+	private void transformRegisters() {
+		for (FindRegisterMatch familyRegisterMatch : familiesAPI.findRegister().findMatches()) {
+			personsAPI.createRegister().apply().ifPresent(personRegisterMatch -> {
+				transformFamilies(familyRegisterMatch.getRegister(), personRegisterMatch.getRegister());
+			});
+		}
+	}
+
+	private void transformFamilies(FamilyRegister familyRegister, PersonRegister personRegister) {
+		FindFamilyPattern familyPattern = familiesAPI.findFamily().bindRegister(familyRegister);
+		for (FindFamilyMatch familyMatch : familyPattern.findMatches()) {
+			Family family = familyMatch.getFamily();
+			familiesAPI.findFather().bindFamily(family)
+					.forEachMatch(fatherMatch -> createMale(family, fatherMatch.getMember(), personRegister));
+			familiesAPI.findSon().bindFamily(family)
+					.forEachMatch(sonMatch -> createMale(family, sonMatch.getMember(), personRegister));
+			familiesAPI.findMother().bindFamily(family)
+					.forEachMatch(motherMatch -> createFemale(family, motherMatch.getMember(), personRegister));
+			familiesAPI.findDaughter().bindFamily(family)
+					.forEachMatch(daughterMatch -> createFemale(family, daughterMatch.getMember(), personRegister));
+		}
+	}
+
+	private void createMale(final Family family, final FamilyMember member, final PersonRegister personRegister) {
+		personsAPI.createMale(this.getFullName(family, member)).bindRegister(personRegister).apply();
+	}
+
+	private void createFemale(final Family family, final FamilyMember member, final PersonRegister personRegister) {
+		personsAPI.createFemale(this.getFullName(family, member)).bindRegister(personRegister).apply();
 	}
 
 	private String getFullName(final Family family, final FamilyMember member) {

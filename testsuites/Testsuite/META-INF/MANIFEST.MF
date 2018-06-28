@@ -72,10 +72,11 @@ Require-Bundle: org.apache.log4j,
  Java2Doc;bundle-version="1.0.0"
 Import-Package: Algorithms,
  Algorithms.impl,
+ AbcToNothing;bundle-version="1.0.0",
+ AlgorithmToStrategy_MA,
  Strategies,
- Strategies.impl,
- benchmarx.algorithm.core,
- org.benchmarx.strategy.core,
- org.emoflon.ibex.tgg.run.algorithmtostrategy_ma
+ CPM,
+ Gantt,
+ IBeXTGGGantt2CPM
 Automatic-Module-Name: Testsuite
 

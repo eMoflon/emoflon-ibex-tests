@@ -3,7 +3,6 @@ package org.emoflon.ibex.tgg.run.algorithmtostrategy_ma;
 import java.io.IOException;
 
 import org.apache.log4j.BasicConfigurator;
-import org.emoflon.ibex.tgg.operational.csp.constraints.factories.UserDefinedRuntimeTGGAttrConstraintFactory;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGEN;
 import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGENStopCriterion;
@@ -22,7 +21,7 @@ public class MODELGEN_App extends MODELGEN {
 		MODELGEN_App generator = new MODELGEN_App("AlgorithmToStrategy_MA", "./../", true);
 		
 		MODELGENStopCriterion stop = new MODELGENStopCriterion(generator.getTGG());
-		stop.setTimeOutInMS(150);
+		stop.setTimeOutInMS(600);
 		stop.setMaxRuleCount("AlgoContainerToStrategyContainer", 1);
 		generator.setStopCriterion(stop);
 		
@@ -45,10 +44,6 @@ public class MODELGEN_App extends MODELGEN {
 	}
 	
 	private static IbexOptions createIbexOptions() {
-		IbexOptions options = new IbexOptions();
-		options.projectPath("AlgorithmToStrategy_MA");
-		options.debug(false);
-		options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
-		return options;
+		return _RegistrationHelper.createIbexOptions();
 	}
 }

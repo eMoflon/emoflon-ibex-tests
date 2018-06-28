@@ -31,6 +31,6 @@ public abstract class TestCase {
 	@BeforeClass
 	public static void init() {
 		BasicConfigurator.configure();
-		Logger.getRootLogger().setLevel(Level.INFO);
+		Logger.getRootLogger().setLevel(Level.WARN);
 	}
 }
