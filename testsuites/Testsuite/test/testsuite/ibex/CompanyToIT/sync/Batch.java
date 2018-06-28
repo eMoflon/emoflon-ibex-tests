@@ -208,4 +208,16 @@ public class Batch extends SyncTestCase<Company, IT> {
 		//------------
 		assertPostcondition("in/Employee_PC_Laptop_FWD", "expected/Employee_PC_Laptop_FWD");
 	}
+	
+	/**
+	 * <b>Features</b>: bwd, attribute-fix
+	 */
+	@Test
+	public void testRenameIT() {
+		assertPrecondition("in/Company_FWD", "expected/Company_FWD");
+		//------------
+		tool.performAndPropagateTargetEdit(util.execute((IT i) -> i.setName("FGES")));
+		//------------
+		assertPostcondition("in/Company_Renamed_FWD", "expected/Company_Renamed_FWD");
+	}
 }
