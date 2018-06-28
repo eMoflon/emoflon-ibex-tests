@@ -216,6 +216,7 @@ public class SyncForward extends SyncTestCaseCD2DB{
 		assertPostcondition("in/04_SubClassToTableRename_FWD", "expected/04_SubClassToTableRename_FWD");
 	}
 	
+	@Ignore("Non-deterministic behavior: https://github.com/eMoflon/emoflon-ibex-tests/issues/86")
 	@Test
 	public void testRenameAttribute_FWD() {
 		createInheritanceWithAttributes();
