@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated Java2Doc -->
+      <package
+            uri="platform:/resource/Java2Doc/model/Java2Doc.ecore"
+            class="Java2Doc.Java2DocPackage"
+            genModel="model/Java2Doc.genmodel"/>
+   </extension>
+
+</plugin>
