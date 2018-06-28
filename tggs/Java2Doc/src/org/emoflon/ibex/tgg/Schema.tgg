@@ -1,0 +1,29 @@
+// Add imports here
+#import "platform:/resource/SimpleJava/model/simpleJava.ecore"
+#import "platform:/resource/SimpleDoc/model/simpleDoc.ecore"
+
+#schema Java2Doc
+	
+#source {
+	simpleJava
+}
+
+#target { 
+	simpleDoc
+} 
+
+#correspondence {
+	Package2Folder {
+		#src->Package
+		#trg->Folder
+	}
+	
+	Class2Doc {
+		#src->Class
+		#trg->Doc
+	}
+}
+
+#attributeConditions {
+	
+}

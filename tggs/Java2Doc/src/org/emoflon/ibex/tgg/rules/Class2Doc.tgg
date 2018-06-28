@@ -1,0 +1,34 @@
+#using Java2Doc.*
+#using AttrCondDefLibrary.*
+
+#rule Class2Doc #with Java2Doc
+
+#source { 
+	p : Package {
+		++ -classes->c
+	}
+	++ c : Class
+}
+
+#target {
+	f : Folder {
+		++ -docs->doc
+	}
+	++ doc : Doc
+}
+
+#correspondence {
+	p2f : Package2Folder {
+		#src->p
+		#trg->f
+	}
+	
+	++ c2d : Class2Doc {
+		#src->c
+		#trg->doc
+	}
+}
+
+#attributeConditions {
+	concat("_", c.name, "doc", doc.name)
+}

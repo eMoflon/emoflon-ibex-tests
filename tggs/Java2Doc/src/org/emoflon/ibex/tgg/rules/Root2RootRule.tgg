@@ -1,0 +1,23 @@
+#using Java2Doc.*
+#using AttrCondDefLibrary.*
+
+#rule Root2RootRule #with Java2Doc
+
+#source { 
+	++ p : Package
+}
+ 
+#target {
+	++ f : Folder
+}
+ 
+#correspondence {
+	++ p2f : Package2Folder {
+		#src->p
+		#trg->f
+	}
+}
+
+#attributeConditions {
+	eq_string(p.name, f.name)
+}
