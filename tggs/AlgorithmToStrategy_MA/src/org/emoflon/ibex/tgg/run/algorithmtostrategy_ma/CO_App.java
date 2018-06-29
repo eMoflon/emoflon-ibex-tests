@@ -4,11 +4,10 @@ import java.io.IOException;
 
 import org.apache.log4j.BasicConfigurator;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.emoflon.ibex.tgg.operational.csp.constraints.factories.UserDefinedRuntimeTGGAttrConstraintFactory;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.co.CO;
-import org.emoflon.ibex.tgg.run.algorithmtostrategy_ma.CO_App;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesTGGEngine;
+import org.emoflon.ibex.tgg.util.ilp.ILPFactory.SupportedILPSolver;
 
 public class CO_App extends CO {
 
@@ -18,8 +17,8 @@ public class CO_App extends CO {
 	String protPath;
 	
 	public CO_App(String projectName, String workspacePath, boolean debug, String srcPath, String trgPath, 
-			String corrPath, String protPath) throws IOException {
-		super(createIbexOptions().projectName(projectName).workspacePath(workspacePath).debug(debug));
+			String corrPath, String protPath, SupportedILPSolver ilpSolver) throws IOException {
+		super(createIbexOptions().projectName(projectName).workspacePath(workspacePath).debug(debug).setIlpSolver(ilpSolver));
 		this.srcPath = srcPath;
 		this.trgPath = trgPath;
 		this.corrPath = corrPath;
@@ -31,7 +30,7 @@ public class CO_App extends CO {
 		BasicConfigurator.configure();
 
 		CO_App co = new CO_App("AlgorithmToStrategy_MA", "./../", true, "/resources/co/src", "/resources/co/trg", 
-				"/resources/co/corr", "/resources/co/protocol");
+				"/resources/co/corr", "/resources/co/protocol", SupportedILPSolver.Gurobi);
 		
 		logger.info("Starting CO");
 		long tic = System.currentTimeMillis();
@@ -63,10 +62,6 @@ public class CO_App extends CO {
 	}
 	
 	private static IbexOptions createIbexOptions() {
-			IbexOptions options = new IbexOptions();
-			options.projectPath("AlgorithmToStrategy_MA");
-			options.debug(false);
-			options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
-			return options;
+		return _RegistrationHelper.createIbexOptions();
 	}
 }

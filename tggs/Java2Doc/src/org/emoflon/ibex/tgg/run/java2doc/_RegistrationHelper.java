@@ -24,7 +24,6 @@ public class _RegistrationHelper {
 		options.projectName("Java2Doc");
 		options.projectPath("Java2Doc");
 		options.debug(false);
-		options.repairUsingShortcutRules(true);
 		options.repairAttributes(true);
 		options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
 		return options;
