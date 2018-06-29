@@ -46,7 +46,6 @@ public class TestClasses2Documents_MA extends COTestCase {
 	}
 	
 	@Test
-	@Ignore("Democles might be too strict.")
 	public void testSimplePositive() throws IOException {
 		createGenerator("/resources/co/src", "/resources/co/trg", "/resources/co/corr", "/resources/co/protocol");
 		runGenerator();
