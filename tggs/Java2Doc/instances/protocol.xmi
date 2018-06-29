@@ -1,0 +1,463 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:org.emoflon.ibex.tgg.core.runtime="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore">
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="Root2RootRule" final="true">
+    <createdSrc href="src.xmi#/0"/>
+    <createdTrg href="trg.xmi#/"/>
+    <createdCorr href="corr.xmi#/0"/>
+    <nodeMappings key="p">
+      <value href="src.xmi#/0"/>
+    </nodeMappings>
+    <nodeMappings key="f">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="p2f">
+      <value href="corr.xmi#/0"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="Sub2SubRule" final="true">
+    <createdSrc href="src.xmi#/0/@subPackages.0"/>
+    <createdTrg href="trg.xmi#//@subFolders.0/@docs.0"/>
+    <createdTrg href="trg.xmi#//@subFolders.0"/>
+    <createdCorr href="corr.xmi#/1"/>
+    <contextSrc href="src.xmi#/0"/>
+    <contextTrg href="trg.xmi#/"/>
+    <nodeMappings key="p">
+      <value href="src.xmi#/0"/>
+    </nodeMappings>
+    <nodeMappings key="p2f">
+      <value href="corr.xmi#/0"/>
+    </nodeMappings>
+    <nodeMappings key="f">
+      <value href="trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="subF">
+      <value href="trg.xmi#//@subFolders.0"/>
+    </nodeMappings>
+    <nodeMappings key="doc">
+      <value href="trg.xmi#//@subFolders.0/@docs.0"/>
+    </nodeMappings>
+    <nodeMappings key="subP">
+      <value href="src.xmi#/0/@subPackages.0"/>
+    </nodeMappings>
+    <nodeMappings key="sp2sf">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="Sub2SubRule" final="true">
+    <createdSrc href="src.xmi#/0/@subPackages.0/@subPackages.0"/>
+    <createdTrg href="trg.xmi#//@subFolders.0/@subFolders.1/@docs.0"/>
+    <createdTrg href="trg.xmi#//@subFolders.0/@subFolders.1"/>
+    <createdCorr href="corr.xmi#/2"/>
+    <contextSrc href="src.xmi#/0/@subPackages.0"/>
+    <contextTrg href="trg.xmi#//@subFolders.0"/>
+    <nodeMappings key="p">
+      <value href="src.xmi#/0/@subPackages.0"/>
+    </nodeMappings>
+    <nodeMappings key="p2f">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="f">
+      <value href="trg.xmi#//@subFolders.0"/>
+    </nodeMappings>
+    <nodeMappings key="subF">
+      <value href="trg.xmi#//@subFolders.0/@subFolders.1"/>
+    </nodeMappings>
+    <nodeMappings key="doc">
+      <value href="trg.xmi#//@subFolders.0/@subFolders.1/@docs.0"/>
+    </nodeMappings>
+    <nodeMappings key="subP">
+      <value href="src.xmi#/0/@subPackages.0/@subPackages.0"/>
+    </nodeMappings>
+    <nodeMappings key="sp2sf">
+      <value href="corr.xmi#/2"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="Class2Doc" final="true">
+    <createdSrc href="src.xmi#/0/@subPackages.0/@classes.0"/>
+    <createdTrg href="trg.xmi#//@subFolders.0/@docs.1"/>
+    <createdCorr href="corr.xmi#/3"/>
+    <contextSrc href="src.xmi#/0/@subPackages.0"/>
+    <contextTrg href="trg.xmi#//@subFolders.0"/>
+    <nodeMappings key="p">
+      <value href="src.xmi#/0/@subPackages.0"/>
+    </nodeMappings>
+    <nodeMappings key="p2f">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="f">
+      <value href="trg.xmi#//@subFolders.0"/>
+    </nodeMappings>
+    <nodeMappings key="doc">
+      <value href="trg.xmi#//@subFolders.0/@docs.1"/>
+    </nodeMappings>
+    <nodeMappings key="c">
+      <value href="src.xmi#/0/@subPackages.0/@classes.0"/>
+    </nodeMappings>
+    <nodeMappings key="c2d">
+      <value href="corr.xmi#/3"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="Sub2SubRule" final="true">
+    <createdSrc href="src.xmi#/0/@subPackages.0/@subPackages.1"/>
+    <createdTrg href="trg.xmi#//@subFolders.0/@subFolders.0/@docs.0"/>
+    <createdTrg href="trg.xmi#//@subFolders.0/@subFolders.0"/>
+    <createdCorr href="corr.xmi#/4"/>
+    <contextSrc href="src.xmi#/0/@subPackages.0"/>
+    <contextTrg href="trg.xmi#//@subFolders.0"/>
+    <nodeMappings key="p">
+      <value href="src.xmi#/0/@subPackages.0"/>
+    </nodeMappings>
+    <nodeMappings key="p2f">
+      <value href="corr.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="f">
+      <value href="trg.xmi#//@subFolders.0"/>
+    </nodeMappings>
+    <nodeMappings key="subF">
+      <value href="trg.xmi#//@subFolders.0/@subFolders.0"/>
+    </nodeMappings>
+    <nodeMappings key="doc">
+      <value href="trg.xmi#//@subFolders.0/@subFolders.0/@docs.0"/>
+    </nodeMappings>
+    <nodeMappings key="subP">
+      <value href="src.xmi#/0/@subPackages.0/@subPackages.1"/>
+    </nodeMappings>
+    <nodeMappings key="sp2sf">
+      <value href="corr.xmi#/4"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="Sub2SubRule" final="true">
+    <createdSrc href="src.xmi#/0/@subPackages.0/@subPackages.1/@subPackages.0"/>
+    <createdTrg href="trg.xmi#//@subFolders.0/@subFolders.0/@subFolders.0/@docs.0"/>
+    <createdTrg href="trg.xmi#//@subFolders.0/@subFolders.0/@subFolders.0"/>
+    <createdCorr href="corr.xmi#/5"/>
+    <contextSrc href="src.xmi#/0/@subPackages.0/@subPackages.1"/>
+    <contextTrg href="trg.xmi#//@subFolders.0/@subFolders.0"/>
+    <nodeMappings key="p">
+      <value href="src.xmi#/0/@subPackages.0/@subPackages.1"/>
+    </nodeMappings>
+    <nodeMappings key="p2f">
+      <value href="corr.xmi#/4"/>
+    </nodeMappings>
+    <nodeMappings key="f">
+      <value href="trg.xmi#//@subFolders.0/@subFolders.0"/>
+    </nodeMappings>
+    <nodeMappings key="subF">
+      <value href="trg.xmi#//@subFolders.0/@subFolders.0/@subFolders.0"/>
+    </nodeMappings>
+    <nodeMappings key="doc">
+      <value href="trg.xmi#//@subFolders.0/@subFolders.0/@subFolders.0/@docs.0"/>
+    </nodeMappings>
+    <nodeMappings key="subP">
+      <value href="src.xmi#/0/@subPackages.0/@subPackages.1/@subPackages.0"/>
+    </nodeMappings>
+    <nodeMappings key="sp2sf">
+      <value href="corr.xmi#/5"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="Class2Doc" final="true">
+    <createdSrc href="src.xmi#/0/@subPackages.0/@subPackages.1/@classes.0"/>
+    <createdTrg href="trg.xmi#//@subFolders.0/@subFolders.0/@docs.1"/>
+    <createdCorr href="corr.xmi#/6"/>
+    <contextSrc href="src.xmi#/0/@subPackages.0/@subPackages.1"/>
+    <contextTrg href="trg.xmi#//@subFolders.0/@subFolders.0"/>
+    <nodeMappings key="p">
+      <value href="src.xmi#/0/@subPackages.0/@subPackages.1"/>
+    </nodeMappings>
+    <nodeMappings key="p2f">
+      <value href="corr.xmi#/4"/>
+    </nodeMappings>
+    <nodeMappings key="f">
+      <value href="trg.xmi#//@subFolders.0/@subFolders.0"/>
+    </nodeMappings>
+    <nodeMappings key="doc">
+      <value href="trg.xmi#//@subFolders.0/@subFolders.0/@docs.1"/>
+    </nodeMappings>
+    <nodeMappings key="c">
+      <value href="src.xmi#/0/@subPackages.0/@subPackages.1/@classes.0"/>
+    </nodeMappings>
+    <nodeMappings key="c2d">
+      <value href="corr.xmi#/6"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="Class2Doc" final="true">
+    <createdSrc href="src.xmi#/0/@subPackages.0/@subPackages.1/@subPackages.0/@classes.0"/>
+    <createdTrg href="trg.xmi#//@subFolders.0/@subFolders.0/@subFolders.0/@docs.1"/>
+    <createdCorr href="corr.xmi#/7"/>
+    <contextSrc href="src.xmi#/0/@subPackages.0/@subPackages.1/@subPackages.0"/>
+    <contextTrg href="trg.xmi#//@subFolders.0/@subFolders.0/@subFolders.0"/>
+    <nodeMappings key="p">
+      <value href="src.xmi#/0/@subPackages.0/@subPackages.1/@subPackages.0"/>
+    </nodeMappings>
+    <nodeMappings key="p2f">
+      <value href="corr.xmi#/5"/>
+    </nodeMappings>
+    <nodeMappings key="f">
+      <value href="trg.xmi#//@subFolders.0/@subFolders.0/@subFolders.0"/>
+    </nodeMappings>
+    <nodeMappings key="doc">
+      <value href="trg.xmi#//@subFolders.0/@subFolders.0/@subFolders.0/@docs.1"/>
+    </nodeMappings>
+    <nodeMappings key="c">
+      <value href="src.xmi#/0/@subPackages.0/@subPackages.1/@subPackages.0/@classes.0"/>
+    </nodeMappings>
+    <nodeMappings key="c2d">
+      <value href="corr.xmi#/7"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="Class2Doc" final="true">
+    <createdSrc href="src.xmi#/0/@subPackages.0/@subPackages.0/@classes.0"/>
+    <createdTrg href="trg.xmi#//@subFolders.0/@subFolders.1/@docs.1"/>
+    <createdCorr href="corr.xmi#/8"/>
+    <contextSrc href="src.xmi#/0/@subPackages.0/@subPackages.0"/>
+    <contextTrg href="trg.xmi#//@subFolders.0/@subFolders.1"/>
+    <nodeMappings key="p">
+      <value href="src.xmi#/0/@subPackages.0/@subPackages.0"/>
+    </nodeMappings>
+    <nodeMappings key="p2f">
+      <value href="corr.xmi#/2"/>
+    </nodeMappings>
+    <nodeMappings key="f">
+      <value href="trg.xmi#//@subFolders.0/@subFolders.1"/>
+    </nodeMappings>
+    <nodeMappings key="doc">
+      <value href="trg.xmi#//@subFolders.0/@subFolders.1/@docs.1"/>
+    </nodeMappings>
+    <nodeMappings key="c">
+      <value href="src.xmi#/0/@subPackages.0/@subPackages.0/@classes.0"/>
+    </nodeMappings>
+    <nodeMappings key="c2d">
+      <value href="corr.xmi#/8"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="Root2RootRule" final="true">
+    <createdSrc href="src.xmi#/1"/>
+    <createdTrg href="../../tggs/Java2Doc/resources/in/moflon_BWD.xmi#/"/>
+    <createdCorr href="corr.xmi#/9"/>
+    <nodeMappings key="f">
+      <value href="../../tggs/Java2Doc/resources/in/moflon_BWD.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="p">
+      <value href="src.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="p2f">
+      <value href="corr.xmi#/9"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="Sub2SubRule" final="true">
+    <createdSrc href="src.xmi#/1/@subPackages.0"/>
+    <createdTrg href="../../tggs/Java2Doc/resources/in/moflon_BWD.xmi#//@subFolders.0/@docs.1"/>
+    <createdTrg href="../../tggs/Java2Doc/resources/in/moflon_BWD.xmi#//@subFolders.0"/>
+    <createdCorr href="corr.xmi#/10"/>
+    <contextSrc href="src.xmi#/1"/>
+    <contextTrg href="../../tggs/Java2Doc/resources/in/moflon_BWD.xmi#/"/>
+    <nodeMappings key="p">
+      <value href="src.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="p2f">
+      <value href="corr.xmi#/9"/>
+    </nodeMappings>
+    <nodeMappings key="f">
+      <value href="../../tggs/Java2Doc/resources/in/moflon_BWD.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="subF">
+      <value href="../../tggs/Java2Doc/resources/in/moflon_BWD.xmi#//@subFolders.0"/>
+    </nodeMappings>
+    <nodeMappings key="doc">
+      <value href="../../tggs/Java2Doc/resources/in/moflon_BWD.xmi#//@subFolders.0/@docs.1"/>
+    </nodeMappings>
+    <nodeMappings key="subP">
+      <value href="src.xmi#/1/@subPackages.0"/>
+    </nodeMappings>
+    <nodeMappings key="sp2sf">
+      <value href="corr.xmi#/10"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="Sub2SubRule" final="true">
+    <createdSrc href="src.xmi#/1/@subPackages.0/@subPackages.0"/>
+    <createdTrg href="../../tggs/Java2Doc/resources/in/moflon_BWD.xmi#//@subFolders.0/@subFolders.0/@docs.0"/>
+    <createdTrg href="../../tggs/Java2Doc/resources/in/moflon_BWD.xmi#//@subFolders.0/@subFolders.0"/>
+    <createdCorr href="corr.xmi#/11"/>
+    <contextSrc href="src.xmi#/1/@subPackages.0"/>
+    <contextTrg href="../../tggs/Java2Doc/resources/in/moflon_BWD.xmi#//@subFolders.0"/>
+    <nodeMappings key="p">
+      <value href="src.xmi#/1/@subPackages.0"/>
+    </nodeMappings>
+    <nodeMappings key="p2f">
+      <value href="corr.xmi#/10"/>
+    </nodeMappings>
+    <nodeMappings key="f">
+      <value href="../../tggs/Java2Doc/resources/in/moflon_BWD.xmi#//@subFolders.0"/>
+    </nodeMappings>
+    <nodeMappings key="subF">
+      <value href="../../tggs/Java2Doc/resources/in/moflon_BWD.xmi#//@subFolders.0/@subFolders.0"/>
+    </nodeMappings>
+    <nodeMappings key="doc">
+      <value href="../../tggs/Java2Doc/resources/in/moflon_BWD.xmi#//@subFolders.0/@subFolders.0/@docs.0"/>
+    </nodeMappings>
+    <nodeMappings key="subP">
+      <value href="src.xmi#/1/@subPackages.0/@subPackages.0"/>
+    </nodeMappings>
+    <nodeMappings key="sp2sf">
+      <value href="corr.xmi#/11"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="Sub2SubRule" final="true">
+    <createdSrc href="src.xmi#/1/@subPackages.0/@subPackages.1"/>
+    <createdTrg href="../../tggs/Java2Doc/resources/in/moflon_BWD.xmi#//@subFolders.0/@subFolders.1/@docs.0"/>
+    <createdTrg href="../../tggs/Java2Doc/resources/in/moflon_BWD.xmi#//@subFolders.0/@subFolders.1"/>
+    <createdCorr href="corr.xmi#/12"/>
+    <contextSrc href="src.xmi#/1/@subPackages.0"/>
+    <contextTrg href="../../tggs/Java2Doc/resources/in/moflon_BWD.xmi#//@subFolders.0"/>
+    <nodeMappings key="p">
+      <value href="src.xmi#/1/@subPackages.0"/>
+    </nodeMappings>
+    <nodeMappings key="p2f">
+      <value href="corr.xmi#/10"/>
+    </nodeMappings>
+    <nodeMappings key="f">
+      <value href="../../tggs/Java2Doc/resources/in/moflon_BWD.xmi#//@subFolders.0"/>
+    </nodeMappings>
+    <nodeMappings key="subF">
+      <value href="../../tggs/Java2Doc/resources/in/moflon_BWD.xmi#//@subFolders.0/@subFolders.1"/>
+    </nodeMappings>
+    <nodeMappings key="doc">
+      <value href="../../tggs/Java2Doc/resources/in/moflon_BWD.xmi#//@subFolders.0/@subFolders.1/@docs.0"/>
+    </nodeMappings>
+    <nodeMappings key="subP">
+      <value href="src.xmi#/1/@subPackages.0/@subPackages.1"/>
+    </nodeMappings>
+    <nodeMappings key="sp2sf">
+      <value href="corr.xmi#/12"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="Class2Doc" final="true">
+    <createdSrc href="src.xmi#/1/@subPackages.0/@subPackages.0/@classes.0"/>
+    <createdTrg href="../../tggs/Java2Doc/resources/in/moflon_BWD.xmi#//@subFolders.0/@subFolders.0/@docs.1"/>
+    <createdCorr href="corr.xmi#/13"/>
+    <contextSrc href="src.xmi#/1/@subPackages.0/@subPackages.0"/>
+    <contextTrg href="../../tggs/Java2Doc/resources/in/moflon_BWD.xmi#//@subFolders.0/@subFolders.0"/>
+    <nodeMappings key="p">
+      <value href="src.xmi#/1/@subPackages.0/@subPackages.0"/>
+    </nodeMappings>
+    <nodeMappings key="p2f">
+      <value href="corr.xmi#/11"/>
+    </nodeMappings>
+    <nodeMappings key="f">
+      <value href="../../tggs/Java2Doc/resources/in/moflon_BWD.xmi#//@subFolders.0/@subFolders.0"/>
+    </nodeMappings>
+    <nodeMappings key="doc">
+      <value href="../../tggs/Java2Doc/resources/in/moflon_BWD.xmi#//@subFolders.0/@subFolders.0/@docs.1"/>
+    </nodeMappings>
+    <nodeMappings key="c">
+      <value href="src.xmi#/1/@subPackages.0/@subPackages.0/@classes.0"/>
+    </nodeMappings>
+    <nodeMappings key="c2d">
+      <value href="corr.xmi#/13"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="Class2Doc" final="true">
+    <createdSrc href="src.xmi#/1/@subPackages.0/@subPackages.1/@classes.0"/>
+    <createdTrg href="../../tggs/Java2Doc/resources/in/moflon_BWD.xmi#//@subFolders.0/@subFolders.1/@docs.1"/>
+    <createdCorr href="corr.xmi#/14"/>
+    <contextSrc href="src.xmi#/1/@subPackages.0/@subPackages.1"/>
+    <contextTrg href="../../tggs/Java2Doc/resources/in/moflon_BWD.xmi#//@subFolders.0/@subFolders.1"/>
+    <nodeMappings key="p">
+      <value href="src.xmi#/1/@subPackages.0/@subPackages.1"/>
+    </nodeMappings>
+    <nodeMappings key="p2f">
+      <value href="corr.xmi#/12"/>
+    </nodeMappings>
+    <nodeMappings key="f">
+      <value href="../../tggs/Java2Doc/resources/in/moflon_BWD.xmi#//@subFolders.0/@subFolders.1"/>
+    </nodeMappings>
+    <nodeMappings key="doc">
+      <value href="../../tggs/Java2Doc/resources/in/moflon_BWD.xmi#//@subFolders.0/@subFolders.1/@docs.1"/>
+    </nodeMappings>
+    <nodeMappings key="c">
+      <value href="src.xmi#/1/@subPackages.0/@subPackages.1/@classes.0"/>
+    </nodeMappings>
+    <nodeMappings key="c2d">
+      <value href="corr.xmi#/14"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="Sub2SubRule" final="true">
+    <createdSrc href="src.xmi#/1/@subPackages.0/@subPackages.0/@subPackages.0"/>
+    <createdTrg href="../../tggs/Java2Doc/resources/in/moflon_BWD.xmi#//@subFolders.0/@subFolders.0/@subFolders.0/@docs.0"/>
+    <createdTrg href="../../tggs/Java2Doc/resources/in/moflon_BWD.xmi#//@subFolders.0/@subFolders.0/@subFolders.0"/>
+    <createdCorr href="corr.xmi#/15"/>
+    <contextSrc href="src.xmi#/1/@subPackages.0/@subPackages.0"/>
+    <contextTrg href="../../tggs/Java2Doc/resources/in/moflon_BWD.xmi#//@subFolders.0/@subFolders.0"/>
+    <nodeMappings key="p">
+      <value href="src.xmi#/1/@subPackages.0/@subPackages.0"/>
+    </nodeMappings>
+    <nodeMappings key="p2f">
+      <value href="corr.xmi#/11"/>
+    </nodeMappings>
+    <nodeMappings key="f">
+      <value href="../../tggs/Java2Doc/resources/in/moflon_BWD.xmi#//@subFolders.0/@subFolders.0"/>
+    </nodeMappings>
+    <nodeMappings key="subF">
+      <value href="../../tggs/Java2Doc/resources/in/moflon_BWD.xmi#//@subFolders.0/@subFolders.0/@subFolders.0"/>
+    </nodeMappings>
+    <nodeMappings key="doc">
+      <value href="../../tggs/Java2Doc/resources/in/moflon_BWD.xmi#//@subFolders.0/@subFolders.0/@subFolders.0/@docs.0"/>
+    </nodeMappings>
+    <nodeMappings key="subP">
+      <value href="src.xmi#/1/@subPackages.0/@subPackages.0/@subPackages.0"/>
+    </nodeMappings>
+    <nodeMappings key="sp2sf">
+      <value href="corr.xmi#/15"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="Class2Doc" final="true">
+    <createdSrc href="src.xmi#/1/@subPackages.0/@subPackages.0/@subPackages.0/@classes.0"/>
+    <createdTrg href="../../tggs/Java2Doc/resources/in/moflon_BWD.xmi#//@subFolders.0/@subFolders.0/@subFolders.0/@docs.1"/>
+    <createdCorr href="corr.xmi#/16"/>
+    <contextSrc href="src.xmi#/1/@subPackages.0/@subPackages.0/@subPackages.0"/>
+    <contextTrg href="../../tggs/Java2Doc/resources/in/moflon_BWD.xmi#//@subFolders.0/@subFolders.0/@subFolders.0"/>
+    <nodeMappings key="p">
+      <value href="src.xmi#/1/@subPackages.0/@subPackages.0/@subPackages.0"/>
+    </nodeMappings>
+    <nodeMappings key="p2f">
+      <value href="corr.xmi#/15"/>
+    </nodeMappings>
+    <nodeMappings key="f">
+      <value href="../../tggs/Java2Doc/resources/in/moflon_BWD.xmi#//@subFolders.0/@subFolders.0/@subFolders.0"/>
+    </nodeMappings>
+    <nodeMappings key="doc">
+      <value href="../../tggs/Java2Doc/resources/in/moflon_BWD.xmi#//@subFolders.0/@subFolders.0/@subFolders.0/@docs.1"/>
+    </nodeMappings>
+    <nodeMappings key="c">
+      <value href="src.xmi#/1/@subPackages.0/@subPackages.0/@subPackages.0/@classes.0"/>
+    </nodeMappings>
+    <nodeMappings key="c2d">
+      <value href="corr.xmi#/16"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="Class2Doc" final="true">
+    <createdSrc href="src.xmi#/1/@subPackages.0/@classes.0"/>
+    <createdTrg href="../../tggs/Java2Doc/resources/in/moflon_BWD.xmi#//@subFolders.0/@docs.0"/>
+    <createdCorr href="corr.xmi#/17"/>
+    <contextSrc href="src.xmi#/1/@subPackages.0"/>
+    <contextTrg href="../../tggs/Java2Doc/resources/in/moflon_BWD.xmi#//@subFolders.0"/>
+    <nodeMappings key="p">
+      <value href="src.xmi#/1/@subPackages.0"/>
+    </nodeMappings>
+    <nodeMappings key="p2f">
+      <value href="corr.xmi#/10"/>
+    </nodeMappings>
+    <nodeMappings key="f">
+      <value href="../../tggs/Java2Doc/resources/in/moflon_BWD.xmi#//@subFolders.0"/>
+    </nodeMappings>
+    <nodeMappings key="doc">
+      <value href="../../tggs/Java2Doc/resources/in/moflon_BWD.xmi#//@subFolders.0/@docs.0"/>
+    </nodeMappings>
+    <nodeMappings key="c">
+      <value href="src.xmi#/1/@subPackages.0/@classes.0"/>
+    </nodeMappings>
+    <nodeMappings key="c2d">
+      <value href="corr.xmi#/17"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+</xmi:XMI>

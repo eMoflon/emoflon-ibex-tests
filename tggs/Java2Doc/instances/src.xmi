@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:simpleJava="platform:/resource/SimpleJava/model/simpleJava.ecore">
+  <simpleJava:Package name="org">
+    <subPackages name="es">
+      <classes name="EcoreUtil" body="EcoreUtilImpl"/>
+      <subPackages name="cmoflon">
+        <classes name="SDM" body="GTImpl"/>
+      </subPackages>
+      <subPackages name="emoflon">
+        <classes name="TGG" body="TGGImpl"/>
+        <subPackages name="ibex">
+          <classes name="IPM" body="IPMImpl"/>
+        </subPackages>
+      </subPackages>
+    </subPackages>
+  </simpleJava:Package>
+  <simpleJava:Package name="org">
+    <subPackages name="es">
+      <classes name="EcoreUtil"/>
+      <subPackages name="emoflon">
+        <classes name="TGG"/>
+        <subPackages name="ibex">
+          <classes name="IPM"/>
+        </subPackages>
+      </subPackages>
+      <subPackages name="cmoflon">
+        <classes name="GT"/>
+      </subPackages>
+    </subPackages>
+  </simpleJava:Package>
+</xmi:XMI>
