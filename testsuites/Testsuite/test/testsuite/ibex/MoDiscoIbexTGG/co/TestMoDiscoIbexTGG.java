@@ -52,7 +52,6 @@ public class TestMoDiscoIbexTGG extends COTestCase {
 	}
 	
 	@Test
-	@Ignore
 	public void testMissingLink() throws IOException {
 		createGenerator("/resources/co/src", "/resources/co/trg", "/resources/co/corr_inc", "/resources/co/protocol");
 		runGenerator();
