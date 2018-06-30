@@ -6,8 +6,9 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.emoflon.ibex.tgg.operational.csp.constraints.factories.blockdiagramcodeadapter_edgerules.UserDefinedRuntimeTGGAttrConstraintFactory;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.OperationalStrategy;
-import org.emoflon.ibex.tgg.operational.strategies.sync.BWD_OPT;
-import org.emoflon.ibex.tgg.operational.strategies.sync.FWD_OPT;
+import org.emoflon.ibex.tgg.operational.strategies.opt.BWD_OPT;
+import org.emoflon.ibex.tgg.operational.strategies.opt.FWD_OPT;
+
 
 import BlockDiagram.impl.BlockDiagramPackageImpl;
 import MocaTree.impl.MocaTreePackageImpl;

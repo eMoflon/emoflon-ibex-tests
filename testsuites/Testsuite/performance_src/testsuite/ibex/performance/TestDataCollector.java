@@ -18,12 +18,15 @@ import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
-import org.emoflon.ibex.tgg.operational.strategies.cc.CC;
-import org.emoflon.ibex.tgg.operational.strategies.co.CO;
+import org.emoflon.ibex.tgg.operational.strategies.opt.cc.CC;
+
+import org.emoflon.ibex.tgg.operational.strategies.opt.CO;
+
 import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGEN;
 import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGENStopCriterion;
-import org.emoflon.ibex.tgg.operational.strategies.sync.BWD_OPT;
-import org.emoflon.ibex.tgg.operational.strategies.sync.FWD_OPT;
+import org.emoflon.ibex.tgg.operational.strategies.opt.BWD_OPT;
+import org.emoflon.ibex.tgg.operational.strategies.opt.FWD_OPT;
+
 import org.emoflon.ibex.tgg.operational.updatepolicy.NextMatchUpdatePolicy;
 import org.emoflon.ibex.tgg.operational.updatepolicy.RandomMatchUpdatePolicy;
 import org.emoflon.ibex.tgg.operational.updatepolicy.TimedUpdatePolicy;

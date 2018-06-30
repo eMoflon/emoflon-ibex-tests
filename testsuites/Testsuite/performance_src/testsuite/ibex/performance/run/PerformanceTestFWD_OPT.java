@@ -5,7 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Supplier;
 
-import org.emoflon.ibex.tgg.operational.strategies.sync.FWD_OPT;
+import org.emoflon.ibex.tgg.operational.strategies.opt.FWD_OPT;
+
 
 import gurobi.GRBException;
 import testsuite.ibex.performance.util.Operationalization;

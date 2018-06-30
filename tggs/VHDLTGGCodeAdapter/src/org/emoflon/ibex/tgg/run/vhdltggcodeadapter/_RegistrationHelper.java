@@ -8,8 +8,9 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.emoflon.ibex.tgg.operational.csp.constraints.factories.vhdltggcodeadapter.UserDefinedRuntimeTGGAttrConstraintFactory;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.OperationalStrategy;
-import org.emoflon.ibex.tgg.operational.strategies.sync.BWD_OPT;
-import org.emoflon.ibex.tgg.operational.strategies.sync.FWD_OPT;
+import org.emoflon.ibex.tgg.operational.strategies.opt.BWD_OPT;
+import org.emoflon.ibex.tgg.operational.strategies.opt.FWD_OPT;
+
 
 import MocaTree.impl.MocaTreePackageImpl;
 import VHDLModel.impl.VHDLModelPackageImpl;

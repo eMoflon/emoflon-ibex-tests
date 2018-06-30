@@ -6,7 +6,8 @@ import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
-import org.emoflon.ibex.tgg.operational.strategies.co.CO;
+import org.emoflon.ibex.tgg.operational.strategies.opt.CO;
+
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesTGGEngine;
 import org.emoflon.ibex.tgg.util.ilp.ILPFactory.SupportedILPSolver;
 

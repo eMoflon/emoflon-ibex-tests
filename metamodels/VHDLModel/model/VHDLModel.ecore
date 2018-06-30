@@ -2,9 +2,7 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="VHDLModel" nsURI="platform:/resource/VHDLModel/model/VHDLModel.ecore"
     nsPrefix="VHDLModel">
-  <eClassifiers xsi:type="ecore:EClass" name="AndGate" eSuperTypes="#//BinaryGate">
-    <eOperations name="eval"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AndGate" eSuperTypes="#//BinaryGate"/>
   <eClassifiers xsi:type="ecore:EClass" name="BinaryGate" abstract="true" eSuperTypes="#//Block">
     <eStructuralFeatures xsi:type="ecore:EReference" name="inputport2" lowerBound="1"
         eType="#//InputPort" containment="true"/>
@@ -14,14 +12,12 @@
         eType="#//OutputPort" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Block" abstract="true">
-    <eOperations name="eval"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="inputs" upperBound="-1"
         eType="#//InputPort"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BlockRef" eSuperTypes="#//ComplexBlock">
-    <eOperations name="eval"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="block" lowerBound="1" eType="#//CompositeBlock"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ComplexBlock" abstract="true" eSuperTypes="#//Block">
@@ -29,24 +25,17 @@
         eType="#//Port" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CompositeBlock" eSuperTypes="#//ComplexBlock">
-    <eOperations name="eval"/>
-    <eOperations name="pullValue">
-      <eParameters name="port" eType="#//Port"/>
-    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="blocks" lowerBound="1"
         upperBound="-1" eType="#//Block" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="InputPort" eSuperTypes="#//Port"/>
   <eClassifiers xsi:type="ecore:EClass" name="NotGate" eSuperTypes="#//Block">
-    <eOperations name="eval"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="outputport" lowerBound="1"
         eType="#//OutputPort" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="inputport" lowerBound="1"
         eType="#//InputPort" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="OrGate" eSuperTypes="#//BinaryGate">
-    <eOperations name="eval"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OrGate" eSuperTypes="#//BinaryGate"/>
   <eClassifiers xsi:type="ecore:EClass" name="OutputPort" eSuperTypes="#//Port"/>
   <eClassifiers xsi:type="ecore:EClass" name="Port" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="src" eType="#//Port"/>

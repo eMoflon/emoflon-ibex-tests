@@ -19,8 +19,9 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.emoflon.ibex.tgg.operational.strategies.OperationalStrategy;
 import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGENStopCriterion;
-import org.emoflon.ibex.tgg.operational.strategies.sync.BWD_OPT;
-import org.emoflon.ibex.tgg.operational.strategies.sync.FWD_OPT;
+import org.emoflon.ibex.tgg.operational.strategies.opt.BWD_OPT;
+import org.emoflon.ibex.tgg.operational.strategies.opt.FWD_OPT;
+
 import Algorithms.impl.AlgorithmsPackageImpl;
 import BlockDiagram.impl.BlockDiagramPackageImpl;
 import BlockLanguage.impl.BlockLanguagePackageImpl;

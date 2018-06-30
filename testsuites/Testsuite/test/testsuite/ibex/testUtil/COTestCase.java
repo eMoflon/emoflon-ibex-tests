@@ -2,9 +2,11 @@ package testsuite.ibex.testUtil;
 
 import java.io.IOException;
 
-import org.emoflon.ibex.tgg.operational.strategies.co.CO;
-import org.emoflon.ibex.tgg.operational.strategies.sync.BWD_OPT;
-import org.emoflon.ibex.tgg.operational.strategies.sync.FWD_OPT;
+import org.emoflon.ibex.tgg.operational.strategies.opt.CO;
+
+import org.emoflon.ibex.tgg.operational.strategies.opt.BWD_OPT;
+import org.emoflon.ibex.tgg.operational.strategies.opt.FWD_OPT;
+
 
 public class COTestCase extends TestCase {
 	protected CO checker;

@@ -4,7 +4,8 @@ import java.io.IOException;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
-import org.emoflon.ibex.tgg.operational.strategies.sync.FWD_OPT;
+import org.emoflon.ibex.tgg.operational.strategies.opt.FWD_OPT;
+
 
 import testsuite.ibex.performance.util.PerformanceTestUtil;
 

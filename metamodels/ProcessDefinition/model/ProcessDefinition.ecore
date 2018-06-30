@@ -51,12 +51,6 @@
   <eSubpackages name="facade" nsURI="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//facade"
       nsPrefix="facade">
     <eClassifiers xsi:type="ecore:EClass" name="Helper">
-      <eOperations name="outputCycle">
-        <eParameters name="currentTask" eType="#//Task"/>
-      </eOperations>
-      <eOperations name="print">
-        <eParameters name="message" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="coloredTask" upperBound="-1"
           eType="#//Task"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="visitedTasks" upperBound="-1"

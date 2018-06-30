@@ -6,7 +6,7 @@ import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
-import org.emoflon.ibex.tgg.operational.strategies.sync.BWD_OPT;
+import org.emoflon.ibex.tgg.operational.strategies.opt.BWD_OPT;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesTGGEngine;
 import org.emoflon.ibex.tgg.util.ilp.ILPFactory.SupportedILPSolver;
 

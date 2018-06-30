@@ -7,7 +7,8 @@ import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
-import org.emoflon.ibex.tgg.operational.strategies.cc.CC;
+import org.emoflon.ibex.tgg.operational.strategies.opt.cc.CC;
+
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesTGGEngine;
 
 public class CC_App extends CC {

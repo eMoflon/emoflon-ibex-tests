@@ -2,7 +2,8 @@ package testsuite.ibex.testUtil;
 
 import java.io.IOException;
 
-import org.emoflon.ibex.tgg.operational.strategies.co.CO;
+import org.emoflon.ibex.tgg.operational.strategies.opt.CO;
+
 import org.emoflon.ibex.tgg.operational.strategies.sync.SYNC;
 
 /**

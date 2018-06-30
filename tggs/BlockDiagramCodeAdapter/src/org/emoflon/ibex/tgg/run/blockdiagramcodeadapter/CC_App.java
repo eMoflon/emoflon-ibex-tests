@@ -5,7 +5,8 @@ import java.io.IOException;
 import org.apache.log4j.BasicConfigurator;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
-import org.emoflon.ibex.tgg.operational.strategies.cc.CC;
+import org.emoflon.ibex.tgg.operational.strategies.opt.cc.CC;
+
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesTGGEngine;
 import org.emoflon.ibex.tgg.util.ilp.ILPFactory.SupportedILPSolver;
 

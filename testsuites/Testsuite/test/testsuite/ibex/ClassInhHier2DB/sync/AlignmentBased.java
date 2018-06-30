@@ -206,6 +206,7 @@ public class AlignmentBased extends SyncTestCase<ClassPackage, DB> {
 		assertPostcondition("expected/LargeExample_BWD", "in/LargeExample_BWD");
 	}
 	
+
 	@Test
 	public void changeContainer() {
 		tool.performAndPropagateSourceEdit(p -> helperClassInh.createClass(p, "C"));
