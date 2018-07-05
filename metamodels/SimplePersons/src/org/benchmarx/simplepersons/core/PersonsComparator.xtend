@@ -9,7 +9,7 @@ import org.benchmarx.emf.Comparator
 
 import static org.junit.Assert.*
 
-public class PersonsComparator implements Comparator<PersonRegister>{
+class PersonsComparator implements Comparator<PersonRegister>{
 	PersonNormaliser comparator
 	
 	new (){
