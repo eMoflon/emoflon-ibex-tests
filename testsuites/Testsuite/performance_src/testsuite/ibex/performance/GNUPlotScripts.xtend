@@ -7,21 +7,20 @@ import testsuite.ibex.performance.util.PerformanceConstants
 
 class GNUPlotScripts {
 
-	private static final TimeUnit timeUnit = PerformanceConstants.plotTimeUnit;
-	private static final long timeFactor = TimeUnit.NANOSECONDS.convert(1, timeUnit); //conversion from nanoseconds to "timeUnit"
+	static final TimeUnit timeUnit = PerformanceConstants.plotTimeUnit;
+	static final long timeFactor = TimeUnit.NANOSECONDS.convert(1, timeUnit); // conversion from nanoseconds to "timeUnit"
+	static final String output = PerformanceConstants.output;
+	static final String terminal = PerformanceConstants.terminal;
+	static final String gnuplotCommand = PerformanceConstants.gnuPlotCommand;
 	
-	private static final String output = PerformanceConstants.output;
-	private static final String terminal = PerformanceConstants.terminal;
-	private static final String gnuplotCommand = PerformanceConstants.gnuPlotCommand;
+	static final String plotPath = "performance/plots/"
+	static final String scriptPath = "performance/gnuplot_scripts/"
+	static final String dataPath = "performance/data/"
+	static final String evalDataPath = "performance/evaluation/data/"
+	static final String evalScriptPath = "performance/evaluation/gnuplot_scripts/"
+	static final String evalPlotPath = "performance/evaluation/plots/"
 	
-	private static final String plotPath = "performance/plots/"
-	private static final String scriptPath = "performance/gnuplot_scripts/"
-	private static final String dataPath = "performance/data/"
-	private static final String evalDataPath = "performance/evaluation/data/"
-	private static final String evalScriptPath = "performance/evaluation/gnuplot_scripts/"
-	private static final String evalPlotPath = "performance/evaluation/plots/"
-	
-	private static final int max_y_axis = 1000;
+	static final int max_y_axis = 1000;
 	
 	/**
 	 * Saves the script for the specified plot and the plot itself as files

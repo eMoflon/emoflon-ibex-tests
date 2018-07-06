@@ -5,13 +5,9 @@ import static org.junit.Assert.*
 import MocaTree.Folder
 
 class MocaTreeFolderComparator implements Comparator<Folder> {
-	boolean checkAttributeValues
-	
 	FolderNormalizer folderNormalizer
 	
 	new (boolean checkAttributeValues){
-		this.checkAttributeValues = checkAttributeValues
-		
 		folderNormalizer = new FolderNormalizer(checkAttributeValues)
 	}
 	

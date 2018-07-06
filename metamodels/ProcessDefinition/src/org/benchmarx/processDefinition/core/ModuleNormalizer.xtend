@@ -8,13 +8,10 @@ import java.util.List
 
 class ModuleNormalizer extends Normalizer<Module> {
 	
-	ImportNormalizer importNormalizer
 	TaskNormalizer taskNormalizer
 	
 	new(boolean checkAttributeValues) {
 		super(checkAttributeValues)
-		
-		importNormalizer = new ImportNormalizer(checkAttributeValues)
 		taskNormalizer = new TaskNormalizer(checkAttributeValues)
 	}
 	

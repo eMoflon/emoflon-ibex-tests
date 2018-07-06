@@ -5,13 +5,9 @@ import static org.junit.Assert.*
 import MocaTree.File
 
 class MocaTreeFileComparator implements Comparator<File> {
-	boolean checkAttributeValues
-	
 	FileNormalizer fileNormalizer
 	
 	new (boolean checkAttributeValues){
-		this.checkAttributeValues = checkAttributeValues
-		
 		fileNormalizer = new FileNormalizer(checkAttributeValues)
 	}
 	

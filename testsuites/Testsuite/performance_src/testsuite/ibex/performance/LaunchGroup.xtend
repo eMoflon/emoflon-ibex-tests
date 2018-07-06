@@ -41,23 +41,23 @@ class LaunchGroup {
 	
 	public List<LaunchConfiguration> launchConfigs
 	
-	public new() {
+	 new() {
 		this.launchConfigs = new ArrayList()
 	}
 	
-	public new(List<LaunchConfiguration> launchConfigs) {
+	 new(List<LaunchConfiguration> launchConfigs) {
 		this.launchConfigs = launchConfigs
 	}
 	
 	
 	/** Saves the launch configuration in a file at the default location. */
-	public def save() {
+	def save() {
 		save(launchGroupPath)
 	}
 	
 	/** Saves the launch configuration in a file at the specified location. */
-	public def save(String path) {
-		Files.write(Paths.get(path+"AllPerformanceTests.launch"), Arrays.asList(getContents()))
+	def save(String path) {
+		Files.write(Paths.get(path + "AllPerformanceTests.launch"), Arrays.asList(getContents()))
 	}
 	
 	/** The launch group template which is parameterized by all TestCaseParameters. */
