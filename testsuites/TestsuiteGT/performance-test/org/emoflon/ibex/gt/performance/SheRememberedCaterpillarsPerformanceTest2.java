@@ -85,6 +85,5 @@ public class SheRememberedCaterpillarsPerformanceTest2 extends GTPerformanceTest
 		long queryMatchesDuration = timeDifference(queryMatchesStart, queryMatchesEnd);
 
 		addResult(modelSize, initDuration, updateDuration, queryCountDuration, queryMatchesDuration);
-		save(app);
 	}
 }
