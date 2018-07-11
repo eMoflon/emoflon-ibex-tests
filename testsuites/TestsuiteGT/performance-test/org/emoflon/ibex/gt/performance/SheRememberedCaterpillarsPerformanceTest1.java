@@ -102,6 +102,5 @@ public class SheRememberedCaterpillarsPerformanceTest1 extends GTPerformanceTest
 
 		addResult(modelSize, initDuration, testDuration, queryCountDuration, queryMatchesDuration, addDuration,
 				deletionDuration, deletionAnyDuration);
-		save(app);
 	}
 }

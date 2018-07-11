@@ -50,6 +50,10 @@ public abstract class GTPerformanceTest {
 		prepare(modelSizes);
 
 		createFile();
+
+		// Warm up
+		run(modelSizes[0]);
+
 		for (int modelSize : modelSizes) {
 			for (int i = 0; i < testsPerSize; i++) {
 				run(modelSize);
