@@ -3,6 +3,7 @@ package testsuite.ibex.FamiliesToPersons_V0.cc;
 import java.io.IOException;
 
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 
 public class TestSimpleNegative extends FamiliesToPersonsCCTestCase {
@@ -20,6 +21,7 @@ public class TestSimpleNegative extends FamiliesToPersonsCCTestCase {
 		Assert.assertTrue(!checker.modelsAreConsistent());
 	}
 	
+	@Ignore("Takes a bit too long for normal testing")
 	@Test
 	public void testSixteenChildrenToSixtyPersons() throws IOException {
 		createGenerator("sixteenChildFamily", "thirtyFemaleThirtyMalePersons");
