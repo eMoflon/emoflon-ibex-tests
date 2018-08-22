@@ -1,0 +1,37 @@
+import "platform:/resource/CompanyToIT/model/CompanyToIT_flattened.tgg.xmi"
+
+default {
+	return 26
+}
+
+rule AdminToRouterRule {
+	return router.name.length * company.name.length
+}
+
+rule CompanyToITRule {
+	return company.name.length
+}
+
+rule EmployeeToLaptopRule {
+	if(employee.name.length > 4) {
+		return exampleHelperFunction(computer) * 2
+	} else {
+		return exampleHelperFunction(computer)
+	}
+}
+
+rule EmployeeToPCRule {
+	if(employee.name.length < 4) {
+		return exampleHelperFunction(computer) * 2
+	} else {
+		return exampleHelperFunction(computer)
+	}
+}
+
+function int exampleHelperFunction(ITLanguage.Laptop l) {
+	return 800
+}
+
+function int exampleHelperFunction(ITLanguage.PC l) {
+	return 500
+}
