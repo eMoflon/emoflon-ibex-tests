@@ -18,7 +18,7 @@ class FileNormalizer extends Normalizer<File> {
 			File {
 				name = "«IF checkAttributeValues»«f.name»«ELSE»file«ENDIF»",
 				index = "«IF checkAttributeValues»«f.index»«ELSE»index«ENDIF»",
-				rootNode = "«IF checkAttributeValues»«textNormalizer.stringify(f.rootNode)»«ELSE»«IF f.rootNode !== null»rootNode«ELSE»()«ENDIF»«ENDIF»",
+				«IF f.rootNode !== null»«textNormalizer.stringify(f.rootNode)»«ELSE»()«ENDIF»
 			}
 		'''
 	}
