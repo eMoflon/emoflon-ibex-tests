@@ -36,36 +36,3 @@
 	}
 	
 }
-
-#attributeConditions {
-	//concat(":", superClazz.name, subClazz.name, subTable.heading)
-}
-
-
-#nac NoDoubleEdges #for SubClassToTable
-
-#source {
-	superClazz:Clazz
-	subClazz:Clazz{
-		-superClass->superClazz
-	}
-}
-
-#nac NoSimpleCycles #for SubClassToTable
-
-#source {
-	superClazz:Clazz
-	{
-		-superClass->subClazz
-	}
-	subClazz:Clazz
-}
-
-
-
-
-
-
-
-
-
