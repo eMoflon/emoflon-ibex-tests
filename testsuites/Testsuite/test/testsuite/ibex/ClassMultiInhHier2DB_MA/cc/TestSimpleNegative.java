@@ -117,6 +117,7 @@ public class TestSimpleNegative extends CCTestCase{
 		Assert.assertTrue(!checker.modelsAreConsistent());
 	}
 	
+	@Ignore("Re-enable after consolidating GT and TGG (a NAC has been removed)")
 	@Test
 	public void testTwoDiffTransitiveSuperToSubTables_V1() throws IOException {
 		createGenerator("in/11_TwoDiffTransitiveSuperAtt_OneSubAtt_FWD", "expected/11_TwoDiffTransitiveSuperAtt_OneSubAtt_INCONS_V1_FWD");
