@@ -7,6 +7,7 @@ import org.benchmarx.database.core.DatabaseComparator;
 import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGENStopCriterion;
 import org.emoflon.ibex.tgg.run.classmultipleinhhier2db_ma.MODELGEN_App;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import Database.DB;
@@ -90,6 +91,7 @@ public class SimpleModelgenTest extends ModelGenTestCase<ClassPackage, DB>{
 			assertPostcondition("in/06_OneSuperAtt_OneSubAtt_FWD", "expected/06_OneSuperAtt_OneSubAtt_FWD");
 	}
 	
+	@Ignore("Can be re-enabled after consolidation of GT and TGG")
 	@Test
 	public void testTransitiveAttToSubTables() throws IOException {
 			stop.setMaxRuleCount("PackageToDatabase", 1);
@@ -101,6 +103,7 @@ public class SimpleModelgenTest extends ModelGenTestCase<ClassPackage, DB>{
 			assertPostcondition("in/07_OneSuperSuperAtt_FWD", "expected/07_OneSuperSuperAtt_FWD");
 	}
 	
+	@Ignore("Can be re-enabled after consolidation of GT and TGG")
 	@Test
 	public void testTwoSuperClassesToSubTables() throws IOException {
 			stop.setMaxRuleCount("PackageToDatabase", 1);
