@@ -26,7 +26,7 @@ public class SimpleModelgenTest extends ModelGenTestCase<FamilyRegister, PersonR
 	
 	@Before
 	public void createGenerator() throws IOException {
-		generator = new MODELGEN_App(getProjectName(), testsuite.ibex.testUtil.Constants.workspacePath, false);
+		generator = new MODELGEN_App(getProjectName(), testsuite.ibex.testUtil.Constants.workspacePath, true);
 		stop = new MODELGENStopCriterion(generator.getTGG());
 		
 		for (TGGRule rule : generator.getTGG().getRules()) {
@@ -89,7 +89,7 @@ public class SimpleModelgenTest extends ModelGenTestCase<FamilyRegister, PersonR
 		assertPostcondition("01_Family_FatherMotherSonTwoDaughters", "01_Person_TwoMaleThreeFemale");
 	}
 	
-	@Test(expected = IllegalArgumentException.class)
+	@Test
 	public void testViolationOfUpperBoundFather() throws IOException {
 		stop.setMaxRuleCount("Families2Persons", 1);
 		stop.setMaxRuleCount("CreateFamily", 1);
@@ -97,23 +97,6 @@ public class SimpleModelgenTest extends ModelGenTestCase<FamilyRegister, PersonR
 		newUP.setBoundForComplementRule("Father2Male", 2, true);
 		generator.setUpdatePolicy(newUP);
 		runGenerator(stop);
+		assertPostcondition("01_Family_Father", "01_Person_Male");
 	}
-	
-	@Test(expected = IllegalArgumentException.class)
-	public void testViolationOfUpperBoundMother() throws IOException {
-		stop.setMaxRuleCount("Families2Persons", 1);
-		stop.setMaxRuleCount("CreateFamily", 1);
-		UpdatePolicy newUP = new RandomMatchUpdatePolicy();
-		newUP.setBoundForComplementRule("Mother2Female", 2, true);
-		generator.setUpdatePolicy(newUP);
-		runGenerator(stop);
-	}
-
-
 }
-
-
-
-
-
-
