@@ -57,7 +57,7 @@ public final static String projectName = "ClassInhHier2DB_MA";
 				.stream()
 				.filter(m -> m.getPatternName().contains(preferedRule))
 				.findAny();
-		return match.orElse(matchContainer.getNextRandom());
+		return match.orElse(matchContainer.getNext());
 	}
 	
 	// ---- FWD ----

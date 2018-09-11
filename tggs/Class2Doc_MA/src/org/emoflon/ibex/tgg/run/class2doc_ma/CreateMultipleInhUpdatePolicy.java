@@ -13,7 +13,7 @@ public class CreateMultipleInhUpdatePolicy extends CreateAttributesUpdatePolicy{
 	public IMatch chooseOneMatch(ImmutableMatchContainer matchContainer) {	
 		return forceClassCreation(matchContainer)
 				.orElse(forceInheritanceCreation(matchContainer)
-				.orElse(matchContainer.getNextRandom()));
+				.orElse(matchContainer.getNext()));
 	}
 	
 	@Override

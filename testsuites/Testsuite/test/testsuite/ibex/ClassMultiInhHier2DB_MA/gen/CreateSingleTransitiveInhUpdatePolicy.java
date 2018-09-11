@@ -15,7 +15,7 @@ public class CreateSingleTransitiveInhUpdatePolicy extends CreateAttributesUpdat
 				.orElse(getNonAttributeMatch(matchContainer)
 				.orElse(getAttributeMatchForEmptySuperClass(matchContainer)
 				.orElse(getAttributeMatchForSubClass(matchContainer)
-				.orElse(matchContainer.getNextRandom())))));
+				.orElse(matchContainer.getNext())))));
 	}
 	
 	@Override

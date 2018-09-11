@@ -28,7 +28,7 @@ public class F2PUpdatePolicy extends UpdatePolicy {
 		handlePrefsForExistingFamily(matches);
 		handlePrefsForParents(matches);
 
-		return matches.isEmpty()? matchContainer.getNextRandom() : matches.iterator().next();
+		return matches.isEmpty()? matchContainer.getNext() : matches.iterator().next();
 	}
 
 	private boolean isIrrelevantMatchForSync(IMatch m) {

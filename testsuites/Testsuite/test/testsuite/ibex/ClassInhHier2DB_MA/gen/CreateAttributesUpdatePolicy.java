@@ -18,7 +18,7 @@ public class CreateAttributesUpdatePolicy extends UpdatePolicy {
 		return getAttributeMatchForEmptySuperClass(matchContainer)
 				.orElse(getAttributeMatchForSubClass(matchContainer)
 				.orElse(getNonAttributeMatch(matchContainer)
-				.orElse(matchContainer.getNextRandom())));
+				.orElse(matchContainer.getNext())));
 	}
 
 	private Optional<IMatch> getNonAttributeMatch(ImmutableMatchContainer matchContainer) {
