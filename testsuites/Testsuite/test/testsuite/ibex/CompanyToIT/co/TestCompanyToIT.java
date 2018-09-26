@@ -13,7 +13,7 @@ import testsuite.ibex.testUtil.COTestCase;
 public class TestCompanyToIT extends COTestCase{
 
 	public void createGenerator(String srcInstance, String trgInstance, String corrInstance, String protInstance) throws IOException {
-		checker = new CO_App("CompanyToIT", testsuite.ibex.testUtil.Constants.workspacePath, false, srcInstance, trgInstance, corrInstance, protInstance, this.ilpSolver);
+		checker = new CO_App("CompanyToIT", testsuite.ibex.testUtil.Constants.workspacePath, true, srcInstance, trgInstance, corrInstance, protInstance, this.ilpSolver);
 	}
 	
 	public void createTransformation(String srcInstance, String trgInstance, String corrInstance, String protInstance) throws IOException {
@@ -21,7 +21,7 @@ public class TestCompanyToIT extends COTestCase{
 	}
 	
 	public void createBackward(String srcInstance, String trgInstance, String corrInstance, String protInstance) throws IOException {
-		backward = new BWD_OPT_App("CompanyToIT", testsuite.ibex.testUtil.Constants.workspacePath, false, srcInstance, trgInstance, corrInstance, protInstance, this.ilpSolver);
+		backward = new BWD_OPT_App("CompanyToIT", testsuite.ibex.testUtil.Constants.workspacePath, true, srcInstance, trgInstance, corrInstance, protInstance, this.ilpSolver);
 	}
 	
 	@Test
