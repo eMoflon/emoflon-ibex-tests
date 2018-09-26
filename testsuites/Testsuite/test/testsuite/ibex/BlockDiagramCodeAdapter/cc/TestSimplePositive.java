@@ -24,6 +24,7 @@ public class TestSimplePositive extends CCTestCase {
 	public void testBlockToNode() throws IOException {
 		createGenerator("in/BlockToNode_FWD", "expected/BlockToNode_FWD");
 		runGenerator();
+		checker.saveModels();
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}
 	
