@@ -26,7 +26,7 @@ public class FWD_OPT_App extends FWD_OPT {
 		new PerformanceTestUtil().registerUserMetamodelsFWD_OPT(options.projectPath(), rs, this);
 		
 		// Register correspondence metamodel last
-		loadAndRegisterMetamodel(options.projectPath() + "/model/" + options.projectPath() + ".ecore");
+		loadAndRegisterCorrMetamodel(options.projectPath() + "/model/" + options.projectName() + ".ecore");
 	}
 	
 	@Override

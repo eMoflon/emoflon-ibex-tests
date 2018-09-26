@@ -29,7 +29,7 @@ public class SYNC_App extends SYNC {
 		new PerformanceTestUtil().registerUserMetamodels(options.projectPath(), rs, this);
 		
 		// Register correspondence metamodel last
-		loadAndRegisterMetamodel(options.projectPath() + "/model/" + options.projectPath() + ".ecore");
+		loadAndRegisterCorrMetamodel(options.projectPath() + "/model/" + options.projectName() + ".ecore");
 	}
 	
 	/** 
