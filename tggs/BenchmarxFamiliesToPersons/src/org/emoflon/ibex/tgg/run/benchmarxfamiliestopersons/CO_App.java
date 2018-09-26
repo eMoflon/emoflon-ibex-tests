@@ -50,7 +50,7 @@ public class CO_App extends CO {
 		_RegistrationHelper.registerMetamodels(rs, this);
 		
 		// Register correspondence metamodel last
-		loadAndRegisterMetamodel(options.projectPath() + "/model/" + options.projectPath() + ".ecore");
+		loadAndRegisterCorrMetamodel(options.projectPath() + "/model/" + options.projectName() + ".ecore");
 	}
 	
 	@Override

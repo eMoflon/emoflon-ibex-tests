@@ -26,7 +26,7 @@ public class BWD_OPT_App extends BWD_OPT {
 		new PerformanceTestUtil().registerUserMetamodelsBWD_OPT(options.projectPath(), rs, this);
 		
 		// Register correspondence metamodel last
-		loadAndRegisterMetamodel(options.projectPath() + "/model/" + options.projectPath() + ".ecore");
+		loadAndRegisterCorrMetamodel(options.projectPath() + "/model/" + options.projectName() + ".ecore");
 	}
 	
 	@Override
