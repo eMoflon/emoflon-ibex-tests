@@ -24,7 +24,7 @@ public class MODELGEN_App extends MODELGEN {
 
 		MODELGENStopCriterion stop = new MODELGENStopCriterion(generator.getTGG());
 		// stop.setTimeOutInMS(1000);
-		UpdatePolicy newUP = new RandomMatchUpdatePolicy();
+		UpdatePolicy newUP = new RandomMatchUpdatePolicy(10);
 		newUP.setBoundForComplementRule("Father2Male", 1, true);
 		newUP.setBoundForComplementRule("Mother2Female", 1, true);
 		// newUP.setBoundForComplementRule("Son2Male", 1, true);

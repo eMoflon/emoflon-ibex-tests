@@ -212,7 +212,7 @@ public class TestDataCollector {
 			try {
 				MODELGEN gen = new MODELGEN_App(tggName, Constants.workspacePath, false,
 						tggName + "/instances/" + size + "Element");
-				gen.setUpdatePolicy(new TimedUpdatePolicy(new RandomMatchUpdatePolicy(), PerformanceConstants.timeout,
+				gen.setUpdatePolicy(new TimedUpdatePolicy(new RandomMatchUpdatePolicy(10), PerformanceConstants.timeout,
 						TimeUnit.SECONDS));
 				return gen;
 			} catch (IOException e) {

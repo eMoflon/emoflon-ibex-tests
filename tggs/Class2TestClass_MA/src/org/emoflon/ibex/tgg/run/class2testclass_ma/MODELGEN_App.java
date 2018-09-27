@@ -25,7 +25,7 @@ public class MODELGEN_App extends MODELGEN {
 		MODELGENStopCriterion stop = new MODELGENStopCriterion(generator.getTGG());
 		stop.setTimeOutInMS(1000);
 		
-		UpdatePolicy newUP = new RandomMatchUpdatePolicy();
+		UpdatePolicy newUP = new RandomMatchUpdatePolicy(10);
 		newUP.setBoundForComplementRule("CreateTestClass", 2, true);
 		generator.setUpdatePolicy(newUP);
 		stop.setMaxRuleCount("Package2TestSuite", 1);
