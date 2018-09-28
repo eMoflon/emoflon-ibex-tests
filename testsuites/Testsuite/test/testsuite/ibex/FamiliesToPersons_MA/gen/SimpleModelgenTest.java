@@ -56,7 +56,7 @@ public class SimpleModelgenTest extends ModelGenTestCase<FamilyRegister, PersonR
 	public void testOneFather() throws IOException {
 		stop.setMaxRuleCount("Families2Persons", 1);
 		stop.setMaxRuleCount("CreateFamily", 1);
-		UpdatePolicy newUP = new RandomMatchUpdatePolicy();
+		UpdatePolicy newUP = new RandomMatchUpdatePolicy(2);
 		newUP.setBoundForComplementRule("Father2Male", 1, true);
 		generator.setUpdatePolicy(newUP);
 		runGenerator(stop);
@@ -67,7 +67,7 @@ public class SimpleModelgenTest extends ModelGenTestCase<FamilyRegister, PersonR
 	public void testOneFatherTwoDaughters() throws IOException {
 		stop.setMaxRuleCount("Families2Persons", 1);
 		stop.setMaxRuleCount("CreateFamily", 1);
-		UpdatePolicy newUP = new RandomMatchUpdatePolicy();
+		UpdatePolicy newUP = new RandomMatchUpdatePolicy(2);
 		newUP.setBoundForComplementRule("Father2Male", 1, true);
 		newUP.setBoundForComplementRule("Daughter2Female", 2, true);
 		generator.setUpdatePolicy(newUP);
@@ -79,7 +79,7 @@ public class SimpleModelgenTest extends ModelGenTestCase<FamilyRegister, PersonR
 	public void testFatherMotherSonTwoDaugthers() throws IOException {
 		stop.setMaxRuleCount("Families2Persons", 1);
 		stop.setMaxRuleCount("CreateFamily", 1);
-		UpdatePolicy newUP = new RandomMatchUpdatePolicy();
+		UpdatePolicy newUP = new RandomMatchUpdatePolicy(2);
 		newUP.setBoundForComplementRule("Father2Male", 1, true);
 		newUP.setBoundForComplementRule("Mother2Female", 1, true);
 		newUP.setBoundForComplementRule("Son2Male", 1, true);
@@ -93,7 +93,7 @@ public class SimpleModelgenTest extends ModelGenTestCase<FamilyRegister, PersonR
 	public void testViolationOfUpperBoundFather() throws IOException {
 		stop.setMaxRuleCount("Families2Persons", 1);
 		stop.setMaxRuleCount("CreateFamily", 1);
-		UpdatePolicy newUP = new RandomMatchUpdatePolicy();
+		UpdatePolicy newUP = new RandomMatchUpdatePolicy(2);
 		newUP.setBoundForComplementRule("Father2Male", 2, true);
 		generator.setUpdatePolicy(newUP);
 		runGenerator(stop);

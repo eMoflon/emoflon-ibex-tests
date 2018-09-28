@@ -47,7 +47,7 @@ public class SimpleModelgenTest extends ModelGenTestCase<ClassPackage, DB>{
 	public void testClassToTestClass() throws IOException {
 		stop.setMaxRuleCount("Package2TestSuite", 1);
 		stop.setMaxRuleCount("CreateClass", 1);
-		UpdatePolicy newUP = new RandomMatchUpdatePolicy();
+		UpdatePolicy newUP = new RandomMatchUpdatePolicy(10);
 		newUP.setBoundForComplementRule("CreateTestClass", 1, true);
 		generator.setUpdatePolicy(newUP);
 		runGenerator(stop);
@@ -58,7 +58,7 @@ public class SimpleModelgenTest extends ModelGenTestCase<ClassPackage, DB>{
 	public void testThreeClassesToSixTestClasses() throws IOException {
 		stop.setMaxRuleCount("Package2TestSuite", 1);
 		stop.setMaxRuleCount("CreateClass", 3);
-		UpdatePolicy newUP = new RandomMatchUpdatePolicy();
+		UpdatePolicy newUP = new RandomMatchUpdatePolicy(10);
 		newUP.setBoundForComplementRule("CreateTestClass", 2, true);
 		generator.setUpdatePolicy(newUP);
 		runGenerator(stop);
