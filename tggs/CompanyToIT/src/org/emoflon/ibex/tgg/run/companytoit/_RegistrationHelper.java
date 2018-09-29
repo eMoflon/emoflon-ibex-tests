@@ -2,6 +2,7 @@ package org.emoflon.ibex.tgg.run.companytoit;
 
 import java.io.IOException;
 
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
@@ -29,6 +30,8 @@ public class _RegistrationHelper {
 			EPackage pack = (EPackage) res.getContents().get(0);
 			rs.getPackageRegistry().put("platform:/resource/ITLanguage/model/ITLanguage.ecore", pack);
 			rs.getPackageRegistry().put("platform:/plugin/ITLanguage/model/ITLanguage.ecore", pack);
+			res.setURI(URI.createURI(pack.getNsURI()));
+			rs.getResources().remove(res);
 		}
 		
 		if(strategy instanceof BWD_OPT) {
@@ -37,6 +40,8 @@ public class _RegistrationHelper {
 			EPackage pack = (EPackage) res.getContents().get(0);
 			rs.getPackageRegistry().put("platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore", pack);
 			rs.getPackageRegistry().put("platform:/plugin/CompanyLanguage/model/CompanyLanguage.ecore", pack);
+			res.setURI(URI.createURI(pack.getNsURI()));
+			rs.getResources().remove(res);
 		}
 	}
 

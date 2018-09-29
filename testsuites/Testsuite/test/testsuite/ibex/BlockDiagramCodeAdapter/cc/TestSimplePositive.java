@@ -10,7 +10,7 @@ import testsuite.ibex.testUtil.CCTestCase;
 
 public class TestSimplePositive extends CCTestCase {
 	public void createGenerator(String srcInstance, String trgInstance) throws IOException {
-		checker = new CC_App("BlockDiagramCodeAdapter", testsuite.ibex.testUtil.Constants.workspacePath, false, srcInstance, trgInstance, this.ilpSolver);
+		checker = new CC_App("BlockDiagramCodeAdapter", testsuite.ibex.testUtil.Constants.workspacePath, true, srcInstance, trgInstance, this.ilpSolver);
 	}
 	
 	@Test
@@ -24,6 +24,7 @@ public class TestSimplePositive extends CCTestCase {
 	public void testBlockToNode() throws IOException {
 		createGenerator("in/BlockToNode_FWD", "expected/BlockToNode_FWD");
 		runGenerator();
+		checker.saveModels();
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}
 	

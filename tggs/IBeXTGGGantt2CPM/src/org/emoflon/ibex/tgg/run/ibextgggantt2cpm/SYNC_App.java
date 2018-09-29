@@ -51,7 +51,7 @@ public class SYNC_App extends SYNC {
 		_RegistrationHelper.registerMetamodels(rs, this);
 
 		// Register correspondence metamodel last
-		loadAndRegisterMetamodel(options.projectPath() + "/model/" + options.projectName() + ".ecore");
+		loadAndRegisterCorrMetamodel(options.projectPath() + "/model/" + options.projectName() + ".ecore");
 	}
 
 	private static IbexOptions createIbexOptions() {

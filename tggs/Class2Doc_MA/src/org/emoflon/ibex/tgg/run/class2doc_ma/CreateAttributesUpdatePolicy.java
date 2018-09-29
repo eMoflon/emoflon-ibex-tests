@@ -17,7 +17,7 @@ public class CreateAttributesUpdatePolicy extends UpdatePolicy {
 	@Override
 	public IMatch chooseOneMatch(ImmutableMatchContainer matchContainer) {
 		return forceClassCreation(matchContainer)
-				.orElse(forceInheritanceCreation(matchContainer).orElse(matchContainer.getNextRandom()));
+				.orElse(forceInheritanceCreation(matchContainer).orElse(matchContainer.getNext()));
 	}
 
 	protected Optional<IMatch> forceClassCreation(ImmutableMatchContainer matchContainer) {

@@ -35,6 +35,7 @@ public class Batch extends SyncTestCase<File, VHDLSpecification> {
 	/**
 	 * <b>Features</b>: bwd
 	 */
+	@Ignore("Takes too long")
 	@Test
 	public void testFile2VHDLSpec_BWD()
 	{
@@ -47,6 +48,7 @@ public class Batch extends SyncTestCase<File, VHDLSpecification> {
 	/**
 	 * <b>Features</b>: fwd
 	 */
+	@Ignore("Takes too long")
 	@Test
 	public void testEntity2CompositeBlock_FWD()
 	{
@@ -63,6 +65,7 @@ public class Batch extends SyncTestCase<File, VHDLSpecification> {
 	/**
 	 * <b>Features</b>: bwd
 	 */
+	@Ignore("Takes too long")
 	@Test
 	public void testEntity2CompositeBlock_BWD()
 	{

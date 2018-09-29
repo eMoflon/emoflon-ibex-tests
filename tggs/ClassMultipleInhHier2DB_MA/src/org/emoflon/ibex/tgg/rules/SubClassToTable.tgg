@@ -34,5 +34,14 @@
 		#src->superClazz
 		#trg->subTable
 	}
-	
 }
+
+//#nac NoSimpleCycles #for SubClassToTable
+//
+//#source {
+//	superClazz:Clazz
+//	{
+//		-superClass->subClazz
+//	}
+//	subClazz:Clazz
+//}

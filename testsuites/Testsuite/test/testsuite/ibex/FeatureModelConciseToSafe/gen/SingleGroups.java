@@ -51,7 +51,7 @@ public class SingleGroups extends ModelGenTestCase<FeatureModelConcise.Model, Fe
 			filteredMatches.removeIf(m -> matches.getRuleName(m).equals("SolitaryFeatureRule") && !(((EObject) m.get("conciseParent")).eContainer() instanceof Model));
 			
 			if(filteredMatches.isEmpty())
-				return matches.getNextRandom();
+				return matches.getNext();
 			else 
 				return filteredMatches.get(0);
 		});

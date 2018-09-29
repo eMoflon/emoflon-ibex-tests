@@ -17,6 +17,7 @@ public class TestSimplePositive extends CCTestCase {
 	public void testCompany() throws IOException {
 		createGenerator("expected/Company_BWD", "in/Company_BWD");
 		runGenerator();
+		checker.saveModels();
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}
 	

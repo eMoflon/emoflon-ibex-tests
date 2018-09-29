@@ -18,7 +18,7 @@ public class MODELGEN_App extends MODELGEN {
 	}
 
 	public static void main(String[] args) throws IOException {
-		Logger.getRootLogger().setLevel(Level.INFO);
+		Logger.getRootLogger().setLevel(Level.DEBUG);
 
 		MODELGEN_App generator = new MODELGEN_App();
 		
@@ -43,7 +43,7 @@ public class MODELGEN_App extends MODELGEN {
 		_RegistrationHelper.registerMetamodels(rs, this);
 			
 		// Register correspondence metamodel last
-		loadAndRegisterMetamodel(options.projectPath() + "/model/" + options.projectName() + ".ecore");
+		loadAndRegisterCorrMetamodel(options.projectPath() + "/model/" + options.projectName() + ".ecore");
 	}
 	
 	private static IbexOptions createIbexOptions() {

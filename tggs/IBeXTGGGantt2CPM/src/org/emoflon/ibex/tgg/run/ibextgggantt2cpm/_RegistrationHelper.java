@@ -31,10 +31,6 @@ public class _RegistrationHelper {
 		options.projectPath("IBeXTGGGantt2CPM");
 		options.debug(false);
 		options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
-		options.minimumNumberOfEdgesToCreateEdgePatterns(5);
-		options.setCorrContextNodesAsLocalNodes(true);
-		options.stronglyTypedEdgedPatterns(true);
-		
 		return options;
 	}
 }
