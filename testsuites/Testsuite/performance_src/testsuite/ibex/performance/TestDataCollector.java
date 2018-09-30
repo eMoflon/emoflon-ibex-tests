@@ -18,15 +18,12 @@ import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
-import org.emoflon.ibex.tgg.operational.strategies.opt.cc.CC;
-
-import org.emoflon.ibex.tgg.operational.strategies.opt.CO;
-
 import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGEN;
 import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGENStopCriterion;
 import org.emoflon.ibex.tgg.operational.strategies.opt.BWD_OPT;
+import org.emoflon.ibex.tgg.operational.strategies.opt.CO;
 import org.emoflon.ibex.tgg.operational.strategies.opt.FWD_OPT;
-
+import org.emoflon.ibex.tgg.operational.strategies.opt.cc.CC;
 import org.emoflon.ibex.tgg.operational.updatepolicy.NextMatchUpdatePolicy;
 import org.emoflon.ibex.tgg.operational.updatepolicy.RandomMatchUpdatePolicy;
 import org.emoflon.ibex.tgg.operational.updatepolicy.TimedUpdatePolicy;
@@ -51,7 +48,6 @@ import testsuite.ibex.performance.util.Operationalization;
 import testsuite.ibex.performance.util.PerformanceConstants;
 import testsuite.ibex.performance.util.PerformanceTestUtil;
 import testsuite.ibex.performance.util.TestDataPoint;
-import testsuite.ibex.testUtil.Constants;
 
 public class TestDataCollector {
 
@@ -210,7 +206,7 @@ public class TestDataCollector {
 
 		Supplier<MODELGEN> generator = () -> {
 			try {
-				MODELGEN gen = new MODELGEN_App(tggName, Constants.workspacePath, false,
+				MODELGEN gen = new MODELGEN_App(tggName, PerformanceConstants.workspacePath, false,
 						tggName + "/instances/" + size + "Element");
 				gen.setUpdatePolicy(new TimedUpdatePolicy(new RandomMatchUpdatePolicy(10), PerformanceConstants.timeout,
 						TimeUnit.SECONDS));
@@ -234,7 +230,7 @@ public class TestDataCollector {
 
 		Supplier<CC> checker = () -> {
 			try {
-				CC cc = new CC_App(tggName, Constants.workspacePath, false, size + "Element");
+				CC cc = new CC_App(tggName, PerformanceConstants.workspacePath, false, size + "Element");
 				cc.setUpdatePolicy(new TimedUpdatePolicy(new NextMatchUpdatePolicy(), PerformanceConstants.timeout,
 						TimeUnit.SECONDS));
 				return cc;
@@ -259,7 +255,7 @@ public class TestDataCollector {
 
 		Supplier<CO> checker = () -> {
 			try {
-				CO co = new CO_App(tggName, Constants.workspacePath, false, size + "Element");
+				CO co = new CO_App(tggName, PerformanceConstants.workspacePath, false, size + "Element");
 				co.setUpdatePolicy(new TimedUpdatePolicy(new NextMatchUpdatePolicy(), PerformanceConstants.timeout,
 						TimeUnit.SECONDS));
 				return co;
@@ -284,7 +280,7 @@ public class TestDataCollector {
 
 		Supplier<SYNC_App> transformator = () -> {
 			try {
-				SYNC_App sync = new SYNC_App(tggName, Constants.workspacePath, false,
+				SYNC_App sync = new SYNC_App(tggName, PerformanceConstants.workspacePath, false,
 						tggName + "/instances/" + size + "Element", true, false);
 				sync.setUpdatePolicy(new TimedUpdatePolicy(new NextMatchUpdatePolicy(), PerformanceConstants.timeout,
 						TimeUnit.SECONDS));
@@ -306,7 +302,7 @@ public class TestDataCollector {
 
 		Supplier<SYNC_App> transformator = () -> {
 			try {
-				SYNC_App sync = new Initial_SYNC_App(tggName, Constants.workspacePath, false,
+				SYNC_App sync = new Initial_SYNC_App(tggName, PerformanceConstants.workspacePath, false,
 						tggName + "/instances/" + size + "Element", true, false);
 				sync.setUpdatePolicy(new TimedUpdatePolicy(new NextMatchUpdatePolicy(), PerformanceConstants.timeout,
 						TimeUnit.SECONDS));
@@ -327,7 +323,7 @@ public class TestDataCollector {
 
 		Supplier<FWD_OPT> transformator = () -> {
 			try {
-				FWD_OPT fwd_opt = new FWD_OPT_App(tggName, Constants.workspacePath, false, size + "Element");
+				FWD_OPT fwd_opt = new FWD_OPT_App(tggName, PerformanceConstants.workspacePath, false, size + "Element");
 				fwd_opt.setUpdatePolicy(new TimedUpdatePolicy(new NextMatchUpdatePolicy(), PerformanceConstants.timeout,
 						TimeUnit.SECONDS));
 				return fwd_opt;
@@ -352,7 +348,7 @@ public class TestDataCollector {
 
 		Supplier<BWD_OPT> transformator = () -> {
 			try {
-				BWD_OPT bwd_opt = new BWD_OPT_App(tggName, Constants.workspacePath, false, size + "Element");
+				BWD_OPT bwd_opt = new BWD_OPT_App(tggName, PerformanceConstants.workspacePath, false, size + "Element");
 				bwd_opt.setUpdatePolicy(new TimedUpdatePolicy(new NextMatchUpdatePolicy(), PerformanceConstants.timeout,
 						TimeUnit.SECONDS));
 				return bwd_opt;
@@ -377,7 +373,7 @@ public class TestDataCollector {
 
 		Supplier<SYNC_App> transformator = () -> {
 			try {
-				SYNC_App sync = new SYNC_App(tggName, Constants.workspacePath, false,
+				SYNC_App sync = new SYNC_App(tggName, PerformanceConstants.workspacePath, false,
 						tggName + "/instances/" + size + "Element", false, false);
 				sync.setUpdatePolicy(new TimedUpdatePolicy(new NextMatchUpdatePolicy(), PerformanceConstants.timeout,
 						TimeUnit.SECONDS));
@@ -398,7 +394,7 @@ public class TestDataCollector {
 
 		Supplier<SYNC_App> transformator = () -> {
 			try {
-				SYNC_App sync = new Initial_SYNC_App(tggName, Constants.workspacePath, false,
+				SYNC_App sync = new Initial_SYNC_App(tggName, PerformanceConstants.workspacePath, false,
 						tggName + "/instances/" + size + "Element", false, false);
 				sync.setUpdatePolicy(new TimedUpdatePolicy(new NextMatchUpdatePolicy(), PerformanceConstants.timeout,
 						TimeUnit.SECONDS));

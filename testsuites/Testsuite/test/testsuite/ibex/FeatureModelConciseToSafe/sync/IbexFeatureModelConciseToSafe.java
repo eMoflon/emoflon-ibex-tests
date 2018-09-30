@@ -20,7 +20,7 @@ public class IbexFeatureModelConciseToSafe extends IbexAdapter<Model, FeatureMod
 	@Override
 	public void initiateSynchronisationDialogue() {
 		try {
-			synchroniser = new SYNC_App(projectName, testsuite.ibex.testUtil.Constants.workspacePath, false);
+			synchroniser = new SYNC_App(projectName, testsuite.ibex.performance.util.PerformanceConstants.workspacePath, false);
 			
 			Model m = FeatureModelConciseFactory.eINSTANCE.createModel();
 			Feature root = FeatureModelConciseFactory.eINSTANCE.createFeature();

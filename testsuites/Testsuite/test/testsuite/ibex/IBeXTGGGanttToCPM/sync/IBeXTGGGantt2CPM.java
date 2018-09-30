@@ -19,7 +19,7 @@ public class IBeXTGGGantt2CPM extends IbexAdapter<GanttDiagram, CPMNetwork> {
 	@Override
 	public void initiateSynchronisationDialogue() {
 		try {
-			synchroniser = new SYNC_App(projectName, testsuite.ibex.testUtil.Constants.workspacePath, false);
+			synchroniser = new SYNC_App(projectName, testsuite.ibex.performance.util.PerformanceConstants.workspacePath, false);
 			GanttDiagram gd = gantt.GanttFactory.eINSTANCE.createGanttDiagram();
 			gd.setName("");
 			synchroniser.getSourceResource().getContents().add(gd);

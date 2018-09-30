@@ -46,7 +46,6 @@ import language.TGG;
 import language.TGGRule;
 import language.TGGRuleEdge;
 import testsuite.ibex.performance.util.Operationalization;
-import testsuite.ibex.testUtil.Constants;
 
 public class PerformanceTestUtil {
 
@@ -77,107 +76,107 @@ public class PerformanceTestUtil {
 		EPackage trgPackage = null;
 
 		switch (projectPath) {
-		case Constants.algorithmToStrategy_MA:
+		case PerformanceConstants.algorithmToStrategy_MA:
 			srcMetaModel = "Algorithms";
 			trgMetaModel = "Strategies";
 			srcPackage = AlgorithmsPackageImpl.init();
 			trgPackage = StrategiesPackageImpl.init();
 			break;
-		case Constants.benchmarxFamiliesToPersons:
+		case PerformanceConstants.benchmarxFamiliesToPersons:
 			srcMetaModel = "Families";
 			trgMetaModel = "Persons";
 			srcPackage = FamiliesPackageImpl.init();
 			trgPackage = PersonsPackageImpl.init();
 			break;
-		case Constants.blockCodeAdapter:
+		case PerformanceConstants.blockCodeAdapter:
 			srcMetaModel = "MocaTree";
 			trgMetaModel = "BlockLanguage";
 			srcPackage = MocaTreePackageImpl.init();
 			trgPackage = BlockLanguagePackageImpl.init();
 			break;
-		case Constants.blockDiagramCodeAdapter:
+		case PerformanceConstants.blockDiagramCodeAdapter:
 			srcMetaModel = "BlockDiagram";
 			trgMetaModel = "MocaTree";
 			srcPackage = BlockDiagramPackageImpl.init();
 			trgPackage = MocaTreePackageImpl.init();
 			break;
-		case Constants.blockDiagramCodeAdapter_EdgeRules:
+		case PerformanceConstants.blockDiagramCodeAdapter_EdgeRules:
 			srcMetaModel = "BlockDiagram";
 			trgMetaModel = "MocaTree";
 			srcPackage = BlockDiagramPackageImpl.init();
 			trgPackage = MocaTreePackageImpl.init();
 			break;
-		case Constants.class2Doc_MA:
+		case PerformanceConstants.class2Doc_MA:
 			srcMetaModel = "classMultipleInheritanceHierarchy";
 			trgMetaModel = "Documents";
 			srcPackage = ClassMultipleInheritanceHierarchyPackageImpl.init();
 			trgPackage = DocumentsPackageImpl.init();
 			break;
-		case Constants.class2TestClass_MA:
+		case PerformanceConstants.class2TestClass_MA:
 			srcMetaModel = "ClassInheritanceHierarchy";
 			trgMetaModel = "Database";
 			srcPackage = ClassInheritanceHierarchyPackageImpl.init();
 			trgPackage = DatabasePackageImpl.init();
 			break;
-		case Constants.classInhHier2DB:
+		case PerformanceConstants.classInhHier2DB:
 			srcMetaModel = "ClassInheritanceHierarchy";
 			trgMetaModel = "Database";
 			srcPackage = ClassInheritanceHierarchyPackageImpl.init();
 			trgPackage = DatabasePackageImpl.init();
 			break;
-		case Constants.classInhHier2DB_MA:
+		case PerformanceConstants.classInhHier2DB_MA:
 			srcMetaModel = "ClassInheritanceHierarchy";
 			trgMetaModel = "Database";
 			srcPackage = ClassInheritanceHierarchyPackageImpl.init();
 			trgPackage = DatabasePackageImpl.init();
 			break;
-		case Constants.classMultipleInhHier2DB_MA:
+		case PerformanceConstants.classMultipleInhHier2DB_MA:
 			srcMetaModel = "ClassMultipleInheritanceHierarchy";
 			trgMetaModel = "Database";
 			srcPackage = ClassMultipleInheritanceHierarchyPackageImpl.init();
 			trgPackage = DatabasePackageImpl.init();
 			break;
-		case Constants.companyToIT:
+		case PerformanceConstants.companyToIT:
 			srcMetaModel = "CompanyLanguage";
 			trgMetaModel = "ITLanguage";
 			srcPackage = CompanyLanguagePackageImpl.init();
 			trgPackage = ITLanguagePackageImpl.init();
 			break;
-		case Constants.familiesToPersons_MA:
+		case PerformanceConstants.familiesToPersons_MA:
 			srcMetaModel = "Families";
 			trgMetaModel = "Persons";
 			srcPackage = FamiliesPackageImpl.init();
 			trgPackage = PersonsPackageImpl.init();
 			break;
-		case Constants.familiesToPersons_V0:
-		case Constants.familiesToPersons_V1:
+		case PerformanceConstants.familiesToPersons_V0:
+		case PerformanceConstants.familiesToPersons_V1:
 			srcMetaModel = "SimpleFamilies";
 			trgMetaModel = "SimplePersons";
 			srcPackage = SimpleFamiliesPackageImpl.init();
 			trgPackage = SimplePersonsPackageImpl.init();
 			break;
-		case Constants.familyWithSiblingsToPersons_MA:
+		case PerformanceConstants.familyWithSiblingsToPersons_MA:
 			srcMetaModel = "FamiliesWithSiblings";
 			trgMetaModel = "Persons";
 			srcPackage = FamiliesWithSiblingsPackageImpl.init();
 			trgPackage = PersonsPackageImpl.init();
 			break;
-		case Constants.featureModelConciseToSafe:
+		case PerformanceConstants.featureModelConciseToSafe:
 			srcMetaModel = "FeatureModelConcise";
 			trgMetaModel = "FeatureModelSafe";
 			srcPackage = FeatureModelConcisePackageImpl.init();
 			trgPackage = FeatureModelSafePackageImpl.init();
 			break;
-		case Constants.moDiscoIbexTGG:
+		case PerformanceConstants.moDiscoIbexTGG:
 			// Is handled later
 			break;
-		case Constants.processCodeAdapter:
+		case PerformanceConstants.processCodeAdapter:
 			srcMetaModel = "MocaTree";
 			trgMetaModel = "ProcessDefinition";
 			srcPackage = MocaTreePackageImpl.init();
 			trgPackage = ProcessDefinitionPackageImpl.init();
 			break;
-		case Constants.vhdlTGGCodeAdapter:
+		case PerformanceConstants.vhdlTGGCodeAdapter:
 			srcMetaModel = "MocaTree";
 			trgMetaModel = "VHDLModel";
 			srcPackage = MocaTreePackageImpl.init();
@@ -199,7 +198,7 @@ public class PerformanceTestUtil {
 		RegistrationData data = getRegistrationData(projectPath, op);
 
 		switch (projectPath) {
-		case Constants.moDiscoIbexTGG:
+		case PerformanceConstants.moDiscoIbexTGG:
 			op.loadAndRegisterMetamodel("platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore");
 			op.loadAndRegisterMetamodel("platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore");
 			break;
@@ -227,7 +226,7 @@ public class PerformanceTestUtil {
 		EPackage pack;
 
 		switch (projectPath) {
-		case Constants.benchmarxFamiliesToPersons:
+		case PerformanceConstants.benchmarxFamiliesToPersons:
 			// Special directory for this TGG
 			rs.getPackageRegistry().put("platform:/resource/Families/model/Families.ecore", FamiliesPackageImpl.init());
 
@@ -237,7 +236,7 @@ public class PerformanceTestUtil {
 			rs.getResources().remove(res);
 			rs.getPackageRegistry().put("platform:/resource/Persons/model/Persons.ecore", pack);
 			break;
-		case Constants.moDiscoIbexTGG:
+		case PerformanceConstants.moDiscoIbexTGG:
 			op.loadAndRegisterMetamodel("platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore");
 			op.loadAndRegisterMetamodel("platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore");
 			break;
@@ -267,7 +266,7 @@ public class PerformanceTestUtil {
 		EPackage pack;
 		
 		switch (projectPath) {
-		case Constants.benchmarxFamiliesToPersons:
+		case PerformanceConstants.benchmarxFamiliesToPersons:
 			// Special directory for this TGG
 			rs.getPackageRegistry().put("platform:/resource/Persons/model/Persons.ecore", PersonsPackageImpl.init());
 
@@ -277,7 +276,7 @@ public class PerformanceTestUtil {
 			rs.getResources().remove(res);
 			rs.getPackageRegistry().put("platform:/resource/Families/model/Families.ecore", pack);
 			break;
-		case Constants.moDiscoIbexTGG:
+		case PerformanceConstants.moDiscoIbexTGG:
 			op.loadAndRegisterMetamodel("platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore");
 			op.loadAndRegisterMetamodel("platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore");
 			break;
@@ -323,46 +322,46 @@ public class PerformanceTestUtil {
 			stop.setMaxElementCount(size);
 
 			switch (tgg.getName()) {
-			case Constants.algorithmToStrategy_MA:
+			case PerformanceConstants.algorithmToStrategy_MA:
 				stop.setMaxRuleCount("AlgoContainerToStrategyContainer", 1);
 				break;
-			case Constants.benchmarxFamiliesToPersons:
+			case PerformanceConstants.benchmarxFamiliesToPersons:
 				stop.setMaxRuleCount("Families2Persons", 1);
 				break;
-			case Constants.blockCodeAdapter:
+			case PerformanceConstants.blockCodeAdapter:
 				stop.setMaxRuleCount("File2SpecRule", 1);
 				break;
-			case Constants.blockDiagramCodeAdapter:
+			case PerformanceConstants.blockDiagramCodeAdapter:
 				stop.setMaxRuleCount("SystemToNodeRule", 1);
 				break;
-			case Constants.blockDiagramCodeAdapter_EdgeRules:
+			case PerformanceConstants.blockDiagramCodeAdapter_EdgeRules:
 				stop.setMaxRuleCount("SystemToNodeRule", 1);
 				break;
-			case Constants.class2Doc_MA:
+			case PerformanceConstants.class2Doc_MA:
 				stop.setMaxRuleCount("Package2Container", 1);
 				stop.setMaxRuleCount("ConnectSubDoc", 0);
 				stop.setMaxRuleCount("ConnectSuperAndSubDoc", 0);
 				stop.setMaxRuleCount("ConnectSuperDoc", 0);
 				break;
-			case Constants.class2TestClass_MA:
+			case PerformanceConstants.class2TestClass_MA:
 				stop.setMaxRuleCount("Package2TestSuite", 1);
 				break;
-			case Constants.classInhHier2DB:
+			case PerformanceConstants.classInhHier2DB:
 				stop.setMaxRuleCount("PackageToDatabaseRule", 1);
 				break;
-			case Constants.classInhHier2DB_MA:
+			case PerformanceConstants.classInhHier2DB_MA:
 				stop.setMaxRuleCount("PackageToDatabaseRule", 1);
 				break;
-			case Constants.classMultipleInhHier2DB_MA:
+			case PerformanceConstants.classMultipleInhHier2DB_MA:
 				stop.setMaxRuleCount("PackageToDatabase", 1);
 				break;
-			case Constants.companyToIT:
+			case PerformanceConstants.companyToIT:
 				stop.setMaxRuleCount("CompanyToITRule", 1);
 				break;
-			case Constants.familiesToPersons_MA:
+			case PerformanceConstants.familiesToPersons_MA:
 				stop.setMaxRuleCount("FamiliesToPersons", 1);
 				break;
-			case Constants.familiesToPersons_V0:
+			case PerformanceConstants.familiesToPersons_V0:
 				stop.setMaxRuleCount("HandleRegisters", 1);
 				stop.setMaxRuleCount("HandleFamilyReg", 0);
 				stop.setMaxRuleCount("HandleRegistersLoose", 0);
@@ -372,22 +371,22 @@ public class PerformanceTestUtil {
 				stop.setMaxRuleCount("FatherToNothing", 0);
 				stop.setMaxRuleCount("ReplaceFatherWithSon", 0);
 				break;
-			case Constants.familiesToPersons_V1:
+			case PerformanceConstants.familiesToPersons_V1:
 				stop.setMaxRuleCount("HandleRegisters", 1);
 				break;
-			case Constants.familyWithSiblingsToPersons_MA:
+			case PerformanceConstants.familyWithSiblingsToPersons_MA:
 				stop.setMaxRuleCount("Families2Persons", 1);
 				break;
-			case Constants.featureModelConciseToSafe:
+			case PerformanceConstants.featureModelConciseToSafe:
 				stop.setMaxRuleCount("RootAxiomRule", 1);
 				break;
-			case Constants.moDiscoIbexTGG:
+			case PerformanceConstants.moDiscoIbexTGG:
 				stop.setMaxRuleCount("JavaModelToUMLModel", 1);
 				break;
-			case Constants.processCodeAdapter:
+			case PerformanceConstants.processCodeAdapter:
 				stop.setMaxRuleCount("RootToSystemRule", 1);
 				break;
-			case Constants.vhdlTGGCodeAdapter:
+			case PerformanceConstants.vhdlTGGCodeAdapter:
 				stop.setMaxRuleCount("File2VHDLSpec", 1);
 				break;
 			default:

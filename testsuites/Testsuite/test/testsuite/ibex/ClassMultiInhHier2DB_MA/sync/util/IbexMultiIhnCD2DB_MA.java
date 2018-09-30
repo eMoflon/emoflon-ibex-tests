@@ -21,7 +21,7 @@ public class IbexMultiIhnCD2DB_MA extends IbexAdapter<ClassPackage, DB> {
 	@Override
 	public void initiateSynchronisationDialogue() {
 		try {
-			synchroniser = new SYNC_App("ClassMultipleInhHier2DB_MA", testsuite.ibex.testUtil.Constants.workspacePath, false);
+			synchroniser = new SYNC_App("ClassMultipleInhHier2DB_MA", testsuite.ibex.performance.util.PerformanceConstants.workspacePath, false);
 				
 			ClassPackage pkg = ClassMultipleInheritanceHierarchyFactory.eINSTANCE.createClassPackage();
 			pkg.setName("P");

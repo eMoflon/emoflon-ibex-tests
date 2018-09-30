@@ -28,7 +28,7 @@ public class IbexProcessCodeAdapter extends IbexAdapter<Folder, SystemModule>   
 	@Override
 	public void initiateSynchronisationDialogue() {
 		try {
-			synchroniser = new SYNC_App(projectName, testsuite.ibex.testUtil.Constants.workspacePath, false, SupportedILPSolver.Gurobi);
+			synchroniser = new SYNC_App(projectName, testsuite.ibex.performance.util.PerformanceConstants.workspacePath, false, SupportedILPSolver.Gurobi);
 			
 			Folder folder = MocaTreeFactory.eINSTANCE.createFolder();
 			folder.setName("Example");

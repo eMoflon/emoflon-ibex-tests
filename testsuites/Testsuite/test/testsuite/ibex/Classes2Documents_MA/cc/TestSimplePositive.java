@@ -11,7 +11,7 @@ import testsuite.ibex.testUtil.CCTestCase;
 public class TestSimplePositive extends CCTestCase {
 	
 	public void createGenerator(String srcInstance, String trgInstance) throws IOException {
-		checker = new CC_App("Class2Doc_MA", testsuite.ibex.testUtil.Constants.workspacePath, false, 
+		checker = new CC_App("Class2Doc_MA", testsuite.ibex.performance.util.PerformanceConstants.workspacePath, false, 
 				srcInstance, trgInstance, this.ilpSolver);
 	}
 	

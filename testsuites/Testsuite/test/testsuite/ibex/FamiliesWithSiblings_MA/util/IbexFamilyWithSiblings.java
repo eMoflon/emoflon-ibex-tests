@@ -23,7 +23,7 @@ public class IbexFamilyWithSiblings extends IbexAdapter<FamilyRegister, PersonRe
 	@Override
 	public void initiateSynchronisationDialogue() {
 		try {
-			synchroniser = new SYNC_App(projectName, testsuite.ibex.testUtil.Constants.workspacePath, false);
+			synchroniser = new SYNC_App(projectName, testsuite.ibex.performance.util.PerformanceConstants.workspacePath, false);
 
 			FamilyRegister reg = FamiliesWithSiblingsFactory.eINSTANCE.createFamilyRegister();
 			synchroniser.getSourceResource().getContents().add(reg);

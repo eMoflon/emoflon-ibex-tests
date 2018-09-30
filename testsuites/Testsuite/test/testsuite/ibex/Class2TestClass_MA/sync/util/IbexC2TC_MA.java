@@ -22,7 +22,7 @@ public class IbexC2TC_MA extends IbexAdapter<ClassPackage, DB> {
 	@Override
 	public void initiateSynchronisationDialogue() {
 		try {
-			synchroniser = new SYNC_App("Class2TestClass_MA", testsuite.ibex.testUtil.Constants.workspacePath, false);
+			synchroniser = new SYNC_App("Class2TestClass_MA", testsuite.ibex.performance.util.PerformanceConstants.workspacePath, false);
 				
 			// can be set here because we always want to prefer existing class instead of new one
 			synchroniser.setUpdatePolicy(new PreferExistingClassUpdatePolicy());

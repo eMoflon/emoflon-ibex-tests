@@ -57,7 +57,7 @@ To add a new plot type, you have to do two things: Create a new gnuplot script t
 Adding a new TGG to the performance framework
 ------------
 
-- Add the new TGG's name to `../test/testsuite/ibex/testUtil/Constants.java`
+- Add the new TGG's name to `../test/testsuite/ibex/performance/PerformanceConstants.java`
 - You might have to register any new metamodels that weren't present before in the testsuite workspace here:  ` testsuite.ibex.performance.util.PerformanceTestUtil::registerUserMetamodels`
 - Create a suitable modelgenStopCriterion for the TGG
 - Create suitable incremental edits for the TGG in `./testsuite/ibex/performance/util/IncrementalEditor.java`

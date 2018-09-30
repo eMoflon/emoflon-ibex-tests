@@ -10,7 +10,7 @@ import testsuite.ibex.testUtil.CCTestCase;
 
 public class TestSimplePositive extends CCTestCase {
 	public void createGenerator(String srcInstance, String trgInstance) throws IOException {
-		checker = new CC_App("BlockDiagramCodeAdapter", testsuite.ibex.testUtil.Constants.workspacePath, true, srcInstance, trgInstance, this.ilpSolver);
+		checker = new CC_App("BlockDiagramCodeAdapter", testsuite.ibex.performance.util.PerformanceConstants.workspacePath, true, srcInstance, trgInstance, this.ilpSolver);
 	}
 	
 	@Test

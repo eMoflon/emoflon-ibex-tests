@@ -18,7 +18,7 @@ public class ExecutionTest {
 	public void createGenerator() throws IOException {
 		BasicConfigurator.configure();
 		
-		this.generator = new MODELGEN_App("VHDLTGGCodeAdapter", testsuite.ibex.testUtil.Constants.workspacePath, false);
+		this.generator = new MODELGEN_App("VHDLTGGCodeAdapter", testsuite.ibex.performance.util.PerformanceConstants.workspacePath, false);
 		MODELGENStopCriterion stop = new MODELGENStopCriterion(generator.getTGG());
 		stop.setTimeOutInMS(1000);
 		generator.setUpdatePolicy(new RandomMatchUpdatePolicy(20));

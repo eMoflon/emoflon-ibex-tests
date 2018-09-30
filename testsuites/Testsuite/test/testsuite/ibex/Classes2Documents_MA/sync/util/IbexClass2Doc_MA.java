@@ -21,7 +21,7 @@ public class IbexClass2Doc_MA extends IbexAdapter<ClassPackage, Container>{
 	@Override
 	public void initiateSynchronisationDialogue() {
 		try {
-			synchroniser = new SYNC_App("Class2Doc_MA", testsuite.ibex.testUtil.Constants.workspacePath, false);
+			synchroniser = new SYNC_App("Class2Doc_MA", testsuite.ibex.performance.util.PerformanceConstants.workspacePath, false);
 				
 			ClassPackage pkg = ClassMultipleInheritanceHierarchyFactory.eINSTANCE.createClassPackage();
 			pkg.setName("p");

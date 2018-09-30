@@ -29,7 +29,7 @@ import testsuite.ibex.testUtil.CCTestCase;
 public class TestTggWeights extends CCTestCase {
 
 	private void createGenerator(final String srcInstance, final String trgInstance) throws IOException {
-		this.checker = new CC_App("CompanyToIT", testsuite.ibex.testUtil.Constants.workspacePath, false, srcInstance, trgInstance, this.ilpSolver);
+		this.checker = new CC_App("CompanyToIT", testsuite.ibex.performance.util.PerformanceConstants.workspacePath, false, srcInstance, trgInstance, this.ilpSolver);
 		this.checker.setUserDefinedWeightCalculationStrategy(new Weights(this.checker));
 	}
 

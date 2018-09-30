@@ -14,7 +14,7 @@ public class TestSimplePositive  extends CCTestCase {
 	
 	
 	public void createGenerator(String srcInstance, String trgInstance) throws IOException {
-		checker = new CC_App("BlockDiagramCodeAdapter_EdgeRules", testsuite.ibex.testUtil.Constants.workspacePath, false, srcInstance, trgInstance, this.ilpSolver);
+		checker = new CC_App("BlockDiagramCodeAdapter_EdgeRules", testsuite.ibex.performance.util.PerformanceConstants.workspacePath, false, srcInstance, trgInstance, this.ilpSolver);
 	}
 	
 	@Test

@@ -18,7 +18,6 @@ import testsuite.ibex.performance.util.PerformanceConstants;
 import testsuite.ibex.performance.util.PerformanceTestUtil;
 import testsuite.ibex.performance.util.TestCaseParameters;
 import testsuite.ibex.performance.util.TestDataPoint;
-import testsuite.ibex.testUtil.Constants;
 
 /**
  * Tool for comparing several performance tests with the same configuration but different options, e.g. for pattern 
@@ -151,7 +150,7 @@ public class EvaluationGenerator {
 		test.saveFullReport(evaluationReport, collector.evalLocation + "/FullReport.dat");
 
 		// generate plots for TGGs
-		for (String tgg : Constants.testProjects)
+		for (String tgg : PerformanceConstants.testProjects)
 			test.saveDataPerTestAndTGGDiagram(tgg);
 
 		// generate plots for Operationalizations
@@ -209,7 +208,7 @@ public class EvaluationGenerator {
 	 */
 	private void mapTestData(HashMap<String, List<TestDataPoint>> testData) {
 
-		for (String tgg : Constants.testProjects)
+		for (String tgg : PerformanceConstants.testProjects)
 			for (Operationalization op : Operationalization.values())
 				for (int modelSize : PerformanceConstants.modelSizes) {
 					TestCaseParameters tcp = new TestCaseParameters(tgg, op, modelSize);

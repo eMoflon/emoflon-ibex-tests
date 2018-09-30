@@ -27,7 +27,7 @@ public class IbexBlockCodeAdapter extends IbexAdapter<File, Specification>   {
 	@Override
 	public void initiateSynchronisationDialogue() {
 		try {
-			synchroniser = new SYNC_App(projectName, testsuite.ibex.testUtil.Constants.workspacePath, false);
+			synchroniser = new SYNC_App(projectName, testsuite.ibex.performance.util.PerformanceConstants.workspacePath, false);
 			
 			Specification s = BlockLanguageFactory.eINSTANCE.createSpecification();
 			s.setName("specification");

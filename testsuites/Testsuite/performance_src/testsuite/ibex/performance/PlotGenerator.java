@@ -4,12 +4,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-import testsuite.ibex.performance.GNUPlotScripts;
+
 import testsuite.ibex.performance.util.Operationalization;
 import testsuite.ibex.performance.util.PerformanceConstants;
 import testsuite.ibex.performance.util.PerformanceTestUtil;
 import testsuite.ibex.performance.util.TestDataPoint;
-import testsuite.ibex.testUtil.Constants;
 
 public class PlotGenerator {
 
@@ -30,7 +29,7 @@ public class PlotGenerator {
 		for (Operationalization op : Operationalization.values()) {
 			test.saveDataForAllTGGsDiagram(op);
 			test.saveDataForAllTGGsInitDiagram(op);
-			for (String tgg : Constants.testProjects) {
+			for (String tgg : PerformanceConstants.testProjects) {
 				test.saveDataForInitTimesDiagram(tgg, op);
 				test.saveDataForModelSizeDiagram(tgg, op);
 			}

@@ -15,15 +15,15 @@ import testsuite.ibex.testUtil.COTestCase;
 public class TestAlgorithmsToStrategies_MA extends COTestCase {
 
 	public void createCO(String srcInstance, String trgInstance, String corrInstance, String protInstance) throws IOException {
-		checker = new CO_App("AlgorithmToStrategy_MA", testsuite.ibex.testUtil.Constants.workspacePath, true, srcInstance, trgInstance, corrInstance, protInstance, this.ilpSolver);
+		checker = new CO_App("AlgorithmToStrategy_MA", testsuite.ibex.performance.util.PerformanceConstants.workspacePath, true, srcInstance, trgInstance, corrInstance, protInstance, this.ilpSolver);
 	}
 	
 	public void createFWD_OPT(String srcInstance, String trgInstance, String corrInstance, String protInstance) throws IOException {
-		forward = new FWD_OPT_App("AlgorithmToStrategy_MA", testsuite.ibex.testUtil.Constants.workspacePath, false, srcInstance, trgInstance, corrInstance, protInstance, this.ilpSolver);
+		forward = new FWD_OPT_App("AlgorithmToStrategy_MA", testsuite.ibex.performance.util.PerformanceConstants.workspacePath, false, srcInstance, trgInstance, corrInstance, protInstance, this.ilpSolver);
 	}
 	
 	public void createBWD_OPT(String srcInstance, String trgInstance, String corrInstance, String protInstance) throws IOException {
-		backward = new BWD_OPT_App("AlgorithmToStrategy_MA", testsuite.ibex.testUtil.Constants.workspacePath, false, srcInstance, trgInstance, corrInstance, protInstance, this.ilpSolver);
+		backward = new BWD_OPT_App("AlgorithmToStrategy_MA", testsuite.ibex.performance.util.PerformanceConstants.workspacePath, false, srcInstance, trgInstance, corrInstance, protInstance, this.ilpSolver);
 	}
 	
 	@Test

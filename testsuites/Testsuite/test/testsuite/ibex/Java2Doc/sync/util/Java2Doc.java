@@ -26,7 +26,7 @@ public class Java2Doc extends IbexAdapter<Package, Folder>{
 	@Override
 	public void initiateSynchronisationDialogue() {
 		try {
-			synchroniser = new SYNC_App(projectName, testsuite.ibex.testUtil.Constants.workspacePath, false);
+			synchroniser = new SYNC_App(projectName, testsuite.ibex.performance.util.PerformanceConstants.workspacePath, false);
 			
 			Package p = SimpleJavaFactory.eINSTANCE.createPackage();
 			p.setName("org");

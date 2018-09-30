@@ -5,11 +5,9 @@ import java.nio.file.Paths
 import java.util.ArrayList
 import java.util.Arrays
 import java.util.List
-import testsuite.ibex.performance.LaunchConfiguration
-import testsuite.ibex.performance.util.TestCaseParameters
-import testsuite.ibex.performance.util.Operationalization;
-import testsuite.ibex.testUtil.Constants;
+import testsuite.ibex.performance.util.Operationalization
 import testsuite.ibex.performance.util.PerformanceConstants
+import testsuite.ibex.performance.util.TestCaseParameters
 
 class LaunchGroup {
 	/** Path where the LaunchGroup is saved by default. */
@@ -22,7 +20,7 @@ class LaunchGroup {
 		var group = new LaunchGroup()
 		var reset = true
 		
-		for (tgg : Constants.testProjects) {
+		for (tgg : PerformanceConstants.testProjects) {
 			for (op : Operationalization.values) {
 				if (op != Operationalization.INCREMENTAL_FWD && op != Operationalization.INCREMENTAL_BWD)
 					for (size : modelSizes) {

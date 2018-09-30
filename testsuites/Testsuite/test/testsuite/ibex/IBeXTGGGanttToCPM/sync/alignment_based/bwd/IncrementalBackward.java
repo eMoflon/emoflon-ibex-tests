@@ -1,5 +1,6 @@
 package testsuite.ibex.IBeXTGGGanttToCPM.sync.alignment_based.bwd;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import testsuite.ibex.IBeXTGGGanttToCPM.sync.GanttToCPMTestCase;
@@ -63,6 +64,7 @@ public class IncrementalBackward extends GanttToCPMTestCase {
 	 * <b>Expect</b>: Change the values of the affected variables in activities and dependencies of the gantt diagram.
 	 * <b>Features</b>: fwd, attribute, fixed, structural, corr-based
 	 */
+	@Ignore("Non-deterministic")
 	@Test
 	public void testIncrementalValueChange() {
 		tool.performAndPropagateTargetEdit(util

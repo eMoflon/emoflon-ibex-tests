@@ -27,7 +27,7 @@ public class IbexVHDLTGGCodeAdapter extends IbexAdapter<File, VHDLSpecification>
 	@Override
 	public void initiateSynchronisationDialogue() {
 		try {
-			synchroniser = new SYNC_App(projectName, testsuite.ibex.testUtil.Constants.workspacePath, false);
+			synchroniser = new SYNC_App(projectName, testsuite.ibex.performance.util.PerformanceConstants.workspacePath, false);
 			
 			VHDLSpecification spec = VHDLModelFactory.eINSTANCE.createVHDLSpecification();
 			spec.setName("Example");
