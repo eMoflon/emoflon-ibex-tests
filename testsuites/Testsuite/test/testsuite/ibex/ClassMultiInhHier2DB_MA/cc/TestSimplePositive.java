@@ -18,28 +18,28 @@ public class TestSimplePositive extends CCTestCase{
 	@Test
 	public void testPackageToDatabase() throws IOException {
 		createGenerator("in/01_PackageToDatabase_FWD", "expected/01_PackageToDatabase_FWD");
-		runGenerator();
+		runCC();
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}
 	
 	@Test
 	public void testClassToTable() throws IOException {
 		createGenerator("in/02_ClassToTable_FWD", "expected/02_ClassToTable_FWD");
-		runGenerator();
+		runCC();
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}
 	
 	@Test
 	public void testAttributeToColumn() throws IOException {
 		createGenerator("in/03_AttributeToColumn_FWD", "expected/03_AttributeToColumn_FWD");
-		runGenerator();
+		runCC();
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}
 	
 	@Test
 	public void testSubClassToTable() throws IOException {
 		createGenerator("in/04_SubClassToTable_FWD", "expected/04_SubClassToTable_FWD");
-		runGenerator();
+		runCC();
 		checker.generateConsistencyReport();
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}
@@ -47,7 +47,7 @@ public class TestSimplePositive extends CCTestCase{
 	@Test
 	public void testSuperAttToSubTable() throws IOException {
 		createGenerator("in/05_OneSuperAtt_FWD", "expected/05_OneSuperAtt_FWD");
-		runGenerator();
+		runCC();
 		Assert.assertTrue(checker.modelsAreConsistent());
 			
 	}
@@ -55,14 +55,14 @@ public class TestSimplePositive extends CCTestCase{
 	@Test
 	public void testSubAttToSubTable() throws IOException {
 		createGenerator("in/06_OneSuperAtt_OneSubAtt_FWD", "expected/06_OneSuperAtt_OneSubAtt_FWD");
-		runGenerator();
+		runCC();
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}
 	
 	@Test
 	public void testTransitiveAttToSubTables() throws IOException {
 		createGenerator("in/07_OneSuperSuperAtt_FWD", "expected/07_OneSuperSuperAtt_FWD");
-		runGenerator();
+		runCC();
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}
 	
@@ -70,7 +70,7 @@ public class TestSimplePositive extends CCTestCase{
 	@Test
 	public void testTransitiveAttToSubTables2() throws IOException {
 		createGenerator("in/08_OneSuperSuperAtt_OneSuperAtt_FWD", "expected/08_OneSuperSuperAtt_OneSuperAtt_FWD");
-		runGenerator();
+		runCC();
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}
 	
@@ -78,14 +78,14 @@ public class TestSimplePositive extends CCTestCase{
 	@Test
 	public void testTransitiveAttToSubTables3() throws IOException {
 		createGenerator("in/09_OneSuperAtt_OneSubAtt_OneSubAtt_FWD", "expected/09_OneSuperAtt_OneSubAtt_OneSubAtt_FWD");
-		runGenerator();
+		runCC();
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}
 	
 	@Test
 	public void testTwoSuperClassesToSubTables() throws IOException {
 		createGenerator("in/10_TwoDiffSuperAtt_FWD", "expected/10_TwoDiffSuperAtt_FWD");
-		runGenerator();
+		runCC();
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}
 	
@@ -93,7 +93,7 @@ public class TestSimplePositive extends CCTestCase{
 	@Test
 	public void testTwoTransitiveSuperClassesToSubTables() throws IOException {
 		createGenerator("in/11_TwoDiffTransitiveSuperAtt_FWD", "expected/11_TwoDiffTransitiveSuperAtt_FWD");
-		runGenerator();
+		runCC();
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}
 	
@@ -101,7 +101,7 @@ public class TestSimplePositive extends CCTestCase{
 	@Test
 	public void testTwoTransitiveSuperClassesToSubTables2() throws IOException {
 		createGenerator("in/11_TwoDiffTransitiveSuperAtt_OneSubAtt_FWD", "expected/11_TwoDiffTransitiveSuperAtt_OneSubAtt_FWD");
-		runGenerator();
+		runCC();
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}
 

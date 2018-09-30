@@ -17,14 +17,14 @@ public class TestSimple extends CCTestCase {
 	@Test
 	public void testCreateSingleRegisters() throws IOException {
 		createGenerator("singleFamilyReg", "singlePersonReg");
-		runGenerator();
+		runCC();
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}
 	
 	@Test
 	public void testCreateOneFather() throws IOException {
 		createGenerator("singleFamilyWithFather", "PersonRegisterWithMalePerson");
-		runGenerator();
+		runCC();
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}
 	

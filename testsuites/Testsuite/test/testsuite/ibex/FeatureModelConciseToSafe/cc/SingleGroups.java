@@ -17,14 +17,14 @@ public class SingleGroups extends CCTestCase {
 	@Test
 	public void testORGroupConsistent() throws IOException {
 		createChecker("XORGroup3FeaturesConcise", "XORGroup3FeaturesSafe");
-		runGenerator();
+		runCC();
 		assertTrue(checker.modelsAreConsistent());
 	}
 	
 	@Test
 	public void testORGroupInconsistent() throws IOException {
 		createChecker("XORGroup3FeaturesConciseOther", "XORGroup3FeaturesSafe");
-		runGenerator();
+		runCC();
 		assertFalse(checker.modelsAreConsistent());
 	}
 }

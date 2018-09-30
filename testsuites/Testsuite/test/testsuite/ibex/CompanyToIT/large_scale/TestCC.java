@@ -19,7 +19,7 @@ public class TestCC extends CCTestCase {
 	@Ignore
 	public void testSimplePositive() throws IOException {
 		createGenerator("large_scale/src", "large_scale/trg");
-		runGenerator();
+		runCC();
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}
 }

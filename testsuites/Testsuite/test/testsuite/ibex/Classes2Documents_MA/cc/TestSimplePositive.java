@@ -18,42 +18,42 @@ public class TestSimplePositive extends CCTestCase {
 	@Test
 	public void testPackageToContainer() throws IOException {
 		createGenerator("in/01_PackageToContainer", "expected/01_PackageToContainer");
-		runGenerator();
+		runCC();
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}
 	
 	@Test
 	public void tesClassToDoc() throws IOException {
 		createGenerator("in/02_ClassToDoc", "expected/02_ClassToDoc");
-		runGenerator();
+		runCC();
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}
 	
 	@Test
 	public void testSubClassToDoc() throws IOException {
 		createGenerator("in/03_SubClassToDoc", "expected/03_SubClassToDoc");
-		runGenerator();
+		runCC();
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}
 	
 	@Test
 	public void testSubSubClassToDoc() throws IOException {
 		createGenerator("in/04_SubSubClassToDoc", "expected/04_SubSubClassToDoc");
-		runGenerator();
+		runCC();
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}
 	
 	@Test
 	public void testTwoDifSuperOneSubClassToDoc() throws IOException {
 		createGenerator("in/05_TwoDifSuperOneSubClassToDoc", "expected/05_TwoDifSuperOneSubClassToDoc");
-		runGenerator();
+		runCC();
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}
 	
 	@Test
 	public void testTwoDifSuperTwoDifSubClassToDoc() throws IOException {
 		createGenerator("in/06_TwoDifSuperTwoDifSubClassToDoc", "expected/06_TwoDifSuperTwoDifSubClassToDoc");
-		runGenerator();
+		runCC();
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}
 	

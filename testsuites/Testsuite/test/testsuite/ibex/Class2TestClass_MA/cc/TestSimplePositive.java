@@ -16,21 +16,21 @@ public class TestSimplePositive extends CCTestCase {
 	@Test
 	public void testPackageToTestSuite() throws IOException {
 		createGenerator("in/01_PackageToTestSuite_FWD", "expected/01_PackageToTestSuite_FWD");
-		runGenerator();
+		runCC();
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}
 	
 	@Test
 	public void testClassToMandatoryTestClass() throws IOException {
 		createGenerator("in/02_OneClass", "expected/02_OneTestClass");
-		runGenerator();
+		runCC();
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}
 	
 	@Test
 	public void testMandatoryClassToTestClass2() throws IOException {
 		createGenerator("in/03_ThreeClasses", "expected/04_SixTestClasses");
-		runGenerator();
+		runCC();
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}
 	

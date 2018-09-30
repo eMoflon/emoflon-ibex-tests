@@ -16,42 +16,42 @@ public class TestSimplePositive extends CCTestCase {
 	@Test
 	public void testPackageToDatabase() throws IOException {
 		createGenerator("in/PackageToDatabase_FWD", "expected/PackageToDatabase_FWD");
-		runGenerator();
+		runCC();
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}
 	
 	@Test
 	public void testClassToTable() throws IOException {
 		createGenerator("in/ClassToTable_FWD", "expected/ClassToTable_FWD");
-		runGenerator();
+		runCC();
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}
 	
 	@Test
 	public void testAttributeToColumn() throws IOException {
 		createGenerator("in/AttributeToColumn_FWD", "expected/AttributeToColumn_FWD");
-		runGenerator();
+		runCC();
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}
 	
 	@Test
 	public void testAttributeToColumn2() throws IOException {
 		createGenerator("in/AttributeToColumn2_FWD", "expected/AttributeToColumn2_FWD");
-		runGenerator();
+		runCC();
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}
 	
 	@Test
 	public void testSubClassToTable() throws IOException {
 		createGenerator("in/SubClassToTable_FWD", "expected/SubClassToTable_FWD");
-		runGenerator();
+		runCC();
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}
 	
 	@Test
 	public void testLargeExample() throws IOException {
 		createGenerator("in/LargeExample_FWD", "expected/LargeExample_FWD");
-		runGenerator();
+		runCC();
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}
 	

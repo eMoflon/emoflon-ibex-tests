@@ -10,14 +10,14 @@ public class TestSimpleNegative extends FamiliesToPersonsCCTestCase {
 	@Test
 	public void testOneFatherToFemale() throws IOException {
 		createGenerator("singleFatherFamily", "singleFemalePersonReg");
-		runGenerator();
+		runCC();
 		Assert.assertTrue(!checker.modelsAreConsistent());
 	}
 	
 	@Test
 	public void testSingleRegToMultipleRegs() throws IOException {
 		createGenerator("singleFamilyReg", "multiplePersonReg");
-		runGenerator();
+		runCC();
 		Assert.assertTrue(!checker.modelsAreConsistent());
 	}
 	
@@ -25,14 +25,14 @@ public class TestSimpleNegative extends FamiliesToPersonsCCTestCase {
 	@Test
 	public void testSixteenChildrenToSixtyPersons() throws IOException {
 		createGenerator("sixteenChildFamily", "thirtyFemaleThirtyMalePersons");
-		runGenerator();
+		runCC();
 		Assert.assertTrue(!checker.modelsAreConsistent());
 	}
 	
 	@Test
 	public void testDifferentNames() throws IOException {
 		createGenerator("singleFatherFamily", "singleMalePersonCalledSteve");
-		runGenerator();
+		runCC();
 		Assert.assertTrue(!checker.modelsAreConsistent());
 	}
 	

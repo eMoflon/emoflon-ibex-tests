@@ -11,35 +11,35 @@ public class TestSimpleNegative extends FamiliesToPersons_MA_CCTestCase {
 	@Test
 	public void testRegisters() throws IOException {
 		createGenerator("01_OneFamily", "01_RootElementPersons");
-		runGenerator();
+		runCC();
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}
 	
 	@Test
 	public void testEmptyFamily() throws IOException {
 		createGenerator("01_OneFamily", "02_Person_OneFemale");
-		runGenerator();
+		runCC();
 		Assert.assertTrue(!checker.modelsAreConsistent());
 	}
 	
 	@Test
 	public void testOneMother() throws IOException {
 		createGenerator("01_RootElementPersons", "02_Person_OneFemale");
-		runGenerator();
+		runCC();
 		Assert.assertTrue(!checker.modelsAreConsistent());
 	}
 	
 	@Test
 	public void testOneMotherOneFather() throws IOException {
 		createGenerator("02_Family_OneMotherOneFather", "02_Person_AllRoles");
-		runGenerator();
+		runCC();
 		Assert.assertTrue(!checker.modelsAreConsistent());
 	}
 	
 	@Test
 	public void testAllFamilyRoles() throws IOException {
 		createGenerator("02_Person_OneFemaleOneMale", "02_Person_AllRoles");
-		runGenerator();
+		runCC();
 		Assert.assertTrue(!checker.modelsAreConsistent());
 	}
 

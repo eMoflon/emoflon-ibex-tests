@@ -16,7 +16,7 @@ public class TestSimplePositive extends CCTestCase {
 	@Test
 	public void testCompany() throws IOException {
 		createGenerator("expected/Company_BWD", "in/Company_BWD");
-		runGenerator();
+		runCC();
 		checker.saveModels();
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}
@@ -24,28 +24,28 @@ public class TestSimplePositive extends CCTestCase {
 	@Test
 	public void testAdmin() throws IOException {
 		createGenerator("expected/Admin_BWD", "in/Admin_BWD");
-		runGenerator();
+		runCC();
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}
 	
 	@Test
 	public void testEmployeeLaptop() throws IOException {
 		createGenerator("expected/Employee_Laptop_BWD", "in/Employee_Laptop_BWD");
-		runGenerator();
+		runCC();
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}
 	
 	@Test
 	public void testEmployeePC() throws IOException {
 		createGenerator("expected/Employee_PC_BWD", "in/Employee_PC_BWD");
-		runGenerator();
+		runCC();
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}
 	
 	@Test
 	public void testEmployeePCLaptop() throws IOException {
 		createGenerator("in/Employee_PC_Laptop_FWD", "expected/Employee_PC_Laptop_FWD");
-		runGenerator();
+		runCC();
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}
 	

@@ -17,14 +17,14 @@ public class TestSimpleNegative extends CCTestCase {
 	@Test
 	public void testCompanyToRouter() throws IOException {
 		createGenerator("in/Company_FWD", "expected/Admin_FWD");
-		runGenerator();
+		runCC();
 		Assert.assertTrue(!checker.modelsAreConsistent());
 	}
 	
 	@Test
 	public void testAdminToLaptop() throws IOException {
 		createGenerator("in/Admin_FWD", "expected/Employee_Laptop_FWD");
-		runGenerator();
+		runCC();
 		Assert.assertTrue(!checker.modelsAreConsistent());
 	}
 }

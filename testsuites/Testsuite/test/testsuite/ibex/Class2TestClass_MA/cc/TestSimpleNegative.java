@@ -16,14 +16,14 @@ public class TestSimpleNegative extends CCTestCase {
 	@Test
 	public void testClassToMandatoryTestClass() throws IOException {
 		createGenerator("in/02_OneClass", "expected/01_PackageToTestSuite_FWD");
-		runGenerator();
+		runCC();
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}
 	
 	@Test
 	public void testTestClassWithoutClass() throws IOException {
 		createGenerator("in/02_OneClass", "expected/03_TwoTestClasses");
-		runGenerator();
+		runCC();
 		Assert.assertTrue(!checker.modelsAreConsistent());
 	}
 	

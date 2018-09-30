@@ -166,7 +166,7 @@ public class TestTggWeights extends CCTestCase {
 
 	@Test
 	public void testCorrGeneration() throws IOException {
-		this.runGenerator();
+		this.runCC();
 		Assert.assertFalse(this.checker.modelsAreConsistent());
 		System.out.println(this.checker.generateConsistencyReport());
 		//the source model should be completely generated

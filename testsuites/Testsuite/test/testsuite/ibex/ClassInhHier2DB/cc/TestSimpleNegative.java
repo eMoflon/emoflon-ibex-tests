@@ -16,28 +16,28 @@ public class TestSimpleNegative extends CCTestCase {
 	@Test
 	public void testPackageToTable() throws IOException {
 		createGenerator("in/PackageToDatabase_FWD", "expected/ClassToTable_FWD");
-		runGenerator();
+		runCC();
 		Assert.assertTrue(!checker.modelsAreConsistent());
 	}
 	
 	@Test
 	public void testClassToColumn() throws IOException {
 		createGenerator("in/ClassToTable_FWD", "expected/AttributeToColumn_FWD");
-		runGenerator();
+		runCC();
 		Assert.assertTrue(!checker.modelsAreConsistent());
 	}
 	
 	@Test
 	public void testAttributeToTable() throws IOException {
 		createGenerator("in/AttributeToColumn_FWD", "expected/SubClassToTable_FWD");
-		runGenerator();
+		runCC();
 		Assert.assertTrue(!checker.modelsAreConsistent());
 	}
 	
 	@Test
 	public void testLargeExample() throws IOException {
 		createGenerator("in/LargeExample_FWD", "expected/AttributeToColumn2_FWD");
-		runGenerator();
+		runCC();
 		Assert.assertTrue(!checker.modelsAreConsistent());
 	}
 	

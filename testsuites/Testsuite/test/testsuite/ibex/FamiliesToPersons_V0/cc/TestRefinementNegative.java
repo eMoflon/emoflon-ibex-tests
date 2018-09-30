@@ -9,7 +9,7 @@ public class TestRefinementNegative extends FamiliesToPersonsCCTestCase {
 	@Test
 	public void testPersonsToDifferentRegisters() throws IOException {
 		createGenerator("oneSonRegOneDaughterReg", "twoPersonRegZeroPersonReg");
-		runGenerator();
+		runCC();
 		Assert.assertTrue(!checker.modelsAreConsistent());
 	}
 

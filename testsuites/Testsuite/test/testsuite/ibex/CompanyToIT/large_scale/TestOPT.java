@@ -29,9 +29,9 @@ public class TestOPT extends COTestCase {
 	@Ignore
 	public void testFWD_OPT() throws IOException {
 		createTransformation("/resources/large_scale/src", "/resources/large_scale/trg-tmp", "/resources/large_scale/corr-tmp", "/resources/large_scale/prot-tmp");
-		runForward();
+		runFWD_OPT();
 		createGenerator("/resources/large_scale/src", "/resources/large_scale/trg-tmp", "/resources/large_scale/corr-tmp", "/resources/large_scale/prot-tmp");
-		runGenerator();
+		runCO();
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}
 	
@@ -39,9 +39,9 @@ public class TestOPT extends COTestCase {
 	@Ignore
 	public void testBWD_OPT() throws IOException {
 		createBackward("/resources/large_scale/src-tmp", "/resources/large_scale/trg", "/resources/large_scale/corr-tmp", "/resources/large_scale/prot-tmp");
-		runBackward();
+		runBWD_OPT();
 		createGenerator("/resources/large_scale/src-tmp", "/resources/large_scale/trg", "/resources/large_scale/corr-tmp", "/resources/large_scale/prot-tmp");
-		runGenerator();
+		runCO();
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}
 	
@@ -49,7 +49,7 @@ public class TestOPT extends COTestCase {
 	@Ignore
 	public void testCO() throws IOException {
 		createGenerator("/resources/large_scale/src", "/resources/large_scale/trg", "/resources/large_scale/corr", "/resources/large_scale/protocol");
-		runGenerator();
+		runCO();
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}
 }

@@ -13,19 +13,19 @@ public class COTestCase extends TestCase {
 	protected FWD_OPT forward;
 	protected BWD_OPT backward;
 	
-	protected void runGenerator() throws IOException {
+	protected void runCO() throws IOException {
 		checker.run();
 		checker.terminate();
 		checker.saveModels();
 	}
 	
-	protected void runForward() throws IOException {
+	protected void runFWD_OPT() throws IOException {
 		forward.forward();
 		forward.terminate();
 		forward.saveModels();
 	}
 	
-	protected void runBackward() throws IOException {
+	protected void runBWD_OPT() throws IOException {
 		backward.backward();
 		backward.terminate();
 		backward.saveModels();

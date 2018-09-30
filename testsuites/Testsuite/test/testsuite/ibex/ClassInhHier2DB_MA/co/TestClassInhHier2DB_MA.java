@@ -22,23 +22,23 @@ public class TestClassInhHier2DB_MA extends COTestCase {
 	@Test
 	public void testFWD_OPT() throws IOException {
 		createTransformation("/instances/src", "/instances/trg", "/instances/corr", "/instances/protocol");
-		runForward();
+		runFWD_OPT();
 		createGenerator("/instances/src", "/instances/trg", "/instances/corr", "/instances/protocol");
-		runGenerator();
+		runCO();
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}
 	
 	@Test
 	public void testSimplePositive() throws IOException {
 		createGenerator("/resources/co/src", "/resources/co/trg", "/resources/co/corr", "/resources/co/protocol");
-		runGenerator();
+		runCO();
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}
 	
 	@Test
 	public void testWrongLink() throws IOException {
 		createGenerator("/resources/co/src", "/resources/co/trg", "/resources/co/corr_inc", "/resources/co/protocol");
-		runGenerator();
+		runCO();
 		Assert.assertTrue(!checker.modelsAreConsistent());
 	}
 }

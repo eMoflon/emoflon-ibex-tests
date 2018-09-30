@@ -28,9 +28,9 @@ public class TestBenchmarxFamiliesToPersons extends COTestCase{
 	@Test
 	public void testFWD_OPT() throws IOException {
 		createForward("/resources/co/src", "/resources/co/trg-tmp", "/resources/co/corr-tmp", "/resources/co/prot-tmp");
-		runForward();
+		runFWD_OPT();
 		createGenerator("/resources/co/src", "/resources/co/trg-tmp", "/resources/co/corr-tmp", "/resources/co/prot-tmp");
-		runGenerator();
+		runCO();
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}
 	
@@ -39,23 +39,23 @@ public class TestBenchmarxFamiliesToPersons extends COTestCase{
 	@Test
 	public void testBWD_OPT() throws IOException {
 		createBackward("/resources/co/src-tmp", "/resources/co/trg", "/resources/co/corr-tmp", "/resources/co/prot-tmp");
-		runBackward();
+		runBWD_OPT();
 		createGenerator("/resources/co/src-tmp", "/resources/co/trg", "/resources/co/corr-tmp", "/resources/co/prot-tmp");
-		runGenerator();
+		runCO();
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}
 	
 	@Test
 	public void testSimplePositive() throws IOException {
 		createGenerator("/resources/co/src", "/resources/co/trg", "/resources/co/corr", "/resources/co/protocol");
-		runGenerator();
+		runCO();
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}
 	
 	@Test
 	public void testSuperfluousLink() throws IOException {
 		createGenerator("/resources/co/src", "/resources/co/trg", "/resources/co/corr_inc", "/resources/co/protocol");
-		runGenerator();
+		runCO();
 		Assert.assertFalse(checker.modelsAreConsistent());
 	}
 }
