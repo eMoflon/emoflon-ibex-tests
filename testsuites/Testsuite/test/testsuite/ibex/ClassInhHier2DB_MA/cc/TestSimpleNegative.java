@@ -44,6 +44,7 @@ public class TestSimpleNegative extends CCTestCase {
 		Assert.assertTrue(!checker.modelsAreConsistent());
 	}
 	
+	@Ignore("Non-deterministic")
 	@Test
 	public void testSubAttToSubTable_V1() throws IOException {
 		createGenerator("in/05_OneSuperAtt_FWD", "expected/05_OneSuperAtt_INCONS_V1_FWD");
