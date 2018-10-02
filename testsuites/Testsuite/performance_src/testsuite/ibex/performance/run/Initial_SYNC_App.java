@@ -28,11 +28,6 @@ public class Initial_SYNC_App extends SYNC_App {
 	}
 	
 	@Override
-	public void saveModels() {
-		// Models needn't be saved for all Operationalizations except MODELGEN
-	}
-	
-	@Override
 	protected void createMarkers(IGreenPattern greenPattern, IMatch comatch, String ruleName) {
 		// Markers are not required anymore
 	}

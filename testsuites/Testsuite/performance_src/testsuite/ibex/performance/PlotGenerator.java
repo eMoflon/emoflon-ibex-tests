@@ -59,31 +59,6 @@ public class PlotGenerator {
 		scripts.allTGGsComparison("AllTGGs" + op, op.name());
 	}
 
-	public void saveDataForTGGsWithoutRefinement() {
-		// arrange data in lines
-		List<String> diagramStrings = new ArrayList<>();
-		diagramStrings.add(util.makeLine("#", "ClassInhHier2DB", "CompanyToIT"));
-		diagramStrings.add(util.makeLine("Operationalization", "ExecutionTime"));
-
-		try {
-			for (Operationalization op : Operationalization.values()) {
-				diagramStrings.add(util.makeLine(op + "",
-						util.filterTestResults(testData, "ClassInhHier2DB", op, bigModelSize).get(0).executionTimes[0]
-								+ "",
-						util.filterTestResults(testData, "CompanyToIT", op, bigModelSize).get(0).executionTimes[0]
-								+ ""));
-			}
-		} catch (IndexOutOfBoundsException e) {
-			System.out.println("Data for TGGsWithoutRefinement diagram not available!");
-			return;
-		}
-
-		// save data in file
-		util.saveData(diagramStrings, "TGGsWithoutRefinement", "performance/data/");
-		// create plot
-		scripts.tggsWithoutRefinementComparison("TGGsWithoutRefinement");
-	}
-
 	public void saveDataForModelSizeDiagram(String tgg, Operationalization op) {
 		// get data for plot
 		List<TestDataPoint> refinementData = util.filterTestResults(testData, tgg, op, null);
