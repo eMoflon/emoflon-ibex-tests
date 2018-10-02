@@ -18,6 +18,9 @@ import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
+import org.apache.log4j.BasicConfigurator;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGEN;
 import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGENStopCriterion;
 import org.emoflon.ibex.tgg.operational.strategies.opt.BWD_OPT;
@@ -74,6 +77,9 @@ public class TestDataCollector {
 	 * 
 	 */
 	public static void main(String[] args) throws IOException {
+		BasicConfigurator.configure();
+		Logger.getRootLogger().setLevel(Level.INFO);
+		
 		TestDataCollector collector = new TestDataCollector();
 		if (Boolean.parseBoolean(args[0]))
 			collector.deleteData();
@@ -313,9 +319,30 @@ public class TestDataCollector {
 			}
 		};
 
-		System.out.println("Collecting INITIAL_SYNC data for " + tggName + ", size: " + size);
-		test.timedExecutionAndInit(transformator, size, repetitions, Operationalization.INITIAL_FWD,
+		List<TestDataPoint> points = test.timedExecutionAndInit(transformator, size, repetitions, Operationalization.INITIAL_FWD,
 				incEditor.getEdit(tggName, true));
+		data.addAll(points);
+	}
+	
+	private void collectINITIAL_BWDData(String tggName, int size) throws IOException {
+		PerformanceTestSYNC test = new PerformanceTestSYNC();
+
+		Supplier<SYNC_App> transformator = () -> {
+			try {
+				SYNC_App sync = new Initial_SYNC_App(tggName, PerformanceConstants.workspacePath, false,
+						tggName + "/instances/" + size + "Element", false, false);
+				sync.setUpdatePolicy(new TimedUpdatePolicy(new NextMatchUpdatePolicy(), PerformanceConstants.timeout,
+						TimeUnit.SECONDS));
+				return sync;
+			} catch (IOException e) {
+				e.printStackTrace();
+				return null;
+			}
+		};
+
+		List<TestDataPoint> points = test.timedExecutionAndInit(transformator, size, repetitions,
+				Operationalization.INITIAL_BWD, incEditor.getEdit(tggName, false));
+		data.addAll(points);
 	}
 
 	private void collectFWD_OPTData(String tggName, int size) throws IOException {
@@ -386,27 +413,6 @@ public class TestDataCollector {
 
 		List<TestDataPoint> points = test.timedExecutionAndInit(transformator, size, repetitions,
 				Operationalization.BWD, incEditor.getEdit(tggName, false));
-		data.addAll(points);
-	}
-
-	private void collectINITIAL_BWDData(String tggName, int size) throws IOException {
-		PerformanceTestSYNC test = new PerformanceTestSYNC();
-
-		Supplier<SYNC_App> transformator = () -> {
-			try {
-				SYNC_App sync = new Initial_SYNC_App(tggName, PerformanceConstants.workspacePath, false,
-						tggName + "/instances/" + size + "Element", false, false);
-				sync.setUpdatePolicy(new TimedUpdatePolicy(new NextMatchUpdatePolicy(), PerformanceConstants.timeout,
-						TimeUnit.SECONDS));
-				return sync;
-			} catch (IOException e) {
-				e.printStackTrace();
-				return null;
-			}
-		};
-
-		List<TestDataPoint> points = test.timedExecutionAndInit(transformator, size, repetitions,
-				Operationalization.INITIAL_BWD, incEditor.getEdit(tggName, false));
 		data.addAll(points);
 	}
 
