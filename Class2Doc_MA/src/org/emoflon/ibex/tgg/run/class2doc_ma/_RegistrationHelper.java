@@ -24,13 +24,13 @@ public class _RegistrationHelper {
 		DocumentsPackageImpl.init();		
 		
 		if(strategy instanceof BWD_OPT) {
-			Resource res = strategy.loadResource("platform:/resource/../metamodels/ClassMultipleInheritanceHierarchy/model/ClassMultipleInheritanceHierarchy.ecore");
+			Resource res = strategy.loadResource("platform:/resource/ClassMultipleInheritanceHierarchy/model/ClassMultipleInheritanceHierarchy.ecore");
 			EPackage pack = (EPackage) res.getContents().get(0);
 			rs.getResources().remove(res);
 			rs.getPackageRegistry().put("platform:/resource/ClassMultipleInheritanceHierarchy/model/ClassMultipleInheritanceHierarchy.ecore", pack);
 		}
 		if(strategy instanceof FWD_OPT) {
-			Resource res = strategy.loadResource("platform:/resource/../metamodels/Documents/model/Documents.ecore");
+			Resource res = strategy.loadResource("platform:/resource/Documents/model/Documents.ecore");
 			EPackage pack = (EPackage) res.getContents().get(0);
 			rs.getResources().remove(res);
 			rs.getPackageRegistry().put("platform:/resource/Documents/model/Documents.ecore", pack);

@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
-
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.opt.CO;
 
@@ -43,6 +43,16 @@ public class CO_App extends CO {
 		co.saveModels();
 		co.terminate();
 		logger.info(co.generateConsistencyReport());
+	}
+	
+	@Override
+	public void loadModels() throws IOException {
+		s = loadResource(options.projectPath() + srcPath + ".xmi");
+		t = loadResource(options.projectPath() + trgPath + ".xmi");
+		c = loadResource(options.projectPath() + corrPath + ".xmi");
+		p = createResource(options.projectPath() + protPath + ".xmi");
+
+		EcoreUtil.resolveAll(rs);
 	}
 	
 	protected void registerUserMetamodels() throws IOException {

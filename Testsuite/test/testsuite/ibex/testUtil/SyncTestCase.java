@@ -6,7 +6,7 @@ import org.junit.After;
 import org.junit.Before;
 
 public abstract class SyncTestCase<S extends EObject, T extends EObject> extends TestCase {
-	private final String resourcePath = "../../../tggs/"+getProjectName()+"/resources/";
+	private final String resourcePath = "../../" + getProjectName() + "/resources/";
 
 	protected IbexAdapter<S, T> tool;
 	protected BenchmarxUtil<S, T, Decisions> util;

@@ -10,49 +10,49 @@ import testsuite.ibex.testUtil.CCTestCase;
 
 public class TestSimplePositive extends CCTestCase {
 	
-	public void createGenerator(String srcInstance, String trgInstance) throws IOException {
+	public void createChecker(String srcInstance, String trgInstance) throws IOException {
 		checker = new CC_App("Class2Doc_MA", testsuite.ibex.performance.util.PerformanceConstants.workspacePath, false, 
 				srcInstance, trgInstance, this.ilpSolver);
 	}
 	
 	@Test
 	public void testPackageToContainer() throws IOException {
-		createGenerator("in/01_PackageToContainer", "expected/01_PackageToContainer");
+		createChecker("in/01_PackageToContainer", "expected/01_PackageToContainer");
 		runCC();
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}
 	
 	@Test
 	public void tesClassToDoc() throws IOException {
-		createGenerator("in/02_ClassToDoc", "expected/02_ClassToDoc");
+		createChecker("in/02_ClassToDoc", "expected/02_ClassToDoc");
 		runCC();
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}
 	
 	@Test
 	public void testSubClassToDoc() throws IOException {
-		createGenerator("in/03_SubClassToDoc", "expected/03_SubClassToDoc");
+		createChecker("in/03_SubClassToDoc", "expected/03_SubClassToDoc");
 		runCC();
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}
 	
 	@Test
 	public void testSubSubClassToDoc() throws IOException {
-		createGenerator("in/04_SubSubClassToDoc", "expected/04_SubSubClassToDoc");
+		createChecker("in/04_SubSubClassToDoc", "expected/04_SubSubClassToDoc");
 		runCC();
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}
 	
 	@Test
 	public void testTwoDifSuperOneSubClassToDoc() throws IOException {
-		createGenerator("in/05_TwoDifSuperOneSubClassToDoc", "expected/05_TwoDifSuperOneSubClassToDoc");
+		createChecker("in/05_TwoDifSuperOneSubClassToDoc", "expected/05_TwoDifSuperOneSubClassToDoc");
 		runCC();
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}
 	
 	@Test
 	public void testTwoDifSuperTwoDifSubClassToDoc() throws IOException {
-		createGenerator("in/06_TwoDifSuperTwoDifSubClassToDoc", "expected/06_TwoDifSuperTwoDifSubClassToDoc");
+		createChecker("in/06_TwoDifSuperTwoDifSubClassToDoc", "expected/06_TwoDifSuperTwoDifSubClassToDoc");
 		runCC();
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}

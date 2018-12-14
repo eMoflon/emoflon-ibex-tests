@@ -13,7 +13,7 @@ import testsuite.ibex.testUtil.COTestCase;
 
 public class TestAbcToNothing extends COTestCase {
 
-	public void createGenerator(String srcInstance, String trgInstance, String corrInstance, String protInstance) throws IOException {
+	public void createChecker(String srcInstance, String trgInstance, String corrInstance, String protInstance) throws IOException {
 		checker = new CO_App("AbcToNothing", testsuite.ibex.performance.util.PerformanceConstants.workspacePath, false, srcInstance, trgInstance, corrInstance, protInstance, this.ilpSolver);
 	}
 	
@@ -29,7 +29,7 @@ public class TestAbcToNothing extends COTestCase {
 	public void testFWD_OPT() throws IOException {
 		createForward("/resources/co/src", "/resources/co/trg-tmp", "/resources/co/corr-tmp", "/resources/co/prot-tmp");
 		runFWD_OPT();
-		createGenerator("/resources/co/src", "/resources/co/trg-tmp", "/resources/co/corr-tmp", "/resources/co/prot-tmp");
+		createChecker("/resources/co/src", "/resources/co/trg-tmp", "/resources/co/corr-tmp", "/resources/co/prot-tmp");
 		runCO();
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}
@@ -39,14 +39,14 @@ public class TestAbcToNothing extends COTestCase {
 	public void testBWD_OPT() throws IOException {
 		createBackward("/resources/co/src-tmp", "/resources/co/trg", "/resources/co/corr-tmp", "/resources/co/prot-tmp");
 		runBWD_OPT();
-		createGenerator("/resources/co/src-tmp", "/resources/co/trg", "/resources/co/corr-tmp", "/resources/co/prot-tmp");
+		createChecker("/resources/co/src-tmp", "/resources/co/trg", "/resources/co/corr-tmp", "/resources/co/prot-tmp");
 		runCO();
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}
 	
 	@Test
 	public void testSimplePositive() throws IOException {
-		createGenerator("/resources/co/src", "/resources/co/trg", "/resources/co/corr", "/resources/co/protocol");
+		createChecker("/resources/co/src", "/resources/co/trg", "/resources/co/corr", "/resources/co/protocol");
 		runCO();
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}
@@ -54,7 +54,7 @@ public class TestAbcToNothing extends COTestCase {
 	@Test
 	@Ignore("Inconsistency cannot be caused by the corr model.")
 	public void testEmptyRootNodes() throws IOException {
-		createGenerator("/resources/co/src", "/resources/co/trg", "/resources/co/corr_inc", "/resources/co/protocol");
+		createChecker("/resources/co/src", "/resources/co/trg", "/resources/co/corr_inc", "/resources/co/protocol");
 		runCO();
 		Assert.assertFalse(checker.modelsAreConsistent());
 	}

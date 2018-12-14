@@ -23,13 +23,13 @@ public class _RegistrationHelper {
 		StrategiesPackageImpl.init();
 		
 		if(strategy instanceof BWD_OPT) {
-			Resource res = strategy.loadResource("platform:/resource/../metamodels/Algorithms/model/Algorithms.ecore");
+			Resource res = strategy.loadResource("platform:/resource/Algorithms/model/Algorithms.ecore");
 			EPackage pack = (EPackage) res.getContents().get(0);
 			rs.getResources().remove(res);
 			rs.getPackageRegistry().put("platform:/resource/Algorithms/model/Algorithms.ecore", pack);
 		}
 		if(strategy instanceof FWD_OPT) {
-			Resource res = strategy.loadResource("platform:/resource/../metamodels/Strategies/model/Strategies.ecore");
+			Resource res = strategy.loadResource("platform:/resource/Strategies/model/Strategies.ecore");
 			EPackage pack = (EPackage) res.getContents().get(0);
 			rs.getResources().remove(res);
 			rs.getPackageRegistry().put("platform:/resource/Strategies/model/Strategies.ecore", pack);

@@ -24,7 +24,7 @@ public class PerformanceConstants {
 	/** Number of repetitions per test case. Final result is the median of all repetitions. */
 	public final static int repetitions = 3;
 	
-	public final static String workspacePath = "./../../tggs/";
+	public final static String workspacePath = "../";
 	
 	public final static String algorithmToStrategy_MA = "AlgorithmToStrategy_MA";
 	public final static String benchmarxFamiliesToPersons = "BenchmarxFamiliesToPersons";

@@ -18,7 +18,7 @@ public abstract class ModelGenTestCase<S, T> extends TestCase {
 	protected abstract String getProjectName();
 	
 	protected String getResourcePath() {
-		return "../../../tggs/"+getProjectName()+"/resources/";
+		return "../../" + getProjectName() + "/resources/";
 	}
 
 	protected void runGenerator(MODELGENStopCriterion stop) throws IOException {

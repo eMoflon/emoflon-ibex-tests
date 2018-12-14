@@ -26,7 +26,7 @@ public class _RegistrationHelper {
 		
 		if(strategy instanceof FWD_OPT) {
 			// Load and register source and target metamodels
-			Resource res = strategy.loadResource("platform:/resource/../metamodels/ITLanguage/model/ITLanguage.ecore");
+			Resource res = strategy.loadResource("platform:/resource/ITLanguage/model/ITLanguage.ecore");
 			EPackage pack = (EPackage) res.getContents().get(0);
 			rs.getPackageRegistry().put("platform:/resource/ITLanguage/model/ITLanguage.ecore", pack);
 			rs.getPackageRegistry().put("platform:/plugin/ITLanguage/model/ITLanguage.ecore", pack);
@@ -36,7 +36,7 @@ public class _RegistrationHelper {
 		
 		if(strategy instanceof BWD_OPT) {
 			// Load and register source and target metamodels
-			Resource res = strategy.loadResource("platform:/resource/../metamodels/CompanyLanguage/model/CompanyLanguage.ecore");
+			Resource res = strategy.loadResource("platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore");
 			EPackage pack = (EPackage) res.getContents().get(0);
 			rs.getPackageRegistry().put("platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore", pack);
 			rs.getPackageRegistry().put("platform:/plugin/CompanyLanguage/model/CompanyLanguage.ecore", pack);

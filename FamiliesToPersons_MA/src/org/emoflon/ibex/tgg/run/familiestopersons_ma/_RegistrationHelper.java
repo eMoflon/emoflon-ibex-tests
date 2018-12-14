@@ -25,12 +25,12 @@ public class _RegistrationHelper {
 
 		if (strategy instanceof FWD_OPT) {
 			Resource res = strategy.loadResource(
-					"platform:/resource/../../benchmarx/examples/familiestopersons/metamodels/Persons/model/Persons.ecore");
+					"platform:/resource/../benchmarx/examples/familiestopersons/metamodels/Persons/model/Persons.ecore");
 			personsPack = (EPackage) res.getContents().get(0);
 			rs.getResources().remove(res);
 		} else if (strategy instanceof BWD_OPT) {
 			Resource res = strategy.loadResource(
-					"platform:/resource/../../benchmarx/examples/familiestopersons/metamodels/Families/model/Families.ecore");
+					"platform:/resource/../benchmarx/examples/familiestopersons/metamodels/Families/model/Families.ecore");
 			familyPack = (EPackage) res.getContents().get(0);
 			rs.getResources().remove(res);
 		}

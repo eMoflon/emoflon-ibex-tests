@@ -24,15 +24,14 @@ public class _RegistrationHelper {
 	    MocaTreePackageImpl.init();
 		
 		if(strategy instanceof FWD_OPT) {
-			Resource res = strategy.loadResource("platform:/resource/../metamodels/BlockDiagram/model/BlockDiagram.ecore");
+			Resource res = strategy.loadResource("platform:/resource/BlockDiagram/model/BlockDiagram.ecore");
 			EPackage pack = (EPackage) res.getContents().get(0);
-			//pack.setNsURI("platform:/plugin/BlockDiagram/model/BlockDiagram.ecore");
 			rs.getPackageRegistry().put("platform:/resource/BlockDiagram/model/BlockDiagram.ecore", pack);
 			rs.getPackageRegistry().put("platform:/plugin/BlockDiagram/model/BlockDiagram.ecore", pack);
 		}
 		
 		if(strategy instanceof BWD_OPT) {
-			Resource res = strategy.loadResource("platform:/resource/../metamodels/MocaTree/model/MocaTree.ecore");
+			Resource res = strategy.loadResource("platform:/resource/MocaTree/model/MocaTree.ecore");
 			EPackage pack = (EPackage) res.getContents().get(0);
 			rs.getPackageRegistry().put("platform:/resource/MocaTree/model/MocaTree.ecore", pack);
 			rs.getPackageRegistry().put("platform:/plugin/MocaTree/model/MocaTree.ecore", pack);
