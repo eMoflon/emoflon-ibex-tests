@@ -30,7 +30,7 @@ public abstract class GTAppTestCase<App extends GraphTransformationApp<API>, API
 	 * Relative path to the directory with the projects with the graph
 	 * transformation rules.
 	 */
-	protected static String workspacePath = "../../gt-rules/";
+	protected static String workspacePath = "../";
 
 	/**
 	 * Relative path to the instances directory. Files from this directory are
