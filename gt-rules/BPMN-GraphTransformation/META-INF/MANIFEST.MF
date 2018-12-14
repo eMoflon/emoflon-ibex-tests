@@ -3,10 +3,11 @@ Automatic-Module-Name: BPMN-GT
 Bundle-SymbolicName: BPMN-GraphTransformation;singleton:=true
 Export-Package: BPMNGraphTransformation.api,
  BPMNGraphTransformation.api.matches,
- BPMNGraphTransformation.api.rules,
+ BPMNGraphTransformation.api.matches,
  BPMNIRGraphTransformation.api,
  BPMNIRGraphTransformation.api.matches,
- BPMNIRGraphTransformation.api.rules
+ BPMNIRGraphTransformation.api.rules,
+ BPMNGraphTransformation.api.rules
 Bundle-Name: BPMN-GT
 Bundle-Version: 1.0.0.qualifier
 Require-Bundle: BPMN,
