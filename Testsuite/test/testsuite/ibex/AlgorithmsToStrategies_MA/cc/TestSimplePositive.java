@@ -11,41 +11,41 @@ import testsuite.ibex.testUtil.CCTestCase;
 
 public class TestSimplePositive extends CCTestCase {
 
-	public void createGenerator(String srcInstance, String trgInstance) throws IOException {
+	public void createChecker(String srcInstance, String trgInstance) throws IOException {
 		checker = new CC_App("AlgorithmToStrategy_MA", testsuite.ibex.performance.util.PerformanceConstants.workspacePath, false, srcInstance, trgInstance, this.ilpSolver);
 	}
 	
 	@Test
 	public void testContainers() throws IOException {
-		createGenerator("in/01_ContainersOnly", "expected/01_ContainersOnly");
+		createChecker("in/01_ContainersOnly", "expected/01_ContainersOnly");
 		runCC();
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}
 	
 	@Test
 	public void testCreateOnlyStrategy() throws IOException {
-		createGenerator("in/01_ContainersOnly", "expected/02_OneStrategy");
+		createChecker("in/01_ContainersOnly", "expected/02_OneStrategy");
 		runCC();
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}
 	
 	@Test
 	public void testCreateOnlyAlgorithm() throws IOException {
-		createGenerator("in/03_OneAlgo", "expected/01_ContainersOnly");
+		createChecker("in/03_OneAlgo", "expected/01_ContainersOnly");
 		runCC();
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}
 
 	@Test
 	public void testCreateOneAlgoOneStrategy() throws IOException {
-		createGenerator("in/03_OneAlgo", "expected/02_OneStrategy");
+		createChecker("in/03_OneAlgo", "expected/02_OneStrategy");
 		runCC();
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}
 
 	@Test
 	public void testCreateThreeAlgosFourStrategy() throws IOException {
-		createGenerator("in/05_ThreeAlgosFourStrategy", "expected/05_ThreeAlgosFourStrategy");
+		createChecker("in/05_ThreeAlgosFourStrategy", "expected/05_ThreeAlgosFourStrategy");
 		runCC();
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}
@@ -53,7 +53,7 @@ public class TestSimplePositive extends CCTestCase {
 	@Ignore("Fails for now because generating cyclig constraints does not terminate!")
 	@Test
 	public void testBigModels() throws IOException {
-		createGenerator("in/06_BigModel", "expected/06_BigModel");
+		createChecker("in/06_BigModel", "expected/06_BigModel");
 		runCC();
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}
