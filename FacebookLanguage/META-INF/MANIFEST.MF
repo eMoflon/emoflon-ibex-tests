@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: FacebookLanguage
+Bundle-SymbolicName: FacebookLanguage;singleton:=true
+Bundle-Version: 0.0.1.qualifier
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: org.eclipse.emf.ecore,
+ org.eclipse.emf.ecore.xmi,
+ com.google.guava,
+ org.eclipse.xtext.xbase.lib,
+ org.eclipse.xtend.lib,
+ org.eclipse.xtend.lib.macro
+Export-Package: FacebookLanguage,
+ FacebookLanguage.impl,
+ FacebookLanguage.util
+Automatic-Module-Name: FacebookLanguage
+

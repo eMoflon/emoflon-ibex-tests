@@ -1,0 +1,28 @@
+#import "platform:/resource/FacebookLanguage/model/FacebookLanguage.ecore"
+#import "platform:/resource/InstagramLanguage/model/InstagramLanguage.ecore"
+
+#schema FacebookLanguage
+	
+#source {
+	FacebookLanguage
+}
+
+#target { 
+	InstagramLanguage
+} 
+
+#correspondence {
+	NetworkToNetwork {
+		#src->FacebookLanguage.Network
+		#trg->InstagramLanguage.Network
+	}
+	
+	FbUserToInUser {
+		#src->FacebookLanguage.User
+		#trg->InstagramLanguage.User
+	}
+}
+
+#attributeConditions {
+	
+}

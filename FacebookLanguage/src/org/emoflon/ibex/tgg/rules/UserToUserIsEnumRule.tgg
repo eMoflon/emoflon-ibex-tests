@@ -1,0 +1,25 @@
+#using FacebookLanguage.*
+#using AttrCondDefLibrary.*
+
+#rule UserToUserIsEnumRule #with FacebookLanguage
+
+#source { 
+	 ++ flu:FacebookLanguage.User
+	 
+}
+
+#target {
+	 ++ ilu:InstagramLanguage.User
+}
+
+#correspondence {
+	++ f2i:FbUserToInUser {
+		#src-> flu
+		#trg-> ilu
+	}
+}
+
+#attributeConditions {
+	//eq_string("ABC","ABC")
+	eq_string(flu.name,ilu.name)
+}
