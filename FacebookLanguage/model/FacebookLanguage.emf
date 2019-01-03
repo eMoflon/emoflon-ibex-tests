@@ -10,12 +10,12 @@ class Network {
 
 class User {
 	attr EString name;
-	attr EString sex;
+	attr GENDER sex;
 	
 }
 
 
-enum sex {
+enum GENDER {
   Male=1;
   Female=2;
   Diverse=3;

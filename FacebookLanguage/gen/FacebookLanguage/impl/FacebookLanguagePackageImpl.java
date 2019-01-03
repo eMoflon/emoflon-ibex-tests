@@ -144,9 +144,7 @@ public class FacebookLanguagePackageImpl extends EPackageImpl implements Faceboo
 		return (EAttribute) userEClass.getEStructuralFeatures().get(0);
 	}
 	
-	public EAttribute getUser_Sex() {
-		return (EAttribute) userEClass.getEStructuralFeatures().get(0);
-	}
+
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -227,9 +225,7 @@ public class FacebookLanguagePackageImpl extends EPackageImpl implements Faceboo
 		initEAttribute(getUser_Name(), ecorePackage.getEString(), "name", null, 0, 1, User.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     
-		initEAttribute(getUser_Sex(), ecorePackage.getEString(), "sex", null, 0, 1, User.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
+	
 		// Create resource
 		createResource(eNS_URI);
 	}

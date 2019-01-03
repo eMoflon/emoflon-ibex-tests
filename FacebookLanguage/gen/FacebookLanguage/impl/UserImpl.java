@@ -38,7 +38,6 @@ public class UserImpl extends EObjectImpl implements User {
 	 */
 	protected static final String NAME_EDEFAULT = null;
 
-	protected static final String SEX_EDEFAULT = null;
 	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -49,7 +48,6 @@ public class UserImpl extends EObjectImpl implements User {
 	 */
 	protected String name = NAME_EDEFAULT;
 	
-	protected String sex = SEX_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -79,9 +77,7 @@ public class UserImpl extends EObjectImpl implements User {
 		return name;
 	}
 	
-	public String getSex() {
-		return sex;
-	}
+
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -95,12 +91,10 @@ public class UserImpl extends EObjectImpl implements User {
 			eNotify(new ENotificationImpl(this, Notification.SET, FacebookLanguagePackage.USER__NAME, oldName, name));
 	}
 	
-	public void setSex(String newSex) {
-		String oldSex= sex;
-		name = newSex;
+	
 		//if (eNotificationRequired())
 			//eNotify(new ENotificationImpl(this, Notification.SET, FacebookLanguagePackage., oldName, name));
-	}
+	
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -173,9 +167,6 @@ public class UserImpl extends EObjectImpl implements User {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");
 		result.append(name);
-		result.append(')');
-		result.append(" (sex: ");
-		result.append(sex);
 		result.append(')');
 		return result.toString();
 	}

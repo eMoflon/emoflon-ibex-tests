@@ -39,7 +39,6 @@ public interface User extends EObject {
 	 */
 	String getName();
 	
-	String getSex();
 
 	/**
 	 * Sets the value of the '{@link FacebookLanguage.User#getName <em>Name</em>}' attribute.
@@ -51,7 +50,6 @@ public interface User extends EObject {
 	 */
 	void setName(String value);
 	
-	void setSex(String value);
 	// <-- [user code injected with eMoflon]
 
 	// [user code injected with eMoflon] -->

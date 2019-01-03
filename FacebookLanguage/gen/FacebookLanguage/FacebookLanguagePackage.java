@@ -195,7 +195,7 @@ public interface FacebookLanguagePackage extends EPackage {
 	 */
 	EAttribute getUser_Name();
     
-	EAttribute getUser_Sex();
+
 	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
