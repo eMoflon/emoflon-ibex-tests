@@ -1,0 +1,37 @@
+#import "platform:/resource/Aadl/model/Aadl.ecore"
+#import "platform:/resource/Adele/model/Adele.ecore"
+
+#schema AdeleToAadl
+	
+#source {
+	Adele
+}
+
+#target { 
+	Aadl
+} 
+
+#correspondence {
+	AdeleTypeToAadlComponent{
+	
+	#src->Adele.AdeleType
+	#trg->Aadl.AadlComponent
+}		
+	AdeleAccessToAadlAccess
+	{
+    #src->Adele.AdeleAccess
+	#trg->Aadl.AadlAccess
+	}
+	
+	
+	
+	AdelePackageToAadlPackage
+	{
+	#src->Adele.AdelePackage
+	#trg->Aadl.AadlPublicPackageSection
+	}
+}
+
+#attributeConditions {
+	
+}

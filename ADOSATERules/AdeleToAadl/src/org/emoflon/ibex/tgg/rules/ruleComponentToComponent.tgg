@@ -1,0 +1,36 @@
+#using AdeleToAadl.*
+#using AttrCondDefLibrary.*
+
+#rule ruleComponentToComponent #with AdeleToAadl
+
+#source { 
+	ap:Adele.AdelePackage{
+		++ -AdeleType-> at
+	}
+	++ at:Adele.AdeleType
+}
+
+#target {
+	aap:Aadl.AadlPublicPackageSection{
+		++ -AadlComponent->aac
+	}
+	++ aac:Aadl.AadlComponent
+}
+
+#correspondence {
+	p2p:AdelePackageToAadlPackage
+	{
+		#src->ap
+        #trg->aap
+	}
+	
+	++t2c:AdeleTypeToAadlComponent
+	{
+		#src->at
+        #trg->aac
+	}
+}
+
+#attributeConditions {
+	
+}

@@ -1,0 +1,17 @@
+@GenModel(documentation="TODO: Add documentation for Blup")
+@namespace(uri="platform:/resource/Aadl/model/Aadl.ecore", prefix="Aadl")
+package Aadl;
+class AadlComponent {
+	// attr EString description;
+	val AadlAccess[*] AadlAccess;
+}
+ 
+class AadlAccess {
+	attr EString name;
+
+}
+
+class AadlPublicPackageSection
+{
+	val AadlComponent[*] AadlComponent;
+}

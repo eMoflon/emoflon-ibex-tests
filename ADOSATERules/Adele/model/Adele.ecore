@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="Adele" nsURI="platform:/resource/Adele/model/Adele.ecore" nsPrefix="Adele">
+  <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+    <details key="documentation" value="TODO: Add documentation for Blup"/>
+  </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="AdeleType">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="AdeleAccess" upperBound="-1"
+        eType="#//AdeleAccess" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AdeleAccess">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nameVar" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="directionView" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AdelePackage">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="AdeleType" upperBound="-1"
+        eType="#//AdeleType" containment="true"/>
+  </eClassifiers>
+</ecore:EPackage>

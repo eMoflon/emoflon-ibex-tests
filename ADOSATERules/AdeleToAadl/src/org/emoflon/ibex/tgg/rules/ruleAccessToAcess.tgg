@@ -1,0 +1,36 @@
+#using AdeleToAadl.*
+#using AttrCondDefLibrary.*
+
+#rule ruleAccessToAcess #with AdeleToAadl
+
+#source { 
+	at:Adele.AdeleType
+	{
+		++ -AdeleAccess->ac
+	}
+	
+		++ac:Adele.AdeleAccess
+	
+}
+
+#target {
+	 aac:Aadl.AadlComponent{
+  	++ -AadlAccess->asc
+  }
+	++asc:Aadl.AadlAccess
+}
+
+#correspondence {
+	a2c:AdeleTypeToAadlComponent{
+		#src->at
+        #trg->aac
+	}
+	++a2a:AdeleAccessToAadlAccess{
+	   #src->ac
+       #trg->asc
+	}
+}
+
+#attributeConditions {
+	
+}

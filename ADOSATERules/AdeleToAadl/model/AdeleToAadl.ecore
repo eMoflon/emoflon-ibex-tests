@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="AdeleToAadl" nsURI="platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore"
+    nsPrefix="AdeleToAadl">
+  <eClassifiers xsi:type="ecore:EClass" name="AdeleTypeToAadlComponent">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="ecore:EClass platform:/resource/Adele/model/Adele.ecore#//AdeleType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="ecore:EClass platform:/resource/Aadl/model/Aadl.ecore#//AadlComponent"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AdeleAccessToAadlAccess">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="ecore:EClass platform:/resource/Adele/model/Adele.ecore#//AdeleAccess"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="ecore:EClass platform:/resource/Aadl/model/Aadl.ecore#//AadlAccess"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AdelePackageToAadlPackage">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="ecore:EClass platform:/resource/Adele/model/Adele.ecore#//AdelePackage"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="ecore:EClass platform:/resource/Aadl/model/Aadl.ecore#//AadlPublicPackageSection"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ruleAccessToAcess__Marker" eSuperTypes="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__SRC__ac" lowerBound="1"
+        eType="ecore:EClass platform:/resource/Adele/model/Adele.ecore#//AdeleAccess"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__SRC__at" lowerBound="1"
+        eType="ecore:EClass platform:/resource/Adele/model/Adele.ecore#//AdeleType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__TRG__aac" lowerBound="1"
+        eType="ecore:EClass platform:/resource/Aadl/model/Aadl.ecore#//AadlComponent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__TRG__asc" lowerBound="1"
+        eType="ecore:EClass platform:/resource/Aadl/model/Aadl.ecore#//AadlAccess"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__CORR__a2a" lowerBound="1"
+        eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//AdeleAccessToAadlAccess"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__a2c" lowerBound="1"
+        eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//AdeleTypeToAadlComponent"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ruleAccessToAcessrefined__Marker" eSuperTypes="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ruleComponentToComponent__Marker" eSuperTypes="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__SRC__ap" lowerBound="1"
+        eType="ecore:EClass platform:/resource/Adele/model/Adele.ecore#//AdelePackage"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__SRC__at" lowerBound="1"
+        eType="ecore:EClass platform:/resource/Adele/model/Adele.ecore#//AdeleType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__TRG__aac" lowerBound="1"
+        eType="ecore:EClass platform:/resource/Aadl/model/Aadl.ecore#//AadlComponent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__TRG__aap" lowerBound="1"
+        eType="ecore:EClass platform:/resource/Aadl/model/Aadl.ecore#//AadlPublicPackageSection"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__p2p" lowerBound="1"
+        eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//AdelePackageToAadlPackage"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__CORR__t2c" lowerBound="1"
+        eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//AdeleTypeToAadlComponent"/>
+  </eClassifiers>
+</ecore:EPackage>
