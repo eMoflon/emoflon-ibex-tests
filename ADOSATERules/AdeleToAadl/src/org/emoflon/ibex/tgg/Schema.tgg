@@ -14,21 +14,21 @@
 #correspondence {
 	AdeleTypeToAadlComponent{
 	
-	#src->Adele.AdeleType
-	#trg->Aadl.AadlComponent
+	#src->Adele.Component
+	#trg->Aadl.ComponentType
 }		
 	AdeleAccessToAadlAccess
 	{
-    #src->Adele.AdeleAccess
-	#trg->Aadl.AadlAccess
+    #src->Adele.Access
+	#trg->Aadl.Access
 	}
 	
 	
 	
-	AdelePackageToAadlPackage
+	AdeleFeatureToAadlFeature
 	{
-	#src->Adele.AdelePackage
-	#trg->Aadl.AadlPublicPackageSection
+	#src->Adele.Feature
+	#trg->Aadl.Feature
 	}
 }
 

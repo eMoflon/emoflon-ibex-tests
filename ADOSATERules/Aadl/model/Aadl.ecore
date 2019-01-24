@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="Aadl" nsURI="platform:/resource/Aadl/model/Aadl.ecore" nsPrefix="Aadl">
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="Aadl" nsURI="platform:/resource/Aadl/model/AadlComponent.ecore"
+    nsPrefix="AadlComponent">
   <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
     <details key="documentation" value="TODO: Add documentation for Blup"/>
   </eAnnotations>
-  <eClassifiers xsi:type="ecore:EClass" name="AadlComponent">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="AadlAccess" upperBound="-1"
-        eType="#//AadlAccess" containment="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ComponentType">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Access" upperBound="-1"
+        eType="#//Access" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AadlAccess">
+  <eClassifiers xsi:type="ecore:EClass" name="Access">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Feature" upperBound="-1"
+        eType="#//Feature" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="FeatureClassifier" upperBound="-1"
+        eType="#//FeatureClassifier" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AadlPublicPackageSection">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="AadlComponent" upperBound="-1"
-        eType="#//AadlComponent" containment="true"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Feature"/>
+  <eClassifiers xsi:type="ecore:EClass" name="FeatureClassifier"/>
 </ecore:EPackage>

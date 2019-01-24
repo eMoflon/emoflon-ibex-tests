@@ -1,17 +1,19 @@
 @GenModel(documentation="TODO: Add documentation for Blup")
 @namespace(uri="platform:/resource/Adele/model/Adele.ecore", prefix="Adele")
 package Adele;
-class AdeleType {
+class Component {
 	attr EString description;
-	val AdeleAccess[*] AdeleAccess;
+	val Access[*] AdeleAccess;
 }
 
-class AdeleAccess {
+class Access {
 	attr EString nameVar;
 	attr EString directionView;
+	val Feature[*] Feature;
+	val Component[*] Component;
 }
 
-class AdelePackage
-{
-	val AdeleType[*] AdeleType;
+
+class Feature{
+	attr EString nameVar;
 }

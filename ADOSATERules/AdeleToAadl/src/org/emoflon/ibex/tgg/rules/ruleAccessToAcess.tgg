@@ -4,30 +4,30 @@
 #rule ruleAccessToAcess #with AdeleToAadl
 
 #source { 
-	at:Adele.AdeleType
+	adeleType:Adele.Component
 	{
-		++ -AdeleAccess->ac
+		++ -AdeleAccess->adeleAccess
 	}
 	
-		++ac:Adele.AdeleAccess
+		++adeleAccess:Adele.Access
 	
 }
 
 #target {
-	 aac:Aadl.AadlComponent{
-  	++ -AadlAccess->asc
+	 aadleType:Aadl.ComponentType{
+  	++ -Access->aadlAccess
   }
-	++asc:Aadl.AadlAccess
+	++aadlAccess:Aadl.Access
 }
 
 #correspondence {
 	a2c:AdeleTypeToAadlComponent{
-		#src->at
-        #trg->aac
+		#src->adeleType
+        #trg->aadleType
 	}
 	++a2a:AdeleAccessToAadlAccess{
-	   #src->ac
-       #trg->asc
+	   #src->adeleAccess
+       #trg->aadlAccess
 	}
 }
 
