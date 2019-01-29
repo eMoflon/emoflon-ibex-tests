@@ -21,8 +21,12 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="refined" upperBound="-1"
         eType="#//Feature" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="featureClassifierFC" upperBound="-1"
+        eType="#//FeatureClassifier" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="featureClassifier" upperBound="-1"
         eType="#//ComponentType" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="featureClassifierDST" upperBound="-1"
+        eType="#//DataSubcomponentType" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Feature"/>
   <eClassifiers xsi:type="ecore:EClass" name="FeatureClassifier"/>
@@ -45,7 +49,7 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ownedAccessConnection"
         upperBound="-1" eType="#//AccessConnection" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="memberSub" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="memberSC" upperBound="-1"
         eType="#//Subcomponent" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ownedSubcomponent" upperBound="-1"
         eType="#//Subcomponent" containment="true"/>
@@ -91,6 +95,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="PublicPakageSection">
     <eStructuralFeatures xsi:type="ecore:EReference" name="ownedClassifier" upperBound="-1"
         eType="#//ComponentType" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedClassifierFGT" upperBound="-1"
+        eType="#//FeatureGroupType" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TypeExtension">
     <eStructuralFeatures xsi:type="ecore:EReference" name="extended" upperBound="-1"
@@ -102,6 +108,8 @@
         eType="#//Feature" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="classifier" upperBound="-1"
         eType="#//Classifier" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="classifierFGT" upperBound="-1"
+        eType="#//FeatureGroupType" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Classifier"/>
   <eClassifiers xsi:type="ecore:EClass" name="Connection">
@@ -113,9 +121,26 @@
   <eClassifiers xsi:type="ecore:EClass" name="FeatureGroupType">
     <eStructuralFeatures xsi:type="ecore:EReference" name="member" upperBound="-1"
         eType="#//DirectedFeature" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inverse" upperBound="-1"
+        eType="#//FeatureGroupType" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedFeature" upperBound="-1"
+        eType="#//Access" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedFeatureDF" upperBound="-1"
+        eType="#//DirectedFeature" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedExtension" upperBound="-1"
+        eType="#//GroupExtension" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FeatureGroup">
     <eStructuralFeatures xsi:type="ecore:EReference" name="featureType" upperBound="-1"
         eType="#//FeatureGroupType" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DataSubcomponentType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="GroupExtension">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="extended" upperBound="-1"
+        eType="#//FeatureGroupType" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AadlPackage">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedPublicSection" upperBound="-1"
+        eType="#//PublicPakageSection" containment="true"/>
   </eClassifiers>
 </ecore:EPackage>
