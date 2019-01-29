@@ -16,9 +16,8 @@ class ComponentType {
 class Access {
 	attr EString name;
 val Feature[*] refined;
-val FeatureClassifier[*] featureClassifierFC; //*
+// val FeatureClassifier[*] featureClassifier;
 val ComponentType[*] featureClassifier;
-val DataSubcomponentType[*] featureClassifierDST;
 }
 class Feature
 {
@@ -41,7 +40,7 @@ class ComponentImplementation
 	val AccessConnectionEnd[*] member;
 	val ComponentType[*] type;
 	val AccessConnection[*] ownedAccessConnection; 
-	val Subcomponent[*] memberSC; //*
+	val Subcomponent[*] memberSub; //*
 	val Subcomponent[*] ownedSubcomponent;
 	val Realization[*] ownedRealization;
 	val ImplementationExtension[*] ownedExtension;
@@ -84,7 +83,6 @@ class ImplementationExtension
 class PublicPakageSection
 {
 val ComponentType[*] ownedClassifier;
-val FeatureGroupType[*] ownedClassifierFGT;
 	
 }
 class TypeExtension
@@ -99,9 +97,8 @@ class DirectedFeature
 {
 	val Feature[*] refined;
 	val Classifier[*] classifier;
-	val FeatureGroupType[*] classifierFGT;//*
 }
-class Classifier{                                                                                                                                                                                
+class Classifier{
 	
 }
 class Connection{
@@ -111,20 +108,7 @@ val ConnectedElement[*] destination;
 }
 class FeatureGroupType{
 	val DirectedFeature[*] member;
-	val FeatureGroupType[*] inverse;
-	val Access[*] ownedFeature;
-	val DirectedFeature[*] ownedFeatureDF;//*
-	val GroupExtension[*] ownedExtension;
-	}
+}
 class FeatureGroup{
 	val FeatureGroupType[*] featureType;
-}
-class DataSubcomponentType{
-	
-}
-class GroupExtension{
-	val FeatureGroupType[*] extended;
-}
-class AadlPackage{
-	val PublicPakageSection[*] ownedPublicSection;
 }

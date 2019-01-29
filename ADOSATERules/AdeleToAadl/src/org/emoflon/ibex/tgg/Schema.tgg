@@ -12,26 +12,82 @@
 } 
 
 #correspondence {
-	AdeleTypeToAadlComponent{
 	
+	CorrComponentType
+	{
 	#src->Adele.Component
 	#trg->Aadl.ComponentType
-}		
-	AdeleAccessToAadlAccess
+    }	
+    // same src different trg with same corr
+    CorrComponentTypeTE
 	{
-    #src->Adele.Access
+	#src->Adele.Component
+	#trg->Aadl.TypeExtension
+    }	
+    // different src and trg same corr
+    CorrComponentTypeFG
+    {
+    #src->Adele.FeatureGroup
+    #trg->Aadl.FeatureGroupType
+    }
+    
+     CorrComponentTypeGE
+    {
+    #src->Adele.FeatureGroup
+    #trg->Aadl.GroupExtension
+    }
+    
+    
+    	
+	CorrAccess
+	{
+        #src->Adele.Access
 	#trg->Aadl.Access
 	}
 	
 	
-	
-	AdeleFeatureToAadlFeature
+	CorrFeature
 	{
 	#src->Adele.Feature
 	#trg->Aadl.Feature
 	}
-}
-
-#attributeConditions {
 	
-}
+	
+	CorrComponent
+	{
+	#src->Adele.Component
+	#trg->Aadl.FeatureClassifier
+	}
+	
+	CorrComponentSCT
+	{
+	#src->Adele.Component
+	#trg->Aadl.SubcomponentType
+	}
+	// Corr same like corrcomponent bt src and trg is different
+	CorrComponentSKC
+	{
+	#src->Adele.SKComponent
+	#trg->Aadl.Classifier
+	}
+	// Different trg
+	CorrComponentDST
+	{
+	#src->Adele.Component
+	#trg->Aadl.DataSubcomponentType
+	}
+	
+	
+	CorrComponentImplementation
+	{
+	#src->Adele.Component
+	#trg->Aadl.ComponentImplementation
+	}
+	
+	
+	CorrComponentImplementationR
+	{
+	#src->Adele.Component
+	#trg->Aadl.Realization
+	}
+	
