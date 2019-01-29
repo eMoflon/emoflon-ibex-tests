@@ -6,18 +6,85 @@
   </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="Component">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="AdeleAccess" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="adeleAccess" upperBound="-1"
         eType="#//Access" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="allRealFeatures" upperBound="-1"
+        eType="#//Access" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" upperBound="-1" eType="#//Component"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="allRealChildrenComponents"
+        upperBound="-1" eType="#//Component" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="refines" upperBound="-1"
+        eType="#//Component" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="refinedSubcomponent" upperBound="-1"
+        eType="#//Component" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="implementation" upperBound="-1"
+        eType="#//Component" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="allRealRelations" upperBound="-1"
+        eType="#//AccessConnection" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="features" upperBound="-1"
+        eType="#//DirectedFeature" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="allRealFeaturesDF" upperBound="-1"
+        eType="#//DirectedFeature" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="allRealRelationsDFC" upperBound="-1"
+        eType="#//DirectedFeatureConnection" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="allRealFeaturesFG" upperBound="-1"
+        eType="#//FeatureGroup" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Access">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nameVar" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="directionView" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Feature" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="refinedFeature" upperBound="-1"
         eType="#//Feature" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Component" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="classifier" upperBound="-1"
         eType="#//Component" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Feature">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nameVar" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AccessConnection">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="originalSinkSubcomponent"
+        upperBound="-1" eType="#//Component" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="originalSourceSubcomponent"
+        upperBound="-1" eType="#//Component" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="originalSourceFeature"
+        upperBound="-1" eType="#//Access" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="orginialSinkFeature" upperBound="-1"
+        eType="#//Access" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Package">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="component" upperBound="-1"
+        eType="#//Component" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="children" upperBound="-1"
+        eType="#//FeatureGroup" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DirectedFeature">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="refinedFeature" upperBound="-1"
+        eType="#//Feature" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="classifier" upperBound="-1"
+        eType="#//SKComponent" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="classifierFG" upperBound="-1"
+        eType="#//FeatureGroup" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SKComponent"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DirectedFeatureConnection">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="originalSourceFeature"
+        upperBound="-1" eType="#//DirectedFeature" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="originalSinkFeature" upperBound="-1"
+        eType="#//DirectedFeature" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FeatureGroup">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="allRealFeatures" upperBound="-1"
+        eType="#//DirectedFeature" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="classifier" upperBound="-1"
+        eType="#//FeatureGroup" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inverseFeature" upperBound="-1"
+        eType="#//FeatureGroup" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="features" upperBound="-1"
+        eType="#//Access" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="featuresDF" upperBound="-1"
+        eType="#//DirectedFeature" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="refinedFeature" upperBound="-1"
+        eType="#//FeatureGroup" containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

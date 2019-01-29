@@ -3,17 +3,64 @@
 package Adele;
 class Component {
 	attr EString description;
-	val Access[*] AdeleAccess;
-}
+	val Access[*] adeleAccess;
+	val Access[*] allRealFeatures; // to be clarified with NILS
+	val Component[*] type;
+	val Component[*] allRealChildrenComponents;
+	// val Component[*] tobecreated rule:ruleComponent2componentImplementation.tggdiag
+	val Component[*] refines;
+	val Component[*] refinedSubcomponent;
+	val Component[*] implementation;
+	val AccessConnection[*] allRealRelations;
+    val DirectedFeature[*] features;
+    val DirectedFeature[*] allRealFeaturesDF;//*
+    val DirectedFeatureConnection[*] allRealRelationsDFC; //*
+    val FeatureGroup[*] allRealFeaturesFG;//* 
+    }
 
 class Access {
 	attr EString nameVar;
 	attr EString directionView;
-	val Feature[*] Feature;
-	val Component[*] Component;
+	val Feature[*] refinedFeature;
+	val Component[*] classifier;
 }
-
 
 class Feature{
 	attr EString nameVar;
+}
+
+class AccessConnection
+{
+val Component[*] originalSinkSubcomponent;
+val Component[*] originalSourceSubcomponent;
+val Access[*] originalSourceFeature;
+val Access[*] orginialSinkFeature;
+	
+}
+class Package{
+	val Component[*] component;
+	val FeatureGroup[*] children;
+
+}
+class DirectedFeature{
+	
+val Feature[*] refinedFeature;
+val SKComponent[*] classifier;
+val FeatureGroup[*] classifierFG; //*
+}
+class SKComponent{
+	
+
+}
+class DirectedFeatureConnection{
+	val DirectedFeature[*] originalSourceFeature;
+	val DirectedFeature[*] originalSinkFeature;
+}
+class FeatureGroup{
+	val DirectedFeature[*] allRealFeatures;
+	val FeatureGroup[*] classifier; //check in tgg ruleDirFeatConn2dirFeatConnSrcParentFeatGroupDestSubcomp.tggdiag
+    val FeatureGroup[*] inverseFeature;
+    val Access[*] features;
+    val DirectedFeature[*] featuresDF; 
+     val FeatureGroup[*] refinedFeature;
 }

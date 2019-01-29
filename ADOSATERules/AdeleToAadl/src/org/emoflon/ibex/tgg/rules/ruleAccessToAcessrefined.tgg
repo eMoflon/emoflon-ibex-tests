@@ -4,14 +4,51 @@
 #rule ruleAccessToAcessrefined #with AdeleToAadl
 
 #source { 
+	adeleType:Adele.Component
+	{
+		++ -adeleAccess->adeleAccess
+	}
+	++adeleAccess:Adele.Access
+	{
+		++ - refinedFeature->adeleRefinedFeature
+
+	}
+	adeleRefinedFeature: Adele.Feature
+	
+	
 	
 }
 
 #target {
+	aadleType:Aadl.ComponentType
+	{
+		++ -ownedFeature->aadlAccess	
+	}
+	++aadlAccess:Aadl.Access
 	
+	{
+		++ - refined->aadlRefinedFeature
+	}
+	aadlRefinedFeature: Aadl.Feature
 }
 
+
 #correspondence {
+	a2c:AdeleTypeToAadlComponent{
+		#src->adeleType
+        #trg->aadleType
+	}
+	++a2a:AdeleAccessToAadlAccess{
+	   #src->adeleAccess
+       #trg->aadlAccess
+	}
+	adelefeaturetofeature:AdeleFeatureToAadlFeature
+	{
+		#src->adeleRefinedFeature
+       #trg->aadlRefinedFeature
+	}
+	
+	
 	
 }
 

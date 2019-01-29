@@ -6,7 +6,7 @@
 #source { 
 	adeleType:Adele.Component
 	{
-		++ -AdeleAccess->adeleAccess
+		++ -adeleAccess->adeleAccess
 	}
 	
 		++adeleAccess:Adele.Access
@@ -15,20 +15,21 @@
 
 #target {
 	 aadleType:Aadl.ComponentType{
-  	++ -Access->aadlAccess
+  	++ -ownedFeature->aadlAccess
   }
 	++aadlAccess:Aadl.Access
 }
 
 #correspondence {
-	a2c:AdeleTypeToAadlComponent{
+	adleTypeToaadlComponent:AdeleTypeToAadlComponent{
 		#src->adeleType
         #trg->aadleType
 	}
-	++a2a:AdeleAccessToAadlAccess{
+	++adleaccessToaadlaccess:AdeleAccessToAadlAccess{
 	   #src->adeleAccess
        #trg->aadlAccess
 	}
+	
 }
 
 #attributeConditions {
