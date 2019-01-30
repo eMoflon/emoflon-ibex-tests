@@ -41,7 +41,7 @@
     	
 	CorrAccess
 	{
-        #src->Adele.Access
+    #src->Adele.Access
 	#trg->Aadl.Access
 	}
 	
@@ -90,11 +90,84 @@
 	#src->Adele.Component
 	#trg->Aadl.Realization
 	}
-		
+	
+	CorrComponentImplementationIE
+	{
+	#src->Adele.Component
+	#trg->Aadl.ImplementationExtension
+	}
+	
+	CorrAccessConnention
+	{
+	#src->Adele.AccessConnection
+	#trg->Aadl.AccessConnection	
+	}
+	// Same corr like the previous one same src but different trg 
+	CorrAccessConnentionttrgCE
+	{           
+	#src->Adele.AccessConnection 
+	#trg->Aadl.ConnectedElement
+	}
+	
+	CorrSubcomponent
+	{
+	#src->Adele.Component
+	#trg->Aadl.AccessConnectionEnd
+	}
+	
+	// Same corr and src but different trg in different tgg
+	CorrSubcomponenttrgSC
+	{
+	#src->Adele.Component
+	#trg->Aadl.Subcomponent
+	}
+	
+	CorrAxiom
+	{
+	#src->Adele.Package
+	#trg->Aadl.PackageSection
+	}
+	
+	CorrAxiomPPS
+	{
+	#src->Adele.Package
+	#trg->Aadl.PublicPackageSection
+	}
+	
+	CorrAxiomAP
+	{
+	#src->Adele.Package
+	#trg->Aadl.AdlPackage
+	}
+	
+	
+	CorrDirectedFeature
+	{
+	#src->Adele.DirectedFeature
+	#trg->Aadl.DirectedFeature
+	}
+	// same corr with different src and trg
+	CorrDirectedFeatureFG
+	{
+	#src->Adele.FeatureGroup
+	#trg->Aadl.FeatureGroup
+	}
+	
+	CorrDirectedFeatureConnection
+	{
+	#src->Adele.DirectedFeatureConnection
+	#trg->Aadl.Connection
+	}
+	// corr is same with same src bt different trg
+	CorrDirectedFeatureConnectionCE
+	{
+	#src->Adele.DirectedFeatureConnection
+	#trg->Aadl.ConnectedElement
+	}
+	
+	
 }
 
 #attributeConditions {
 	
-}
-	
-	
+}	

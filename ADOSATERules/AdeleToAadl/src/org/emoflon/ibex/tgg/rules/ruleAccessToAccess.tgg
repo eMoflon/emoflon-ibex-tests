@@ -1,12 +1,12 @@
 #using AdeleToAadl.*
 #using AttrCondDefLibrary.*
 
-#rule ruleAccessToAcess #with AdeleToAadl
+#rule ruleAccessToAccess #with AdeleToAadl
 
 #source { 
 	adeleType:Adele.Component
 	{
-		++ -adeleAccess->adeleAccess
+		++ -adeleAccess->adeleAccess 
 	}
 	
 		++adeleAccess:Adele.Access
@@ -14,18 +14,18 @@
 }
 
 #target {
-	 aadleType:Aadl.ComponentType{
+	 aadlType:Aadl.ComponentType{
   	++ -ownedFeature->aadlAccess
   }
 	++aadlAccess:Aadl.Access
 }
 
 #correspondence {
-	adleTypeToaadlComponent:AdeleTypeToAadlComponent{
+	corrType:CorrComponentType{
 		#src->adeleType
-        #trg->aadleType
+        #trg->aadlType
 	}
-	++adleaccessToaadlaccess:AdeleAccessToAadlAccess{
+	++corrAccess:CorrAccess{
 	   #src->adeleAccess
        #trg->aadlAccess
 	}
@@ -35,3 +35,4 @@
 #attributeConditions {
 	
 }
+

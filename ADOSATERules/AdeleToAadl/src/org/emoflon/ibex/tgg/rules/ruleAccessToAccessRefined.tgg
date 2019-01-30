@@ -1,7 +1,7 @@
 #using AdeleToAadl.*
 #using AttrCondDefLibrary.*
 
-#rule ruleAccessToAcessrefined #with AdeleToAadl
+#rule ruleAccessToAccessRefined #with AdeleToAadl
 
 #source { 
 	adeleType:Adele.Component
@@ -34,15 +34,15 @@
 
 
 #correspondence {
-	a2c:AdeleTypeToAadlComponent{
+	corrType:CorrComponentType{
 		#src->adeleType
         #trg->aadleType
 	}
-	++a2a:AdeleAccessToAadlAccess{
+	++corrAccess:CorrAccess{
 	   #src->adeleAccess
        #trg->aadlAccess
 	}
-	adelefeaturetofeature:AdeleFeatureToAadlFeature
+	corrRefinedFeature:CorrFeature
 	{
 		#src->adeleRefinedFeature
        #trg->aadlRefinedFeature
@@ -55,3 +55,4 @@
 #attributeConditions {
 	
 }
+
