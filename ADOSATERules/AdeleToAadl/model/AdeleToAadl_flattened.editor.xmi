@@ -91,13 +91,10 @@
         <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessToAccessTypedRefined.tgg#|9"/>
       </linkVariablePatterns>
     </targetPatterns>
-    <correspondencePatterns name="a2a">
+    <correspondencePatterns name="a2a" type="//@schema/@correspondenceTypes.1">
       <op value="++"/>
-      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessToAccessTypedRefined.tgg#|18"/>
     </correspondencePatterns>
-    <correspondencePatterns name="a2c">
-      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessToAccessTypedRefined.tgg#|15"/>
-    </correspondencePatterns>
+    <correspondencePatterns name="a2c" type="//@schema/@correspondenceTypes.0" source="//@rules.0/@sourcePatterns.2" target="//@rules.0/@targetPatterns.2"/>
     <correspondencePatterns name="adeleComponentToaadlFeatureClassifier">
       <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessToAccessTypedRefined.tgg#|21"/>
     </correspondencePatterns>
@@ -125,12 +122,9 @@
         <type href="platform:/resource/Aadl/model/Aadl.ecore#//ComponentType/ownedFeature"/>
       </linkVariablePatterns>
     </targetPatterns>
-    <correspondencePatterns name="adleTypeToaadlComponent">
-      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessToAcess.tgg#|9"/>
-    </correspondencePatterns>
-    <correspondencePatterns name="adleaccessToaadlaccess">
+    <correspondencePatterns name="adleTypeToaadlComponent" type="//@schema/@correspondenceTypes.0" source="//@rules.1/@sourcePatterns.1" target="//@rules.1/@targetPatterns.1"/>
+    <correspondencePatterns name="adleaccessToaadlaccess" type="//@schema/@correspondenceTypes.1">
       <op value="++"/>
-      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessToAcess.tgg#|12"/>
     </correspondencePatterns>
   </rules>
   <rules name="ruleAccessToAcessrefined" schema="//@schema">
@@ -170,15 +164,10 @@
         <type href="platform:/resource/Aadl/model/Aadl.ecore#//ComponentType/ownedFeature"/>
       </linkVariablePatterns>
     </targetPatterns>
-    <correspondencePatterns name="a2a">
+    <correspondencePatterns name="a2a" type="//@schema/@correspondenceTypes.1">
       <op value="++"/>
-      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessToAcessrefined.tgg#|18"/>
     </correspondencePatterns>
-    <correspondencePatterns name="a2c">
-      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessToAcessrefined.tgg#|15"/>
-    </correspondencePatterns>
-    <correspondencePatterns name="adelefeaturetofeature">
-      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessToAcessrefined.tgg#|21"/>
-    </correspondencePatterns>
+    <correspondencePatterns name="a2c" type="//@schema/@correspondenceTypes.0" source="//@rules.2/@sourcePatterns.2" target="//@rules.2/@targetPatterns.2"/>
+    <correspondencePatterns name="adelefeaturetofeature" type="//@schema/@correspondenceTypes.2"/>
   </rules>
 </tgg:TripleGraphGrammarFile>

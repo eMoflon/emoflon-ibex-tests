@@ -95,14 +95,9 @@
     <targetPatterns name="aadlClassifier">
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//FeatureClassifier"/>
     </targetPatterns>
-    <correspondencePatterns name="a2c">
-      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessToAccessTypedRefined.tgg#|15"/>
-      <source href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessToAccessTypedRefined.tgg#|16"/>
-      <target href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessToAccessTypedRefined.tgg#|17"/>
-    </correspondencePatterns>
-    <correspondencePatterns name="a2a">
+    <correspondencePatterns name="a2c" type="//@schema/@correspondenceTypes.0" source="//@rules.0/@sourcePatterns.0" target="//@rules.0/@targetPatterns.0"/>
+    <correspondencePatterns name="a2a" type="//@schema/@correspondenceTypes.1">
       <op value="++"/>
-      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessToAccessTypedRefined.tgg#|18"/>
       <source href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessToAccessTypedRefined.tgg#|19"/>
       <target href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessToAccessTypedRefined.tgg#|20"/>
     </correspondencePatterns>
@@ -135,14 +130,9 @@
       <op value="++"/>
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//Access"/>
     </targetPatterns>
-    <correspondencePatterns name="adleTypeToaadlComponent">
-      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessToAcess.tgg#|9"/>
-      <source href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessToAcess.tgg#|10"/>
-      <target href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessToAcess.tgg#|11"/>
-    </correspondencePatterns>
-    <correspondencePatterns name="adleaccessToaadlaccess">
+    <correspondencePatterns name="adleTypeToaadlComponent" type="//@schema/@correspondenceTypes.0" source="//@rules.1/@sourcePatterns.0" target="//@rules.1/@targetPatterns.0"/>
+    <correspondencePatterns name="adleaccessToaadlaccess" type="//@schema/@correspondenceTypes.1">
       <op value="++"/>
-      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessToAcess.tgg#|12"/>
       <source href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessToAcess.tgg#|13"/>
       <target href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessToAcess.tgg#|14"/>
     </correspondencePatterns>
@@ -184,19 +174,13 @@
     <targetPatterns name="aadlRefinedFeature">
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//Feature"/>
     </targetPatterns>
-    <correspondencePatterns name="a2c">
-      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessToAcessrefined.tgg#|15"/>
-      <source href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessToAcessrefined.tgg#|16"/>
-      <target href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessToAcessrefined.tgg#|17"/>
-    </correspondencePatterns>
-    <correspondencePatterns name="a2a">
+    <correspondencePatterns name="a2c" type="//@schema/@correspondenceTypes.0" source="//@rules.2/@sourcePatterns.0" target="//@rules.2/@targetPatterns.0"/>
+    <correspondencePatterns name="a2a" type="//@schema/@correspondenceTypes.1">
       <op value="++"/>
-      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessToAcessrefined.tgg#|18"/>
       <source href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessToAcessrefined.tgg#|19"/>
       <target href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessToAcessrefined.tgg#|20"/>
     </correspondencePatterns>
-    <correspondencePatterns name="adelefeaturetofeature">
-      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessToAcessrefined.tgg#|21"/>
+    <correspondencePatterns name="adelefeaturetofeature" type="//@schema/@correspondenceTypes.2">
       <source href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessToAcessrefined.tgg#|22"/>
       <target href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessToAcessrefined.tgg#|23"/>
     </correspondencePatterns>
