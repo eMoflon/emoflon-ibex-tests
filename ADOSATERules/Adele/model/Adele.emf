@@ -4,7 +4,7 @@ package Adele;
 class Component {
 	attr EString description;
 	val Access[*] adeleAccess;
-	val Access[*] allRealFeatures; // to be clarified with NILS
+	val Access[*] allRealFeatures; 
 	val Component[*] type;
 	val Component[*] allRealChildrenComponents;
 	// val Component[*] tobecreated rule:ruleComponent2componentImplementation.tggdiag
@@ -13,9 +13,9 @@ class Component {
 	val Component[*] implementation;
 	val AccessConnection[*] allRealRelations;
     val DirectedFeature[*] features;
-    val DirectedFeature[*] allRealFeaturesDF;//*
-    val DirectedFeatureConnection[*] allRealRelationsDFC; //*
-    val FeatureGroup[*] allRealFeaturesFG;//* 
+    val DirectedFeature[*] allRealFeaturesDf;//*
+    val DirectedFeatureConnection[*] allRealRelationsDfc; //*
+    val FeatureGroup[*] allRealFeaturesFg;//* 
     }
 
 class Access {
@@ -46,7 +46,7 @@ class DirectedFeature{
 	
 val Feature[*] refinedFeature;
 val SKComponent[*] classifier;
-val FeatureGroup[*] classifierFG; //*
+val FeatureGroup[*] classifierFg; //*
 }
 class SKComponent{
 	
@@ -61,6 +61,6 @@ class FeatureGroup{
 	val FeatureGroup[*] classifier; //check in tgg ruleDirFeatConn2dirFeatConnSrcParentFeatGroupDestSubcomp.tggdiag
     val FeatureGroup[*] inverseFeature;
     val Access[*] features;
-    val DirectedFeature[*] featuresDF; 
+    val DirectedFeature[*] featuresDf; 
      val FeatureGroup[*] refinedFeature;
 }

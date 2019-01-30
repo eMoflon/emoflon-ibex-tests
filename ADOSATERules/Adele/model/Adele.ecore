@@ -24,11 +24,11 @@
         eType="#//AccessConnection" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="features" upperBound="-1"
         eType="#//DirectedFeature" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="allRealFeaturesDF" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="allRealFeaturesDf" upperBound="-1"
         eType="#//DirectedFeature" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="allRealRelationsDFC" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="allRealRelationsDfc" upperBound="-1"
         eType="#//DirectedFeatureConnection" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="allRealFeaturesFG" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="allRealFeaturesFg" upperBound="-1"
         eType="#//FeatureGroup" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Access">
@@ -63,7 +63,7 @@
         eType="#//Feature" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="classifier" upperBound="-1"
         eType="#//SKComponent" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="classifierFG" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="classifierFg" upperBound="-1"
         eType="#//FeatureGroup" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SKComponent"/>
@@ -82,7 +82,7 @@
         eType="#//FeatureGroup" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="features" upperBound="-1"
         eType="#//Access" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="featuresDF" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="featuresDf" upperBound="-1"
         eType="#//DirectedFeature" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="refinedFeature" upperBound="-1"
         eType="#//FeatureGroup" containment="true"/>

@@ -16,9 +16,9 @@ class ComponentType {
 class Access {
 	attr EString name;
 val Feature[*] refined;
-val FeatureClassifier[*] featureClassifierFC; //*
+val FeatureClassifier[*] featureClassifierFc;
 val ComponentType[*] featureClassifier;
-val DataSubcomponentType[*] featureClassifierDST;
+val DataSubcomponentType[*] featClassifierDst;
 }
 class Feature
 {
@@ -31,21 +31,21 @@ class FeatureClassifier
 class ConnectedElement
 {
 	val Access[*] connectionEnd;
-	val AccessConnectionEnd[*] connectionEndACE; // *To be clarified (Tgg rule number 7)
+	val AccessConnectionEnd[*] connectionEndAce; 
 	val Subcomponent[*] context;
-	val DirectedFeature[*] connectionEndDF;//*
-	val FeatureGroup[*] contextFG; //*
+	val DirectedFeature[*] connectionEndDf;
+	val FeatureGroup[*] contextFg;
 }
 class ComponentImplementation
 {
 	val AccessConnectionEnd[*] member;
 	val ComponentType[*] type;
 	val AccessConnection[*] ownedAccessConnection; 
-	val Subcomponent[*] memberSC; //*
+	val Subcomponent[*] memberSub; //*
 	val Subcomponent[*] ownedSubcomponent;
 	val Realization[*] ownedRealization;
 	val ImplementationExtension[*] ownedExtension;
-	val TypeExtension[*] ownedExtensionTE; //*
+	val TypeExtension[*] ownedExtensionTe; 
 	val Connection[*] ownedConnection;
 
 }
@@ -58,18 +58,19 @@ class AccessConnectionEnd
 {
 	
 }
+/*check this thouroughly*/
 class Subcomponent
 {
 	val Subcomponent[*] refined;
-	val SubcomponentType[*] subcomponentType; //not a self defined name
-	val SubcomponentType[*] subComponentType; //  we created
-	val ComponentImplementation[*] subComponentTypeCI; //*
+	val SubcomponentType[*] subCompType; //check in tggs and merge
+/*	val SubcomponentType[*] subComponentType; //  check in tggs */
+	val ComponentImplementation[*] subComponentTypeCi; 
 	val ComponentImplementation[*] componentImplementation; //no name for connection in tgg
 }
 class PackageSection
 {
 val ComponentType[*] ownedClassifier;
-val ComponentImplementation[*] ownedClassifierCI; //*
+val ComponentImplementation[*] ownedClassifierCi;
 
 	
 }
@@ -81,10 +82,10 @@ class ImplementationExtension
 {
 	
 }
-class PublicPakageSection
+class PublicPackageSection
 {
 val ComponentType[*] ownedClassifier;
-val FeatureGroupType[*] ownedClassifierFGT;
+val FeatureGroupType[*] ownedClassfr;
 	
 }
 class TypeExtension
@@ -99,9 +100,9 @@ class DirectedFeature
 {
 	val Feature[*] refined;
 	val Classifier[*] classifier;
-	val FeatureGroupType[*] classifierFGT;//*
+	val FeatureGroupType[*] classifierFgt;
 }
-class Classifier{                                                                                                                                                                                
+class Classifier{
 	
 }
 class Connection{
@@ -113,9 +114,9 @@ class FeatureGroupType{
 	val DirectedFeature[*] member;
 	val FeatureGroupType[*] inverse;
 	val Access[*] ownedFeature;
-	val DirectedFeature[*] ownedFeatureDF;//*
+	val DirectedFeature[*] ownedFeatureDf;
 	val GroupExtension[*] ownedExtension;
-	}
+}
 class FeatureGroup{
 	val FeatureGroupType[*] featureType;
 }
@@ -125,6 +126,7 @@ class DataSubcomponentType{
 class GroupExtension{
 	val FeatureGroupType[*] extended;
 }
-class AadlPackage{
-	val PublicPakageSection[*] ownedPublicSection;
+class AdlPackage{
+	val PublicPackageSection[*] ownedPublicSection;
 }
+
