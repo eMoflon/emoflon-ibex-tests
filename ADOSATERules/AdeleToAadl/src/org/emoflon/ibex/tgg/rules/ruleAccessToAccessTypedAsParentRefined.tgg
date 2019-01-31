@@ -5,7 +5,7 @@
 
 #source { 
 	adeleType:Adele.Component{
- 	++ -adeleAccess -> adeleAccess
+ 	++ -features -> adeleAccess
  
  }
  ++adeleAccess:Adele.Access
@@ -56,4 +56,3 @@
 #attributeConditions {
 	
 }
-

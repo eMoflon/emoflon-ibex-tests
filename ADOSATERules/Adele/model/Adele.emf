@@ -3,16 +3,17 @@
 package Adele;
 class Component {
 	attr EString description;
-	val Access[*] adeleAccess;
+	val Access[*] features;
 	val Access[*] allRealFeatures; 
 	val Component[*] type;
 	val Component[*] allRealChildrenComponents;
+	val Component [*] children;
 	// val Component[*] tobecreated rule:ruleComponent2componentImplementation.tggdiag
 	val Component[*] refines;
 	val Component[*] refinedSubcomponent;
 	val Component[*] implementation;
 	val AccessConnection[*] allRealRelations;
-    val DirectedFeature[*] features;
+    val DirectedFeature[*] featuresDf;
     val DirectedFeature[*] allRealFeaturesDf;//*
     val DirectedFeatureConnection[*] allRealRelationsDfc; //*
     val FeatureGroup[*] allRealFeaturesFg;//* 
@@ -38,7 +39,7 @@ val Access[*] orginialSinkFeature;
 	
 }
 class Package{
-	val Component[*] component;
+	val Component[*] component; //we named it(initial name was children and not component)
 	val FeatureGroup[*] children;
 
 }

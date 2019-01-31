@@ -1,0 +1,68 @@
+#using AdeleToAadl.*
+#using AttrCondDefLibrary.*
+
+#rule ruleComponentToSubcomponentTypedAsParentRefinedTyped #with AdeleToAadl
+
+#source { 
+	adeleImplementation: Adele.Component
+	{
+		++ -children-> adeleSubcomponent
+	}
+	++ adeleSubcomponent: Adele.Component
+	{
+		++ -refines-> adeleImplementation
+		++ -refinedSubcomponent -> adeleRefinedSubcomponent
+		++ -implementation -> adeleSubcomponentImpl
+	}
+	adeleRefinedSubcomponent: Adele.Component
+	adeleSubcomponentImpl: Adele.Component
+}
+
+#target {
+	aadlImplementation: Aadl.ComponentImplementation
+	{
+		++ -ownedSubcomponent -> aadlSubcomponent
+	}
+	++ aadlSubcomponent:Aadl.Subcomponent
+	{
+		++ -subComponentTypeCi -> aadlImplementation
+		++ -refined -> aadlRefinedSubcomponent
+	}
+	aadlRefinedSubcomponent: Aadl.Subcomponent
+	{
+		-subCompType -> aadlRefinedSubcomponentType
+	}
+	
+	aadlRefinedSubcomponentType: Aadl.SubcomponentType
+}
+
+
+#correspondence {
+	
+	corrImplementation: CorrComponentImplementation
+	{
+		#src->adeleImplementation
+		#trg->aadlImplementation
+	}
+	++ corrSubcomponent: CorrSubcomponenttrgSC
+	{
+		#src->adeleSubcomponent
+		#trg->aadlSubcomponent
+	}
+	corrRefinedSubcomponent: CorrSubcomponenttrgSC
+	{
+		#src->adeleRefinedSubcomponent
+		#trg->aadlRefinedSubcomponent
+	}
+	corrRefinedComponentType: CorrComponentSCT
+	{
+		#src->adeleSubcomponentImpl
+		#trg->aadlRefinedSubcomponentType
+	}
+	
+	
+}
+
+#attributeConditions {
+	
+}

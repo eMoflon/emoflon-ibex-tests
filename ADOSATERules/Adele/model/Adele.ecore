@@ -6,7 +6,7 @@
   </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="Component">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="adeleAccess" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="features" upperBound="-1"
         eType="#//Access" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="allRealFeatures" upperBound="-1"
         eType="#//Access" containment="true"/>
@@ -14,6 +14,8 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="allRealChildrenComponents"
         upperBound="-1" eType="#//Component" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="children" upperBound="-1"
+        eType="#//Component" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="refines" upperBound="-1"
         eType="#//Component" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="refinedSubcomponent" upperBound="-1"
@@ -22,7 +24,7 @@
         eType="#//Component" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="allRealRelations" upperBound="-1"
         eType="#//AccessConnection" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="features" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="featuresDf" upperBound="-1"
         eType="#//DirectedFeature" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="allRealFeaturesDf" upperBound="-1"
         eType="#//DirectedFeature" containment="true"/>

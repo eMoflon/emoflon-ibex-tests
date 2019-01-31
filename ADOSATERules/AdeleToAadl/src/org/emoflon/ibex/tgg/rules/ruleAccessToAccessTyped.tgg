@@ -1,22 +1,19 @@
 #using AdeleToAadl.*
 #using AttrCondDefLibrary.*
 
-#rule ruleAccessToAccessRefined #with AdeleToAadl
+#rule ruleAccessToAccessTyped #with AdeleToAadl
 
 #source { 
 	adeleType:Adele.Component
 	{
-		++ -features-> adeleAccess
+		++ -features->adeleAccess
+	
 	}
 	++adeleAccess:Adele.Access
 	{
-		++ - refinedFeature->adeleRefinedFeature
-
+		++ -classifier->adeleClassifier
 	}
-	adeleRefinedFeature: Adele.Feature
-	
-	
-	
+	adeleClassifier: Adele.Component
 }
 
 #target {
@@ -25,13 +22,13 @@
 		++ -ownedFeature->aadlAccess	
 	}
 	++aadlAccess:Aadl.Access
-	
 	{
-		++ - refined->aadlRefinedFeature
+		++ -featureClassifierFc->aadlClassifier
 	}
-	aadlRefinedFeature: Aadl.Feature
+	aadlClassifier:Aadl.FeatureClassifier
+	
+	
 }
-
 
 #correspondence {
 	corrType:CorrComponentType{
@@ -42,10 +39,10 @@
 	   #src->adeleAccess
        #trg->aadlAccess
 	}
-	corrRefinedFeature:CorrFeature
+	corrComponentClassifier:CorrComponent
 	{
-		#src->adeleRefinedFeature
-       #trg->aadlRefinedFeature
+		#src->adeleClassifier
+		#trg->aadlClassifier
 	}
 	
 	
@@ -55,4 +52,3 @@
 #attributeConditions {
 	
 }
-

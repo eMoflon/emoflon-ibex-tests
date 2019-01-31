@@ -102,12 +102,48 @@
       <target href="platform:/resource/Aadl/model/Aadl.ecore#//ConnectedElement"/>
     </correspondenceTypes>
   </schema>
-  <rules name="ruleAccessToAccess" schema="//@schema">
-    <sourcePatterns name="adeleType">
+  <rules name="RuleComponentToSubcomponentTypedAsParent" schema="//@schema">
+    <sourcePatterns name="adeleImplementation">
       <type href="platform:/resource/Adele/model/Adele.ecore#//Component"/>
       <linkVariablePatterns target="//@rules.0/@sourcePatterns.1">
         <op value="++"/>
-        <type href="platform:/resource/Adele/model/Adele.ecore#//Component/adeleAccess"/>
+        <type href="platform:/resource/Adele/model/Adele.ecore#//Component/children"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="adeleSubcomponent">
+      <op value="++"/>
+      <type href="platform:/resource/Adele/model/Adele.ecore#//Component"/>
+      <linkVariablePatterns target="//@rules.0/@sourcePatterns.0">
+        <op value="++"/>
+        <type href="platform:/resource/Adele/model/Adele.ecore#//Component/implementation"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <targetPatterns name="aadlImplementation">
+      <type href="platform:/resource/Aadl/model/Aadl.ecore#//ComponentImplementation"/>
+      <linkVariablePatterns target="//@rules.0/@targetPatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Aadl/model/Aadl.ecore#//ComponentImplementation/ownedSubcomponent"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="aadlSubcomponent">
+      <op value="++"/>
+      <type href="platform:/resource/Aadl/model/Aadl.ecore#//Subcomponent"/>
+      <linkVariablePatterns target="//@rules.0/@targetPatterns.0">
+        <op value="++"/>
+        <type href="platform:/resource/Aadl/model/Aadl.ecore#//Subcomponent/subComponentTypeCi"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <correspondencePatterns name="corrImplementation" type="//@schema/@correspondenceTypes.10" source="//@rules.0/@sourcePatterns.0" target="//@rules.0/@targetPatterns.0"/>
+    <correspondencePatterns name="corrSubcomponent" type="//@schema/@correspondenceTypes.16" source="//@rules.0/@sourcePatterns.1" target="//@rules.0/@targetPatterns.1">
+      <op value="++"/>
+    </correspondencePatterns>
+  </rules>
+  <rules name="ruleAccessToAccess" schema="//@schema">
+    <sourcePatterns name="adeleType">
+      <type href="platform:/resource/Adele/model/Adele.ecore#//Component"/>
+      <linkVariablePatterns target="//@rules.1/@sourcePatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Adele/model/Adele.ecore#//Component/features"/>
       </linkVariablePatterns>
     </sourcePatterns>
     <sourcePatterns name="adeleAccess">
@@ -115,41 +151,6 @@
       <type href="platform:/resource/Adele/model/Adele.ecore#//Access"/>
     </sourcePatterns>
     <targetPatterns name="aadlType">
-      <type href="platform:/resource/Aadl/model/Aadl.ecore#//ComponentType"/>
-      <linkVariablePatterns target="//@rules.0/@targetPatterns.1">
-        <op value="++"/>
-        <type href="platform:/resource/Aadl/model/Aadl.ecore#//ComponentType/ownedFeature"/>
-      </linkVariablePatterns>
-    </targetPatterns>
-    <targetPatterns name="aadlAccess">
-      <op value="++"/>
-      <type href="platform:/resource/Aadl/model/Aadl.ecore#//Access"/>
-    </targetPatterns>
-    <correspondencePatterns name="corrType" type="//@schema/@correspondenceTypes.0" source="//@rules.0/@sourcePatterns.0" target="//@rules.0/@targetPatterns.0"/>
-    <correspondencePatterns name="corrAccess" type="//@schema/@correspondenceTypes.4" source="//@rules.0/@sourcePatterns.1" target="//@rules.0/@targetPatterns.1">
-      <op value="++"/>
-    </correspondencePatterns>
-  </rules>
-  <rules name="ruleAccessToAccessRefined" schema="//@schema">
-    <sourcePatterns name="adeleType">
-      <type href="platform:/resource/Adele/model/Adele.ecore#//Component"/>
-      <linkVariablePatterns target="//@rules.1/@sourcePatterns.1">
-        <op value="++"/>
-        <type href="platform:/resource/Adele/model/Adele.ecore#//Component/adeleAccess"/>
-      </linkVariablePatterns>
-    </sourcePatterns>
-    <sourcePatterns name="adeleAccess">
-      <op value="++"/>
-      <type href="platform:/resource/Adele/model/Adele.ecore#//Access"/>
-      <linkVariablePatterns target="//@rules.1/@sourcePatterns.2">
-        <op value="++"/>
-        <type href="platform:/resource/Adele/model/Adele.ecore#//Access/refinedFeature"/>
-      </linkVariablePatterns>
-    </sourcePatterns>
-    <sourcePatterns name="adeleRefinedFeature">
-      <type href="platform:/resource/Adele/model/Adele.ecore#//Feature"/>
-    </sourcePatterns>
-    <targetPatterns name="aadleType">
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//ComponentType"/>
       <linkVariablePatterns target="//@rules.1/@targetPatterns.1">
         <op value="++"/>
@@ -159,37 +160,32 @@
     <targetPatterns name="aadlAccess">
       <op value="++"/>
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//Access"/>
-      <linkVariablePatterns target="//@rules.1/@targetPatterns.2">
-        <op value="++"/>
-        <type href="platform:/resource/Aadl/model/Aadl.ecore#//Access/refined"/>
-      </linkVariablePatterns>
-    </targetPatterns>
-    <targetPatterns name="aadlRefinedFeature">
-      <type href="platform:/resource/Aadl/model/Aadl.ecore#//Feature"/>
     </targetPatterns>
     <correspondencePatterns name="corrType" type="//@schema/@correspondenceTypes.0" source="//@rules.1/@sourcePatterns.0" target="//@rules.1/@targetPatterns.0"/>
     <correspondencePatterns name="corrAccess" type="//@schema/@correspondenceTypes.4" source="//@rules.1/@sourcePatterns.1" target="//@rules.1/@targetPatterns.1">
       <op value="++"/>
     </correspondencePatterns>
-    <correspondencePatterns name="corrRefinedFeature" type="//@schema/@correspondenceTypes.5" source="//@rules.1/@sourcePatterns.2" target="//@rules.1/@targetPatterns.2"/>
   </rules>
-  <rules name="ruleAccessToAccessTypedAsParent" schema="//@schema">
+  <rules name="ruleAccessToAccessRefined" schema="//@schema">
     <sourcePatterns name="adeleType">
       <type href="platform:/resource/Adele/model/Adele.ecore#//Component"/>
       <linkVariablePatterns target="//@rules.2/@sourcePatterns.1">
         <op value="++"/>
-        <type href="platform:/resource/Adele/model/Adele.ecore#//Component/adeleAccess"/>
+        <type href="platform:/resource/Adele/model/Adele.ecore#//Component/features"/>
       </linkVariablePatterns>
     </sourcePatterns>
     <sourcePatterns name="adeleAccess">
       <op value="++"/>
       <type href="platform:/resource/Adele/model/Adele.ecore#//Access"/>
-      <linkVariablePatterns target="//@rules.2/@sourcePatterns.0">
+      <linkVariablePatterns target="//@rules.2/@sourcePatterns.2">
         <op value="++"/>
-        <type href="platform:/resource/Adele/model/Adele.ecore#//Access/classifier"/>
+        <type href="platform:/resource/Adele/model/Adele.ecore#//Access/refinedFeature"/>
       </linkVariablePatterns>
     </sourcePatterns>
-    <targetPatterns name="aadlType">
+    <sourcePatterns name="adeleRefinedFeature">
+      <type href="platform:/resource/Adele/model/Adele.ecore#//Feature"/>
+    </sourcePatterns>
+    <targetPatterns name="aadleType">
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//ComponentType"/>
       <linkVariablePatterns target="//@rules.2/@targetPatterns.1">
         <op value="++"/>
@@ -199,40 +195,40 @@
     <targetPatterns name="aadlAccess">
       <op value="++"/>
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//Access"/>
-      <linkVariablePatterns target="//@rules.2/@targetPatterns.0">
+      <linkVariablePatterns target="//@rules.2/@targetPatterns.2">
         <op value="++"/>
-        <type href="platform:/resource/Aadl/model/Aadl.ecore#//Access/featureClassifier"/>
+        <type href="platform:/resource/Aadl/model/Aadl.ecore#//Access/refined"/>
       </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="aadlRefinedFeature">
+      <type href="platform:/resource/Aadl/model/Aadl.ecore#//Feature"/>
     </targetPatterns>
     <correspondencePatterns name="corrType" type="//@schema/@correspondenceTypes.0" source="//@rules.2/@sourcePatterns.0" target="//@rules.2/@targetPatterns.0"/>
     <correspondencePatterns name="corrAccess" type="//@schema/@correspondenceTypes.4" source="//@rules.2/@sourcePatterns.1" target="//@rules.2/@targetPatterns.1">
       <op value="++"/>
     </correspondencePatterns>
+    <correspondencePatterns name="corrRefinedFeature" type="//@schema/@correspondenceTypes.5" source="//@rules.2/@sourcePatterns.2" target="//@rules.2/@targetPatterns.2"/>
   </rules>
-  <rules name="ruleAccessToAccessTypedAsParentRefined" schema="//@schema">
+  <rules name="ruleAccessToAccessTyped" schema="//@schema">
     <sourcePatterns name="adeleType">
       <type href="platform:/resource/Adele/model/Adele.ecore#//Component"/>
       <linkVariablePatterns target="//@rules.3/@sourcePatterns.1">
         <op value="++"/>
-        <type href="platform:/resource/Adele/model/Adele.ecore#//Component/adeleAccess"/>
+        <type href="platform:/resource/Adele/model/Adele.ecore#//Component/features"/>
       </linkVariablePatterns>
     </sourcePatterns>
     <sourcePatterns name="adeleAccess">
       <op value="++"/>
       <type href="platform:/resource/Adele/model/Adele.ecore#//Access"/>
-      <linkVariablePatterns target="//@rules.3/@sourcePatterns.0">
+      <linkVariablePatterns target="//@rules.3/@sourcePatterns.2">
         <op value="++"/>
         <type href="platform:/resource/Adele/model/Adele.ecore#//Access/classifier"/>
       </linkVariablePatterns>
-      <linkVariablePatterns target="//@rules.3/@sourcePatterns.2">
-        <op value="++"/>
-        <type href="platform:/resource/Adele/model/Adele.ecore#//Access/refinedFeature"/>
-      </linkVariablePatterns>
     </sourcePatterns>
-    <sourcePatterns name="adeleRefinedFeature">
-      <type href="platform:/resource/Adele/model/Adele.ecore#//Feature"/>
+    <sourcePatterns name="adeleClassifier">
+      <type href="platform:/resource/Adele/model/Adele.ecore#//Component"/>
     </sourcePatterns>
-    <targetPatterns name="aadlType">
+    <targetPatterns name="aadleType">
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//ComponentType"/>
       <linkVariablePatterns target="//@rules.3/@targetPatterns.1">
         <op value="++"/>
@@ -242,11 +238,94 @@
     <targetPatterns name="aadlAccess">
       <op value="++"/>
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//Access"/>
-      <linkVariablePatterns target="//@rules.3/@targetPatterns.0">
+      <linkVariablePatterns target="//@rules.3/@targetPatterns.2">
+        <op value="++"/>
+        <type href="platform:/resource/Aadl/model/Aadl.ecore#//Access/featureClassifierFc"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="aadlClassifier">
+      <type href="platform:/resource/Aadl/model/Aadl.ecore#//FeatureClassifier"/>
+    </targetPatterns>
+    <correspondencePatterns name="corrType" type="//@schema/@correspondenceTypes.0" source="//@rules.3/@sourcePatterns.0" target="//@rules.3/@targetPatterns.0"/>
+    <correspondencePatterns name="corrAccess" type="//@schema/@correspondenceTypes.4" source="//@rules.3/@sourcePatterns.1" target="//@rules.3/@targetPatterns.1">
+      <op value="++"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrComponentClassifier" type="//@schema/@correspondenceTypes.6" source="//@rules.3/@sourcePatterns.2" target="//@rules.3/@targetPatterns.2"/>
+  </rules>
+  <rules name="ruleAccessToAccessTypedAsParent" schema="//@schema">
+    <sourcePatterns name="adeleType">
+      <type href="platform:/resource/Adele/model/Adele.ecore#//Component"/>
+      <linkVariablePatterns target="//@rules.4/@sourcePatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Adele/model/Adele.ecore#//Component/features"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="adeleAccess">
+      <op value="++"/>
+      <type href="platform:/resource/Adele/model/Adele.ecore#//Access"/>
+      <linkVariablePatterns target="//@rules.4/@sourcePatterns.0">
+        <op value="++"/>
+        <type href="platform:/resource/Adele/model/Adele.ecore#//Access/classifier"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <targetPatterns name="aadlType">
+      <type href="platform:/resource/Aadl/model/Aadl.ecore#//ComponentType"/>
+      <linkVariablePatterns target="//@rules.4/@targetPatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Aadl/model/Aadl.ecore#//ComponentType/ownedFeature"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="aadlAccess">
+      <op value="++"/>
+      <type href="platform:/resource/Aadl/model/Aadl.ecore#//Access"/>
+      <linkVariablePatterns target="//@rules.4/@targetPatterns.0">
         <op value="++"/>
         <type href="platform:/resource/Aadl/model/Aadl.ecore#//Access/featureClassifier"/>
       </linkVariablePatterns>
-      <linkVariablePatterns target="//@rules.3/@targetPatterns.2">
+    </targetPatterns>
+    <correspondencePatterns name="corrType" type="//@schema/@correspondenceTypes.0" source="//@rules.4/@sourcePatterns.0" target="//@rules.4/@targetPatterns.0"/>
+    <correspondencePatterns name="corrAccess" type="//@schema/@correspondenceTypes.4" source="//@rules.4/@sourcePatterns.1" target="//@rules.4/@targetPatterns.1">
+      <op value="++"/>
+    </correspondencePatterns>
+  </rules>
+  <rules name="ruleAccessToAccessTypedAsParentRefined" schema="//@schema">
+    <sourcePatterns name="adeleType">
+      <type href="platform:/resource/Adele/model/Adele.ecore#//Component"/>
+      <linkVariablePatterns target="//@rules.5/@sourcePatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Adele/model/Adele.ecore#//Component/features"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="adeleAccess">
+      <op value="++"/>
+      <type href="platform:/resource/Adele/model/Adele.ecore#//Access"/>
+      <linkVariablePatterns target="//@rules.5/@sourcePatterns.0">
+        <op value="++"/>
+        <type href="platform:/resource/Adele/model/Adele.ecore#//Access/classifier"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.5/@sourcePatterns.2">
+        <op value="++"/>
+        <type href="platform:/resource/Adele/model/Adele.ecore#//Access/refinedFeature"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="adeleRefinedFeature">
+      <type href="platform:/resource/Adele/model/Adele.ecore#//Feature"/>
+    </sourcePatterns>
+    <targetPatterns name="aadlType">
+      <type href="platform:/resource/Aadl/model/Aadl.ecore#//ComponentType"/>
+      <linkVariablePatterns target="//@rules.5/@targetPatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Aadl/model/Aadl.ecore#//ComponentType/ownedFeature"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="aadlAccess">
+      <op value="++"/>
+      <type href="platform:/resource/Aadl/model/Aadl.ecore#//Access"/>
+      <linkVariablePatterns target="//@rules.5/@targetPatterns.0">
+        <op value="++"/>
+        <type href="platform:/resource/Aadl/model/Aadl.ecore#//Access/featureClassifier"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.5/@targetPatterns.2">
         <op value="++"/>
         <type href="platform:/resource/Aadl/model/Aadl.ecore#//Access/refined"/>
       </linkVariablePatterns>
@@ -254,10 +333,256 @@
     <targetPatterns name="aadlRefinedFeature">
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//Feature"/>
     </targetPatterns>
-    <correspondencePatterns name="corrType" type="//@schema/@correspondenceTypes.0" source="//@rules.3/@sourcePatterns.0" target="//@rules.3/@targetPatterns.0"/>
-    <correspondencePatterns name="CorrAccess" type="//@schema/@correspondenceTypes.4" source="//@rules.3/@sourcePatterns.1" target="//@rules.3/@targetPatterns.1">
+    <correspondencePatterns name="corrType" type="//@schema/@correspondenceTypes.0" source="//@rules.5/@sourcePatterns.0" target="//@rules.5/@targetPatterns.0"/>
+    <correspondencePatterns name="CorrAccess" type="//@schema/@correspondenceTypes.4" source="//@rules.5/@sourcePatterns.1" target="//@rules.5/@targetPatterns.1">
       <op value="++"/>
     </correspondencePatterns>
-    <correspondencePatterns name="corrRefinedFeature" type="//@schema/@correspondenceTypes.5" source="//@rules.3/@sourcePatterns.2" target="//@rules.3/@targetPatterns.2"/>
+    <correspondencePatterns name="corrRefinedFeature" type="//@schema/@correspondenceTypes.5" source="//@rules.5/@sourcePatterns.2" target="//@rules.5/@targetPatterns.2"/>
+  </rules>
+  <rules name="ruleComponentToSubcomponentTypedAsParentRefined" schema="//@schema">
+    <sourcePatterns name="adeleImplementation">
+      <type href="platform:/resource/Adele/model/Adele.ecore#//Component"/>
+      <linkVariablePatterns target="//@rules.6/@sourcePatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Adele/model/Adele.ecore#//Component/children"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="adeleSubcomponent">
+      <op value="++"/>
+      <type href="platform:/resource/Adele/model/Adele.ecore#//Component"/>
+      <linkVariablePatterns target="//@rules.6/@sourcePatterns.0">
+        <op value="++"/>
+        <type href="platform:/resource/Adele/model/Adele.ecore#//Component/refines"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.6/@sourcePatterns.2">
+        <op value="++"/>
+        <type href="platform:/resource/Adele/model/Adele.ecore#//Component/refinedSubcomponent"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="adeleRefinedSubcomponent">
+      <type href="platform:/resource/Adele/model/Adele.ecore#//Component"/>
+    </sourcePatterns>
+    <targetPatterns name="aadlImplementation">
+      <type href="platform:/resource/Aadl/model/Aadl.ecore#//ComponentImplementation"/>
+      <linkVariablePatterns target="//@rules.6/@targetPatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Aadl/model/Aadl.ecore#//ComponentImplementation/ownedSubcomponent"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="aadlSubcomponent">
+      <op value="++"/>
+      <type href="platform:/resource/Aadl/model/Aadl.ecore#//Subcomponent"/>
+      <linkVariablePatterns target="//@rules.6/@targetPatterns.0">
+        <op value="++"/>
+        <type href="platform:/resource/Aadl/model/Aadl.ecore#//Subcomponent/subComponentTypeCi"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.6/@targetPatterns.2">
+        <op value="++"/>
+        <type href="platform:/resource/Aadl/model/Aadl.ecore#//Subcomponent/refined"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="aadlRefinedSubcomponent">
+      <type href="platform:/resource/Aadl/model/Aadl.ecore#//Subcomponent"/>
+    </targetPatterns>
+    <correspondencePatterns name="corrImplementation" type="//@schema/@correspondenceTypes.10" source="//@rules.6/@sourcePatterns.0" target="//@rules.6/@targetPatterns.0"/>
+    <correspondencePatterns name="corrSubcomponent" type="//@schema/@correspondenceTypes.16" source="//@rules.6/@sourcePatterns.1" target="//@rules.6/@targetPatterns.1">
+      <op value="++"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrRefinedSubcomponent" type="//@schema/@correspondenceTypes.16" source="//@rules.6/@sourcePatterns.2" target="//@rules.6/@targetPatterns.2"/>
+  </rules>
+  <rules name="ruleComponentToSubcomponentTypedAsParentRefinedTyped" schema="//@schema">
+    <sourcePatterns name="adeleImplementation">
+      <type href="platform:/resource/Adele/model/Adele.ecore#//Component"/>
+      <linkVariablePatterns target="//@rules.7/@sourcePatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Adele/model/Adele.ecore#//Component/children"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="adeleSubcomponent">
+      <op value="++"/>
+      <type href="platform:/resource/Adele/model/Adele.ecore#//Component"/>
+      <linkVariablePatterns target="//@rules.7/@sourcePatterns.0">
+        <op value="++"/>
+        <type href="platform:/resource/Adele/model/Adele.ecore#//Component/refines"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.7/@sourcePatterns.2">
+        <op value="++"/>
+        <type href="platform:/resource/Adele/model/Adele.ecore#//Component/refinedSubcomponent"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.7/@sourcePatterns.3">
+        <op value="++"/>
+        <type href="platform:/resource/Adele/model/Adele.ecore#//Component/implementation"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="adeleRefinedSubcomponent">
+      <type href="platform:/resource/Adele/model/Adele.ecore#//Component"/>
+    </sourcePatterns>
+    <sourcePatterns name="adeleSubcomponentImpl">
+      <type href="platform:/resource/Adele/model/Adele.ecore#//Component"/>
+    </sourcePatterns>
+    <targetPatterns name="aadlImplementation">
+      <type href="platform:/resource/Aadl/model/Aadl.ecore#//ComponentImplementation"/>
+      <linkVariablePatterns target="//@rules.7/@targetPatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Aadl/model/Aadl.ecore#//ComponentImplementation/ownedSubcomponent"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="aadlSubcomponent">
+      <op value="++"/>
+      <type href="platform:/resource/Aadl/model/Aadl.ecore#//Subcomponent"/>
+      <linkVariablePatterns target="//@rules.7/@targetPatterns.0">
+        <op value="++"/>
+        <type href="platform:/resource/Aadl/model/Aadl.ecore#//Subcomponent/subComponentTypeCi"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.7/@targetPatterns.2">
+        <op value="++"/>
+        <type href="platform:/resource/Aadl/model/Aadl.ecore#//Subcomponent/refined"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="aadlRefinedSubcomponent">
+      <type href="platform:/resource/Aadl/model/Aadl.ecore#//Subcomponent"/>
+      <linkVariablePatterns target="//@rules.7/@targetPatterns.3">
+        <type href="platform:/resource/Aadl/model/Aadl.ecore#//Subcomponent/subCompType"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="aadlRefinedSubcomponentType">
+      <type href="platform:/resource/Aadl/model/Aadl.ecore#//SubcomponentType"/>
+    </targetPatterns>
+    <correspondencePatterns name="corrImplementation" type="//@schema/@correspondenceTypes.10" source="//@rules.7/@sourcePatterns.0" target="//@rules.7/@targetPatterns.0"/>
+    <correspondencePatterns name="corrSubcomponent" type="//@schema/@correspondenceTypes.16" source="//@rules.7/@sourcePatterns.1" target="//@rules.7/@targetPatterns.1">
+      <op value="++"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrRefinedSubcomponent" type="//@schema/@correspondenceTypes.16" source="//@rules.7/@sourcePatterns.2" target="//@rules.7/@targetPatterns.2"/>
+    <correspondencePatterns name="corrRefinedComponentType" type="//@schema/@correspondenceTypes.7" source="//@rules.7/@sourcePatterns.3" target="//@rules.7/@targetPatterns.3"/>
+  </rules>
+  <rules name="ruleComponentToSubcomponentTypedRefined" schema="//@schema">
+    <sourcePatterns name="adeleImplementation">
+      <type href="platform:/resource/Adele/model/Adele.ecore#//Component"/>
+      <linkVariablePatterns target="//@rules.8/@sourcePatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Adele/model/Adele.ecore#//Component/children"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="adeleSubcomponent">
+      <op value="++"/>
+      <type href="platform:/resource/Adele/model/Adele.ecore#//Component"/>
+      <linkVariablePatterns target="//@rules.8/@sourcePatterns.2">
+        <op value="++"/>
+        <type href="platform:/resource/Adele/model/Adele.ecore#//Component/refinedSubcomponent"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.8/@sourcePatterns.3">
+        <op value="++"/>
+        <type href="platform:/resource/Adele/model/Adele.ecore#//Component/refines"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="adeleRefinedSubcomponent">
+      <type href="platform:/resource/Adele/model/Adele.ecore#//Component"/>
+    </sourcePatterns>
+    <sourcePatterns name="refines">
+      <type href="platform:/resource/Adele/model/Adele.ecore#//Component"/>
+    </sourcePatterns>
+    <targetPatterns name="aadlImplementation">
+      <type href="platform:/resource/Aadl/model/Aadl.ecore#//ComponentImplementation"/>
+      <linkVariablePatterns target="//@rules.8/@targetPatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Aadl/model/Aadl.ecore#//ComponentImplementation/ownedSubcomponent"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="aadlSubcomponent">
+      <op value="++"/>
+      <type href="platform:/resource/Aadl/model/Aadl.ecore#//Subcomponent"/>
+      <linkVariablePatterns target="//@rules.8/@targetPatterns.2">
+        <op value="++"/>
+        <type href="platform:/resource/Aadl/model/Aadl.ecore#//Subcomponent/refined"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.8/@targetPatterns.3">
+        <op value="++"/>
+        <type href="platform:/resource/Aadl/model/Aadl.ecore#//Subcomponent/subCompType"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="aadlRefinedSubcomponent">
+      <type href="platform:/resource/Aadl/model/Aadl.ecore#//Subcomponent"/>
+    </targetPatterns>
+    <targetPatterns name="aadlSubcomponentType">
+      <type href="platform:/resource/Aadl/model/Aadl.ecore#//SubcomponentType"/>
+    </targetPatterns>
+    <correspondencePatterns name="corrImplementation" type="//@schema/@correspondenceTypes.10" source="//@rules.8/@sourcePatterns.0" target="//@rules.8/@targetPatterns.0"/>
+    <correspondencePatterns name="corrSubcomponent" type="//@schema/@correspondenceTypes.16" source="//@rules.8/@sourcePatterns.1" target="//@rules.8/@targetPatterns.1">
+      <op value="++"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrRefinedSubcomponent" type="//@schema/@correspondenceTypes.16" source="//@rules.8/@sourcePatterns.2" target="//@rules.8/@targetPatterns.2"/>
+    <correspondencePatterns name="corrSubcomponentType" type="//@schema/@correspondenceTypes.7" source="//@rules.8/@sourcePatterns.3" target="//@rules.8/@targetPatterns.3"/>
+  </rules>
+  <rules name="ruleComponentToSubcomponentTypedRefinedTyped" schema="//@schema">
+    <sourcePatterns name="adeleImplementation">
+      <type href="platform:/resource/Adele/model/Adele.ecore#//Component"/>
+      <linkVariablePatterns target="//@rules.9/@sourcePatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Adele/model/Adele.ecore#//Component/children"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="adeleSubcomponent">
+      <op value="++"/>
+      <type href="platform:/resource/Adele/model/Adele.ecore#//Component"/>
+      <linkVariablePatterns target="//@rules.9/@sourcePatterns.2">
+        <op value="++"/>
+        <type href="platform:/resource/Adele/model/Adele.ecore#//Component/refinedSubcomponent"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.9/@sourcePatterns.3">
+        <op value="++"/>
+        <type href="platform:/resource/Adele/model/Adele.ecore#//Component/refines"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.9/@sourcePatterns.4">
+        <op value="++"/>
+        <type href="platform:/resource/Adele/model/Adele.ecore#//Component/implementation"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="adeleRefinedSubcomponent">
+      <type href="platform:/resource/Adele/model/Adele.ecore#//Component"/>
+    </sourcePatterns>
+    <sourcePatterns name="refines">
+      <type href="platform:/resource/Adele/model/Adele.ecore#//Component"/>
+    </sourcePatterns>
+    <sourcePatterns name="adeleSubcomponentImpl">
+      <type href="platform:/resource/Adele/model/Adele.ecore#//Component"/>
+    </sourcePatterns>
+    <targetPatterns name="aadlImplementation">
+      <type href="platform:/resource/Aadl/model/Aadl.ecore#//ComponentImplementation"/>
+      <linkVariablePatterns target="//@rules.9/@targetPatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Aadl/model/Aadl.ecore#//ComponentImplementation/ownedSubcomponent"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="aadlSubcomponent">
+      <op value="++"/>
+      <type href="platform:/resource/Aadl/model/Aadl.ecore#//Subcomponent"/>
+      <linkVariablePatterns target="//@rules.9/@targetPatterns.3">
+        <op value="++"/>
+        <type href="platform:/resource/Aadl/model/Aadl.ecore#//Subcomponent/refined"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.9/@targetPatterns.2">
+        <op value="++"/>
+        <type href="platform:/resource/Aadl/model/Aadl.ecore#//Subcomponent/subCompType"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="aadlSubcomponentType">
+      <type href="platform:/resource/Aadl/model/Aadl.ecore#//SubcomponentType"/>
+    </targetPatterns>
+    <targetPatterns name="aadlRefinedSubcomponent">
+      <type href="platform:/resource/Aadl/model/Aadl.ecore#//Subcomponent"/>
+      <linkVariablePatterns target="//@rules.9/@targetPatterns.4">
+        <type href="platform:/resource/Aadl/model/Aadl.ecore#//Subcomponent/subCompType"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="aadlRefinedSubcomponentType">
+      <type href="platform:/resource/Aadl/model/Aadl.ecore#//SubcomponentType"/>
+    </targetPatterns>
+    <correspondencePatterns name="corrImplementation" type="//@schema/@correspondenceTypes.10" source="//@rules.9/@sourcePatterns.0" target="//@rules.9/@targetPatterns.0"/>
+    <correspondencePatterns name="corrSubcomponent" type="//@schema/@correspondenceTypes.16" source="//@rules.9/@sourcePatterns.1" target="//@rules.9/@targetPatterns.1">
+      <op value="++"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrRefinedSubcomponent" type="//@schema/@correspondenceTypes.16" source="//@rules.9/@sourcePatterns.2" target="//@rules.9/@targetPatterns.3"/>
+    <correspondencePatterns name="corrRefinedComponentType" type="//@schema/@correspondenceTypes.7" source="//@rules.9/@sourcePatterns.4" target="//@rules.9/@targetPatterns.4"/>
+    <correspondencePatterns name="corrSubcomponentType" type="//@schema/@correspondenceTypes.7" source="//@rules.9/@sourcePatterns.3" target="//@rules.9/@targetPatterns.2"/>
   </rules>
 </tgg:TripleGraphGrammarFile>
