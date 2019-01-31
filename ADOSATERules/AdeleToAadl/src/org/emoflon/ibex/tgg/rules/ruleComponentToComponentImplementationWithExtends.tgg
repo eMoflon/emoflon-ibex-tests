@@ -1,0 +1,50 @@
+#using AdeleToAadl.*
+#using AttrCondDefLibrary.*
+
+#rule ruleComponentToComponentImplementationWithExtends #extends ruleComponent2ComponentImplementation  #with AdeleToAadl
+
+#source { 
+	
+	
+	++adeleImplementation: Adele.Component
+	{
+		++ -refines -> adeleExtCompImpl
+	}
+	adeleExtCompImpl: Adele.Component
+	
+}
+
+#target {
+	
+	++ aadlImplementation: Aadl.ComponentImplementation
+	{
+		
+		++ - ownedExtension -> implExtension
+	}
+	++ implExtension: Aadl.ImplementationExtension
+		{
+		++ - extended -> aadlExtCompImpl
+	    }
+	aadlExtCompImpl: Aadl.ComponentImplementation
+}
+
+#correspondence {
+	
+	
+	
+	++ corrImplementationIE: CorrComponentImplementationIE
+	{
+		#src->adeleImplementation
+		#trg->implExtension
+	}
+	corrCompImpl: CorrComponentImplementation
+	{
+		#src->adeleExtCompImpl
+		#trg->aadlExtCompImpl
+	}
+	
+}
+
+#attributeConditions {
+	
+}

@@ -1,0 +1,42 @@
+#using AdeleToAadl.*
+#using AttrCondDefLibrary.*
+
+#rule ruleComponentToComponentType #with AdeleToAadl
+
+#source { 
+	adelePackage: Adele.Package
+	{
+		 ++ -component-> adeleType 
+	}
+	++ adeleType: Adele.Component
+	
+}
+
+#target {
+	
+	aadlPublicPackageSection: Aadl.PackageSection
+	{
+		++ - ownedClassifier->aadlType
+	}
+	++ aadlType: Aadl.ComponentType
+	
+}
+
+#correspondence {
+	
+	corrAxiom: CorrAxiom
+	{
+		#src->adelePackage
+		#trg->aadlPublicPackageSection
+	}
+	++ corrType: CorrComponentType
+	{
+		#src->adeleType
+		#trg->aadlType
+	}
+	
+}
+
+#attributeConditions {
+	
+}

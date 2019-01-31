@@ -3,7 +3,7 @@
 package Adele;
 class Component {
 	attr EString description;
-	val Access[*] adeleAccess;
+	val Access[*] features;
 	val Access[*] allRealFeatures; 
 	val Component[*] type;
 	val Component[*] allRealChildrenComponents;
@@ -12,10 +12,11 @@ class Component {
 	val Component[*] refinedSubcomponent;
 	val Component[*] implementation;
 	val AccessConnection[*] allRealRelations;
-    val DirectedFeature[*] features;
+    val DirectedFeature[*] featuresDf;
     val DirectedFeature[*] allRealFeaturesDf;//*
     val DirectedFeatureConnection[*] allRealRelationsDfc; //*
     val FeatureGroup[*] allRealFeaturesFg;//* 
+    val Component[*] children; //created for ruleComponent2componentimplementation(check)
     }
 
 class Access {
@@ -38,7 +39,7 @@ val Access[*] orginialSinkFeature;
 	
 }
 class Package{
-	val Component[*] component;
+	val Component[*] component; // self-named
 	val FeatureGroup[*] children;
 
 }

@@ -1,0 +1,37 @@
+#using AdeleToAadl.*
+#using AttrCondDefLibrary.*
+
+#rule ruleAccessConn2AccessConnSrcSubcompoFeatDestSubcompo #with AdeleToAadl
+
+#source { 
+	adleDestinatioSubcomponentAccess: Adele.Access
+	
+	
+		
+	++ adeleConnection:Adele.AccessConnection{
+		++ -originalSourceFeature -> adleDestinatioSubcomponentAccess
+	    ++ -originalSinkSubcomponent -> adeleDestinationSubcomponent
+	}
+	adeleDestinationSubcomponent:Adele.Component{
+		
+	}
+	adeleComponentImplementation:Adele.Component{
+		-allRealChildrenComponents -> adeleSourceSubcomponent
+		-allRealChildrenComponents -> adeleDestinationSubcomponent
+	   ++ -allRealRelations -> adeleConnection
+	}
+	adeleSourceSubcomponent: Adele.Component
+	
+}
+
+#target {
+	
+}
+
+#correspondence {
+	
+}
+
+#attributeConditions {
+	
+}
