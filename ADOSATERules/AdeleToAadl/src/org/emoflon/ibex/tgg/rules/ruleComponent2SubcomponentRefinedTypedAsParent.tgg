@@ -1,0 +1,50 @@
+#using AdeleToAadl.*
+#using AttrCondDefLibrary.*
+
+#rule RuleComponentToSubcomponentTypedAsParent #with AdeleToAadl
+
+#source { 
+	adeleImplementation: Adele.Component
+	{
+		++ -children-> adeleSubcomponent
+	}
+	++ adeleSubcomponent: Adele.Component
+	{
+		++ -implementation -> adeleImplementation
+	}
+	
+}
+
+#target {
+	
+	aadlImplementation: Aadl.ComponentImplementation
+	{
+		++ -ownedSubcomponent -> aadlSubcomponent
+	}
+	++ aadlSubcomponent:Aadl.Subcomponent
+	{
+		++ -subComponentTypeCi -> aadlImplementation
+	}
+	
+}
+
+#correspondence {
+	corrImplementation: CorrComponentImplementation
+	{
+		#src->adeleImplementation
+		#trg->aadlImplementation
+	}
+	
+	++corrSubcomponent: CorrSubcomponenttrgSC
+	{
+		#src->adeleSubcomponent
+		#trg->aadlSubcomponent
+	}
+	
+	
+	
+}
+
+#attributeConditions {
+	
+}
