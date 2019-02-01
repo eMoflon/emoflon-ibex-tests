@@ -1,0 +1,62 @@
+#using AdeleToAadl.*
+#using AttrCondDefLibrary.*
+
+#rule ruleAccessToAccessTypedRefined #with AdeleToAadl
+
+#source { 
+	adeleType:Adele.Component
+	{
+ 	++ -features -> adeleAccess
+ 
+ }
+	++adeleAccess:Adele.Access
+	{
+		++-refinedFeature->adeleRefinedFeature
+		++-classifier->adeleClassifier
+	}
+	adeleRefinedFeature:Adele.Feature
+	adeleClassifier:Adele.Component
+}
+
+#target {
+	aadlType:Aadl.ComponentType
+	{
+		
+		++ -ownedFeature->aadlAccess
+	}
+	++aadlAccess:Aadl.Access
+	{
+		++-refined->aadlRefinedFeature
+		++-featureClassifierFc->aadlClassifier
+		
+	}
+	aadlRefinedFeature:Aadl.Feature
+	aadlClassifier:Aadl.FeatureClassifier
+	
+}
+
+#correspondence {
+	corrType:CorrComponentType{
+		#src->adeleType
+        #trg->aadlType
+	}
+	++corrAccess:CorrAccess{
+	   #src->adeleAccess
+       #trg->aadlAccess
+	}
+	corrRefinedFeature:CorrFeature
+	{
+		#src->adeleRefinedFeature
+		#trg->aadlRefinedFeature
+	}
+	corrClassifier:CorrComponent{
+		#src->adeleClassifier
+		#trg->aadlClassifier
+		
+	}
+	
+}
+
+#attributeConditions {
+	
+}
