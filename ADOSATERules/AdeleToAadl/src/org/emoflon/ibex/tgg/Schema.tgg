@@ -97,13 +97,13 @@
 	#trg->Aadl.ImplementationExtension
 	}
 	
-	CorrAccessConnention
+	CorrAccessConnection
 	{
 	#src->Adele.AccessConnection
 	#trg->Aadl.AccessConnection	
 	}
 	// Same corr like the previous one same src but different trg 
-	CorrAccessConnentionttrgCE
+	CorrAccessConnectionttrgCE
 	{           
 	#src->Adele.AccessConnection 
 	#trg->Aadl.ConnectedElement
