@@ -1,0 +1,42 @@
+#using AdeleToAadl.*
+#using AttrCondDefLibrary.*
+
+#rule ruleComponent2ComponentImplementation #with AdeleToAadl
+
+#source { 
+	adeleImplementation: Adele.Component
+	++ adeleSubcomponent:Adele.Subcomponent
+	{
+		++ -component-> adeleImplementation
+	}
+	
+
+}
+
+#target {
+	aadlImplementation:Aadl:Subcomponent
+	{
+		++ - ownedClassifier->aadlType
+	}
+	++ aadlType: Aadl.AadlImplementation
+	
+	
+}
+
+#correspondence {
+	
+	corrImplementation: CorrImplementation
+	{
+		#src->adeleComponent
+		#trg->aadlSubcomponent
+	}
+	++ corrSubcomponent: CorrSubcomponent
+	{
+		#src->adeleImplementation
+		#trg->aadlImplementation
+	}
+}
+
+#attributeConditions {
+	
+}
