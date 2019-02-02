@@ -1,7 +1,7 @@
 #using AdeleToAadl.*
 #using AttrCondDefLibrary.*
 
-#rule RuleComponentToSubcomponentTypedAsParent #with AdeleToAadl
+#rule ruleComponent2SubcomponentRefinedTypedAsParent #with AdeleToAadl
 
 #source { 
 	adeleImplementation: Adele.Component

@@ -52,7 +52,7 @@
 		#src->adeleComponentImplementation
 		#trg->aadlComponentImplementation
 	}
-	++ corrConnection:CorrAccessConnection{
+	++ corrConnection:CorrAccessConnection{ 
 		#src->adeleConnection
 		#trg->aadlConnection
 	}

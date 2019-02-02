@@ -1,7 +1,7 @@
 #using AdeleToAadl.*
 #using AttrCondDefLibrary.*
 
-#rule RuleAccessConn2AccessConnSrcSubcompoDestSubcompo #with AdeleToAadl
+#rule RuleAccessConn2AccessConnSrcSubcompoFeatDestSubcompo16 #with AdeleToAadl
 
 #source { 
 	adeleComponentImplementation:Adele.Component
