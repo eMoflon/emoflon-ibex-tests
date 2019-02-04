@@ -59,6 +59,8 @@
         eType="#//Component" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="children" upperBound="-1"
         eType="#//FeatureGroup" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="childrenC" upperBound="-1"
+        eType="#//Component" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DirectedFeature">
     <eStructuralFeatures xsi:type="ecore:EReference" name="refinedFeature" upperBound="-1"

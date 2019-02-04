@@ -41,6 +41,7 @@ val Access[*] orginialSinkFeature;
 class Package{
 	val Component[*] component; // self-named
 	val FeatureGroup[*] children;
+	val Component[*] childrenC;
 
 }
 class DirectedFeature{
