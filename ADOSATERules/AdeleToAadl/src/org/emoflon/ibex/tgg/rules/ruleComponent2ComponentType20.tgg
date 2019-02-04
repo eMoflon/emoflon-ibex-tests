@@ -12,15 +12,13 @@
 	++adeleType:Adele.Component
 	
 }
-
 #target {
 	aadlPublicPackageSection:Aadl.PublicPackageSection 
 	{
 		++ -ownedClassifier->aadlType
 	}
 	++aadlType: Aadl.ComponentType 
-}
-
+}  
 #correspondence {
 	corrAxiom: CorrAxiomPPS 
 	{
