@@ -1,0 +1,84 @@
+#using AdeleToAadl.*
+#using AttrCondDefLibrary.*
+
+#rule ruleComponent2ComponentImplementationWithExtends19 #with AdeleToAadl
+
+#source { 
+		adelePackage:Adele.Package 
+		adeleType:Adele.Component
+		{
+		++ -children->adeleImplementation
+		}
+		++adeleImplementation: Adele.Component 
+		{
+			++ -type->adeleType
+			++ -refines->adeleExtCompImpl
+		}
+	    adeleExtCompImpl:Adele.Component
+	
+}
+
+#target {
+		aadlPublicPackageSection:Aadl.PackageSection
+		{
+			-ownedClassifier->aadlType
+			++ -ownedClassifierCi->aadlImplementation
+		}
+		aadlType:Aadl.ComponentType 
+		++aadlRealization:Aadl.Realization 
+		{
+			++ -implemented->aadlType
+		}
+	   ++aadlImplementation:Aadl.ComponentImplementation 
+	   {
+	   	++ -ownedRealization->aadlRealization
+	   	++ -ownedExtension->implExtension
+	   }
+	   ++implExtension:Aadl.ImplementationExtension
+	   {
+	   	++ -extended->aadlExtCompImpl
+	   }
+	   aadlExtCompImpl:Aadl.ComponentImplementation 
+	
+}
+
+#correspondence {
+	
+	corrAxiom:CorrAxiom 
+	{
+		#src->adelePackage
+		#trg->aadlPublicPackageSection
+	}
+	corrType:CorrComponentType 
+	{
+		#src->adeleType
+		#trg->aadlType
+		
+	}
+	++ corrImplementation:CorrComponentImplementation
+	{
+		#src->adeleImplementation
+		#trg->aadlImplementation
+	}
+	++ corrImplementationR:CorrComponentImplementationR
+	{
+		#src->adeleImplementation
+		#trg->aadlRealization
+		
+	}
+	++ corrImplementationIE:CorrComponentImplementationIE
+	{
+		
+		#src->adeleImplementation
+		#trg->implExtension
+	}
+	++ corrCompImpl:CorrComponentImplementation 
+	{
+		#src->adeleExtCompImpl
+		#trg->aadlExtCompImpl
+	}
+}
+
+#attributeConditions {
+	
+}
