@@ -1,0 +1,39 @@
+#using AdeleToAadl.*
+#using AttrCondDefLibrary.*
+
+#rule ruleFeatureGroup2FeatureGroupType #with AdeleToAadl
+
+#source { 
+	adelePackage:Adele.Package 
+	{
+		++ -children->adeleType
+	}
+	++adeleType:Adele.FeatureGroup 
+}
+
+#target {
+	aadlPublicPackageSection:Aadl.PublicPackageSection 
+	{
+		++ -ownedClassfr->aadlType
+	}
+	
+	++aadlType:Aadl.FeatureGroupType 
+	
+}
+
+#correspondence {
+	corrAxiom:CorrAxiomPPS
+{
+	#src->adelePackage
+	#trg->aadlPublicPackageSection
+}
+++corrType:CorrComponentTypeFG
+{
+	#src->adeleType
+	#trg->aadlType
+}
+}
+
+#attributeConditions {
+	
+}

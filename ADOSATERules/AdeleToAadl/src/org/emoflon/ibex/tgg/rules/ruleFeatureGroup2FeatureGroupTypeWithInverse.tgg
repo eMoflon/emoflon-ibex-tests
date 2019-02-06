@@ -1,0 +1,32 @@
+#using AdeleToAadl.*
+#using AttrCondDefLibrary.*
+
+#rule ruleFeatureGroup2FeatureGroupTypeWithInverse #extends ruleFeatureGroup2FeatureGroupType #with AdeleToAadl
+
+#source { 
+	++adeleType:Adele.FeatureGroup 
+	{
+		++ -inverseFeature->adeleInverse
+	}
+	adeleInverse:Adele.FeatureGroup 
+}
+
+#target {
+	++aadlType:Aadl.FeatureGroupType 
+	{
+		++ -inverse->aadlInverse
+	}
+	aadlInverse:Aadl.FeatureGroupType 
+}
+
+#correspondence {
+	corrInverse:CorrComponentTypeFG 
+	{
+		#src->adeleInverse
+		#trg->aadlInverse
+	}
+}
+
+#attributeConditions {
+	
+}
