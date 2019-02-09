@@ -1,4 +1,4 @@
-package org.emoflon.ibex.tgg.run.adeletoaadl;
+package org.emoflon.ibex.tgg.run.adele2aadl;
 
 import java.io.IOException;
 
@@ -20,7 +20,7 @@ public class MODELGEN_App extends MODELGEN {
 
 	public static void main(String[] args) throws IOException {
 		BasicConfigurator.configure();
-		Logger.getRootLogger().setLevel(Level.DEBUG);
+		Logger.getRootLogger().setLevel(Level.INFO);
 
 		logger.info("Starting MODELGEN");
 		long tic = System.currentTimeMillis();
@@ -30,15 +30,6 @@ public class MODELGEN_App extends MODELGEN {
 		
 		MODELGENStopCriterion stop = new MODELGENStopCriterion(generator.getTGG());
 		stop.setTimeOutInMS(1000);
-		stop.setMaxRuleCount("ruleAccessToAccess", 1);
-		stop.setMaxRuleCount("ruleAccessToAccessOne", 1);
-		/*
-		stop.setMaxRuleCount("ruleAccessToAccessOne", 0);
-		stop.setMaxRuleCount("ruleAccessConn2AccessConnSrcSubcompoDestSubcompo12", 0);
-		stop.setMaxRuleCount("ruleAccessConn2AccessConnSrcSubcompoDestSubcompoFeat13", 0);
-		stop.setMaxRuleCount("ruleAccessConn2AccessConnSrcSubcompoFeatDestSubcompo", 0);
-		stop.setMaxRuleCount("RuleAccessConn2AccessConnSrcSubcompoFeatDestSubcompo16", 0);
-		*/
 		generator.setStopCriterion(stop);
 		
 		tic = System.currentTimeMillis();
