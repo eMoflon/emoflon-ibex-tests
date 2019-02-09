@@ -1,0 +1,33 @@
+#using AdeleToAadl.*
+#using AttrCondDefLibrary.*
+
+#rule ruleDirectedFeatToDirectedFeatTyped #extends ruleDirectedFeat2DirectedFeat #with AdeleToAadl
+
+#source { 
+	++ adeleFeature: Adele.DirectedFeature
+	{
+		++ - classifier -> adeleClassifier
+	}
+	adeleClassifier:Adele.SKComponent
+}
+
+#target {
+	++ aadlFeature: Aadl.DirectedFeature
+	{
+		++ - classifier -> aadlClassifier
+	}
+	aadlClassifier: Aadl.Classifier
+}
+
+#correspondence {
+	corrClassifier: CorrComponentSKC
+	{
+		#src->adeleClassifier
+		#trg->aadlClassifier
+	}
+	
+}
+
+#attributeConditions {
+	
+}

@@ -1,0 +1,41 @@
+#using AdeleToAadl.*
+#using AttrCondDefLibrary.*
+
+#rule ruleDirectedFeat2DirectedFeat #with AdeleToAadl
+
+#source { 
+	adeleType: Adele.Component
+	{
+		++ -featuresDf-> adeleFeature
+	}
+	++ adeleFeature: Adele.DirectedFeature
+	
+	
+}
+
+#target {
+	aadlType: Aadl.ComponentType
+	{
+		++ - ownedFeatureDF -> aadlFeature
+	}
+	++ aadlFeature: Aadl.DirectedFeature
+}
+
+#correspondence {
+	corrType: CorrComponentType
+	{
+		#src-> adeleType
+		#trg-> aadlType
+	}
+	++ corrFeature: CorrDirectedFeature
+	{
+		#src-> adeleFeature
+		#trg-> aadlFeature
+	}
+	
+	
+}
+
+#attributeConditions {
+	
+}
