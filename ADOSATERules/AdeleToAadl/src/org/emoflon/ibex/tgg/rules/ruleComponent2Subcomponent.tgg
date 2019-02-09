@@ -1,37 +1,42 @@
 #using AdeleToAadl.*
 #using AttrCondDefLibrary.*
+
 #rule ruleComponent2Subcomponent #with AdeleToAadl
+
 #source { 
-    adeleImplementation: Adele.Component
-    
-    {
-        ++ -children-> adeleSubcomponent
-    }
-    ++ adeleSubcomponent:Adele.Component
-    
+	adeleImplementation: Adele.Component
+	++ adeleSubcomponent:Adele.Subcomponent
+	{
+		++ -component-> adeleImplementation
+	}
+	
+
 }
+
 #target {
-    aadlImplementation:Aadl.ComponentImplementation
-    {
-        ++ - ownedSubcomponent-> aadlSubcomponent
-    }
-    ++ aadlSubcomponent: Aadl.Subcomponent
-    
-    
+	aadlImplementation:Aadl:Subcomponent
+	{
+		++ - ownedClassifier->aadlType
+	}
+	++ aadlType: Aadl.AadlImplementation
+	
+	
 }
+
 #correspondence {
-    
-    corrImplementation: CorrComponentImplementation
-    {
-        #src->adeleImplementation
-        #trg->aadlImplementation
-    }
-    ++ corrSubcomponent: CorrSubcomponenttrgSC
-    {
-        #src->adeleSubcomponent
-        #trg->aadlSubcomponent
-    }
+	
+	corrImplementation: CorrImplementation
+	{
+		#src->adeleComponent
+		#trg->aadlSubcomponent
+	}
+	++ corrSubcomponent: CorrSubcomponent
+	{
+		#src->adeleImplementation
+		#trg->aadlImplementation
+	}
 }
+
 #attributeConditions {
-    
+	
 }

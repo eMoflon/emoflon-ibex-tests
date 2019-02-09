@@ -1,50 +1,42 @@
 #using AdeleToAadl.*
 #using AttrCondDefLibrary.*
+
 #rule ruleComponent2SubcomponentTyped #with AdeleToAadl
+
 #source { 
-    adeleImplementation: Adele.Component
-    {
-         ++ -children-> adeleSubcomponent 
-    }
-    ++ adeleSubcomponent: Adele.Component
-    {
-        ++ - implementation-> adeleSubcomponentImpl
-    }
-    adeleSubcomponentImpl: Adele.Component
-    
+	adeleImplementation: Adele.Implementation
+	{
+		 ++ -subcomponent-> adeleType 
+	}
+	++ adeleType: Adele.Subcomponent
+	
 }
+
 #target {
-    
-    aadlImplementation: Aadl.ComponentImplementation
-    {
-        ++ - ownedSubcomponent->aadlSubcomponent
-    }
-    ++ aadlSubcomponent: Aadl.Subcomponent
-    {
-        ++ -subCompType-> aadlSubcomponentType
-    }
-    aadlSubcomponentType: Aadl.SubcomponentType
-    
+	
+	aadlImplementation: Aadl.Implementation
+	{
+		++ - ownedSubcomponent->aadlType
+	}
+	++ aadlType: Aadl.SubcomponentType
+	
 }
+
 #correspondence {
-    
-    corrImplementation: CorrComponentImplementation
-    {
-        #src->adeleImplementation
-        #trg->aadlImplementation
-    }
-    ++ corrSubcomponent: CorrSubcomponenttrgSC
-    {
-        #src->adeleSubcomponent
-        #trg->aadlSubcomponent
-    }
-    ++ corrSubcomponentType: CorrComponentSCT
-    {
-        #src->adeleSubcomponentImpl
-        #trg->aadlSubcomponentType
-    }
-    
+	
+	corrComponent: CorrComponentType
+	{
+		#src->adeleImplementation
+		#trg->aadlImplementation
+	}
+	++ corrSubcomponent: CorrSubcomponentType
+	{
+		#src->adeleType
+		#trg->aadlType
+	}
+	
 }
+
 #attributeConditions {
-    
+	
 }

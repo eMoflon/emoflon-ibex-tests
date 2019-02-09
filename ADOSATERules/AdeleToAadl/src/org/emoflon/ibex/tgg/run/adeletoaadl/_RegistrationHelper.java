@@ -20,13 +20,12 @@ public class _RegistrationHelper {
 	/** Load and register source and target metamodels */
 	public static void registerMetamodels(ResourceSet rs, OperationalStrategy strategy) throws IOException {
 		// Replace to register generated code or handle other URI-related requirements
-		//_SchemaBasedAutoRegistration.register(strategy);
+		
 		 
 		 AadlPackageImpl.init();		
 		 AdelePackageImpl.init();
-		
-		rs.getPackageRegistry().put("platform:/resource/Adele/model/Adele.ecore", AdelePackage.eINSTANCE);
-		// rs.getPackageRegistry().put("platform:/resource/Aadl/model/Aadl.ecore", AadlPackage.eINSTANCE);
+		 rs.getPackageRegistry().put("platform:/resource/Adele/model/generated/Adele.ecore", AdelePackage.eINSTANCE);
+		  
 	}
 
 	/** Create default options **/
