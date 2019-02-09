@@ -13,21 +13,33 @@
   <trg href="platform:/resource/Adele2Aadl/metamodels/trg/instance.ecore#/"/>
   <corr href="platform:/resource/Adele2Aadl/model/Adele2Aadl.ecore#/"/>
   <rules name="rulePackage2AadlPackage">
-    <nodes name="adelePackage" bindingType="CREATE" incomingCorrsSource="//@rules.0/@nodes.3 //@rules.0/@nodes.4">
+    <nodes name="adelePackage" bindingType="CREATE" incomingEdges="//@rules.0/@edges.0 //@rules.0/@edges.2" incomingCorrsSource="//@rules.0/@nodes.3 //@rules.0/@nodes.4">
       <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Components.ecore#//Package"/>
     </nodes>
-    <nodes name="aadlPackage" domainType="TRG" bindingType="CREATE" outgoingEdges="//@rules.0/@edges.0" incomingCorrsTarget="//@rules.0/@nodes.3">
+    <nodes name="aadlPackage" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.0/@edges.1" outgoingEdges="//@rules.0/@edges.4" incomingCorrsTarget="//@rules.0/@nodes.3">
       <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//AadlPackage"/>
     </nodes>
-    <nodes name="aadlPublicPackageSection" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.0/@edges.0" incomingCorrsTarget="//@rules.0/@nodes.4">
+    <nodes name="aadlPublicPackageSection" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.0/@edges.3 //@rules.0/@edges.4" incomingCorrsTarget="//@rules.0/@nodes.4">
       <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//PublicPackageSection"/>
     </nodes>
-    <nodes xsi:type="language:TGGRuleCorr" name="corrAxiom" domainType="CORR" bindingType="CREATE" source="//@rules.0/@nodes.0" target="//@rules.0/@nodes.1">
+    <nodes xsi:type="language:TGGRuleCorr" name="corrAxiom" domainType="CORR" bindingType="CREATE" outgoingEdges="//@rules.0/@edges.0 //@rules.0/@edges.1" source="//@rules.0/@nodes.0" target="//@rules.0/@nodes.1">
       <type href="platform:/resource/Adele2Aadl/model/Adele2Aadl.ecore#//CorrAxiomAP"/>
     </nodes>
-    <nodes xsi:type="language:TGGRuleCorr" name="corrAxiomOne" domainType="CORR" bindingType="CREATE" source="//@rules.0/@nodes.0" target="//@rules.0/@nodes.2">
-      <type href="platform:/resource/Adele2Aadl/model/Adele2Aadl.ecore#//CorrAxiomAPOne"/>
+    <nodes xsi:type="language:TGGRuleCorr" name="corrAxiomOne" domainType="CORR" bindingType="CREATE" outgoingEdges="//@rules.0/@edges.2 //@rules.0/@edges.3" source="//@rules.0/@nodes.0" target="//@rules.0/@nodes.2">
+      <type href="platform:/resource/Adele2Aadl/model/Adele2Aadl.ecore#//CorrAxiomPPS"/>
     </nodes>
+    <edges name="corrAxiom__source__adelePackage_eMoflonEdge" domainType="CORR" bindingType="CREATE" srcNode="//@rules.0/@nodes.3" trgNode="//@rules.0/@nodes.0">
+      <type href="platform:/resource/Adele2Aadl/model/Adele2Aadl.ecore#//CorrAxiomAP/source"/>
+    </edges>
+    <edges name="corrAxiom__target__aadlPackage_eMoflonEdge" domainType="CORR" bindingType="CREATE" srcNode="//@rules.0/@nodes.3" trgNode="//@rules.0/@nodes.1">
+      <type href="platform:/resource/Adele2Aadl/model/Adele2Aadl.ecore#//CorrAxiomAP/target"/>
+    </edges>
+    <edges name="corrAxiomOne__source__adelePackage_eMoflonEdge" domainType="CORR" bindingType="CREATE" srcNode="//@rules.0/@nodes.4" trgNode="//@rules.0/@nodes.0">
+      <type href="platform:/resource/Adele2Aadl/model/Adele2Aadl.ecore#//CorrAxiomPPS/source"/>
+    </edges>
+    <edges name="corrAxiomOne__target__aadlPublicPackageSection_eMoflonEdge" domainType="CORR" bindingType="CREATE" srcNode="//@rules.0/@nodes.4" trgNode="//@rules.0/@nodes.2">
+      <type href="platform:/resource/Adele2Aadl/model/Adele2Aadl.ecore#//CorrAxiomPPS/target"/>
+    </edges>
     <edges name="aadlPackage__ownedPublicSection__aadlPublicPackageSection_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.0/@nodes.1" trgNode="//@rules.0/@nodes.2">
       <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//AadlPackage/ownedPublicSection"/>
     </edges>
