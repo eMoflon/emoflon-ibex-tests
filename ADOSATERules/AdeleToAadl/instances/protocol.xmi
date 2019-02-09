@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:AdeleToAadl="platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore">
+  <AdeleToAadl:ruleAccessToAccessOne__Marker final="true">
+    <CREATE__SRC__adeleType href="src.xmi#/"/>
+    <CREATE__TRG__aadlType href="trg.xmi#/"/>
+    <CREATE__CORR__corrType href="corr.xmi#/0"/>
+  </AdeleToAadl:ruleAccessToAccessOne__Marker>
+  <AdeleToAadl:ruleAccessToAccess__Marker final="true">
+    <CREATE__SRC__adeleAccess href="src.xmi#//@features.0"/>
+    <CONTEXT__SRC__adeleType href="src.xmi#/"/>
+    <CREATE__TRG__aadlAccess href="trg.xmi#//@ownedFeature.0"/>
+    <CONTEXT__TRG__aadlType href="trg.xmi#/"/>
+    <CREATE__CORR__corrAccess href="corr.xmi#/1"/>
+    <CONTEXT__CORR__corrType href="corr.xmi#/0"/>
+  </AdeleToAadl:ruleAccessToAccess__Marker>
+</xmi:XMI>

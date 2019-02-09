@@ -1,42 +1,42 @@
-#using AdeleToAadl.*
-#using AttrCondDefLibrary.*
-
-#rule ruleComponent2SubcomponentTyped #with AdeleToAadl
-
-#source { 
-	adeleImplementation: Adele.Implementation
-	{
-		 ++ -subcomponent-> adeleType 
-	}
-	++ adeleType: Adele.Subcomponent
-	
-}
-
-#target {
-	
-	aadlImplementation: Aadl.Implementation
-	{
-		++ - ownedSubcomponent->aadlType
-	}
-	++ aadlType: Aadl.SubcomponentType
-	
-}
-
-#correspondence {
-	
-	corrComponent: CorrComponentType
-	{
-		#src->adeleImplementation
-		#trg->aadlImplementation
-	}
-	++ corrSubcomponent: CorrSubcomponentType
-	{
-		#src->adeleType
-		#trg->aadlType
-	}
-	
-}
-
-#attributeConditions {
-	
-}
+//#using AdeleToAadl.*
+//#using AttrCondDefLibrary.*
+//
+//#rule ruleComponent2SubcomponentTyped #with AdeleToAadl
+//
+//#source { 
+//	adeleImplementation: Adele.Implementation
+//	{
+//		 ++ -subcomponent-> adeleType 
+//	}
+//	++ adeleType: Adele.Subcomponent
+//	
+//}
+//
+//#target {
+//	
+//	aadlImplementation: Aadl.Implementation
+//	{
+//		++ - ownedSubcomponent->aadlType
+//	}
+//	++ aadlType: Aadl.SubcomponentType
+//	
+//}
+//
+//#correspondence {
+//	
+//	corrComponent: CorrComponentType
+//	{
+//		#src->adeleImplementation
+//		#trg->aadlImplementation
+//	}
+//	++ corrSubcomponent: CorrSubcomponentType
+//	{
+//		#src->adeleType
+//		#trg->aadlType
+//	}
+//	
+//}
+//
+//#attributeConditions {
+//	
+//}

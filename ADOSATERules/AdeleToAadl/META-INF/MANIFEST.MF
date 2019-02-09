@@ -31,6 +31,7 @@ Require-Bundle: org.apache.log4j,
 Bundle-ManifestVersion: 2
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Import-Package: Aadl.impl,
+Import-Package: Aadl,
+ Aadl.impl,
  Adele,
  Adele.impl

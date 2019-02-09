@@ -1,0 +1,48 @@
+
+#import "platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore"
+#import "platform:/resource/Adele2Aadl/metamodels/trg/instance.ecore"
+#import "platform:/resource/Adele2Aadl/metamodels/src/ADELE_Components.ecore"
+#import "platform:/resource/Adele2Aadl/metamodels/src/ADELE_Features.ecore"
+#import "platform:/resource/Adele2Aadl/metamodels/src/ADELE_Relations.ecore"
+#import "platform:/resource/Adele2Aadl/metamodels/src/ADELE.ecore"
+#import "platform:/resource/Adele2Aadl/metamodels/src/BA_components.ecore"
+#import "platform:/resource/Adele2Aadl/metamodels/src/BA_features.ecore"
+#import "platform:/resource/Adele2Aadl/metamodels/src/BA_relations.ecore"
+#import "platform:/resource/Adele2Aadl/metamodels/src/KernelSpices.ecore"
+#import "platform:/resource/Adele2Aadl/metamodels/src/ObjectDescriptionModel.ecore"
+
+#schema Adele2Aadl
+	
+#source {
+	ADELE
+	ADELE_Components
+	ADELE_Features
+	ADELE_Relations
+	ba_components
+	ba_features
+	ba_relations
+	KernelSpices
+	ObjectDescriptionModel
+}
+
+#target {
+	aadl2
+	instance 
+} 
+
+#correspondence {
+	CorrAxiomAP
+	{
+	#src->Package
+	#trg->AadlPackage
+	}
+	CorrAxiomAPOne
+	{
+	#src->Package
+	#trg->PublicPackageSection
+	}
+}
+
+#attributeConditions {
+	
+}
