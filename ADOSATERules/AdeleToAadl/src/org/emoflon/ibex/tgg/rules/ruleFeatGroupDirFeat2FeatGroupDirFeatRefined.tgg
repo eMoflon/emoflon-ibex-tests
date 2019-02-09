@@ -1,0 +1,33 @@
+#using AdeleToAadl.*
+#using AttrCondDefLibrary.*
+
+#rule ruleFeatGroupDirFeat2FeatGroupDirFeatRefined #extends ruleFeatGroupDirFeat2FeatGroupDirFeat #with AdeleToAadl
+
+#source { 
+	
+	++ adeleFeature:DirectedFeature{
+		++ -refinedFeature->adeleRefinedFeature
+	}
+	adeleRefinedFeature:Feature
+}
+
+
+#target {
+	++ aadlFeature:DirectedFeature{
+		++ -refined->aadlRefinedFeature
+	}
+	aadlRefinedFeature:Feature
+	
+}
+
+#correspondence {
+	corrRefinedFeature:CorrFeature{
+		#src->adeleRefinedFeature
+		#trg->aadlRefinedFeature
+	}
+	
+}
+
+#attributeConditions {
+	
+}
