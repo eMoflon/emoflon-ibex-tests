@@ -1,0 +1,37 @@
+#using Adele2Aadl.*
+#using AttrCondDefLibrary.*
+
+#abstract #rule ruleFeatGroupDirFeat2FeatGroupDirFeatTyped52 #extends ruleFeatGroupDirFeat2FeatGroupDirFeat50 #with Adele2Aadl
+
+#source { 
+	++ adeleFeature:DirectedFeature{
+		++ -classifier->adeleClassifier
+	}
+	adeleClassifier:SKComponent
+}
+
+#target {
+	++aadlFeature:DirectedFeature{
+		++ -classifier->aadlClassifier
+	}
+	aadlClassifier:Classifier
+
+
+
+
+}
+
+#correspondence {
+	corrClassifier:CorrComponentSKC
+	{
+		#src->adeleClassifier
+		#trg->aadlClassifier
+	}
+
+}
+
+#attributeConditions {
+
+}
+
+

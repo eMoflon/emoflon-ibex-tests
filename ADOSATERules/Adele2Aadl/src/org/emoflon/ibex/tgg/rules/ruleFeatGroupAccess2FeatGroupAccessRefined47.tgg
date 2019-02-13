@@ -1,0 +1,50 @@
+#using Adele2Aadl.*
+#using AttrCondDefLibrary.*
+
+#abstract #rule ruleFeatGroupAccess2FeatGroupAccessRefined47 #with Adele2Aadl
+
+#source { 
+	adeleType:FeatureGroup{
+		++ -features ->adeleAccess
+
+	}
+	++ adeleAccess:Access{
+			++ -refinedFeature->adeleRefinedFeature
+	}
+	adeleRefinedFeature:Feature
+}
+
+#target {
+	aadlType:FeatureGroupType{
+		++ -ownedFeature->aadlAccess
+	}
+	++ aadlAccess:Access{
+		++ -refined->aadlRefinedFeature
+	}
+	aadlRefinedFeature:Feature
+
+}
+
+#correspondence {
+	corrType:CorrComponentTypeFG{
+		#src->adeleType
+		#trg->aadlType
+
+}
+++corrAccess:CorrAccess{
+	#src->adeleAccess
+	#trg->aadlAccess
+
+}
+corrRefinedFeature:CorrFeature{
+	#src->adeleRefinedFeature
+	#trg->aadlRefinedFeature
+}
+}
+
+#attributeConditions {
+
+}
+
+
+

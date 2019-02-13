@@ -1,0 +1,102 @@
+#using Adele2Aadl.*
+#using AttrCondDefLibrary.*
+
+#abstract #rule ruleAccessConn2AccessConnSrcParentDestSubcompo7 #with Adele2Aadl
+
+#source { 
+	adeleCompImplType:ADELE_Components.Component
+	{
+		
+		-allRealFeatures->adeleComponentAccess
+		
+	}
+	
+	adeleComponentAccess:Access
+	adeleComponentImplementation:Component
+	{
+		-type->adeleCompImplType
+		-allRealChildrenComponents->adeleSubcomponent
+		++ -allRealRelations->adeleConnection
+		
+		
+	}
+	++adeleConnection:AccessConnection
+	{
+		++ -originalSourceFeature ->adeleComponentAccess
+		++ -originalSinkSubcomponent->adeleSubcomponent
+		
+	}
+	adeleSubcomponent:Component
+	
+		
+		
+	}
+
+#target {
+	aadlComponentAccess:Access
+	++ sourceConnectedElement:ConnectedElement {
+		++ -connectionEnd->aadlComponentAccess
+		
+	}
+	++ aadlConnection:AccessConnection{
+		++ -source->sourceConnectedElement
+		++ -destination->destinationConnectedElement
+	}
+	++ destinationConnectedElement:ConnectedElement{
+		++ -connectionEnd->aadlSubcomponent
+		
+	}
+	aadlSubcomponent:AccessConnectionEnd
+	
+		
+	
+	aadlComponentImplementation:ComponentImplementation{
+		-type->aadlCompImplType
+		-member->aadlSubcomponent
+	}
+	aadlCompImplType:ComponentType{
+		-member->aadlComponentAccess
+	}
+}
+
+
+#correspondence {
+	corrComponentAccess:CorrAccess{
+		
+	    #src->adeleComponentAccess
+        #trg->aadlComponentAccess
+	}
+	
+	corrComponentType:CorrComponentType{
+		#src->adeleCompImplType
+		#trg->aadlCompImplType
+	}
+	corrComponentImplementation:CorrComponentImplementation{
+		#src->adeleComponentImplementation
+		#trg->aadlComponentImplementation
+		
+		
+	}
+	++corrConnection:CorrAccessConnection{
+		#src->adeleConnection
+		#trg->aadlConnection
+		
+	}
+	++corrConnection1:CorrAccessConnectionttrgCE{
+		#src->adeleConnection
+		#trg->sourceConnectedElement
+		
+	}
+	++corrConnection2:CorrAccessConnectionttrgCE{
+		#src->adeleConnection
+		#trg->destinationConnectedElement
+		
+	}
+}
+
+#attributeConditions {
+	
+}
+
+
+

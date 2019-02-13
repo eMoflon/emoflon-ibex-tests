@@ -1,0 +1,31 @@
+#using Adele2Aadl.*
+#using AttrCondDefLibrary.*
+
+#abstract #rule ruleFeatGroupAccess2FeatGroupAccessTypedRefined49 #extends ruleFeatGroupAccess2FeatGroupAccessRefined47 #with Adele2Aadl
+
+#source { 
+	++ adeleAccess:Access{
+			++ -classifier->adeleClassifier
+	}
+	adeleClassifier:Component
+}
+
+#target {
+	++ aadlAccess:Access{
+		++ -featureClassifier->aadlClassifier
+	}
+	aadlClassifier:FeatureClassifier
+}
+
+#correspondence {
+	corrClassifier:CorrComponent{
+		#src->adeleClassifier
+		#trg->aadlClassifier
+	}
+}
+
+#attributeConditions {
+
+}
+
+
