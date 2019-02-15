@@ -1,0 +1,67 @@
+#using Adele2Aadl.*
+#using AttrCondDefLibrary.*
+
+#abstract #rule ruleFeatGroupDirFeat2FeatGroupDirFeatTypedRefined55 #with Adele2Aadl
+
+#source { 
+	
+	adeleType:ADELE_Features.FeatureGroup 
+	{
+		++ -features->adeleFeature
+	}
+	++adeleFeature:ADELE_Features.DirectedFeature
+	{
+		++ -refinedFeature->adeleRefinedFeature
+		++ -classifier->adeleClassifier
+	}
+	adeleRefinedFeature:ADELE_Features.Feature
+	adeleClassifier:ADELE_Components.Component
+}
+
+#target {
+	aadlType:aadl2.FeatureGroupType 
+	{
+		++ -ownedFeature->aadlFeature
+	}
+	++aadlFeature:aadl2.DirectedFeature 
+	{
+		++ -refined->aadlRefinedFeature
+		++ -classifier->aadlClassifier
+	}
+	aadlRefinedFeature:aadl2.Feature 
+	aadlClassifier:aadl2.Classifier 	
+	
+	
+}
+
+
+#correspondence {
+	corrType:CorrComponentTypeFG
+	{
+		#src->adeleType
+		#trg->aadlType
+	}
+	++corrFeature:CorrDirectedFeature
+	{
+		#src->adeleFeature
+		#trg->aadlFeature
+	}
+	corrRefinedFeature:CorrFeature 
+	{
+		#src->adeleRefinedFeature
+		#trg->aadlRefinedFeature
+	}
+	corrClassifier:CorrComponentSKC
+	{
+		#src->adeleClassifier
+		#trg->aadlClassifier
+	}
+}
+
+#attributeConditions {
+	eq_string(adeleFeature.name, aadlFeature.name)
+	
+}
+
+
+

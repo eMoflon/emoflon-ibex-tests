@@ -1,0 +1,40 @@
+#using Adele2Aadl.*
+#using AttrCondDefLibrary.*
+
+#rule ruleComponent2ComponentImplementation18 #with Adele2Aadl
+
+#source { 
+	adelePackage:ADELE_Components.Package 
+	{
+		++ -component->adeleType
+	}
+	adeleType:ADELE_Components.Component
+	++adeleImplementation: ADELE_Components.Component
+	
+}
+
+#target {
+	aadlPublicPackageSection:aadl2.PackageSection
+	{
+		++ -ownedClassifier->aadlType
+		++ -ownedClassifier->aadlImplementation
+		
+	} 
+	aadlType:aadl2.ComponentType 
+	++aadlRealization:aadl2.Realization 
+	{
+		++ -implemented->aadlType
+	}
+	++aadlImplementation:aadl2.ComponentImplementation
+	{
+		++ -ownedRealization->aadlRealization
+	}
+}
+
+#correspondence {
+	
+}
+
+#attributeConditions {
+	
+}
