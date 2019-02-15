@@ -1,0 +1,51 @@
+#using Adele2Aadl.*
+#using AttrCondDefLibrary.*
+
+#abstract #rule ruleFeatGroupAccess2FeatGroupAccessTyped48 #with Adele2Aadl
+
+#source { 
+	adeleType:FeatureGroup{
+		++ -features ->adeleAccess
+
+	}
+	++ adeleAccess:Access
+	{
+		++ -classifier->adeleClassifier
+	}
+	adeleClassifier:Component
+}
+
+#target {
+	aadlType:FeatureGroupType{
+		++ -ownedFeature->aadlAccess
+	}
+	++ aadlAccess:Access{
+		++ -featureClassifier->aadlClassifier
+}
+aadlClassifier:DataSubcomponentType
+}
+#correspondence {
+	corrComponentClassifier:CorrComponentDST{
+		#src->adeleClassifier
+		#trg->aadlClassifier
+	}
+	corrType:CorrComponentTypeFG{
+		#src->adeleType
+		#trg->aadlType
+
+}
+++corrAccess:CorrAccess{
+	#src->adeleAccess
+	#trg->aadlAccess
+
+}
+
+}
+
+#attributeConditions {
+
+}
+
+
+
+

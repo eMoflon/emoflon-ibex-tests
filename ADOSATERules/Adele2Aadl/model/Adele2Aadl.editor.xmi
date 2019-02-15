@@ -23,13 +23,101 @@
     <sourceTypes href="platform:/resource/Adele2Aadl/metamodels/src/ObjectDescriptionModel.ecore#/"/>
     <targetTypes href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#/"/>
     <targetTypes href="platform:/resource/Adele2Aadl/metamodels/trg/instance.ecore#/"/>
+    <correspondenceTypes name="CorrComponentType">
+      <source href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Components.ecore#//Component"/>
+      <target href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//ComponentType"/>
+    </correspondenceTypes>
+    <correspondenceTypes name="CorrComponentTypeTE">
+      <source href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Components.ecore#//Component"/>
+      <target href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//TypeExtension"/>
+    </correspondenceTypes>
+    <correspondenceTypes name="CorrComponentTypeFG">
+      <source href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Features.ecore#//FeatureGroup"/>
+      <target href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//FeatureGroupType"/>
+    </correspondenceTypes>
+    <correspondenceTypes name="CorrComponentTypeGE">
+      <source href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Features.ecore#//FeatureGroup"/>
+      <target href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//GroupExtension"/>
+    </correspondenceTypes>
+    <correspondenceTypes name="CorrAccess">
+      <source href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Features.ecore#//Access"/>
+      <target href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//Access"/>
+    </correspondenceTypes>
+    <correspondenceTypes name="CorrFeature">
+      <source href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Features.ecore#//Feature"/>
+      <target href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//Feature"/>
+    </correspondenceTypes>
+    <correspondenceTypes name="CorrComponent">
+      <source href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Components.ecore#//Component"/>
+      <target href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//FeatureClassifier"/>
+    </correspondenceTypes>
+    <correspondenceTypes name="CorrComponentSCT">
+      <source href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Components.ecore#//Component"/>
+      <target href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//SubcomponentType"/>
+    </correspondenceTypes>
+    <correspondenceTypes name="CorrComponentSKC">
+      <source href="platform:/resource/Adele2Aadl/metamodels/src/KernelSpices.ecore#//SKComponent"/>
+      <target href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//Classifier"/>
+    </correspondenceTypes>
+    <correspondenceTypes name="CorrComponentDST">
+      <source href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Components.ecore#//Component"/>
+      <target href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//DataSubcomponentType"/>
+    </correspondenceTypes>
+    <correspondenceTypes name="CorrComponentImplementation">
+      <source href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Components.ecore#//Component"/>
+      <target href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//ComponentImplementation"/>
+    </correspondenceTypes>
+    <correspondenceTypes name="CorrComponentImplementationR">
+      <source href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Components.ecore#//Component"/>
+      <target href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//Realization"/>
+    </correspondenceTypes>
+    <correspondenceTypes name="CorrComponentImplementationIE">
+      <source href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Components.ecore#//Component"/>
+      <target href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//ImplementationExtension"/>
+    </correspondenceTypes>
+    <correspondenceTypes name="CorrAccessConnection">
+      <source href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Relations.ecore#//AccessConnection"/>
+      <target href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//AccessConnection"/>
+    </correspondenceTypes>
+    <correspondenceTypes name="CorrAccessConnectionttrgCE">
+      <source href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Relations.ecore#//AccessConnection"/>
+      <target href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//ConnectedElement"/>
+    </correspondenceTypes>
+    <correspondenceTypes name="CorrSubcomponent">
+      <source href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Components.ecore#//Component"/>
+      <target href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//AccessConnectionEnd"/>
+    </correspondenceTypes>
+    <correspondenceTypes name="CorrSubcomponenttrgSC">
+      <source href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Components.ecore#//Component"/>
+      <target href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//Subcomponent"/>
+    </correspondenceTypes>
+    <correspondenceTypes name="CorrAxiom">
+      <source href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Components.ecore#//Package"/>
+      <target href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//PackageSection"/>
+    </correspondenceTypes>
+    <correspondenceTypes name="CorrAxiomPPS">
+      <source href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Components.ecore#//Package"/>
+      <target href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//PublicPackageSection"/>
+    </correspondenceTypes>
     <correspondenceTypes name="CorrAxiomAP">
       <source href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Components.ecore#//Package"/>
       <target href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//AadlPackage"/>
     </correspondenceTypes>
-    <correspondenceTypes name="CorrAxiomAPOne">
-      <source href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Components.ecore#//Package"/>
-      <target href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//PublicPackageSection"/>
+    <correspondenceTypes name="CorrDirectedFeature">
+      <source href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Features.ecore#//DirectedFeature"/>
+      <target href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//DirectedFeature"/>
+    </correspondenceTypes>
+    <correspondenceTypes name="CorrDirectedFeatureFG">
+      <source href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Features.ecore#//FeatureGroup"/>
+      <target href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//FeatureGroup"/>
+    </correspondenceTypes>
+    <correspondenceTypes name="CorrDirectedFeatureConnection">
+      <source href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Relations.ecore#//DirectedFeatureConnection"/>
+      <target href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//Connection"/>
+    </correspondenceTypes>
+    <correspondenceTypes name="CorrDirectedFeatureConnectionCE">
+      <source href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Relations.ecore#//DirectedFeatureConnection"/>
+      <target href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//ConnectedElement"/>
     </correspondenceTypes>
     <attributeCondDefs name="eq_string">
       <params paramName="a">
@@ -85,10 +173,10 @@
       <op value="++"/>
       <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//PublicPackageSection"/>
     </targetPatterns>
-    <correspondencePatterns name="corrAxiom" type="//@schema/@correspondenceTypes.0" source="//@rules.0/@sourcePatterns.0" target="//@rules.0/@targetPatterns.0">
+    <correspondencePatterns name="corrAxiom" type="//@schema/@correspondenceTypes.19" source="//@rules.0/@sourcePatterns.0" target="//@rules.0/@targetPatterns.0">
       <op value="++"/>
     </correspondencePatterns>
-    <correspondencePatterns name="corrAxiomOne" type="//@schema/@correspondenceTypes.1" source="//@rules.0/@sourcePatterns.0" target="//@rules.0/@targetPatterns.1">
+    <correspondencePatterns name="corrAxiomOne" type="//@schema/@correspondenceTypes.18" source="//@rules.0/@sourcePatterns.0" target="//@rules.0/@targetPatterns.1">
       <op value="++"/>
     </correspondencePatterns>
     <attrConditions name="//@schema/@attributeCondDefs.0">

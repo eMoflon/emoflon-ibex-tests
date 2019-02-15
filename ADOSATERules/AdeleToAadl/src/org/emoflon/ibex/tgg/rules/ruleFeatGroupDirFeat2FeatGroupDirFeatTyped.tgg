@@ -1,0 +1,35 @@
+#using AdeleToAadl.*
+#using AttrCondDefLibrary.*
+
+#rule ruleFeatGroupDirFeat2FeatGroupDirFeatTyped #extends ruleFeatGroupDirFeat2FeatGroupDirFeat #with AdeleToAadl
+
+#source { 
+	++ adeleFeature:DirectedFeature{
+		++ -classifier->adeleClassifier
+	}
+	adeleClassifier:SKComponent
+}
+
+#target {
+	++aadlFeature:DirectedFeature{
+		++ -classifier->aadlClassifier
+	}
+	aadlClassifier:Classifier
+
+
+
+
+}
+
+#correspondence {
+	corrClassifier:CorrComponentSKC
+	{
+		#src->adeleClassifier
+		#trg->aadlClassifier
+	}
+
+}
+
+#attributeConditions {
+
+}

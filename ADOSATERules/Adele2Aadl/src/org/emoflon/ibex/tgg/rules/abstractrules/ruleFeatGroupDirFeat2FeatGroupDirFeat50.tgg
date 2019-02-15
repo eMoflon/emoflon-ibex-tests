@@ -1,0 +1,43 @@
+#using Adele2Aadl.*
+#using AttrCondDefLibrary.*
+
+#abstract #rule ruleFeatGroupDirFeat2FeatGroupDirFeat50 #with Adele2Aadl
+
+#source { 
+
+	adeleType:FeatureGroup{
+		++ -features ->adeleFeature
+
+	}
+	++ adeleFeature:DirectedFeature
+}
+
+
+#target {
+	aadlType:FeatureGroupType{
+		++ -ownedFeature->aadlFeature
+	}
+	++aadlFeature:DirectedFeature
+}
+
+#correspondence {
+
+
+	++corrFeature:CorrDirectedFeature{
+		#src->adeleFeature
+		#trg->aadlFeature
+	}
+	corrType:CorrComponentTypeFG{
+		#src->adeleType
+		#trg->aadlType
+
+}
+}
+
+
+#attributeConditions {
+
+}
+
+
+
