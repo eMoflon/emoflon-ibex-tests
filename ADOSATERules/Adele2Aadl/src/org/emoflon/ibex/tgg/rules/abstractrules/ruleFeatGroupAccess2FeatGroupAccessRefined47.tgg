@@ -43,8 +43,21 @@ corrRefinedFeature:CorrFeature{
 }
 
 #attributeConditions {
+	
 
 }
+
+
+#rule BusAccess2BusAccessRule #extends ruleFeatGroupAccess2FeatGroupAccessRefined47
+#with Adele2Aadl
+#source {
+	++ adeleAccess:BusAccess
+}
+
+#target {
+	++ aadlAccess:BusAccess
+}
+
 
 
 
