@@ -11,8 +11,8 @@
 		
 	}
 	
-	adeleComponentAccess:Access
-	adeleComponentImplementation:Component
+	adeleComponentAccess:ADELE_Features.Access
+	adeleComponentImplementation:ADELE_Components.Component
 	{
 		-type->adeleCompImplType
 		-allRealChildrenComponents->adeleSubcomponent
@@ -20,41 +20,41 @@
 		
 		
 	}
-	++adeleConnection:AccessConnection
+	++adeleConnection:ADELE_Relations.AccessConnection
 	{
 		++ -originalSourceFeature ->adeleComponentAccess
 		++ -originalSinkSubcomponent->adeleSubcomponent
 		
 	}
-	adeleSubcomponent:Component
+	adeleSubcomponent:ADELE_Components.Component
 	
 		
 		
 	}
 
 #target {
-	aadlComponentAccess:Access
-	++ sourceConnectedElement:ConnectedElement {
+	aadlComponentAccess:aadl2.Access
+	++ sourceConnectedElement:aadl2.ConnectedElement {
 		++ -connectionEnd->aadlComponentAccess
 		
 	}
-	++ aadlConnection:AccessConnection{
+	++ aadlConnection:aadl2.AccessConnection{
 		++ -source->sourceConnectedElement
 		++ -destination->destinationConnectedElement
 	}
-	++ destinationConnectedElement:ConnectedElement{
+	++ destinationConnectedElement:aadl2.ConnectedElement{
 		++ -connectionEnd->aadlSubcomponent
 		
 	}
-	aadlSubcomponent:AccessConnectionEnd
+	aadlSubcomponent:aadl2.AccessConnectionEnd
 	
 		
 	
-	aadlComponentImplementation:ComponentImplementation{
+	aadlComponentImplementation:aadl2.ComponentImplementation{
 		-type->aadlCompImplType
 		-member->aadlSubcomponent
 	}
-	aadlCompImplType:ComponentType{
+	aadlCompImplType:aadl2.ComponentType{
 		-member->aadlComponentAccess
 	}
 }
@@ -95,8 +95,6 @@
 }
 
 #attributeConditions {
-	
+	eq_string(adeleConnection.name, aadlConnection.name)
 }
-
-
 

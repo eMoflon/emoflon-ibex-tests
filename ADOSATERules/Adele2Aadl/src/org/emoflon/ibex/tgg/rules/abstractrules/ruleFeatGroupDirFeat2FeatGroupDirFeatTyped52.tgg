@@ -4,17 +4,17 @@
 #abstract #rule ruleFeatGroupDirFeat2FeatGroupDirFeatTyped52 #extends ruleFeatGroupDirFeat2FeatGroupDirFeat50 #with Adele2Aadl
 
 #source { 
-	++ adeleFeature:DirectedFeature{
+	++ adeleFeature:ADELE_Features.DirectedFeature{
 		++ -classifier->adeleClassifier
 	}
-	adeleClassifier:SKComponent
+	adeleClassifier:KernelSpices.SKComponent
 }
 
 #target {
-	++aadlFeature:DirectedFeature{
+	++aadlFeature:aadl2.DirectedFeature{
 		++ -classifier->aadlClassifier
 	}
-	aadlClassifier:Classifier
+	aadlClassifier:aadl2.Classifier
 
 
 
@@ -31,7 +31,5 @@
 }
 
 #attributeConditions {
-
+eq_string(adeleFeature.name, aadlFeature.name)
 }
-
-

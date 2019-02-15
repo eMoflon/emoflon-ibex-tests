@@ -4,25 +4,25 @@
 #abstract #rule ruleFeatGroupAccess2FeatGroupAccessTyped48 #with Adele2Aadl
 
 #source { 
-	adeleType:FeatureGroup{
+	adeleType:ADELE_Features.FeatureGroup{
 		++ -features ->adeleAccess
 
 	}
-	++ adeleAccess:Access
+	++ adeleAccess:ADELE_Features.Access
 	{
 		++ -classifier->adeleClassifier
 	}
-	adeleClassifier:Component
+	adeleClassifier:ADELE_Components.Component
 }
 
 #target {
-	aadlType:FeatureGroupType{
+	aadlType:aadl2.FeatureGroupType{
 		++ -ownedFeature->aadlAccess
 	}
-	++ aadlAccess:Access{
+	++ aadlAccess:aadl2.Access{
 		++ -featureClassifier->aadlClassifier
 }
-aadlClassifier:DataSubcomponentType
+aadlClassifier:aadl2.DataSubcomponentType
 }
 #correspondence {
 	corrComponentClassifier:CorrComponentDST{
@@ -43,9 +43,8 @@ aadlClassifier:DataSubcomponentType
 }
 
 #attributeConditions {
-
+eq_string(adeleAccess.name, aadlAccess.name)
 }
-
 
 
 

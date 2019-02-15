@@ -1,20 +1,21 @@
+
 #using Adele2Aadl.*
 #using AttrCondDefLibrary.*
 
 #abstract #rule ruleAccessConn2AccessConnSrcParentDestSubcompoFeatSameAccess9 #with Adele2Aadl
 
 #source { 
-	adeleCompImplType:Component{
+	adeleCompImplType:ADELE_Components.Component{
 		-allRealFeatures->adeleComponentAccess
 	}
-	adeleComponentAccess:Access
-	adeleComponentImplementation:Component{
+	adeleComponentAccess:ADELE_Features.Access
+	adeleComponentImplementation:ADELE_Components.Component{
 		-type->adeleCompImplType
 		-allRealChildrenComponents->adeleSubcomponent
 		++ -allRealRelations->adeleConnection
 	}
-	adeleSubcomponent:Component
-	++ adeleConnection:AccessConnection{
+	adeleSubcomponent:ADELE_Components.Component
+	++ adeleConnection:ADELE_Relations.AccessConnection{
 		++ -originalSourceFeature->adeleComponentAccess
 		++ -originalSinkFeature->adeleComponentAccess
 	}
@@ -22,27 +23,27 @@
 }
 
 #target {
-	aadlComponentAccess:Access
-	++ sourceConnectedElement:ConnectedElement{
+	aadlComponentAccess:aadl2.Access
+	++ sourceConnectedElement:aadl2.ConnectedElement{
 		++ -connectionEnd->aadlComponentAccess
 	}
-	++ aadlConnection:AccessConnection
+	++ aadlConnection:aadl2.AccessConnection
 	{
 		++ -source->sourceConnectedElement
 		++ -destination->destinationConnectedElement
 		
 	}
-	++ destinationConnectedElement:ConnectedElement{
+	++ destinationConnectedElement:aadl2.ConnectedElement{
 		++ -connectionEnd->aadlComponentAccess
 		++ -context->aadlSubcomponent
 	}
-	aadlSubcomponent:Subcomponent
-	aadlComponentImplementation:ComponentImplementation{
+	aadlSubcomponent:aadl2.Subcomponent
+	aadlComponentImplementation:aadl2.ComponentImplementation{
 		++ -ownedAccessConnection->aadlConnection
 		-member->aadlSubcomponent
 		-type->aadlCompImplType
 	}
-	aadlCompImplType:ComponentType{
+	aadlCompImplType:aadl2.ComponentType{
 		-member->aadlComponentAccess
 	}
 	
@@ -85,8 +86,9 @@
 }
 
 #attributeConditions {
-	
+	eq_string(adeleConnection.name, aadlConnection.name)
 }
+
 
 
 
