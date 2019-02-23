@@ -11,25 +11,25 @@
 		++-refinedFeature->adeleRefinedFeature
 		++-classifier->adeleClassifier
 	}
-adeleRefinedFeature:Feature
-adeleClassifier:Component
+adeleRefinedFeature:ADELE_Features.Feature
+adeleClassifier:ADELE_Components.Component
 
 }
 
 
 #target {
 	
-	aadlType:ComponentType{
+	aadlType:aadl2.ComponentType{
 		
 		++ -ownedFeature->aadlAccess
 
 }
-++ aadlAccess:Access{
+++ aadlAccess:aadl2.Access{
 	++-refined->aadlRefinedFeature
 		++-featureClassifier->aadlClassifier
 }
-aadlRefinedFeature:Feature
-aadlClassifier:FeatureClassifier
+aadlRefinedFeature:aadl2.Feature
+aadlClassifier:aadl2.FeatureClassifier
 }
 
 #correspondence {
@@ -58,6 +58,3 @@ aadlClassifier:FeatureClassifier
 	eq_string(adeleAccess.name, aadlAccess.name)
 	
 }
-
-
-

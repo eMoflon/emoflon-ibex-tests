@@ -5,19 +5,19 @@
 
 #source { 
 
-	adeleType:FeatureGroup{
+	adeleType:ADELE_Features.FeatureGroup{
 		++ -features ->adeleFeature
 
 	}
-	++ adeleFeature:DirectedFeature
+	++ adeleFeature:ADELE_Features.DirectedFeature
 }
 
 
 #target {
-	aadlType:FeatureGroupType{
+	aadlType:aadl2.FeatureGroupType{
 		++ -ownedFeature->aadlFeature
 	}
-	++aadlFeature:DirectedFeature
+	++aadlFeature:aadl2.DirectedFeature
 }
 
 #correspondence {
@@ -36,8 +36,6 @@
 
 
 #attributeConditions {
+	eq_string(adeleFeature.name, aadlFeature.name)
 
 }
-
-
-

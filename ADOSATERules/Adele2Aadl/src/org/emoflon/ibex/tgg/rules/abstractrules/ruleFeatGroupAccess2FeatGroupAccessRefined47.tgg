@@ -1,27 +1,28 @@
+
 #using Adele2Aadl.*
 #using AttrCondDefLibrary.*
 
 #abstract #rule ruleFeatGroupAccess2FeatGroupAccessRefined47 #with Adele2Aadl
 
 #source { 
-	adeleType:FeatureGroup{
+	adeleType:ADELE_Features.FeatureGroup{
 		++ -features ->adeleAccess
 
 	}
-	++ adeleAccess:Access{
+	++ adeleAccess:ADELE_Features.Access{
 			++ -refinedFeature->adeleRefinedFeature
 	}
-	adeleRefinedFeature:Feature
+	adeleRefinedFeature:ADELE_Features.Feature
 }
 
 #target {
-	aadlType:FeatureGroupType{
+	aadlType:aadl2.FeatureGroupType{
 		++ -ownedFeature->aadlAccess
 	}
-	++ aadlAccess:Access{
+	++ aadlAccess:aadl2.Access{
 		++ -refined->aadlRefinedFeature
 	}
-	aadlRefinedFeature:Feature
+	aadlRefinedFeature:aadl2.Feature
 
 }
 
@@ -43,8 +44,7 @@ corrRefinedFeature:CorrFeature{
 }
 
 #attributeConditions {
-	
-
+eq_string(adeleAccess.name, aadlAccess.name)
 }
 
 
@@ -52,8 +52,8 @@ corrRefinedFeature:CorrFeature{
 #with Adele2Aadl
 #source {
 	++ adeleAccess:BusAccess
-}
-
+	
+	}
 #target {
 	++ aadlAccess:BusAccess
 }

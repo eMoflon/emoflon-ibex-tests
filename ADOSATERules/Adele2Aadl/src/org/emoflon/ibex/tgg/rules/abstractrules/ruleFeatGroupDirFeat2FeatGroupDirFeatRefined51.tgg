@@ -5,18 +5,18 @@
 
 #source { 
 
-	++ adeleFeature:DirectedFeature{
+	++ adeleFeature:ADELE_Features.DirectedFeature{
 		++ -refinedFeature->adeleRefinedFeature
 	}
-	adeleRefinedFeature:Feature
+	adeleRefinedFeature:ADELE_Features.Feature
 }
 
 
 #target {
-	++ aadlFeature:DirectedFeature{
+	++ aadlFeature:aadl2.DirectedFeature{
 		++ -refined->aadlRefinedFeature
 	}
-	aadlRefinedFeature:Feature
+	aadlRefinedFeature:aadl2.Feature
 
 }
 
@@ -29,7 +29,5 @@
 }
 
 #attributeConditions {
-
+eq_string(adeleFeature.name, aadlFeature.name)
 }
-
-

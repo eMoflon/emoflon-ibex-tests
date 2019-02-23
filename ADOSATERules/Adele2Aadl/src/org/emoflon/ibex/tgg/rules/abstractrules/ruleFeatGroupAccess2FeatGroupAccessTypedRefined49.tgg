@@ -4,17 +4,17 @@
 #abstract #rule ruleFeatGroupAccess2FeatGroupAccessTypedRefined49 #extends ruleFeatGroupAccess2FeatGroupAccessRefined47 #with Adele2Aadl
 
 #source { 
-	++ adeleAccess:Access{
+	++ adeleAccess:ADELE_Features.Access{
 			++ -classifier->adeleClassifier
 	}
-	adeleClassifier:Component
+	adeleClassifier:ADELE_Components.Component
 }
 
 #target {
-	++ aadlAccess:Access{
+	++ aadlAccess:aadl2.Access{
 		++ -featureClassifier->aadlClassifier
 	}
-	aadlClassifier:FeatureClassifier
+	aadlClassifier:aadl2.FeatureClassifier
 }
 
 #correspondence {
@@ -25,7 +25,6 @@
 }
 
 #attributeConditions {
-
+eq_string(adeleAccess.name, aadlAccess.name)
 }
-
 
