@@ -4,9 +4,10 @@
 #abstract #rule ruleComponent2ComponentImplementation18 #with Adele2Aadl
 
 #source { 
+	
 	adelePackage:ADELE_Components.Package 
 	{
-		++ -->adeleType
+		++ -children->adeleType
 	}
 	adeleType:ADELE_Components.Component
 	++adeleImplementation: ADELE_Components.Component
