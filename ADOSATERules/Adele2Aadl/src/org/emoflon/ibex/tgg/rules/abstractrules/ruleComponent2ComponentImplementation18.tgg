@@ -1,12 +1,12 @@
 #using Adele2Aadl.*
 #using AttrCondDefLibrary.*
 
-#rule ruleComponent2ComponentImplementation18 #with Adele2Aadl
+#abstract #rule ruleComponent2ComponentImplementation18 #with Adele2Aadl
 
 #source { 
 	adelePackage:ADELE_Components.Package 
 	{
-		++ -component->adeleType
+		++ -->adeleType
 	}
 	adeleType:ADELE_Components.Component
 	++adeleImplementation: ADELE_Components.Component
@@ -32,9 +32,33 @@
 }
 
 #correspondence {
-	
+	corrAxiom:CorrAxiom 
+	{
+		#src->adelePackage
+		#trg->aadlPublicPackageSection
+	}
+	corrType:CorrComponentType 
+	{
+		#src->adeleType
+		#trg->aadlType
+		
+	}
+	++ corrImplementation:CorrComponentImplementation
+	{
+		#src->adeleImplementation
+		#trg->aadlImplementation
+	}
+	++ corrImplementationR:CorrComponentImplementationR
+	{
+		#src->adeleImplementation
+		#trg->aadlRealization
+		
+	}
 }
 
 #attributeConditions {
 	
 }
+
+
+
