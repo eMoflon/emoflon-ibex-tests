@@ -8,7 +8,7 @@
 	{
 		++ -children->adeleType
 	}
-	++adeleType:ADELE_Components.Component
+	++adeleType:ADELE_Components.Bus
 	
 }
 #target {
@@ -16,7 +16,7 @@
 	{
 		++ -ownedClassifier->aadlType
 	}
-	++aadlType: aadl2.ComponentType 
+	++aadlType: aadl2.ComponentType
 }  
 
 #correspondence {
@@ -38,5 +38,24 @@
 	
 }
 
+
+ #rule  ruleComponent2ComponentType #extends ruleComponent2ComponentType20 #with Adele2Aadl
+ 
+ 
+#source { 	
+	adelePackage:ADELE_Components.Package 
+	{
+		++ -children->adeleType
+	}
+	++adeleType:ADELE_Components.Bus
+	
+}
+#target {
+	aadlPublicPackageSection:aadl2.PublicPackageSection 
+	{
+		++ -ownedClassifier->aadlType
+	}
+	++aadlType: aadl2.Realization 
+}  
 
 

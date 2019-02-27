@@ -102,7 +102,57 @@
 	
 }
 
+ #rule ruleAccessConn2AccessConnSrcSubcompoFeatDestSubcompoFeatAccess #extends ruleAccessConn2AccessConnSrcSubcompoFeatDestSubcompoFeat17 #with Adele2Aadl
 
+
+#source { 
+	
+	adeleDestinationSubcomponent:ADELE_Components.Component
+		adeleDestinationSubcomponentAccess:ADELE_Features.Access
+		adeleComponentImplementation:ADELE_Components.Component
+		{
+			++ -allRealRelations->adeleConnection
+			-allRealChildrenComponents->adeleDestinationSubcomponent
+			-allRealChildrenComponents->adeleSourceSubcomponent
+		}
+		
+		++ adeleConnection:ADELE_Relations.BusAccessConnection
+		{
+			++ -originalSourceFeature->adeleSourceSubcomponentAccess
+			++ -originalSinkFeature->adeleDestinationSubcomponentAccess
+		}
+		adeleSourceSubcomponentAccess:ADELE_Features.Access
+		adeleSourceSubcomponent:ADELE_Components.Component
+}
+
+#target {
+	
+	aadlDestinationSubcomponentAccess:aadl2.Access
+	aadlDestinationSubcomponent:aadl2.Subcomponent
+	++destinationConnectedElement: aadl2.ConnectedElement
+	{
+		++ -context->aadlDestinationSubcomponent
+		++ -connectionEnd->aadlDestinationSubcomponentAccess
+	}
+	aadlComponentImplementation: aadl2.ComponentImplementation
+	{
+		++ -member->aadlDestinationSubcomponent
+		++ -member->aadlSourceSubcomponent
+	}
+	++aadlConnection:aadl2.AccessConnection
+	{
+		++ -source->sourceConnectedElement
+		++ -destination->destinationConnectedElement
+	}
+	aadlSourceSubcomponent:aadl2.Subcomponent
+	++sourceConnectedElement:aadl2.ConnectedElement
+	{
+		++ -context->aadlSourceSubcomponent
+		++ -connectionEnd->aadlSourceSubcomponentAccess
+	}
+	aadlSourceSubcomponentAccess:aadl2.Access
+	
+}
 
 
 
