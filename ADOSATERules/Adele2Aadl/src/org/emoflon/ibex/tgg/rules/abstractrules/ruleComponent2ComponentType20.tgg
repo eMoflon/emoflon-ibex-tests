@@ -43,18 +43,11 @@
  
  
 #source { 	
-	adelePackage:ADELE_Components.Package 
-	{
-		++ -children->adeleType
-	}
+
 	++adeleType:ADELE_Components.Bus
 	
 }
 #target {
-	aadlPublicPackageSection:aadl2.PublicPackageSection 
-	{
-		++ -ownedClassifier->aadlType
-	}
 	++aadlType:aadl2.BusImplementation 
 }  
 

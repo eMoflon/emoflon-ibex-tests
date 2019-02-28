@@ -64,15 +64,10 @@
 #rule ruleComponent2ComponentImplementationcomponent #extends ruleComponent2ComponentImplementation18 #with Adele2Aadl
 
 #source { 
-	
-	
 	++adeleImplementation:ADELE_Components.Bus
-	
-}
+	}
 
 #target {
-
 	++aadlImplementation:aadl2.BusImplementation
-	
-}
+	}
 
