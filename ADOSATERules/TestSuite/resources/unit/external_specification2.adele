@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="ASCII"?>
+<ADELE_Components:Package xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ADELE_Components="http://ADELE_Components" name="external_specification2">
+  <children xsi:type="ADELE_Components:System" name="System_Parent">
+    <children xsi:type="ADELE_Components:System" name="System_Parent.impl" type="external_specification2.System_Parent" featuresLock="true"/>
+  </children>
+  <children xsi:type="ADELE_Components:Data" name="Data_Parent">
+    <children xsi:type="ADELE_Components:Data" name="Data_Parent.impl" type="external_specification2.Data_Parent" featuresLock="true"/>
+  </children>
+</ADELE_Components:Package>

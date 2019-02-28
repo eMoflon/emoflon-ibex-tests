@@ -1,0 +1,15 @@
+package access2Access
+public
+	system System0
+	features
+		sys0ReqDataAccess1 : requires data access;
+		sys0ProvDataAccess1 : provides data access;
+	end System0;
+
+	system System1 extends System0
+	features
+		sys1ReqDataAccess1 : requires data access;
+		sys1ProvDataAccess1 : provides data access;
+	end System1;
+
+end access2Access;

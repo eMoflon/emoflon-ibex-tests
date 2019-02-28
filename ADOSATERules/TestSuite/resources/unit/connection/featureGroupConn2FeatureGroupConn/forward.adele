@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="ASCII"?>
+<ADELE_Components:Package xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ADELE_Components="http://ADELE_Components" xmlns:ADELE_Features="http://ADELE_Features" name="featureGroupConn2FeatureGroupConn">
+  <children xsi:type="ADELE_Components:System" name="System0">
+    <children xsi:type="ADELE_Components:System" name="System0.impl0" type="featureGroupConn2FeatureGroupConn.System0" featuresLock="true">
+      <children xsi:type="ADELE_Components:Processor" name="proc0" type="featureGroupConn2FeatureGroupConn.Processor0" implementation="featureGroupConn2FeatureGroupConn.Processor0" featuresLock="true" subcomponentsLock="true">
+        <features xsi:type="ADELE_Features:AbstractFeature" name="proc0InAbstrFeat0"/>
+        <features xsi:type="ADELE_Features:AbstractFeature" name="proc0OutAbstrFeat0" direction="out"/>
+        <features xsi:type="ADELE_Features:EventPort" name="proc0InEventPort"/>
+        <features xsi:type="ADELE_Features:EventPort" name="proc0OutEventPort" direction="out"/>
+        <features xsi:type="ADELE_Features:FeatureGroup" name="proc0InFeatureGroup0" classifier="featureGroupConn2FeatureGroupConn.InFeatureGroup0">
+          <features xsi:type="ADELE_Features:EventPort" name="ifg0InEventPort"/>
+          <features xsi:type="ADELE_Features:AbstractFeature" name="ifg0InFeature"/>
+        </features>
+        <features xsi:type="ADELE_Features:FeatureGroup" name="proc0OutFeatureGroup0" classifier="featureGroupConn2FeatureGroupConn.OutInvFeatureGroup0" direction="inout">
+          <features xsi:type="ADELE_Features:EventPort" name="ifg0InEventPort" direction="out"/>
+          <features xsi:type="ADELE_Features:AbstractFeature" name="ifg0InFeature" direction="out"/>
+        </features>
+        <features xsi:type="ADELE_Features:FeatureGroup" name="proc0InOutFeatureGroup0" classifier="featureGroupConn2FeatureGroupConn.InOutFeatureGroup0" direction="inout">
+          <features xsi:type="ADELE_Features:EventPort" name="iofg0InOutEventPort" direction="inout"/>
+          <features xsi:type="ADELE_Features:AbstractFeature" name="iofg0InOutFeature" direction="inout"/>
+        </features>
+      </children>
+      <children xsi:type="ADELE_Components:Processor" name="proc1" type="featureGroupConn2FeatureGroupConn.Processor0" implementation="featureGroupConn2FeatureGroupConn.Processor0" featuresLock="true" subcomponentsLock="true">
+        <features xsi:type="ADELE_Features:AbstractFeature" name="proc0InAbstrFeat0"/>
+        <features xsi:type="ADELE_Features:AbstractFeature" name="proc0OutAbstrFeat0" direction="out"/>
+        <features xsi:type="ADELE_Features:EventPort" name="proc0InEventPort"/>
+        <features xsi:type="ADELE_Features:EventPort" name="proc0OutEventPort" direction="out"/>
+        <features xsi:type="ADELE_Features:FeatureGroup" name="proc0InFeatureGroup0" classifier="featureGroupConn2FeatureGroupConn.InFeatureGroup0">
+          <features xsi:type="ADELE_Features:EventPort" name="ifg0InEventPort"/>
+          <features xsi:type="ADELE_Features:AbstractFeature" name="ifg0InFeature"/>
+        </features>
+        <features xsi:type="ADELE_Features:FeatureGroup" name="proc0OutFeatureGroup0" classifier="featureGroupConn2FeatureGroupConn.OutInvFeatureGroup0" direction="inout">
+          <features xsi:type="ADELE_Features:EventPort" name="ifg0InEventPort" direction="out"/>
+          <features xsi:type="ADELE_Features:AbstractFeature" name="ifg0InFeature" direction="out"/>
+        </features>
+        <features xsi:type="ADELE_Features:FeatureGroup" name="proc0InOutFeatureGroup0" classifier="featureGroupConn2FeatureGroupConn.InOutFeatureGroup0" direction="inout">
+          <features xsi:type="ADELE_Features:EventPort" name="iofg0InOutEventPort" direction="inout"/>
+          <features xsi:type="ADELE_Features:AbstractFeature" name="iofg0InOutFeature" direction="inout"/>
+        </features>
+      </children>
+      <features xsi:type="ADELE_Features:AbstractFeature" name="sys0InAbstrFeat0"/>
+      <features xsi:type="ADELE_Features:AbstractFeature" name="sys0OutAbstrFeat0" direction="out"/>
+      <features xsi:type="ADELE_Features:FeatureGroup" name="sys0InFeatureGroup0" classifier="featureGroupConn2FeatureGroupConn.InFeatureGroup0">
+        <features xsi:type="ADELE_Features:EventPort" name="ifg0InEventPort"/>
+        <features xsi:type="ADELE_Features:AbstractFeature" name="ifg0InFeature"/>
+      </features>
+      <features xsi:type="ADELE_Features:FeatureGroup" name="sys0OutInvFeatureGroup0" classifier="featureGroupConn2FeatureGroupConn.OutInvFeatureGroup0" direction="inout">
+        <features xsi:type="ADELE_Features:EventPort" name="ifg0InEventPort" direction="out"/>
+        <features xsi:type="ADELE_Features:AbstractFeature" name="ifg0InFeature" direction="out"/>
+      </features>
+      <features xsi:type="ADELE_Features:FeatureGroup" name="sys0InOutFeatureGroup0" classifier="featureGroupConn2FeatureGroupConn.InOutFeatureGroup0" direction="inout">
+        <features xsi:type="ADELE_Features:EventPort" name="iofg0InOutEventPort" direction="inout"/>
+        <features xsi:type="ADELE_Features:AbstractFeature" name="iofg0InOutFeature" direction="inout"/>
+      </features>
+      <features xsi:type="ADELE_Features:FeatureGroup" name="sys0InOutFeatureGroup1" classifier="featureGroupConn2FeatureGroupConn.InOutFeatureGroup1" direction="inout">
+        <features xsi:type="ADELE_Features:EventPort" name="iofg0InOutEventPort" direction="inout"/>
+        <features xsi:type="ADELE_Features:AbstractFeature" name="iofg0InOutFeature" direction="inout"/>
+        <features xsi:type="ADELE_Features:EventPort" name="iofg1InOutEventPort" direction="inout"/>
+        <features xsi:type="ADELE_Features:AbstractFeature" name="iofg1InOutFeature" direction="inout"/>
+      </features>
+      <features xsi:type="ADELE_Features:FeatureGroup" name="sys0InOutInvFeatureGroup0" classifier="featureGroupConn2FeatureGroupConn.InOutInvFeatureGroup0" direction="inout">
+        <features xsi:type="ADELE_Features:EventPort" name="iofg0InOutEventPort" direction="inout"/>
+        <features xsi:type="ADELE_Features:AbstractFeature" name="iofg0InOutFeature" direction="inout"/>
+      </features>
+      <featureGroupConnection name="conn0" objects="featureGroupConn2FeatureGroupConn.System0.System0.impl0.sys0InFeatureGroup0 featureGroupConn2FeatureGroupConn.System0.System0.impl0.proc0.proc0InFeatureGroup0" originalSourceFeature="featureGroupConn2FeatureGroupConn.System0.sys0InFeatureGroup0" originalSinkFeature="featureGroupConn2FeatureGroupConn.Processor0.proc0InFeatureGroup0"/>
+      <featureGroupConnection name="conn1" objects="featureGroupConn2FeatureGroupConn.System0.System0.impl0.proc0.proc0OutFeatureGroup0 featureGroupConn2FeatureGroupConn.System0.System0.impl0.sys0OutInvFeatureGroup0" originalSourceFeature="featureGroupConn2FeatureGroupConn.Processor0.proc0OutFeatureGroup0" originalSinkFeature="featureGroupConn2FeatureGroupConn.System0.sys0OutInvFeatureGroup0"/>
+      <featureGroupConnection name="conn2" objects="featureGroupConn2FeatureGroupConn.System0.System0.impl0.proc0.proc0OutFeatureGroup0 featureGroupConn2FeatureGroupConn.System0.System0.impl0.proc1.proc0InFeatureGroup0" originalSourceFeature="featureGroupConn2FeatureGroupConn.Processor0.proc0OutFeatureGroup0" originalSinkFeature="featureGroupConn2FeatureGroupConn.Processor0.proc0InFeatureGroup0"/>
+    </children>
+    <children xsi:type="ADELE_Components:System" name="System0.impl1" type="featureGroupConn2FeatureGroupConn.System0" featuresLock="true">
+      <children xsi:type="ADELE_Components:Processor" name="proc1" type="featureGroupConn2FeatureGroupConn.Processor0" implementation="featureGroupConn2FeatureGroupConn.Processor0" featuresLock="true" subcomponentsLock="true">
+        <features xsi:type="ADELE_Features:AbstractFeature" name="proc0InAbstrFeat0"/>
+        <features xsi:type="ADELE_Features:AbstractFeature" name="proc0OutAbstrFeat0" direction="out"/>
+        <features xsi:type="ADELE_Features:EventPort" name="proc0InEventPort"/>
+        <features xsi:type="ADELE_Features:EventPort" name="proc0OutEventPort" direction="out"/>
+        <features xsi:type="ADELE_Features:FeatureGroup" name="proc0InFeatureGroup0" classifier="featureGroupConn2FeatureGroupConn.InFeatureGroup0">
+          <features xsi:type="ADELE_Features:EventPort" name="ifg0InEventPort"/>
+          <features xsi:type="ADELE_Features:AbstractFeature" name="ifg0InFeature"/>
+        </features>
+        <features xsi:type="ADELE_Features:FeatureGroup" name="proc0OutFeatureGroup0" classifier="featureGroupConn2FeatureGroupConn.OutInvFeatureGroup0" direction="inout">
+          <features xsi:type="ADELE_Features:EventPort" name="ifg0InEventPort" direction="out"/>
+          <features xsi:type="ADELE_Features:AbstractFeature" name="ifg0InFeature" direction="out"/>
+        </features>
+        <features xsi:type="ADELE_Features:FeatureGroup" name="proc0InOutFeatureGroup0" classifier="featureGroupConn2FeatureGroupConn.InOutFeatureGroup0" direction="inout">
+          <features xsi:type="ADELE_Features:EventPort" name="iofg0InOutEventPort" direction="inout"/>
+          <features xsi:type="ADELE_Features:AbstractFeature" name="iofg0InOutFeature" direction="inout"/>
+        </features>
+      </children>
+      <children xsi:type="ADELE_Components:Processor" name="proc0" type="featureGroupConn2FeatureGroupConn.Processor0" implementation="featureGroupConn2FeatureGroupConn.Processor0" featuresLock="true" subcomponentsLock="true">
+        <features xsi:type="ADELE_Features:AbstractFeature" name="proc0InAbstrFeat0"/>
+        <features xsi:type="ADELE_Features:AbstractFeature" name="proc0OutAbstrFeat0" direction="out"/>
+        <features xsi:type="ADELE_Features:EventPort" name="proc0InEventPort"/>
+        <features xsi:type="ADELE_Features:EventPort" name="proc0OutEventPort" direction="out"/>
+        <features xsi:type="ADELE_Features:FeatureGroup" name="proc0InFeatureGroup0" classifier="featureGroupConn2FeatureGroupConn.InFeatureGroup0">
+          <features xsi:type="ADELE_Features:EventPort" name="ifg0InEventPort"/>
+          <features xsi:type="ADELE_Features:AbstractFeature" name="ifg0InFeature"/>
+        </features>
+        <features xsi:type="ADELE_Features:FeatureGroup" name="proc0OutFeatureGroup0" classifier="featureGroupConn2FeatureGroupConn.OutInvFeatureGroup0" direction="inout">
+          <features xsi:type="ADELE_Features:EventPort" name="ifg0InEventPort" direction="out"/>
+          <features xsi:type="ADELE_Features:AbstractFeature" name="ifg0InFeature" direction="out"/>
+        </features>
+        <features xsi:type="ADELE_Features:FeatureGroup" name="proc0InOutFeatureGroup0" classifier="featureGroupConn2FeatureGroupConn.InOutFeatureGroup0" direction="inout">
+          <features xsi:type="ADELE_Features:EventPort" name="iofg0InOutEventPort" direction="inout"/>
+          <features xsi:type="ADELE_Features:AbstractFeature" name="iofg0InOutFeature" direction="inout"/>
+        </features>
+      </children>
+      <features xsi:type="ADELE_Features:AbstractFeature" name="sys0InAbstrFeat0"/>
+      <features xsi:type="ADELE_Features:AbstractFeature" name="sys0OutAbstrFeat0" direction="out"/>
+      <features xsi:type="ADELE_Features:FeatureGroup" name="sys0InFeatureGroup0" classifier="featureGroupConn2FeatureGroupConn.InFeatureGroup0">
+        <features xsi:type="ADELE_Features:EventPort" name="ifg0InEventPort"/>
+        <features xsi:type="ADELE_Features:AbstractFeature" name="ifg0InFeature"/>
+      </features>
+      <features xsi:type="ADELE_Features:FeatureGroup" name="sys0OutInvFeatureGroup0" classifier="featureGroupConn2FeatureGroupConn.OutInvFeatureGroup0" direction="inout">
+        <features xsi:type="ADELE_Features:EventPort" name="ifg0InEventPort" direction="out"/>
+        <features xsi:type="ADELE_Features:AbstractFeature" name="ifg0InFeature" direction="out"/>
+      </features>
+      <features xsi:type="ADELE_Features:FeatureGroup" name="sys0InOutFeatureGroup0" classifier="featureGroupConn2FeatureGroupConn.InOutFeatureGroup0" direction="inout">
+        <features xsi:type="ADELE_Features:EventPort" name="iofg0InOutEventPort" direction="inout"/>
+        <features xsi:type="ADELE_Features:AbstractFeature" name="iofg0InOutFeature" direction="inout"/>
+      </features>
+      <features xsi:type="ADELE_Features:FeatureGroup" name="sys0InOutFeatureGroup1" classifier="featureGroupConn2FeatureGroupConn.InOutFeatureGroup1" direction="inout">
+        <features xsi:type="ADELE_Features:EventPort" name="iofg0InOutEventPort" direction="inout"/>
+        <features xsi:type="ADELE_Features:AbstractFeature" name="iofg0InOutFeature" direction="inout"/>
+        <features xsi:type="ADELE_Features:EventPort" name="iofg1InOutEventPort" direction="inout"/>
+        <features xsi:type="ADELE_Features:AbstractFeature" name="iofg1InOutFeature" direction="inout"/>
+      </features>
+      <features xsi:type="ADELE_Features:FeatureGroup" name="sys0InOutInvFeatureGroup0" classifier="featureGroupConn2FeatureGroupConn.InOutInvFeatureGroup0" direction="inout">
+        <features xsi:type="ADELE_Features:EventPort" name="iofg0InOutEventPort" direction="inout"/>
+        <features xsi:type="ADELE_Features:AbstractFeature" name="iofg0InOutFeature" direction="inout"/>
+      </features>
+      <eventPortConnection name="conn1" objects="featureGroupConn2FeatureGroupConn.System0.System0.impl1.proc0.proc0OutEventPort featureGroupConn2FeatureGroupConn.System0.System0.impl1.sys0OutInvFeatureGroup0.ifg0InEventPort" originalSourceFeature="featureGroupConn2FeatureGroupConn.Processor0.proc0OutEventPort" originalSinkFeature="featureGroupConn2FeatureGroupConn.InFeatureGroup0.ifg0InEventPort"/>
+      <eventPortConnection name="conn2" objects="featureGroupConn2FeatureGroupConn.System0.System0.impl1.sys0InFeatureGroup0.ifg0InEventPort featureGroupConn2FeatureGroupConn.System0.System0.impl1.proc0.proc0InEventPort" originalSourceFeature="featureGroupConn2FeatureGroupConn.InFeatureGroup0.ifg0InEventPort" originalSinkFeature="featureGroupConn2FeatureGroupConn.Processor0.proc0InEventPort"/>
+      <eventPortConnection name="conn0" objects="featureGroupConn2FeatureGroupConn.System0.System0.impl1.proc0.proc0OutEventPort featureGroupConn2FeatureGroupConn.System0.System0.impl1.sys0InOutFeatureGroup0.iofg0InOutEventPort" originalSourceFeature="featureGroupConn2FeatureGroupConn.Processor0.proc0OutEventPort" originalSinkFeature="featureGroupConn2FeatureGroupConn.InOutFeatureGroup0.iofg0InOutEventPort"/>
+      <eventPortConnection name="conn3" objects="featureGroupConn2FeatureGroupConn.System0.System0.impl1.sys0InOutInvFeatureGroup0.iofg0InOutEventPort featureGroupConn2FeatureGroupConn.System0.System0.impl1.proc0.proc0InEventPort" originalSourceFeature="featureGroupConn2FeatureGroupConn.InOutFeatureGroup0.iofg0InOutEventPort" originalSinkFeature="featureGroupConn2FeatureGroupConn.Processor0.proc0InEventPort"/>
+      <eventPortConnection name="conn5" objects="featureGroupConn2FeatureGroupConn.System0.System0.impl1.proc0.proc0OutEventPort featureGroupConn2FeatureGroupConn.System0.System0.impl1.sys0InOutFeatureGroup1.iofg0InOutEventPort" originalSourceFeature="featureGroupConn2FeatureGroupConn.Processor0.proc0OutEventPort" originalSinkFeature="featureGroupConn2FeatureGroupConn.InOutFeatureGroup0.iofg0InOutEventPort"/>
+      <eventPortConnection name="conn4" objects="featureGroupConn2FeatureGroupConn.System0.System0.impl1.sys0InOutFeatureGroup1.iofg0InOutEventPort featureGroupConn2FeatureGroupConn.System0.System0.impl1.proc0.proc0InEventPort" originalSourceFeature="featureGroupConn2FeatureGroupConn.InOutFeatureGroup0.iofg0InOutEventPort" originalSinkFeature="featureGroupConn2FeatureGroupConn.Processor0.proc0InEventPort"/>
+    </children>
+    <features xsi:type="ADELE_Features:AbstractFeature" name="sys0InAbstrFeat0"/>
+    <features xsi:type="ADELE_Features:AbstractFeature" name="sys0OutAbstrFeat0" direction="out"/>
+    <features xsi:type="ADELE_Features:FeatureGroup" name="sys0InFeatureGroup0" classifier="featureGroupConn2FeatureGroupConn.InFeatureGroup0"/>
+    <features xsi:type="ADELE_Features:FeatureGroup" name="sys0OutInvFeatureGroup0" classifier="featureGroupConn2FeatureGroupConn.OutInvFeatureGroup0" direction="inout"/>
+    <features xsi:type="ADELE_Features:FeatureGroup" name="sys0InOutFeatureGroup0" classifier="featureGroupConn2FeatureGroupConn.InOutFeatureGroup0" direction="inout"/>
+    <features xsi:type="ADELE_Features:FeatureGroup" name="sys0InOutFeatureGroup1" classifier="featureGroupConn2FeatureGroupConn.InOutFeatureGroup1" direction="inout"/>
+    <features xsi:type="ADELE_Features:FeatureGroup" name="sys0InOutInvFeatureGroup0" classifier="featureGroupConn2FeatureGroupConn.InOutInvFeatureGroup0" direction="inout"/>
+  </children>
+  <children xsi:type="ADELE_Components:Processor" name="Processor0">
+    <features xsi:type="ADELE_Features:AbstractFeature" name="proc0InAbstrFeat0"/>
+    <features xsi:type="ADELE_Features:AbstractFeature" name="proc0OutAbstrFeat0" direction="out"/>
+    <features xsi:type="ADELE_Features:EventPort" name="proc0InEventPort"/>
+    <features xsi:type="ADELE_Features:EventPort" name="proc0OutEventPort" direction="out"/>
+    <features xsi:type="ADELE_Features:FeatureGroup" name="proc0InFeatureGroup0" classifier="featureGroupConn2FeatureGroupConn.InFeatureGroup0"/>
+    <features xsi:type="ADELE_Features:FeatureGroup" name="proc0OutFeatureGroup0" classifier="featureGroupConn2FeatureGroupConn.OutInvFeatureGroup0" direction="inout"/>
+    <features xsi:type="ADELE_Features:FeatureGroup" name="proc0InOutFeatureGroup0" classifier="featureGroupConn2FeatureGroupConn.InOutFeatureGroup0" direction="inout"/>
+  </children>
+  <children xsi:type="ADELE_Features:FeatureGroup" name="InFeatureGroup0">
+    <features xsi:type="ADELE_Features:EventPort" name="ifg0InEventPort"/>
+    <features xsi:type="ADELE_Features:AbstractFeature" name="ifg0InFeature"/>
+  </children>
+  <children xsi:type="ADELE_Features:FeatureGroup" name="InOutFeatureGroup0">
+    <features xsi:type="ADELE_Features:EventPort" name="iofg0InOutEventPort" direction="inout"/>
+    <features xsi:type="ADELE_Features:AbstractFeature" name="iofg0InOutFeature" direction="inout"/>
+  </children>
+  <children xsi:type="ADELE_Features:FeatureGroup" name="InOutInvFeatureGroup0" inverseFeature="featureGroupConn2FeatureGroupConn.InOutFeatureGroup0">
+    <features xsi:type="ADELE_Features:EventPort" name="iofg0InOutEventPort" direction="inout"/>
+    <features xsi:type="ADELE_Features:AbstractFeature" name="iofg0InOutFeature" direction="inout"/>
+  </children>
+  <children xsi:type="ADELE_Features:FeatureGroup" name="OutInvFeatureGroup0" inverseFeature="featureGroupConn2FeatureGroupConn.InFeatureGroup0">
+    <features xsi:type="ADELE_Features:EventPort" name="ifg0InEventPort" direction="out"/>
+    <features xsi:type="ADELE_Features:AbstractFeature" name="ifg0InFeature" direction="out"/>
+  </children>
+  <children xsi:type="ADELE_Features:FeatureGroup" name="InOutFeatureGroup1" refinedFeature="featureGroupConn2FeatureGroupConn.InOutFeatureGroup0">
+    <features xsi:type="ADELE_Features:EventPort" name="iofg0InOutEventPort" direction="inout"/>
+    <features xsi:type="ADELE_Features:AbstractFeature" name="iofg0InOutFeature" direction="inout"/>
+    <features xsi:type="ADELE_Features:EventPort" name="iofg1InOutEventPort" direction="inout"/>
+    <features xsi:type="ADELE_Features:AbstractFeature" name="iofg1InOutFeature" direction="inout"/>
+  </children>
+</ADELE_Components:Package>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="ASCII"?>
+<ADELE_Components:Package xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ADELE_Components="http://ADELE_Components" name="rulesTypedAsParent">
+  <children xsi:type="ADELE_Components:System" name="System1">
+    <children xsi:type="ADELE_Components:System" name="System1.System1" type="rulesTypedAsParent.System1" featuresLock="true">
+      <children xsi:type="ADELE_Components:System" name="system1_subcompo_1" type="rulesTypedAsParent.System1" implementation="rulesTypedAsParent.System1" featuresLock="true" subcomponentsLock="true"/>
+    </children>
+  </children>
+  <children xsi:type="ADELE_Components:System" name="System3">
+    <children xsi:type="ADELE_Components:System" name="System3.System1" type="rulesTypedAsParent.System3" featuresLock="true">
+      <children xsi:type="ADELE_Components:System" name="system3_subcompo_1" featuresLock="true"/>
+      <children xsi:type="ADELE_Components:System" name="system3_subcompo_2" featuresLock="true"/>
+    </children>
+  </children>
+  <children xsi:type="ADELE_Components:System" name="System5">
+    <children xsi:type="ADELE_Components:System" name="System5.System1" type="rulesTypedAsParent.System5" featuresLock="true">
+      <children xsi:type="ADELE_Components:System" name="system5_subcompo_1" type="rulesTypedAsParent.System5" implementation="rulesTypedAsParent.System5" featuresLock="true" subcomponentsLock="true"/>
+    </children>
+  </children>
+  <children xsi:type="ADELE_Components:System" name="System2" refines="rulesTypedAsParent.System1">
+    <children xsi:type="ADELE_Components:System" name="System2.System1" type="rulesTypedAsParent.System2" featuresLock="true" refines="rulesTypedAsParent.System1.System1.System1">
+      <children xsi:type="ADELE_Components:System" name="system1_subcompo_1" type="rulesTypedAsParent.System1" implementation="rulesTypedAsParent.System1" featuresLock="true" subcomponentsLock="true" refines="rulesTypedAsParent.System2" subcomponentRefinement="true" refinedSubcomponent="rulesTypedAsParent.System1.System1.System1.system1_subcompo_1"/>
+    </children>
+  </children>
+  <children xsi:type="ADELE_Components:System" name="System4" refines="rulesTypedAsParent.System3">
+    <children xsi:type="ADELE_Components:System" name="System4.System1" type="rulesTypedAsParent.System4" featuresLock="true" refines="rulesTypedAsParent.System3.System3.System1">
+      <children xsi:type="ADELE_Components:System" name="system3_subcompo_1" featuresLock="true" subcomponentsLock="true" refines="rulesTypedAsParent.System4" subcomponentRefinement="true" refinedSubcomponent="rulesTypedAsParent.System3.System3.System1.system3_subcompo_1"/>
+    </children>
+  </children>
+  <children xsi:type="ADELE_Components:System" name="System6" refines="rulesTypedAsParent.System5">
+    <children xsi:type="ADELE_Components:System" name="System6.System1" type="rulesTypedAsParent.System6" featuresLock="true" refines="rulesTypedAsParent.System5.System5.System1">
+      <children xsi:type="ADELE_Components:System" name="system5_subcompo_1" type="rulesTypedAsParent.System5" implementation="rulesTypedAsParent.System5" featuresLock="true" subcomponentsLock="true" refines="rulesTypedAsParent.System7" subcomponentRefinement="true" refinedSubcomponent="rulesTypedAsParent.System5.System5.System1.system5_subcompo_1"/>
+    </children>
+  </children>
+  <children xsi:type="ADELE_Components:System" name="System7" refines="rulesTypedAsParent.System5">
+    <children xsi:type="ADELE_Components:System" name="System7.System1" type="rulesTypedAsParent.System7" featuresLock="true" refines="rulesTypedAsParent.System5.System5.System1">
+      <children xsi:type="ADELE_Components:System" name="system5_subcompo_1" type="rulesTypedAsParent.System5" implementation="rulesTypedAsParent.System5" featuresLock="true" subcomponentsLock="true" subcomponentRefinement="true"/>
+      <children xsi:type="ADELE_Components:System" name="system5_subcompo_2" type="rulesTypedAsParent.System5" implementation="rulesTypedAsParent.System5.System5.System1" featuresLock="true" subcomponentsLock="true" subcomponentRefinement="true"/>
+    </children>
+  </children>
+</ADELE_Components:Package>

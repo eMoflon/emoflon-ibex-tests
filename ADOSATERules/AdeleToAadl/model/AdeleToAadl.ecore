@@ -129,15 +129,15 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__TRG__sourceConnectedElement"
         lowerBound="1" eType="ecore:EClass platform:/resource/Aadl/model/Aadl.ecore#//ConnectedElement"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrComponentImplementation"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentImplementation"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__CORR__corrConnection"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrAccessConnection"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrDestinationSubcomponent"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrSubcomponenttrgSC"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrDestinationSubcomponentAccess"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrAccess"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrSourceSubcomponent"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrSubcomponent"/>
+        lowerBound="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RuleComponentToSubcomponentTypedAsParent__Marker"
       eSuperTypes="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication">
@@ -150,9 +150,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__TRG__aadlSubcomponent"
         lowerBound="1" eType="ecore:EClass platform:/resource/Aadl/model/Aadl.ecore#//Subcomponent"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrImplementation"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentImplementation"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__CORR__corrSubcomponent"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrSubcomponenttrgSC"/>
+        lowerBound="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ruleAccessConn2AccessConnSrcSubcompoDestParent__Marker"
       eSuperTypes="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication">
@@ -181,15 +181,15 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__TRG__sourceConnectedElement"
         lowerBound="1" eType="ecore:EClass platform:/resource/Aadl/model/Aadl.ecore#//ConnectedElement"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrComponentAccess"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrAccess"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrComponentImplementation"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentImplementation"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrComponentType"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentType"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__CORR__corrConnection"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrAccessConnection"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrSubcomponent"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrSubcomponent"/>
+        lowerBound="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ruleAccessConn2AccessConnSrcSubcompoDestSubcompo12__Marker"
       eSuperTypes="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication">
@@ -214,13 +214,13 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__TRG__sourceConnectedElement"
         lowerBound="1" eType="ecore:EClass platform:/resource/Aadl/model/Aadl.ecore#//ConnectedElement"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrComponentImplementation"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentImplementation"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__CORR__corrConnection"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrAccessConnection"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrDestinationSubcomponent"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrSubcomponent"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrSourceSubcomponent"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrSubcomponent"/>
+        lowerBound="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ruleAccessConn2AccessConnSrcSubcompoDestSubcompoFeat13__Marker"
       eSuperTypes="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication">
@@ -245,13 +245,13 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__TRG__sourceConnectedElement"
         lowerBound="1" eType="ecore:EClass platform:/resource/Aadl/model/Aadl.ecore#//ConnectedElement"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrComponentImplementation"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentImplementation"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__CORR__corrConnection"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrAccessConnection"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrDestinationSubcomponent"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrSubcomponent"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrSourceSubcomponent"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrSubcomponent"/>
+        lowerBound="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ruleAccessConn2AccessConnSrcSubcompoFeatDestSubcompo__Marker"
       eSuperTypes="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication">
@@ -297,21 +297,21 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__TRG__sourceConnectedElement"
         lowerBound="1" eType="ecore:EClass platform:/resource/Aadl/model/Aadl.ecore#//ConnectedElement"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrComponentImplementation"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentImplementation"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__CORR__corrConnection"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrAccessConnection"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__CORR__corrConnection2"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrAccessConnectionttrgCE"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__CORR__corrConnection3"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrAccessConnectionttrgCE"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrDestinationSubcomponent"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrSubcomponenttrgSC"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrDestinationSubcomponentAccess"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrAccess"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrSourceSubcomponent"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrSubcomponenttrgSC"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrSourceSubcomponentAccess"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrAccess"/>
+        lowerBound="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ruleAccessConnToAccessConnSrcParentDestSubcompo__Marker"
       eSuperTypes="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication">
@@ -340,17 +340,17 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__TRG__sourceConnectedElement"
         lowerBound="1" eType="ecore:EClass platform:/resource/Aadl/model/Aadl.ecore#//ConnectedElement"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrComponentAccess"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrAccess"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrComponentImplementation"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentImplementation"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrComponentType"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentType"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__CORR__corrConnection"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrAccessConnection"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__CORR__corrConnection1"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrAccessConnectionttrgCE"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__CORR__corrConnection2"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrAccessConnectionttrgCE"/>
+        lowerBound="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ruleAccessConnToAccessConnSrcParentDestSubcompoFeat__Marker"
       eSuperTypes="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication">
@@ -383,15 +383,15 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__TRG__sourceConnectedElement"
         lowerBound="1" eType="ecore:EClass platform:/resource/Aadl/model/Aadl.ecore#//ConnectedElement"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrComponentAccess"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrAccess"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrComponentImplementation"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentImplementation"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrComponentType"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentType"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrSubcomponent"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrSubcomponenttrgSC"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrSubcomponentAccess"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrAccess"/>
+        lowerBound="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ruleAccessConnToAccessConnSrcParentDestSubcompoFeatSameAccess__Marker"
       eSuperTypes="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication">
@@ -420,17 +420,17 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__TRG__sourceConnectedElement"
         lowerBound="1" eType="ecore:EClass platform:/resource/Aadl/model/Aadl.ecore#//ConnectedElement"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrComponentAccess"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrAccess"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrComponentImplementation"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentImplementation"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrComponentType"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentType"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__CORR__corrConnection"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrAccessConnection"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__CORR__corrConnection1"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrAccessConnectionttrgCE"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__CORR__corrConnection2"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrAccessConnectionttrgCE"/>
+        lowerBound="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ruleAccessToAccess__Marker" eSuperTypes="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication">
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__SRC__adeleAccess"
@@ -442,9 +442,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__TRG__aadlType"
         lowerBound="1" eType="ecore:EClass platform:/resource/Aadl/model/Aadl.ecore#//ComponentType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__CORR__corrAccess"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrAccess"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrType"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentType"/>
+        lowerBound="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ruleAccessToAccessOne__Marker" eSuperTypes="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication">
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__SRC__adeleType"
@@ -452,7 +452,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__TRG__aadlType"
         lowerBound="1" eType="ecore:EClass platform:/resource/Aadl/model/Aadl.ecore#//ComponentType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__CORR__corrType"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentType"/>
+        lowerBound="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ruleAccessToAccessRefined__Marker" eSuperTypes="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication">
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__SRC__adeleAccess"
@@ -468,11 +468,11 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__TRG__aadleType"
         lowerBound="1" eType="ecore:EClass platform:/resource/Aadl/model/Aadl.ecore#//ComponentType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__CORR__corrAccess"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrAccess"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrRefinedFeature"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrFeature"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrType"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentType"/>
+        lowerBound="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ruleAccessToAccessTyped__Marker" eSuperTypes="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication">
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__SRC__adeleAccess"
@@ -488,11 +488,11 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__TRG__aadleType"
         lowerBound="1" eType="ecore:EClass platform:/resource/Aadl/model/Aadl.ecore#//ComponentType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__CORR__corrAccess"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrAccess"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrComponentClassifier"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponent"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrType"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentType"/>
+        lowerBound="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ruleAccessToAccessTypedAsParent__Marker"
       eSuperTypes="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication">
@@ -505,9 +505,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__TRG__aadlType"
         lowerBound="1" eType="ecore:EClass platform:/resource/Aadl/model/Aadl.ecore#//ComponentType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__CORR__corrAccess"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrAccess"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrType"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentType"/>
+        lowerBound="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ruleAccessToAccessTypedAsParentRefined__Marker"
       eSuperTypes="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication">
@@ -524,11 +524,11 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__TRG__aadlType"
         lowerBound="1" eType="ecore:EClass platform:/resource/Aadl/model/Aadl.ecore#//ComponentType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__CORR__CorrAccess"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrAccess"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrRefinedFeature"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrFeature"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrType"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentType"/>
+        lowerBound="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ruleAccessToAccessTypedRefined__Marker"
       eSuperTypes="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication">
@@ -549,13 +549,13 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__TRG__aadlType"
         lowerBound="1" eType="ecore:EClass platform:/resource/Aadl/model/Aadl.ecore#//ComponentType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__CORR__corrAccess"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrAccess"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrClassifier"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponent"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrRefinedFeature"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrFeature"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrType"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentType"/>
+        lowerBound="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ruleComponent2ComponentImplementation__Marker"
       eSuperTypes="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication">
@@ -574,13 +574,13 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__TRG__aadlType"
         lowerBound="1" eType="ecore:EClass platform:/resource/Aadl/model/Aadl.ecore#//ComponentType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrAxiom"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrAxiom"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__CORR__corrImplementation"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentImplementation"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__CORR__corrImplementationR"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentImplementationR"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrType"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentType"/>
+        lowerBound="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ruleComponent2ComponentImplementation18__Marker"
       eSuperTypes="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication">
@@ -599,13 +599,13 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__TRG__aadlType"
         lowerBound="1" eType="ecore:EClass platform:/resource/Aadl/model/Aadl.ecore#//ComponentType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrAxiom"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrAxiom"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__CORR__corrImplementation"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentImplementation"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__CORR__corrImplementationR"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentImplementationR"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrType"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentType"/>
+        lowerBound="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ruleComponent2ComponentImplementationWithExtends19__Marker"
       eSuperTypes="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication">
@@ -630,17 +630,17 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__TRG__implExtension"
         lowerBound="1" eType="ecore:EClass platform:/resource/Aadl/model/Aadl.ecore#//ImplementationExtension"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrAxiom"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrAxiom"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__CORR__corrCompImpl"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentImplementation"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__CORR__corrImplementation"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentImplementation"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__CORR__corrImplementationIE"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentImplementationIE"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__CORR__corrImplementationR"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentImplementationR"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrType"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentType"/>
+        lowerBound="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ruleComponent2ComponentType20__Marker"
       eSuperTypes="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication">
@@ -653,9 +653,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__TRG__aadlType"
         lowerBound="1" eType="ecore:EClass platform:/resource/Aadl/model/Aadl.ecore#//ComponentType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrAxiom"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrAxiomPPS"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__CORR__corrType"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentType"/>
+        lowerBound="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ruleComponent2Subcomponent__Marker"
       eSuperTypes="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication">
@@ -668,9 +668,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__TRG__aadlSubcomponent"
         lowerBound="1" eType="ecore:EClass platform:/resource/Aadl/model/Aadl.ecore#//Subcomponent"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrImplementation"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentImplementation"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__CORR__corrSubcomponent"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrSubcomponenttrgSC"/>
+        lowerBound="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ruleComponent2SubcomponentRefined__Marker"
       eSuperTypes="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication">
@@ -691,13 +691,13 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__TRG__aadlSubcomponentType"
         lowerBound="1" eType="ecore:EClass platform:/resource/Aadl/model/Aadl.ecore#//SubcomponentType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrImplementation"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentImplementation"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrRefinedSubcomponent"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrSubcomponenttrgSC"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__CORR__corrSubcomponent"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrSubcomponenttrgSC"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrSubcomponentType"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentSCT"/>
+        lowerBound="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ruleComponent2SubcomponentRefinedTyped__Marker"
       eSuperTypes="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication">
@@ -722,15 +722,15 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__TRG__aadlSubcomponentType"
         lowerBound="1" eType="ecore:EClass platform:/resource/Aadl/model/Aadl.ecore#//SubcomponentType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrImplementation"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentImplementation"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrRefinedComponentType"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentSCT"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrRefinedSubcomponent"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrSubcomponenttrgSC"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__CORR__corrSubcomponent"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrSubcomponenttrgSC"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrSubcomponentType"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentSCT"/>
+        lowerBound="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ruleComponent2SubcomponentRefinedTypedAsParent__Marker"
       eSuperTypes="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication">
@@ -743,9 +743,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__TRG__aadlSubcomponent"
         lowerBound="1" eType="ecore:EClass platform:/resource/Aadl/model/Aadl.ecore#//Subcomponent"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrImplementation"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentImplementation"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__CORR__corrSubcomponent"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrSubcomponenttrgSC"/>
+        lowerBound="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ruleComponent2SubcomponentTyped__Marker"
       eSuperTypes="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication">
@@ -762,11 +762,11 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__TRG__aadlSubcomponentType"
         lowerBound="1" eType="ecore:EClass platform:/resource/Aadl/model/Aadl.ecore#//SubcomponentType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrImplementation"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentImplementation"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__CORR__corrSubcomponent"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrSubcomponenttrgSC"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__CORR__corrSubcomponentType"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentSCT"/>
+        lowerBound="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ruleComponentToComponentImplementationWithExtends__Marker"
       eSuperTypes="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication">
@@ -791,17 +791,17 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__TRG__implExtension"
         lowerBound="1" eType="ecore:EClass platform:/resource/Aadl/model/Aadl.ecore#//ImplementationExtension"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrAxiom"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrAxiom"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrCompImpl"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentImplementation"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__CORR__corrImplementation"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentImplementation"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__CORR__corrImplementationIE"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentImplementationIE"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__CORR__corrImplementationR"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentImplementationR"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrType"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentType"/>
+        lowerBound="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ruleComponentToComponentType__Marker"
       eSuperTypes="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication">
@@ -814,9 +814,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__TRG__aadlType"
         lowerBound="1" eType="ecore:EClass platform:/resource/Aadl/model/Aadl.ecore#//ComponentType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrAxiom"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrAxiom"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__CORR__corrType"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentType"/>
+        lowerBound="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ruleComponentToSubcomponentTypedAsParentRefined__Marker"
       eSuperTypes="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication">
@@ -833,11 +833,11 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__TRG__aadlSubcomponent"
         lowerBound="1" eType="ecore:EClass platform:/resource/Aadl/model/Aadl.ecore#//Subcomponent"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrImplementation"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentImplementation"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrRefinedSubcomponent"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrSubcomponenttrgSC"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__CORR__corrSubcomponent"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrSubcomponenttrgSC"/>
+        lowerBound="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ruleComponentToSubcomponentTypedAsParentRefinedTyped__Marker"
       eSuperTypes="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication">
@@ -858,13 +858,13 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__TRG__aadlSubcomponent"
         lowerBound="1" eType="ecore:EClass platform:/resource/Aadl/model/Aadl.ecore#//Subcomponent"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrImplementation"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentImplementation"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrRefinedComponentType"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentSCT"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrRefinedSubcomponent"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrSubcomponenttrgSC"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__CORR__corrSubcomponent"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrSubcomponenttrgSC"/>
+        lowerBound="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ruleComponentToSubcomponentTypedRefined__Marker"
       eSuperTypes="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication">
@@ -885,13 +885,13 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__TRG__aadlSubcomponentType"
         lowerBound="1" eType="ecore:EClass platform:/resource/Aadl/model/Aadl.ecore#//SubcomponentType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrImplementation"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentImplementation"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrRefinedSubcomponent"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrSubcomponenttrgSC"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__CORR__corrSubcomponent"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrSubcomponenttrgSC"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrSubcomponentType"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentSCT"/>
+        lowerBound="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ruleComponentToSubcomponentTypedRefinedTyped__Marker"
       eSuperTypes="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication">
@@ -916,58 +916,99 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__TRG__aadlSubcomponentType"
         lowerBound="1" eType="ecore:EClass platform:/resource/Aadl/model/Aadl.ecore#//SubcomponentType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrImplementation"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentImplementation"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrRefinedComponentType"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentSCT"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrRefinedSubcomponent"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrSubcomponenttrgSC"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__CORR__corrSubcomponent"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrSubcomponenttrgSC"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrSubcomponentType"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentSCT"/>
+        lowerBound="1"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ruleDirFeatConn2DirFeatConnSrcParentDestSubcompo__Marker"
+  <eClassifiers xsi:type="ecore:EClass" name="ruleComponentToSubcomponentTypedRefinedTypedAsParent__Marker"
       eSuperTypes="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__SRC__adeleCompImplType"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__SRC__adeleImplementation"
         lowerBound="1" eType="ecore:EClass platform:/resource/Adele/model/Adele.ecore#//Component"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__SRC__adeleComponentFeature"
-        lowerBound="1" eType="ecore:EClass platform:/resource/Adele/model/Adele.ecore#//DirectedFeature"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__SRC__adeleComponentImplementation"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__SRC__adeleRefinedSubcomponent"
         lowerBound="1" eType="ecore:EClass platform:/resource/Adele/model/Adele.ecore#//Component"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__SRC__adeleConnection"
-        lowerBound="1" eType="ecore:EClass platform:/resource/Adele/model/Adele.ecore#//DirectedFeatureConnection"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__SRC__adeleSubcomponent"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__SRC__adeleSubcomponent"
         lowerBound="1" eType="ecore:EClass platform:/resource/Adele/model/Adele.ecore#//Component"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__SRC__adeleSubcomponentPort"
-        lowerBound="1" eType="ecore:EClass platform:/resource/Adele/model/Adele.ecore#//DirectedFeature"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__TRG__aadlCompImplType"
-        lowerBound="1" eType="ecore:EClass platform:/resource/Aadl/model/Aadl.ecore#//ComponentType"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__TRG__aadlComponentFeature"
-        lowerBound="1" eType="ecore:EClass platform:/resource/Aadl/model/Aadl.ecore#//DirectedFeature"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__TRG__aadlComponentImplementation"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__SRC__refines"
+        lowerBound="1" eType="ecore:EClass platform:/resource/Adele/model/Adele.ecore#//Component"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__TRG__aadlImplementation"
         lowerBound="1" eType="ecore:EClass platform:/resource/Aadl/model/Aadl.ecore#//ComponentImplementation"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__TRG__aadlConnection"
-        lowerBound="1" eType="ecore:EClass platform:/resource/Aadl/model/Aadl.ecore#//Connection"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__TRG__aadlSubcomponent"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__TRG__aadlRefinedSubcomponent"
         lowerBound="1" eType="ecore:EClass platform:/resource/Aadl/model/Aadl.ecore#//Subcomponent"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__TRG__aadlSubcomponentFeature"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__TRG__aadlSubcomponent"
+        lowerBound="1" eType="ecore:EClass platform:/resource/Aadl/model/Aadl.ecore#//Subcomponent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__TRG__aadlSubcomponentType"
+        lowerBound="1" eType="ecore:EClass platform:/resource/Aadl/model/Aadl.ecore#//SubcomponentType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrImplementation"
+        lowerBound="1"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrRefinedSubcomponent"
+        lowerBound="1"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__CORR__corrSubcomponent"
+        lowerBound="1"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrSubcomponentType"
+        lowerBound="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ruleDirectedFeat2DirectedFeat__Marker"
+      eSuperTypes="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__SRC__adeleFeature"
+        lowerBound="1" eType="ecore:EClass platform:/resource/Adele/model/Adele.ecore#//DirectedFeature"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__SRC__adeleType"
+        lowerBound="1" eType="ecore:EClass platform:/resource/Adele/model/Adele.ecore#//Component"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__TRG__aadlFeature"
         lowerBound="1" eType="ecore:EClass platform:/resource/Aadl/model/Aadl.ecore#//DirectedFeature"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__TRG__destinationConnectedElement"
-        lowerBound="1" eType="ecore:EClass platform:/resource/Aadl/model/Aadl.ecore#//ConnectedElement"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__TRG__sourceConnectedElement"
-        lowerBound="1" eType="ecore:EClass platform:/resource/Aadl/model/Aadl.ecore#//ConnectedElement"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrComponentFeature"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrDirectedFeature"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrComponentImplementation"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentImplementation"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrComponentType"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentType"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__CORR__corrConnection"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrDirectedFeatureConnection"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrSubcomponent"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrSubcomponenttrgSC"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrSubcomponentFeature"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrDirectedFeature"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__TRG__aadlType"
+        lowerBound="1" eType="ecore:EClass platform:/resource/Aadl/model/Aadl.ecore#//ComponentType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__CORR__corrFeature"
+        lowerBound="1"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrType"
+        lowerBound="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ruleDirectedFeatToDirectedFeatRefined__Marker"
+      eSuperTypes="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__SRC__adeleFeature"
+        lowerBound="1" eType="ecore:EClass platform:/resource/Adele/model/Adele.ecore#//DirectedFeature"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__SRC__adeleRefinedFeature"
+        lowerBound="1" eType="ecore:EClass platform:/resource/Adele/model/Adele.ecore#//Feature"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__SRC__adeleType"
+        lowerBound="1" eType="ecore:EClass platform:/resource/Adele/model/Adele.ecore#//Component"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__TRG__aadlFeature"
+        lowerBound="1" eType="ecore:EClass platform:/resource/Aadl/model/Aadl.ecore#//DirectedFeature"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__TRG__aadlRefinedFeature"
+        lowerBound="1" eType="ecore:EClass platform:/resource/Aadl/model/Aadl.ecore#//Feature"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__TRG__aadlType"
+        lowerBound="1" eType="ecore:EClass platform:/resource/Aadl/model/Aadl.ecore#//ComponentType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__CORR__corrFeature"
+        lowerBound="1"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrRefinedFeature"
+        lowerBound="1"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrType"
+        lowerBound="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ruleDirectedFeatToDirectedFeatTyped__Marker"
+      eSuperTypes="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__SRC__adeleClassifier"
+        lowerBound="1" eType="ecore:EClass platform:/resource/Adele/model/Adele.ecore#//SKComponent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__SRC__adeleFeature"
+        lowerBound="1" eType="ecore:EClass platform:/resource/Adele/model/Adele.ecore#//DirectedFeature"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__SRC__adeleType"
+        lowerBound="1" eType="ecore:EClass platform:/resource/Adele/model/Adele.ecore#//Component"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__TRG__aadlClassifier"
+        lowerBound="1" eType="ecore:EClass platform:/resource/Aadl/model/Aadl.ecore#//Classifier"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__TRG__aadlFeature"
+        lowerBound="1" eType="ecore:EClass platform:/resource/Aadl/model/Aadl.ecore#//DirectedFeature"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__TRG__aadlType"
+        lowerBound="1" eType="ecore:EClass platform:/resource/Aadl/model/Aadl.ecore#//ComponentType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrClassifier"
+        lowerBound="1"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__CORR__corrFeature"
+        lowerBound="1"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrType"
+        lowerBound="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ruleFeatGroupAccess2FeatGroupAccessRefined__Marker"
       eSuperTypes="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication">
@@ -984,11 +1025,11 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__TRG__aadlType"
         lowerBound="1" eType="ecore:EClass platform:/resource/Aadl/model/Aadl.ecore#//FeatureGroupType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__CORR__corrAccess"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrAccess"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrRefinedFeature"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrFeature"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrType"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentTypeFG"/>
+        lowerBound="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ruleFeatGroupAccess2FeatGroupAccessTyped__Marker"
       eSuperTypes="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication">
@@ -1005,11 +1046,11 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__TRG__aadlType"
         lowerBound="1" eType="ecore:EClass platform:/resource/Aadl/model/Aadl.ecore#//FeatureGroupType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__CORR__corrAccess"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrAccess"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrComponentClassifier"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentDST"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrType"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentTypeFG"/>
+        lowerBound="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ruleFeatGroupAccess2FeatGroupAccessTypedRefined__Marker"
       eSuperTypes="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication">
@@ -1030,13 +1071,13 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__TRG__aadlType"
         lowerBound="1" eType="ecore:EClass platform:/resource/Aadl/model/Aadl.ecore#//FeatureGroupType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__CORR__corrAccess"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrAccess"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrClassifier"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponent"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrRefinedFeature"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrFeature"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrType"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentTypeFG"/>
+        lowerBound="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ruleFeatGroupDirFeat2FeatGroupDirFeat__Marker"
       eSuperTypes="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication">
@@ -1049,9 +1090,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__TRG__aadlType"
         lowerBound="1" eType="ecore:EClass platform:/resource/Aadl/model/Aadl.ecore#//FeatureGroupType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__CORR__corrFeature"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrDirectedFeature"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrType"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentTypeFG"/>
+        lowerBound="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ruleFeatGroupDirFeat2FeatGroupDirFeatRefined__Marker"
       eSuperTypes="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication">
@@ -1068,11 +1109,11 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__TRG__aadlType"
         lowerBound="1" eType="ecore:EClass platform:/resource/Aadl/model/Aadl.ecore#//FeatureGroupType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__CORR__corrFeature"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrDirectedFeature"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrRefinedFeature"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrFeature"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrType"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentTypeFG"/>
+        lowerBound="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ruleFeatGroupDirFeat2FeatGroupDirFeatTyped__Marker"
       eSuperTypes="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication">
@@ -1089,11 +1130,11 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__TRG__aadlType"
         lowerBound="1" eType="ecore:EClass platform:/resource/Aadl/model/Aadl.ecore#//FeatureGroupType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrClassifier"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentSKC"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__CORR__corrFeature"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrDirectedFeature"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrType"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentTypeFG"/>
+        lowerBound="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ruleFeatGroupDirFeat2FeatGroupDirFeatTypedAsParent__Marker"
       eSuperTypes="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication">
@@ -1106,9 +1147,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__TRG__aadlType"
         lowerBound="1" eType="ecore:EClass platform:/resource/Aadl/model/Aadl.ecore#//FeatureGroupType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__CORR__corrFeature"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrDirectedFeature"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrType"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentTypeFG"/>
+        lowerBound="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ruleFeatGroupDirFeat2FeatGroupDirFeatTypedAsParentRefined54__Marker"
       eSuperTypes="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication">
@@ -1125,11 +1166,11 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__TRG__aadlType"
         lowerBound="1" eType="ecore:EClass platform:/resource/Aadl/model/Aadl.ecore#//FeatureGroupType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__CORR__corrFeature"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrDirectedFeature"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrRefinedFeature"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrFeature"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrType"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentTypeFG"/>
+        lowerBound="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ruleFeatGroupDirFeat2FeatGroupDirFeatTypedRefined55__Marker"
       eSuperTypes="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication">
@@ -1150,13 +1191,13 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__TRG__aadlType"
         lowerBound="1" eType="ecore:EClass platform:/resource/Aadl/model/Aadl.ecore#//FeatureGroupType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrClassifier"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentSKC"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__CORR__corrFeature"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrDirectedFeature"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrRefinedFeature"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrFeature"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrType"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentTypeFG"/>
+        lowerBound="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ruleFeatureGroup2FeatureGroupType__Marker"
       eSuperTypes="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication">
@@ -1169,9 +1210,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__TRG__aadlType"
         lowerBound="1" eType="ecore:EClass platform:/resource/Aadl/model/Aadl.ecore#//FeatureGroupType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrAxiom"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrAxiomPPS"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__CORR__corrType"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentTypeFG"/>
+        lowerBound="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ruleFeatureGroup2FeatureGroupTypeWithExtends__Marker"
       eSuperTypes="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication">
@@ -1190,11 +1231,11 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__TRG__typeExtension"
         lowerBound="1" eType="ecore:EClass platform:/resource/Aadl/model/Aadl.ecore#//GroupExtension"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrAxiom"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrAxiomPPS"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrExtComponentType"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentTypeFG"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__CORR__corrType"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentTypeFG"/>
+        lowerBound="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ruleFeatureGroup2FeatureGroupTypeWithExtendsInverse__Marker"
       eSuperTypes="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication">
@@ -1217,13 +1258,13 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__TRG__typeExtension"
         lowerBound="1" eType="ecore:EClass platform:/resource/Aadl/model/Aadl.ecore#//GroupExtension"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrAxiom"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrAxiomPPS"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrExtComponentType"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentTypeFG"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrInverse"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentTypeFG"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__CORR__corrType"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentTypeFG"/>
+        lowerBound="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ruleFeatureGroup2FeatureGroupTypeWithInverse__Marker"
       eSuperTypes="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication">
@@ -1240,11 +1281,11 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__TRG__aadlType"
         lowerBound="1" eType="ecore:EClass platform:/resource/Aadl/model/Aadl.ecore#//FeatureGroupType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrAxiom"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrAxiomPPS"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__corrInverse"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentTypeFG"/>
+        lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__CORR__corrType"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentTypeFG"/>
+        lowerBound="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="rulePackage2AadlPackage__Marker" eSuperTypes="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication">
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__SRC__adelePackage"
@@ -1254,6 +1295,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__TRG__aadlPublicPackageSection"
         lowerBound="1" eType="ecore:EClass platform:/resource/Aadl/model/Aadl.ecore#//PublicPackageSection"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__CORR__corrAxiom"
-        lowerBound="1" eType="ecore:EClass platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrAxiomAP"/>
+        lowerBound="1"/>
   </eClassifiers>
 </ecore:EPackage>

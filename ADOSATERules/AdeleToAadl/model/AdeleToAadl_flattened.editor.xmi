@@ -196,13 +196,22 @@
         <type href="platform:/resource/Aadl/model/Aadl.ecore#//ConnectedElement/context"/>
       </linkVariablePatterns>
     </targetPatterns>
-    <correspondencePatterns name="corrComponentImplementation" type="//@schema/@correspondenceTypes.10" source="//@rules.0/@sourcePatterns.0" target="//@rules.0/@targetPatterns.0"/>
-    <correspondencePatterns name="corrConnection" type="//@schema/@correspondenceTypes.13" source="//@rules.0/@sourcePatterns.1" target="//@rules.0/@targetPatterns.1">
-      <op value="++"/>
+    <correspondencePatterns name="corrComponentImplementation">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/RuleAccessConn2AccessConnSrcSubcompoFeatDestSubcompo16.tgg#|47"/>
     </correspondencePatterns>
-    <correspondencePatterns name="corrDestinationSubcomponent" type="//@schema/@correspondenceTypes.16" source="//@rules.0/@sourcePatterns.4" target="//@rules.0/@targetPatterns.4"/>
-    <correspondencePatterns name="corrDestinationSubcomponentAccess" type="//@schema/@correspondenceTypes.4" source="//@rules.0/@sourcePatterns.5" target="//@rules.0/@targetPatterns.3"/>
-    <correspondencePatterns name="corrSourceSubcomponent" type="//@schema/@correspondenceTypes.15" source="//@rules.0/@sourcePatterns.2" target="//@rules.0/@targetPatterns.2"/>
+    <correspondencePatterns name="corrConnection">
+      <op value="++"/>
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/RuleAccessConn2AccessConnSrcSubcompoFeatDestSubcompo16.tgg#|50"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrDestinationSubcomponent">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/RuleAccessConn2AccessConnSrcSubcompoFeatDestSubcompo16.tgg#|44"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrDestinationSubcomponentAccess">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/RuleAccessConn2AccessConnSrcSubcompoFeatDestSubcompo16.tgg#|41"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrSourceSubcomponent">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/RuleAccessConn2AccessConnSrcSubcompoFeatDestSubcompo16.tgg#|53"/>
+    </correspondencePatterns>
   </rules>
   <rules name="RuleComponentToSubcomponentTypedAsParent" schema="//@schema">
     <sourcePatterns name="adeleImplementation">
@@ -235,9 +244,12 @@
         <type href="platform:/resource/Aadl/model/Aadl.ecore#//Subcomponent/subComponentTypeCi"/>
       </linkVariablePatterns>
     </targetPatterns>
-    <correspondencePatterns name="corrImplementation" type="//@schema/@correspondenceTypes.10" source="//@rules.1/@sourcePatterns.0" target="//@rules.1/@targetPatterns.0"/>
-    <correspondencePatterns name="corrSubcomponent" type="//@schema/@correspondenceTypes.16" source="//@rules.1/@sourcePatterns.1" target="//@rules.1/@targetPatterns.1">
+    <correspondencePatterns name="corrImplementation">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/RuleComponentToSubcomponentTypedAsParent.tgg#|13"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrSubcomponent">
       <op value="++"/>
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/RuleComponentToSubcomponentTypedAsParent.tgg#|16"/>
     </correspondencePatterns>
   </rules>
   <rules name="ruleAccessConn2AccessConnSrcSubcompoDestParent" schema="//@schema">
@@ -331,13 +343,22 @@
         <type href="platform:/resource/Aadl/model/Aadl.ecore#//ConnectedElement/connectionEndAce"/>
       </linkVariablePatterns>
     </targetPatterns>
-    <correspondencePatterns name="corrComponentAccess" type="//@schema/@correspondenceTypes.4" source="//@rules.2/@sourcePatterns.1" target="//@rules.2/@targetPatterns.1"/>
-    <correspondencePatterns name="corrComponentImplementation" type="//@schema/@correspondenceTypes.10" source="//@rules.2/@sourcePatterns.2" target="//@rules.2/@targetPatterns.2"/>
-    <correspondencePatterns name="corrComponentType" type="//@schema/@correspondenceTypes.0" source="//@rules.2/@sourcePatterns.0" target="//@rules.2/@targetPatterns.0"/>
-    <correspondencePatterns name="corrConnection" type="//@schema/@correspondenceTypes.13" source="//@rules.2/@sourcePatterns.3" target="//@rules.2/@targetPatterns.3">
-      <op value="++"/>
+    <correspondencePatterns name="corrComponentAccess">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessConn2AccessConnSrcSubcompoDestParent.tgg#|41"/>
     </correspondencePatterns>
-    <correspondencePatterns name="corrSubcomponent" type="//@schema/@correspondenceTypes.15" source="//@rules.2/@sourcePatterns.4" target="//@rules.2/@targetPatterns.4"/>
+    <correspondencePatterns name="corrComponentImplementation">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessConn2AccessConnSrcSubcompoDestParent.tgg#|47"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrComponentType">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessConn2AccessConnSrcSubcompoDestParent.tgg#|44"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrConnection">
+      <op value="++"/>
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessConn2AccessConnSrcSubcompoDestParent.tgg#|53"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrSubcomponent">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessConn2AccessConnSrcSubcompoDestParent.tgg#|50"/>
+    </correspondencePatterns>
   </rules>
   <rules name="ruleAccessConn2AccessConnSrcSubcompoDestSubcompo12" schema="//@schema">
     <sourcePatterns name="adeleComponentImplementation">
@@ -414,12 +435,19 @@
         <type href="platform:/resource/Aadl/model/Aadl.ecore#//ConnectedElement/connectionEndAce"/>
       </linkVariablePatterns>
     </targetPatterns>
-    <correspondencePatterns name="corrComponentImplementation" type="//@schema/@correspondenceTypes.10" source="//@rules.3/@sourcePatterns.0" target="//@rules.3/@targetPatterns.0"/>
-    <correspondencePatterns name="corrConnection" type="//@schema/@correspondenceTypes.13" source="//@rules.3/@sourcePatterns.1" target="//@rules.3/@targetPatterns.1">
-      <op value="++"/>
+    <correspondencePatterns name="corrComponentImplementation">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessConn2AccessConnSrcSubcompoDestSubcompo12.tgg#|36"/>
     </correspondencePatterns>
-    <correspondencePatterns name="corrDestinationSubcomponent" type="//@schema/@correspondenceTypes.15" source="//@rules.3/@sourcePatterns.2" target="//@rules.3/@targetPatterns.2"/>
-    <correspondencePatterns name="corrSourceSubcomponent" type="//@schema/@correspondenceTypes.15" source="//@rules.3/@sourcePatterns.3" target="//@rules.3/@targetPatterns.3"/>
+    <correspondencePatterns name="corrConnection">
+      <op value="++"/>
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessConn2AccessConnSrcSubcompoDestSubcompo12.tgg#|39"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrDestinationSubcomponent">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessConn2AccessConnSrcSubcompoDestSubcompo12.tgg#|33"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrSourceSubcomponent">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessConn2AccessConnSrcSubcompoDestSubcompo12.tgg#|42"/>
+    </correspondencePatterns>
   </rules>
   <rules name="ruleAccessConn2AccessConnSrcSubcompoDestSubcompoFeat13" schema="//@schema">
     <sourcePatterns name="adeleComponentImplementation">
@@ -496,12 +524,19 @@
         <type href="platform:/resource/Aadl/model/Aadl.ecore#//ConnectedElement/connectionEndAce"/>
       </linkVariablePatterns>
     </targetPatterns>
-    <correspondencePatterns name="corrComponentImplementation" type="//@schema/@correspondenceTypes.10" source="//@rules.4/@sourcePatterns.0" target="//@rules.4/@targetPatterns.0"/>
-    <correspondencePatterns name="corrConnection" type="//@schema/@correspondenceTypes.13" source="//@rules.4/@sourcePatterns.1" target="//@rules.4/@targetPatterns.1">
-      <op value="++"/>
+    <correspondencePatterns name="corrComponentImplementation">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessConn2AccessConnSrcSubcompoDestSubcompo12.tgg#|36"/>
     </correspondencePatterns>
-    <correspondencePatterns name="corrDestinationSubcomponent" type="//@schema/@correspondenceTypes.15" source="//@rules.4/@sourcePatterns.2" target="//@rules.4/@targetPatterns.2"/>
-    <correspondencePatterns name="corrSourceSubcomponent" type="//@schema/@correspondenceTypes.15" source="//@rules.4/@sourcePatterns.3" target="//@rules.4/@targetPatterns.3"/>
+    <correspondencePatterns name="corrConnection">
+      <op value="++"/>
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessConn2AccessConnSrcSubcompoDestSubcompo12.tgg#|39"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrDestinationSubcomponent">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessConn2AccessConnSrcSubcompoDestSubcompo12.tgg#|33"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrSourceSubcomponent">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessConn2AccessConnSrcSubcompoDestSubcompo12.tgg#|42"/>
+    </correspondencePatterns>
   </rules>
   <rules name="ruleAccessConn2AccessConnSrcSubcompoFeatDestSubcompo" schema="//@schema">
     <sourcePatterns name="adeleComponentImplementation">
@@ -636,20 +671,33 @@
         <type href="platform:/resource/Aadl/model/Aadl.ecore#//ConnectedElement/connectionEnd"/>
       </linkVariablePatterns>
     </targetPatterns>
-    <correspondencePatterns name="corrComponentImplementation" type="//@schema/@correspondenceTypes.10" source="//@rules.6/@sourcePatterns.0" target="//@rules.6/@targetPatterns.0"/>
-    <correspondencePatterns name="corrConnection" type="//@schema/@correspondenceTypes.13" source="//@rules.6/@sourcePatterns.1" target="//@rules.6/@targetPatterns.1">
-      <op value="++"/>
+    <correspondencePatterns name="corrComponentImplementation">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessConn2AccessConnSrcSubcompoFeatDestSubcompoFeat17.tgg#|47"/>
     </correspondencePatterns>
-    <correspondencePatterns name="corrConnection2" type="//@schema/@correspondenceTypes.14" source="//@rules.6/@sourcePatterns.1" target="//@rules.6/@targetPatterns.7">
+    <correspondencePatterns name="corrConnection">
       <op value="++"/>
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessConn2AccessConnSrcSubcompoFeatDestSubcompoFeat17.tgg#|50"/>
     </correspondencePatterns>
-    <correspondencePatterns name="corrConnection3" type="//@schema/@correspondenceTypes.14" source="//@rules.6/@sourcePatterns.1" target="//@rules.6/@targetPatterns.6">
+    <correspondencePatterns name="corrConnection2">
       <op value="++"/>
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessConn2AccessConnSrcSubcompoFeatDestSubcompoFeat17.tgg#|53"/>
     </correspondencePatterns>
-    <correspondencePatterns name="corrDestinationSubcomponent" type="//@schema/@correspondenceTypes.16" source="//@rules.6/@sourcePatterns.2" target="//@rules.6/@targetPatterns.2"/>
-    <correspondencePatterns name="corrDestinationSubcomponentAccess" type="//@schema/@correspondenceTypes.4" source="//@rules.6/@sourcePatterns.3" target="//@rules.6/@targetPatterns.3"/>
-    <correspondencePatterns name="corrSourceSubcomponent" type="//@schema/@correspondenceTypes.16" source="//@rules.6/@sourcePatterns.4" target="//@rules.6/@targetPatterns.4"/>
-    <correspondencePatterns name="corrSourceSubcomponentAccess" type="//@schema/@correspondenceTypes.4" source="//@rules.6/@sourcePatterns.5" target="//@rules.6/@targetPatterns.5"/>
+    <correspondencePatterns name="corrConnection3">
+      <op value="++"/>
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessConn2AccessConnSrcSubcompoFeatDestSubcompoFeat17.tgg#|56"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrDestinationSubcomponent">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessConn2AccessConnSrcSubcompoFeatDestSubcompoFeat17.tgg#|44"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrDestinationSubcomponentAccess">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessConn2AccessConnSrcSubcompoFeatDestSubcompoFeat17.tgg#|41"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrSourceSubcomponent">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessConn2AccessConnSrcSubcompoFeatDestSubcompoFeat17.tgg#|59"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrSourceSubcomponentAccess">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessConn2AccessConnSrcSubcompoFeatDestSubcompoFeat17.tgg#|62"/>
+    </correspondencePatterns>
   </rules>
   <rules name="ruleAccessConnToAccessConnSrcParentDestSubcompo" schema="//@schema">
     <sourcePatterns name="adeleCompImplType">
@@ -738,17 +786,26 @@
         <type href="platform:/resource/Aadl/model/Aadl.ecore#//ConnectedElement/connectionEnd"/>
       </linkVariablePatterns>
     </targetPatterns>
-    <correspondencePatterns name="corrComponentAccess" type="//@schema/@correspondenceTypes.4" source="//@rules.7/@sourcePatterns.1" target="//@rules.7/@targetPatterns.1"/>
-    <correspondencePatterns name="corrComponentImplementation" type="//@schema/@correspondenceTypes.10" source="//@rules.7/@sourcePatterns.2" target="//@rules.7/@targetPatterns.2"/>
-    <correspondencePatterns name="corrComponentType" type="//@schema/@correspondenceTypes.0" source="//@rules.7/@sourcePatterns.0" target="//@rules.7/@targetPatterns.0"/>
-    <correspondencePatterns name="corrConnection" type="//@schema/@correspondenceTypes.13" source="//@rules.7/@sourcePatterns.3" target="//@rules.7/@targetPatterns.3">
-      <op value="++"/>
+    <correspondencePatterns name="corrComponentAccess">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessConnToAccessConnSrcParentDestSubcompo.tgg#|39"/>
     </correspondencePatterns>
-    <correspondencePatterns name="corrConnection1" type="//@schema/@correspondenceTypes.14" source="//@rules.7/@sourcePatterns.3" target="//@rules.7/@targetPatterns.6">
-      <op value="++"/>
+    <correspondencePatterns name="corrComponentImplementation">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessConnToAccessConnSrcParentDestSubcompo.tgg#|45"/>
     </correspondencePatterns>
-    <correspondencePatterns name="corrConnection2" type="//@schema/@correspondenceTypes.14" source="//@rules.7/@sourcePatterns.3" target="//@rules.7/@targetPatterns.5">
+    <correspondencePatterns name="corrComponentType">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessConnToAccessConnSrcParentDestSubcompo.tgg#|42"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrConnection">
       <op value="++"/>
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessConnToAccessConnSrcParentDestSubcompo.tgg#|48"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrConnection1">
+      <op value="++"/>
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessConnToAccessConnSrcParentDestSubcompo.tgg#|51"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrConnection2">
+      <op value="++"/>
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessConnToAccessConnSrcParentDestSubcompo.tgg#|54"/>
     </correspondencePatterns>
   </rules>
   <rules name="ruleAccessConnToAccessConnSrcParentDestSubcompoFeat" schema="//@schema">
@@ -848,11 +905,21 @@
         <type href="platform:/resource/Aadl/model/Aadl.ecore#//ConnectedElement/connectionEnd"/>
       </linkVariablePatterns>
     </targetPatterns>
-    <correspondencePatterns name="corrComponentAccess" type="//@schema/@correspondenceTypes.4" source="//@rules.8/@sourcePatterns.1" target="//@rules.8/@targetPatterns.1"/>
-    <correspondencePatterns name="corrComponentImplementation" type="//@schema/@correspondenceTypes.10" source="//@rules.8/@sourcePatterns.2" target="//@rules.8/@targetPatterns.2"/>
-    <correspondencePatterns name="corrComponentType" type="//@schema/@correspondenceTypes.0" source="//@rules.8/@sourcePatterns.0" target="//@rules.8/@targetPatterns.0"/>
-    <correspondencePatterns name="corrSubcomponent" type="//@schema/@correspondenceTypes.16" source="//@rules.8/@sourcePatterns.4" target="//@rules.8/@targetPatterns.4"/>
-    <correspondencePatterns name="corrSubcomponentAccess" type="//@schema/@correspondenceTypes.4" source="//@rules.8/@sourcePatterns.5" target="//@rules.8/@targetPatterns.5"/>
+    <correspondencePatterns name="corrComponentAccess">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessConnToAccessConnSrcParentDestSubcompoFeat.tgg#|43"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrComponentImplementation">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessConnToAccessConnSrcParentDestSubcompoFeat.tgg#|49"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrComponentType">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessConnToAccessConnSrcParentDestSubcompoFeat.tgg#|46"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrSubcomponent">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessConnToAccessConnSrcParentDestSubcompoFeat.tgg#|52"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrSubcomponentAccess">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessConnToAccessConnSrcParentDestSubcompoFeat.tgg#|55"/>
+    </correspondencePatterns>
   </rules>
   <rules name="ruleAccessConnToAccessConnSrcParentDestSubcompoFeatSameAccess" schema="//@schema">
     <sourcePatterns name="adeleCompImplType">
@@ -949,17 +1016,26 @@
         <type href="platform:/resource/Aadl/model/Aadl.ecore#//ConnectedElement/connectionEnd"/>
       </linkVariablePatterns>
     </targetPatterns>
-    <correspondencePatterns name="corrComponentAccess" type="//@schema/@correspondenceTypes.4" source="//@rules.9/@sourcePatterns.1" target="//@rules.9/@targetPatterns.1"/>
-    <correspondencePatterns name="corrComponentImplementation" type="//@schema/@correspondenceTypes.10" source="//@rules.9/@sourcePatterns.2" target="//@rules.9/@targetPatterns.2"/>
-    <correspondencePatterns name="corrComponentType" type="//@schema/@correspondenceTypes.0" source="//@rules.9/@sourcePatterns.0" target="//@rules.9/@targetPatterns.0"/>
-    <correspondencePatterns name="corrConnection" type="//@schema/@correspondenceTypes.13" source="//@rules.9/@sourcePatterns.3" target="//@rules.9/@targetPatterns.3">
-      <op value="++"/>
+    <correspondencePatterns name="corrComponentAccess">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessConnToAccessConnSrcParentDestSubcompoFeatSameAccess.tgg#|43"/>
     </correspondencePatterns>
-    <correspondencePatterns name="corrConnection1" type="//@schema/@correspondenceTypes.14" source="//@rules.9/@sourcePatterns.3" target="//@rules.9/@targetPatterns.6">
-      <op value="++"/>
+    <correspondencePatterns name="corrComponentImplementation">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessConnToAccessConnSrcParentDestSubcompoFeatSameAccess.tgg#|49"/>
     </correspondencePatterns>
-    <correspondencePatterns name="corrConnection2" type="//@schema/@correspondenceTypes.14" source="//@rules.9/@sourcePatterns.3" target="//@rules.9/@targetPatterns.5">
+    <correspondencePatterns name="corrComponentType">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessConnToAccessConnSrcParentDestSubcompoFeatSameAccess.tgg#|46"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrConnection">
       <op value="++"/>
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessConnToAccessConnSrcParentDestSubcompoFeatSameAccess.tgg#|52"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrConnection1">
+      <op value="++"/>
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessConnToAccessConnSrcParentDestSubcompoFeatSameAccess.tgg#|55"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrConnection2">
+      <op value="++"/>
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessConnToAccessConnSrcParentDestSubcompoFeatSameAccess.tgg#|58"/>
     </correspondencePatterns>
   </rules>
   <rules name="ruleAccessToAccess" schema="//@schema">
@@ -985,10 +1061,13 @@
         <type href="platform:/resource/Aadl/model/Aadl.ecore#//ComponentType/ownedFeature"/>
       </linkVariablePatterns>
     </targetPatterns>
-    <correspondencePatterns name="corrAccess" type="//@schema/@correspondenceTypes.4" source="//@rules.10/@sourcePatterns.0" target="//@rules.10/@targetPatterns.0">
+    <correspondencePatterns name="corrAccess">
       <op value="++"/>
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessToAccess.tgg#|18"/>
     </correspondencePatterns>
-    <correspondencePatterns name="corrType" type="//@schema/@correspondenceTypes.0" source="//@rules.10/@sourcePatterns.1" target="//@rules.10/@targetPatterns.1"/>
+    <correspondencePatterns name="corrType">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessToAccess.tgg#|15"/>
+    </correspondencePatterns>
   </rules>
   <rules name="ruleAccessToAccessOne" schema="//@schema">
     <sourcePatterns name="adeleType">
@@ -999,8 +1078,9 @@
       <op value="++"/>
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//ComponentType"/>
     </targetPatterns>
-    <correspondencePatterns name="corrType" type="//@schema/@correspondenceTypes.0" source="//@rules.11/@sourcePatterns.0" target="//@rules.11/@targetPatterns.0">
+    <correspondencePatterns name="corrType">
       <op value="++"/>
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessToAccess.tgg#|3"/>
     </correspondencePatterns>
   </rules>
   <rules name="ruleAccessToAccessRefined" schema="//@schema">
@@ -1040,11 +1120,16 @@
         <type href="platform:/resource/Aadl/model/Aadl.ecore#//ComponentType/ownedFeature"/>
       </linkVariablePatterns>
     </targetPatterns>
-    <correspondencePatterns name="corrAccess" type="//@schema/@correspondenceTypes.4" source="//@rules.12/@sourcePatterns.0" target="//@rules.12/@targetPatterns.0">
+    <correspondencePatterns name="corrAccess">
       <op value="++"/>
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessToAccessRefined.tgg#|18"/>
     </correspondencePatterns>
-    <correspondencePatterns name="corrRefinedFeature" type="//@schema/@correspondenceTypes.5" source="//@rules.12/@sourcePatterns.1" target="//@rules.12/@targetPatterns.1"/>
-    <correspondencePatterns name="corrType" type="//@schema/@correspondenceTypes.0" source="//@rules.12/@sourcePatterns.2" target="//@rules.12/@targetPatterns.2"/>
+    <correspondencePatterns name="corrRefinedFeature">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessToAccessRefined.tgg#|21"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrType">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessToAccessRefined.tgg#|15"/>
+    </correspondencePatterns>
   </rules>
   <rules name="ruleAccessToAccessTyped" schema="//@schema">
     <sourcePatterns name="adeleAccess">
@@ -1083,11 +1168,16 @@
         <type href="platform:/resource/Aadl/model/Aadl.ecore#//ComponentType/ownedFeature"/>
       </linkVariablePatterns>
     </targetPatterns>
-    <correspondencePatterns name="corrAccess" type="//@schema/@correspondenceTypes.4" source="//@rules.13/@sourcePatterns.0" target="//@rules.13/@targetPatterns.0">
+    <correspondencePatterns name="corrAccess">
       <op value="++"/>
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessToAccessTyped.tgg#|18"/>
     </correspondencePatterns>
-    <correspondencePatterns name="corrComponentClassifier" type="//@schema/@correspondenceTypes.6" source="//@rules.13/@sourcePatterns.1" target="//@rules.13/@targetPatterns.1"/>
-    <correspondencePatterns name="corrType" type="//@schema/@correspondenceTypes.0" source="//@rules.13/@sourcePatterns.2" target="//@rules.13/@targetPatterns.2"/>
+    <correspondencePatterns name="corrComponentClassifier">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessToAccessTyped.tgg#|21"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrType">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessToAccessTyped.tgg#|15"/>
+    </correspondencePatterns>
   </rules>
   <rules name="ruleAccessToAccessTypedAsParent" schema="//@schema">
     <sourcePatterns name="adeleAccess">
@@ -1120,10 +1210,13 @@
         <type href="platform:/resource/Aadl/model/Aadl.ecore#//ComponentType/ownedFeature"/>
       </linkVariablePatterns>
     </targetPatterns>
-    <correspondencePatterns name="corrAccess" type="//@schema/@correspondenceTypes.4" source="//@rules.14/@sourcePatterns.0" target="//@rules.14/@targetPatterns.0">
+    <correspondencePatterns name="corrAccess">
       <op value="++"/>
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessToAccessTypedAsParent.tgg#|16"/>
     </correspondencePatterns>
-    <correspondencePatterns name="corrType" type="//@schema/@correspondenceTypes.0" source="//@rules.14/@sourcePatterns.1" target="//@rules.14/@targetPatterns.1"/>
+    <correspondencePatterns name="corrType">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessToAccessTypedAsParent.tgg#|13"/>
+    </correspondencePatterns>
   </rules>
   <rules name="ruleAccessToAccessTypedAsParentRefined" schema="//@schema">
     <sourcePatterns name="adeleAccess">
@@ -1170,11 +1263,16 @@
         <type href="platform:/resource/Aadl/model/Aadl.ecore#//ComponentType/ownedFeature"/>
       </linkVariablePatterns>
     </targetPatterns>
-    <correspondencePatterns name="CorrAccess" type="//@schema/@correspondenceTypes.4" source="//@rules.15/@sourcePatterns.0" target="//@rules.15/@targetPatterns.0">
+    <correspondencePatterns name="CorrAccess">
       <op value="++"/>
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessToAccessTypedAsParentRefined.tgg#|22"/>
     </correspondencePatterns>
-    <correspondencePatterns name="corrRefinedFeature" type="//@schema/@correspondenceTypes.5" source="//@rules.15/@sourcePatterns.1" target="//@rules.15/@targetPatterns.1"/>
-    <correspondencePatterns name="corrType" type="//@schema/@correspondenceTypes.0" source="//@rules.15/@sourcePatterns.2" target="//@rules.15/@targetPatterns.2"/>
+    <correspondencePatterns name="corrRefinedFeature">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessToAccessTypedAsParentRefined.tgg#|25"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrType">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessToAccessTypedAsParentRefined.tgg#|19"/>
+    </correspondencePatterns>
   </rules>
   <rules name="ruleAccessToAccessTypedRefined" schema="//@schema">
     <sourcePatterns name="adeleAccess">
@@ -1227,12 +1325,19 @@
         <type href="platform:/resource/Aadl/model/Aadl.ecore#//ComponentType/ownedFeature"/>
       </linkVariablePatterns>
     </targetPatterns>
-    <correspondencePatterns name="corrAccess" type="//@schema/@correspondenceTypes.4" source="//@rules.16/@sourcePatterns.0" target="//@rules.16/@targetPatterns.0">
+    <correspondencePatterns name="corrAccess">
       <op value="++"/>
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessToAccessTypedRefined.tgg#|24"/>
     </correspondencePatterns>
-    <correspondencePatterns name="corrClassifier" type="//@schema/@correspondenceTypes.6" source="//@rules.16/@sourcePatterns.1" target="//@rules.16/@targetPatterns.1"/>
-    <correspondencePatterns name="corrRefinedFeature" type="//@schema/@correspondenceTypes.5" source="//@rules.16/@sourcePatterns.2" target="//@rules.16/@targetPatterns.2"/>
-    <correspondencePatterns name="corrType" type="//@schema/@correspondenceTypes.0" source="//@rules.16/@sourcePatterns.3" target="//@rules.16/@targetPatterns.3"/>
+    <correspondencePatterns name="corrClassifier">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessToAccessTypedRefined.tgg#|30"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrRefinedFeature">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessToAccessTypedRefined.tgg#|27"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrType">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleAccessToAccessTypedRefined.tgg#|21"/>
+    </correspondencePatterns>
   </rules>
   <rules name="ruleComponent2ComponentImplementation" schema="//@schema">
     <sourcePatterns name="adeleImplementation">
@@ -1285,14 +1390,20 @@
     <targetPatterns name="aadlType">
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//ComponentType"/>
     </targetPatterns>
-    <correspondencePatterns name="corrAxiom" type="//@schema/@correspondenceTypes.17" source="//@rules.17/@sourcePatterns.1" target="//@rules.17/@targetPatterns.1"/>
-    <correspondencePatterns name="corrImplementation" type="//@schema/@correspondenceTypes.10" source="//@rules.17/@sourcePatterns.0" target="//@rules.17/@targetPatterns.0">
-      <op value="++"/>
+    <correspondencePatterns name="corrAxiom">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleComponent2ComponentImplementation.tgg#|22"/>
     </correspondencePatterns>
-    <correspondencePatterns name="corrImplementationR" type="//@schema/@correspondenceTypes.11" source="//@rules.17/@sourcePatterns.0" target="//@rules.17/@targetPatterns.2">
+    <correspondencePatterns name="corrImplementation">
       <op value="++"/>
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleComponent2ComponentImplementation.tgg#|31"/>
     </correspondencePatterns>
-    <correspondencePatterns name="corrType" type="//@schema/@correspondenceTypes.0" source="//@rules.17/@sourcePatterns.2" target="//@rules.17/@targetPatterns.3"/>
+    <correspondencePatterns name="corrImplementationR">
+      <op value="++"/>
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleComponent2ComponentImplementation.tgg#|28"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrType">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleComponent2ComponentImplementation.tgg#|25"/>
+    </correspondencePatterns>
   </rules>
   <rules name="ruleComponent2ComponentImplementation18" schema="//@schema">
     <sourcePatterns name="adeleImplementation">
@@ -1339,14 +1450,20 @@
     <targetPatterns name="aadlType">
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//ComponentType"/>
     </targetPatterns>
-    <correspondencePatterns name="corrAxiom" type="//@schema/@correspondenceTypes.17" source="//@rules.18/@sourcePatterns.1" target="//@rules.18/@targetPatterns.1"/>
-    <correspondencePatterns name="corrImplementation" type="//@schema/@correspondenceTypes.10" source="//@rules.18/@sourcePatterns.0" target="//@rules.18/@targetPatterns.0">
-      <op value="++"/>
+    <correspondencePatterns name="corrAxiom">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleComponent2ComponentImplementation18.tgg#|18"/>
     </correspondencePatterns>
-    <correspondencePatterns name="corrImplementationR" type="//@schema/@correspondenceTypes.11" source="//@rules.18/@sourcePatterns.0" target="//@rules.18/@targetPatterns.2">
+    <correspondencePatterns name="corrImplementation">
       <op value="++"/>
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleComponent2ComponentImplementation18.tgg#|24"/>
     </correspondencePatterns>
-    <correspondencePatterns name="corrType" type="//@schema/@correspondenceTypes.0" source="//@rules.18/@sourcePatterns.2" target="//@rules.18/@targetPatterns.3"/>
+    <correspondencePatterns name="corrImplementationR">
+      <op value="++"/>
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleComponent2ComponentImplementation18.tgg#|27"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrType">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleComponent2ComponentImplementation18.tgg#|21"/>
+    </correspondencePatterns>
   </rules>
   <rules name="ruleComponent2ComponentImplementationWithExtends19" schema="//@schema">
     <sourcePatterns name="adeleExtCompImpl">
@@ -1418,20 +1535,28 @@
         <type href="platform:/resource/Aadl/model/Aadl.ecore#//ImplementationExtension/extended"/>
       </linkVariablePatterns>
     </targetPatterns>
-    <correspondencePatterns name="corrAxiom" type="//@schema/@correspondenceTypes.17" source="//@rules.19/@sourcePatterns.2" target="//@rules.19/@targetPatterns.2"/>
-    <correspondencePatterns name="corrCompImpl" type="//@schema/@correspondenceTypes.10" source="//@rules.19/@sourcePatterns.0" target="//@rules.19/@targetPatterns.0">
-      <op value="++"/>
+    <correspondencePatterns name="corrAxiom">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleComponent2ComponentImplementationWithExtends19.tgg#|29"/>
     </correspondencePatterns>
-    <correspondencePatterns name="corrImplementation" type="//@schema/@correspondenceTypes.10" source="//@rules.19/@sourcePatterns.1" target="//@rules.19/@targetPatterns.1">
+    <correspondencePatterns name="corrCompImpl">
       <op value="++"/>
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleComponent2ComponentImplementationWithExtends19.tgg#|44"/>
     </correspondencePatterns>
-    <correspondencePatterns name="corrImplementationIE" type="//@schema/@correspondenceTypes.12" source="//@rules.19/@sourcePatterns.1" target="//@rules.19/@targetPatterns.5">
+    <correspondencePatterns name="corrImplementation">
       <op value="++"/>
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleComponent2ComponentImplementationWithExtends19.tgg#|35"/>
     </correspondencePatterns>
-    <correspondencePatterns name="corrImplementationR" type="//@schema/@correspondenceTypes.11" source="//@rules.19/@sourcePatterns.1" target="//@rules.19/@targetPatterns.3">
+    <correspondencePatterns name="corrImplementationIE">
       <op value="++"/>
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleComponent2ComponentImplementationWithExtends19.tgg#|41"/>
     </correspondencePatterns>
-    <correspondencePatterns name="corrType" type="//@schema/@correspondenceTypes.0" source="//@rules.19/@sourcePatterns.3" target="//@rules.19/@targetPatterns.4"/>
+    <correspondencePatterns name="corrImplementationR">
+      <op value="++"/>
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleComponent2ComponentImplementationWithExtends19.tgg#|38"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrType">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleComponent2ComponentImplementationWithExtends19.tgg#|32"/>
+    </correspondencePatterns>
   </rules>
   <rules name="ruleComponent2ComponentType20" schema="//@schema">
     <sourcePatterns name="adelePackage">
@@ -1456,9 +1581,12 @@
       <op value="++"/>
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//ComponentType"/>
     </targetPatterns>
-    <correspondencePatterns name="corrAxiom" type="//@schema/@correspondenceTypes.18" source="//@rules.20/@sourcePatterns.0" target="//@rules.20/@targetPatterns.0"/>
-    <correspondencePatterns name="corrType" type="//@schema/@correspondenceTypes.0" source="//@rules.20/@sourcePatterns.1" target="//@rules.20/@targetPatterns.1">
+    <correspondencePatterns name="corrAxiom">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleComponent2ComponentType20.tgg#|9"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrType">
       <op value="++"/>
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleComponent2ComponentType20.tgg#|12"/>
     </correspondencePatterns>
   </rules>
   <rules name="ruleComponent2Subcomponent" schema="//@schema">
@@ -1484,9 +1612,12 @@
       <op value="++"/>
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//Subcomponent"/>
     </targetPatterns>
-    <correspondencePatterns name="corrImplementation" type="//@schema/@correspondenceTypes.10" source="//@rules.21/@sourcePatterns.0" target="//@rules.21/@targetPatterns.0"/>
-    <correspondencePatterns name="corrSubcomponent" type="//@schema/@correspondenceTypes.16" source="//@rules.21/@sourcePatterns.1" target="//@rules.21/@targetPatterns.1">
+    <correspondencePatterns name="corrImplementation">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleComponent2Subcomponent.tgg#|9"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrSubcomponent">
       <op value="++"/>
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleComponent2Subcomponent.tgg#|12"/>
     </correspondencePatterns>
   </rules>
   <rules name="ruleComponent2SubcomponentRefined" schema="//@schema">
@@ -1540,12 +1671,19 @@
     <targetPatterns name="aadlSubcomponentType">
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//SubcomponentType"/>
     </targetPatterns>
-    <correspondencePatterns name="corrImplementation" type="//@schema/@correspondenceTypes.10" source="//@rules.22/@sourcePatterns.0" target="//@rules.22/@targetPatterns.0"/>
-    <correspondencePatterns name="corrRefinedSubcomponent" type="//@schema/@correspondenceTypes.16" source="//@rules.22/@sourcePatterns.1" target="//@rules.22/@targetPatterns.1"/>
-    <correspondencePatterns name="corrSubcomponent" type="//@schema/@correspondenceTypes.16" source="//@rules.22/@sourcePatterns.2" target="//@rules.22/@targetPatterns.2">
-      <op value="++"/>
+    <correspondencePatterns name="corrImplementation">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleComponent2SubcomponentRefined.tgg#|21"/>
     </correspondencePatterns>
-    <correspondencePatterns name="corrSubcomponentType" type="//@schema/@correspondenceTypes.7" source="//@rules.22/@sourcePatterns.3" target="//@rules.22/@targetPatterns.3"/>
+    <correspondencePatterns name="corrRefinedSubcomponent">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleComponent2SubcomponentRefined.tgg#|27"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrSubcomponent">
+      <op value="++"/>
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleComponent2SubcomponentRefined.tgg#|24"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrSubcomponentType">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleComponent2SubcomponentRefined.tgg#|30"/>
+    </correspondencePatterns>
   </rules>
   <rules name="ruleComponent2SubcomponentRefinedTyped" schema="//@schema">
     <sourcePatterns name="adeleImplementation">
@@ -1611,13 +1749,22 @@
     <targetPatterns name="aadlSubcomponentType">
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//SubcomponentType"/>
     </targetPatterns>
-    <correspondencePatterns name="corrImplementation" type="//@schema/@correspondenceTypes.10" source="//@rules.23/@sourcePatterns.0" target="//@rules.23/@targetPatterns.0"/>
-    <correspondencePatterns name="corrRefinedComponentType" type="//@schema/@correspondenceTypes.7" source="//@rules.23/@sourcePatterns.3" target="//@rules.23/@targetPatterns.2"/>
-    <correspondencePatterns name="corrRefinedSubcomponent" type="//@schema/@correspondenceTypes.16" source="//@rules.23/@sourcePatterns.1" target="//@rules.23/@targetPatterns.1"/>
-    <correspondencePatterns name="corrSubcomponent" type="//@schema/@correspondenceTypes.16" source="//@rules.23/@sourcePatterns.2" target="//@rules.23/@targetPatterns.3">
-      <op value="++"/>
+    <correspondencePatterns name="corrImplementation">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleComponent2SubcomponentRefinedTyped.tgg#|27"/>
     </correspondencePatterns>
-    <correspondencePatterns name="corrSubcomponentType" type="//@schema/@correspondenceTypes.7" source="//@rules.23/@sourcePatterns.4" target="//@rules.23/@targetPatterns.4"/>
+    <correspondencePatterns name="corrRefinedComponentType">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleComponent2SubcomponentRefinedTyped.tgg#|36"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrRefinedSubcomponent">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleComponent2SubcomponentRefinedTyped.tgg#|33"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrSubcomponent">
+      <op value="++"/>
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleComponent2SubcomponentRefinedTyped.tgg#|30"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrSubcomponentType">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleComponent2SubcomponentRefinedTyped.tgg#|39"/>
+    </correspondencePatterns>
   </rules>
   <rules name="ruleComponent2SubcomponentRefinedTypedAsParent" schema="//@schema">
     <sourcePatterns name="adeleImplementation">
@@ -1650,9 +1797,12 @@
         <type href="platform:/resource/Aadl/model/Aadl.ecore#//Subcomponent/subComponentTypeCi"/>
       </linkVariablePatterns>
     </targetPatterns>
-    <correspondencePatterns name="corrImplementation" type="//@schema/@correspondenceTypes.10" source="//@rules.24/@sourcePatterns.0" target="//@rules.24/@targetPatterns.0"/>
-    <correspondencePatterns name="corrSubcomponent" type="//@schema/@correspondenceTypes.16" source="//@rules.24/@sourcePatterns.1" target="//@rules.24/@targetPatterns.1">
+    <correspondencePatterns name="corrImplementation">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleComponent2SubcomponentRefinedTypedAsParent.tgg#|13"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrSubcomponent">
       <op value="++"/>
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleComponent2SubcomponentRefinedTypedAsParent.tgg#|16"/>
     </correspondencePatterns>
   </rules>
   <rules name="ruleComponent2SubcomponentTyped" schema="//@schema">
@@ -1692,12 +1842,16 @@
     <targetPatterns name="aadlSubcomponentType">
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//SubcomponentType"/>
     </targetPatterns>
-    <correspondencePatterns name="corrImplementation" type="//@schema/@correspondenceTypes.10" source="//@rules.25/@sourcePatterns.0" target="//@rules.25/@targetPatterns.0"/>
-    <correspondencePatterns name="corrSubcomponent" type="//@schema/@correspondenceTypes.16" source="//@rules.25/@sourcePatterns.1" target="//@rules.25/@targetPatterns.1">
-      <op value="++"/>
+    <correspondencePatterns name="corrImplementation">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleComponent2SubcomponentTyped.tgg#|15"/>
     </correspondencePatterns>
-    <correspondencePatterns name="corrSubcomponentType" type="//@schema/@correspondenceTypes.7" source="//@rules.25/@sourcePatterns.2" target="//@rules.25/@targetPatterns.2">
+    <correspondencePatterns name="corrSubcomponent">
       <op value="++"/>
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleComponent2SubcomponentTyped.tgg#|18"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrSubcomponentType">
+      <op value="++"/>
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleComponent2SubcomponentTyped.tgg#|21"/>
     </correspondencePatterns>
   </rules>
   <rules name="ruleComponentToComponentImplementationWithExtends" schema="//@schema">
@@ -1773,18 +1927,27 @@
         <type href="platform:/resource/Aadl/model/Aadl.ecore#//ImplementationExtension/extended"/>
       </linkVariablePatterns>
     </targetPatterns>
-    <correspondencePatterns name="corrAxiom" type="//@schema/@correspondenceTypes.17" source="//@rules.26/@sourcePatterns.2" target="//@rules.26/@targetPatterns.2"/>
-    <correspondencePatterns name="corrCompImpl" type="//@schema/@correspondenceTypes.10" source="//@rules.26/@sourcePatterns.0" target="//@rules.26/@targetPatterns.0"/>
-    <correspondencePatterns name="corrImplementation" type="//@schema/@correspondenceTypes.10" source="//@rules.26/@sourcePatterns.1" target="//@rules.26/@targetPatterns.1">
-      <op value="++"/>
+    <correspondencePatterns name="corrAxiom">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleComponent2ComponentImplementation.tgg#|22"/>
     </correspondencePatterns>
-    <correspondencePatterns name="corrImplementationIE" type="//@schema/@correspondenceTypes.12" source="//@rules.26/@sourcePatterns.1" target="//@rules.26/@targetPatterns.5">
-      <op value="++"/>
+    <correspondencePatterns name="corrCompImpl">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleComponentToComponentImplementationWithExtends.tgg#|16"/>
     </correspondencePatterns>
-    <correspondencePatterns name="corrImplementationR" type="//@schema/@correspondenceTypes.11" source="//@rules.26/@sourcePatterns.1" target="//@rules.26/@targetPatterns.3">
+    <correspondencePatterns name="corrImplementation">
       <op value="++"/>
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleComponent2ComponentImplementation.tgg#|31"/>
     </correspondencePatterns>
-    <correspondencePatterns name="corrType" type="//@schema/@correspondenceTypes.0" source="//@rules.26/@sourcePatterns.3" target="//@rules.26/@targetPatterns.4"/>
+    <correspondencePatterns name="corrImplementationIE">
+      <op value="++"/>
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleComponentToComponentImplementationWithExtends.tgg#|13"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrImplementationR">
+      <op value="++"/>
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleComponent2ComponentImplementation.tgg#|28"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrType">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleComponent2ComponentImplementation.tgg#|25"/>
+    </correspondencePatterns>
   </rules>
   <rules name="ruleComponentToComponentType" schema="//@schema">
     <sourcePatterns name="adelePackage">
@@ -1809,9 +1972,12 @@
       <op value="++"/>
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//ComponentType"/>
     </targetPatterns>
-    <correspondencePatterns name="corrAxiom" type="//@schema/@correspondenceTypes.17" source="//@rules.27/@sourcePatterns.0" target="//@rules.27/@targetPatterns.0"/>
-    <correspondencePatterns name="corrType" type="//@schema/@correspondenceTypes.0" source="//@rules.27/@sourcePatterns.1" target="//@rules.27/@targetPatterns.1">
+    <correspondencePatterns name="corrAxiom">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleComponentToComponentType.tgg#|9"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrType">
       <op value="++"/>
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleComponentToComponentType.tgg#|12"/>
     </correspondencePatterns>
   </rules>
   <rules name="ruleComponentToSubcomponentTypedAsParentRefined" schema="//@schema">
@@ -1859,10 +2025,15 @@
         <type href="platform:/resource/Aadl/model/Aadl.ecore#//Subcomponent/refined"/>
       </linkVariablePatterns>
     </targetPatterns>
-    <correspondencePatterns name="corrImplementation" type="//@schema/@correspondenceTypes.10" source="//@rules.28/@sourcePatterns.0" target="//@rules.28/@targetPatterns.0"/>
-    <correspondencePatterns name="corrRefinedSubcomponent" type="//@schema/@correspondenceTypes.16" source="//@rules.28/@sourcePatterns.1" target="//@rules.28/@targetPatterns.1"/>
-    <correspondencePatterns name="corrSubcomponent" type="//@schema/@correspondenceTypes.16" source="//@rules.28/@sourcePatterns.2" target="//@rules.28/@targetPatterns.2">
+    <correspondencePatterns name="corrImplementation">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleComponentToSubcomponentTypedAsParentRefined.tgg#|19"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrRefinedSubcomponent">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleComponentToSubcomponentTypedAsParentRefined.tgg#|25"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrSubcomponent">
       <op value="++"/>
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleComponentToSubcomponentTypedAsParentRefined.tgg#|22"/>
     </correspondencePatterns>
   </rules>
   <rules name="ruleComponentToSubcomponentTypedAsParentRefinedTyped" schema="//@schema">
@@ -1923,11 +2094,18 @@
         <type href="platform:/resource/Aadl/model/Aadl.ecore#//Subcomponent/refined"/>
       </linkVariablePatterns>
     </targetPatterns>
-    <correspondencePatterns name="corrImplementation" type="//@schema/@correspondenceTypes.10" source="//@rules.29/@sourcePatterns.0" target="//@rules.29/@targetPatterns.0"/>
-    <correspondencePatterns name="corrRefinedComponentType" type="//@schema/@correspondenceTypes.7" source="//@rules.29/@sourcePatterns.3" target="//@rules.29/@targetPatterns.2"/>
-    <correspondencePatterns name="corrRefinedSubcomponent" type="//@schema/@correspondenceTypes.16" source="//@rules.29/@sourcePatterns.1" target="//@rules.29/@targetPatterns.1"/>
-    <correspondencePatterns name="corrSubcomponent" type="//@schema/@correspondenceTypes.16" source="//@rules.29/@sourcePatterns.2" target="//@rules.29/@targetPatterns.3">
+    <correspondencePatterns name="corrImplementation">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleComponentToSubcomponentTypedAsParentRefinedTyped.tgg#|25"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrRefinedComponentType">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleComponentToSubcomponentTypedAsParentRefinedTyped.tgg#|34"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrRefinedSubcomponent">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleComponentToSubcomponentTypedAsParentRefinedTyped.tgg#|31"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrSubcomponent">
       <op value="++"/>
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleComponentToSubcomponentTypedAsParentRefinedTyped.tgg#|28"/>
     </correspondencePatterns>
   </rules>
   <rules name="ruleComponentToSubcomponentTypedRefined" schema="//@schema">
@@ -1981,12 +2159,19 @@
     <targetPatterns name="aadlSubcomponentType">
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//SubcomponentType"/>
     </targetPatterns>
-    <correspondencePatterns name="corrImplementation" type="//@schema/@correspondenceTypes.10" source="//@rules.30/@sourcePatterns.0" target="//@rules.30/@targetPatterns.0"/>
-    <correspondencePatterns name="corrRefinedSubcomponent" type="//@schema/@correspondenceTypes.16" source="//@rules.30/@sourcePatterns.1" target="//@rules.30/@targetPatterns.1"/>
-    <correspondencePatterns name="corrSubcomponent" type="//@schema/@correspondenceTypes.16" source="//@rules.30/@sourcePatterns.2" target="//@rules.30/@targetPatterns.2">
-      <op value="++"/>
+    <correspondencePatterns name="corrImplementation">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleComponentToSubcomponentTypedRefined.tgg#|21"/>
     </correspondencePatterns>
-    <correspondencePatterns name="corrSubcomponentType" type="//@schema/@correspondenceTypes.7" source="//@rules.30/@sourcePatterns.3" target="//@rules.30/@targetPatterns.3"/>
+    <correspondencePatterns name="corrRefinedSubcomponent">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleComponentToSubcomponentTypedRefined.tgg#|27"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrSubcomponent">
+      <op value="++"/>
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleComponentToSubcomponentTypedRefined.tgg#|24"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrSubcomponentType">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleComponentToSubcomponentTypedRefined.tgg#|30"/>
+    </correspondencePatterns>
   </rules>
   <rules name="ruleComponentToSubcomponentTypedRefinedTyped" schema="//@schema">
     <sourcePatterns name="adeleImplementation">
@@ -2052,129 +2237,227 @@
     <targetPatterns name="aadlSubcomponentType">
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//SubcomponentType"/>
     </targetPatterns>
-    <correspondencePatterns name="corrImplementation" type="//@schema/@correspondenceTypes.10" source="//@rules.31/@sourcePatterns.0" target="//@rules.31/@targetPatterns.0"/>
-    <correspondencePatterns name="corrRefinedComponentType" type="//@schema/@correspondenceTypes.7" source="//@rules.31/@sourcePatterns.3" target="//@rules.31/@targetPatterns.2"/>
-    <correspondencePatterns name="corrRefinedSubcomponent" type="//@schema/@correspondenceTypes.16" source="//@rules.31/@sourcePatterns.1" target="//@rules.31/@targetPatterns.1"/>
-    <correspondencePatterns name="corrSubcomponent" type="//@schema/@correspondenceTypes.16" source="//@rules.31/@sourcePatterns.2" target="//@rules.31/@targetPatterns.3">
-      <op value="++"/>
+    <correspondencePatterns name="corrImplementation">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleComponentToSubcomponentTypedRefinedTyped.tgg#|27"/>
     </correspondencePatterns>
-    <correspondencePatterns name="corrSubcomponentType" type="//@schema/@correspondenceTypes.7" source="//@rules.31/@sourcePatterns.4" target="//@rules.31/@targetPatterns.4"/>
+    <correspondencePatterns name="corrRefinedComponentType">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleComponentToSubcomponentTypedRefinedTyped.tgg#|36"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrRefinedSubcomponent">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleComponentToSubcomponentTypedRefinedTyped.tgg#|33"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrSubcomponent">
+      <op value="++"/>
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleComponentToSubcomponentTypedRefinedTyped.tgg#|30"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrSubcomponentType">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleComponentToSubcomponentTypedRefinedTyped.tgg#|39"/>
+    </correspondencePatterns>
   </rules>
-  <rules name="ruleDirFeatConn2DirFeatConnSrcParentDestSubcompo" schema="//@schema">
-    <sourcePatterns name="adeleCompImplType">
+  <rules name="ruleComponentToSubcomponentTypedRefinedTypedAsParent" schema="//@schema">
+    <sourcePatterns name="adeleImplementation">
       <type href="platform:/resource/Adele/model/Adele.ecore#//Component"/>
-      <linkVariablePatterns target="//@rules.32/@sourcePatterns.1">
-        <type href="platform:/resource/Adele/model/Adele.ecore#//Component/allRealFeaturesDf"/>
+      <linkVariablePatterns target="//@rules.32/@sourcePatterns.2">
+        <op value="++"/>
+        <type href="platform:/resource/Adele/model/Adele.ecore#//Component/children"/>
       </linkVariablePatterns>
     </sourcePatterns>
-    <sourcePatterns name="adeleComponentFeature">
-      <type href="platform:/resource/Adele/model/Adele.ecore#//DirectedFeature"/>
-    </sourcePatterns>
-    <sourcePatterns name="adeleComponentImplementation">
+    <sourcePatterns name="adeleRefinedSubcomponent">
       <type href="platform:/resource/Adele/model/Adele.ecore#//Component"/>
-      <linkVariablePatterns target="//@rules.32/@sourcePatterns.0">
-        <type href="platform:/resource/Adele/model/Adele.ecore#//Component/type"/>
+    </sourcePatterns>
+    <sourcePatterns name="adeleSubcomponent">
+      <op value="++"/>
+      <type href="platform:/resource/Adele/model/Adele.ecore#//Component"/>
+      <linkVariablePatterns target="//@rules.32/@sourcePatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Adele/model/Adele.ecore#//Component/refinedSubcomponent"/>
       </linkVariablePatterns>
       <linkVariablePatterns target="//@rules.32/@sourcePatterns.3">
         <op value="++"/>
-        <type href="platform:/resource/Adele/model/Adele.ecore#//Component/allRealRelationsDfc"/>
+        <type href="platform:/resource/Adele/model/Adele.ecore#//Component/refines"/>
       </linkVariablePatterns>
-      <linkVariablePatterns target="//@rules.32/@sourcePatterns.4">
-        <type href="platform:/resource/Adele/model/Adele.ecore#//Component/allRealChildrenComponents"/>
+      <linkVariablePatterns target="//@rules.32/@sourcePatterns.0">
+        <op value="++"/>
+        <type href="platform:/resource/Adele/model/Adele.ecore#//Component/implementation"/>
       </linkVariablePatterns>
     </sourcePatterns>
-    <sourcePatterns name="adeleConnection">
-      <op value="++"/>
-      <type href="platform:/resource/Adele/model/Adele.ecore#//DirectedFeatureConnection"/>
-      <linkVariablePatterns target="//@rules.32/@sourcePatterns.1">
-        <op value="++"/>
-        <type href="platform:/resource/Adele/model/Adele.ecore#//DirectedFeatureConnection/originalSourceFeature"/>
-      </linkVariablePatterns>
-      <linkVariablePatterns target="//@rules.32/@sourcePatterns.5">
-        <op value="++"/>
-        <type href="platform:/resource/Adele/model/Adele.ecore#//DirectedFeatureConnection/originalSinkFeature"/>
-      </linkVariablePatterns>
-    </sourcePatterns>
-    <sourcePatterns name="adeleSubcomponent">
+    <sourcePatterns name="refines">
       <type href="platform:/resource/Adele/model/Adele.ecore#//Component"/>
     </sourcePatterns>
-    <sourcePatterns name="adeleSubcomponentPort">
-      <type href="platform:/resource/Adele/model/Adele.ecore#//DirectedFeature"/>
-    </sourcePatterns>
-    <targetPatterns name="aadlCompImplType">
-      <type href="platform:/resource/Aadl/model/Aadl.ecore#//ComponentType"/>
-      <linkVariablePatterns target="//@rules.32/@targetPatterns.1">
-        <type href="platform:/resource/Aadl/model/Aadl.ecore#//ComponentType/memberDF"/>
-      </linkVariablePatterns>
-    </targetPatterns>
-    <targetPatterns name="aadlComponentFeature">
-      <type href="platform:/resource/Aadl/model/Aadl.ecore#//DirectedFeature"/>
-    </targetPatterns>
-    <targetPatterns name="aadlComponentImplementation">
+    <targetPatterns name="aadlImplementation">
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//ComponentImplementation"/>
-      <linkVariablePatterns target="//@rules.32/@targetPatterns.0">
-        <type href="platform:/resource/Aadl/model/Aadl.ecore#//ComponentImplementation/type"/>
-      </linkVariablePatterns>
-      <linkVariablePatterns target="//@rules.32/@targetPatterns.4">
-        <type href="platform:/resource/Aadl/model/Aadl.ecore#//ComponentImplementation/memberSub"/>
-      </linkVariablePatterns>
-      <linkVariablePatterns target="//@rules.32/@targetPatterns.3">
+      <linkVariablePatterns target="//@rules.32/@targetPatterns.2">
         <op value="++"/>
-        <type href="platform:/resource/Aadl/model/Aadl.ecore#//ComponentImplementation/ownedConnection"/>
+        <type href="platform:/resource/Aadl/model/Aadl.ecore#//ComponentImplementation/ownedSubcomponent"/>
       </linkVariablePatterns>
     </targetPatterns>
-    <targetPatterns name="aadlConnection">
-      <op value="++"/>
-      <type href="platform:/resource/Aadl/model/Aadl.ecore#//Connection"/>
-      <linkVariablePatterns target="//@rules.32/@targetPatterns.7">
-        <op value="++"/>
-        <type href="platform:/resource/Aadl/model/Aadl.ecore#//Connection/source"/>
-      </linkVariablePatterns>
-      <linkVariablePatterns target="//@rules.32/@targetPatterns.6">
-        <op value="++"/>
-        <type href="platform:/resource/Aadl/model/Aadl.ecore#//Connection/destination"/>
+    <targetPatterns name="aadlRefinedSubcomponent">
+      <type href="platform:/resource/Aadl/model/Aadl.ecore#//Subcomponent"/>
+      <linkVariablePatterns target="//@rules.32/@targetPatterns.0">
+        <type href="platform:/resource/Aadl/model/Aadl.ecore#//Subcomponent/componentImplementation"/>
       </linkVariablePatterns>
     </targetPatterns>
     <targetPatterns name="aadlSubcomponent">
+      <op value="++"/>
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//Subcomponent"/>
-    </targetPatterns>
-    <targetPatterns name="aadlSubcomponentFeature">
-      <type href="platform:/resource/Aadl/model/Aadl.ecore#//DirectedFeature"/>
-    </targetPatterns>
-    <targetPatterns name="destinationConnectedElement">
-      <op value="++"/>
-      <type href="platform:/resource/Aadl/model/Aadl.ecore#//ConnectedElement"/>
-      <linkVariablePatterns target="//@rules.32/@targetPatterns.5">
-        <op value="++"/>
-        <type href="platform:/resource/Aadl/model/Aadl.ecore#//ConnectedElement/connectionEndDf"/>
-      </linkVariablePatterns>
-      <linkVariablePatterns target="//@rules.32/@targetPatterns.4">
-        <op value="++"/>
-        <type href="platform:/resource/Aadl/model/Aadl.ecore#//ConnectedElement/context"/>
-      </linkVariablePatterns>
-    </targetPatterns>
-    <targetPatterns name="sourceConnectedElement">
-      <op value="++"/>
-      <type href="platform:/resource/Aadl/model/Aadl.ecore#//ConnectedElement"/>
       <linkVariablePatterns target="//@rules.32/@targetPatterns.1">
         <op value="++"/>
-        <type href="platform:/resource/Aadl/model/Aadl.ecore#//ConnectedElement/connectionEndDf"/>
+        <type href="platform:/resource/Aadl/model/Aadl.ecore#//Subcomponent/refined"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.32/@targetPatterns.3">
+        <op value="++"/>
+        <type href="platform:/resource/Aadl/model/Aadl.ecore#//Subcomponent/subCompType"/>
       </linkVariablePatterns>
     </targetPatterns>
-    <correspondencePatterns name="corrComponentFeature" type="//@schema/@correspondenceTypes.20" source="//@rules.32/@sourcePatterns.1" target="//@rules.32/@targetPatterns.1"/>
-    <correspondencePatterns name="corrComponentImplementation" type="//@schema/@correspondenceTypes.10" source="//@rules.32/@sourcePatterns.2" target="//@rules.32/@targetPatterns.2"/>
-    <correspondencePatterns name="corrComponentType" type="//@schema/@correspondenceTypes.0" source="//@rules.32/@sourcePatterns.0" target="//@rules.32/@targetPatterns.0"/>
-    <correspondencePatterns name="corrConnection" type="//@schema/@correspondenceTypes.22" source="//@rules.32/@sourcePatterns.3" target="//@rules.32/@targetPatterns.3">
-      <op value="++"/>
+    <targetPatterns name="aadlSubcomponentType">
+      <type href="platform:/resource/Aadl/model/Aadl.ecore#//SubcomponentType"/>
+    </targetPatterns>
+    <correspondencePatterns name="corrImplementation">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleComponentToSubcomponentTypedRefinedTypedAsParent.tgg#|25"/>
     </correspondencePatterns>
-    <correspondencePatterns name="corrSubcomponent" type="//@schema/@correspondenceTypes.16" source="//@rules.32/@sourcePatterns.4" target="//@rules.32/@targetPatterns.4"/>
-    <correspondencePatterns name="corrSubcomponentFeature" type="//@schema/@correspondenceTypes.20" source="//@rules.32/@sourcePatterns.5" target="//@rules.32/@targetPatterns.5"/>
+    <correspondencePatterns name="corrRefinedSubcomponent">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleComponentToSubcomponentTypedRefinedTypedAsParent.tgg#|31"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrSubcomponent">
+      <op value="++"/>
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleComponentToSubcomponentTypedRefinedTypedAsParent.tgg#|28"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrSubcomponentType">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleComponentToSubcomponentTypedRefinedTypedAsParent.tgg#|34"/>
+    </correspondencePatterns>
+  </rules>
+  <rules name="ruleDirectedFeat2DirectedFeat" schema="//@schema">
+    <sourcePatterns name="adeleFeature">
+      <op value="++"/>
+      <type href="platform:/resource/Adele/model/Adele.ecore#//DirectedFeature"/>
+    </sourcePatterns>
+    <sourcePatterns name="adeleType">
+      <type href="platform:/resource/Adele/model/Adele.ecore#//Component"/>
+      <linkVariablePatterns target="//@rules.33/@sourcePatterns.0">
+        <op value="++"/>
+        <type href="platform:/resource/Adele/model/Adele.ecore#//Component/featuresDf"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <targetPatterns name="aadlFeature">
+      <op value="++"/>
+      <type href="platform:/resource/Aadl/model/Aadl.ecore#//DirectedFeature"/>
+    </targetPatterns>
+    <targetPatterns name="aadlType">
+      <type href="platform:/resource/Aadl/model/Aadl.ecore#//ComponentType"/>
+      <linkVariablePatterns target="//@rules.33/@targetPatterns.0">
+        <op value="++"/>
+        <type href="platform:/resource/Aadl/model/Aadl.ecore#//ComponentType/ownedFeatureDF"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <correspondencePatterns name="corrFeature">
+      <op value="++"/>
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleDirectedFeat2DirectedFeat.tgg#|12"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrType">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleDirectedFeat2DirectedFeat.tgg#|9"/>
+    </correspondencePatterns>
+  </rules>
+  <rules name="ruleDirectedFeatToDirectedFeatRefined" schema="//@schema">
+    <sourcePatterns name="adeleFeature">
+      <op value="++"/>
+      <type href="platform:/resource/Adele/model/Adele.ecore#//DirectedFeature"/>
+      <linkVariablePatterns target="//@rules.34/@sourcePatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Adele/model/Adele.ecore#//DirectedFeature/refinedFeature"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="adeleRefinedFeature">
+      <type href="platform:/resource/Adele/model/Adele.ecore#//Feature"/>
+    </sourcePatterns>
+    <sourcePatterns name="adeleType">
+      <type href="platform:/resource/Adele/model/Adele.ecore#//Component"/>
+      <linkVariablePatterns target="//@rules.34/@sourcePatterns.0">
+        <op value="++"/>
+        <type href="platform:/resource/Adele/model/Adele.ecore#//Component/featuresDf"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <targetPatterns name="aadlFeature">
+      <op value="++"/>
+      <type href="platform:/resource/Aadl/model/Aadl.ecore#//DirectedFeature"/>
+      <linkVariablePatterns target="//@rules.34/@targetPatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Aadl/model/Aadl.ecore#//DirectedFeature/refined"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="aadlRefinedFeature">
+      <type href="platform:/resource/Aadl/model/Aadl.ecore#//Feature"/>
+    </targetPatterns>
+    <targetPatterns name="aadlType">
+      <type href="platform:/resource/Aadl/model/Aadl.ecore#//ComponentType"/>
+      <linkVariablePatterns target="//@rules.34/@targetPatterns.0">
+        <op value="++"/>
+        <type href="platform:/resource/Aadl/model/Aadl.ecore#//ComponentType/ownedFeatureDF"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <correspondencePatterns name="corrFeature">
+      <op value="++"/>
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleDirectedFeat2DirectedFeat.tgg#|12"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrRefinedFeature">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleDirectedFeatToDirectedFeatRefined.tgg#|10"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrType">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleDirectedFeat2DirectedFeat.tgg#|9"/>
+    </correspondencePatterns>
+  </rules>
+  <rules name="ruleDirectedFeatToDirectedFeatTyped" schema="//@schema">
+    <sourcePatterns name="adeleClassifier">
+      <type href="platform:/resource/Adele/model/Adele.ecore#//SKComponent"/>
+    </sourcePatterns>
+    <sourcePatterns name="adeleFeature">
+      <op value="++"/>
+      <type href="platform:/resource/Adele/model/Adele.ecore#//DirectedFeature"/>
+      <linkVariablePatterns target="//@rules.35/@sourcePatterns.0">
+        <op value="++"/>
+        <type href="platform:/resource/Adele/model/Adele.ecore#//DirectedFeature/classifier"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="adeleType">
+      <type href="platform:/resource/Adele/model/Adele.ecore#//Component"/>
+      <linkVariablePatterns target="//@rules.35/@sourcePatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Adele/model/Adele.ecore#//Component/featuresDf"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <targetPatterns name="aadlClassifier">
+      <type href="platform:/resource/Aadl/model/Aadl.ecore#//Classifier"/>
+    </targetPatterns>
+    <targetPatterns name="aadlFeature">
+      <op value="++"/>
+      <type href="platform:/resource/Aadl/model/Aadl.ecore#//DirectedFeature"/>
+      <linkVariablePatterns target="//@rules.35/@targetPatterns.0">
+        <op value="++"/>
+        <type href="platform:/resource/Aadl/model/Aadl.ecore#//DirectedFeature/classifier"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="aadlType">
+      <type href="platform:/resource/Aadl/model/Aadl.ecore#//ComponentType"/>
+      <linkVariablePatterns target="//@rules.35/@targetPatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Aadl/model/Aadl.ecore#//ComponentType/ownedFeatureDF"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <correspondencePatterns name="corrClassifier">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleDirectedFeatToDirectedFeatTyped.tgg#|10"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrFeature">
+      <op value="++"/>
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleDirectedFeat2DirectedFeat.tgg#|12"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrType">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleDirectedFeat2DirectedFeat.tgg#|9"/>
+    </correspondencePatterns>
   </rules>
   <rules name="ruleFeatGroupAccess2FeatGroupAccessRefined" schema="//@schema">
     <sourcePatterns name="adeleAccess">
       <op value="++"/>
       <type href="platform:/resource/Adele/model/Adele.ecore#//Access"/>
-      <linkVariablePatterns target="//@rules.33/@sourcePatterns.1">
+      <linkVariablePatterns target="//@rules.36/@sourcePatterns.1">
         <op value="++"/>
         <type href="platform:/resource/Adele/model/Adele.ecore#//Access/refinedFeature"/>
       </linkVariablePatterns>
@@ -2184,7 +2467,7 @@
     </sourcePatterns>
     <sourcePatterns name="adeleType">
       <type href="platform:/resource/Adele/model/Adele.ecore#//FeatureGroup"/>
-      <linkVariablePatterns target="//@rules.33/@sourcePatterns.0">
+      <linkVariablePatterns target="//@rules.36/@sourcePatterns.0">
         <op value="++"/>
         <type href="platform:/resource/Adele/model/Adele.ecore#//FeatureGroup/features"/>
       </linkVariablePatterns>
@@ -2192,7 +2475,7 @@
     <targetPatterns name="aadlAccess">
       <op value="++"/>
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//Access"/>
-      <linkVariablePatterns target="//@rules.33/@targetPatterns.1">
+      <linkVariablePatterns target="//@rules.36/@targetPatterns.1">
         <op value="++"/>
         <type href="platform:/resource/Aadl/model/Aadl.ecore#//Access/refined"/>
       </linkVariablePatterns>
@@ -2202,22 +2485,27 @@
     </targetPatterns>
     <targetPatterns name="aadlType">
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//FeatureGroupType"/>
-      <linkVariablePatterns target="//@rules.33/@targetPatterns.0">
+      <linkVariablePatterns target="//@rules.36/@targetPatterns.0">
         <op value="++"/>
         <type href="platform:/resource/Aadl/model/Aadl.ecore#//FeatureGroupType/ownedFeature"/>
       </linkVariablePatterns>
     </targetPatterns>
-    <correspondencePatterns name="corrAccess" type="//@schema/@correspondenceTypes.4" source="//@rules.33/@sourcePatterns.0" target="//@rules.33/@targetPatterns.0">
+    <correspondencePatterns name="corrAccess">
       <op value="++"/>
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleFeatGroupAccess2FeatGroupAccessRefined.tgg#|18"/>
     </correspondencePatterns>
-    <correspondencePatterns name="corrRefinedFeature" type="//@schema/@correspondenceTypes.5" source="//@rules.33/@sourcePatterns.1" target="//@rules.33/@targetPatterns.1"/>
-    <correspondencePatterns name="corrType" type="//@schema/@correspondenceTypes.2" source="//@rules.33/@sourcePatterns.2" target="//@rules.33/@targetPatterns.2"/>
+    <correspondencePatterns name="corrRefinedFeature">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleFeatGroupAccess2FeatGroupAccessRefined.tgg#|21"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrType">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleFeatGroupAccess2FeatGroupAccessRefined.tgg#|15"/>
+    </correspondencePatterns>
   </rules>
   <rules name="ruleFeatGroupAccess2FeatGroupAccessTyped" schema="//@schema">
     <sourcePatterns name="adeleAccess">
       <op value="++"/>
       <type href="platform:/resource/Adele/model/Adele.ecore#//Access"/>
-      <linkVariablePatterns target="//@rules.34/@sourcePatterns.1">
+      <linkVariablePatterns target="//@rules.37/@sourcePatterns.1">
         <op value="++"/>
         <type href="platform:/resource/Adele/model/Adele.ecore#//Access/classifier"/>
       </linkVariablePatterns>
@@ -2227,7 +2515,7 @@
     </sourcePatterns>
     <sourcePatterns name="adeleType">
       <type href="platform:/resource/Adele/model/Adele.ecore#//FeatureGroup"/>
-      <linkVariablePatterns target="//@rules.34/@sourcePatterns.0">
+      <linkVariablePatterns target="//@rules.37/@sourcePatterns.0">
         <op value="++"/>
         <type href="platform:/resource/Adele/model/Adele.ecore#//FeatureGroup/features"/>
       </linkVariablePatterns>
@@ -2235,7 +2523,7 @@
     <targetPatterns name="aadlAccess">
       <op value="++"/>
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//Access"/>
-      <linkVariablePatterns target="//@rules.34/@targetPatterns.1">
+      <linkVariablePatterns target="//@rules.37/@targetPatterns.1">
         <op value="++"/>
         <type href="platform:/resource/Aadl/model/Aadl.ecore#//Access/featClassifierDst"/>
       </linkVariablePatterns>
@@ -2245,26 +2533,31 @@
     </targetPatterns>
     <targetPatterns name="aadlType">
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//FeatureGroupType"/>
-      <linkVariablePatterns target="//@rules.34/@targetPatterns.0">
+      <linkVariablePatterns target="//@rules.37/@targetPatterns.0">
         <op value="++"/>
         <type href="platform:/resource/Aadl/model/Aadl.ecore#//FeatureGroupType/ownedFeature"/>
       </linkVariablePatterns>
     </targetPatterns>
-    <correspondencePatterns name="corrAccess" type="//@schema/@correspondenceTypes.4" source="//@rules.34/@sourcePatterns.0" target="//@rules.34/@targetPatterns.0">
+    <correspondencePatterns name="corrAccess">
       <op value="++"/>
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleFeatGroupAccess2FeatGroupAccessTyped.tgg#|21"/>
     </correspondencePatterns>
-    <correspondencePatterns name="corrComponentClassifier" type="//@schema/@correspondenceTypes.9" source="//@rules.34/@sourcePatterns.1" target="//@rules.34/@targetPatterns.1"/>
-    <correspondencePatterns name="corrType" type="//@schema/@correspondenceTypes.2" source="//@rules.34/@sourcePatterns.2" target="//@rules.34/@targetPatterns.2"/>
+    <correspondencePatterns name="corrComponentClassifier">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleFeatGroupAccess2FeatGroupAccessTyped.tgg#|15"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrType">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleFeatGroupAccess2FeatGroupAccessTyped.tgg#|18"/>
+    </correspondencePatterns>
   </rules>
   <rules name="ruleFeatGroupAccess2FeatGroupAccessTypedRefined" schema="//@schema">
     <sourcePatterns name="adeleAccess">
       <op value="++"/>
       <type href="platform:/resource/Adele/model/Adele.ecore#//Access"/>
-      <linkVariablePatterns target="//@rules.35/@sourcePatterns.1">
+      <linkVariablePatterns target="//@rules.38/@sourcePatterns.1">
         <op value="++"/>
         <type href="platform:/resource/Adele/model/Adele.ecore#//Access/classifier"/>
       </linkVariablePatterns>
-      <linkVariablePatterns target="//@rules.35/@sourcePatterns.2">
+      <linkVariablePatterns target="//@rules.38/@sourcePatterns.2">
         <op value="++"/>
         <type href="platform:/resource/Adele/model/Adele.ecore#//Access/refinedFeature"/>
       </linkVariablePatterns>
@@ -2277,7 +2570,7 @@
     </sourcePatterns>
     <sourcePatterns name="adeleType">
       <type href="platform:/resource/Adele/model/Adele.ecore#//FeatureGroup"/>
-      <linkVariablePatterns target="//@rules.35/@sourcePatterns.0">
+      <linkVariablePatterns target="//@rules.38/@sourcePatterns.0">
         <op value="++"/>
         <type href="platform:/resource/Adele/model/Adele.ecore#//FeatureGroup/features"/>
       </linkVariablePatterns>
@@ -2285,11 +2578,11 @@
     <targetPatterns name="aadlAccess">
       <op value="++"/>
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//Access"/>
-      <linkVariablePatterns target="//@rules.35/@targetPatterns.1">
+      <linkVariablePatterns target="//@rules.38/@targetPatterns.1">
         <op value="++"/>
         <type href="platform:/resource/Aadl/model/Aadl.ecore#//Access/featureClassifierFc"/>
       </linkVariablePatterns>
-      <linkVariablePatterns target="//@rules.35/@targetPatterns.2">
+      <linkVariablePatterns target="//@rules.38/@targetPatterns.2">
         <op value="++"/>
         <type href="platform:/resource/Aadl/model/Aadl.ecore#//Access/refined"/>
       </linkVariablePatterns>
@@ -2302,140 +2595,29 @@
     </targetPatterns>
     <targetPatterns name="aadlType">
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//FeatureGroupType"/>
-      <linkVariablePatterns target="//@rules.35/@targetPatterns.0">
+      <linkVariablePatterns target="//@rules.38/@targetPatterns.0">
         <op value="++"/>
         <type href="platform:/resource/Aadl/model/Aadl.ecore#//FeatureGroupType/ownedFeature"/>
       </linkVariablePatterns>
     </targetPatterns>
-    <correspondencePatterns name="corrAccess" type="//@schema/@correspondenceTypes.4" source="//@rules.35/@sourcePatterns.0" target="//@rules.35/@targetPatterns.0">
+    <correspondencePatterns name="corrAccess">
       <op value="++"/>
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleFeatGroupAccess2FeatGroupAccessRefined.tgg#|18"/>
     </correspondencePatterns>
-    <correspondencePatterns name="corrClassifier" type="//@schema/@correspondenceTypes.6" source="//@rules.35/@sourcePatterns.1" target="//@rules.35/@targetPatterns.1"/>
-    <correspondencePatterns name="corrRefinedFeature" type="//@schema/@correspondenceTypes.5" source="//@rules.35/@sourcePatterns.2" target="//@rules.35/@targetPatterns.2"/>
-    <correspondencePatterns name="corrType" type="//@schema/@correspondenceTypes.2" source="//@rules.35/@sourcePatterns.3" target="//@rules.35/@targetPatterns.3"/>
+    <correspondencePatterns name="corrClassifier">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleFeatGroupAccess2FeatGroupAccessTypedRefined.tgg#|10"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrRefinedFeature">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleFeatGroupAccess2FeatGroupAccessRefined.tgg#|21"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrType">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleFeatGroupAccess2FeatGroupAccessRefined.tgg#|15"/>
+    </correspondencePatterns>
   </rules>
   <rules name="ruleFeatGroupDirFeat2FeatGroupDirFeat" schema="//@schema">
     <sourcePatterns name="adeleFeature">
       <op value="++"/>
       <type href="platform:/resource/Adele/model/Adele.ecore#//DirectedFeature"/>
-    </sourcePatterns>
-    <sourcePatterns name="adeleType">
-      <type href="platform:/resource/Adele/model/Adele.ecore#//FeatureGroup"/>
-      <linkVariablePatterns target="//@rules.36/@sourcePatterns.0">
-        <op value="++"/>
-        <type href="platform:/resource/Adele/model/Adele.ecore#//FeatureGroup/featuresDf"/>
-      </linkVariablePatterns>
-    </sourcePatterns>
-    <targetPatterns name="aadlFeature">
-      <op value="++"/>
-      <type href="platform:/resource/Aadl/model/Aadl.ecore#//DirectedFeature"/>
-    </targetPatterns>
-    <targetPatterns name="aadlType">
-      <type href="platform:/resource/Aadl/model/Aadl.ecore#//FeatureGroupType"/>
-      <linkVariablePatterns target="//@rules.36/@targetPatterns.0">
-        <op value="++"/>
-        <type href="platform:/resource/Aadl/model/Aadl.ecore#//FeatureGroupType/ownedFeatureDf"/>
-      </linkVariablePatterns>
-    </targetPatterns>
-    <correspondencePatterns name="corrFeature" type="//@schema/@correspondenceTypes.20" source="//@rules.36/@sourcePatterns.0" target="//@rules.36/@targetPatterns.0">
-      <op value="++"/>
-    </correspondencePatterns>
-    <correspondencePatterns name="corrType" type="//@schema/@correspondenceTypes.2" source="//@rules.36/@sourcePatterns.1" target="//@rules.36/@targetPatterns.1"/>
-  </rules>
-  <rules name="ruleFeatGroupDirFeat2FeatGroupDirFeatRefined" schema="//@schema">
-    <sourcePatterns name="adeleFeature">
-      <op value="++"/>
-      <type href="platform:/resource/Adele/model/Adele.ecore#//DirectedFeature"/>
-      <linkVariablePatterns target="//@rules.37/@sourcePatterns.1">
-        <op value="++"/>
-        <type href="platform:/resource/Adele/model/Adele.ecore#//DirectedFeature/refinedFeature"/>
-      </linkVariablePatterns>
-    </sourcePatterns>
-    <sourcePatterns name="adeleRefinedFeature">
-      <type href="platform:/resource/Adele/model/Adele.ecore#//Feature"/>
-    </sourcePatterns>
-    <sourcePatterns name="adeleType">
-      <type href="platform:/resource/Adele/model/Adele.ecore#//FeatureGroup"/>
-      <linkVariablePatterns target="//@rules.37/@sourcePatterns.0">
-        <op value="++"/>
-        <type href="platform:/resource/Adele/model/Adele.ecore#//FeatureGroup/featuresDf"/>
-      </linkVariablePatterns>
-    </sourcePatterns>
-    <targetPatterns name="aadlFeature">
-      <op value="++"/>
-      <type href="platform:/resource/Aadl/model/Aadl.ecore#//DirectedFeature"/>
-      <linkVariablePatterns target="//@rules.37/@targetPatterns.1">
-        <op value="++"/>
-        <type href="platform:/resource/Aadl/model/Aadl.ecore#//DirectedFeature/refined"/>
-      </linkVariablePatterns>
-    </targetPatterns>
-    <targetPatterns name="aadlRefinedFeature">
-      <type href="platform:/resource/Aadl/model/Aadl.ecore#//Feature"/>
-    </targetPatterns>
-    <targetPatterns name="aadlType">
-      <type href="platform:/resource/Aadl/model/Aadl.ecore#//FeatureGroupType"/>
-      <linkVariablePatterns target="//@rules.37/@targetPatterns.0">
-        <op value="++"/>
-        <type href="platform:/resource/Aadl/model/Aadl.ecore#//FeatureGroupType/ownedFeatureDf"/>
-      </linkVariablePatterns>
-    </targetPatterns>
-    <correspondencePatterns name="corrFeature" type="//@schema/@correspondenceTypes.20" source="//@rules.37/@sourcePatterns.0" target="//@rules.37/@targetPatterns.0">
-      <op value="++"/>
-    </correspondencePatterns>
-    <correspondencePatterns name="corrRefinedFeature" type="//@schema/@correspondenceTypes.5" source="//@rules.37/@sourcePatterns.1" target="//@rules.37/@targetPatterns.1"/>
-    <correspondencePatterns name="corrType" type="//@schema/@correspondenceTypes.2" source="//@rules.37/@sourcePatterns.2" target="//@rules.37/@targetPatterns.2"/>
-  </rules>
-  <rules name="ruleFeatGroupDirFeat2FeatGroupDirFeatTyped" schema="//@schema">
-    <sourcePatterns name="adeleClassifier">
-      <type href="platform:/resource/Adele/model/Adele.ecore#//SKComponent"/>
-    </sourcePatterns>
-    <sourcePatterns name="adeleFeature">
-      <op value="++"/>
-      <type href="platform:/resource/Adele/model/Adele.ecore#//DirectedFeature"/>
-      <linkVariablePatterns target="//@rules.38/@sourcePatterns.0">
-        <op value="++"/>
-        <type href="platform:/resource/Adele/model/Adele.ecore#//DirectedFeature/classifier"/>
-      </linkVariablePatterns>
-    </sourcePatterns>
-    <sourcePatterns name="adeleType">
-      <type href="platform:/resource/Adele/model/Adele.ecore#//FeatureGroup"/>
-      <linkVariablePatterns target="//@rules.38/@sourcePatterns.1">
-        <op value="++"/>
-        <type href="platform:/resource/Adele/model/Adele.ecore#//FeatureGroup/featuresDf"/>
-      </linkVariablePatterns>
-    </sourcePatterns>
-    <targetPatterns name="aadlClassifier">
-      <type href="platform:/resource/Aadl/model/Aadl.ecore#//Classifier"/>
-    </targetPatterns>
-    <targetPatterns name="aadlFeature">
-      <op value="++"/>
-      <type href="platform:/resource/Aadl/model/Aadl.ecore#//DirectedFeature"/>
-      <linkVariablePatterns target="//@rules.38/@targetPatterns.0">
-        <op value="++"/>
-        <type href="platform:/resource/Aadl/model/Aadl.ecore#//DirectedFeature/classifier"/>
-      </linkVariablePatterns>
-    </targetPatterns>
-    <targetPatterns name="aadlType">
-      <type href="platform:/resource/Aadl/model/Aadl.ecore#//FeatureGroupType"/>
-      <linkVariablePatterns target="//@rules.38/@targetPatterns.1">
-        <op value="++"/>
-        <type href="platform:/resource/Aadl/model/Aadl.ecore#//FeatureGroupType/ownedFeatureDf"/>
-      </linkVariablePatterns>
-    </targetPatterns>
-    <correspondencePatterns name="corrClassifier" type="//@schema/@correspondenceTypes.8" source="//@rules.38/@sourcePatterns.0" target="//@rules.38/@targetPatterns.0"/>
-    <correspondencePatterns name="corrFeature" type="//@schema/@correspondenceTypes.20" source="//@rules.38/@sourcePatterns.1" target="//@rules.38/@targetPatterns.1">
-      <op value="++"/>
-    </correspondencePatterns>
-    <correspondencePatterns name="corrType" type="//@schema/@correspondenceTypes.2" source="//@rules.38/@sourcePatterns.2" target="//@rules.38/@targetPatterns.2"/>
-  </rules>
-  <rules name="ruleFeatGroupDirFeat2FeatGroupDirFeatTypedAsParent" schema="//@schema">
-    <sourcePatterns name="adeleFeature">
-      <op value="++"/>
-      <type href="platform:/resource/Adele/model/Adele.ecore#//DirectedFeature"/>
-      <linkVariablePatterns target="//@rules.39/@sourcePatterns.1">
-        <op value="++"/>
-        <type href="platform:/resource/Adele/model/Adele.ecore#//DirectedFeature/classifierFg"/>
-      </linkVariablePatterns>
     </sourcePatterns>
     <sourcePatterns name="adeleType">
       <type href="platform:/resource/Adele/model/Adele.ecore#//FeatureGroup"/>
@@ -2447,10 +2629,6 @@
     <targetPatterns name="aadlFeature">
       <op value="++"/>
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//DirectedFeature"/>
-      <linkVariablePatterns target="//@rules.39/@targetPatterns.1">
-        <op value="++"/>
-        <type href="platform:/resource/Aadl/model/Aadl.ecore#//DirectedFeature/classifierFgt"/>
-      </linkVariablePatterns>
     </targetPatterns>
     <targetPatterns name="aadlType">
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//FeatureGroupType"/>
@@ -2459,19 +2637,18 @@
         <type href="platform:/resource/Aadl/model/Aadl.ecore#//FeatureGroupType/ownedFeatureDf"/>
       </linkVariablePatterns>
     </targetPatterns>
-    <correspondencePatterns name="corrFeature" type="//@schema/@correspondenceTypes.20" source="//@rules.39/@sourcePatterns.0" target="//@rules.39/@targetPatterns.0">
+    <correspondencePatterns name="corrFeature">
       <op value="++"/>
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleFeatGroupDirFeat2FeatGroupDirFeat.tgg#|9"/>
     </correspondencePatterns>
-    <correspondencePatterns name="corrType" type="//@schema/@correspondenceTypes.2" source="//@rules.39/@sourcePatterns.1" target="//@rules.39/@targetPatterns.1"/>
+    <correspondencePatterns name="corrType">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleFeatGroupDirFeat2FeatGroupDirFeat.tgg#|12"/>
+    </correspondencePatterns>
   </rules>
-  <rules name="ruleFeatGroupDirFeat2FeatGroupDirFeatTypedAsParentRefined54" schema="//@schema">
+  <rules name="ruleFeatGroupDirFeat2FeatGroupDirFeatRefined" schema="//@schema">
     <sourcePatterns name="adeleFeature">
       <op value="++"/>
       <type href="platform:/resource/Adele/model/Adele.ecore#//DirectedFeature"/>
-      <linkVariablePatterns target="//@rules.40/@sourcePatterns.2">
-        <op value="++"/>
-        <type href="platform:/resource/Adele/model/Adele.ecore#//DirectedFeature/classifierFg"/>
-      </linkVariablePatterns>
       <linkVariablePatterns target="//@rules.40/@sourcePatterns.1">
         <op value="++"/>
         <type href="platform:/resource/Adele/model/Adele.ecore#//DirectedFeature/refinedFeature"/>
@@ -2490,10 +2667,6 @@
     <targetPatterns name="aadlFeature">
       <op value="++"/>
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//DirectedFeature"/>
-      <linkVariablePatterns target="//@rules.40/@targetPatterns.2">
-        <op value="++"/>
-        <type href="platform:/resource/Aadl/model/Aadl.ecore#//DirectedFeature/classifierFgt"/>
-      </linkVariablePatterns>
       <linkVariablePatterns target="//@rules.40/@targetPatterns.1">
         <op value="++"/>
         <type href="platform:/resource/Aadl/model/Aadl.ecore#//DirectedFeature/refined"/>
@@ -2509,30 +2682,28 @@
         <type href="platform:/resource/Aadl/model/Aadl.ecore#//FeatureGroupType/ownedFeatureDf"/>
       </linkVariablePatterns>
     </targetPatterns>
-    <correspondencePatterns name="corrFeature" type="//@schema/@correspondenceTypes.20" source="//@rules.40/@sourcePatterns.0" target="//@rules.40/@targetPatterns.0">
+    <correspondencePatterns name="corrFeature">
       <op value="++"/>
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleFeatGroupDirFeat2FeatGroupDirFeat.tgg#|9"/>
     </correspondencePatterns>
-    <correspondencePatterns name="corrRefinedFeature" type="//@schema/@correspondenceTypes.5" source="//@rules.40/@sourcePatterns.1" target="//@rules.40/@targetPatterns.1"/>
-    <correspondencePatterns name="corrType" type="//@schema/@correspondenceTypes.2" source="//@rules.40/@sourcePatterns.2" target="//@rules.40/@targetPatterns.2"/>
+    <correspondencePatterns name="corrRefinedFeature">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleFeatGroupDirFeat2FeatGroupDirFeatRefined.tgg#|10"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrType">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleFeatGroupDirFeat2FeatGroupDirFeat.tgg#|12"/>
+    </correspondencePatterns>
   </rules>
-  <rules name="ruleFeatGroupDirFeat2FeatGroupDirFeatTypedRefined55" schema="//@schema">
+  <rules name="ruleFeatGroupDirFeat2FeatGroupDirFeatTyped" schema="//@schema">
     <sourcePatterns name="adeleClassifier">
       <type href="platform:/resource/Adele/model/Adele.ecore#//SKComponent"/>
     </sourcePatterns>
     <sourcePatterns name="adeleFeature">
       <op value="++"/>
       <type href="platform:/resource/Adele/model/Adele.ecore#//DirectedFeature"/>
-      <linkVariablePatterns target="//@rules.41/@sourcePatterns.2">
-        <op value="++"/>
-        <type href="platform:/resource/Adele/model/Adele.ecore#//DirectedFeature/refinedFeature"/>
-      </linkVariablePatterns>
       <linkVariablePatterns target="//@rules.41/@sourcePatterns.0">
         <op value="++"/>
         <type href="platform:/resource/Adele/model/Adele.ecore#//DirectedFeature/classifier"/>
       </linkVariablePatterns>
-    </sourcePatterns>
-    <sourcePatterns name="adeleRefinedFeature">
-      <type href="platform:/resource/Adele/model/Adele.ecore#//Feature"/>
     </sourcePatterns>
     <sourcePatterns name="adeleType">
       <type href="platform:/resource/Adele/model/Adele.ecore#//FeatureGroup"/>
@@ -2547,11 +2718,161 @@
     <targetPatterns name="aadlFeature">
       <op value="++"/>
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//DirectedFeature"/>
-      <linkVariablePatterns target="//@rules.41/@targetPatterns.2">
+      <linkVariablePatterns target="//@rules.41/@targetPatterns.0">
+        <op value="++"/>
+        <type href="platform:/resource/Aadl/model/Aadl.ecore#//DirectedFeature/classifier"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="aadlType">
+      <type href="platform:/resource/Aadl/model/Aadl.ecore#//FeatureGroupType"/>
+      <linkVariablePatterns target="//@rules.41/@targetPatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Aadl/model/Aadl.ecore#//FeatureGroupType/ownedFeatureDf"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <correspondencePatterns name="corrClassifier">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleFeatGroupDirFeat2FeatGroupDirFeatTyped.tgg#|10"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrFeature">
+      <op value="++"/>
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleFeatGroupDirFeat2FeatGroupDirFeat.tgg#|9"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrType">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleFeatGroupDirFeat2FeatGroupDirFeat.tgg#|12"/>
+    </correspondencePatterns>
+  </rules>
+  <rules name="ruleFeatGroupDirFeat2FeatGroupDirFeatTypedAsParent" schema="//@schema">
+    <sourcePatterns name="adeleFeature">
+      <op value="++"/>
+      <type href="platform:/resource/Adele/model/Adele.ecore#//DirectedFeature"/>
+      <linkVariablePatterns target="//@rules.42/@sourcePatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Adele/model/Adele.ecore#//DirectedFeature/classifierFg"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="adeleType">
+      <type href="platform:/resource/Adele/model/Adele.ecore#//FeatureGroup"/>
+      <linkVariablePatterns target="//@rules.42/@sourcePatterns.0">
+        <op value="++"/>
+        <type href="platform:/resource/Adele/model/Adele.ecore#//FeatureGroup/featuresDf"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <targetPatterns name="aadlFeature">
+      <op value="++"/>
+      <type href="platform:/resource/Aadl/model/Aadl.ecore#//DirectedFeature"/>
+      <linkVariablePatterns target="//@rules.42/@targetPatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Aadl/model/Aadl.ecore#//DirectedFeature/classifierFgt"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="aadlType">
+      <type href="platform:/resource/Aadl/model/Aadl.ecore#//FeatureGroupType"/>
+      <linkVariablePatterns target="//@rules.42/@targetPatterns.0">
+        <op value="++"/>
+        <type href="platform:/resource/Aadl/model/Aadl.ecore#//FeatureGroupType/ownedFeatureDf"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <correspondencePatterns name="corrFeature">
+      <op value="++"/>
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleFeatGroupDirFeat2FeatGroupDirFeatTypedAsParent.tgg#|13"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrType">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleFeatGroupDirFeat2FeatGroupDirFeatTypedAsParent.tgg#|16"/>
+    </correspondencePatterns>
+  </rules>
+  <rules name="ruleFeatGroupDirFeat2FeatGroupDirFeatTypedAsParentRefined54" schema="//@schema">
+    <sourcePatterns name="adeleFeature">
+      <op value="++"/>
+      <type href="platform:/resource/Adele/model/Adele.ecore#//DirectedFeature"/>
+      <linkVariablePatterns target="//@rules.43/@sourcePatterns.2">
+        <op value="++"/>
+        <type href="platform:/resource/Adele/model/Adele.ecore#//DirectedFeature/classifierFg"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.43/@sourcePatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Adele/model/Adele.ecore#//DirectedFeature/refinedFeature"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="adeleRefinedFeature">
+      <type href="platform:/resource/Adele/model/Adele.ecore#//Feature"/>
+    </sourcePatterns>
+    <sourcePatterns name="adeleType">
+      <type href="platform:/resource/Adele/model/Adele.ecore#//FeatureGroup"/>
+      <linkVariablePatterns target="//@rules.43/@sourcePatterns.0">
+        <op value="++"/>
+        <type href="platform:/resource/Adele/model/Adele.ecore#//FeatureGroup/featuresDf"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <targetPatterns name="aadlFeature">
+      <op value="++"/>
+      <type href="platform:/resource/Aadl/model/Aadl.ecore#//DirectedFeature"/>
+      <linkVariablePatterns target="//@rules.43/@targetPatterns.2">
+        <op value="++"/>
+        <type href="platform:/resource/Aadl/model/Aadl.ecore#//DirectedFeature/classifierFgt"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.43/@targetPatterns.1">
         <op value="++"/>
         <type href="platform:/resource/Aadl/model/Aadl.ecore#//DirectedFeature/refined"/>
       </linkVariablePatterns>
-      <linkVariablePatterns target="//@rules.41/@targetPatterns.0">
+    </targetPatterns>
+    <targetPatterns name="aadlRefinedFeature">
+      <type href="platform:/resource/Aadl/model/Aadl.ecore#//Feature"/>
+    </targetPatterns>
+    <targetPatterns name="aadlType">
+      <type href="platform:/resource/Aadl/model/Aadl.ecore#//FeatureGroupType"/>
+      <linkVariablePatterns target="//@rules.43/@targetPatterns.0">
+        <op value="++"/>
+        <type href="platform:/resource/Aadl/model/Aadl.ecore#//FeatureGroupType/ownedFeatureDf"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <correspondencePatterns name="corrFeature">
+      <op value="++"/>
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleFeatGroupDirFeat2FeatGroupDirFeatTypedAsParentRefined54.tgg#|22"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrRefinedFeature">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleFeatGroupDirFeat2FeatGroupDirFeatTypedAsParentRefined54.tgg#|25"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrType">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleFeatGroupDirFeat2FeatGroupDirFeatTypedAsParentRefined54.tgg#|19"/>
+    </correspondencePatterns>
+  </rules>
+  <rules name="ruleFeatGroupDirFeat2FeatGroupDirFeatTypedRefined55" schema="//@schema">
+    <sourcePatterns name="adeleClassifier">
+      <type href="platform:/resource/Adele/model/Adele.ecore#//SKComponent"/>
+    </sourcePatterns>
+    <sourcePatterns name="adeleFeature">
+      <op value="++"/>
+      <type href="platform:/resource/Adele/model/Adele.ecore#//DirectedFeature"/>
+      <linkVariablePatterns target="//@rules.44/@sourcePatterns.2">
+        <op value="++"/>
+        <type href="platform:/resource/Adele/model/Adele.ecore#//DirectedFeature/refinedFeature"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.44/@sourcePatterns.0">
+        <op value="++"/>
+        <type href="platform:/resource/Adele/model/Adele.ecore#//DirectedFeature/classifier"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="adeleRefinedFeature">
+      <type href="platform:/resource/Adele/model/Adele.ecore#//Feature"/>
+    </sourcePatterns>
+    <sourcePatterns name="adeleType">
+      <type href="platform:/resource/Adele/model/Adele.ecore#//FeatureGroup"/>
+      <linkVariablePatterns target="//@rules.44/@sourcePatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Adele/model/Adele.ecore#//FeatureGroup/featuresDf"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <targetPatterns name="aadlClassifier">
+      <type href="platform:/resource/Aadl/model/Aadl.ecore#//Classifier"/>
+    </targetPatterns>
+    <targetPatterns name="aadlFeature">
+      <op value="++"/>
+      <type href="platform:/resource/Aadl/model/Aadl.ecore#//DirectedFeature"/>
+      <linkVariablePatterns target="//@rules.44/@targetPatterns.2">
+        <op value="++"/>
+        <type href="platform:/resource/Aadl/model/Aadl.ecore#//DirectedFeature/refined"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.44/@targetPatterns.0">
         <op value="++"/>
         <type href="platform:/resource/Aadl/model/Aadl.ecore#//DirectedFeature/classifier"/>
       </linkVariablePatterns>
@@ -2561,22 +2882,29 @@
     </targetPatterns>
     <targetPatterns name="aadlType">
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//FeatureGroupType"/>
-      <linkVariablePatterns target="//@rules.41/@targetPatterns.1">
+      <linkVariablePatterns target="//@rules.44/@targetPatterns.1">
         <op value="++"/>
         <type href="platform:/resource/Aadl/model/Aadl.ecore#//FeatureGroupType/ownedFeatureDf"/>
       </linkVariablePatterns>
     </targetPatterns>
-    <correspondencePatterns name="corrClassifier" type="//@schema/@correspondenceTypes.8" source="//@rules.41/@sourcePatterns.0" target="//@rules.41/@targetPatterns.0"/>
-    <correspondencePatterns name="corrFeature" type="//@schema/@correspondenceTypes.20" source="//@rules.41/@sourcePatterns.1" target="//@rules.41/@targetPatterns.1">
-      <op value="++"/>
+    <correspondencePatterns name="corrClassifier">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleFeatGroupDirFeat2FeatGroupDirFeatTypedRefined55.tgg#|30"/>
     </correspondencePatterns>
-    <correspondencePatterns name="corrRefinedFeature" type="//@schema/@correspondenceTypes.5" source="//@rules.41/@sourcePatterns.2" target="//@rules.41/@targetPatterns.2"/>
-    <correspondencePatterns name="corrType" type="//@schema/@correspondenceTypes.2" source="//@rules.41/@sourcePatterns.3" target="//@rules.41/@targetPatterns.3"/>
+    <correspondencePatterns name="corrFeature">
+      <op value="++"/>
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleFeatGroupDirFeat2FeatGroupDirFeatTypedRefined55.tgg#|24"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrRefinedFeature">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleFeatGroupDirFeat2FeatGroupDirFeatTypedRefined55.tgg#|27"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrType">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleFeatGroupDirFeat2FeatGroupDirFeatTypedRefined55.tgg#|21"/>
+    </correspondencePatterns>
   </rules>
   <rules name="ruleFeatureGroup2FeatureGroupType" schema="//@schema">
     <sourcePatterns name="adelePackage">
       <type href="platform:/resource/Adele/model/Adele.ecore#//Package"/>
-      <linkVariablePatterns target="//@rules.42/@sourcePatterns.1">
+      <linkVariablePatterns target="//@rules.45/@sourcePatterns.1">
         <op value="++"/>
         <type href="platform:/resource/Adele/model/Adele.ecore#//Package/children"/>
       </linkVariablePatterns>
@@ -2587,7 +2915,7 @@
     </sourcePatterns>
     <targetPatterns name="aadlPublicPackageSection">
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//PublicPackageSection"/>
-      <linkVariablePatterns target="//@rules.42/@targetPatterns.1">
+      <linkVariablePatterns target="//@rules.45/@targetPatterns.1">
         <op value="++"/>
         <type href="platform:/resource/Aadl/model/Aadl.ecore#//PublicPackageSection/ownedClassfr"/>
       </linkVariablePatterns>
@@ -2596,9 +2924,12 @@
       <op value="++"/>
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//FeatureGroupType"/>
     </targetPatterns>
-    <correspondencePatterns name="corrAxiom" type="//@schema/@correspondenceTypes.18" source="//@rules.42/@sourcePatterns.0" target="//@rules.42/@targetPatterns.0"/>
-    <correspondencePatterns name="corrType" type="//@schema/@correspondenceTypes.2" source="//@rules.42/@sourcePatterns.1" target="//@rules.42/@targetPatterns.1">
+    <correspondencePatterns name="corrAxiom">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleFeatureGroup2FeatureGroupType.tgg#|9"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrType">
       <op value="++"/>
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleFeatureGroup2FeatureGroupType.tgg#|12"/>
     </correspondencePatterns>
   </rules>
   <rules name="ruleFeatureGroup2FeatureGroupTypeWithExtends" schema="//@schema">
@@ -2607,7 +2938,7 @@
     </sourcePatterns>
     <sourcePatterns name="adelePackage">
       <type href="platform:/resource/Adele/model/Adele.ecore#//Package"/>
-      <linkVariablePatterns target="//@rules.43/@sourcePatterns.2">
+      <linkVariablePatterns target="//@rules.46/@sourcePatterns.2">
         <op value="++"/>
         <type href="platform:/resource/Adele/model/Adele.ecore#//Package/children"/>
       </linkVariablePatterns>
@@ -2615,7 +2946,7 @@
     <sourcePatterns name="adeleType">
       <op value="++"/>
       <type href="platform:/resource/Adele/model/Adele.ecore#//FeatureGroup"/>
-      <linkVariablePatterns target="//@rules.43/@sourcePatterns.0">
+      <linkVariablePatterns target="//@rules.46/@sourcePatterns.0">
         <op value="++"/>
         <type href="platform:/resource/Adele/model/Adele.ecore#//FeatureGroup/refinedFeature"/>
       </linkVariablePatterns>
@@ -2625,7 +2956,7 @@
     </targetPatterns>
     <targetPatterns name="aadlPublicPackageSection">
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//PublicPackageSection"/>
-      <linkVariablePatterns target="//@rules.43/@targetPatterns.2">
+      <linkVariablePatterns target="//@rules.46/@targetPatterns.2">
         <op value="++"/>
         <type href="platform:/resource/Aadl/model/Aadl.ecore#//PublicPackageSection/ownedClassfr"/>
       </linkVariablePatterns>
@@ -2633,7 +2964,7 @@
     <targetPatterns name="aadlType">
       <op value="++"/>
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//FeatureGroupType"/>
-      <linkVariablePatterns target="//@rules.43/@targetPatterns.3">
+      <linkVariablePatterns target="//@rules.46/@targetPatterns.3">
         <op value="++"/>
         <type href="platform:/resource/Aadl/model/Aadl.ecore#//FeatureGroupType/ownedExtension"/>
       </linkVariablePatterns>
@@ -2641,15 +2972,20 @@
     <targetPatterns name="typeExtension">
       <op value="++"/>
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//GroupExtension"/>
-      <linkVariablePatterns target="//@rules.43/@targetPatterns.0">
+      <linkVariablePatterns target="//@rules.46/@targetPatterns.0">
         <op value="++"/>
         <type href="platform:/resource/Aadl/model/Aadl.ecore#//GroupExtension/extended"/>
       </linkVariablePatterns>
     </targetPatterns>
-    <correspondencePatterns name="corrAxiom" type="//@schema/@correspondenceTypes.18" source="//@rules.43/@sourcePatterns.1" target="//@rules.43/@targetPatterns.1"/>
-    <correspondencePatterns name="corrExtComponentType" type="//@schema/@correspondenceTypes.2" source="//@rules.43/@sourcePatterns.0" target="//@rules.43/@targetPatterns.0"/>
-    <correspondencePatterns name="corrType" type="//@schema/@correspondenceTypes.2" source="//@rules.43/@sourcePatterns.2" target="//@rules.43/@targetPatterns.2">
+    <correspondencePatterns name="corrAxiom">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleFeatureGroup2FeatureGroupType.tgg#|9"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrExtComponentType">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleFeatureGroup2FeatureGroupTypeWithExtends.tgg#|13"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrType">
       <op value="++"/>
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleFeatureGroup2FeatureGroupType.tgg#|12"/>
     </correspondencePatterns>
   </rules>
   <rules name="ruleFeatureGroup2FeatureGroupTypeWithExtendsInverse" schema="//@schema">
@@ -2661,7 +2997,7 @@
     </sourcePatterns>
     <sourcePatterns name="adelePackage">
       <type href="platform:/resource/Adele/model/Adele.ecore#//Package"/>
-      <linkVariablePatterns target="//@rules.44/@sourcePatterns.3">
+      <linkVariablePatterns target="//@rules.47/@sourcePatterns.3">
         <op value="++"/>
         <type href="platform:/resource/Adele/model/Adele.ecore#//Package/children"/>
       </linkVariablePatterns>
@@ -2669,13 +3005,13 @@
     <sourcePatterns name="adeleType">
       <op value="++"/>
       <type href="platform:/resource/Adele/model/Adele.ecore#//FeatureGroup"/>
-      <linkVariablePatterns target="//@rules.44/@sourcePatterns.1">
-        <op value="++"/>
-        <type href="platform:/resource/Adele/model/Adele.ecore#//FeatureGroup/inverseFeature"/>
-      </linkVariablePatterns>
-      <linkVariablePatterns target="//@rules.44/@sourcePatterns.0">
+      <linkVariablePatterns target="//@rules.47/@sourcePatterns.0">
         <op value="++"/>
         <type href="platform:/resource/Adele/model/Adele.ecore#//FeatureGroup/refinedFeature"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.47/@sourcePatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Adele/model/Adele.ecore#//FeatureGroup/inverseFeature"/>
       </linkVariablePatterns>
     </sourcePatterns>
     <targetPatterns name="aadlExtType">
@@ -2686,7 +3022,7 @@
     </targetPatterns>
     <targetPatterns name="aadlPublicPackageSection">
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//PublicPackageSection"/>
-      <linkVariablePatterns target="//@rules.44/@targetPatterns.3">
+      <linkVariablePatterns target="//@rules.47/@targetPatterns.3">
         <op value="++"/>
         <type href="platform:/resource/Aadl/model/Aadl.ecore#//PublicPackageSection/ownedClassfr"/>
       </linkVariablePatterns>
@@ -2694,28 +3030,35 @@
     <targetPatterns name="aadlType">
       <op value="++"/>
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//FeatureGroupType"/>
-      <linkVariablePatterns target="//@rules.44/@targetPatterns.1">
-        <op value="++"/>
-        <type href="platform:/resource/Aadl/model/Aadl.ecore#//FeatureGroupType/inverse"/>
-      </linkVariablePatterns>
-      <linkVariablePatterns target="//@rules.44/@targetPatterns.4">
+      <linkVariablePatterns target="//@rules.47/@targetPatterns.4">
         <op value="++"/>
         <type href="platform:/resource/Aadl/model/Aadl.ecore#//FeatureGroupType/ownedExtension"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.47/@targetPatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Aadl/model/Aadl.ecore#//FeatureGroupType/inverse"/>
       </linkVariablePatterns>
     </targetPatterns>
     <targetPatterns name="typeExtension">
       <op value="++"/>
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//GroupExtension"/>
-      <linkVariablePatterns target="//@rules.44/@targetPatterns.0">
+      <linkVariablePatterns target="//@rules.47/@targetPatterns.0">
         <op value="++"/>
         <type href="platform:/resource/Aadl/model/Aadl.ecore#//GroupExtension/extended"/>
       </linkVariablePatterns>
     </targetPatterns>
-    <correspondencePatterns name="corrAxiom" type="//@schema/@correspondenceTypes.18" source="//@rules.44/@sourcePatterns.2" target="//@rules.44/@targetPatterns.2"/>
-    <correspondencePatterns name="corrExtComponentType" type="//@schema/@correspondenceTypes.2" source="//@rules.44/@sourcePatterns.0" target="//@rules.44/@targetPatterns.0"/>
-    <correspondencePatterns name="corrInverse" type="//@schema/@correspondenceTypes.2" source="//@rules.44/@sourcePatterns.1" target="//@rules.44/@targetPatterns.1"/>
-    <correspondencePatterns name="corrType" type="//@schema/@correspondenceTypes.2" source="//@rules.44/@sourcePatterns.3" target="//@rules.44/@targetPatterns.3">
+    <correspondencePatterns name="corrAxiom">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleFeatureGroup2FeatureGroupType.tgg#|9"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrExtComponentType">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleFeatureGroup2FeatureGroupTypeWithExtends.tgg#|13"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrInverse">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleFeatureGroup2FeatureGroupTypeWithExtendsInverse.tgg#|10"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrType">
       <op value="++"/>
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleFeatureGroup2FeatureGroupType.tgg#|12"/>
     </correspondencePatterns>
   </rules>
   <rules name="ruleFeatureGroup2FeatureGroupTypeWithInverse" schema="//@schema">
@@ -2724,7 +3067,7 @@
     </sourcePatterns>
     <sourcePatterns name="adelePackage">
       <type href="platform:/resource/Adele/model/Adele.ecore#//Package"/>
-      <linkVariablePatterns target="//@rules.45/@sourcePatterns.2">
+      <linkVariablePatterns target="//@rules.48/@sourcePatterns.2">
         <op value="++"/>
         <type href="platform:/resource/Adele/model/Adele.ecore#//Package/children"/>
       </linkVariablePatterns>
@@ -2732,7 +3075,7 @@
     <sourcePatterns name="adeleType">
       <op value="++"/>
       <type href="platform:/resource/Adele/model/Adele.ecore#//FeatureGroup"/>
-      <linkVariablePatterns target="//@rules.45/@sourcePatterns.0">
+      <linkVariablePatterns target="//@rules.48/@sourcePatterns.0">
         <op value="++"/>
         <type href="platform:/resource/Adele/model/Adele.ecore#//FeatureGroup/inverseFeature"/>
       </linkVariablePatterns>
@@ -2742,7 +3085,7 @@
     </targetPatterns>
     <targetPatterns name="aadlPublicPackageSection">
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//PublicPackageSection"/>
-      <linkVariablePatterns target="//@rules.45/@targetPatterns.2">
+      <linkVariablePatterns target="//@rules.48/@targetPatterns.2">
         <op value="++"/>
         <type href="platform:/resource/Aadl/model/Aadl.ecore#//PublicPackageSection/ownedClassfr"/>
       </linkVariablePatterns>
@@ -2750,15 +3093,20 @@
     <targetPatterns name="aadlType">
       <op value="++"/>
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//FeatureGroupType"/>
-      <linkVariablePatterns target="//@rules.45/@targetPatterns.0">
+      <linkVariablePatterns target="//@rules.48/@targetPatterns.0">
         <op value="++"/>
         <type href="platform:/resource/Aadl/model/Aadl.ecore#//FeatureGroupType/inverse"/>
       </linkVariablePatterns>
     </targetPatterns>
-    <correspondencePatterns name="corrAxiom" type="//@schema/@correspondenceTypes.18" source="//@rules.45/@sourcePatterns.1" target="//@rules.45/@targetPatterns.1"/>
-    <correspondencePatterns name="corrInverse" type="//@schema/@correspondenceTypes.2" source="//@rules.45/@sourcePatterns.0" target="//@rules.45/@targetPatterns.0"/>
-    <correspondencePatterns name="corrType" type="//@schema/@correspondenceTypes.2" source="//@rules.45/@sourcePatterns.2" target="//@rules.45/@targetPatterns.2">
+    <correspondencePatterns name="corrAxiom">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleFeatureGroup2FeatureGroupType.tgg#|9"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrInverse">
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleFeatureGroup2FeatureGroupTypeWithInverse.tgg#|10"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrType">
       <op value="++"/>
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/ruleFeatureGroup2FeatureGroupType.tgg#|12"/>
     </correspondencePatterns>
   </rules>
   <rules name="rulePackage2AadlPackage" schema="//@schema">
@@ -2769,7 +3117,7 @@
     <targetPatterns name="aadlPackage">
       <op value="++"/>
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//AdlPackage"/>
-      <linkVariablePatterns target="//@rules.46/@targetPatterns.1">
+      <linkVariablePatterns target="//@rules.49/@targetPatterns.1">
         <op value="++"/>
         <type href="platform:/resource/Aadl/model/Aadl.ecore#//AdlPackage/ownedPublicSection"/>
       </linkVariablePatterns>
@@ -2778,8 +3126,9 @@
       <op value="++"/>
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//PublicPackageSection"/>
     </targetPatterns>
-    <correspondencePatterns name="corrAxiom" type="//@schema/@correspondenceTypes.19" source="//@rules.46/@sourcePatterns.0" target="//@rules.46/@targetPatterns.0">
+    <correspondencePatterns name="corrAxiom">
       <op value="++"/>
+      <type href="platform:/resource/AdeleToAadl/src/org/emoflon/ibex/tgg/rules/rulePackage2AadlPackage.tgg#|6"/>
     </correspondencePatterns>
   </rules>
 </tgg:TripleGraphGrammarFile>
