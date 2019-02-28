@@ -86,42 +86,11 @@
  #rule ruleComponent2ComponentImplementationWithExtendscomponent #extends ruleComponent2ComponentImplementationWithExtends19 #with Adele2Aadl
 
 #source { 
-	
-		adelePackage:ADELE_Components.Package 
-		adeleType:ADELE_Components.Component
-		{
-		++ -children->adeleImplementation
-		}
-		++adeleImplementation: ADELE_Components.Data
-		{
-			++ -type->adeleType
-			++ -refines->adeleExtCompImpl
-		}
-	    adeleExtCompImpl:ADELE_Components.Component
+		++adeleImplementation: ADELE_Components.Bus
 	}
 
 #target {
-		aadlPublicPackageSection:aadl2.PackageSection
-		{
-			-ownedClassifier->aadlType
-			++ -ownedClassifier->aadlImplementation
-		}
-		aadlType:aadl2.ComponentType 
-		++aadlRealization:aadl2.Realization 
-		{
-			++ -implemented->aadlType
-		}
-	   ++aadlImplementation:aadl2.AbstractImplementation
-	   {
-	   	++ -ownedRealization->aadlRealization
-	   	++ -ownedExtension->implExtension
-	   }
-	   ++implExtension:aadl2.ImplementationExtension
-	   {
-	   	++ -extended->aadlExtCompImpl
-	   }
-	   aadlExtCompImpl:aadl2.ComponentImplementation 
-	
+		++aadlImplementation:aadl2.BusImplementation
 }
 
 

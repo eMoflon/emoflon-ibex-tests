@@ -57,33 +57,13 @@
 
  #rule ruleFeatGroupDirFeat2FeatGroupDirFeatTypedAsParentRefinedabstract #extends ruleFeatGroupDirFeat2FeatGroupDirFeatTypedAsParentRefined54 #with Adele2Aadl
 #source { 
-	
-	adeleType:ADELE_Features.FeatureGroup 
-	{
-		++ -features->adeleFeature
+	++adeleFeature:ADELE_Features.FeatureGroup
 	}
-	++adeleFeature:ADELE_Features.DataPort
-	{
-		++ -classifier->adeleType
-		++ -refinedFeature->adeleRefinedFeature
-	}
-	adeleRefinedFeature:ADELE_Features.Feature
-	
-}
 
 #target {
-	aadlType:aadl2.FeatureGroupType 
-	{
-		++ -ownedFeature->aadlFeature
-		
-	}
-	++aadlFeature:aadl2.FeatureGroup
-	{
-		++ -classifier->aadlType
-		++ -refined->aadlRefinedFeature
-	}
-	aadlRefinedFeature:aadl2.Feature 
 	
+	++aadlFeature:aadl2.FeatureGroup
+		
 }
 
 

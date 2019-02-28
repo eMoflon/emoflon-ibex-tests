@@ -65,30 +65,14 @@
 
 #source { 
 	
-	adelePackage:ADELE_Components.Package 
-	{
-		++ -children->adeleType
-	}
-	adeleType:ADELE_Components.Component
-	++adeleImplementation: ADELE_Components.Data
+	
+	++adeleImplementation:ADELE_Components.Bus
 	
 }
 
 #target {
-	aadlPublicPackageSection:aadl2.PackageSection
-	{
-		++ -ownedClassifier->aadlType
-		++ -ownedClassifier->aadlImplementation
-		
-	} 
-	aadlType:aadl2.ComponentType 
-	++aadlRealization:aadl2.Realization 
-	{
-		++ -implemented->aadlType
-	}
-	++aadlImplementation:aadl2.AbstractImplementation
-	{
-		++ -ownedRealization->aadlRealization
-	}
+
+	++aadlImplementation:aadl2.BusImplementation
+	
 }
 
