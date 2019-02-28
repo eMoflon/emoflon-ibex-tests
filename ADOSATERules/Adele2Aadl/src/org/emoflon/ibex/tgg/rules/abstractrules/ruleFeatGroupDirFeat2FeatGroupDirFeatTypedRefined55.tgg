@@ -62,5 +62,35 @@
 	
 }
 
+#rule ruleFeatGroupDirFeat2FeatGroupDirFeatTypedRefinedabstract #extends ruleFeatGroupDirFeat2FeatGroupDirFeatTypedRefined55 #with Adele2Aadl
 
+#source {	
+	adeleType:ADELE_Features.FeatureGroup 
+	{
+		++ -features->adeleFeature
+	}
+	++adeleFeature:ADELE_Features.DataPort
+	{
+		++ -refinedFeature->adeleRefinedFeature
+		++ -classifier->adeleClassifier
+	}
+	adeleRefinedFeature:ADELE_Features.Feature
+	adeleClassifier:ADELE_Components.Component
+}
+
+#target {
+	aadlType:aadl2.FeatureGroupType 
+	{
+		++ -ownedFeature->aadlFeature
+	}
+	++aadlFeature:aadl2.FeatureGroup 
+	{
+		++ -refined->aadlRefinedFeature
+		++ -classifier->aadlClassifier
+	}
+	aadlRefinedFeature:aadl2.Feature 
+	aadlClassifier:aadl2.Classifier 	
+	
+	
+}
 
