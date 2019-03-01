@@ -1534,7 +1534,7 @@
     <attributeConditionLibrary/>
   </rules>
   <rules name="ruleComponentToComponentImplementationWithExtends">
-    <nodes name="adeleExtCompImpl" incomingEdges="//@rules.26/@edges.1" incomingCorrsSource="//@rules.26/@nodes.11">
+    <nodes name="adeleExtCompImpl" incomingEdges="//@rules.26/@edges.0" incomingCorrsSource="//@rules.26/@nodes.11">
       <type href="platform:/resource/Adele/model/Adele.ecore#//Component"/>
     </nodes>
     <nodes name="adeleImplementation" bindingType="CREATE" incomingEdges="//@rules.26/@edges.3" outgoingEdges="//@rules.26/@edges.0 //@rules.26/@edges.1" incomingCorrsSource="//@rules.26/@nodes.12 //@rules.26/@nodes.13 //@rules.26/@nodes.14">
@@ -1543,7 +1543,7 @@
     <nodes name="adelePackage" outgoingEdges="//@rules.26/@edges.2" incomingCorrsSource="//@rules.26/@nodes.10">
       <type href="platform:/resource/Adele/model/Adele.ecore#//Package"/>
     </nodes>
-    <nodes name="adeleType" incomingEdges="//@rules.26/@edges.0 //@rules.26/@edges.2" outgoingEdges="//@rules.26/@edges.3" incomingCorrsSource="//@rules.26/@nodes.15">
+    <nodes name="adeleType" incomingEdges="//@rules.26/@edges.1 //@rules.26/@edges.2" outgoingEdges="//@rules.26/@edges.3" incomingCorrsSource="//@rules.26/@nodes.15">
       <type href="platform:/resource/Adele/model/Adele.ecore#//Component"/>
     </nodes>
     <nodes name="aadlExtCompImpl" domainType="TRG" incomingEdges="//@rules.26/@edges.9" incomingCorrsTarget="//@rules.26/@nodes.11">
@@ -1555,13 +1555,13 @@
     <nodes name="aadlPublicPackageSection" domainType="TRG" outgoingEdges="//@rules.26/@edges.6 //@rules.26/@edges.7" incomingCorrsTarget="//@rules.26/@nodes.10">
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//PackageSection"/>
     </nodes>
-    <nodes name="aadlRealization" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.26/@edges.4" outgoingEdges="//@rules.26/@edges.8" incomingCorrsTarget="//@rules.26/@nodes.14">
+    <nodes name="aadlRealization" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.26/@edges.5" outgoingEdges="//@rules.26/@edges.8" incomingCorrsTarget="//@rules.26/@nodes.14">
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//Realization"/>
     </nodes>
     <nodes name="aadlType" domainType="TRG" incomingEdges="//@rules.26/@edges.6 //@rules.26/@edges.8" incomingCorrsTarget="//@rules.26/@nodes.15">
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//ComponentType"/>
     </nodes>
-    <nodes name="implExtension" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.26/@edges.5" outgoingEdges="//@rules.26/@edges.9" incomingCorrsTarget="//@rules.26/@nodes.13">
+    <nodes name="implExtension" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.26/@edges.4" outgoingEdges="//@rules.26/@edges.9" incomingCorrsTarget="//@rules.26/@nodes.13">
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//ImplementationExtension"/>
     </nodes>
     <nodes xsi:type="language:TGGRuleCorr" name="corrAxiom" domainType="CORR" source="//@rules.26/@nodes.2" target="//@rules.26/@nodes.6">
@@ -1582,11 +1582,11 @@
     <nodes xsi:type="language:TGGRuleCorr" name="corrType" domainType="CORR" source="//@rules.26/@nodes.3" target="//@rules.26/@nodes.8">
       <type href="platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentType"/>
     </nodes>
-    <edges name="adeleImplementation__type__adeleType_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.26/@nodes.1" trgNode="//@rules.26/@nodes.3">
-      <type href="platform:/resource/Adele/model/Adele.ecore#//Component/type"/>
-    </edges>
     <edges name="adeleImplementation__refines__adeleExtCompImpl_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.26/@nodes.1" trgNode="//@rules.26/@nodes.0">
       <type href="platform:/resource/Adele/model/Adele.ecore#//Component/refines"/>
+    </edges>
+    <edges name="adeleImplementation__type__adeleType_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.26/@nodes.1" trgNode="//@rules.26/@nodes.3">
+      <type href="platform:/resource/Adele/model/Adele.ecore#//Component/type"/>
     </edges>
     <edges name="adelePackage__component__adeleType_eMoflonEdge" srcNode="//@rules.26/@nodes.2" trgNode="//@rules.26/@nodes.3">
       <type href="platform:/resource/Adele/model/Adele.ecore#//Package/component"/>
@@ -1594,11 +1594,11 @@
     <edges name="adeleType__children__adeleImplementation_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.26/@nodes.3" trgNode="//@rules.26/@nodes.1">
       <type href="platform:/resource/Adele/model/Adele.ecore#//Component/children"/>
     </edges>
-    <edges name="aadlImplementation__ownedRealization__aadlRealization_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.26/@nodes.5" trgNode="//@rules.26/@nodes.7">
-      <type href="platform:/resource/Aadl/model/Aadl.ecore#//ComponentImplementation/ownedRealization"/>
-    </edges>
     <edges name="aadlImplementation__ownedExtension__implExtension_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.26/@nodes.5" trgNode="//@rules.26/@nodes.9">
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//ComponentImplementation/ownedExtension"/>
+    </edges>
+    <edges name="aadlImplementation__ownedRealization__aadlRealization_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.26/@nodes.5" trgNode="//@rules.26/@nodes.7">
+      <type href="platform:/resource/Aadl/model/Aadl.ecore#//ComponentImplementation/ownedRealization"/>
     </edges>
     <edges name="aadlPublicPackageSection__ownedClassifier__aadlType_eMoflonEdge" domainType="TRG" srcNode="//@rules.26/@nodes.6" trgNode="//@rules.26/@nodes.8">
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//PackageSection/ownedClassifier"/>
@@ -1881,698 +1881,479 @@
     </edges>
     <attributeConditionLibrary/>
   </rules>
-  <rules name="ruleDirFeatConn2DirFeatConnSrcParentDestSubcompo">
-    <nodes name="adeleCompImplType" incomingEdges="//@rules.32/@edges.1" outgoingEdges="//@rules.32/@edges.0" incomingCorrsSource="//@rules.32/@nodes.16">
+  <rules name="ruleComponentToSubcomponentTypedRefinedTypedAsParent">
+    <nodes name="adeleImplementation" incomingEdges="//@rules.32/@edges.3" outgoingEdges="//@rules.32/@edges.0" incomingCorrsSource="//@rules.32/@nodes.8">
       <type href="platform:/resource/Adele/model/Adele.ecore#//Component"/>
     </nodes>
-    <nodes name="adeleComponentFeature" incomingEdges="//@rules.32/@edges.0 //@rules.32/@edges.4" incomingCorrsSource="//@rules.32/@nodes.14">
-      <type href="platform:/resource/Adele/model/Adele.ecore#//DirectedFeature"/>
-    </nodes>
-    <nodes name="adeleComponentImplementation" outgoingEdges="//@rules.32/@edges.1 //@rules.32/@edges.2 //@rules.32/@edges.3" incomingCorrsSource="//@rules.32/@nodes.15">
+    <nodes name="adeleRefinedSubcomponent" incomingEdges="//@rules.32/@edges.1" incomingCorrsSource="//@rules.32/@nodes.9">
       <type href="platform:/resource/Adele/model/Adele.ecore#//Component"/>
     </nodes>
-    <nodes name="adeleConnection" bindingType="CREATE" incomingEdges="//@rules.32/@edges.2" outgoingEdges="//@rules.32/@edges.4 //@rules.32/@edges.5" incomingCorrsSource="//@rules.32/@nodes.17">
-      <type href="platform:/resource/Adele/model/Adele.ecore#//DirectedFeatureConnection"/>
-    </nodes>
-    <nodes name="adeleSubcomponent" incomingEdges="//@rules.32/@edges.3" incomingCorrsSource="//@rules.32/@nodes.18">
+    <nodes name="adeleSubcomponent" bindingType="CREATE" incomingEdges="//@rules.32/@edges.0" outgoingEdges="//@rules.32/@edges.1 //@rules.32/@edges.2 //@rules.32/@edges.3" incomingCorrsSource="//@rules.32/@nodes.10">
       <type href="platform:/resource/Adele/model/Adele.ecore#//Component"/>
     </nodes>
-    <nodes name="adeleSubcomponentPort" incomingEdges="//@rules.32/@edges.5" incomingCorrsSource="//@rules.32/@nodes.19">
-      <type href="platform:/resource/Adele/model/Adele.ecore#//DirectedFeature"/>
+    <nodes name="refines" incomingEdges="//@rules.32/@edges.2" incomingCorrsSource="//@rules.32/@nodes.11">
+      <type href="platform:/resource/Adele/model/Adele.ecore#//Component"/>
     </nodes>
-    <nodes name="aadlCompImplType" domainType="TRG" incomingEdges="//@rules.32/@edges.7" outgoingEdges="//@rules.32/@edges.6" incomingCorrsTarget="//@rules.32/@nodes.16">
-      <type href="platform:/resource/Aadl/model/Aadl.ecore#//ComponentType"/>
-    </nodes>
-    <nodes name="aadlComponentFeature" domainType="TRG" incomingEdges="//@rules.32/@edges.6 //@rules.32/@edges.14" incomingCorrsTarget="//@rules.32/@nodes.14">
-      <type href="platform:/resource/Aadl/model/Aadl.ecore#//DirectedFeature"/>
-    </nodes>
-    <nodes name="aadlComponentImplementation" domainType="TRG" outgoingEdges="//@rules.32/@edges.7 //@rules.32/@edges.8 //@rules.32/@edges.9" incomingCorrsTarget="//@rules.32/@nodes.15">
+    <nodes name="aadlImplementation" domainType="TRG" incomingEdges="//@rules.32/@edges.5" outgoingEdges="//@rules.32/@edges.4" incomingCorrsTarget="//@rules.32/@nodes.8">
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//ComponentImplementation"/>
     </nodes>
-    <nodes name="aadlConnection" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.32/@edges.9" outgoingEdges="//@rules.32/@edges.10 //@rules.32/@edges.11" incomingCorrsTarget="//@rules.32/@nodes.17">
-      <type href="platform:/resource/Aadl/model/Aadl.ecore#//Connection"/>
-    </nodes>
-    <nodes name="aadlSubcomponent" domainType="TRG" incomingEdges="//@rules.32/@edges.8 //@rules.32/@edges.13" incomingCorrsTarget="//@rules.32/@nodes.18">
+    <nodes name="aadlRefinedSubcomponent" domainType="TRG" incomingEdges="//@rules.32/@edges.6" outgoingEdges="//@rules.32/@edges.5" incomingCorrsTarget="//@rules.32/@nodes.9">
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//Subcomponent"/>
     </nodes>
-    <nodes name="aadlSubcomponentFeature" domainType="TRG" incomingEdges="//@rules.32/@edges.12" incomingCorrsTarget="//@rules.32/@nodes.19">
-      <type href="platform:/resource/Aadl/model/Aadl.ecore#//DirectedFeature"/>
+    <nodes name="aadlSubcomponent" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.32/@edges.4" outgoingEdges="//@rules.32/@edges.6 //@rules.32/@edges.7" incomingCorrsTarget="//@rules.32/@nodes.10">
+      <type href="platform:/resource/Aadl/model/Aadl.ecore#//Subcomponent"/>
     </nodes>
-    <nodes name="destinationConnectedElement" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.32/@edges.11" outgoingEdges="//@rules.32/@edges.12 //@rules.32/@edges.13">
-      <type href="platform:/resource/Aadl/model/Aadl.ecore#//ConnectedElement"/>
+    <nodes name="aadlSubcomponentType" domainType="TRG" incomingEdges="//@rules.32/@edges.7" incomingCorrsTarget="//@rules.32/@nodes.11">
+      <type href="platform:/resource/Aadl/model/Aadl.ecore#//SubcomponentType"/>
     </nodes>
-    <nodes name="sourceConnectedElement" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.32/@edges.10" outgoingEdges="//@rules.32/@edges.14">
-      <type href="platform:/resource/Aadl/model/Aadl.ecore#//ConnectedElement"/>
-    </nodes>
-    <nodes xsi:type="language:TGGRuleCorr" name="corrComponentFeature" domainType="CORR" source="//@rules.32/@nodes.1" target="//@rules.32/@nodes.7">
-      <type href="platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrDirectedFeature"/>
-    </nodes>
-    <nodes xsi:type="language:TGGRuleCorr" name="corrComponentImplementation" domainType="CORR" source="//@rules.32/@nodes.2" target="//@rules.32/@nodes.8">
+    <nodes xsi:type="language:TGGRuleCorr" name="corrImplementation" domainType="CORR" source="//@rules.32/@nodes.0" target="//@rules.32/@nodes.4">
       <type href="platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentImplementation"/>
     </nodes>
-    <nodes xsi:type="language:TGGRuleCorr" name="corrComponentType" domainType="CORR" source="//@rules.32/@nodes.0" target="//@rules.32/@nodes.6">
-      <type href="platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentType"/>
-    </nodes>
-    <nodes xsi:type="language:TGGRuleCorr" name="corrConnection" domainType="CORR" bindingType="CREATE" source="//@rules.32/@nodes.3" target="//@rules.32/@nodes.9">
-      <type href="platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrDirectedFeatureConnection"/>
-    </nodes>
-    <nodes xsi:type="language:TGGRuleCorr" name="corrSubcomponent" domainType="CORR" source="//@rules.32/@nodes.4" target="//@rules.32/@nodes.10">
+    <nodes xsi:type="language:TGGRuleCorr" name="corrRefinedSubcomponent" domainType="CORR" source="//@rules.32/@nodes.1" target="//@rules.32/@nodes.5">
       <type href="platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrSubcomponenttrgSC"/>
     </nodes>
-    <nodes xsi:type="language:TGGRuleCorr" name="corrSubcomponentFeature" domainType="CORR" source="//@rules.32/@nodes.5" target="//@rules.32/@nodes.11">
+    <nodes xsi:type="language:TGGRuleCorr" name="corrSubcomponent" domainType="CORR" bindingType="CREATE" source="//@rules.32/@nodes.2" target="//@rules.32/@nodes.6">
+      <type href="platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrSubcomponenttrgSC"/>
+    </nodes>
+    <nodes xsi:type="language:TGGRuleCorr" name="corrSubcomponentType" domainType="CORR" source="//@rules.32/@nodes.3" target="//@rules.32/@nodes.7">
+      <type href="platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentSCT"/>
+    </nodes>
+    <edges name="adeleImplementation__children__adeleSubcomponent_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.32/@nodes.0" trgNode="//@rules.32/@nodes.2">
+      <type href="platform:/resource/Adele/model/Adele.ecore#//Component/children"/>
+    </edges>
+    <edges name="adeleSubcomponent__refinedSubcomponent__adeleRefinedSubcomponent_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.32/@nodes.2" trgNode="//@rules.32/@nodes.1">
+      <type href="platform:/resource/Adele/model/Adele.ecore#//Component/refinedSubcomponent"/>
+    </edges>
+    <edges name="adeleSubcomponent__refines__refines_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.32/@nodes.2" trgNode="//@rules.32/@nodes.3">
+      <type href="platform:/resource/Adele/model/Adele.ecore#//Component/refines"/>
+    </edges>
+    <edges name="adeleSubcomponent__implementation__adeleImplementation_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.32/@nodes.2" trgNode="//@rules.32/@nodes.0">
+      <type href="platform:/resource/Adele/model/Adele.ecore#//Component/implementation"/>
+    </edges>
+    <edges name="aadlImplementation__ownedSubcomponent__aadlSubcomponent_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.32/@nodes.4" trgNode="//@rules.32/@nodes.6">
+      <type href="platform:/resource/Aadl/model/Aadl.ecore#//ComponentImplementation/ownedSubcomponent"/>
+    </edges>
+    <edges name="aadlRefinedSubcomponent__componentImplementation__aadlImplementation_eMoflonEdge" domainType="TRG" srcNode="//@rules.32/@nodes.5" trgNode="//@rules.32/@nodes.4">
+      <type href="platform:/resource/Aadl/model/Aadl.ecore#//Subcomponent/componentImplementation"/>
+    </edges>
+    <edges name="aadlSubcomponent__refined__aadlRefinedSubcomponent_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.32/@nodes.6" trgNode="//@rules.32/@nodes.5">
+      <type href="platform:/resource/Aadl/model/Aadl.ecore#//Subcomponent/refined"/>
+    </edges>
+    <edges name="aadlSubcomponent__subCompType__aadlSubcomponentType_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.32/@nodes.6" trgNode="//@rules.32/@nodes.7">
+      <type href="platform:/resource/Aadl/model/Aadl.ecore#//Subcomponent/subCompType"/>
+    </edges>
+    <attributeConditionLibrary/>
+  </rules>
+  <rules name="ruleDirectedFeat2DirectedFeat">
+    <nodes name="adeleFeature" bindingType="CREATE" incomingEdges="//@rules.33/@edges.0" incomingCorrsSource="//@rules.33/@nodes.4">
+      <type href="platform:/resource/Adele/model/Adele.ecore#//DirectedFeature"/>
+    </nodes>
+    <nodes name="adeleType" outgoingEdges="//@rules.33/@edges.0" incomingCorrsSource="//@rules.33/@nodes.5">
+      <type href="platform:/resource/Adele/model/Adele.ecore#//Component"/>
+    </nodes>
+    <nodes name="aadlFeature" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.33/@edges.1" incomingCorrsTarget="//@rules.33/@nodes.4">
+      <type href="platform:/resource/Aadl/model/Aadl.ecore#//DirectedFeature"/>
+    </nodes>
+    <nodes name="aadlType" domainType="TRG" outgoingEdges="//@rules.33/@edges.1" incomingCorrsTarget="//@rules.33/@nodes.5">
+      <type href="platform:/resource/Aadl/model/Aadl.ecore#//ComponentType"/>
+    </nodes>
+    <nodes xsi:type="language:TGGRuleCorr" name="corrFeature" domainType="CORR" bindingType="CREATE" source="//@rules.33/@nodes.0" target="//@rules.33/@nodes.2">
       <type href="platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrDirectedFeature"/>
     </nodes>
-    <edges name="adeleCompImplType__allRealFeaturesDf__adeleComponentFeature_eMoflonEdge" srcNode="//@rules.32/@nodes.0" trgNode="//@rules.32/@nodes.1">
-      <type href="platform:/resource/Adele/model/Adele.ecore#//Component/allRealFeaturesDf"/>
+    <nodes xsi:type="language:TGGRuleCorr" name="corrType" domainType="CORR" source="//@rules.33/@nodes.1" target="//@rules.33/@nodes.3">
+      <type href="platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentType"/>
+    </nodes>
+    <edges name="adeleType__featuresDf__adeleFeature_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.33/@nodes.1" trgNode="//@rules.33/@nodes.0">
+      <type href="platform:/resource/Adele/model/Adele.ecore#//Component/featuresDf"/>
     </edges>
-    <edges name="adeleComponentImplementation__type__adeleCompImplType_eMoflonEdge" srcNode="//@rules.32/@nodes.2" trgNode="//@rules.32/@nodes.0">
-      <type href="platform:/resource/Adele/model/Adele.ecore#//Component/type"/>
-    </edges>
-    <edges name="adeleComponentImplementation__allRealRelationsDfc__adeleConnection_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.32/@nodes.2" trgNode="//@rules.32/@nodes.3">
-      <type href="platform:/resource/Adele/model/Adele.ecore#//Component/allRealRelationsDfc"/>
-    </edges>
-    <edges name="adeleComponentImplementation__allRealChildrenComponents__adeleSubcomponent_eMoflonEdge" srcNode="//@rules.32/@nodes.2" trgNode="//@rules.32/@nodes.4">
-      <type href="platform:/resource/Adele/model/Adele.ecore#//Component/allRealChildrenComponents"/>
-    </edges>
-    <edges name="adeleConnection__originalSourceFeature__adeleComponentFeature_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.32/@nodes.3" trgNode="//@rules.32/@nodes.1">
-      <type href="platform:/resource/Adele/model/Adele.ecore#//DirectedFeatureConnection/originalSourceFeature"/>
-    </edges>
-    <edges name="adeleConnection__originalSinkFeature__adeleSubcomponentPort_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.32/@nodes.3" trgNode="//@rules.32/@nodes.5">
-      <type href="platform:/resource/Adele/model/Adele.ecore#//DirectedFeatureConnection/originalSinkFeature"/>
-    </edges>
-    <edges name="aadlCompImplType__memberDF__aadlComponentFeature_eMoflonEdge" domainType="TRG" srcNode="//@rules.32/@nodes.6" trgNode="//@rules.32/@nodes.7">
-      <type href="platform:/resource/Aadl/model/Aadl.ecore#//ComponentType/memberDF"/>
-    </edges>
-    <edges name="aadlComponentImplementation__type__aadlCompImplType_eMoflonEdge" domainType="TRG" srcNode="//@rules.32/@nodes.8" trgNode="//@rules.32/@nodes.6">
-      <type href="platform:/resource/Aadl/model/Aadl.ecore#//ComponentImplementation/type"/>
-    </edges>
-    <edges name="aadlComponentImplementation__memberSub__aadlSubcomponent_eMoflonEdge" domainType="TRG" srcNode="//@rules.32/@nodes.8" trgNode="//@rules.32/@nodes.10">
-      <type href="platform:/resource/Aadl/model/Aadl.ecore#//ComponentImplementation/memberSub"/>
-    </edges>
-    <edges name="aadlComponentImplementation__ownedConnection__aadlConnection_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.32/@nodes.8" trgNode="//@rules.32/@nodes.9">
-      <type href="platform:/resource/Aadl/model/Aadl.ecore#//ComponentImplementation/ownedConnection"/>
-    </edges>
-    <edges name="aadlConnection__source__sourceConnectedElement_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.32/@nodes.9" trgNode="//@rules.32/@nodes.13">
-      <type href="platform:/resource/Aadl/model/Aadl.ecore#//Connection/source"/>
-    </edges>
-    <edges name="aadlConnection__destination__destinationConnectedElement_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.32/@nodes.9" trgNode="//@rules.32/@nodes.12">
-      <type href="platform:/resource/Aadl/model/Aadl.ecore#//Connection/destination"/>
-    </edges>
-    <edges name="destinationConnectedElement__connectionEndDf__aadlSubcomponentFeature_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.32/@nodes.12" trgNode="//@rules.32/@nodes.11">
-      <type href="platform:/resource/Aadl/model/Aadl.ecore#//ConnectedElement/connectionEndDf"/>
-    </edges>
-    <edges name="destinationConnectedElement__context__aadlSubcomponent_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.32/@nodes.12" trgNode="//@rules.32/@nodes.10">
-      <type href="platform:/resource/Aadl/model/Aadl.ecore#//ConnectedElement/context"/>
-    </edges>
-    <edges name="sourceConnectedElement__connectionEndDf__aadlComponentFeature_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.32/@nodes.13" trgNode="//@rules.32/@nodes.7">
-      <type href="platform:/resource/Aadl/model/Aadl.ecore#//ConnectedElement/connectionEndDf"/>
+    <edges name="aadlType__ownedFeatureDF__aadlFeature_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.33/@nodes.3" trgNode="//@rules.33/@nodes.2">
+      <type href="platform:/resource/Aadl/model/Aadl.ecore#//ComponentType/ownedFeatureDF"/>
     </edges>
     <attributeConditionLibrary/>
   </rules>
-  <rules name="ruleFeatGroupAccess2FeatGroupAccessRefined">
-    <nodes name="adeleAccess" bindingType="CREATE" incomingEdges="//@rules.33/@edges.1" outgoingEdges="//@rules.33/@edges.0" incomingCorrsSource="//@rules.33/@nodes.6">
-      <type href="platform:/resource/Adele/model/Adele.ecore#//Access"/>
+  <rules name="ruleDirectedFeatToDirectedFeatRefined">
+    <nodes name="adeleFeature" bindingType="CREATE" incomingEdges="//@rules.34/@edges.1" outgoingEdges="//@rules.34/@edges.0" incomingCorrsSource="//@rules.34/@nodes.6">
+      <type href="platform:/resource/Adele/model/Adele.ecore#//DirectedFeature"/>
     </nodes>
-    <nodes name="adeleRefinedFeature" incomingEdges="//@rules.33/@edges.0" incomingCorrsSource="//@rules.33/@nodes.7">
+    <nodes name="adeleRefinedFeature" incomingEdges="//@rules.34/@edges.0" incomingCorrsSource="//@rules.34/@nodes.7">
       <type href="platform:/resource/Adele/model/Adele.ecore#//Feature"/>
-    </nodes>
-    <nodes name="adeleType" outgoingEdges="//@rules.33/@edges.1" incomingCorrsSource="//@rules.33/@nodes.8">
-      <type href="platform:/resource/Adele/model/Adele.ecore#//FeatureGroup"/>
-    </nodes>
-    <nodes name="aadlAccess" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.33/@edges.3" outgoingEdges="//@rules.33/@edges.2" incomingCorrsTarget="//@rules.33/@nodes.6">
-      <type href="platform:/resource/Aadl/model/Aadl.ecore#//Access"/>
-    </nodes>
-    <nodes name="aadlRefinedFeature" domainType="TRG" incomingEdges="//@rules.33/@edges.2" incomingCorrsTarget="//@rules.33/@nodes.7">
-      <type href="platform:/resource/Aadl/model/Aadl.ecore#//Feature"/>
-    </nodes>
-    <nodes name="aadlType" domainType="TRG" outgoingEdges="//@rules.33/@edges.3" incomingCorrsTarget="//@rules.33/@nodes.8">
-      <type href="platform:/resource/Aadl/model/Aadl.ecore#//FeatureGroupType"/>
-    </nodes>
-    <nodes xsi:type="language:TGGRuleCorr" name="corrAccess" domainType="CORR" bindingType="CREATE" source="//@rules.33/@nodes.0" target="//@rules.33/@nodes.3">
-      <type href="platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrAccess"/>
-    </nodes>
-    <nodes xsi:type="language:TGGRuleCorr" name="corrRefinedFeature" domainType="CORR" source="//@rules.33/@nodes.1" target="//@rules.33/@nodes.4">
-      <type href="platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrFeature"/>
-    </nodes>
-    <nodes xsi:type="language:TGGRuleCorr" name="corrType" domainType="CORR" source="//@rules.33/@nodes.2" target="//@rules.33/@nodes.5">
-      <type href="platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentTypeFG"/>
-    </nodes>
-    <edges name="adeleAccess__refinedFeature__adeleRefinedFeature_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.33/@nodes.0" trgNode="//@rules.33/@nodes.1">
-      <type href="platform:/resource/Adele/model/Adele.ecore#//Access/refinedFeature"/>
-    </edges>
-    <edges name="adeleType__features__adeleAccess_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.33/@nodes.2" trgNode="//@rules.33/@nodes.0">
-      <type href="platform:/resource/Adele/model/Adele.ecore#//FeatureGroup/features"/>
-    </edges>
-    <edges name="aadlAccess__refined__aadlRefinedFeature_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.33/@nodes.3" trgNode="//@rules.33/@nodes.4">
-      <type href="platform:/resource/Aadl/model/Aadl.ecore#//Access/refined"/>
-    </edges>
-    <edges name="aadlType__ownedFeature__aadlAccess_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.33/@nodes.5" trgNode="//@rules.33/@nodes.3">
-      <type href="platform:/resource/Aadl/model/Aadl.ecore#//FeatureGroupType/ownedFeature"/>
-    </edges>
-    <attributeConditionLibrary/>
-  </rules>
-  <rules name="ruleFeatGroupAccess2FeatGroupAccessTyped">
-    <nodes name="adeleAccess" bindingType="CREATE" incomingEdges="//@rules.34/@edges.1" outgoingEdges="//@rules.34/@edges.0" incomingCorrsSource="//@rules.34/@nodes.6">
-      <type href="platform:/resource/Adele/model/Adele.ecore#//Access"/>
-    </nodes>
-    <nodes name="adeleClassifier" incomingEdges="//@rules.34/@edges.0" incomingCorrsSource="//@rules.34/@nodes.7">
-      <type href="platform:/resource/Adele/model/Adele.ecore#//Component"/>
     </nodes>
     <nodes name="adeleType" outgoingEdges="//@rules.34/@edges.1" incomingCorrsSource="//@rules.34/@nodes.8">
-      <type href="platform:/resource/Adele/model/Adele.ecore#//FeatureGroup"/>
-    </nodes>
-    <nodes name="aadlAccess" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.34/@edges.3" outgoingEdges="//@rules.34/@edges.2" incomingCorrsTarget="//@rules.34/@nodes.6">
-      <type href="platform:/resource/Aadl/model/Aadl.ecore#//Access"/>
-    </nodes>
-    <nodes name="aadlClassifier" domainType="TRG" incomingEdges="//@rules.34/@edges.2" incomingCorrsTarget="//@rules.34/@nodes.7">
-      <type href="platform:/resource/Aadl/model/Aadl.ecore#//DataSubcomponentType"/>
-    </nodes>
-    <nodes name="aadlType" domainType="TRG" outgoingEdges="//@rules.34/@edges.3" incomingCorrsTarget="//@rules.34/@nodes.8">
-      <type href="platform:/resource/Aadl/model/Aadl.ecore#//FeatureGroupType"/>
-    </nodes>
-    <nodes xsi:type="language:TGGRuleCorr" name="corrAccess" domainType="CORR" bindingType="CREATE" source="//@rules.34/@nodes.0" target="//@rules.34/@nodes.3">
-      <type href="platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrAccess"/>
-    </nodes>
-    <nodes xsi:type="language:TGGRuleCorr" name="corrComponentClassifier" domainType="CORR" source="//@rules.34/@nodes.1" target="//@rules.34/@nodes.4">
-      <type href="platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentDST"/>
-    </nodes>
-    <nodes xsi:type="language:TGGRuleCorr" name="corrType" domainType="CORR" source="//@rules.34/@nodes.2" target="//@rules.34/@nodes.5">
-      <type href="platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentTypeFG"/>
-    </nodes>
-    <edges name="adeleAccess__classifier__adeleClassifier_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.34/@nodes.0" trgNode="//@rules.34/@nodes.1">
-      <type href="platform:/resource/Adele/model/Adele.ecore#//Access/classifier"/>
-    </edges>
-    <edges name="adeleType__features__adeleAccess_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.34/@nodes.2" trgNode="//@rules.34/@nodes.0">
-      <type href="platform:/resource/Adele/model/Adele.ecore#//FeatureGroup/features"/>
-    </edges>
-    <edges name="aadlAccess__featClassifierDst__aadlClassifier_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.34/@nodes.3" trgNode="//@rules.34/@nodes.4">
-      <type href="platform:/resource/Aadl/model/Aadl.ecore#//Access/featClassifierDst"/>
-    </edges>
-    <edges name="aadlType__ownedFeature__aadlAccess_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.34/@nodes.5" trgNode="//@rules.34/@nodes.3">
-      <type href="platform:/resource/Aadl/model/Aadl.ecore#//FeatureGroupType/ownedFeature"/>
-    </edges>
-    <attributeConditionLibrary/>
-  </rules>
-  <rules name="ruleFeatGroupAccess2FeatGroupAccessTypedRefined">
-    <nodes name="adeleAccess" bindingType="CREATE" incomingEdges="//@rules.35/@edges.2" outgoingEdges="//@rules.35/@edges.0 //@rules.35/@edges.1" incomingCorrsSource="//@rules.35/@nodes.8">
-      <type href="platform:/resource/Adele/model/Adele.ecore#//Access"/>
-    </nodes>
-    <nodes name="adeleClassifier" incomingEdges="//@rules.35/@edges.0" incomingCorrsSource="//@rules.35/@nodes.9">
       <type href="platform:/resource/Adele/model/Adele.ecore#//Component"/>
     </nodes>
-    <nodes name="adeleRefinedFeature" incomingEdges="//@rules.35/@edges.1" incomingCorrsSource="//@rules.35/@nodes.10">
-      <type href="platform:/resource/Adele/model/Adele.ecore#//Feature"/>
-    </nodes>
-    <nodes name="adeleType" outgoingEdges="//@rules.35/@edges.2" incomingCorrsSource="//@rules.35/@nodes.11">
-      <type href="platform:/resource/Adele/model/Adele.ecore#//FeatureGroup"/>
-    </nodes>
-    <nodes name="aadlAccess" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.35/@edges.5" outgoingEdges="//@rules.35/@edges.3 //@rules.35/@edges.4" incomingCorrsTarget="//@rules.35/@nodes.8">
-      <type href="platform:/resource/Aadl/model/Aadl.ecore#//Access"/>
-    </nodes>
-    <nodes name="aadlClassifier" domainType="TRG" incomingEdges="//@rules.35/@edges.3" incomingCorrsTarget="//@rules.35/@nodes.9">
-      <type href="platform:/resource/Aadl/model/Aadl.ecore#//FeatureClassifier"/>
-    </nodes>
-    <nodes name="aadlRefinedFeature" domainType="TRG" incomingEdges="//@rules.35/@edges.4" incomingCorrsTarget="//@rules.35/@nodes.10">
-      <type href="platform:/resource/Aadl/model/Aadl.ecore#//Feature"/>
-    </nodes>
-    <nodes name="aadlType" domainType="TRG" outgoingEdges="//@rules.35/@edges.5" incomingCorrsTarget="//@rules.35/@nodes.11">
-      <type href="platform:/resource/Aadl/model/Aadl.ecore#//FeatureGroupType"/>
-    </nodes>
-    <nodes xsi:type="language:TGGRuleCorr" name="corrAccess" domainType="CORR" bindingType="CREATE" source="//@rules.35/@nodes.0" target="//@rules.35/@nodes.4">
-      <type href="platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrAccess"/>
-    </nodes>
-    <nodes xsi:type="language:TGGRuleCorr" name="corrClassifier" domainType="CORR" source="//@rules.35/@nodes.1" target="//@rules.35/@nodes.5">
-      <type href="platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponent"/>
-    </nodes>
-    <nodes xsi:type="language:TGGRuleCorr" name="corrRefinedFeature" domainType="CORR" source="//@rules.35/@nodes.2" target="//@rules.35/@nodes.6">
-      <type href="platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrFeature"/>
-    </nodes>
-    <nodes xsi:type="language:TGGRuleCorr" name="corrType" domainType="CORR" source="//@rules.35/@nodes.3" target="//@rules.35/@nodes.7">
-      <type href="platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentTypeFG"/>
-    </nodes>
-    <edges name="adeleAccess__classifier__adeleClassifier_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.35/@nodes.0" trgNode="//@rules.35/@nodes.1">
-      <type href="platform:/resource/Adele/model/Adele.ecore#//Access/classifier"/>
-    </edges>
-    <edges name="adeleAccess__refinedFeature__adeleRefinedFeature_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.35/@nodes.0" trgNode="//@rules.35/@nodes.2">
-      <type href="platform:/resource/Adele/model/Adele.ecore#//Access/refinedFeature"/>
-    </edges>
-    <edges name="adeleType__features__adeleAccess_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.35/@nodes.3" trgNode="//@rules.35/@nodes.0">
-      <type href="platform:/resource/Adele/model/Adele.ecore#//FeatureGroup/features"/>
-    </edges>
-    <edges name="aadlAccess__featureClassifierFc__aadlClassifier_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.35/@nodes.4" trgNode="//@rules.35/@nodes.5">
-      <type href="platform:/resource/Aadl/model/Aadl.ecore#//Access/featureClassifierFc"/>
-    </edges>
-    <edges name="aadlAccess__refined__aadlRefinedFeature_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.35/@nodes.4" trgNode="//@rules.35/@nodes.6">
-      <type href="platform:/resource/Aadl/model/Aadl.ecore#//Access/refined"/>
-    </edges>
-    <edges name="aadlType__ownedFeature__aadlAccess_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.35/@nodes.7" trgNode="//@rules.35/@nodes.4">
-      <type href="platform:/resource/Aadl/model/Aadl.ecore#//FeatureGroupType/ownedFeature"/>
-    </edges>
-    <attributeConditionLibrary/>
-  </rules>
-  <rules name="ruleFeatGroupDirFeat2FeatGroupDirFeat">
-    <nodes name="adeleFeature" bindingType="CREATE" incomingEdges="//@rules.36/@edges.0" incomingCorrsSource="//@rules.36/@nodes.4">
-      <type href="platform:/resource/Adele/model/Adele.ecore#//DirectedFeature"/>
-    </nodes>
-    <nodes name="adeleType" outgoingEdges="//@rules.36/@edges.0" incomingCorrsSource="//@rules.36/@nodes.5">
-      <type href="platform:/resource/Adele/model/Adele.ecore#//FeatureGroup"/>
-    </nodes>
-    <nodes name="aadlFeature" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.36/@edges.1" incomingCorrsTarget="//@rules.36/@nodes.4">
+    <nodes name="aadlFeature" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.34/@edges.3" outgoingEdges="//@rules.34/@edges.2" incomingCorrsTarget="//@rules.34/@nodes.6">
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//DirectedFeature"/>
     </nodes>
-    <nodes name="aadlType" domainType="TRG" outgoingEdges="//@rules.36/@edges.1" incomingCorrsTarget="//@rules.36/@nodes.5">
-      <type href="platform:/resource/Aadl/model/Aadl.ecore#//FeatureGroupType"/>
-    </nodes>
-    <nodes xsi:type="language:TGGRuleCorr" name="corrFeature" domainType="CORR" bindingType="CREATE" source="//@rules.36/@nodes.0" target="//@rules.36/@nodes.2">
-      <type href="platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrDirectedFeature"/>
-    </nodes>
-    <nodes xsi:type="language:TGGRuleCorr" name="corrType" domainType="CORR" source="//@rules.36/@nodes.1" target="//@rules.36/@nodes.3">
-      <type href="platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentTypeFG"/>
-    </nodes>
-    <edges name="adeleType__featuresDf__adeleFeature_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.36/@nodes.1" trgNode="//@rules.36/@nodes.0">
-      <type href="platform:/resource/Adele/model/Adele.ecore#//FeatureGroup/featuresDf"/>
-    </edges>
-    <edges name="aadlType__ownedFeatureDf__aadlFeature_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.36/@nodes.3" trgNode="//@rules.36/@nodes.2">
-      <type href="platform:/resource/Aadl/model/Aadl.ecore#//FeatureGroupType/ownedFeatureDf"/>
-    </edges>
-    <attributeConditionLibrary/>
-  </rules>
-  <rules name="ruleFeatGroupDirFeat2FeatGroupDirFeatRefined">
-    <nodes name="adeleFeature" bindingType="CREATE" incomingEdges="//@rules.37/@edges.1" outgoingEdges="//@rules.37/@edges.0" incomingCorrsSource="//@rules.37/@nodes.6">
-      <type href="platform:/resource/Adele/model/Adele.ecore#//DirectedFeature"/>
-    </nodes>
-    <nodes name="adeleRefinedFeature" incomingEdges="//@rules.37/@edges.0" incomingCorrsSource="//@rules.37/@nodes.7">
-      <type href="platform:/resource/Adele/model/Adele.ecore#//Feature"/>
-    </nodes>
-    <nodes name="adeleType" outgoingEdges="//@rules.37/@edges.1" incomingCorrsSource="//@rules.37/@nodes.8">
-      <type href="platform:/resource/Adele/model/Adele.ecore#//FeatureGroup"/>
-    </nodes>
-    <nodes name="aadlFeature" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.37/@edges.3" outgoingEdges="//@rules.37/@edges.2" incomingCorrsTarget="//@rules.37/@nodes.6">
-      <type href="platform:/resource/Aadl/model/Aadl.ecore#//DirectedFeature"/>
-    </nodes>
-    <nodes name="aadlRefinedFeature" domainType="TRG" incomingEdges="//@rules.37/@edges.2" incomingCorrsTarget="//@rules.37/@nodes.7">
+    <nodes name="aadlRefinedFeature" domainType="TRG" incomingEdges="//@rules.34/@edges.2" incomingCorrsTarget="//@rules.34/@nodes.7">
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//Feature"/>
     </nodes>
-    <nodes name="aadlType" domainType="TRG" outgoingEdges="//@rules.37/@edges.3" incomingCorrsTarget="//@rules.37/@nodes.8">
-      <type href="platform:/resource/Aadl/model/Aadl.ecore#//FeatureGroupType"/>
+    <nodes name="aadlType" domainType="TRG" outgoingEdges="//@rules.34/@edges.3" incomingCorrsTarget="//@rules.34/@nodes.8">
+      <type href="platform:/resource/Aadl/model/Aadl.ecore#//ComponentType"/>
     </nodes>
-    <nodes xsi:type="language:TGGRuleCorr" name="corrFeature" domainType="CORR" bindingType="CREATE" source="//@rules.37/@nodes.0" target="//@rules.37/@nodes.3">
+    <nodes xsi:type="language:TGGRuleCorr" name="corrFeature" domainType="CORR" bindingType="CREATE" source="//@rules.34/@nodes.0" target="//@rules.34/@nodes.3">
       <type href="platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrDirectedFeature"/>
     </nodes>
-    <nodes xsi:type="language:TGGRuleCorr" name="corrRefinedFeature" domainType="CORR" source="//@rules.37/@nodes.1" target="//@rules.37/@nodes.4">
+    <nodes xsi:type="language:TGGRuleCorr" name="corrRefinedFeature" domainType="CORR" source="//@rules.34/@nodes.1" target="//@rules.34/@nodes.4">
       <type href="platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrFeature"/>
     </nodes>
-    <nodes xsi:type="language:TGGRuleCorr" name="corrType" domainType="CORR" source="//@rules.37/@nodes.2" target="//@rules.37/@nodes.5">
-      <type href="platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentTypeFG"/>
+    <nodes xsi:type="language:TGGRuleCorr" name="corrType" domainType="CORR" source="//@rules.34/@nodes.2" target="//@rules.34/@nodes.5">
+      <type href="platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentType"/>
     </nodes>
-    <edges name="adeleFeature__refinedFeature__adeleRefinedFeature_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.37/@nodes.0" trgNode="//@rules.37/@nodes.1">
+    <edges name="adeleFeature__refinedFeature__adeleRefinedFeature_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.34/@nodes.0" trgNode="//@rules.34/@nodes.1">
       <type href="platform:/resource/Adele/model/Adele.ecore#//DirectedFeature/refinedFeature"/>
     </edges>
-    <edges name="adeleType__featuresDf__adeleFeature_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.37/@nodes.2" trgNode="//@rules.37/@nodes.0">
-      <type href="platform:/resource/Adele/model/Adele.ecore#//FeatureGroup/featuresDf"/>
+    <edges name="adeleType__featuresDf__adeleFeature_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.34/@nodes.2" trgNode="//@rules.34/@nodes.0">
+      <type href="platform:/resource/Adele/model/Adele.ecore#//Component/featuresDf"/>
     </edges>
-    <edges name="aadlFeature__refined__aadlRefinedFeature_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.37/@nodes.3" trgNode="//@rules.37/@nodes.4">
+    <edges name="aadlFeature__refined__aadlRefinedFeature_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.34/@nodes.3" trgNode="//@rules.34/@nodes.4">
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//DirectedFeature/refined"/>
     </edges>
-    <edges name="aadlType__ownedFeatureDf__aadlFeature_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.37/@nodes.5" trgNode="//@rules.37/@nodes.3">
-      <type href="platform:/resource/Aadl/model/Aadl.ecore#//FeatureGroupType/ownedFeatureDf"/>
+    <edges name="aadlType__ownedFeatureDF__aadlFeature_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.34/@nodes.5" trgNode="//@rules.34/@nodes.3">
+      <type href="platform:/resource/Aadl/model/Aadl.ecore#//ComponentType/ownedFeatureDF"/>
     </edges>
     <attributeConditionLibrary/>
   </rules>
-  <rules name="ruleFeatGroupDirFeat2FeatGroupDirFeatTyped">
-    <nodes name="adeleClassifier" incomingEdges="//@rules.38/@edges.0" incomingCorrsSource="//@rules.38/@nodes.6">
+  <rules name="ruleDirectedFeatToDirectedFeatTyped">
+    <nodes name="adeleClassifier" incomingEdges="//@rules.35/@edges.0" incomingCorrsSource="//@rules.35/@nodes.6">
       <type href="platform:/resource/Adele/model/Adele.ecore#//SKComponent"/>
     </nodes>
-    <nodes name="adeleFeature" bindingType="CREATE" incomingEdges="//@rules.38/@edges.1" outgoingEdges="//@rules.38/@edges.0" incomingCorrsSource="//@rules.38/@nodes.7">
+    <nodes name="adeleFeature" bindingType="CREATE" incomingEdges="//@rules.35/@edges.1" outgoingEdges="//@rules.35/@edges.0" incomingCorrsSource="//@rules.35/@nodes.7">
       <type href="platform:/resource/Adele/model/Adele.ecore#//DirectedFeature"/>
     </nodes>
-    <nodes name="adeleType" outgoingEdges="//@rules.38/@edges.1" incomingCorrsSource="//@rules.38/@nodes.8">
-      <type href="platform:/resource/Adele/model/Adele.ecore#//FeatureGroup"/>
+    <nodes name="adeleType" outgoingEdges="//@rules.35/@edges.1" incomingCorrsSource="//@rules.35/@nodes.8">
+      <type href="platform:/resource/Adele/model/Adele.ecore#//Component"/>
     </nodes>
-    <nodes name="aadlClassifier" domainType="TRG" incomingEdges="//@rules.38/@edges.2" incomingCorrsTarget="//@rules.38/@nodes.6">
+    <nodes name="aadlClassifier" domainType="TRG" incomingEdges="//@rules.35/@edges.2" incomingCorrsTarget="//@rules.35/@nodes.6">
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//Classifier"/>
     </nodes>
-    <nodes name="aadlFeature" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.38/@edges.3" outgoingEdges="//@rules.38/@edges.2" incomingCorrsTarget="//@rules.38/@nodes.7">
+    <nodes name="aadlFeature" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.35/@edges.3" outgoingEdges="//@rules.35/@edges.2" incomingCorrsTarget="//@rules.35/@nodes.7">
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//DirectedFeature"/>
     </nodes>
-    <nodes name="aadlType" domainType="TRG" outgoingEdges="//@rules.38/@edges.3" incomingCorrsTarget="//@rules.38/@nodes.8">
-      <type href="platform:/resource/Aadl/model/Aadl.ecore#//FeatureGroupType"/>
+    <nodes name="aadlType" domainType="TRG" outgoingEdges="//@rules.35/@edges.3" incomingCorrsTarget="//@rules.35/@nodes.8">
+      <type href="platform:/resource/Aadl/model/Aadl.ecore#//ComponentType"/>
     </nodes>
-    <nodes xsi:type="language:TGGRuleCorr" name="corrClassifier" domainType="CORR" source="//@rules.38/@nodes.0" target="//@rules.38/@nodes.3">
+    <nodes xsi:type="language:TGGRuleCorr" name="corrClassifier" domainType="CORR" source="//@rules.35/@nodes.0" target="//@rules.35/@nodes.3">
       <type href="platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentSKC"/>
     </nodes>
-    <nodes xsi:type="language:TGGRuleCorr" name="corrFeature" domainType="CORR" bindingType="CREATE" source="//@rules.38/@nodes.1" target="//@rules.38/@nodes.4">
+    <nodes xsi:type="language:TGGRuleCorr" name="corrFeature" domainType="CORR" bindingType="CREATE" source="//@rules.35/@nodes.1" target="//@rules.35/@nodes.4">
       <type href="platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrDirectedFeature"/>
     </nodes>
-    <nodes xsi:type="language:TGGRuleCorr" name="corrType" domainType="CORR" source="//@rules.38/@nodes.2" target="//@rules.38/@nodes.5">
-      <type href="platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentTypeFG"/>
+    <nodes xsi:type="language:TGGRuleCorr" name="corrType" domainType="CORR" source="//@rules.35/@nodes.2" target="//@rules.35/@nodes.5">
+      <type href="platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentType"/>
     </nodes>
-    <edges name="adeleFeature__classifier__adeleClassifier_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.38/@nodes.1" trgNode="//@rules.38/@nodes.0">
+    <edges name="adeleFeature__classifier__adeleClassifier_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.35/@nodes.1" trgNode="//@rules.35/@nodes.0">
       <type href="platform:/resource/Adele/model/Adele.ecore#//DirectedFeature/classifier"/>
     </edges>
-    <edges name="adeleType__featuresDf__adeleFeature_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.38/@nodes.2" trgNode="//@rules.38/@nodes.1">
-      <type href="platform:/resource/Adele/model/Adele.ecore#//FeatureGroup/featuresDf"/>
+    <edges name="adeleType__featuresDf__adeleFeature_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.35/@nodes.2" trgNode="//@rules.35/@nodes.1">
+      <type href="platform:/resource/Adele/model/Adele.ecore#//Component/featuresDf"/>
     </edges>
-    <edges name="aadlFeature__classifier__aadlClassifier_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.38/@nodes.4" trgNode="//@rules.38/@nodes.3">
+    <edges name="aadlFeature__classifier__aadlClassifier_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.35/@nodes.4" trgNode="//@rules.35/@nodes.3">
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//DirectedFeature/classifier"/>
     </edges>
-    <edges name="aadlType__ownedFeatureDf__aadlFeature_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.38/@nodes.5" trgNode="//@rules.38/@nodes.4">
-      <type href="platform:/resource/Aadl/model/Aadl.ecore#//FeatureGroupType/ownedFeatureDf"/>
-    </edges>
-    <attributeConditionLibrary/>
-  </rules>
-  <rules name="ruleFeatGroupDirFeat2FeatGroupDirFeatTypedAsParent">
-    <nodes name="adeleFeature" bindingType="CREATE" incomingEdges="//@rules.39/@edges.1" outgoingEdges="//@rules.39/@edges.0" incomingCorrsSource="//@rules.39/@nodes.4">
-      <type href="platform:/resource/Adele/model/Adele.ecore#//DirectedFeature"/>
-    </nodes>
-    <nodes name="adeleType" incomingEdges="//@rules.39/@edges.0" outgoingEdges="//@rules.39/@edges.1" incomingCorrsSource="//@rules.39/@nodes.5">
-      <type href="platform:/resource/Adele/model/Adele.ecore#//FeatureGroup"/>
-    </nodes>
-    <nodes name="aadlFeature" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.39/@edges.3" outgoingEdges="//@rules.39/@edges.2" incomingCorrsTarget="//@rules.39/@nodes.4">
-      <type href="platform:/resource/Aadl/model/Aadl.ecore#//DirectedFeature"/>
-    </nodes>
-    <nodes name="aadlType" domainType="TRG" incomingEdges="//@rules.39/@edges.2" outgoingEdges="//@rules.39/@edges.3" incomingCorrsTarget="//@rules.39/@nodes.5">
-      <type href="platform:/resource/Aadl/model/Aadl.ecore#//FeatureGroupType"/>
-    </nodes>
-    <nodes xsi:type="language:TGGRuleCorr" name="corrFeature" domainType="CORR" bindingType="CREATE" source="//@rules.39/@nodes.0" target="//@rules.39/@nodes.2">
-      <type href="platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrDirectedFeature"/>
-    </nodes>
-    <nodes xsi:type="language:TGGRuleCorr" name="corrType" domainType="CORR" source="//@rules.39/@nodes.1" target="//@rules.39/@nodes.3">
-      <type href="platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentTypeFG"/>
-    </nodes>
-    <edges name="adeleFeature__classifierFg__adeleType_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.39/@nodes.0" trgNode="//@rules.39/@nodes.1">
-      <type href="platform:/resource/Adele/model/Adele.ecore#//DirectedFeature/classifierFg"/>
-    </edges>
-    <edges name="adeleType__featuresDf__adeleFeature_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.39/@nodes.1" trgNode="//@rules.39/@nodes.0">
-      <type href="platform:/resource/Adele/model/Adele.ecore#//FeatureGroup/featuresDf"/>
-    </edges>
-    <edges name="aadlFeature__classifierFgt__aadlType_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.39/@nodes.2" trgNode="//@rules.39/@nodes.3">
-      <type href="platform:/resource/Aadl/model/Aadl.ecore#//DirectedFeature/classifierFgt"/>
-    </edges>
-    <edges name="aadlType__ownedFeatureDf__aadlFeature_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.39/@nodes.3" trgNode="//@rules.39/@nodes.2">
-      <type href="platform:/resource/Aadl/model/Aadl.ecore#//FeatureGroupType/ownedFeatureDf"/>
+    <edges name="aadlType__ownedFeatureDF__aadlFeature_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.35/@nodes.5" trgNode="//@rules.35/@nodes.4">
+      <type href="platform:/resource/Aadl/model/Aadl.ecore#//ComponentType/ownedFeatureDF"/>
     </edges>
     <attributeConditionLibrary/>
   </rules>
   <rules name="ruleFeatGroupDirFeat2FeatGroupDirFeatTypedAsParentRefined54">
-    <nodes name="adeleFeature" bindingType="CREATE" incomingEdges="//@rules.40/@edges.2" outgoingEdges="//@rules.40/@edges.0 //@rules.40/@edges.1" incomingCorrsSource="//@rules.40/@nodes.6">
+    <nodes name="adeleFeature" bindingType="CREATE" incomingEdges="//@rules.36/@edges.2" outgoingEdges="//@rules.36/@edges.0 //@rules.36/@edges.1" incomingCorrsSource="//@rules.36/@nodes.6">
       <type href="platform:/resource/Adele/model/Adele.ecore#//DirectedFeature"/>
     </nodes>
-    <nodes name="adeleRefinedFeature" incomingEdges="//@rules.40/@edges.1" incomingCorrsSource="//@rules.40/@nodes.7">
+    <nodes name="adeleRefinedFeature" incomingEdges="//@rules.36/@edges.1" incomingCorrsSource="//@rules.36/@nodes.7">
       <type href="platform:/resource/Adele/model/Adele.ecore#//Feature"/>
     </nodes>
-    <nodes name="adeleType" incomingEdges="//@rules.40/@edges.0" outgoingEdges="//@rules.40/@edges.2" incomingCorrsSource="//@rules.40/@nodes.8">
+    <nodes name="adeleType" incomingEdges="//@rules.36/@edges.0" outgoingEdges="//@rules.36/@edges.2" incomingCorrsSource="//@rules.36/@nodes.8">
       <type href="platform:/resource/Adele/model/Adele.ecore#//FeatureGroup"/>
     </nodes>
-    <nodes name="aadlFeature" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.40/@edges.5" outgoingEdges="//@rules.40/@edges.3 //@rules.40/@edges.4" incomingCorrsTarget="//@rules.40/@nodes.6">
+    <nodes name="aadlFeature" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.36/@edges.5" outgoingEdges="//@rules.36/@edges.3 //@rules.36/@edges.4" incomingCorrsTarget="//@rules.36/@nodes.6">
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//DirectedFeature"/>
     </nodes>
-    <nodes name="aadlRefinedFeature" domainType="TRG" incomingEdges="//@rules.40/@edges.4" incomingCorrsTarget="//@rules.40/@nodes.7">
+    <nodes name="aadlRefinedFeature" domainType="TRG" incomingEdges="//@rules.36/@edges.4" incomingCorrsTarget="//@rules.36/@nodes.7">
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//Feature"/>
     </nodes>
-    <nodes name="aadlType" domainType="TRG" incomingEdges="//@rules.40/@edges.3" outgoingEdges="//@rules.40/@edges.5" incomingCorrsTarget="//@rules.40/@nodes.8">
+    <nodes name="aadlType" domainType="TRG" incomingEdges="//@rules.36/@edges.3" outgoingEdges="//@rules.36/@edges.5" incomingCorrsTarget="//@rules.36/@nodes.8">
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//FeatureGroupType"/>
     </nodes>
-    <nodes xsi:type="language:TGGRuleCorr" name="corrFeature" domainType="CORR" bindingType="CREATE" source="//@rules.40/@nodes.0" target="//@rules.40/@nodes.3">
+    <nodes xsi:type="language:TGGRuleCorr" name="corrFeature" domainType="CORR" bindingType="CREATE" source="//@rules.36/@nodes.0" target="//@rules.36/@nodes.3">
       <type href="platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrDirectedFeature"/>
     </nodes>
-    <nodes xsi:type="language:TGGRuleCorr" name="corrRefinedFeature" domainType="CORR" source="//@rules.40/@nodes.1" target="//@rules.40/@nodes.4">
+    <nodes xsi:type="language:TGGRuleCorr" name="corrRefinedFeature" domainType="CORR" source="//@rules.36/@nodes.1" target="//@rules.36/@nodes.4">
       <type href="platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrFeature"/>
     </nodes>
-    <nodes xsi:type="language:TGGRuleCorr" name="corrType" domainType="CORR" source="//@rules.40/@nodes.2" target="//@rules.40/@nodes.5">
+    <nodes xsi:type="language:TGGRuleCorr" name="corrType" domainType="CORR" source="//@rules.36/@nodes.2" target="//@rules.36/@nodes.5">
       <type href="platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentTypeFG"/>
     </nodes>
-    <edges name="adeleFeature__classifierFg__adeleType_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.40/@nodes.0" trgNode="//@rules.40/@nodes.2">
+    <edges name="adeleFeature__classifierFg__adeleType_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.36/@nodes.0" trgNode="//@rules.36/@nodes.2">
       <type href="platform:/resource/Adele/model/Adele.ecore#//DirectedFeature/classifierFg"/>
     </edges>
-    <edges name="adeleFeature__refinedFeature__adeleRefinedFeature_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.40/@nodes.0" trgNode="//@rules.40/@nodes.1">
+    <edges name="adeleFeature__refinedFeature__adeleRefinedFeature_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.36/@nodes.0" trgNode="//@rules.36/@nodes.1">
       <type href="platform:/resource/Adele/model/Adele.ecore#//DirectedFeature/refinedFeature"/>
     </edges>
-    <edges name="adeleType__featuresDf__adeleFeature_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.40/@nodes.2" trgNode="//@rules.40/@nodes.0">
+    <edges name="adeleType__featuresDf__adeleFeature_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.36/@nodes.2" trgNode="//@rules.36/@nodes.0">
       <type href="platform:/resource/Adele/model/Adele.ecore#//FeatureGroup/featuresDf"/>
     </edges>
-    <edges name="aadlFeature__classifierFgt__aadlType_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.40/@nodes.3" trgNode="//@rules.40/@nodes.5">
+    <edges name="aadlFeature__classifierFgt__aadlType_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.36/@nodes.3" trgNode="//@rules.36/@nodes.5">
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//DirectedFeature/classifierFgt"/>
     </edges>
-    <edges name="aadlFeature__refined__aadlRefinedFeature_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.40/@nodes.3" trgNode="//@rules.40/@nodes.4">
+    <edges name="aadlFeature__refined__aadlRefinedFeature_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.36/@nodes.3" trgNode="//@rules.36/@nodes.4">
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//DirectedFeature/refined"/>
     </edges>
-    <edges name="aadlType__ownedFeatureDf__aadlFeature_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.40/@nodes.5" trgNode="//@rules.40/@nodes.3">
+    <edges name="aadlType__ownedFeatureDf__aadlFeature_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.36/@nodes.5" trgNode="//@rules.36/@nodes.3">
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//FeatureGroupType/ownedFeatureDf"/>
     </edges>
     <attributeConditionLibrary/>
   </rules>
   <rules name="ruleFeatGroupDirFeat2FeatGroupDirFeatTypedRefined55">
-    <nodes name="adeleClassifier" incomingEdges="//@rules.41/@edges.1" incomingCorrsSource="//@rules.41/@nodes.8">
+    <nodes name="adeleClassifier" incomingEdges="//@rules.37/@edges.1" incomingCorrsSource="//@rules.37/@nodes.8">
       <type href="platform:/resource/Adele/model/Adele.ecore#//SKComponent"/>
     </nodes>
-    <nodes name="adeleFeature" bindingType="CREATE" incomingEdges="//@rules.41/@edges.2" outgoingEdges="//@rules.41/@edges.0 //@rules.41/@edges.1" incomingCorrsSource="//@rules.41/@nodes.9">
+    <nodes name="adeleFeature" bindingType="CREATE" incomingEdges="//@rules.37/@edges.2" outgoingEdges="//@rules.37/@edges.0 //@rules.37/@edges.1" incomingCorrsSource="//@rules.37/@nodes.9">
       <type href="platform:/resource/Adele/model/Adele.ecore#//DirectedFeature"/>
     </nodes>
-    <nodes name="adeleRefinedFeature" incomingEdges="//@rules.41/@edges.0" incomingCorrsSource="//@rules.41/@nodes.10">
+    <nodes name="adeleRefinedFeature" incomingEdges="//@rules.37/@edges.0" incomingCorrsSource="//@rules.37/@nodes.10">
       <type href="platform:/resource/Adele/model/Adele.ecore#//Feature"/>
     </nodes>
-    <nodes name="adeleType" outgoingEdges="//@rules.41/@edges.2" incomingCorrsSource="//@rules.41/@nodes.11">
+    <nodes name="adeleType" outgoingEdges="//@rules.37/@edges.2" incomingCorrsSource="//@rules.37/@nodes.11">
       <type href="platform:/resource/Adele/model/Adele.ecore#//FeatureGroup"/>
     </nodes>
-    <nodes name="aadlClassifier" domainType="TRG" incomingEdges="//@rules.41/@edges.4" incomingCorrsTarget="//@rules.41/@nodes.8">
+    <nodes name="aadlClassifier" domainType="TRG" incomingEdges="//@rules.37/@edges.4" incomingCorrsTarget="//@rules.37/@nodes.8">
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//Classifier"/>
     </nodes>
-    <nodes name="aadlFeature" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.41/@edges.5" outgoingEdges="//@rules.41/@edges.3 //@rules.41/@edges.4" incomingCorrsTarget="//@rules.41/@nodes.9">
+    <nodes name="aadlFeature" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.37/@edges.5" outgoingEdges="//@rules.37/@edges.3 //@rules.37/@edges.4" incomingCorrsTarget="//@rules.37/@nodes.9">
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//DirectedFeature"/>
     </nodes>
-    <nodes name="aadlRefinedFeature" domainType="TRG" incomingEdges="//@rules.41/@edges.3" incomingCorrsTarget="//@rules.41/@nodes.10">
+    <nodes name="aadlRefinedFeature" domainType="TRG" incomingEdges="//@rules.37/@edges.3" incomingCorrsTarget="//@rules.37/@nodes.10">
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//Feature"/>
     </nodes>
-    <nodes name="aadlType" domainType="TRG" outgoingEdges="//@rules.41/@edges.5" incomingCorrsTarget="//@rules.41/@nodes.11">
+    <nodes name="aadlType" domainType="TRG" outgoingEdges="//@rules.37/@edges.5" incomingCorrsTarget="//@rules.37/@nodes.11">
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//FeatureGroupType"/>
     </nodes>
-    <nodes xsi:type="language:TGGRuleCorr" name="corrClassifier" domainType="CORR" source="//@rules.41/@nodes.0" target="//@rules.41/@nodes.4">
+    <nodes xsi:type="language:TGGRuleCorr" name="corrClassifier" domainType="CORR" source="//@rules.37/@nodes.0" target="//@rules.37/@nodes.4">
       <type href="platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentSKC"/>
     </nodes>
-    <nodes xsi:type="language:TGGRuleCorr" name="corrFeature" domainType="CORR" bindingType="CREATE" source="//@rules.41/@nodes.1" target="//@rules.41/@nodes.5">
+    <nodes xsi:type="language:TGGRuleCorr" name="corrFeature" domainType="CORR" bindingType="CREATE" source="//@rules.37/@nodes.1" target="//@rules.37/@nodes.5">
       <type href="platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrDirectedFeature"/>
     </nodes>
-    <nodes xsi:type="language:TGGRuleCorr" name="corrRefinedFeature" domainType="CORR" source="//@rules.41/@nodes.2" target="//@rules.41/@nodes.6">
+    <nodes xsi:type="language:TGGRuleCorr" name="corrRefinedFeature" domainType="CORR" source="//@rules.37/@nodes.2" target="//@rules.37/@nodes.6">
       <type href="platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrFeature"/>
     </nodes>
-    <nodes xsi:type="language:TGGRuleCorr" name="corrType" domainType="CORR" source="//@rules.41/@nodes.3" target="//@rules.41/@nodes.7">
+    <nodes xsi:type="language:TGGRuleCorr" name="corrType" domainType="CORR" source="//@rules.37/@nodes.3" target="//@rules.37/@nodes.7">
       <type href="platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentTypeFG"/>
     </nodes>
-    <edges name="adeleFeature__refinedFeature__adeleRefinedFeature_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.41/@nodes.1" trgNode="//@rules.41/@nodes.2">
+    <edges name="adeleFeature__refinedFeature__adeleRefinedFeature_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.37/@nodes.1" trgNode="//@rules.37/@nodes.2">
       <type href="platform:/resource/Adele/model/Adele.ecore#//DirectedFeature/refinedFeature"/>
     </edges>
-    <edges name="adeleFeature__classifier__adeleClassifier_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.41/@nodes.1" trgNode="//@rules.41/@nodes.0">
+    <edges name="adeleFeature__classifier__adeleClassifier_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.37/@nodes.1" trgNode="//@rules.37/@nodes.0">
       <type href="platform:/resource/Adele/model/Adele.ecore#//DirectedFeature/classifier"/>
     </edges>
-    <edges name="adeleType__featuresDf__adeleFeature_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.41/@nodes.3" trgNode="//@rules.41/@nodes.1">
+    <edges name="adeleType__featuresDf__adeleFeature_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.37/@nodes.3" trgNode="//@rules.37/@nodes.1">
       <type href="platform:/resource/Adele/model/Adele.ecore#//FeatureGroup/featuresDf"/>
     </edges>
-    <edges name="aadlFeature__refined__aadlRefinedFeature_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.41/@nodes.5" trgNode="//@rules.41/@nodes.6">
+    <edges name="aadlFeature__refined__aadlRefinedFeature_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.37/@nodes.5" trgNode="//@rules.37/@nodes.6">
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//DirectedFeature/refined"/>
     </edges>
-    <edges name="aadlFeature__classifier__aadlClassifier_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.41/@nodes.5" trgNode="//@rules.41/@nodes.4">
+    <edges name="aadlFeature__classifier__aadlClassifier_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.37/@nodes.5" trgNode="//@rules.37/@nodes.4">
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//DirectedFeature/classifier"/>
     </edges>
-    <edges name="aadlType__ownedFeatureDf__aadlFeature_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.41/@nodes.7" trgNode="//@rules.41/@nodes.5">
+    <edges name="aadlType__ownedFeatureDf__aadlFeature_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.37/@nodes.7" trgNode="//@rules.37/@nodes.5">
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//FeatureGroupType/ownedFeatureDf"/>
     </edges>
     <attributeConditionLibrary/>
   </rules>
   <rules name="ruleFeatureGroup2FeatureGroupType">
-    <nodes name="adelePackage" outgoingEdges="//@rules.42/@edges.0" incomingCorrsSource="//@rules.42/@nodes.4">
+    <nodes name="adelePackage" outgoingEdges="//@rules.38/@edges.0" incomingCorrsSource="//@rules.38/@nodes.4">
       <type href="platform:/resource/Adele/model/Adele.ecore#//Package"/>
     </nodes>
-    <nodes name="adeleType" bindingType="CREATE" incomingEdges="//@rules.42/@edges.0" incomingCorrsSource="//@rules.42/@nodes.5">
+    <nodes name="adeleType" bindingType="CREATE" incomingEdges="//@rules.38/@edges.0" incomingCorrsSource="//@rules.38/@nodes.5">
       <type href="platform:/resource/Adele/model/Adele.ecore#//FeatureGroup"/>
     </nodes>
-    <nodes name="aadlPublicPackageSection" domainType="TRG" outgoingEdges="//@rules.42/@edges.1" incomingCorrsTarget="//@rules.42/@nodes.4">
+    <nodes name="aadlPublicPackageSection" domainType="TRG" outgoingEdges="//@rules.38/@edges.1" incomingCorrsTarget="//@rules.38/@nodes.4">
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//PublicPackageSection"/>
     </nodes>
-    <nodes name="aadlType" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.42/@edges.1" incomingCorrsTarget="//@rules.42/@nodes.5">
+    <nodes name="aadlType" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.38/@edges.1" incomingCorrsTarget="//@rules.38/@nodes.5">
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//FeatureGroupType"/>
     </nodes>
-    <nodes xsi:type="language:TGGRuleCorr" name="corrAxiom" domainType="CORR" source="//@rules.42/@nodes.0" target="//@rules.42/@nodes.2">
+    <nodes xsi:type="language:TGGRuleCorr" name="corrAxiom" domainType="CORR" source="//@rules.38/@nodes.0" target="//@rules.38/@nodes.2">
       <type href="platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrAxiomPPS"/>
     </nodes>
-    <nodes xsi:type="language:TGGRuleCorr" name="corrType" domainType="CORR" bindingType="CREATE" source="//@rules.42/@nodes.1" target="//@rules.42/@nodes.3">
+    <nodes xsi:type="language:TGGRuleCorr" name="corrType" domainType="CORR" bindingType="CREATE" source="//@rules.38/@nodes.1" target="//@rules.38/@nodes.3">
       <type href="platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentTypeFG"/>
     </nodes>
-    <edges name="adelePackage__children__adeleType_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.42/@nodes.0" trgNode="//@rules.42/@nodes.1">
+    <edges name="adelePackage__children__adeleType_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.38/@nodes.0" trgNode="//@rules.38/@nodes.1">
       <type href="platform:/resource/Adele/model/Adele.ecore#//Package/children"/>
     </edges>
-    <edges name="aadlPublicPackageSection__ownedClassfr__aadlType_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.42/@nodes.2" trgNode="//@rules.42/@nodes.3">
+    <edges name="aadlPublicPackageSection__ownedClassfr__aadlType_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.38/@nodes.2" trgNode="//@rules.38/@nodes.3">
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//PublicPackageSection/ownedClassfr"/>
     </edges>
     <attributeConditionLibrary/>
   </rules>
   <rules name="ruleFeatureGroup2FeatureGroupTypeWithExtends">
-    <nodes name="adeleExtType" incomingEdges="//@rules.43/@edges.1" incomingCorrsSource="//@rules.43/@nodes.8">
+    <nodes name="adeleExtType" incomingEdges="//@rules.39/@edges.1" incomingCorrsSource="//@rules.39/@nodes.8">
       <type href="platform:/resource/Adele/model/Adele.ecore#//FeatureGroup"/>
     </nodes>
-    <nodes name="adelePackage" outgoingEdges="//@rules.43/@edges.0" incomingCorrsSource="//@rules.43/@nodes.7">
+    <nodes name="adelePackage" outgoingEdges="//@rules.39/@edges.0" incomingCorrsSource="//@rules.39/@nodes.7">
       <type href="platform:/resource/Adele/model/Adele.ecore#//Package"/>
     </nodes>
-    <nodes name="adeleType" bindingType="CREATE" incomingEdges="//@rules.43/@edges.0" outgoingEdges="//@rules.43/@edges.1" incomingCorrsSource="//@rules.43/@nodes.9">
+    <nodes name="adeleType" bindingType="CREATE" incomingEdges="//@rules.39/@edges.0" outgoingEdges="//@rules.39/@edges.1" incomingCorrsSource="//@rules.39/@nodes.9">
       <type href="platform:/resource/Adele/model/Adele.ecore#//FeatureGroup"/>
     </nodes>
-    <nodes name="aadlExtType" domainType="TRG" incomingEdges="//@rules.43/@edges.4" incomingCorrsTarget="//@rules.43/@nodes.8">
+    <nodes name="aadlExtType" domainType="TRG" incomingEdges="//@rules.39/@edges.4" incomingCorrsTarget="//@rules.39/@nodes.8">
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//FeatureGroupType"/>
     </nodes>
-    <nodes name="aadlPublicPackageSection" domainType="TRG" outgoingEdges="//@rules.43/@edges.2" incomingCorrsTarget="//@rules.43/@nodes.7">
+    <nodes name="aadlPublicPackageSection" domainType="TRG" outgoingEdges="//@rules.39/@edges.2" incomingCorrsTarget="//@rules.39/@nodes.7">
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//PublicPackageSection"/>
     </nodes>
-    <nodes name="aadlType" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.43/@edges.2" outgoingEdges="//@rules.43/@edges.3" incomingCorrsTarget="//@rules.43/@nodes.9">
+    <nodes name="aadlType" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.39/@edges.2" outgoingEdges="//@rules.39/@edges.3" incomingCorrsTarget="//@rules.39/@nodes.9">
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//FeatureGroupType"/>
     </nodes>
-    <nodes name="typeExtension" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.43/@edges.3" outgoingEdges="//@rules.43/@edges.4">
+    <nodes name="typeExtension" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.39/@edges.3" outgoingEdges="//@rules.39/@edges.4">
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//GroupExtension"/>
     </nodes>
-    <nodes xsi:type="language:TGGRuleCorr" name="corrAxiom" domainType="CORR" source="//@rules.43/@nodes.1" target="//@rules.43/@nodes.4">
+    <nodes xsi:type="language:TGGRuleCorr" name="corrAxiom" domainType="CORR" source="//@rules.39/@nodes.1" target="//@rules.39/@nodes.4">
       <type href="platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrAxiomPPS"/>
     </nodes>
-    <nodes xsi:type="language:TGGRuleCorr" name="corrExtComponentType" domainType="CORR" source="//@rules.43/@nodes.0" target="//@rules.43/@nodes.3">
+    <nodes xsi:type="language:TGGRuleCorr" name="corrExtComponentType" domainType="CORR" source="//@rules.39/@nodes.0" target="//@rules.39/@nodes.3">
       <type href="platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentTypeFG"/>
     </nodes>
-    <nodes xsi:type="language:TGGRuleCorr" name="corrType" domainType="CORR" bindingType="CREATE" source="//@rules.43/@nodes.2" target="//@rules.43/@nodes.5">
+    <nodes xsi:type="language:TGGRuleCorr" name="corrType" domainType="CORR" bindingType="CREATE" source="//@rules.39/@nodes.2" target="//@rules.39/@nodes.5">
       <type href="platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentTypeFG"/>
     </nodes>
-    <edges name="adelePackage__children__adeleType_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.43/@nodes.1" trgNode="//@rules.43/@nodes.2">
+    <edges name="adelePackage__children__adeleType_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.39/@nodes.1" trgNode="//@rules.39/@nodes.2">
       <type href="platform:/resource/Adele/model/Adele.ecore#//Package/children"/>
     </edges>
-    <edges name="adeleType__refinedFeature__adeleExtType_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.43/@nodes.2" trgNode="//@rules.43/@nodes.0">
+    <edges name="adeleType__refinedFeature__adeleExtType_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.39/@nodes.2" trgNode="//@rules.39/@nodes.0">
       <type href="platform:/resource/Adele/model/Adele.ecore#//FeatureGroup/refinedFeature"/>
     </edges>
-    <edges name="aadlPublicPackageSection__ownedClassfr__aadlType_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.43/@nodes.4" trgNode="//@rules.43/@nodes.5">
+    <edges name="aadlPublicPackageSection__ownedClassfr__aadlType_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.39/@nodes.4" trgNode="//@rules.39/@nodes.5">
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//PublicPackageSection/ownedClassfr"/>
     </edges>
-    <edges name="aadlType__ownedExtension__typeExtension_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.43/@nodes.5" trgNode="//@rules.43/@nodes.6">
+    <edges name="aadlType__ownedExtension__typeExtension_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.39/@nodes.5" trgNode="//@rules.39/@nodes.6">
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//FeatureGroupType/ownedExtension"/>
     </edges>
-    <edges name="typeExtension__extended__aadlExtType_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.43/@nodes.6" trgNode="//@rules.43/@nodes.3">
+    <edges name="typeExtension__extended__aadlExtType_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.39/@nodes.6" trgNode="//@rules.39/@nodes.3">
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//GroupExtension/extended"/>
     </edges>
     <attributeConditionLibrary/>
   </rules>
   <rules name="ruleFeatureGroup2FeatureGroupTypeWithExtendsInverse">
-    <nodes name="adeleExtType" incomingEdges="//@rules.44/@edges.2" incomingCorrsSource="//@rules.44/@nodes.10">
+    <nodes name="adeleExtType" incomingEdges="//@rules.40/@edges.1" incomingCorrsSource="//@rules.40/@nodes.10">
       <type href="platform:/resource/Adele/model/Adele.ecore#//FeatureGroup"/>
     </nodes>
-    <nodes name="adeleInverse" incomingEdges="//@rules.44/@edges.1" incomingCorrsSource="//@rules.44/@nodes.11">
+    <nodes name="adeleInverse" incomingEdges="//@rules.40/@edges.2" incomingCorrsSource="//@rules.40/@nodes.11">
       <type href="platform:/resource/Adele/model/Adele.ecore#//FeatureGroup"/>
     </nodes>
-    <nodes name="adelePackage" outgoingEdges="//@rules.44/@edges.0" incomingCorrsSource="//@rules.44/@nodes.9">
+    <nodes name="adelePackage" outgoingEdges="//@rules.40/@edges.0" incomingCorrsSource="//@rules.40/@nodes.9">
       <type href="platform:/resource/Adele/model/Adele.ecore#//Package"/>
     </nodes>
-    <nodes name="adeleType" bindingType="CREATE" incomingEdges="//@rules.44/@edges.0" outgoingEdges="//@rules.44/@edges.1 //@rules.44/@edges.2" incomingCorrsSource="//@rules.44/@nodes.12">
+    <nodes name="adeleType" bindingType="CREATE" incomingEdges="//@rules.40/@edges.0" outgoingEdges="//@rules.40/@edges.1 //@rules.40/@edges.2" incomingCorrsSource="//@rules.40/@nodes.12">
       <type href="platform:/resource/Adele/model/Adele.ecore#//FeatureGroup"/>
     </nodes>
-    <nodes name="aadlExtType" domainType="TRG" incomingEdges="//@rules.44/@edges.6" incomingCorrsTarget="//@rules.44/@nodes.10">
+    <nodes name="aadlExtType" domainType="TRG" incomingEdges="//@rules.40/@edges.6" incomingCorrsTarget="//@rules.40/@nodes.10">
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//FeatureGroupType"/>
     </nodes>
-    <nodes name="aadlInverse" domainType="TRG" incomingEdges="//@rules.44/@edges.4" incomingCorrsTarget="//@rules.44/@nodes.11">
+    <nodes name="aadlInverse" domainType="TRG" incomingEdges="//@rules.40/@edges.5" incomingCorrsTarget="//@rules.40/@nodes.11">
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//FeatureGroupType"/>
     </nodes>
-    <nodes name="aadlPublicPackageSection" domainType="TRG" outgoingEdges="//@rules.44/@edges.3" incomingCorrsTarget="//@rules.44/@nodes.9">
+    <nodes name="aadlPublicPackageSection" domainType="TRG" outgoingEdges="//@rules.40/@edges.3" incomingCorrsTarget="//@rules.40/@nodes.9">
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//PublicPackageSection"/>
     </nodes>
-    <nodes name="aadlType" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.44/@edges.3" outgoingEdges="//@rules.44/@edges.4 //@rules.44/@edges.5" incomingCorrsTarget="//@rules.44/@nodes.12">
+    <nodes name="aadlType" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.40/@edges.3" outgoingEdges="//@rules.40/@edges.4 //@rules.40/@edges.5" incomingCorrsTarget="//@rules.40/@nodes.12">
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//FeatureGroupType"/>
     </nodes>
-    <nodes name="typeExtension" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.44/@edges.5" outgoingEdges="//@rules.44/@edges.6">
+    <nodes name="typeExtension" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.40/@edges.4" outgoingEdges="//@rules.40/@edges.6">
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//GroupExtension"/>
     </nodes>
-    <nodes xsi:type="language:TGGRuleCorr" name="corrAxiom" domainType="CORR" source="//@rules.44/@nodes.2" target="//@rules.44/@nodes.6">
+    <nodes xsi:type="language:TGGRuleCorr" name="corrAxiom" domainType="CORR" source="//@rules.40/@nodes.2" target="//@rules.40/@nodes.6">
       <type href="platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrAxiomPPS"/>
     </nodes>
-    <nodes xsi:type="language:TGGRuleCorr" name="corrExtComponentType" domainType="CORR" source="//@rules.44/@nodes.0" target="//@rules.44/@nodes.4">
+    <nodes xsi:type="language:TGGRuleCorr" name="corrExtComponentType" domainType="CORR" source="//@rules.40/@nodes.0" target="//@rules.40/@nodes.4">
       <type href="platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentTypeFG"/>
     </nodes>
-    <nodes xsi:type="language:TGGRuleCorr" name="corrInverse" domainType="CORR" source="//@rules.44/@nodes.1" target="//@rules.44/@nodes.5">
+    <nodes xsi:type="language:TGGRuleCorr" name="corrInverse" domainType="CORR" source="//@rules.40/@nodes.1" target="//@rules.40/@nodes.5">
       <type href="platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentTypeFG"/>
     </nodes>
-    <nodes xsi:type="language:TGGRuleCorr" name="corrType" domainType="CORR" bindingType="CREATE" source="//@rules.44/@nodes.3" target="//@rules.44/@nodes.7">
+    <nodes xsi:type="language:TGGRuleCorr" name="corrType" domainType="CORR" bindingType="CREATE" source="//@rules.40/@nodes.3" target="//@rules.40/@nodes.7">
       <type href="platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentTypeFG"/>
     </nodes>
-    <edges name="adelePackage__children__adeleType_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.44/@nodes.2" trgNode="//@rules.44/@nodes.3">
+    <edges name="adelePackage__children__adeleType_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.40/@nodes.2" trgNode="//@rules.40/@nodes.3">
       <type href="platform:/resource/Adele/model/Adele.ecore#//Package/children"/>
     </edges>
-    <edges name="adeleType__inverseFeature__adeleInverse_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.44/@nodes.3" trgNode="//@rules.44/@nodes.1">
-      <type href="platform:/resource/Adele/model/Adele.ecore#//FeatureGroup/inverseFeature"/>
-    </edges>
-    <edges name="adeleType__refinedFeature__adeleExtType_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.44/@nodes.3" trgNode="//@rules.44/@nodes.0">
+    <edges name="adeleType__refinedFeature__adeleExtType_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.40/@nodes.3" trgNode="//@rules.40/@nodes.0">
       <type href="platform:/resource/Adele/model/Adele.ecore#//FeatureGroup/refinedFeature"/>
     </edges>
-    <edges name="aadlPublicPackageSection__ownedClassfr__aadlType_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.44/@nodes.6" trgNode="//@rules.44/@nodes.7">
+    <edges name="adeleType__inverseFeature__adeleInverse_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.40/@nodes.3" trgNode="//@rules.40/@nodes.1">
+      <type href="platform:/resource/Adele/model/Adele.ecore#//FeatureGroup/inverseFeature"/>
+    </edges>
+    <edges name="aadlPublicPackageSection__ownedClassfr__aadlType_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.40/@nodes.6" trgNode="//@rules.40/@nodes.7">
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//PublicPackageSection/ownedClassfr"/>
     </edges>
-    <edges name="aadlType__inverse__aadlInverse_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.44/@nodes.7" trgNode="//@rules.44/@nodes.5">
-      <type href="platform:/resource/Aadl/model/Aadl.ecore#//FeatureGroupType/inverse"/>
-    </edges>
-    <edges name="aadlType__ownedExtension__typeExtension_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.44/@nodes.7" trgNode="//@rules.44/@nodes.8">
+    <edges name="aadlType__ownedExtension__typeExtension_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.40/@nodes.7" trgNode="//@rules.40/@nodes.8">
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//FeatureGroupType/ownedExtension"/>
     </edges>
-    <edges name="typeExtension__extended__aadlExtType_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.44/@nodes.8" trgNode="//@rules.44/@nodes.4">
+    <edges name="aadlType__inverse__aadlInverse_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.40/@nodes.7" trgNode="//@rules.40/@nodes.5">
+      <type href="platform:/resource/Aadl/model/Aadl.ecore#//FeatureGroupType/inverse"/>
+    </edges>
+    <edges name="typeExtension__extended__aadlExtType_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.40/@nodes.8" trgNode="//@rules.40/@nodes.4">
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//GroupExtension/extended"/>
     </edges>
     <attributeConditionLibrary/>
   </rules>
   <rules name="ruleFeatureGroup2FeatureGroupTypeWithInverse">
-    <nodes name="adeleInverse" incomingEdges="//@rules.45/@edges.1" incomingCorrsSource="//@rules.45/@nodes.7">
+    <nodes name="adeleInverse" incomingEdges="//@rules.41/@edges.1" incomingCorrsSource="//@rules.41/@nodes.7">
       <type href="platform:/resource/Adele/model/Adele.ecore#//FeatureGroup"/>
     </nodes>
-    <nodes name="adelePackage" outgoingEdges="//@rules.45/@edges.0" incomingCorrsSource="//@rules.45/@nodes.6">
+    <nodes name="adelePackage" outgoingEdges="//@rules.41/@edges.0" incomingCorrsSource="//@rules.41/@nodes.6">
       <type href="platform:/resource/Adele/model/Adele.ecore#//Package"/>
     </nodes>
-    <nodes name="adeleType" bindingType="CREATE" incomingEdges="//@rules.45/@edges.0" outgoingEdges="//@rules.45/@edges.1" incomingCorrsSource="//@rules.45/@nodes.8">
+    <nodes name="adeleType" bindingType="CREATE" incomingEdges="//@rules.41/@edges.0" outgoingEdges="//@rules.41/@edges.1" incomingCorrsSource="//@rules.41/@nodes.8">
       <type href="platform:/resource/Adele/model/Adele.ecore#//FeatureGroup"/>
     </nodes>
-    <nodes name="aadlInverse" domainType="TRG" incomingEdges="//@rules.45/@edges.3" incomingCorrsTarget="//@rules.45/@nodes.7">
+    <nodes name="aadlInverse" domainType="TRG" incomingEdges="//@rules.41/@edges.3" incomingCorrsTarget="//@rules.41/@nodes.7">
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//FeatureGroupType"/>
     </nodes>
-    <nodes name="aadlPublicPackageSection" domainType="TRG" outgoingEdges="//@rules.45/@edges.2" incomingCorrsTarget="//@rules.45/@nodes.6">
+    <nodes name="aadlPublicPackageSection" domainType="TRG" outgoingEdges="//@rules.41/@edges.2" incomingCorrsTarget="//@rules.41/@nodes.6">
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//PublicPackageSection"/>
     </nodes>
-    <nodes name="aadlType" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.45/@edges.2" outgoingEdges="//@rules.45/@edges.3" incomingCorrsTarget="//@rules.45/@nodes.8">
+    <nodes name="aadlType" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.41/@edges.2" outgoingEdges="//@rules.41/@edges.3" incomingCorrsTarget="//@rules.41/@nodes.8">
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//FeatureGroupType"/>
     </nodes>
-    <nodes xsi:type="language:TGGRuleCorr" name="corrAxiom" domainType="CORR" source="//@rules.45/@nodes.1" target="//@rules.45/@nodes.4">
+    <nodes xsi:type="language:TGGRuleCorr" name="corrAxiom" domainType="CORR" source="//@rules.41/@nodes.1" target="//@rules.41/@nodes.4">
       <type href="platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrAxiomPPS"/>
     </nodes>
-    <nodes xsi:type="language:TGGRuleCorr" name="corrInverse" domainType="CORR" source="//@rules.45/@nodes.0" target="//@rules.45/@nodes.3">
+    <nodes xsi:type="language:TGGRuleCorr" name="corrInverse" domainType="CORR" source="//@rules.41/@nodes.0" target="//@rules.41/@nodes.3">
       <type href="platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentTypeFG"/>
     </nodes>
-    <nodes xsi:type="language:TGGRuleCorr" name="corrType" domainType="CORR" bindingType="CREATE" source="//@rules.45/@nodes.2" target="//@rules.45/@nodes.5">
+    <nodes xsi:type="language:TGGRuleCorr" name="corrType" domainType="CORR" bindingType="CREATE" source="//@rules.41/@nodes.2" target="//@rules.41/@nodes.5">
       <type href="platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrComponentTypeFG"/>
     </nodes>
-    <edges name="adelePackage__children__adeleType_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.45/@nodes.1" trgNode="//@rules.45/@nodes.2">
+    <edges name="adelePackage__children__adeleType_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.41/@nodes.1" trgNode="//@rules.41/@nodes.2">
       <type href="platform:/resource/Adele/model/Adele.ecore#//Package/children"/>
     </edges>
-    <edges name="adeleType__inverseFeature__adeleInverse_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.45/@nodes.2" trgNode="//@rules.45/@nodes.0">
+    <edges name="adeleType__inverseFeature__adeleInverse_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.41/@nodes.2" trgNode="//@rules.41/@nodes.0">
       <type href="platform:/resource/Adele/model/Adele.ecore#//FeatureGroup/inverseFeature"/>
     </edges>
-    <edges name="aadlPublicPackageSection__ownedClassfr__aadlType_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.45/@nodes.4" trgNode="//@rules.45/@nodes.5">
+    <edges name="aadlPublicPackageSection__ownedClassfr__aadlType_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.41/@nodes.4" trgNode="//@rules.41/@nodes.5">
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//PublicPackageSection/ownedClassfr"/>
     </edges>
-    <edges name="aadlType__inverse__aadlInverse_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.45/@nodes.5" trgNode="//@rules.45/@nodes.3">
+    <edges name="aadlType__inverse__aadlInverse_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.41/@nodes.5" trgNode="//@rules.41/@nodes.3">
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//FeatureGroupType/inverse"/>
     </edges>
     <attributeConditionLibrary/>
   </rules>
   <rules name="rulePackage2AadlPackage">
-    <nodes name="adelePackage" bindingType="CREATE" incomingCorrsSource="//@rules.46/@nodes.3">
+    <nodes name="adelePackage" bindingType="CREATE" incomingCorrsSource="//@rules.42/@nodes.3">
       <type href="platform:/resource/Adele/model/Adele.ecore#//Package"/>
     </nodes>
-    <nodes name="aadlPackage" domainType="TRG" bindingType="CREATE" outgoingEdges="//@rules.46/@edges.0" incomingCorrsTarget="//@rules.46/@nodes.3">
+    <nodes name="aadlPackage" domainType="TRG" bindingType="CREATE" outgoingEdges="//@rules.42/@edges.0" incomingCorrsTarget="//@rules.42/@nodes.3">
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//AdlPackage"/>
     </nodes>
-    <nodes name="aadlPublicPackageSection" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.46/@edges.0">
+    <nodes name="aadlPublicPackageSection" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.42/@edges.0">
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//PublicPackageSection"/>
     </nodes>
-    <nodes xsi:type="language:TGGRuleCorr" name="corrAxiom" domainType="CORR" bindingType="CREATE" source="//@rules.46/@nodes.0" target="//@rules.46/@nodes.1">
+    <nodes xsi:type="language:TGGRuleCorr" name="corrAxiom" domainType="CORR" bindingType="CREATE" source="//@rules.42/@nodes.0" target="//@rules.42/@nodes.1">
       <type href="platform:/resource/AdeleToAadl/model/AdeleToAadl.ecore#//CorrAxiomAP"/>
     </nodes>
-    <edges name="aadlPackage__ownedPublicSection__aadlPublicPackageSection_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.46/@nodes.1" trgNode="//@rules.46/@nodes.2">
+    <edges name="aadlPackage__ownedPublicSection__aadlPublicPackageSection_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.42/@nodes.1" trgNode="//@rules.42/@nodes.2">
       <type href="platform:/resource/Aadl/model/Aadl.ecore#//AdlPackage/ownedPublicSection"/>
     </edges>
     <attributeConditionLibrary/>

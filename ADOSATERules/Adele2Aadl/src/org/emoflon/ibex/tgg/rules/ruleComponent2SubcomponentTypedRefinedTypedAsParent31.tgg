@@ -1,0 +1,33 @@
+#using Adele2Aadl.*
+#using AttrCondDefLibrary.*
+
+#abstract #rule ruleComponent2SubcomponentTypedRefinedTypedAsParent31 #extends ruleComponent2SubcomponentTypedRefined29 #with Adele2Aadl
+
+#source { 
+	++ adeleSubcomponent: ADELE_Components.Component
+	{
+		++ -implementation-> adeleImplementation
+	}
+	adeleImplementation:ADELE_Components.Component
+	
+}
+
+#target {
+	aadlRefinedSubcomponent: aadl2.Subcomponent
+	{
+		// no name in the Mote
+	}
+	aadlImplementation: aadl2.ComponentImplementation
+	
+}
+
+#correspondence {
+	
+}
+
+#attributeConditions {
+	
+}
+
+
+

@@ -1,0 +1,43 @@
+#using Adele2Aadl.*
+#using AttrCondDefLibrary.*
+
+#abstract #rule ruleComponent2SubcomponentTypedAsParentRefinedTyped28 #extends ruleComponent2SubcomponentTypedAsParentRefined27 #with Adele2Aadl
+
+#source { 
+	
+	++ adeleSubcomponent: ADELE_Components.Component
+	{
+		
+		++ -implementation -> adeleSubcomponentImpl
+	}
+	adeleSubcomponentImpl: ADELE_Components.Component
+}
+
+#target {
+	
+	aadlRefinedSubcomponent: aadl2.Subcomponent
+	{
+		-subcomponentType -> aadlRefinedSubcomponentType
+	}
+	
+	aadlRefinedSubcomponentType: aadl2.SubcomponentType
+}
+
+
+#correspondence {
+	
+	corrRefinedComponentType: CorrComponentSCT
+	{
+		#src->adeleSubcomponentImpl
+		#trg->aadlRefinedSubcomponentType
+	}
+	
+	
+}
+
+#attributeConditions {
+	
+}
+
+
+
