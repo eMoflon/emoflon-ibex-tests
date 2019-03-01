@@ -1,0 +1,54 @@
+#using Adele2Aadl.*
+#using AttrCondDefLibrary.*
+
+#abstract #rule ruleComponent2ComponentType20 #with Adele2Aadl
+
+#source { 	
+	adelePackage:ADELE_Components.Package 
+	{
+		++ -children->adeleType
+	}
+	++adeleType:ADELE_Components.Component
+	
+}
+#target {
+	aadlPublicPackageSection:aadl2.PublicPackageSection 
+	{
+		++ -ownedClassifier->aadlType
+	}
+	++aadlType: aadl2.ComponentType
+}  
+
+#correspondence {
+	corrAxiom: CorrAxiomPPS 
+	{
+		#src->adelePackage
+		#trg->aadlPublicPackageSection
+	}
+	++corrType:CorrComponentType 
+	{
+		#src->adeleType
+		#trg->aadlType
+		
+	}
+	
+}
+
+#attributeConditions {
+	
+}
+
+
+ #rule  ruleComponent2ComponentType #extends ruleComponent2ComponentType20 #with Adele2Aadl
+ 
+ 
+#source { 	
+
+	++adeleType:ADELE_Components.Bus
+	
+}
+#target {
+	++aadlType:aadl2.BusImplementation 
+}  
+
+

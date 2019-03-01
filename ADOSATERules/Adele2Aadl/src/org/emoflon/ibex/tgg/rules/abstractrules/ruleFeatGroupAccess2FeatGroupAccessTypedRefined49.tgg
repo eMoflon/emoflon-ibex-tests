@@ -1,0 +1,30 @@
+#using Adele2Aadl.*
+#using AttrCondDefLibrary.*
+
+#abstract #rule ruleFeatGroupAccess2FeatGroupAccessTypedRefined49 #extends ruleFeatGroupAccess2FeatGroupAccessRefined47 #with Adele2Aadl
+
+#source { 
+	++ adeleAccess:ADELE_Features.Access{
+			++ -classifier->adeleClassifier
+	}
+	adeleClassifier:ADELE_Components.Component
+}
+
+#target {
+	++ aadlAccess:aadl2.Access{
+		++ -featureClassifier->aadlClassifier
+	}
+	aadlClassifier:aadl2.FeatureClassifier
+}
+
+#correspondence {
+	corrClassifier:CorrComponent{
+		#src->adeleClassifier
+		#trg->aadlClassifier
+	}
+}
+
+#attributeConditions {
+eq_string(adeleAccess.name, aadlAccess.name)
+}
+
