@@ -1,0 +1,40 @@
+#using Adele2Aadl.*
+#using AttrCondDefLibrary.*
+
+#rule ruleComponent2Subcomponent #with Adele2Aadl
+
+#source {
+	adeleImplementation:ADELE_Components.Component
+	{
+		++ -children->adeleSubcomponent
+	}
+	adeleSubcomponent:ADELE_Components.Component
+}
+
+#target {
+	aadlImplementation:aadl2.ComponentImplementation
+	{
+	++ -ownedSubcomponent -> aadlSubcomponent
+	}
+	aadlSubcomponent:aadl2.Subcomponent
+	
+}
+
+#correspondence {
+	corrImplementation:CorrComponentImplementation
+	{
+		#src->adeleImplementation
+		#trg->aadlImplementation
+	}
+	
+	++corrSubcomponent:CorrSubcomponenttrgSC
+		{
+		#src->adeleSubcomponent
+		#trg->aadlSubcomponent
+	}
+	
+}
+
+#attributeConditions {
+	
+}
