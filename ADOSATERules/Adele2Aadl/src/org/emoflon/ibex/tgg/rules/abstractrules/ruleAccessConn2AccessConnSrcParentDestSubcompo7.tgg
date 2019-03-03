@@ -98,10 +98,3 @@
 	eq_string(adeleConnection.name, aadlConnection.name)
 }
 
-#rule ruleAccessConn2AccessConnSrcParentDestSubcompo #extends ruleAccessConn2AccessConnSrcParentDestSubcompo7 #with Adele2Aadl
-
-#source{
-	++adeleConnection:ADELE_Relations.BusAccessConnection
-}
-
-
