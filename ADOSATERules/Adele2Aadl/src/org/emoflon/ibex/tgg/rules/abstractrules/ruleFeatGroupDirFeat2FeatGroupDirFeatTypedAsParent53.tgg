@@ -43,5 +43,15 @@
 eq_string(adeleFeature.name, aadlFeature.name)
 }
 
+#rule ruleFeatGroupDirFeat2FeatGroupDirFeatTypedAsParent #extends ruleFeatGroupDirFeat2FeatGroupDirFeatTypedAsParent53 #with Adele2Aadl
+ 
+ #source{
+ 	++ adeleFeature:ADELE_Features.BusAccess
+ }
+
+#target{
+	++aadlFeature:aadl2.BusAccess
+}
+
 
 

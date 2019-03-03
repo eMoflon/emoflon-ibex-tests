@@ -47,9 +47,8 @@ corrRefinedFeature:CorrFeature{
 eq_string(adeleAccess.name, aadlAccess.name)
 }
 
+#rule BusAccess2BusAccessRule #extends ruleFeatGroupAccess2FeatGroupAccessRefined47 #with Adele2Aadl
 
-#rule BusAccess2BusAccessRule #extends ruleFeatGroupAccess2FeatGroupAccessRefined47
-#with Adele2Aadl
 #source {
 	++ adeleAccess:BusAccess
 	
