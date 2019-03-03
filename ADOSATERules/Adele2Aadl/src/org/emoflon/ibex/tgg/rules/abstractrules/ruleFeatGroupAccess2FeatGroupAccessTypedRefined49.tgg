@@ -28,3 +28,13 @@
 eq_string(adeleAccess.name, aadlAccess.name)
 }
 
+#rule ruleFeatGroupAccess2FeatGroupAccessTypedRefined #extends ruleFeatGroupAccess2FeatGroupAccessTypedRefined49 #with Adele2Aadl
+
+#source{
+	++ adeleAccess:ADELE_Features.BusAccess
+	
+}
+#target{
+	++ aadlAccess:aadl2.BusAccess
+	
+}
