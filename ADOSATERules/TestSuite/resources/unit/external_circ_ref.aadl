@@ -1,0 +1,13 @@
+package external_circ_ref
+public
+with component_type_circ_ref;
+	processor Test2_Proc1
+	end Test2_Proc1;
+
+	processor Test2_Proc2 extends component_type_circ_ref::Test1_Proc2
+	end Test2_Proc2;
+
+	data Data1
+	end Data1;
+
+end external_circ_ref;

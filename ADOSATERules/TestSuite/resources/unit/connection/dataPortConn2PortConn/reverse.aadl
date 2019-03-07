@@ -1,0 +1,81 @@
+package dataPortConn2PortConn
+public
+	data Data0
+	end Data0;
+	
+	data implementation Data0.impl
+	end Data0.impl;
+
+	data Data1 extends Data0
+	end Data1;
+	
+	data implementation Data1.impl extends Data0.impl
+	end Data1.impl;
+	
+	system System0
+	features
+		sys0InDataPort1: in data port;
+		sys0OutDataPort1: out data port Data0;
+		sys0InOutDataPort1: in out data port Data0.impl;
+		sys0OutAbstractFeat: out feature;
+	end System0;
+	
+	-- Sunny day test
+	system implementation System0.impl
+	subcomponents
+		sys0Sub0Sys2: system System2.impl;
+		sys0Sub1Sys2: system System2.impl;
+		sys0Sub2Sys3: system System3;
+	connections
+		conn0: port sys0Sub0Sys2.sys2OutDataPort -> sys0InOutDataPort1; 
+		conn1: port sys0InDataPort1 -> sys0Sub1Sys2.sys2InOutDataPort;
+		conn2: port sys0Sub1Sys2.sys2InOutDataPort -> sys0OutDataPort1;
+		conn3: port sys0Sub1Sys2.sys2OutDataPort -> sys0InOutDataPort1; 
+		-- The following connections are for the case when the source and destination ports are the same
+		conn4: port sys0Sub1Sys2.sys2InOutDataPort -> sys0Sub0Sys2.sys2InOutDataPort;
+--	properties
+--		Classifier_Substitution_Rule => Signature_Match applies to sys0Sub1Sys2;
+	end System0.impl;
+
+	system System1 extends System0
+	features
+		sys1InDataPort1: in data port;
+		sys1OutDataPort1: out data port Data1;
+		sys1InOutDataPort1: in out data port Data1.impl;
+		sys0OutAbstractFeat: refined to out data port Data1;
+	end System1;
+
+	-- Feature from extended component
+	system implementation System1.impl extends System0.impl
+	subcomponents
+		sys0Sub1Sys2: refined to system System3.impl;
+		sys1Sub1Sys2: system System2.impl;
+	connections
+		-- Connections to inherited features
+		conn7: port sys0Sub0Sys2.sys2InOutDataPort -> sys0OutDataPort1;
+		conn8: port sys0InDataPort1 -> sys1Sub1Sys2.sys2InOutDataPort;
+		conn9: port sys0Sub1Sys2.sys3OutDataPort -> sys1OutDataPort1; -- Connection from a refined subcomponent
+		conn10: port sys0Sub1Sys2.sys3OutDataPort -> sys0OutAbstractFeat; -- Connection from a refined subcomponent to a refined feature
+		conn11: port sys1Sub1Sys2.sys2OutDataPort -> sys0Sub0Sys2.sys2InDataPort; 
+	end System1.impl;
+
+	system System2
+	features
+		sys2InDataPort: in data port;
+		sys2OutDataPort: out data port Data0;
+		sys2InOutDataPort: in out data port Data0.impl;
+	end System2;
+
+	system implementation System2.impl
+	end System2.impl;
+	
+	system System3 extends System2
+	features
+		sys3OutDataPort: out data port Data1;
+		sys3InOutDataPort: out data port Data1.impl;
+	end System3;
+
+	system implementation System3.impl extends System2.impl
+	end System3.impl;
+	
+end dataPortConn2PortConn;

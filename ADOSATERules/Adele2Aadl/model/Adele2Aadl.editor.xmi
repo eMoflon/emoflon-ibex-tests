@@ -156,6 +156,1526 @@
       </allowedGenAdornments>
     </attributeCondDefs>
   </schema>
+  <rules name="RuleAccessConn2AccessConnSrcSubcompoFeatDestSubcompo16" abstractRule="true" schema="//@schema">
+    <sourcePatterns name="adeleComponentImplementation">
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Components.ecore#//Component"/>
+      <linkVariablePatterns target="//@rules.0/@sourcePatterns.2">
+        <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Components.ecore#//Component/allRealChildrenComponents"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.0/@sourcePatterns.3">
+        <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Components.ecore#//Component/allRealChildrenComponents"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.0/@sourcePatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Components.ecore#//Component/allRealRelations"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="adeleConnection">
+      <op value="++"/>
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Relations.ecore#//AccessConnection"/>
+      <linkVariablePatterns target="//@rules.0/@sourcePatterns.5">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Relations.ecore#//Relation/originalSinkFeature"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.0/@sourcePatterns.4">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Relations.ecore#//Relation/originalSourceFeature"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="adeleDestinationSubcomponent">
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Components.ecore#//Component"/>
+    </sourcePatterns>
+    <sourcePatterns name="adeleSourceSubcomponent">
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Components.ecore#//Component"/>
+    </sourcePatterns>
+    <sourcePatterns name="adeleSourceSubcomponentAccess">
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Features.ecore#//Access"/>
+    </sourcePatterns>
+    <sourcePatterns name="adeleDestinationSubcomponentAccess">
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Features.ecore#//Access"/>
+    </sourcePatterns>
+    <targetPatterns name="sourceConnectedElement">
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//ConnectedElement"/>
+      <linkVariablePatterns target="//@rules.0/@targetPatterns.3">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//ConnectedElement/connectionEnd"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.0/@targetPatterns.2">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//ConnectedElement/context"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="destinationConnectedElement">
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//ConnectedElement"/>
+      <linkVariablePatterns target="//@rules.0/@targetPatterns.4">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//ConnectedElement/connectionEnd"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="aadlSourceSubcomponent">
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//Subcomponent"/>
+    </targetPatterns>
+    <targetPatterns name="aadlDestinationSubcomponentAccess">
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//Access"/>
+    </targetPatterns>
+    <targetPatterns name="aadlDestinationSubcomponent">
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//AccessConnectionEnd"/>
+    </targetPatterns>
+    <targetPatterns name="aadlSourceSubcomponentAccess">
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//Subcomponent"/>
+    </targetPatterns>
+    <targetPatterns name="aadlComponentImplementation">
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//ComponentImplementation"/>
+      <linkVariablePatterns target="//@rules.0/@targetPatterns.7">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//ComponentImplementation/ownedAccessConnection"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.0/@targetPatterns.5">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//Namespace/member"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.0/@targetPatterns.4">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//Namespace/member"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="aadlConnection">
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//AccessConnection"/>
+      <linkVariablePatterns target="//@rules.0/@targetPatterns.0">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//Connection/source"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.0/@targetPatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//Connection/destination"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <correspondencePatterns name="corrDestinationSubcomponentAccess" type="//@schema/@correspondenceTypes.4" source="//@rules.0/@sourcePatterns.4" target="//@rules.0/@targetPatterns.3"/>
+    <correspondencePatterns name="corrDestinationSubcomponent" type="//@schema/@correspondenceTypes.16" source="//@rules.0/@sourcePatterns.3" target="//@rules.0/@targetPatterns.2"/>
+    <correspondencePatterns name="corrComponentImplementation" type="//@schema/@correspondenceTypes.10" source="//@rules.0/@sourcePatterns.0" target="//@rules.0/@targetPatterns.6"/>
+    <correspondencePatterns name="corrConnection" type="//@schema/@correspondenceTypes.13" source="//@rules.0/@sourcePatterns.1" target="//@rules.0/@targetPatterns.7">
+      <op value="++"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrSourceSubcomponent" type="//@schema/@correspondenceTypes.15" source="//@rules.0/@sourcePatterns.2" target="//@rules.0/@targetPatterns.4"/>
+  </rules>
+  <rules name="abstractruleAccess2Feature" abstractRule="true" schema="//@schema">
+    <sourcePatterns name="adeleAccess">
+      <op value="++"/>
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Features.ecore#//Access"/>
+      <linkVariablePatterns target="//@rules.1/@sourcePatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Features.ecore#//Feature/refinedFeature"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="adeleRefinedFeature">
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Features.ecore#//Feature"/>
+    </sourcePatterns>
+    <targetPatterns name="aadlAccess">
+      <op value="++"/>
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//Access"/>
+      <linkVariablePatterns target="//@rules.1/@targetPatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//Feature/refined"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="aadlRefinedFeature">
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//Feature"/>
+    </targetPatterns>
+    <attrConditions name="//@schema/@attributeCondDefs.0">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.1/@sourcePatterns.0">
+        <attribute href="platform:/resource/Adele2Aadl/metamodels/src/KernelSpices.ecore#//SKObject/name"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.1/@targetPatterns.0">
+        <attribute href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//NamedElement/name"/>
+      </values>
+    </attrConditions>
+  </rules>
+  <rules name="abstractrRuleAccess2Component" abstractRule="true" schema="//@schema">
+    <sourcePatterns name="adeleAccess">
+      <op value="++"/>
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Features.ecore#//Access"/>
+      <linkVariablePatterns target="//@rules.2/@sourcePatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Features.ecore#//Feature/classifier"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="adeleClassifier">
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Components.ecore#//Component"/>
+    </sourcePatterns>
+    <targetPatterns name="aadlAccess">
+      <op value="++"/>
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//Access"/>
+      <linkVariablePatterns target="//@rules.2/@targetPatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//Feature/featureClassifier"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="aadlClassifier">
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//FeatureClassifier"/>
+    </targetPatterns>
+    <attrConditions name="//@schema/@attributeCondDefs.0">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.2/@sourcePatterns.0">
+        <attribute href="platform:/resource/Adele2Aadl/metamodels/src/KernelSpices.ecore#//SKObject/name"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.2/@targetPatterns.0">
+        <attribute href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//NamedElement/name"/>
+      </values>
+    </attrConditions>
+  </rules>
+  <rules name="abstractRuleAccess2Component" abstractRule="true" schema="//@schema">
+    <sourcePatterns name="adeleType">
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Components.ecore#//Component"/>
+    </sourcePatterns>
+    <sourcePatterns name="adeleAccess">
+      <op value="++"/>
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Features.ecore#//Access"/>
+      <linkVariablePatterns target="//@rules.3/@sourcePatterns.0">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Features.ecore#//Feature/classifier"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <targetPatterns name="aadlType">
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//ComponentType"/>
+    </targetPatterns>
+    <targetPatterns name="aadlAccess">
+      <op value="++"/>
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//Access"/>
+      <linkVariablePatterns target="//@rules.3/@targetPatterns.0">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//Feature/featureClassifier"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+  </rules>
+  <rules name="ComponentToAccess" abstractRule="true" schema="//@schema">
+    <sourcePatterns name="adeleType">
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Components.ecore#//Component"/>
+      <linkVariablePatterns target="//@rules.4/@sourcePatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/src/KernelSpices.ecore#//SKComponent/features"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="adeleAccess">
+      <op value="++"/>
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Features.ecore#//Access"/>
+    </sourcePatterns>
+    <targetPatterns name="aadlType">
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//ComponentType"/>
+      <linkVariablePatterns target="//@rules.4/@targetPatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//ComponentType/ownedFeature"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="aadlAccess">
+      <op value="++"/>
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//Access"/>
+    </targetPatterns>
+  </rules>
+  <rules name="ruleAccess2AccessTypedRefined6" supertypes="//@rules.4 //@rules.1 //@rules.2" schema="//@schema">
+    <correspondencePatterns name="corrType" type="//@schema/@correspondenceTypes.0" source="//@rules.4/@sourcePatterns.0" target="//@rules.4/@targetPatterns.0"/>
+    <correspondencePatterns name="corrAccess" type="//@schema/@correspondenceTypes.4" source="//@rules.4/@sourcePatterns.1" target="//@rules.4/@targetPatterns.1">
+      <op value="++"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrRefinedFeature" type="//@schema/@correspondenceTypes.5" source="//@rules.1/@sourcePatterns.1" target="//@rules.1/@targetPatterns.1"/>
+    <correspondencePatterns name="corrClassifier" type="//@schema/@correspondenceTypes.6" source="//@rules.2/@sourcePatterns.1" target="//@rules.2/@targetPatterns.1"/>
+  </rules>
+  <rules name="ruleAccess2AccessTypedAsParentRefined" supertypes="//@rules.4 //@rules.1 //@rules.3" schema="//@schema">
+    <correspondencePatterns name="corrType" type="//@schema/@correspondenceTypes.0" source="//@rules.4/@sourcePatterns.0" target="//@rules.4/@targetPatterns.0"/>
+    <correspondencePatterns name="corrAccess" type="//@schema/@correspondenceTypes.4" source="//@rules.4/@sourcePatterns.1" target="//@rules.4/@targetPatterns.1">
+      <op value="++"/>
+    </correspondencePatterns>
+  </rules>
+  <rules name="ruleAccessConn2AccessConnSrcParentDestSubcompo7" abstractRule="true" schema="//@schema">
+    <sourcePatterns name="adeleCompImplType">
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Components.ecore#//Component"/>
+      <linkVariablePatterns target="//@rules.7/@sourcePatterns.1">
+        <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Components.ecore#//Component/allRealFeatures"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="adeleComponentAccess">
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Features.ecore#//Access"/>
+    </sourcePatterns>
+    <sourcePatterns name="adeleComponentImplementation">
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Components.ecore#//Component"/>
+      <linkVariablePatterns target="//@rules.7/@sourcePatterns.0">
+        <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Components.ecore#//Component/type"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.7/@sourcePatterns.4">
+        <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Components.ecore#//Component/allRealChildrenComponents"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.7/@sourcePatterns.3">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Components.ecore#//Component/allRealRelations"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="adeleConnection">
+      <op value="++"/>
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Relations.ecore#//AccessConnection"/>
+      <linkVariablePatterns target="//@rules.7/@sourcePatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Relations.ecore#//Relation/originalSourceFeature"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.7/@sourcePatterns.4">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Relations.ecore#//Relation/originalSinkSubcomponent"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="adeleSubcomponent">
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Components.ecore#//Component"/>
+    </sourcePatterns>
+    <targetPatterns name="aadlComponentAccess">
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//Access"/>
+    </targetPatterns>
+    <targetPatterns name="sourceConnectedElement">
+      <op value="++"/>
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//ConnectedElement"/>
+      <linkVariablePatterns target="//@rules.7/@targetPatterns.0">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//ConnectedElement/connectionEnd"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="aadlConnection">
+      <op value="++"/>
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//AccessConnection"/>
+      <linkVariablePatterns target="//@rules.7/@targetPatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//Connection/source"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.7/@targetPatterns.3">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//Connection/destination"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="destinationConnectedElement">
+      <op value="++"/>
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//ConnectedElement"/>
+      <linkVariablePatterns target="//@rules.7/@targetPatterns.4">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//ConnectedElement/connectionEnd"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="aadlSubcomponent">
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//AccessConnectionEnd"/>
+    </targetPatterns>
+    <targetPatterns name="aadlComponentImplementation">
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//ComponentImplementation"/>
+      <linkVariablePatterns target="//@rules.7/@targetPatterns.6">
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//ComponentImplementation/type"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.7/@targetPatterns.4">
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//Namespace/member"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="aadlCompImplType">
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//ComponentType"/>
+      <linkVariablePatterns target="//@rules.7/@targetPatterns.0">
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//Namespace/member"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <correspondencePatterns name="corrComponentAccess" type="//@schema/@correspondenceTypes.4" source="//@rules.7/@sourcePatterns.1" target="//@rules.7/@targetPatterns.0"/>
+    <correspondencePatterns name="corrComponentType" type="//@schema/@correspondenceTypes.0" source="//@rules.7/@sourcePatterns.0" target="//@rules.7/@targetPatterns.6"/>
+    <correspondencePatterns name="corrComponentImplementation" type="//@schema/@correspondenceTypes.10" source="//@rules.7/@sourcePatterns.2" target="//@rules.7/@targetPatterns.5"/>
+    <correspondencePatterns name="corrConnection" type="//@schema/@correspondenceTypes.13" source="//@rules.7/@sourcePatterns.3" target="//@rules.7/@targetPatterns.2">
+      <op value="++"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrConnection1" type="//@schema/@correspondenceTypes.14" source="//@rules.7/@sourcePatterns.3" target="//@rules.7/@targetPatterns.1">
+      <op value="++"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrConnection2" type="//@schema/@correspondenceTypes.14" source="//@rules.7/@sourcePatterns.3" target="//@rules.7/@targetPatterns.3">
+      <op value="++"/>
+    </correspondencePatterns>
+    <attrConditions name="//@schema/@attributeCondDefs.0">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.7/@sourcePatterns.3">
+        <attribute href="platform:/resource/Adele2Aadl/metamodels/src/KernelSpices.ecore#//SKObject/name"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.7/@targetPatterns.2">
+        <attribute href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//NamedElement/name"/>
+      </values>
+    </attrConditions>
+  </rules>
+  <rules name="ruleAccessConn2AccessConnSrcParentDestSubcompoFeat8" abstractRule="true" schema="//@schema">
+    <sourcePatterns name="adeleCompImplType">
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Components.ecore#//Component"/>
+      <linkVariablePatterns target="//@rules.8/@sourcePatterns.1">
+        <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Components.ecore#//Component/allRealFeatures"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="adeleComponentAccess">
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Features.ecore#//Access"/>
+    </sourcePatterns>
+    <sourcePatterns name="adeleComponentImplementation">
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Components.ecore#//Component"/>
+      <linkVariablePatterns target="//@rules.8/@sourcePatterns.0">
+        <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Components.ecore#//Component/type"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.8/@sourcePatterns.3">
+        <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Components.ecore#//Component/allRealChildrenComponents"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.8/@sourcePatterns.4">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Components.ecore#//Component/allRealRelations"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="adeleSubcomponent">
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Components.ecore#//Component"/>
+    </sourcePatterns>
+    <sourcePatterns name="adeleConnection">
+      <op value="++"/>
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Relations.ecore#//AccessConnection"/>
+      <linkVariablePatterns target="//@rules.8/@sourcePatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Relations.ecore#//Relation/originalSourceFeature"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.8/@sourcePatterns.5">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Relations.ecore#//Relation/originalSinkFeature"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="adeleSubcomponentAccess">
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Features.ecore#//Access"/>
+    </sourcePatterns>
+    <targetPatterns name="aadlComponentAccess">
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//Access"/>
+    </targetPatterns>
+    <targetPatterns name="sourceConnectedElement">
+      <op value="++"/>
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//ConnectedElement"/>
+      <linkVariablePatterns target="//@rules.8/@targetPatterns.0">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//ConnectedElement/connectionEnd"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="aadlConnection">
+      <op value="++"/>
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//AccessConnection"/>
+      <linkVariablePatterns target="//@rules.8/@targetPatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//Connection/source"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.8/@targetPatterns.3">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//Connection/destination"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="destinationConnectedElement">
+      <op value="++"/>
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//ConnectedElement"/>
+      <linkVariablePatterns target="//@rules.8/@targetPatterns.4">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//ConnectedElement/connectionEnd"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.8/@targetPatterns.5">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//ConnectedElement/context"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="aadlSubcomponentAccess">
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//Access"/>
+    </targetPatterns>
+    <targetPatterns name="aadlSubcomponent">
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//Subcomponent"/>
+    </targetPatterns>
+    <targetPatterns name="aadlComponentImplementation">
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//ComponentImplementation"/>
+      <linkVariablePatterns target="//@rules.8/@targetPatterns.5">
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//Namespace/member"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.8/@targetPatterns.7">
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//ComponentImplementation/type"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="aadlCompImplType">
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//ComponentType"/>
+      <linkVariablePatterns target="//@rules.8/@targetPatterns.0">
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//Namespace/member"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <correspondencePatterns name="corrComponentAccess" type="//@schema/@correspondenceTypes.4" source="//@rules.8/@sourcePatterns.1" target="//@rules.8/@targetPatterns.0"/>
+    <correspondencePatterns name="corrComponentType" type="//@schema/@correspondenceTypes.0" source="//@rules.8/@sourcePatterns.0" target="//@rules.8/@targetPatterns.7"/>
+    <correspondencePatterns name="corrComponentImplementation" type="//@schema/@correspondenceTypes.10" source="//@rules.8/@sourcePatterns.2" target="//@rules.8/@targetPatterns.6"/>
+    <correspondencePatterns name="corrSubcomponent" type="//@schema/@correspondenceTypes.16" source="//@rules.8/@sourcePatterns.3" target="//@rules.8/@targetPatterns.5"/>
+    <correspondencePatterns name="corrSubcomponentAccess" type="//@schema/@correspondenceTypes.4" source="//@rules.8/@sourcePatterns.5" target="//@rules.8/@targetPatterns.4"/>
+    <attrConditions name="//@schema/@attributeCondDefs.0">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.8/@sourcePatterns.4">
+        <attribute href="platform:/resource/Adele2Aadl/metamodels/src/KernelSpices.ecore#//SKObject/name"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.8/@targetPatterns.2">
+        <attribute href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//NamedElement/name"/>
+      </values>
+    </attrConditions>
+  </rules>
+  <rules name="ruleAccessConn2AccessConnSrcParentDestSubcompoFeatSameAccess9" abstractRule="true" schema="//@schema">
+    <sourcePatterns name="adeleCompImplType">
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Components.ecore#//Component"/>
+      <linkVariablePatterns target="//@rules.9/@sourcePatterns.1">
+        <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Components.ecore#//Component/allRealFeatures"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="adeleComponentAccess">
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Features.ecore#//Access"/>
+    </sourcePatterns>
+    <sourcePatterns name="adeleComponentImplementation">
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Components.ecore#//Component"/>
+      <linkVariablePatterns target="//@rules.9/@sourcePatterns.0">
+        <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Components.ecore#//Component/type"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.9/@sourcePatterns.3">
+        <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Components.ecore#//Component/allRealChildrenComponents"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.9/@sourcePatterns.4">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Components.ecore#//Component/allRealRelations"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="adeleSubcomponent">
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Components.ecore#//Component"/>
+    </sourcePatterns>
+    <sourcePatterns name="adeleConnection">
+      <op value="++"/>
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Relations.ecore#//AccessConnection"/>
+      <linkVariablePatterns target="//@rules.9/@sourcePatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Relations.ecore#//Relation/originalSourceFeature"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.9/@sourcePatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Relations.ecore#//Relation/originalSinkFeature"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <targetPatterns name="aadlComponentAccess">
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//Access"/>
+    </targetPatterns>
+    <targetPatterns name="sourceConnectedElement">
+      <op value="++"/>
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//ConnectedElement"/>
+      <linkVariablePatterns target="//@rules.9/@targetPatterns.0">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//ConnectedElement/connectionEnd"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="aadlConnection">
+      <op value="++"/>
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//AccessConnection"/>
+      <linkVariablePatterns target="//@rules.9/@targetPatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//Connection/source"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.9/@targetPatterns.3">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//Connection/destination"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="destinationConnectedElement">
+      <op value="++"/>
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//ConnectedElement"/>
+      <linkVariablePatterns target="//@rules.9/@targetPatterns.0">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//ConnectedElement/connectionEnd"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.9/@targetPatterns.4">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//ConnectedElement/context"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="aadlSubcomponent">
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//Subcomponent"/>
+    </targetPatterns>
+    <targetPatterns name="aadlComponentImplementation">
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//ComponentImplementation"/>
+      <linkVariablePatterns target="//@rules.9/@targetPatterns.2">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//ComponentImplementation/ownedAccessConnection"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.9/@targetPatterns.4">
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//Namespace/member"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.9/@targetPatterns.6">
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//ComponentImplementation/type"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="aadlCompImplType">
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//ComponentType"/>
+      <linkVariablePatterns target="//@rules.9/@targetPatterns.0">
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//Namespace/member"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <correspondencePatterns name="corrComponentAccess" type="//@schema/@correspondenceTypes.4" source="//@rules.9/@sourcePatterns.1" target="//@rules.9/@targetPatterns.0"/>
+    <correspondencePatterns name="corrComponentType" type="//@schema/@correspondenceTypes.0" source="//@rules.9/@sourcePatterns.0" target="//@rules.9/@targetPatterns.6"/>
+    <correspondencePatterns name="corrComponentImplementation" type="//@schema/@correspondenceTypes.10" source="//@rules.9/@sourcePatterns.2" target="//@rules.9/@targetPatterns.5"/>
+    <correspondencePatterns name="corrConnection" type="//@schema/@correspondenceTypes.13" source="//@rules.9/@sourcePatterns.4" target="//@rules.9/@targetPatterns.2">
+      <op value="++"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrConnection1" type="//@schema/@correspondenceTypes.14" source="//@rules.9/@sourcePatterns.4" target="//@rules.9/@targetPatterns.1">
+      <op value="++"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrConnection2" type="//@schema/@correspondenceTypes.14" source="//@rules.9/@sourcePatterns.4" target="//@rules.9/@targetPatterns.3">
+      <op value="++"/>
+    </correspondencePatterns>
+    <attrConditions name="//@schema/@attributeCondDefs.0">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.9/@sourcePatterns.4">
+        <attribute href="platform:/resource/Adele2Aadl/metamodels/src/KernelSpices.ecore#//SKObject/name"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.9/@targetPatterns.2">
+        <attribute href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//NamedElement/name"/>
+      </values>
+    </attrConditions>
+  </rules>
+  <rules name="ruleAccessConn2AccessConnSrcSubcompoDestParent10" abstractRule="true" schema="//@schema">
+    <sourcePatterns name="adeleCompImplType">
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Components.ecore#//Component"/>
+      <linkVariablePatterns target="//@rules.10/@sourcePatterns.1">
+        <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Components.ecore#//Component/allRealFeatures"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="adeleComponentAccess">
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Features.ecore#//Access"/>
+    </sourcePatterns>
+    <sourcePatterns name="adeleComponentImplementation">
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Components.ecore#//Component"/>
+      <linkVariablePatterns target="//@rules.10/@sourcePatterns.0">
+        <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Components.ecore#//Component/type"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.10/@sourcePatterns.3">
+        <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Components.ecore#//Component/allRealChildrenComponents"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.10/@sourcePatterns.4">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Components.ecore#//Component/allRealRelations"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="adeleSubcomponent">
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Components.ecore#//Component"/>
+    </sourcePatterns>
+    <sourcePatterns name="adeleConnection">
+      <op value="++"/>
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Relations.ecore#//AccessConnection"/>
+      <linkVariablePatterns target="//@rules.10/@sourcePatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Relations.ecore#//Relation/originalSinkFeature"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.10/@sourcePatterns.3">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Relations.ecore#//Relation/originalSourceSubcomponent"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <targetPatterns name="aadlComponentAccess">
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//Access"/>
+    </targetPatterns>
+    <targetPatterns name="destinationConnectedElement">
+      <op value="++"/>
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//ConnectedElement"/>
+      <linkVariablePatterns target="//@rules.10/@targetPatterns.0">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//ConnectedElement/connectionEnd"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="aadlConnection">
+      <op value="++"/>
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//AccessConnection"/>
+      <linkVariablePatterns target="//@rules.10/@targetPatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//Connection/destination"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.10/@targetPatterns.3">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//Connection/source"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="sourceConnectedElement">
+      <op value="++"/>
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//ConnectedElement"/>
+      <linkVariablePatterns target="//@rules.10/@targetPatterns.4">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//ConnectedElement/connectionEnd"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="aadlSubcomponent">
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//AccessConnectionEnd"/>
+    </targetPatterns>
+    <targetPatterns name="aadlComponentImplementation">
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//ComponentImplementation"/>
+      <linkVariablePatterns target="//@rules.10/@targetPatterns.4">
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//Namespace/member"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.10/@targetPatterns.6">
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//ComponentImplementation/type"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.10/@targetPatterns.2">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//ComponentImplementation/ownedAccessConnection"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="aadlCompImplType">
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//ComponentType"/>
+      <linkVariablePatterns target="//@rules.10/@targetPatterns.0">
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//Namespace/member"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <correspondencePatterns name="corrComponentAccess" type="//@schema/@correspondenceTypes.4" source="//@rules.10/@sourcePatterns.1" target="//@rules.10/@targetPatterns.0"/>
+    <correspondencePatterns name="corrComponentType" type="//@schema/@correspondenceTypes.0" source="//@rules.10/@sourcePatterns.0" target="//@rules.10/@targetPatterns.6"/>
+    <correspondencePatterns name="corrComponentImplementation" type="//@schema/@correspondenceTypes.10" source="//@rules.10/@sourcePatterns.2" target="//@rules.10/@targetPatterns.5"/>
+    <correspondencePatterns name="corrSubcomponent" type="//@schema/@correspondenceTypes.15" source="//@rules.10/@sourcePatterns.3" target="//@rules.10/@targetPatterns.4"/>
+    <correspondencePatterns name="corrConnection" type="//@schema/@correspondenceTypes.13" source="//@rules.10/@sourcePatterns.4" target="//@rules.10/@targetPatterns.2">
+      <op value="++"/>
+    </correspondencePatterns>
+    <attrConditions name="//@schema/@attributeCondDefs.0">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.10/@sourcePatterns.4">
+        <attribute href="platform:/resource/Adele2Aadl/metamodels/src/KernelSpices.ecore#//SKObject/name"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.10/@targetPatterns.2">
+        <attribute href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//NamedElement/name"/>
+      </values>
+    </attrConditions>
+  </rules>
+  <rules name="ruleAccessConn2AccessConnSrcSubcompoFeatDestSubcompoFeat17" abstractRule="true" schema="//@schema">
+    <sourcePatterns name="adeleDestinationSubcomponent">
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Components.ecore#//Component"/>
+    </sourcePatterns>
+    <sourcePatterns name="adeleDestinationSubcomponentAccess">
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Features.ecore#//Access"/>
+    </sourcePatterns>
+    <sourcePatterns name="adeleComponentImplementation">
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Components.ecore#//Component"/>
+      <linkVariablePatterns target="//@rules.11/@sourcePatterns.3">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Components.ecore#//Component/allRealRelations"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.11/@sourcePatterns.0">
+        <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Components.ecore#//Component/allRealChildrenComponents"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.11/@sourcePatterns.5">
+        <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Components.ecore#//Component/allRealChildrenComponents"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="adeleConnection">
+      <op value="++"/>
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Relations.ecore#//AccessConnection"/>
+      <linkVariablePatterns target="//@rules.11/@sourcePatterns.4">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Relations.ecore#//Relation/originalSourceFeature"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.11/@sourcePatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Relations.ecore#//Relation/originalSinkFeature"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="adeleSourceSubcomponentAccess">
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Features.ecore#//Access"/>
+    </sourcePatterns>
+    <sourcePatterns name="adeleSourceSubcomponent">
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Components.ecore#//Component"/>
+    </sourcePatterns>
+    <targetPatterns name="aadlDestinationSubcomponentAccess">
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//Access"/>
+    </targetPatterns>
+    <targetPatterns name="aadlDestinationSubcomponent">
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//Subcomponent"/>
+    </targetPatterns>
+    <targetPatterns name="destinationConnectedElement">
+      <op value="++"/>
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//ConnectedElement"/>
+      <linkVariablePatterns target="//@rules.11/@targetPatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//ConnectedElement/context"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.11/@targetPatterns.0">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//ConnectedElement/connectionEnd"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="aadlComponentImplementation">
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//ComponentImplementation"/>
+      <linkVariablePatterns target="//@rules.11/@targetPatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//Namespace/member"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.11/@targetPatterns.5">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//Namespace/member"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="aadlConnection">
+      <op value="++"/>
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//AccessConnection"/>
+      <linkVariablePatterns target="//@rules.11/@targetPatterns.6">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//Connection/source"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.11/@targetPatterns.2">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//Connection/destination"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="aadlSourceSubcomponent">
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//Subcomponent"/>
+    </targetPatterns>
+    <targetPatterns name="sourceConnectedElement">
+      <op value="++"/>
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//ConnectedElement"/>
+      <linkVariablePatterns target="//@rules.11/@targetPatterns.5">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//ConnectedElement/context"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.11/@targetPatterns.7">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//ConnectedElement/connectionEnd"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="aadlSourceSubcomponentAccess">
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//Access"/>
+    </targetPatterns>
+    <correspondencePatterns name="corrDestinationSubcomponentAccess" type="//@schema/@correspondenceTypes.4" source="//@rules.11/@sourcePatterns.1" target="//@rules.11/@targetPatterns.0"/>
+    <correspondencePatterns name="corrDestinationSubcomponent" type="//@schema/@correspondenceTypes.16" source="//@rules.11/@sourcePatterns.0" target="//@rules.11/@targetPatterns.1"/>
+    <correspondencePatterns name="corrComponentImplementation" type="//@schema/@correspondenceTypes.10" source="//@rules.11/@sourcePatterns.2" target="//@rules.11/@targetPatterns.3"/>
+    <correspondencePatterns name="corrConnection" type="//@schema/@correspondenceTypes.13" source="//@rules.11/@sourcePatterns.3" target="//@rules.11/@targetPatterns.4">
+      <op value="++"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrConnection2" type="//@schema/@correspondenceTypes.14" source="//@rules.11/@sourcePatterns.3" target="//@rules.11/@targetPatterns.6">
+      <op value="++"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrConnection3" type="//@schema/@correspondenceTypes.14" source="//@rules.11/@sourcePatterns.3" target="//@rules.11/@targetPatterns.2">
+      <op value="++"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrSourceSubcomponent" type="//@schema/@correspondenceTypes.16" source="//@rules.11/@sourcePatterns.5" target="//@rules.11/@targetPatterns.5"/>
+    <correspondencePatterns name="corrSourceSubcomponentAccess" type="//@schema/@correspondenceTypes.4" source="//@rules.11/@sourcePatterns.4" target="//@rules.11/@targetPatterns.7"/>
+  </rules>
+  <rules name="ruleComponent2ComponentImplementation18" abstractRule="true" schema="//@schema">
+    <sourcePatterns name="adelePackage">
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Components.ecore#//Package"/>
+      <linkVariablePatterns target="//@rules.12/@sourcePatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/src/KernelSpices.ecore#//SKHierarchicalObject/children"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="adeleType">
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Components.ecore#//Component"/>
+    </sourcePatterns>
+    <sourcePatterns name="adeleImplementation">
+      <op value="++"/>
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Components.ecore#//Component"/>
+    </sourcePatterns>
+    <targetPatterns name="aadlPublicPackageSection">
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//PackageSection"/>
+      <linkVariablePatterns target="//@rules.12/@targetPatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//PackageSection/ownedClassifier"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.12/@targetPatterns.3">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//PackageSection/ownedClassifier"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="aadlType">
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//ComponentType"/>
+    </targetPatterns>
+    <targetPatterns name="aadlRealization">
+      <op value="++"/>
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//Realization"/>
+      <linkVariablePatterns target="//@rules.12/@targetPatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//Realization/implemented"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="aadlImplementation">
+      <op value="++"/>
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//ComponentImplementation"/>
+      <linkVariablePatterns target="//@rules.12/@targetPatterns.2">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//ComponentImplementation/ownedRealization"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <correspondencePatterns name="corrAxiom" type="//@schema/@correspondenceTypes.17" source="//@rules.12/@sourcePatterns.0" target="//@rules.12/@targetPatterns.0"/>
+    <correspondencePatterns name="corrType" type="//@schema/@correspondenceTypes.0" source="//@rules.12/@sourcePatterns.1" target="//@rules.12/@targetPatterns.1"/>
+    <correspondencePatterns name="corrImplementation" type="//@schema/@correspondenceTypes.10" source="//@rules.12/@sourcePatterns.2" target="//@rules.12/@targetPatterns.3">
+      <op value="++"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrImplementationR" type="//@schema/@correspondenceTypes.11" source="//@rules.12/@sourcePatterns.2" target="//@rules.12/@targetPatterns.2">
+      <op value="++"/>
+    </correspondencePatterns>
+  </rules>
+  <rules name="ruleComponent2ComponentImplementationWithExtends19" abstractRule="true" schema="//@schema">
+    <sourcePatterns name="adelePackage">
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Components.ecore#//Package"/>
+    </sourcePatterns>
+    <sourcePatterns name="adeleType">
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Components.ecore#//Component"/>
+      <linkVariablePatterns target="//@rules.13/@sourcePatterns.2">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/src/KernelSpices.ecore#//SKHierarchicalObject/children"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="adeleImplementation">
+      <op value="++"/>
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Components.ecore#//Component"/>
+      <linkVariablePatterns target="//@rules.13/@sourcePatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Components.ecore#//Component/type"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.13/@sourcePatterns.3">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Components.ecore#//Component/refines"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="adeleExtCompImpl">
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Components.ecore#//Component"/>
+    </sourcePatterns>
+    <targetPatterns name="aadlPublicPackageSection">
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//PackageSection"/>
+      <linkVariablePatterns target="//@rules.13/@targetPatterns.1">
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//PackageSection/ownedClassifier"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.13/@targetPatterns.3">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//PackageSection/ownedClassifier"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="aadlType">
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//ComponentType"/>
+    </targetPatterns>
+    <targetPatterns name="aadlRealization">
+      <op value="++"/>
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//Realization"/>
+      <linkVariablePatterns target="//@rules.13/@targetPatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//Realization/implemented"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="aadlImplementation">
+      <op value="++"/>
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//ComponentImplementation"/>
+      <linkVariablePatterns target="//@rules.13/@targetPatterns.2">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//ComponentImplementation/ownedRealization"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.13/@targetPatterns.4">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//ComponentImplementation/ownedExtension"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="implExtension">
+      <op value="++"/>
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//ImplementationExtension"/>
+      <linkVariablePatterns target="//@rules.13/@targetPatterns.5">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//ImplementationExtension/extended"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="aadlExtCompImpl">
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//ComponentImplementation"/>
+    </targetPatterns>
+    <correspondencePatterns name="corrAxiom" type="//@schema/@correspondenceTypes.17" source="//@rules.13/@sourcePatterns.0" target="//@rules.13/@targetPatterns.0"/>
+    <correspondencePatterns name="corrType" type="//@schema/@correspondenceTypes.0" source="//@rules.13/@sourcePatterns.1" target="//@rules.13/@targetPatterns.1"/>
+    <correspondencePatterns name="corrImplementation" type="//@schema/@correspondenceTypes.10" source="//@rules.13/@sourcePatterns.2" target="//@rules.13/@targetPatterns.3">
+      <op value="++"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrImplementationR" type="//@schema/@correspondenceTypes.11" source="//@rules.13/@sourcePatterns.2" target="//@rules.13/@targetPatterns.2">
+      <op value="++"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrImplementationIE" type="//@schema/@correspondenceTypes.12" source="//@rules.13/@sourcePatterns.2" target="//@rules.13/@targetPatterns.4">
+      <op value="++"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrCompImpl" type="//@schema/@correspondenceTypes.10" source="//@rules.13/@sourcePatterns.3" target="//@rules.13/@targetPatterns.5">
+      <op value="++"/>
+    </correspondencePatterns>
+  </rules>
+  <rules name="ruleComponent2ComponentType20" abstractRule="true" schema="//@schema">
+    <sourcePatterns name="adelePackage">
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Components.ecore#//Package"/>
+      <linkVariablePatterns target="//@rules.14/@sourcePatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/src/KernelSpices.ecore#//SKHierarchicalObject/children"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="adeleType">
+      <op value="++"/>
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Components.ecore#//Component"/>
+    </sourcePatterns>
+    <targetPatterns name="aadlPublicPackageSection">
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//PublicPackageSection"/>
+      <linkVariablePatterns target="//@rules.14/@targetPatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//PackageSection/ownedClassifier"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="aadlType">
+      <op value="++"/>
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//ComponentType"/>
+    </targetPatterns>
+    <correspondencePatterns name="corrAxiom" type="//@schema/@correspondenceTypes.18" source="//@rules.14/@sourcePatterns.0" target="//@rules.14/@targetPatterns.0"/>
+    <correspondencePatterns name="corrType" type="//@schema/@correspondenceTypes.0" source="//@rules.14/@sourcePatterns.1" target="//@rules.14/@targetPatterns.1">
+      <op value="++"/>
+    </correspondencePatterns>
+  </rules>
+  <rules name="ruleFeatGroupAccess2FeatGroupAccessRefined47" abstractRule="true" schema="//@schema">
+    <sourcePatterns name="adeleType">
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Features.ecore#//FeatureGroup"/>
+      <linkVariablePatterns target="//@rules.15/@sourcePatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/src/KernelSpices.ecore#//SKComponent/features"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="adeleAccess">
+      <op value="++"/>
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Features.ecore#//Access"/>
+      <linkVariablePatterns target="//@rules.15/@sourcePatterns.2">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Features.ecore#//Feature/refinedFeature"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="adeleRefinedFeature">
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Features.ecore#//Feature"/>
+    </sourcePatterns>
+    <targetPatterns name="aadlType">
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//FeatureGroupType"/>
+      <linkVariablePatterns target="//@rules.15/@targetPatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//FeatureGroupType/ownedFeature"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="aadlAccess">
+      <op value="++"/>
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//Access"/>
+      <linkVariablePatterns target="//@rules.15/@targetPatterns.2">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//Feature/refined"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="aadlRefinedFeature">
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//Feature"/>
+    </targetPatterns>
+    <correspondencePatterns name="corrType" type="//@schema/@correspondenceTypes.2" source="//@rules.15/@sourcePatterns.0" target="//@rules.15/@targetPatterns.0"/>
+    <correspondencePatterns name="corrAccess" type="//@schema/@correspondenceTypes.4" source="//@rules.15/@sourcePatterns.1" target="//@rules.15/@targetPatterns.1">
+      <op value="++"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrRefinedFeature" type="//@schema/@correspondenceTypes.5" source="//@rules.15/@sourcePatterns.2" target="//@rules.15/@targetPatterns.2"/>
+    <attrConditions name="//@schema/@attributeCondDefs.0">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.15/@sourcePatterns.1">
+        <attribute href="platform:/resource/Adele2Aadl/metamodels/src/KernelSpices.ecore#//SKObject/name"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.15/@targetPatterns.1">
+        <attribute href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//NamedElement/name"/>
+      </values>
+    </attrConditions>
+  </rules>
+  <rules name="BusAccess2BusAccessRule" supertypes="//@rules.15" schema="//@schema">
+    <sourcePatterns name="adeleAccess">
+      <op value="++"/>
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Features.ecore#//BusAccess"/>
+    </sourcePatterns>
+    <targetPatterns name="aadlAccess">
+      <op value="++"/>
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//BusAccess"/>
+    </targetPatterns>
+  </rules>
+  <rules name="ruleFeatGroupAccess2FeatGroupAccessTyped48" abstractRule="true" schema="//@schema">
+    <sourcePatterns name="adeleType">
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Features.ecore#//FeatureGroup"/>
+      <linkVariablePatterns target="//@rules.17/@sourcePatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/src/KernelSpices.ecore#//SKComponent/features"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="adeleAccess">
+      <op value="++"/>
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Features.ecore#//Access"/>
+      <linkVariablePatterns target="//@rules.17/@sourcePatterns.2">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Features.ecore#//Feature/classifier"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="adeleClassifier">
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Components.ecore#//Component"/>
+    </sourcePatterns>
+    <targetPatterns name="aadlType">
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//FeatureGroupType"/>
+      <linkVariablePatterns target="//@rules.17/@targetPatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//FeatureGroupType/ownedFeature"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="aadlAccess">
+      <op value="++"/>
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//Access"/>
+      <linkVariablePatterns target="//@rules.17/@targetPatterns.2">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//Feature/featureClassifier"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="aadlClassifier">
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//DataSubcomponentType"/>
+    </targetPatterns>
+    <correspondencePatterns name="corrComponentClassifier" type="//@schema/@correspondenceTypes.9" source="//@rules.17/@sourcePatterns.2" target="//@rules.17/@targetPatterns.2"/>
+    <correspondencePatterns name="corrType" type="//@schema/@correspondenceTypes.2" source="//@rules.17/@sourcePatterns.0" target="//@rules.17/@targetPatterns.0"/>
+    <correspondencePatterns name="corrAccess" type="//@schema/@correspondenceTypes.4" source="//@rules.17/@sourcePatterns.1" target="//@rules.17/@targetPatterns.1">
+      <op value="++"/>
+    </correspondencePatterns>
+    <attrConditions name="//@schema/@attributeCondDefs.0">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.17/@sourcePatterns.1">
+        <attribute href="platform:/resource/Adele2Aadl/metamodels/src/KernelSpices.ecore#//SKObject/name"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.17/@targetPatterns.1">
+        <attribute href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//NamedElement/name"/>
+      </values>
+    </attrConditions>
+  </rules>
+  <rules name="ruleFeatGroupAccess2FeatGroupAccessTypedRefined49" abstractRule="true" supertypes="//@rules.15" schema="//@schema">
+    <sourcePatterns name="adeleAccess">
+      <op value="++"/>
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Features.ecore#//Access"/>
+      <linkVariablePatterns target="//@rules.18/@sourcePatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Features.ecore#//Feature/classifier"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="adeleClassifier">
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Components.ecore#//Component"/>
+    </sourcePatterns>
+    <targetPatterns name="aadlAccess">
+      <op value="++"/>
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//Access"/>
+      <linkVariablePatterns target="//@rules.18/@targetPatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//Feature/featureClassifier"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="aadlClassifier">
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//FeatureClassifier"/>
+    </targetPatterns>
+    <correspondencePatterns name="corrClassifier" type="//@schema/@correspondenceTypes.6" source="//@rules.18/@sourcePatterns.1" target="//@rules.18/@targetPatterns.1"/>
+    <attrConditions name="//@schema/@attributeCondDefs.0">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.18/@sourcePatterns.0">
+        <attribute href="platform:/resource/Adele2Aadl/metamodels/src/KernelSpices.ecore#//SKObject/name"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.18/@targetPatterns.0">
+        <attribute href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//NamedElement/name"/>
+      </values>
+    </attrConditions>
+  </rules>
+  <rules name="ruleFeatGroupDirFeat2FeatGroupDirFeat50" abstractRule="true" schema="//@schema">
+    <sourcePatterns name="adeleType">
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Features.ecore#//FeatureGroup"/>
+      <linkVariablePatterns target="//@rules.19/@sourcePatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/src/KernelSpices.ecore#//SKComponent/features"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="adeleFeature">
+      <op value="++"/>
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Features.ecore#//DirectedFeature"/>
+    </sourcePatterns>
+    <targetPatterns name="aadlType">
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//FeatureGroupType"/>
+      <linkVariablePatterns target="//@rules.19/@targetPatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//FeatureGroupType/ownedFeature"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="aadlFeature">
+      <op value="++"/>
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//DirectedFeature"/>
+    </targetPatterns>
+    <correspondencePatterns name="corrFeature" type="//@schema/@correspondenceTypes.20" source="//@rules.19/@sourcePatterns.1" target="//@rules.19/@targetPatterns.1">
+      <op value="++"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrType" type="//@schema/@correspondenceTypes.2" source="//@rules.19/@sourcePatterns.0" target="//@rules.19/@targetPatterns.0"/>
+    <attrConditions name="//@schema/@attributeCondDefs.0">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.19/@sourcePatterns.1">
+        <attribute href="platform:/resource/Adele2Aadl/metamodels/src/KernelSpices.ecore#//SKObject/name"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.19/@targetPatterns.1">
+        <attribute href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//NamedElement/name"/>
+      </values>
+    </attrConditions>
+  </rules>
+  <rules name="ruleFeatGroupDirFeat2FeatGroupDirFeatRefined51" abstractRule="true" supertypes="//@rules.19" schema="//@schema">
+    <sourcePatterns name="adeleFeature">
+      <op value="++"/>
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Features.ecore#//DirectedFeature"/>
+      <linkVariablePatterns target="//@rules.20/@sourcePatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Features.ecore#//Feature/refinedFeature"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="adeleRefinedFeature">
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Features.ecore#//Feature"/>
+    </sourcePatterns>
+    <targetPatterns name="aadlFeature">
+      <op value="++"/>
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//DirectedFeature"/>
+      <linkVariablePatterns target="//@rules.20/@targetPatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//Feature/refined"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="aadlRefinedFeature">
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//Feature"/>
+    </targetPatterns>
+    <correspondencePatterns name="corrRefinedFeature" type="//@schema/@correspondenceTypes.5" source="//@rules.20/@sourcePatterns.1" target="//@rules.20/@targetPatterns.1"/>
+    <attrConditions name="//@schema/@attributeCondDefs.0">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.20/@sourcePatterns.0">
+        <attribute href="platform:/resource/Adele2Aadl/metamodels/src/KernelSpices.ecore#//SKObject/name"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.20/@targetPatterns.0">
+        <attribute href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//NamedElement/name"/>
+      </values>
+    </attrConditions>
+  </rules>
+  <rules name="ruleFeatGroupDirFeat2FeatGroupDirFeatTyped52" abstractRule="true" supertypes="//@rules.19" schema="//@schema">
+    <sourcePatterns name="adeleFeature">
+      <op value="++"/>
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Features.ecore#//DirectedFeature"/>
+      <linkVariablePatterns target="//@rules.21/@sourcePatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Features.ecore#//Feature/classifier"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="adeleClassifier">
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/KernelSpices.ecore#//SKComponent"/>
+    </sourcePatterns>
+    <targetPatterns name="aadlFeature">
+      <op value="++"/>
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//DirectedFeature"/>
+      <linkVariablePatterns target="//@rules.21/@targetPatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//Feature/classifier"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="aadlClassifier">
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//Classifier"/>
+    </targetPatterns>
+    <correspondencePatterns name="corrClassifier" type="//@schema/@correspondenceTypes.8" source="//@rules.21/@sourcePatterns.1" target="//@rules.21/@targetPatterns.1"/>
+    <attrConditions name="//@schema/@attributeCondDefs.0">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.21/@sourcePatterns.0">
+        <attribute href="platform:/resource/Adele2Aadl/metamodels/src/KernelSpices.ecore#//SKObject/name"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.21/@targetPatterns.0">
+        <attribute href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//NamedElement/name"/>
+      </values>
+    </attrConditions>
+  </rules>
+  <rules name="ruleFeatGroupDirFeat2FeatGroupDirFeatTypedAsParent53" abstractRule="true" schema="//@schema">
+    <sourcePatterns name="adeleType">
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Features.ecore#//FeatureGroup"/>
+      <linkVariablePatterns target="//@rules.22/@sourcePatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/src/KernelSpices.ecore#//SKComponent/features"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="adeleFeature">
+      <op value="++"/>
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Features.ecore#//DirectedFeature"/>
+      <linkVariablePatterns target="//@rules.22/@sourcePatterns.0">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Features.ecore#//Feature/classifier"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <targetPatterns name="aadlType">
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//FeatureGroupType"/>
+      <linkVariablePatterns target="//@rules.22/@targetPatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//FeatureGroupType/ownedFeature"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="aadlFeature">
+      <op value="++"/>
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//DirectedFeature"/>
+      <linkVariablePatterns target="//@rules.22/@targetPatterns.0">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//Feature/classifier"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <correspondencePatterns name="corrFeature" type="//@schema/@correspondenceTypes.20" source="//@rules.22/@sourcePatterns.1" target="//@rules.22/@targetPatterns.1">
+      <op value="++"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrType" type="//@schema/@correspondenceTypes.2" source="//@rules.22/@sourcePatterns.0" target="//@rules.22/@targetPatterns.0"/>
+    <attrConditions name="//@schema/@attributeCondDefs.0">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.22/@sourcePatterns.1">
+        <attribute href="platform:/resource/Adele2Aadl/metamodels/src/KernelSpices.ecore#//SKObject/name"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.22/@targetPatterns.1">
+        <attribute href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//NamedElement/name"/>
+      </values>
+    </attrConditions>
+  </rules>
+  <rules name="ruleFeatGroupDirFeat2FeatGroupDirFeatTypedAsParentRefined54" abstractRule="true" schema="//@schema">
+    <sourcePatterns name="adeleType">
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Features.ecore#//FeatureGroup"/>
+      <linkVariablePatterns target="//@rules.23/@sourcePatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/src/KernelSpices.ecore#//SKComponent/features"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="adeleFeature">
+      <op value="++"/>
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Features.ecore#//DirectedFeature"/>
+      <linkVariablePatterns target="//@rules.23/@sourcePatterns.0">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Features.ecore#//Feature/classifier"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.23/@sourcePatterns.2">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Features.ecore#//Feature/refinedFeature"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="adeleRefinedFeature">
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Features.ecore#//Feature"/>
+    </sourcePatterns>
+    <targetPatterns name="aadlType">
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//FeatureGroupType"/>
+      <linkVariablePatterns target="//@rules.23/@targetPatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//FeatureGroupType/ownedFeature"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="aadlFeature">
+      <op value="++"/>
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//DirectedFeature"/>
+      <linkVariablePatterns target="//@rules.23/@targetPatterns.0">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//Feature/classifier"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.23/@targetPatterns.2">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//Feature/refined"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="aadlRefinedFeature">
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//Feature"/>
+    </targetPatterns>
+    <correspondencePatterns name="corrType" type="//@schema/@correspondenceTypes.2" source="//@rules.23/@sourcePatterns.0" target="//@rules.23/@targetPatterns.0"/>
+    <correspondencePatterns name="corrFeature" type="//@schema/@correspondenceTypes.20" source="//@rules.23/@sourcePatterns.1" target="//@rules.23/@targetPatterns.1">
+      <op value="++"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrRefinedFeature" type="//@schema/@correspondenceTypes.5" source="//@rules.23/@sourcePatterns.2" target="//@rules.23/@targetPatterns.2"/>
+  </rules>
+  <rules name="ruleFeatGroupDirFeat2FeatGroupDirFeatTypedRefined55" abstractRule="true" schema="//@schema">
+    <sourcePatterns name="adeleType">
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Features.ecore#//FeatureGroup"/>
+      <linkVariablePatterns target="//@rules.24/@sourcePatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/src/KernelSpices.ecore#//SKComponent/features"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="adeleFeature">
+      <op value="++"/>
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Features.ecore#//DirectedFeature"/>
+      <linkVariablePatterns target="//@rules.24/@sourcePatterns.2">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Features.ecore#//Feature/refinedFeature"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.24/@sourcePatterns.3">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Features.ecore#//Feature/classifier"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="adeleRefinedFeature">
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Features.ecore#//Feature"/>
+    </sourcePatterns>
+    <sourcePatterns name="adeleClassifier">
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Components.ecore#//Component"/>
+    </sourcePatterns>
+    <targetPatterns name="aadlType">
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//FeatureGroupType"/>
+      <linkVariablePatterns target="//@rules.24/@targetPatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//FeatureGroupType/ownedFeature"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="aadlFeature">
+      <op value="++"/>
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//DirectedFeature"/>
+      <linkVariablePatterns target="//@rules.24/@targetPatterns.2">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//Feature/refined"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.24/@targetPatterns.3">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//Feature/classifier"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="aadlRefinedFeature">
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//Feature"/>
+    </targetPatterns>
+    <targetPatterns name="aadlClassifier">
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//Classifier"/>
+    </targetPatterns>
+    <correspondencePatterns name="corrType" type="//@schema/@correspondenceTypes.2" source="//@rules.24/@sourcePatterns.0" target="//@rules.24/@targetPatterns.0"/>
+    <correspondencePatterns name="corrFeature" type="//@schema/@correspondenceTypes.20" source="//@rules.24/@sourcePatterns.1" target="//@rules.24/@targetPatterns.1">
+      <op value="++"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="corrRefinedFeature" type="//@schema/@correspondenceTypes.5" source="//@rules.24/@sourcePatterns.2" target="//@rules.24/@targetPatterns.2"/>
+    <correspondencePatterns name="corrClassifier" type="//@schema/@correspondenceTypes.8" source="//@rules.24/@sourcePatterns.3" target="//@rules.24/@targetPatterns.3"/>
+    <attrConditions name="//@schema/@attributeCondDefs.0">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.24/@sourcePatterns.1">
+        <attribute href="platform:/resource/Adele2Aadl/metamodels/src/KernelSpices.ecore#//SKObject/name"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.24/@targetPatterns.1">
+        <attribute href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//NamedElement/name"/>
+      </values>
+    </attrConditions>
+  </rules>
+  <rules name="ruleTest" abstractRule="true" schema="//@schema">
+    <sourcePatterns name="a">
+      <op value="++"/>
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Features.ecore#//Access"/>
+    </sourcePatterns>
+    <targetPatterns name="b">
+      <op value="++"/>
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//Access"/>
+    </targetPatterns>
+  </rules>
+  <rules name="ruleTestBus" supertypes="//@rules.25" schema="//@schema">
+    <sourcePatterns name="a">
+      <op value="++"/>
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Features.ecore#//BusAccess"/>
+    </sourcePatterns>
+    <targetPatterns name="b">
+      <op value="++"/>
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//BusAccess"/>
+    </targetPatterns>
+  </rules>
+  <rules name="ruleFeatureGroup2FeatureGroupType56" schema="//@schema">
+    <sourcePatterns name="adelePackage">
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Components.ecore#//Package"/>
+      <linkVariablePatterns target="//@rules.27/@sourcePatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/src/KernelSpices.ecore#//SKHierarchicalObject/children"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="adeleType">
+      <op value="++"/>
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Features.ecore#//FeatureGroup"/>
+    </sourcePatterns>
+    <targetPatterns name="aadlPublicPackageSection">
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//PublicPackageSection"/>
+      <linkVariablePatterns target="//@rules.27/@targetPatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//PackageSection/ownedClassifier"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="aadlType">
+      <op value="++"/>
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//FeatureGroupType"/>
+    </targetPatterns>
+    <correspondencePatterns name="corrAxiom" type="//@schema/@correspondenceTypes.18" source="//@rules.27/@sourcePatterns.0" target="//@rules.27/@targetPatterns.0"/>
+    <correspondencePatterns name="corrType" type="//@schema/@correspondenceTypes.2" source="//@rules.27/@sourcePatterns.1" target="//@rules.27/@targetPatterns.1">
+      <op value="++"/>
+    </correspondencePatterns>
+    <attrConditions name="//@schema/@attributeCondDefs.0">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.27/@sourcePatterns.1">
+        <attribute href="platform:/resource/Adele2Aadl/metamodels/src/KernelSpices.ecore#//SKObject/name"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.27/@targetPatterns.1">
+        <attribute href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//NamedElement/name"/>
+      </values>
+    </attrConditions>
+  </rules>
+  <rules name="ruleFeatureGroup2FeatureGroupTypeWithExtends57" supertypes="//@rules.27" schema="//@schema">
+    <sourcePatterns name="adeleType">
+      <op value="++"/>
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Features.ecore#//FeatureGroup"/>
+      <linkVariablePatterns target="//@rules.28/@sourcePatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Features.ecore#//Feature/refinedFeature"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="adeleExtType">
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Features.ecore#//FeatureGroup"/>
+    </sourcePatterns>
+    <targetPatterns name="aadlType">
+      <op value="++"/>
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//FeatureGroupType"/>
+      <linkVariablePatterns target="//@rules.28/@targetPatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//FeatureGroupType/ownedExtension"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="typeExtension">
+      <op value="++"/>
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//GroupExtension"/>
+      <linkVariablePatterns target="//@rules.28/@targetPatterns.2">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//GroupExtension/extended"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="aadlExtType">
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//FeatureGroupType"/>
+    </targetPatterns>
+    <correspondencePatterns name="corrExtComponentType" type="//@schema/@correspondenceTypes.2" source="//@rules.28/@sourcePatterns.1" target="//@rules.28/@targetPatterns.2"/>
+    <attrConditions name="//@schema/@attributeCondDefs.0">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.28/@sourcePatterns.0">
+        <attribute href="platform:/resource/Adele2Aadl/metamodels/src/KernelSpices.ecore#//SKObject/name"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.28/@targetPatterns.0">
+        <attribute href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//NamedElement/name"/>
+      </values>
+    </attrConditions>
+  </rules>
+  <rules name="ruleFeatureGroup2FeatureGroupTypeWithExtendsInverse58" supertypes="//@rules.33" schema="//@schema">
+    <sourcePatterns name="adeleType">
+      <op value="++"/>
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Features.ecore#//FeatureGroup"/>
+      <linkVariablePatterns target="//@rules.29/@sourcePatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Features.ecore#//FeatureGroup/inverseFeature"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="adeleInverse">
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Features.ecore#//FeatureGroup"/>
+    </sourcePatterns>
+    <targetPatterns name="aadlType">
+      <op value="++"/>
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//FeatureGroupType"/>
+      <linkVariablePatterns target="//@rules.29/@targetPatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//FeatureGroupType/inverse"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="aadlInverse">
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//FeatureGroupType"/>
+    </targetPatterns>
+    <correspondencePatterns name="corrInverse" type="//@schema/@correspondenceTypes.2" source="//@rules.29/@sourcePatterns.1" target="//@rules.29/@targetPatterns.1"/>
+    <attrConditions name="//@schema/@attributeCondDefs.0">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.29/@sourcePatterns.0">
+        <attribute href="platform:/resource/Adele2Aadl/metamodels/src/KernelSpices.ecore#//SKObject/name"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.29/@targetPatterns.0">
+        <attribute href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//NamedElement/name"/>
+      </values>
+    </attrConditions>
+  </rules>
+  <rules name="ruleFeatureGroup2FeatureGroupTypeWithInverse59" supertypes="//@rules.27" schema="//@schema">
+    <sourcePatterns name="adeleType">
+      <op value="++"/>
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Features.ecore#//FeatureGroup"/>
+      <linkVariablePatterns target="//@rules.30/@sourcePatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Features.ecore#//FeatureGroup/inverseFeature"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="adeleInverse">
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Features.ecore#//FeatureGroup"/>
+    </sourcePatterns>
+    <targetPatterns name="aadlType">
+      <op value="++"/>
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//FeatureGroupType"/>
+      <linkVariablePatterns target="//@rules.30/@targetPatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//FeatureGroupType/inverse"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="aadlInverse">
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//FeatureGroupType"/>
+    </targetPatterns>
+    <correspondencePatterns name="corrInverse" type="//@schema/@correspondenceTypes.2" source="//@rules.30/@sourcePatterns.1" target="//@rules.30/@targetPatterns.1"/>
+    <attrConditions name="//@schema/@attributeCondDefs.0">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.30/@sourcePatterns.0">
+        <attribute href="platform:/resource/Adele2Aadl/metamodels/src/KernelSpices.ecore#//SKObject/name"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.30/@targetPatterns.0">
+        <attribute href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//NamedElement/name"/>
+      </values>
+    </attrConditions>
+  </rules>
   <rules name="rulePackage2AadlPackage" schema="//@schema">
     <sourcePatterns name="adelePackage">
       <op value="++"/>
@@ -164,7 +1684,7 @@
     <targetPatterns name="aadlPackage">
       <op value="++"/>
       <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//AadlPackage"/>
-      <linkVariablePatterns target="//@rules.0/@targetPatterns.1">
+      <linkVariablePatterns target="//@rules.31/@targetPatterns.1">
         <op value="++"/>
         <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//AadlPackage/ownedPublicSection"/>
       </linkVariablePatterns>
@@ -173,17 +1693,152 @@
       <op value="++"/>
       <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//PublicPackageSection"/>
     </targetPatterns>
-    <correspondencePatterns name="corrAxiom" type="//@schema/@correspondenceTypes.19" source="//@rules.0/@sourcePatterns.0" target="//@rules.0/@targetPatterns.0">
+    <correspondencePatterns name="corrAxiom" type="//@schema/@correspondenceTypes.19" source="//@rules.31/@sourcePatterns.0" target="//@rules.31/@targetPatterns.0">
       <op value="++"/>
     </correspondencePatterns>
-    <correspondencePatterns name="corrAxiomOne" type="//@schema/@correspondenceTypes.18" source="//@rules.0/@sourcePatterns.0" target="//@rules.0/@targetPatterns.1">
+    <correspondencePatterns name="corrAxiomOne" type="//@schema/@correspondenceTypes.18" source="//@rules.31/@sourcePatterns.0" target="//@rules.31/@targetPatterns.1">
+      <op value="++"/>
+    </correspondencePatterns>
+  </rules>
+  <rules name="ruleFeatureGroup2FeatureGroupType56" schema="//@schema">
+    <sourcePatterns name="adelePackage">
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Components.ecore#//Package"/>
+      <linkVariablePatterns target="//@rules.32/@sourcePatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/src/KernelSpices.ecore#//SKHierarchicalObject/children"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="adeleType">
+      <op value="++"/>
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Features.ecore#//FeatureGroup"/>
+    </sourcePatterns>
+    <targetPatterns name="aadlPublicPackageSection">
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//PublicPackageSection"/>
+      <linkVariablePatterns target="//@rules.32/@targetPatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//PackageSection/ownedClassifier"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="aadlType">
+      <op value="++"/>
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//FeatureGroupType"/>
+    </targetPatterns>
+    <correspondencePatterns name="corrAxiom" type="//@schema/@correspondenceTypes.18" source="//@rules.32/@sourcePatterns.0" target="//@rules.32/@targetPatterns.0"/>
+    <correspondencePatterns name="corrType" type="//@schema/@correspondenceTypes.2" source="//@rules.32/@sourcePatterns.1" target="//@rules.32/@targetPatterns.1">
       <op value="++"/>
     </correspondencePatterns>
     <attrConditions name="//@schema/@attributeCondDefs.0">
-      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.0/@sourcePatterns.0">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.32/@sourcePatterns.1">
         <attribute href="platform:/resource/Adele2Aadl/metamodels/src/KernelSpices.ecore#//SKObject/name"/>
       </values>
-      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.0/@targetPatterns.0">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.32/@targetPatterns.1">
+        <attribute href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//NamedElement/name"/>
+      </values>
+    </attrConditions>
+  </rules>
+  <rules name="ruleFeatureGroup2FeatureGroupTypeWithExtends57" supertypes="//@rules.27" schema="//@schema">
+    <sourcePatterns name="adeleType">
+      <op value="++"/>
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Features.ecore#//FeatureGroup"/>
+      <linkVariablePatterns target="//@rules.33/@sourcePatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Features.ecore#//Feature/refinedFeature"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="adeleExtType">
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Features.ecore#//FeatureGroup"/>
+    </sourcePatterns>
+    <targetPatterns name="aadlType">
+      <op value="++"/>
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//FeatureGroupType"/>
+      <linkVariablePatterns target="//@rules.33/@targetPatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//FeatureGroupType/ownedExtension"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="typeExtension">
+      <op value="++"/>
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//GroupExtension"/>
+      <linkVariablePatterns target="//@rules.33/@targetPatterns.2">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//GroupExtension/extended"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="aadlExtType">
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//FeatureGroupType"/>
+    </targetPatterns>
+    <correspondencePatterns name="corrExtComponentType" type="//@schema/@correspondenceTypes.2" source="//@rules.33/@sourcePatterns.1" target="//@rules.33/@targetPatterns.2"/>
+    <attrConditions name="//@schema/@attributeCondDefs.0">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.33/@sourcePatterns.0">
+        <attribute href="platform:/resource/Adele2Aadl/metamodels/src/KernelSpices.ecore#//SKObject/name"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.33/@targetPatterns.0">
+        <attribute href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//NamedElement/name"/>
+      </values>
+    </attrConditions>
+  </rules>
+  <rules name="ruleFeatureGroup2FeatureGroupTypeWithExtendsInverse58" supertypes="//@rules.33" schema="//@schema">
+    <sourcePatterns name="adeleType">
+      <op value="++"/>
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Features.ecore#//FeatureGroup"/>
+      <linkVariablePatterns target="//@rules.34/@sourcePatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Features.ecore#//FeatureGroup/inverseFeature"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="adeleInverse">
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Features.ecore#//FeatureGroup"/>
+    </sourcePatterns>
+    <targetPatterns name="aadlType">
+      <op value="++"/>
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//FeatureGroupType"/>
+      <linkVariablePatterns target="//@rules.34/@targetPatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//FeatureGroupType/inverse"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="aadlInverse">
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//FeatureGroupType"/>
+    </targetPatterns>
+    <correspondencePatterns name="corrInverse" type="//@schema/@correspondenceTypes.2" source="//@rules.34/@sourcePatterns.1" target="//@rules.34/@targetPatterns.1"/>
+    <attrConditions name="//@schema/@attributeCondDefs.0">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.34/@sourcePatterns.0">
+        <attribute href="platform:/resource/Adele2Aadl/metamodels/src/KernelSpices.ecore#//SKObject/name"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.34/@targetPatterns.0">
+        <attribute href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//NamedElement/name"/>
+      </values>
+    </attrConditions>
+  </rules>
+  <rules name="ruleFeatureGroup2FeatureGroupTypeWithInverse59" supertypes="//@rules.27" schema="//@schema">
+    <sourcePatterns name="adeleType">
+      <op value="++"/>
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Features.ecore#//FeatureGroup"/>
+      <linkVariablePatterns target="//@rules.35/@sourcePatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Features.ecore#//FeatureGroup/inverseFeature"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="adeleInverse">
+      <type href="platform:/resource/Adele2Aadl/metamodels/src/ADELE_Features.ecore#//FeatureGroup"/>
+    </sourcePatterns>
+    <targetPatterns name="aadlType">
+      <op value="++"/>
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//FeatureGroupType"/>
+      <linkVariablePatterns target="//@rules.35/@targetPatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//FeatureGroupType/inverse"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="aadlInverse">
+      <type href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//FeatureGroupType"/>
+    </targetPatterns>
+    <correspondencePatterns name="corrInverse" type="//@schema/@correspondenceTypes.2" source="//@rules.35/@sourcePatterns.1" target="//@rules.35/@targetPatterns.1"/>
+    <attrConditions name="//@schema/@attributeCondDefs.0">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.35/@sourcePatterns.0">
+        <attribute href="platform:/resource/Adele2Aadl/metamodels/src/KernelSpices.ecore#//SKObject/name"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.35/@targetPatterns.0">
         <attribute href="platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore#//NamedElement/name"/>
       </values>
     </attrConditions>

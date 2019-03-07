@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="ASCII"?>
+<ADELE_Components:Package xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ADELE_Components="http://ADELE_Components" xmlns:ADELE_Features="http://ADELE_Features" name="dataAccessConn2AccessConnSrcSubcompoDestParent">
+  <children xsi:type="ADELE_Components:Data" name="Data0">
+    <children xsi:type="ADELE_Components:Data" name="Data0.impl" type="dataAccessConn2AccessConnSrcSubcompoDestParent.Data0" featuresLock="true"/>
+  </children>
+  <children xsi:type="ADELE_Components:Data" name="Data1">
+    <children xsi:type="ADELE_Components:Data" name="Data1.impl" type="dataAccessConn2AccessConnSrcSubcompoDestParent.Data1" featuresLock="true"/>
+  </children>
+  <children xsi:type="ADELE_Components:System" name="System0">
+    <children xsi:type="ADELE_Components:System" name="System0.impl" type="dataAccessConn2AccessConnSrcSubcompoDestParent.System0" featuresLock="true">
+      <children xsi:type="ADELE_Components:System" name="sys0Sub2Sys0" type="dataAccessConn2AccessConnSrcSubcompoDestParent.System0" implementation="dataAccessConn2AccessConnSrcSubcompoDestParent.System0" featuresLock="true" subcomponentsLock="true">
+        <features xsi:type="ADELE_Features:DataAccess" name="sys0ProvDataAccess1" classifier="dataAccessConn2AccessConnSrcSubcompoDestParent.Data0"/>
+        <features xsi:type="ADELE_Features:AbstractFeature" name="sys0AbstractFeat" direction="inout"/>
+        <features xsi:type="ADELE_Features:DataAccess" name="sys0ReqDataAccess1" direction="required"/>
+      </children>
+      <children xsi:type="ADELE_Components:System" name="sys0Sub1Sys2" type="dataAccessConn2AccessConnSrcSubcompoDestParent.System2" implementation="dataAccessConn2AccessConnSrcSubcompoDestParent.System2" featuresLock="true" subcomponentsLock="true">
+        <features xsi:type="ADELE_Features:DataAccess" name="sys2ReqDataAccess" direction="required"/>
+        <features xsi:type="ADELE_Features:DataAccess" name="sys2ProvDataAccess" classifier="dataAccessConn2AccessConnSrcSubcompoDestParent.Data0.Data0.impl"/>
+      </children>
+      <children xsi:type="ADELE_Components:System" name="sys0Sub0Sys2" type="dataAccessConn2AccessConnSrcSubcompoDestParent.System2" implementation="dataAccessConn2AccessConnSrcSubcompoDestParent.System2.System2.impl" featuresLock="true" subcomponentsLock="true">
+        <features xsi:type="ADELE_Features:DataAccess" name="sys2ReqDataAccess" direction="required"/>
+        <features xsi:type="ADELE_Features:DataAccess" name="sys2ProvDataAccess" classifier="dataAccessConn2AccessConnSrcSubcompoDestParent.Data0.Data0.impl"/>
+      </children>
+      <features xsi:type="ADELE_Features:DataAccess" name="sys0ProvDataAccess1" classifier="dataAccessConn2AccessConnSrcSubcompoDestParent.Data0"/>
+      <features xsi:type="ADELE_Features:AbstractFeature" name="sys0AbstractFeat" direction="inout"/>
+      <features xsi:type="ADELE_Features:DataAccess" name="sys0ReqDataAccess1" direction="required"/>
+      <dataAccessConnection name="conn2" objects="dataAccessConn2AccessConnSrcSubcompoDestParent.System0.System0.impl.sys0Sub2Sys0.sys0ProvDataAccess1 dataAccessConn2AccessConnSrcSubcompoDestParent.System0.System0.impl.sys0ProvDataAccess1" originalSourceFeature="dataAccessConn2AccessConnSrcSubcompoDestParent.System0.sys0ProvDataAccess1" originalSinkFeature="dataAccessConn2AccessConnSrcSubcompoDestParent.System0.sys0ProvDataAccess1"/>
+      <dataAccessConnection name="conn0" objects="dataAccessConn2AccessConnSrcSubcompoDestParent.System0.System0.impl.sys0Sub1Sys2.sys2ReqDataAccess dataAccessConn2AccessConnSrcSubcompoDestParent.System0.System0.impl.sys0ReqDataAccess1" originalSourceFeature="dataAccessConn2AccessConnSrcSubcompoDestParent.System2.sys2ReqDataAccess" originalSinkFeature="dataAccessConn2AccessConnSrcSubcompoDestParent.System0.sys0ReqDataAccess1"/>
+      <dataAccessConnection name="conn1" objects="dataAccessConn2AccessConnSrcSubcompoDestParent.System0.System0.impl.sys0Sub1Sys2.sys2ProvDataAccess dataAccessConn2AccessConnSrcSubcompoDestParent.System0.System0.impl.sys0ProvDataAccess1" originalSourceFeature="dataAccessConn2AccessConnSrcSubcompoDestParent.System2.sys2ProvDataAccess" originalSinkFeature="dataAccessConn2AccessConnSrcSubcompoDestParent.System0.sys0ProvDataAccess1"/>
+    </children>
+    <features xsi:type="ADELE_Features:DataAccess" name="sys0ProvDataAccess1" classifier="dataAccessConn2AccessConnSrcSubcompoDestParent.Data0"/>
+    <features xsi:type="ADELE_Features:AbstractFeature" name="sys0AbstractFeat" direction="inout"/>
+    <features xsi:type="ADELE_Features:DataAccess" name="sys0ReqDataAccess1" direction="required"/>
+  </children>
+  <children xsi:type="ADELE_Components:System" name="System2">
+    <children xsi:type="ADELE_Components:System" name="System2.impl" type="dataAccessConn2AccessConnSrcSubcompoDestParent.System2" featuresLock="true">
+      <features xsi:type="ADELE_Features:DataAccess" name="sys2ReqDataAccess" direction="required"/>
+      <features xsi:type="ADELE_Features:DataAccess" name="sys2ProvDataAccess" classifier="dataAccessConn2AccessConnSrcSubcompoDestParent.Data0.Data0.impl"/>
+    </children>
+    <features xsi:type="ADELE_Features:DataAccess" name="sys2ReqDataAccess" direction="required"/>
+    <features xsi:type="ADELE_Features:DataAccess" name="sys2ProvDataAccess" classifier="dataAccessConn2AccessConnSrcSubcompoDestParent.Data0.Data0.impl"/>
+  </children>
+  <children xsi:type="ADELE_Components:System" name="System1" refines="dataAccessConn2AccessConnSrcSubcompoDestParent.System0">
+    <children xsi:type="ADELE_Components:System" name="System1.impl" type="dataAccessConn2AccessConnSrcSubcompoDestParent.System1" featuresLock="true" refines="dataAccessConn2AccessConnSrcSubcompoDestParent.System0.System0.impl">
+      <children xsi:type="ADELE_Components:System" name="sys0Sub2Sys0" type="dataAccessConn2AccessConnSrcSubcompoDestParent.System0" implementation="dataAccessConn2AccessConnSrcSubcompoDestParent.System0" featuresLock="true" subcomponentsLock="true" subcomponentRefinement="true">
+        <features xsi:type="ADELE_Features:DataAccess" name="sys0ProvDataAccess1" classifier="dataAccessConn2AccessConnSrcSubcompoDestParent.Data0"/>
+        <features xsi:type="ADELE_Features:AbstractFeature" name="sys0AbstractFeat" direction="inout"/>
+        <features xsi:type="ADELE_Features:DataAccess" name="sys0ReqDataAccess1" direction="required"/>
+      </children>
+      <children xsi:type="ADELE_Components:System" name="sys0Sub1Sys2" type="dataAccessConn2AccessConnSrcSubcompoDestParent.System2" implementation="dataAccessConn2AccessConnSrcSubcompoDestParent.System2" featuresLock="true" subcomponentsLock="true" refines="dataAccessConn2AccessConnSrcSubcompoDestParent.System3" subcomponentRefinement="true" refinedSubcomponent="dataAccessConn2AccessConnSrcSubcompoDestParent.System0.System0.impl.sys0Sub1Sys2">
+        <features xsi:type="ADELE_Features:DataAccess" name="sys2ReqDataAccess" direction="required"/>
+        <features xsi:type="ADELE_Features:DataAccess" name="sys2ProvDataAccess" classifier="dataAccessConn2AccessConnSrcSubcompoDestParent.Data0.Data0.impl"/>
+        <features xsi:type="ADELE_Features:DataAccess" name="sys3ProvDataAccess" classifier="dataAccessConn2AccessConnSrcSubcompoDestParent.Data0.Data0.impl"/>
+      </children>
+      <children xsi:type="ADELE_Components:System" name="sys0Sub0Sys2" type="dataAccessConn2AccessConnSrcSubcompoDestParent.System2" implementation="dataAccessConn2AccessConnSrcSubcompoDestParent.System2.System2.impl" featuresLock="true" subcomponentsLock="true" subcomponentRefinement="true">
+        <features xsi:type="ADELE_Features:DataAccess" name="sys2ReqDataAccess" direction="required"/>
+        <features xsi:type="ADELE_Features:DataAccess" name="sys2ProvDataAccess" classifier="dataAccessConn2AccessConnSrcSubcompoDestParent.Data0.Data0.impl"/>
+      </children>
+      <children xsi:type="ADELE_Components:System" name="sys1Sub1Sys2" type="dataAccessConn2AccessConnSrcSubcompoDestParent.System2" implementation="dataAccessConn2AccessConnSrcSubcompoDestParent.System2.System2.impl" featuresLock="true" subcomponentsLock="true">
+        <features xsi:type="ADELE_Features:DataAccess" name="sys2ReqDataAccess" direction="required"/>
+        <features xsi:type="ADELE_Features:DataAccess" name="sys2ProvDataAccess" classifier="dataAccessConn2AccessConnSrcSubcompoDestParent.Data0.Data0.impl"/>
+      </children>
+      <features xsi:type="ADELE_Features:DataAccess" name="sys0ProvDataAccess1" classifier="dataAccessConn2AccessConnSrcSubcompoDestParent.Data0"/>
+      <features xsi:type="ADELE_Features:DataAccess" name="sys0ReqDataAccess1" direction="required"/>
+      <features xsi:type="ADELE_Features:DataAccess" name="sys1ReqDataAccess1" direction="required"/>
+      <features xsi:type="ADELE_Features:DataAccess" name="sys1ProvDataAccess1" classifier="dataAccessConn2AccessConnSrcSubcompoDestParent.Data0.Data0.impl"/>
+      <features xsi:type="ADELE_Features:DataAccess" name="sys0AbstractFeat" classifier="dataAccessConn2AccessConnSrcSubcompoDestParent.Data0.Data0.impl"/>
+      <dataAccessConnection name="conn3" objects="dataAccessConn2AccessConnSrcSubcompoDestParent.System1.System1.impl.sys0Sub0Sys2.sys2ProvDataAccess dataAccessConn2AccessConnSrcSubcompoDestParent.System1.System1.impl.sys0ProvDataAccess1" originalSourceFeature="dataAccessConn2AccessConnSrcSubcompoDestParent.System2.sys2ProvDataAccess" originalSinkFeature="dataAccessConn2AccessConnSrcSubcompoDestParent.System0.sys0ProvDataAccess1"/>
+      <dataAccessConnection name="conn4" objects="dataAccessConn2AccessConnSrcSubcompoDestParent.System1.System1.impl.sys1Sub1Sys2.sys2ReqDataAccess dataAccessConn2AccessConnSrcSubcompoDestParent.System1.System1.impl.sys1ReqDataAccess1" originalSourceFeature="dataAccessConn2AccessConnSrcSubcompoDestParent.System2.sys2ReqDataAccess" originalSinkFeature="dataAccessConn2AccessConnSrcSubcompoDestParent.System1.sys1ReqDataAccess1"/>
+      <dataAccessConnection name="conn5" objects="dataAccessConn2AccessConnSrcSubcompoDestParent.System1.System1.impl.sys0Sub1Sys2.sys3ProvDataAccess dataAccessConn2AccessConnSrcSubcompoDestParent.System1.System1.impl.sys1ProvDataAccess1" originalSourceFeature="dataAccessConn2AccessConnSrcSubcompoDestParent.System3.sys3ProvDataAccess" originalSinkFeature="dataAccessConn2AccessConnSrcSubcompoDestParent.System1.sys1ProvDataAccess1"/>
+      <dataAccessConnection name="conn6" objects="dataAccessConn2AccessConnSrcSubcompoDestParent.System1.System1.impl.sys0Sub1Sys2.sys3ProvDataAccess dataAccessConn2AccessConnSrcSubcompoDestParent.System1.System1.impl.sys0AbstractFeat" originalSourceFeature="dataAccessConn2AccessConnSrcSubcompoDestParent.System3.sys3ProvDataAccess" originalSinkFeature="dataAccessConn2AccessConnSrcSubcompoDestParent.System1.sys0AbstractFeat"/>
+    </children>
+    <features xsi:type="ADELE_Features:DataAccess" name="sys0ProvDataAccess1" classifier="dataAccessConn2AccessConnSrcSubcompoDestParent.Data0"/>
+    <features xsi:type="ADELE_Features:DataAccess" name="sys0ReqDataAccess1" direction="required"/>
+    <features xsi:type="ADELE_Features:DataAccess" name="sys1ReqDataAccess1" direction="required"/>
+    <features xsi:type="ADELE_Features:DataAccess" name="sys1ProvDataAccess1" classifier="dataAccessConn2AccessConnSrcSubcompoDestParent.Data0.Data0.impl"/>
+    <features xsi:type="ADELE_Features:DataAccess" name="sys0AbstractFeat" classifier="dataAccessConn2AccessConnSrcSubcompoDestParent.Data0.Data0.impl" refinedFeature="dataAccessConn2AccessConnSrcSubcompoDestParent.System0.sys0AbstractFeat"/>
+  </children>
+  <children xsi:type="ADELE_Components:System" name="System3" refines="dataAccessConn2AccessConnSrcSubcompoDestParent.System2">
+    <features xsi:type="ADELE_Features:DataAccess" name="sys2ReqDataAccess" direction="required"/>
+    <features xsi:type="ADELE_Features:DataAccess" name="sys2ProvDataAccess" classifier="dataAccessConn2AccessConnSrcSubcompoDestParent.Data0.Data0.impl"/>
+    <features xsi:type="ADELE_Features:DataAccess" name="sys3ProvDataAccess" classifier="dataAccessConn2AccessConnSrcSubcompoDestParent.Data0.Data0.impl"/>
+  </children>
+</ADELE_Components:Package>

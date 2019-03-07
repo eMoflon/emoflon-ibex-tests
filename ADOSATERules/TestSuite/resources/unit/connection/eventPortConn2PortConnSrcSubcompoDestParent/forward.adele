@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="ASCII"?>
+<ADELE_Components:Package xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ADELE_Components="http://ADELE_Components" xmlns:ADELE_Features="http://ADELE_Features" name="eventPortConn2PortConnSrcSubcompoDestParent">
+  <children xsi:type="ADELE_Components:System" name="System0">
+    <children xsi:type="ADELE_Components:System" name="System0.impl" type="eventPortConn2PortConnSrcSubcompoDestParent.System0" featuresLock="true">
+      <children xsi:type="ADELE_Components:System" name="sys0Sub1Sys2" type="eventPortConn2PortConnSrcSubcompoDestParent.System2" implementation="eventPortConn2PortConnSrcSubcompoDestParent.System2" featuresLock="true" subcomponentsLock="true">
+        <features xsi:type="ADELE_Features:EventPort" name="sys2InEventPort"/>
+        <features xsi:type="ADELE_Features:EventPort" name="sys2OutEventPort" direction="out"/>
+        <features xsi:type="ADELE_Features:EventPort" name="sys2InOutEventPort" direction="inout"/>
+      </children>
+      <children xsi:type="ADELE_Components:System" name="sys0Sub0Sys2" type="eventPortConn2PortConnSrcSubcompoDestParent.System2" implementation="eventPortConn2PortConnSrcSubcompoDestParent.System2.System2.impl" featuresLock="true" subcomponentsLock="true">
+        <features xsi:type="ADELE_Features:EventPort" name="sys2InEventPort"/>
+        <features xsi:type="ADELE_Features:EventPort" name="sys2OutEventPort" direction="out"/>
+        <features xsi:type="ADELE_Features:EventPort" name="sys2InOutEventPort" direction="inout"/>
+      </children>
+      <features xsi:type="ADELE_Features:AbstractFeature" name="sys0OutAbstractFeat" direction="out"/>
+      <features xsi:type="ADELE_Features:EventPort" name="sys0InEventPort1"/>
+      <features xsi:type="ADELE_Features:EventPort" name="sys0OutEventPort1" direction="out"/>
+      <features xsi:type="ADELE_Features:EventPort" name="sys0InOutEventPort1" direction="inout"/>
+      <eventPortConnection name="conn0" objects="eventPortConn2PortConnSrcSubcompoDestParent.System0.System0.impl.sys0Sub1Sys2.sys2OutEventPort eventPortConn2PortConnSrcSubcompoDestParent.System0.System0.impl.sys0InOutEventPort1" originalSourceFeature="eventPortConn2PortConnSrcSubcompoDestParent.System2.sys2OutEventPort" originalSinkFeature="eventPortConn2PortConnSrcSubcompoDestParent.System0.sys0InOutEventPort1"/>
+      <eventPortConnection name="conn1" objects="eventPortConn2PortConnSrcSubcompoDestParent.System0.System0.impl.sys0Sub1Sys2.sys2OutEventPort eventPortConn2PortConnSrcSubcompoDestParent.System0.System0.impl.sys0OutEventPort1" originalSourceFeature="eventPortConn2PortConnSrcSubcompoDestParent.System2.sys2OutEventPort" originalSinkFeature="eventPortConn2PortConnSrcSubcompoDestParent.System0.sys0OutEventPort1"/>
+      <eventPortConnection name="conn2" objects="eventPortConn2PortConnSrcSubcompoDestParent.System0.System0.impl.sys0Sub1Sys2.sys2InOutEventPort eventPortConn2PortConnSrcSubcompoDestParent.System0.System0.impl.sys0OutEventPort1" originalSourceFeature="eventPortConn2PortConnSrcSubcompoDestParent.System2.sys2InOutEventPort" originalSinkFeature="eventPortConn2PortConnSrcSubcompoDestParent.System0.sys0OutEventPort1"/>
+    </children>
+    <features xsi:type="ADELE_Features:AbstractFeature" name="sys0OutAbstractFeat" direction="out"/>
+    <features xsi:type="ADELE_Features:EventPort" name="sys0InEventPort1"/>
+    <features xsi:type="ADELE_Features:EventPort" name="sys0OutEventPort1" direction="out"/>
+    <features xsi:type="ADELE_Features:EventPort" name="sys0InOutEventPort1" direction="inout"/>
+  </children>
+  <children xsi:type="ADELE_Components:System" name="System2">
+    <children xsi:type="ADELE_Components:System" name="System2.impl" type="eventPortConn2PortConnSrcSubcompoDestParent.System2" featuresLock="true">
+      <features xsi:type="ADELE_Features:EventPort" name="sys2InEventPort"/>
+      <features xsi:type="ADELE_Features:EventPort" name="sys2OutEventPort" direction="out"/>
+      <features xsi:type="ADELE_Features:EventPort" name="sys2InOutEventPort" direction="inout"/>
+    </children>
+    <features xsi:type="ADELE_Features:EventPort" name="sys2InEventPort"/>
+    <features xsi:type="ADELE_Features:EventPort" name="sys2OutEventPort" direction="out"/>
+    <features xsi:type="ADELE_Features:EventPort" name="sys2InOutEventPort" direction="inout"/>
+  </children>
+  <children xsi:type="ADELE_Components:System" name="System1" refines="eventPortConn2PortConnSrcSubcompoDestParent.System0">
+    <children xsi:type="ADELE_Components:System" name="System1.impl" type="eventPortConn2PortConnSrcSubcompoDestParent.System1" featuresLock="true" refines="eventPortConn2PortConnSrcSubcompoDestParent.System0.System0.impl">
+      <children xsi:type="ADELE_Components:System" name="sys0Sub1Sys2" type="eventPortConn2PortConnSrcSubcompoDestParent.System2" implementation="eventPortConn2PortConnSrcSubcompoDestParent.System2" featuresLock="true" subcomponentsLock="true" refines="eventPortConn2PortConnSrcSubcompoDestParent.System3" subcomponentRefinement="true" refinedSubcomponent="eventPortConn2PortConnSrcSubcompoDestParent.System0.System0.impl.sys0Sub1Sys2">
+        <features xsi:type="ADELE_Features:EventPort" name="sys2InEventPort"/>
+        <features xsi:type="ADELE_Features:EventPort" name="sys2OutEventPort" direction="out"/>
+        <features xsi:type="ADELE_Features:EventPort" name="sys2InOutEventPort" direction="inout"/>
+        <features xsi:type="ADELE_Features:EventPort" name="sys3OutEventPort" direction="out"/>
+      </children>
+      <children xsi:type="ADELE_Components:System" name="sys0Sub0Sys2" type="eventPortConn2PortConnSrcSubcompoDestParent.System2" implementation="eventPortConn2PortConnSrcSubcompoDestParent.System2.System2.impl" featuresLock="true" subcomponentsLock="true" subcomponentRefinement="true">
+        <features xsi:type="ADELE_Features:EventPort" name="sys2InEventPort"/>
+        <features xsi:type="ADELE_Features:EventPort" name="sys2OutEventPort" direction="out"/>
+        <features xsi:type="ADELE_Features:EventPort" name="sys2InOutEventPort" direction="inout"/>
+      </children>
+      <children xsi:type="ADELE_Components:System" name="sys1Sub1Sys2" type="eventPortConn2PortConnSrcSubcompoDestParent.System2" implementation="eventPortConn2PortConnSrcSubcompoDestParent.System2.System2.impl" featuresLock="true" subcomponentsLock="true">
+        <features xsi:type="ADELE_Features:EventPort" name="sys2InEventPort"/>
+        <features xsi:type="ADELE_Features:EventPort" name="sys2OutEventPort" direction="out"/>
+        <features xsi:type="ADELE_Features:EventPort" name="sys2InOutEventPort" direction="inout"/>
+      </children>
+      <features xsi:type="ADELE_Features:EventPort" name="sys0InEventPort1"/>
+      <features xsi:type="ADELE_Features:EventPort" name="sys0OutEventPort1" direction="out"/>
+      <features xsi:type="ADELE_Features:EventPort" name="sys0InOutEventPort1" direction="inout"/>
+      <features xsi:type="ADELE_Features:EventPort" name="sys1InEventPort1"/>
+      <features xsi:type="ADELE_Features:EventPort" name="sys1OutEventPort1" direction="out"/>
+      <features xsi:type="ADELE_Features:EventPort" name="sys1InOutEventPort1" direction="inout"/>
+      <features xsi:type="ADELE_Features:EventPort" name="sys0OutAbstractFeat" direction="out"/>
+      <eventPortConnection name="conn3" objects="eventPortConn2PortConnSrcSubcompoDestParent.System1.System1.impl.sys0Sub0Sys2.sys2InOutEventPort eventPortConn2PortConnSrcSubcompoDestParent.System1.System1.impl.sys0OutEventPort1" originalSourceFeature="eventPortConn2PortConnSrcSubcompoDestParent.System2.sys2InOutEventPort" originalSinkFeature="eventPortConn2PortConnSrcSubcompoDestParent.System0.sys0OutEventPort1"/>
+      <eventPortConnection name="conn4" objects="eventPortConn2PortConnSrcSubcompoDestParent.System1.System1.impl.sys1Sub1Sys2.sys2OutEventPort eventPortConn2PortConnSrcSubcompoDestParent.System1.System1.impl.sys1OutEventPort1" originalSourceFeature="eventPortConn2PortConnSrcSubcompoDestParent.System2.sys2OutEventPort" originalSinkFeature="eventPortConn2PortConnSrcSubcompoDestParent.System1.sys1OutEventPort1"/>
+      <eventPortConnection name="conn5" objects="eventPortConn2PortConnSrcSubcompoDestParent.System1.System1.impl.sys0Sub1Sys2.sys3OutEventPort eventPortConn2PortConnSrcSubcompoDestParent.System1.System1.impl.sys1OutEventPort1" originalSourceFeature="eventPortConn2PortConnSrcSubcompoDestParent.System3.sys3OutEventPort" originalSinkFeature="eventPortConn2PortConnSrcSubcompoDestParent.System1.sys1OutEventPort1"/>
+      <eventPortConnection name="conn6" objects="eventPortConn2PortConnSrcSubcompoDestParent.System1.System1.impl.sys0Sub1Sys2.sys3OutEventPort eventPortConn2PortConnSrcSubcompoDestParent.System1.System1.impl.sys0OutAbstractFeat" originalSourceFeature="eventPortConn2PortConnSrcSubcompoDestParent.System3.sys3OutEventPort" originalSinkFeature="eventPortConn2PortConnSrcSubcompoDestParent.System1.sys0OutAbstractFeat"/>
+    </children>
+    <features xsi:type="ADELE_Features:EventPort" name="sys0InEventPort1"/>
+    <features xsi:type="ADELE_Features:EventPort" name="sys0OutEventPort1" direction="out"/>
+    <features xsi:type="ADELE_Features:EventPort" name="sys0InOutEventPort1" direction="inout"/>
+    <features xsi:type="ADELE_Features:EventPort" name="sys1InEventPort1"/>
+    <features xsi:type="ADELE_Features:EventPort" name="sys1OutEventPort1" direction="out"/>
+    <features xsi:type="ADELE_Features:EventPort" name="sys1InOutEventPort1" direction="inout"/>
+    <features xsi:type="ADELE_Features:EventPort" name="sys0OutAbstractFeat" refinedFeature="eventPortConn2PortConnSrcSubcompoDestParent.System0.sys0OutAbstractFeat" direction="out"/>
+  </children>
+  <children xsi:type="ADELE_Components:System" name="System3" refines="eventPortConn2PortConnSrcSubcompoDestParent.System2">
+    <features xsi:type="ADELE_Features:EventPort" name="sys2InEventPort"/>
+    <features xsi:type="ADELE_Features:EventPort" name="sys2OutEventPort" direction="out"/>
+    <features xsi:type="ADELE_Features:EventPort" name="sys2InOutEventPort" direction="inout"/>
+    <features xsi:type="ADELE_Features:EventPort" name="sys3OutEventPort" direction="out"/>
+  </children>
+</ADELE_Components:Package>

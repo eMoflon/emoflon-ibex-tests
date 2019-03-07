@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="ASCII"?>
+<ADELE_Components:Package xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ADELE_Components="http://ADELE_Components" name="component_implementation">
+  <children xsi:type="ADELE_Components:Process" name="Process0">
+    <children xsi:type="ADELE_Components:Process" name="Process0.impl" type="component_implementation.Process0" featuresLock="true"/>
+  </children>
+  <children xsi:type="ADELE_Components:ThreadGroup" name="ThreadGroup0">
+    <children xsi:type="ADELE_Components:ThreadGroup" name="ThreadGroup0.impl" type="component_implementation.ThreadGroup0" featuresLock="true"/>
+  </children>
+  <children xsi:type="ADELE_Components:Processor" name="Processor0">
+    <children xsi:type="ADELE_Components:Processor" name="Processor0.impl" type="component_implementation.Processor0" featuresLock="true"/>
+  </children>
+  <children xsi:type="ADELE_Components:VirtualProcessor" name="VirtualProc0"/>
+  <children xsi:type="ADELE_Components:Abstract" name="Abstract0">
+    <children xsi:type="ADELE_Components:Abstract" name="Abstract0.impl" type="component_implementation.Abstract0" featuresLock="true"/>
+  </children>
+  <children xsi:type="ADELE_Components:Device" name="Device0">
+    <children xsi:type="ADELE_Components:Device" name="Device0.impl" type="component_implementation.Device0" featuresLock="true"/>
+  </children>
+  <children xsi:type="ADELE_Components:System" name="System0">
+    <children xsi:type="ADELE_Components:System" name="System0.impl" type="component_implementation.System0" featuresLock="true">
+      <refines xsi:type="ADELE_Components:System" href="../external_specification.adele#external_specification.System_Parent.System_Parent.impl"/>
+    </children>
+    <refines xsi:type="ADELE_Components:System" href="../external_specification.adele#external_specification.System_Parent"/>
+  </children>
+  <children xsi:type="ADELE_Components:Process" name="Process1" refines="component_implementation.Process0">
+    <children xsi:type="ADELE_Components:Process" name="Process1.impl" type="component_implementation.Process1" featuresLock="true" refines="component_implementation.Process0.Process0.impl"/>
+  </children>
+  <children xsi:type="ADELE_Components:ThreadGroup" name="ThreadGroup1" refines="component_implementation.ThreadGroup0">
+    <children xsi:type="ADELE_Components:ThreadGroup" name="ThreadGroup1.impl" type="component_implementation.ThreadGroup1" featuresLock="true" refines="component_implementation.ThreadGroup0.ThreadGroup0.impl"/>
+  </children>
+  <children xsi:type="ADELE_Components:Processor" name="Processor1" refines="component_implementation.Processor0">
+    <children xsi:type="ADELE_Components:Processor" name="Processor1.impl" type="component_implementation.Processor1" featuresLock="true" refines="component_implementation.Processor0.Processor0.impl"/>
+  </children>
+  <children xsi:type="ADELE_Components:VirtualProcessor" name="VirtualProc1" refines="component_implementation.VirtualProc0"/>
+  <children xsi:type="ADELE_Components:Device" name="Device1" refines="component_implementation.Abstract0">
+    <children xsi:type="ADELE_Components:Device" name="Device1.impl" type="component_implementation.Device1" featuresLock="true" refines="component_implementation.Abstract0.Abstract0.impl"/>
+  </children>
+  <children xsi:type="ADELE_Components:Data" name="Data1">
+    <children xsi:type="ADELE_Components:Data" name="Data1.impl" type="component_implementation.Data1" featuresLock="true">
+      <refines xsi:type="ADELE_Components:Data" href="../external_specification2.adele#external_specification2.Data_Parent.Data_Parent.impl"/>
+    </children>
+    <refines xsi:type="ADELE_Components:Data" href="../external_specification2.adele#external_specification2.Data_Parent"/>
+  </children>
+  <children xsi:type="ADELE_Components:System" name="System1" refines="component_implementation.System0">
+    <children xsi:type="ADELE_Components:System" name="System1.impl" type="component_implementation.System1" featuresLock="true" refines="component_implementation.System0.System0.impl"/>
+  </children>
+</ADELE_Components:Package>

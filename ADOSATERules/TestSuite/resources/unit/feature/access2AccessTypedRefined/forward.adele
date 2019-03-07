@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="ASCII"?>
+<ADELE_Components:Package xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ADELE_Components="http://ADELE_Components" xmlns:ADELE_Features="http://ADELE_Features" name="access2AccessTypedRefined">
+  <children xsi:type="ADELE_Components:Data" name="Data1">
+    <children xsi:type="ADELE_Components:Data" name="Data1.impl" type="access2AccessTypedRefined.Data1" featuresLock="true"/>
+  </children>
+  <children xsi:type="ADELE_Components:System" name="System0">
+    <features xsi:type="ADELE_Features:AbstractFeature" name="sys0Feature1" direction="inout"/>
+    <features xsi:type="ADELE_Features:DataAccess" name="sys0ProvDataAccess1"/>
+    <features xsi:type="ADELE_Features:DataAccess" name="sys0ReqDataAccess1" direction="required"/>
+  </children>
+  <children xsi:type="ADELE_Components:Bus" name="Bus0">
+    <features xsi:type="ADELE_Features:BusAccess" name="bus0BusAcc0" classifier="access2AccessTypedRefined.Bus0" direction="required"/>
+  </children>
+  <children xsi:type="ADELE_Components:Subprogram" name="Subprogram0">
+    <features xsi:type="ADELE_Features:SubprogramAccess" name="sub0SubAcc0" classifier="access2AccessTypedRefined.Subprogram0" direction="required"/>
+  </children>
+  <children xsi:type="ADELE_Components:SubprogramGroup" name="SubprogramGroup0">
+    <features xsi:type="ADELE_Features:SubprogramGroupAccess" name="sub0SubAcc0" classifier="access2AccessTypedRefined.SubprogramGroup0"/>
+  </children>
+  <children xsi:type="ADELE_Components:System" name="System1" refines="access2AccessTypedRefined.System0">
+    <features xsi:type="ADELE_Features:DataAccess" name="sys1ReqDataAccess1" classifier="access2AccessTypedRefined.Data1" direction="required"/>
+    <features xsi:type="ADELE_Features:DataAccess" name="sys0ReqDataAccess1" direction="required"/>
+    <features xsi:type="ADELE_Features:DataAccess" name="sys0Feature1" classifier="access2AccessTypedRefined.Data1.Data1.impl" refinedFeature="access2AccessTypedRefined.System0.sys0Feature1" direction="required"/>
+    <features xsi:type="ADELE_Features:DataAccess" name="sys0ProvDataAccess1" refinedFeature="access2AccessTypedRefined.System0.sys0ProvDataAccess1">
+      <classifier href="../../external_specification.adele#external_specification.Data_Parent.Data_Parent.impl"/>
+    </features>
+  </children>
+  <children xsi:type="ADELE_Components:Bus" name="Bus1" refines="access2AccessTypedRefined.Bus0">
+    <features xsi:type="ADELE_Features:BusAccess" name="bus0BusAcc0" classifier="access2AccessTypedRefined.Bus1" refinedFeature="access2AccessTypedRefined.Bus0.bus0BusAcc0" direction="required"/>
+  </children>
+  <children xsi:type="ADELE_Components:Subprogram" name="Subprogram1" refines="access2AccessTypedRefined.Subprogram0">
+    <features xsi:type="ADELE_Features:SubprogramAccess" name="sub0SubAcc0" classifier="access2AccessTypedRefined.Subprogram1" refinedFeature="access2AccessTypedRefined.Subprogram0.sub0SubAcc0" direction="required"/>
+  </children>
+  <children xsi:type="ADELE_Components:SubprogramGroup" name="SubprogramGroup1" refines="access2AccessTypedRefined.SubprogramGroup0">
+    <features xsi:type="ADELE_Features:SubprogramGroupAccess" name="sub0SubAcc0" classifier="access2AccessTypedRefined.SubprogramGroup1" refinedFeature="access2AccessTypedRefined.SubprogramGroup0.sub0SubAcc0"/>
+  </children>
+</ADELE_Components:Package>

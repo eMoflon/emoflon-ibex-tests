@@ -1,0 +1,19 @@
+package eventPort2EventPortRefined
+public
+	system System0
+	features
+		sys0InEventPort : in event port;
+		sys0OutEventPort : out event port;
+		sys0InOutEventPort : in out event port;
+		sys0InFeature : in feature;
+	end System0;
+
+	system System1 extends System0
+	features
+		sys1InEventPort : in event port;
+		sys1OutEventPort : out event port;
+		sys1InOutEventPort : in out event port;
+		sys0InFeature : refined to in event port;
+	end System1;
+
+end eventPort2EventPortRefined;

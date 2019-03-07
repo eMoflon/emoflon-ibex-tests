@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="ASCII"?>
+<aadl2:AadlPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" name="component_type" publicSection="//@ownedPublicSection">
+  <ownedPublicSection>
+    <ownedClassifier xsi:type="aadl2:SystemType" name="System0">
+      <ownedExtension>
+        <extended xsi:type="aadl2:SystemType" href="../external_specification1.aadl#external_specification1.System_Parent"/>
+      </ownedExtension>
+    </ownedClassifier>
+    <ownedClassifier xsi:type="aadl2:SystemType" name="System1">
+      <ownedExtension extended="//@ownedPublicSection/@ownedClassifier.0"/>
+    </ownedClassifier>
+    <ownedClassifier xsi:type="aadl2:ProcessType" name="Process0"/>
+    <ownedClassifier xsi:type="aadl2:ProcessType" name="Process1">
+      <ownedExtension extended="//@ownedPublicSection/@ownedClassifier.2"/>
+    </ownedClassifier>
+    <ownedClassifier xsi:type="aadl2:ThreadGroupType" name="ThreadGroup0"/>
+    <ownedClassifier xsi:type="aadl2:ThreadGroupType" name="ThreadGroup1">
+      <ownedExtension extended="//@ownedPublicSection/@ownedClassifier.4"/>
+    </ownedClassifier>
+    <ownedClassifier xsi:type="aadl2:BusType" name="Bus0"/>
+    <ownedClassifier xsi:type="aadl2:BusType" name="Bus1">
+      <ownedExtension extended="//@ownedPublicSection/@ownedClassifier.6"/>
+    </ownedClassifier>
+    <ownedClassifier xsi:type="aadl2:VirtualBusType" name="VirtualBus0"/>
+    <ownedClassifier xsi:type="aadl2:VirtualBusType" name="VirtualBus1">
+      <ownedExtension extended="//@ownedPublicSection/@ownedClassifier.8"/>
+    </ownedClassifier>
+    <ownedClassifier xsi:type="aadl2:AbstractType" name="Abstract0"/>
+    <ownedClassifier xsi:type="aadl2:DeviceType" name="Device0"/>
+    <ownedClassifier xsi:type="aadl2:DeviceType" name="Device1">
+      <ownedExtension extended="//@ownedPublicSection/@ownedClassifier.10"/>
+    </ownedClassifier>
+    <ownedClassifier xsi:type="aadl2:DataType" name="Data1">
+      <ownedExtension>
+        <extended xsi:type="aadl2:DataType" href="../external_specification2.aadl#external_specification2.Data_Parent"/>
+      </ownedExtension>
+    </ownedClassifier>
+    <ownedClassifier xsi:type="aadl2:FeatureGroupType" name="FeatureGroup0">
+      <ownedAbstractFeature name="fg0Feature0" in="true"/>
+      <ownedAbstractFeature name="fg0Feature1" out="true"/>
+      <ownedAbstractFeature name="fg0Feature2"/>
+    </ownedClassifier>
+    <ownedClassifier xsi:type="aadl2:FeatureGroupType" name="FeatureGroup1">
+      <ownedExtension extended="//@ownedPublicSection/@ownedClassifier.14"/>
+      <ownedDataAccess name="fg1Feature1" kind="requires" dataFeatureClassifier="//@ownedPublicSection/@ownedClassifier.13"/>
+      <ownedEventPort refined="//@ownedPublicSection/@ownedClassifier.14/@ownedAbstractFeature.0" in="true"/>
+    </ownedClassifier>
+    <ownedClassifier xsi:type="aadl2:FeatureGroupType" name="FeatureGroup2" inverse="//@ownedPublicSection/@ownedClassifier.15"/>
+    <ownedClassifier xsi:type="aadl2:FeatureGroupType" name="FeatureGroup3">
+      <ownedEventDataPort name="fg3EventDataPort0" out="true">
+        <dataFeatureClassifier xsi:type="aadl2:DataType" href="../external_specification2.aadl#external_specification2.Data_Parent"/>
+      </ownedEventDataPort>
+    </ownedClassifier>
+    <ownedClassifier xsi:type="aadl2:FeatureGroupType" name="FeatureGroup4">
+      <ownedExtension extended="//@ownedPublicSection/@ownedClassifier.17"/>
+      <ownedEventDataPort refined="//@ownedPublicSection/@ownedClassifier.17/@ownedEventDataPort.0" out="true" dataFeatureClassifier="//@ownedPublicSection/@ownedClassifier.13"/>
+    </ownedClassifier>
+    <importedUnit xsi:type="aadl2:AadlPackage" href="../external_specification1.aadl#external_specification1"/>
+    <importedUnit xsi:type="aadl2:AadlPackage" href="../external_specification2.aadl#external_specification2"/>
+  </ownedPublicSection>
+</aadl2:AadlPackage>
