@@ -1,7 +1,7 @@
 #using Adele2Aadl.*
 #using AttrCondDefLibrary.*
 
-#abstract #rule ruleDirFeatConn2DirFeatConnSrcParentFeatGroupInverseDestSubcompo42 #with Adele2Aadl
+#abstract #rule ruleDirFeatConn2DirFeatConnSrcParentFeatGroupInverse42 #with Adele2Aadl
 
 #source { 
 	adeleComponentFeature:ADELE_Features.DirectedFeature
@@ -147,7 +147,7 @@
 	
 }
 
-#rule ruleDirFeatConn2DirFeatConnSrcParentFeatGroupInverseDestSubcompo #extends ruleDirFeatConn2DirFeatConnSrcParentFeatGroupInverseDestSubcompo42
+#rule ruleDirFeatConn2DirFeatConnSrcParentFeatGroupInverse #extends ruleDirFeatConn2DirFeatConnSrcParentFeatGroupInverse42
 #with Adele2Aadl
 
 #source{
