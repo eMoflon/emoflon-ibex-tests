@@ -2,7 +2,7 @@
 #using Adele2Aadl.*
 #using AttrCondDefLibrary.*
 
-#abstract #rule ruleFeatGroupAccess2FeatGroupAccessRefined47 #extends ruleFeatGroupAccess2FeatGroupAccess  #with Adele2Aadl
+#abstract #rule ruleFeatGroupAccess2FeatGroupAccessRefined47 #extends abstractruleFeatGroupAccess2FeatGroupAccess46 #with Adele2Aadl
 
 #source { 
 	++adeleAccess:ADELE_Features.Access{
@@ -33,7 +33,7 @@ eq_string(adeleAccess.name, aadlAccess.name)
 }
 
 
-#rule BusAccess2BusAccessRule #extends ruleFeatGroupAccess2FeatGroupAccessRefined47
+#rule ruleFeatGroupAccess2FeatGroupAccessRefined #extends ruleFeatGroupAccess2FeatGroupAccessRefined47
 #with Adele2Aadl
 #source {
 	++ adeleAccess:BusAccess
