@@ -38,6 +38,14 @@
 #attributeConditions {
 	
 }
-
+#rule ruleDirectedFeat2DirectedFeatabstract #extends ruleDirectedFeat2DirectedFeat32 #with Adele2Aadl
+#source
+{
+	++adeleFeature: ADELE_Features.FeatureGroup
+}
+#target
+{
+	++aadlFeature: aadl2.FeatureGroup
+}
 
 

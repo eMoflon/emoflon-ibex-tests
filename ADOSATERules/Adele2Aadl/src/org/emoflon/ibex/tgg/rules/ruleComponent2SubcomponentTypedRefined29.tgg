@@ -57,8 +57,19 @@
 }
 
 #attributeConditions {
+	eq_string(adeleSubcomponent.name, aadlSubcomponent.name)
 	
 }
 
+#rule ruleComponent2SubcomponentTypedRefinedabstract #extends ruleComponent2SubcomponentTypedRefined29 #with Adele2Aadl
+
+#source
+{
+	++ adeleSubcomponent: ADELE_Components.Bus
+}
+#target
+{
+	++ aadlSubcomponent:aadl2.BusSubcomponent
+}
 
 

@@ -1,11 +1,12 @@
 #using Adele2Aadl.*
 #using AttrCondDefLibrary.*
 
-#abstract #rule ruleComponent2SubcomponentTypedRefinedTypedAsParent31 #extends ruleComponent2SubcomponentTypedRefined29 #with Adele2Aadl
+#rule ruleComponent2SubcomponentTypedRefinedTypedAsParent31 #extends ruleComponent2SubcomponentTypedRefinedabstract #with Adele2Aadl
 
 #source { 
-	++ adeleSubcomponent: ADELE_Components.Component
+	++ adeleSubcomponent: ADELE_Components.Bus
 	{
+	
 		++ -implementation-> adeleImplementation
 	}
 	adeleImplementation:ADELE_Components.Component
@@ -15,7 +16,7 @@
 #target {
 	aadlRefinedSubcomponent: aadl2.Subcomponent
 	{
-		// no name in the Mote
+		// no mane in MOTE
 	}
 	aadlImplementation: aadl2.ComponentImplementation
 	
@@ -26,6 +27,7 @@
 }
 
 #attributeConditions {
+	
 	
 }
 

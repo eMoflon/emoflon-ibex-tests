@@ -1,10 +1,10 @@
 #using Adele2Aadl.*
 #using AttrCondDefLibrary.*
 
-#abstract #rule ruleDirectedFeat2DirectedFeatRefined33 #extends ruleDirectedFeat2DirectedFeat32 #with Adele2Aadl
+#rule ruleDirectedFeat2DirectedFeatRefined33 #extends ruleDirectedFeat2DirectedFeatabstract #with Adele2Aadl
 
 #source { 
-	++adeleFeature: ADELE_Features.DirectedFeature
+	++adeleFeature: ADELE_Features.FeatureGroup
 	{
 		++ -refinedFeature -> adeleRefinedFeature
 	}
@@ -12,7 +12,7 @@
 }
 
 #target {
-	++aadlFeature: aadl2.DirectedFeature
+	++aadlFeature: aadl2.FeatureGroup
 	{
 		++ - refined -> aadlRefinedFeature
 	}
@@ -32,6 +32,5 @@
 #attributeConditions {
 	
 }
-
 
 

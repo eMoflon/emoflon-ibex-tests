@@ -1,11 +1,11 @@
 #using Adele2Aadl.*
 #using AttrCondDefLibrary.*
 
-#abstract #rule ruleComponent2SubcomponentTypedAsParentRefinedTyped28 #extends ruleComponent2SubcomponentTypedAsParentRefined27 #with Adele2Aadl
+#rule ruleComponent2SubcomponentTypedAsParentRefinedTyped28 #extends ruleComponent2SubcomponentTypedAsParentRefinedabstract #with Adele2Aadl
 
 #source { 
 	
-	++ adeleSubcomponent: ADELE_Components.Component
+	++ adeleSubcomponent: ADELE_Components.Bus
 	{
 		
 		++ -implementation -> adeleSubcomponentImpl
@@ -38,6 +38,5 @@
 #attributeConditions {
 	
 }
-
 
 
