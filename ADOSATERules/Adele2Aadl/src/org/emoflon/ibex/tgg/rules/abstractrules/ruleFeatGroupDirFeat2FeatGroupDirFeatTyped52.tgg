@@ -33,3 +33,13 @@
 #attributeConditions {
 eq_string(adeleFeature.name, aadlFeature.name)
 }
+
+#rule ruleFeatGroupDirFeat2FeatGroupDirFeatTyped #extends ruleFeatGroupDirFeat2FeatGroupDirFeatTyped52 #with Adele2Aadl
+
+#source {
+	++ adeleFeature:ADELE_Features.BusAccess
+}
+
+#target {
+	++aadlFeature:aadl2.BusAccess
+}
