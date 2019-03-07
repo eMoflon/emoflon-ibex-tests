@@ -1,7 +1,7 @@
 #using Adele2Aadl.*
 #using AttrCondDefLibrary.*
 
-#rule ruleComponent2SubcomponentRefined #with Adele2Aadl
+#abstract #rule ruleComponent2SubcomponentRefined #with Adele2Aadl
 
 #source {
 	
@@ -9,7 +9,7 @@
 	{
 		++ -children->adeleSubcomponent
 	}
-	adeleSubcomponent:Component{
+	++adeleSubcomponent:ADELE_Components.Component{
 		++ -refinedSubcomponent->adeleRefinedSubcomponent
 	}
 	adeleRefinedSubcomponent:Component
@@ -20,7 +20,7 @@
 	{
 		++ -ownedSubcomponent->aadlSubcomponent
 	}
-	aadlSubcomponent:Subcomponent
+	++aadlSubcomponent:Subcomponent
 	{
 		++ -refined->aadlRefinedSubcomponent
 	}
@@ -34,7 +34,7 @@
 		#trg->aadlImplementation
 	}
 	
-	corrSubcomponent:CorrSubcomponenttrgSC{
+	++corrSubcomponent:CorrSubcomponenttrgSC{
 		#src->adeleSubcomponent
 		#trg->aadlSubcomponent
 	}
@@ -48,4 +48,16 @@
 
 #attributeConditions {
 	
+}
+
+
+#rule ruleComponent2SubcomponentRefinedConcrete #extends ruleComponent2SubcomponentRefined 
+#with Adele2Aadl
+
+#source {
+	++adeleSubcomponent:ADELE_Components.Bus
+}
+
+#target {
+	++aadlSubcomponent:aadl2.BusSubcomponent
 }

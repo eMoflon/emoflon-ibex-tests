@@ -1,0 +1,38 @@
+#using Adele2Aadl.*
+#using AttrCondDefLibrary.*
+
+#rule ruleDirectedFeat2DirectedFeatTypedRefined35 #extends ruleDirectedFeat2DirectedFeatTyped34 #with Adele2Aadl
+
+#source { 
+	++adeleFeature: ADELE_Features.FeatureGroup
+	{
+		++ -refinedFeature -> adeleRefinedFeature
+	}
+	adeleRefinedFeature: ADELE_Features.Feature
+	
+}
+
+#target {
+	++aadlFeature: aadl2.FeatureGroup
+	{
+		++ - refined -> aadlRefinedFeature
+	}
+	aadlRefinedFeature:aadl2.Feature
+	
+}
+
+#correspondence {
+	corrRefinedFeature: CorrFeature
+	{
+		#src->adeleRefinedFeature
+		#trg->aadlRefinedFeature
+	}
+	
+}
+
+#attributeConditions {
+	
+}
+
+
+

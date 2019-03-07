@@ -1,0 +1,37 @@
+#using Adele2Aadl.*
+#using AttrCondDefLibrary.*
+
+#rule ruleAccess2AccessRefined2 #extends ruleAccess2Accessabstract #with Adele2Aadl
+
+#source { 
+	++adeleAccess:ADELE_Features.DataAccess
+	{
+		++ - refinedFeature -> adeleRefinedFeature
+	}
+	adeleRefinedFeature:ADELE_Features.Feature
+	
+}
+
+#target {
+	++aadlAccess:aadl2.DataAccess
+	{
+		++ - refined -> aadlRefinedFeature
+	}
+	aadlRefinedFeature: aadl2.Feature
+	
+	
+}
+
+#correspondence {
+	corrRefinedFeature: CorrFeature
+	{
+		#src->adeleRefinedFeature
+		#trg->aadlRefinedFeature
+	}
+	
+	
+}
+
+#attributeConditions {
+	eq_string(adeleAccess.name, aadlAccess.name)
+}

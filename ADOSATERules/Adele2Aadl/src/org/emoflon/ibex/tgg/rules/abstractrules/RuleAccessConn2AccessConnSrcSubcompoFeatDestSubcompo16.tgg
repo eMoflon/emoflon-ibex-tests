@@ -90,60 +90,17 @@ adeleDestinationSubcomponentAccess:ADELE_Features.Access
 }
 #attributeConditions {
 	
+	
 }
 
 #rule RuleAccessConn2AccessConnSrcSubcompoFeatDestSubcompoBus #extends RuleAccessConn2AccessConnSrcSubcompoFeatDestSubcompo16 
 #with Adele2Aadl
 
 #source { 
-adeleComponentImplementation:ADELE_Components.Component
-{
-	-allRealChildrenComponents->adeleDestinationSubcomponent
-	-allRealChildrenComponents->adeleSourceSubcomponent
-	++ -allRealRelations->adeleConnection
-}
 
 	++adeleConnection:ADELE_Relations.BusAccessConnection
-{
-	++ -originalSinkFeature->adeleDestinationSubcomponentAccess
-	++ -originalSourceFeature->adeleSourceSubcomponentAccess
-} 
-adeleDestinationSubcomponent:ADELE_Components.Component
-adeleSourceSubcomponent:ADELE_Components.Component
-adeleSourceSubcomponentAccess:ADELE_Features.Access
-adeleDestinationSubcomponentAccess:ADELE_Features.Access
-
-
 }
 
 #target {
 	
-	sourceConnectedElement:aadl2.ConnectedElement 
-	{
-		++ -connectionEnd->aadlDestinationSubcomponentAccess
-		++ -context->aadlSourceSubcomponent
-	}
-	destinationConnectedElement:aadl2.ConnectedElement
-	{
-		++ -connectionEnd->aadlDestinationSubcomponent
-	}
-	
-	aadlSourceSubcomponent:aadl2.Subcomponent
-	aadlDestinationSubcomponentAccess:aadl2.Access
-	aadlDestinationSubcomponent:aadl2.AccessConnectionEnd
-	aadlSourceSubcomponentAccess:aadl2.Subcomponent
-	
-	
-	aadlComponentImplementation: aadl2.ComponentImplementation
-	 {
-	++ -ownedAccessConnection->aadlConnection
-	++ -member->aadlSourceSubcomponentAccess
-	++ -member->aadlDestinationSubcomponent
-	}
-	aadlConnection:aadl2.AccessConnection
-	{
-		
-		++ -source->sourceConnectedElement
-		++ -destination->destinationConnectedElement
-		}
 }

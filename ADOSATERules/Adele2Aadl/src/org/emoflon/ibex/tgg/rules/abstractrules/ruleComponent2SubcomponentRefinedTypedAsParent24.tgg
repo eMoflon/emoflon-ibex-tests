@@ -1,13 +1,13 @@
 #using Adele2Aadl.*
 #using AttrCondDefLibrary.*
 
-#rule ruleComponent2SubcomponentRefinedTypedAsParent #with Adele2Aadl
+#abstract #rule ruleComponent2SubcomponentRefinedTypedAsParent24 #with Adele2Aadl
 
 #source { 
 	adeleImplementation:Component{
 		++-children->adeleSubcomponent
 	}
-	adeleSubcomponent:Component{
+	++adeleSubcomponent:Component{
 		++ -refinedSubcomponent->adeleRefinedSubcomponent
 		++ -implementation->adeleImplementation
 	}
@@ -19,7 +19,7 @@
 	{
 		++-ownedSubcomponent->aadlSubcomponent
 	}
-	aadlSubcomponent:Subcomponent
+	++aadlSubcomponent:Subcomponent
 	{
 		++-refined->aadlRefinedSubcomponent
 	}
@@ -35,7 +35,7 @@
 		#trg->aadlImplementation
 	}
 	
-	corrSubcomponent:CorrSubcomponenttrgSC
+	++corrSubcomponent:CorrSubcomponenttrgSC
 	{
 		#src->adeleSubcomponent
 		#trg->aadlSubcomponent
@@ -50,4 +50,14 @@
 
 #attributeConditions {
 	
+}
+
+#rule ruleComponent2SubcomponentRefinedTypedAsParent #extends ruleComponent2SubcomponentRefinedTypedAsParent24 
+#with Adele2Aadl
+
+#source{
+	++adeleSubcomponent:ADELE_Components.Bus
+}
+#target{
+	++aadlSubcomponent:aadl2.BusSubcomponent
 }

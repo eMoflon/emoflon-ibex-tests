@@ -90,5 +90,10 @@
 }
 
 
-
+#rule ruleAccessConn2AccessConnSrcParentDestSubcompoFeatSameAccess #extends ruleAccessConn2AccessConnSrcParentDestSubcompoFeatSameAccess9 #with Adele2Aadl
+ 
+#source{
+	++ adeleConnection:ADELE_Relations.BusAccessConnection
+	
+}
 

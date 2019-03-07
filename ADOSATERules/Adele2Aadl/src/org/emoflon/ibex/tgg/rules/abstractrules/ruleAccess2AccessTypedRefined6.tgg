@@ -204,3 +204,11 @@ abstractrRuleAccess2Component #with Adele2Aadl
 	
 	
 }
+
+#rule ruleAccess2AccessTypedRefined  #extends ruleAccess2AccessTypedRefined6 #with Adele2Aadl
+#source{
+	++ adeleAccess:ADELE_Features.BusAccess
+}
+#target{
+	++ aadlAccess:aadl2.BusAccess
+}

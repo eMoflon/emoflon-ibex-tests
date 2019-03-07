@@ -80,3 +80,8 @@
 #attributeConditions {
 	eq_string(adeleConnection.name, aadlConnection.name)
 }
+
+#rule ruleAccessConn2AccessConnSrcParentDestSubcompoFeat #extends ruleAccessConn2AccessConnSrcParentDestSubcompoFeat8 #with Adele2Aadl
+#source{
+	++adeleConnection:ADELE_Relations.BusAccessConnection
+}
