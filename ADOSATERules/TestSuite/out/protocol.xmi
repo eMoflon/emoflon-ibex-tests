@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:Adele2Aadl="platform:/resource/Adele2Aadl/model/Adele2Aadl.ecore">
+  <Adele2Aadl:rulePackage2AadlPackage__Marker>
+    <CREATE__SRC__adelePackage href="../resources/unit/external_specification.adele#external_specification"/>
+    <CREATE__TRG__aadlPackage href="../resources/unit/component_implementation/reverse.aadl#/"/>
+    <CREATE__TRG__aadlPublicPackageSection href="../resources/unit/component_implementation/reverse.aadl#//@ownedPublicSection"/>
+    <CREATE__CORR__corrAxiom href="corr.xmi#/0"/>
+    <CREATE__CORR__corrAxiomOne href="corr.xmi#/1"/>
+  </Adele2Aadl:rulePackage2AadlPackage__Marker>
+  <Adele2Aadl:rulePackage2AadlPackage__Marker>
+    <CREATE__SRC__adelePackage href="../resources/unit/component_implementation/forward.adele#component_implementation"/>
+    <CREATE__TRG__aadlPackage href="../resources/unit/external_specification2.aadl#/"/>
+    <CREATE__TRG__aadlPublicPackageSection href="../resources/unit/external_specification2.aadl#//@ownedPublicSection"/>
+    <CREATE__CORR__corrAxiom href="corr.xmi#/2"/>
+    <CREATE__CORR__corrAxiomOne href="corr.xmi#/3"/>
+  </Adele2Aadl:rulePackage2AadlPackage__Marker>
+  <Adele2Aadl:rulePackage2AadlPackage__Marker>
+    <CREATE__SRC__adelePackage href="../resources/unit/external_specification2.adele#external_specification2"/>
+    <CREATE__TRG__aadlPackage href="../resources/unit/external_specification.aadl#/"/>
+    <CREATE__TRG__aadlPublicPackageSection href="../resources/unit/external_specification.aadl#//@ownedPublicSection"/>
+    <CREATE__CORR__corrAxiom href="corr.xmi#/4"/>
+    <CREATE__CORR__corrAxiomOne href="corr.xmi#/5"/>
+  </Adele2Aadl:rulePackage2AadlPackage__Marker>
+</xmi:XMI>

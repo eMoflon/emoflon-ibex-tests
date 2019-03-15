@@ -2,10 +2,14 @@ package testsuite.ibex.util;
 
 import java.io.IOException;
 
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.ibex.tgg.operational.strategies.opt.cc.CC;
 import org.emoflon.ibex.tgg.run.adele2aadl._RegistrationHelper;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesTGGEngine;
+import org.osate.aadl2.util.Aadl2ResourceFactoryImpl;
+import org.topcased.adele.model.ADELE_Components.impl.ADELE_ComponentsPackageImpl;
+import org.topcased.adele.model.ADELE_Components.util.ADELE_ComponentsResourceFactoryImpl;
 
 public class CC_App_ForTesting extends CC {
 	private String src;
@@ -20,12 +24,29 @@ public class CC_App_ForTesting extends CC {
 
 	@Override
 	public void loadModels() throws IOException {
-		t = loadResource("Testsuite/resources/" + trg + ".xmi");
-		s = loadResource("Testsuite/resources/" + src);
-		c = createResource("Testsuite/out/corr.xmi");
-		p = createResource("Testsuite/out/protocol.xmi");
+		s = loadAdeleResource("TestSuite/resources/" + src);
+		t = loadAadlResource("TestSuite/resources/" + trg);
+		c = createResource("TestSuite/out/corr.xmi");
+		p = createResource("TestSuite/out/protocol.xmi");
 
 		EcoreUtil.resolveAll(rs);
+	}
+
+	private Resource loadAdeleResource(String path) throws IOException {		
+		getResourceSet().getResourceFactoryRegistry().getExtensionToFactoryMap().put("adele",
+				new ADELE_ComponentsResourceFactoryImpl());
+
+		Resource r = loadResource(path);
+
+		return r;
+	}
+	private Resource loadAadlResource(String path) throws IOException {		
+//		getResourceSet().getResourceFactoryRegistry().getExtensionToFactoryMap().put("aadl",
+//				new Aadl2ResourceFactoryImpl());
+
+		Resource r = loadResource(path);
+
+		return r;
 	}
 
 	@Override

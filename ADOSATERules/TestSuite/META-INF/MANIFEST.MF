@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: TestSuite
 Bundle-SymbolicName: TestSuite;singleton:=true
 Bundle-Version: 1.0.0.qualifier
-Export-Package: testsuite.ibex.cc.version3,
+Export-Package: testsuite.ibex.adele2aadl,
  testsuite.ibex.util
 Require-Bundle: org.apache.log4j;bundle-version="1.2.15",
  org.emoflon.ibex.tgg.core.runtime;bundle-version="1.0.0",
@@ -12,5 +12,8 @@ Require-Bundle: org.apache.log4j;bundle-version="1.2.15",
  org.emoflon.ibex.tgg.core.language;bundle-version="1.0.0",
  com.google.guava;bundle-version="15.0.0",
  Adele2Aadl;bundle-version="0.0.1",
- org.eclipse.xtext;bundle-version="2.14.0"
+ org.eclipse.xtext;bundle-version="2.14.0",
+ org.topcased.adele.model;bundle-version="6.0.0",
+ org.topcased.adele.model.editor;bundle-version="6.0.0",
+ org.osate.aadl2
 Automatic-Module-Name: TestSuite

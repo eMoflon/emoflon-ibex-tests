@@ -1,17 +1,14 @@
-package component_type_circ_ref
-public
-with external_circ_ref;
-
-	processor Test1_Proc1 extends external_circ_ref::Test2_Proc2
-	end Test1_Proc1;
-
-	subprogram Subprogram1
-	end Subprogram1;
-
-	thread Thread1
-	end Thread1;
-
-	processor Test1_Proc2
-	end Test1_Proc2;
-
-end component_type_circ_ref;
+<?xml version="1.0" encoding="ASCII"?>
+<aadl2:AadlPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" name="component_type_circ_ref" publicSection="//@ownedPublicSection">
+  <ownedPublicSection>
+    <ownedClassifier xsi:type="aadl2:ProcessorType" name="Test1_Proc1">
+      <ownedExtension>
+        <extended xsi:type="aadl2:ProcessorType" href="../external_circ_ref.aadl#external_circ_ref.Test2_Proc2"/>
+      </ownedExtension>
+    </ownedClassifier>
+    <ownedClassifier xsi:type="aadl2:SubprogramType" name="Subprogram1"/>
+    <ownedClassifier xsi:type="aadl2:ThreadType" name="Thread1"/>
+    <ownedClassifier xsi:type="aadl2:ProcessorType" name="Test1_Proc2"/>
+    <importedUnit xsi:type="aadl2:AadlPackage" href="../external_circ_ref.aadl#external_circ_ref"/>
+  </ownedPublicSection>
+</aadl2:AadlPackage>

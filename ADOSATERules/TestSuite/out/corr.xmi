@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:Adele2Aadl="platform:/resource/Adele2Aadl/model/Adele2Aadl.ecore">
+  <Adele2Aadl:CorrAxiomAP>
+    <source href="../resources/unit/external_specification.adele#external_specification"/>
+    <target href="../resources/unit/component_implementation/reverse.aadl#/"/>
+  </Adele2Aadl:CorrAxiomAP>
+  <Adele2Aadl:CorrAxiomPPS>
+    <source href="../resources/unit/external_specification.adele#external_specification"/>
+    <target href="../resources/unit/component_implementation/reverse.aadl#//@ownedPublicSection"/>
+  </Adele2Aadl:CorrAxiomPPS>
+  <Adele2Aadl:CorrAxiomAP>
+    <source href="../resources/unit/component_implementation/forward.adele#component_implementation"/>
+    <target href="../resources/unit/external_specification2.aadl#/"/>
+  </Adele2Aadl:CorrAxiomAP>
+  <Adele2Aadl:CorrAxiomPPS>
+    <source href="../resources/unit/component_implementation/forward.adele#component_implementation"/>
+    <target href="../resources/unit/external_specification2.aadl#//@ownedPublicSection"/>
+  </Adele2Aadl:CorrAxiomPPS>
+  <Adele2Aadl:CorrAxiomAP>
+    <source href="../resources/unit/external_specification2.adele#external_specification2"/>
+    <target href="../resources/unit/external_specification.aadl#/"/>
+  </Adele2Aadl:CorrAxiomAP>
+  <Adele2Aadl:CorrAxiomPPS>
+    <source href="../resources/unit/external_specification2.adele#external_specification2"/>
+    <target href="../resources/unit/external_specification.aadl#//@ownedPublicSection"/>
+  </Adele2Aadl:CorrAxiomPPS>
+</xmi:XMI>

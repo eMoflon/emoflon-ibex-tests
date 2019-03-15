@@ -4,7 +4,6 @@
 #import "platform:/resource/Adele2Aadl/metamodels/src/ADELE_Components.ecore"
 #import "platform:/resource/Adele2Aadl/metamodels/src/ADELE_Features.ecore"
 #import "platform:/resource/Adele2Aadl/metamodels/src/ADELE_Relations.ecore"
-#import "platform:/resource/Adele2Aadl/metamodels/src/ADELE.ecore"
 #import "platform:/resource/Adele2Aadl/metamodels/src/BA_components.ecore"
 #import "platform:/resource/Adele2Aadl/metamodels/src/BA_features.ecore"
 #import "platform:/resource/Adele2Aadl/metamodels/src/BA_relations.ecore"
@@ -15,7 +14,6 @@
 	
 #source 
 {
-	ADELE
 	ADELE_Components
 	ADELE_Features
 	ADELE_Relations

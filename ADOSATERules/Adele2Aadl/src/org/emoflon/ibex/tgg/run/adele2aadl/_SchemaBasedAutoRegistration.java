@@ -18,7 +18,6 @@ public class _SchemaBasedAutoRegistration {
 		strategy.loadAndRegisterMetamodel("platform:/resource/Adele2Aadl/metamodels/src/ADELE_Components.ecore");
 		strategy.loadAndRegisterMetamodel("platform:/resource/Adele2Aadl/metamodels/src/ADELE_Features.ecore");
 		strategy.loadAndRegisterMetamodel("platform:/resource/Adele2Aadl/metamodels/src/ADELE_Relations.ecore");
-		strategy.loadAndRegisterMetamodel("platform:/resource/Adele2Aadl/metamodels/src/ADELE.ecore");
 		strategy.loadAndRegisterMetamodel("platform:/resource/Adele2Aadl/metamodels/src/BA_components.ecore");
 		strategy.loadAndRegisterMetamodel("platform:/resource/Adele2Aadl/metamodels/src/BA_features.ecore");
 		strategy.loadAndRegisterMetamodel("platform:/resource/Adele2Aadl/metamodels/src/BA_relations.ecore");

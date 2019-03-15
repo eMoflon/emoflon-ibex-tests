@@ -1,82 +1,88 @@
-package component_implementation
-public
-with external_specification2, external_specification;
-	system System0 extends external_specification::System_Parent
-	end System0;
-
-	system System1 extends System0
-	end System1;
-
-	system implementation System0.impl extends external_specification::System_Parent.impl
-	end System0.impl;
-
-	system implementation System1.impl extends System0.impl
-	end System1.impl;
-
-	process Process0
-	end Process0;
-
-	process Process1 extends Process0
-	end Process1;
-
-	process implementation Process0.impl
-	end Process0.impl;
-
-	process implementation Process1.impl extends Process0.impl
-	end Process1.impl;
-
-	thread group ThreadGroup0
-	end ThreadGroup0;
-
-	thread group ThreadGroup1 extends ThreadGroup0
-	end ThreadGroup1;
-
-	thread group implementation ThreadGroup0.impl
-	end ThreadGroup0.impl;
-
-	thread group implementation ThreadGroup1.impl extends ThreadGroup0.impl
-	end ThreadGroup1.impl;
-
-	processor implementation Processor0.impl
-	end Processor0.impl;
-
-	processor implementation Processor1.impl extends Processor0.impl
-	end Processor1.impl;
-
-	processor Processor0
-	end Processor0;
-
-	processor Processor1 extends Processor0
-	end Processor1;
-
-	virtual processor VirtualProc0
-	end VirtualProc0;
-
-	virtual processor VirtualProc1 extends VirtualProc0
-	end VirtualProc1;
-	
-	abstract Abstract0
-	end Abstract0;
-	
-	abstract implementation Abstract0.impl
-	end Abstract0.impl;
-	
-	device implementation Device0.impl
-	end Device0.impl;
-	
-	device implementation Device1.impl extends Abstract0.impl
-	end Device1.impl;
-	
-	device Device0
-	end Device0;
-	
-	device Device1 extends Abstract0
-	end Device1;
-	
-	data Data1 extends external_specification2::Data_Parent
-	end Data1;
-	
-	data implementation Data1.impl extends external_specification2::Data_Parent.impl
-	end Data1.impl;
-
-end component_implementation;
+<?xml version="1.0" encoding="ASCII"?>
+<aadl2:AadlPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" name="component_implementation" publicSection="//@ownedPublicSection">
+  <ownedPublicSection>
+    <ownedClassifier xsi:type="aadl2:SystemType" name="System0">
+      <ownedExtension>
+        <extended xsi:type="aadl2:SystemType" href="../external_specification.aadl#external_specification.System_Parent"/>
+      </ownedExtension>
+    </ownedClassifier>
+    <ownedClassifier xsi:type="aadl2:SystemType" name="System1">
+      <ownedExtension extended="//@ownedPublicSection/@ownedClassifier.0"/>
+    </ownedClassifier>
+    <ownedClassifier xsi:type="aadl2:SystemImplementation" name="System0.impl">
+      <ownedExtension>
+        <extended xsi:type="aadl2:SystemImplementation" href="../external_specification.aadl#external_specification.System_Parent.impl"/>
+      </ownedExtension>
+      <ownedRealization implemented="//@ownedPublicSection/@ownedClassifier.0"/>
+    </ownedClassifier>
+    <ownedClassifier xsi:type="aadl2:SystemImplementation" name="System1.impl">
+      <ownedExtension extended="//@ownedPublicSection/@ownedClassifier.2"/>
+      <ownedRealization implemented="//@ownedPublicSection/@ownedClassifier.1"/>
+    </ownedClassifier>
+    <ownedClassifier xsi:type="aadl2:ProcessType" name="Process0"/>
+    <ownedClassifier xsi:type="aadl2:ProcessType" name="Process1">
+      <ownedExtension extended="//@ownedPublicSection/@ownedClassifier.4"/>
+    </ownedClassifier>
+    <ownedClassifier xsi:type="aadl2:ProcessImplementation" name="Process0.impl">
+      <ownedRealization implemented="//@ownedPublicSection/@ownedClassifier.4"/>
+    </ownedClassifier>
+    <ownedClassifier xsi:type="aadl2:ProcessImplementation" name="Process1.impl">
+      <ownedExtension extended="//@ownedPublicSection/@ownedClassifier.6"/>
+      <ownedRealization implemented="//@ownedPublicSection/@ownedClassifier.5"/>
+    </ownedClassifier>
+    <ownedClassifier xsi:type="aadl2:ThreadGroupType" name="ThreadGroup0"/>
+    <ownedClassifier xsi:type="aadl2:ThreadGroupType" name="ThreadGroup1">
+      <ownedExtension extended="//@ownedPublicSection/@ownedClassifier.8"/>
+    </ownedClassifier>
+    <ownedClassifier xsi:type="aadl2:ThreadGroupImplementation" name="ThreadGroup0.impl">
+      <ownedRealization implemented="//@ownedPublicSection/@ownedClassifier.8"/>
+    </ownedClassifier>
+    <ownedClassifier xsi:type="aadl2:ThreadGroupImplementation" name="ThreadGroup1.impl">
+      <ownedExtension extended="//@ownedPublicSection/@ownedClassifier.10"/>
+      <ownedRealization implemented="//@ownedPublicSection/@ownedClassifier.9"/>
+    </ownedClassifier>
+    <ownedClassifier xsi:type="aadl2:ProcessorImplementation" name="Processor0.impl">
+      <ownedRealization implemented="//@ownedPublicSection/@ownedClassifier.14"/>
+    </ownedClassifier>
+    <ownedClassifier xsi:type="aadl2:ProcessorImplementation" name="Processor1.impl">
+      <ownedExtension extended="//@ownedPublicSection/@ownedClassifier.12"/>
+      <ownedRealization implemented="//@ownedPublicSection/@ownedClassifier.15"/>
+    </ownedClassifier>
+    <ownedClassifier xsi:type="aadl2:ProcessorType" name="Processor0"/>
+    <ownedClassifier xsi:type="aadl2:ProcessorType" name="Processor1">
+      <ownedExtension extended="//@ownedPublicSection/@ownedClassifier.14"/>
+    </ownedClassifier>
+    <ownedClassifier xsi:type="aadl2:VirtualProcessorType" name="VirtualProc0"/>
+    <ownedClassifier xsi:type="aadl2:VirtualProcessorType" name="VirtualProc1">
+      <ownedExtension extended="//@ownedPublicSection/@ownedClassifier.16"/>
+    </ownedClassifier>
+    <ownedClassifier xsi:type="aadl2:AbstractType" name="Abstract0"/>
+    <ownedClassifier xsi:type="aadl2:AbstractImplementation" name="Abstract0.impl">
+      <ownedRealization implemented="//@ownedPublicSection/@ownedClassifier.18"/>
+    </ownedClassifier>
+    <ownedClassifier xsi:type="aadl2:DeviceImplementation" name="Device0.impl">
+      <ownedRealization implemented="//@ownedPublicSection/@ownedClassifier.22"/>
+    </ownedClassifier>
+    <ownedClassifier xsi:type="aadl2:DeviceImplementation" name="Device1.impl">
+      <ownedExtension extended="//@ownedPublicSection/@ownedClassifier.19"/>
+      <ownedRealization implemented="//@ownedPublicSection/@ownedClassifier.23"/>
+    </ownedClassifier>
+    <ownedClassifier xsi:type="aadl2:DeviceType" name="Device0"/>
+    <ownedClassifier xsi:type="aadl2:DeviceType" name="Device1">
+      <ownedExtension extended="//@ownedPublicSection/@ownedClassifier.18"/>
+    </ownedClassifier>
+    <ownedClassifier xsi:type="aadl2:DataType" name="Data1">
+      <ownedExtension>
+        <extended xsi:type="aadl2:DataType" href="../external_specification2.aadl#external_specification2.Data_Parent"/>
+      </ownedExtension>
+    </ownedClassifier>
+    <ownedClassifier xsi:type="aadl2:DataImplementation" name="Data1.impl">
+      <ownedExtension>
+        <extended xsi:type="aadl2:DataImplementation" href="../external_specification2.aadl#external_specification2.Data_Parent.impl"/>
+      </ownedExtension>
+      <ownedRealization implemented="//@ownedPublicSection/@ownedClassifier.24"/>
+    </ownedClassifier>
+    <importedUnit xsi:type="aadl2:AadlPackage" href="../external_specification2.aadl#external_specification2"/>
+    <importedUnit xsi:type="aadl2:AadlPackage" href="../external_specification.aadl#external_specification"/>
+  </ownedPublicSection>
+</aadl2:AadlPackage>
