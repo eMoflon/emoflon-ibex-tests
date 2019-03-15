@@ -23,7 +23,6 @@
 	}
 	adeleSubcomponent:ADELE_Components.Component	
 }
-
 #target {
 	
 	aadlComponentFeature:aadl2.DirectedFeature
@@ -82,11 +81,11 @@
 	corrSubcomponent:CorrSubcomponenttrgSC{
 		#src->adeleSubcomponent
 		#trg->aadlSubcomponent
-	}
-	
+	}	
 }
 
 #attributeConditions {
+	
 	
 }
 
@@ -94,8 +93,8 @@
 #with Adele2Aadl
 
 #source{
-	++adeleConnection:ADELE_Relations.EventPortConnection
+	++adeleConnection:ADELE_Relations.FeatureGroupConnection
 }
 #target{
-	++aadlConnection:aadl2.EventPort
+	++aadlConnection:aadl2.FeatureGroup
 }

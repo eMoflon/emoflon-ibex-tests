@@ -92,17 +92,16 @@
 	}
 }
 
-#attributeConditions {
-	
+#attributeConditions {	
 }
 
 #rule ruleDirFeatConn2DirFeatConnSrcSubcompoDestParentSamePort #extends ruleDirFeatConn2DirFeatConnSrcSubcompoDestParentSamePort43 
 #with Adele2Aadl
 
 #source{
-	++adeleConnection:ADELE_Relations.EventPortConnection
+	++adeleConnection:ADELE_Relations.FeatureGroupConnection
 }
 
 #target{
-	++aadlConnection:aadl2.EventPort
+	++aadlConnection:aadl2.FeatureGroup
 }
