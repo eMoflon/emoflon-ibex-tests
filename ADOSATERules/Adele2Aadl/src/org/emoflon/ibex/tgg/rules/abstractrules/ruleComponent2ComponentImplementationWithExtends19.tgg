@@ -80,8 +80,10 @@
 }
 
 #attributeConditions {
+	eq_string(adeleImplementation.name, aadlImplementation.name)
 	
 }
+
 
  #rule ruleComponent2ComponentImplementationWithExtendscomponent #extends ruleComponent2ComponentImplementationWithExtends19 #with Adele2Aadl
 

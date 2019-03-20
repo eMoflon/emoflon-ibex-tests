@@ -58,6 +58,7 @@
 }
 
 #attributeConditions {
+	eq_string(adeleImplementation.name, aadlImplementation.name)
 	
 }
 

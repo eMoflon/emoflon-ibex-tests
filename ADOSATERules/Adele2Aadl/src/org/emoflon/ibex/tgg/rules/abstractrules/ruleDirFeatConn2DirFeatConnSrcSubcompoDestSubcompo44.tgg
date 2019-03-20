@@ -79,7 +79,8 @@ aadlSourceSubcomponent:aadl2.Subcomponent
     
 }
 #attributeConditions {
-    
+	eq_string(adeleConnection.name, aadlConnection.name)
+	
 }
 #rule ruleDirFeatConn2DirFeatConnSrcSubcompoDestSubcompo44 #extends abstractruleDirFeatConn2DirFeatConnSrcSubcompoDestSubcompo44 #with Adele2Aadl
 #source

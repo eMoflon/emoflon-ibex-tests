@@ -92,9 +92,10 @@
 	}
 }
 
-#attributeConditions {	
+#attributeConditions {
+	eq_string(adeleConnection.name, aadlConnection.name)
+	
 }
-
 #rule ruleDirFeatConn2DirFeatConnSrcSubcompoDestParentSamePort #extends ruleDirFeatConn2DirFeatConnSrcSubcompoDestParentSamePort43 
 #with Adele2Aadl
 
