@@ -36,8 +36,10 @@
 }
 
 #attributeConditions {
+	eq_string(adeleFeature.name, aadlFeature.name)
 	
 }
+
 #rule ruleDirectedFeat2DirectedFeatabstract #extends ruleDirectedFeat2DirectedFeat32 #with Adele2Aadl
 #source
 {

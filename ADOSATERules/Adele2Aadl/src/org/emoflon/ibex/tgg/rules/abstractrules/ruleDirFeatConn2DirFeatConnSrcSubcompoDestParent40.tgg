@@ -98,7 +98,9 @@
 	}
 }
 
-#attributeConditions {	
+#attributeConditions {
+	eq_string(adeleConnection.name, aadlConnection.name)
+	
 }
 
 #rule ruleDirFeatConn2DirFeatConnSrcSubcompoDestParent #extends ruleDirFeatConn2DirFeatConnSrcSubcompoDestParent40 

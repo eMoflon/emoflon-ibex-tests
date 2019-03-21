@@ -1,214 +1,73 @@
 #using Adele2Aadl.*
 #using AttrCondDefLibrary.*
 
-#abstract #rule abstractruleAccess2Feature #with Adele2Aadl
+#abstract #rule ruleAccess2AccessTypedRefined6 #with Adele2Aadl
 
-#source { 
-	
-	++ adeleAccess:ADELE_Features.Access{
-		++-refinedFeature->adeleRefinedFeature
-		
-	}
-adeleRefinedFeature:ADELE_Features.Feature
-
-
-
-}
-
-
-#target {
-	
-	
-++ aadlAccess:aadl2.Access{
-	++-refined->aadlRefinedFeature
-		
-}
-aadlRefinedFeature:aadl2.Feature
-
-
-}
-
-#correspondence {
-	
-	
-}
-
-#attributeConditions {
-	
-	eq_string(adeleAccess.name, aadlAccess.name)
-}
-#abstract #rule abstractrRuleAccess2Component #with Adele2Aadl
-
-#source { 
-	
-	++ adeleAccess:ADELE_Features.Access{
-		
-		++-classifier->adeleClassifier
-	}
-
-adeleClassifier:ADELE_Components.Component
-
-
-}
-
-
-#target {
-	
-	
-++ aadlAccess:aadl2.Access{
-	
-		++-featureClassifier->aadlClassifier
-}
-
-aadlClassifier:aadl2.FeatureClassifier
-
-}
-
-#correspondence {
-	
-	
-}
-
-#attributeConditions {
-	
-	eq_string(adeleAccess.name, aadlAccess.name)
-}
-
-#abstract #rule abstractRuleAccess2Component #with Adele2Aadl
-
-#source { 
-	adeleType:ADELE_Components.Component
-	++ adeleAccess:ADELE_Features.Access{
-		++-classifier->adeleType
-		
-	}
-
-
-
-}
-
-
-#target {
-	aadlType:aadl2.ComponentType
-	
-++ aadlAccess:aadl2.Access{
-	++-featureClassifier->aadlType
-		
-}
-
-
-
-}
-
-#correspondence {
-	
-	
-}
-
-#abstract #rule ComponentToAccess #with Adele2Aadl
-
-#source { 
+#source {
 	adeleType:ADELE_Components.Component{
 		++ -features -> adeleAccess
 	}
 
-++ adeleAccess:ADELE_Features.Access
+	++adeleAccess:ADELE_Features.Access{
+		++-refinedFeature -> adeleRefinedFeature
+		++-classifier -> adeleClassifier
+	}
 
+	adeleRefinedFeature:ADELE_Features.Feature
+
+	adeleClassifier:ADELE_Components.Component
 }
 
-
 #target {
-	
 	aadlType:aadl2.ComponentType{
-		
-		++ -ownedFeature->aadlAccess
+		++ -ownedFeature -> aadlAccess
+	}
 
-}
-++ aadlAccess:aadl2.Access
-}
+	++aadlAccess:aadl2.Access{
+		++-refined -> aadlRefinedFeature
+		++-featureClassifier -> aadlClassifier
+	}
 
-#correspondence {
-	
-	
-}
+	aadlRefinedFeature:aadl2.Feature
 
-
-#rule ruleAccess2AccessTypedRefined6 #extends 
-ComponentToAccess, abstractruleAccess2Feature, 
-abstractrRuleAccess2Component #with Adele2Aadl
-
-#source { 
-		
-}
-
-#target {
-	
-
+	aadlClassifier:aadl2.FeatureClassifier
 }
 
 #correspondence {
 	corrType:CorrComponentType{
 		#src->adeleType
-        #trg->aadlType
+		#trg->aadlType
 	}
+
 	++corrAccess:CorrAccess{
-	   #src->adeleAccess
-       #trg->aadlAccess
+		#src->adeleAccess
+		#trg->aadlAccess
 	}
+
 	corrRefinedFeature:CorrFeature
 	{
 		#src->adeleRefinedFeature
 		#trg->aadlRefinedFeature
 	}
+
 	corrClassifier:CorrComponent{
 		#src->adeleClassifier
-		 #trg->aadlClassifier
-		
-	 }
-	
+		#trg->aadlClassifier
+	}
 }
 
 #attributeConditions {
-	
-	
-}
-
-#rule ruleAccess2AccessTypedAsParentRefined #extends
- ComponentToAccess, abstractruleAccess2Feature, 
- abstractRuleAccess2Component #with Adele2Aadl
-
-#source { 
-	
-}
-
-#target {
-	
-	
-
-}
-
-#correspondence {
-	corrType:CorrComponentType{
-		#src->adeleType
-        #trg->aadlType
-	}
-	++corrAccess:CorrAccess{
-	   #src->adeleAccess
-       #trg->aadlAccess
-	}
-	
-	
-}
-
-#attributeConditions {
-	
-	
+	eq_string(adeleAccess.name, aadlAccess.name)
 }
 
 #rule ruleAccess2AccessTypedRefined  #extends ruleAccess2AccessTypedRefined6 #with Adele2Aadl
+
 #source{
-	++ adeleAccess:ADELE_Features.BusAccess
+	++adeleAccess:ADELE_Features.BusAccess
 }
+
 #target{
-	++ aadlAccess:aadl2.BusAccess
+	++aadlAccess:aadl2.BusAccess
 }
+
+

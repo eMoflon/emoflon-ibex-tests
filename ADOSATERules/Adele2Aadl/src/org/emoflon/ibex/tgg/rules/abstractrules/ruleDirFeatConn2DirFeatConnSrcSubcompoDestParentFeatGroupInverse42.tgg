@@ -144,6 +144,8 @@
 }
 
 #attributeConditions {
+	eq_string(adeleConnection.name, aadlConnection.name)
+	
 }
 
 #rule ruleDirFeatConn2DirFeatConnSrcParentFeatGroupInverse #extends ruleDirFeatConn2DirFeatConnSrcParentFeatGroupInverse42

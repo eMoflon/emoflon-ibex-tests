@@ -49,6 +49,7 @@
 }
 
 #attributeConditions {
+	eq_string(adeleSubcomponent.name, aadlSubcomponent.name)
 	
 }
 

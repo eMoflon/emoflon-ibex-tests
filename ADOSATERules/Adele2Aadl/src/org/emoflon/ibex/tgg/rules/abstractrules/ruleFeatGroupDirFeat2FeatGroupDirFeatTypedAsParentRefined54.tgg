@@ -51,8 +51,9 @@
 	}
 }
 
+
 #attributeConditions {
-	
+eq_string(adeleFeature.name, aadlFeature.name)
 }
 
  #rule ruleFeatGroupDirFeat2FeatGroupDirFeatTypedAsParentRefinedabstract #extends ruleFeatGroupDirFeat2FeatGroupDirFeatTypedAsParentRefined54 #with Adele2Aadl

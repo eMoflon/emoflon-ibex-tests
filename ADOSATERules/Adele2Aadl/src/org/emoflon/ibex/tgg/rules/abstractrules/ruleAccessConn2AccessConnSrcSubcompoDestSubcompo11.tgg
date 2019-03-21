@@ -63,6 +63,7 @@
 }
 
 #attributeConditions {
+	eq_string(adeleConnection.name, aadlConnection.name)
 	
 }
 #rule ruleAccessConn2AccessConnSrcSubcompoDestSubcompo11 #extends abstractruleAccessConn2AccessConnSrcSubcompoDestSubcompo11 #with Adele2Aadl
@@ -73,16 +74,3 @@
 	++ adeleConnection: ADELE_Relations.BusAccessConnection
 }
 
-#target {
-	
-		
-	
-}
-
-#correspondence {
-	
-}
-
-#attributeConditions {
-	
-}

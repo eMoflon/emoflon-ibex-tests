@@ -88,10 +88,11 @@
 		#trg->aadlSubcomponentFeature
 	}
 }
-#attributeConditions {
-		
-}
 
+#attributeConditions {
+	eq_string(adeleConnection.name, aadlConnection.name)
+	
+}
 #rule ruleDirFeatConn2DirFeatConnSrcParentDestSubcompo #extends ruleDirFeatConn2DirFeatConnSrcParentDestSubcompo36 
 #with Adele2Aadl
 

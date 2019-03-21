@@ -89,7 +89,7 @@ adeleDestinationSubcomponentAccess:ADELE_Features.Access
 	
 }
 #attributeConditions {
-	
+	eq_string(adeleConnection.name, aadlConnection.name)
 	
 }
 
