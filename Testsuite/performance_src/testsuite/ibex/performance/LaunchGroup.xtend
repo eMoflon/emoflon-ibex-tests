@@ -22,7 +22,7 @@ class LaunchGroup {
 		
 		for (tgg : PerformanceConstants.testProjects) {
 			for (op : Operationalization.values) {
-				if (op != Operationalization.INCREMENTAL_FWD && op != Operationalization.INCREMENTAL_BWD)
+//				if (op != Operationalization.INCREMENTAL_FWD && op != Operationalization.INCREMENTAL_BWD)
 					for (size : modelSizes) {
 						var launchConfig = new LaunchConfiguration(new TestCaseParameters(tgg, op, size), reset)
 						reset = false

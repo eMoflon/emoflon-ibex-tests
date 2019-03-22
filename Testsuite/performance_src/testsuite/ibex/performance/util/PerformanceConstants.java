@@ -16,9 +16,9 @@ public class PerformanceConstants {
 	public final static int[] modelSizes = {
 											500,
 											1000,
-											2000,
-											4000,
-											8000
+//											2000,
+//											4000,
+//											8000
 	};
 
 	/** Number of repetitions per test case. Final result is the median of all repetitions. */
@@ -46,25 +46,25 @@ public class PerformanceConstants {
 	public final static String processCodeAdapter = "ProcessCodeAdapter";
 	public final static String vhdlTGGCodeAdapter = "VHDLTGGCodeAdapter";
 		
-	public final static String[] testProjects = {algorithmToStrategy_MA,
+	public final static String[] testProjects = {//algorithmToStrategy_MA,
 												 benchmarxFamiliesToPersons,
 			 									 blockCodeAdapter,
-												 blockDiagramCodeAdapter,
-												 blockDiagramCodeAdapter_EdgeRules,
-												 class2Doc_MA,
-												 class2TestClass_MA,
+//												 blockDiagramCodeAdapter,
+//												 blockDiagramCodeAdapter_EdgeRules,
+//												 class2Doc_MA,
+//												 class2TestClass_MA,
 												 classInhHier2DB,
-												 classInhHier2DB_MA,
-												 classMultipleInhHier2DB_MA,
+//												 classInhHier2DB_MA,
+//												 classMultipleInhHier2DB_MA,
 												 companyToIT,
-												 familiesToPersons_MA,
-												 familiesToPersons_V0,
-												 familiesToPersons_V1,
-												 familyWithSiblingsToPersons_MA,
-												 featureModelConciseToSafe,
-												 moDiscoIbexTGG,
-												 processCodeAdapter,
-												 vhdlTGGCodeAdapter
+//												 familiesToPersons_MA,
+//												 familiesToPersons_V0,
+//												 familiesToPersons_V1,
+//												 familyWithSiblingsToPersons_MA,
+//												 featureModelConciseToSafe,
+												 moDiscoIbexTGG
+//												 processCodeAdapter,
+//												 vhdlTGGCodeAdapter
 												 };
 
 	//-------------------------  Plots -----------------------------------------------------
@@ -85,7 +85,7 @@ public class PerformanceConstants {
 	 * The command used to invoke gnuplot.  You might have to change this depending on your installation.
 	 */
 	//public static final String gnuPlotCommand = "/usr/local/bin/gnuplot";  // <-- You might need this on a nix system
-	public static final String gnuPlotCommand = "gnuplot";
+	public static final String gnuPlotCommand = "C:/Program Files/gnuplot/bin/gnuplot.exe";
 	
 	/** The time unit used in the plots. */
 	public static final TimeUnit plotTimeUnit = TimeUnit.MILLISECONDS;
@@ -94,12 +94,12 @@ public class PerformanceConstants {
 	 * The model size used for most plots with a fixed size. Should be low enough that most
 	 * TGGs/Operationalizations do not timeout/run out of memory for this size.
 	 * */
-	public static final int standardModelSize = 8000;
+	public static final int standardModelSize = 500;
 	
 	/**
 	 * The model size used for some plots with a fixed size, where the TGG/Operationalization
 	 * can handle bigger sizes.
 	 * */
-	public static final int bigModelSize = 8000;
+	public static final int bigModelSize = 1000;
 	
 }

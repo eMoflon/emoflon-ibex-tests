@@ -31,7 +31,7 @@ class GNUPlotScripts {
 	def createPlot(String title, String script) {
 		var lines = script.split("\n\n")
 		Files.write(Paths.get(scriptPath+title+".gp"), lines)
-		Runtime.runtime.exec(gnuplotCommand + " "+scriptPath+title+".gp").waitFor()
+		Runtime.getRuntime().exec(gnuplotCommand + " "+scriptPath+title+".gp").waitFor()
 	}
 	
 		/**
@@ -41,9 +41,9 @@ class GNUPlotScripts {
 	 * @param script The script for the plot in a single String.
 	 */
 	def createEvalPlot(String title, String script) {
-		var lines = script.split("\n\n")
-		Files.write(Paths.get(evalScriptPath+title+".gp"), lines)
-		Runtime.runtime.exec(gnuplotCommand + " "+evalScriptPath+title+".gp").waitFor()
+//		var lines = script.split("\n\n")
+//		Files.write(Paths.get(evalScriptPath+title+".gp"), lines)
+//		Runtime.runtime.exec(gnuplotCommand + " "+evalScriptPath+title+".gp").waitFor()
 	}
 	
 	def commonHistogramScriptParts(String diagramType, String fileName) {

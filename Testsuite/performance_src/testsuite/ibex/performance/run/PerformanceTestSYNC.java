@@ -53,7 +53,7 @@ public class PerformanceTestSYNC extends PerformanceTest<SYNC> {
 			throw new IllegalArgumentException("Number of repetitions must be positive.");
 		
 		this.opType = opType;
-		isForward = opType == Operationalization.FWD || opType == Operationalization.INITIAL_FWD;
+		isForward = /*opType == Operationalization.FWD ||*/ opType == Operationalization.INITIAL_FWD;
 		
 		long[] initTimes = new long[repetitions];
 		long[] batchExecutionTimes = new long[repetitions];
@@ -96,10 +96,10 @@ public class PerformanceTestSYNC extends PerformanceTest<SYNC> {
 		TestDataPoint batchData = new TestDataPoint(initTimes, batchExecutionTimes);
 		batchData.testCase = new TestCaseParameters(tgg.getName(), opType, size);
 		
-		TestDataPoint incData = new TestDataPoint(initTimes, incrementalExecutionTimes);
-		incData.testCase = new TestCaseParameters(tgg.getName(), isForward ? Operationalization.INCREMENTAL_FWD : Operationalization.INCREMENTAL_BWD, size);
+//		TestDataPoint incData = new TestDataPoint(initTimes, incrementalExecutionTimes);
+//		incData.testCase = new TestCaseParameters(tgg.getName(), isForward ? Operationalization.INCREMENTAL_FWD : Operationalization.INCREMENTAL_BWD, size);
 		
-		return Arrays.asList(batchData, incData);
+		return Arrays.asList(batchData/*, incData*/);
 	}
 
 	@Override

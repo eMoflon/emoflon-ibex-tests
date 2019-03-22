@@ -97,12 +97,12 @@ public class TestDataCollector {
 		case CC:
 			this.collectCCData(tggName, modelSize);
 			break;
-		case FWD:
-			this.collectFWDData(tggName, modelSize);
-			break;
-		case BWD:
-			this.collectBWDData(tggName, modelSize);
-			break;
+//		case FWD:
+//			this.collectFWDData(tggName, modelSize);
+//			break;
+//		case BWD:
+//			this.collectBWDData(tggName, modelSize);
+//			break;
 		case CO:
 			this.collectCOData(tggName, modelSize);
 			break;
@@ -118,10 +118,10 @@ public class TestDataCollector {
 		case INITIAL_BWD:
 			this.collectINITIAL_BWDData(tggName, modelSize);
 			break;
-		case INCREMENTAL_FWD:
-		case INCREMENTAL_BWD:
-			throw new IllegalArgumentException("A test case should not contain the operationalization "
-					+ "INCREMENTAL_FWD/INCREMENTAL_BWD because both batch and incremental SYNC are included in the FWD/BWD test cases.");
+//		case INCREMENTAL_FWD:
+//		case INCREMENTAL_BWD:
+//			throw new IllegalArgumentException("A test case should not contain the operationalization "
+//					+ "INCREMENTAL_FWD/INCREMENTAL_BWD because both batch and incremental SYNC are included in the FWD/BWD test cases.");
 		}
 
 		saveData();
@@ -281,27 +281,27 @@ public class TestDataCollector {
 		}
 	}
 
-	private void collectFWDData(String tggName, int size) throws IOException {
-		PerformanceTestSYNC test = new PerformanceTestSYNC();
-
-		Supplier<SYNC_App> transformator = () -> {
-			try {
-				SYNC_App sync = new SYNC_App(tggName, PerformanceConstants.workspacePath, false,
-						tggName + "/instances/" + size + "Element", true, false);
-				sync.setUpdatePolicy(new TimedUpdatePolicy(new NextMatchUpdatePolicy(), PerformanceConstants.timeout,
-						TimeUnit.SECONDS));
-				return sync;
-			} catch (IOException e) {
-				e.printStackTrace();
-				return null;
-			}
-		};
-
-		System.out.println("Collecting SYNC data for " + tggName + ", size: " + size);
-		List<TestDataPoint> points = test.timedExecutionAndInit(transformator, size, repetitions,
-				Operationalization.FWD, incEditor.getEdit(tggName, true));
-		data.addAll(points);
-	}
+//	private void collectFWDData(String tggName, int size) throws IOException {
+//		PerformanceTestSYNC test = new PerformanceTestSYNC();
+//
+//		Supplier<SYNC_App> transformator = () -> {
+//			try {
+//				SYNC_App sync = new SYNC_App(tggName, PerformanceConstants.workspacePath, false,
+//						tggName + "/instances/" + size + "Element", true, false);
+//				sync.setUpdatePolicy(new TimedUpdatePolicy(new NextMatchUpdatePolicy(), PerformanceConstants.timeout,
+//						TimeUnit.SECONDS));
+//				return sync;
+//			} catch (IOException e) {
+//				e.printStackTrace();
+//				return null;
+//			}
+//		};
+//
+//		System.out.println("Collecting SYNC data for " + tggName + ", size: " + size);
+//		List<TestDataPoint> points = test.timedExecutionAndInit(transformator, size, repetitions,
+//				Operationalization.FWD, incEditor.getEdit(tggName, true));
+//		data.addAll(points);
+//	}
 
 	private void collectINITIAL_FWDData(String tggName, int size) throws IOException {
 		PerformanceTestSYNC test = new PerformanceTestSYNC();
@@ -385,7 +385,7 @@ public class TestDataCollector {
 			}
 		};
 
-		System.out.println("Collecting FWD_OPT data for " + tggName + ", size: " + size);
+		System.out.println("Collecting BWD_OPT data for " + tggName + ", size: " + size);
 		TestDataPoint point;
 		try {
 			point = test.repeatedTimedExecutionAndInit(transformator, size, repetitions);
@@ -395,26 +395,26 @@ public class TestDataCollector {
 		}
 	}
 
-	private void collectBWDData(String tggName, int size) throws IOException {
-		PerformanceTestSYNC test = new PerformanceTestSYNC();
-
-		Supplier<SYNC_App> transformator = () -> {
-			try {
-				SYNC_App sync = new SYNC_App(tggName, PerformanceConstants.workspacePath, false,
-						tggName + "/instances/" + size + "Element", false, false);
-				sync.setUpdatePolicy(new TimedUpdatePolicy(new NextMatchUpdatePolicy(), PerformanceConstants.timeout,
-						TimeUnit.SECONDS));
-				return sync;
-			} catch (IOException e) {
-				e.printStackTrace();
-				return null;
-			}
-		};
-
-		List<TestDataPoint> points = test.timedExecutionAndInit(transformator, size, repetitions,
-				Operationalization.BWD, incEditor.getEdit(tggName, false));
-		data.addAll(points);
-	}
+//	private void collectBWDData(String tggName, int size) throws IOException {
+//		PerformanceTestSYNC test = new PerformanceTestSYNC();
+//
+//		Supplier<SYNC_App> transformator = () -> {
+//			try {
+//				SYNC_App sync = new SYNC_App(tggName, PerformanceConstants.workspacePath, false,
+//						tggName + "/instances/" + size + "Element", false, false);
+//				sync.setUpdatePolicy(new TimedUpdatePolicy(new NextMatchUpdatePolicy(), PerformanceConstants.timeout,
+//						TimeUnit.SECONDS));
+//				return sync;
+//			} catch (IOException e) {
+//				e.printStackTrace();
+//				return null;
+//			}
+//		};
+//
+//		List<TestDataPoint> points = test.timedExecutionAndInit(transformator, size, repetitions,
+//				Operationalization.BWD, incEditor.getEdit(tggName, false));
+//		data.addAll(points);
+//	}
 
 	/**
 	 * Copies the data collected in the SER file during the test run into the

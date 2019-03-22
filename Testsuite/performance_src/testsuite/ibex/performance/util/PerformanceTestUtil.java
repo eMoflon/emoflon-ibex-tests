@@ -231,7 +231,7 @@ public class PerformanceTestUtil {
 			rs.getPackageRegistry().put("platform:/resource/Families/model/Families.ecore", FamiliesPackageImpl.init());
 
 			res = op.loadResource(
-					"platform:/resource/../../benchmarx/examples/familiestopersons/metamodels/Persons/model/Persons.ecore");
+					"platform:/resource/../benchmarx/examples/familiestopersons/metamodels/Persons/model/Persons.ecore");
 			pack = (EPackage) res.getContents().get(0);
 			rs.getResources().remove(res);
 			rs.getPackageRegistry().put("platform:/resource/Persons/model/Persons.ecore", pack);
@@ -247,7 +247,7 @@ public class PerformanceTestUtil {
 
 			// Load and register source and target metamodels
 			res = op.loadResource(
-					"platform:/resource/../metamodels/" + data.trgMetaModel + "/model/" + data.trgMetaModel + ".ecore");
+					"platform:/resource/" + data.trgMetaModel + "/model/" + data.trgMetaModel + ".ecore");
 			pack = (EPackage) res.getContents().get(0);
 			rs.getPackageRegistry()
 					.put("platform:/resource/" + data.trgMetaModel + "/model/" + data.trgMetaModel + ".ecore", pack);
@@ -271,7 +271,7 @@ public class PerformanceTestUtil {
 			rs.getPackageRegistry().put("platform:/resource/Persons/model/Persons.ecore", PersonsPackageImpl.init());
 
 			res = op.loadResource(
-					"platform:/resource/../../benchmarx/examples/familiestopersons/metamodels/Families/model/Families.ecore");
+					"platform:/resource/../benchmarx/examples/familiestopersons/metamodels/Families/model/Families.ecore");
 			pack = (EPackage) res.getContents().get(0);
 			rs.getResources().remove(res);
 			rs.getPackageRegistry().put("platform:/resource/Families/model/Families.ecore", pack);
@@ -288,7 +288,7 @@ public class PerformanceTestUtil {
 
 			// Load and register source and target metamodels
 			res = op.loadResource(
-					"platform:/resource/../metamodels/" + data.srcMetaModel + "/model/" + data.srcMetaModel + ".ecore");
+					"platform:/resource/" + data.srcMetaModel + "/model/" + data.srcMetaModel + ".ecore");
 			pack = (EPackage) res.getContents().get(0);
 			rs.getPackageRegistry()
 					.put("platform:/resource/" + data.srcMetaModel + "/model/" + data.srcMetaModel + ".ecore", pack);
