@@ -23,67 +23,41 @@ public class _RegistrationHelper {
 
 	/** Load and register source and target metamodels */
 	public static void registerMetamodels(ResourceSet rs, OperationalStrategy strategy) throws IOException {
-		// Replace to register generated code or handle other URI-related requirements
-		// _SchemaBasedAutoRegistration.register(strategy);
+		
 
 		EPackage adele_comp = ADELE_ComponentsPackageImpl.init();
-//		rs.getURIConverter().getURIMap().put(
-//				URI.createURI("platform:/resource/Adele2Aadl/metamodels/src/ADELE_Components.ecore"),
-//				URI.createURI(adele_comp.getNsURI()));
+
 		rs.getPackageRegistry().put("platform:/resource/Adele2Aadl/metamodels/src/ADELE_Components.ecore", adele_comp);
 		EPackage adele_feat = ADELE_FeaturesPackageImpl.init();
 		rs.getPackageRegistry().put("platform:/resource/Adele2Aadl/metamodels/src/ADELE_Features.ecore", adele_feat);
 		
-//		rs.getURIConverter().getURIMap().put(
-//				URI.createURI("platform:/resource/Adele2Aadl/metamodels/src/ADELE_Features.ecore"),
-//				URI.createURI(adele_feat.getNsURI()));
-//		
+		
 		EPackage adele_rel = ADELE_RelationsPackageImpl.init();
 		rs.getPackageRegistry().put("platform:/resource/Adele2Aadl/metamodels/src/ADELE_Relations.ecore", adele_rel);
-//		rs.getURIConverter().getURIMap().put(
-//				URI.createURI("platform:/resource/Adele2Aadl/metamodels/src/ADELE_Relations.ecore"),
-//				URI.createURI(adele_rel .getNsURI()));
-//		
+		
 		EPackage ba_comp = Ba_componentsPackageImpl.init();
 		rs.getPackageRegistry().put("platform:/resource/Adele2Aadl/metamodels/src/BA_components.ecore",ba_comp);
-//		rs.getURIConverter().getURIMap().put(
-//				URI.createURI("platform:/resource/Adele2Aadl/metamodels/src/BA_components.ecore"),
-//				URI.createURI(ba_comp .getNsURI()));
+
 		
 		EPackage ba_rel = Ba_relationsPackageImpl.init();
 		rs.getPackageRegistry().put("platform:/resource/Adele2Aadl/metamodels/src/BA_relations.ecore",ba_rel);
-//		rs.getURIConverter().getURIMap().put(
-//				URI.createURI("platform:/resource/Adele2Aadl/metamodels/src/BA_relations.ecore"),
-//				URI.createURI(ba_rel .getNsURI()));
-		
+
 		EPackage ba_feat = Ba_featuresPackageImpl.init();
 		rs.getPackageRegistry().put("platform:/resource/Adele2Aadl/metamodels/src/BA_features.ecore",ba_feat );
-//		rs.getURIConverter().getURIMap().put(
-//				URI.createURI("platform:/resource/Adele2Aadl/metamodels/src/BA_features.ecore"),
-//				URI.createURI(ba_feat .getNsURI()));
+
 		
 		EPackage ker_sp = KernelSpicesPackageImpl.init();
 		rs.getPackageRegistry().put("platform:/resource/Adele2Aadl/metamodels/src/KernelSpices.ecore",ker_sp);
-//		rs.getURIConverter().getURIMap().put(
-//				URI.createURI("platform:/resource/Adele2Aadl/metamodels/src/KernelSpices.ecore"),
-//				URI.createURI(ker_sp .getNsURI()));
+
 		
 		EPackage obj_des= ObjectDescriptionModelPackageImpl.init();
 		rs.getPackageRegistry().put("platform:/resource/Adele2Aadl/metamodels/src/ObjectDescriptionModel.ecore",obj_des );
-//		rs.getURIConverter().getURIMap().put(
-//				URI.createURI("platform:/resource/Adele2Aadl/metamodels/src/ObjectDescriptionModel.ecore"),
-//				URI.createURI(obj_des .getNsURI()));
-//		
 
 
 		strategy.loadAndRegisterMetamodel("platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore");
 		strategy.loadAndRegisterMetamodel("platform:/resource/Adele2Aadl/metamodels/trg/instance.ecore");
 		
-//		EPackage aadl_pack= Aadl2PackageImpl.init();
-//		rs.getPackageRegistry().put("platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore",aadl_pack );
-//		
-//		EPackage aadl_inst= InstancePackageImpl.init();
-//		rs.getPackageRegistry().put("platform:/resource/Adele2Aadl/metamodels/trg/instance.ecore",aadl_inst );
+
 	}
 
 	/** Create default options **/

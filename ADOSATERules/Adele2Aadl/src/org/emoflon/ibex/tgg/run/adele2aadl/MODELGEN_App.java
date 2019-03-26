@@ -31,6 +31,86 @@ public class MODELGEN_App extends MODELGEN {
 		MODELGENStopCriterion stop = new MODELGENStopCriterion(generator.getTGG());
 		stop.setTimeOutInMS(1000);
 		stop.setMaxRuleCount("rulePackage2AadlPackage", 1);
+		stop.setMaxRuleCount("ruleFeatureGroup2FeatureGroupTypeWithInverse59", 0);
+		stop.setMaxRuleCount("ruleFeatureGroup2FeatureGroupTypeWithExtendsInverse58", 0);
+		stop.setMaxRuleCount("ruleFeatureGroup2FeatureGroupTypeWithExtends57", 0);
+		stop.setMaxRuleCount("ruleFeatureGroup2FeatureGroupType56", 0);
+		stop.setMaxRuleCount("ruleComponent2Subcomponent21", 0);
+		
+		
+		
+		stop.setMaxRuleCount("ruleFeatGroupDirFeat2FeatGroupDirFeatTypedRefinedabstract", 0);
+		stop.setMaxRuleCount("ruleFeatGroupDirFeat2FeatGroupDirFeatTypedAsParentRefinedabstract", 0);
+		stop.setMaxRuleCount("ruleFeatGroupDirFeat2FeatGroupDirFeatTypedAsParent", 0);
+		stop.setMaxRuleCount("ruleFeatGroupDirFeat2FeatGroupDirFeatTyped", 0);
+		
+		
+		stop.setMaxRuleCount("ruleFeatGroupDirFeat2FeatGroupDirFeatRefined", 0);
+		stop.setMaxRuleCount("ruleFeatGroupDirFeat2FeatGroupDirFeat", 0);
+		stop.setMaxRuleCount("ruleFeatGroupAccess2FeatGroupAccessTypedRefined", 0);
+		stop.setMaxRuleCount("ruleFeatGroupAccess2FeatGroupAccessTyped", 0);
+		
+		stop.setMaxRuleCount("BusAccess2BusAccessRule", 0);
+		stop.setMaxRuleCount("ruleFeatGroupAccess2FeatGroupAccess46", 0);
+		stop.setMaxRuleCount("ruleDirFeatConn2DirFeatConnSrcSubcompoDestSubcompoSamePort45", 0);
+		stop.setMaxRuleCount("ruleDirFeatConn2DirFeatConnSrcSubcompoDestSubcompo44", 0);
+		
+		stop.setMaxRuleCount("ruleDirFeatConn2DirFeatConnSrcSubcompoDestParentSamePort", 0);
+		stop.setMaxRuleCount("ruleDirFeatConn2DirFeatConnSrcParentFeatGroupInverse42", 0);
+		stop.setMaxRuleCount("ruleDirFeatConn2DirFeatConnSrcSubcompoDestParentFeatGroup", 0);
+		stop.setMaxRuleCount("ruleDirFeatConn2DirFeatConnSrcSubcompoDestParent", 0);
+		
+		stop.setMaxRuleCount("ruleDirFeatConn2DirFeatConnSrcParentFeatGroupInverseDestSubcompo", 0);
+		stop.setMaxRuleCount("ruleDirFeatConn2DirFeatConnSrcParentFeatGroupDestSubcompo", 0);
+		stop.setMaxRuleCount("ruleDirFeatConn2DirFeatConnSrcParentDestSubcompoSamePort", 0);
+		stop.setMaxRuleCount("ruleDirFeatConn2DirFeatConnSrcParentDestSubcompo", 0);
+		
+		stop.setMaxRuleCount("ruleDirectedFeat2DirectedFeatTypedRefined35", 0);
+		stop.setMaxRuleCount("ruleDirectedFeat2DirectedFeatTyped34", 0);
+		stop.setMaxRuleCount("ruleDirectedFeat2DirectedFeatRefined33", 0);
+		stop.setMaxRuleCount("ruleDirectedFeat2DirectedFeatabstract", 0);
+		
+		stop.setMaxRuleCount("ruleComponent2SubcomponentTypedRefinedTypedAsParent31", 0);
+		stop.setMaxRuleCount("ruleComponent2SubcomponentTypedRefinedTyped30", 0);
+		stop.setMaxRuleCount("ruleComponent2SubcomponentTypedRefinedabstract", 0);
+		stop.setMaxRuleCount("ruleComponent2SubcomponentTypedAsParentRefinedTyped28", 0);
+		
+		stop.setMaxRuleCount("ruleComponent2SubcomponentTypedAsParentRefinedabstract", 0);
+		stop.setMaxRuleCount("ruleComponent2SubcomponentTypedAsParentabstract", 0);
+		stop.setMaxRuleCount("ruleComponent2SubcomponentTyped", 0);
+		stop.setMaxRuleCount("ruleComponent2SubcomponentRefinedTypedAsParent", 0);
+		
+		stop.setMaxRuleCount("ruleComponent2SubcomponentRefinedTyped", 0);
+		stop.setMaxRuleCount("ruleComponent2SubcomponentRefinedConcrete", 0);
+		stop.setMaxRuleCount("ruleComponent2ComponentType", 4);
+		stop.setMaxRuleCount("ruleComponent2ComponentImplementationWithExtendscomponent", 0);
+		
+		stop.setMaxRuleCount("ruleComponent2ComponentImplementationcomponent", 0);
+		stop.setMaxRuleCount("ruleAccessConn2AccessConnSrcSubcompoFeatDestSubcompoFeatAccess", 0);
+		stop.setMaxRuleCount("RuleAccessConn2AccessConnSrcSubcompoFeatDestSubcompoBus", 0);
+		stop.setMaxRuleCount("ruleAccessConn2AccessConnSrcSubcompoFeatDestSubcompo15", 0);
+		
+		stop.setMaxRuleCount("ruleAccessConn2AccessConnSrcSubcompoFeatDestParentSameAccess14", 0);
+		stop.setMaxRuleCount("ruleAccessConn2AccessConnSrcSubcompoFeatDestParent13", 0);
+		stop.setMaxRuleCount("ruleAccessConn2AccessConnSrcSubcompoDestSubcompoFeat12", 0);
+		stop.setMaxRuleCount("ruleAccessConn2AccessConnSrcSubcompoDestSubcompo11", 0);
+		
+		stop.setMaxRuleCount("ruleAccessConn2AccessConnSrcSubcompoDestParent", 0);
+		stop.setMaxRuleCount("ruleAccessConn2AccessConnSrcParentDestSubcompoFeatSameAccess", 0);
+		stop.setMaxRuleCount("ruleAccessConn2AccessConnSrcParentDestSubcompoFeat", 0);
+		stop.setMaxRuleCount("ruleAccessConn2AccessConnSrcParentDestSubcompo", 0);
+		
+		stop.setMaxRuleCount("ruleAccess2AccessTypedAsParentRefined", 0);
+		stop.setMaxRuleCount("ruleAccess2AccessTypedAsParentRefined5", 0);
+		stop.setMaxRuleCount("ruleAccess2AccessTypedAsParentabstract", 0);
+		stop.setMaxRuleCount("ruleAccess2AccessTypedabstract", 0);
+		
+		stop.setMaxRuleCount("ruleAccess2AccessRefined2", 0);
+		stop.setMaxRuleCount("ruleAccess2Accessabstract", 0);
+		
+		//stop.setMaxRuleCount("ruleTestBus", 0);
+		
+		
 		generator.setStopCriterion(stop);
 		
 		tic = System.currentTimeMillis();
