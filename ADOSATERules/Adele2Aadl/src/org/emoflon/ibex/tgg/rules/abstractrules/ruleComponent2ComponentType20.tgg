@@ -40,15 +40,17 @@
 
 
  #rule  ruleComponent2ComponentType #extends ruleComponent2ComponentType20 #with Adele2Aadl
- 
- 
 #source { 	
-
 	++adeleType:ADELE_Components.Bus
-	
 }
 #target {
-	++aadlType:aadl2.BusImplementation 
+	++aadlType:aadl2.BusType
 }  
-
+#rule  ruleComponent2ComponentTypeSub #extends ruleComponent2ComponentType20 #with Adele2Aadl
+#source { 	
+	++adeleType:ADELE_Components.Subprogram
+}
+#target {
+	++aadlType:aadl2.SubprogramType
+}
 
