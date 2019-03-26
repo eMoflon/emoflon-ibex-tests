@@ -59,8 +59,10 @@
 }
 
 #attributeConditions {
+	eq_string(adeleSubcomponent.name, aadlSubcomponent.name)
 	
 }
+
 
 #rule ruleComponent2SubcomponentRefinedTyped #extends ruleComponent2SubcomponentRefinedTyped23 
 #with Adele2Aadl

@@ -30,7 +30,8 @@
     }
 }
 #attributeConditions {
-    
+	eq_string(adeleAccess.name, aadlAccess.name)
+	
 }
 #rule ruleFeatGroupAccess2FeatGroupAccess46 #extends abstractruleFeatGroupAccess2FeatGroupAccess46 #with Adele2Aadl
 

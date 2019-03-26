@@ -30,7 +30,6 @@
 }
 
 #attributeConditions {
+	eq_string(adeleFeature.name, aadlFeature.name)
 	
 }
-
-

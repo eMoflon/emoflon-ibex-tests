@@ -74,6 +74,7 @@
 }
 
 #attributeConditions {
+	eq_string(adeleConnection.name, aadlConnection.name)
 	
 }
 #rule ruleAccessConn2AccessConnSrcSubcompoDestSubcompoFeat12 #extends abstractruleAccessConn2AccessConnSrcSubcompoDestSubcompoFeat12 #with Adele2Aadl
@@ -94,6 +95,3 @@
 	
 }
 
-#attributeConditions {
-	
-}

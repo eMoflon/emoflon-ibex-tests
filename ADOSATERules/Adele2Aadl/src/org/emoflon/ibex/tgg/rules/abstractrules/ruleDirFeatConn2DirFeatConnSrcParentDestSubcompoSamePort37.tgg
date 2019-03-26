@@ -83,9 +83,8 @@
 		#trg->aadlSubcomponent
 	}	
 }
-
 #attributeConditions {
-	
+	eq_string(adeleConnection.name, aadlConnection.name)
 	
 }
 
