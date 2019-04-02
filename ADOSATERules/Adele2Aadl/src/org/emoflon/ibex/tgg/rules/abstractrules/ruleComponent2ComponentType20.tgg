@@ -20,7 +20,7 @@
 }  
 
 #correspondence {
-	corrAxiom: CorrAxiomPPS 
+	corrAxiomOne: CorrAxiomPPS 
 	{
 		#src->adelePackage
 		#trg->aadlPublicPackageSection
@@ -39,14 +39,15 @@
 }
 
 
- #rule  ruleComponent2ComponentType #extends ruleComponent2ComponentType20 #with Adele2Aadl
+ #rule  ruleComponent2ComponentTypeBus #extends ruleComponent2ComponentType20 #with Adele2Aadl
 #source { 	
 	++adeleType:ADELE_Components.Bus
 }
 #target {
 	++aadlType:aadl2.BusType
-}  
-#rule  ruleComponent2ComponentTypeSub #extends ruleComponent2ComponentType20 #with Adele2Aadl
+} 
+ 
+#rule  ruleComponent2ComponentTypeSubprogram #extends ruleComponent2ComponentType20 #with Adele2Aadl
 #source { 	
 	++adeleType:ADELE_Components.Subprogram
 }
@@ -54,3 +55,75 @@
 	++aadlType:aadl2.SubprogramType
 }
 
+#rule  ruleComponent2ComponentTypeProcessor #extends ruleComponent2ComponentType20 #with Adele2Aadl
+#source { 	
+	++adeleType:ADELE_Components.Processor
+}
+#target {
+	++aadlType:aadl2.ProcessorType
+}
+
+#rule  ruleComponent2ComponentTypeThread #extends ruleComponent2ComponentType20 #with Adele2Aadl
+#source { 	
+	++adeleType:ADELE_Components.Thread
+}
+#target {
+	++aadlType:aadl2.ThreadType
+}
+#rule  ruleComponent2ComponentTypeData #extends ruleComponent2ComponentType20 #with Adele2Aadl
+#source { 	
+	++adeleType:ADELE_Components.Data
+}
+#target {
+	++aadlType:aadl2.DataType
+}
+#rule  ruleComponent2ComponentTypeProcess #extends ruleComponent2ComponentType20 #with Adele2Aadl
+#source { 	
+	++adeleType:ADELE_Components.Process
+}
+#target {
+	++aadlType:aadl2.ProcessType
+}
+#rule  ruleComponent2ComponentTypeSystem #extends ruleComponent2ComponentType20 #with Adele2Aadl
+#source { 	
+	++adeleType:ADELE_Components.System
+}
+#target {
+	++aadlType:aadl2.SystemType
+}
+#rule  ruleComponent2ComponentTypeThreadGroup #extends ruleComponent2ComponentType20 #with Adele2Aadl
+#source { 	
+	++adeleType:ADELE_Components.ThreadGroup
+}
+#target {
+	++aadlType:aadl2.ThreadGroupType
+}
+#rule  ruleComponent2ComponentTypeVirtualBus #extends ruleComponent2ComponentType20 #with Adele2Aadl
+#source { 	
+	++adeleType:ADELE_Components.VirtualBus
+}
+#target {
+	++aadlType:aadl2.VirtualBusType
+}
+
+#rule  ruleComponent2ComponentTypeDevice #extends ruleComponent2ComponentType20 #with Adele2Aadl
+#source { 	
+	++adeleType:ADELE_Components.Device
+}
+#target {
+	++aadlType:aadl2.DeviceType
+}
+#rule  ruleComponent2ComponentTypeAbstract #extends ruleComponent2ComponentType20 #with Adele2Aadl
+#source { 	
+	++adeleType:ADELE_Components.Abstract
+}
+#target {
+	++aadlType:aadl2.AbstractType
+}
+//#rule  ruleComponent2ComponentTypeFeatureGroup #extends ruleComponent2ComponentType20 #with Adele2Aadl
+//#source { 	
+//	++adeleType:ADELE_Features.FeatureGroup
+//}
+//#target {
+//	++aadlType:aadl2.FeatureGroupType
+//}

@@ -1,58 +1,69 @@
-package eventPortConn2PortConnSrcSubcompoDestParent
-public
-	system System0
-	features
-		sys0InEventPort1: in event port;
-		sys0OutEventPort1: out event port;
-		sys0InOutEventPort1: in out event port;
-		sys0OutAbstractFeat: out feature;
-	end System0;
-	
-	-- Sunny day test
-	system implementation System0.impl
-	subcomponents
-		sys0Sub1Sys2: system System2;
-		sys0Sub0Sys2: system System2.impl;
-	connections
-		conn0: port sys0Sub1Sys2.sys2OutEventPort -> sys0InOutEventPort1; 
-		conn1: port sys0Sub1Sys2.sys2OutEventPort -> sys0OutEventPort1;
-		conn2: port sys0Sub1Sys2.sys2InOutEventPort -> sys0OutEventPort1;
-	end System0.impl;
-
-	system System1 extends System0
-	features
-		sys1InEventPort1: in event port;
-		sys1OutEventPort1: out event port;
-		sys1InOutEventPort1: in out event port;
-		sys0OutAbstractFeat: refined to out event port;
-	end System1;
-
-	-- Feature from extended component
-	system implementation System1.impl extends System0.impl
-	subcomponents
-		sys0Sub1Sys2: refined to system System3;
-		sys1Sub1Sys2: system System2.impl;
-	connections
-		-- Connections to inherited features
-		conn3: port sys0Sub0Sys2.sys2InOutEventPort -> sys0OutEventPort1;
-		conn4: port sys1Sub1Sys2.sys2OutEventPort -> sys1OutEventPort1;
-		conn5: port sys0Sub1Sys2.sys3OutEventPort -> sys1OutEventPort1; -- Connection from a refined subcomponent
-		conn6: port sys0Sub1Sys2.sys3OutEventPort -> sys0OutAbstractFeat; -- Connection from a refined subcomponent to a refined feature
-	end System1.impl;
-
-	system System2
-	features
-		sys2InEventPort: in event port;
-		sys2OutEventPort: out event port;
-		sys2InOutEventPort: in out event port;
-	end System2;
-
-	system implementation System2.impl
-	end System2.impl;
-	
-	system System3 extends System2
-	features
-		sys3OutEventPort: out event port;
-	end System3;
-	
-end eventPortConn2PortConnSrcSubcompoDestParent;
+<?xml version="1.0" encoding="ASCII"?>
+<aadl2:AadlPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" name="eventPortConn2PortConnSrcSubcompoDestParent" publicSection="//@ownedPublicSection">
+  <ownedPublicSection>
+    <ownedClassifier xsi:type="aadl2:SystemType" name="System0">
+      <ownedAbstractFeature name="sys0OutAbstractFeat" out="true"/>
+      <ownedEventPort name="sys0InEventPort1" in="true"/>
+      <ownedEventPort name="sys0OutEventPort1" out="true"/>
+      <ownedEventPort name="sys0InOutEventPort1" in="true" out="true"/>
+    </ownedClassifier>
+    <ownedClassifier xsi:type="aadl2:SystemImplementation" name="System0.impl">
+      <ownedRealization implemented="//@ownedPublicSection/@ownedClassifier.0"/>
+      <ownedPortConnection name="conn0">
+        <destination connectionEnd="//@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.2"/>
+        <source context="//@ownedPublicSection/@ownedClassifier.1/@ownedSystemSubcomponent.0" connectionEnd="//@ownedPublicSection/@ownedClassifier.4/@ownedEventPort.1"/>
+      </ownedPortConnection>
+      <ownedPortConnection name="conn1">
+        <destination connectionEnd="//@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.1"/>
+        <source context="//@ownedPublicSection/@ownedClassifier.1/@ownedSystemSubcomponent.0" connectionEnd="//@ownedPublicSection/@ownedClassifier.4/@ownedEventPort.1"/>
+      </ownedPortConnection>
+      <ownedPortConnection name="conn2">
+        <destination connectionEnd="//@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.1"/>
+        <source context="//@ownedPublicSection/@ownedClassifier.1/@ownedSystemSubcomponent.0" connectionEnd="//@ownedPublicSection/@ownedClassifier.4/@ownedEventPort.2"/>
+      </ownedPortConnection>
+      <ownedSystemSubcomponent name="sys0Sub1Sys2" systemSubcomponentType="//@ownedPublicSection/@ownedClassifier.4"/>
+      <ownedSystemSubcomponent name="sys0Sub0Sys2" systemSubcomponentType="//@ownedPublicSection/@ownedClassifier.5"/>
+    </ownedClassifier>
+    <ownedClassifier xsi:type="aadl2:SystemType" name="System1">
+      <ownedExtension extended="//@ownedPublicSection/@ownedClassifier.0"/>
+      <ownedEventPort name="sys1InEventPort1" in="true"/>
+      <ownedEventPort name="sys1OutEventPort1" out="true"/>
+      <ownedEventPort name="sys1InOutEventPort1" in="true" out="true"/>
+      <ownedEventPort refined="//@ownedPublicSection/@ownedClassifier.0/@ownedAbstractFeature.0" out="true"/>
+    </ownedClassifier>
+    <ownedClassifier xsi:type="aadl2:SystemImplementation" name="System1.impl">
+      <ownedExtension extended="//@ownedPublicSection/@ownedClassifier.1"/>
+      <ownedRealization implemented="//@ownedPublicSection/@ownedClassifier.2"/>
+      <ownedPortConnection name="conn3">
+        <destination connectionEnd="//@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.1"/>
+        <source context="//@ownedPublicSection/@ownedClassifier.1/@ownedSystemSubcomponent.1" connectionEnd="//@ownedPublicSection/@ownedClassifier.4/@ownedEventPort.2"/>
+      </ownedPortConnection>
+      <ownedPortConnection name="conn4">
+        <destination connectionEnd="//@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.1"/>
+        <source context="//@ownedPublicSection/@ownedClassifier.3/@ownedSystemSubcomponent.1" connectionEnd="//@ownedPublicSection/@ownedClassifier.4/@ownedEventPort.1"/>
+      </ownedPortConnection>
+      <ownedPortConnection name="conn5">
+        <destination connectionEnd="//@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.1"/>
+        <source context="//@ownedPublicSection/@ownedClassifier.3/@ownedSystemSubcomponent.0" connectionEnd="//@ownedPublicSection/@ownedClassifier.6/@ownedEventPort.0"/>
+      </ownedPortConnection>
+      <ownedPortConnection name="conn6">
+        <destination connectionEnd="//@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.3"/>
+        <source context="//@ownedPublicSection/@ownedClassifier.3/@ownedSystemSubcomponent.0" connectionEnd="//@ownedPublicSection/@ownedClassifier.6/@ownedEventPort.0"/>
+      </ownedPortConnection>
+      <ownedSystemSubcomponent refined="//@ownedPublicSection/@ownedClassifier.1/@ownedSystemSubcomponent.0" systemSubcomponentType="//@ownedPublicSection/@ownedClassifier.6"/>
+      <ownedSystemSubcomponent name="sys1Sub1Sys2" systemSubcomponentType="//@ownedPublicSection/@ownedClassifier.5"/>
+    </ownedClassifier>
+    <ownedClassifier xsi:type="aadl2:SystemType" name="System2">
+      <ownedEventPort name="sys2InEventPort" in="true"/>
+      <ownedEventPort name="sys2OutEventPort" out="true"/>
+      <ownedEventPort name="sys2InOutEventPort" in="true" out="true"/>
+    </ownedClassifier>
+    <ownedClassifier xsi:type="aadl2:SystemImplementation" name="System2.impl">
+      <ownedRealization implemented="//@ownedPublicSection/@ownedClassifier.4"/>
+    </ownedClassifier>
+    <ownedClassifier xsi:type="aadl2:SystemType" name="System3">
+      <ownedExtension extended="//@ownedPublicSection/@ownedClassifier.4"/>
+      <ownedEventPort name="sys3OutEventPort" out="true"/>
+    </ownedClassifier>
+  </ownedPublicSection>
+</aadl2:AadlPackage>

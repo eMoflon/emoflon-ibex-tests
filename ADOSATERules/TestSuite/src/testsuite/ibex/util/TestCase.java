@@ -24,7 +24,7 @@ public abstract class TestCase {
 			ilpSolver = SupportedILPSolver.valueOf(System.getenv("ilpSolver"));
 		}
 		catch (Exception e) {
-			logger.error("ILP solver is not specified. Defaulting to SAT4J");
+			logger.info("ILP solver is not specified. Defaulting to SAT4J");
 			ilpSolver = SupportedILPSolver.Sat4J;
 		}
 	}

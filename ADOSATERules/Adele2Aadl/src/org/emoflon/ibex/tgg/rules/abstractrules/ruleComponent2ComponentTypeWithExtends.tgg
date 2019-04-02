@@ -1,14 +1,18 @@
 #using Adele2Aadl.*
 #using AttrCondDefLibrary.*
 
-#abstract #rule abstractruleComponent2ComponentTypeWithExtends20 #with Adele2Aadl
+#abstract #rule abstractruleComponent2ComponentTypeWithExtends #with Adele2Aadl
 
 #source { 
 	
 		adelePackage:ADELE_Components.Package{
 			++ -children->adeleType
 		} 
-		++ adeleType:ADELE_Components.Component
+		++ adeleType:ADELE_Components.Component{
+			++ -refines->adeleExtType
+		}
+		
+	adeleExtType:ADELE_Components.Component
 		
 		
 	}
@@ -23,14 +27,16 @@
 		++ -ownedExtension->typeExtension
 		}
 	   
-	   ++typeExtension:aadl2.TypeExtension
+	   ++typeExtension:aadl2.TypeExtension{
+	   	++ -extended->aadlExtType
+	   }
 	   
-	
+	aadlExtType:aadl2.ComponentType
 }
 
 
 #correspondence {
-	corrAxiom:CorrAxiom 
+	corrAxiomOne:CorrAxiomPPS
 	{
 		#src->adelePackage
 		#trg->aadlPublicPackageSection
@@ -47,6 +53,10 @@
 		#trg->typeExtension
 		
 	}
+	corrExtComponentType:CorrComponentType{
+		#src->adeleExtType
+		#trg->aadlExtType
+	}
 	
 	
 }
@@ -55,13 +65,24 @@
 	
 }
 
- #rule ruleComponent2ComponentTypeWithExtends20 #extends abstractruleComponent2ComponentTypeWithExtends20 #with Adele2Aadl
+ #rule ruleComponent2ComponentTypeWithExtends #extends abstractruleComponent2ComponentTypeWithExtends  #with Adele2Aadl
 
 #source { 
 		++adeleType: ADELE_Components.Processor
+		
 	}
+	
 #target {
 	
 		++aadlType:aadl2.ProcessorType
+}
+#correspondence {
+	
+	
+	
+}
+
+#attributeConditions {
+	
 }
 

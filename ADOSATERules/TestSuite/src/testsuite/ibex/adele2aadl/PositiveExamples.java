@@ -12,6 +12,7 @@ public class PositiveExamples extends CCTestCase {
 		createChecker(source, target);
 		runCC();
 		checker.saveModels();
+		System.out.println(checker.generateConsistencyReport());
 		Assert.assertTrue(checker.modelsAreConsistent());
 	}
 	
@@ -67,94 +68,94 @@ public class PositiveExamples extends CCTestCase {
 		testForPairOfModels("unit/connection/featureGroupConn2FeatureGroupConn/forward.adele", "unit/connection/featureGroupConn2FeatureGroupConn/reverse.aadl");
 	}
 	
-	public void test12ForAdelePackageToAadlPackage() throws IOException {
-		testForPairOfModels("unit/feature/abstractFeature2AbstractFeature/forward.adele", "unit/feature/abstractFeature2AbstractFeature/reverse.aadl");
-	}
-	
-	@Test
-	public void test13ForAdelePackageToAadlPackage() throws IOException {
-		testForPairOfModels("unit/feature/access2Access/forward.adele", "unit/feature/access2Access/reverse.aadl");
-	}
-	@Test
-	public void test14ForAdelePackageToAadlPackage() throws IOException {
-		testForPairOfModels("unit/feature/access2AccessRefined/forward.adele", "unit/feature/access2AccessRefined/reverse.aadl");
-	}
-	@Test
-	public void test15ForAdelePackageToAadlPackage() throws IOException {
-		testForPairOfModels("unit/feature/access2AccessTyped/forward.adele", "unit/feature/access2AccessTyped/reverse.aadl");
-	}
-	
-	@Test
-	public void test16ForAdelePackageToAadlPackage() throws IOException {
-		testForPairOfModels("unit/feature/access2AccessTypedRefined/forward.adele", "unit/feature/access2AccessTypedRefined/reverse.aadl");
-	}
-	
-	@Test
-	public void test17ForAdelePackageToAadlPackage() throws IOException {
-		testForPairOfModels("unit/feature/dataPort2DataPort/forward.adele", "unit/feature/dataPort2DataPort/reverse.aadl");
-	}
-	
-	@Test
-	public void test18ForAdelePackageToAadlPackage() throws IOException {
-		testForPairOfModels("unit/feature/dataPort2DataPortTyped/forward.adele", "unit/feature/dataPort2DataPortTyped/reverse.aadl");
-	}
-	
-	@Test
-	public void test19ForAdelePackageToAadlPackage() throws IOException {
-		testForPairOfModels("unit/feature/dataPort2DataPortTypedRefined/forward.adele", "unit/feature/dataPort2DataPortTypedRefined/reverse.aadl");
-	}
-	
-	@Test
-	public void test20ForAdelePackageToAadlPackage() throws IOException {
-		testForPairOfModels("unit/feature/eventPort2EventPort/forward.adele", "unit/feature/eventPort2EventPort/reverse.aadl");
-	}
-	@Test
-	public void test21ForAdelePackageToAadlPackage() throws IOException {
-		testForPairOfModels("unit/feature/eventPort2EventPortRefined/forward.adele", "unit/feature/eventPort2EventPortRefined/reverse.aadl");
-	}
-	
-	@Test
-	public void test22ForAdelePackageToAadlPackage() throws IOException {
-		testForPairOfModels("unit/feature/featureGroup2FeatureGroup/forward.adele", "unit/feature/featureGroup2FeatureGroup/reverse.aadl");
-	}
-	
-	@Test
-	public void test23ForAdelePackageToAadlPackage() throws IOException {
-		testForPairOfModels("unit/feature/parameter2Parameter/forward.adele", "unit/feature/parameter2Parameter/reverse.aadl");
-	}
-	
-	@Test
-	public void test24ForAdelePackageToAadlPackage() throws IOException {
-		testForPairOfModels("unit/subcomponent/ruleAbstract2AbstractSubcomponentTypedRefinedTyped/forward.adele", "unit/subcomponent/ruleAbstract2AbstractSubcomponentTypedRefinedTyped/reverse.aadl");
-	}
-	
-	@Test
-	public void test25ForAdelePackageToAadlPackage() throws IOException {
-		testForPairOfModels("unit/subcomponent/rulesTypedAsParent/forward.adele", "unit/subcomponent/rulesTypedAsParent/reverse.aadl");
-	}
-	
-	@Test
-	public void test26ForAdelePackageToAadlPackage() throws IOException {
-		testForPairOfModels("unit/subcomponent/ruleSystem2SystemSubcomponent/forward.adele", "unit/subcomponent/ruleSystem2SystemSubcomponent/reverse.aadl");
-	}
-	
-	@Test
-	public void test27ForAdelePackageToAadlPackage() throws IOException {
-		testForPairOfModels("unit/subcomponent/ruleSystem2SystemSubcomponentRefinedTyped/forward.adele", "unit/subcomponent/ruleSystem2SystemSubcomponentRefinedTyped/reverse.aadl");
-	}
-	
-	@Test
-	public void test28ForAdelePackageToAadlPackage() throws IOException {
-		testForPairOfModels("unit/subcomponent/ruleSystem2SystemSubcomponentRefinedTypedExtRes/forward.adele", "unit/subcomponent/ruleSystem2SystemSubcomponentRefinedTypedExtRes/reverse.aadl");
-	}
-	
-	@Test
-	public void test29ForAdelePackageToAadlPackage() throws IOException {
-		testForPairOfModels("unit/subcomponent/ruleSystem2SystemSubcomponentTyped/forward.adele", "unit/subcomponent/ruleSystem2SystemSubcomponentTyped/reverse.aadl");
-	}
-	@Test
-	public void test30ForAdelePackageToAadlPackage() throws IOException {
-		testForPairOfModels("unit/subcomponent/ruleSystem2SystemSubcomponentTypedRefinedTyped/forward.adele", "unit/subcomponent/ruleSystem2SystemSubcomponentTypedRefinedTyped/reverse.aadl");
-	}
+//	public void test12ForAdelePackageToAadlPackage() throws IOException {
+//		testForPairOfModels("unit/feature/abstractFeature2AbstractFeature/forward.adele", "unit/feature/abstractFeature2AbstractFeature/reverse.aadl");
+//	}
+//	
+//	@Test
+//	public void test13ForAdelePackageToAadlPackage() throws IOException {
+//		testForPairOfModels("unit/feature/access2Access/forward.adele", "unit/feature/access2Access/reverse.aadl");
+//	}
+//	@Test
+//	public void test14ForAdelePackageToAadlPackage() throws IOException {
+//		testForPairOfModels("unit/feature/access2AccessRefined/forward.adele", "unit/feature/access2AccessRefined/reverse.aadl");
+//	}
+//	@Test
+//	public void test15ForAdelePackageToAadlPackage() throws IOException {
+//		testForPairOfModels("unit/feature/access2AccessTyped/forward.adele", "unit/feature/access2AccessTyped/reverse.aadl");
+//	}
+//	
+//	@Test
+//	public void test16ForAdelePackageToAadlPackage() throws IOException {
+//		testForPairOfModels("unit/feature/access2AccessTypedRefined/forward.adele", "unit/feature/access2AccessTypedRefined/reverse.aadl");
+//	}
+//	
+//	@Test
+//	public void test17ForAdelePackageToAadlPackage() throws IOException {
+//		testForPairOfModels("unit/feature/dataPort2DataPort/forward.adele", "unit/feature/dataPort2DataPort/reverse.aadl");
+//	}
+//	
+//	@Test
+//	public void test18ForAdelePackageToAadlPackage() throws IOException {
+//		testForPairOfModels("unit/feature/dataPort2DataPortTyped/forward.adele", "unit/feature/dataPort2DataPortTyped/reverse.aadl");
+//	}
+//	
+//	@Test
+//	public void test19ForAdelePackageToAadlPackage() throws IOException {
+//		testForPairOfModels("unit/feature/dataPort2DataPortTypedRefined/forward.adele", "unit/feature/dataPort2DataPortTypedRefined/reverse.aadl");
+//	}
+//	
+//	@Test
+//	public void test20ForAdelePackageToAadlPackage() throws IOException {
+//		testForPairOfModels("unit/feature/eventPort2EventPort/forward.adele", "unit/feature/eventPort2EventPort/reverse.aadl");
+//	}
+//	@Test
+//	public void test21ForAdelePackageToAadlPackage() throws IOException {
+//		testForPairOfModels("unit/feature/eventPort2EventPortRefined/forward.adele", "unit/feature/eventPort2EventPortRefined/reverse.aadl");
+//	}
+//	
+//	@Test
+//	public void test22ForAdelePackageToAadlPackage() throws IOException {
+//		testForPairOfModels("unit/feature/featureGroup2FeatureGroup/forward.adele", "unit/feature/featureGroup2FeatureGroup/reverse.aadl");
+//	}
+//	
+//	@Test
+//	public void test23ForAdelePackageToAadlPackage() throws IOException {
+//		testForPairOfModels("unit/feature/parameter2Parameter/forward.adele", "unit/feature/parameter2Parameter/reverse.aadl");
+//	}
+//	
+//	@Test
+//	public void test24ForAdelePackageToAadlPackage() throws IOException {
+//		testForPairOfModels("unit/subcomponent/ruleAbstract2AbstractSubcomponentTypedRefinedTyped/forward.adele", "unit/subcomponent/ruleAbstract2AbstractSubcomponentTypedRefinedTyped/reverse.aadl");
+//	}
+//	
+//	@Test
+//	public void test25ForAdelePackageToAadlPackage() throws IOException {
+//		testForPairOfModels("unit/subcomponent/rulesTypedAsParent/forward.adele", "unit/subcomponent/rulesTypedAsParent/reverse.aadl");
+//	}
+//	
+//	@Test
+//	public void test26ForAdelePackageToAadlPackage() throws IOException {
+//		testForPairOfModels("unit/subcomponent/ruleSystem2SystemSubcomponent/forward.adele", "unit/subcomponent/ruleSystem2SystemSubcomponent/reverse.aadl");
+//	}
+//	
+//	@Test
+//	public void test27ForAdelePackageToAadlPackage() throws IOException {
+//		testForPairOfModels("unit/subcomponent/ruleSystem2SystemSubcomponentRefinedTyped/forward.adele", "unit/subcomponent/ruleSystem2SystemSubcomponentRefinedTyped/reverse.aadl");
+//	}
+//	
+//	@Test
+//	public void test28ForAdelePackageToAadlPackage() throws IOException {
+//		testForPairOfModels("unit/subcomponent/ruleSystem2SystemSubcomponentRefinedTypedExtRes/forward.adele", "unit/subcomponent/ruleSystem2SystemSubcomponentRefinedTypedExtRes/reverse.aadl");
+//	}
+//	
+//	@Test
+//	public void test29ForAdelePackageToAadlPackage() throws IOException {
+//		testForPairOfModels("unit/subcomponent/ruleSystem2SystemSubcomponentTyped/forward.adele", "unit/subcomponent/ruleSystem2SystemSubcomponentTyped/reverse.aadl");
+//	}
+//	@Test
+//	public void test30ForAdelePackageToAadlPackage() throws IOException {
+//		testForPairOfModels("unit/subcomponent/ruleSystem2SystemSubcomponentTypedRefinedTyped/forward.adele", "unit/subcomponent/ruleSystem2SystemSubcomponentTypedRefinedTyped/reverse.aadl");
+//	}
 	
 }

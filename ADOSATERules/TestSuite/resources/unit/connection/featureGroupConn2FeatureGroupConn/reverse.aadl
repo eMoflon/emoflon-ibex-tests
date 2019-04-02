@@ -1,78 +1,84 @@
-package featureGroupConn2FeatureGroupConn
-public
-
-	feature group InFeatureGroup0
-	features
-		ifg0InEventPort : in event port;
-		ifg0InFeature : in feature;
-	end InFeatureGroup0;
-
-	feature group InOutInvFeatureGroup0 inverse of InOutFeatureGroup0
-	end InOutInvFeatureGroup0;
-
-	feature group OutInvFeatureGroup0 inverse of InFeatureGroup0
-	end OutInvFeatureGroup0;
-
-	feature group InOutFeatureGroup0
-	features
-		iofg0InOutEventPort : in out event port;
-		iofg0InOutFeature : feature;
-	end InOutFeatureGroup0;
-
-	feature group InOutFeatureGroup1 extends InOutFeatureGroup0
-	features
-		iofg1InOutEventPort : in out event port;
-		iofg1InOutFeature : feature;
-	end InOutFeatureGroup1;
-	
-	system System0
-	features
-		sys0InFeatureGroup0 : in feature group InFeatureGroup0;
-		sys0OutInvFeatureGroup0 : feature group OutInvFeatureGroup0;
-		sys0InOutFeatureGroup0 : feature group InOutFeatureGroup0;
-		sys0InOutFeatureGroup1 : feature group InOutFeatureGroup1;
-		sys0InOutInvFeatureGroup0 : feature group InOutInvFeatureGroup0;
-		sys0InAbstrFeat0: in feature;
-		sys0OutAbstrFeat0: out feature;
-	end System0;
-
-	processor Processor0
-	features
-		proc0InFeatureGroup0 : in feature group InFeatureGroup0;
-		proc0OutFeatureGroup0 : feature group OutInvFeatureGroup0;
-		proc0InOutFeatureGroup0 : feature group InOutFeatureGroup0;
-		proc0InAbstrFeat0: in feature;
-		proc0OutAbstrFeat0: out feature;
-		proc0InEventPort: in event port;
-		proc0OutEventPort: out event port;
-	end Processor0;
-
-	system implementation System0.impl0
-	subcomponents
-		proc0 : processor Processor0;
-		proc1 : processor Processor0;
-	connections
-		conn0: feature group sys0InFeatureGroup0 -> proc0.proc0InFeatureGroup0;
-		conn1: feature group proc0.proc0OutFeatureGroup0 -> sys0OutInvFeatureGroup0;
-		conn2: feature group proc0.proc0OutFeatureGroup0 -> proc1.proc0InFeatureGroup0;
-	end System0.impl0;
-
-	system implementation System0.impl1
-	subcomponents
-		proc0 : processor Processor0;
-		proc1 : processor Processor0;
-	connections
-		conn0: port proc0.proc0OutEventPort -> sys0InOutFeatureGroup0.iofg0InOutEventPort;
-		-- Connected to inverse feature group
-		conn1: port proc0.proc0OutEventPort -> sys0OutInvFeatureGroup0.ifg0InEventPort;
-		conn2: port sys0InFeatureGroup0.ifg0InEventPort -> proc0.proc0InEventPort;
-		-- Connected to inverse feature group
-		conn3: port sys0InOutInvFeatureGroup0.iofg0InOutEventPort -> proc0.proc0InEventPort;
-		-- Connected to feature group inherited features
-		conn4: port sys0InOutFeatureGroup1.iofg0InOutEventPort -> proc0.proc0InEventPort;
-		conn5: port proc0.proc0OutEventPort -> sys0InOutFeatureGroup1.iofg0InOutEventPort;
-
-		-- TODO: Why can't we refer to connections of the feature groups of processors?
-	end System0.impl1;
-
-end featureGroupConn2FeatureGroupConn;
+<?xml version="1.0" encoding="ASCII"?>
+<aadl2:AadlPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" name="featureGroupConn2FeatureGroupConn" publicSection="//@ownedPublicSection">
+  <ownedPublicSection>
+    <ownedClassifier xsi:type="aadl2:FeatureGroupType" name="InFeatureGroup0">
+      <ownedEventPort name="ifg0InEventPort" in="true"/>
+      <ownedAbstractFeature name="ifg0InFeature" in="true"/>
+    </ownedClassifier>
+    <ownedClassifier xsi:type="aadl2:FeatureGroupType" name="InOutInvFeatureGroup0" inverse="//@ownedPublicSection/@ownedClassifier.3"/>
+    <ownedClassifier xsi:type="aadl2:FeatureGroupType" name="OutInvFeatureGroup0" inverse="//@ownedPublicSection/@ownedClassifier.0"/>
+    <ownedClassifier xsi:type="aadl2:FeatureGroupType" name="InOutFeatureGroup0">
+      <ownedEventPort name="iofg0InOutEventPort" in="true" out="true"/>
+      <ownedAbstractFeature name="iofg0InOutFeature"/>
+    </ownedClassifier>
+    <ownedClassifier xsi:type="aadl2:FeatureGroupType" name="InOutFeatureGroup1">
+      <ownedExtension extended="//@ownedPublicSection/@ownedClassifier.3"/>
+      <ownedEventPort name="iofg1InOutEventPort" in="true" out="true"/>
+      <ownedAbstractFeature name="iofg1InOutFeature"/>
+    </ownedClassifier>
+    <ownedClassifier xsi:type="aadl2:SystemType" name="System0">
+      <ownedFeatureGroup name="sys0InFeatureGroup0" in="true" featureType="//@ownedPublicSection/@ownedClassifier.0"/>
+      <ownedFeatureGroup name="sys0OutInvFeatureGroup0" featureType="//@ownedPublicSection/@ownedClassifier.2"/>
+      <ownedFeatureGroup name="sys0InOutFeatureGroup0" featureType="//@ownedPublicSection/@ownedClassifier.3"/>
+      <ownedFeatureGroup name="sys0InOutFeatureGroup1" featureType="//@ownedPublicSection/@ownedClassifier.4"/>
+      <ownedFeatureGroup name="sys0InOutInvFeatureGroup0" featureType="//@ownedPublicSection/@ownedClassifier.1"/>
+      <ownedAbstractFeature name="sys0InAbstrFeat0" in="true"/>
+      <ownedAbstractFeature name="sys0OutAbstrFeat0" out="true"/>
+    </ownedClassifier>
+    <ownedClassifier xsi:type="aadl2:ProcessorType" name="Processor0">
+      <ownedFeatureGroup name="proc0InFeatureGroup0" in="true" featureType="//@ownedPublicSection/@ownedClassifier.0"/>
+      <ownedFeatureGroup name="proc0OutFeatureGroup0" featureType="//@ownedPublicSection/@ownedClassifier.2"/>
+      <ownedFeatureGroup name="proc0InOutFeatureGroup0" featureType="//@ownedPublicSection/@ownedClassifier.3"/>
+      <ownedAbstractFeature name="proc0InAbstrFeat0" in="true"/>
+      <ownedAbstractFeature name="proc0OutAbstrFeat0" out="true"/>
+      <ownedEventPort name="proc0InEventPort" in="true"/>
+      <ownedEventPort name="proc0OutEventPort" out="true"/>
+    </ownedClassifier>
+    <ownedClassifier xsi:type="aadl2:SystemImplementation" name="System0.impl0">
+      <ownedRealization implemented="//@ownedPublicSection/@ownedClassifier.5"/>
+      <ownedFeatureGroupConnection name="conn0">
+        <destination context="//@ownedPublicSection/@ownedClassifier.7/@ownedProcessorSubcomponent.0" connectionEnd="//@ownedPublicSection/@ownedClassifier.6/@ownedFeatureGroup.0"/>
+        <source connectionEnd="//@ownedPublicSection/@ownedClassifier.5/@ownedFeatureGroup.0"/>
+      </ownedFeatureGroupConnection>
+      <ownedFeatureGroupConnection name="conn1">
+        <destination connectionEnd="//@ownedPublicSection/@ownedClassifier.5/@ownedFeatureGroup.1"/>
+        <source context="//@ownedPublicSection/@ownedClassifier.7/@ownedProcessorSubcomponent.0" connectionEnd="//@ownedPublicSection/@ownedClassifier.6/@ownedFeatureGroup.1"/>
+      </ownedFeatureGroupConnection>
+      <ownedFeatureGroupConnection name="conn2">
+        <destination context="//@ownedPublicSection/@ownedClassifier.7/@ownedProcessorSubcomponent.1" connectionEnd="//@ownedPublicSection/@ownedClassifier.6/@ownedFeatureGroup.0"/>
+        <source context="//@ownedPublicSection/@ownedClassifier.7/@ownedProcessorSubcomponent.0" connectionEnd="//@ownedPublicSection/@ownedClassifier.6/@ownedFeatureGroup.1"/>
+      </ownedFeatureGroupConnection>
+      <ownedProcessorSubcomponent name="proc0" processorSubcomponentType="//@ownedPublicSection/@ownedClassifier.6"/>
+      <ownedProcessorSubcomponent name="proc1" processorSubcomponentType="//@ownedPublicSection/@ownedClassifier.6"/>
+    </ownedClassifier>
+    <ownedClassifier xsi:type="aadl2:SystemImplementation" name="System0.impl1">
+      <ownedRealization implemented="//@ownedPublicSection/@ownedClassifier.5"/>
+      <ownedPortConnection name="conn0">
+        <destination context="//@ownedPublicSection/@ownedClassifier.5/@ownedFeatureGroup.2" connectionEnd="//@ownedPublicSection/@ownedClassifier.3/@ownedEventPort.0"/>
+        <source context="//@ownedPublicSection/@ownedClassifier.8/@ownedProcessorSubcomponent.0" connectionEnd="//@ownedPublicSection/@ownedClassifier.6/@ownedEventPort.1"/>
+      </ownedPortConnection>
+      <ownedPortConnection name="conn1">
+        <destination context="//@ownedPublicSection/@ownedClassifier.5/@ownedFeatureGroup.1" connectionEnd="//@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.0"/>
+        <source context="//@ownedPublicSection/@ownedClassifier.8/@ownedProcessorSubcomponent.0" connectionEnd="//@ownedPublicSection/@ownedClassifier.6/@ownedEventPort.1"/>
+      </ownedPortConnection>
+      <ownedPortConnection name="conn2">
+        <destination context="//@ownedPublicSection/@ownedClassifier.8/@ownedProcessorSubcomponent.0" connectionEnd="//@ownedPublicSection/@ownedClassifier.6/@ownedEventPort.0"/>
+        <source context="//@ownedPublicSection/@ownedClassifier.5/@ownedFeatureGroup.0" connectionEnd="//@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.0"/>
+      </ownedPortConnection>
+      <ownedPortConnection name="conn3">
+        <destination context="//@ownedPublicSection/@ownedClassifier.8/@ownedProcessorSubcomponent.0" connectionEnd="//@ownedPublicSection/@ownedClassifier.6/@ownedEventPort.0"/>
+        <source context="//@ownedPublicSection/@ownedClassifier.5/@ownedFeatureGroup.4" connectionEnd="//@ownedPublicSection/@ownedClassifier.3/@ownedEventPort.0"/>
+      </ownedPortConnection>
+      <ownedPortConnection name="conn4">
+        <destination context="//@ownedPublicSection/@ownedClassifier.8/@ownedProcessorSubcomponent.0" connectionEnd="//@ownedPublicSection/@ownedClassifier.6/@ownedEventPort.0"/>
+        <source context="//@ownedPublicSection/@ownedClassifier.5/@ownedFeatureGroup.3" connectionEnd="//@ownedPublicSection/@ownedClassifier.3/@ownedEventPort.0"/>
+      </ownedPortConnection>
+      <ownedPortConnection name="conn5">
+        <destination context="//@ownedPublicSection/@ownedClassifier.5/@ownedFeatureGroup.3" connectionEnd="//@ownedPublicSection/@ownedClassifier.3/@ownedEventPort.0"/>
+        <source context="//@ownedPublicSection/@ownedClassifier.8/@ownedProcessorSubcomponent.0" connectionEnd="//@ownedPublicSection/@ownedClassifier.6/@ownedEventPort.1"/>
+      </ownedPortConnection>
+      <ownedProcessorSubcomponent name="proc0" processorSubcomponentType="//@ownedPublicSection/@ownedClassifier.6"/>
+      <ownedProcessorSubcomponent name="proc1" processorSubcomponentType="//@ownedPublicSection/@ownedClassifier.6"/>
+    </ownedClassifier>
+  </ownedPublicSection>
+</aadl2:AadlPackage>

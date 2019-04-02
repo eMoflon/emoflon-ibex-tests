@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id: plugin.xml,v 1.2 2007-10-29 10:29:50 aschach Exp $
+-->
+
+<plugin>
+    
+  <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+    <factory 
+       uri = "http://ADELE_Components" 
+       class = "org.topcased.adele.model.ADELE_Components.provider.ADELE_ComponentsItemProviderAdapterFactory" 
+       supportedTypes = 
+         "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+          org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+          org.eclipse.emf.edit.provider.ITreeItemContentProvider
+          org.eclipse.emf.edit.provider.IItemLabelProvider
+          org.eclipse.emf.edit.provider.IItemPropertySource" />
+  </extension>
+    
+  <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+    <factory 
+       uri = "http://ADELE_Features" 
+       class = "org.topcased.adele.model.ADELE_Features.provider.ADELE_FeaturesItemProviderAdapterFactory" 
+       supportedTypes = 
+         "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+          org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+          org.eclipse.emf.edit.provider.ITreeItemContentProvider
+          org.eclipse.emf.edit.provider.IItemLabelProvider
+          org.eclipse.emf.edit.provider.IItemPropertySource" />
+  </extension>
+    
+  <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+    <factory 
+       uri = "http://ADELE_Relations" 
+       class = "org.topcased.adele.model.ADELE_Relations.provider.ADELE_RelationsItemProviderAdapterFactory" 
+       supportedTypes = 
+         "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+          org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+          org.eclipse.emf.edit.provider.ITreeItemContentProvider
+          org.eclipse.emf.edit.provider.IItemLabelProvider
+          org.eclipse.emf.edit.provider.IItemPropertySource" />
+  </extension>
+
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <!-- @generated ADELE -->
+      <factory
+            uri="http://ba_components/1.0"
+            class="org.topcased.adele.model.ba_components.provider.Ba_componentsItemProviderAdapterFactory"
+            supportedTypes=
+              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+               org.eclipse.emf.edit.provider.ITreeItemContentProvider
+               org.eclipse.emf.edit.provider.IItemLabelProvider
+               org.eclipse.emf.edit.provider.IItemPropertySource"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <!-- @generated ADELE -->
+      <factory
+            uri="http://ba_features/1.0"
+            class="org.topcased.adele.model.ba_features.provider.Ba_featuresItemProviderAdapterFactory"
+            supportedTypes=
+              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+               org.eclipse.emf.edit.provider.ITreeItemContentProvider
+               org.eclipse.emf.edit.provider.IItemLabelProvider
+               org.eclipse.emf.edit.provider.IItemPropertySource"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <!-- @generated ADELE -->
+      <factory
+            uri="http://ba_relations/1.0"
+            class="org.topcased.adele.model.ba_relations.provider.Ba_relationsItemProviderAdapterFactory"
+            supportedTypes=
+              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+               org.eclipse.emf.edit.provider.ITreeItemContentProvider
+               org.eclipse.emf.edit.provider.IItemLabelProvider
+               org.eclipse.emf.edit.provider.IItemPropertySource"/>
+   </extension>
+    
+  <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+    <factory 
+       uri = "http://KernelSpices" 
+       class = "org.topcased.adele.model.KernelSpices.provider.KernelSpicesItemProviderAdapterFactory" 
+       supportedTypes = 
+         "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+          org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+          org.eclipse.emf.edit.provider.ITreeItemContentProvider
+          org.eclipse.emf.edit.provider.IItemLabelProvider
+          org.eclipse.emf.edit.provider.IItemPropertySource" />
+  </extension>
+
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <!-- @generated ADELE -->
+      <factory
+            uri="http://ObjectDescriptionModel"
+            class="org.topcased.adele.model.ObjectDescriptionModel.provider.ObjectDescriptionModelItemProviderAdapterFactory"
+            supportedTypes=
+              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+               org.eclipse.emf.edit.provider.ITreeItemContentProvider
+               org.eclipse.emf.edit.provider.IItemLabelProvider
+               org.eclipse.emf.edit.provider.IItemPropertySource"/>
+   </extension>
+
+  <extension point="org.eclipse.emf.ecore.generated_package">
+    <package
+       uri = "http://ADELE_Components"
+       class = "org.topcased.adele.model.ADELE_Components.ADELE_ComponentsPackage"
+       genModel = "model/ADELE.genmodel" /> 
+  </extension>
+
+  <extension point="org.eclipse.emf.ecore.generated_package">
+    <package
+       uri = "http://ADELE_Features"
+       class = "org.topcased.adele.model.ADELE_Features.ADELE_FeaturesPackage"
+       genModel = "model/ADELE.genmodel" /> 
+  </extension>
+
+  <extension point="org.eclipse.emf.ecore.generated_package">
+    <package
+       uri = "http://ADELE_Relations"
+       class = "org.topcased.adele.model.ADELE_Relations.ADELE_RelationsPackage"
+       genModel = "model/ADELE.genmodel" /> 
+  </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated ADELE -->
+      <package
+            uri="http://ba_components/1.0"
+            class="org.topcased.adele.model.ba_components.Ba_componentsPackage"
+            genModel="model/ADELE.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated ADELE -->
+      <package
+            uri="http://ba_features/1.0"
+            class="org.topcased.adele.model.ba_features.Ba_featuresPackage"
+            genModel="model/ADELE.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated ADELE -->
+      <package
+            uri="http://ba_relations/1.0"
+            class="org.topcased.adele.model.ba_relations.Ba_relationsPackage"
+            genModel="model/ADELE.genmodel"/>
+   </extension>
+
+  <extension point="org.eclipse.emf.ecore.generated_package">
+    <package
+       uri = "http://KernelSpices"
+       class = "org.topcased.adele.model.KernelSpices.KernelSpicesPackage"
+       genModel = "model/ADELE.genmodel" /> 
+  </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated ADELE -->
+      <package
+            uri="http://ObjectDescriptionModel"
+            class="org.topcased.adele.model.ObjectDescriptionModel.ObjectDescriptionModelPackage"
+            genModel="model/ADELE.genmodel"/>
+   </extension>
+  <extension
+        point="org.eclipse.emf.ecore.extension_parser">
+     <parser
+           class="org.topcased.adele.model.ADELE_Components.util.ADELE_ComponentsResourceFactoryImpl"
+           type="adele">
+     </parser>
+  </extension>
+
+</plugin>
+

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="ba_features" nsURI="http://ba_features/1.0" nsPrefix="ba_features">
+  <eClassifiers xsi:type="ecore:EClass" name="BAFeature" abstract="true" eSuperTypes="KernelSpices.ecore#//SKFeature"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BAVariable" eSuperTypes="#//BAFeature">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="ecore:EClass ADELE_Components.ecore#//Data"/>
+  </eClassifiers>
+</ecore:EPackage>

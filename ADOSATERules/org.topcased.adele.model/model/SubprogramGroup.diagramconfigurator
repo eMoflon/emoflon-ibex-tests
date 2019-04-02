@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diagramconfigurator:DiagramConfiguration xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:diagramconfigurator="http://www.topcased.org/diagramconfigurator/2.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmi:id="_Mg7dcN4FEdy8DsZY-_KhPA" projectName="org.topcased.adele.editor" name="ADELE Subprogram Group" package="subprogramgroup" prefix="SubprogramGroup" layout="PortLayout" copyrightText="Copyright (c) 2009 Ellidiss Technologies&#xD;&#xA;&#xD;&#xA;All rights reserved. This program and the accompanying materials&#xD;&#xA;are made available under the terms of the Eclipse Public License v1.0&#xD;&#xA;which accompanies this distribution, and is available at&#xD;&#xA;http://www.eclipse.org/legal/epl-v10.html&#xD;&#xA;&#xD;&#xA;Contributors:&#xD;&#xA;&#x9;Arnaud Schach, arnaud.schach@ellidiss.com" samePluginAsEditor="true">
+  <palette xmi:id="_NnZ9UN4FEdy8DsZY-_KhPA" name="Tools">
+    <paletteCategories xmi:id="_t-eD4N4IEdy8DsZY-_KhPA" name="Components">
+      <items xmi:id="_5vuEYN4IEdy8DsZY-_KhPA" name="Subprogram" part="_6KJd8N4FEdy8DsZY-_KhPA"/>
+    </paletteCategories>
+    <paletteCategories xmi:id="_2vM5sN4IEdy8DsZY-_KhPA" name="Features">
+      <items xmi:id="_8gJkoN4IEdy8DsZY-_KhPA" name="Event Port" part="__Qo2oN4FEdy8DsZY-_KhPA"/>
+      <items xmi:id="_9cDMMN4IEdy8DsZY-_KhPA" name="Event Data Port" part="_AIEN4N4GEdy8DsZY-_KhPA"/>
+      <items xmi:id="_fbbXcJazEd2v9KABLxmCUw" name="Feature Group" part="_rxnGcJayEd2v9KABLxmCUw"/>
+      <items xmi:id="_-Z5Ugd4IEdy8DsZY-_KhPA" name="Data Access" part="_A6vA8N4GEdy8DsZY-_KhPA"/>
+      <items xmi:id="_-rVCwd4IEdy8DsZY-_KhPA" name="Subprogram Access" part="_9bEcIN4FEdy8DsZY-_KhPA"/>
+      <items xmi:id="_Wi9SIOVPEdy4a-BG0_qZMQ" name="Subprogram Group Access" part="_LeZ_kOVPEdy4a-BG0_qZMQ"/>
+      <items xmi:id="_-Z5UgN4IEdy8DsZY-_KhPA" name="Parameter" part="_BzNhEN4GEdy8DsZY-_KhPA"/>
+      <items xmi:id="_iOPdUJazEd2v9KABLxmCUw" name="Feature" part="_urIRQJayEd2v9KABLxmCUw"/>
+    </paletteCategories>
+    <paletteCategories xmi:id="_4X9AMN4IEdy8DsZY-_KhPA" name="Connections">
+      <items xmi:id="_IBT6sN4JEdy8DsZY-_KhPA" name="Subprogram Access Connection" part="_EqCkQN4GEdy8DsZY-_KhPA"/>
+      <items xmi:id="_J3tqUJrEEd2owePc87gDmA" name="Subprogram Group Access Connection" part="_ADVmMJrEEd2owePc87gDmA"/>
+      <items xmi:id="_kkmQsJazEd2v9KABLxmCUw" name="Feature Connection" part="_W_tvYJazEd2v9KABLxmCUw"/>
+      <items xmi:id="_NerxAJrEEd2owePc87gDmA" name="Parameter Connection" part="_-znDsJrDEd2owePc87gDmA"/>
+      <items xmi:id="_csPRIJBzEeGneZy_EF_WdA" name="Feature Group Connection" part="_XC5DAJBzEeGneZy_EF_WdA"/>
+    </paletteCategories>
+  </palette>
+  <parts xsi:type="diagramconfigurator:NodePartConfiguration" xmi:id="_6KJd8N4FEdy8DsZY-_KhPA" object="_OPpCAN4FEdy8DsZY-_KhPA" partSuperClass="org.topcased.adele.editor.utils.edit.ADELE_EMFGraphNodeEditPart" policySuperClass="org.topcased.adele.editor.utils.policies.SubprogramLayoutEditPolicy" childElements="_9bEcIN4FEdy8DsZY-_KhPA __Qo2oN4FEdy8DsZY-_KhPA _AIEN4N4GEdy8DsZY-_KhPA _A6vA8N4GEdy8DsZY-_KhPA _BzNhEN4GEdy8DsZY-_KhPA _LeZ_kOVPEdy4a-BG0_qZMQ _rxnGcJayEd2v9KABLxmCUw _urIRQJayEd2v9KABLxmCUw" container="true" layout="PortLayout" maximumWidth="0" maximumHeight="0"/>
+  <parts xsi:type="diagramconfigurator:NodePartConfiguration" xmi:id="_F9QR0OYYEdyDo5_Ww8P_Zw" object="_Cvn4MOYYEdyDo5_Ww8P_Zw" partSuperClass="org.topcased.adele.editor.utils.edit.ADELE_EMFGraphNodeEditPart" policySuperClass="org.topcased.adele.editor.utils.policies.SubprogramGroupLayoutEditPolicy" type="Container" childElements="_9bEcIN4FEdy8DsZY-_KhPA _LeZ_kOVPEdy4a-BG0_qZMQ _rxnGcJayEd2v9KABLxmCUw _urIRQJayEd2v9KABLxmCUw" defaultBackgroundColor="0,0,0" container="true" layout="PortLayout" defaultWidth="-1" defaultHeight="-1" minimumWidth="-1" minimumHeight="-1" maximumWidth="0" maximumHeight="0"/>
+  <parts xsi:type="diagramconfigurator:NodePartConfiguration" xmi:id="__Qo2oN4FEdy8DsZY-_KhPA" object="_lnkxwN4FEdy8DsZY-_KhPA" partSuperClass="org.topcased.adele.editor.utils.edit.ADELE_PortEditPart" defaultBackgroundColor="0,0,0" resizing="NONE" defaultWidth="-1" defaultHeight="-1" minimumWidth="-1" minimumHeight="-1" maximumWidth="0" maximumHeight="0" attachedToBorder="true"/>
+  <parts xsi:type="diagramconfigurator:NodePartConfiguration" xmi:id="_AIEN4N4GEdy8DsZY-_KhPA" object="_n6f2oN4FEdy8DsZY-_KhPA" partSuperClass="org.topcased.adele.editor.utils.edit.ADELE_PortEditPart" defaultBackgroundColor="0,0,0" resizing="NONE" defaultWidth="-1" defaultHeight="-1" minimumWidth="-1" minimumHeight="-1" maximumWidth="0" maximumHeight="0" attachedToBorder="true"/>
+  <parts xsi:type="diagramconfigurator:NodePartConfiguration" xmi:id="_rxnGcJayEd2v9KABLxmCUw" object="_gBP2wJayEd2v9KABLxmCUw" partSuperClass="org.topcased.adele.editor.utils.edit.FeatureGroupEditPart" policySuperClass="org.topcased.adele.editor.utils.policies.FeatureGroupLayoutEditPolicy" type="Container" childElements="__Qo2oN4FEdy8DsZY-_KhPA _AIEN4N4GEdy8DsZY-_KhPA _rxnGcJayEd2v9KABLxmCUw _A6vA8N4GEdy8DsZY-_KhPA _9bEcIN4FEdy8DsZY-_KhPA _LeZ_kOVPEdy4a-BG0_qZMQ _urIRQJayEd2v9KABLxmCUw" container="true" layout="PortLayout" maximumWidth="0" maximumHeight="0" attachedToBorder="true"/>
+  <parts xsi:type="diagramconfigurator:NodePartConfiguration" xmi:id="_A6vA8N4GEdy8DsZY-_KhPA" object="_rj2i8N4FEdy8DsZY-_KhPA" partSuperClass="org.topcased.adele.editor.utils.edit.ADELE_PortEditPart" defaultBackgroundColor="0,0,0" resizing="NONE" defaultWidth="-1" defaultHeight="-1" minimumWidth="-1" minimumHeight="-1" maximumWidth="0" maximumHeight="0" attachedToBorder="true"/>
+  <parts xsi:type="diagramconfigurator:NodePartConfiguration" xmi:id="_9bEcIN4FEdy8DsZY-_KhPA" object="_hHOzEN4FEdy8DsZY-_KhPA" partSuperClass="org.topcased.adele.editor.utils.edit.ADELE_PortEditPart" defaultBackgroundColor="0,0,0" resizing="NONE" defaultWidth="-1" defaultHeight="-1" minimumWidth="-1" minimumHeight="-1" maximumWidth="0" maximumHeight="0" attachedToBorder="true"/>
+  <parts xsi:type="diagramconfigurator:NodePartConfiguration" xmi:id="_LeZ_kOVPEdy4a-BG0_qZMQ" object="_-c-woOVOEdy4a-BG0_qZMQ" partSuperClass="org.topcased.adele.editor.utils.edit.ADELE_PortEditPart" defaultBackgroundColor="0,0,0" resizing="NONE" defaultWidth="-1" defaultHeight="-1" minimumWidth="-1" minimumHeight="-1" maximumWidth="0" maximumHeight="0" attachedToBorder="true"/>
+  <parts xsi:type="diagramconfigurator:NodePartConfiguration" xmi:id="_BzNhEN4GEdy8DsZY-_KhPA" object="_v6zVEN4FEdy8DsZY-_KhPA" partSuperClass="org.topcased.adele.editor.utils.edit.ADELE_PortEditPart" defaultBackgroundColor="0,0,0" resizing="NONE" defaultWidth="-1" defaultHeight="-1" minimumWidth="-1" minimumHeight="-1" maximumWidth="0" maximumHeight="0" attachedToBorder="true"/>
+  <parts xsi:type="diagramconfigurator:NodePartConfiguration" xmi:id="_urIRQJayEd2v9KABLxmCUw" object="_kQmMEJayEd2v9KABLxmCUw" partSuperClass="org.topcased.adele.editor.utils.edit.ADELE_PortEditPart" defaultBackgroundColor="0,0,0" resizing="NONE" defaultWidth="-1" defaultHeight="-1" minimumWidth="-1" minimumHeight="-1" maximumWidth="0" maximumHeight="0" attachedToBorder="true"/>
+  <parts xsi:type="diagramconfigurator:EdgePartConfiguration" xmi:id="_EqCkQN4GEdy8DsZY-_KhPA" object="_4BNbgN4FEdy8DsZY-_KhPA" partSuperClass="org.topcased.adele.editor.utils.edit.ADELE_EMFGraphEdgeEditPart" policySuperClass="org.topcased.adele.editor.utils.policies.SubprogramAccessConnectionEdgeCreationEditPolicy">
+    <sourceTargetCouple xmi:id="_7rL9cN4GEdy8DsZY-_KhPA" containerType="DIAGRAM" sourceNode="_9bEcIN4FEdy8DsZY-_KhPA" targetNode="_9bEcIN4FEdy8DsZY-_KhPA">
+      <containerObject href="ADELE.genmodel#//ADELE_Components/SubprogramGroup"/>
+      <containerRef xsi:type="ecore:EReference" href="ADELE_Components.ecore#//Component/subprogramAccessConnection"/>
+    </sourceTargetCouple>
+    <sourceTargetCouple xmi:id="_FUjcMOkPEdyrCfb28lIBQw" containerType="DIAGRAM" sourceNode="_9bEcIN4FEdy8DsZY-_KhPA" targetNode="_6KJd8N4FEdy8DsZY-_KhPA">
+      <containerObject href="ADELE.genmodel#//ADELE_Components/SubprogramGroup"/>
+      <containerRef xsi:type="ecore:EReference" href="ADELE_Components.ecore#//Component/subprogramAccessConnection"/>
+    </sourceTargetCouple>
+    <sourceTargetCouple xmi:id="_bKCRQN7IEdyuRKU1LWT45A" containerType="DIAGRAM" sourceNode="_6KJd8N4FEdy8DsZY-_KhPA" targetNode="_9bEcIN4FEdy8DsZY-_KhPA">
+      <containerObject href="ADELE.genmodel#//ADELE_Components/SubprogramGroup"/>
+      <containerRef xsi:type="ecore:EReference" href="ADELE_Components.ecore#//Component/subprogramAccessConnection"/>
+    </sourceTargetCouple>
+  </parts>
+  <parts xsi:type="diagramconfigurator:EdgePartConfiguration" xmi:id="_ADVmMJrEEd2owePc87gDmA" object="_6mDeIJrDEd2owePc87gDmA" partSuperClass="org.topcased.adele.editor.utils.edit.ADELE_EMFGraphEdgeEditPart" policySuperClass="org.topcased.adele.editor.utils.policies.SubprogramGroupAccessConnectionEdgeCreationEditPolicy">
+    <sourceTargetCouple xmi:id="_FRtvkJrEEd2owePc87gDmA" containerType="DIAGRAM" sourceNode="_LeZ_kOVPEdy4a-BG0_qZMQ" targetNode="_LeZ_kOVPEdy4a-BG0_qZMQ">
+      <containerObject href="ADELE.genmodel#//ADELE_Components/SubprogramGroup"/>
+      <containerRef xsi:type="ecore:EReference" href="ADELE_Components.ecore#//Component/subprogramGroupAccessConnection"/>
+    </sourceTargetCouple>
+  </parts>
+  <parts xsi:type="diagramconfigurator:EdgePartConfiguration" xmi:id="_W_tvYJazEd2v9KABLxmCUw" object="_pZUZYJayEd2v9KABLxmCUw" partSuperClass="org.topcased.adele.editor.utils.edit.ADELE_EMFGraphEdgeEditPart" policySuperClass="org.topcased.adele.editor.utils.policies.AbstractFeatureConnectionEdgeCreationEditPolicy">
+    <sourceTargetCouple xmi:id="_a8u-kJazEd2v9KABLxmCUw" containerType="DIAGRAM" sourceNode="_urIRQJayEd2v9KABLxmCUw" targetNode="_urIRQJayEd2v9KABLxmCUw">
+      <containerObject href="ADELE.genmodel#//ADELE_Components/SubprogramGroup"/>
+      <containerRef xsi:type="ecore:EReference" href="ADELE_Components.ecore#//Component/abstractFeatureConnection"/>
+    </sourceTargetCouple>
+  </parts>
+  <parts xsi:type="diagramconfigurator:EdgePartConfiguration" xmi:id="_-znDsJrDEd2owePc87gDmA" object="_9LJ4IJrDEd2owePc87gDmA" partSuperClass="org.topcased.adele.editor.utils.edit.ADELE_EMFGraphEdgeEditPart" policySuperClass="org.topcased.adele.editor.utils.policies.ParameterConnectionEdgeCreationEditPolicy">
+    <sourceTargetCouple xmi:id="_IErmcJrEEd2owePc87gDmA" containerType="DIAGRAM" sourceNode="_BzNhEN4GEdy8DsZY-_KhPA" targetNode="_BzNhEN4GEdy8DsZY-_KhPA">
+      <containerObject href="ADELE.genmodel#//ADELE_Components/SubprogramGroup"/>
+      <containerRef xsi:type="ecore:EReference" href="ADELE_Components.ecore#//Component/parameterConnection"/>
+    </sourceTargetCouple>
+  </parts>
+  <parts xsi:type="diagramconfigurator:EdgePartConfiguration" xmi:id="_XC5DAJBzEeGneZy_EF_WdA" object="_RqrBIJBzEeGneZy_EF_WdA" partSuperClass="org.topcased.adele.editor.utils.edit.ADELE_EMFGraphEdgeEditPart" policySuperClass="org.topcased.adele.editor.utils.policies.FeatureGroupConnectionEdgeCreationEditPolicy" defaultRouter="RectilinearRouter">
+    <sourceTargetCouple xmi:id="_bwfakJBzEeGneZy_EF_WdA" containerType="DIAGRAM" sourceNode="_rxnGcJayEd2v9KABLxmCUw" targetNode="_rxnGcJayEd2v9KABLxmCUw">
+      <containerObject href="ADELE.genmodel#//ADELE_Components/SubprogramGroup"/>
+      <containerRef xsi:type="ecore:EReference" href="ADELE_Components.ecore#//Component/featureGroupConnection"/>
+    </sourceTargetCouple>
+  </parts>
+  <objects xsi:type="diagramconfigurator:ModelObjectConfiguration" xmi:id="_OPpCAN4FEdy8DsZY-_KhPA">
+    <genClass href="ADELE.genmodel#//ADELE_Components/Subprogram"/>
+    <diagrams xmi:id="_TsDx8N4GEdy8DsZY-_KhPA" upperBound="1">
+      <diagram href="Subprogram.diagramconfigurator#_OOoKAHyMEdyPlKFWOKGnKg"/>
+    </diagrams>
+    <defaultContainerReference href="KernelSpices.ecore#//SKHierarchicalObject/children"/>
+  </objects>
+  <objects xsi:type="diagramconfigurator:ModelObjectConfiguration" xmi:id="_lnkxwN4FEdy8DsZY-_KhPA">
+    <genClass href="ADELE.genmodel#//ADELE_Features/EventPort"/>
+    <defaultContainerReference href="KernelSpices.ecore#//SKComponent/features"/>
+  </objects>
+  <objects xsi:type="diagramconfigurator:ModelObjectConfiguration" xmi:id="_n6f2oN4FEdy8DsZY-_KhPA">
+    <genClass href="ADELE.genmodel#//ADELE_Features/EventDataPort"/>
+    <defaultContainerReference href="KernelSpices.ecore#//SKComponent/features"/>
+  </objects>
+  <objects xsi:type="diagramconfigurator:ModelObjectConfiguration" xmi:id="_gBP2wJayEd2v9KABLxmCUw">
+    <genClass href="ADELE.genmodel#//ADELE_Features/FeatureGroup"/>
+    <defaultContainerReference href="KernelSpices.ecore#//SKComponent/features"/>
+  </objects>
+  <objects xsi:type="diagramconfigurator:ModelObjectConfiguration" xmi:id="_rj2i8N4FEdy8DsZY-_KhPA">
+    <genClass href="ADELE.genmodel#//ADELE_Features/DataAccess"/>
+    <defaultContainerReference href="KernelSpices.ecore#//SKComponent/features"/>
+  </objects>
+  <objects xsi:type="diagramconfigurator:ModelObjectConfiguration" xmi:id="_hHOzEN4FEdy8DsZY-_KhPA">
+    <genClass href="ADELE.genmodel#//ADELE_Features/SubprogramAccess"/>
+    <defaultContainerReference href="KernelSpices.ecore#//SKComponent/features"/>
+  </objects>
+  <objects xsi:type="diagramconfigurator:ModelObjectConfiguration" xmi:id="_-c-woOVOEdy4a-BG0_qZMQ">
+    <genClass href="ADELE.genmodel#//ADELE_Features/SubprogramGroupAccess"/>
+    <defaultContainerReference href="KernelSpices.ecore#//SKComponent/features"/>
+  </objects>
+  <objects xsi:type="diagramconfigurator:ModelObjectConfiguration" xmi:id="_v6zVEN4FEdy8DsZY-_KhPA">
+    <genClass href="ADELE.genmodel#//ADELE_Features/Parameter"/>
+    <defaultContainerReference href="KernelSpices.ecore#//SKComponent/features"/>
+  </objects>
+  <objects xsi:type="diagramconfigurator:ModelObjectConfiguration" xmi:id="_kQmMEJayEd2v9KABLxmCUw">
+    <genClass href="ADELE.genmodel#//ADELE_Features/AbstractFeature"/>
+    <defaultContainerReference href="KernelSpices.ecore#//SKComponent/features"/>
+  </objects>
+  <objects xsi:type="diagramconfigurator:ModelObjectConfiguration" xmi:id="_4BNbgN4FEdy8DsZY-_KhPA">
+    <genClass href="ADELE.genmodel#//ADELE_Relations/SubprogramAccessConnection"/>
+    <defaultContainerReference href="ADELE_Components.ecore#//Component/subprogramAccessConnection"/>
+  </objects>
+  <objects xsi:type="diagramconfigurator:ModelObjectConfiguration" xmi:id="_6mDeIJrDEd2owePc87gDmA">
+    <genClass href="ADELE.genmodel#//ADELE_Relations/SubprogramGroupAccessConnection"/>
+    <defaultContainerReference href="ADELE_Components.ecore#//Component/subprogramGroupAccessConnection"/>
+  </objects>
+  <objects xsi:type="diagramconfigurator:ModelObjectConfiguration" xmi:id="_pZUZYJayEd2v9KABLxmCUw">
+    <genClass href="ADELE.genmodel#//ADELE_Relations/AbstractFeatureConnection"/>
+    <defaultContainerReference href="ADELE_Components.ecore#//Component/abstractFeatureConnection"/>
+  </objects>
+  <objects xsi:type="diagramconfigurator:ModelObjectConfiguration" xmi:id="_9LJ4IJrDEd2owePc87gDmA">
+    <genClass href="ADELE.genmodel#//ADELE_Relations/ParameterConnection"/>
+    <defaultContainerReference href="ADELE_Components.ecore#//Component/parameterConnection"/>
+  </objects>
+  <objects xsi:type="diagramconfigurator:ModelObjectConfiguration" xmi:id="_Cvn4MOYYEdyDo5_Ww8P_Zw">
+    <genClass href="ADELE.genmodel#//ADELE_Components/SubprogramGroup"/>
+    <defaultContainerReference href="KernelSpices.ecore#//SKHierarchicalObject/children"/>
+  </objects>
+  <objects xsi:type="diagramconfigurator:ModelObjectConfiguration" xmi:id="_RqrBIJBzEeGneZy_EF_WdA">
+    <genClass href="ADELE.genmodel#//ADELE_Relations/FeatureGroupConnection"/>
+    <defaultContainerReference href="ADELE_Components.ecore#//Component/featureGroupConnection"/>
+  </objects>
+  <genModel href="ADELE.genmodel#/"/>
+  <templateRootObject href="ADELE.genmodel#//ADELE_Components/SubprogramGroup"/>
+  <editorConfigurator href="ADELE.editorconfigurator#__Jkc0CrxEdy4HuSrwH_G6A"/>
+</diagramconfigurator:DiagramConfiguration>

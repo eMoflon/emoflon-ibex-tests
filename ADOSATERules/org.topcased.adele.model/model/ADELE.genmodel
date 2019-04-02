@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.topcased.adele.model/src" editDirectory="/org.topcased.adele.model/src"
+    modelPluginID="org.topcased.adele.model" modelName="ADELE" modelPluginClass=""
+    editPluginClass="org.topcased.adele.model.ADELE.provider.ADELEEditPlugin" editorPluginClass="org.topcased.adele.model.ADELE.presentation.ADELEEditorPlugin"
+    testsDirectory="" testSuiteClass="" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="5.0">
+  <foreignModel>ADELE_Components.ecore</foreignModel>
+  <foreignModel>ADELE_Features.ecore</foreignModel>
+  <foreignModel>ADELE_Relations.ecore</foreignModel>
+  <foreignModel>ADELE.ecore</foreignModel>
+  <foreignModel>BA_components.ecore</foreignModel>
+  <foreignModel>BA_features.ecore</foreignModel>
+  <foreignModel>BA_relations.ecore</foreignModel>
+  <foreignModel>KernelSpices.ecore</foreignModel>
+  <foreignModel>ObjectDescriptionModel.ecore</foreignModel>
+  <genPackages prefix="ADELE" disposableProviderFactory="true" ecorePackage="ADELE.ecore#/"/>
+  <genPackages prefix="ADELE_Components" basePackage="org.topcased.adele.model" disposableProviderFactory="true"
+      ecorePackage="ADELE_Components.ecore#/">
+    <genClasses image="false" ecoreClass="ADELE_Components.ecore#//Component">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ADELE_Components.ecore#//Component/multiplicity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ADELE_Components.ecore#//Component/min"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ADELE_Components.ecore#//Component/type"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ADELE_Components.ecore#//Component/implementation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ADELE_Components.ecore#//Component/implementationName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ADELE_Components.ecore#//Component/featuresLock"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ADELE_Components.ecore#//Component/subcomponentsLock"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ADELE_Components.ecore#//Component/refines"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ADELE_Components.ecore#//Component/subcomponentRefinement"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ADELE_Components.ecore#//Component/baTransition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ADELE_Components.ecore#//Component/eventDataPortConnection"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ADELE_Components.ecore#//Component/eventPortConnection"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ADELE_Components.ecore#//Component/dataPortConnection"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ADELE_Components.ecore#//Component/dataAccessConnection"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ADELE_Components.ecore#//Component/busAccessConnection"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ADELE_Components.ecore#//Component/subprogramAccessConnection"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ADELE_Components.ecore#//Component/parameterConnection"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ADELE_Components.ecore#//Component/subprogramGroupAccessConnection"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ADELE_Components.ecore#//Component/abstractFeatureConnection"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ADELE_Components.ecore#//Component/featureGroupConnection"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference ADELE_Components.ecore#//Component/allRefines"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ADELE_Components.ecore#//Component/refinedSubcomponent"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference ADELE_Components.ecore#//Component/allRealFeatures"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference ADELE_Components.ecore#//Component/allRealChildrenComponents"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference ADELE_Components.ecore#//Component/originalComponent"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EReference ADELE_Components.ecore#//Component/allRelations"/>
+      <genOperations ecoreOperation="ADELE_Components.ecore#//Component/getMax"/>
+      <genOperations ecoreOperation="ADELE_Components.ecore#//Component/getClassifier"/>
+      <genOperations ecoreOperation="ADELE_Components.ecore#//Component/isType"/>
+      <genOperations ecoreOperation="ADELE_Components.ecore#//Component/isImplementation"/>
+      <genOperations ecoreOperation="ADELE_Components.ecore#//Component/isInstance"/>
+      <genOperations ecoreOperation="ADELE_Components.ecore#//Component/isClassifier"/>
+      <genOperations ecoreOperation="ADELE_Components.ecore#//Component/isSubcomponent"/>
+    </genClasses>
+    <genClasses ecoreClass="ADELE_Components.ecore#//Bus"/>
+    <genClasses ecoreClass="ADELE_Components.ecore#//Package"/>
+    <genClasses ecoreClass="ADELE_Components.ecore#//Data"/>
+    <genClasses ecoreClass="ADELE_Components.ecore#//Device"/>
+    <genClasses ecoreClass="ADELE_Components.ecore#//Memory"/>
+    <genClasses ecoreClass="ADELE_Components.ecore#//Process"/>
+    <genClasses ecoreClass="ADELE_Components.ecore#//Processor"/>
+    <genClasses ecoreClass="ADELE_Components.ecore#//Subprogram"/>
+    <genClasses ecoreClass="ADELE_Components.ecore#//System"/>
+    <genClasses ecoreClass="ADELE_Components.ecore#//Thread"/>
+    <genClasses ecoreClass="ADELE_Components.ecore#//ThreadGroup"/>
+    <genClasses ecoreClass="ADELE_Components.ecore#//SubprogramGroup"/>
+    <genClasses ecoreClass="ADELE_Components.ecore#//Abstract"/>
+    <genClasses ecoreClass="ADELE_Components.ecore#//VirtualProcessor"/>
+    <genClasses ecoreClass="ADELE_Components.ecore#//VirtualBus"/>
+  </genPackages>
+  <genPackages prefix="ADELE_Features" basePackage="org.topcased.adele.model" disposableProviderFactory="true"
+      ecorePackage="ADELE_Features.ecore#/">
+    <genEnums ecoreEnum="ADELE_Features.ecore#//PortDirection">
+      <genEnumLiterals ecoreEnumLiteral="ADELE_Features.ecore#//PortDirection/in"/>
+      <genEnumLiterals ecoreEnumLiteral="ADELE_Features.ecore#//PortDirection/out"/>
+      <genEnumLiterals ecoreEnumLiteral="ADELE_Features.ecore#//PortDirection/inout"/>
+    </genEnums>
+    <genEnums ecoreEnum="ADELE_Features.ecore#//AccessDirection">
+      <genEnumLiterals ecoreEnumLiteral="ADELE_Features.ecore#//AccessDirection/provided"/>
+      <genEnumLiterals ecoreEnumLiteral="ADELE_Features.ecore#//AccessDirection/required"/>
+    </genEnums>
+    <genClasses image="false" ecoreClass="ADELE_Features.ecore#//Feature">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ADELE_Features.ecore#//Feature/classifier"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ADELE_Features.ecore#//Feature/refinement"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ADELE_Features.ecore#//Feature/refinedFeature"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference ADELE_Features.ecore#//Feature/originalFeature"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="ADELE_Features.ecore#//Access">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ADELE_Features.ecore#//Access/direction"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="ADELE_Features.ecore#//DirectedFeature">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ADELE_Features.ecore#//DirectedFeature/direction"/>
+    </genClasses>
+    <genClasses ecoreClass="ADELE_Features.ecore#//BusAccess"/>
+    <genClasses ecoreClass="ADELE_Features.ecore#//DataAccess"/>
+    <genClasses ecoreClass="ADELE_Features.ecore#//SubprogramAccess"/>
+    <genClasses ecoreClass="ADELE_Features.ecore#//SubprogramGroupAccess"/>
+    <genClasses ecoreClass="ADELE_Features.ecore#//Parameter"/>
+    <genClasses ecoreClass="ADELE_Features.ecore#//FeatureGroup">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ADELE_Features.ecore#//FeatureGroup/inverseFeature"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute ADELE_Features.ecore#//FeatureGroup/type"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference ADELE_Features.ecore#//FeatureGroup/allRealFeatures"/>
+      <genOperations ecoreOperation="ADELE_Features.ecore#//FeatureGroup/isInverse">
+        <genParameters ecoreParameter="ADELE_Features.ecore#//FeatureGroup/isInverse/feature"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="ADELE_Features.ecore#//EventPort"/>
+    <genClasses ecoreClass="ADELE_Features.ecore#//DataPort"/>
+    <genClasses ecoreClass="ADELE_Features.ecore#//EventDataPort"/>
+    <genClasses ecoreClass="ADELE_Features.ecore#//AbstractFeature"/>
+  </genPackages>
+  <genPackages prefix="ADELE_Relations" basePackage="org.topcased.adele.model" disposableProviderFactory="true"
+      ecorePackage="ADELE_Relations.ecore#/">
+    <genClasses image="false" ecoreClass="ADELE_Relations.ecore#//Relation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ADELE_Relations.ecore#//Relation/multiplicity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ADELE_Relations.ecore#//Relation/min"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ADELE_Relations.ecore#//Relation/originalSourceFeature"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ADELE_Relations.ecore#//Relation/originalSinkFeature"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ADELE_Relations.ecore#//Relation/originalSourceSubcomponent"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ADELE_Relations.ecore#//Relation/originalSinkSubcomponent"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference ADELE_Relations.ecore#//Relation/source"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference ADELE_Relations.ecore#//Relation/sink"/>
+      <genOperations ecoreOperation="ADELE_Relations.ecore#//Relation/getMax"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="ADELE_Relations.ecore#//AccessConnection"/>
+    <genClasses image="false" ecoreClass="ADELE_Relations.ecore#//DirectedFeatureConnection"/>
+    <genClasses ecoreClass="ADELE_Relations.ecore#//BusAccessConnection"/>
+    <genClasses ecoreClass="ADELE_Relations.ecore#//DataAccessConnection"/>
+    <genClasses ecoreClass="ADELE_Relations.ecore#//SubprogramAccessConnection"/>
+    <genClasses ecoreClass="ADELE_Relations.ecore#//SubprogramGroupAccessConnection"/>
+    <genClasses ecoreClass="ADELE_Relations.ecore#//EventPortConnection"/>
+    <genClasses ecoreClass="ADELE_Relations.ecore#//DataPortConnection"/>
+    <genClasses ecoreClass="ADELE_Relations.ecore#//EventDataPortConnection"/>
+    <genClasses ecoreClass="ADELE_Relations.ecore#//ParameterConnection"/>
+    <genClasses ecoreClass="ADELE_Relations.ecore#//AbstractFeatureConnection"/>
+    <genClasses ecoreClass="ADELE_Relations.ecore#//FeatureGroupConnection"/>
+  </genPackages>
+  <genPackages prefix="Ba_components" basePackage="org.topcased.adele.model" disposableProviderFactory="true"
+      ecorePackage="BA_components.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="BA_components.ecore#//BAStateKind">
+      <genEnumLiterals ecoreEnumLiteral="BA_components.ecore#//BAStateKind/none"/>
+      <genEnumLiterals ecoreEnumLiteral="BA_components.ecore#//BAStateKind/initial"/>
+      <genEnumLiterals ecoreEnumLiteral="BA_components.ecore#//BAStateKind/complete"/>
+      <genEnumLiterals ecoreEnumLiteral="BA_components.ecore#//BAStateKind/final"/>
+      <genEnumLiterals ecoreEnumLiteral="BA_components.ecore#//BAStateKind/initial_final"/>
+      <genEnumLiterals ecoreEnumLiteral="BA_components.ecore#//BAStateKind/initial_complete"/>
+      <genEnumLiterals ecoreEnumLiteral="BA_components.ecore#//BAStateKind/initial_complete_final"/>
+      <genEnumLiterals ecoreEnumLiteral="BA_components.ecore#//BAStateKind/complete_final"/>
+    </genEnums>
+    <genClasses ecoreClass="BA_components.ecore#//BehaviorAnnex"/>
+    <genClasses ecoreClass="BA_components.ecore#//BAState">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BA_components.ecore#//BAState/kind"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="BA_components.ecore#//BAComponent"/>
+  </genPackages>
+  <genPackages prefix="Ba_features" basePackage="org.topcased.adele.model" disposableProviderFactory="true"
+      ecorePackage="BA_features.ecore#/">
+    <genClasses image="false" ecoreClass="BA_features.ecore#//BAFeature"/>
+    <genClasses ecoreClass="BA_features.ecore#//BAVariable">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference BA_features.ecore#//BAVariable/type"/>
+    </genClasses>
+  </genPackages>
+  <genPackages prefix="Ba_relations" basePackage="org.topcased.adele.model" disposableProviderFactory="true"
+      ecorePackage="BA_relations.ecore#/">
+    <genClasses image="false" ecoreClass="BA_relations.ecore#//BARelation"/>
+    <genClasses ecoreClass="BA_relations.ecore#//BATransition"/>
+  </genPackages>
+  <genPackages prefix="KernelSpices" basePackage="org.topcased.adele.model" disposableProviderFactory="true"
+      ecorePackage="KernelSpices.ecore#/">
+    <genEnums ecoreEnum="KernelSpices.ecore#//SKFeatureVisibility">
+      <genEnumLiterals ecoreEnumLiteral="KernelSpices.ecore#//SKFeatureVisibility/Provided"/>
+      <genEnumLiterals ecoreEnumLiteral="KernelSpices.ecore#//SKFeatureVisibility/Internal"/>
+      <genEnumLiterals ecoreEnumLiteral="KernelSpices.ecore#//SKFeatureVisibility/Required"/>
+    </genEnums>
+    <genClasses image="false" ecoreClass="KernelSpices.ecore#//SKObject">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute KernelSpices.ecore#//SKObject/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute KernelSpices.ecore#//SKObject/id"/>
+      <genOperations ecoreOperation="KernelSpices.ecore#//SKObject/validateName">
+        <genParameters ecoreParameter="KernelSpices.ecore#//SKObject/validateName/name"/>
+      </genOperations>
+    </genClasses>
+    <genClasses image="false" ecoreClass="KernelSpices.ecore#//SKHierarchicalObject">
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute KernelSpices.ecore#//SKHierarchicalObject/level"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference KernelSpices.ecore#//SKHierarchicalObject/properties"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference KernelSpices.ecore#//SKHierarchicalObject/parent"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference KernelSpices.ecore#//SKHierarchicalObject/children"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference KernelSpices.ecore#//SKHierarchicalObject/odSystems"/>
+      <genOperations ecoreOperation="KernelSpices.ecore#//SKHierarchicalObject/addChild">
+        <genParameters ecoreParameter="KernelSpices.ecore#//SKHierarchicalObject/addChild/p_child"/>
+      </genOperations>
+      <genOperations ecoreOperation="KernelSpices.ecore#//SKHierarchicalObject/isRoot"/>
+      <genOperations ecoreOperation="KernelSpices.ecore#//SKHierarchicalObject/getNamedChild">
+        <genParameters ecoreParameter="KernelSpices.ecore#//SKHierarchicalObject/getNamedChild/p_name"/>
+      </genOperations>
+      <genOperations ecoreOperation="KernelSpices.ecore#//SKHierarchicalObject/getNamedChildren">
+        <genParameters ecoreParameter="KernelSpices.ecore#//SKHierarchicalObject/getNamedChildren/p_name"/>
+      </genOperations>
+      <genOperations ecoreOperation="KernelSpices.ecore#//SKHierarchicalObject/findLeveledChildren">
+        <genParameters ecoreParameter="KernelSpices.ecore#//SKHierarchicalObject/findLeveledChildren/p_level"/>
+      </genOperations>
+      <genOperations ecoreOperation="KernelSpices.ecore#//SKHierarchicalObject/isODSection"/>
+      <genOperations ecoreOperation="KernelSpices.ecore#//SKHierarchicalObject/isComponent"/>
+      <genOperations ecoreOperation="KernelSpices.ecore#//SKHierarchicalObject/isRelation"/>
+      <genOperations ecoreOperation="KernelSpices.ecore#//SKHierarchicalObject/isFeature"/>
+      <genOperations ecoreOperation="KernelSpices.ecore#//SKHierarchicalObject/verify">
+        <genParameters ecoreParameter="KernelSpices.ecore#//SKHierarchicalObject/verify/p_keyword"/>
+      </genOperations>
+      <genOperations ecoreOperation="KernelSpices.ecore#//SKHierarchicalObject/isTerminal"/>
+      <genOperations ecoreOperation="KernelSpices.ecore#//SKHierarchicalObject/addProperty">
+        <genParameters ecoreParameter="KernelSpices.ecore#//SKHierarchicalObject/addProperty/name"/>
+      </genOperations>
+      <genOperations ecoreOperation="KernelSpices.ecore#//SKHierarchicalObject/addProperty.1">
+        <genParameters ecoreParameter="KernelSpices.ecore#//SKHierarchicalObject/addProperty.1/name"/>
+        <genParameters ecoreParameter="KernelSpices.ecore#//SKHierarchicalObject/addProperty.1/value"/>
+      </genOperations>
+      <genOperations ecoreOperation="KernelSpices.ecore#//SKHierarchicalObject/setProperty">
+        <genParameters ecoreParameter="KernelSpices.ecore#//SKHierarchicalObject/setProperty/name"/>
+        <genParameters ecoreParameter="KernelSpices.ecore#//SKHierarchicalObject/setProperty/value"/>
+      </genOperations>
+      <genOperations ecoreOperation="KernelSpices.ecore#//SKHierarchicalObject/getProperty">
+        <genParameters ecoreParameter="KernelSpices.ecore#//SKHierarchicalObject/getProperty/name"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="KernelSpices.ecore#//SKComponent">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference KernelSpices.ecore#//SKComponent/features"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute KernelSpices.ecore#//SKComponent/authorizedSubcomponents"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute KernelSpices.ecore#//SKComponent/authorizedFeatures"/>
+      <genOperations ecoreOperation="KernelSpices.ecore#//SKComponent/getNamedFeature">
+        <genParameters ecoreParameter="KernelSpices.ecore#//SKComponent/getNamedFeature/p_name"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="KernelSpices.ecore#//SKFeature">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute KernelSpices.ecore#//SKFeature/visibility"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference KernelSpices.ecore#//SKFeature/component"/>
+    </genClasses>
+    <genClasses ecoreClass="KernelSpices.ecore#//SKRelation">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference KernelSpices.ecore#//SKRelation/objects"/>
+    </genClasses>
+    <genClasses ecoreClass="KernelSpices.ecore#//SKProperty">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute KernelSpices.ecore#//SKProperty/value"/>
+    </genClasses>
+  </genPackages>
+  <genPackages prefix="ObjectDescriptionModel" basePackage="org.topcased.adele.model"
+      disposableProviderFactory="true" ecorePackage="ObjectDescriptionModel.ecore#/">
+    <genEnums ecoreEnum="ObjectDescriptionModel.ecore#//SKODSMode">
+      <genEnumLiterals ecoreEnumLiteral="ObjectDescriptionModel.ecore#//SKODSMode/HIERARCHICAL"/>
+      <genEnumLiterals ecoreEnumLiteral="ObjectDescriptionModel.ecore#//SKODSMode/SEQUENTIAL"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="ObjectDescriptionModel.ecore#//Document"/>
+    <genDataTypes ecoreDataType="ObjectDescriptionModel.ecore#//Node"/>
+    <genDataTypes ecoreDataType="ObjectDescriptionModel.ecore#//HashMap"/>
+    <genDataTypes ecoreDataType="ObjectDescriptionModel.ecore#//HashSet"/>
+    <genClasses ecoreClass="ObjectDescriptionModel.ecore#//SKODSection">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ObjectDescriptionModel.ecore#//SKODSection/label"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute ObjectDescriptionModel.ecore#//SKODSection/domODSNode"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EReference ObjectDescriptionModel.ecore#//SKODSection/data"/>
+      <genOperations ecoreOperation="ObjectDescriptionModel.ecore#//SKODSection/getId"/>
+      <genOperations ecoreOperation="ObjectDescriptionModel.ecore#//SKODSection/isModified"/>
+      <genOperations ecoreOperation="ObjectDescriptionModel.ecore#//SKODSection/isInDeepModified"/>
+      <genOperations ecoreOperation="ObjectDescriptionModel.ecore#//SKODSection/setValueData">
+        <genParameters ecoreParameter="ObjectDescriptionModel.ecore#//SKODSection/setValueData/p_data"/>
+      </genOperations>
+      <genOperations ecoreOperation="ObjectDescriptionModel.ecore#//SKODSection/deepFlushData">
+        <genParameters ecoreParameter="ObjectDescriptionModel.ecore#//SKODSection/deepFlushData/p_modifiedDoms"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="ObjectDescriptionModel.ecore#//SKODSystem">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ObjectDescriptionModel.ecore#//SKODSystem/sections"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ObjectDescriptionModel.ecore#//SKODSystem/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ObjectDescriptionModel.ecore#//SKODSystem/label"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ObjectDescriptionModel.ecore#//SKODSystem/mode"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ObjectDescriptionModel.ecore#//SKODSystem/styleSheet"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute ObjectDescriptionModel.ecore#//SKODSystem/domData"/>
+      <genOperations ecoreOperation="ObjectDescriptionModel.ecore#//SKODSystem/isModified"/>
+      <genOperations ecoreOperation="ObjectDescriptionModel.ecore#//SKODSystem/save"/>
+      <genOperations ecoreOperation="ObjectDescriptionModel.ecore#//SKODSystem/getDomFilename">
+        <genParameters ecoreParameter="ObjectDescriptionModel.ecore#//SKODSystem/getDomFilename/p_dom"/>
+      </genOperations>
+      <genOperations ecoreOperation="ObjectDescriptionModel.ecore#//SKODSystem/save.1">
+        <genParameters ecoreParameter="ObjectDescriptionModel.ecore#//SKODSystem/save.1/force"/>
+      </genOperations>
+      <genOperations ecoreOperation="ObjectDescriptionModel.ecore#//SKODSystem/rebuildDomData">
+        <genParameters ecoreParameter="ObjectDescriptionModel.ecore#//SKODSystem/rebuildDomData/factory"/>
+        <genParameters ecoreParameter="ObjectDescriptionModel.ecore#//SKODSystem/rebuildDomData/object"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="ObjectDescriptionModel.ecore#//SKODSFactory">
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute ObjectDescriptionModel.ecore#//SKODSFactory/domODS"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute ObjectDescriptionModel.ecore#//SKODSFactory/currentODSDatafileNode"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute ObjectDescriptionModel.ecore#//SKODSFactory/domData"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference ObjectDescriptionModel.ecore#//SKODSFactory/currentObject"/>
+      <genOperations ecoreOperation="ObjectDescriptionModel.ecore#//SKODSFactory/getCurrentProjectDirectory"/>
+      <genOperations ecoreOperation="ObjectDescriptionModel.ecore#//SKODSFactory/getCurrentObjectName"/>
+      <genOperations ecoreOperation="ObjectDescriptionModel.ecore#//SKODSFactory/getODSystem">
+        <genParameters ecoreParameter="ObjectDescriptionModel.ecore#//SKODSFactory/getODSystem/p_dsId"/>
+        <genParameters ecoreParameter="ObjectDescriptionModel.ecore#//SKODSFactory/getODSystem/p_object"/>
+      </genOperations>
+      <genOperations ecoreOperation="ObjectDescriptionModel.ecore#//SKODSFactory/getCurrentWorkspaceDirectory"/>
+      <genOperations ecoreOperation="ObjectDescriptionModel.ecore#//SKODSFactory/getCurrentDesignDirectory"/>
+      <genOperations ecoreOperation="ObjectDescriptionModel.ecore#//SKODSFactory/getCurrentObjectDirectory"/>
+      <genOperations ecoreOperation="ObjectDescriptionModel.ecore#//SKODSFactory/getCurrentObjectLocation"/>
+      <genOperations ecoreOperation="ObjectDescriptionModel.ecore#//SKODSFactory/getCurrentProjectName"/>
+      <genOperations ecoreOperation="ObjectDescriptionModel.ecore#//SKODSFactory/getCurrentDesignName"/>
+      <genOperations ecoreOperation="ObjectDescriptionModel.ecore#//SKODSFactory/getCurrentObjectId"/>
+      <genOperations ecoreOperation="ObjectDescriptionModel.ecore#//SKODSFactory/getODSystemsId"/>
+      <genOperations ecoreOperation="ObjectDescriptionModel.ecore#//SKODSFactory/getODSystemsLabel"/>
+      <genOperations ecoreOperation="ObjectDescriptionModel.ecore#//SKODSFactory/rebuildDomData">
+        <genParameters ecoreParameter="ObjectDescriptionModel.ecore#//SKODSFactory/rebuildDomData/oldOdsystem"/>
+        <genParameters ecoreParameter="ObjectDescriptionModel.ecore#//SKODSFactory/rebuildDomData/p_object"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="ObjectDescriptionModel.ecore#//SKODData">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ObjectDescriptionModel.ecore#//SKODData/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ObjectDescriptionModel.ecore#//SKODData/modified"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ObjectDescriptionModel.ecore#//SKODData/dom"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ObjectDescriptionModel.ecore#//SKODData/node"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ObjectDescriptionModel.ecore#//SKODData/external"/>
+      <genOperations ecoreOperation="ObjectDescriptionModel.ecore#//SKODData/setValue">
+        <genParameters ecoreParameter="ObjectDescriptionModel.ecore#//SKODData/setValue/p_data"/>
+      </genOperations>
+      <genOperations ecoreOperation="ObjectDescriptionModel.ecore#//SKODData/flush">
+        <genParameters ecoreParameter="ObjectDescriptionModel.ecore#//SKODData/flush/p_modifiedDoms"/>
+      </genOperations>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

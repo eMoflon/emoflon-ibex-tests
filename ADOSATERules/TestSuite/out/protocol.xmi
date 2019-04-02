@@ -1,24 +1,73 @@
 <?xml version="1.0" encoding="ASCII"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:Adele2Aadl="platform:/resource/Adele2Aadl/model/Adele2Aadl.ecore">
   <Adele2Aadl:rulePackage2AadlPackage__Marker>
-    <CREATE__SRC__adelePackage href="../resources/unit/external_specification.adele#external_specification"/>
-    <CREATE__TRG__aadlPackage href="../resources/unit/component_implementation/reverse.aadl#/"/>
-    <CREATE__TRG__aadlPublicPackageSection href="../resources/unit/component_implementation/reverse.aadl#//@ownedPublicSection"/>
+    <CREATE__SRC__adelePackage href="../resources/unit/component_type_circ_ref/forward.adele#component_type_circ_ref"/>
+    <CREATE__TRG__aadlPackage href="../resources/unit/component_type_circ_ref/reverse.aadl#/"/>
+    <CREATE__TRG__aadlPublicPackageSection href="../resources/unit/component_type_circ_ref/reverse.aadl#//@ownedPublicSection"/>
     <CREATE__CORR__corrAxiom href="corr.xmi#/0"/>
     <CREATE__CORR__corrAxiomOne href="corr.xmi#/1"/>
   </Adele2Aadl:rulePackage2AadlPackage__Marker>
+  <Adele2Aadl:ruleComponent2ComponentTypeSubprogram__Marker>
+    <CONTEXT__SRC__adelePackage href="../resources/unit/component_type_circ_ref/forward.adele#component_type_circ_ref"/>
+    <CREATE__SRC__adeleType href="../resources/unit/component_type_circ_ref/forward.adele#component_type_circ_ref.Subprogram1"/>
+    <CONTEXT__TRG__aadlPublicPackageSection href="../resources/unit/component_type_circ_ref/reverse.aadl#//@ownedPublicSection"/>
+    <CREATE__TRG__aadlType href="../resources/unit/component_type_circ_ref/reverse.aadl#//@ownedPublicSection/@ownedClassifier.1"/>
+    <CONTEXT__CORR__corrAxiomOne href="corr.xmi#/1"/>
+    <CREATE__CORR__corrType href="corr.xmi#/2"/>
+  </Adele2Aadl:ruleComponent2ComponentTypeSubprogram__Marker>
+  <Adele2Aadl:ruleComponent2ComponentTypeThread__Marker>
+    <CONTEXT__SRC__adelePackage href="../resources/unit/component_type_circ_ref/forward.adele#component_type_circ_ref"/>
+    <CREATE__SRC__adeleType href="../resources/unit/component_type_circ_ref/forward.adele#component_type_circ_ref.Thread1"/>
+    <CONTEXT__TRG__aadlPublicPackageSection href="../resources/unit/component_type_circ_ref/reverse.aadl#//@ownedPublicSection"/>
+    <CREATE__TRG__aadlType href="../resources/unit/component_type_circ_ref/reverse.aadl#//@ownedPublicSection/@ownedClassifier.2"/>
+    <CONTEXT__CORR__corrAxiomOne href="corr.xmi#/1"/>
+    <CREATE__CORR__corrType href="corr.xmi#/3"/>
+  </Adele2Aadl:ruleComponent2ComponentTypeThread__Marker>
+  <Adele2Aadl:ruleComponent2ComponentTypeProcessor__Marker>
+    <CONTEXT__SRC__adelePackage href="../resources/unit/component_type_circ_ref/forward.adele#component_type_circ_ref"/>
+    <CREATE__SRC__adeleType href="../resources/unit/component_type_circ_ref/forward.adele#component_type_circ_ref.Test1_Proc1"/>
+    <CONTEXT__TRG__aadlPublicPackageSection href="../resources/unit/component_type_circ_ref/reverse.aadl#//@ownedPublicSection"/>
+    <CREATE__TRG__aadlType href="../resources/unit/component_type_circ_ref/reverse.aadl#//@ownedPublicSection/@ownedClassifier.0"/>
+    <CONTEXT__CORR__corrAxiomOne href="corr.xmi#/1"/>
+    <CREATE__CORR__corrType href="corr.xmi#/4"/>
+  </Adele2Aadl:ruleComponent2ComponentTypeProcessor__Marker>
   <Adele2Aadl:rulePackage2AadlPackage__Marker>
-    <CREATE__SRC__adelePackage href="../resources/unit/component_implementation/forward.adele#component_implementation"/>
-    <CREATE__TRG__aadlPackage href="../resources/unit/external_specification2.aadl#/"/>
-    <CREATE__TRG__aadlPublicPackageSection href="../resources/unit/external_specification2.aadl#//@ownedPublicSection"/>
-    <CREATE__CORR__corrAxiom href="corr.xmi#/2"/>
-    <CREATE__CORR__corrAxiomOne href="corr.xmi#/3"/>
+    <CREATE__SRC__adelePackage href="../resources/unit/external_circ_ref.adele#external_circ_ref"/>
+    <CREATE__TRG__aadlPackage href="../resources/unit/external_circ_ref.aadl#/"/>
+    <CREATE__TRG__aadlPublicPackageSection href="../resources/unit/external_circ_ref.aadl#//@ownedPublicSection"/>
+    <CREATE__CORR__corrAxiom href="corr.xmi#/5"/>
+    <CREATE__CORR__corrAxiomOne href="corr.xmi#/6"/>
   </Adele2Aadl:rulePackage2AadlPackage__Marker>
-  <Adele2Aadl:rulePackage2AadlPackage__Marker>
-    <CREATE__SRC__adelePackage href="../resources/unit/external_specification2.adele#external_specification2"/>
-    <CREATE__TRG__aadlPackage href="../resources/unit/external_specification.aadl#/"/>
-    <CREATE__TRG__aadlPublicPackageSection href="../resources/unit/external_specification.aadl#//@ownedPublicSection"/>
-    <CREATE__CORR__corrAxiom href="corr.xmi#/4"/>
-    <CREATE__CORR__corrAxiomOne href="corr.xmi#/5"/>
-  </Adele2Aadl:rulePackage2AadlPackage__Marker>
+  <Adele2Aadl:ruleComponent2ComponentTypeProcessor__Marker>
+    <CONTEXT__SRC__adelePackage href="../resources/unit/external_circ_ref.adele#external_circ_ref"/>
+    <CREATE__SRC__adeleType href="../resources/unit/external_circ_ref.adele#external_circ_ref.Test2_Proc2"/>
+    <CONTEXT__TRG__aadlPublicPackageSection href="../resources/unit/external_circ_ref.aadl#//@ownedPublicSection"/>
+    <CREATE__TRG__aadlType href="../resources/unit/external_circ_ref.aadl#//@ownedPublicSection/@ownedClassifier.1"/>
+    <CONTEXT__CORR__corrAxiomOne href="corr.xmi#/6"/>
+    <CREATE__CORR__corrType href="corr.xmi#/7"/>
+  </Adele2Aadl:ruleComponent2ComponentTypeProcessor__Marker>
+  <Adele2Aadl:ruleComponent2ComponentTypeProcessor__Marker>
+    <CONTEXT__SRC__adelePackage href="../resources/unit/external_circ_ref.adele#external_circ_ref"/>
+    <CREATE__SRC__adeleType href="../resources/unit/external_circ_ref.adele#external_circ_ref.Test2_Proc1"/>
+    <CONTEXT__TRG__aadlPublicPackageSection href="../resources/unit/external_circ_ref.aadl#//@ownedPublicSection"/>
+    <CREATE__TRG__aadlType href="../resources/unit/external_circ_ref.aadl#//@ownedPublicSection/@ownedClassifier.0"/>
+    <CONTEXT__CORR__corrAxiomOne href="corr.xmi#/6"/>
+    <CREATE__CORR__corrType href="corr.xmi#/8"/>
+  </Adele2Aadl:ruleComponent2ComponentTypeProcessor__Marker>
+  <Adele2Aadl:ruleComponent2ComponentTypeData__Marker>
+    <CONTEXT__SRC__adelePackage href="../resources/unit/external_circ_ref.adele#external_circ_ref"/>
+    <CREATE__SRC__adeleType href="../resources/unit/external_circ_ref.adele#external_circ_ref.Data1"/>
+    <CONTEXT__TRG__aadlPublicPackageSection href="../resources/unit/external_circ_ref.aadl#//@ownedPublicSection"/>
+    <CREATE__TRG__aadlType href="../resources/unit/external_circ_ref.aadl#//@ownedPublicSection/@ownedClassifier.2"/>
+    <CONTEXT__CORR__corrAxiomOne href="corr.xmi#/6"/>
+    <CREATE__CORR__corrType href="corr.xmi#/9"/>
+  </Adele2Aadl:ruleComponent2ComponentTypeData__Marker>
+  <Adele2Aadl:ruleComponent2ComponentTypeProcessor__Marker>
+    <CONTEXT__SRC__adelePackage href="../resources/unit/component_type_circ_ref/forward.adele#component_type_circ_ref"/>
+    <CREATE__SRC__adeleType href="../resources/unit/component_type_circ_ref/forward.adele#component_type_circ_ref.Test1_Proc2"/>
+    <CONTEXT__TRG__aadlPublicPackageSection href="../resources/unit/component_type_circ_ref/reverse.aadl#//@ownedPublicSection"/>
+    <CREATE__TRG__aadlType href="../resources/unit/component_type_circ_ref/reverse.aadl#//@ownedPublicSection/@ownedClassifier.3"/>
+    <CONTEXT__CORR__corrAxiomOne href="corr.xmi#/1"/>
+    <CREATE__CORR__corrType href="corr.xmi#/10"/>
+  </Adele2Aadl:ruleComponent2ComponentTypeProcessor__Marker>
 </xmi:XMI>

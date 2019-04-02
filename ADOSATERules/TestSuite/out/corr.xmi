@@ -1,27 +1,47 @@
 <?xml version="1.0" encoding="ASCII"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:Adele2Aadl="platform:/resource/Adele2Aadl/model/Adele2Aadl.ecore">
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ADELE_Components="http://ADELE_Components" xmlns:Adele2Aadl="platform:/resource/Adele2Aadl/model/Adele2Aadl.ecore" xmlns:aadl2="http://aadl.info/AADL/2.0">
   <Adele2Aadl:CorrAxiomAP>
-    <source href="../resources/unit/external_specification.adele#external_specification"/>
-    <target href="../resources/unit/component_implementation/reverse.aadl#/"/>
+    <source href="../resources/unit/component_type_circ_ref/forward.adele#component_type_circ_ref"/>
+    <target href="../resources/unit/component_type_circ_ref/reverse.aadl#/"/>
   </Adele2Aadl:CorrAxiomAP>
   <Adele2Aadl:CorrAxiomPPS>
-    <source href="../resources/unit/external_specification.adele#external_specification"/>
-    <target href="../resources/unit/component_implementation/reverse.aadl#//@ownedPublicSection"/>
+    <source href="../resources/unit/component_type_circ_ref/forward.adele#component_type_circ_ref"/>
+    <target href="../resources/unit/component_type_circ_ref/reverse.aadl#//@ownedPublicSection"/>
   </Adele2Aadl:CorrAxiomPPS>
+  <Adele2Aadl:CorrComponentType>
+    <source xsi:type="ADELE_Components:Subprogram" href="../resources/unit/component_type_circ_ref/forward.adele#component_type_circ_ref.Subprogram1"/>
+    <target xsi:type="aadl2:SubprogramType" href="../resources/unit/component_type_circ_ref/reverse.aadl#//@ownedPublicSection/@ownedClassifier.1"/>
+  </Adele2Aadl:CorrComponentType>
+  <Adele2Aadl:CorrComponentType>
+    <source xsi:type="ADELE_Components:Thread" href="../resources/unit/component_type_circ_ref/forward.adele#component_type_circ_ref.Thread1"/>
+    <target xsi:type="aadl2:ThreadType" href="../resources/unit/component_type_circ_ref/reverse.aadl#//@ownedPublicSection/@ownedClassifier.2"/>
+  </Adele2Aadl:CorrComponentType>
+  <Adele2Aadl:CorrComponentType>
+    <source xsi:type="ADELE_Components:Processor" href="../resources/unit/component_type_circ_ref/forward.adele#component_type_circ_ref.Test1_Proc1"/>
+    <target xsi:type="aadl2:ProcessorType" href="../resources/unit/component_type_circ_ref/reverse.aadl#//@ownedPublicSection/@ownedClassifier.0"/>
+  </Adele2Aadl:CorrComponentType>
   <Adele2Aadl:CorrAxiomAP>
-    <source href="../resources/unit/component_implementation/forward.adele#component_implementation"/>
-    <target href="../resources/unit/external_specification2.aadl#/"/>
+    <source href="../resources/unit/external_circ_ref.adele#external_circ_ref"/>
+    <target href="../resources/unit/external_circ_ref.aadl#/"/>
   </Adele2Aadl:CorrAxiomAP>
   <Adele2Aadl:CorrAxiomPPS>
-    <source href="../resources/unit/component_implementation/forward.adele#component_implementation"/>
-    <target href="../resources/unit/external_specification2.aadl#//@ownedPublicSection"/>
+    <source href="../resources/unit/external_circ_ref.adele#external_circ_ref"/>
+    <target href="../resources/unit/external_circ_ref.aadl#//@ownedPublicSection"/>
   </Adele2Aadl:CorrAxiomPPS>
-  <Adele2Aadl:CorrAxiomAP>
-    <source href="../resources/unit/external_specification2.adele#external_specification2"/>
-    <target href="../resources/unit/external_specification.aadl#/"/>
-  </Adele2Aadl:CorrAxiomAP>
-  <Adele2Aadl:CorrAxiomPPS>
-    <source href="../resources/unit/external_specification2.adele#external_specification2"/>
-    <target href="../resources/unit/external_specification.aadl#//@ownedPublicSection"/>
-  </Adele2Aadl:CorrAxiomPPS>
+  <Adele2Aadl:CorrComponentType>
+    <source xsi:type="ADELE_Components:Processor" href="../resources/unit/external_circ_ref.adele#external_circ_ref.Test2_Proc2"/>
+    <target xsi:type="aadl2:ProcessorType" href="../resources/unit/external_circ_ref.aadl#//@ownedPublicSection/@ownedClassifier.1"/>
+  </Adele2Aadl:CorrComponentType>
+  <Adele2Aadl:CorrComponentType>
+    <source xsi:type="ADELE_Components:Processor" href="../resources/unit/external_circ_ref.adele#external_circ_ref.Test2_Proc1"/>
+    <target xsi:type="aadl2:ProcessorType" href="../resources/unit/external_circ_ref.aadl#//@ownedPublicSection/@ownedClassifier.0"/>
+  </Adele2Aadl:CorrComponentType>
+  <Adele2Aadl:CorrComponentType>
+    <source xsi:type="ADELE_Components:Data" href="../resources/unit/external_circ_ref.adele#external_circ_ref.Data1"/>
+    <target xsi:type="aadl2:DataType" href="../resources/unit/external_circ_ref.aadl#//@ownedPublicSection/@ownedClassifier.2"/>
+  </Adele2Aadl:CorrComponentType>
+  <Adele2Aadl:CorrComponentType>
+    <source xsi:type="ADELE_Components:Processor" href="../resources/unit/component_type_circ_ref/forward.adele#component_type_circ_ref.Test1_Proc2"/>
+    <target xsi:type="aadl2:ProcessorType" href="../resources/unit/component_type_circ_ref/reverse.aadl#//@ownedPublicSection/@ownedClassifier.3"/>
+  </Adele2Aadl:CorrComponentType>
 </xmi:XMI>

@@ -47,6 +47,7 @@
 #attributeConditions {
 	eq_string(adeleAccess.name, aadlAccess.name)
 	
+	
 }
 #rule ruleAccess2AccessTypedAsParentabstract #extends ruleAccess2AccessTypedAsParent4 #with Adele2Aadl
 

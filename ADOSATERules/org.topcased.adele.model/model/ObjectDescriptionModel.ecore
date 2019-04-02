@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="ObjectDescriptionModel" nsURI="http://ObjectDescriptionModel"
+    nsPrefix="ObjectDescriptionModel">
+  <eClassifiers xsi:type="ecore:EClass" name="SKODSection" eSuperTypes="KernelSpices.ecore#//SKHierarchicalObject">
+    <eOperations name="getId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="I return my name. id and name are the same datum."/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="isModified" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eOperations name="isInDeepModified" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eOperations name="setValueData" lowerBound="1">
+      <eParameters name="p_data" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eOperations name="deepFlushData" lowerBound="1" eType="#//HashSet">
+      <eParameters name="p_modifiedDoms" eType="#//HashSet"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Nom affiché de la section."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="domODSNode" lowerBound="1"
+        eType="#//Node" changeable="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Lien vers la section XML qui a donné naissance à cette section."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="data" lowerBound="1" eType="#//SKODData"
+        changeable="false" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SKODSystem">
+    <eOperations name="isModified" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eOperations name="save" lowerBound="1"/>
+    <eOperations name="getDomFilename" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eParameters name="p_dom" eType="#//Document"/>
+    </eOperations>
+    <eOperations name="save" lowerBound="1">
+      <eParameters name="force" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eOperations>
+    <eOperations name="rebuildDomData" lowerBound="1">
+      <eParameters name="factory" eType="#//SKODSFactory"/>
+      <eParameters name="object" eType="ecore:EClass KernelSpices.ecore#//SKHierarchicalObject"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sections" lowerBound="1"
+        upperBound="-1" eType="#//SKODSection" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mode" lowerBound="1" eType="#//SKODSMode"
+        changeable="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="styleSheet" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="domData" lowerBound="1"
+        eType="#//HashMap" changeable="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="SKODSMode">
+    <eLiterals name="HIERARCHICAL" value="1" literal="HIERARCHICAL"/>
+    <eLiterals name="SEQUENTIAL"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SKODSFactory">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A SKODSFactory (Spices Kernel Object Description System Factory) is instanciate with the name of a XML file. Then it can build a specific SKODSystem for a specific SKHierarchicalObject."/>
+    </eAnnotations>
+    <eOperations name="getCurrentProjectDirectory" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eOperations name="getCurrentObjectName" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eOperations name="getODSystem" lowerBound="1" eType="#//SKODSystem">
+      <eParameters name="p_dsId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="p_object" eType="ecore:EClass KernelSpices.ecore#//SKHierarchicalObject"/>
+    </eOperations>
+    <eOperations name="getCurrentWorkspaceDirectory" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eOperations name="getCurrentDesignDirectory" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eOperations name="getCurrentObjectDirectory" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eOperations name="getCurrentObjectLocation" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eOperations name="getCurrentProjectName" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eOperations name="getCurrentDesignName" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eOperations name="getCurrentObjectId" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eOperations name="getODSystemsId" lowerBound="1">
+      <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EEList">
+        <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eGenericType>
+    </eOperations>
+    <eOperations name="getODSystemsLabel" lowerBound="1">
+      <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EEList">
+        <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eGenericType>
+    </eOperations>
+    <eOperations name="rebuildDomData" lowerBound="1" eType="#//HashMap">
+      <eParameters name="oldOdsystem" eType="#//SKODSystem"/>
+      <eParameters name="p_object" eType="ecore:EClass KernelSpices.ecore#//SKHierarchicalObject"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="domODS" lowerBound="1"
+        eType="#//Document" changeable="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="currentODSDatafileNode"
+        lowerBound="1" eType="#//Node" changeable="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="domData" eType="#//HashMap"
+        changeable="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="currentObject" lowerBound="1"
+        eType="ecore:EClass KernelSpices.ecore#//SKHierarchicalObject" changeable="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="Document" instanceClassName="org.w3c.dom.Document">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="baseType" value="http://www.eclipse.org/emf/2002/Ecore#EJavaObject"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SKODData">
+    <eOperations name="setValue" lowerBound="1">
+      <eParameters name="p_data" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eOperations name="flush" lowerBound="1" eType="#//HashSet">
+      <eParameters name="p_modifiedDoms" eType="#//HashSet"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="modified" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" changeable="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dom" lowerBound="1" eType="#//Document"
+        changeable="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="node" lowerBound="1" eType="#//Node"
+        changeable="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="external" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" changeable="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="Node" instanceClassName="org.w3c.dom.Node"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="HashMap" instanceClassName="java.util.HashMap"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="HashSet" instanceClassName="java.util.HashSet"/>
+</ecore:EPackage>

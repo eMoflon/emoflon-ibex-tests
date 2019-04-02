@@ -9,7 +9,10 @@ import org.emoflon.ibex.tgg.operational.csp.constraints.factories.adele2aadl.Use
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.OperationalStrategy;
 import org.osate.aadl2.impl.Aadl2PackageImpl;
+import org.osate.aadl2.impl.AadlPackageImpl;
 import org.osate.aadl2.instance.impl.InstancePackageImpl;
+// import org.osate.aadl2.impl.Aadl2PackageImpl;
+// import org.osate.aadl2.instance.impl.InstancePackageImpl;
 import org.topcased.adele.model.ADELE_Components.impl.ADELE_ComponentsPackageImpl;
 import org.topcased.adele.model.ADELE_Features.impl.ADELE_FeaturesPackageImpl;
 import org.topcased.adele.model.ADELE_Relations.impl.ADELE_RelationsPackageImpl;
@@ -53,10 +56,15 @@ public class _RegistrationHelper {
 		EPackage obj_des= ObjectDescriptionModelPackageImpl.init();
 		rs.getPackageRegistry().put("platform:/resource/Adele2Aadl/metamodels/src/ObjectDescriptionModel.ecore",obj_des );
 
-
-		strategy.loadAndRegisterMetamodel("platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore");
-		strategy.loadAndRegisterMetamodel("platform:/resource/Adele2Aadl/metamodels/trg/instance.ecore");
+		EPackage aadl_trg= Aadl2PackageImpl.init();
+		rs.getPackageRegistry().put("platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore",aadl_trg);
 		
+		EPackage aadl_inst= InstancePackageImpl.init();
+		rs.getPackageRegistry().put("platform:/resource/Adele2Aadl/metamodels/trg/instance.ecore",aadl_inst);
+		
+//		strategy.loadAndRegisterMetamodel("platform:/resource/Adele2Aadl/metamodels/trg/aadl2.ecore");
+//		strategy.loadAndRegisterMetamodel("platform:/resource/Adele2Aadl/metamodels/trg/instance.ecore");
+//		
 
 	}
 

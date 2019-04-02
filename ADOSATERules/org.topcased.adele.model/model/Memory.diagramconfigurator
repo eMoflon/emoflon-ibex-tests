@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diagramconfigurator:DiagramConfiguration xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:diagramconfigurator="http://www.topcased.org/diagramconfigurator/2.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmi:id="_nmLRsCr2Edy4HuSrwH_G6A" projectName="org.topcased.adele.editor" name="ADELE Memory" package="memory" prefix="Memory" layout="PortLayout" copyrightText="Copyright (c) 2009 Ellidiss Technologies&#xD;&#xA;&#xD;&#xA;All rights reserved. This program and the accompanying materials&#xD;&#xA;are made available under the terms of the Eclipse Public License v1.0&#xD;&#xA;which accompanies this distribution, and is available at&#xD;&#xA;http://www.eclipse.org/legal/epl-v10.html&#xD;&#xA;&#xD;&#xA;Contributors:&#xD;&#xA;&#x9;Arnaud Schach, arnaud.schach@ellidiss.com" samePluginAsEditor="true">
+  <palette xmi:id="_nmLRsSr2Edy4HuSrwH_G6A" name="Tools">
+    <paletteCategories xmi:id="_nmLRsir2Edy4HuSrwH_G6A" name="Components">
+      <items xmi:id="_nmLRsyr2Edy4HuSrwH_G6A" name="Memory" part="_nmLRuCr2Edy4HuSrwH_G6A"/>
+      <items xmi:id="_3wMmAOVCEdyDffx3yU0WRA" name="Bus" part="_bMk0gOVCEdyDffx3yU0WRA"/>
+      <items xmi:id="_b6pOwJanEd2v9KABLxmCUw" name="Abstract" part="_eNRYsJanEd2v9KABLxmCUw"/>
+    </paletteCategories>
+    <paletteCategories xmi:id="_nmLRtCr2Edy4HuSrwH_G6A" name="Features">
+      <items xmi:id="_nmLRtSr2Edy4HuSrwH_G6A" name="Bus access" part="_nmLRuSr2Edy4HuSrwH_G6A"/>
+      <items xmi:id="_6PpD8OVCEdyDffx3yU0WRA" name="Feature Group" part="_-NjrAOVCEdyDffx3yU0WRA"/>
+      <items xmi:id="_qfweAJanEd2v9KABLxmCUw" name="Feature" part="_fLYcMJamEd2v9KABLxmCUw"/>
+    </paletteCategories>
+    <paletteCategories xmi:id="_nmLRtir2Edy4HuSrwH_G6A" name="Connections">
+      <items xmi:id="_nmLRtyr2Edy4HuSrwH_G6A" name="Bus access connection" part="_nmLRuir2Edy4HuSrwH_G6A"/>
+      <items xmi:id="_s9tHIJanEd2v9KABLxmCUw" name="Feature Connection" part="_EvrkAJanEd2v9KABLxmCUw"/>
+      <items xmi:id="_emRuMJBuEeGneZy_EF_WdA" name="Feature Group Connection" part="_YDjBAJBuEeGneZy_EF_WdA"/>
+    </paletteCategories>
+  </palette>
+  <parts xsi:type="diagramconfigurator:NodePartConfiguration" xmi:id="_nmLRuCr2Edy4HuSrwH_G6A" object="_nmLRvCr2Edy4HuSrwH_G6A" partSuperClass="org.topcased.adele.editor.utils.edit.ADELE_EMFGraphNodeEditPart" policySuperClass="org.topcased.adele.editor.utils.policies.MemoryLayoutEditPolicy" type="Container" childElements="_nmLRuSr2Edy4HuSrwH_G6A _-NjrAOVCEdyDffx3yU0WRA _fLYcMJamEd2v9KABLxmCUw" container="true" layout="PortLayout" maximumWidth="0" maximumHeight="0"/>
+  <parts xsi:type="diagramconfigurator:NodePartConfiguration" xmi:id="_bMk0gOVCEdyDffx3yU0WRA" object="_ZZPOoOVCEdyDffx3yU0WRA" partSuperClass="org.topcased.adele.editor.utils.edit.ADELE_EMFGraphNodeEditPart" policySuperClass="org.topcased.adele.editor.utils.policies.BusLayoutEditPolicy" type="Container" childElements="_nmLRuSr2Edy4HuSrwH_G6A _-NjrAOVCEdyDffx3yU0WRA _fLYcMJamEd2v9KABLxmCUw" container="true" layout="PortLayout" maximumWidth="0" maximumHeight="0"/>
+  <parts xsi:type="diagramconfigurator:NodePartConfiguration" xmi:id="_eNRYsJanEd2v9KABLxmCUw" object="_KH-wUJalEd2v9KABLxmCUw" partSuperClass="org.topcased.adele.editor.utils.edit.ADELE_EMFGraphNodeEditPart" policySuperClass="org.topcased.adele.editor.utils.policies.AbstractLayoutEditPolicy" type="Container" childElements="_nmLRuSr2Edy4HuSrwH_G6A _-NjrAOVCEdyDffx3yU0WRA _fLYcMJamEd2v9KABLxmCUw" container="true" layout="PortLayout" maximumWidth="0" maximumHeight="0"/>
+  <parts xsi:type="diagramconfigurator:NodePartConfiguration" xmi:id="_nmLRuSr2Edy4HuSrwH_G6A" object="_nmLRvir2Edy4HuSrwH_G6A" partSuperClass="org.topcased.adele.editor.utils.edit.ADELE_PortEditPart" defaultBackgroundColor="0,0,0" resizing="NONE" defaultWidth="-1" defaultHeight="-1" minimumWidth="-1" minimumHeight="-1" maximumWidth="0" maximumHeight="0" attachedToBorder="true"/>
+  <parts xsi:type="diagramconfigurator:NodePartConfiguration" xmi:id="_-NjrAOVCEdyDffx3yU0WRA" object="_lD77MOVCEdyDffx3yU0WRA" partSuperClass="org.topcased.adele.editor.utils.edit.FeatureGroupEditPart" policySuperClass="org.topcased.adele.editor.utils.policies.FeatureGroupLayoutEditPolicy" type="Container" childElements="_nmLRuSr2Edy4HuSrwH_G6A _-NjrAOVCEdyDffx3yU0WRA _fLYcMJamEd2v9KABLxmCUw" container="true" layout="PortLayout" maximumWidth="0" maximumHeight="0" attachedToBorder="true"/>
+  <parts xsi:type="diagramconfigurator:NodePartConfiguration" xmi:id="_fLYcMJamEd2v9KABLxmCUw" object="_SNgF8JalEd2v9KABLxmCUw" partSuperClass="org.topcased.adele.editor.utils.edit.ADELE_PortEditPart" defaultBackgroundColor="0,0,0" resizing="NONE" defaultWidth="-1" defaultHeight="-1" minimumWidth="-1" minimumHeight="-1" maximumWidth="0" maximumHeight="0" attachedToBorder="true"/>
+  <parts xsi:type="diagramconfigurator:EdgePartConfiguration" xmi:id="_nmLRuir2Edy4HuSrwH_G6A" object="_nmLRvyr2Edy4HuSrwH_G6A" partSuperClass="org.topcased.adele.editor.utils.edit.ADELE_EMFGraphEdgeEditPart" policySuperClass="org.topcased.adele.editor.utils.policies.BusAccessConnectionEdgeCreationEditPolicy" defaultRouter="RectilinearRouter">
+    <sourceTargetCouple xmi:id="_nmLRuyr2Edy4HuSrwH_G6A" containerType="DIAGRAM" sourceNode="_nmLRuSr2Edy4HuSrwH_G6A" targetNode="_nmLRuSr2Edy4HuSrwH_G6A">
+      <containerObject href="ADELE.genmodel#//ADELE_Components/Memory"/>
+      <containerRef xsi:type="ecore:EReference" href="ADELE_Components.ecore#//Component/busAccessConnection"/>
+    </sourceTargetCouple>
+    <sourceTargetCouple xmi:id="_q0CAUOkNEdyrCfb28lIBQw" containerType="DIAGRAM" sourceNode="_nmLRuSr2Edy4HuSrwH_G6A" targetNode="_bMk0gOVCEdyDffx3yU0WRA">
+      <containerObject href="ADELE.genmodel#//ADELE_Components/Memory"/>
+      <containerRef xsi:type="ecore:EReference" href="ADELE_Components.ecore#//Component/busAccessConnection"/>
+    </sourceTargetCouple>
+    <sourceTargetCouple xmi:id="_vylPMOVCEdyDffx3yU0WRA" containerType="DIAGRAM" sourceNode="_bMk0gOVCEdyDffx3yU0WRA" targetNode="_nmLRuSr2Edy4HuSrwH_G6A">
+      <containerObject href="ADELE.genmodel#//ADELE_Components/Memory"/>
+      <containerRef xsi:type="ecore:EReference" href="ADELE_Components.ecore#//Component/busAccessConnection"/>
+    </sourceTargetCouple>
+  </parts>
+  <parts xsi:type="diagramconfigurator:EdgePartConfiguration" xmi:id="_EvrkAJanEd2v9KABLxmCUw" object="_U5Ap8JalEd2v9KABLxmCUw" partSuperClass="org.topcased.adele.editor.utils.edit.ADELE_EMFGraphEdgeEditPart" policySuperClass="org.topcased.adele.editor.utils.policies.AbstractFeatureConnectionEdgeCreationEditPolicy">
+    <sourceTargetCouple xmi:id="_KjKlkJanEd2v9KABLxmCUw" containerType="DIAGRAM" sourceNode="_fLYcMJamEd2v9KABLxmCUw" targetNode="_fLYcMJamEd2v9KABLxmCUw">
+      <containerObject href="ADELE.genmodel#//ADELE_Components/Memory"/>
+      <containerRef xsi:type="ecore:EReference" href="ADELE_Components.ecore#//Component/abstractFeatureConnection"/>
+    </sourceTargetCouple>
+  </parts>
+  <parts xsi:type="diagramconfigurator:EdgePartConfiguration" xmi:id="_YDjBAJBuEeGneZy_EF_WdA" object="_VWGjUJBuEeGneZy_EF_WdA" partSuperClass="org.topcased.adele.editor.utils.edit.ADELE_EMFGraphEdgeEditPart" policySuperClass="org.topcased.adele.editor.utils.policies.FeatureGroupConnectionEdgeCreationEditPolicy" defaultRouter="RectilinearRouter">
+    <sourceTargetCouple xmi:id="_dhug8JBuEeGneZy_EF_WdA" containerType="DIAGRAM" sourceNode="_-NjrAOVCEdyDffx3yU0WRA" targetNode="_-NjrAOVCEdyDffx3yU0WRA">
+      <containerObject href="ADELE.genmodel#//ADELE_Components/Memory"/>
+      <containerRef xsi:type="ecore:EReference" href="ADELE_Components.ecore#//Component/featureGroupConnection"/>
+    </sourceTargetCouple>
+  </parts>
+  <objects xsi:type="diagramconfigurator:ModelObjectConfiguration" xmi:id="_nmLRvCr2Edy4HuSrwH_G6A">
+    <genClass href="ADELE.genmodel#//ADELE_Components/Memory"/>
+    <diagrams xmi:id="_nmLRvSr2Edy4HuSrwH_G6A" diagram="_nmLRsCr2Edy4HuSrwH_G6A" upperBound="1"/>
+    <defaultContainerReference href="KernelSpices.ecore#//SKHierarchicalObject/children"/>
+  </objects>
+  <objects xsi:type="diagramconfigurator:ModelObjectConfiguration" xmi:id="_ZZPOoOVCEdyDffx3yU0WRA">
+    <genClass href="ADELE.genmodel#//ADELE_Components/Bus"/>
+    <diagrams xmi:id="__6xqkJamEd2v9KABLxmCUw" upperBound="1">
+      <diagram href="Bus.diagramconfigurator#_k4KNcJRkEd2x-6MzZ6UOWA"/>
+    </diagrams>
+    <defaultContainerReference href="KernelSpices.ecore#//SKHierarchicalObject/children"/>
+  </objects>
+  <objects xsi:type="diagramconfigurator:ModelObjectConfiguration" xmi:id="_KH-wUJalEd2v9KABLxmCUw">
+    <genClass href="ADELE.genmodel#//ADELE_Components/Abstract"/>
+    <diagrams xmi:id="_CnVXcJanEd2v9KABLxmCUw" upperBound="1">
+      <diagram href="Abstract.diagramconfigurator#_h5nroJRXEd2x-6MzZ6UOWA"/>
+    </diagrams>
+    <defaultContainerReference href="KernelSpices.ecore#//SKHierarchicalObject/children"/>
+  </objects>
+  <objects xsi:type="diagramconfigurator:ModelObjectConfiguration" xmi:id="_nmLRvir2Edy4HuSrwH_G6A">
+    <genClass href="ADELE.genmodel#//ADELE_Features/BusAccess"/>
+    <defaultContainerReference href="KernelSpices.ecore#//SKComponent/features"/>
+  </objects>
+  <objects xsi:type="diagramconfigurator:ModelObjectConfiguration" xmi:id="_lD77MOVCEdyDffx3yU0WRA">
+    <genClass href="ADELE.genmodel#//ADELE_Features/FeatureGroup"/>
+    <defaultContainerReference href="KernelSpices.ecore#//SKComponent/features"/>
+  </objects>
+  <objects xsi:type="diagramconfigurator:ModelObjectConfiguration" xmi:id="_SNgF8JalEd2v9KABLxmCUw">
+    <genClass href="ADELE.genmodel#//ADELE_Features/AbstractFeature"/>
+    <defaultContainerReference href="KernelSpices.ecore#//SKComponent/features"/>
+  </objects>
+  <objects xsi:type="diagramconfigurator:ModelObjectConfiguration" xmi:id="_nmLRvyr2Edy4HuSrwH_G6A">
+    <genClass href="ADELE.genmodel#//ADELE_Relations/BusAccessConnection"/>
+    <defaultContainerReference href="ADELE_Components.ecore#//Component/busAccessConnection"/>
+  </objects>
+  <objects xsi:type="diagramconfigurator:ModelObjectConfiguration" xmi:id="_U5Ap8JalEd2v9KABLxmCUw">
+    <genClass href="ADELE.genmodel#//ADELE_Relations/AbstractFeatureConnection"/>
+    <defaultContainerReference href="ADELE_Components.ecore#//Component/abstractFeatureConnection"/>
+  </objects>
+  <objects xsi:type="diagramconfigurator:ModelObjectConfiguration" xmi:id="_VWGjUJBuEeGneZy_EF_WdA">
+    <genClass href="ADELE.genmodel#//ADELE_Relations/FeatureGroupConnection"/>
+    <defaultContainerReference href="ADELE_Components.ecore#//Component/featureGroupConnection"/>
+  </objects>
+  <genModel href="ADELE.genmodel#/"/>
+  <templateRootObject href="ADELE.genmodel#//ADELE_Components/Memory"/>
+  <editorConfigurator href="ADELE.editorconfigurator#__Jkc0CrxEdy4HuSrwH_G6A"/>
+</diagramconfigurator:DiagramConfiguration>
