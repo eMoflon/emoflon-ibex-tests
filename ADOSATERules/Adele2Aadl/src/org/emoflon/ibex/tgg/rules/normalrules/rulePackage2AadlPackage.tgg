@@ -11,8 +11,7 @@
 	++aadlPackage:AadlPackage
 	{
 		++ -ownedPublicSection->aadlPublicPackageSection
-		//TODO[Ayurshi] This seems to be necessary?
-		// ++ -publicSection->aadlPublicPackageSection
+		++ -publicSection->aadlPublicPackageSection
 	}
 	++aadlPublicPackageSection:aadl2.PublicPackageSection
 }
