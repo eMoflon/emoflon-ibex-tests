@@ -1,58 +1,62 @@
-<?xml version="1.0" encoding="ASCII"?>
-<aadl2:AadlPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" name="eventDataPortConn2PortConnSrcSubcompoDestSubcompo" publicSection="//@ownedPublicSection">
-  <ownedPublicSection>
-    <ownedClassifier xsi:type="aadl2:DataType" name="Data0"/>
-    <ownedClassifier xsi:type="aadl2:DataImplementation" name="Data0.impl">
-      <ownedRealization implemented="//@ownedPublicSection/@ownedClassifier.0"/>
-    </ownedClassifier>
-    <ownedClassifier xsi:type="aadl2:DataType" name="Data1"/>
-    <ownedClassifier xsi:type="aadl2:DataImplementation" name="Data1.impl">
-      <ownedRealization implemented="//@ownedPublicSection/@ownedClassifier.2"/>
-    </ownedClassifier>
-    <ownedClassifier xsi:type="aadl2:SystemType" name="System0">
-      <ownedAbstractFeature name="sys0OutAbstractFeat" out="true"/>
-      <ownedEventDataPort name="sys0InEventDataPort1" in="true" dataFeatureClassifier="//@ownedPublicSection/@ownedClassifier.1"/>
-      <ownedEventDataPort name="sys0OutEventDataPort1" out="true" dataFeatureClassifier="//@ownedPublicSection/@ownedClassifier.0"/>
-      <ownedEventDataPort name="sys0InOutEventDataPort1" in="true" out="true" dataFeatureClassifier="//@ownedPublicSection/@ownedClassifier.1"/>
-    </ownedClassifier>
-    <ownedClassifier xsi:type="aadl2:SystemImplementation" name="System0.impl">
-      <ownedRealization implemented="//@ownedPublicSection/@ownedClassifier.4"/>
-      <ownedPortConnection name="conn0">
-        <destination context="//@ownedPublicSection/@ownedClassifier.5/@ownedSystemSubcomponent.1" connectionEnd="//@ownedPublicSection/@ownedClassifier.8/@ownedEventDataPort.0"/>
-        <source context="//@ownedPublicSection/@ownedClassifier.5/@ownedSystemSubcomponent.0" connectionEnd="//@ownedPublicSection/@ownedClassifier.8/@ownedEventDataPort.1"/>
-      </ownedPortConnection>
-      <ownedPortConnection name="conn2">
-        <destination context="//@ownedPublicSection/@ownedClassifier.5/@ownedSystemSubcomponent.0" connectionEnd="//@ownedPublicSection/@ownedClassifier.8/@ownedEventDataPort.2"/>
-        <source context="//@ownedPublicSection/@ownedClassifier.5/@ownedSystemSubcomponent.1" connectionEnd="//@ownedPublicSection/@ownedClassifier.8/@ownedEventDataPort.1"/>
-      </ownedPortConnection>
-      <ownedSystemSubcomponent name="sys0Sub1Sys2" systemSubcomponentType="//@ownedPublicSection/@ownedClassifier.8"/>
-      <ownedSystemSubcomponent name="sys0Sub0Sys2" systemSubcomponentType="//@ownedPublicSection/@ownedClassifier.9"/>
-    </ownedClassifier>
-    <ownedClassifier xsi:type="aadl2:SystemType" name="System1">
-      <ownedExtension extended="//@ownedPublicSection/@ownedClassifier.4"/>
-      <ownedEventDataPort name="sys1InEventDataPort1" in="true" dataFeatureClassifier="//@ownedPublicSection/@ownedClassifier.1"/>
-      <ownedEventDataPort name="sys1OutEventDataPort1" out="true" dataFeatureClassifier="//@ownedPublicSection/@ownedClassifier.1"/>
-      <ownedEventDataPort name="sys1InOutEventDataPort1" in="true" out="true" dataFeatureClassifier="//@ownedPublicSection/@ownedClassifier.1"/>
-      <ownedEventDataPort refined="//@ownedPublicSection/@ownedClassifier.4/@ownedAbstractFeature.0" out="true" dataFeatureClassifier="//@ownedPublicSection/@ownedClassifier.1"/>
-    </ownedClassifier>
-    <ownedClassifier xsi:type="aadl2:SystemImplementation" name="System1.impl">
-      <ownedExtension extended="//@ownedPublicSection/@ownedClassifier.5"/>
-      <ownedRealization implemented="//@ownedPublicSection/@ownedClassifier.6"/>
-      <ownedSystemSubcomponent refined="//@ownedPublicSection/@ownedClassifier.5/@ownedSystemSubcomponent.0" systemSubcomponentType="//@ownedPublicSection/@ownedClassifier.10"/>
-      <ownedSystemSubcomponent name="sys1Sub1Sys2" systemSubcomponentType="//@ownedPublicSection/@ownedClassifier.9"/>
-    </ownedClassifier>
-    <ownedClassifier xsi:type="aadl2:SystemType" name="System2">
-      <ownedEventDataPort name="sys2InEventDataPort" in="true" dataFeatureClassifier="//@ownedPublicSection/@ownedClassifier.1"/>
-      <ownedEventDataPort name="sys2OutEventDataPort" out="true" dataFeatureClassifier="//@ownedPublicSection/@ownedClassifier.1"/>
-      <ownedEventDataPort name="sys2InOutEventDataPort" in="true" out="true" dataFeatureClassifier="//@ownedPublicSection/@ownedClassifier.0"/>
-    </ownedClassifier>
-    <ownedClassifier xsi:type="aadl2:SystemImplementation" name="System2.impl">
-      <ownedRealization implemented="//@ownedPublicSection/@ownedClassifier.8"/>
-    </ownedClassifier>
-    <ownedClassifier xsi:type="aadl2:SystemType" name="System3">
-      <ownedExtension extended="//@ownedPublicSection/@ownedClassifier.8"/>
-      <ownedEventDataPort name="sys3InEventDataPort" in="true" dataFeatureClassifier="//@ownedPublicSection/@ownedClassifier.1"/>
-      <ownedEventDataPort name="sys3OutEventDataPort" out="true" dataFeatureClassifier="//@ownedPublicSection/@ownedClassifier.1"/>
-    </ownedClassifier>
-  </ownedPublicSection>
-</aadl2:AadlPackage>
+package eventDataPortConn2PortConnSrcSubcompoDestSubcompo
+public
+	data Data0
+	end Data0;
+	data implementation Data0.impl
+	end Data0.impl;
+
+	data Data1
+	end Data1;
+	data implementation Data1.impl
+	end Data1.impl;
+	
+	system System0
+	features
+		sys0InEventDataPort1: in event data port Data0.impl;
+		sys0OutEventDataPort1: out event data port Data0;
+		sys0InOutEventDataPort1: in out event data port Data0.impl;
+		sys0OutAbstractFeat: out feature;
+	end System0;
+	
+	-- Sunny day test
+	system implementation System0.impl
+	subcomponents
+		sys0Sub1Sys2: system System2;
+		sys0Sub0Sys2: system System2.impl;
+	connections
+		conn0: port sys0Sub1Sys2.sys2OutEventDataPort -> sys0Sub0Sys2.sys2InEventDataPort; 
+		conn2: port sys0Sub0Sys2.sys2OutEventDataPort -> sys0Sub1Sys2.sys2InOutEventDataPort;
+	end System0.impl;
+
+	system System1 extends System0
+	features
+		sys1InEventDataPort1: in event data port Data0.impl;
+		sys1OutEventDataPort1: out event data port Data0.impl;
+		sys1InOutEventDataPort1: in out event data port Data0.impl;
+		sys0OutAbstractFeat: refined to out event data port Data0.impl;
+	end System1;
+
+	-- Feature from extended component
+	system implementation System1.impl extends System0.impl
+	subcomponents
+		sys0Sub1Sys2: refined to system System3;
+		sys1Sub1Sys2: system System2.impl;
+	end System1.impl;
+
+	system System2
+	features
+		sys2InEventDataPort: in event data port Data0.impl;
+		sys2OutEventDataPort: out event data port Data0.impl;
+		sys2InOutEventDataPort: in out event data port Data0;
+	end System2;
+
+	system implementation System2.impl
+	end System2.impl;
+	
+	system System3 extends System2
+	features
+		sys3InEventDataPort: in event data port Data0.impl;
+		sys3OutEventDataPort: out event data port Data0.impl;
+	end System3;
+	
+end eventDataPortConn2PortConnSrcSubcompoDestSubcompo;

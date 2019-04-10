@@ -1,13 +1,16 @@
-<?xml version="1.0" encoding="ASCII"?>
-<aadl2:AadlPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" name="external_specification" publicSection="//@ownedPublicSection">
-  <ownedPublicSection>
-    <ownedClassifier xsi:type="aadl2:SystemType" name="System_Parent"/>
-    <ownedClassifier xsi:type="aadl2:SystemImplementation" name="System_Parent.impl">
-      <ownedRealization implemented="//@ownedPublicSection/@ownedClassifier.0"/>
-    </ownedClassifier>
-    <ownedClassifier xsi:type="aadl2:DataType" name="Data_Parent"/>
-    <ownedClassifier xsi:type="aadl2:DataImplementation" name="Data_Parent.impl">
-      <ownedRealization implemented="//@ownedPublicSection/@ownedClassifier.2"/>
-    </ownedClassifier>
-  </ownedPublicSection>
-</aadl2:AadlPackage>
+package external_specification
+public
+
+system System_Parent
+end System_Parent;
+
+system implementation System_Parent.impl
+end System_Parent.impl;
+
+data Data_Parent
+end Data_Parent;
+
+data implementation Data_Parent.impl
+end Data_Parent.impl;
+
+end external_specification;
