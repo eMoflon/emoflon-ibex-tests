@@ -7,17 +7,21 @@
 	
 	adelePackage:ADELE_Components.Package 
 	{
-		++ -children->adeleType
+		 -children->adeleType
 	}
-	adeleType:ADELE_Components.Component
-	++adeleImplementation: ADELE_Components.Component
+	adeleType:ADELE_Components.Component{
+		++ -children->adeleImplementation
+	}
+	++adeleImplementation: ADELE_Components.Component{
+		featuresLock:=true
+	}
 	
 }
 
 #target {
 	aadlPublicPackageSection:aadl2.PackageSection
 	{
-		++ -ownedClassifier->aadlType
+		 -ownedClassifier->aadlType
 		++ -ownedClassifier->aadlImplementation
 		
 	} 
@@ -33,7 +37,7 @@
 }
 
 #correspondence {
-	corrAxiom:CorrAxiom 
+	corrAxiomOne: CorrAxiomPPS 
 	{
 		#src->adelePackage
 		#trg->aadlPublicPackageSection
@@ -62,13 +66,92 @@
 	
 }
 
-#rule ruleComponent2ComponentImplementationcomponent #extends ruleComponent2ComponentImplementation18 #with Adele2Aadl
+#rule ruleComponent2ComponentImplementationProcess #extends ruleComponent2ComponentImplementation18 #with Adele2Aadl
 
 #source { 
-	++adeleImplementation:ADELE_Components.Bus
+	adeleType:ADELE_Components.Process
+	++adeleImplementation:ADELE_Components.Process
 	}
 
 #target {
-	++aadlImplementation:aadl2.BusImplementation
+	aadlType:aadl2.ProcessType
+	++aadlImplementation:aadl2.ProcessImplementation
+	}
+#rule ruleComponent2ComponentImplementationThreadGroup #extends ruleComponent2ComponentImplementation18 #with Adele2Aadl
+
+#source { 
+	adeleType:ADELE_Components.ThreadGroup
+	++adeleImplementation:ADELE_Components.ThreadGroup
 	}
 
+#target {
+	aadlType:aadl2.ThreadGroupType
+	++aadlImplementation:aadl2.ThreadGroupImplementation
+	}
+#rule ruleComponent2ComponentImplementationProcessor #extends ruleComponent2ComponentImplementation18 #with Adele2Aadl
+
+#source { 
+	adeleType:ADELE_Components.Processor
+	++adeleImplementation:ADELE_Components.Processor
+	}
+
+#target {
+	aadlType:aadl2.ProcessorType
+	++aadlImplementation:aadl2.ProcessorImplementation
+	}
+	
+#rule ruleComponent2ComponentImplementationSystem #extends ruleComponent2ComponentImplementation18 #with Adele2Aadl
+
+#source { 
+	adeleType:ADELE_Components.System
+	++adeleImplementation:ADELE_Components.System
+	}
+
+#target {
+	aadlType:aadl2.SystemType
+	++aadlImplementation:aadl2.SystemImplementation
+	}
+#rule ruleComponent2ComponentImplementationDevice #extends ruleComponent2ComponentImplementation18 #with Adele2Aadl
+
+#source { 
+	adeleType:ADELE_Components.Device
+	++adeleImplementation:ADELE_Components.Device
+	}
+
+#target {
+	aadlType:aadl2.DeviceType
+	++aadlImplementation:aadl2.DeviceImplementation
+	}
+	
+#rule ruleComponent2ComponentImplementationData #extends ruleComponent2ComponentImplementation18 #with Adele2Aadl
+
+#source { 
+	adeleType:ADELE_Components.Data
+	++adeleImplementation:ADELE_Components.Data
+}
+#target {
+	aadlType:aadl2.DataType
+	++aadlImplementation:aadl2.DataImplementation
+	}
+	#rule ruleComponent2ComponentImplementationAbstract #extends ruleComponent2ComponentImplementation18 #with Adele2Aadl
+
+#source { 
+	adeleType:ADELE_Components.Abstract
+	++adeleImplementation:ADELE_Components.Abstract
+}
+#target {
+	aadlType:aadl2.AbstractType
+	++aadlImplementation:aadl2.AbstractImplementation
+	}
+#rule ruleComponent2ComponentImplementationVirtualProcessor #extends ruleComponent2ComponentImplementation18 #with Adele2Aadl
+
+#source { 
+	adeleType:ADELE_Components.VirtualProcessor
+	++adeleImplementation:ADELE_Components.VirtualProcessor
+}
+#target {
+	aadlType:aadl2.VirtualProcessorType
+	++aadlImplementation:aadl2.VirtualProcessorImplementation
+	}
+		
+	

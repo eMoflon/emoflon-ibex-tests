@@ -29,7 +29,7 @@ public class MODELGEN_App extends MODELGEN {
 		logger.info("Completed init for MODELGEN in: " + (toc - tic) + " ms");
 		
 		MODELGENStopCriterion stop = new MODELGENStopCriterion(generator.getTGG());
-		stop.setTimeOutInMS(1000);
+		stop.setTimeOutInMS(2000);
 		stop.setMaxRuleCount("rulePackage2AadlPackage", 1);
 		stop.setMaxRuleCount("ruleFeatureGroup2FeatureGroupTypeWithInverse59", 0);
 		stop.setMaxRuleCount("ruleFeatureGroup2FeatureGroupTypeWithExtendsInverse58", 0);
@@ -82,10 +82,10 @@ public class MODELGEN_App extends MODELGEN {
 		
 		stop.setMaxRuleCount("ruleComponent2SubcomponentRefinedTyped", 0);
 		stop.setMaxRuleCount("ruleComponent2SubcomponentRefinedConcrete", 0);
-//		stop.setMaxRuleCount("ruleComponent2ComponentType", 4);
-	stop.setMaxRuleCount("ruleComponent2ComponentTypeBus", 1);
-		stop.setMaxRuleCount("ruleComponent2ComponentTypeSubprogram", 1);
-		stop.setMaxRuleCount("ruleComponent2ComponentTypeProcessor", 1);
+	//	stop.setMaxRuleCount("ruleComponent2ComponentType20", 1);
+	stop.setMaxRuleCount("ruleComponent2ComponentTypeBus", 0);
+		stop.setMaxRuleCount("ruleComponent2ComponentTypeSubprogram", 0);
+		stop.setMaxRuleCount("ruleComponent2ComponentTypeProcessor", 0);
 		stop.setMaxRuleCount("ruleComponent2ComponentTypeThread", 0 );
 		stop.setMaxRuleCount("ruleComponent2ComponentTypeData", 0 );
 
@@ -94,7 +94,7 @@ public class MODELGEN_App extends MODELGEN {
 		
 		stop.setMaxRuleCount("ruleComponent2ComponentImplementationWithExtendscomponent", 0);
 		
-		stop.setMaxRuleCount("ruleComponent2ComponentImplementationcomponent", 0);
+		//stop.setMaxRuleCount("ruleComponent2ComponentImplementation", 0);
 		stop.setMaxRuleCount("ruleAccessConn2AccessConnSrcSubcompoFeatDestSubcompoFeatAccess", 0);
 		stop.setMaxRuleCount("RuleAccessConn2AccessConnSrcSubcompoFeatDestSubcompoBus", 0);
 		stop.setMaxRuleCount("ruleAccessConn2AccessConnSrcSubcompoFeatDestSubcompo15", 0);

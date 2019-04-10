@@ -138,17 +138,22 @@
 	#trg->Subcomponent
 	}
 	
-	CorrAxiom
+	CorrAxiomPPS
 	{
 	#src->Package
 	#trg->PackageSection
 	}
-	
-	CorrAxiomPPS
-	{
-	#src->Package
-	#trg->PublicPackageSection
-	}
+
+//CorrAxiom
+//	{
+//	#src->Package
+//	#trg->PackageSection
+//	}	
+//	CorrAxiomPPS
+//	{
+//	#src->Package
+//	#trg->PublicPackageSection
+//	}
 	
 	CorrAxiomAP
 	{
