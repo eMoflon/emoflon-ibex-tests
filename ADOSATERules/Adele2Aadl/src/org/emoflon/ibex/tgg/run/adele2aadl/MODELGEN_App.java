@@ -134,7 +134,7 @@ public class MODELGEN_App extends MODELGEN {
 	
 	@Override
 	protected void registerUserMetamodels() throws IOException {
-		_RegistrationHelper.registerMetamodels(rs, this);
+		_SchemaBasedAutoRegistration.register(this);
 			
 		// Register correspondence metamodel last
 		loadAndRegisterCorrMetamodel(options.projectPath() + "/model/" + options.projectName() + ".ecore");
