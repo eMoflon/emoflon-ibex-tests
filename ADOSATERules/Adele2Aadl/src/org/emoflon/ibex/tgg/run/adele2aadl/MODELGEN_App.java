@@ -87,11 +87,7 @@ public class MODELGEN_App extends MODELGEN {
 		
 		stop.setMaxRuleCount("ruleComponent2SubcomponentRefinedTyped", 0);
 		stop.setMaxRuleCount("ruleComponent2SubcomponentRefinedConcrete", 0);
-<<<<<<< HEAD
-//		stop.setMaxRuleCount("ruleComponent2ComponentType", 4);
-=======
-	//	stop.setMaxRuleCount("ruleComponent2ComponentType20", 1);
->>>>>>> 21cb8e1086cbeafe8dd0bb08cf6cf61db0ecb456
+
 	stop.setMaxRuleCount("ruleComponent2ComponentTypeBus", 0);
 		stop.setMaxRuleCount("ruleComponent2ComponentTypeSubprogram", 0);
 		stop.setMaxRuleCount("ruleComponent2ComponentTypeProcessor", 0);
@@ -130,11 +126,9 @@ public class MODELGEN_App extends MODELGEN {
 		stop.setMaxRuleCount("ruleAccess2AccessTypedabstract", 0);
 		stop.setMaxRuleCount("ruleAccess2AccessTypedRefined",0);
 		stop.setMaxRuleCount("ruleAccess2AccessRefined2", 0);
-<<<<<<< HEAD
+
 		stop.setMaxRuleCount("ruleAccess2AccessSystem", 1);
-=======
-		//stop.setMaxRuleCount("ruleBusAccess2BusAccessConcrete", 0);
->>>>>>> 21cb8e1086cbeafe8dd0bb08cf6cf61db0ecb456
+
 		
 		stop.setMaxRuleCount("ruleComponent2ComponentTypeWithExtends", 0);
 		
