@@ -11,6 +11,8 @@ import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGEN;
 import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGENStopCriterion;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesTGGEngine;
 
+import language.TGGRule;
+
 public class MODELGEN_App extends MODELGEN {
 
 	public MODELGEN_App() throws IOException {
@@ -115,7 +117,7 @@ public class MODELGEN_App extends MODELGEN {
 		stop.setMaxRuleCount("ruleAccess2AccessTypedabstract", 0);
 		
 		stop.setMaxRuleCount("ruleAccess2AccessRefined2", 0);
-		stop.setMaxRuleCount("ruleBusAccess2BusAccessConcrete", 0);
+		//stop.setMaxRuleCount("ruleBusAccess2BusAccessConcrete", 0);
 		
 		stop.setMaxRuleCount("ruleComponent2ComponentTypeWithExtends", 0);
 	
@@ -126,6 +128,28 @@ public class MODELGEN_App extends MODELGEN {
 		generator.run();
 		toc = System.currentTimeMillis();
 		logger.info("Completed MODELGEN in: " + (toc - tic) + " ms");
+		
+////		generator.getOptions().flattenedTGG().getRules();
+////		 generator.getTGG().getRules();
+//		for (TGGRule r : generator.getOptions().flattenedTGG().getRules()) {
+//			logger.info(r.getName());
+////			stop.setMaxRuleCount(r.getName(), 0);
+//			
+//			
+//			
+//		}
+//		for (TGGRule r : generator.getOptions().flattenedTGG().getRules()) {
+//			logger.info(r.getName());
+//			r.getName()
+////			stop.setMaxRuleCount(r.getName(), 0);
+//			
+//			
+//			
+//		}
+//		TGGrule r: getRules().stream().filter(r -> r.getName().contentEquals(ruleName))
+//		.findAny();
+
+		
 		
 		generator.saveModels();
 		generator.terminate();

@@ -35,26 +35,26 @@
 
 #attributeConditions {
 	eq_string(adeleAccess.name, aadlAccess.name)
-	// test(adeleAccess.direction, aadlAccess.kind)
+	 test(adeleAccess.direction, aadlAccess.kind)
 	
 }
 
 #abstract #rule ruleAccess2Accessabstract #extends ruleAccess2Access1 #with Adele2Aadl
 
 #source
-{
-	++adeleAccess:ADELE_Features.BusAccess
+{adeleType:ADELE_Components.System
+	++adeleAccess:ADELE_Features.DataAccess
 }
 #target
-{
+{aadlType:aadl2.SystemType
 	
-	++aadlAccess:aadl2.BusAccess
+	++aadlAccess:aadl2.DataAccess
 }
 
-#rule ruleBusAccess2BusAccessConcrete #extends ruleAccess2Accessabstract #with Adele2Aadl
-
-#target {
-	aadlType:BusType {
-		++ -ownedBusAccess->aadlAccess
-	}
-}
+//#rule ruleBusAccess2BusAccessConcrete #extends ruleAccess2Accessabstract #with Adele2Aadl
+//
+//#target {
+//	aadlType:BusType {
+//		++ -ownedBusAccess->aadlAccess
+//	}
+//}
