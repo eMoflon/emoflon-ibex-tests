@@ -56,7 +56,7 @@ public class MODELGEN_App extends MODELGEN {
 		stop.setMaxRuleCount("ruleDirFeatConn2DirFeatConnSrcSubcompoDestSubcompo44", 0);
 		
 		stop.setMaxRuleCount("ruleDirFeatConn2DirFeatConnSrcSubcompoDestParentSamePort", 0);
-		stop.setMaxRuleCount("ruleDirFeatConn2DirFeatConnSrcParentFeatGroupInverse42", 0);
+		stop.setMaxRuleCount("ruleDirFeatConn2DirFeatConnSrcParentFeatGroupInverse", 0);
 		stop.setMaxRuleCount("ruleDirFeatConn2DirFeatConnSrcSubcompoDestParentFeatGroup", 0);
 		stop.setMaxRuleCount("ruleDirFeatConn2DirFeatConnSrcSubcompoDestParent", 0);
 		
@@ -83,14 +83,20 @@ public class MODELGEN_App extends MODELGEN {
 		stop.setMaxRuleCount("ruleComponent2SubcomponentRefinedTyped", 0);
 		stop.setMaxRuleCount("ruleComponent2SubcomponentRefinedConcrete", 0);
 //		stop.setMaxRuleCount("ruleComponent2ComponentType", 4);
-	stop.setMaxRuleCount("ruleComponent2ComponentTypeBus", 1);
-		stop.setMaxRuleCount("ruleComponent2ComponentTypeSubprogram", 1);
-		stop.setMaxRuleCount("ruleComponent2ComponentTypeProcessor", 1);
+	stop.setMaxRuleCount("ruleComponent2ComponentTypeBus", 0);
+		stop.setMaxRuleCount("ruleComponent2ComponentTypeSubprogram", 0);
+		stop.setMaxRuleCount("ruleComponent2ComponentTypeProcessor", 0);
 		stop.setMaxRuleCount("ruleComponent2ComponentTypeThread", 0 );
-		stop.setMaxRuleCount("ruleComponent2ComponentTypeData", 0 );
+		stop.setMaxRuleCount("ruleComponent2ComponentTypeData", 0);
+		stop.setMaxRuleCount("ruleComponent2ComponentTypeProcess", 0 );
+		stop.setMaxRuleCount("ruleComponent2ComponentTypeSystem", 1);
 
-		
-		
+		stop.setMaxRuleCount("ruleComponent2ComponentTypeThreadGroup", 0 );
+
+		stop.setMaxRuleCount("ruleComponent2ComponentTypeVirtualBus", 0 );
+		stop.setMaxRuleCount("ruleComponent2ComponentTypeDevice", 0 );
+		stop.setMaxRuleCount("ruleComponent2ComponentTypeAbstract", 0 );
+
 		
 		stop.setMaxRuleCount("ruleComponent2ComponentImplementationWithExtendscomponent", 0);
 		
@@ -113,9 +119,9 @@ public class MODELGEN_App extends MODELGEN {
 		stop.setMaxRuleCount("ruleAccess2AccessTypedAsParentRefined5", 0);
 		stop.setMaxRuleCount("ruleAccess2AccessTypedAsParentabstract", 0);
 		stop.setMaxRuleCount("ruleAccess2AccessTypedabstract", 0);
-		
+		stop.setMaxRuleCount("ruleAccess2AccessTypedRefined",0);
 		stop.setMaxRuleCount("ruleAccess2AccessRefined2", 0);
-		stop.setMaxRuleCount("ruleBusAccess2BusAccessConcrete", 0);
+		stop.setMaxRuleCount("ruleAccess2AccessSystem", 1);
 		
 		stop.setMaxRuleCount("ruleComponent2ComponentTypeWithExtends", 0);
 	

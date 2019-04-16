@@ -187,7 +187,7 @@
 #attributeConditions {
 	#userDefined
 	
-	test(directionVar1:AccessDirection, directionVar2:AccessType){
+	accessdirection(directionVar1:AccessDirection, directionVar2:AccessType){
 		
 		#sync:[B B], [B F], [F B]
 		#gen:[B B], [B F], [F B], [F F]
