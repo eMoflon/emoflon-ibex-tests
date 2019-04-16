@@ -29,18 +29,18 @@ public class PositiveExamples extends CCTestCase {
 //	public void test2ForAdelePackageToAadlPackage() throws IOException {
 //		testForPairOfModels("unit/component_type_circ_ref/forward.adele", "unit/component_type_circ_ref/reverse.aadl");
 //	}
-	@Test
-	public void test3ForAdelePackageToAadlPackage() throws IOException {
-		testForPairOfModels("unit/connection/dataAccessConn2AccessConnDataSubcompo/forward.adele", "unit/connection/dataAccessConn2AccessConnDataSubcompo/reverse.aadl");
-	}
+//	@Test
+//	public void test3ForAdelePackageToAadlPackage() throws IOException {
+//		testForPairOfModels("unit/connection/dataAccessConn2AccessConnDataSubcompo/forward.adele", "unit/connection/dataAccessConn2AccessConnDataSubcompo/reverse.aadl");
+//	}
 //	@Test
 //	public void test4ForAdelePackageToAadlPackage() throws IOException {
 //		testForPairOfModels("unit/connection/dataAccessConn2AccessConnSrcParentDestSubcompo/forward.adele", "unit/connection/dataAccessConn2AccessConnSrcParentDestSubcompo/reverse.aadl");
 //	}
-//	@Test
-//	public void test5ForAdelePackageToAadlPackage() throws IOException {
-//		testForPairOfModels("unit/connection/dataAccessConn2AccessConnSrcSubcompoDestParent/forward.adele", "unit/connection/dataAccessConn2AccessConnSrcSubcompoDestParent/reverse.aadl");
-//	}
+	@Test
+	public void test5ForAdelePackageToAadlPackage() throws IOException {
+		testForPairOfModels("unit/connection/dataAccessConn2AccessConnSrcSubcompoDestParent/forward.adele", "unit/connection/dataAccessConn2AccessConnSrcSubcompoDestParent/reverse.aadl");
+	}
 //	
 //	@Test
 //	public void test6ForAdelePackageToAadlPackage() throws IOException {
