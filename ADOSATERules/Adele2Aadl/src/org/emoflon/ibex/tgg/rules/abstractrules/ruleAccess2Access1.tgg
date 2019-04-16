@@ -35,38 +35,27 @@
 
 #attributeConditions {
 	eq_string(adeleAccess.name, aadlAccess.name)
-<<<<<<< HEAD
-    //accessdirection(adeleAccess.direction, aadlAccess.kind)
-=======
-	 test(adeleAccess.direction, aadlAccess.kind)
->>>>>>> 21cb8e1086cbeafe8dd0bb08cf6cf61db0ecb456
+    accessdirection(adeleAccess.direction, aadlAccess.kind)
 	
 }
 
 #abstract #rule ruleAccess2Accessabstract #extends ruleAccess2Access1 #with Adele2Aadl
 
 #source
-<<<<<<< HEAD
 {
 	++adeleAccess:ADELE_Features.BusAccess
 } 
-=======
-{adeleType:ADELE_Components.System
-	++adeleAccess:ADELE_Features.DataAccess
-}
->>>>>>> 21cb8e1086cbeafe8dd0bb08cf6cf61db0ecb456
 #target
-{aadlType:aadl2.SystemType
+{
 	
-	++aadlAccess:aadl2.DataAccess
+	++aadlAccess:aadl2.BusAccess
 }
 
-<<<<<<< HEAD
 #rule ruleAccess2AccessSystem #extends ruleAccess2Access1 #with Adele2Aadl
 
 #source
 {
-	adeleType:ADELE_Components.System
+	adeleType:ADELE_Features.Access
 	
     ++adeleAccess:ADELE_Features.DataAccess
 }
@@ -80,12 +69,3 @@
     
     ++aadlAccess:aadl2.DataAccess
 }
-=======
-//#rule ruleBusAccess2BusAccessConcrete #extends ruleAccess2Accessabstract #with Adele2Aadl
-//
-//#target {
-//	aadlType:BusType {
-//		++ -ownedBusAccess->aadlAccess
-//	}
-//}
->>>>>>> 21cb8e1086cbeafe8dd0bb08cf6cf61db0ecb456
