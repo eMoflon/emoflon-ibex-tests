@@ -8,10 +8,11 @@ import org.emoflon.ibex.tgg.operational.csp.RuntimeTGGAttributeConstraintVariabl
 import org.osate.aadl2.AccessType;
 import org.topcased.adele.model.ADELE_Features.AccessDirection;
 
-public class UserDefined_test extends RuntimeTGGAttributeConstraint {
+public class UserDefined_accessdirection extends RuntimeTGGAttributeConstraint
+{
 
 	/**
-	 * Constraint test(v0, v1)
+	 * Constraint accessdirection(v0, v1)
 	 * 
 	 * @see TGGLanguage.csp.impl.ConstraintImpl#solve()
 	 */
