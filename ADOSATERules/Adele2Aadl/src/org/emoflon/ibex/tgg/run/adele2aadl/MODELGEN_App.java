@@ -32,6 +32,9 @@ public class MODELGEN_App extends MODELGEN {
 		
 		MODELGENStopCriterion stop = new MODELGENStopCriterion(generator.getTGG());
 		stop.setTimeOutInMS(2000);
+
+		
+		
 		stop.setMaxRuleCount("rulePackage2AadlPackage", 1);
 		stop.setMaxRuleCount("ruleFeatureGroup2FeatureGroupTypeWithInverse59", 0);
 		stop.setMaxRuleCount("ruleFeatureGroup2FeatureGroupTypeWithExtendsInverse58", 0);
@@ -120,7 +123,7 @@ public class MODELGEN_App extends MODELGEN {
 		//stop.setMaxRuleCount("ruleBusAccess2BusAccessConcrete", 0);
 		
 		stop.setMaxRuleCount("ruleComponent2ComponentTypeWithExtends", 0);
-	
+		
 		
 		generator.setStopCriterion(stop);
 		
