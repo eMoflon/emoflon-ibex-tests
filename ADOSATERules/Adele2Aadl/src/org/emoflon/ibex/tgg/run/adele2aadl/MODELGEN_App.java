@@ -11,8 +11,6 @@ import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGEN;
 import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGENStopCriterion;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesTGGEngine;
 
-import language.TGGRule;
-
 public class MODELGEN_App extends MODELGEN {
 
 	public MODELGEN_App() throws IOException {
@@ -31,10 +29,7 @@ public class MODELGEN_App extends MODELGEN {
 		logger.info("Completed init for MODELGEN in: " + (toc - tic) + " ms");
 		
 		MODELGENStopCriterion stop = new MODELGENStopCriterion(generator.getTGG());
-		stop.setTimeOutInMS(2000);
-
-		
-		
+		stop.setTimeOutInMS(1000);
 		stop.setMaxRuleCount("rulePackage2AadlPackage", 1);
 		stop.setMaxRuleCount("ruleFeatureGroup2FeatureGroupTypeWithInverse59", 0);
 		stop.setMaxRuleCount("ruleFeatureGroup2FeatureGroupTypeWithExtendsInverse58", 0);
@@ -87,11 +82,7 @@ public class MODELGEN_App extends MODELGEN {
 		
 		stop.setMaxRuleCount("ruleComponent2SubcomponentRefinedTyped", 0);
 		stop.setMaxRuleCount("ruleComponent2SubcomponentRefinedConcrete", 0);
-<<<<<<< HEAD
 //		stop.setMaxRuleCount("ruleComponent2ComponentType", 4);
-=======
-	//	stop.setMaxRuleCount("ruleComponent2ComponentType20", 1);
->>>>>>> 21cb8e1086cbeafe8dd0bb08cf6cf61db0ecb456
 	stop.setMaxRuleCount("ruleComponent2ComponentTypeBus", 0);
 		stop.setMaxRuleCount("ruleComponent2ComponentTypeSubprogram", 0);
 		stop.setMaxRuleCount("ruleComponent2ComponentTypeProcessor", 0);
@@ -105,14 +96,24 @@ public class MODELGEN_App extends MODELGEN {
 		stop.setMaxRuleCount("ruleComponent2ComponentTypeVirtualBus", 0 );
 		stop.setMaxRuleCount("ruleComponent2ComponentTypeDevice", 0 );
 		stop.setMaxRuleCount("ruleComponent2ComponentTypeAbstract", 0 );
+		stop.setMaxRuleCount("ruleComponent2ComponentTypeVirtualProcessor", 0 );
 
 		
 		stop.setMaxRuleCount("ruleComponent2ComponentImplementationWithExtendscomponent", 0);
 		
-		//stop.setMaxRuleCount("ruleComponent2ComponentImplementation", 0);
 		stop.setMaxRuleCount("ruleAccessConn2AccessConnSrcSubcompoFeatDestSubcompoFeatAccess", 0);
 		stop.setMaxRuleCount("RuleAccessConn2AccessConnSrcSubcompoFeatDestSubcompoBus", 0);
 		stop.setMaxRuleCount("ruleAccessConn2AccessConnSrcSubcompoFeatDestSubcompo15", 0);
+		stop.setMaxRuleCount("ruleComponent2ComponentImplementationProcess", 0);
+		stop.setMaxRuleCount("ruleComponent2ComponentImplementationThreadGroup", 0);
+		stop.setMaxRuleCount("ruleComponent2ComponentImplementationProcessor", 0);
+		stop.setMaxRuleCount("ruleComponent2ComponentImplementationSystem", 0);
+		stop.setMaxRuleCount("ruleComponent2ComponentImplementationDevice", 0);
+		stop.setMaxRuleCount("ruleComponent2ComponentImplementationData", 0);
+
+		stop.setMaxRuleCount("ruleComponent2ComponentImplementationAbstract", 0);
+		stop.setMaxRuleCount("ruleComponent2ComponentImplementationVirtualProcessor", 0);
+
 		
 		stop.setMaxRuleCount("ruleAccessConn2AccessConnSrcSubcompoFeatDestParentSameAccess14", 0);
 		stop.setMaxRuleCount("ruleAccessConn2AccessConnSrcSubcompoFeatDestParent13", 0);
@@ -130,43 +131,18 @@ public class MODELGEN_App extends MODELGEN {
 		stop.setMaxRuleCount("ruleAccess2AccessTypedabstract", 0);
 		stop.setMaxRuleCount("ruleAccess2AccessTypedRefined",0);
 		stop.setMaxRuleCount("ruleAccess2AccessRefined2", 0);
-<<<<<<< HEAD
 		stop.setMaxRuleCount("ruleAccess2AccessSystem", 1);
-=======
-		//stop.setMaxRuleCount("ruleBusAccess2BusAccessConcrete", 0);
->>>>>>> 21cb8e1086cbeafe8dd0bb08cf6cf61db0ecb456
 		
 		stop.setMaxRuleCount("ruleComponent2ComponentTypeWithExtends", 0);
-		
-		
+	
+		stop.setMaxRuleCount("ruleComponent2Subcomponent21concrete", 0);
+
 		generator.setStopCriterion(stop);
 		
 		tic = System.currentTimeMillis();
 		generator.run();
 		toc = System.currentTimeMillis();
 		logger.info("Completed MODELGEN in: " + (toc - tic) + " ms");
-		
-////		generator.getOptions().flattenedTGG().getRules();
-////		 generator.getTGG().getRules();
-//		for (TGGRule r : generator.getOptions().flattenedTGG().getRules()) {
-//			logger.info(r.getName());
-////			stop.setMaxRuleCount(r.getName(), 0);
-//			
-//			
-//			
-//		}
-//		for (TGGRule r : generator.getOptions().flattenedTGG().getRules()) {
-//			logger.info(r.getName());
-//			r.getName()
-////			stop.setMaxRuleCount(r.getName(), 0);
-//			
-//			
-//			
-//		}
-//		TGGrule r: getRules().stream().filter(r -> r.getName().contentEquals(ruleName))
-//		.findAny();
-
-		
 		
 		generator.saveModels();
 		generator.terminate();
