@@ -2,7 +2,7 @@
 #using AttrCondDefLibrary.*
 
 #abstract #rule ruleAccess2Access1 #with Adele2Aadl
-
+//rule one
 #source { 
 	adeleType:ADELE_Components.Component
 	{
@@ -55,7 +55,7 @@
 
 #source
 {
-	adeleType:ADELE_Features.Access
+	adeleType:ADELE_Components.System
 	
     ++adeleAccess:ADELE_Features.DataAccess
 }

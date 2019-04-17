@@ -133,7 +133,7 @@
 	aadlType:aadl2.DataType
 	++aadlImplementation:aadl2.DataImplementation
 	}
-	#rule ruleComponent2ComponentImplementationAbstract #extends ruleComponent2ComponentImplementation18 #with Adele2Aadl
+#rule ruleComponent2ComponentImplementationAbstract #extends ruleComponent2ComponentImplementation18 #with Adele2Aadl
 
 #source { 
 	adeleType:ADELE_Components.Abstract
