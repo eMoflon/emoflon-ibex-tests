@@ -37,8 +37,6 @@ public class MODELGEN_App extends MODELGEN {
 		stop.setMaxRuleCount("ruleFeatureGroup2FeatureGroupType56", 0);
 		stop.setMaxRuleCount("ruleComponent2Subcomponent21", 0);
 		
-		
-		
 		stop.setMaxRuleCount("ruleFeatGroupDirFeat2FeatGroupDirFeatTypedRefinedabstract", 0);
 		stop.setMaxRuleCount("ruleFeatGroupDirFeat2FeatGroupDirFeatTypedAsParentRefinedabstract", 0);
 		stop.setMaxRuleCount("ruleFeatGroupDirFeat2FeatGroupDirFeatTypedAsParent", 0);
