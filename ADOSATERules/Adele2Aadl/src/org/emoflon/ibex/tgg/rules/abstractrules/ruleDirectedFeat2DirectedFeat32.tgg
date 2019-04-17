@@ -42,12 +42,26 @@
 
 #rule ruleDirectedFeat2DirectedFeatabstract #extends ruleDirectedFeat2DirectedFeat32 #with Adele2Aadl
 #source
-{
+{adeleType:ADELE_Components.System
 	++adeleFeature: ADELE_Features.FeatureGroup
 }
 #target
-{
+{   aadlType:aadl2.SystemType{
+		++ -ownedFeatureGroup->aadlFeature
+	}
 	++aadlFeature: aadl2.FeatureGroup
+}
+#rule ruleSystem2AbsractFeature #extends ruleDirectedFeat2DirectedFeat32 #with Adele2Aadl
+#source
+{adeleType:ADELE_Components.System
+	++adeleFeature: ADELE_Features.AbstractFeature
+}
+#target
+{aadlType:aadl2.SystemType
+	{
+		++ -ownedAbstractFeature->aadlFeature
+	}
+	++aadlFeature: aadl2.AbstractFeature
 }
 
 
