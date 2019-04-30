@@ -194,7 +194,7 @@
 	
 	accessdirection(directionVar1:AccessDirection, directionVar2:AccessType){
 		
-		#sync:[B B], [B F], [F B], [B B]
+		#sync:[B B], [B F], [F B]
 		#gen:[B B], [B F], [F B], [F F]
 	}
 }

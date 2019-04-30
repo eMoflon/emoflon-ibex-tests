@@ -5,7 +5,7 @@
     <features xsi:type="ADELE_Features:DataAccess" name="sys0ProvDataAccess1"/>
     <features xsi:type="ADELE_Features:DataAccess" name="sys0ReqDataAccess1" direction="required"/>
   </children>
-  <children xsi:type="ADELE_Components:System" name="System1" refines="access2AccessRefined.System0">
+  <children xsi:type="ADELE_Components:System" name="System1" refines="//@children.0">
     <features xsi:type="ADELE_Features:DataAccess" name="sys0ProvDataAccess1"/>
     <features xsi:type="ADELE_Features:DataAccess" name="sys0ReqDataAccess1" direction="required"/>
     <features xsi:type="ADELE_Features:DataAccess" name="sys1InDataAccess1" direction="required"/>
