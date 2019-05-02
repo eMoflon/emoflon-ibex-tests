@@ -127,6 +127,13 @@
 #target {
 	++aadlType:aadl2.VirtualProcessorType
 }
+#rule  ruleComponent2ComponentTypeSubprogramGroup #extends ruleComponent2ComponentType20 #with Adele2Aadl
+#source { 	
+	++adeleType:ADELE_Components.SubprogramGroup
+}
+#target {
+	++aadlType:aadl2.SubprogramGroupType
+}
 //#rule  ruleComponent2ComponentTypeFeatureGroup #extends ruleComponent2ComponentType20 #with Adele2Aadl
 //#source { 	
 //	++adeleType:ADELE_Features.FeatureGroup

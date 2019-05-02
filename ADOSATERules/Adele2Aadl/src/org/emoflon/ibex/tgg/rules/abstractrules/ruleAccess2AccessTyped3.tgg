@@ -17,7 +17,7 @@
 }
 
 #target {
-	aadleType:aadl2.ComponentType
+	aadlType:aadl2.ComponentType
 	{
 		++ -ownedFeature->aadlAccess	
 	}
@@ -35,7 +35,7 @@
 #correspondence {
 	corrType:CorrComponentType{
 		#src->adeleType
-        #trg->aadleType
+        #trg->aadlType
 	}
 	++corrAccess:CorrAccess{
 	   #src->adeleAccess
@@ -52,14 +52,31 @@
 	eq_string(adeleAccess.name, aadlAccess.name)
 	
 }
-#rule ruleAccess2AccessTypedabstract #extends ruleAccess2AccessTyped3 #with Adele2Aadl
+#rule ruleAccess2AccessTyped3Data #extends ruleAccess2AccessTyped3 #with Adele2Aadl
 
-#source
-{
+#source { 
+	adeleType:ADELE_Components.System
+	
+	
 	++adeleAccess:ADELE_Features.DataAccess
+	
+	adeleClassifier: ADELE_Components.Data
 }
-#target
-{
+
+#target {
+	
+aadlType:aadl2.SystemType
+	
 	++aadlAccess:aadl2.DataAccess
+	{
+		++ -dataFeatureClassifier -> aadlClassifier
+		
+	}
+	
+	
+	aadlClassifier:aadl2.DataImplementation
+	
+	
 }
+
 

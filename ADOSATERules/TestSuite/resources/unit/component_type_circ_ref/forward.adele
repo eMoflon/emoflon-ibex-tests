@@ -1,21 +1,9 @@
 <?xml version="1.0" encoding="ASCII"?>
-<ADELE_Components:Package
-    xmi:version="2.0"
-    xmlns:xmi="http://www.omg.org/XMI"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ADELE_Components="http://ADELE_Components"
-    name="component_type_circ_ref">
-  <children
-      xsi:type="ADELE_Components:Subprogram"
-      name="Subprogram1"/>
-  <children
-      xsi:type="ADELE_Components:Thread"
-      name="Thread1"/>
-  <children
-      xsi:type="ADELE_Components:Processor"
-      name="Test1_Proc2"/>
-  <children
-      xsi:type="ADELE_Components:Processor"
-      name="Test1_Proc1"
-      refines="//@children.2"/>
+<ADELE_Components:Package xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ADELE_Components="http://ADELE_Components" name="component_type_circ_ref">
+  <children xsi:type="ADELE_Components:Subprogram" name="Subprogram1"/>
+  <children xsi:type="ADELE_Components:Thread" name="Thread1"/>
+  <children xsi:type="ADELE_Components:Processor" name="Test1_Proc2"/>
+  <children xsi:type="ADELE_Components:Processor" name="Test1_Proc1">
+    <refines xsi:type="ADELE_Components:Processor" href="../external_circ_ref.adele#external_circ_ref.Test2_Proc2"/>
+  </children>
 </ADELE_Components:Package>

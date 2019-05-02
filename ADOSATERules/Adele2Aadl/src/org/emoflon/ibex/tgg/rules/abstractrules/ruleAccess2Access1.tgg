@@ -4,17 +4,21 @@
 #abstract #rule ruleAccess2Access1 #with Adele2Aadl
 
 #source { 
-	adeleType:ADELE_Components.Component
+	 adeleType:ADELE_Components.Component
 	{
 		++ -features->adeleAccess 
 	}
 	
-		++adeleAccess:ADELE_Features.Access
+		++adeleAccess:ADELE_Features.Access{
+			++ -component->adeleType
+		}
 	
 }
 
 #target {
-	 aadlType:aadl2.ComponentType
+	  aadlType:aadl2.ComponentType
+	 
+	 //should be commented for initial_bwd_app to apply
 	 {
   	++ -ownedFeature->aadlAccess
   }
@@ -22,7 +26,7 @@
 }
 
 #correspondence {
-	corrType:CorrComponentType{
+	  corrType:CorrComponentType{
 		#src->adeleType
         #trg->aadlType
 	}
@@ -35,7 +39,7 @@
 
 #attributeConditions {
 	eq_string(adeleAccess.name, aadlAccess.name)
-	// test(adeleAccess.direction, aadlAccess.kind)
+  // accessdirection(adeleAccess.direction, aadlAccess.kind)
 	
 }
 
@@ -44,17 +48,41 @@
 #source
 {
 	++adeleAccess:ADELE_Features.BusAccess
-}
+} 
 #target
 {
 	
 	++aadlAccess:aadl2.BusAccess
 }
+ 
+//Used adeleType:ADELE_Components.System and aadlType:aadl2.SystemType in each rule as dividing in two iteration gives error
+#rule ruleAccess2AccessSystem #extends ruleAccess2Access1 #with Adele2Aadl
 
-#rule ruleBusAccess2BusAccessConcrete #extends ruleAccess2Accessabstract #with Adele2Aadl
+#source
+{
+	 adeleType:ADELE_Components.System
+    ++adeleAccess:ADELE_Features.DataAccess
+}
 
-#target {
-	aadlType:BusType {
-		++ -ownedBusAccess->aadlAccess
+#target
+{
+   aadlType:aadl2.SystemType
+	{
+		++ -ownedDataAccess->aadlAccess
 	}
+    
+    ++aadlAccess:aadl2.DataAccess
+}
+#rule ruletest2test #with Adele2Aadl
+#source {
+	adeleType:ADELE_Components.System{
+	++ -features->adeleAccess
+		
+	}
+	++ adeleAccess:ADELE_Features.DataAccess{
+		++ -component->adeleType
+	}
+}
+#target{
+	
 }

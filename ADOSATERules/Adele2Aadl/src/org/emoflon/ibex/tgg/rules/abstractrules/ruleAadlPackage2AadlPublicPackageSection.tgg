@@ -1,0 +1,25 @@
+#using Adele2Aadl.*
+#using AttrCondDefLibrary.*
+
+#rule ruleAadlPackage2AadlPublicPackageSection #with Adele2Aadl
+
+#source { 
+	
+}
+
+#target {
+	aadlPackage:AadlPackage
+	
+	aadlPublicPackageSection:aadl2.PublicPackageSection{
+		++ -importedUnit->aadlPackage
+	}
+}
+
+#correspondence {
+	
+}
+
+#attributeConditions {
+	
+}
+

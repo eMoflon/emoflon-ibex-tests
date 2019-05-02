@@ -62,6 +62,7 @@ public class INITIAL_FWD_App extends SYNC {
 	
 	@Override
 	protected void registerUserMetamodels() throws IOException {
+		//_SchemaBasedAutoRegistration.register(this);
 		_RegistrationHelper.registerMetamodels(rs, this);
 			
 		// Register correspondence metamodel last

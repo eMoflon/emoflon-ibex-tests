@@ -11,8 +11,10 @@
 	}
 	adeleType:ADELE_Components.Component{
 		++ -children->adeleImplementation
+		
 	}
 	++adeleImplementation: ADELE_Components.Component{
+		//++ -type->adeleType
 		featuresLock:=true
 	}
 	
@@ -127,9 +129,12 @@
 
 #source { 
 	adeleType:ADELE_Components.Data
-	++adeleImplementation:ADELE_Components.Data
+	++adeleImplementation:ADELE_Components.Data{
+		++ -type->adeleType
+	}
 }
 #target {
+	
 	aadlType:aadl2.DataType
 	++aadlImplementation:aadl2.DataImplementation
 	}

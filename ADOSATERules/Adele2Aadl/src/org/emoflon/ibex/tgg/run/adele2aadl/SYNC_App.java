@@ -39,6 +39,7 @@ public class SYNC_App extends SYNC {
 	
 	@Override
 	protected void registerUserMetamodels() throws IOException {
+		
 		_RegistrationHelper.registerMetamodels(rs, this);
 			
 		// Register correspondence metamodel last
