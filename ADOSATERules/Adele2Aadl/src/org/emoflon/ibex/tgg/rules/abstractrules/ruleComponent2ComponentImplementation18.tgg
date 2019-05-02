@@ -11,11 +11,11 @@
 	}
 	adeleType:ADELE_Components.Component{
 		++ -children->adeleImplementation
-		
 	}
 	++adeleImplementation: ADELE_Components.Component{
-		//++ -type->adeleType
-		featuresLock:=true
+		//featuresLock:=true
+		//subcomponentsLock:=false
+		
 	}
 	
 }
@@ -129,15 +129,13 @@
 
 #source { 
 	adeleType:ADELE_Components.Data
-	++adeleImplementation:ADELE_Components.Data{
-		++ -type->adeleType
-	}
+	++adeleImplementation:ADELE_Components.Data
 }
 #target {
-	
 	aadlType:aadl2.DataType
 	++aadlImplementation:aadl2.DataImplementation
 	}
+#rule ruleComponent2ComponentImplementationAbstract #extends ruleComponent2ComponentImplementation18 #with Adele2Aadl
 
 #source { 
 	adeleType:ADELE_Components.Abstract

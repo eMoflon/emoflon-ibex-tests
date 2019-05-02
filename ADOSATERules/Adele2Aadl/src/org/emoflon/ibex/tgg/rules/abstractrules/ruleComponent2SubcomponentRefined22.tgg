@@ -52,13 +52,13 @@
 }
 
 
-#rule ruleComponent2SubcomponentRefinedConcreteTtt #extends ruleComponent2SubcomponentRefined 
+#rule ruleComponent2SubcomponentRefinedConcrete #extends ruleComponent2SubcomponentRefined 
 #with Adele2Aadl
 
 #source {
-	++adeleSubcomponent:ADELE_Components.Data
+	++adeleSubcomponent:ADELE_Components.Bus
 }
 
 #target {
-	++aadlSubcomponent:aadl2.DataSubcomponent
+	++aadlSubcomponent:aadl2.BusSubcomponent
 }

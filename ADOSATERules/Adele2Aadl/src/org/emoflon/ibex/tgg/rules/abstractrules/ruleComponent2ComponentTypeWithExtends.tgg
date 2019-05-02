@@ -86,26 +86,3 @@
 	
 }
 
-#rule ruleComponent2ComponentTypeWithExtendsSystem #extends abstractruleComponent2ComponentTypeWithExtends  #with Adele2Aadl
-
-#source { 
-		++adeleType: ADELE_Components.System
-		adeleExtType:ADELE_Components.System
-		
-	}
-	
-#target {
-	
-		++aadlType:aadl2.SystemType
-		aadlExtType:aadl2.SystemType
-}
-#correspondence {
-	
-	
-	
-}
-
-#attributeConditions {
-	
-}
-
