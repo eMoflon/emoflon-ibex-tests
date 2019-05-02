@@ -1,0 +1,67 @@
+package dataAccessConn2AccessConnSrcParentDestSubcompo
+public
+	data Data0
+	end Data0;
+	data implementation Data0.impl
+	end Data0.impl;
+
+	data Data1
+	end Data1;
+	data implementation Data1.impl
+	end Data1.impl;
+	
+	system System0
+	features
+		sys0ReqDataAccess1: requires data access Data0.impl;
+		sys0ProvDataAccess1: provides data access Data0;
+		sys0AbstractFeat: feature;
+	end System0;
+	
+	-- Sunny day test
+	system implementation System0.impl
+	subcomponents
+		sys0Sub1Sys2: system System2;
+		sys0Sub0Sys2: system System2.impl;
+		sys0Sub2Sys0: system System0;
+	connections
+		conn0: data access sys0ProvDataAccess1 -> sys0Sub1Sys2.sys2ProvDataAccess; 
+		conn1: data access sys0ReqDataAccess1 -> sys0Sub1Sys2.sys2ReqDataAccess;
+		-- This connection tests two elements connected to the same feature.
+		conn2: data access sys0ProvDataAccess1 -> sys0Sub2Sys0.sys0ProvDataAccess1;
+	end System0.impl;
+
+	system System1 extends System0
+	features
+		sys1ReqDataAccess1: requires data access Data0.impl;
+		sys1ProvDataAccess1: provides data access Data0.impl;
+		sys0AbstractFeat: refined to requires data access Data0.impl;
+	end System1;
+
+	-- Feature from extended component
+	system implementation System1.impl extends System0.impl
+	subcomponents
+		sys0Sub1Sys2: refined to system System3;
+		sys1Sub1Sys2: system System2.impl;
+	connections
+		-- Connections to inherited features
+		conn3: data access sys0ReqDataAccess1 -> sys0Sub0Sys2.sys2ReqDataAccess;
+		conn4: data access sys1ProvDataAccess1 -> sys1Sub1Sys2.sys2ProvDataAccess;
+		conn5: data access sys1ReqDataAccess1 -> sys0Sub1Sys2.sys3ReqDataAccess; -- Connection from a refined subcomponent
+		conn6: data access sys0AbstractFeat -> sys0Sub1Sys2.sys3ReqDataAccess; -- Connection from a refined subcomponent to a refined feature
+	end System1.impl;
+
+	system System2
+	features
+		sys2ReqDataAccess: requires data access Data0.impl;
+		sys2ProvDataAccess: provides data access ;
+	end System2;
+
+	system implementation System2.impl
+	end System2.impl;
+	
+	system System3 extends System2
+	features
+		sys3ReqDataAccess: requires data access Data0.impl;
+	end System3;
+	
+end dataAccessConn2AccessConnSrcParentDestSubcompo;

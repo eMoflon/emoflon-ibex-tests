@@ -1,13 +1,13 @@
-package external_circ_ref
-public
-with component_type_circ_ref;
-	processor Test2_Proc1
-	end Test2_Proc1;
-
-	processor Test2_Proc2 extends component_type_circ_ref::Test1_Proc2
-	end Test2_Proc2;
-
-	data Data1
-	end Data1;
-
-end external_circ_ref;
+<?xml version="1.0" encoding="ASCII"?>
+<aadl2:AadlPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" name="external_circ_ref" publicSection="//@ownedPublicSection">
+  <ownedPublicSection>
+    <ownedClassifier xsi:type="aadl2:ProcessorType" name="Test2_Proc1"/>
+    <ownedClassifier xsi:type="aadl2:ProcessorType" name="Test2_Proc2">
+      <ownedExtension>
+        <extended xsi:type="aadl2:ProcessorType" href="component_type_circ_ref/reverse.aadl#component_type_circ_ref.Test1_Proc2"/>
+      </ownedExtension>
+    </ownedClassifier>
+    <ownedClassifier xsi:type="aadl2:DataType" name="Data1"/>
+    <importedUnit xsi:type="aadl2:AadlPackage" href="component_type_circ_ref/reverse.aadl#component_type_circ_ref"/>
+  </ownedPublicSection>
+</aadl2:AadlPackage>

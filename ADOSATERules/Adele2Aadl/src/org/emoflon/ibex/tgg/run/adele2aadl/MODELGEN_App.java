@@ -29,13 +29,15 @@ public class MODELGEN_App extends MODELGEN {
 		logger.info("Completed init for MODELGEN in: " + (toc - tic) + " ms");
 		
 		MODELGENStopCriterion stop = new MODELGENStopCriterion(generator.getTGG());
-		stop.setTimeOutInMS(1000);
+		stop.setTimeOutInMS(2000);
 		stop.setMaxRuleCount("rulePackage2AadlPackage", 1);
 		stop.setMaxRuleCount("ruleFeatureGroup2FeatureGroupTypeWithInverse59", 0);
 		stop.setMaxRuleCount("ruleFeatureGroup2FeatureGroupTypeWithExtendsInverse58", 0);
 		stop.setMaxRuleCount("ruleFeatureGroup2FeatureGroupTypeWithExtends57", 0);
 		stop.setMaxRuleCount("ruleFeatureGroup2FeatureGroupType56", 0);
 		stop.setMaxRuleCount("ruleComponent2Subcomponent21", 0);
+		
+		
 		
 		stop.setMaxRuleCount("ruleFeatGroupDirFeat2FeatGroupDirFeatTypedRefinedabstract", 0);
 		stop.setMaxRuleCount("ruleFeatGroupDirFeat2FeatGroupDirFeatTypedAsParentRefinedabstract", 0);
@@ -54,7 +56,7 @@ public class MODELGEN_App extends MODELGEN {
 		stop.setMaxRuleCount("ruleDirFeatConn2DirFeatConnSrcSubcompoDestSubcompo44", 0);
 		
 		stop.setMaxRuleCount("ruleDirFeatConn2DirFeatConnSrcSubcompoDestParentSamePort", 0);
-		stop.setMaxRuleCount("ruleDirFeatConn2DirFeatConnSrcParentFeatGroupInverse", 0);
+		stop.setMaxRuleCount("ruleDirFeatConn2DirFeatConnSrcParentFeatGroupInverse42", 0);
 		stop.setMaxRuleCount("ruleDirFeatConn2DirFeatConnSrcSubcompoDestParentFeatGroup", 0);
 		stop.setMaxRuleCount("ruleDirFeatConn2DirFeatConnSrcSubcompoDestParent", 0);
 		
@@ -80,38 +82,22 @@ public class MODELGEN_App extends MODELGEN {
 		
 		stop.setMaxRuleCount("ruleComponent2SubcomponentRefinedTyped", 0);
 		stop.setMaxRuleCount("ruleComponent2SubcomponentRefinedConcrete", 0);
-//		stop.setMaxRuleCount("ruleComponent2ComponentType", 4);
+	//	stop.setMaxRuleCount("ruleComponent2ComponentType20", 1);
 	stop.setMaxRuleCount("ruleComponent2ComponentTypeBus", 0);
 		stop.setMaxRuleCount("ruleComponent2ComponentTypeSubprogram", 0);
 		stop.setMaxRuleCount("ruleComponent2ComponentTypeProcessor", 0);
 		stop.setMaxRuleCount("ruleComponent2ComponentTypeThread", 0 );
-		stop.setMaxRuleCount("ruleComponent2ComponentTypeData", 0);
-		stop.setMaxRuleCount("ruleComponent2ComponentTypeProcess", 0 );
-		stop.setMaxRuleCount("ruleComponent2ComponentTypeSystem", 1);
+		stop.setMaxRuleCount("ruleComponent2ComponentTypeData", 0 );
 
-		stop.setMaxRuleCount("ruleComponent2ComponentTypeThreadGroup", 0 );
-
-		stop.setMaxRuleCount("ruleComponent2ComponentTypeVirtualBus", 0 );
-		stop.setMaxRuleCount("ruleComponent2ComponentTypeDevice", 0 );
-		stop.setMaxRuleCount("ruleComponent2ComponentTypeAbstract", 0 );
-		stop.setMaxRuleCount("ruleComponent2ComponentTypeVirtualProcessor", 0 );
-
+		
+		
 		
 		stop.setMaxRuleCount("ruleComponent2ComponentImplementationWithExtendscomponent", 0);
 		
+		//stop.setMaxRuleCount("ruleComponent2ComponentImplementation", 0);
 		stop.setMaxRuleCount("ruleAccessConn2AccessConnSrcSubcompoFeatDestSubcompoFeatAccess", 0);
 		stop.setMaxRuleCount("RuleAccessConn2AccessConnSrcSubcompoFeatDestSubcompoBus", 0);
 		stop.setMaxRuleCount("ruleAccessConn2AccessConnSrcSubcompoFeatDestSubcompo15", 0);
-		stop.setMaxRuleCount("ruleComponent2ComponentImplementationProcess", 0);
-		stop.setMaxRuleCount("ruleComponent2ComponentImplementationThreadGroup", 0);
-		stop.setMaxRuleCount("ruleComponent2ComponentImplementationProcessor", 0);
-		stop.setMaxRuleCount("ruleComponent2ComponentImplementationSystem", 0);
-		stop.setMaxRuleCount("ruleComponent2ComponentImplementationDevice", 0);
-		stop.setMaxRuleCount("ruleComponent2ComponentImplementationData", 0);
-
-		stop.setMaxRuleCount("ruleComponent2ComponentImplementationAbstract", 0);
-		stop.setMaxRuleCount("ruleComponent2ComponentImplementationVirtualProcessor", 0);
-
 		
 		stop.setMaxRuleCount("ruleAccessConn2AccessConnSrcSubcompoFeatDestParentSameAccess14", 0);
 		stop.setMaxRuleCount("ruleAccessConn2AccessConnSrcSubcompoFeatDestParent13", 0);
@@ -127,14 +113,13 @@ public class MODELGEN_App extends MODELGEN {
 		stop.setMaxRuleCount("ruleAccess2AccessTypedAsParentRefined5", 0);
 		stop.setMaxRuleCount("ruleAccess2AccessTypedAsParentabstract", 0);
 		stop.setMaxRuleCount("ruleAccess2AccessTypedabstract", 0);
-		stop.setMaxRuleCount("ruleAccess2AccessTypedRefined",0);
+		
 		stop.setMaxRuleCount("ruleAccess2AccessRefined2", 0);
-		stop.setMaxRuleCount("ruleAccess2AccessSystem", 1);
+		stop.setMaxRuleCount("ruleBusAccess2BusAccessConcrete", 0);
 		
 		stop.setMaxRuleCount("ruleComponent2ComponentTypeWithExtends", 0);
 	
-		stop.setMaxRuleCount("ruleComponent2Subcomponent21concrete", 0);
-
+		
 		generator.setStopCriterion(stop);
 		
 		tic = System.currentTimeMillis();
@@ -149,7 +134,7 @@ public class MODELGEN_App extends MODELGEN {
 	
 	@Override
 	protected void registerUserMetamodels() throws IOException {
-		_SchemaBasedAutoRegistration.register(this);
+		_RegistrationHelper.registerMetamodels(rs, this);
 			
 		// Register correspondence metamodel last
 		loadAndRegisterCorrMetamodel(options.projectPath() + "/model/" + options.projectName() + ".ecore");

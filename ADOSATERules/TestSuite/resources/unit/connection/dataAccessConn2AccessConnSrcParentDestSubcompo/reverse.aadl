@@ -1,67 +1,75 @@
-package dataAccessConn2AccessConnSrcParentDestSubcompo
-public
-	data Data0
-	end Data0;
-	data implementation Data0.impl
-	end Data0.impl;
-
-	data Data1
-	end Data1;
-	data implementation Data1.impl
-	end Data1.impl;
-	
-	system System0
-	features
-		sys0ReqDataAccess1: requires data access Data0.impl;
-		sys0ProvDataAccess1: provides data access Data0;
-		sys0AbstractFeat: feature;
-	end System0;
-	
-	-- Sunny day test
-	system implementation System0.impl
-	subcomponents
-		sys0Sub1Sys2: system System2;
-		sys0Sub0Sys2: system System2.impl;
-		sys0Sub2Sys0: system System0;
-	connections
-		conn0: data access sys0ProvDataAccess1 -> sys0Sub1Sys2.sys2ProvDataAccess; 
-		conn1: data access sys0ReqDataAccess1 -> sys0Sub1Sys2.sys2ReqDataAccess;
-		-- This connection tests two elements connected to the same feature.
-		conn2: data access sys0ProvDataAccess1 -> sys0Sub2Sys0.sys0ProvDataAccess1;
-	end System0.impl;
-
-	system System1 extends System0
-	features
-		sys1ReqDataAccess1: requires data access Data0.impl;
-		sys1ProvDataAccess1: provides data access Data0.impl;
-		sys0AbstractFeat: refined to requires data access Data0.impl;
-	end System1;
-
-	-- Feature from extended component
-	system implementation System1.impl extends System0.impl
-	subcomponents
-		sys0Sub1Sys2: refined to system System3;
-		sys1Sub1Sys2: system System2.impl;
-	connections
-		-- Connections to inherited features
-		conn3: data access sys0ReqDataAccess1 -> sys0Sub0Sys2.sys2ReqDataAccess;
-		conn4: data access sys1ProvDataAccess1 -> sys1Sub1Sys2.sys2ProvDataAccess;
-		conn5: data access sys1ReqDataAccess1 -> sys0Sub1Sys2.sys3ReqDataAccess; -- Connection from a refined subcomponent
-		conn6: data access sys0AbstractFeat -> sys0Sub1Sys2.sys3ReqDataAccess; -- Connection from a refined subcomponent to a refined feature
-	end System1.impl;
-
-	system System2
-	features
-		sys2ReqDataAccess: requires data access Data0.impl;
-		sys2ProvDataAccess: provides data access ;
-	end System2;
-
-	system implementation System2.impl
-	end System2.impl;
-	
-	system System3 extends System2
-	features
-		sys3ReqDataAccess: requires data access Data0.impl;
-	end System3;
-	
-end dataAccessConn2AccessConnSrcParentDestSubcompo;
+<?xml version="1.0" encoding="ASCII"?>
+<aadl2:AadlPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" name="dataAccessConn2AccessConnSrcParentDestSubcompo" publicSection="//@ownedPublicSection">
+  <ownedPublicSection>
+    <ownedClassifier xsi:type="aadl2:DataType" name="Data0"/>
+    <ownedClassifier xsi:type="aadl2:DataImplementation" name="Data0.impl">
+      <ownedRealization implemented="//@ownedPublicSection/@ownedClassifier.0"/>
+    </ownedClassifier>
+    <ownedClassifier xsi:type="aadl2:DataType" name="Data1"/>
+    <ownedClassifier xsi:type="aadl2:DataImplementation" name="Data1.impl">
+      <ownedRealization implemented="//@ownedPublicSection/@ownedClassifier.2"/>
+    </ownedClassifier>
+    <ownedClassifier xsi:type="aadl2:SystemType" name="System0">
+      <ownedAbstractFeature name="sys0AbstractFeat"/>
+      <ownedDataAccess name="sys0ReqDataAccess1" kind="requires" dataFeatureClassifier="//@ownedPublicSection/@ownedClassifier.1"/>
+      <ownedDataAccess name="sys0ProvDataAccess1" dataFeatureClassifier="//@ownedPublicSection/@ownedClassifier.0"/>
+    </ownedClassifier>
+    <ownedClassifier xsi:type="aadl2:SystemImplementation" name="System0.impl">
+      <ownedRealization implemented="//@ownedPublicSection/@ownedClassifier.4"/>
+      <ownedAccessConnection name="conn0" accessCategory="data">
+        <destination context="//@ownedPublicSection/@ownedClassifier.5/@ownedSystemSubcomponent.0" connectionEnd="//@ownedPublicSection/@ownedClassifier.8/@ownedDataAccess.1"/>
+        <source connectionEnd="//@ownedPublicSection/@ownedClassifier.4/@ownedDataAccess.1"/>
+      </ownedAccessConnection>
+      <ownedAccessConnection name="conn1" accessCategory="data">
+        <destination context="//@ownedPublicSection/@ownedClassifier.5/@ownedSystemSubcomponent.0" connectionEnd="//@ownedPublicSection/@ownedClassifier.8/@ownedDataAccess.0"/>
+        <source connectionEnd="//@ownedPublicSection/@ownedClassifier.4/@ownedDataAccess.0"/>
+      </ownedAccessConnection>
+      <ownedAccessConnection name="conn2" accessCategory="data">
+        <destination context="//@ownedPublicSection/@ownedClassifier.5/@ownedSystemSubcomponent.2" connectionEnd="//@ownedPublicSection/@ownedClassifier.4/@ownedDataAccess.1"/>
+        <source connectionEnd="//@ownedPublicSection/@ownedClassifier.4/@ownedDataAccess.1"/>
+      </ownedAccessConnection>
+      <ownedSystemSubcomponent name="sys0Sub1Sys2" systemSubcomponentType="//@ownedPublicSection/@ownedClassifier.8"/>
+      <ownedSystemSubcomponent name="sys0Sub0Sys2" systemSubcomponentType="//@ownedPublicSection/@ownedClassifier.9"/>
+      <ownedSystemSubcomponent name="sys0Sub2Sys0" systemSubcomponentType="//@ownedPublicSection/@ownedClassifier.4"/>
+    </ownedClassifier>
+    <ownedClassifier xsi:type="aadl2:SystemType" name="System1">
+      <ownedExtension extended="//@ownedPublicSection/@ownedClassifier.4"/>
+      <ownedDataAccess name="sys1ReqDataAccess1" kind="requires" dataFeatureClassifier="//@ownedPublicSection/@ownedClassifier.1"/>
+      <ownedDataAccess name="sys1ProvDataAccess1" dataFeatureClassifier="//@ownedPublicSection/@ownedClassifier.1"/>
+      <ownedDataAccess refined="//@ownedPublicSection/@ownedClassifier.4/@ownedAbstractFeature.0" kind="requires" dataFeatureClassifier="//@ownedPublicSection/@ownedClassifier.1"/>
+    </ownedClassifier>
+    <ownedClassifier xsi:type="aadl2:SystemImplementation" name="System1.impl">
+      <ownedExtension extended="//@ownedPublicSection/@ownedClassifier.5"/>
+      <ownedRealization implemented="//@ownedPublicSection/@ownedClassifier.6"/>
+      <ownedAccessConnection name="conn3" accessCategory="data">
+        <destination context="//@ownedPublicSection/@ownedClassifier.5/@ownedSystemSubcomponent.1" connectionEnd="//@ownedPublicSection/@ownedClassifier.8/@ownedDataAccess.0"/>
+        <source connectionEnd="//@ownedPublicSection/@ownedClassifier.4/@ownedDataAccess.0"/>
+      </ownedAccessConnection>
+      <ownedAccessConnection name="conn4" accessCategory="data">
+        <destination context="//@ownedPublicSection/@ownedClassifier.7/@ownedSystemSubcomponent.1" connectionEnd="//@ownedPublicSection/@ownedClassifier.8/@ownedDataAccess.1"/>
+        <source connectionEnd="//@ownedPublicSection/@ownedClassifier.6/@ownedDataAccess.1"/>
+      </ownedAccessConnection>
+      <ownedAccessConnection name="conn5" accessCategory="data">
+        <destination context="//@ownedPublicSection/@ownedClassifier.7/@ownedSystemSubcomponent.0" connectionEnd="//@ownedPublicSection/@ownedClassifier.10/@ownedDataAccess.0"/>
+        <source connectionEnd="//@ownedPublicSection/@ownedClassifier.6/@ownedDataAccess.0"/>
+      </ownedAccessConnection>
+      <ownedAccessConnection name="conn6" accessCategory="data">
+        <destination context="//@ownedPublicSection/@ownedClassifier.7/@ownedSystemSubcomponent.0" connectionEnd="//@ownedPublicSection/@ownedClassifier.10/@ownedDataAccess.0"/>
+        <source connectionEnd="//@ownedPublicSection/@ownedClassifier.6/@ownedDataAccess.2"/>
+      </ownedAccessConnection>
+      <ownedSystemSubcomponent refined="//@ownedPublicSection/@ownedClassifier.5/@ownedSystemSubcomponent.0" systemSubcomponentType="//@ownedPublicSection/@ownedClassifier.10"/>
+      <ownedSystemSubcomponent name="sys1Sub1Sys2" systemSubcomponentType="//@ownedPublicSection/@ownedClassifier.9"/>
+    </ownedClassifier>
+    <ownedClassifier xsi:type="aadl2:SystemType" name="System2">
+      <ownedDataAccess name="sys2ReqDataAccess" kind="requires" dataFeatureClassifier="//@ownedPublicSection/@ownedClassifier.1"/>
+      <ownedDataAccess name="sys2ProvDataAccess"/>
+    </ownedClassifier>
+    <ownedClassifier xsi:type="aadl2:SystemImplementation" name="System2.impl">
+      <ownedRealization implemented="//@ownedPublicSection/@ownedClassifier.8"/>
+    </ownedClassifier>
+    <ownedClassifier xsi:type="aadl2:SystemType" name="System3">
+      <ownedExtension extended="//@ownedPublicSection/@ownedClassifier.8"/>
+      <ownedDataAccess name="sys3ReqDataAccess" kind="requires" dataFeatureClassifier="//@ownedPublicSection/@ownedClassifier.1"/>
+    </ownedClassifier>
+  </ownedPublicSection>
+</aadl2:AadlPackage>

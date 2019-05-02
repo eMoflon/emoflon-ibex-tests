@@ -1,23 +1,22 @@
-package abstractFeature2AbstractFeature
-public
-with external_specification;
-	data Data1
-	end Data1;
-
-	data implementation Data1.impl
-	end Data1.impl;
-
-	device Device0
-	features
-		sub0Feature1 : in feature;
-		sub0OutFeature1 : out feature;
-		sub0InOutFeature1 : feature;
-	end Device0;
-
-	device Device1 extends Device0
-	features
-		sub0Feature1 : refined to in data port Data1.impl;
-		sub0InOutFeature1 : refined to out event data port external_specification::Data_Parent.impl;
-	end Device1;
-
-end abstractFeature2AbstractFeature;
+<?xml version="1.0" encoding="ASCII"?>
+<aadl2:AadlPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" name="abstractFeature2AbstractFeature" publicSection="//@ownedPublicSection">
+  <ownedPublicSection>
+    <ownedClassifier xsi:type="aadl2:DataType" name="Data1"/>
+    <ownedClassifier xsi:type="aadl2:DataImplementation" name="Data1.impl">
+      <ownedRealization implemented="//@ownedPublicSection/@ownedClassifier.0"/>
+    </ownedClassifier>
+    <ownedClassifier xsi:type="aadl2:DeviceType" name="Device0">
+      <ownedAbstractFeature name="sub0Feature1" in="true"/>
+      <ownedAbstractFeature name="sub0OutFeature1" out="true"/>
+      <ownedAbstractFeature name="sub0InOutFeature1"/>
+    </ownedClassifier>
+    <ownedClassifier xsi:type="aadl2:DeviceType" name="Device1">
+      <ownedExtension extended="//@ownedPublicSection/@ownedClassifier.2"/>
+      <ownedDataPort refined="//@ownedPublicSection/@ownedClassifier.2/@ownedAbstractFeature.0" in="true" dataFeatureClassifier="//@ownedPublicSection/@ownedClassifier.1"/>
+      <ownedEventDataPort refined="//@ownedPublicSection/@ownedClassifier.2/@ownedAbstractFeature.2" out="true">
+        <dataFeatureClassifier xsi:type="aadl2:DataImplementation" href="../../external_specification.aadl#external_specification.Data_Parent.impl"/>
+      </ownedEventDataPort>
+    </ownedClassifier>
+    <importedUnit xsi:type="aadl2:AadlPackage" href="../../external_specification.aadl#external_specification"/>
+  </ownedPublicSection>
+</aadl2:AadlPackage>

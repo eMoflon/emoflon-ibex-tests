@@ -2,7 +2,7 @@
 #using AttrCondDefLibrary.*
 
 #abstract #rule ruleAccess2Access1 #with Adele2Aadl
-//rule one
+
 #source { 
 	adeleType:ADELE_Components.Component
 	{
@@ -35,7 +35,7 @@
 
 #attributeConditions {
 	eq_string(adeleAccess.name, aadlAccess.name)
-    accessdirection(adeleAccess.direction, aadlAccess.kind)
+	// test(adeleAccess.direction, aadlAccess.kind)
 	
 }
 
@@ -44,29 +44,17 @@
 #source
 {
 	++adeleAccess:ADELE_Features.BusAccess
-} 
+}
 #target
 {
 	
 	++aadlAccess:aadl2.BusAccess
 }
 
-#rule ruleAccess2AccessSystem #extends ruleAccess2Access1 #with Adele2Aadl
+#rule ruleBusAccess2BusAccessConcrete #extends ruleAccess2Accessabstract #with Adele2Aadl
 
-#source
-{
-	adeleType:ADELE_Components.System
-	
-    ++adeleAccess:ADELE_Features.DataAccess
-}
-
-//commented
-#target
-{
-	aadlType:aadl2.SystemType
-	{
-		++ -ownedDataAccess->aadlAccess
+#target {
+	aadlType:BusType {
+		++ -ownedBusAccess->aadlAccess
 	}
-    
-    ++aadlAccess:aadl2.DataAccess
 }

@@ -1,0 +1,17 @@
+package dataPort2DataPort
+public
+	system System0
+	features
+		sys0InDataPort1 : in data port;
+		sys0OutDataPort1 : out data port;
+		sys0InOutDataPort1 : in out data port;
+	end System0;
+
+	system System1 extends System0
+	features
+		sys1InDataPort1 : in data port;
+		sys1OutDataPort1 : out data port;
+		sys1InOutDataPort1 : in out data port;
+	end System1;
+
+end dataPort2DataPort;
