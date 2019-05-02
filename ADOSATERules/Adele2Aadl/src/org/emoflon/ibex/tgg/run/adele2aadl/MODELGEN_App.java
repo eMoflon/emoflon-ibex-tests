@@ -7,9 +7,11 @@ import org.apache.log4j.Logger;
 import org.apache.log4j.BasicConfigurator;
 
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
+//import org.emoflon.ibex.tgg.operational.monitoring.VictoryDataProvider;
 import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGEN;
 import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGENStopCriterion;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesTGGEngine;
+//import org.emoflon.ibex.tgg.ui.debug.core.IbexDebugUI;
 
 import language.TGGRule;
 
@@ -32,6 +34,7 @@ public class MODELGEN_App extends MODELGEN {
 		logger.info("Completed init for MODELGEN in: " + (toc - tic) + " ms");
 		
 		MODELGENStopCriterion stop = new MODELGENStopCriterion(generator.getTGG());
+	// comment out the below line when running debugger
 		stop.setTimeOutInMS(2000);
 
 		
@@ -56,7 +59,10 @@ public class MODELGEN_App extends MODELGEN {
         
         
 		generator.setStopCriterion(stop);
-		
+// comment out below code for running debugger
+//		VictoryDataProvider dataProvider = new VictoryDataProvider(generator);
+//		IbexDebugUI.create(dataProvider, true).getIbexController().register(generator);
+	
 		tic = System.currentTimeMillis();
 		generator.run();
 		toc = System.currentTimeMillis();
