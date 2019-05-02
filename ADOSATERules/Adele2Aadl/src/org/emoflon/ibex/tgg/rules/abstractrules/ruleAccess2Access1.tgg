@@ -35,7 +35,8 @@
 
 #attributeConditions {
 	eq_string(adeleAccess.name, aadlAccess.name)
-    accessdirection(adeleAccess.direction, aadlAccess.kind)
+	accessdirection(adeleAccess.direction, aadlAccess.kind)
+	
 	
 }
 
@@ -50,13 +51,13 @@
 	
 	++aadlAccess:aadl2.BusAccess
 }
-
+ 
+//Used adeleType:ADELE_Components.System and aadlType:aadl2.SystemType in each rule as dividing in two iteration gives error
 #rule ruleAccess2AccessSystem #extends ruleAccess2Access1 #with Adele2Aadl
 
 #source
 {
 	adeleType:ADELE_Components.System
-	
     ++adeleAccess:ADELE_Features.DataAccess
 }
 
@@ -69,3 +70,20 @@
     
     ++aadlAccess:aadl2.DataAccess
 }
+//#rule ruleSystem2AbsractFeature #extends ruleAccess2Access1 #with Adele2Aadl
+//
+//#source
+//{
+//	adeleType:ADELE_Components.System
+//    ++adeleAccess:ADELE_Features.AbstractFeature
+//}
+//
+//#target
+//{
+//	aadlType:aadl2.SystemType
+//	{
+//		++ -ownedAbstractFeature->aadlAccess
+//	}
+//    
+//    ++aadlAccess:aadl2.AbstractFeature
+//}
