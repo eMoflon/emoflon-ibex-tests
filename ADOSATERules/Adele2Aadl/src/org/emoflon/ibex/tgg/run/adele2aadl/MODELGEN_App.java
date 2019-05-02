@@ -41,13 +41,18 @@ public class MODELGEN_App extends MODELGEN {
 			//logger.info(r.getName());
 			if (!(r.isAbstract())) {
 				
-				stop.setMaxRuleCount(p, 0);	
+				stop.setMaxRuleCount(p, 0);
+				
 			}
 			
 		
 		}
 		//set the rules with maxCount !0 here
 		stop.setMaxRuleCount("rulePackage2AadlPackage", 1);
+		stop.setMaxRuleCount("ruleComponent2ComponentTypeSystem", 1);
+		stop.setMaxRuleCount("ruleAccess2AccessSystem", 1);
+
+		
 		
 		
 		generator.setStopCriterion(stop);

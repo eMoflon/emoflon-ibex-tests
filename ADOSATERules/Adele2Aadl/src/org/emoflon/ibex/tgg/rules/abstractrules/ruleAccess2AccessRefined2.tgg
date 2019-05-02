@@ -1,88 +1,34 @@
 #using Adele2Aadl.*
 #using AttrCondDefLibrary.*
 
-#abstract #rule ruleAccess2AccessRefined2  #with Adele2Aadl
+#rule ruleAccess2AccessRefined2 #extends ruleAccess2Accessabstract #with Adele2Aadl
 
 #source { 
-	adeleType:ADELE_Components.Component{
-		++ -features->adeleAccess
-	}
-	++adeleAccess:ADELE_Features.Access
-	{
-		++ - refinedFeature -> adeleFeature
-	}
-	adeleFeature:ADELE_Features.DirectedFeature
-	
-}
-
-#target {
-	aadlType:aadl2.ComponentType{
-		++ -ownedFeature-> aadlAccess
-	}
-	++aadlAccess:aadl2.Access
-	{
-		++ - refined -> aadlFeature
-	}
-	aadlFeature: aadl2.DirectedFeature
-	
-	
-}
-
-#correspondence {
-	
-	corrType:CorrComponentType{
-		#src->adeleType
-		#trg->aadlType
-	}
-	
-	++corrAccess: CorrAccess{
-		#src->adeleAccess
-		#trg->aadlAccess
-	
-	}
-	corrFeature: CorrDirectedFeature
-	{
-		#src->adeleFeature
-		#trg->aadlFeature
-	}
-	
-	
-}
-#attributeConditions {
-	
-	eq_string(adeleAccess.name, aadlAccess.name)
-	
-}
-#rule ruleAccess2AccessRefinedSytemsAbsfeature #extends ruleAccess2AccessSystem #with Adele2Aadl
-
-#source { 
-	adeleType:ADELE_Components.System
 	++adeleAccess:ADELE_Features.DataAccess
 	{
 		++ - refinedFeature -> adeleRefinedFeature
 	}
-	adeleRefinedFeature:ADELE_Features.AbstractFeature
+	adeleRefinedFeature:ADELE_Features.Feature
 	
 }
 
 #target {
-	
-	aadlType:aadl2.SystemType
 	++aadlAccess:aadl2.DataAccess
 	{
 		++ - refined -> aadlRefinedFeature
 	}
-	aadlRefinedFeature: aadl2.AbstractFeature
+	aadlRefinedFeature: aadl2.Feature
 	
 	
 }
 
 #correspondence {
-	corrFeature: CorrDirectedFeature
+	corrRefinedFeature: CorrFeature
 	{
 		#src->adeleRefinedFeature
 		#trg->aadlRefinedFeature
 	}
+	
 	
 }
 
