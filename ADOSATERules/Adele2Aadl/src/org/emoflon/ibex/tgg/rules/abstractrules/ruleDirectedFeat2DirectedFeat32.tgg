@@ -65,5 +65,26 @@
 	}
 	++aadlFeature: aadl2.AbstractFeature
 }
-
+#rule ruleSystem2AbsractDataPort #extends ruleDirectedFeat2DirectedFeat32 #with Adele2Aadl
+#source
+{adeleType:ADELE_Components.System
+	++adeleFeature: ADELE_Features.DataPort
+}
+#target
+{aadlType:aadl2.SystemType
+	{
+		++ -ownedDataPort->aadlFeature
+	}
+	++aadlFeature: aadl2.DataPort
+}
+#rule ruleSystem2AbsractDataPortTest #with Adele2Aadl
+#source
+{adeleType:ADELE_Components.System{
+	++ - features-> adeleFeature
+}
+	++adeleFeature: ADELE_Features.DataPort
+}
+#target
+{
+}
 
