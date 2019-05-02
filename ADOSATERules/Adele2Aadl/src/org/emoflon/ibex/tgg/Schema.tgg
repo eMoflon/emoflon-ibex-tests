@@ -192,18 +192,9 @@
 #attributeConditions {
 	#userDefined
 	
-	accessdirection(directionVar1:AccessDirection, directionVar2:AccessType)
-	{
+	accessdirection(directionVar1:AccessDirection, directionVar2:AccessType){
 		
 		#sync:[B B], [B F], [F B]
 		#gen:[B B], [B F], [F B], [F F]
 	}
-	#userDefined
-	portdirection(directionVar1:PortDirection, directionVar2:DirectionType)
-	{
-		
-		#sync:[B B], [B F], [F B]
-		#gen:[B B], [B F], [F B], [F F]
-	}
-	
 }

@@ -13,9 +13,7 @@
 		++ -children->adeleImplementation
 	}
 	++adeleImplementation: ADELE_Components.Component{
-		//featuresLock:=true
-		//subcomponentsLock:=false
-		
+		featuresLock:=true
 	}
 	
 }
