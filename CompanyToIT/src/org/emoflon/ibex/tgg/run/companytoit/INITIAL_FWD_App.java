@@ -57,6 +57,6 @@ public class INITIAL_FWD_App extends SYNC {
 	}
 	
 	private static IbexOptions createIbexOptions() {
-		return _RegistrationHelper.createIbexOptions();
+		return _RegistrationHelper.createIbexOptions().debug(true);
 	}
 }
