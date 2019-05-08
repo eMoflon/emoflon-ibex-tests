@@ -4,9 +4,12 @@ import java.io.IOException;
 
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
-import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.apache.log4j.BasicConfigurator;
+
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.sync.SYNC;
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.emoflon.ibex.tgg.compiler.patterns.PatternSuffixes;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesTGGEngine;
 
 public class INITIAL_BWD_App extends SYNC {
@@ -17,18 +20,27 @@ public class INITIAL_BWD_App extends SYNC {
 	}
 
 	public static void main(String[] args) throws IOException {
+		BasicConfigurator.configure();
 		Logger.getRootLogger().setLevel(Level.INFO);
 
-		INITIAL_BWD_App init_bwd = new INITIAL_BWD_App();
-		
 		logger.info("Starting INITIAL BWD");
 		long tic = System.currentTimeMillis();
-		init_bwd.forward();
+		INITIAL_BWD_App init_bwd = new INITIAL_BWD_App();
 		long toc = System.currentTimeMillis();
-		logger.info("Completed INITIAL BWD in: " + (toc - tic) + " ms");
+		logger.info("Completed init for BWD in: " + (toc - tic) + " ms");
+		
+		tic = System.currentTimeMillis();
+		init_bwd.backward();
+		toc = System.currentTimeMillis();
+		logger.info("Completed INITIAL_BWD in: " + (toc - tic) + " ms");
 		
 		init_bwd.saveModels();
 		init_bwd.terminate();
+	}
+	
+	@Override
+	public boolean isPatternRelevantForCompiler(String patternName) {
+		return patternName.endsWith(PatternSuffixes.BWD);
 	}
 	
 	@Override
