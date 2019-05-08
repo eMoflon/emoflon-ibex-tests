@@ -25,7 +25,8 @@ Require-Bundle: org.gervarro.democles.common,
  org.emoflon.ibex.tgg.runtime.democles,
  org.moflon.core.utilities;bundle-version="3.0.0",
  org.sat4j.core,
- org.sat4j.pb
+ org.sat4j.pb,
+ org.emoflon.ibex.tgg.ui.debug
 Bundle-ManifestVersion: 2
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8

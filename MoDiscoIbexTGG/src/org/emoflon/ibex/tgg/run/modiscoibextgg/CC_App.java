@@ -2,20 +2,16 @@ package org.emoflon.ibex.tgg.run.modiscoibextgg;
 
 import java.io.IOException;
 
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 import org.apache.log4j.BasicConfigurator;
-import org.eclipse.emf.ecore.util.EcoreUtil;
+
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.opt.cc.CC;
-
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesTGGEngine;
 
 public class CC_App extends CC {
 
-	String srcPath;
-	String trgPath;
-	String corrPath;
-	String protPath;
-	
 	public CC_App() throws IOException {
 		super(createIbexOptions());
 		registerBlackInterpreter(new DemoclesTGGEngine());
@@ -23,6 +19,7 @@ public class CC_App extends CC {
 
 	public static void main(String[] args) throws IOException {
 		BasicConfigurator.configure();
+		Logger.getRootLogger().setLevel(Level.INFO);
 
 		CC_App cc = new CC_App();
 		
@@ -36,7 +33,8 @@ public class CC_App extends CC {
 		cc.terminate();
 		logger.info(cc.generateConsistencyReport());			
 	}
-
+	
+	
 	@Override
 	protected void registerUserMetamodels() throws IOException {
 		_RegistrationHelper.registerMetamodels(rs, this);
@@ -47,15 +45,5 @@ public class CC_App extends CC {
 	
 	private static IbexOptions createIbexOptions() {
 		return _RegistrationHelper.createIbexOptions();
-	}
-	
-	@Override
-	public void loadModels() throws IOException {
-		s = loadResource(options.projectPath() +srcPath+".xmi");
-		t = loadResource(options.projectPath() +trgPath+".xmi");
-		c = createResource(options.projectPath() +corrPath+".xmi");
-		p = createResource(options.projectPath() +protPath+".xmi");
-	
-		EcoreUtil.resolveAll(rs);
 	}
 }
