@@ -1,6 +1,7 @@
 package org.emoflon.ibex.gt.testsuite.SimpleFamilies;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -28,8 +29,9 @@ public class SimpleFamiliesConstraintsTest extends SimpleFamiliesAbstractTest {
 		List<String> familyNames = api.findFamily().matchStream() //
 				.map(m -> m.getFamily().getName()) //
 				.collect(Collectors.toList());
-		assertEquals(Arrays.asList("Simpson", "Watson"), familyNames);
-
+		assertTrue(familyNames.contains("Simpson"));
+		assertTrue(familyNames.contains("Watson"));
+		
 		assertMatchCount(2, api.findFather());
 		assertMatchCount(2, api.findMother());
 		assertMatchCount(2, api.findDaughter());
