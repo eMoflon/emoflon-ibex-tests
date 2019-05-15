@@ -6,6 +6,7 @@ import org.junit.Test;
 
 import SheRememberedCaterpillars.COLOR;
 import SheRememberedCaterpillars.ExitPlatform;
+import SheRememberedCaterpillars.SimplePlatform;
 import SheRememberedCaterpillarsGraphTransformation.api.SheRememberedCaterpillarsGraphTransformationAPI;
 import SheRememberedCaterpillarsGraphTransformation.api.matches.FindStandalonePlatformMatch;
 import SheRememberedCaterpillarsGraphTransformation.api.matches.FindTwoCharactersOnAnExitPlatformMatch;
@@ -100,7 +101,7 @@ public class SheRememberedCaterpillarsConstraintsTest extends SheRememberedCater
 	}
 
 	@Test
-	public void findPlatformWithSelfNeighborship() {
+	public void noPlatformWithSelfNeighborship() {
 		SheRememberedCaterpillarsGraphTransformationAPI api = this.init("Instance1.xmi");
 
 		api.findPlatformSelfNeighbor().forEachMatch(m -> {
@@ -108,5 +109,19 @@ public class SheRememberedCaterpillarsConstraintsTest extends SheRememberedCater
 		});
 
 		assertMatchCount(0, api.findPlatformSelfNeighbor());
+	}
+	
+	@Test
+	public void findPlatformWithSelfNeighborship() {
+		SheRememberedCaterpillarsGraphTransformationAPI api = this.init("Instance1.xmi");
+
+		api.findPlatformSelfNeighbor().forEachMatch(m -> {
+			System.out.println(m);
+		});
+		
+		SimplePlatform platform = api.findPlatformWithNeighbor().findAnyMatch().get().getPlatform();
+		platform.getNeighbors().add(platform);
+
+		assertMatchCount(1, api.findPlatformSelfNeighbor());
 	}
 }
