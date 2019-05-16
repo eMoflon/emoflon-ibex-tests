@@ -29,6 +29,8 @@ public class SimpleFamiliesConstraintsTest extends SimpleFamiliesAbstractTest {
 		List<String> familyNames = api.findFamily().matchStream() //
 				.map(m -> m.getFamily().getName()) //
 				.collect(Collectors.toList());
+		
+		assertTrue(familyNames.size() == 2);
 		assertTrue(familyNames.contains("Simpson"));
 		assertTrue(familyNames.contains("Watson"));
 		
