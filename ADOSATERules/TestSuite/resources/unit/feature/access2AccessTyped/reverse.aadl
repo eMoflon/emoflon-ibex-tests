@@ -1,6 +1,6 @@
 package access2AccessTyped
 public
-with external_specification;
+
 	data Data1
 	end Data1;
 
@@ -16,7 +16,7 @@ with external_specification;
 	system System1 extends System0
 	features
 		sys1InDataAccess1 : requires data access;
-		sys1OutDataAccess1 : provides data access external_specification::Data_Parent.impl;
+		sys1OutDataAccess1 : provides data access Data1.impl;
 	end System1;
 	
 	-- The following components test the case where the type of the access is the same as the parent of the feature.
