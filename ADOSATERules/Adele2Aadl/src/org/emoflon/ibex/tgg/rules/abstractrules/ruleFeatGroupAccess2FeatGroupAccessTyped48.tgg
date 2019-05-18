@@ -49,6 +49,7 @@ eq_string(adeleAccess.name, aadlAccess.name)
 #rule ruleFeatGroupAccess2FeatGroupAccessTyped #extends ruleFeatGroupAccess2FeatGroupAccessTyped48 #with Adele2Aadl
 
 #source {
+	
 	++ adeleAccess:ADELE_Features.BusAccess
 }
 

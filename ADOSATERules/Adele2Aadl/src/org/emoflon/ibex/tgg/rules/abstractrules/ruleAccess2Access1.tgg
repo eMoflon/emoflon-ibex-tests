@@ -39,7 +39,7 @@
 
 #attributeConditions {
 	eq_string(adeleAccess.name, aadlAccess.name)
-  // accessdirection(adeleAccess.direction, aadlAccess.kind)
+   accessdirection(adeleAccess.direction, aadlAccess.kind)
 	
 }
 
@@ -82,6 +82,18 @@
 	++ adeleAccess:ADELE_Features.DataAccess{
 		++ -component->adeleType
 	}
+}
+#target{
+	
+}
+
+#rule ruletest2testextend  #with Adele2Aadl
+#source {
+	adeleAccess:ADELE_Features.DataAccess{
+		++ -classifier->adeleClassifier
+	}
+	
+	adeleClassifier: ADELE_Components.Data
 }
 #target{
 	

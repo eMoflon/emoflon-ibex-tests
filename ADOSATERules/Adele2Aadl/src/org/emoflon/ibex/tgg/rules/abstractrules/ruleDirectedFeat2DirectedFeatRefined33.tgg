@@ -1,35 +1,79 @@
 #using Adele2Aadl.*
 #using AttrCondDefLibrary.*
 
-#rule ruleDirectedFeat2DirectedFeatRefined33 #extends ruleDirectedFeat2DirectedFeatabstract #with Adele2Aadl
+#abstract #rule ruleDirectedFeat2DirectedFeatRefined33 #with Adele2Aadl
 
 #source { 
-	++adeleFeature: ADELE_Features.FeatureGroup
+	adeleType:ADELE_Components.Component
 	{
-		++ -refinedFeature -> adeleRefinedFeature
+		++ - features-> adeleFeature
 	}
-	adeleRefinedFeature: ADELE_Features.Feature
-}
-
-#target {
-	++aadlFeature: aadl2.FeatureGroup
-	{
-		++ - refined -> aadlRefinedFeature
+	++adeleFeature: ADELE_Features.DirectedFeature{
+	++ -refinedFeature->adeleRefinedFeature
 	}
-	aadlRefinedFeature:aadl2.Feature
+	adeleRefinedFeature:ADELE_Features.Feature
 	
 }
 
-#correspondence {
-	corrRefinedFeature: CorrFeature
+#target {
+	aadlType: aadl2.ComponentType
 	{
+		++ - ownedFeature -> aadlFeature
+	}
+	++aadlFeature: aadl2.DirectedFeature
+	{
+		++ -refined->aadlRefinedFeature
+	}
+	aadlRefinedFeature:aadl2.Feature
+}
+
+#correspondence {
+	
+	corrType: CorrComponentType
+	{
+		#src-> adeleType
+		#trg-> aadlType
+	}
+	++corrFeature: CorrDirectedFeature
+	{
+		#src->adeleFeature
+		#trg->aadlFeature
+	}
+	corrRefinedFeature:CorrFeature{
 		#src->adeleRefinedFeature
 		#trg->aadlRefinedFeature
 	}
 	
 }
 
+
+
 #attributeConditions {
 	eq_string(adeleFeature.name, aadlFeature.name)
+}
+#rule ruleDirectedFeat2DirectedFeatRefinedAbstractFeature #extends ruleDirectedFeat2DirectedFeatRefined33 #with Adele2Aadl
+
+#source { 
+	adeleType:ADELE_Components.System
+	++adeleFeature: ADELE_Features.DataPort{
+		++ -refinedFeature->adeleRefinedFeature
+	}
+	adeleRefinedFeature:ADELE_Features.AbstractFeature
+}
+#target {
+	aadlType:aadl2.SystemType
+		{
+		++ -ownedDataPort->aadlFeature
 	
+	}
+	++aadlFeature: aadl2.DataPort{
+		++ -refined->aadlRefinedFeature
+	}
+	aadlRefinedFeature:aadl2.AbstractFeature
+}
+#correspondence{
+	corrRefinedFeature:CorrDirectedFeature{
+		#src->adeleRefinedFeature
+		#trg->aadlRefinedFeature
+	}
 }

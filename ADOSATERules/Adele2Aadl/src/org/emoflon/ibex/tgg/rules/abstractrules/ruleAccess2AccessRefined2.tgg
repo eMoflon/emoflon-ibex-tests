@@ -11,7 +11,7 @@
 	{
 		++ - refinedFeature -> adeleFeature
 	}
-	adeleFeature:ADELE_Features.DirectedFeature
+	adeleFeature:ADELE_Features.Feature
 	
 }
 
@@ -23,7 +23,7 @@
 	{
 		++ - refined -> aadlFeature
 	}
-	aadlFeature: aadl2.DirectedFeature
+	aadlFeature: aadl2.Feature
 	
 	
 }
@@ -40,7 +40,7 @@
 		#trg->aadlAccess
 	
 	}
-	corrFeature: CorrDirectedFeature
+	corrFeature: CorrFeature
 	{
 		#src->adeleFeature
 		#trg->aadlFeature

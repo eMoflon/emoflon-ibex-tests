@@ -3,6 +3,12 @@ package org.emoflon.ibex.tgg.operational.csp.constraints.custom.adele2aadl;
 import java.util.Random;
 
 import org.eclipse.emf.common.util.Enumerator;
+import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EEnumLiteral;
+import org.eclipse.emf.ecore.EFactory;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EcoreFactory;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.emoflon.ibex.tgg.operational.csp.RuntimeTGGAttributeConstraint;
 import org.emoflon.ibex.tgg.operational.csp.RuntimeTGGAttributeConstraintVariable;
 import org.osate.aadl2.AccessType;
@@ -61,11 +67,11 @@ public class UserDefined_accessdirection extends RuntimeTGGAttributeConstraint
 			break;
 		case "FF":
 			if (new Random().nextBoolean()) {
-				v0.bindToValue(typeA1);
-				v1.bindToValue(typeB1);
+				v0.bindToValue(createLiteral(typeA1));
+				v1.bindToValue(createLiteral(typeB1));
 			} else {
-				v0.bindToValue(typeA2);
-				v1.bindToValue(typeB2);
+				v0.bindToValue(createLiteral(typeA2));
+				v1.bindToValue(createLiteral(typeB2));
 			}
 
 			setSatisfied(true);
@@ -74,6 +80,12 @@ public class UserDefined_accessdirection extends RuntimeTGGAttributeConstraint
 			throw new UnsupportedOperationException(
 					"This case in the constraint has not been implemented yet: " + bindingStates);
 		}
+	}
+
+	private EEnumLiteral createLiteral(Enumerator type) {
+		EEnumLiteral lit = EcoreFactory.eINSTANCE.createEEnumLiteral();
+		lit.setLiteral(type.getLiteral());
+		return lit;
 	}
 	
 }

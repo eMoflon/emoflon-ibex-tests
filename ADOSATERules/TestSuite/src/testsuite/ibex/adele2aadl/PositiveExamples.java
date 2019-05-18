@@ -72,7 +72,7 @@ public class PositiveExamples extends CCTestCase {
 //	public void test12ForAdelePackageToAadlPackage() throws IOException {
 //		testForPairOfModels("unit/feature/abstractFeature2AbstractFeature/forward.adele", "unit/feature/abstractFeature2AbstractFeature/reverse.aadl");
 //	}
-	
+//	
 	@Test
 	public void test13ForAdelePackageToAadlPackage() throws IOException {
 		testForPairOfModels("unit/feature/access2Access/forward.adele", "unit/feature/access2Access/reverse.aadl");
@@ -81,30 +81,30 @@ public class PositiveExamples extends CCTestCase {
 	public void test14ForAdelePackageToAadlPackage() throws IOException {
 		testForPairOfModels("unit/feature/access2AccessRefined/forward.adele", "unit/feature/access2AccessRefined/reverse.aadl");
 	}
-//	@Test
-//	public void test15ForAdelePackageToAadlPackage() throws IOException {
-//		testForPairOfModels("unit/feature/access2AccessTyped/forward.adele", "unit/feature/access2AccessTyped/reverse.aadl");
-//	}
-//	
+	@Test
+	public void test15ForAdelePackageToAadlPackage() throws IOException {
+		testForPairOfModels("unit/feature/access2AccessTyped/forward.adele", "unit/feature/access2AccessTyped/reverse.aadl");
+	}
+	
 //	@Test
 //	public void test16ForAdelePackageToAadlPackage() throws IOException {
 //		testForPairOfModels("unit/feature/access2AccessTypedRefined/forward.adele", "unit/feature/access2AccessTypedRefined/reverse.aadl");
 //	}
 //	
-//	@Test
-//	public void test17ForAdelePackageToAadlPackage() throws IOException {
-//		testForPairOfModels("unit/feature/dataPort2DataPort/forward.adele", "unit/feature/dataPort2DataPort/reverse.aadl");
-//	}
+	@Test
+	public void test17ForAdelePackageToAadlPackage() throws IOException {
+		testForPairOfModels("unit/feature/dataPort2DataPort/forward.adele", "unit/feature/dataPort2DataPort/reverse.aadl");
+	}
 //	
-//	@Test
-//	public void test188ForAdelePackageToAadlPackage() throws IOException {
-//		testForPairOfModels("unit/feature/dataPort2DataPortRefined/forward.adele", "unit/feature/dataPort2DataPortRefined/reverse.aadl");
-//	}
+	@Test
+	public void test188ForAdelePackageToAadlPackage() throws IOException {
+		testForPairOfModels("unit/feature/dataPort2DataPortRefined/forward.adele", "unit/feature/dataPort2DataPortRefined/reverse.aadl");
+	}
 //	
-//	@Test
-//	public void test18ForAdelePackageToAadlPackage() throws IOException {
-//		testForPairOfModels("unit/feature/dataPort2DataPortTyped/forward.adele", "unit/feature/dataPort2DataPortTyped/reverse.aadl");
-//	}
+	@Test
+	public void test18ForAdelePackageToAadlPackage() throws IOException {
+		testForPairOfModels("unit/feature/dataPort2DataPortTyped/forward.adele", "unit/feature/dataPort2DataPortTyped/reverse.aadl");
+	}
 //	
 //	@Test
 //	public void test19ForAdelePackageToAadlPackage() throws IOException {
