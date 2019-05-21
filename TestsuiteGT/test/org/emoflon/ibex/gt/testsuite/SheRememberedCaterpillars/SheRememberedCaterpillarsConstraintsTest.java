@@ -2,6 +2,7 @@ package org.emoflon.ibex.gt.testsuite.SheRememberedCaterpillars;
 
 import static org.junit.Assert.assertTrue;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import SheRememberedCaterpillars.COLOR;
@@ -83,6 +84,7 @@ public class SheRememberedCaterpillarsConstraintsTest extends SheRememberedCater
 		assertMatchCount(1, api.findPlatformWithTwoNeighbors());
 	}
 	
+	@Ignore
 	@Test
 	public void findPlatformWithNeighbors_inc_create() {
 		SheRememberedCaterpillarsGraphTransformationAPI api = this.init("Instance3.xmi");
