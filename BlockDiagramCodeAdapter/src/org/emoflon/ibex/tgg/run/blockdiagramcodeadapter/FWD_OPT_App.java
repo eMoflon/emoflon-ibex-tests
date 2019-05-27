@@ -24,7 +24,7 @@ public class FWD_OPT_App extends FWD_OPT {
 		this.trgPath = trgPath;
 		this.corrPath = corrPath;
 		this.protPath = protPath;
-		registerBlackInterpreter(new DemoclesTGGEngine());
+		registerBlackInterpreter(options.getBlackInterpreter());
 	}
 
 	public static void main(String[] args) throws IOException {

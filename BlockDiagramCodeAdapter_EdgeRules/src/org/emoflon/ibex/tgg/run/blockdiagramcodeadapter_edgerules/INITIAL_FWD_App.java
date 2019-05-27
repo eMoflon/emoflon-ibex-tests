@@ -14,7 +14,7 @@ public class INITIAL_FWD_App extends SYNC {
 
 	public INITIAL_FWD_App() throws IOException {
 		super(createIbexOptions());
-		registerBlackInterpreter(new DemoclesTGGEngine());
+		registerBlackInterpreter(options.getBlackInterpreter());
 	}
 
 	public static void main(String[] args) throws IOException {

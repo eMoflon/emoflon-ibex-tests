@@ -18,7 +18,7 @@ public class MODELGEN_App extends MODELGEN {
 
     public MODELGEN_App() throws IOException {
 	super(createIbexOptions());
-	registerBlackInterpreter(new DemoclesTGGEngine());
+	registerBlackInterpreter(options.getBlackInterpreter());
     }
 
     public static void main(String[] args) throws IOException {

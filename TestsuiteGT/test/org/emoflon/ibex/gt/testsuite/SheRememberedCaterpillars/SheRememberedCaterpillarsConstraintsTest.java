@@ -84,7 +84,6 @@ public class SheRememberedCaterpillarsConstraintsTest extends SheRememberedCater
 		assertMatchCount(1, api.findPlatformWithTwoNeighbors());
 	}
 	
-	@Ignore
 	@Test
 	public void findPlatformWithNeighbors_inc_create() {
 		SheRememberedCaterpillarsGraphTransformationAPI api = this.init("Instance3.xmi");

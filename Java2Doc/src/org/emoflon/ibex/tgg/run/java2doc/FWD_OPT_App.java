@@ -15,7 +15,7 @@ public class FWD_OPT_App extends FWD_OPT {
 
 	public FWD_OPT_App() throws IOException {
 		super(createIbexOptions());
-		registerBlackInterpreter(new DemoclesTGGEngine());
+		registerBlackInterpreter(options.getBlackInterpreter());
 	}
 
 	public static void main(String[] args) throws IOException {

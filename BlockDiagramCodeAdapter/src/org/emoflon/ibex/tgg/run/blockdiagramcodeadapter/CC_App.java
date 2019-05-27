@@ -20,7 +20,7 @@ public class CC_App extends CC {
 		super(createIbexOptions().projectName(projectName).workspacePath(workspacePath).debug(debug).setIlpSolver(ilpSolver));
 		this.srcPath = srcPath;
 		this.trgPath = trgPath;
-		registerBlackInterpreter(new DemoclesTGGEngine());
+		registerBlackInterpreter(options.getBlackInterpreter());
 	}
 
 	public static void main(String[] args) throws IOException {

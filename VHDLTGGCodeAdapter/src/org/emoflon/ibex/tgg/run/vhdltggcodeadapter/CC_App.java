@@ -17,7 +17,7 @@ public class CC_App extends CC {
 		super(createIbexOptions().projectName(projectName).workspacePath(workspacePath).debug(debug));
 		this.srcPath = srcPath;
 		this.trgPath = trgPath;
-		registerBlackInterpreter(new DemoclesTGGEngine());
+		registerBlackInterpreter(options.getBlackInterpreter());
 	}
 
 	@Override

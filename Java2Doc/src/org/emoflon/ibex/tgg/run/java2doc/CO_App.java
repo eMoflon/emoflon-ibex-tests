@@ -15,7 +15,7 @@ public class CO_App extends CO {
 
 	public CO_App() throws IOException {
 		super(createIbexOptions());
-		registerBlackInterpreter(new DemoclesTGGEngine());
+		registerBlackInterpreter(options.getBlackInterpreter());
 	}
 
 	public static void main(String[] args) throws IOException {

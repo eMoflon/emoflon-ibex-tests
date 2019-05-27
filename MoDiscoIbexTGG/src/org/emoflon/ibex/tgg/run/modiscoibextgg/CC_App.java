@@ -14,7 +14,7 @@ public class CC_App extends CC {
 
 	public CC_App() throws IOException {
 		super(createIbexOptions());
-		registerBlackInterpreter(new DemoclesTGGEngine());
+		registerBlackInterpreter(options.getBlackInterpreter());
 	}
 
 	public static void main(String[] args) throws IOException {

@@ -26,7 +26,7 @@ public abstract class PerformanceTest<O extends OperationalStrategy> {
 		this.op = op;
 		
 		long tic = System.nanoTime();
-		op.registerBlackInterpreter(new DemoclesTGGEngine());
+		op.registerBlackInterpreter(op.getOptions().getBlackInterpreter());
 		long toc = System.nanoTime();
 		
 		initialized = true;

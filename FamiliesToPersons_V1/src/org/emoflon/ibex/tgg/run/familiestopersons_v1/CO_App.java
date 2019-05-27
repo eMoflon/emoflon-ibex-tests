@@ -23,7 +23,7 @@ public class CO_App extends CO {
 		this.trgPath = trgPath;
 		this.corrPath = corrPath;
 		this.protPath = protPath;
-		registerBlackInterpreter(new DemoclesTGGEngine());
+		registerBlackInterpreter(options.getBlackInterpreter());
 	}
 
 	public static void main(String[] args) throws IOException {

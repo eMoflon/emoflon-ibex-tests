@@ -26,11 +26,11 @@
 }
 
 #correspondence {
-	++ a2r :AdminToRouter {
+	++ a2r :Admin2Router {
 		#src->admin
 		#trg->router
 	}
-	c2i :CompanyToIT {
+	c2i :Company2IT {
 		#src->company
 		#trg->it
 	}

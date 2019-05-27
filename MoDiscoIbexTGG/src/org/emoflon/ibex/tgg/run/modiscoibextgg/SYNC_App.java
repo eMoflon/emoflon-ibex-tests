@@ -14,7 +14,7 @@ public class SYNC_App extends SYNC {
 
 	public SYNC_App() throws IOException {
 		super(createIbexOptions());
-		registerBlackInterpreter(new DemoclesTGGEngine());
+		registerBlackInterpreter(options.getBlackInterpreter());
 	}
 
 	public static void main(String[] args) throws IOException {

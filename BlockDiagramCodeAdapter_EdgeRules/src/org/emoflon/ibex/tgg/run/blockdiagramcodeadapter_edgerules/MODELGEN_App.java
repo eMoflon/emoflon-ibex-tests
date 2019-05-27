@@ -15,7 +15,7 @@ public class MODELGEN_App extends MODELGEN {
 				.projectName(projectName)
 				.workspacePath(workspacePath)
 				.debug(debug));
-		registerBlackInterpreter(new DemoclesTGGEngine());
+		registerBlackInterpreter(options.getBlackInterpreter());
 	}
 
 	public static void main(String[] args) throws IOException {

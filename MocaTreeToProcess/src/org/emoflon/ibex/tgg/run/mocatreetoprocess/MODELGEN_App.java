@@ -12,7 +12,7 @@ public class MODELGEN_App extends MODELGEN {
 
 	public MODELGEN_App(String projectName, String workspacePath, boolean debug) throws IOException {
 		super(createIbexOptions().projectName(projectName).workspacePath(workspacePath).debug(debug));
-		registerBlackInterpreter(new DemoclesTGGEngine());
+		registerBlackInterpreter(options.getBlackInterpreter());
 	}
 	
 	public static void main(String[] args) throws IOException {

@@ -11,7 +11,7 @@ public class BWD_OPT_App extends BWD_OPT {
 
 	public BWD_OPT_App() throws IOException {
 		super(createIbexOptions());
-		registerBlackInterpreter(new DemoclesTGGEngine());
+		registerBlackInterpreter(options.getBlackInterpreter());
 	}
 
 	public static void main(String[] args) throws IOException {

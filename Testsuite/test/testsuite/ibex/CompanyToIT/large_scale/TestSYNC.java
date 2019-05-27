@@ -38,7 +38,7 @@ public class TestSYNC extends CompleteSyncTestCase {
 			this.corrPath = corrPath;
 			this.protPath = protPath;
 			
-			registerBlackInterpreter(new DemoclesTGGEngine());
+			registerBlackInterpreter(options.getBlackInterpreter());
 		}
 		
 		@Override
@@ -88,7 +88,7 @@ public class TestSYNC extends CompleteSyncTestCase {
 			this.corrPath = corrPath;
 			this.protPath = protPath;
 			
-			registerBlackInterpreter(new DemoclesTGGEngine());
+			registerBlackInterpreter(options.getBlackInterpreter());
 		}
 		
 		@Override

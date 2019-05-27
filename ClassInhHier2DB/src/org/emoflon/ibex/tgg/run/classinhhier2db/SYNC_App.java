@@ -12,7 +12,7 @@ public class SYNC_App extends SYNC {
 
 	public SYNC_App(String projectName, String workspacePath, boolean debug) throws IOException {
 		super(createIbexOptions().projectName(projectName).workspacePath(workspacePath).debug(debug));
-		registerBlackInterpreter(new DemoclesTGGEngine());
+		registerBlackInterpreter(options.getBlackInterpreter());
 	}
 	
 	public static void main(String[] args) throws IOException {

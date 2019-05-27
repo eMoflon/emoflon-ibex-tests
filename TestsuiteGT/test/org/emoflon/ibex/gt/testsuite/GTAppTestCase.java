@@ -17,7 +17,7 @@ import org.emoflon.ibex.gt.api.GraphTransformationApp;
 import org.emoflon.ibex.gt.api.GraphTransformationMatch;
 import org.emoflon.ibex.gt.api.GraphTransformationPattern;
 import org.emoflon.ibex.gt.api.GraphTransformationRule;
-import org.emoflon.ibex.gt.democles.runtime.DemoclesGTEngine;
+import org.emoflon.ibex.gt.hipe.runtime.HiPEGTEngine;
 
 /**
  * An abstract test case for Graph Transformation.
@@ -65,7 +65,7 @@ public abstract class GTAppTestCase<App extends GraphTransformationApp<API>, API
 	 * @return the engine
 	 */
 	protected IContextPatternInterpreter initEngine() {
-		DemoclesGTEngine engine = new DemoclesGTEngine();
+		HiPEGTEngine engine = new HiPEGTEngine();
 		engine.setDebugPath("./debug/" + this.getTestName());
 		return engine;
 	}

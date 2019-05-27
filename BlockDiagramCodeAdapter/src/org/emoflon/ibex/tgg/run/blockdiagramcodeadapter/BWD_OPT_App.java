@@ -18,7 +18,7 @@ public class BWD_OPT_App extends BWD_OPT {
 	
 	public BWD_OPT_App() throws IOException {
 		super(createIbexOptions());
-		registerBlackInterpreter(new DemoclesTGGEngine());
+		registerBlackInterpreter(options.getBlackInterpreter());
 	}
 	
 	public BWD_OPT_App(String projectName, String workspacePath, boolean debug, String srcPath, String trgPath, 
@@ -28,7 +28,7 @@ public class BWD_OPT_App extends BWD_OPT {
 		this.trgPath = trgPath;
 		this.corrPath = corrPath;
 		this.protPath = protPath;
-		registerBlackInterpreter(new DemoclesTGGEngine());
+		registerBlackInterpreter(options.getBlackInterpreter());
 	}
 
 	public static void main(String[] args) throws IOException {
