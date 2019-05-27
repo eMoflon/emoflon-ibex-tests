@@ -93,9 +93,9 @@ public class SheRememberedCaterpillarsConstraintsTest extends SheRememberedCater
 		FindPlatformWithTwoNeighborsPattern findPlatformWithTwoNeighbors = api.findPlatformWithTwoNeighbors();
 		FindPlatformWithNeighborPattern findPlatformWithNeighbor = api.findPlatformWithNeighbor();
 		
+		assertMatchCount(2, findPlatformWithNeighbor);
 		assertMatchCount(1, findPlatformWithExactlyOneNeighbor);
 		assertMatchCount(1, findPlatformWithTwoNeighbors);
-		assertMatchCount(2, findPlatformWithNeighbor);
 		
 		SimplePlatform platform = findPlatformWithExactlyOneNeighbor.findAnyMatch().get().getPlatform();
 		Game game = (Game) platform.eContainer();
@@ -104,8 +104,8 @@ public class SheRememberedCaterpillarsConstraintsTest extends SheRememberedCater
 		platform.getNeighbors().add(newPlatform);
 		
 		assertMatchCount(2, findPlatformWithNeighbor);
-		assertMatchCount(1, findPlatformWithExactlyOneNeighbor);
-		assertMatchCount(1, findPlatformWithTwoNeighbors);
+		assertMatchCount(0, findPlatformWithExactlyOneNeighbor);
+		assertMatchCount(2, findPlatformWithTwoNeighbors);
 	}
 	
 	@Test
@@ -116,9 +116,11 @@ public class SheRememberedCaterpillarsConstraintsTest extends SheRememberedCater
 		FindPlatformWithTwoNeighborsPattern findPlatformWithTwoNeighbors = api.findPlatformWithTwoNeighbors();
 		FindPlatformWithNeighborPattern findPlatformWithNeighbor = api.findPlatformWithNeighbor();
 		
+		assertMatchCount(2, findPlatformWithNeighbor);
 		assertMatchCount(1, findPlatformWithExactlyOneNeighbor);
 		assertMatchCount(1, findPlatformWithTwoNeighbors);
-		assertMatchCount(2, findPlatformWithNeighbor);
+		
+		System.out.println("-----------CHANGE------------");
 		
 		SimplePlatform platform = findPlatformWithTwoNeighbors.findAnyMatch().get().getPlatform();
 		platform.getNeighbors().remove(0);
