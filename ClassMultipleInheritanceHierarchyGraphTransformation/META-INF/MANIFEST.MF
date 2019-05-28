@@ -1,10 +1,7 @@
 Manifest-Version: 1.0
-Automatic-Module-Name: ClassMultipleInheritanceHierarchyGraphTransform
- ation
-Bundle-SymbolicName: ClassMultipleInheritanceHierarchyGraphTransformat
- ion; singleton:=true
-Export-Package: ClassMultipleInheritanceHierarchyGraphTransformation.a
- pi,
+Automatic-Module-Name: ClassMultipleInheritanceHierarchyGraphTransformation
+Bundle-SymbolicName: ClassMultipleInheritanceHierarchyGraphTransformation; singleton:=true
+Export-Package: ClassMultipleInheritanceHierarchyGraphTransformation.api,
  ClassMultipleInheritanceHierarchyGraphTransformation.api.matches,
  ClassMultipleInheritanceHierarchyGraphTransformation.api.rules
 Bundle-Name: ClassMultipleInheritanceHierarchyGraphTransformation
