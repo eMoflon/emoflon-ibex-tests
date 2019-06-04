@@ -11,8 +11,9 @@ import org.emoflon.ibex.tgg.operational.strategies.OperationalStrategy;
 import org.emoflon.ibex.tgg.operational.strategies.opt.BWD_OPT;
 import org.emoflon.ibex.tgg.operational.strategies.opt.FWD_OPT;
 
-
 import FeatureModelConcise.impl.FeatureModelConcisePackageImpl;
+import FeatureModelConciseToSafe.FeatureModelConciseToSafePackage;
+import FeatureModelConciseToSafe.impl.FeatureModelConciseToSafePackageImpl;
 import FeatureModelSafe.impl.FeatureModelSafePackageImpl;
 
 public class _RegistrationHelper {
@@ -22,6 +23,11 @@ public class _RegistrationHelper {
 		// Load and register source and target metamodels
 		FeatureModelConcisePackageImpl.init();
 		FeatureModelSafePackageImpl.init();
+		
+		FeatureModelConciseToSafePackageImpl.init();
+		
+		rs.getPackageRegistry().put("platform:/resource/FeatureModelConciseToSafe/model/FeatureModelConciseToSafe.ecore", FeatureModelConciseToSafePackage.eINSTANCE);
+		rs.getPackageRegistry().put("platform:/plugin/FeatureModelConciseToSafe/model/FeatureModelConciseToSafe.ecore", FeatureModelConciseToSafePackage.eINSTANCE);
 		
 		if(strategy instanceof FWD_OPT) {
 			// Load and register source and target metamodels

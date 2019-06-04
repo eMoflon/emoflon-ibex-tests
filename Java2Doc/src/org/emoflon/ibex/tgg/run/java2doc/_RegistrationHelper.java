@@ -7,6 +7,8 @@ import org.emoflon.ibex.tgg.operational.csp.constraints.factories.UserDefinedRun
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.OperationalStrategy;
 
+import Java2Doc.Java2DocPackage;
+import Java2Doc.impl.Java2DocPackageImpl;
 import simpleDoc.impl.SimpleDocPackageImpl;
 import simpleJava.impl.SimpleJavaPackageImpl;
 
@@ -16,6 +18,11 @@ public class _RegistrationHelper {
 	public static void registerMetamodels(ResourceSet rs, OperationalStrategy strategy)  throws IOException {
 		SimpleDocPackageImpl.init();
 		SimpleJavaPackageImpl.init();
+		
+		Java2DocPackageImpl.init();
+		
+		rs.getPackageRegistry().put("platform:/resource/Java2Doc/model/Java2Doc.ecore", Java2DocPackage.eINSTANCE);
+		rs.getPackageRegistry().put("platform:/plugin/Java2Doc/model/Java2Doc.ecore", Java2DocPackage.eINSTANCE);
 	}
 	
 	/** Create default options **/

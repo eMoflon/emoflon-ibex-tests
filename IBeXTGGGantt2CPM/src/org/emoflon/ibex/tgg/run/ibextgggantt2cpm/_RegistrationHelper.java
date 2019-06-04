@@ -8,6 +8,8 @@ import org.emoflon.ibex.tgg.operational.csp.constraints.factories.ibextgggantt2c
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.OperationalStrategy;
 
+import IBeXTGGGantt2CPM.IBeXTGGGantt2CPMPackage;
+import IBeXTGGGantt2CPM.impl.IBeXTGGGantt2CPMPackageImpl;
 import cpm.CpmPackage;
 import gantt.GanttPackage;
 
@@ -22,6 +24,11 @@ public class _RegistrationHelper {
 		rs.getPackageRegistry().put("http://de.ubt.ai1.bw.qvt.examples.cpm.ecore", cpmPack);
 		rs.getPackageRegistry().put("platform:/resource/Gantt/model/Gantt.ecore", ganttPack);
 		rs.getPackageRegistry().put("platform:/resource/CPM/model/CPM.ecore", cpmPack);
+		
+		IBeXTGGGantt2CPMPackageImpl.init();
+		
+		rs.getPackageRegistry().put("platform:/resource/IBeXTGGGantt2CPM/model/IBeXTGGGantt2CPM.ecore", IBeXTGGGantt2CPMPackage.eINSTANCE);
+		rs.getPackageRegistry().put("platform:/plugin/IBeXTGGGantt2CPM/model/IBeXTGGGantt2CPM.ecore", IBeXTGGGantt2CPMPackage.eINSTANCE);
 	}
 	
 	/** Create default options **/

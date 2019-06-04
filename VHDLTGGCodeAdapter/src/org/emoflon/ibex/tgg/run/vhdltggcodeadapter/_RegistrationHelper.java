@@ -11,9 +11,10 @@ import org.emoflon.ibex.tgg.operational.strategies.OperationalStrategy;
 import org.emoflon.ibex.tgg.operational.strategies.opt.BWD_OPT;
 import org.emoflon.ibex.tgg.operational.strategies.opt.FWD_OPT;
 
-
 import MocaTree.impl.MocaTreePackageImpl;
 import VHDLModel.impl.VHDLModelPackageImpl;
+import VHDLTGGCodeAdapter.VHDLTGGCodeAdapterPackage;
+import VHDLTGGCodeAdapter.impl.VHDLTGGCodeAdapterPackageImpl;
 
 public class _RegistrationHelper {
 
@@ -22,6 +23,11 @@ public class _RegistrationHelper {
 		// Load and register source and target metamodels
 		VHDLModelPackageImpl.init();
 		MocaTreePackageImpl.init();
+		
+		VHDLTGGCodeAdapterPackageImpl.init();
+		
+		rs.getPackageRegistry().put("platform:/resource/VHDLTGGCodeAdapter/model/VHDLTGGCodeAdapter.ecore", VHDLTGGCodeAdapterPackage.eINSTANCE);
+		rs.getPackageRegistry().put("platform:/plugin/VHDLTGGCodeAdapter/model/VHDLTGGCodeAdapter.ecore", VHDLTGGCodeAdapterPackage.eINSTANCE);
 		
 		if(strategy instanceof FWD_OPT) {
 			// Load and register source and target metamodels

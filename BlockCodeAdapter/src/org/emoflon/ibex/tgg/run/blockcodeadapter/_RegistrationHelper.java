@@ -11,7 +11,8 @@ import org.emoflon.ibex.tgg.operational.strategies.OperationalStrategy;
 import org.emoflon.ibex.tgg.operational.strategies.opt.BWD_OPT;
 import org.emoflon.ibex.tgg.operational.strategies.opt.FWD_OPT;
 
-
+import BlockCodeAdapter.BlockCodeAdapterPackage;
+import BlockCodeAdapter.impl.BlockCodeAdapterPackageImpl;
 import BlockLanguage.impl.BlockLanguagePackageImpl;
 import MocaTree.impl.MocaTreePackageImpl;
 
@@ -22,6 +23,11 @@ public class _RegistrationHelper {
 		// Load and register source and target metamodels
 		BlockLanguagePackageImpl.init();
 		MocaTreePackageImpl.init();
+		
+		BlockCodeAdapterPackageImpl.init();
+		
+		rs.getPackageRegistry().put("platform:/resource/BlockCodeAdapter/model/BlockCodeAdapter.ecore", BlockCodeAdapterPackage.eINSTANCE);
+		rs.getPackageRegistry().put("platform:/plugin/BlockCodeAdapter/model/BlockCodeAdapter.ecore", BlockCodeAdapterPackage.eINSTANCE);
 		
 		if(strategy instanceof FWD_OPT) {
 			Resource res = strategy.loadResource("platform:/resource/BlockLanguage/model/BlockLanguage.ecore");

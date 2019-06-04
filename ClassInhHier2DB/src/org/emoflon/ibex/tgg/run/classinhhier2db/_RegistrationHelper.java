@@ -11,7 +11,8 @@ import org.emoflon.ibex.tgg.operational.strategies.OperationalStrategy;
 import org.emoflon.ibex.tgg.operational.strategies.opt.BWD_OPT;
 import org.emoflon.ibex.tgg.operational.strategies.opt.FWD_OPT;
 
-
+import ClassInhHier2DB.ClassInhHier2DBPackage;
+import ClassInhHier2DB.impl.ClassInhHier2DBPackageImpl;
 import ClassInheritanceHierarchy.impl.ClassInheritanceHierarchyPackageImpl;
 import Database.impl.DatabasePackageImpl;
 
@@ -23,6 +24,11 @@ public class _RegistrationHelper {
 		ClassInheritanceHierarchyPackageImpl.init();
 		DatabasePackageImpl.init();
 
+		ClassInhHier2DBPackageImpl.init();
+		
+		rs.getPackageRegistry().put("platform:/resource/ClassInhHier2DB/model/ClassInhHier2DB.ecore", ClassInhHier2DBPackage.eINSTANCE);
+		rs.getPackageRegistry().put("platform:/plugin/ClassInhHier2DB/model/ClassInhHier2DB.ecore", ClassInhHier2DBPackage.eINSTANCE);
+		
 		if (strategy instanceof FWD_OPT) {
 			Resource res = strategy.loadResource("platform:/resource/Database/model/Database.ecore");
 			EPackage pack = (EPackage) res.getContents().get(0);

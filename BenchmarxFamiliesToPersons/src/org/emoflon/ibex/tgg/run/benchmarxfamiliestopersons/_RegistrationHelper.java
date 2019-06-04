@@ -11,7 +11,8 @@ import org.emoflon.ibex.tgg.operational.strategies.OperationalStrategy;
 import org.emoflon.ibex.tgg.operational.strategies.opt.BWD_OPT;
 import org.emoflon.ibex.tgg.operational.strategies.opt.FWD_OPT;
 
-
+import BenchmarxFamiliesToPersons.BenchmarxFamiliesToPersonsPackage;
+import BenchmarxFamiliesToPersons.impl.BenchmarxFamiliesToPersonsPackageImpl;
 import Families.impl.FamiliesPackageImpl;
 import Persons.impl.PersonsPackageImpl;
 
@@ -22,6 +23,11 @@ public class _RegistrationHelper {
 		EPackage familyPack = null;
 		EPackage personsPack = null;
 
+		BenchmarxFamiliesToPersonsPackageImpl.init();
+		
+		rs.getPackageRegistry().put("platform:/resource/BenchmarxFamiliesToPersons/model/BenchmarxFamiliesToPersons.ecore", BenchmarxFamiliesToPersonsPackage.eINSTANCE);
+		rs.getPackageRegistry().put("platform:/plugin/BenchmarxFamiliesToPersons/model/BenchmarxFamiliesToPersons.ecore", BenchmarxFamiliesToPersonsPackage.eINSTANCE);
+		
 		if (strategy instanceof FWD_OPT) {
 			Resource res = strategy.loadResource(
 					"platform:/resource/../benchmarx/examples/familiestopersons/metamodels/Persons/model/Persons.ecore");

@@ -6,6 +6,7 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.ibex.tgg.operational.csp.constraints.factories.companytoit.UserDefinedRuntimeTGGAttrConstraintFactory;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.OperationalStrategy;
@@ -14,6 +15,8 @@ import org.emoflon.ibex.tgg.operational.strategies.opt.FWD_OPT;
 
 
 import CompanyLanguage.impl.CompanyLanguagePackageImpl;
+import CompanyToIT.CompanyToITPackage;
+import CompanyToIT.impl.CompanyToITPackageImpl;
 import ITLanguage.impl.ITLanguagePackageImpl;
 
 public class _RegistrationHelper {
@@ -23,6 +26,10 @@ public class _RegistrationHelper {
 		// Load and register source and target metamodels
 		CompanyLanguagePackageImpl.init();
 		ITLanguagePackageImpl.init();
+		CompanyToITPackageImpl.init();
+		
+		rs.getPackageRegistry().put("platform:/resource/CompanyToIT/model/CompanyToIT.ecore", CompanyToITPackage.eINSTANCE);
+		rs.getPackageRegistry().put("platform:/plugin/CompanyToIT/model/CompanyToIT.ecore", CompanyToITPackage.eINSTANCE);
 		
 		if(strategy instanceof FWD_OPT) {
 			// Load and register source and target metamodels
@@ -43,6 +50,8 @@ public class _RegistrationHelper {
 			res.setURI(URI.createURI(pack.getNsURI()));
 			rs.getResources().remove(res);
 		}
+		
+		EcoreUtil.resolveAll(rs);
 	}
 
 	/** Create default options **/

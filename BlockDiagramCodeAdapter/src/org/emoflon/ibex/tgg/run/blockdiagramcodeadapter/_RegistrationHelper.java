@@ -11,8 +11,9 @@ import org.emoflon.ibex.tgg.operational.strategies.OperationalStrategy;
 import org.emoflon.ibex.tgg.operational.strategies.opt.BWD_OPT;
 import org.emoflon.ibex.tgg.operational.strategies.opt.FWD_OPT;
 
-
 import BlockDiagram.impl.BlockDiagramPackageImpl;
+import BlockDiagramCodeAdapter.BlockDiagramCodeAdapterPackage;
+import BlockDiagramCodeAdapter.impl.BlockDiagramCodeAdapterPackageImpl;
 import MocaTree.impl.MocaTreePackageImpl;
 
 public class _RegistrationHelper {
@@ -23,6 +24,11 @@ public class _RegistrationHelper {
 		BlockDiagramPackageImpl.init();
 	    MocaTreePackageImpl.init();
 		
+	    BlockDiagramCodeAdapterPackageImpl.init();
+		
+		rs.getPackageRegistry().put("platform:/resource/BlockDiagramCodeAdapter/model/BlockDiagramCodeAdapter.ecore", BlockDiagramCodeAdapterPackage.eINSTANCE);
+		rs.getPackageRegistry().put("platform:/plugin/BlockDiagramCodeAdapter/model/BlockDiagramCodeAdapter.ecore", BlockDiagramCodeAdapterPackage.eINSTANCE);
+	    
 		if(strategy instanceof FWD_OPT) {
 			Resource res = strategy.loadResource("platform:/resource/BlockDiagram/model/BlockDiagram.ecore");
 			EPackage pack = (EPackage) res.getContents().get(0);

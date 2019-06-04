@@ -9,8 +9,9 @@ import org.emoflon.ibex.tgg.operational.strategies.OperationalStrategy;
 import org.emoflon.ibex.tgg.operational.strategies.opt.BWD_OPT;
 import org.emoflon.ibex.tgg.operational.strategies.opt.FWD_OPT;
 
-
 import BlockDiagram.impl.BlockDiagramPackageImpl;
+import BlockDiagramCodeAdapter_EdgeRules.BlockDiagramCodeAdapter_EdgeRulesPackage;
+import BlockDiagramCodeAdapter_EdgeRules.impl.BlockDiagramCodeAdapter_EdgeRulesPackageImpl;
 import MocaTree.impl.MocaTreePackageImpl;
 
 public class _RegistrationHelper {
@@ -20,6 +21,11 @@ public class _RegistrationHelper {
 		// Load and register source and target metamodels
 		BlockDiagramPackageImpl.init();
 		MocaTreePackageImpl.init();
+		
+		BlockDiagramCodeAdapter_EdgeRulesPackageImpl.init();
+		
+		rs.getPackageRegistry().put("platform:/resource/BlockDiagramCodeAdapter_EdgeRules/model/BlockDiagramCodeAdapter_EdgeRules.ecore", BlockDiagramCodeAdapter_EdgeRulesPackage.eINSTANCE);
+		rs.getPackageRegistry().put("platform:/plugin/BlockDiagramCodeAdapter_EdgeRules/model/BlockDiagramCodeAdapter_EdgeRules.ecore", BlockDiagramCodeAdapter_EdgeRulesPackage.eINSTANCE);
 		
 		if(strategy instanceof FWD_OPT) {
 		}

@@ -11,8 +11,9 @@ import org.emoflon.ibex.tgg.operational.strategies.OperationalStrategy;
 import org.emoflon.ibex.tgg.operational.strategies.opt.BWD_OPT;
 import org.emoflon.ibex.tgg.operational.strategies.opt.FWD_OPT;
 
-
 import MocaTree.impl.MocaTreePackageImpl;
+import MocaTreeToProcess.MocaTreeToProcessPackage;
+import MocaTreeToProcess.impl.MocaTreeToProcessPackageImpl;
 import ProcessDefinition.impl.ProcessDefinitionPackageImpl;
 
 public class _RegistrationHelper {
@@ -22,6 +23,11 @@ public class _RegistrationHelper {
 		// Load and register source and target metamodels
 		MocaTreePackageImpl.init();
 		ProcessDefinitionPackageImpl.init();
+		
+		MocaTreeToProcessPackageImpl.init();
+		
+		rs.getPackageRegistry().put("platform:/resource/MocaTreeToProcess/model/MocaTreeToProcess.ecore", MocaTreeToProcessPackage.eINSTANCE);
+		rs.getPackageRegistry().put("platform:/plugin/MocaTreeToProcess/model/MocaTreeToProcess.ecore", MocaTreeToProcessPackage.eINSTANCE);
 		
 		if(strategy instanceof FWD_OPT) {
 			Resource res = strategy.loadResource("platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore");
