@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:CompanyToIT="platform:/resource/CompanyToIT/model/CompanyToIT.ecore">
+  <CompanyToIT:CompanyToIT>
+    <source href="src.xmi#/"/>
+    <target href="trg.xmi#/"/>
+  </CompanyToIT:CompanyToIT>
+  <CompanyToIT:AdminToRouter>
+    <source href="src.xmi#//@admin.0"/>
+    <target href="trg.xmi#//@router.0"/>
+  </CompanyToIT:AdminToRouter>
+  <CompanyToIT:EmployeeToLaptop>
+    <source href="src.xmi#//@employee.0"/>
+    <target href="trg.xmi#//@network.0/@laptop.0"/>
+  </CompanyToIT:EmployeeToLaptop>
+  <CompanyToIT:EmployeeToLaptop>
+    <source href="src.xmi#//@employee.1"/>
+    <target href="trg.xmi#//@network.0/@laptop.1"/>
+  </CompanyToIT:EmployeeToLaptop>
+</xmi:XMI>
