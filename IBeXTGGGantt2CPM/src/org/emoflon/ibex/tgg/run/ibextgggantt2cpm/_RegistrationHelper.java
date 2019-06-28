@@ -17,6 +17,8 @@ public class _RegistrationHelper {
 
 	/** Load and register source and target metamodels */
 	public static void registerMetamodels(ResourceSet rs, OperationalStrategy strategy)  throws IOException {
+		DefaultRegistrationHelper.setWorkspaceRootDirectory(rs);
+		
 		EPackage cpmPack = CpmPackage.eINSTANCE;
 		EPackage ganttPack = GanttPackage.eINSTANCE;
 		
@@ -33,11 +35,6 @@ public class _RegistrationHelper {
 	
 	/** Create default options **/
 	public static IbexOptions createIbexOptions() {
-		IbexOptions options = new IbexOptions();
-		options.projectName("IBeXTGGGantt2CPM");
-		options.projectPath("IBeXTGGGantt2CPM");
-		options.debug(false);
-		options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
-		return options;
+		return DefaultRegistrationHelper.createIbexOptions();
 	}
 }

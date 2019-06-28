@@ -1,56 +1,23 @@
 package org.emoflon.ibex.tgg.run.blockcodeadapter;
 
 import java.io.IOException;
-
-import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.resource.Resource;
+	
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.emoflon.ibex.tgg.operational.csp.constraints.factories.blockcodeadapter.UserDefinedRuntimeTGGAttrConstraintFactory;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.OperationalStrategy;
-import org.emoflon.ibex.tgg.operational.strategies.opt.BWD_OPT;
-import org.emoflon.ibex.tgg.operational.strategies.opt.FWD_OPT;
-
-import BlockCodeAdapter.BlockCodeAdapterPackage;
-import BlockCodeAdapter.impl.BlockCodeAdapterPackageImpl;
-import BlockLanguage.impl.BlockLanguagePackageImpl;
-import MocaTree.impl.MocaTreePackageImpl;
+import org.emoflon.ibex.tgg.run.blockcodeadapter.DefaultRegistrationHelper;
 
 public class _RegistrationHelper {
 
 	/** Load and register source and target metamodels */
-	public static void registerMetamodels(ResourceSet rs, OperationalStrategy strategy)  throws IOException {
-		// Load and register source and target metamodels
-		BlockLanguagePackageImpl.init();
-		MocaTreePackageImpl.init();
-		
-		BlockCodeAdapterPackageImpl.init();
-		
-		rs.getPackageRegistry().put("platform:/resource/BlockCodeAdapter/model/BlockCodeAdapter.ecore", BlockCodeAdapterPackage.eINSTANCE);
-		rs.getPackageRegistry().put("platform:/plugin/BlockCodeAdapter/model/BlockCodeAdapter.ecore", BlockCodeAdapterPackage.eINSTANCE);
-		
-		if(strategy instanceof FWD_OPT) {
-			Resource res = strategy.loadResource("platform:/resource/BlockLanguage/model/BlockLanguage.ecore");
-			EPackage pack = (EPackage) res.getContents().get(0);
-			rs.getPackageRegistry().put("platform:/resource/BlockLanguage/model/BlockLanguage.ecore", pack);
-			rs.getPackageRegistry().put("platform:/plugin/BlockLanguage/model/BlockLanguage.ecore", pack);
-		}
-		
-		if(strategy instanceof BWD_OPT) {
-			Resource res = strategy.loadResource("platform:/resource/MocaTree/model/MocaTree.ecore");
-			EPackage pack = (EPackage) res.getContents().get(0);
-			rs.getPackageRegistry().put("platform:/resource/MocaTree/model/MocaTree.ecore", pack);
-			rs.getPackageRegistry().put("platform:/plugin/MocaTree/model/MocaTree.ecore", pack);
-		}
+	public static void registerMetamodels(ResourceSet rs, OperationalStrategy strategy) throws IOException {
+		// Replace to register generated code or handle other URI-related requirements
+		DefaultRegistrationHelper.registerMetamodels(rs, strategy);
 	}
-	
+
 	/** Create default options **/
 	public static IbexOptions createIbexOptions() {
-		IbexOptions options = new IbexOptions();
-		options.projectName("BlockCodeAdapter");
-		options.projectPath("BlockCodeAdapter");
-		options.debug(false);
-		options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
-		return options;
+		return DefaultRegistrationHelper.createIbexOptions();
 	}
 }

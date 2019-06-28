@@ -5,7 +5,6 @@ import java.io.IOException;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.emoflon.ibex.tgg.operational.csp.constraints.factories.benchmarxfamiliestopersons.UserDefinedRuntimeTGGAttrConstraintFactory;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.OperationalStrategy;
 import org.emoflon.ibex.tgg.operational.strategies.opt.BWD_OPT;
@@ -20,6 +19,8 @@ public class _RegistrationHelper {
 
 	/** Load and register source and target metamodels */
 	public static void registerMetamodels(ResourceSet rs, OperationalStrategy strategy)  throws IOException {
+		DefaultRegistrationHelper.setWorkspaceRootDirectory(rs);
+		
 		EPackage familyPack = null;
 		EPackage personsPack = null;
 
@@ -52,11 +53,6 @@ public class _RegistrationHelper {
 	
 	/** Create default options **/
 	public static IbexOptions createIbexOptions() {
-		IbexOptions options = new IbexOptions();
-		options.projectName("BenchmarxFamiliesToPersons");
-		options.projectPath("BenchmarxFamiliesToPersons");
-		options.debug(false);
-		options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
-		return options;
+		return DefaultRegistrationHelper.createIbexOptions();
 	}
 }
