@@ -2,50 +2,54 @@ package org.emoflon.ibex.tgg.run.java2doc;
 
 import java.io.IOException;
 
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
-import org.apache.log4j.BasicConfigurator;
-
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.INTEGRATE;
 import org.emoflon.ibex.tgg.runtime.engine.DemoclesTGGEngine;
 
 public class INTEGRATE_App extends INTEGRATE {
 
-	public INTEGRATE_App() throws IOException {
-		super(createIbexOptions());
+	private String initPath;
+
+	public INTEGRATE_App(String projectName, String workspacePath, String initPath, boolean debug) throws IOException {
+		super(createIbexOptions().projectName(projectName).workspacePath(workspacePath).debug(debug));
+		this.initPath = initPath;
 		registerBlackInterpreter(new DemoclesTGGEngine());
 	}
 
-	public static void main(String[] args) throws IOException {
-		BasicConfigurator.configure();
-		Logger.getRootLogger().setLevel(Level.INFO);
-
-		logger.info("Starting INTEGRATE");
-		long tic = System.currentTimeMillis();
-		INTEGRATE_App integrate = new INTEGRATE_App();
-		long toc = System.currentTimeMillis();
-		logger.info("Completed init for INTEGRATE in: " + (toc - tic) + " ms");
-		
-		tic = System.currentTimeMillis();
-		integrate.integrate();
-		toc = System.currentTimeMillis();
-		logger.info("Completed INTEGRATE in: " + (toc - tic) + " ms");
-		
-		integrate.saveModels();
-		integrate.terminate();
-	}
-	
-	
 	@Override
 	protected void registerUserMetamodels() throws IOException {
 		_RegistrationHelper.registerMetamodels(rs, this);
-			
+
 		// Register correspondence metamodel last
 		loadAndRegisterCorrMetamodel(options.projectPath() + "/model/" + options.projectName() + ".ecore");
 	}
-	
+
+	@Override
+	public void loadModels() throws IOException {
+		s = loadResource(options.projectPath() + initPath + "/src.xmi");
+		t = loadResource(options.projectPath() + initPath + "/trg.xmi");
+		c = loadResource(options.projectPath() + initPath + "/corr.xmi");
+		p = loadResource(options.projectPath() + initPath + "/protocol.xmi");
+		
+		changeURI(s, "/instances/src.xmi");
+		changeURI(t, "/instances/trg.xmi");
+		changeURI(c, "/instances/corr.xmi");
+		changeURI(p, "/instances/protocol.xmi");
+		
+		epg = createResource(options.projectPath() + "/instances/epg.xmi");
+		
+		EcoreUtil.resolveAll(rs);
+	}
+
 	private static IbexOptions createIbexOptions() {
 		return _RegistrationHelper.createIbexOptions();
+	}
+	
+	private void changeURI(Resource r, String path) {
+		URI uri = URI.createURI(options.projectPath() + path);
+		r.setURI(uri.resolve(base));
 	}
 }

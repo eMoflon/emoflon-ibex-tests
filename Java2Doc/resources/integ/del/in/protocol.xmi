@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:Java2Doc="platform:/resource/Java2Doc/model/Java2Doc.ecore">
+  <Java2Doc:Root2RootRule__Marker>
+    <CREATE__SRC__p href="src.xmi#/"/>
+    <CREATE__TRG__f href="trg.xmi#/"/>
+    <CREATE__CORR__p2f href="corr.xmi#/0"/>
+  </Java2Doc:Root2RootRule__Marker>
+  <Java2Doc:Sub2SubRule__Marker>
+    <CONTEXT__SRC__p href="src.xmi#/"/>
+    <CREATE__SRC__subP href="src.xmi#//@subPackages.0"/>
+    <CREATE__TRG__doc href="trg.xmi#//@subFolders.0/@docs.0"/>
+    <CONTEXT__TRG__f href="trg.xmi#/"/>
+    <CREATE__TRG__subF href="trg.xmi#//@subFolders.0"/>
+    <CONTEXT__CORR__p2f href="corr.xmi#/0"/>
+    <CREATE__CORR__sp2sf href="corr.xmi#/1"/>
+  </Java2Doc:Sub2SubRule__Marker>
+  <Java2Doc:Class2Doc__Marker>
+    <CREATE__SRC__c href="src.xmi#//@subPackages.0/@classes.0"/>
+    <CONTEXT__SRC__p href="src.xmi#//@subPackages.0"/>
+    <CREATE__TRG__doc href="trg.xmi#//@subFolders.0/@docs.1"/>
+    <CONTEXT__TRG__f href="trg.xmi#//@subFolders.0"/>
+    <CREATE__CORR__c2d href="corr.xmi#/2"/>
+    <CONTEXT__CORR__p2f href="corr.xmi#/1"/>
+  </Java2Doc:Class2Doc__Marker>
+  <Java2Doc:Sub2SubRule__Marker>
+    <CONTEXT__SRC__p href="src.xmi#//@subPackages.0"/>
+    <CREATE__SRC__subP href="src.xmi#//@subPackages.0/@subPackages.0"/>
+    <CREATE__TRG__doc href="trg.xmi#//@subFolders.0/@subFolders.0/@docs.0"/>
+    <CONTEXT__TRG__f href="trg.xmi#//@subFolders.0"/>
+    <CREATE__TRG__subF href="trg.xmi#//@subFolders.0/@subFolders.0"/>
+    <CONTEXT__CORR__p2f href="corr.xmi#/1"/>
+    <CREATE__CORR__sp2sf href="corr.xmi#/3"/>
+  </Java2Doc:Sub2SubRule__Marker>
+  <Java2Doc:Class2Doc__Marker>
+    <CREATE__SRC__c href="src.xmi#//@subPackages.0/@subPackages.0/@classes.0"/>
+    <CONTEXT__SRC__p href="src.xmi#//@subPackages.0/@subPackages.0"/>
+    <CREATE__TRG__doc href="trg.xmi#//@subFolders.0/@subFolders.0/@docs.1"/>
+    <CONTEXT__TRG__f href="trg.xmi#//@subFolders.0/@subFolders.0"/>
+    <CREATE__CORR__c2d href="corr.xmi#/4"/>
+    <CONTEXT__CORR__p2f href="corr.xmi#/3"/>
+  </Java2Doc:Class2Doc__Marker>
+  <Java2Doc:Sub2SubRule__Marker>
+    <CONTEXT__SRC__p href="src.xmi#//@subPackages.0/@subPackages.0"/>
+    <CREATE__SRC__subP href="src.xmi#//@subPackages.0/@subPackages.0/@subPackages.0"/>
+    <CREATE__TRG__doc href="trg.xmi#//@subFolders.0/@subFolders.0/@subFolders.0/@docs.0"/>
+    <CONTEXT__TRG__f href="trg.xmi#//@subFolders.0/@subFolders.0"/>
+    <CREATE__TRG__subF href="trg.xmi#//@subFolders.0/@subFolders.0/@subFolders.0"/>
+    <CONTEXT__CORR__p2f href="corr.xmi#/3"/>
+    <CREATE__CORR__sp2sf href="corr.xmi#/5"/>
+  </Java2Doc:Sub2SubRule__Marker>
+  <Java2Doc:Class2Doc__Marker>
+    <CREATE__SRC__c href="src.xmi#//@subPackages.0/@subPackages.0/@subPackages.0/@classes.0"/>
+    <CONTEXT__SRC__p href="src.xmi#//@subPackages.0/@subPackages.0/@subPackages.0"/>
+    <CREATE__TRG__doc href="trg.xmi#//@subFolders.0/@subFolders.0/@subFolders.0/@docs.1"/>
+    <CONTEXT__TRG__f href="trg.xmi#//@subFolders.0/@subFolders.0/@subFolders.0"/>
+    <CREATE__CORR__c2d href="corr.xmi#/6"/>
+    <CONTEXT__CORR__p2f href="corr.xmi#/5"/>
+  </Java2Doc:Class2Doc__Marker>
+  <Java2Doc:Sub2SubRule__Marker>
+    <CONTEXT__SRC__p href="src.xmi#//@subPackages.0"/>
+    <CREATE__SRC__subP href="src.xmi#//@subPackages.0/@subPackages.1"/>
+    <CREATE__TRG__doc href="trg.xmi#//@subFolders.0/@subFolders.1/@docs.0"/>
+    <CONTEXT__TRG__f href="trg.xmi#//@subFolders.0"/>
+    <CREATE__TRG__subF href="trg.xmi#//@subFolders.0/@subFolders.1"/>
+    <CONTEXT__CORR__p2f href="corr.xmi#/1"/>
+    <CREATE__CORR__sp2sf href="corr.xmi#/7"/>
+  </Java2Doc:Sub2SubRule__Marker>
+  <Java2Doc:Class2Doc__Marker>
+    <CREATE__SRC__c href="src.xmi#//@subPackages.0/@subPackages.1/@classes.0"/>
+    <CONTEXT__SRC__p href="src.xmi#//@subPackages.0/@subPackages.1"/>
+    <CREATE__TRG__doc href="trg.xmi#//@subFolders.0/@subFolders.1/@docs.1"/>
+    <CONTEXT__TRG__f href="trg.xmi#//@subFolders.0/@subFolders.1"/>
+    <CREATE__CORR__c2d href="corr.xmi#/8"/>
+    <CONTEXT__CORR__p2f href="corr.xmi#/7"/>
+  </Java2Doc:Class2Doc__Marker>
+</xmi:XMI>

@@ -1,6 +1,7 @@
 package testsuite.ibex.testUtil;
 
 import java.io.IOException;
+import java.util.Collection;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
@@ -18,15 +19,21 @@ import org.emoflon.ibex.tgg.operational.strategies.integrate.INTEGRATE;
 
 public abstract class IntegIbexAdapter<S extends EObject, T extends EObject> extends BXToolForEMF<S, T, Decisions> {
 
+	private static final String NOT_ALLOWED_MSG = "Not allowed for Integrate tests";
+
 	protected static final String RESULTPATH = "results/integibex";
 
 	protected String projectName;
 	protected INTEGRATE integrator;
 	protected Configurator<Decisions> configurator;
+	
+	protected CorrComparator corrComp;
 
 	public IntegIbexAdapter(Comparator<S> src, Comparator<T> trg, String projectName) {
 		super(src, trg);
 		this.projectName = projectName;
+		
+		this.corrComp = new CorrComparator();
 	}
 
 	@Override
@@ -36,34 +43,32 @@ public abstract class IntegIbexAdapter<S extends EObject, T extends EObject> ext
 
 	@Override
 	public void initiateSynchronisationDialogue() {
-		throw new UnsupportedOperationException("Not allowed for Integrate test");
+		throw new UnsupportedOperationException(NOT_ALLOWED_MSG);
 	}
 
 	@Override
 	public void terminateSynchronisationDialogue() {
-		throw new UnsupportedOperationException("Not allowed for Integrate test");
+		throw new UnsupportedOperationException(NOT_ALLOWED_MSG);
 	}
 
 	@Override
 	public void performAndPropagateSourceEdit(Consumer<S> edit) {
-		throw new UnsupportedOperationException("Not allowed for Integrate test");
-
+		throw new UnsupportedOperationException(NOT_ALLOWED_MSG);
 	}
 
 	@Override
 	public void performAndPropagateTargetEdit(Consumer<T> edit) {
-		throw new UnsupportedOperationException("Not allowed for Integrate test");
-
+		throw new UnsupportedOperationException(NOT_ALLOWED_MSG);
 	}
 
 	@Override
 	public void performIdleSourceEdit(Consumer<S> edit) {
-		throw new UnsupportedOperationException("Not allowed for Integrate test");
+		throw new UnsupportedOperationException(NOT_ALLOWED_MSG);
 	}
 
 	@Override
 	public void performIdleTargetEdit(Consumer<T> edit) {
-		throw new UnsupportedOperationException("Not allowed for Integrate test");
+		throw new UnsupportedOperationException(NOT_ALLOWED_MSG);
 	}
 
 	@Override
@@ -81,6 +86,10 @@ public abstract class IntegIbexAdapter<S extends EObject, T extends EObject> ext
 	@Override
 	public T getTargetModel() {
 		return (T) integrator.getTargetResource().getContents().get(0);
+	}
+
+	public Collection<EObject> getCorrs() {
+		return integrator.getCorrResource().getContents();
 	}
 
 	@Override
@@ -110,7 +119,7 @@ public abstract class IntegIbexAdapter<S extends EObject, T extends EObject> ext
 	public ResourceSet getResourceSet() {
 		return integrator.getResourceSet();
 	}
-
+	
 	abstract public void initiateIntegrationDialogue();
 
 	public void terminateIntegrationDialogue() {
@@ -122,7 +131,7 @@ public abstract class IntegIbexAdapter<S extends EObject, T extends EObject> ext
 			e.printStackTrace();
 		}
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public void applyAndIntegrateDelta(BiConsumer<S, T> delta) {
 		integrator.applyDelta((BiConsumer<EObject, EObject>) delta);
@@ -137,4 +146,9 @@ public abstract class IntegIbexAdapter<S extends EObject, T extends EObject> ext
 	public void applyIdleDelta(BiConsumer<S, T> delta) {
 		integrator.applyDelta((BiConsumer<EObject, EObject>) delta);
 	}
+	
+	public void assertConditionCorr(String corr) {
+		corrComp.assertEquals(corrComp.loadCorrElements(corr, getResourceSet()), getCorrs());
+	}
+	
 }
