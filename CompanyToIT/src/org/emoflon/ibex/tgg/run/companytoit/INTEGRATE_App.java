@@ -39,6 +39,8 @@ public class INTEGRATE_App extends INTEGRATE {
 		changeURI(c, "/instances/corr.xmi");
 		changeURI(p, "/instances/protocol.xmi");
 		
+		epg = createResource(options.projectPath() + "/instances/epg.xmi");
+		
 		EcoreUtil.resolveAll(rs);
 	}
 

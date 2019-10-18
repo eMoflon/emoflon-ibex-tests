@@ -37,7 +37,7 @@ public class Basic extends IntegrateTestCase<Company, IT> {
 	@Test
 	public void delete() {
 		tool.applyAndIntegrateDelta((c, it) -> {
-			EcoreUtil.delete((c).getAdmin().get(0), true);
+			EcoreUtil.delete(c.getAdmin().get(0), true);
 		});
 	}
 
@@ -48,6 +48,14 @@ public class Basic extends IntegrateTestCase<Company, IT> {
 			ceo.setName("SecondCEO");
 			ceo.getEmployee().add(c.getEmployee().get(0));
 			c.getCeo().add(ceo);
+		});
+	}
+	
+	@Test
+	public void modelChanges() {
+		tool.applyAndIntegrateDelta((c, it) -> {
+			c.getAdmin().get(0).setCeo(null);
+			c.setName("");
 		});
 	}
 
