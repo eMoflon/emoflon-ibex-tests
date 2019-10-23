@@ -27,7 +27,10 @@ Require-Bundle: org.gervarro.democles.common,
  org.sat4j.core,
  org.sat4j.pb,
  org.emoflon.ibex.tgg.ui.debug,
- org.emoflon.ibex.tgg.runtime.hipe;bundle-version="1.0.0"
+ org.emoflon.ibex.tgg.runtime.hipe;bundle-version="1.0.0",
+ org.emoflon.ibex.tgg.runtime.hipe,
+ MocaTree,
+ ProcessDefinition
 Bundle-ManifestVersion: 2
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8

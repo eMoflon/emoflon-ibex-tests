@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated VHDLTGGCodeAdapter -->
+      <package
+            uri="platform:/resource/VHDLTGGCodeAdapter/model/VHDLTGGCodeAdapter.ecore"
+            class="VHDLTGGCodeAdapter.VHDLTGGCodeAdapterPackage"
+            genModel="model/VHDLTGGCodeAdapter.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated VHDLTGGCodeAdapter -->
+      <package
+            uri="platform:/resource/MocaTree/model/MocaTree.ecore"
+            class="MocaTree.MocaTreePackage"
+            genModel="model/VHDLTGGCodeAdapter.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated VHDLTGGCodeAdapter -->
+      <package
+            uri="platform:/resource/VHDLModel/model/VHDLModel.ecore"
+            class="VHDLModel.VHDLModelPackage"
+            genModel="model/VHDLTGGCodeAdapter.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated VHDLTGGCodeAdapter -->
+      <package
+            uri="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore"
+            class="runtime.RuntimePackage"
+            genModel="model/VHDLTGGCodeAdapter.genmodel"/>
+   </extension>
+
+</plugin>

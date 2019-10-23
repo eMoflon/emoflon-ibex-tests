@@ -15,6 +15,7 @@ Bundle-ManifestVersion: 2
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-Vendor: eMoflon::IBeX Developers
-Import-Package: org.apache.log4j,org.apache.commons.logging
+Import-Package: org.apache.log4j,
+ org.apache.commons.logging
 Bundle-ClassPath: jars/,
  .
