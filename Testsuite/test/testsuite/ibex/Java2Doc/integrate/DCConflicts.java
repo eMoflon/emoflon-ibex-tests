@@ -43,6 +43,29 @@ public class DCConflicts extends IntegrateTestCase<Package, Folder> {
 	}
 	
 	@Test
+	public void chainDeleteCreate() {
+		tool.getOptions().setConflictSolver(c -> c.preserveConstructiveChanges());
+		tool.applyAndIntegrateDelta((p, f) -> {
+			// src:
+			EcoreUtil.delete(helperJava.getPackage(p, "emoflon"), true);
+			// trg:
+			helperDoc.createDoc(helperDoc.getFolder(f, "ibex"), "criticalfolder", "criticalbody");
+		});
+	}
+	
+	@Test
+	public void chainMultiDeleteCreate() {
+		tool.getOptions().setConflictSolver(c -> c.preserveConstructiveChanges());
+		tool.applyAndIntegrateDelta((p, f) -> {
+			// src:
+			EcoreUtil.delete(helperJava.getPackage(p, "ibex"), true);
+			EcoreUtil.delete(helperJava.getPackage(p, "es"), true);
+			// trg:
+			helperDoc.createDoc(helperDoc.getFolder(f, "ibex"), "criticalfolder", "criticalbody");
+		});
+	}
+	
+	@Test
 	public void move() {
 		tool.applyAndIntegrateDelta((p, f) -> {
 			// trg:

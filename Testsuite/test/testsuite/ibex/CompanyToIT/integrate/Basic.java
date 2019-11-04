@@ -46,8 +46,8 @@ public class Basic extends IntegrateTestCase<Company, IT> {
 		tool.applyAndIntegrateDelta((c, it) -> {
 			CEO ceo = CompanyLanguageFactory.eINSTANCE.createCEO();
 			ceo.setName("SecondCEO");
-			ceo.getEmployee().add(c.getEmployee().get(0));
 			c.getCeo().add(ceo);
+			ceo.getEmployee().add(c.getEmployee().get(0));
 		});
 	}
 	

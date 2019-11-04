@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
+import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.INTEGRATE;
 
 public abstract class IntegIbexAdapter<S extends EObject, T extends EObject> extends BXToolForEMF<S, T, Decisions> {
@@ -90,6 +91,10 @@ public abstract class IntegIbexAdapter<S extends EObject, T extends EObject> ext
 
 	public Collection<EObject> getCorrs() {
 		return integrator.getCorrResource().getContents();
+	}
+
+	public IbexOptions getOptions() {
+		return integrator.getOptions();
 	}
 
 	@Override

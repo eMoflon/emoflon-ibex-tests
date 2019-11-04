@@ -10,7 +10,7 @@ public abstract class IntegrateTestCase<S extends EObject, T extends EObject> ex
 	private final String resourcePath = "../../" + getProjectName() + "/resources/";
 
 	protected IntegIbexAdapter<S, T> tool;
-	protected BenchmarxUtil<S, T, Decisions> util;
+	private BenchmarxUtil<S, T, Decisions> util;
 
 	public IntegrateTestCase(IntegIbexAdapter<S, T> tool) {
 		this.tool = tool;
