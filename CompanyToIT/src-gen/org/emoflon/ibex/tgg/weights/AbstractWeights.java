@@ -1,5 +1,10 @@
 package org.emoflon.ibex.tgg.weights;
 
+import org.emoflon.ibex.common.operational.IMatch;
+import org.emoflon.ibex.tgg.operational.matches.ITGGMatch;
+import org.emoflon.ibex.tgg.operational.strategies.IWeightCalculationStrategy;
+import org.emoflon.ibex.tgg.operational.strategies.opt.OPT;
+
 import CompanyLanguage.Admin;
 import CompanyLanguage.CEO;
 import CompanyLanguage.Company;
@@ -9,9 +14,6 @@ import ITLanguage.Laptop;
 import ITLanguage.Network;
 import ITLanguage.PC;
 import ITLanguage.Router;
-import org.emoflon.ibex.tgg.operational.matches.IMatch;
-import org.emoflon.ibex.tgg.operational.strategies.IWeightCalculationStrategy;
-import org.emoflon.ibex.tgg.operational.strategies.opt.OPT;
 
 /**
  * This abstract class defines the api for the calculation of weights of found matches and provides the necessary logic to invoke them.

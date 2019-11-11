@@ -3,7 +3,7 @@ package testsuite.ibex.performance.run;
 import java.io.IOException;
 
 import org.emoflon.ibex.tgg.compiler.patterns.PatternSuffixes;
-import org.emoflon.ibex.tgg.operational.matches.IMatch;
+import org.emoflon.ibex.tgg.operational.matches.ITGGMatch;
 import org.emoflon.ibex.tgg.operational.patterns.IGreenPattern;
 
 /**
@@ -28,7 +28,7 @@ public class Initial_SYNC_App extends SYNC_App {
 	}
 	
 	@Override
-	protected void createMarkers(IGreenPattern greenPattern, IMatch comatch, String ruleName) {
+	protected void createMarkers(IGreenPattern greenPattern, ITGGMatch comatch, String ruleName) {
 		// Markers are not required anymore
 	}
 }
