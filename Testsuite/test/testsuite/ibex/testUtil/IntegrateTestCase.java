@@ -45,6 +45,7 @@ public abstract class IntegrateTestCase<S extends EObject, T extends EObject> ex
 
 	protected void assertCondition(String src, String trg, String corr) {
 		util.assertPostcondition(tool.getResourceSet(), resourcePath + src, resourcePath + trg);
+		// TODO adrianm: fix corr comparison
 //		tool.assertConditionCorr(resourcePath + corr);
 	}
 

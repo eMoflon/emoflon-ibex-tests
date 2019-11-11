@@ -59,5 +59,13 @@ public class Del extends IntegrateTestCase<Package, Folder> {
 
 		assertCondition(path + "src", path + "trg", path + "corr");
 	}
+	
+	@Test
+	public void del_brokenMatchPropagation() {
+		tool.applyAndIntegrateDelta((p, f) -> {
+			// trg:
+			EcoreUtil.delete(helperDoc.getDoc(f, "es_doc"), true);
+		});
+	}
 
 }
