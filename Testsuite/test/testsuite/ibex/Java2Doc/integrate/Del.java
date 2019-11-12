@@ -61,11 +61,13 @@ public class Del extends IntegrateTestCase<Package, Folder> {
 	}
 	
 	@Test
-	public void del_brokenMatchPropagation() {
+	public void del_propagation() {
 		tool.applyAndIntegrateDelta((p, f) -> {
 			// trg:
 			EcoreUtil.delete(helperDoc.getDoc(f, "es_doc"), true);
 		});
+		
+		// TODO adrianm: add assertion
 	}
 
 }

@@ -20,7 +20,7 @@ public class IntegIbexJava2Doc extends IntegIbexAdapter<Package, Folder> {
 	public void initiateIntegrationDialogue() {
 		try {
 			integrator = new INTEGRATE_App(projectName,
-					testsuite.ibex.performance.util.PerformanceConstants.workspacePath, "/resources/integ/del/in",
+					testsuite.ibex.performance.util.PerformanceConstants.workspacePath, "/resources/integ/in",
 					false);
 		} catch (IOException e) {
 			e.printStackTrace();
