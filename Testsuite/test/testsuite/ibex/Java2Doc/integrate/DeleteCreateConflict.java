@@ -89,7 +89,7 @@ public class DeleteCreateConflict extends IntegrateTestCase<Package, Folder> {
 
 		assertCondition(path + "src", path + "trg", path + "corr");
 	}
-	
+
 	@Test
 	public void dcc_chain2() {
 		final String path = testpath + "dcc_chain2/";
@@ -99,7 +99,7 @@ public class DeleteCreateConflict extends IntegrateTestCase<Package, Folder> {
 
 		assertCondition(path + "src", path + "trg", path + "corr");
 	}
-	
+
 	@Test
 	public void dcc_chain3() {
 		final String path = testpath + "dcc_chain3/";
@@ -110,16 +110,44 @@ public class DeleteCreateConflict extends IntegrateTestCase<Package, Folder> {
 		assertCondition(path + "src", path + "trg", path + "corr");
 	}
 
+	private final BiConsumer<Package, Folder> dcc_chainMultiDel_delta = (p, f) -> {
+		// src:
+		EcoreUtil.delete(helperJava.getPackage(p, "ibex"), true);
+		EcoreUtil.delete(helperJava.getClass(p, "TGG"), true);
+		EcoreUtil.delete(helperJava.getPackage(p, "cmoflon"), true);
+		EcoreUtil.delete(helperJava.getPackage(p, "es"), true);
+		// trg:
+		helperDoc.createDoc(helperDoc.getFolder(f, "ibex"), "criticalfolder", "criticalbody");
+	};
+
 	@Test
-	public void chainMultiDeleteCreate() {
+	public void dcc_chainMultiDel1() {
+		final String path = testpath + "dcc_chainMultiDel1/";
+		
+		tool.getOptions().setConflictSolver(c -> c.preserveDeletion());
+		tool.applyAndIntegrateDelta(dcc_chainMultiDel_delta);
+		
+		assertCondition(path + "src", path + "trg", path + "corr");
+	}
+	
+	@Test
+	public void dcc_chainMultiDel2() {
+		final String path = testpath + "dcc_chainMultiDel2/";
+		
+		tool.getOptions().setConflictSolver(c -> c.revokeDeletion());
+		tool.applyAndIntegrateDelta(dcc_chainMultiDel_delta);
+		
+		assertCondition(path + "src", path + "trg", path + "corr");
+	}
+	
+	@Test
+	public void dcc_chainMultiDel3() {
+		final String path = testpath + "dcc_chainMultiDel3/";
+		
 		tool.getOptions().setConflictSolver(c -> c.preserveConstructiveChanges());
-		tool.applyAndIntegrateDelta((p, f) -> {
-			// src:
-			EcoreUtil.delete(helperJava.getPackage(p, "ibex"), true);
-			EcoreUtil.delete(helperJava.getPackage(p, "es"), true);
-			// trg:
-			helperDoc.createDoc(helperDoc.getFolder(f, "ibex"), "criticalfolder", "criticalbody");
-		});
+		tool.applyAndIntegrateDelta(dcc_chainMultiDel_delta);
+		
+		assertCondition(path + "src", path + "trg", path + "corr");
 	}
 
 	@Test
