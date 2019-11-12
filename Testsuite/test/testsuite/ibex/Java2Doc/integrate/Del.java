@@ -34,7 +34,7 @@ public class Del extends IntegrateTestCase<Package, Folder> {
 
 	@Test
 	public void del_simple() {
-		final String path = "integ/del/expected/del_single/";
+		final String path = "integ/expected/del/del_single/";
 		
 		tool.applyAndIntegrateDelta((p, f) -> {
 			// src:
@@ -48,7 +48,7 @@ public class Del extends IntegrateTestCase<Package, Folder> {
 
 	@Test
 	public void del_multiple() {
-		final String path = "integ/del/expected/del_multiple/";
+		final String path = "integ/expected/del/del_multiple/";
 		
 		tool.applyAndIntegrateDelta((p, f) -> {
 			// src:

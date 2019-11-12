@@ -33,7 +33,7 @@ public class DeleteCreateConflict extends IntegrateTestCase<Package, Folder> {
 	protected String getProjectName() {
 		return projectName;
 	}
-	
+
 	private BiConsumer<Package, Folder> dcc_simple_delta = (p, f) -> {
 		// src:
 		EcoreUtil.delete(helperJava.getPackage(p, "cmoflon"), true);
@@ -43,27 +43,27 @@ public class DeleteCreateConflict extends IntegrateTestCase<Package, Folder> {
 
 	@Test
 	public void dcc_simple1() {
-		final String path = "integ/dcc/expected/dcc_simple1/";
+		final String path = "integ/expected/dcc/dcc_simple1/";
 
 		tool.getOptions().setConflictSolver(c -> c.preserveDeletion());
 		tool.applyAndIntegrateDelta(dcc_simple_delta);
 
 		assertCondition(path + "src", path + "trg", path + "corr");
 	}
-	
+
 	@Test
 	public void dcc_simple2() {
-		final String path = "integ/dcc/expected/dcc_simple2/";
+		final String path = "integ/expected/dcc/dcc_simple2/";
 
 		tool.getOptions().setConflictSolver(c -> c.revokeDeletion());
 		tool.applyAndIntegrateDelta(dcc_simple_delta);
 
 		assertCondition(path + "src", path + "trg", path + "corr");
 	}
-	
+
 	@Test
 	public void dcc_simple3() {
-		final String path = "integ/dcc/expected/dcc_simple3/";
+		final String path = "integ/expected/dcc/dcc_simple3/";
 
 		tool.getOptions().setConflictSolver(c -> c.preserveConstructiveChanges());
 		tool.applyAndIntegrateDelta(dcc_simple_delta);
