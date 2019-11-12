@@ -34,7 +34,9 @@ public class DeleteCreateConflict extends IntegrateTestCase<Package, Folder> {
 		return projectName;
 	}
 
-	private BiConsumer<Package, Folder> dcc_simple_delta = (p, f) -> {
+	private final String testpath = "integ/expected/dcc/";
+
+	private final BiConsumer<Package, Folder> dcc_simple_delta = (p, f) -> {
 		// src:
 		EcoreUtil.delete(helperJava.getPackage(p, "cmoflon"), true);
 		// trg:
@@ -43,7 +45,7 @@ public class DeleteCreateConflict extends IntegrateTestCase<Package, Folder> {
 
 	@Test
 	public void dcc_simple1() {
-		final String path = "integ/expected/dcc/dcc_simple1/";
+		final String path = testpath + "dcc_simple1/";
 
 		tool.getOptions().setConflictSolver(c -> c.preserveDeletion());
 		tool.applyAndIntegrateDelta(dcc_simple_delta);
@@ -53,7 +55,7 @@ public class DeleteCreateConflict extends IntegrateTestCase<Package, Folder> {
 
 	@Test
 	public void dcc_simple2() {
-		final String path = "integ/expected/dcc/dcc_simple2/";
+		final String path = testpath + "dcc_simple2/";
 
 		tool.getOptions().setConflictSolver(c -> c.revokeDeletion());
 		tool.applyAndIntegrateDelta(dcc_simple_delta);
@@ -63,7 +65,7 @@ public class DeleteCreateConflict extends IntegrateTestCase<Package, Folder> {
 
 	@Test
 	public void dcc_simple3() {
-		final String path = "integ/expected/dcc/dcc_simple3/";
+		final String path = testpath + "dcc_simple3/";
 
 		tool.getOptions().setConflictSolver(c -> c.preserveConstructiveChanges());
 		tool.applyAndIntegrateDelta(dcc_simple_delta);
@@ -71,15 +73,41 @@ public class DeleteCreateConflict extends IntegrateTestCase<Package, Folder> {
 		assertCondition(path + "src", path + "trg", path + "corr");
 	}
 
+	private final BiConsumer<Package, Folder> dcc_chain_delta = (p, f) -> {
+		// src:
+		EcoreUtil.delete(helperJava.getPackage(p, "emoflon"), true);
+		// trg:
+		helperDoc.createDoc(helperDoc.getFolder(f, "ibex"), "criticalfolder", "criticalbody");
+	};
+
 	@Test
-	public void chainDeleteCreate() {
+	public void dcc_chain1() {
+		final String path = testpath + "dcc_chain1/";
+
+		tool.getOptions().setConflictSolver(c -> c.preserveDeletion());
+		tool.applyAndIntegrateDelta(dcc_chain_delta);
+
+		assertCondition(path + "src", path + "trg", path + "corr");
+	}
+	
+	@Test
+	public void dcc_chain2() {
+		final String path = testpath + "dcc_chain2/";
+
+		tool.getOptions().setConflictSolver(c -> c.revokeDeletion());
+		tool.applyAndIntegrateDelta(dcc_chain_delta);
+
+		assertCondition(path + "src", path + "trg", path + "corr");
+	}
+	
+	@Test
+	public void dcc_chain3() {
+		final String path = testpath + "dcc_chain3/";
+
 		tool.getOptions().setConflictSolver(c -> c.preserveConstructiveChanges());
-		tool.applyAndIntegrateDelta((p, f) -> {
-			// src:
-			EcoreUtil.delete(helperJava.getPackage(p, "emoflon"), true);
-			// trg:
-			helperDoc.createDoc(helperDoc.getFolder(f, "ibex"), "criticalfolder", "criticalbody");
-		});
+		tool.applyAndIntegrateDelta(dcc_chain_delta);
+
+		assertCondition(path + "src", path + "trg", path + "corr");
 	}
 
 	@Test
