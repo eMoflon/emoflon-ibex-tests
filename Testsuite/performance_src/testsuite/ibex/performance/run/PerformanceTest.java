@@ -9,7 +9,6 @@ import java.util.concurrent.TimeoutException;
 import java.util.function.Supplier;
 
 import org.emoflon.ibex.tgg.operational.strategies.OperationalStrategy;
-import org.emoflon.ibex.tgg.runtime.engine.DemoclesTGGEngine;
 
 import testsuite.ibex.performance.util.Operationalization;
 import testsuite.ibex.performance.util.PerformanceConstants;

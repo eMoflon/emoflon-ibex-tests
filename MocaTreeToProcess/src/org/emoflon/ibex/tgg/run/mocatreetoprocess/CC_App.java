@@ -5,8 +5,7 @@ import java.io.IOException;
 import org.apache.log4j.BasicConfigurator;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.opt.cc.CC;
-
-import org.emoflon.ibex.tgg.runtime.engine.DemoclesTGGEngine;
+import org.emoflon.ibex.tgg.run.mocatreetoprocess.config._DefaultRegistrationHelper;
 
 public class CC_App extends CC {
 
@@ -33,13 +32,13 @@ public class CC_App extends CC {
 
 	@Override
 	protected void registerUserMetamodels() throws IOException {
-		_RegistrationHelper.registerMetamodels(rs, this);
+		_DefaultRegistrationHelper.registerMetamodels(rs, this);
 			
 		// Register correspondence metamodel last
 		loadAndRegisterCorrMetamodel(options.projectPath() + "/model/" + options.projectName() + ".ecore");
 	}
 	
 	private static IbexOptions createIbexOptions() {
-		return _RegistrationHelper.createIbexOptions();
+		return _DefaultRegistrationHelper.createIbexOptions();
 	}
 }

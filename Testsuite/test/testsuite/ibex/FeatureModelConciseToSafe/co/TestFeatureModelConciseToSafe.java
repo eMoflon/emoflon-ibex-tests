@@ -4,10 +4,10 @@ import java.io.IOException;
 
 import org.emoflon.ibex.tgg.run.featuremodelconcisetosafe.BWD_OPT_App;
 import org.emoflon.ibex.tgg.run.featuremodelconcisetosafe.CO_App;
+import org.emoflon.ibex.tgg.run.featuremodelconcisetosafe.FWD_OPT_App;
 import org.junit.Assert;
 import org.junit.Test;
 
-import org.emoflon.ibex.tgg.run.featuremodelconcisetosafe.FWD_OPT_App;
 import testsuite.ibex.testUtil.COTestCase;
 
 public class TestFeatureModelConciseToSafe extends COTestCase {

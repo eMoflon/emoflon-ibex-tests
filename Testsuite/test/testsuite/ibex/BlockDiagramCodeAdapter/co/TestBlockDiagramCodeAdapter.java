@@ -2,9 +2,9 @@ package testsuite.ibex.BlockDiagramCodeAdapter.co;
 
 import java.io.IOException;
 
-import org.emoflon.ibex.tgg.run.blockdiagramcodeadapter.FWD_OPT_App;
 import org.emoflon.ibex.tgg.run.blockdiagramcodeadapter.BWD_OPT_App;
 import org.emoflon.ibex.tgg.run.blockdiagramcodeadapter.CO_App;
+import org.emoflon.ibex.tgg.run.blockdiagramcodeadapter.FWD_OPT_App;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;

@@ -31,13 +31,13 @@ public interface SimpleJavaFactory extends EFactory {
 	Package createPackage();
 
 	/**
-	 * Returns a new object of class '<em>Class</em>'.
+	 * Returns a new object of class '<em>Clazz</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Class</em>'.
+	 * @return a new object of class '<em>Clazz</em>'.
 	 * @generated
 	 */
-	Class createClass();
+	Clazz createClazz();
 
 	/**
 	 * Returns the package supported by this factory.

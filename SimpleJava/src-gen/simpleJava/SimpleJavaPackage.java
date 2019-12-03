@@ -67,13 +67,13 @@ public interface SimpleJavaPackage extends EPackage {
 	int PACKAGE = 0;
 
 	/**
-	 * The feature id for the '<em><b>Classes</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Clazzes</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__CLASSES = 0;
+	int PACKAGE__CLAZZES = 0;
 
 	/**
 	 * The feature id for the '<em><b>Sub Packages</b></em>' containment reference list.
@@ -121,14 +121,14 @@ public interface SimpleJavaPackage extends EPackage {
 	int PACKAGE_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link simpleJava.impl.ClassImpl <em>Class</em>}' class.
+	 * The meta object id for the '{@link simpleJava.impl.ClazzImpl <em>Clazz</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see simpleJava.impl.ClassImpl
-	 * @see simpleJava.impl.SimpleJavaPackageImpl#getClass_()
+	 * @see simpleJava.impl.ClazzImpl
+	 * @see simpleJava.impl.SimpleJavaPackageImpl#getClazz()
 	 * @generated
 	 */
-	int CLASS = 1;
+	int CLAZZ = 1;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -137,7 +137,7 @@ public interface SimpleJavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS__NAME = 0;
+	int CLAZZ__NAME = 0;
 
 	/**
 	 * The feature id for the '<em><b>Body</b></em>' attribute.
@@ -146,25 +146,25 @@ public interface SimpleJavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS__BODY = 1;
+	int CLAZZ__BODY = 1;
 
 	/**
-	 * The number of structural features of the '<em>Class</em>' class.
+	 * The number of structural features of the '<em>Clazz</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS_FEATURE_COUNT = 2;
+	int CLAZZ_FEATURE_COUNT = 2;
 
 	/**
-	 * The number of operations of the '<em>Class</em>' class.
+	 * The number of operations of the '<em>Clazz</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS_OPERATION_COUNT = 0;
+	int CLAZZ_OPERATION_COUNT = 0;
 
 	/**
 	 * Returns the meta object for class '{@link simpleJava.Package <em>Package</em>}'.
@@ -177,15 +177,15 @@ public interface SimpleJavaPackage extends EPackage {
 	EClass getPackage();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link simpleJava.Package#getClasses <em>Classes</em>}'.
+	 * Returns the meta object for the containment reference list '{@link simpleJava.Package#getClazzes <em>Clazzes</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Classes</em>'.
-	 * @see simpleJava.Package#getClasses()
+	 * @return the meta object for the containment reference list '<em>Clazzes</em>'.
+	 * @see simpleJava.Package#getClazzes()
 	 * @see #getPackage()
 	 * @generated
 	 */
-	EReference getPackage_Classes();
+	EReference getPackage_Clazzes();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link simpleJava.Package#getSubPackages <em>Sub Packages</em>}'.
@@ -221,36 +221,36 @@ public interface SimpleJavaPackage extends EPackage {
 	EAttribute getPackage_FullQualifier();
 
 	/**
-	 * Returns the meta object for class '{@link simpleJava.Class <em>Class</em>}'.
+	 * Returns the meta object for class '{@link simpleJava.Clazz <em>Clazz</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Class</em>'.
-	 * @see simpleJava.Class
+	 * @return the meta object for class '<em>Clazz</em>'.
+	 * @see simpleJava.Clazz
 	 * @generated
 	 */
-	EClass getClass_();
+	EClass getClazz();
 
 	/**
-	 * Returns the meta object for the attribute '{@link simpleJava.Class#getName <em>Name</em>}'.
+	 * Returns the meta object for the attribute '{@link simpleJava.Clazz#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see simpleJava.Class#getName()
-	 * @see #getClass_()
+	 * @see simpleJava.Clazz#getName()
+	 * @see #getClazz()
 	 * @generated
 	 */
-	EAttribute getClass_Name();
+	EAttribute getClazz_Name();
 
 	/**
-	 * Returns the meta object for the attribute '{@link simpleJava.Class#getBody <em>Body</em>}'.
+	 * Returns the meta object for the attribute '{@link simpleJava.Clazz#getBody <em>Body</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Body</em>'.
-	 * @see simpleJava.Class#getBody()
-	 * @see #getClass_()
+	 * @see simpleJava.Clazz#getBody()
+	 * @see #getClazz()
 	 * @generated
 	 */
-	EAttribute getClass_Body();
+	EAttribute getClazz_Body();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -286,12 +286,12 @@ public interface SimpleJavaPackage extends EPackage {
 		EClass PACKAGE = eINSTANCE.getPackage();
 
 		/**
-		 * The meta object literal for the '<em><b>Classes</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Clazzes</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PACKAGE__CLASSES = eINSTANCE.getPackage_Classes();
+		EReference PACKAGE__CLAZZES = eINSTANCE.getPackage_Clazzes();
 
 		/**
 		 * The meta object literal for the '<em><b>Sub Packages</b></em>' containment reference list feature.
@@ -318,14 +318,14 @@ public interface SimpleJavaPackage extends EPackage {
 		EAttribute PACKAGE__FULL_QUALIFIER = eINSTANCE.getPackage_FullQualifier();
 
 		/**
-		 * The meta object literal for the '{@link simpleJava.impl.ClassImpl <em>Class</em>}' class.
+		 * The meta object literal for the '{@link simpleJava.impl.ClazzImpl <em>Clazz</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see simpleJava.impl.ClassImpl
-		 * @see simpleJava.impl.SimpleJavaPackageImpl#getClass_()
+		 * @see simpleJava.impl.ClazzImpl
+		 * @see simpleJava.impl.SimpleJavaPackageImpl#getClazz()
 		 * @generated
 		 */
-		EClass CLASS = eINSTANCE.getClass_();
+		EClass CLAZZ = eINSTANCE.getClazz();
 
 		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -333,7 +333,7 @@ public interface SimpleJavaPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute CLASS__NAME = eINSTANCE.getClass_Name();
+		EAttribute CLAZZ__NAME = eINSTANCE.getClazz_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Body</b></em>' attribute feature.
@@ -341,7 +341,7 @@ public interface SimpleJavaPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute CLASS__BODY = eINSTANCE.getClass_Body();
+		EAttribute CLAZZ__BODY = eINSTANCE.getClazz_Body();
 
 	}
 

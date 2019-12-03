@@ -6,7 +6,7 @@ import org.apache.log4j.BasicConfigurator;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.opt.BWD_OPT;
-import org.emoflon.ibex.tgg.runtime.engine.DemoclesTGGEngine;
+import org.emoflon.ibex.tgg.run.blockcodeadapter.config._DefaultRegistrationHelper;
 import org.emoflon.ibex.tgg.util.ilp.ILPFactory.SupportedILPSolver;
 
 public class BWD_OPT_App extends BWD_OPT {
@@ -44,7 +44,7 @@ public class BWD_OPT_App extends BWD_OPT {
 
 	@Override
 	protected void registerUserMetamodels() throws IOException {
-		_RegistrationHelper.registerMetamodels(rs, this);
+		_DefaultRegistrationHelper.registerMetamodels(rs, this);
 			
 		// Register correspondence metamodel last
 		loadAndRegisterCorrMetamodel(options.projectPath() + "/model/" + options.projectName() + ".ecore");
@@ -61,6 +61,6 @@ public class BWD_OPT_App extends BWD_OPT {
 	}
 	
 	private static IbexOptions createIbexOptions() {
-		return _RegistrationHelper.createIbexOptions();
+		return _DefaultRegistrationHelper.createIbexOptions();
 	}
 }

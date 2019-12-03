@@ -6,8 +6,7 @@ import org.apache.log4j.BasicConfigurator;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.opt.FWD_OPT;
-
-import org.emoflon.ibex.tgg.runtime.engine.DemoclesTGGEngine;
+import org.emoflon.ibex.tgg.run.familiestopersons_v0.config._DefaultRegistrationHelper;
 
 public class FWD_OPT_App extends FWD_OPT {
 
@@ -44,7 +43,7 @@ public class FWD_OPT_App extends FWD_OPT {
 
 	@Override
 	protected void registerUserMetamodels() throws IOException {
-		_RegistrationHelper.registerMetamodels(rs, this);
+		_DefaultRegistrationHelper.registerMetamodels(rs, this);
 			
 		// Register correspondence metamodel last
 		loadAndRegisterCorrMetamodel(options.projectPath() + "/model/" + options.projectName() + ".ecore");
@@ -61,6 +60,6 @@ public class FWD_OPT_App extends FWD_OPT {
 	}
 	
 	private static IbexOptions createIbexOptions() {
-		return _RegistrationHelper.createIbexOptions();
+		return _DefaultRegistrationHelper.createIbexOptions();
 	}
 }

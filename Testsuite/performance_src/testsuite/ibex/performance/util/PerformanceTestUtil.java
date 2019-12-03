@@ -45,7 +45,6 @@ import classMultipleInheritanceHierarchy.impl.ClassMultipleInheritanceHierarchyP
 import language.TGG;
 import language.TGGRule;
 import language.TGGRuleEdge;
-import testsuite.ibex.performance.util.Operationalization;
 
 public class PerformanceTestUtil {
 

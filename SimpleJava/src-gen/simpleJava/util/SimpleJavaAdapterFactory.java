@@ -9,6 +9,7 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 
 import org.eclipse.emf.ecore.EObject;
 
+import simpleJava.Clazz;
 import simpleJava.SimpleJavaPackage;
 
 /**
@@ -72,8 +73,8 @@ public class SimpleJavaAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseClass(simpleJava.Class object) {
-			return createClassAdapter();
+		public Adapter caseClazz(Clazz object) {
+			return createClazzAdapter();
 		}
 
 		@Override
@@ -110,16 +111,16 @@ public class SimpleJavaAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link simpleJava.Class <em>Class</em>}'.
+	 * Creates a new adapter for an object of class '{@link simpleJava.Clazz <em>Clazz</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see simpleJava.Class
+	 * @see simpleJava.Clazz
 	 * @generated
 	 */
-	public Adapter createClassAdapter() {
+	public Adapter createClazzAdapter() {
 		return null;
 	}
 

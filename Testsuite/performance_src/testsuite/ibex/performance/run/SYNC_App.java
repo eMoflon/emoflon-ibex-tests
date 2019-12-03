@@ -3,8 +3,8 @@ package testsuite.ibex.performance.run;
 import java.io.IOException;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.emoflon.ibex.tgg.operational.strategies.sync.SYNC;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
+import org.emoflon.ibex.tgg.operational.strategies.sync.SYNC;
 
 import testsuite.ibex.performance.util.PerformanceTestUtil;
 

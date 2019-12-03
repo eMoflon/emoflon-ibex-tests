@@ -2,9 +2,9 @@ package testsuite.ibex.VHDLTGGCodeAdapter.co;
 
 import java.io.IOException;
 
-import org.emoflon.ibex.tgg.run.vhdltggcodeadapter.FWD_OPT_App;
 import org.emoflon.ibex.tgg.run.vhdltggcodeadapter.BWD_OPT_App;
 import org.emoflon.ibex.tgg.run.vhdltggcodeadapter.CO_App;
+import org.emoflon.ibex.tgg.run.vhdltggcodeadapter.FWD_OPT_App;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;

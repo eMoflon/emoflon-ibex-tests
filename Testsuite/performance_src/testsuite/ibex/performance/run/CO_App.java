@@ -6,7 +6,6 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.opt.CO;
 
-
 import testsuite.ibex.performance.util.PerformanceTestUtil;
 
 public class CO_App extends CO {

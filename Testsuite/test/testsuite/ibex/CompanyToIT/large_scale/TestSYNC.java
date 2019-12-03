@@ -6,8 +6,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.sync.SYNC;
 import org.emoflon.ibex.tgg.run.companytoit.CO_App;
-import org.emoflon.ibex.tgg.run.vhdltggcodeadapter._RegistrationHelper;
-import org.emoflon.ibex.tgg.runtime.engine.DemoclesTGGEngine;
+import org.emoflon.ibex.tgg.run.vhdltggcodeadapter.config._DefaultRegistrationHelper;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -122,7 +121,7 @@ public class TestSYNC extends CompleteSyncTestCase {
 	 * Create options for FWD_App and BWD_App
 	 */
 	private static IbexOptions createIbexOptions() {
-		return _RegistrationHelper.createIbexOptions();
+		return _DefaultRegistrationHelper.createIbexOptions();
 	}
 	
 	public void createGenerator(String srcInstance, String trgInstance, String corrInstance, String protInstance) throws IOException {

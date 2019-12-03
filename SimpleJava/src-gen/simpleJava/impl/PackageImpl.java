@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import simpleJava.Clazz;
 import simpleJava.SimpleJavaPackage;
 
 /**
@@ -28,7 +29,7 @@ import simpleJava.SimpleJavaPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link simpleJava.impl.PackageImpl#getClasses <em>Classes</em>}</li>
+ *   <li>{@link simpleJava.impl.PackageImpl#getClazzes <em>Clazzes</em>}</li>
  *   <li>{@link simpleJava.impl.PackageImpl#getSubPackages <em>Sub Packages</em>}</li>
  *   <li>{@link simpleJava.impl.PackageImpl#getName <em>Name</em>}</li>
  *   <li>{@link simpleJava.impl.PackageImpl#getFullQualifier <em>Full Qualifier</em>}</li>
@@ -38,14 +39,14 @@ import simpleJava.SimpleJavaPackage;
  */
 public class PackageImpl extends MinimalEObjectImpl.Container implements simpleJava.Package {
 	/**
-	 * The cached value of the '{@link #getClasses() <em>Classes</em>}' containment reference list.
+	 * The cached value of the '{@link #getClazzes() <em>Clazzes</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getClasses()
+	 * @see #getClazzes()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<simpleJava.Class> classes;
+	protected EList<Clazz> clazzes;
 
 	/**
 	 * The cached value of the '{@link #getSubPackages() <em>Sub Packages</em>}' containment reference list.
@@ -121,11 +122,12 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements simpleJ
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<simpleJava.Class> getClasses() {
-		if (classes == null) {
-			classes = new EObjectContainmentEList<simpleJava.Class>(simpleJava.Class.class, this, SimpleJavaPackage.PACKAGE__CLASSES);
+	@Override
+	public EList<Clazz> getClazzes() {
+		if (clazzes == null) {
+			clazzes = new EObjectContainmentEList<Clazz>(Clazz.class, this, SimpleJavaPackage.PACKAGE__CLAZZES);
 		}
-		return classes;
+		return clazzes;
 	}
 
 	/**
@@ -133,6 +135,7 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements simpleJ
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<simpleJava.Package> getSubPackages() {
 		if (subPackages == null) {
 			subPackages = new EObjectContainmentEList<simpleJava.Package>(simpleJava.Package.class, this, SimpleJavaPackage.PACKAGE__SUB_PACKAGES);
@@ -145,6 +148,7 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements simpleJ
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -154,6 +158,7 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements simpleJ
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
@@ -166,6 +171,7 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements simpleJ
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getFullQualifier() {
 		return fullQualifier;
 	}
@@ -175,6 +181,7 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements simpleJ
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setFullQualifier(String newFullQualifier) {
 		String oldFullQualifier = fullQualifier;
 		fullQualifier = newFullQualifier;
@@ -190,8 +197,8 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements simpleJ
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case SimpleJavaPackage.PACKAGE__CLASSES:
-			return ((InternalEList<?>) getClasses()).basicRemove(otherEnd, msgs);
+		case SimpleJavaPackage.PACKAGE__CLAZZES:
+			return ((InternalEList<?>) getClazzes()).basicRemove(otherEnd, msgs);
 		case SimpleJavaPackage.PACKAGE__SUB_PACKAGES:
 			return ((InternalEList<?>) getSubPackages()).basicRemove(otherEnd, msgs);
 		}
@@ -206,8 +213,8 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements simpleJ
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case SimpleJavaPackage.PACKAGE__CLASSES:
-			return getClasses();
+		case SimpleJavaPackage.PACKAGE__CLAZZES:
+			return getClazzes();
 		case SimpleJavaPackage.PACKAGE__SUB_PACKAGES:
 			return getSubPackages();
 		case SimpleJavaPackage.PACKAGE__NAME:
@@ -227,9 +234,9 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements simpleJ
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case SimpleJavaPackage.PACKAGE__CLASSES:
-			getClasses().clear();
-			getClasses().addAll((Collection<? extends simpleJava.Class>) newValue);
+		case SimpleJavaPackage.PACKAGE__CLAZZES:
+			getClazzes().clear();
+			getClazzes().addAll((Collection<? extends Clazz>) newValue);
 			return;
 		case SimpleJavaPackage.PACKAGE__SUB_PACKAGES:
 			getSubPackages().clear();
@@ -253,8 +260,8 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements simpleJ
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case SimpleJavaPackage.PACKAGE__CLASSES:
-			getClasses().clear();
+		case SimpleJavaPackage.PACKAGE__CLAZZES:
+			getClazzes().clear();
 			return;
 		case SimpleJavaPackage.PACKAGE__SUB_PACKAGES:
 			getSubPackages().clear();
@@ -277,8 +284,8 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements simpleJ
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case SimpleJavaPackage.PACKAGE__CLASSES:
-			return classes != null && !classes.isEmpty();
+		case SimpleJavaPackage.PACKAGE__CLAZZES:
+			return clazzes != null && !clazzes.isEmpty();
 		case SimpleJavaPackage.PACKAGE__SUB_PACKAGES:
 			return subPackages != null && !subPackages.isEmpty();
 		case SimpleJavaPackage.PACKAGE__NAME:
@@ -299,7 +306,7 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements simpleJ
 		if (eIsProxy())
 			return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (name: ");
 		result.append(name);
 		result.append(", fullQualifier: ");
