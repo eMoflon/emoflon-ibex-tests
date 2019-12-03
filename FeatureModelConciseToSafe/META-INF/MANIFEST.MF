@@ -31,7 +31,8 @@ Require-Bundle: org.gervarro.democles.common,
  org.emoflon.ibex.tgg.runtime.hipe;bundle-version="1.0.0",
  org.emoflon.ibex.tgg.runtime.hipe,
  FeatureModelConcise,
- FeatureModelSafe
+ FeatureModelSafe,
+ org.emoflon.ibex.tgg.ui.debug.adapter;bundle-version="1.0.0"
 Bundle-ManifestVersion: 2
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
