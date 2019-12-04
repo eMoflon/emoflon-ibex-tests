@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import org.apache.log4j.BasicConfigurator;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.opt.BWD_OPT;
 import org.emoflon.ibex.tgg.run.blockdiagramcodeadapter.config._DefaultRegistrationHelper;
@@ -11,19 +12,21 @@ import org.emoflon.ibex.tgg.util.ilp.ILPFactory.SupportedILPSolver;
 
 public class BWD_OPT_App extends BWD_OPT {
 
+	private static IRegistrationHelper registrationHelper = new _DefaultRegistrationHelper();
+
 	private String srcPath;
 	private String trgPath;
 	private String corrPath;
 	private String protPath;
 	
 	public BWD_OPT_App() throws IOException {
-		super(createIbexOptions());
+		super(registrationHelper.createIbexOptions());
 		registerBlackInterpreter(options.getBlackInterpreter());
 	}
 	
 	public BWD_OPT_App(String projectName, String workspacePath, boolean debug, String srcPath, String trgPath, 
 			String corrPath, String protPath, SupportedILPSolver ilpSolver) throws IOException {
-		super(createIbexOptions().projectName(projectName).workspacePath(workspacePath).debug(debug).setIlpSolver(ilpSolver));
+		super(registrationHelper.createIbexOptions().projectName(projectName).workspacePath(workspacePath).debug(debug).setIlpSolver(ilpSolver));
 		this.srcPath = srcPath;
 		this.trgPath = trgPath;
 		this.corrPath = corrPath;
@@ -48,7 +51,7 @@ public class BWD_OPT_App extends BWD_OPT {
 
 	@Override
 	protected void registerUserMetamodels() throws IOException {
-		_DefaultRegistrationHelper.registerMetamodels(rs, this);
+		registrationHelper.registerMetamodels(rs, this);
 			
 		// Register correspondence metamodel last
 		loadAndRegisterCorrMetamodel(options.projectPath() + "/model/" + options.projectName() + ".ecore");
@@ -62,9 +65,5 @@ public class BWD_OPT_App extends BWD_OPT {
 		p = createResource(options.projectPath() +protPath+".xmi");
 	
 		EcoreUtil.resolveAll(rs);
-	}
-	
-	private static IbexOptions createIbexOptions() {
-		return _DefaultRegistrationHelper.createIbexOptions();
 	}
 }

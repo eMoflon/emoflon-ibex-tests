@@ -1,11 +1,12 @@
 package org.emoflon.ibex.tgg.operational.csp.constraints.factories.ibextgggantt2cpm;
 
 import java.util.HashMap;
-import java.util.HashSet;
+import java.util.HashSet;			
+
+import org.emoflon.ibex.tgg.operational.csp.constraints.factories.RuntimeTGGAttrConstraintFactory;			
 
 import org.emoflon.ibex.tgg.operational.csp.constraints.custom.ibextgggantt2cpm.UserDefined_notADependencyViaNamingConvention;
 import org.emoflon.ibex.tgg.operational.csp.constraints.custom.ibextgggantt2cpm.UserDefined_setCounter;
-import org.emoflon.ibex.tgg.operational.csp.constraints.factories.RuntimeTGGAttrConstraintFactory;
 
 public class UserDefinedRuntimeTGGAttrConstraintFactory extends RuntimeTGGAttrConstraintFactory {
 

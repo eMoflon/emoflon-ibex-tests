@@ -3,6 +3,7 @@ package org.emoflon.ibex.tgg.run.classinhhier2db;
 import java.io.IOException;
 
 import org.apache.log4j.BasicConfigurator;
+import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGEN;
 import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGENStopCriterion;
@@ -10,8 +11,10 @@ import org.emoflon.ibex.tgg.run.classinhhier2db.config._DefaultRegistrationHelpe
 
 public class MODELGEN_App extends MODELGEN {
 
+	private static IRegistrationHelper registrationHelper = new _DefaultRegistrationHelper();
+
 	public MODELGEN_App(String projectName, String workspacePath, boolean debug) throws IOException {
-		super(createIbexOptions().projectName(projectName).workspacePath(workspacePath).debug(debug));
+		super(registrationHelper.createIbexOptions().projectName(projectName).workspacePath(workspacePath).debug(debug));
 		registerBlackInterpreter(options.getBlackInterpreter());
 	}
 
@@ -36,14 +39,10 @@ public class MODELGEN_App extends MODELGEN {
 
 	@Override
 	protected void registerUserMetamodels() throws IOException {
-		_DefaultRegistrationHelper.registerMetamodels(rs, this);
+		registrationHelper.registerMetamodels(rs, this);
 			
 		// Register correspondence metamodel last
 		loadAndRegisterCorrMetamodel(options.projectPath() + "/model/" + options.projectPath() + ".ecore");
 
-	}
-	
-	private static IbexOptions createIbexOptions() {
-		return _DefaultRegistrationHelper.createIbexOptions();
 	}
 }

@@ -14,16 +14,17 @@ import org.emoflon.ibex.tgg.operational.strategies.opt.BWD_OPT;
 import org.emoflon.ibex.tgg.operational.strategies.opt.FWD_OPT;
 import org.emoflon.ibex.tgg.runtime.democles.DemoclesTGGEngine;
 import org.emoflon.ibex.tgg.runtime.hipe.HiPETGGEngine;
+import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 
 import BenchmarxFamiliesToPersons.BenchmarxFamiliesToPersonsPackage;
 import BenchmarxFamiliesToPersons.impl.BenchmarxFamiliesToPersonsPackageImpl;
 import Families.impl.FamiliesPackageImpl;
 import Persons.impl.PersonsPackageImpl;
 
-public class HiPERegistrationHelper {
+public class HiPERegistrationHelper implements IRegistrationHelper{
 	
 	/** Create default options **/
-	public static final void setWorkspaceRootDirectory(ResourceSet resourceSet) throws IOException {
+	public final void setWorkspaceRootDirectory(ResourceSet resourceSet) throws IOException {
 		final String root = "../";
 		URI key = URI.createPlatformResourceURI("/", true);
 		URI value = URI.createFileURI(new File(root).getCanonicalPath() + File.separatorChar);
@@ -31,7 +32,7 @@ public class HiPERegistrationHelper {
 	}
 
 	/** Load and register source and target metamodels */
-	public static void registerMetamodels(ResourceSet rs, OperationalStrategy strategy) throws IOException {
+	public void registerMetamodels(ResourceSet rs, OperationalStrategy strategy) throws IOException {
 		
 		// Set correct workspace root
 		setWorkspaceRootDirectory(rs);
@@ -81,7 +82,7 @@ public class HiPERegistrationHelper {
 	}
 
 	/** Create default options **/
-	public static IbexOptions createIbexOptions() {
+	public IbexOptions createIbexOptions() {
 		IbexOptions options = new IbexOptions();
 		options.setBlackInterpreter(new HiPETGGEngine());
 		options.projectName("BenchmarxFamiliesToPersons");

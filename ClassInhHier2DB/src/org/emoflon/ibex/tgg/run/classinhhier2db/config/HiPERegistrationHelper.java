@@ -7,6 +7,7 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 import org.emoflon.ibex.tgg.operational.csp.constraints.factories.classinhhier2db.UserDefinedRuntimeTGGAttrConstraintFactory;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.OperationalStrategy;
@@ -19,10 +20,10 @@ import ClassInhHier2DB.impl.ClassInhHier2DBPackageImpl;
 import ClassInheritanceHierarchy.impl.ClassInheritanceHierarchyPackageImpl;
 import Database.impl.DatabasePackageImpl;
 
-public class HiPERegistrationHelper {
+public class HiPERegistrationHelper implements IRegistrationHelper{
 	
 	/** Create default options **/
-	public static final void setWorkspaceRootDirectory(ResourceSet resourceSet) throws IOException {
+	public final void setWorkspaceRootDirectory(ResourceSet resourceSet) throws IOException {
 		final String root = "../";
 		URI key = URI.createPlatformResourceURI("/", true);
 		URI value = URI.createFileURI(new File(root).getCanonicalPath() + File.separatorChar);
@@ -30,7 +31,7 @@ public class HiPERegistrationHelper {
 	}
 
 	/** Load and register source and target metamodels */
-	public static void registerMetamodels(ResourceSet rs, OperationalStrategy strategy) throws IOException {
+	public void registerMetamodels(ResourceSet rs, OperationalStrategy strategy) throws IOException {
 		
 		// Set correct workspace root
 		setWorkspaceRootDirectory(rs);
@@ -80,7 +81,7 @@ public class HiPERegistrationHelper {
 	}
 
 	/** Create default options **/
-	public static IbexOptions createIbexOptions() {
+	public IbexOptions createIbexOptions() {
 		IbexOptions options = new IbexOptions();
 		options.setBlackInterpreter(new HiPETGGEngine());
 		options.projectName("ClassInhHier2DB");

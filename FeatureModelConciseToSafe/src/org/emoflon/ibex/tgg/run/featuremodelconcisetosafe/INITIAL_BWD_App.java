@@ -5,14 +5,17 @@ import java.io.IOException;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.sync.SYNC;
 import org.emoflon.ibex.tgg.run.featuremodelconcisetosafe.config._DefaultRegistrationHelper;
 
+
 public class INITIAL_BWD_App extends SYNC {
+	private static IRegistrationHelper registrationHelper = new _DefaultRegistrationHelper();
 
 	public INITIAL_BWD_App() throws IOException {
-		super(createIbexOptions());
+		super(registrationHelper.createIbexOptions());
 		registerBlackInterpreter(options.getBlackInterpreter());
 	}
 
@@ -50,13 +53,9 @@ public class INITIAL_BWD_App extends SYNC {
 	
 	@Override
 	protected void registerUserMetamodels() throws IOException {
-		_DefaultRegistrationHelper.registerMetamodels(rs, this);
+		registrationHelper.registerMetamodels(rs, this);
 			
 		// Register correspondence metamodel last
 		loadAndRegisterCorrMetamodel(options.projectPath() + "/model/" + options.projectName() + ".ecore");
-	}
-	
-	private static IbexOptions createIbexOptions() {
-		return _DefaultRegistrationHelper.createIbexOptions();
 	}
 }
