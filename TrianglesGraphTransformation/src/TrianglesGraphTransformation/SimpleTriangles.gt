@@ -1,0 +1,84 @@
+
+
+pattern simpleTriangle1() { 
+	a: A_Class {
+		-c->c
+		-b->b
+	}
+	
+	b: B_Class{ 
+		-c->c
+	}
+	
+	c: C_Class {
+		
+	}
+}
+
+pattern simpleTriangle2() {
+	a: A_Class {
+		-c->c
+		-b->b
+	}
+	
+	b: B_Class{ 
+		
+	}
+	
+	c: C_Class {
+		-b->b
+	}
+}
+
+pattern simpleTriangle3() {
+	a: A_Class {
+		-b->b
+	}
+	
+	b: B_Class{ 
+		-c->c
+	}
+	
+	c: C_Class {
+		-a->a
+	}
+}
+
+pattern simpleTriangle4() {
+	a: A_Class {
+		-c->c
+	}
+	
+	b: B_Class{ 
+		-a->a
+	}
+	
+	c: C_Class {
+		-b->b
+	}
+}
+
+condition findTriangle1 = enforce simpleTriangle1
+condition findBToEReference = enforce bToEReference
+
+pattern invocationTriangle1() {
+	d : D_Class {
+		-a->a
+	}
+	
+	a : A_Class
+}when findTriangle1
+
+pattern bToEReference() {
+	b : B_Class {
+		
+	}
+	
+	e : E_Class {
+		-b->b
+	}
+}
+
+pattern invocationTriangle2() refines simpleTriangle2 {
+
+}when findBToEReference
