@@ -12,7 +12,7 @@ import org.emoflon.ibex.tgg.util.ilp.ILPFactory.SupportedILPSolver;
 
 public class FWD_OPT_App extends FWD_OPT {
 	
-	private static IRegistrationHelper registrationHelper = new _DefaultRegistrationHelper();
+	public static IRegistrationHelper registrationHelper = new _DefaultRegistrationHelper();
 
 	String srcPath;
 	String trgPath;

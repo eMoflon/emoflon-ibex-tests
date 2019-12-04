@@ -21,7 +21,7 @@ import VHDLTGGCodeAdapter.impl.VHDLTGGCodeAdapterPackageImpl;
 import MocaTree.impl.MocaTreePackageImpl;
 import VHDLModel.impl.VHDLModelPackageImpl;
 
-public class HiPERegistrationHelper implements IRegistrationHelper{
+public class HiPERegistrationHelper implements IRegistrationHelper {
 	
 	/** Create default options **/
 	public final void setWorkspaceRootDirectory(ResourceSet resourceSet) throws IOException {

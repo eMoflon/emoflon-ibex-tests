@@ -12,7 +12,7 @@ import org.emoflon.ibex.tgg.run.modiscoibextgg.config._DefaultRegistrationHelper
 
 
 public class SYNC_App extends SYNC {
-	private static IRegistrationHelper registrationHelper = new _DefaultRegistrationHelper();
+	public static IRegistrationHelper registrationHelper = new _DefaultRegistrationHelper();
 
 	public SYNC_App() throws IOException {
 		super(registrationHelper.createIbexOptions());

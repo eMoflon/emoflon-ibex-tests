@@ -7,7 +7,7 @@ import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.OperationalStrategy;
 
-public class _DefaultRegistrationHelper implements IRegistrationHelper {
+public class _DefaultRegistrationHelper implements IRegistrationHelper{
 
 	/** Load and register source and target metamodels */
 	public void registerMetamodels(ResourceSet rs, OperationalStrategy strategy) throws IOException {
@@ -17,6 +17,6 @@ public class _DefaultRegistrationHelper implements IRegistrationHelper {
 
 	/** Create default options **/
 	public IbexOptions createIbexOptions() {
-		return new DemoclesRegistrationHelper().createIbexOptions();
+		// return new DemoclesRegistrationHelper().createIbexOptions();
 	}
 }

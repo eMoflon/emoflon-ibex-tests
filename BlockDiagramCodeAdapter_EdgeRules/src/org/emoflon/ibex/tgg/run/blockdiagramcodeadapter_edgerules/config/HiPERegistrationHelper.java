@@ -21,7 +21,7 @@ import BlockDiagramCodeAdapter_EdgeRules.impl.BlockDiagramCodeAdapter_EdgeRulesP
 import BlockDiagram.impl.BlockDiagramPackageImpl;
 import MocaTree.impl.MocaTreePackageImpl;
 
-public class HiPERegistrationHelper implements IRegistrationHelper{
+public class HiPERegistrationHelper implements IRegistrationHelper {
 	
 	/** Create default options **/
 	public final void setWorkspaceRootDirectory(ResourceSet resourceSet) throws IOException {

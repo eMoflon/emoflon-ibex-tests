@@ -21,7 +21,7 @@ import Java2Doc.impl.Java2DocPackageImpl;
 import simpleJava.impl.SimpleJavaPackageImpl;
 import simpleDoc.impl.SimpleDocPackageImpl;
 
-public class HiPERegistrationHelper implements IRegistrationHelper{
+public class HiPERegistrationHelper implements IRegistrationHelper {
 	
 	/** Create default options **/
 	public final void setWorkspaceRootDirectory(ResourceSet resourceSet) throws IOException {

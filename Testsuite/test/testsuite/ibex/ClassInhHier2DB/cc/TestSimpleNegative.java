@@ -2,14 +2,18 @@ package testsuite.ibex.ClassInhHier2DB.cc;
 
 import java.io.IOException;
 
+import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 import org.emoflon.ibex.tgg.run.classinhhier2db.CC_App;
+import org.emoflon.ibex.tgg.run.classinhhier2db.config.*;
 import org.junit.Assert;
 import org.junit.Test;
 
 import testsuite.ibex.testUtil.CCTestCase;
+import testsuite.ibex.testUtil.UsedPatternMatcher;
 
 public class TestSimpleNegative extends CCTestCase {
 	public void createGenerator(String srcInstance, String trgInstance) throws IOException {
+		CC_App.registrationHelper = UsedPatternMatcher.choose(new IRegistrationHelper[]{new DemoclesRegistrationHelper(), new HiPERegistrationHelper()});
 		checker = new CC_App("ClassInhHier2DB", testsuite.ibex.performance.util.PerformanceConstants.workspacePath, false, srcInstance, trgInstance, this.ilpSolver);
 	}
 	

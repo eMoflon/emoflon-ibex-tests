@@ -11,7 +11,7 @@ import org.emoflon.ibex.tgg.run.modiscoibextgg.config._DefaultRegistrationHelper
 import org.emoflon.ibex.tgg.util.ilp.ILPFactory.SupportedILPSolver;
 
 public class BWD_OPT_App extends BWD_OPT {
-	private static IRegistrationHelper registrationHelper = new _DefaultRegistrationHelper();
+	public static IRegistrationHelper registrationHelper = new _DefaultRegistrationHelper();
 
 	String srcPath;
 	String trgPath;

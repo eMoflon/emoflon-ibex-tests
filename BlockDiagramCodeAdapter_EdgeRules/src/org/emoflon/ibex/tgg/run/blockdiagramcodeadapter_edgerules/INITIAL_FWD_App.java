@@ -12,7 +12,7 @@ import org.emoflon.ibex.tgg.run.blockdiagramcodeadapter_edgerules.config._Defaul
 
 public class INITIAL_FWD_App extends SYNC {
 	
-	private static IRegistrationHelper registrationHelper = new _DefaultRegistrationHelper();
+	public static IRegistrationHelper registrationHelper = new _DefaultRegistrationHelper();
 
 	public INITIAL_FWD_App() throws IOException {
 		super(registrationHelper.createIbexOptions());

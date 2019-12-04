@@ -11,7 +11,7 @@ import org.emoflon.ibex.tgg.run.featuremodelconcisetosafe.config._DefaultRegistr
 import org.emoflon.ibex.tgg.util.ilp.ILPFactory.SupportedILPSolver;
 
 public class CC_App extends CC {
-	private static IRegistrationHelper registrationHelper = new _DefaultRegistrationHelper();
+	public static IRegistrationHelper registrationHelper = new _DefaultRegistrationHelper();
 
 	private String srcPath;
 	private String trgPath;

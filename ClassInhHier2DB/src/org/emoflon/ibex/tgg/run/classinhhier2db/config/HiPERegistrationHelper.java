@@ -7,20 +7,21 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 import org.emoflon.ibex.tgg.operational.csp.constraints.factories.classinhhier2db.UserDefinedRuntimeTGGAttrConstraintFactory;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.OperationalStrategy;
 import org.emoflon.ibex.tgg.operational.strategies.opt.BWD_OPT;
 import org.emoflon.ibex.tgg.operational.strategies.opt.FWD_OPT;
+import org.emoflon.ibex.tgg.runtime.democles.DemoclesTGGEngine;
 import org.emoflon.ibex.tgg.runtime.hipe.HiPETGGEngine;
+import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 
 import ClassInhHier2DB.ClassInhHier2DBPackage;
 import ClassInhHier2DB.impl.ClassInhHier2DBPackageImpl;
 import ClassInheritanceHierarchy.impl.ClassInheritanceHierarchyPackageImpl;
 import Database.impl.DatabasePackageImpl;
 
-public class HiPERegistrationHelper implements IRegistrationHelper{
+public class HiPERegistrationHelper implements IRegistrationHelper {
 	
 	/** Create default options **/
 	public final void setWorkspaceRootDirectory(ResourceSet resourceSet) throws IOException {

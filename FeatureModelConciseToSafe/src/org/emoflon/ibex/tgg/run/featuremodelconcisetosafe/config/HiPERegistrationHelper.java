@@ -21,7 +21,7 @@ import FeatureModelConciseToSafe.impl.FeatureModelConciseToSafePackageImpl;
 import FeatureModelConcise.impl.FeatureModelConcisePackageImpl;
 import FeatureModelSafe.impl.FeatureModelSafePackageImpl;
 
-public class HiPERegistrationHelper implements IRegistrationHelper{
+public class HiPERegistrationHelper implements IRegistrationHelper {
 	
 	/** Create default options **/
 	public final void setWorkspaceRootDirectory(ResourceSet resourceSet) throws IOException {

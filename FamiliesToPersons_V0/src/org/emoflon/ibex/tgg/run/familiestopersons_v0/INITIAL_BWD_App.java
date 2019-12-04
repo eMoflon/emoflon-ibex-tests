@@ -12,7 +12,7 @@ import org.emoflon.ibex.tgg.run.familiestopersons_v0.config._DefaultRegistration
 
 
 public class INITIAL_BWD_App extends SYNC {
-	private static IRegistrationHelper registrationHelper = new _DefaultRegistrationHelper();
+	public static IRegistrationHelper registrationHelper = new _DefaultRegistrationHelper();
 
 	public INITIAL_BWD_App() throws IOException {
 		super(registrationHelper.createIbexOptions());

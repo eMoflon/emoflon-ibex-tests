@@ -12,7 +12,7 @@ import org.emoflon.ibex.tgg.run.java2doc.config._DefaultRegistrationHelper;
 
 
 public class FWD_OPT_App extends FWD_OPT {
-	private static IRegistrationHelper registrationHelper = new _DefaultRegistrationHelper();
+	public static IRegistrationHelper registrationHelper = new _DefaultRegistrationHelper();
 
 	public FWD_OPT_App() throws IOException {
 		super(registrationHelper.createIbexOptions());

@@ -11,7 +11,7 @@ import org.emoflon.ibex.tgg.run.familiestopersons_v0.config._DefaultRegistration
 
 
 public class CO_App extends CO {
-	private static IRegistrationHelper registrationHelper = new _DefaultRegistrationHelper();
+	public static IRegistrationHelper registrationHelper = new _DefaultRegistrationHelper();
 
 	String srcPath;
 	String trgPath;

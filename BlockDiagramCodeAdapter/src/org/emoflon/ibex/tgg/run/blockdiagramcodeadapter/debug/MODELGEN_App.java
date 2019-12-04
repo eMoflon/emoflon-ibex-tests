@@ -15,7 +15,7 @@ import org.emoflon.ibex.tgg.ui.debug.adapter.TGGAdapter.VictoryIBeXAdapter;
 
 public class MODELGEN_App extends MODELGEN {
 
-	private static IRegistrationHelper registrationHelper = new _DefaultRegistrationHelper();
+	public static IRegistrationHelper registrationHelper = new _DefaultRegistrationHelper();
 
 	public MODELGEN_App() throws IOException {
 		super(registrationHelper.createIbexOptions());

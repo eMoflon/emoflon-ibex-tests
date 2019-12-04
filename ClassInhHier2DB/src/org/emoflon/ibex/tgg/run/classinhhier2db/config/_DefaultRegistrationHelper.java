@@ -1,7 +1,7 @@
 package org.emoflon.ibex.tgg.run.classinhhier2db.config;
 
 import java.io.IOException;
-
+	
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
@@ -17,6 +17,6 @@ public class _DefaultRegistrationHelper implements IRegistrationHelper{
 
 	/** Create default options **/
 	public IbexOptions createIbexOptions() {
-		return new DemoclesRegistrationHelper().createIbexOptions();
+		// return new DemoclesRegistrationHelper().createIbexOptions();
 	}
 }

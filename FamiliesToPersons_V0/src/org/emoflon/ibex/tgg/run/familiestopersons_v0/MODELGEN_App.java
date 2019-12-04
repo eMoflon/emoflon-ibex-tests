@@ -10,7 +10,7 @@ import org.emoflon.ibex.tgg.run.familiestopersons_v0.config._DefaultRegistration
 
 
 public class MODELGEN_App extends MODELGEN {
-	private static IRegistrationHelper registrationHelper = new _DefaultRegistrationHelper();
+	public static IRegistrationHelper registrationHelper = new _DefaultRegistrationHelper();
 
 	public MODELGEN_App(String projectName, String workspacePath, boolean debug) throws IOException {
 		super(registrationHelper.createIbexOptions().projectName(projectName).workspacePath(workspacePath).debug(debug));

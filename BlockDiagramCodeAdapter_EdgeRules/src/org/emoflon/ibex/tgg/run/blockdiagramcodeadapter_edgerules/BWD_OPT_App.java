@@ -10,7 +10,7 @@ import org.emoflon.ibex.tgg.run.blockdiagramcodeadapter_edgerules.config._Defaul
 
 public class BWD_OPT_App extends BWD_OPT {
 
-	private static IRegistrationHelper registrationHelper = new _DefaultRegistrationHelper();
+	public static IRegistrationHelper registrationHelper = new _DefaultRegistrationHelper();
 	
 	public BWD_OPT_App() throws IOException {
 		super(registrationHelper.createIbexOptions());

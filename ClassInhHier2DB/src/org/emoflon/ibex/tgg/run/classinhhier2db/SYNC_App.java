@@ -11,7 +11,7 @@ import org.emoflon.ibex.tgg.run.classinhhier2db.config._DefaultRegistrationHelpe
 
 public class SYNC_App extends SYNC {
 
-	private static IRegistrationHelper registrationHelper = new _DefaultRegistrationHelper();
+	public static IRegistrationHelper registrationHelper = new _DefaultRegistrationHelper();
 
 	public SYNC_App(String projectName, String workspacePath, boolean debug) throws IOException {
 		super(registrationHelper.createIbexOptions().projectName(projectName).workspacePath(workspacePath).debug(debug));

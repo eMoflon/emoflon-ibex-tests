@@ -11,7 +11,7 @@ import org.emoflon.ibex.tgg.run.blockdiagramcodeadapter.config._DefaultRegistrat
 
 public class MODELGEN_App extends MODELGEN {
 
-	private static IRegistrationHelper registrationHelper = new _DefaultRegistrationHelper();
+	public static IRegistrationHelper registrationHelper = new _DefaultRegistrationHelper();
 
 	public MODELGEN_App(String projectName, String workspacePath, boolean debug) throws IOException {
 		super(registrationHelper.createIbexOptions().projectName(projectName).workspacePath(workspacePath).debug(debug));

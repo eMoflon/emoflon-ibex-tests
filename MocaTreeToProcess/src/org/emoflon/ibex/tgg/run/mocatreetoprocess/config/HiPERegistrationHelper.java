@@ -21,7 +21,7 @@ import MocaTreeToProcess.impl.MocaTreeToProcessPackageImpl;
 import MocaTree.impl.MocaTreePackageImpl;
 import ProcessDefinition.impl.ProcessDefinitionPackageImpl;
 
-public class HiPERegistrationHelper implements IRegistrationHelper{
+public class HiPERegistrationHelper implements IRegistrationHelper {
 	
 	/** Create default options **/
 	public final void setWorkspaceRootDirectory(ResourceSet resourceSet) throws IOException {

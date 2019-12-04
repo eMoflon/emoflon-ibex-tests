@@ -7,6 +7,8 @@ import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.sync.SYNC;
 import org.emoflon.ibex.tgg.run.companytoit.CO_App;
+import org.emoflon.ibex.tgg.run.companytoit.config.DemoclesRegistrationHelper;
+import org.emoflon.ibex.tgg.run.companytoit.config.HiPERegistrationHelper;
 import org.emoflon.ibex.tgg.run.vhdltggcodeadapter.config._DefaultRegistrationHelper;
 import org.junit.Assert;
 import org.junit.Ignore;
@@ -15,9 +17,11 @@ import org.junit.Test;
 import CompanyLanguage.impl.CompanyLanguagePackageImpl;
 import ITLanguage.impl.ITLanguagePackageImpl;
 import testsuite.ibex.testUtil.CompleteSyncTestCase;
+import testsuite.ibex.testUtil.UsedPatternMatcher;
 
 public class TestSYNC extends CompleteSyncTestCase {
-	private static IRegistrationHelper registrationHelper = new _DefaultRegistrationHelper();
+	private static IRegistrationHelper registrationHelper = UsedPatternMatcher.choose(new IRegistrationHelper[]{new DemoclesRegistrationHelper(), new HiPERegistrationHelper()});
+
 
 	/**
 	 * Inner class that has configurable paths for the resources

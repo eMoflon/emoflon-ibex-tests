@@ -10,7 +10,7 @@ import org.emoflon.ibex.tgg.run.vhdltggcodeadapter.config._DefaultRegistrationHe
 
 
 public class CC_App extends CC {
-	private static IRegistrationHelper registrationHelper = new _DefaultRegistrationHelper();
+	public static IRegistrationHelper registrationHelper = new _DefaultRegistrationHelper();
 
 	private String srcPath;
 	private String trgPath;

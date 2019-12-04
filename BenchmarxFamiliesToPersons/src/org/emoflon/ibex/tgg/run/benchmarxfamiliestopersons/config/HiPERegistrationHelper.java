@@ -21,7 +21,7 @@ import BenchmarxFamiliesToPersons.impl.BenchmarxFamiliesToPersonsPackageImpl;
 import Families.impl.FamiliesPackageImpl;
 import Persons.impl.PersonsPackageImpl;
 
-public class HiPERegistrationHelper implements IRegistrationHelper{
+public class HiPERegistrationHelper implements IRegistrationHelper {
 	
 	/** Create default options **/
 	public final void setWorkspaceRootDirectory(ResourceSet resourceSet) throws IOException {

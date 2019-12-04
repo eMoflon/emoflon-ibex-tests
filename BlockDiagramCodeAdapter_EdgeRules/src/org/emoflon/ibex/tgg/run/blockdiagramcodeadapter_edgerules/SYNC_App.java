@@ -11,7 +11,7 @@ import org.emoflon.ibex.tgg.run.blockdiagramcodeadapter_edgerules.config._Defaul
 
 public class SYNC_App extends SYNC {
 
-	private static IRegistrationHelper registrationHelper = new _DefaultRegistrationHelper();
+	public static IRegistrationHelper registrationHelper = new _DefaultRegistrationHelper();
 
 	public SYNC_App(String projectName, String workspacePath, boolean debug) throws IOException {
 		super(registrationHelper.createIbexOptions()

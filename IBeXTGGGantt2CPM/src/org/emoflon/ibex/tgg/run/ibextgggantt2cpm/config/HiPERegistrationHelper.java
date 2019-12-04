@@ -21,7 +21,7 @@ import IBeXTGGGantt2CPM.impl.IBeXTGGGantt2CPMPackageImpl;
 import gantt.impl.GanttPackageImpl;
 import cpm.impl.CpmPackageImpl;
 
-public class HiPERegistrationHelper implements IRegistrationHelper{
+public class HiPERegistrationHelper implements IRegistrationHelper {
 	
 	/** Create default options **/
 	public final void setWorkspaceRootDirectory(ResourceSet resourceSet) throws IOException {

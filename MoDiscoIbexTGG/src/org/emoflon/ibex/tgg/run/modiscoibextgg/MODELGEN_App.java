@@ -13,7 +13,7 @@ import org.emoflon.ibex.tgg.run.modiscoibextgg.config._DefaultRegistrationHelper
 
 
 public class MODELGEN_App extends MODELGEN {
-	private static IRegistrationHelper registrationHelper = new _DefaultRegistrationHelper();
+	public static IRegistrationHelper registrationHelper = new _DefaultRegistrationHelper();
 
 	public MODELGEN_App() throws IOException {
 		super(registrationHelper.createIbexOptions());

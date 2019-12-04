@@ -21,7 +21,7 @@ import FamiliesToPersons_V0.impl.FamiliesToPersons_V0PackageImpl;
 import SimpleFamilies.impl.SimpleFamiliesPackageImpl;
 import SimplePersons.impl.SimplePersonsPackageImpl;
 
-public class HiPERegistrationHelper implements IRegistrationHelper{
+public class HiPERegistrationHelper implements IRegistrationHelper {
 	
 	/** Create default options **/
 	public final void setWorkspaceRootDirectory(ResourceSet resourceSet) throws IOException {
