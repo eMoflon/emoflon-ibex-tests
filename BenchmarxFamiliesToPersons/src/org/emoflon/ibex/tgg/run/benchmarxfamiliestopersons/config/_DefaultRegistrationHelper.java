@@ -17,6 +17,6 @@ public class _DefaultRegistrationHelper implements IRegistrationHelper{
 
 	/** Create default options **/
 	public IbexOptions createIbexOptions() {
-		// return new DemoclesRegistrationHelper().createIbexOptions();
+		return new DemoclesRegistrationHelper().createIbexOptions();
 	}
 }
