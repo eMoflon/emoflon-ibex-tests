@@ -4,13 +4,15 @@ import java.io.IOException;
 
 import org.apache.log4j.BasicConfigurator;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
+import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 import org.emoflon.ibex.tgg.operational.strategies.opt.CO;
 import org.emoflon.ibex.tgg.run.benchmarxfamiliestopersons.config._DefaultRegistrationHelper;
 import org.emoflon.ibex.tgg.util.ilp.ILPFactory.SupportedILPSolver;
 
 public class CO_App extends CO {
 
+	public static IRegistrationHelper registrationHelper = new _DefaultRegistrationHelper();
+	
 	String srcPath;
 	String trgPath;
 	String corrPath;
@@ -18,7 +20,7 @@ public class CO_App extends CO {
 	
 	public CO_App(String projectName, String workspacePath, boolean debug, String srcPath, String trgPath, 
 			String corrPath, String protPath, SupportedILPSolver ilpSolver) throws IOException {
-		super(createIbexOptions().projectName(projectName).workspacePath(workspacePath).debug(debug).setIlpSolver(ilpSolver));
+		super(registrationHelper.createIbexOptions().projectName(projectName).workspacePath(workspacePath).debug(debug).setIlpSolver(ilpSolver));
 		this.srcPath = srcPath;
 		this.trgPath = trgPath;
 		this.corrPath = corrPath;
@@ -46,7 +48,7 @@ public class CO_App extends CO {
 
 	@Override
 	protected void registerUserMetamodels() throws IOException {
-		_DefaultRegistrationHelper.registerMetamodels(rs, this);
+		registrationHelper.registerMetamodels(rs, this);
 		
 		// Register correspondence metamodel last
 		loadAndRegisterCorrMetamodel(options.projectPath() + "/model/" + options.projectName() + ".ecore");
@@ -65,9 +67,5 @@ public class CO_App extends CO {
 	@Override
 	public void saveModels() throws IOException {
 		p.save(null);
-	}
-	
-	protected static IbexOptions createIbexOptions() {
-		return _DefaultRegistrationHelper.createIbexOptions();
 	}
 }

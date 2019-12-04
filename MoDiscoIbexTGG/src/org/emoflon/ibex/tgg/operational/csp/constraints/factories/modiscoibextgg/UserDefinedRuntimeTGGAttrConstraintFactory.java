@@ -1,12 +1,13 @@
 package org.emoflon.ibex.tgg.operational.csp.constraints.factories.modiscoibextgg;
 
 import java.util.HashMap;
-import java.util.HashSet;
+import java.util.HashSet;			
+
+import org.emoflon.ibex.tgg.operational.csp.constraints.factories.RuntimeTGGAttrConstraintFactory;			
 
 import org.emoflon.ibex.tgg.operational.csp.constraints.custom.modiscoibextgg.UserDefined_isInParameter;
 import org.emoflon.ibex.tgg.operational.csp.constraints.custom.modiscoibextgg.UserDefined_isReturn;
 import org.emoflon.ibex.tgg.operational.csp.constraints.custom.modiscoibextgg.UserDefined_proxyToUmlModelName;
-import org.emoflon.ibex.tgg.operational.csp.constraints.factories.RuntimeTGGAttrConstraintFactory;
 
 public class UserDefinedRuntimeTGGAttrConstraintFactory extends RuntimeTGGAttrConstraintFactory {
 

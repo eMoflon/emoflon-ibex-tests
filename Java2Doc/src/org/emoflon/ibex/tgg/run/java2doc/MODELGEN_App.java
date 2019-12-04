@@ -5,15 +5,18 @@ import java.io.IOException;
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
+import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGEN;
 import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGENStopCriterion;
 import org.emoflon.ibex.tgg.run.java2doc.config._DefaultRegistrationHelper;
 
+
 public class MODELGEN_App extends MODELGEN {
+	public static IRegistrationHelper registrationHelper = new _DefaultRegistrationHelper();
 
 	public MODELGEN_App() throws IOException {
-		super(createIbexOptions());
+		super(registrationHelper.createIbexOptions());
 		registerBlackInterpreter(options.getBlackInterpreter());
 	}
 
@@ -42,13 +45,9 @@ public class MODELGEN_App extends MODELGEN {
 	
 	
 	protected void registerUserMetamodels() throws IOException {
-		_DefaultRegistrationHelper.registerMetamodels(rs, this);
+		registrationHelper.registerMetamodels(rs, this);
 			
 		// Register correspondence metamodel last
 		loadAndRegisterCorrMetamodel(options.projectPath() + "/model/" + options.projectName() + ".ecore");
-	}
-	
-	private static IbexOptions createIbexOptions() {
-		return _DefaultRegistrationHelper.createIbexOptions();
 	}
 }

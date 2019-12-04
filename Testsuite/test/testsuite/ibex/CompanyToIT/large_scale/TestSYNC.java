@@ -3,9 +3,12 @@ package testsuite.ibex.CompanyToIT.large_scale;
 import java.io.IOException;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.sync.SYNC;
 import org.emoflon.ibex.tgg.run.companytoit.CO_App;
+import org.emoflon.ibex.tgg.run.companytoit.config.DemoclesRegistrationHelper;
+import org.emoflon.ibex.tgg.run.companytoit.config.HiPERegistrationHelper;
 import org.emoflon.ibex.tgg.run.vhdltggcodeadapter.config._DefaultRegistrationHelper;
 import org.junit.Assert;
 import org.junit.Ignore;
@@ -14,9 +17,12 @@ import org.junit.Test;
 import CompanyLanguage.impl.CompanyLanguagePackageImpl;
 import ITLanguage.impl.ITLanguagePackageImpl;
 import testsuite.ibex.testUtil.CompleteSyncTestCase;
+import testsuite.ibex.testUtil.UsedPatternMatcher;
 
 public class TestSYNC extends CompleteSyncTestCase {
-	
+	private static IRegistrationHelper registrationHelper = UsedPatternMatcher.choose(new IRegistrationHelper[]{new DemoclesRegistrationHelper(), new HiPERegistrationHelper()});
+
+
 	/**
 	 * Inner class that has configurable paths for the resources
 	 * @author NilsWeidmann
@@ -30,7 +36,7 @@ public class TestSYNC extends CompleteSyncTestCase {
 		
 		public FWD_App(String projectName, String workspacePath, boolean debug, String srcPath, String trgPath, 
 				String corrPath, String protPath) throws IOException {
-			super(createIbexOptions().projectName(projectName).workspacePath(workspacePath).debug(debug));
+			super(registrationHelper.createIbexOptions().projectName(projectName).workspacePath(workspacePath).debug(debug));
 			
 			this.srcPath = srcPath;
 			this.trgPath = trgPath;
@@ -73,6 +79,7 @@ public class TestSYNC extends CompleteSyncTestCase {
 	 *
 	 */
 	public class BWD_App extends SYNC {
+
 		private String srcPath;
 		private String trgPath;
 		private String corrPath;
@@ -80,7 +87,7 @@ public class TestSYNC extends CompleteSyncTestCase {
 		
 		public BWD_App(String projectName, String workspacePath, boolean debug, String srcPath, String trgPath, 
 				String corrPath, String protPath) throws IOException {
-			super(createIbexOptions().projectName(projectName).workspacePath(workspacePath).debug(debug));
+			super(registrationHelper.createIbexOptions().projectName(projectName).workspacePath(workspacePath).debug(debug));
 
 			this.srcPath = srcPath;
 			this.trgPath = trgPath;
@@ -115,13 +122,6 @@ public class TestSYNC extends CompleteSyncTestCase {
 			// Register correspondence metamodel last
 			loadAndRegisterMetamodel(options.projectPath() + "/model/" + options.projectPath() + ".ecore");
 		}
-	}
-	
-	/**
-	 * Create options for FWD_App and BWD_App
-	 */
-	private static IbexOptions createIbexOptions() {
-		return _DefaultRegistrationHelper.createIbexOptions();
 	}
 	
 	public void createGenerator(String srcInstance, String trgInstance, String corrInstance, String protInstance) throws IOException {
