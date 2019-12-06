@@ -1,6 +1,5 @@
 package org.benchmarx.simpledoc.core;
 
-import simpleJava.Class;
 import simpleJava.Clazz;
 import simpleJava.Package;
 import simpleJava.SimpleJavaFactory;

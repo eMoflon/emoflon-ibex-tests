@@ -42,10 +42,6 @@ public interface Package extends EObject {
 	 * Returns the value of the '<em><b>Sub Packages</b></em>' containment reference list.
 	 * The list contents are of type {@link simpleJava.Package}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Sub Packages</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Sub Packages</em>' containment reference list.
 	 * @see simpleJava.SimpleJavaPackage#getPackage_SubPackages()
@@ -57,10 +53,6 @@ public interface Package extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
@@ -83,10 +75,6 @@ public interface Package extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Full Qualifier</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Full Qualifier</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Full Qualifier</em>' attribute.
 	 * @see #setFullQualifier(String)
