@@ -138,7 +138,8 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements simpleJ
 	@Override
 	public EList<simpleJava.Package> getSubPackages() {
 		if (subPackages == null) {
-			subPackages = new EObjectContainmentEList<simpleJava.Package>(simpleJava.Package.class, this, SimpleJavaPackage.PACKAGE__SUB_PACKAGES);
+			subPackages = new EObjectContainmentEList<simpleJava.Package>(simpleJava.Package.class, this,
+					SimpleJavaPackage.PACKAGE__SUB_PACKAGES);
 		}
 		return subPackages;
 	}
@@ -186,7 +187,8 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements simpleJ
 		String oldFullQualifier = fullQualifier;
 		fullQualifier = newFullQualifier;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SimpleJavaPackage.PACKAGE__FULL_QUALIFIER, oldFullQualifier, fullQualifier));
+			eNotify(new ENotificationImpl(this, Notification.SET, SimpleJavaPackage.PACKAGE__FULL_QUALIFIER,
+					oldFullQualifier, fullQualifier));
 	}
 
 	/**
@@ -291,7 +293,8 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements simpleJ
 		case SimpleJavaPackage.PACKAGE__NAME:
 			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		case SimpleJavaPackage.PACKAGE__FULL_QUALIFIER:
-			return FULL_QUALIFIER_EDEFAULT == null ? fullQualifier != null : !FULL_QUALIFIER_EDEFAULT.equals(fullQualifier);
+			return FULL_QUALIFIER_EDEFAULT == null ? fullQualifier != null
+					: !FULL_QUALIFIER_EDEFAULT.equals(fullQualifier);
 		}
 		return super.eIsSet(featureID);
 	}
