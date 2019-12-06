@@ -1,6 +1,7 @@
 package org.benchmarx.simpledoc.core;
 
 import simpleJava.Class;
+import simpleJava.Clazz;
 import simpleJava.Package;
 import simpleJava.SimpleJavaFactory;
 
@@ -18,11 +19,11 @@ public class SimpleJavaHelper {
 		createClass(cmoflon, "GT", "GTImpl");
 	}
 	
-	public Class createClass(Package p, String name, String content) {
-		Class c = SimpleJavaFactory.eINSTANCE.createClass();
+	public Clazz createClass(Package p, String name, String content) {
+		Clazz c = SimpleJavaFactory.eINSTANCE.createClazz();
 		c.setName(name);
 		c.setBody(content);
-		p.getClasses().add(c);
+		p.getClazzes().add(c);
 		return c;
 	}
 	
@@ -34,7 +35,7 @@ public class SimpleJavaHelper {
 	}
 	
 	public void fillBodies(Package p) {
-		for(Class c : p.getClasses()) {
+		for(Clazz c : p.getClazzes()) {
 			if(c.getBody() != null) 
 				continue;
 			
@@ -49,7 +50,7 @@ public class SimpleJavaHelper {
 			return;
 		}
 		rootP.getSubPackages().stream().forEach(sp -> rename(sp, oldName, newName));
-		rootP.getClasses().stream().filter(c -> c.getName().equals(oldName)).forEach(c -> c.setName(newName));
+		rootP.getClazzes().stream().filter(c -> c.getName().equals(oldName)).forEach(c -> c.setName(newName));
 	}
 	
 	public void movePackage(Package root, String parentName, String childName) {
@@ -62,8 +63,8 @@ public class SimpleJavaHelper {
 	
 	public void moveClass(Package root, String parentName, String docName) {
 		Package parent = getPackage(root, parentName);
-		Class doc = getClass(root, docName);
-		parent.getClasses().add(doc);
+		Clazz doc = getClazz(root, docName);
+		parent.getClazzes().add(doc);
 	}
 	
 	public Package getPackage(Package root, String name) {
@@ -75,12 +76,12 @@ public class SimpleJavaHelper {
 		return null;
 	}
 	
-	public Class getClass(Package root, String name) {
-		for(Class d : root.getClasses())
+	public Clazz getClazz(Package root, String name) {
+		for(Clazz d : root.getClazzes())
 			if(d.getName().equals(name))
 				return d;
 		for(Package f : root.getSubPackages())
-			return getClass(f, name);
+			return getClazz(f, name);
 		return null;
 	}
 }

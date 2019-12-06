@@ -1,8 +1,8 @@
 package org.benchmarx.simpledoc.core
 
 import org.benchmarx.emf.Comparator
-import simpleJava.Package;
-import simpleJava.Class;
+import simpleJava.Clazz
+import simpleJava.Package
 
 import static org.junit.Assert.*
 
@@ -41,14 +41,14 @@ class SimpleJavaComparator implements Comparator<Package> {
 			«ENDFOR»
 		}
 		classes = {
-			«FOR d : classNormaliser.normalise(pkg.classes)»
+			«FOR d : classNormaliser.normalise(pkg.clazzes)»
 			«stringify(d)»
 			«ENDFOR»
 		}
 		'''
 	}
 	
-	def String stringify(Class doc) {
+	def String stringify(Clazz doc) {
 		'''
 		Class {
 			«IF(checkAttributeValues)»«doc.name»«ELSE»class«ENDIF» 

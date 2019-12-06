@@ -33,15 +33,15 @@
 }
 
 #correspondence {
-	++ e2p :EmployeeToPC {
+	++ e2p :Employee2PC {
 		#src->employee
 		#trg->computer
 	}
-	a2r :AdminToRouter {
-		#src->admin
+	a2r :Admin2Router {
+		#src->admin 
 		#trg->router
 	}
-	c2i :CompanyToIT {
+	c2i :Company2IT {
 		#src->company
 		#trg->it
 	}

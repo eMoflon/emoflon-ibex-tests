@@ -4,17 +4,17 @@ import java.util.ArrayList
 import java.util.Collections
 import java.util.Comparator
 import org.eclipse.emf.common.util.EList
-import simpleJava.Class
+import simpleJava.Clazz
 
-class ClassNormaliser implements Comparator<Class> {
+class ClassNormaliser implements Comparator<Clazz> {
 	
-	def normalise(EList<Class> groups) {
+	def normalise(EList<Clazz> groups) {
 		val list = new ArrayList(groups)
 		Collections.sort(list, this)
 		return list
 	}
 	
-	override compare(Class d1, Class d2) {
+	override compare(Clazz d1, Clazz d2) {
 		if(d1.name.length > d2.name.length)
 			return 1
 		else if(d1.name.length < d2.name.length)

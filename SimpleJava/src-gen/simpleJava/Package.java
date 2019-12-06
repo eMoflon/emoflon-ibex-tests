@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link simpleJava.Package#getClasses <em>Classes</em>}</li>
+ *   <li>{@link simpleJava.Package#getClazzes <em>Clazzes</em>}</li>
  *   <li>{@link simpleJava.Package#getSubPackages <em>Sub Packages</em>}</li>
  *   <li>{@link simpleJava.Package#getName <em>Name</em>}</li>
  *   <li>{@link simpleJava.Package#getFullQualifier <em>Full Qualifier</em>}</li>
@@ -27,20 +27,16 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Package extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Classes</b></em>' containment reference list.
-	 * The list contents are of type {@link simpleJava.Class}.
+	 * Returns the value of the '<em><b>Clazzes</b></em>' containment reference list.
+	 * The list contents are of type {@link simpleJava.Clazz}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Classes</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Classes</em>' containment reference list.
-	 * @see simpleJava.SimpleJavaPackage#getPackage_Classes()
+	 * @return the value of the '<em>Clazzes</em>' containment reference list.
+	 * @see simpleJava.SimpleJavaPackage#getPackage_Clazzes()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<simpleJava.Class> getClasses();
+	EList<Clazz> getClazzes();
 
 	/**
 	 * Returns the value of the '<em><b>Sub Packages</b></em>' containment reference list.

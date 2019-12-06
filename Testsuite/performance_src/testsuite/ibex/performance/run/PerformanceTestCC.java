@@ -7,7 +7,6 @@ import java.util.function.Supplier;
 
 import org.emoflon.ibex.tgg.operational.strategies.opt.cc.CC;
 
-
 import gurobi.GRBException;
 import testsuite.ibex.performance.util.Operationalization;
 import testsuite.ibex.performance.util.TestDataPoint;

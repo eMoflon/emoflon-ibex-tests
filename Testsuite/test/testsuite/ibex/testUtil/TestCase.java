@@ -9,9 +9,12 @@ import org.junit.BeforeClass;
 import org.junit.Rule;
 import org.junit.rules.TestName;
 
+import testsuite.ibex.testUtil.UsedPatternMatcher.PatternMatcher;
+
 public abstract class TestCase {
 	
 	protected SupportedILPSolver ilpSolver;
+	protected PatternMatcher patternMatcher;
 	
 	@Rule
 	public TestName name = new TestName();
@@ -25,6 +28,14 @@ public abstract class TestCase {
 		catch (Exception e) {
 			System.err.println("ILP solver is not specified. Defaulting to SAT4J");
 			ilpSolver = SupportedILPSolver.Sat4J;
+		}
+		
+		try {
+			patternMatcher = PatternMatcher.valueOf(System.getenv("patternMatcher"));
+			UsedPatternMatcher.usedPatternMatcher = patternMatcher;
+		}
+		catch (Exception e) {
+			System.err.println("Pattern Matcher is not specified. Defaulting to " + UsedPatternMatcher.usedPatternMatcher.name());
 		}
 	}
 	

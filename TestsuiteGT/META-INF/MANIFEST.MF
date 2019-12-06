@@ -21,7 +21,9 @@ Require-Bundle: org.eclipse.emf.ecore.xmi,
  SimpleFamiliesGraphTransformation,
  SimpleFamiliesToSimplePersonsGraphTransformation,
  SimplePersons,
- SimplePersonsGraphTransformation
+ SimplePersonsGraphTransformation,
+ org.emoflon.ibex.gt.hipe,
+ TrianglesGraphTransformation
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Automatic-Module-Name: TestsuiteGT

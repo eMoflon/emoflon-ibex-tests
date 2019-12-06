@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated ProcessCodeAdapter -->
+      <package
+            uri="platform:/resource/ProcessCodeAdapter/model/ProcessCodeAdapter.ecore"
+            class="ProcessCodeAdapter.ProcessCodeAdapterPackage"
+            genModel="model/ProcessCodeAdapter.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated ProcessCodeAdapter -->
+      <package
+            uri="platform:/resource/MocaTree/model/MocaTree.ecore"
+            class="MocaTree.MocaTreePackage"
+            genModel="model/ProcessCodeAdapter.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated ProcessCodeAdapter -->
+      <package
+            uri="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore"
+            class="ProcessDefinition.ProcessDefinitionPackage"
+            genModel="model/ProcessCodeAdapter.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated ProcessCodeAdapter -->
+      <package
+            uri="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//facade"
+            class="ProcessDefinition.facade.FacadePackage"
+            genModel="model/ProcessCodeAdapter.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated ProcessCodeAdapter -->
+      <package
+            uri="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore"
+            class="runtime.RuntimePackage"
+            genModel="model/ProcessCodeAdapter.genmodel"/>
+   </extension>
+
+</plugin>

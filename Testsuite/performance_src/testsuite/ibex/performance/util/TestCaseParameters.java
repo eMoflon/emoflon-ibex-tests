@@ -2,8 +2,6 @@ package testsuite.ibex.performance.util;
 
 import java.io.Serializable;
 
-import testsuite.ibex.performance.util.Operationalization;
-
 /**
  * This class holds all parameters that define a unique performance test case.
  * Currently, these parameters are the TGG, the operationalization and the model size.

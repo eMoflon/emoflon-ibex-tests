@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated IBeXTGGGantt2CPM -->
+      <package
+            uri="platform:/resource/IBeXTGGGantt2CPM/model/IBeXTGGGantt2CPM.ecore"
+            class="IBeXTGGGantt2CPM.IBeXTGGGantt2CPMPackage"
+            genModel="model/IBeXTGGGantt2CPM.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated IBeXTGGGantt2CPM -->
+      <package
+            uri="http://de.ubt.ai1.bw.qvt.examples.gantt.ecore"
+            class="gantt.GanttPackage"
+            genModel="model/IBeXTGGGantt2CPM.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated IBeXTGGGantt2CPM -->
+      <package
+            uri="http://de.ubt.ai1.bw.qvt.examples.cpm.ecore"
+            class="cpm.CpmPackage"
+            genModel="model/IBeXTGGGantt2CPM.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated IBeXTGGGantt2CPM -->
+      <package
+            uri="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore"
+            class="runtime.RuntimePackage"
+            genModel="model/IBeXTGGGantt2CPM.genmodel"/>
+   </extension>
+
+</plugin>

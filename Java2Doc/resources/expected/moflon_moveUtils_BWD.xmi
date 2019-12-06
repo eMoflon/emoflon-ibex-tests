@@ -8,22 +8,22 @@
       name="es">
     <subPackages
         name="emoflon">
-      <classes
+      <clazzes
           name="TGG"
           body="TGGImpl"/>
-      <classes
+      <clazzes
           name="EcoreUtil"
           body="EcoreUtilImpl"/>
       <subPackages
           name="ibex">
-        <classes
+        <clazzes
             name="IPM"
             body="IPMImpl"/>
       </subPackages>
     </subPackages>
     <subPackages
         name="cmoflon">
-      <classes
+      <clazzes
           name="GT"
           body="GTImpl"/>
     </subPackages>

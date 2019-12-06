@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated FeatureModelConciseToSafe -->
+      <package
+            uri="platform:/resource/FeatureModelConciseToSafe/model/FeatureModelConciseToSafe.ecore"
+            class="FeatureModelConciseToSafe.FeatureModelConciseToSafePackage"
+            genModel="model/FeatureModelConciseToSafe.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated FeatureModelConciseToSafe -->
+      <package
+            uri="platform:/resource/FeatureModelConcise/model/FeatureModelConcise.ecore"
+            class="FeatureModelConcise.FeatureModelConcisePackage"
+            genModel="model/FeatureModelConciseToSafe.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated FeatureModelConciseToSafe -->
+      <package
+            uri="platform:/resource/FeatureModelSafe/model/FeatureModelSafe.ecore"
+            class="FeatureModelSafe.FeatureModelSafePackage"
+            genModel="model/FeatureModelConciseToSafe.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated FeatureModelConciseToSafe -->
+      <package
+            uri="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore"
+            class="runtime.RuntimePackage"
+            genModel="model/FeatureModelConciseToSafe.genmodel"/>
+   </extension>
+
+</plugin>
