@@ -36,5 +36,6 @@ Bundle-ManifestVersion: 2
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-Vendor: eMoflon IBeX
-Export-Package: org.emoflon.ibex.tgg.run.modiscoibextgg
+Export-Package: org.emoflon.ibex.tgg.run.modiscoibextgg,
+ org.emoflon.ibex.tgg.run.modiscoibextgg.config
 Automatic-Module-Name: MoDiscoIbexTGG

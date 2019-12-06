@@ -44,7 +44,8 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: Java2Doc,
  Java2Doc.impl,
  Java2Doc.util,
- org.emoflon.ibex.tgg.run.java2doc
+ org.emoflon.ibex.tgg.run.java2doc,
+ org.emoflon.ibex.tgg.run.java2doc.config
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Automatic-Module-Name: Java2Doc

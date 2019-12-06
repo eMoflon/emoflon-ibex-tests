@@ -36,5 +36,6 @@ Bundle-ManifestVersion: 2
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-Vendor: eMoflon IBeX
-Export-Package: org.emoflon.ibex.tgg.run.ibextgggantt2cpm
+Export-Package: org.emoflon.ibex.tgg.run.ibextgggantt2cpm,
+ org.emoflon.ibex.tgg.run.ibextgggantt2cpm.config
 Automatic-Module-Name: IBeXTGGGantt2CPM
