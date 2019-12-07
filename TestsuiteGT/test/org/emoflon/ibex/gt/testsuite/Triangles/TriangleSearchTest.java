@@ -11,15 +11,21 @@ import TrianglesGraphTransformation.api.TrianglesGraphTransformationAPI;
 public class TriangleSearchTest extends TrianglesAbstractTest {
 
 	@Test
-	public void findPackageAndClasses() {
-		TrianglesGraphTransformationAPI api = this.init("ClassDiagram1.xmi");
+	public void findSimpleTriangles() {
+		TrianglesGraphTransformationAPI api = this.init("triangles0.xmi");
 
-		assertMatchCount(1, api.simpleTriangle1());
-		assertMatchCount(6, api.simpleTriangle2());
-		assertMatchCount(1, api.simpleTriangle3());
-		assertMatchCount(6, api.simpleTriangle4());
+		assertMatchCount(2, api.simpleTriangle1());
+		assertMatchCount(2, api.simpleTriangle2());
+		assertMatchCount(2, api.simpleTriangle3());
+		assertMatchCount(2, api.simpleTriangle4());
+	}
+	
+	@Test
+	public void simpleTriangleInvocations() {
+		TrianglesGraphTransformationAPI api = this.init("triangles0.xmi");
+
 		assertMatchCount(1, api.invocationTriangle1());
-		assertMatchCount(6, api.invocationTriangle2());
+		assertMatchCount(1, api.invocationTriangle2());
 	}
 
 }
