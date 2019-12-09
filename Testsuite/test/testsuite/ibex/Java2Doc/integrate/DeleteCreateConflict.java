@@ -67,7 +67,7 @@ public class DeleteCreateConflict extends IntegrateTestCase<Package, Folder> {
 	public void dcc_simple3() {
 		final String path = testpath + "dcc_simple3/";
 
-		tool.getOptions().setConflictSolver(c -> c.preserveConstructiveChanges());
+		tool.getOptions().setConflictSolver(c -> c.makeCompromise());
 		tool.applyAndIntegrateDelta(dcc_simple_delta);
 
 		assertCondition(path + "src", path + "trg", path + "corr");
@@ -104,7 +104,7 @@ public class DeleteCreateConflict extends IntegrateTestCase<Package, Folder> {
 	public void dcc_chain3() {
 		final String path = testpath + "dcc_chain3/";
 
-		tool.getOptions().setConflictSolver(c -> c.preserveConstructiveChanges());
+		tool.getOptions().setConflictSolver(c -> c.makeCompromise());
 		tool.applyAndIntegrateDelta(dcc_chain_delta);
 
 		assertCondition(path + "src", path + "trg", path + "corr");
@@ -144,7 +144,7 @@ public class DeleteCreateConflict extends IntegrateTestCase<Package, Folder> {
 	public void dcc_chainMultiDel3() {
 		final String path = testpath + "dcc_chainMultiDel3/";
 		
-		tool.getOptions().setConflictSolver(c -> c.preserveConstructiveChanges());
+		tool.getOptions().setConflictSolver(c -> c.makeCompromise());
 		tool.applyAndIntegrateDelta(dcc_chainMultiDel_delta);
 		
 		assertCondition(path + "src", path + "trg", path + "corr");
