@@ -92,7 +92,7 @@ public class ShortcutFix extends SyncTestCase<Package, Folder>{
 			Folder cmoflon = helperDoc.getFolder(f, "cmoflon");
 			Folder emoflon = helperDoc.getFolder(f, "emoflon");
 			Folder moflon = helperDoc.createFolder(es, "moflon");
-			Doc d = helperDoc.createDoc(moflon, "moflon_doc", "moflonDoc");
+			helperDoc.createDoc(moflon, "moflon_doc", "moflonDoc");
 			
 			moflon.getSubFolders().add(cmoflon);
 			moflon.getSubFolders().add(emoflon);
@@ -141,7 +141,6 @@ public class ShortcutFix extends SyncTestCase<Package, Folder>{
 		tool.performAndPropagateSourceEdit(p -> helperJava.fillBodies(p));
 		//------------
 		tool.performIdleSourceEdit(p -> {
-			Package es = helperJava.getPackage(p, "es");
 			Package cmoflon = helperJava.getPackage(p, "cmoflon");
 			Package emoflon = helperJava.getPackage(p, "emoflon");
 			
@@ -158,7 +157,6 @@ public class ShortcutFix extends SyncTestCase<Package, Folder>{
 		tool.performAndPropagateTargetEdit(f -> helperDoc.fillContents(f));
 		//------------
 		tool.performIdleTargetEdit(f -> {
-			Folder es = helperDoc.getFolder(f, "es");
 			Folder cmoflon = helperDoc.getFolder(f, "cmoflon");
 			Folder emoflon = helperDoc.getFolder(f, "emoflon");
 			
@@ -198,9 +196,9 @@ public class ShortcutFix extends SyncTestCase<Package, Folder>{
 			Folder cmoflon = helperDoc.getFolder(f, "cmoflon");
 			Folder emoflon = helperDoc.getFolder(f, "emoflon");
 			Folder mde = helperDoc.createFolder(es, "mde");
-			Doc md = helperDoc.createDoc(mde, "mde_doc", "mdeDoc");
+			helperDoc.createDoc(mde, "mde_doc", "mdeDoc");
 			Folder moflon = helperDoc.createFolder(mde, "moflon");
-			Doc d = helperDoc.createDoc(moflon, "moflon_doc", "moflonDoc");
+			helperDoc.createDoc(moflon, "moflon_doc", "moflonDoc");
 			
 			moflon.getSubFolders().add(cmoflon);
 			moflon.getSubFolders().add(emoflon);
@@ -211,17 +209,14 @@ public class ShortcutFix extends SyncTestCase<Package, Folder>{
 	@Test
 	public void testMoflon_newRoot_FWD()
 	{
-//		assertPrecondition("in/Init", "expected/Init");
 		tool.performAndPropagateSourceEdit(p -> helperJava.createMoflon(p));
 		tool.performAndPropagateTargetEdit(f -> helperDoc.fillContents(f));
-//		assertPrecondition("in/moflon_FWD", "expected/moflon_FWD");
 		//------------
 		tool.performIdleSourceEdit(p -> {
 			Package newRoot = SimpleJavaFactory.eINSTANCE.createPackage();
 			newRoot.setName("edu");
 			Resource res = p.eResource();
 			res.getContents().add(newRoot);
-//			res.getContents().remove(p);
 			newRoot.getSubPackages().add(p);
 		});
 		assertPostcondition("in/moflon_newRoot_FWD", "expected/moflon_newRoot_FWD");
@@ -232,7 +227,6 @@ public class ShortcutFix extends SyncTestCase<Package, Folder>{
 	{
 		tool.performAndPropagateTargetEdit(f -> helperDoc.createMoflon(f));
 		tool.performAndPropagateSourceEdit(p -> helperJava.fillBodies(p));
-//		assertPrecondition("expected/moflon_BWD", "in/moflon_BWD");
 		//------------
 		tool.performIdleTargetEdit(f -> {
 			Folder newRoot = SimpleDocFactory.eINSTANCE.createFolder();
@@ -240,7 +234,6 @@ public class ShortcutFix extends SyncTestCase<Package, Folder>{
 			Resource res = f.eResource();
 			res.getContents().add(newRoot);
 			newRoot.getSubFolders().add(f);
-//			res.getContents().remove(f);
 			Doc fDoc = SimpleDocFactory.eINSTANCE.createDoc();
 			fDoc.setName(f.getName() + "_" + "doc");
 			fDoc.setContent(f.getName() + "Doc");
@@ -291,10 +284,8 @@ public class ShortcutFix extends SyncTestCase<Package, Folder>{
 	@Test
 	public void testMoflon_moveIbex_FWD()
 	{
-//		assertPrecondition("in/Init", "expected/Init");
 		tool.performAndPropagateSourceEdit(p -> helperJava.createMoflon(p));
 		tool.performAndPropagateTargetEdit(f -> helperDoc.fillContents(f));
-//		assertPrecondition("in/moflon_FWD", "expected/moflon_FWD");
 		//------------
 		tool.performIdleSourceEdit(p -> {
 			helperJava.movePackage(p, "es", "ibex");
@@ -307,7 +298,6 @@ public class ShortcutFix extends SyncTestCase<Package, Folder>{
 	{
 		tool.performAndPropagateTargetEdit(f -> helperDoc.createMoflon(f));
 		tool.performAndPropagateSourceEdit(p -> helperJava.fillBodies(p));
-//		assertPrecondition("expected/moflon_BWD", "in/moflon_BWD");
 		//------------
 		tool.performIdleTargetEdit(f -> {
 			helperDoc.moveFolder(f, "es", "ibex");
@@ -318,10 +308,8 @@ public class ShortcutFix extends SyncTestCase<Package, Folder>{
 	@Test
 	public void testMoflon_moveUtils_FWD()
 	{
-//		assertPrecondition("in/Init", "expected/Init");
 		tool.performAndPropagateSourceEdit(p -> helperJava.createMoflon(p));
 		tool.performAndPropagateTargetEdit(f -> helperDoc.fillContents(f));
-//		assertPrecondition("in/moflon_FWD", "expected/moflon_FWD");
 		//------------
 		tool.performIdleSourceEdit(p -> {
 			helperJava.moveClass(p, "emoflon", "EcoreUtil");
@@ -334,7 +322,6 @@ public class ShortcutFix extends SyncTestCase<Package, Folder>{
 	{
 		tool.performAndPropagateTargetEdit(f -> helperDoc.createMoflon(f));
 		tool.performAndPropagateSourceEdit(p -> helperJava.fillBodies(p));
-//		assertPrecondition("expected/moflon_BWD", "in/moflon_BWD");
 		//------------
 		tool.performIdleTargetEdit(f -> {
 			helperDoc.moveDoc(f, "emoflon", "EcoreUtil_doc");
