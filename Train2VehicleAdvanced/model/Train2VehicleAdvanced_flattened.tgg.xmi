@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="ASCII"?>
+<language:TGG xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:language="platform:/plugin/org.emoflon.ibex.tgg.core.language/model/Language.ecore" name="Train2VehicleAdvanced">
+  <src href="platform:/resource/AdvancedTrain/model/AdvancedTrain.ecore#/"/>
+  <trg href="platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#/"/>
+  <corr href="platform:/resource/Train2VehicleAdvanced/model/Train2VehicleAdvanced.ecore#/"/>
+  <rules name="BenchSeat2Seats">
+    <nodes name="bench" bindingType="CREATE" incomingEdges="//@rules.0/@edges.0 //@rules.0/@edges.2 //@rules.0/@edges.6" incomingCorrsSource="//@rules.0/@nodes.5 //@rules.0/@nodes.6">
+      <type href="platform:/resource/AdvancedTrain/model/AdvancedTrain.ecore#//BenchSeat"/>
+    </nodes>
+    <nodes name="wagon" incomingEdges="//@rules.0/@edges.4" outgoingEdges="//@rules.0/@edges.6" incomingCorrsSource="//@rules.0/@nodes.7">
+      <type href="platform:/resource/AdvancedTrain/model/AdvancedTrain.ecore#//Wagon"/>
+    </nodes>
+    <nodes name="leftSeat" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.0/@edges.1 //@rules.0/@edges.7" incomingCorrsTarget="//@rules.0/@nodes.5">
+      <type href="platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//Seat"/>
+    </nodes>
+    <nodes name="rightSeat" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.0/@edges.3 //@rules.0/@edges.8" incomingCorrsTarget="//@rules.0/@nodes.6">
+      <type href="platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//Seat"/>
+    </nodes>
+    <nodes name="section" domainType="TRG" incomingEdges="//@rules.0/@edges.5" outgoingEdges="//@rules.0/@edges.7 //@rules.0/@edges.8" incomingCorrsTarget="//@rules.0/@nodes.7">
+      <type href="platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//Section"/>
+    </nodes>
+    <nodes xsi:type="language:TGGRuleCorr" name="bench2LeftSeat" domainType="CORR" bindingType="CREATE" outgoingEdges="//@rules.0/@edges.0 //@rules.0/@edges.1" source="//@rules.0/@nodes.0" target="//@rules.0/@nodes.2">
+      <type href="platform:/resource/Train2VehicleAdvanced/model/Train2VehicleAdvanced.ecore#//BenchSeat2Seat"/>
+    </nodes>
+    <nodes xsi:type="language:TGGRuleCorr" name="bench2RightSeat" domainType="CORR" bindingType="CREATE" outgoingEdges="//@rules.0/@edges.2 //@rules.0/@edges.3" source="//@rules.0/@nodes.0" target="//@rules.0/@nodes.3">
+      <type href="platform:/resource/Train2VehicleAdvanced/model/Train2VehicleAdvanced.ecore#//BenchSeat2Seat"/>
+    </nodes>
+    <nodes xsi:type="language:TGGRuleCorr" name="wagon2section" domainType="CORR" outgoingEdges="//@rules.0/@edges.4 //@rules.0/@edges.5" source="//@rules.0/@nodes.1" target="//@rules.0/@nodes.4">
+      <type href="platform:/resource/Train2VehicleAdvanced/model/Train2VehicleAdvanced.ecore#//Wagon2Section"/>
+    </nodes>
+    <edges name="bench2LeftSeat__source__bench_eMoflonEdge" domainType="CORR" bindingType="CREATE" srcNode="//@rules.0/@nodes.5" trgNode="//@rules.0/@nodes.0">
+      <type href="platform:/resource/Train2VehicleAdvanced/model/Train2VehicleAdvanced.ecore#//BenchSeat2Seat/source"/>
+    </edges>
+    <edges name="bench2LeftSeat__target__leftSeat_eMoflonEdge" domainType="CORR" bindingType="CREATE" srcNode="//@rules.0/@nodes.5" trgNode="//@rules.0/@nodes.2">
+      <type href="platform:/resource/Train2VehicleAdvanced/model/Train2VehicleAdvanced.ecore#//BenchSeat2Seat/target"/>
+    </edges>
+    <edges name="bench2RightSeat__source__bench_eMoflonEdge" domainType="CORR" bindingType="CREATE" srcNode="//@rules.0/@nodes.6" trgNode="//@rules.0/@nodes.0">
+      <type href="platform:/resource/Train2VehicleAdvanced/model/Train2VehicleAdvanced.ecore#//BenchSeat2Seat/source"/>
+    </edges>
+    <edges name="bench2RightSeat__target__rightSeat_eMoflonEdge" domainType="CORR" bindingType="CREATE" srcNode="//@rules.0/@nodes.6" trgNode="//@rules.0/@nodes.3">
+      <type href="platform:/resource/Train2VehicleAdvanced/model/Train2VehicleAdvanced.ecore#//BenchSeat2Seat/target"/>
+    </edges>
+    <edges name="wagon2section__source__wagon_eMoflonEdge" domainType="CORR" srcNode="//@rules.0/@nodes.7" trgNode="//@rules.0/@nodes.1">
+      <type href="platform:/resource/Train2VehicleAdvanced/model/Train2VehicleAdvanced.ecore#//Wagon2Section/source"/>
+    </edges>
+    <edges name="wagon2section__target__section_eMoflonEdge" domainType="CORR" srcNode="//@rules.0/@nodes.7" trgNode="//@rules.0/@nodes.4">
+      <type href="platform:/resource/Train2VehicleAdvanced/model/Train2VehicleAdvanced.ecore#//Wagon2Section/target"/>
+    </edges>
+    <edges name="wagon__benchSeats__bench_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.0/@nodes.1" trgNode="//@rules.0/@nodes.0">
+      <type href="platform:/resource/AdvancedTrain/model/AdvancedTrain.ecore#//Wagon/benchSeats"/>
+    </edges>
+    <edges name="section__seats__leftSeat_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.0/@nodes.4" trgNode="//@rules.0/@nodes.2">
+      <type href="platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//Section/seats"/>
+    </edges>
+    <edges name="section__seats__rightSeat_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.0/@nodes.4" trgNode="//@rules.0/@nodes.3">
+      <type href="platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//Section/seats"/>
+    </edges>
+    <attributeConditionLibrary/>
+  </rules>
+  <rules name="FirstWagon2Section">
+    <nodes name="loc" incomingEdges="//@rules.1/@edges.0 //@rules.1/@edges.5" outgoingEdges="//@rules.1/@edges.4" incomingCorrsSource="//@rules.1/@nodes.5">
+      <type href="platform:/resource/AdvancedTrain/model/AdvancedTrain.ecore#//Locomotive"/>
+    </nodes>
+    <nodes name="train" outgoingEdges="//@rules.1/@edges.5 //@rules.1/@edges.6">
+      <type href="platform:/resource/AdvancedTrain/model/AdvancedTrain.ecore#//Train"/>
+    </nodes>
+    <nodes name="wagon" bindingType="CREATE" incomingEdges="//@rules.1/@edges.2 //@rules.1/@edges.4 //@rules.1/@edges.6" incomingCorrsSource="//@rules.1/@nodes.6">
+      <type href="platform:/resource/AdvancedTrain/model/AdvancedTrain.ecore#//Wagon"/>
+    </nodes>
+    <nodes name="propSect" domainType="TRG" incomingEdges="//@rules.1/@edges.1" outgoingEdges="//@rules.1/@edges.7" incomingCorrsTarget="//@rules.1/@nodes.5">
+      <type href="platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//PropulsiveSection"/>
+    </nodes>
+    <nodes name="sect" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.1/@edges.3 //@rules.1/@edges.7" incomingCorrsTarget="//@rules.1/@nodes.6">
+      <type href="platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//Section"/>
+      <attrExpr>
+        <attribute href="platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//Section/description"/>
+        <valueExpr xsi:type="language:TGGLiteralExpression" value="&quot;wagon&quot;"/>
+      </attrExpr>
+    </nodes>
+    <nodes xsi:type="language:TGGRuleCorr" name="loc2PropSect" domainType="CORR" outgoingEdges="//@rules.1/@edges.0 //@rules.1/@edges.1" source="//@rules.1/@nodes.0" target="//@rules.1/@nodes.3">
+      <type href="platform:/resource/Train2VehicleAdvanced/model/Train2VehicleAdvanced.ecore#//Loc2PropulsiveSection"/>
+    </nodes>
+    <nodes xsi:type="language:TGGRuleCorr" name="wagon2Sect" domainType="CORR" bindingType="CREATE" outgoingEdges="//@rules.1/@edges.2 //@rules.1/@edges.3" source="//@rules.1/@nodes.2" target="//@rules.1/@nodes.4">
+      <type href="platform:/resource/Train2VehicleAdvanced/model/Train2VehicleAdvanced.ecore#//Wagon2Section"/>
+    </nodes>
+    <edges name="loc2PropSect__source__loc_eMoflonEdge" domainType="CORR" srcNode="//@rules.1/@nodes.5" trgNode="//@rules.1/@nodes.0">
+      <type href="platform:/resource/Train2VehicleAdvanced/model/Train2VehicleAdvanced.ecore#//Loc2PropulsiveSection/source"/>
+    </edges>
+    <edges name="loc2PropSect__target__propSect_eMoflonEdge" domainType="CORR" srcNode="//@rules.1/@nodes.5" trgNode="//@rules.1/@nodes.3">
+      <type href="platform:/resource/Train2VehicleAdvanced/model/Train2VehicleAdvanced.ecore#//Loc2PropulsiveSection/target"/>
+    </edges>
+    <edges name="wagon2Sect__source__wagon_eMoflonEdge" domainType="CORR" bindingType="CREATE" srcNode="//@rules.1/@nodes.6" trgNode="//@rules.1/@nodes.2">
+      <type href="platform:/resource/Train2VehicleAdvanced/model/Train2VehicleAdvanced.ecore#//Wagon2Section/source"/>
+    </edges>
+    <edges name="wagon2Sect__target__sect_eMoflonEdge" domainType="CORR" bindingType="CREATE" srcNode="//@rules.1/@nodes.6" trgNode="//@rules.1/@nodes.4">
+      <type href="platform:/resource/Train2VehicleAdvanced/model/Train2VehicleAdvanced.ecore#//Wagon2Section/target"/>
+    </edges>
+    <edges name="loc__firstWagon__wagon_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.1/@nodes.0" trgNode="//@rules.1/@nodes.2">
+      <type href="platform:/resource/AdvancedTrain/model/AdvancedTrain.ecore#//Locomotive/firstWagon"/>
+    </edges>
+    <edges name="train__locomotive__loc_eMoflonEdge" srcNode="//@rules.1/@nodes.1" trgNode="//@rules.1/@nodes.0">
+      <type href="platform:/resource/AdvancedTrain/model/AdvancedTrain.ecore#//Train/locomotive"/>
+    </edges>
+    <edges name="train__wagons__wagon_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.1/@nodes.1" trgNode="//@rules.1/@nodes.2">
+      <type href="platform:/resource/AdvancedTrain/model/AdvancedTrain.ecore#//Train/wagons"/>
+    </edges>
+    <edges name="propSect__nextSection__sect_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.1/@nodes.3" trgNode="//@rules.1/@nodes.4">
+      <type href="platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//Section/nextSection"/>
+    </edges>
+    <attributeConditionLibrary/>
+  </rules>
+  <rules name="Loc2Section">
+    <nacs name="firstVehicleSection">
+      <nodes name="propSect" domainType="TRG" incomingEdges="//@rules.2/@nacs.0/@edges.0">
+        <type href="platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//PropulsiveSection"/>
+      </nodes>
+      <nodes name="otherSect" domainType="TRG" outgoingEdges="//@rules.2/@nacs.0/@edges.0">
+        <type href="platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//Section"/>
+      </nodes>
+      <edges name="otherSect__nextSection__propSect_eMoflonEdge" domainType="TRG" srcNode="//@rules.2/@nacs.0/@nodes.1" trgNode="//@rules.2/@nacs.0/@nodes.0">
+        <type href="platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//Section/nextSection"/>
+      </edges>
+      <attributeConditionLibrary/>
+    </nacs>
+    <nodes name="loc" bindingType="CREATE" incomingEdges="//@rules.2/@edges.0 //@rules.2/@edges.4" incomingCorrsSource="//@rules.2/@nodes.5">
+      <type href="platform:/resource/AdvancedTrain/model/AdvancedTrain.ecore#//Locomotive"/>
+    </nodes>
+    <nodes name="train" incomingEdges="//@rules.2/@edges.2" outgoingEdges="//@rules.2/@edges.4" incomingCorrsSource="//@rules.2/@nodes.6">
+      <type href="platform:/resource/AdvancedTrain/model/AdvancedTrain.ecore#//Train"/>
+    </nodes>
+    <nodes name="engine" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.2/@edges.5">
+      <type href="platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//Engine"/>
+    </nodes>
+    <nodes name="propSect" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.2/@edges.1 //@rules.2/@edges.6" outgoingEdges="//@rules.2/@edges.5" incomingCorrsTarget="//@rules.2/@nodes.5">
+      <type href="platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//PropulsiveSection"/>
+      <attrExpr>
+        <attribute href="platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//Section/description"/>
+        <valueExpr xsi:type="language:TGGLiteralExpression" value="&quot;locomotive&quot;"/>
+      </attrExpr>
+    </nodes>
+    <nodes name="vehicle" domainType="TRG" incomingEdges="//@rules.2/@edges.3" outgoingEdges="//@rules.2/@edges.6" incomingCorrsTarget="//@rules.2/@nodes.6">
+      <type href="platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//Vehicle"/>
+    </nodes>
+    <nodes xsi:type="language:TGGRuleCorr" name="loc2propSect" domainType="CORR" bindingType="CREATE" outgoingEdges="//@rules.2/@edges.0 //@rules.2/@edges.1" source="//@rules.2/@nodes.0" target="//@rules.2/@nodes.3">
+      <type href="platform:/resource/Train2VehicleAdvanced/model/Train2VehicleAdvanced.ecore#//Loc2PropulsiveSection"/>
+    </nodes>
+    <nodes xsi:type="language:TGGRuleCorr" name="train2vehicle" domainType="CORR" outgoingEdges="//@rules.2/@edges.2 //@rules.2/@edges.3" source="//@rules.2/@nodes.1" target="//@rules.2/@nodes.4">
+      <type href="platform:/resource/Train2VehicleAdvanced/model/Train2VehicleAdvanced.ecore#//Train2Vehicle"/>
+    </nodes>
+    <edges name="loc2propSect__source__loc_eMoflonEdge" domainType="CORR" bindingType="CREATE" srcNode="//@rules.2/@nodes.5" trgNode="//@rules.2/@nodes.0">
+      <type href="platform:/resource/Train2VehicleAdvanced/model/Train2VehicleAdvanced.ecore#//Loc2PropulsiveSection/source"/>
+    </edges>
+    <edges name="loc2propSect__target__propSect_eMoflonEdge" domainType="CORR" bindingType="CREATE" srcNode="//@rules.2/@nodes.5" trgNode="//@rules.2/@nodes.3">
+      <type href="platform:/resource/Train2VehicleAdvanced/model/Train2VehicleAdvanced.ecore#//Loc2PropulsiveSection/target"/>
+    </edges>
+    <edges name="train2vehicle__source__train_eMoflonEdge" domainType="CORR" srcNode="//@rules.2/@nodes.6" trgNode="//@rules.2/@nodes.1">
+      <type href="platform:/resource/Train2VehicleAdvanced/model/Train2VehicleAdvanced.ecore#//Train2Vehicle/source"/>
+    </edges>
+    <edges name="train2vehicle__target__vehicle_eMoflonEdge" domainType="CORR" srcNode="//@rules.2/@nodes.6" trgNode="//@rules.2/@nodes.4">
+      <type href="platform:/resource/Train2VehicleAdvanced/model/Train2VehicleAdvanced.ecore#//Train2Vehicle/target"/>
+    </edges>
+    <edges name="train__locomotive__loc_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.2/@nodes.1" trgNode="//@rules.2/@nodes.0">
+      <type href="platform:/resource/AdvancedTrain/model/AdvancedTrain.ecore#//Train/locomotive"/>
+    </edges>
+    <edges name="propSect__engine__engine_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.2/@nodes.3" trgNode="//@rules.2/@nodes.2">
+      <type href="platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//PropulsiveSection/engine"/>
+    </edges>
+    <edges name="vehicle__sections__propSect_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.2/@nodes.4" trgNode="//@rules.2/@nodes.3">
+      <type href="platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//Vehicle/sections"/>
+    </edges>
+    <attributeConditionLibrary>
+      <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0" parameters="//@rules.2/@attributeConditionLibrary/@parameterValues.0 //@rules.2/@attributeConditionLibrary/@parameterValues.1"/>
+      <parameterValues xsi:type="language:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.0" objectVar="//@rules.2/@nodes.0">
+        <attribute href="platform:/resource/AdvancedTrain/model/AdvancedTrain.ecore#//Locomotive/ps"/>
+      </parameterValues>
+      <parameterValues xsi:type="language:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.1" objectVar="//@rules.2/@nodes.2">
+        <attribute href="platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//Engine/ps"/>
+      </parameterValues>
+    </attributeConditionLibrary>
+  </rules>
+  <rules name="LocDriver2Driver">
+    <nodes name="loc" incomingEdges="//@rules.3/@edges.0" outgoingEdges="//@rules.3/@edges.4" incomingCorrsSource="//@rules.3/@nodes.6">
+      <type href="platform:/resource/AdvancedTrain/model/AdvancedTrain.ecore#//Locomotive"/>
+    </nodes>
+    <nodes name="locDriver" bindingType="CREATE" incomingEdges="//@rules.3/@edges.2 //@rules.3/@edges.4" incomingCorrsSource="//@rules.3/@nodes.7">
+      <type href="platform:/resource/AdvancedTrain/model/AdvancedTrain.ecore#//LocomotiveDriver"/>
+    </nodes>
+    <nodes name="driver" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.3/@edges.3 //@rules.3/@edges.8" outgoingEdges="//@rules.3/@edges.5" incomingCorrsTarget="//@rules.3/@nodes.7">
+      <type href="platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//Driver"/>
+    </nodes>
+    <nodes name="driversSeat" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.3/@edges.5 //@rules.3/@edges.6">
+      <type href="platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//DriversSeat"/>
+    </nodes>
+    <nodes name="propSect" domainType="TRG" incomingEdges="//@rules.3/@edges.1 //@rules.3/@edges.7" outgoingEdges="//@rules.3/@edges.6" incomingCorrsTarget="//@rules.3/@nodes.6">
+      <type href="platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//PropulsiveSection"/>
+    </nodes>
+    <nodes name="vehicle" domainType="TRG" outgoingEdges="//@rules.3/@edges.7 //@rules.3/@edges.8">
+      <type href="platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//Vehicle"/>
+    </nodes>
+    <nodes xsi:type="language:TGGRuleCorr" name="loc2PropSect" domainType="CORR" outgoingEdges="//@rules.3/@edges.0 //@rules.3/@edges.1" source="//@rules.3/@nodes.0" target="//@rules.3/@nodes.4">
+      <type href="platform:/resource/Train2VehicleAdvanced/model/Train2VehicleAdvanced.ecore#//Loc2PropulsiveSection"/>
+    </nodes>
+    <nodes xsi:type="language:TGGRuleCorr" name="locDriver2driver" domainType="CORR" bindingType="CREATE" outgoingEdges="//@rules.3/@edges.2 //@rules.3/@edges.3" source="//@rules.3/@nodes.1" target="//@rules.3/@nodes.2">
+      <type href="platform:/resource/Train2VehicleAdvanced/model/Train2VehicleAdvanced.ecore#//LocDriver2Driver"/>
+    </nodes>
+    <edges name="loc2PropSect__source__loc_eMoflonEdge" domainType="CORR" srcNode="//@rules.3/@nodes.6" trgNode="//@rules.3/@nodes.0">
+      <type href="platform:/resource/Train2VehicleAdvanced/model/Train2VehicleAdvanced.ecore#//Loc2PropulsiveSection/source"/>
+    </edges>
+    <edges name="loc2PropSect__target__propSect_eMoflonEdge" domainType="CORR" srcNode="//@rules.3/@nodes.6" trgNode="//@rules.3/@nodes.4">
+      <type href="platform:/resource/Train2VehicleAdvanced/model/Train2VehicleAdvanced.ecore#//Loc2PropulsiveSection/target"/>
+    </edges>
+    <edges name="locDriver2driver__source__locDriver_eMoflonEdge" domainType="CORR" bindingType="CREATE" srcNode="//@rules.3/@nodes.7" trgNode="//@rules.3/@nodes.1">
+      <type href="platform:/resource/Train2VehicleAdvanced/model/Train2VehicleAdvanced.ecore#//LocDriver2Driver/source"/>
+    </edges>
+    <edges name="locDriver2driver__target__driver_eMoflonEdge" domainType="CORR" bindingType="CREATE" srcNode="//@rules.3/@nodes.7" trgNode="//@rules.3/@nodes.2">
+      <type href="platform:/resource/Train2VehicleAdvanced/model/Train2VehicleAdvanced.ecore#//LocDriver2Driver/target"/>
+    </edges>
+    <edges name="loc__driver__locDriver_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.3/@nodes.0" trgNode="//@rules.3/@nodes.1">
+      <type href="platform:/resource/AdvancedTrain/model/AdvancedTrain.ecore#//Locomotive/driver"/>
+    </edges>
+    <edges name="driver__seat__driversSeat_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.3/@nodes.2" trgNode="//@rules.3/@nodes.3">
+      <type href="platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//Driver/seat"/>
+    </edges>
+    <edges name="propSect__seats__driversSeat_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.3/@nodes.4" trgNode="//@rules.3/@nodes.3">
+      <type href="platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//Section/seats"/>
+    </edges>
+    <edges name="vehicle__sections__propSect_eMoflonEdge" domainType="TRG" srcNode="//@rules.3/@nodes.5" trgNode="//@rules.3/@nodes.4">
+      <type href="platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//Vehicle/sections"/>
+    </edges>
+    <edges name="vehicle__driver__driver_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.3/@nodes.5" trgNode="//@rules.3/@nodes.2">
+      <type href="platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//Vehicle/driver"/>
+    </edges>
+    <attributeConditionLibrary>
+      <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.1" parameters="//@rules.3/@attributeConditionLibrary/@parameterValues.0 //@rules.3/@attributeConditionLibrary/@parameterValues.1"/>
+      <parameterValues xsi:type="language:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.1/@parameterDefinitions.0" objectVar="//@rules.3/@nodes.1">
+        <attribute href="platform:/resource/AdvancedTrain/model/AdvancedTrain.ecore#//LocomotiveDriver/name"/>
+      </parameterValues>
+      <parameterValues xsi:type="language:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.1/@parameterDefinitions.1" objectVar="//@rules.3/@nodes.2">
+        <attribute href="platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//Driver/name"/>
+      </parameterValues>
+    </attributeConditionLibrary>
+  </rules>
+  <rules name="Train2Vehicle">
+    <nodes name="train" bindingType="CREATE" incomingEdges="//@rules.4/@edges.0" incomingCorrsSource="//@rules.4/@nodes.2">
+      <type href="platform:/resource/AdvancedTrain/model/AdvancedTrain.ecore#//Train"/>
+    </nodes>
+    <nodes name="vehicle" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.4/@edges.1" incomingCorrsTarget="//@rules.4/@nodes.2">
+      <type href="platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//Vehicle"/>
+    </nodes>
+    <nodes xsi:type="language:TGGRuleCorr" name="train2vehicle" domainType="CORR" bindingType="CREATE" outgoingEdges="//@rules.4/@edges.0 //@rules.4/@edges.1" source="//@rules.4/@nodes.0" target="//@rules.4/@nodes.1">
+      <type href="platform:/resource/Train2VehicleAdvanced/model/Train2VehicleAdvanced.ecore#//Train2Vehicle"/>
+    </nodes>
+    <edges name="train2vehicle__source__train_eMoflonEdge" domainType="CORR" bindingType="CREATE" srcNode="//@rules.4/@nodes.2" trgNode="//@rules.4/@nodes.0">
+      <type href="platform:/resource/Train2VehicleAdvanced/model/Train2VehicleAdvanced.ecore#//Train2Vehicle/source"/>
+    </edges>
+    <edges name="train2vehicle__target__vehicle_eMoflonEdge" domainType="CORR" bindingType="CREATE" srcNode="//@rules.4/@nodes.2" trgNode="//@rules.4/@nodes.1">
+      <type href="platform:/resource/Train2VehicleAdvanced/model/Train2VehicleAdvanced.ecore#//Train2Vehicle/target"/>
+    </edges>
+    <attributeConditionLibrary/>
+  </rules>
+  <rules name="Wagon2Section">
+    <nodes name="followingWagon" bindingType="CREATE" incomingEdges="//@rules.5/@edges.0 //@rules.5/@edges.4 //@rules.5/@edges.6" incomingCorrsSource="//@rules.5/@nodes.5">
+      <type href="platform:/resource/AdvancedTrain/model/AdvancedTrain.ecore#//Wagon"/>
+    </nodes>
+    <nodes name="leadingWagon" incomingEdges="//@rules.5/@edges.2 //@rules.5/@edges.5" outgoingEdges="//@rules.5/@edges.4" incomingCorrsSource="//@rules.5/@nodes.6">
+      <type href="platform:/resource/AdvancedTrain/model/AdvancedTrain.ecore#//Wagon"/>
+    </nodes>
+    <nodes name="train" outgoingEdges="//@rules.5/@edges.5 //@rules.5/@edges.6">
+      <type href="platform:/resource/AdvancedTrain/model/AdvancedTrain.ecore#//Train"/>
+    </nodes>
+    <nodes name="followingSect" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.5/@edges.1 //@rules.5/@edges.7" incomingCorrsTarget="//@rules.5/@nodes.5">
+      <type href="platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//Section"/>
+      <attrExpr>
+        <attribute href="platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//Section/description"/>
+        <valueExpr xsi:type="language:TGGLiteralExpression" value="&quot;wagon&quot;"/>
+      </attrExpr>
+    </nodes>
+    <nodes name="leadingSect" domainType="TRG" incomingEdges="//@rules.5/@edges.3" outgoingEdges="//@rules.5/@edges.7" incomingCorrsTarget="//@rules.5/@nodes.6">
+      <type href="platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//Section"/>
+    </nodes>
+    <nodes xsi:type="language:TGGRuleCorr" name="folWagon2FolSect" domainType="CORR" bindingType="CREATE" outgoingEdges="//@rules.5/@edges.0 //@rules.5/@edges.1" source="//@rules.5/@nodes.0" target="//@rules.5/@nodes.3">
+      <type href="platform:/resource/Train2VehicleAdvanced/model/Train2VehicleAdvanced.ecore#//Wagon2Section"/>
+    </nodes>
+    <nodes xsi:type="language:TGGRuleCorr" name="ledWagon2ledSect" domainType="CORR" outgoingEdges="//@rules.5/@edges.2 //@rules.5/@edges.3" source="//@rules.5/@nodes.1" target="//@rules.5/@nodes.4">
+      <type href="platform:/resource/Train2VehicleAdvanced/model/Train2VehicleAdvanced.ecore#//Wagon2Section"/>
+    </nodes>
+    <edges name="folWagon2FolSect__source__followingWagon_eMoflonEdge" domainType="CORR" bindingType="CREATE" srcNode="//@rules.5/@nodes.5" trgNode="//@rules.5/@nodes.0">
+      <type href="platform:/resource/Train2VehicleAdvanced/model/Train2VehicleAdvanced.ecore#//Wagon2Section/source"/>
+    </edges>
+    <edges name="folWagon2FolSect__target__followingSect_eMoflonEdge" domainType="CORR" bindingType="CREATE" srcNode="//@rules.5/@nodes.5" trgNode="//@rules.5/@nodes.3">
+      <type href="platform:/resource/Train2VehicleAdvanced/model/Train2VehicleAdvanced.ecore#//Wagon2Section/target"/>
+    </edges>
+    <edges name="ledWagon2ledSect__source__leadingWagon_eMoflonEdge" domainType="CORR" srcNode="//@rules.5/@nodes.6" trgNode="//@rules.5/@nodes.1">
+      <type href="platform:/resource/Train2VehicleAdvanced/model/Train2VehicleAdvanced.ecore#//Wagon2Section/source"/>
+    </edges>
+    <edges name="ledWagon2ledSect__target__leadingSect_eMoflonEdge" domainType="CORR" srcNode="//@rules.5/@nodes.6" trgNode="//@rules.5/@nodes.4">
+      <type href="platform:/resource/Train2VehicleAdvanced/model/Train2VehicleAdvanced.ecore#//Wagon2Section/target"/>
+    </edges>
+    <edges name="leadingWagon__nextWagon__followingWagon_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.5/@nodes.1" trgNode="//@rules.5/@nodes.0">
+      <type href="platform:/resource/AdvancedTrain/model/AdvancedTrain.ecore#//Wagon/nextWagon"/>
+    </edges>
+    <edges name="train__wagons__leadingWagon_eMoflonEdge" srcNode="//@rules.5/@nodes.2" trgNode="//@rules.5/@nodes.1">
+      <type href="platform:/resource/AdvancedTrain/model/AdvancedTrain.ecore#//Train/wagons"/>
+    </edges>
+    <edges name="train__wagons__followingWagon_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.5/@nodes.2" trgNode="//@rules.5/@nodes.0">
+      <type href="platform:/resource/AdvancedTrain/model/AdvancedTrain.ecore#//Train/wagons"/>
+    </edges>
+    <edges name="leadingSect__nextSection__followingSect_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.5/@nodes.4" trgNode="//@rules.5/@nodes.3">
+      <type href="platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//Section/nextSection"/>
+    </edges>
+    <attributeConditionLibrary/>
+  </rules>
+  <attributeConstraintDefinitionLibrary>
+    <tggAttributeConstraintDefinitions name="eq_int" userDefined="false">
+      <parameterDefinitions name="a">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      </parameterDefinitions>
+      <parameterDefinitions name="b">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      </parameterDefinitions>
+      <syncAdornments>
+        <value>B</value>
+        <value>B</value>
+      </syncAdornments>
+      <syncAdornments>
+        <value>B</value>
+        <value>F</value>
+      </syncAdornments>
+      <syncAdornments>
+        <value>F</value>
+        <value>B</value>
+      </syncAdornments>
+      <genAdornments>
+        <value>B</value>
+        <value>B</value>
+      </genAdornments>
+      <genAdornments>
+        <value>B</value>
+        <value>F</value>
+      </genAdornments>
+      <genAdornments>
+        <value>F</value>
+        <value>B</value>
+      </genAdornments>
+      <genAdornments>
+        <value>F</value>
+        <value>F</value>
+      </genAdornments>
+    </tggAttributeConstraintDefinitions>
+    <tggAttributeConstraintDefinitions name="eq_string" userDefined="false">
+      <parameterDefinitions name="a">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </parameterDefinitions>
+      <parameterDefinitions name="b">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </parameterDefinitions>
+      <syncAdornments>
+        <value>B</value>
+        <value>B</value>
+      </syncAdornments>
+      <syncAdornments>
+        <value>B</value>
+        <value>F</value>
+      </syncAdornments>
+      <syncAdornments>
+        <value>F</value>
+        <value>B</value>
+      </syncAdornments>
+      <genAdornments>
+        <value>B</value>
+        <value>B</value>
+      </genAdornments>
+      <genAdornments>
+        <value>B</value>
+        <value>F</value>
+      </genAdornments>
+      <genAdornments>
+        <value>F</value>
+        <value>B</value>
+      </genAdornments>
+      <genAdornments>
+        <value>F</value>
+        <value>F</value>
+      </genAdornments>
+    </tggAttributeConstraintDefinitions>
+  </attributeConstraintDefinitionLibrary>
+</language:TGG>

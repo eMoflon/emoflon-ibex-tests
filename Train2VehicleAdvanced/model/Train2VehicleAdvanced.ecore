@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="Train2VehicleAdvanced" nsURI="platform:/resource/Train2VehicleAdvanced/model/Train2VehicleAdvanced.ecore"
+    nsPrefix="Train2VehicleAdvanced">
+  <eClassifiers xsi:type="ecore:EClass" name="Train2Vehicle">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="ecore:EClass platform:/resource/AdvancedTrain/model/AdvancedTrain.ecore#//Train"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="ecore:EClass platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//Vehicle"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LocDriver2Driver">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="ecore:EClass platform:/resource/AdvancedTrain/model/AdvancedTrain.ecore#//LocomotiveDriver"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="ecore:EClass platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//Driver"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Loc2PropulsiveSection">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="ecore:EClass platform:/resource/AdvancedTrain/model/AdvancedTrain.ecore#//Locomotive"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="ecore:EClass platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//PropulsiveSection"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Wagon2Section">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="ecore:EClass platform:/resource/AdvancedTrain/model/AdvancedTrain.ecore#//Wagon"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="ecore:EClass platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//Section"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BenchSeat2Seat">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="ecore:EClass platform:/resource/AdvancedTrain/model/AdvancedTrain.ecore#//BenchSeat"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="ecore:EClass platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//Seat"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BenchSeat2Seats__Marker" eSuperTypes="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__SRC__bench" lowerBound="1"
+        eType="ecore:EClass platform:/resource/AdvancedTrain/model/AdvancedTrain.ecore#//BenchSeat"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__SRC__wagon" lowerBound="1"
+        eType="ecore:EClass platform:/resource/AdvancedTrain/model/AdvancedTrain.ecore#//Wagon"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__TRG__leftSeat"
+        lowerBound="1" eType="ecore:EClass platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//Seat"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__TRG__rightSeat"
+        lowerBound="1" eType="ecore:EClass platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//Seat"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__TRG__section"
+        lowerBound="1" eType="ecore:EClass platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//Section"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__CORR__bench2LeftSeat"
+        lowerBound="1" eType="ecore:EClass platform:/resource/Train2VehicleAdvanced/model/Train2VehicleAdvanced.ecore#//BenchSeat2Seat"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__CORR__bench2RightSeat"
+        lowerBound="1" eType="ecore:EClass platform:/resource/Train2VehicleAdvanced/model/Train2VehicleAdvanced.ecore#//BenchSeat2Seat"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__wagon2section"
+        lowerBound="1" eType="ecore:EClass platform:/resource/Train2VehicleAdvanced/model/Train2VehicleAdvanced.ecore#//Wagon2Section"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FirstWagon2Section__Marker" eSuperTypes="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__SRC__loc" lowerBound="1"
+        eType="ecore:EClass platform:/resource/AdvancedTrain/model/AdvancedTrain.ecore#//Locomotive"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__SRC__train" lowerBound="1"
+        eType="ecore:EClass platform:/resource/AdvancedTrain/model/AdvancedTrain.ecore#//Train"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__SRC__wagon" lowerBound="1"
+        eType="ecore:EClass platform:/resource/AdvancedTrain/model/AdvancedTrain.ecore#//Wagon"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__TRG__propSect"
+        lowerBound="1" eType="ecore:EClass platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//PropulsiveSection"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__TRG__sect" lowerBound="1"
+        eType="ecore:EClass platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//Section"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__loc2PropSect"
+        lowerBound="1" eType="ecore:EClass platform:/resource/Train2VehicleAdvanced/model/Train2VehicleAdvanced.ecore#//Loc2PropulsiveSection"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__CORR__wagon2Sect"
+        lowerBound="1" eType="ecore:EClass platform:/resource/Train2VehicleAdvanced/model/Train2VehicleAdvanced.ecore#//Wagon2Section"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Loc2Section__Marker" eSuperTypes="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__SRC__loc" lowerBound="1"
+        eType="ecore:EClass platform:/resource/AdvancedTrain/model/AdvancedTrain.ecore#//Locomotive"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__SRC__train" lowerBound="1"
+        eType="ecore:EClass platform:/resource/AdvancedTrain/model/AdvancedTrain.ecore#//Train"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__TRG__engine" lowerBound="1"
+        eType="ecore:EClass platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//Engine"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__TRG__propSect"
+        lowerBound="1" eType="ecore:EClass platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//PropulsiveSection"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__TRG__vehicle"
+        lowerBound="1" eType="ecore:EClass platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//Vehicle"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__CORR__loc2propSect"
+        lowerBound="1" eType="ecore:EClass platform:/resource/Train2VehicleAdvanced/model/Train2VehicleAdvanced.ecore#//Loc2PropulsiveSection"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__train2vehicle"
+        lowerBound="1" eType="ecore:EClass platform:/resource/Train2VehicleAdvanced/model/Train2VehicleAdvanced.ecore#//Train2Vehicle"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LocDriver2Driver__Marker" eSuperTypes="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__SRC__loc" lowerBound="1"
+        eType="ecore:EClass platform:/resource/AdvancedTrain/model/AdvancedTrain.ecore#//Locomotive"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__SRC__locDriver"
+        lowerBound="1" eType="ecore:EClass platform:/resource/AdvancedTrain/model/AdvancedTrain.ecore#//LocomotiveDriver"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__TRG__driver" lowerBound="1"
+        eType="ecore:EClass platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//Driver"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__TRG__driversSeat"
+        lowerBound="1" eType="ecore:EClass platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//DriversSeat"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__TRG__propSect"
+        lowerBound="1" eType="ecore:EClass platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//PropulsiveSection"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__TRG__vehicle"
+        lowerBound="1" eType="ecore:EClass platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//Vehicle"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__loc2PropSect"
+        lowerBound="1" eType="ecore:EClass platform:/resource/Train2VehicleAdvanced/model/Train2VehicleAdvanced.ecore#//Loc2PropulsiveSection"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__CORR__locDriver2driver"
+        lowerBound="1" eType="ecore:EClass platform:/resource/Train2VehicleAdvanced/model/Train2VehicleAdvanced.ecore#//LocDriver2Driver"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Train2Vehicle__Marker" eSuperTypes="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__SRC__train" lowerBound="1"
+        eType="ecore:EClass platform:/resource/AdvancedTrain/model/AdvancedTrain.ecore#//Train"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__TRG__vehicle" lowerBound="1"
+        eType="ecore:EClass platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//Vehicle"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__CORR__train2vehicle"
+        lowerBound="1" eType="ecore:EClass platform:/resource/Train2VehicleAdvanced/model/Train2VehicleAdvanced.ecore#//Train2Vehicle"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Wagon2Section__Marker" eSuperTypes="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore#//TGGRuleApplication">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__SRC__followingWagon"
+        lowerBound="1" eType="ecore:EClass platform:/resource/AdvancedTrain/model/AdvancedTrain.ecore#//Wagon"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__SRC__leadingWagon"
+        lowerBound="1" eType="ecore:EClass platform:/resource/AdvancedTrain/model/AdvancedTrain.ecore#//Wagon"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__SRC__train" lowerBound="1"
+        eType="ecore:EClass platform:/resource/AdvancedTrain/model/AdvancedTrain.ecore#//Train"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__TRG__followingSect"
+        lowerBound="1" eType="ecore:EClass platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//Section"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__TRG__leadingSect"
+        lowerBound="1" eType="ecore:EClass platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//Section"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CREATE__CORR__folWagon2FolSect"
+        lowerBound="1" eType="ecore:EClass platform:/resource/Train2VehicleAdvanced/model/Train2VehicleAdvanced.ecore#//Wagon2Section"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CONTEXT__CORR__ledWagon2ledSect"
+        lowerBound="1" eType="ecore:EClass platform:/resource/Train2VehicleAdvanced/model/Train2VehicleAdvanced.ecore#//Wagon2Section"/>
+  </eClassifiers>
+</ecore:EPackage>

@@ -1,0 +1,47 @@
+#using Train2VehicleAdvanced.*
+#using AttrCondDefLibrary.*
+
+#rule Loc2Section #with Train2VehicleAdvanced
+
+#source { 
+	train:Train {
+		++-locomotive->loc
+	}
+	++loc:Locomotive
+}
+
+#target {
+	vehicle:Vehicle {
+		++-sections->propSect
+	}
+	++propSect:PropulsiveSection {
+		description:="locomotive"
+		++-engine->engine
+	}
+	++engine:Engine
+}
+
+#correspondence {
+	train2vehicle:Train2Vehicle {
+		#src->train
+		#trg->vehicle
+	}
+	++loc2propSect:Loc2PropulsiveSection {
+		#src->loc
+		#trg->propSect
+	}
+}
+
+#attributeConditions {
+	eq_int(loc.ps, engine.ps)
+}
+
+
+#nac firstVehicleSection #for Loc2Section
+
+#target {
+	propSect:PropulsiveSection
+	otherSect:Section {
+		-nextSection->propSect
+	}
+}

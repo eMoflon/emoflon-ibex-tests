@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="ASCII"?>
+<tgg:TripleGraphGrammarFile xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tgg="http://www.moflon.org/ide/tgg/mosl/TGG">
+  <imports name="platform:/resource/AdvancedTrain/model/AdvancedTrain.ecore"/>
+  <imports name="platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore"/>
+  <schema name="Train2VehicleAdvanced">
+    <sourceTypes href="platform:/resource/AdvancedTrain/model/AdvancedTrain.ecore#/"/>
+    <targetTypes href="platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#/"/>
+    <correspondenceTypes name="Train2Vehicle">
+      <source href="platform:/resource/AdvancedTrain/model/AdvancedTrain.ecore#//Train"/>
+      <target href="platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//Vehicle"/>
+    </correspondenceTypes>
+    <correspondenceTypes name="LocDriver2Driver">
+      <source href="platform:/resource/AdvancedTrain/model/AdvancedTrain.ecore#//LocomotiveDriver"/>
+      <target href="platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//Driver"/>
+    </correspondenceTypes>
+    <correspondenceTypes name="Loc2PropulsiveSection">
+      <source href="platform:/resource/AdvancedTrain/model/AdvancedTrain.ecore#//Locomotive"/>
+      <target href="platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//PropulsiveSection"/>
+    </correspondenceTypes>
+    <correspondenceTypes name="Wagon2Section">
+      <source href="platform:/resource/AdvancedTrain/model/AdvancedTrain.ecore#//Wagon"/>
+      <target href="platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//Section"/>
+    </correspondenceTypes>
+    <correspondenceTypes name="BenchSeat2Seat">
+      <source href="platform:/resource/AdvancedTrain/model/AdvancedTrain.ecore#//BenchSeat"/>
+      <target href="platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//Seat"/>
+    </correspondenceTypes>
+    <attributeCondDefs name="eq_int">
+      <params paramName="a">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      </params>
+      <params paramName="b">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      </params>
+      <allowedSyncAdornments>
+        <value>B</value>
+        <value>B</value>
+      </allowedSyncAdornments>
+      <allowedSyncAdornments>
+        <value>B</value>
+        <value>F</value>
+      </allowedSyncAdornments>
+      <allowedSyncAdornments>
+        <value>F</value>
+        <value>B</value>
+      </allowedSyncAdornments>
+      <allowedGenAdornments>
+        <value>B</value>
+        <value>B</value>
+      </allowedGenAdornments>
+      <allowedGenAdornments>
+        <value>B</value>
+        <value>F</value>
+      </allowedGenAdornments>
+      <allowedGenAdornments>
+        <value>F</value>
+        <value>B</value>
+      </allowedGenAdornments>
+      <allowedGenAdornments>
+        <value>F</value>
+        <value>F</value>
+      </allowedGenAdornments>
+    </attributeCondDefs>
+    <attributeCondDefs name="eq_string">
+      <params paramName="a">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </params>
+      <params paramName="b">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </params>
+      <allowedSyncAdornments>
+        <value>B</value>
+        <value>B</value>
+      </allowedSyncAdornments>
+      <allowedSyncAdornments>
+        <value>B</value>
+        <value>F</value>
+      </allowedSyncAdornments>
+      <allowedSyncAdornments>
+        <value>F</value>
+        <value>B</value>
+      </allowedSyncAdornments>
+      <allowedGenAdornments>
+        <value>B</value>
+        <value>B</value>
+      </allowedGenAdornments>
+      <allowedGenAdornments>
+        <value>B</value>
+        <value>F</value>
+      </allowedGenAdornments>
+      <allowedGenAdornments>
+        <value>F</value>
+        <value>B</value>
+      </allowedGenAdornments>
+      <allowedGenAdornments>
+        <value>F</value>
+        <value>F</value>
+      </allowedGenAdornments>
+    </attributeCondDefs>
+  </schema>
+  <rules name="BenchSeat2Seats" schema="//@schema">
+    <sourcePatterns name="wagon">
+      <type href="platform:/resource/AdvancedTrain/model/AdvancedTrain.ecore#//Wagon"/>
+      <linkVariablePatterns target="//@rules.0/@sourcePatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/AdvancedTrain/model/AdvancedTrain.ecore#//Wagon/benchSeats"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="bench">
+      <op value="++"/>
+      <type href="platform:/resource/AdvancedTrain/model/AdvancedTrain.ecore#//BenchSeat"/>
+    </sourcePatterns>
+    <targetPatterns name="section">
+      <type href="platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//Section"/>
+      <linkVariablePatterns target="//@rules.0/@targetPatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//Section/seats"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.0/@targetPatterns.2">
+        <op value="++"/>
+        <type href="platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//Section/seats"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="leftSeat">
+      <op value="++"/>
+      <type href="platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//Seat"/>
+    </targetPatterns>
+    <targetPatterns name="rightSeat">
+      <op value="++"/>
+      <type href="platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//Seat"/>
+    </targetPatterns>
+    <correspondencePatterns name="wagon2section" type="//@schema/@correspondenceTypes.3" source="//@rules.0/@sourcePatterns.0" target="//@rules.0/@targetPatterns.0"/>
+    <correspondencePatterns name="bench2LeftSeat" type="//@schema/@correspondenceTypes.4" source="//@rules.0/@sourcePatterns.1" target="//@rules.0/@targetPatterns.1">
+      <op value="++"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="bench2RightSeat" type="//@schema/@correspondenceTypes.4" source="//@rules.0/@sourcePatterns.1" target="//@rules.0/@targetPatterns.2">
+      <op value="++"/>
+    </correspondencePatterns>
+  </rules>
+  <rules name="Loc2Section" schema="//@schema">
+    <sourcePatterns name="train">
+      <type href="platform:/resource/AdvancedTrain/model/AdvancedTrain.ecore#//Train"/>
+      <linkVariablePatterns target="//@rules.1/@sourcePatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/AdvancedTrain/model/AdvancedTrain.ecore#//Train/locomotive"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="loc">
+      <op value="++"/>
+      <type href="platform:/resource/AdvancedTrain/model/AdvancedTrain.ecore#//Locomotive"/>
+    </sourcePatterns>
+    <targetPatterns name="vehicle">
+      <type href="platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//Vehicle"/>
+      <linkVariablePatterns target="//@rules.1/@targetPatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//Vehicle/sections"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="propSect">
+      <op value="++"/>
+      <type href="platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//PropulsiveSection"/>
+      <attributeAssignments op=":=">
+        <attribute href="platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//Section/description"/>
+        <valueExp xsi:type="tgg:LiteralExpression" value="&quot;locomotive&quot;"/>
+      </attributeAssignments>
+      <linkVariablePatterns target="//@rules.1/@targetPatterns.2">
+        <op value="++"/>
+        <type href="platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//PropulsiveSection/engine"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="engine">
+      <op value="++"/>
+      <type href="platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//Engine"/>
+    </targetPatterns>
+    <correspondencePatterns name="train2vehicle" type="//@schema/@correspondenceTypes.0" source="//@rules.1/@sourcePatterns.0" target="//@rules.1/@targetPatterns.0"/>
+    <correspondencePatterns name="loc2propSect" type="//@schema/@correspondenceTypes.2" source="//@rules.1/@sourcePatterns.1" target="//@rules.1/@targetPatterns.1">
+      <op value="++"/>
+    </correspondencePatterns>
+    <attrConditions name="//@schema/@attributeCondDefs.0">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.1/@sourcePatterns.1">
+        <attribute href="platform:/resource/AdvancedTrain/model/AdvancedTrain.ecore#//Locomotive/ps"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.1/@targetPatterns.2">
+        <attribute href="platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//Engine/ps"/>
+      </values>
+    </attrConditions>
+  </rules>
+  <rules name="LocDriver2Driver" schema="//@schema">
+    <sourcePatterns name="loc">
+      <type href="platform:/resource/AdvancedTrain/model/AdvancedTrain.ecore#//Locomotive"/>
+      <linkVariablePatterns target="//@rules.2/@sourcePatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/AdvancedTrain/model/AdvancedTrain.ecore#//Locomotive/driver"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="locDriver">
+      <op value="++"/>
+      <type href="platform:/resource/AdvancedTrain/model/AdvancedTrain.ecore#//LocomotiveDriver"/>
+    </sourcePatterns>
+    <targetPatterns name="vehicle">
+      <type href="platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//Vehicle"/>
+      <linkVariablePatterns target="//@rules.2/@targetPatterns.1">
+        <type href="platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//Vehicle/sections"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.2/@targetPatterns.2">
+        <op value="++"/>
+        <type href="platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//Vehicle/driver"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="propSect">
+      <type href="platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//PropulsiveSection"/>
+      <linkVariablePatterns target="//@rules.2/@targetPatterns.3">
+        <op value="++"/>
+        <type href="platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//Section/seats"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="driver">
+      <op value="++"/>
+      <type href="platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//Driver"/>
+      <linkVariablePatterns target="//@rules.2/@targetPatterns.3">
+        <op value="++"/>
+        <type href="platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//Driver/seat"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="driversSeat">
+      <op value="++"/>
+      <type href="platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//DriversSeat"/>
+    </targetPatterns>
+    <correspondencePatterns name="loc2PropSect" type="//@schema/@correspondenceTypes.2" source="//@rules.2/@sourcePatterns.0" target="//@rules.2/@targetPatterns.1"/>
+    <correspondencePatterns name="locDriver2driver" type="//@schema/@correspondenceTypes.1" source="//@rules.2/@sourcePatterns.1" target="//@rules.2/@targetPatterns.2">
+      <op value="++"/>
+    </correspondencePatterns>
+    <attrConditions name="//@schema/@attributeCondDefs.1">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.2/@sourcePatterns.1">
+        <attribute href="platform:/resource/AdvancedTrain/model/AdvancedTrain.ecore#//LocomotiveDriver/name"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.2/@targetPatterns.2">
+        <attribute href="platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//Driver/name"/>
+      </values>
+    </attrConditions>
+  </rules>
+  <rules name="Train2Vehicle" schema="//@schema">
+    <sourcePatterns name="train">
+      <op value="++"/>
+      <type href="platform:/resource/AdvancedTrain/model/AdvancedTrain.ecore#//Train"/>
+    </sourcePatterns>
+    <targetPatterns name="vehicle">
+      <op value="++"/>
+      <type href="platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//Vehicle"/>
+    </targetPatterns>
+    <correspondencePatterns name="train2vehicle" type="//@schema/@correspondenceTypes.0" source="//@rules.3/@sourcePatterns.0" target="//@rules.3/@targetPatterns.0">
+      <op value="++"/>
+    </correspondencePatterns>
+  </rules>
+  <rules name="FirstWagon2Section" schema="//@schema">
+    <sourcePatterns name="train">
+      <type href="platform:/resource/AdvancedTrain/model/AdvancedTrain.ecore#//Train"/>
+      <linkVariablePatterns target="//@rules.4/@sourcePatterns.1">
+        <type href="platform:/resource/AdvancedTrain/model/AdvancedTrain.ecore#//Train/locomotive"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.4/@sourcePatterns.2">
+        <op value="++"/>
+        <type href="platform:/resource/AdvancedTrain/model/AdvancedTrain.ecore#//Train/wagons"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="loc">
+      <type href="platform:/resource/AdvancedTrain/model/AdvancedTrain.ecore#//Locomotive"/>
+      <linkVariablePatterns target="//@rules.4/@sourcePatterns.2">
+        <op value="++"/>
+        <type href="platform:/resource/AdvancedTrain/model/AdvancedTrain.ecore#//Locomotive/firstWagon"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="wagon">
+      <op value="++"/>
+      <type href="platform:/resource/AdvancedTrain/model/AdvancedTrain.ecore#//Wagon"/>
+    </sourcePatterns>
+    <targetPatterns name="propSect">
+      <type href="platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//PropulsiveSection"/>
+      <linkVariablePatterns target="//@rules.4/@targetPatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//Section/nextSection"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="sect">
+      <op value="++"/>
+      <type href="platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//Section"/>
+      <attributeAssignments op=":=">
+        <attribute href="platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//Section/description"/>
+        <valueExp xsi:type="tgg:LiteralExpression" value="&quot;wagon&quot;"/>
+      </attributeAssignments>
+    </targetPatterns>
+    <correspondencePatterns name="loc2PropSect" type="//@schema/@correspondenceTypes.2" source="//@rules.4/@sourcePatterns.1" target="//@rules.4/@targetPatterns.0"/>
+    <correspondencePatterns name="wagon2Sect" type="//@schema/@correspondenceTypes.3" source="//@rules.4/@sourcePatterns.2" target="//@rules.4/@targetPatterns.1">
+      <op value="++"/>
+    </correspondencePatterns>
+  </rules>
+  <rules name="Wagon2Section" schema="//@schema">
+    <sourcePatterns name="train">
+      <type href="platform:/resource/AdvancedTrain/model/AdvancedTrain.ecore#//Train"/>
+      <linkVariablePatterns target="//@rules.5/@sourcePatterns.1">
+        <type href="platform:/resource/AdvancedTrain/model/AdvancedTrain.ecore#//Train/wagons"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.5/@sourcePatterns.2">
+        <op value="++"/>
+        <type href="platform:/resource/AdvancedTrain/model/AdvancedTrain.ecore#//Train/wagons"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="leadingWagon">
+      <type href="platform:/resource/AdvancedTrain/model/AdvancedTrain.ecore#//Wagon"/>
+      <linkVariablePatterns target="//@rules.5/@sourcePatterns.2">
+        <op value="++"/>
+        <type href="platform:/resource/AdvancedTrain/model/AdvancedTrain.ecore#//Wagon/nextWagon"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="followingWagon">
+      <op value="++"/>
+      <type href="platform:/resource/AdvancedTrain/model/AdvancedTrain.ecore#//Wagon"/>
+    </sourcePatterns>
+    <targetPatterns name="leadingSect">
+      <type href="platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//Section"/>
+      <linkVariablePatterns target="//@rules.5/@targetPatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//Section/nextSection"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="followingSect">
+      <op value="++"/>
+      <type href="platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//Section"/>
+      <attributeAssignments op=":=">
+        <attribute href="platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//Section/description"/>
+        <valueExp xsi:type="tgg:LiteralExpression" value="&quot;wagon&quot;"/>
+      </attributeAssignments>
+    </targetPatterns>
+    <correspondencePatterns name="ledWagon2ledSect" type="//@schema/@correspondenceTypes.3" source="//@rules.5/@sourcePatterns.1" target="//@rules.5/@targetPatterns.0"/>
+    <correspondencePatterns name="folWagon2FolSect" type="//@schema/@correspondenceTypes.3" source="//@rules.5/@sourcePatterns.2" target="//@rules.5/@targetPatterns.1">
+      <op value="++"/>
+    </correspondencePatterns>
+  </rules>
+  <nacs name="firstVehicleSection" rule="//@rules.1">
+    <targetPatterns name="propSect">
+      <type href="platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//PropulsiveSection"/>
+    </targetPatterns>
+    <targetPatterns name="otherSect">
+      <type href="platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//Section"/>
+      <linkVariablePatterns target="//@nacs.0/@targetPatterns.0">
+        <type href="platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore#//Section/nextSection"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+  </nacs>
+</tgg:TripleGraphGrammarFile>

@@ -1,0 +1,43 @@
+#import "platform:/resource/AdvancedTrain/model/AdvancedTrain.ecore"
+#import "platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore"
+
+#schema Train2VehicleAdvanced
+	
+#source {
+	AdvancedTrain
+}
+
+#target { 
+	AdvancedVehicle
+} 
+
+#correspondence {
+	Train2Vehicle {
+		#src->Train
+		#trg->Vehicle
+	}
+	
+	LocDriver2Driver {
+		#src->LocomotiveDriver
+		#trg->Driver
+	}
+	
+	Loc2PropulsiveSection {
+		#src->Locomotive
+		#trg->PropulsiveSection
+	}
+	
+	Wagon2Section {
+		#src->Wagon
+		#trg->Section
+	}
+	
+	BenchSeat2Seat {
+		#src->BenchSeat
+		#trg->Seat
+	}
+}
+
+#attributeConditions {
+	
+}

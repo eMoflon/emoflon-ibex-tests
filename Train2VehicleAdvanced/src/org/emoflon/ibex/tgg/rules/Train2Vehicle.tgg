@@ -1,0 +1,21 @@
+#using Train2VehicleAdvanced.*
+#using AttrCondDefLibrary.*
+
+#rule Train2Vehicle #with Train2VehicleAdvanced
+
+#source {
+	++train:Train
+}
+
+#target {
+	++vehicle:Vehicle
+}
+
+#correspondence {
+	++train2vehicle:Train2Vehicle {
+		#src->train
+		#trg->vehicle
+	}
+}
+
+

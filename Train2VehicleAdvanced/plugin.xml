@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated Train2VehicleAdvanced -->
+      <package
+            uri="platform:/resource/Train2VehicleAdvanced/model/Train2VehicleAdvanced.ecore"
+            class="Train2VehicleAdvanced.Train2VehicleAdvancedPackage"
+            genModel="model/Train2VehicleAdvanced.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated Train2VehicleAdvanced -->
+      <package
+            uri="platform:/resource/AdvancedTrain/model/AdvancedTrain.ecore"
+            class="AdvancedTrain.AdvancedTrainPackage"
+            genModel="model/Train2VehicleAdvanced.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated Train2VehicleAdvanced -->
+      <package
+            uri="platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore"
+            class="AdvancedVehicle.AdvancedVehiclePackage"
+            genModel="model/Train2VehicleAdvanced.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated Train2VehicleAdvanced -->
+      <package
+            uri="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore"
+            class="runtime.RuntimePackage"
+            genModel="model/Train2VehicleAdvanced.genmodel"/>
+   </extension>
+</plugin>

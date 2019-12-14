@@ -1,0 +1,69 @@
+#using Train2VehicleAdvanced.*
+#using AttrCondDefLibrary.*
+
+#rule FirstWagon2Section #with Train2VehicleAdvanced
+
+#source { 
+	train:Train {
+		-locomotive->loc
+		++-wagons->wagon
+	}
+	loc:Locomotive {
+		++-firstWagon->wagon
+	}
+	++wagon:Wagon
+}
+
+#target {
+	propSect:PropulsiveSection {
+		++-nextSection->sect
+	}
+	++sect:Section {
+		description:="wagon"
+	}
+}
+
+#correspondence {
+	loc2PropSect:Loc2PropulsiveSection {
+		#src->loc
+		#trg->propSect
+	}
+	++wagon2Sect:Wagon2Section {
+		#src->wagon
+		#trg->sect
+	}
+}
+
+
+#rule Wagon2Section #with Train2VehicleAdvanced
+
+#source {
+	train:Train {
+		-wagons->leadingWagon
+		++-wagons->followingWagon
+	}
+	leadingWagon:Wagon {
+		++-nextWagon->followingWagon
+	}
+	++followingWagon:Wagon
+}
+
+#target {
+	leadingSect:Section {
+		++-nextSection->followingSect
+	}
+	++followingSect:Section {
+		description:="wagon"
+	}
+}
+
+#correspondence {
+	ledWagon2ledSect:Wagon2Section {
+		#src->leadingWagon
+		#trg->leadingSect
+	}
+	++folWagon2FolSect:Wagon2Section{
+		#src->followingWagon
+		#trg->followingSect
+	}
+}
