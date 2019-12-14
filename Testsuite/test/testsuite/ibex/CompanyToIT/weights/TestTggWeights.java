@@ -5,10 +5,13 @@ import java.util.Collection;
 
 import org.eclipse.emf.ecore.EObject;
 import org.emoflon.ibex.common.emf.EMFEdge;
-import org.emoflon.ibex.common.operational.IMatch;
+import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
+import org.emoflon.ibex.tgg.operational.matches.ITGGMatch;
 import org.emoflon.ibex.tgg.operational.matches.SimpleMatch;
 import org.emoflon.ibex.tgg.operational.patterns.IGreenPatternFactory;
 import org.emoflon.ibex.tgg.run.companytoit.CC_App;
+import org.emoflon.ibex.tgg.run.companytoit.config.DemoclesRegistrationHelper;
+import org.emoflon.ibex.tgg.run.companytoit.config.HiPERegistrationHelper;
 import org.emoflon.ibex.tgg.weights.Weights;
 import org.junit.After;
 import org.junit.Assert;
@@ -25,10 +28,12 @@ import ITLanguage.Laptop;
 import ITLanguage.PC;
 import ITLanguage.Router;
 import testsuite.ibex.testUtil.CCTestCase;
+import testsuite.ibex.testUtil.UsedPatternMatcher;
 
 public class TestTggWeights extends CCTestCase {
 
 	private void createGenerator(final String srcInstance, final String trgInstance) throws IOException {
+		CC_App.registrationHelper = UsedPatternMatcher.choose(new IRegistrationHelper[]{new DemoclesRegistrationHelper(), new HiPERegistrationHelper()});
 		this.checker = new CC_App("CompanyToIT", testsuite.ibex.performance.util.PerformanceConstants.workspacePath, false, srcInstance, trgInstance, this.ilpSolver);
 		this.checker.setUserDefinedWeightCalculationStrategy(new Weights(this.checker));
 	}
@@ -54,7 +59,7 @@ public class TestTggWeights extends CCTestCase {
 
 	@Test
 	public void testCompanyToIT() {
-		IMatch m = new SimpleMatch("CompanyToITRule_CC");
+		ITGGMatch m = new SimpleMatch("CompanyToITRule_CC");
 		Company company = CompanyLanguageFactory.eINSTANCE.createCompany();
 		company.setName("SimpleCompany");
 		CEO ceo  = CompanyLanguageFactory.eINSTANCE.createCEO();
@@ -75,7 +80,7 @@ public class TestTggWeights extends CCTestCase {
 
 	@Test
 	public void testUnknownRule() {
-		IMatch m = new SimpleMatch("NotExisting_CC");
+		ITGGMatch m = new SimpleMatch("NotExisting_CC");
 		Company company = CompanyLanguageFactory.eINSTANCE.createCompany();
 		company.setName("SimpleCompany");
 		CEO ceo  = CompanyLanguageFactory.eINSTANCE.createCEO();
@@ -91,7 +96,7 @@ public class TestTggWeights extends CCTestCase {
 
 	@Test
 	public void testAdminToRouter() {
-		IMatch m = new SimpleMatch("AdminToRouterRule_CC");
+		ITGGMatch m = new SimpleMatch("AdminToRouterRule_CC");
 		Company company = CompanyLanguageFactory.eINSTANCE.createCompany();
 		company.setName("SimpleCompany");
 		CEO ceo  = CompanyLanguageFactory.eINSTANCE.createCEO();
@@ -114,7 +119,7 @@ public class TestTggWeights extends CCTestCase {
 
 	@Test
 	public void testEmployeeToLaptopRule() {
-		IMatch m = new SimpleMatch("EmployeeToLaptopRule_CC");
+		ITGGMatch m = new SimpleMatch("EmployeeToLaptopRule_CC");
 
 		Employee employeeShortName = CompanyLanguageFactory.eINSTANCE.createEmployee();
 		employeeShortName.setName("abc");
@@ -140,7 +145,7 @@ public class TestTggWeights extends CCTestCase {
 
 	@Test
 	public void testEmployeeToPCRule() {
-		IMatch m = new SimpleMatch("EmployeeToPCRule_CC");
+		ITGGMatch m = new SimpleMatch("EmployeeToPCRule_CC");
 
 		Employee employeeShortName = CompanyLanguageFactory.eINSTANCE.createEmployee();
 		employeeShortName.setName("abc");

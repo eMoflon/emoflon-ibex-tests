@@ -7,14 +7,14 @@ import org.benchmarx.blockLanguage.core.BlockLanguageHelper;
 import org.benchmarx.classInheritanceHierarchy.core.ClassInheritanceHierarchyHelper;
 import org.benchmarx.companyLanguage.core.CompanyLanguageHelper;
 import org.benchmarx.database.core.DatabaseHelper;
-import org.benchmarx.simplefamilies.core.SimpleFamiliesHelper;
 import org.benchmarx.itLanguage.core.ITLanguageHelper;
 import org.benchmarx.mocaTree.core.MocaTreeHelperForBlockCode;
 import org.benchmarx.mocaTree.core.MocaTreeHelperForBlockDiagramCode;
 import org.benchmarx.mocaTree.core.MocaTreeHelperForProcessCode;
 import org.benchmarx.mocaTree.core.MocaTreeHelperForVHDLTGGCode;
-import org.benchmarx.simplepersons.core.SimplePersonsHelper;
 import org.benchmarx.processDefinition.core.ProcessDefinitionHelper;
+import org.benchmarx.simplefamilies.core.SimpleFamiliesHelper;
+import org.benchmarx.simplepersons.core.SimplePersonsHelper;
 import org.benchmarx.vhdlModel.core.VHDLModelHelper;
 import org.eclipse.emf.ecore.EObject;
 

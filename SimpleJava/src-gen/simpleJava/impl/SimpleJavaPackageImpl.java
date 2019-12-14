@@ -9,6 +9,7 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import simpleJava.Clazz;
 import simpleJava.SimpleJavaFactory;
 import simpleJava.SimpleJavaPackage;
 
@@ -31,7 +32,7 @@ public class SimpleJavaPackageImpl extends EPackageImpl implements SimpleJavaPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass classEClass = null;
+	private EClass clazzEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -61,7 +62,7 @@ public class SimpleJavaPackageImpl extends EPackageImpl implements SimpleJavaPac
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 * 
+	 *
 	 * <p>This method is used to initialize {@link SimpleJavaPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
@@ -76,8 +77,10 @@ public class SimpleJavaPackageImpl extends EPackageImpl implements SimpleJavaPac
 			return (SimpleJavaPackage) EPackage.Registry.INSTANCE.getEPackage(SimpleJavaPackage.eNS_URI);
 
 		// Obtain or create and register package
-		SimpleJavaPackageImpl theSimpleJavaPackage = (SimpleJavaPackageImpl) (EPackage.Registry.INSTANCE.get(eNS_URI) instanceof SimpleJavaPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI)
-				: new SimpleJavaPackageImpl());
+		Object registeredSimpleJavaPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
+		SimpleJavaPackageImpl theSimpleJavaPackage = registeredSimpleJavaPackage instanceof SimpleJavaPackageImpl
+				? (SimpleJavaPackageImpl) registeredSimpleJavaPackage
+				: new SimpleJavaPackageImpl();
 
 		isInited = true;
 
@@ -100,6 +103,7 @@ public class SimpleJavaPackageImpl extends EPackageImpl implements SimpleJavaPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getPackage() {
 		return packageEClass;
 	}
@@ -109,7 +113,8 @@ public class SimpleJavaPackageImpl extends EPackageImpl implements SimpleJavaPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPackage_Classes() {
+	@Override
+	public EReference getPackage_Clazzes() {
 		return (EReference) packageEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -118,6 +123,7 @@ public class SimpleJavaPackageImpl extends EPackageImpl implements SimpleJavaPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getPackage_SubPackages() {
 		return (EReference) packageEClass.getEStructuralFeatures().get(1);
 	}
@@ -127,6 +133,7 @@ public class SimpleJavaPackageImpl extends EPackageImpl implements SimpleJavaPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getPackage_Name() {
 		return (EAttribute) packageEClass.getEStructuralFeatures().get(2);
 	}
@@ -136,6 +143,7 @@ public class SimpleJavaPackageImpl extends EPackageImpl implements SimpleJavaPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getPackage_FullQualifier() {
 		return (EAttribute) packageEClass.getEStructuralFeatures().get(3);
 	}
@@ -145,8 +153,9 @@ public class SimpleJavaPackageImpl extends EPackageImpl implements SimpleJavaPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getClass_() {
-		return classEClass;
+	@Override
+	public EClass getClazz() {
+		return clazzEClass;
 	}
 
 	/**
@@ -154,8 +163,9 @@ public class SimpleJavaPackageImpl extends EPackageImpl implements SimpleJavaPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getClass_Name() {
-		return (EAttribute) classEClass.getEStructuralFeatures().get(0);
+	@Override
+	public EAttribute getClazz_Name() {
+		return (EAttribute) clazzEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -163,8 +173,9 @@ public class SimpleJavaPackageImpl extends EPackageImpl implements SimpleJavaPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getClass_Body() {
-		return (EAttribute) classEClass.getEStructuralFeatures().get(1);
+	@Override
+	public EAttribute getClazz_Body() {
+		return (EAttribute) clazzEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -172,6 +183,7 @@ public class SimpleJavaPackageImpl extends EPackageImpl implements SimpleJavaPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SimpleJavaFactory getSimpleJavaFactory() {
 		return (SimpleJavaFactory) getEFactoryInstance();
 	}
@@ -197,14 +209,14 @@ public class SimpleJavaPackageImpl extends EPackageImpl implements SimpleJavaPac
 
 		// Create classes and their features
 		packageEClass = createEClass(PACKAGE);
-		createEReference(packageEClass, PACKAGE__CLASSES);
+		createEReference(packageEClass, PACKAGE__CLAZZES);
 		createEReference(packageEClass, PACKAGE__SUB_PACKAGES);
 		createEAttribute(packageEClass, PACKAGE__NAME);
 		createEAttribute(packageEClass, PACKAGE__FULL_QUALIFIER);
 
-		classEClass = createEClass(CLASS);
-		createEAttribute(classEClass, CLASS__NAME);
-		createEAttribute(classEClass, CLASS__BODY);
+		clazzEClass = createEClass(CLAZZ);
+		createEAttribute(clazzEClass, CLAZZ__NAME);
+		createEAttribute(clazzEClass, CLAZZ__BODY);
 	}
 
 	/**
@@ -238,18 +250,25 @@ public class SimpleJavaPackageImpl extends EPackageImpl implements SimpleJavaPac
 		// Add supertypes to classes
 
 		// Initialize classes, features, and operations; add parameters
-		initEClass(packageEClass, simpleJava.Package.class, "Package", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPackage_Classes(), this.getClass_(), null, "classes", null, 0, -1, simpleJava.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+		initEClass(packageEClass, simpleJava.Package.class, "Package", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getPackage_Clazzes(), this.getClazz(), null, "clazzes", null, 0, -1, simpleJava.Package.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPackage_SubPackages(), this.getPackage(), null, "subPackages", null, 0, -1, simpleJava.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+		initEReference(getPackage_SubPackages(), this.getPackage(), null, "subPackages", null, 0, -1,
+				simpleJava.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPackage_Name(), ecorePackage.getEString(), "name", null, 0, 1, simpleJava.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPackage_FullQualifier(), ecorePackage.getEString(), "fullQualifier", null, 0, 1, simpleJava.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+		initEAttribute(getPackage_Name(), ecorePackage.getEString(), "name", null, 0, 1, simpleJava.Package.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPackage_FullQualifier(), ecorePackage.getEString(), "fullQualifier", null, 0, 1,
+				simpleJava.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
 
-		initEClass(classEClass, simpleJava.Class.class, "Class", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getClass_Name(), ecorePackage.getEString(), "name", null, 0, 1, simpleJava.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getClass_Body(), ecorePackage.getEString(), "body", null, 0, 1, simpleJava.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(clazzEClass, Clazz.class, "Clazz", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getClazz_Name(), ecorePackage.getEString(), "name", null, 0, 1, Clazz.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getClazz_Body(), ecorePackage.getEString(), "body", null, 0, 1, Clazz.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

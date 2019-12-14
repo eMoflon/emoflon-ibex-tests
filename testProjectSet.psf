@@ -51,6 +51,8 @@
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,Strategies"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,Testsuite"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,TestsuiteGT"/>
+<project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,Triangles"/>
+<project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,TrianglesGraphTransformation"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,VHDLModel"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,VHDLTGGCodeAdapter"/>
 </provider>
@@ -62,6 +64,7 @@
 <item elementID="=FerrymanProblemGraphTransformation" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=SimpleFamiliesGraphTransformation" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=SimpleFamiliesToSimplePersonsGraphTransformation" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=TrianglesGraphTransformation" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 </workingSets>
 <workingSets editPageId="org.eclipse.jdt.internal.ui.DynamicSourcesWorkingSet" id="1553510381836_0" label="Java Main Sources" name="main">
 <item elementID="=AbcToNothing/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
@@ -204,6 +207,8 @@
 <item elementID="=Testsuite/performance_src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=TestsuiteGT/test" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=TestsuiteGT/performance-test" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=Triangles/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=Triangles/src-gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=VHDLModel/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=VHDLModel/xtend-gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=VHDLModel/gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
@@ -237,6 +242,8 @@
 <item elementID="=Persons" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=BlockDiagram" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=MocaTree" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=SimpleDoc" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=Triangles" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 </workingSets>
 <workingSets editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" id="1544812013290_7" label="testsuites" name="testsuites">
 <item elementID="=Testsuite" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
@@ -257,7 +264,6 @@
 <item elementID="=Java2Doc" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=FamiliesToPersons_V1" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=ClassInhHier2DB_MA" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=SimpleDoc" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=Class2TestClass_MA" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=ClassInhHier2DB" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=FamilyWithSiblingsToPersons_MA" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>

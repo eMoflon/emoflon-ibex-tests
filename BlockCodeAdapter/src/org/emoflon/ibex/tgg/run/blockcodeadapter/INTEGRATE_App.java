@@ -6,15 +6,20 @@ import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.apache.log4j.BasicConfigurator;
 
+import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
+
+import org.emoflon.ibex.tgg.run.blockcodeadapter.config.*;
+
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.INTEGRATE;
-import org.emoflon.ibex.tgg.runtime.engine.DemoclesTGGEngine;
 
 public class INTEGRATE_App extends INTEGRATE {
 
+	public static IRegistrationHelper registrationHelper = new _DefaultRegistrationHelper();
+
 	public INTEGRATE_App() throws IOException {
-		super(createIbexOptions());
-		registerBlackInterpreter(new DemoclesTGGEngine());
+		super(registrationHelper.createIbexOptions());
+		registerBlackInterpreter(options.getBlackInterpreter());
 	}
 
 	public static void main(String[] args) throws IOException {
@@ -39,13 +44,10 @@ public class INTEGRATE_App extends INTEGRATE {
 	
 	@Override
 	protected void registerUserMetamodels() throws IOException {
-		_RegistrationHelper.registerMetamodels(rs, this);
+		registrationHelper.registerMetamodels(rs, this);
 			
 		// Register correspondence metamodel last
 		loadAndRegisterCorrMetamodel(options.projectPath() + "/model/" + options.projectName() + ".ecore");
 	}
 	
-	private static IbexOptions createIbexOptions() {
-		return _RegistrationHelper.createIbexOptions();
-	}
 }

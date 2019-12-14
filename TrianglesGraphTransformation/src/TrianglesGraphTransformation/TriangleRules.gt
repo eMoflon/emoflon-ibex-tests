@@ -1,0 +1,100 @@
+import "platform:/resource/Triangles/model/Triangles.ecore"
+
+pattern a2b() {
+	a : A_Class {
+		-b-> b
+	}
+	
+	b : B_Class {
+		-a->a
+	}
+}
+
+pattern a2c() {
+	a : A_Class {
+		-c-> c
+	}
+	
+	c : C_Class {
+		-a->a
+	}
+}
+
+pattern b2c() {
+	b : B_Class {
+		-c-> c
+	}
+	
+	c : C_Class {
+		-b->b
+	}
+}
+
+condition a2bNot = forbid a2b
+condition a2cNot = forbid a2c
+condition b2cNot = forbid b2c
+condition abcNot = a2bNot && a2cNot && b2cNot
+
+rule connectA2B() {
+	a : A_Class {
+		++ -b-> b
+	}
+	
+	b : B_Class {
+		++ -a->a
+	}
+} when a2bNot
+
+rule connectA2C() {
+	a : A_Class {
+		++ -c-> c
+	}
+	
+	c : C_Class {
+		++ -a->a
+	}
+} when a2cNot
+
+rule connectB2C() {
+	b : B_Class {
+		++ -c-> c
+	}
+	
+	c : C_Class {
+		++ -b->b
+	}
+} when b2cNot
+
+rule connectABCIncremental() {
+	a : A_Class {
+		-b-> b
+		-c-> c
+	}
+	
+	b : B_Class {
+		-a->a
+		++ -c->c
+	}
+	
+	c : C_Class {
+		-a->a
+		++ -b->b
+	}
+} when b2cNot
+
+rule connectABCFull() {
+	a : A_Class {
+		++ -b-> b
+		++ -c-> c
+	}
+	
+	b : B_Class {
+		++ -a->a
+		++ -c->c
+	}
+	
+	c : C_Class {
+		++ -a->a
+		++ -b->b
+	}
+} when abcNot

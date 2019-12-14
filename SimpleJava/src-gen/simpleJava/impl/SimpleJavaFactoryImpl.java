@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
+import simpleJava.Clazz;
 import simpleJava.SimpleJavaFactory;
 import simpleJava.SimpleJavaPackage;
 
@@ -28,7 +29,8 @@ public class SimpleJavaFactoryImpl extends EFactoryImpl implements SimpleJavaFac
 	 */
 	public static SimpleJavaFactory init() {
 		try {
-			SimpleJavaFactory theSimpleJavaFactory = (SimpleJavaFactory) EPackage.Registry.INSTANCE.getEFactory(SimpleJavaPackage.eNS_URI);
+			SimpleJavaFactory theSimpleJavaFactory = (SimpleJavaFactory) EPackage.Registry.INSTANCE
+					.getEFactory(SimpleJavaPackage.eNS_URI);
 			if (theSimpleJavaFactory != null) {
 				return theSimpleJavaFactory;
 			}
@@ -58,8 +60,8 @@ public class SimpleJavaFactoryImpl extends EFactoryImpl implements SimpleJavaFac
 		switch (eClass.getClassifierID()) {
 		case SimpleJavaPackage.PACKAGE:
 			return createPackage();
-		case SimpleJavaPackage.CLASS:
-			return createClass();
+		case SimpleJavaPackage.CLAZZ:
+			return createClazz();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -70,6 +72,7 @@ public class SimpleJavaFactoryImpl extends EFactoryImpl implements SimpleJavaFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public simpleJava.Package createPackage() {
 		PackageImpl package_ = new PackageImpl();
 		return package_;
@@ -80,9 +83,10 @@ public class SimpleJavaFactoryImpl extends EFactoryImpl implements SimpleJavaFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public simpleJava.Class createClass() {
-		ClassImpl class_ = new ClassImpl();
-		return class_;
+	@Override
+	public Clazz createClazz() {
+		ClazzImpl clazz = new ClazzImpl();
+		return clazz;
 	}
 
 	/**
@@ -90,6 +94,7 @@ public class SimpleJavaFactoryImpl extends EFactoryImpl implements SimpleJavaFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SimpleJavaPackage getSimpleJavaPackage() {
 		return (SimpleJavaPackage) getEPackage();
 	}

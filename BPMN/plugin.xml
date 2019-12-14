@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?eclipse version="3.0"?><plugin>
+  <extension point="org.eclipse.emf.ecore.extension_parser">
+    <!-- @generated BPMN -->
+    <parser class="bpmn2.util.Bpmn2ResourceFactoryImpl" type="bpmn2"/>
+  </extension>
   <extension point="org.eclipse.emf.ecore.generated_package">
     <package class="bpmn2.Bpmn2Package" genModel="model/BPMN.genmodel" uri="platform:/resource/BPMN/model/BPMN.ecore"/>
   </extension>

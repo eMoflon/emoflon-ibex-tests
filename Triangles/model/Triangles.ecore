@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="Triangles" nsURI="platform:/resource/Triangles/model/Triangles.ecore"
+    nsPrefix="Triangles">
+  <eClassifiers xsi:type="ecore:EClass" name="Container">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="a" upperBound="-1" eType="#//A_Class"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="b" upperBound="-1" eType="#//B_Class"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="c" upperBound="-1" eType="#//C_Class"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="d" upperBound="-1" eType="#//D_Class"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="e" upperBound="-1" eType="#//E_Class"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="A_Class">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="b" upperBound="-1" eType="#//B_Class"
+        eOpposite="#//B_Class/a"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="c" upperBound="-1" eType="#//C_Class"
+        eOpposite="#//C_Class/a"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="B_Class">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="a" upperBound="-1" eType="#//A_Class"
+        eOpposite="#//A_Class/b"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="c" upperBound="-1" eType="#//C_Class"
+        eOpposite="#//C_Class/b"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="C_Class">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="flag" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="a" upperBound="-1" eType="#//A_Class"
+        eOpposite="#//A_Class/c"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="b" upperBound="-1" eType="#//B_Class"
+        eOpposite="#//B_Class/c"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="E_Class">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="b" upperBound="-1" eType="#//B_Class"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="D_Class">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="a" upperBound="-1" eType="#//A_Class"/>
+  </eClassifiers>
+</ecore:EPackage>

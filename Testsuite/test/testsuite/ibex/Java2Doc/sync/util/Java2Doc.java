@@ -4,12 +4,15 @@ import java.io.IOException;
 
 import org.benchmarx.simpledoc.core.SimpleDocComparator;
 import org.benchmarx.simpledoc.core.SimpleJavaComparator;
+import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 import org.emoflon.ibex.tgg.run.java2doc.SYNC_App;
+import org.emoflon.ibex.tgg.run.java2doc.config.*;
 
 import simpleDoc.Folder;
 import simpleJava.Package;
 import simpleJava.SimpleJavaFactory;
 import testsuite.ibex.testUtil.IbexAdapter;
+import testsuite.ibex.testUtil.UsedPatternMatcher;
 
 /**
  * This class implements the bx tool interface for eMoflon::Ibex, which is
@@ -26,6 +29,7 @@ public class Java2Doc extends IbexAdapter<Package, Folder>{
 	@Override
 	public void initiateSynchronisationDialogue() {
 		try {
+			SYNC_App.registrationHelper = UsedPatternMatcher.choose(new IRegistrationHelper[]{new DemoclesRegistrationHelper(), new HiPERegistrationHelper()});
 			synchroniser = new SYNC_App(projectName, testsuite.ibex.performance.util.PerformanceConstants.workspacePath, false);
 			
 			Package p = SimpleJavaFactory.eINSTANCE.createPackage();

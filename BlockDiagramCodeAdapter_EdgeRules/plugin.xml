@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated BlockDiagramCodeAdapter_EdgeRules -->
+      <package
+            uri="platform:/resource/BlockDiagramCodeAdapter_EdgeRules/model/BlockDiagramCodeAdapter_EdgeRules.ecore"
+            class="BlockDiagramCodeAdapter_EdgeRules.BlockDiagramCodeAdapter_EdgeRulesPackage"
+            genModel="model/BlockDiagramCodeAdapter_EdgeRules.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated BlockDiagramCodeAdapter_EdgeRules -->
+      <package
+            uri="platform:/resource/BlockDiagram/model/BlockDiagram.ecore"
+            class="BlockDiagram.BlockDiagramPackage"
+            genModel="model/BlockDiagramCodeAdapter_EdgeRules.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated BlockDiagramCodeAdapter_EdgeRules -->
+      <package
+            uri="platform:/resource/MocaTree/model/MocaTree.ecore"
+            class="MocaTree.MocaTreePackage"
+            genModel="model/BlockDiagramCodeAdapter_EdgeRules.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated BlockDiagramCodeAdapter_EdgeRules -->
+      <package
+            uri="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore"
+            class="runtime.RuntimePackage"
+            genModel="model/BlockDiagramCodeAdapter_EdgeRules.genmodel"/>
+   </extension>
+
+</plugin>

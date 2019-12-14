@@ -2,22 +2,7 @@ Manifest-Version: 1.0
 Bundle-SymbolicName: MocaTreeToProcess;singleton:=true
 Bundle-Name: MocaTreeToProcess
 Bundle-Version: 1.0
-Require-Bundle: org.gervarro.democles.common,
- org.gervarro.democles.specification.emf,
- org.gervarro.democles.interpreter,
- org.gervarro.democles.emf,
- org.gervarro.democles.interpreter.emf,
- org.gervarro.democles.interpreter.incremental,
- org.gervarro.democles.interpreter.incremental.emf,
- org.gervarro.democles.interpreter.lightning,
- org.gervarro.democles.notification.emf,
- org.gervarro.democles.plan,
- org.gervarro.democles.plan.emf,
- org.gervarro.democles.plan.incremental.leaf,
- org.gervarro.util,
- org.gervarro.notification,
- org.gervarro.plan.dynprog,
- org.apache.log4j,
+Require-Bundle: org.apache.log4j,
  org.eclipse.emf.ecore.xmi,
  org.emoflon.ibex.common,
  org.emoflon.ibex.tgg.core.language,
@@ -26,7 +11,12 @@ Require-Bundle: org.gervarro.democles.common,
  org.moflon.core.utilities;bundle-version="3.0.0",
  org.sat4j.core,
  org.sat4j.pb,
- org.emoflon.ibex.tgg.ui.debug
+ org.emoflon.ibex.tgg.ui.debug,
+ org.emoflon.ibex.tgg.runtime.hipe;bundle-version="1.0.0",
+ org.emoflon.ibex.tgg.runtime.hipe,
+ MocaTree,
+ ProcessDefinition,
+ org.emoflon.ibex.tgg.ui.debug.adapter;bundle-version="1.0.0"
 Bundle-ManifestVersion: 2
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
@@ -36,5 +26,6 @@ Import-Package: Families.impl,
  Persons.impl,
  ProcessDefinition.impl
 Export-Package: org.emoflon.ibex.tgg.operational.csp.constraints.factories.mocatreetoprocess,
- org.emoflon.ibex.tgg.run.mocatreetoprocess
+ org.emoflon.ibex.tgg.run.mocatreetoprocess,
+ org.emoflon.ibex.tgg.run.mocatreetoprocess.config
 Automatic-Module-Name: MocaTreeToProcess

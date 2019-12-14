@@ -10,12 +10,14 @@
   <testsDirectory xsi:nil="true"/>
   <genPackages prefix="SimpleJava" disposableProviderFactory="true" ecorePackage="simpleJava.ecore#/">
     <genClasses ecoreClass="simpleJava.ecore#//Package">
-      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference simpleJava.ecore#//Package/classes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference simpleJava.ecore#//Package/clazzes"/>
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference simpleJava.ecore#//Package/subPackages"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simpleJava.ecore#//Package/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simpleJava.ecore#//Package/fullQualifier"/>
     </genClasses>
-    <genClasses ecoreClass="simpleJava.ecore#//Class">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simpleJava.ecore#//Class/name"/>
+    <genClasses ecoreClass="simpleJava.ecore#//Clazz">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simpleJava.ecore#//Clazz/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simpleJava.ecore#//Clazz/body"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

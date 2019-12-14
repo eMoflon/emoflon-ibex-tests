@@ -5,13 +5,16 @@ import java.io.IOException;
 import org.benchmarx.Configurator;
 import org.benchmarx.families.core.FamiliesComparator;
 import org.benchmarx.persons.core.PersonsComparator;
+import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 import org.emoflon.ibex.tgg.run.benchmarxfamiliestopersons.SYNC_App;
+import org.emoflon.ibex.tgg.run.benchmarxfamiliestopersons.config.*;
 
 import Families.FamiliesFactory;
 import Families.FamilyRegister;
 import Persons.PersonRegister;
 import testsuite.ibex.testUtil.Decisions;
 import testsuite.ibex.testUtil.IbexAdapter;
+import testsuite.ibex.testUtil.UsedPatternMatcher;
 
 public class IbexFamiliesToPersons extends IbexAdapter<FamilyRegister, PersonRegister>{
 
@@ -22,6 +25,7 @@ public class IbexFamiliesToPersons extends IbexAdapter<FamilyRegister, PersonReg
 	@Override
 	public void initiateSynchronisationDialogue() {
 		try {
+			SYNC_App.registrationHelper = UsedPatternMatcher.choose(new IRegistrationHelper[]{new DemoclesRegistrationHelper(), new HiPERegistrationHelper()});
 			synchroniser = new SYNC_App(projectName, testsuite.ibex.performance.util.PerformanceConstants.workspacePath, false);
 			FamilyRegister familiesRoot = FamiliesFactory.eINSTANCE.createFamilyRegister();
 			synchroniser.getSourceResource().getContents().add(familiesRoot);

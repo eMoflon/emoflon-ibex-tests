@@ -2,22 +2,7 @@ Manifest-Version: 1.0
 Bundle-SymbolicName: BlockDiagramCodeAdapter_EdgeRules;singleton:=true
 Bundle-Name: BlockDiagramCodeAdapter_EdgeRules
 Bundle-Version: 1.0
-Require-Bundle: org.gervarro.democles.common,
- org.gervarro.democles.specification.emf,
- org.gervarro.democles.interpreter,
- org.gervarro.democles.emf,
- org.gervarro.democles.interpreter.emf,
- org.gervarro.democles.interpreter.incremental,
- org.gervarro.democles.interpreter.incremental.emf,
- org.gervarro.democles.interpreter.lightning,
- org.gervarro.democles.notification.emf,
- org.gervarro.democles.plan,
- org.gervarro.democles.plan.emf,
- org.gervarro.democles.plan.incremental.leaf,
- org.gervarro.util,
- org.gervarro.notification,
- org.gervarro.plan.dynprog,
- org.apache.log4j,
+Require-Bundle: org.apache.log4j,
  org.eclipse.emf.ecore.xmi,
  org.emoflon.ibex.common,
  org.emoflon.ibex.tgg.core.language,
@@ -27,10 +12,16 @@ Require-Bundle: org.gervarro.democles.common,
  BlockDiagram;bundle-version="1.0.0",
  org.sat4j.core;bundle-version="2.3.5",
  org.sat4j.pb;bundle-version="2.3.5",
- org.emoflon.ibex.tgg.ui.debug
+ org.emoflon.ibex.tgg.ui.debug,
+ org.emoflon.ibex.tgg.runtime.hipe;bundle-version="1.0.0",
+ org.emoflon.ibex.tgg.runtime.hipe,
+ BlockDiagram,
+ MocaTree,
+ org.emoflon.ibex.tgg.ui.debug.adapter;bundle-version="1.0.0"
 Bundle-ManifestVersion: 2
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-Vendor: eMoflon IBeX
-Export-Package: org.emoflon.ibex.tgg.run.blockdiagramcodeadapter_edgerules
+Export-Package: org.emoflon.ibex.tgg.run.blockdiagramcodeadapter_edgerules,
+ org.emoflon.ibex.tgg.run.blockdiagramcodeadapter_edgerules.config
 Automatic-Module-Name: BlockDiagramCodeAdapter_EdgeRules

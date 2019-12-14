@@ -4,21 +4,6 @@ Bundle-Name: ProcessCodeAdapter
 Bundle-Version: 1.0
 Require-Bundle: org.eclipse.emf.ecore.xmi,
  org.apache.log4j,
- org.gervarro.democles.common,
- org.gervarro.democles.specification.emf,
- org.gervarro.democles.interpreter,
- org.gervarro.democles.emf,
- org.gervarro.democles.interpreter.emf,
- org.gervarro.democles.interpreter.incremental,
- org.gervarro.democles.interpreter.incremental.emf,
- org.gervarro.democles.interpreter.lightning,
- org.gervarro.democles.notification.emf,
- org.gervarro.democles.plan,
- org.gervarro.democles.plan.emf,
- org.gervarro.democles.plan.incremental.leaf,
- org.gervarro.util,
- org.gervarro.notification,
- org.gervarro.plan.dynprog,
  org.emoflon.ibex.common,
  org.emoflon.ibex.tgg.core.runtime,
  org.emoflon.ibex.tgg.core.language,
@@ -29,11 +14,17 @@ Require-Bundle: org.eclipse.emf.ecore.xmi,
  org.junit;bundle-version="4.12.0",
  org.sat4j.core;bundle-version="2.3.5",
  org.sat4j.pb;bundle-version="2.3.5",
- org.emoflon.ibex.tgg.ui.debug
+ org.emoflon.ibex.tgg.ui.debug,
+ org.emoflon.ibex.tgg.runtime.hipe;bundle-version="1.0.0",
+ org.emoflon.ibex.tgg.runtime.hipe,
+ MocaTree,
+ ProcessDefinition,
+ org.emoflon.ibex.tgg.ui.debug.adapter;bundle-version="1.0.0"
 Bundle-ManifestVersion: 2
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-Vendor: eMoflon IBeX
-Export-Package: org.emoflon.ibex.tgg.run.processcodeadapter
+Export-Package: org.emoflon.ibex.tgg.run.processcodeadapter,
+ org.emoflon.ibex.tgg.run.processcodeadapter.config
 Import-Package: VHDLModel.impl
 Automatic-Module-Name: ProcessCodeAdapter

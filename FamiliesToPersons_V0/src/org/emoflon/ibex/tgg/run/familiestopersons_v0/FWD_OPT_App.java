@@ -4,12 +4,14 @@ import java.io.IOException;
 
 import org.apache.log4j.BasicConfigurator;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.opt.FWD_OPT;
+import org.emoflon.ibex.tgg.run.familiestopersons_v0.config._DefaultRegistrationHelper;
 
-import org.emoflon.ibex.tgg.runtime.engine.DemoclesTGGEngine;
 
 public class FWD_OPT_App extends FWD_OPT {
+	public static IRegistrationHelper registrationHelper = new _DefaultRegistrationHelper();
 
 	String srcPath;
 	String trgPath;
@@ -18,12 +20,12 @@ public class FWD_OPT_App extends FWD_OPT {
 	
 	public FWD_OPT_App(String projectName, String workspacePath, boolean debug, String srcPath, String trgPath, 
 			String corrPath, String protPath) throws IOException {
-		super(createIbexOptions().projectName(projectName).workspacePath(workspacePath).debug(debug));
+		super(registrationHelper.createIbexOptions().projectName(projectName).workspacePath(workspacePath).debug(debug));
 		this.srcPath = srcPath;
 		this.trgPath = trgPath;
 		this.corrPath = corrPath;
 		this.protPath = protPath;
-		registerBlackInterpreter(new DemoclesTGGEngine());
+		registerBlackInterpreter(options.getBlackInterpreter());
 	}
 
 	public static void main(String[] args) throws IOException {
@@ -44,7 +46,7 @@ public class FWD_OPT_App extends FWD_OPT {
 
 	@Override
 	protected void registerUserMetamodels() throws IOException {
-		_RegistrationHelper.registerMetamodels(rs, this);
+		registrationHelper.registerMetamodels(rs, this);
 			
 		// Register correspondence metamodel last
 		loadAndRegisterCorrMetamodel(options.projectPath() + "/model/" + options.projectName() + ".ecore");
@@ -58,9 +60,5 @@ public class FWD_OPT_App extends FWD_OPT {
 		p = createResource(options.projectPath() +protPath+".xmi");
 	
 		EcoreUtil.resolveAll(rs);
-	}
-	
-	private static IbexOptions createIbexOptions() {
-		return _RegistrationHelper.createIbexOptions();
 	}
 }

@@ -38,7 +38,7 @@ public class Del extends IntegrateTestCase<Package, Folder> {
 		
 		tool.applyAndIntegrateDelta((p, f) -> {
 			// src:
-			EcoreUtil.delete(helperJava.getClass(p, "GT"), true);
+			EcoreUtil.delete(helperJava.getClazz(p, "GT"), true);
 			// trg:
 			EcoreUtil.delete(helperDoc.getDoc(f, "GT_doc"), true);
 		});

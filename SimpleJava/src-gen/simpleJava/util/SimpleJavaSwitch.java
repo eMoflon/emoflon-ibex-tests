@@ -7,6 +7,7 @@ import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.Switch;
 
+import simpleJava.Clazz;
 import simpleJava.SimpleJavaPackage;
 
 /**
@@ -73,9 +74,9 @@ public class SimpleJavaSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case SimpleJavaPackage.CLASS: {
-			simpleJava.Class class_ = (simpleJava.Class) theEObject;
-			T result = caseClass(class_);
+		case SimpleJavaPackage.CLAZZ: {
+			Clazz clazz = (Clazz) theEObject;
+			T result = caseClazz(clazz);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -101,17 +102,17 @@ public class SimpleJavaSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Class</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Clazz</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Class</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Clazz</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseClass(simpleJava.Class object) {
+	public T caseClazz(Clazz object) {
 		return null;
 	}
 

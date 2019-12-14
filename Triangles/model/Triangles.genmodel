@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/Triangles/src-gen" creationIcons="false" editDirectory="/Triangles.edit/src-gen"
+    editorDirectory="/Triangles.editor/src-gen" modelPluginID="Triangles" modelName="Triangles"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" codeFormatting="true"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>Triangles.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="Triangles" disposableProviderFactory="true" ecorePackage="Triangles.ecore#/">
+    <genClasses ecoreClass="Triangles.ecore#//Container">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Triangles.ecore#//Container/a"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Triangles.ecore#//Container/b"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Triangles.ecore#//Container/c"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Triangles.ecore#//Container/d"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Triangles.ecore#//Container/e"/>
+    </genClasses>
+    <genClasses ecoreClass="Triangles.ecore#//A_Class">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Triangles.ecore#//A_Class/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Triangles.ecore#//A_Class/b"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Triangles.ecore#//A_Class/c"/>
+    </genClasses>
+    <genClasses ecoreClass="Triangles.ecore#//B_Class">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Triangles.ecore#//B_Class/id"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Triangles.ecore#//B_Class/a"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Triangles.ecore#//B_Class/c"/>
+    </genClasses>
+    <genClasses ecoreClass="Triangles.ecore#//C_Class">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Triangles.ecore#//C_Class/flag"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Triangles.ecore#//C_Class/a"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Triangles.ecore#//C_Class/b"/>
+    </genClasses>
+    <genClasses ecoreClass="Triangles.ecore#//E_Class">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Triangles.ecore#//E_Class/b"/>
+    </genClasses>
+    <genClasses ecoreClass="Triangles.ecore#//D_Class">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Triangles.ecore#//D_Class/a"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

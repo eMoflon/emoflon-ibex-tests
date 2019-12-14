@@ -11,35 +11,26 @@ Require-Bundle: org.apache.log4j,
  org.emoflon.ibex.common,
  org.emoflon.ibex.tgg.core.language,
  org.emoflon.ibex.tgg.core.runtime,
- org.gervarro.democles.common,
- org.gervarro.democles.specification.emf,
- org.gervarro.democles.interpreter,
- org.gervarro.democles.emf,
- org.gervarro.democles.interpreter.emf,
- org.gervarro.democles.interpreter.incremental,
- org.gervarro.democles.interpreter.incremental.emf,
- org.gervarro.democles.interpreter.lightning,
- org.gervarro.democles.notification.emf,
- org.gervarro.democles.plan,
- org.gervarro.democles.plan.emf,
- org.gervarro.democles.plan.incremental.leaf,
- org.gervarro.util,
- org.gervarro.notification,
- org.gervarro.plan.dynprog,
  org.emoflon.ibex.tgg.runtime.democles,
  org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  SimpleDoc;bundle-version="0.1.0";visibility:=reexport,
  SimpleJava;bundle-version="0.1.0";visibility:=reexport,
  org.emoflon.ibex.gt;bundle-version="1.0.0",
- org.emoflon.ibex.tgg.ui.debug
+ org.emoflon.ibex.tgg.ui.debug,
+ org.emoflon.ibex.tgg.runtime.hipe;bundle-version="1.0.0",
+ org.emoflon.ibex.tgg.runtime.hipe,
+ SimpleJava,
+ SimpleDoc,
+ org.emoflon.ibex.tgg.ui.debug.adapter;bundle-version="1.0.0"
 Bundle-ManifestVersion: 2
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: Java2Doc,
  Java2Doc.impl,
  Java2Doc.util,
- org.emoflon.ibex.tgg.run.java2doc
+ org.emoflon.ibex.tgg.run.java2doc,
+ org.emoflon.ibex.tgg.run.java2doc.config
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Automatic-Module-Name: Java2Doc

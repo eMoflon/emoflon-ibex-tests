@@ -113,7 +113,7 @@ public class DeleteCreateConflict extends IntegrateTestCase<Package, Folder> {
 	private final BiConsumer<Package, Folder> dcc_chainMultiDel_delta = (p, f) -> {
 		// src:
 		EcoreUtil.delete(helperJava.getPackage(p, "ibex"), true);
-		EcoreUtil.delete(helperJava.getClass(p, "TGG"), true);
+		EcoreUtil.delete(helperJava.getClazz(p, "TGG"), true);
 		EcoreUtil.delete(helperJava.getPackage(p, "cmoflon"), true);
 		EcoreUtil.delete(helperJava.getPackage(p, "es"), true);
 		// trg:
