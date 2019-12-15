@@ -9,13 +9,16 @@ import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 import org.emoflon.ibex.tgg.operational.strategies.OperationalStrategy;
 import org.emoflon.ibex.tgg.runtime.democles.DemoclesTGGEngine;
 
+import AdvancedTrain.AdvancedTrainPackage;
+import AdvancedTrain.impl.AdvancedTrainPackageImpl;
+import AdvancedVehicle.impl.AdvancedVehiclePackageImpl;
+
 public class DemoclesRegistrationHelper implements IRegistrationHelper {
 
 	/** Load and register source and target metamodels */
 	public void registerMetamodels(ResourceSet rs, OperationalStrategy strategy) throws IOException {
-		// Replace to register generated code or handle other URI-related requirements
-		strategy.loadAndRegisterMetamodel("platform:/resource/AdvancedTrain/model/AdvancedTrain.ecore");
-		strategy.loadAndRegisterMetamodel("platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore");
+		AdvancedTrainPackageImpl.init();
+		AdvancedVehiclePackageImpl.init();
 	}
 
 	/** Create default options **/
