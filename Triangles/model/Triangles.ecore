@@ -14,31 +14,33 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="e" upperBound="-1" eType="#//E_Class"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="A_Class">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  <eClassifiers xsi:type="ecore:EClass" name="A_Class" eSuperTypes="#//AbstractClass">
     <eStructuralFeatures xsi:type="ecore:EReference" name="b" upperBound="-1" eType="#//B_Class"
         eOpposite="#//B_Class/a"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="c" upperBound="-1" eType="#//C_Class"
         eOpposite="#//C_Class/a"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="B_Class">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  <eClassifiers xsi:type="ecore:EClass" name="B_Class" eSuperTypes="#//AbstractClass">
     <eStructuralFeatures xsi:type="ecore:EReference" name="a" upperBound="-1" eType="#//A_Class"
         eOpposite="#//A_Class/b"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="c" upperBound="-1" eType="#//C_Class"
         eOpposite="#//C_Class/b"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="C_Class">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="flag" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  <eClassifiers xsi:type="ecore:EClass" name="C_Class" eSuperTypes="#//AbstractClass">
     <eStructuralFeatures xsi:type="ecore:EReference" name="a" upperBound="-1" eType="#//A_Class"
         eOpposite="#//A_Class/c"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="b" upperBound="-1" eType="#//B_Class"
         eOpposite="#//B_Class/c"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="E_Class">
+  <eClassifiers xsi:type="ecore:EClass" name="E_Class" eSuperTypes="#//AbstractClass">
     <eStructuralFeatures xsi:type="ecore:EReference" name="b" upperBound="-1" eType="#//B_Class"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="D_Class">
+  <eClassifiers xsi:type="ecore:EClass" name="D_Class" eSuperTypes="#//AbstractClass">
     <eStructuralFeatures xsi:type="ecore:EReference" name="a" upperBound="-1" eType="#//A_Class"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractClass" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="flag" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
 </ecore:EPackage>

@@ -17,17 +17,14 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Triangles.ecore#//Container/e"/>
     </genClasses>
     <genClasses ecoreClass="Triangles.ecore#//A_Class">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Triangles.ecore#//A_Class/name"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Triangles.ecore#//A_Class/b"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Triangles.ecore#//A_Class/c"/>
     </genClasses>
     <genClasses ecoreClass="Triangles.ecore#//B_Class">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Triangles.ecore#//B_Class/id"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Triangles.ecore#//B_Class/a"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Triangles.ecore#//B_Class/c"/>
     </genClasses>
     <genClasses ecoreClass="Triangles.ecore#//C_Class">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Triangles.ecore#//C_Class/flag"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Triangles.ecore#//C_Class/a"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Triangles.ecore#//C_Class/b"/>
     </genClasses>
@@ -36,6 +33,11 @@
     </genClasses>
     <genClasses ecoreClass="Triangles.ecore#//D_Class">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Triangles.ecore#//D_Class/a"/>
+    </genClasses>
+    <genClasses ecoreClass="Triangles.ecore#//AbstractClass">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Triangles.ecore#//AbstractClass/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Triangles.ecore#//AbstractClass/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Triangles.ecore#//AbstractClass/flag"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
