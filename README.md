@@ -8,7 +8,7 @@ A collection of JUnit tests for [eMoflon::IBeX](https://github.com/eMoflon/emofl
 	model generation with Triple Graph Grammars (TGGs)
 
 ## How to run the tests
-1. Install [eMoflon::IBeX Democles](https://github.com/eMoflon/emoflon-ibex-democles).
+1. Install [eMoflon::IBeX](https://github.com/eMoflon/emoflon-ibex).
 2. Go to ```File/Import.../Team/Team Project Set```, check URL and enter in and import this PSF file:
 	https://raw.githubusercontent.com/eMoflon/emoflon-ibex-tests/master/testProjectSet.psf
 3. Click on the projects `TestsuiteGT` and `Testsuite` by selecting one of the `*.launch` files.
