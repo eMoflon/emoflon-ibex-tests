@@ -57,6 +57,10 @@ Require-Bundle: org.apache.log4j,
  org.emoflon.ibex.tgg.core.runtime;bundle-version="1.0.0",
  AdvancedTrain,
  AdvancedVehicle,
- Train2VehicleAdvanced
+ Train2VehicleAdvanced,
+ Ar,
+ Qou,
+ ArToQou
 Automatic-Module-Name: Testsuite
+Import-Package: org.emoflon.ibex.tgg.run.artoqou
 

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated ArToQou -->
+      <package
+            uri="platform:/resource/ArToQou/model/ArToQou.ecore"
+            class="ArToQou.ArToQouPackage"
+            genModel="model/ArToQou.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated ArToQou -->
+      <package
+            uri="platform:/resource/Ar/model/Ar.ecore"
+            class="Ar.ArPackage"
+            genModel="model/ArToQou.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated ArToQou -->
+      <package
+            uri="platform:/resource/Qou/model/Qou.ecore"
+            class="Qou.QouPackage"
+            genModel="model/ArToQou.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated ArToQou -->
+      <package
+            uri="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore"
+            class="runtime.RuntimePackage"
+            genModel="model/ArToQou.genmodel"/>
+   </extension>
+</plugin>

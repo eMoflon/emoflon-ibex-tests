@@ -1,0 +1,33 @@
+#using ArToQou.*
+#using AttrCondDefLibrary.*
+
+#rule FirstA2X #with ArToQou
+
+#source { 
+	r:RClass {
+		++-first->a
+	}
+	++a:AClass
+}
+
+#target {
+	q:QClass {
+		++-exs->x
+	}
+	++x:XClass
+}
+
+#correspondence {
+	r2q:R2Q {
+		#src->r
+		#trg->q
+	}
+	++a2x:A2X {
+		#src->a
+		#trg->x
+	}
+}
+
+#attributeConditions {
+	eq_string(a.name, x.name)
+}

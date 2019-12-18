@@ -1,0 +1,38 @@
+#using ArToQou.*
+#using AttrCondDefLibrary.*
+
+#rule SubB2X #with ArToQou
+
+#source { 
+	a:AClass {
+		++-nextB->b
+	}
+	++b:BClass
+}
+
+#target {
+	q:QClass {
+		-exs->superX
+		++-exs->subX
+	}
+	superX:XClass
+	++subX:XClass {
+		++-y->y
+	}
+	++y:YClass
+}
+
+#correspondence {
+	a2x:A2X {
+		#src->a
+		#trg->superX
+	}
+	++b2x:B2X {
+		#src->b
+		#trg->subX
+	}
+}
+
+#attributeConditions {
+	eq_string(b.name, subX.name)
+}

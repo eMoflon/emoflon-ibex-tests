@@ -1,0 +1,19 @@
+#using ArToQou.*
+#using AttrCondDefLibrary.*
+
+#rule R2Q #with ArToQou
+
+#source { 
+	++r:RClass
+}
+
+#target {
+	++q:QClass
+}
+
+#correspondence {
+	++r2q:R2Q {
+		#src->r
+		#trg->q
+	}
+}
