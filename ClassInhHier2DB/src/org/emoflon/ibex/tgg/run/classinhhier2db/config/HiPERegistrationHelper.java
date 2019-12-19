@@ -43,21 +43,21 @@ public class HiPERegistrationHelper implements IRegistrationHelper {
 		EPackage classinhhier2dbPack = null;
 		
 		if(strategy instanceof FWD_OPT) {
-			Resource res = strategy.loadResource("platform:/resource/Database/model/Database.ecore");
+			Resource res = strategy.getResourceHandler().loadResource("platform:/resource/Database/model/Database.ecore");
 			databasePack = (EPackage) res.getContents().get(0);
 			rs.getResources().remove(res);
 			
-			res = strategy.loadResource("platform:/resource/ClassInhHier2DB/model/ClassInhHier2DB.ecore");
+			res = strategy.getResourceHandler().loadResource("platform:/resource/ClassInhHier2DB/model/ClassInhHier2DB.ecore");
 			classinhhier2dbPack = (EPackage) res.getContents().get(0);
 			rs.getResources().remove(res);
 		}
 				
 		if(strategy instanceof BWD_OPT) {
-			Resource res = strategy.loadResource("platform:/resource/ClassInheritanceHierarchy/model/ClassInheritanceHierarchy.ecore");
+			Resource res = strategy.getResourceHandler().loadResource("platform:/resource/ClassInheritanceHierarchy/model/ClassInheritanceHierarchy.ecore");
 			classinheritancehierarchyPack = (EPackage) res.getContents().get(0);
 			rs.getResources().remove(res);
 			
-			res = strategy.loadResource("platform:/resource/ClassInhHier2DB/model/ClassInhHier2DB.ecore");
+			res = strategy.getResourceHandler().loadResource("platform:/resource/ClassInhHier2DB/model/ClassInhHier2DB.ecore");
 			classinhhier2dbPack = (EPackage) res.getContents().get(0);
 			rs.getResources().remove(res);
 		}
@@ -89,6 +89,7 @@ public class HiPERegistrationHelper implements IRegistrationHelper {
 		options.projectPath("ClassInhHier2DB");
 		options.debug(false);
 		options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
+		options.registrationHelper(this);
 		return options;
 	}
 }

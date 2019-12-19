@@ -43,21 +43,21 @@ public class HiPERegistrationHelper implements IRegistrationHelper {
 		EPackage familiestopersons_v0Pack = null;
 		
 		if(strategy instanceof FWD_OPT) {
-			Resource res = strategy.loadResource("platform:/resource/SimplePersons/model/SimplePersons.ecore");
+			Resource res = strategy.getResourceHandler().loadResource("platform:/resource/SimplePersons/model/SimplePersons.ecore");
 			simplepersonsPack = (EPackage) res.getContents().get(0);
 			rs.getResources().remove(res);
 			
-			res = strategy.loadResource("platform:/resource/FamiliesToPersons_V0/model/FamiliesToPersons_V0.ecore");
+			res = strategy.getResourceHandler().loadResource("platform:/resource/FamiliesToPersons_V0/model/FamiliesToPersons_V0.ecore");
 			familiestopersons_v0Pack = (EPackage) res.getContents().get(0);
 			rs.getResources().remove(res);
 		}
 				
 		if(strategy instanceof BWD_OPT) {
-			Resource res = strategy.loadResource("platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore");
+			Resource res = strategy.getResourceHandler().loadResource("platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore");
 			simplefamiliesPack = (EPackage) res.getContents().get(0);
 			rs.getResources().remove(res);
 			
-			res = strategy.loadResource("platform:/resource/FamiliesToPersons_V0/model/FamiliesToPersons_V0.ecore");
+			res = strategy.getResourceHandler().loadResource("platform:/resource/FamiliesToPersons_V0/model/FamiliesToPersons_V0.ecore");
 			familiestopersons_v0Pack = (EPackage) res.getContents().get(0);
 			rs.getResources().remove(res);
 		}
@@ -89,6 +89,7 @@ public class HiPERegistrationHelper implements IRegistrationHelper {
 		options.projectPath("FamiliesToPersons_V0");
 		options.debug(false);
 		options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
+		options.registrationHelper(this);
 		return options;
 	}
 }

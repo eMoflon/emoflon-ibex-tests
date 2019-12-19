@@ -43,21 +43,21 @@ public class HiPERegistrationHelper implements IRegistrationHelper {
 		EPackage ibextgggantt2cpmPack = null;
 		
 		if(strategy instanceof FWD_OPT) {
-			Resource res = strategy.loadResource("platform:/resource/CPM/model/CPM.ecore");
+			Resource res = strategy.getResourceHandler().loadResource("platform:/resource/CPM/model/CPM.ecore");
 			cpmPack = (EPackage) res.getContents().get(0);
 			rs.getResources().remove(res);
 			
-			res = strategy.loadResource("platform:/resource/IBeXTGGGantt2CPM/model/IBeXTGGGantt2CPM.ecore");
+			res = strategy.getResourceHandler().loadResource("platform:/resource/IBeXTGGGantt2CPM/model/IBeXTGGGantt2CPM.ecore");
 			ibextgggantt2cpmPack = (EPackage) res.getContents().get(0);
 			rs.getResources().remove(res);
 		}
 				
 		if(strategy instanceof BWD_OPT) {
-			Resource res = strategy.loadResource("platform:/resource/Gantt/model/Gantt.ecore");
+			Resource res = strategy.getResourceHandler().loadResource("platform:/resource/Gantt/model/Gantt.ecore");
 			ganttPack = (EPackage) res.getContents().get(0);
 			rs.getResources().remove(res);
 			
-			res = strategy.loadResource("platform:/resource/IBeXTGGGantt2CPM/model/IBeXTGGGantt2CPM.ecore");
+			res = strategy.getResourceHandler().loadResource("platform:/resource/IBeXTGGGantt2CPM/model/IBeXTGGGantt2CPM.ecore");
 			ibextgggantt2cpmPack = (EPackage) res.getContents().get(0);
 			rs.getResources().remove(res);
 		}
@@ -89,6 +89,7 @@ public class HiPERegistrationHelper implements IRegistrationHelper {
 		options.projectPath("IBeXTGGGantt2CPM");
 		options.debug(false);
 		options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
+		options.registrationHelper(this);
 		return options;
 	}
 }

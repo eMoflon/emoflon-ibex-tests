@@ -34,6 +34,7 @@ public class DemoclesRegistrationHelper implements IRegistrationHelper {
 		options.projectPath("IBeXTGGGantt2CPM");
 		options.debug(false);
 		options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
+		options.registrationHelper(this);
 		return options;
 	}
 }

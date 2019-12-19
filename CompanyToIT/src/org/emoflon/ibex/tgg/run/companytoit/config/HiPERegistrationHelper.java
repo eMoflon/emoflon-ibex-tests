@@ -43,21 +43,21 @@ public class HiPERegistrationHelper implements IRegistrationHelper {
 		EPackage companytoitPack = null;
 		
 		if(strategy instanceof FWD_OPT) {
-			Resource res = strategy.loadResource("platform:/resource/ITLanguage/model/ITLanguage.ecore");
+			Resource res = strategy.getResourceHandler().loadResource("platform:/resource/ITLanguage/model/ITLanguage.ecore");
 			itlanguagePack = (EPackage) res.getContents().get(0);
 			rs.getResources().remove(res);
 			
-			res = strategy.loadResource("platform:/resource/CompanyToIT/model/CompanyToIT.ecore");
+			res = strategy.getResourceHandler().loadResource("platform:/resource/CompanyToIT/model/CompanyToIT.ecore");
 			companytoitPack = (EPackage) res.getContents().get(0);
 			rs.getResources().remove(res);
 		}
 				
 		if(strategy instanceof BWD_OPT) {
-			Resource res = strategy.loadResource("platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore");
+			Resource res = strategy.getResourceHandler().loadResource("platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore");
 			companylanguagePack = (EPackage) res.getContents().get(0);
 			rs.getResources().remove(res);
 			
-			res = strategy.loadResource("platform:/resource/CompanyToIT/model/CompanyToIT.ecore");
+			res = strategy.getResourceHandler().loadResource("platform:/resource/CompanyToIT/model/CompanyToIT.ecore");
 			companytoitPack = (EPackage) res.getContents().get(0);
 			rs.getResources().remove(res);
 		}
@@ -89,6 +89,7 @@ public class HiPERegistrationHelper implements IRegistrationHelper {
 		options.projectPath("CompanyToIT");
 		options.debug(false);
 		options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
+		options.registrationHelper(this);
 		return options;
 	}
 }

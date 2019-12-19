@@ -26,7 +26,7 @@ public class DemoclesRegistrationHelper implements IRegistrationHelper {
 		
 		if(strategy instanceof FWD_OPT) {
 			// Load and register source and target metamodels
-			Resource res = strategy.loadResource("platform:/resource/../metamodels/MocaTree/model/MocaTree.ecore");
+			Resource res = strategy.getResourceHandler().loadResource("platform:/resource/../metamodels/MocaTree/model/MocaTree.ecore");
 			EPackage pack = (EPackage) res.getContents().get(0);
 			rs.getPackageRegistry().put("platform:/resource/MocaTree/model/MocaTree.ecore", pack);
 			rs.getPackageRegistry().put("platform:/plugin/MocaTree/model/MocaTree.ecore", pack);
@@ -34,7 +34,7 @@ public class DemoclesRegistrationHelper implements IRegistrationHelper {
 		
 		if(strategy instanceof BWD_OPT) {
 			// Load and register source and target metamodels
-			Resource res = strategy.loadResource("platform:/resource/../metamodels/VHDLModel/model/VHDLModel.ecore");
+			Resource res = strategy.getResourceHandler().loadResource("platform:/resource/../metamodels/VHDLModel/model/VHDLModel.ecore");
 			EPackage pack = (EPackage) res.getContents().get(0);
 			rs.getPackageRegistry().put("platform:/resource/VHDLModel/model/VHDLModel.ecore", pack);
 			rs.getPackageRegistry().put("platform:/plugin/VHDLModel/model/VHDLModel.ecore", pack);
@@ -49,6 +49,7 @@ public class DemoclesRegistrationHelper implements IRegistrationHelper {
 		options.projectPath("VHDLTGGCodeAdapter");
 		options.debug(false);
 		options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
+		options.registrationHelper(this);
 		return options;
 	}
 }

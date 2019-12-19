@@ -34,6 +34,7 @@ public class DemoclesRegistrationHelper implements IRegistrationHelper {
 		options.projectPath("MoDiscoIbexTGG");
 		options.debug(false);
 		options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
+		options.registrationHelper(this);
 		return options;
 	}
 }

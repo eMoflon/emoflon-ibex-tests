@@ -43,21 +43,21 @@ public class HiPERegistrationHelper implements IRegistrationHelper {
 		EPackage java2docPack = null;
 		
 		if(strategy instanceof FWD_OPT) {
-			Resource res = strategy.loadResource("platform:/resource/SimpleDoc/model/SimpleDoc.ecore");
+			Resource res = strategy.getResourceHandler().loadResource("platform:/resource/SimpleDoc/model/SimpleDoc.ecore");
 			simpledocPack = (EPackage) res.getContents().get(0);
 			rs.getResources().remove(res);
 			
-			res = strategy.loadResource("platform:/resource/Java2Doc/model/Java2Doc.ecore");
+			res = strategy.getResourceHandler().loadResource("platform:/resource/Java2Doc/model/Java2Doc.ecore");
 			java2docPack = (EPackage) res.getContents().get(0);
 			rs.getResources().remove(res);
 		}
 				
 		if(strategy instanceof BWD_OPT) {
-			Resource res = strategy.loadResource("platform:/resource/SimpleJava/model/SimpleJava.ecore");
+			Resource res = strategy.getResourceHandler().loadResource("platform:/resource/SimpleJava/model/SimpleJava.ecore");
 			simplejavaPack = (EPackage) res.getContents().get(0);
 			rs.getResources().remove(res);
 			
-			res = strategy.loadResource("platform:/resource/Java2Doc/model/Java2Doc.ecore");
+			res = strategy.getResourceHandler().loadResource("platform:/resource/Java2Doc/model/Java2Doc.ecore");
 			java2docPack = (EPackage) res.getContents().get(0);
 			rs.getResources().remove(res);
 		}
@@ -89,6 +89,7 @@ public class HiPERegistrationHelper implements IRegistrationHelper {
 		options.projectPath("Java2Doc");
 		options.debug(false);
 		options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
+		options.registrationHelper(this);
 		return options;
 	}
 }

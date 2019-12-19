@@ -34,27 +34,27 @@ public abstract class ModelGenTestCase<S, T> extends TestCase {
 
 	@SuppressWarnings("unchecked")
 	protected void assertPostconditionOnSrc(String src) {
-		Resource srcExp = EMFUtil.loadExpectedResource(getResourcePath()+"/"+src, generator.getResourceSet());
+		Resource srcExp = EMFUtil.loadExpectedResource(getResourcePath()+"/"+src, generator.getResourceHandler().getResourceSet());
 		
 		Assert.assertNotEquals("Resource is empty", 0, srcExp.getContents().size());
 		
-		Assert.assertEquals(srcExp.getContents().size(), generator.getSourceResource().getContents().size());
+		Assert.assertEquals(srcExp.getContents().size(), generator.getResourceHandler().getSourceResource().getContents().size());
 		for (int i = 0; i < srcExp.getContents().size(); i++) {
 			sourceComp.assertEquals((S)srcExp.getContents().get(i), 
-					                (S)generator.getSourceResource().getContents().get(i));
+					                (S)generator.getResourceHandler().getSourceResource().getContents().get(i));
 		}
 	}
 
 	@SuppressWarnings("unchecked")
 	protected void assertPostconditionOnTrg(String trg) {
-		Resource trgExp = EMFUtil.loadExpectedResource(getResourcePath()+"/"+trg, generator.getResourceSet());
+		Resource trgExp = EMFUtil.loadExpectedResource(getResourcePath()+"/"+trg, generator.getResourceHandler().getResourceSet());
 		
 		Assert.assertNotEquals("Resource is empty", 0, trgExp.getContents().size());
 		
-		Assert.assertEquals(trgExp.getContents().size(), generator.getTargetResource().getContents().size());
+		Assert.assertEquals(trgExp.getContents().size(), generator.getResourceHandler().getTargetResource().getContents().size());
 		for (int i = 0; i < trgExp.getContents().size(); i++) {
 			targetComp.assertEquals((T)trgExp.getContents().get(i), 
-					                  (T)generator.getTargetResource().getContents().get(i));
+					                  (T)generator.getResourceHandler().getTargetResource().getContents().get(i));
 		}
 	}
 }

@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.emoflon.ibex.tgg.operational.csp.constraints.factories.benchmarxfamiliestopersons.UserDefinedRuntimeTGGAttrConstraintFactory;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.OperationalStrategy;
+import org.emoflon.ibex.tgg.operational.strategies.modules.IbexExecutable;
 import org.emoflon.ibex.tgg.operational.strategies.opt.BWD_OPT;
 import org.emoflon.ibex.tgg.operational.strategies.opt.FWD_OPT;
 import org.emoflon.ibex.tgg.runtime.democles.DemoclesTGGEngine;
@@ -32,7 +33,7 @@ public class HiPERegistrationHelper implements IRegistrationHelper {
 	}
 
 	/** Load and register source and target metamodels */
-	public void registerMetamodels(ResourceSet rs, OperationalStrategy strategy) throws IOException {
+	public void registerMetamodels(ResourceSet rs, IbexExecutable executable) throws IOException {
 		
 		// Set correct workspace root
 		setWorkspaceRootDirectory(rs);
@@ -42,22 +43,22 @@ public class HiPERegistrationHelper implements IRegistrationHelper {
 		EPackage personsPack = null;
 		EPackage benchmarxfamiliestopersonsPack = null;
 		
-		if(strategy instanceof FWD_OPT) {
-			Resource res = strategy.loadResource("platform:/resource/Persons/model/Persons.ecore");
+		if(executable instanceof FWD_OPT) {
+			Resource res = executable.getResourceHandler().loadResource("platform:/resource/Persons/model/Persons.ecore");
 			personsPack = (EPackage) res.getContents().get(0);
 			rs.getResources().remove(res);
 			
-			res = strategy.loadResource("platform:/resource/BenchmarxFamiliesToPersons/model/BenchmarxFamiliesToPersons.ecore");
+			res = executable.getResourceHandler().loadResource("platform:/resource/BenchmarxFamiliesToPersons/model/BenchmarxFamiliesToPersons.ecore");
 			benchmarxfamiliestopersonsPack = (EPackage) res.getContents().get(0);
 			rs.getResources().remove(res);
 		}
 				
-		if(strategy instanceof BWD_OPT) {
-			Resource res = strategy.loadResource("platform:/resource/Families/model/Families.ecore");
+		if(executable instanceof BWD_OPT) {
+			Resource res = executable.getResourceHandler().loadResource("platform:/resource/Families/model/Families.ecore");
 			familiesPack = (EPackage) res.getContents().get(0);
 			rs.getResources().remove(res);
 			
-			res = strategy.loadResource("platform:/resource/BenchmarxFamiliesToPersons/model/BenchmarxFamiliesToPersons.ecore");
+			res = executable.getResourceHandler().loadResource("platform:/resource/BenchmarxFamiliesToPersons/model/BenchmarxFamiliesToPersons.ecore");
 			benchmarxfamiliestopersonsPack = (EPackage) res.getContents().get(0);
 			rs.getResources().remove(res);
 		}
@@ -89,6 +90,7 @@ public class HiPERegistrationHelper implements IRegistrationHelper {
 		options.projectPath("BenchmarxFamiliesToPersons");
 		options.debug(false);
 		options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
+		options.registrationHelper(this);
 		return options;
 	}
 }

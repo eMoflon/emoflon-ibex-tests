@@ -43,21 +43,21 @@ public class HiPERegistrationHelper implements IRegistrationHelper {
 		EPackage featuremodelconcisetosafePack = null;
 		
 		if(strategy instanceof FWD_OPT) {
-			Resource res = strategy.loadResource("platform:/resource/FeatureModelSafe/model/FeatureModelSafe.ecore");
+			Resource res = strategy.getResourceHandler().loadResource("platform:/resource/FeatureModelSafe/model/FeatureModelSafe.ecore");
 			featuremodelsafePack = (EPackage) res.getContents().get(0);
 			rs.getResources().remove(res);
 			
-			res = strategy.loadResource("platform:/resource/FeatureModelConciseToSafe/model/FeatureModelConciseToSafe.ecore");
+			res = strategy.getResourceHandler().loadResource("platform:/resource/FeatureModelConciseToSafe/model/FeatureModelConciseToSafe.ecore");
 			featuremodelconcisetosafePack = (EPackage) res.getContents().get(0);
 			rs.getResources().remove(res);
 		}
 				
 		if(strategy instanceof BWD_OPT) {
-			Resource res = strategy.loadResource("platform:/resource/FeatureModelConcise/model/FeatureModelConcise.ecore");
+			Resource res = strategy.getResourceHandler().loadResource("platform:/resource/FeatureModelConcise/model/FeatureModelConcise.ecore");
 			featuremodelconcisePack = (EPackage) res.getContents().get(0);
 			rs.getResources().remove(res);
 			
-			res = strategy.loadResource("platform:/resource/FeatureModelConciseToSafe/model/FeatureModelConciseToSafe.ecore");
+			res = strategy.getResourceHandler().loadResource("platform:/resource/FeatureModelConciseToSafe/model/FeatureModelConciseToSafe.ecore");
 			featuremodelconcisetosafePack = (EPackage) res.getContents().get(0);
 			rs.getResources().remove(res);
 		}
@@ -89,6 +89,7 @@ public class HiPERegistrationHelper implements IRegistrationHelper {
 		options.projectPath("FeatureModelConciseToSafe");
 		options.debug(false);
 		options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
+		options.registrationHelper(this);
 		return options;
 	}
 }

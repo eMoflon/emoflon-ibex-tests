@@ -26,7 +26,7 @@ public class DemoclesRegistrationHelper implements IRegistrationHelper {
 		
 		if(strategy instanceof FWD_OPT) {
 			// Load and register source and target metamodels
-			Resource res = strategy.loadResource("platform:/resource/FeatureModelSafe/model/FeatureModelSafe.ecore");
+			Resource res = strategy.getResourceHandler().loadResource("platform:/resource/FeatureModelSafe/model/FeatureModelSafe.ecore");
 			EPackage pack = (EPackage) res.getContents().get(0);
 			rs.getPackageRegistry().put("platform:/resource/FeatureModelSafe/model/FeatureModelSafe.ecore", pack);
 			rs.getPackageRegistry().put("platform:/plugin/FeatureModelSafe/model/FeatureModelSafe.ecore", pack);
@@ -34,7 +34,7 @@ public class DemoclesRegistrationHelper implements IRegistrationHelper {
 		
 		if(strategy instanceof BWD_OPT) {
 			// Load and register source and target metamodels
-			Resource res = strategy.loadResource("platform:/resource/FeatureModelConcise/model/FeatureModelConcise.ecore");
+			Resource res = strategy.getResourceHandler().loadResource("platform:/resource/FeatureModelConcise/model/FeatureModelConcise.ecore");
 			EPackage pack = (EPackage) res.getContents().get(0);
 			rs.getPackageRegistry().put("platform:/resource/FeatureModelConcise/model/FeatureModelConcise.ecore", pack);
 			rs.getPackageRegistry().put("platform:/plugin/FeatureModelConcise/model/FeatureModelConcise.ecore", pack);
@@ -49,6 +49,7 @@ public class DemoclesRegistrationHelper implements IRegistrationHelper {
 		options.projectPath("FeatureModelConciseToSafe");
 		options.debug(false);
 		options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
+		options.registrationHelper(this);
 		return options;
 	}
 }

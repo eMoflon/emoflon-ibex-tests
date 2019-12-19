@@ -37,6 +37,7 @@ public class DemoclesRegistrationHelper implements IRegistrationHelper {
 		options.projectPath("BlockDiagramCodeAdapter_EdgeRules");
 		options.debug(false);
 		options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
+		options.registrationHelper(this);
 		return options;
 	}
 }

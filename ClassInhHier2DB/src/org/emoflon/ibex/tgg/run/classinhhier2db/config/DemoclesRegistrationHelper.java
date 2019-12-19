@@ -25,14 +25,14 @@ public class DemoclesRegistrationHelper implements IRegistrationHelper {
 		DatabasePackageImpl.init();
 
 		if (strategy instanceof FWD_OPT) {
-			Resource res = strategy.loadResource("platform:/resource/Database/model/Database.ecore");
+			Resource res = strategy.getResourceHandler().loadResource("platform:/resource/Database/model/Database.ecore");
 			EPackage pack = (EPackage) res.getContents().get(0);
 			rs.getPackageRegistry().put("platform:/resource/Database/model/Database.ecore", pack);
 			rs.getPackageRegistry().put("platform:/plugin/Database/model/Database.ecore", pack);
 		}
 
 		if (strategy instanceof BWD_OPT) {
-			Resource res = strategy.loadResource("platform:/resource/ClassInheritanceHierarchy/model/ClassInheritanceHierarchy.ecore");
+			Resource res = strategy.getResourceHandler().loadResource("platform:/resource/ClassInheritanceHierarchy/model/ClassInheritanceHierarchy.ecore");
 			EPackage pack = (EPackage) res.getContents().get(0);
 			rs.getPackageRegistry().put("platform:/resource/ClassInheritanceHierarchy/model/ClassInheritanceHierarchy.ecore", pack);
 			rs.getPackageRegistry().put("platform:/plugin/ClassInheritanceHierarchy/model/ClassInheritanceHierarchy.ecore", pack);
@@ -47,6 +47,7 @@ public class DemoclesRegistrationHelper implements IRegistrationHelper {
 		options.projectPath("ClassInhHier2DB");
 		options.debug(false);
 		options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
+		options.registrationHelper(this);
 		return options;
 	}
 }

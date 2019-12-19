@@ -6,6 +6,7 @@ import org.apache.log4j.BasicConfigurator;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
+import org.emoflon.ibex.tgg.operational.strategies.modules.TGGResourceHandler;
 import org.emoflon.ibex.tgg.operational.strategies.opt.FWD_OPT;
 import org.emoflon.ibex.tgg.run.blockcodeadapter.config._DefaultRegistrationHelper;
 import org.emoflon.ibex.tgg.util.ilp.ILPFactory.SupportedILPSolver;
@@ -14,10 +15,10 @@ public class FWD_OPT_App extends FWD_OPT {
 	
 	public static IRegistrationHelper registrationHelper = new _DefaultRegistrationHelper();
 
-	String srcPath;
-	String trgPath;
-	String corrPath;
-	String protPath;
+	static String srcPath;
+	static String trgPath;
+	static String corrPath;
+	static String protPath;
 	
 	public FWD_OPT_App(String projectName, String workspacePath, boolean debug, String srcPath, String trgPath, 
 			String corrPath, String protPath, SupportedILPSolver ilpSolver) throws IOException {
@@ -26,7 +27,6 @@ public class FWD_OPT_App extends FWD_OPT {
 		this.trgPath = trgPath;
 		this.corrPath = corrPath;
 		this.protPath = protPath;
-		registerBlackInterpreter(options.getBlackInterpreter());
 	}
 
 	public static void main(String[] args) throws IOException {
@@ -44,22 +44,19 @@ public class FWD_OPT_App extends FWD_OPT {
 		fwd_opt.saveModels();
 		fwd_opt.terminate();
 	}
+}
+
+class FWD_OPT_TGGResourceHandler extends TGGResourceHandler {
+	
+	public FWD_OPT_TGGResourceHandler() throws IOException {
+		super();
+	}
 
 	@Override
-	protected void registerUserMetamodels() throws IOException {
-		registrationHelper.registerMetamodels(rs, this);
-			
-		// Register correspondence metamodel last
-		loadAndRegisterCorrMetamodel(options.projectPath() + "/model/" + options.projectName() + ".ecore");
-	}
-	
-	@Override
 	public void loadModels() throws IOException {
-		s = loadResource(options.projectPath() +srcPath+".xmi");
-		t = createResource(options.projectPath() +trgPath+".xmi");
-		c = createResource(options.projectPath() +corrPath+".xmi");
-		p = createResource(options.projectPath() +protPath+".xmi");
-	
-		EcoreUtil.resolveAll(rs);
+		source = loadResource(options.projectPath() +srcPath+".xmi");
+		target = createResource(options.projectPath() +trgPath+".xmi");
+		corr = createResource(options.projectPath() +corrPath+".xmi");
+		protocol = createResource(options.projectPath() +protPath+".xmi");
 	}
 }

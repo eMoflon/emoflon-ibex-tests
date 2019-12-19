@@ -43,21 +43,21 @@ public class HiPERegistrationHelper implements IRegistrationHelper {
 		EPackage processcodeadapterPack = null;
 		
 		if(strategy instanceof FWD_OPT) {
-			Resource res = strategy.loadResource("platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore");
+			Resource res = strategy.getResourceHandler().loadResource("platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore");
 			processdefinitionPack = (EPackage) res.getContents().get(0);
 			rs.getResources().remove(res);
 			
-			res = strategy.loadResource("platform:/resource/ProcessCodeAdapter/model/ProcessCodeAdapter.ecore");
+			res = strategy.getResourceHandler().loadResource("platform:/resource/ProcessCodeAdapter/model/ProcessCodeAdapter.ecore");
 			processcodeadapterPack = (EPackage) res.getContents().get(0);
 			rs.getResources().remove(res);
 		}
 				
 		if(strategy instanceof BWD_OPT) {
-			Resource res = strategy.loadResource("platform:/resource/MocaTree/model/MocaTree.ecore");
+			Resource res = strategy.getResourceHandler().loadResource("platform:/resource/MocaTree/model/MocaTree.ecore");
 			mocatreePack = (EPackage) res.getContents().get(0);
 			rs.getResources().remove(res);
 			
-			res = strategy.loadResource("platform:/resource/ProcessCodeAdapter/model/ProcessCodeAdapter.ecore");
+			res = strategy.getResourceHandler().loadResource("platform:/resource/ProcessCodeAdapter/model/ProcessCodeAdapter.ecore");
 			processcodeadapterPack = (EPackage) res.getContents().get(0);
 			rs.getResources().remove(res);
 		}
@@ -89,6 +89,7 @@ public class HiPERegistrationHelper implements IRegistrationHelper {
 		options.projectPath("ProcessCodeAdapter");
 		options.debug(false);
 		options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
+		options.registrationHelper(this);
 		return options;
 	}
 }

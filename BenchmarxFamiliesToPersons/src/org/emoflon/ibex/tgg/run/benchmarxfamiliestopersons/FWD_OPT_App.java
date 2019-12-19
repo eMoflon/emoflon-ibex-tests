@@ -3,8 +3,8 @@ package org.emoflon.ibex.tgg.run.benchmarxfamiliestopersons;
 import java.io.IOException;
 
 import org.apache.log4j.BasicConfigurator;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
+import org.emoflon.ibex.tgg.operational.strategies.modules.TGGResourceHandler;
 import org.emoflon.ibex.tgg.operational.strategies.opt.FWD_OPT;
 import org.emoflon.ibex.tgg.run.benchmarxfamiliestopersons.config._DefaultRegistrationHelper;
 import org.emoflon.ibex.tgg.util.ilp.ILPFactory.SupportedILPSolver;
@@ -25,7 +25,6 @@ public class FWD_OPT_App extends FWD_OPT {
 		this.trgPath = trgPath;
 		this.corrPath = corrPath;
 		this.protPath = protPath;
-		registerBlackInterpreter(options.getBlackInterpreter());
 	}
 
 	public static void main(String[] args) throws IOException {
@@ -43,22 +42,20 @@ public class FWD_OPT_App extends FWD_OPT {
 		sync.terminate();
 		sync.saveModels();
 	}
+}
+
+
+class FWD_OPT_TGGResourceHandler extends TGGResourceHandler {
 	
-	@Override
-	protected void registerUserMetamodels() throws IOException {
-		registrationHelper.registerMetamodels(rs, this);
-		
-		// Register correspondence metamodel last
-		loadAndRegisterCorrMetamodel(options.projectPath() + "/model/" + options.projectName() + ".ecore");
+	public FWD_OPT_TGGResourceHandler() throws IOException {
+		super();
 	}
-	
+
 	@Override
 	public void loadModels() throws IOException {
-		s = loadResource(options.projectPath() +srcPath+".xmi");
-		t = createResource(options.projectPath() +trgPath+".xmi");
-		c = createResource(options.projectPath() +corrPath+".xmi");
-		p = createResource(options.projectPath() +protPath+".xmi");
-	
-		EcoreUtil.resolveAll(rs);
+		source = loadResource(options.projectPath() +BWD_OPT_App.srcPath+".xmi");
+		target = createResource(options.projectPath() +BWD_OPT_App.trgPath+".xmi");
+		corr = createResource(options.projectPath() +BWD_OPT_App.corrPath+".xmi");
+		protocol = createResource(options.projectPath() +BWD_OPT_App.protPath+".xmi");
 	}
 }

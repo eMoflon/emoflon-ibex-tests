@@ -29,6 +29,7 @@ public class DemoclesRegistrationHelper implements IRegistrationHelper {
 		options.debug(false);
 		options.repairAttributes(true);
 		options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
+		options.registrationHelper(this);
 		return options;
 	}
 }

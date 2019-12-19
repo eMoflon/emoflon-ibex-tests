@@ -25,14 +25,14 @@ public class DemoclesRegistrationHelper implements IRegistrationHelper {
 	    MocaTreePackageImpl.init();
 		
 		if(strategy instanceof FWD_OPT) {
-			Resource res = strategy.loadResource("platform:/resource/BlockDiagram/model/BlockDiagram.ecore");
+			Resource res = strategy.getResourceHandler().loadResource("platform:/resource/BlockDiagram/model/BlockDiagram.ecore");
 			EPackage pack = (EPackage) res.getContents().get(0);
 			rs.getPackageRegistry().put("platform:/resource/BlockDiagram/model/BlockDiagram.ecore", pack);
 			rs.getPackageRegistry().put("platform:/plugin/BlockDiagram/model/BlockDiagram.ecore", pack);
 		}
 		
 		if(strategy instanceof BWD_OPT) {
-			Resource res = strategy.loadResource("platform:/resource/MocaTree/model/MocaTree.ecore");
+			Resource res = strategy.getResourceHandler().loadResource("platform:/resource/MocaTree/model/MocaTree.ecore");
 			EPackage pack = (EPackage) res.getContents().get(0);
 			rs.getPackageRegistry().put("platform:/resource/MocaTree/model/MocaTree.ecore", pack);
 			rs.getPackageRegistry().put("platform:/plugin/MocaTree/model/MocaTree.ecore", pack);
@@ -47,6 +47,7 @@ public class DemoclesRegistrationHelper implements IRegistrationHelper {
 		options.projectPath("BlockDiagramCodeAdapter");
 		options.debug(false);
 		options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
+		options.registrationHelper(this);
 		return options;
 	}
 }

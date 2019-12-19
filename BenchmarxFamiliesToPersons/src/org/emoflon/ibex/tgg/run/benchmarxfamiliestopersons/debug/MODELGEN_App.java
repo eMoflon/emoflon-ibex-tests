@@ -19,7 +19,6 @@ public class MODELGEN_App extends MODELGEN {
 	
 	public MODELGEN_App() throws IOException {
 		super(registrationHelper.createIbexOptions());
-		registerBlackInterpreter(options.getBlackInterpreter());
 	}
 
 	public static void main(String[] args) throws IOException {
@@ -56,14 +55,5 @@ public class MODELGEN_App extends MODELGEN {
 		        }
 		    });
 		}
-	}
-	
-	
-	@Override
-	protected void registerUserMetamodels() throws IOException {
-		registrationHelper.registerMetamodels(rs, this);
-			
-		// Register correspondence metamodel last
-		loadAndRegisterCorrMetamodel(options.projectPath() + "/model/" + options.projectName() + ".ecore");
 	}
 }
