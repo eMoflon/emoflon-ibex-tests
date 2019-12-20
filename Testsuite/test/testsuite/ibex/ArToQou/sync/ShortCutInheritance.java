@@ -42,13 +42,12 @@ public class ShortCutInheritance extends SyncTestCase<RClass, QClass> {
 			AClass a1 = helperAr.createAClass("a1");
 			BClass b2 = helperAr.createBClass("b2");
 			BClass b3 = helperAr.createBClass("b3");
-			AClass a4 = helperAr.createAClass("a4");
 			
 			r.setFirst(a1);
 			a1.setNextB(b2);
 			
-			b2.setNextA(b3);
-			b3.setNextA(a4);
+			// Note: following step should also be translated but isn't
+			b2.setNextB(b3);
 		});
 	}
 
