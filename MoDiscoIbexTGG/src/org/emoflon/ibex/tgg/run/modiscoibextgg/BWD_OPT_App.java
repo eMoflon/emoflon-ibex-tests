@@ -12,18 +12,22 @@ import org.emoflon.ibex.tgg.util.ilp.ILPFactory.SupportedILPSolver;
 public class BWD_OPT_App extends BWD_OPT {
 	public static IRegistrationHelper registrationHelper = new _DefaultRegistrationHelper();
 
-	static String srcPath;
-	static String trgPath;
-	static String corrPath;
-	static String protPath;
-	
 	public BWD_OPT_App(String projectName, String workspacePath, boolean debug, String srcPath, String trgPath, 
 			String corrPath, String protPath, SupportedILPSolver ilpSolver) throws IOException {
-		super(registrationHelper.createIbexOptions().projectName(projectName).workspacePath(workspacePath).debug(debug).setIlpSolver(ilpSolver).setResourceHandler(new BWD_OPT_TGGResourceHandler()));
-		BWD_OPT_App.srcPath = srcPath;
-		BWD_OPT_App.trgPath = trgPath;
-		BWD_OPT_App.corrPath = corrPath;
-		BWD_OPT_App.protPath = protPath;
+		super(registrationHelper.createIbexOptions().projectName(projectName).workspacePath(workspacePath).debug(debug).setIlpSolver(ilpSolver).setResourceHandler(new TGGResourceHandler() {
+			@Override
+			public void loadModels() throws IOException {
+				source = createResource(options.projectPath() +srcPath+".xmi");
+				target = loadResource(options.projectPath() +trgPath+".xmi");
+				corr = createResource(options.projectPath() +corrPath+".xmi");
+				protocol = createResource(options.projectPath() +protPath+".xmi");
+			}
+			
+			@Override
+			public void saveModels() throws IOException {
+				
+			}
+		}));
 	}
 
 	public static void main(String[] args) throws IOException {
@@ -40,21 +44,5 @@ public class BWD_OPT_App extends BWD_OPT {
 		
 		bwd_opt.saveModels();
 		bwd_opt.terminate();
-	}
-}
-
-
-class BWD_OPT_TGGResourceHandler extends TGGResourceHandler {
-	
-	public BWD_OPT_TGGResourceHandler() throws IOException {
-		super();
-	}
-
-	@Override
-	public void loadModels() throws IOException {
-		source = createResource(options.projectPath() +BWD_OPT_App.srcPath+".xmi");
-		target = loadResource(options.projectPath() +BWD_OPT_App.trgPath+".xmi");
-		corr = createResource(options.projectPath() +BWD_OPT_App.corrPath+".xmi");
-		protocol = createResource(options.projectPath() +BWD_OPT_App.protPath+".xmi");
 	}
 }
