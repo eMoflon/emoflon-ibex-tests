@@ -6,7 +6,6 @@ import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 import org.emoflon.ibex.tgg.run.benchmarxfamiliestopersons.BWD_OPT_App;
 import org.emoflon.ibex.tgg.run.benchmarxfamiliestopersons.CO_App;
 import org.emoflon.ibex.tgg.run.benchmarxfamiliestopersons.FWD_OPT_App;
-import org.emoflon.ibex.tgg.run.benchmarxfamiliestopersons.SYNC_App;
 import org.emoflon.ibex.tgg.run.benchmarxfamiliestopersons.config.DemoclesRegistrationHelper;
 import org.emoflon.ibex.tgg.run.benchmarxfamiliestopersons.config.HiPERegistrationHelper;
 import org.junit.Assert;

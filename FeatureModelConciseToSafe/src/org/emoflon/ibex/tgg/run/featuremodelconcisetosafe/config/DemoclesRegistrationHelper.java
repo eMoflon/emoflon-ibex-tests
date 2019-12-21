@@ -8,7 +8,7 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 import org.emoflon.ibex.tgg.operational.csp.constraints.factories.featuremodelconcisetosafe.UserDefinedRuntimeTGGAttrConstraintFactory;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
-import org.emoflon.ibex.tgg.operational.strategies.OperationalStrategy;
+import org.emoflon.ibex.tgg.operational.strategies.modules.IbexExecutable;
 import org.emoflon.ibex.tgg.operational.strategies.opt.BWD_OPT;
 import org.emoflon.ibex.tgg.operational.strategies.opt.FWD_OPT;
 import org.emoflon.ibex.tgg.runtime.democles.DemoclesTGGEngine;
@@ -19,22 +19,22 @@ import FeatureModelSafe.impl.FeatureModelSafePackageImpl;
 public class DemoclesRegistrationHelper implements IRegistrationHelper {
 
 	/** Load and register source and target metamodels */
-	public void registerMetamodels(ResourceSet rs, OperationalStrategy strategy)  throws IOException {
+	public void registerMetamodels(ResourceSet rs, IbexExecutable executable)  throws IOException {
 		// Load and register source and target metamodels
 		FeatureModelConcisePackageImpl.init();
 		FeatureModelSafePackageImpl.init();
 		
-		if(strategy instanceof FWD_OPT) {
+		if(executable instanceof FWD_OPT) {
 			// Load and register source and target metamodels
-			Resource res = strategy.getResourceHandler().loadResource("platform:/resource/FeatureModelSafe/model/FeatureModelSafe.ecore");
+			Resource res = executable.getResourceHandler().loadResource("platform:/resource/FeatureModelSafe/model/FeatureModelSafe.ecore");
 			EPackage pack = (EPackage) res.getContents().get(0);
 			rs.getPackageRegistry().put("platform:/resource/FeatureModelSafe/model/FeatureModelSafe.ecore", pack);
 			rs.getPackageRegistry().put("platform:/plugin/FeatureModelSafe/model/FeatureModelSafe.ecore", pack);
 		}
 		
-		if(strategy instanceof BWD_OPT) {
+		if(executable instanceof BWD_OPT) {
 			// Load and register source and target metamodels
-			Resource res = strategy.getResourceHandler().loadResource("platform:/resource/FeatureModelConcise/model/FeatureModelConcise.ecore");
+			Resource res = executable.getResourceHandler().loadResource("platform:/resource/FeatureModelConcise/model/FeatureModelConcise.ecore");
 			EPackage pack = (EPackage) res.getContents().get(0);
 			rs.getPackageRegistry().put("platform:/resource/FeatureModelConcise/model/FeatureModelConcise.ecore", pack);
 			rs.getPackageRegistry().put("platform:/plugin/FeatureModelConcise/model/FeatureModelConcise.ecore", pack);

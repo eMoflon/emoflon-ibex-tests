@@ -6,7 +6,8 @@ import org.benchmarx.cpm.core.CPMComparator;
 import org.benchmarx.gantt.core.GanttComparator;
 import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 import org.emoflon.ibex.tgg.run.ibextgggantt2cpm.SYNC_App;
-import org.emoflon.ibex.tgg.run.ibextgggantt2cpm.config.*;
+import org.emoflon.ibex.tgg.run.ibextgggantt2cpm.config.DemoclesRegistrationHelper;
+import org.emoflon.ibex.tgg.run.ibextgggantt2cpm.config.HiPERegistrationHelper;
 
 import cpm.CPMNetwork;
 import gantt.GanttDiagram;
@@ -26,7 +27,7 @@ public class IBeXTGGGantt2CPM extends IbexAdapter<GanttDiagram, CPMNetwork> {
 			synchroniser = new SYNC_App(projectName, testsuite.ibex.performance.util.PerformanceConstants.workspacePath, false);
 			GanttDiagram gd = gantt.GanttFactory.eINSTANCE.createGanttDiagram();
 			gd.setName("");
-			synchroniser.getSourceResource().getContents().add(gd);
+			synchroniser.getResourceHandler().getSourceResource().getContents().add(gd);
 			synchroniser.forward();
 		} catch (IOException e) {
 			e.printStackTrace();

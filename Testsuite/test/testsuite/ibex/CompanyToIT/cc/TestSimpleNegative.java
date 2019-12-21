@@ -4,7 +4,8 @@ import java.io.IOException;
 
 import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 import org.emoflon.ibex.tgg.run.companytoit.CC_App;
-import org.emoflon.ibex.tgg.run.companytoit.config.*;
+import org.emoflon.ibex.tgg.run.companytoit.config.DemoclesRegistrationHelper;
+import org.emoflon.ibex.tgg.run.companytoit.config.HiPERegistrationHelper;
 import org.junit.Assert;
 import org.junit.Test;
 

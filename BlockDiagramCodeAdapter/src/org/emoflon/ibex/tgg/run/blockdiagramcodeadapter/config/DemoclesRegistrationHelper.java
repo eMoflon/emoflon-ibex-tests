@@ -8,7 +8,7 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 import org.emoflon.ibex.tgg.operational.csp.constraints.factories.blockdiagramcodeadapter.UserDefinedRuntimeTGGAttrConstraintFactory;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
-import org.emoflon.ibex.tgg.operational.strategies.OperationalStrategy;
+import org.emoflon.ibex.tgg.operational.strategies.modules.IbexExecutable;
 import org.emoflon.ibex.tgg.operational.strategies.opt.BWD_OPT;
 import org.emoflon.ibex.tgg.operational.strategies.opt.FWD_OPT;
 import org.emoflon.ibex.tgg.runtime.democles.DemoclesTGGEngine;
@@ -19,20 +19,20 @@ import MocaTree.impl.MocaTreePackageImpl;
 public class DemoclesRegistrationHelper implements IRegistrationHelper {
 
 	/** Load and register source and target metamodels */
-	public void registerMetamodels(ResourceSet rs, OperationalStrategy strategy)  throws IOException {
+	public void registerMetamodels(ResourceSet rs, IbexExecutable executable)  throws IOException {
 		// Load and register source and target metamodels
 		BlockDiagramPackageImpl.init();
 	    MocaTreePackageImpl.init();
 		
-		if(strategy instanceof FWD_OPT) {
-			Resource res = strategy.getResourceHandler().loadResource("platform:/resource/BlockDiagram/model/BlockDiagram.ecore");
+		if(executable instanceof FWD_OPT) {
+			Resource res = executable.getResourceHandler().loadResource("platform:/resource/BlockDiagram/model/BlockDiagram.ecore");
 			EPackage pack = (EPackage) res.getContents().get(0);
 			rs.getPackageRegistry().put("platform:/resource/BlockDiagram/model/BlockDiagram.ecore", pack);
 			rs.getPackageRegistry().put("platform:/plugin/BlockDiagram/model/BlockDiagram.ecore", pack);
 		}
 		
-		if(strategy instanceof BWD_OPT) {
-			Resource res = strategy.getResourceHandler().loadResource("platform:/resource/MocaTree/model/MocaTree.ecore");
+		if(executable instanceof BWD_OPT) {
+			Resource res = executable.getResourceHandler().loadResource("platform:/resource/MocaTree/model/MocaTree.ecore");
 			EPackage pack = (EPackage) res.getContents().get(0);
 			rs.getPackageRegistry().put("platform:/resource/MocaTree/model/MocaTree.ecore", pack);
 			rs.getPackageRegistry().put("platform:/plugin/MocaTree/model/MocaTree.ecore", pack);

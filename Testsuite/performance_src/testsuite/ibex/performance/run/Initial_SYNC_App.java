@@ -2,8 +2,8 @@ package testsuite.ibex.performance.run;
 
 import java.io.IOException;
 
+import org.emoflon.ibex.common.operational.IMatch;
 import org.emoflon.ibex.tgg.compiler.patterns.PatternSuffixes;
-import org.emoflon.ibex.tgg.operational.matches.IMatch;
 import org.emoflon.ibex.tgg.operational.patterns.IGreenPattern;
 
 /**

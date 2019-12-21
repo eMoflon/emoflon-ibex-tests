@@ -5,12 +5,12 @@ import java.util.Collection;
 
 import org.eclipse.emf.ecore.EObject;
 import org.emoflon.ibex.common.emf.EMFEdge;
+import org.emoflon.ibex.common.operational.IMatch;
 import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
-import org.emoflon.ibex.tgg.operational.matches.IMatch;
+import org.emoflon.ibex.tgg.operational.matches.ITGGMatch;
 import org.emoflon.ibex.tgg.operational.matches.SimpleMatch;
 import org.emoflon.ibex.tgg.operational.patterns.IGreenPatternFactory;
 import org.emoflon.ibex.tgg.run.companytoit.CC_App;
-import org.emoflon.ibex.tgg.run.companytoit.SYNC_App;
 import org.emoflon.ibex.tgg.run.companytoit.config.DemoclesRegistrationHelper;
 import org.emoflon.ibex.tgg.run.companytoit.config.HiPERegistrationHelper;
 import org.emoflon.ibex.tgg.weights.Weights;
@@ -60,7 +60,7 @@ public class TestTggWeights extends CCTestCase {
 
 	@Test
 	public void testCompanyToIT() {
-		IMatch m = new SimpleMatch("CompanyToITRule_CC");
+		ITGGMatch m = new SimpleMatch("CompanyToITRule_CC");
 		Company company = CompanyLanguageFactory.eINSTANCE.createCompany();
 		company.setName("SimpleCompany");
 		CEO ceo  = CompanyLanguageFactory.eINSTANCE.createCEO();

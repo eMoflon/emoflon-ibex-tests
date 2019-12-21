@@ -3,9 +3,8 @@ package org.emoflon.ibex.tgg.run.familiestopersons_v1;
 import java.io.IOException;
 
 import org.apache.log4j.BasicConfigurator;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
-import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
+import org.emoflon.ibex.tgg.operational.strategies.modules.TGGResourceHandler;
 import org.emoflon.ibex.tgg.operational.strategies.opt.FWD_OPT;
 import org.emoflon.ibex.tgg.run.familiestopersons_v1.config._DefaultRegistrationHelper;
 
@@ -13,19 +12,18 @@ import org.emoflon.ibex.tgg.run.familiestopersons_v1.config._DefaultRegistration
 public class FWD_OPT_App extends FWD_OPT {
 	public static IRegistrationHelper registrationHelper = new _DefaultRegistrationHelper();
 
-	String srcPath;
-	String trgPath;
-	String corrPath;
-	String protPath;
+	static String srcPath;
+	static String trgPath;
+	static String corrPath;
+	static String protPath;
 	
 	public FWD_OPT_App(String projectName, String workspacePath, boolean debug, String srcPath, String trgPath, 
 			String corrPath, String protPath) throws IOException {
-		super(registrationHelper.createIbexOptions().projectName(projectName).workspacePath(workspacePath).debug(debug));
-		this.srcPath = srcPath;
-		this.trgPath = trgPath;
-		this.corrPath = corrPath;
-		this.protPath = protPath;
-		registerBlackInterpreter(options.getBlackInterpreter());
+		super(registrationHelper.createIbexOptions().projectName(projectName).workspacePath(workspacePath).debug(debug).setResourceHandler(new FWD_OPT_TGGResourceHandler()));
+		FWD_OPT_App.srcPath = srcPath;
+		FWD_OPT_App.trgPath = trgPath;
+		FWD_OPT_App.corrPath = corrPath;
+		FWD_OPT_App.protPath = protPath;
 	}
 
 	public static void main(String[] args) throws IOException {
@@ -43,22 +41,19 @@ public class FWD_OPT_App extends FWD_OPT {
 		fwd_opt.saveModels();
 		fwd_opt.terminate();
 	}
+}
+
+class FWD_OPT_TGGResourceHandler extends TGGResourceHandler {
+	
+	public FWD_OPT_TGGResourceHandler() throws IOException {
+		super();
+	}
 
 	@Override
-	protected void registerUserMetamodels() throws IOException {
-		registrationHelper.registerMetamodels(rs, this);
-			
-		// Register correspondence metamodel last
-		loadAndRegisterCorrMetamodel(options.projectPath() + "/model/" + options.projectName() + ".ecore");
-	}
-	
-	@Override
 	public void loadModels() throws IOException {
-		s = loadResource(options.projectPath() +srcPath+".xmi");
-		t = createResource(options.projectPath() +trgPath+".xmi");
-		c = createResource(options.projectPath() +corrPath+".xmi");
-		p = createResource(options.projectPath() +protPath+".xmi");
-	
-		EcoreUtil.resolveAll(rs);
+		source = loadResource(options.projectPath() +FWD_OPT_App.srcPath+".xmi");
+		target = createResource(options.projectPath() +FWD_OPT_App.trgPath+".xmi");
+		corr = createResource(options.projectPath() +FWD_OPT_App.corrPath+".xmi");
+		protocol = createResource(options.projectPath() +FWD_OPT_App.protPath+".xmi");
 	}
 }

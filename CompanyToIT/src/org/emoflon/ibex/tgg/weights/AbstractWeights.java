@@ -1,6 +1,6 @@
 package org.emoflon.ibex.tgg.weights;
 
-import org.emoflon.ibex.tgg.operational.matches.IMatch;
+import org.emoflon.ibex.common.operational.IMatch;
 import org.emoflon.ibex.tgg.operational.strategies.IWeightCalculationStrategy;
 import org.emoflon.ibex.tgg.operational.strategies.opt.OPT;
 

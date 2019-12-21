@@ -7,14 +7,13 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 import org.emoflon.ibex.tgg.operational.csp.constraints.factories.familiestopersons_v0.UserDefinedRuntimeTGGAttrConstraintFactory;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
-import org.emoflon.ibex.tgg.operational.strategies.OperationalStrategy;
+import org.emoflon.ibex.tgg.operational.strategies.modules.IbexExecutable;
 import org.emoflon.ibex.tgg.operational.strategies.opt.BWD_OPT;
 import org.emoflon.ibex.tgg.operational.strategies.opt.FWD_OPT;
-import org.emoflon.ibex.tgg.runtime.democles.DemoclesTGGEngine;
 import org.emoflon.ibex.tgg.runtime.hipe.HiPETGGEngine;
-import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 
 import FamiliesToPersons_V0.FamiliesToPersons_V0Package;
 import FamiliesToPersons_V0.impl.FamiliesToPersons_V0PackageImpl;
@@ -32,7 +31,7 @@ public class HiPERegistrationHelper implements IRegistrationHelper {
 	}
 
 	/** Load and register source and target metamodels */
-	public void registerMetamodels(ResourceSet rs, OperationalStrategy strategy) throws IOException {
+	public void registerMetamodels(ResourceSet rs, IbexExecutable executable) throws IOException {
 		
 		// Set correct workspace root
 		setWorkspaceRootDirectory(rs);
@@ -42,22 +41,22 @@ public class HiPERegistrationHelper implements IRegistrationHelper {
 		EPackage simplepersonsPack = null;
 		EPackage familiestopersons_v0Pack = null;
 		
-		if(strategy instanceof FWD_OPT) {
-			Resource res = strategy.getResourceHandler().loadResource("platform:/resource/SimplePersons/model/SimplePersons.ecore");
+		if(executable instanceof FWD_OPT) {
+			Resource res = executable.getResourceHandler().loadResource("platform:/resource/SimplePersons/model/SimplePersons.ecore");
 			simplepersonsPack = (EPackage) res.getContents().get(0);
 			rs.getResources().remove(res);
 			
-			res = strategy.getResourceHandler().loadResource("platform:/resource/FamiliesToPersons_V0/model/FamiliesToPersons_V0.ecore");
+			res = executable.getResourceHandler().loadResource("platform:/resource/FamiliesToPersons_V0/model/FamiliesToPersons_V0.ecore");
 			familiestopersons_v0Pack = (EPackage) res.getContents().get(0);
 			rs.getResources().remove(res);
 		}
 				
-		if(strategy instanceof BWD_OPT) {
-			Resource res = strategy.getResourceHandler().loadResource("platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore");
+		if(executable instanceof BWD_OPT) {
+			Resource res = executable.getResourceHandler().loadResource("platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore");
 			simplefamiliesPack = (EPackage) res.getContents().get(0);
 			rs.getResources().remove(res);
 			
-			res = strategy.getResourceHandler().loadResource("platform:/resource/FamiliesToPersons_V0/model/FamiliesToPersons_V0.ecore");
+			res = executable.getResourceHandler().loadResource("platform:/resource/FamiliesToPersons_V0/model/FamiliesToPersons_V0.ecore");
 			familiestopersons_v0Pack = (EPackage) res.getContents().get(0);
 			rs.getResources().remove(res);
 		}

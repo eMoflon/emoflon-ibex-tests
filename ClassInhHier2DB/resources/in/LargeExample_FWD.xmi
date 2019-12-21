@@ -1,31 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ClassInheritanceHierarchy:ClassPackage
-    xmi:version="2.0"
-    xmlns:xmi="http://www.omg.org/XMI"
-    xmlns:ClassInheritanceHierarchy="platform:/resource/ClassInheritanceHierarchy/model/ClassInheritanceHierarchy.ecore"
-    name="P">
-  <classes name="SuperClass"
-      subClass="//@classes.1">
-    <attributes
-        name="attr of super class"
-        type="int"/>
+<ClassInheritanceHierarchy:ClassPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ClassInheritanceHierarchy="platform:/resource/ClassInheritanceHierarchy/model/ClassInheritanceHierarchy.ecore" name="P">
+  <classes name="SuperClass" subClass="//@classes.1">
+    <attributes name="attr of super class" type="int"/>
   </classes>
-  <classes name="SubClass"
-      superClass="//@classes.0">
-    <attributes
-        name="attr of subclass"
-        type="string"/>
-    <attributes
-        name="yet another attr of subclass"
-        type="int"/>
+  <classes name="SubClass" superClass="//@classes.0">
+    <attributes name="attr of subclass" type="string"/>
+    <attributes name="yet another attr of subclass" type="int"/>
   </classes>
-  <classes name="Another Super Class"
-      subClass="//@classes.3 //@classes.4"/>
-  <classes name="Another Subclass"
-      superClass="//@classes.2"/>
-  <classes name="Yet another SubClass"
-      superClass="//@classes.2">
-    <attributes
-        name="attr"/>
+  <classes name="Another Super Class" subClass="//@classes.3 //@classes.4"/>
+  <classes name="Another Subclass" superClass="//@classes.2"/>
+  <classes name="Yet another SubClass" superClass="//@classes.2">
+    <attributes name="attr"/>
   </classes>
 </ClassInheritanceHierarchy:ClassPackage>

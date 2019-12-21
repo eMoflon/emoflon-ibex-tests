@@ -3,7 +3,6 @@ package org.emoflon.ibex.tgg.run.familiestopersons_v0;
 import java.io.IOException;
 
 import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
-import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGEN;
 import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGENStopCriterion;
 import org.emoflon.ibex.tgg.run.familiestopersons_v0.config._DefaultRegistrationHelper;
@@ -14,7 +13,6 @@ public class MODELGEN_App extends MODELGEN {
 
 	public MODELGEN_App(String projectName, String workspacePath, boolean debug) throws IOException {
 		super(registrationHelper.createIbexOptions().projectName(projectName).workspacePath(workspacePath).debug(debug));
-		registerBlackInterpreter(options.getBlackInterpreter());
 	}
 	
 	public static void main(String[] args) throws IOException {
@@ -51,14 +49,5 @@ public class MODELGEN_App extends MODELGEN {
 		generator.terminate();
 		System.out.println((System.nanoTime() - startTime)/1000000000.0 + " s for "+ generatorName);
 		
-	}
-
-	@Override
-	protected void registerUserMetamodels() throws IOException {
-		registrationHelper.registerMetamodels(rs, this);
-			
-		// Register correspondence metamodel last
-		loadAndRegisterCorrMetamodel(options.projectPath() + "/model/" + options.projectPath() + ".ecore");
-
 	}
 }

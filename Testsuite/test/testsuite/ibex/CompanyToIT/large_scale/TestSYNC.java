@@ -4,12 +4,12 @@ import java.io.IOException;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
-import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
+import org.emoflon.ibex.tgg.operational.strategies.modules.TGGResourceHandler;
 import org.emoflon.ibex.tgg.operational.strategies.sync.SYNC;
+import org.emoflon.ibex.tgg.run.classinhhier2db.FWD_OPT_App;
 import org.emoflon.ibex.tgg.run.companytoit.CO_App;
 import org.emoflon.ibex.tgg.run.companytoit.config.DemoclesRegistrationHelper;
 import org.emoflon.ibex.tgg.run.companytoit.config.HiPERegistrationHelper;
-import org.emoflon.ibex.tgg.run.vhdltggcodeadapter.config._DefaultRegistrationHelper;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -22,45 +22,47 @@ import testsuite.ibex.testUtil.UsedPatternMatcher;
 public class TestSYNC extends CompleteSyncTestCase {
 	private static IRegistrationHelper registrationHelper = UsedPatternMatcher.choose(new IRegistrationHelper[]{new DemoclesRegistrationHelper(), new HiPERegistrationHelper()});
 
+	static String fwdSrcPath;
+	static String fwdTrgPath;
+	static String fwdCorrPath;
+	static String fwdProtPath;
 
+	static String bwdSrcPath;
+	static String bwdTrgPath;
+	static String bwdCorrPath;
+	static String bwdProtPath;
+
+	
 	/**
 	 * Inner class that has configurable paths for the resources
 	 * @author NilsWeidmann
 	 *
 	 */
 	public class FWD_App extends SYNC {
-		private String srcPath;
-		private String trgPath;
-		private String corrPath;
-		private String protPath;
 		
 		public FWD_App(String projectName, String workspacePath, boolean debug, String srcPath, String trgPath, 
 				String corrPath, String protPath) throws IOException {
 			super(registrationHelper.createIbexOptions().projectName(projectName).workspacePath(workspacePath).debug(debug));
 			
-			this.srcPath = srcPath;
-			this.trgPath = trgPath;
-			this.corrPath = corrPath;
-			this.protPath = protPath;
-			
-			registerBlackInterpreter(options.getBlackInterpreter());
+			TestSYNC.fwdSrcPath = srcPath;
+			TestSYNC.fwdTrgPath = trgPath;
+			TestSYNC.fwdCorrPath = corrPath;
+			TestSYNC.fwdProtPath = protPath;
 		}
+	}
+	
+	class FWD_TGGResourceHandler extends TGGResourceHandler {
 		
+		public FWD_TGGResourceHandler() throws IOException {
+			super();
+		}
+
 		@Override
 		public void loadModels() throws IOException {
-			s = loadResource(options.projectPath() + srcPath + ".xmi");
-			t = createResource(options.projectPath() + trgPath + ".xmi");
-			c = createResource(options.projectPath() + corrPath + ".xmi");
-			p = createResource(options.projectPath() + protPath + ".xmi");
-			
-			EcoreUtil.resolveAll(rs);
-		}
-		
-		@Override
-		public void saveModels() throws IOException {
-			t.save(null);
-			c.save(null);
-			p.save(null);
+			source = loadResource(options.projectPath() + TestSYNC.fwdSrcPath + ".xmi");
+			target = createResource(options.projectPath() + TestSYNC.fwdTrgPath + ".xmi");
+			corr = createResource(options.projectPath() + TestSYNC.fwdCorrPath + ".xmi");
+			protocol = createResource(options.projectPath() + TestSYNC.fwdProtPath + ".xmi");
 		}
 		
 		@Override
@@ -70,6 +72,15 @@ public class TestSYNC extends CompleteSyncTestCase {
 			
 			// Register correspondence metamodel last
 			loadAndRegisterMetamodel(options.projectPath() + "/model/" + options.projectPath() + ".ecore");
+			
+			super.registerUserMetamodels();
+		}
+		
+		@Override
+		public void saveModels() throws IOException {
+			target.save(null);
+			corr.save(null);
+			protocol.save(null);
 		}
 	}
 	
@@ -79,39 +90,29 @@ public class TestSYNC extends CompleteSyncTestCase {
 	 *
 	 */
 	public class BWD_App extends SYNC {
-
-		private String srcPath;
-		private String trgPath;
-		private String corrPath;
-		private String protPath;
-		
 		public BWD_App(String projectName, String workspacePath, boolean debug, String srcPath, String trgPath, 
 				String corrPath, String protPath) throws IOException {
 			super(registrationHelper.createIbexOptions().projectName(projectName).workspacePath(workspacePath).debug(debug));
 
-			this.srcPath = srcPath;
-			this.trgPath = trgPath;
-			this.corrPath = corrPath;
-			this.protPath = protPath;
-			
-			registerBlackInterpreter(options.getBlackInterpreter());
+			TestSYNC.bwdSrcPath = srcPath;
+			TestSYNC.bwdTrgPath = trgPath;
+			TestSYNC.bwdCorrPath = corrPath;
+			TestSYNC.bwdProtPath = protPath;
 		}
+	}
+	
+	class BWD_TGGResourceHandler extends TGGResourceHandler {
 		
+		public BWD_TGGResourceHandler() throws IOException {
+			super();
+		}
+
 		@Override
 		public void loadModels() throws IOException {
-			s = createResource(options.projectPath() + srcPath + ".xmi");
-			t = loadResource(options.projectPath() + trgPath + ".xmi");
-			c = createResource(options.projectPath() + corrPath + ".xmi");
-			p = createResource(options.projectPath() + protPath + ".xmi");
-			
-			EcoreUtil.resolveAll(rs);
-		}
-		
-		@Override
-		public void saveModels() throws IOException {
-			s.save(null);
-			c.save(null);
-			p.save(null);
+			source = createResource(options.projectPath() + TestSYNC.bwdSrcPath + ".xmi");
+			target = loadResource(options.projectPath() + TestSYNC.bwdTrgPath + ".xmi");
+			corr = createResource(options.projectPath() + TestSYNC.bwdCorrPath + ".xmi");
+			protocol = createResource(options.projectPath() + TestSYNC.bwdProtPath + ".xmi");
 		}
 		
 		@Override
@@ -121,6 +122,15 @@ public class TestSYNC extends CompleteSyncTestCase {
 			
 			// Register correspondence metamodel last
 			loadAndRegisterMetamodel(options.projectPath() + "/model/" + options.projectPath() + ".ecore");
+			
+			super.registerUserMetamodels();
+		}
+		
+		@Override
+		public void saveModels() throws IOException {
+			source.save(null);
+			corr.save(null);
+			protocol.save(null);
 		}
 	}
 	

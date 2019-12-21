@@ -5,7 +5,6 @@ import java.io.IOException;
 import org.benchmarx.mocaTree.core.MocaTreeFileComparator;
 import org.benchmarx.vhdlModel.core.VHDLModelComparator;
 import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
-import org.emoflon.ibex.tgg.run.vhdltggcodeadapter.CO_App;
 import org.emoflon.ibex.tgg.run.vhdltggcodeadapter.SYNC_App;
 import org.emoflon.ibex.tgg.run.vhdltggcodeadapter.config.DemoclesRegistrationHelper;
 import org.emoflon.ibex.tgg.run.vhdltggcodeadapter.config.HiPERegistrationHelper;
@@ -38,7 +37,7 @@ public class IbexVHDLTGGCodeAdapter extends IbexAdapter<File, VHDLSpecification>
 			VHDLSpecification spec = VHDLModelFactory.eINSTANCE.createVHDLSpecification();
 			spec.setName("Example");
 			
-			synchroniser.getTargetResource().getContents().add(spec);
+			synchroniser.getResourceHandler().getTargetResource().getContents().add(spec);
 			synchroniser.backward();
 		} catch (IOException e) {
 			e.printStackTrace();

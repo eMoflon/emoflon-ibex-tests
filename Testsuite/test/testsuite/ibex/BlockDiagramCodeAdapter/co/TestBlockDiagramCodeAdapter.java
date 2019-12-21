@@ -4,7 +4,6 @@ import java.io.IOException;
 
 import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 import org.emoflon.ibex.tgg.run.blockdiagramcodeadapter.BWD_OPT_App;
-import org.emoflon.ibex.tgg.run.blockdiagramcodeadapter.CC_App;
 import org.emoflon.ibex.tgg.run.blockdiagramcodeadapter.CO_App;
 import org.emoflon.ibex.tgg.run.blockdiagramcodeadapter.FWD_OPT_App;
 import org.emoflon.ibex.tgg.run.blockdiagramcodeadapter.config.DemoclesRegistrationHelper;

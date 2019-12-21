@@ -7,7 +7,8 @@ import org.benchmarx.families.core.FamiliesComparator;
 import org.benchmarx.persons.core.PersonsComparator;
 import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 import org.emoflon.ibex.tgg.run.benchmarxfamiliestopersons.SYNC_App;
-import org.emoflon.ibex.tgg.run.benchmarxfamiliestopersons.config.*;
+import org.emoflon.ibex.tgg.run.benchmarxfamiliestopersons.config.DemoclesRegistrationHelper;
+import org.emoflon.ibex.tgg.run.benchmarxfamiliestopersons.config.HiPERegistrationHelper;
 
 import Families.FamiliesFactory;
 import Families.FamilyRegister;

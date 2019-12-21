@@ -2,16 +2,12 @@ package org.emoflon.ibex.tgg.run.ibextgggantt2cpm;
 
 import java.io.IOException;
 
+import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
-import org.apache.log4j.BasicConfigurator;
-
 import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
-
-import org.emoflon.ibex.tgg.run.ibextgggantt2cpm.config.*;
-
-import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.opt.BWD_OPT;
+import org.emoflon.ibex.tgg.run.ibextgggantt2cpm.config._DefaultRegistrationHelper;
 
 public class BWD_OPT_App extends BWD_OPT {
 
@@ -19,7 +15,6 @@ public class BWD_OPT_App extends BWD_OPT {
 
 	public BWD_OPT_App() throws IOException {
 		super(registrationHelper.createIbexOptions());
-		registerBlackInterpreter(options.getBlackInterpreter());
 	}
 
 	public static void main(String[] args) throws IOException {
@@ -37,14 +32,4 @@ public class BWD_OPT_App extends BWD_OPT {
 		bwd_opt.saveModels();
 		bwd_opt.terminate();
 	}
-	
-	
-	@Override
-	protected void registerUserMetamodels() throws IOException {
-		registrationHelper.registerMetamodels(rs, this);
-			
-		// Register correspondence metamodel last
-		loadAndRegisterCorrMetamodel(options.projectPath() + "/model/" + options.projectName() + ".ecore");
-	}
-	
 }
