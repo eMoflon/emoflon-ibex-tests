@@ -13,18 +13,17 @@ public class FWD_OPT_App extends FWD_OPT {
 	
 	public static IRegistrationHelper registrationHelper = new _DefaultRegistrationHelper();
 
-	static String srcPath;
-	static String trgPath;
-	static String corrPath;
-	static String protPath;
-	
 	public FWD_OPT_App(String projectName, String workspacePath, boolean debug, String srcPath, String trgPath, 
 			String corrPath, String protPath, SupportedILPSolver ilpSolver) throws IOException {
-		super(registrationHelper.createIbexOptions().projectName(projectName).workspacePath(workspacePath).debug(debug).setIlpSolver(ilpSolver).setResourceHandler(new FWD_OPT_TGGResourceHandler()));
-		FWD_OPT_App.srcPath = srcPath;
-		FWD_OPT_App.trgPath = trgPath;
-		FWD_OPT_App.corrPath = corrPath;
-		FWD_OPT_App.protPath = protPath;
+		super(registrationHelper.createIbexOptions().projectName(projectName).workspacePath(workspacePath).debug(debug).setIlpSolver(ilpSolver).setResourceHandler(new TGGResourceHandler() {
+			@Override
+			public void loadModels() throws IOException {
+				source = loadResource(options.projectPath() +srcPath+".xmi");
+				target = createResource(options.projectPath() +trgPath+".xmi");
+				corr = createResource(options.projectPath() +corrPath+".xmi");
+				protocol = createResource(options.projectPath() +protPath+".xmi");
+			}
+		}));
 	}
 
 	public static void main(String[] args) throws IOException {
@@ -41,20 +40,5 @@ public class FWD_OPT_App extends FWD_OPT {
 		
 		fwd_opt.saveModels();
 		fwd_opt.terminate();
-	}
-}
-
-class FWD_OPT_TGGResourceHandler extends TGGResourceHandler {
-	
-	public FWD_OPT_TGGResourceHandler() throws IOException {
-		super();
-	}
-
-	@Override
-	public void loadModels() throws IOException {
-		source = loadResource(options.projectPath() +FWD_OPT_App.srcPath+".xmi");
-		target = createResource(options.projectPath() +FWD_OPT_App.trgPath+".xmi");
-		corr = createResource(options.projectPath() +FWD_OPT_App.corrPath+".xmi");
-		protocol = createResource(options.projectPath() +FWD_OPT_App.protPath+".xmi");
 	}
 }

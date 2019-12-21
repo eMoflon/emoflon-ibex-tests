@@ -22,11 +22,6 @@ public class FWD_OPT_App extends FWD_OPT {
 				corr = createResource(options.projectPath() +corrPath+".xmi");
 				protocol = createResource(options.projectPath() +protPath+".xmi");
 			}
-			
-			@Override
-			public void saveModels() throws IOException {
-				
-			}
 		}));
 	}
 	public static void main(String[] args) throws IOException {

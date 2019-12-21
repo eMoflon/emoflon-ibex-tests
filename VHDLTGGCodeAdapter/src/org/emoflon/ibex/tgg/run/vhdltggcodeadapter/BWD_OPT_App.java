@@ -22,11 +22,6 @@ public class BWD_OPT_App extends BWD_OPT {
 				corr = createResource(options.projectPath() +corrPath+".xmi");
 				protocol = createResource(options.projectPath() +protPath+".xmi");
 			}
-			
-			@Override
-			public void saveModels() throws IOException {
-				
-			}
 		}));
 	}
 

@@ -13,18 +13,22 @@ public class FWD_OPT_App extends FWD_OPT {
 
 	public static IRegistrationHelper registrationHelper = new _DefaultRegistrationHelper();
 	
-	String srcPath;
-	String trgPath;
-	String corrPath;
-	String protPath;
-	
 	public FWD_OPT_App(String projectName, String workspacePath, boolean debug, String srcPath, String trgPath, 
 			String corrPath, String protPath, SupportedILPSolver ilpSolver) throws IOException {
-		super(registrationHelper.createIbexOptions().projectName(projectName).workspacePath(workspacePath).debug(debug).setIlpSolver(ilpSolver));
-		this.srcPath = srcPath;
-		this.trgPath = trgPath;
-		this.corrPath = corrPath;
-		this.protPath = protPath;
+		super(registrationHelper.createIbexOptions().projectName(projectName).workspacePath(workspacePath).debug(debug).setIlpSolver(ilpSolver).setResourceHandler(new TGGResourceHandler() {
+			@Override
+			public void loadModels() throws IOException {
+				source = loadResource(options.projectPath() +srcPath+".xmi");
+				target = createResource(options.projectPath() +trgPath+".xmi");
+				corr = createResource(options.projectPath() +corrPath+".xmi");
+				protocol = createResource(options.projectPath() +protPath+".xmi");
+			}
+			
+			@Override
+			public void saveModels() throws IOException {
+				target.save(null);
+			}
+		}));
 	}
 
 	public static void main(String[] args) throws IOException {
@@ -41,21 +45,5 @@ public class FWD_OPT_App extends FWD_OPT {
 		
 		sync.terminate();
 		sync.saveModels();
-	}
-}
-
-
-class FWD_OPT_TGGResourceHandler extends TGGResourceHandler {
-	
-	public FWD_OPT_TGGResourceHandler() throws IOException {
-		super();
-	}
-
-	@Override
-	public void loadModels() throws IOException {
-		source = loadResource(options.projectPath() +BWD_OPT_App.srcPath+".xmi");
-		target = createResource(options.projectPath() +BWD_OPT_App.trgPath+".xmi");
-		corr = createResource(options.projectPath() +BWD_OPT_App.corrPath+".xmi");
-		protocol = createResource(options.projectPath() +BWD_OPT_App.protPath+".xmi");
 	}
 }

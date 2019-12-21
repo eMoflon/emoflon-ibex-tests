@@ -17,9 +17,15 @@ public class CC_App extends CC {
 
 	public CC_App(String projectName, String workspacePath, boolean debug,
 			String srcPath, String trgPath, SupportedILPSolver ilpSolver) throws IOException {
-		super(registrationHelper.createIbexOptions().projectName(projectName).workspacePath(workspacePath).debug(debug).setIlpSolver(ilpSolver).setResourceHandler(new CC_TGGResourceHandler()));
-		CC_App.srcPath = srcPath;
-		CC_App.trgPath = trgPath;
+		super(registrationHelper.createIbexOptions().projectName(projectName).workspacePath(workspacePath).debug(debug).setIlpSolver(ilpSolver).setResourceHandler(new TGGResourceHandler() {
+			@Override
+			public void loadModels() throws IOException {
+				source = loadResource(options.projectPath() + "/resources/"+srcPath+".xmi");
+				target = loadResource(options.projectPath() + "/resources/"+trgPath+".xmi");
+				corr = createResource(options.projectPath() + "/instances/corr.xmi");
+				protocol = createResource(options.projectPath() + "/instances/protocol.xmi");
+			}
+		}));
 	}
 }
 
