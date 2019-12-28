@@ -2,16 +2,12 @@ package org.emoflon.ibex.tgg.run.artoqou;
 
 import java.io.IOException;
 
+import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
-import org.apache.log4j.BasicConfigurator;
-
 import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
-
-import org.emoflon.ibex.tgg.run.artoqou.config.*;
-
-import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.opt.cc.CC;
+import org.emoflon.ibex.tgg.run.artoqou.config._DefaultRegistrationHelper;
 
 public class CC_App extends CC {
 

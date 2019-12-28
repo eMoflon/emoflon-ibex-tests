@@ -3,6 +3,8 @@ package org.benchmarx.ar.core;
 import Ar.AClass;
 import Ar.ArFactory;
 import Ar.BClass;
+import Ar.RClass;
+import Ar.SClass;
 
 public class ArHelper {
 
@@ -16,6 +18,11 @@ public class ArHelper {
 		BClass b = ArFactory.eINSTANCE.createBClass();
 		b.setName(name);
 		return b;
+	}
+	
+	public void fillIDs(RClass r) {
+		for(SClass s : r.getS())
+			s.setId(54321);
 	}
 	
 }

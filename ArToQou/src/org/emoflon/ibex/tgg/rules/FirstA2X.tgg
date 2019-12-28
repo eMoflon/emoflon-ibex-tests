@@ -5,14 +5,14 @@
 
 #source { 
 	r:RClass {
-		++-first->a
+		++-firstA->a
 	}
 	++a:AClass
 }
 
 #target {
 	q:QClass {
-		++-exs->x
+		++-x->x
 	}
 	++x:XClass
 }

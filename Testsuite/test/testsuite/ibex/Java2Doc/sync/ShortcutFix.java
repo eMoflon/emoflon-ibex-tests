@@ -100,7 +100,6 @@ public class ShortcutFix extends SyncTestCase<Package, Folder>{
 		assertPostcondition("expected/moflon_insertSub_BWD", "in/moflon_insertSub_BWD");
 	}
 	
-	
 	// TODO lfritsche: order of revoked steps does lead to RuntimeException (DanglingNodeMarker) <-- works again?
 	@Test
 	public void testMoflon_deleteAndMoveSubs_FWD()

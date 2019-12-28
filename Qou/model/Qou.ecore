@@ -5,7 +5,9 @@
     <details key="documentation" value="TODO: Add documentation for Qou. Hint: You may copy this element in the Ecore editor to add documentation to EClasses, EOperations, ..."/>
   </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="QClass">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="exs" upperBound="-1" eType="#//XClass"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="x" upperBound="-1" eType="#//XClass"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="u" upperBound="-1" eType="#//UClass"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="XClass">
@@ -13,4 +15,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="YClass"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UClass">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hasMore" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="info" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
 </ecore:EPackage>

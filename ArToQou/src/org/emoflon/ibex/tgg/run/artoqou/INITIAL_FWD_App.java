@@ -2,18 +2,14 @@ package org.emoflon.ibex.tgg.run.artoqou;
 
 import java.io.IOException;
 
+import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
-import org.apache.log4j.BasicConfigurator;
-
-import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
-
-import org.emoflon.ibex.tgg.run.artoqou.config.*;
-
-import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
-import org.emoflon.ibex.tgg.operational.strategies.sync.SYNC;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 import org.emoflon.ibex.tgg.compiler.patterns.PatternSuffixes;
+import org.emoflon.ibex.tgg.operational.strategies.sync.SYNC;
+import org.emoflon.ibex.tgg.run.artoqou.config._DefaultRegistrationHelper;
 
 public class INITIAL_FWD_App extends SYNC {
 

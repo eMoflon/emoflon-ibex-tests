@@ -12,8 +12,8 @@
 
 #target {
 	q:QClass {
-		-exs->superX
-		++-exs->subX
+		-x->superX
+		++-x->subX
 	}
 	superX:XClass
 	++subX:XClass {
