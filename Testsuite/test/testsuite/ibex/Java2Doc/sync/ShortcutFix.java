@@ -100,7 +100,38 @@ public class ShortcutFix extends SyncTestCase<Package, Folder>{
 		assertPostcondition("expected/moflon_insertSub_BWD", "in/moflon_insertSub_BWD");
 	}
 	
-	// TODO lfritsche: order of revoked steps does lead to RuntimeException (DanglingNodeMarker) <-- works again?
+	@Test
+	public void testMoflon_deleteMidSub_FWD() {
+		tool.performAndPropagateTargetEdit(helperDoc::createMoflon);
+		tool.performAndPropagateSourceEdit(helperJava::fillBodies);
+		//------------
+		tool.performIdleSourceEdit(p -> {
+			Package es = helperJava.getPackage(p, "es");
+			Package emoflon = helperJava.getPackage(p, "emoflon");
+			Package ibex = helperJava.getPackage(p, "ibex");
+			
+			es.getSubPackages().add(ibex);
+			EcoreUtil.delete(emoflon, true);
+		});
+		assertPostcondition("in/moflon_deleteMidSub_FWD", "expected/moflon_deleteMidSub_FWD");
+	}
+	
+	@Test
+	public void testMoflon_deleteMidSub_BWD() {
+		tool.performAndPropagateTargetEdit(helperDoc::createMoflon);
+		tool.performAndPropagateSourceEdit(helperJava::fillBodies);
+		//------------
+		tool.performAndPropagateTargetEdit(f -> {
+			Folder es = helperDoc.getFolder(f, "es");
+			Folder emoflon = helperDoc.getFolder(f, "emoflon");
+			Folder ibex = helperDoc.getFolder(f, "ibex");
+			
+			es.getSubFolders().add(ibex);
+			EcoreUtil.delete(emoflon, true);
+		});
+		assertPostcondition("expected/moflon_deleteMidSub_BWD", "in/moflon_deleteMidSub_BWD");
+	}
+	
 	@Test
 	public void testMoflon_deleteAndMoveSubs_FWD()
 	{
@@ -275,6 +306,43 @@ public class ShortcutFix extends SyncTestCase<Package, Folder>{
 			f.eResource().getContents().add(newRoot);
 		});
 		tool.performIdleTargetEdit(f -> {
+			EcoreUtil.delete(f);
+		});
+		assertPostcondition("expected/moflon_deleteRoot_BWD", "in/moflon_deleteRoot_BWD");
+	}
+	
+	@Test
+	public void testMoflon_deleteRootOneStep_FWD()
+	{
+		tool.performAndPropagateSourceEdit(p -> helperJava.createMoflon(p));
+		tool.performAndPropagateTargetEdit(f -> helperDoc.fillContents(f));
+		//------------
+		tool.performIdleSourceEdit(p -> {
+			Package newRoot = p.getSubPackages().get(0);
+			Resource res = p.eResource();
+			res.getContents().add(newRoot);
+			
+			EcoreUtil.delete(p);
+		});
+		assertPostcondition("in/moflon_deleteRoot_FWD", "expected/moflon_deleteRoot_FWD");
+	}
+	
+	@Test
+	public void testMoflon_deleteRootOneStep_BWD()
+	{
+		tool.performAndPropagateTargetEdit(f -> helperDoc.createMoflon(f));
+		tool.performAndPropagateSourceEdit(p -> helperJava.fillBodies(p));
+		//------------
+		tool.performIdleTargetEdit(f -> {
+			Folder newRoot = f.getSubFolders().get(0);
+			for(Doc d : newRoot.getDocs()) {
+				if(d.getName().equals(newRoot.getName() + "_doc")) {
+					EcoreUtil.delete(d);
+					break;
+				}
+			}
+			f.eResource().getContents().add(newRoot);
+			
 			EcoreUtil.delete(f);
 		});
 		assertPostcondition("expected/moflon_deleteRoot_BWD", "in/moflon_deleteRoot_BWD");

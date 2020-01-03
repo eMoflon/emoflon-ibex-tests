@@ -17,7 +17,6 @@ public class SCInheritance extends SyncTestCase<Train, Vehicle> {
 
 	@Override
 	protected void initHelpers() {
-		// TODO Auto-generated method stub
 		
 	}
 
