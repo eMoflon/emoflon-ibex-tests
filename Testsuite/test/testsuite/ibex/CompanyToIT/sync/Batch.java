@@ -84,7 +84,7 @@ public class Batch extends SyncTestCase<Company, IT> {
 		((IbexCompanyToIT)tool).getSYNC().setUpdatePolicy(matchContainer -> {
 			Set<ITGGMatch> matches = matchContainer.getMatches();
 			for (ITGGMatch match : matches) {
-				if (!matchContainer.getRuleName(match).equals("EmployeeToPCRule"))
+				if (!match.getRuleName().equals("EmployeeToPCRule"))
 					return match;
 			}
 			return matches.iterator().next();
@@ -125,7 +125,7 @@ public class Batch extends SyncTestCase<Company, IT> {
 		((IbexCompanyToIT)tool).getSYNC().setUpdatePolicy(matchContainer -> {
 			Set<ITGGMatch> matches = matchContainer.getMatches();
 			for (ITGGMatch match : matches) {
-				if (!matchContainer.getRuleName(match).equals("EmployeeToLaptopRule"))
+				if (!match.getRuleName().equals("EmployeeToLaptopRule"))
 					return match;
 			}
 			return matches.iterator().next();
@@ -166,7 +166,7 @@ public class Batch extends SyncTestCase<Company, IT> {
 		((IbexCompanyToIT)tool).getSYNC().setUpdatePolicy(matchContainer -> {
 			Set<ITGGMatch> matches = matchContainer.getMatches();
 			for (ITGGMatch match : matches) {
-				String name = matchContainer.getRuleName(match);
+				String name = match.getRuleName();
 				if (name.equals("EmployeeToLaptopRule")) {
 					Employee e = (Employee)match.get("employee");
 					if (e.getName().equals("Marius"))

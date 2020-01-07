@@ -7,17 +7,17 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 import org.emoflon.ibex.tgg.operational.csp.constraints.factories.companytoit.UserDefinedRuntimeTGGAttrConstraintFactory;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.modules.IbexExecutable;
 import org.emoflon.ibex.tgg.operational.strategies.opt.BWD_OPT;
 import org.emoflon.ibex.tgg.operational.strategies.opt.FWD_OPT;
 import org.emoflon.ibex.tgg.runtime.hipe.HiPETGGEngine;
+import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 
-import CompanyLanguage.impl.CompanyLanguagePackageImpl;
 import CompanyToIT.CompanyToITPackage;
 import CompanyToIT.impl.CompanyToITPackageImpl;
+import CompanyLanguage.impl.CompanyLanguagePackageImpl;
 import ITLanguage.impl.ITLanguagePackageImpl;
 
 public class HiPERegistrationHelper implements IRegistrationHelper {
