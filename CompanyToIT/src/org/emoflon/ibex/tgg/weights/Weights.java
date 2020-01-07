@@ -1,7 +1,6 @@
 package org.emoflon.ibex.tgg.weights;
 
 import org.emoflon.ibex.common.operational.IMatch;
-import org.emoflon.ibex.tgg.operational.matches.ITGGMatch;
 import org.emoflon.ibex.tgg.operational.strategies.opt.OPT;
 
 import CompanyLanguage.Admin;

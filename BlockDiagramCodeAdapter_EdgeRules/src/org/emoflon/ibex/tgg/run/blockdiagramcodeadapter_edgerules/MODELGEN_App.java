@@ -4,7 +4,6 @@ import java.io.IOException;
 
 import org.apache.log4j.BasicConfigurator;
 import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
-import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGEN;
 import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGENStopCriterion;
 import org.emoflon.ibex.tgg.run.blockdiagramcodeadapter_edgerules.config._DefaultRegistrationHelper;
@@ -18,7 +17,6 @@ public class MODELGEN_App extends MODELGEN {
 				.projectName(projectName)
 				.workspacePath(workspacePath)
 				.debug(debug));
-		registerBlackInterpreter(options.getBlackInterpreter());
 	}
 
 	public static void main(String[] args) throws IOException {
@@ -38,14 +36,5 @@ public class MODELGEN_App extends MODELGEN {
 		
 		generator.saveModels();
 		generator.terminate();
-	}
-
-	@Override
-	protected void registerUserMetamodels() throws IOException {
-		registrationHelper.registerMetamodels(rs, this);
-			
-		// Register correspondence metamodel last
-		loadAndRegisterCorrMetamodel(options.projectPath() + "/model/" + options.projectPath() + ".ecore");
-
 	}
 }

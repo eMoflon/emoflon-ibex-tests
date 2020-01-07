@@ -22,7 +22,7 @@ public class FamiliesToPersonsUpdatePolicy extends UpdatePolicy {
 
 	@Override
 	public ITGGMatch chooseOneMatch(ImmutableMatchContainer matchContainer) {
-		Set<ITGGMatch> matches = new HashSet<>(matchContainer.getMatches());
+		Set<ITGGMatch> matches = new HashSet<ITGGMatch>(matchContainer.getMatches());
 		matches.removeIf(this::isIrrelevantMatchForSync);
 				
 		handlePrefsForExistingFamily(matches);
@@ -31,7 +31,7 @@ public class FamiliesToPersonsUpdatePolicy extends UpdatePolicy {
 		return matches.isEmpty()? matchContainer.getNext() : matches.iterator().next();
 	}
 
-	private boolean isIrrelevantMatchForSync(IMatch m) {
+	private boolean isIrrelevantMatchForSync(ITGGMatch m) {
 		return m.getPatternName().endsWith(PatternSuffixes.CONSISTENCY);
 	}
 

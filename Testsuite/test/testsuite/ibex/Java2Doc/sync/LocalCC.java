@@ -1,4 +1,4 @@
-package testsuite.ibex.FamiliesToPersons_V1.cc;
+package testsuite.ibex.Java2Doc.sync;
 
 import java.io.IOException;
 
@@ -12,7 +12,7 @@ import org.junit.Test;
 import testsuite.ibex.testUtil.CCTestCase;
 import testsuite.ibex.testUtil.UsedPatternMatcher;
 
-public class TestSimple extends CCTestCase {
+public class LocalCC extends CCTestCase {
 
 	public void createGenerator(String srcInstance, String trgInstance) throws IOException {
 		CC_App.registrationHelper = UsedPatternMatcher.choose(new IRegistrationHelper[]{new DemoclesRegistrationHelper(), new HiPERegistrationHelper()});

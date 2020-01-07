@@ -5,7 +5,6 @@ import java.io.IOException;
 import org.benchmarx.featuremodelconcise.core.FeatureModelConciseComparator;
 import org.benchmarx.featuremodelsafe.core.FeatureModelSafeComparator;
 import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
-import org.emoflon.ibex.tgg.run.featuremodelconcisetosafe.CO_App;
 import org.emoflon.ibex.tgg.run.featuremodelconcisetosafe.SYNC_App;
 import org.emoflon.ibex.tgg.run.featuremodelconcisetosafe.config.DemoclesRegistrationHelper;
 import org.emoflon.ibex.tgg.run.featuremodelconcisetosafe.config.HiPERegistrationHelper;
@@ -34,7 +33,7 @@ public class IbexFeatureModelConciseToSafe extends IbexAdapter<Model, FeatureMod
 			root.setName("Car");
 			m.setRoot(root);
 			
-			synchroniser.getSourceResource().getContents().add(m);
+			synchroniser.getResourceHandler().getSourceResource().getContents().add(m);
 			synchroniser.forward();
 		} catch (IOException e) {
 			e.printStackTrace();

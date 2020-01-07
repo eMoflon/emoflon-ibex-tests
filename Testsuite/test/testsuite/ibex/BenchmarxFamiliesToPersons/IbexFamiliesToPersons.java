@@ -7,7 +7,8 @@ import org.benchmarx.families.core.FamiliesComparator;
 import org.benchmarx.persons.core.PersonsComparator;
 import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 import org.emoflon.ibex.tgg.run.benchmarxfamiliestopersons.SYNC_App;
-import org.emoflon.ibex.tgg.run.benchmarxfamiliestopersons.config.*;
+import org.emoflon.ibex.tgg.run.benchmarxfamiliestopersons.config.DemoclesRegistrationHelper;
+import org.emoflon.ibex.tgg.run.benchmarxfamiliestopersons.config.HiPERegistrationHelper;
 
 import Families.FamiliesFactory;
 import Families.FamilyRegister;
@@ -28,7 +29,7 @@ public class IbexFamiliesToPersons extends IbexAdapter<FamilyRegister, PersonReg
 			SYNC_App.registrationHelper = UsedPatternMatcher.choose(new IRegistrationHelper[]{new DemoclesRegistrationHelper(), new HiPERegistrationHelper()});
 			synchroniser = new SYNC_App(projectName, testsuite.ibex.performance.util.PerformanceConstants.workspacePath, false);
 			FamilyRegister familiesRoot = FamiliesFactory.eINSTANCE.createFamilyRegister();
-			synchroniser.getSourceResource().getContents().add(familiesRoot);
+			synchroniser.getResourceHandler().getSourceResource().getContents().add(familiesRoot);
 			synchroniser.forward();
 		} catch (IOException e) {
 			e.printStackTrace();

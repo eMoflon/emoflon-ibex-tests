@@ -6,7 +6,6 @@ import org.benchmarx.companyLanguage.core.CompanyLanguageComparator;
 import org.benchmarx.itLanguage.core.ITLanguageComparator;
 import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 import org.emoflon.ibex.tgg.operational.strategies.sync.SYNC;
-import org.emoflon.ibex.tgg.run.companytoit.CO_App;
 import org.emoflon.ibex.tgg.run.companytoit.SYNC_App;
 import org.emoflon.ibex.tgg.run.companytoit.config.DemoclesRegistrationHelper;
 import org.emoflon.ibex.tgg.run.companytoit.config.HiPERegistrationHelper;
@@ -43,7 +42,7 @@ public class IbexCompanyToIT extends IbexAdapter<Company, IT>  {
 			company.getCeo().add(ceo);
 			ceo.setName("Andy");
 			
-			synchroniser.getSourceResource().getContents().add(company);
+			synchroniser.getResourceHandler().getSourceResource().getContents().add(company);
 			synchroniser.forward();
 		} catch (IOException e) {
 			e.printStackTrace();

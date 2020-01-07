@@ -5,7 +5,7 @@ import java.io.IOException;
 import org.apache.log4j.BasicConfigurator;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
-import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
+import org.emoflon.ibex.tgg.operational.strategies.modules.TGGResourceHandler;
 import org.emoflon.ibex.tgg.operational.strategies.sync.SYNC;
 import org.emoflon.ibex.tgg.run.blockdiagramcodeadapter_edgerules.config._DefaultRegistrationHelper;
 
@@ -17,8 +17,21 @@ public class SYNC_App extends SYNC {
 		super(registrationHelper.createIbexOptions()
 				.projectName(projectName)
 				.workspacePath(workspacePath)
-				.debug(debug));
-		registerBlackInterpreter(options.getBlackInterpreter());
+				.debug(debug)
+				.setResourceHandler(new TGGResourceHandler() {
+					@Override
+					public void loadModels() throws IOException {
+						source = createResource(options.projectPath() + "/instances/src.xmi");
+						target = createResource(options.projectPath() + "/instances/trg.xmi");
+						corr = createResource(options.projectPath() + "/instances/corr.xmi");
+						protocol = createResource(options.projectPath() + "/instances/protocol.xmi");
+					}
+					
+					@Override
+					public void saveModels() throws IOException {
+						// TODO Auto-generated method stub
+					}
+				}));
 	}
 
 	public static void main(String[] args) throws IOException {
@@ -34,23 +47,5 @@ public class SYNC_App extends SYNC {
 		
 		sync.saveModels();
 		sync.terminate();
-	}
-
-	@Override
-	protected void registerUserMetamodels() throws IOException {
-		registrationHelper.registerMetamodels(rs, this);
-			
-		// Register correspondence metamodel last
-		loadAndRegisterCorrMetamodel(options.projectPath() + "/model/" + options.projectName() + ".ecore");
-	}
-	
-	@Override
-	public void loadModels() throws IOException {
-		s = createResource(options.projectPath() + "/instances/src.xmi");
-		t = createResource(options.projectPath() + "/instances/trg.xmi");
-		c = createResource(options.projectPath() + "/instances/corr.xmi");
-		p = createResource(options.projectPath() + "/instances/protocol.xmi");
-		
-		EcoreUtil.resolveAll(rs);
 	}
 }

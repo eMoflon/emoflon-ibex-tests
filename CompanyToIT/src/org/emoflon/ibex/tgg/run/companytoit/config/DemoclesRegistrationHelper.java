@@ -9,7 +9,7 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 import org.emoflon.ibex.tgg.operational.csp.constraints.factories.companytoit.UserDefinedRuntimeTGGAttrConstraintFactory;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
-import org.emoflon.ibex.tgg.operational.strategies.OperationalStrategy;
+import org.emoflon.ibex.tgg.operational.strategies.modules.IbexExecutable;
 import org.emoflon.ibex.tgg.operational.strategies.opt.BWD_OPT;
 import org.emoflon.ibex.tgg.operational.strategies.opt.FWD_OPT;
 import org.emoflon.ibex.tgg.runtime.democles.DemoclesTGGEngine;
@@ -20,14 +20,14 @@ import ITLanguage.impl.ITLanguagePackageImpl;
 public class DemoclesRegistrationHelper implements IRegistrationHelper {
 
 	/** Load and register source and target metamodels */
-	public void registerMetamodels(ResourceSet rs, OperationalStrategy strategy)  throws IOException {
+	public void registerMetamodels(ResourceSet rs, IbexExecutable executable)  throws IOException {
 		// Load and register source and target metamodels
 		CompanyLanguagePackageImpl.init();
 		ITLanguagePackageImpl.init();
 		
-		if(strategy instanceof FWD_OPT) {
+		if(executable instanceof FWD_OPT) {
 			// Load and register source and target metamodels
-			Resource res = strategy.loadResource("platform:/resource/ITLanguage/model/ITLanguage.ecore");
+			Resource res = executable.getResourceHandler().loadResource("platform:/resource/ITLanguage/model/ITLanguage.ecore");
 			EPackage pack = (EPackage) res.getContents().get(0);
 			rs.getPackageRegistry().put("platform:/resource/ITLanguage/model/ITLanguage.ecore", pack);
 			rs.getPackageRegistry().put("platform:/plugin/ITLanguage/model/ITLanguage.ecore", pack);
@@ -35,9 +35,9 @@ public class DemoclesRegistrationHelper implements IRegistrationHelper {
 			rs.getResources().remove(res);
 		}
 		
-		if(strategy instanceof BWD_OPT) {
+		if(executable instanceof BWD_OPT) {
 			// Load and register source and target metamodels
-			Resource res = strategy.loadResource("platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore");
+			Resource res = executable.getResourceHandler().loadResource("platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore");
 			EPackage pack = (EPackage) res.getContents().get(0);
 			rs.getPackageRegistry().put("platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore", pack);
 			rs.getPackageRegistry().put("platform:/plugin/CompanyLanguage/model/CompanyLanguage.ecore", pack);
@@ -54,6 +54,7 @@ public class DemoclesRegistrationHelper implements IRegistrationHelper {
 		options.projectPath("CompanyToIT");
 		options.debug(false);
 		options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
+		options.registrationHelper(this);
 		return options;
 	}
 }

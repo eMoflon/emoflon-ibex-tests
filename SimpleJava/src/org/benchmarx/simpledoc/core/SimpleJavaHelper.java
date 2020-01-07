@@ -17,7 +17,7 @@ public class SimpleJavaHelper {
 		createClass(ibex, "IPM", "IPMImpl");
 		createClass(cmoflon, "GT", "GTImpl");
 	}
-	
+
 	public Clazz createClass(Package p, String name, String content) {
 		Clazz c = SimpleJavaFactory.eINSTANCE.createClazz();
 		c.setName(name);
@@ -34,8 +34,8 @@ public class SimpleJavaHelper {
 	}
 
 	public void fillBodies(Package p) {
-		for(Clazz c : p.getClazzes()) {
-			if(c.getBody() != null) 
+		for (Clazz c : p.getClazzes()) {
+			if (c.getBody() != null)
 				continue;
 
 			c.setBody(c.getName() + "Impl");

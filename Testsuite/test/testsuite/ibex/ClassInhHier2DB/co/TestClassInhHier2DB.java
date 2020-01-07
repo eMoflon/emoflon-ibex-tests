@@ -4,7 +4,6 @@ import java.io.IOException;
 
 import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 import org.emoflon.ibex.tgg.run.classinhhier2db.BWD_OPT_App;
-import org.emoflon.ibex.tgg.run.classinhhier2db.CC_App;
 import org.emoflon.ibex.tgg.run.classinhhier2db.CO_App;
 import org.emoflon.ibex.tgg.run.classinhhier2db.FWD_OPT_App;
 import org.emoflon.ibex.tgg.run.classinhhier2db.config.DemoclesRegistrationHelper;

@@ -198,8 +198,8 @@ public class PerformanceTestUtil {
 
 		switch (projectPath) {
 		case PerformanceConstants.moDiscoIbexTGG:
-			op.loadAndRegisterMetamodel("platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore");
-			op.loadAndRegisterMetamodel("platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore");
+			op.getResourceHandler().loadAndRegisterMetamodel("platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore");
+			op.getResourceHandler().loadAndRegisterMetamodel("platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore");
 			break;
 		default:
 			rs.getURIConverter().getURIMap().put(URI.createURI("platform:/plugin/" + data.srcMetaModel + "/"),
@@ -229,15 +229,15 @@ public class PerformanceTestUtil {
 			// Special directory for this TGG
 			rs.getPackageRegistry().put("platform:/resource/Families/model/Families.ecore", FamiliesPackageImpl.init());
 
-			res = op.loadResource(
+			res = op.getResourceHandler().loadResource(
 					"platform:/resource/../../benchmarx/examples/familiestopersons/metamodels/Persons/model/Persons.ecore");
 			pack = (EPackage) res.getContents().get(0);
 			rs.getResources().remove(res);
 			rs.getPackageRegistry().put("platform:/resource/Persons/model/Persons.ecore", pack);
 			break;
 		case PerformanceConstants.moDiscoIbexTGG:
-			op.loadAndRegisterMetamodel("platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore");
-			op.loadAndRegisterMetamodel("platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore");
+			op.getResourceHandler().loadAndRegisterMetamodel("platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore");
+			op.getResourceHandler().loadAndRegisterMetamodel("platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore");
 			break;
 		default:
 			rs.getPackageRegistry().put(
@@ -245,7 +245,7 @@ public class PerformanceTestUtil {
 					data.srcPackage);
 
 			// Load and register source and target metamodels
-			res = op.loadResource(
+			res = op.getResourceHandler().loadResource(
 					"platform:/resource/../metamodels/" + data.trgMetaModel + "/model/" + data.trgMetaModel + ".ecore");
 			pack = (EPackage) res.getContents().get(0);
 			rs.getPackageRegistry()
@@ -269,15 +269,15 @@ public class PerformanceTestUtil {
 			// Special directory for this TGG
 			rs.getPackageRegistry().put("platform:/resource/Persons/model/Persons.ecore", PersonsPackageImpl.init());
 
-			res = op.loadResource(
+			res = op.getResourceHandler().loadResource(
 					"platform:/resource/../../benchmarx/examples/familiestopersons/metamodels/Families/model/Families.ecore");
 			pack = (EPackage) res.getContents().get(0);
 			rs.getResources().remove(res);
 			rs.getPackageRegistry().put("platform:/resource/Families/model/Families.ecore", pack);
 			break;
 		case PerformanceConstants.moDiscoIbexTGG:
-			op.loadAndRegisterMetamodel("platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore");
-			op.loadAndRegisterMetamodel("platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore");
+			op.getResourceHandler().loadAndRegisterMetamodel("platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore");
+			op.getResourceHandler().loadAndRegisterMetamodel("platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore");
 			break;
 		default:
 
@@ -286,7 +286,7 @@ public class PerformanceTestUtil {
 					data.trgPackage);
 
 			// Load and register source and target metamodels
-			res = op.loadResource(
+			res = op.getResourceHandler().loadResource(
 					"platform:/resource/../metamodels/" + data.srcMetaModel + "/model/" + data.srcMetaModel + ".ecore");
 			pack = (EPackage) res.getContents().get(0);
 			rs.getPackageRegistry()

@@ -13,14 +13,13 @@ import ITLanguage.IT;
 import testsuite.ibex.CompanyToIT.sync.util.IbexCompanyToIT;
 import testsuite.ibex.testUtil.SyncTestCase;
 
-
-public class Batch extends SyncTestCase<Company, IT> {
+public class AlignmentBased extends SyncTestCase<Company, IT> {
 	public final static String projectName = "CompanyToIT";
 	
 	CompanyLanguageHelper helperCompany;
 	ITLanguageHelper helperIT;
 
-	public Batch() {
+	public AlignmentBased() {
 		super(new IbexCompanyToIT(projectName));
 	}
 	
@@ -36,31 +35,6 @@ public class Batch extends SyncTestCase<Company, IT> {
 	}
 
 	/**
-	 * <b>Features</b>: fwd
-	 */
-	@Test
-	public void testCompany_FWD()
-	{
-		//------------
-
-		//------------
-		assertPostcondition("in/Company_FWD", "expected/Company_FWD");
-	}
-
-	/**
-	 * <b>Features</b>: fwd
-	 */
-	@Test
-	public void testAdmin_FWD()
-	{
-		assertPrecondition("in/Company_FWD", "expected/Company_FWD");
-		//------------
-		tool.performAndPropagateSourceEdit(c -> helperCompany.createAdminForCEO(c, "Ingo"));
-		//------------
-		assertPostcondition("in/Admin_FWD", "expected/Admin_FWD");
-	}
-
-	/**
 	 * <b>Features</b>: bwd
 	 */
 	@Test
@@ -68,9 +42,8 @@ public class Batch extends SyncTestCase<Company, IT> {
 	{
 		assertPrecondition("in/Company_FWD", "expected/Company_FWD");
 		//------------
-		tool.performAndPropagateTargetEdit(util.execute((IT i) -> helperIT.createEmptyNetwork(i, "ES"))
-					.andThen((i -> helperIT.createRouterOnFirstNetwork(i, "Ingo")))
-			);
+		tool.performAndPropagateTargetEdit(i -> helperIT.createEmptyNetwork(i, "ES"));
+		tool.performAndPropagateTargetEdit(i -> helperIT.createRouterOnFirstNetwork(i, "Ingo"));
 		//------------
 		assertPostcondition("expected/Admin_BWD", "in/Admin_BWD");
 	}
@@ -92,9 +65,8 @@ public class Batch extends SyncTestCase<Company, IT> {
 		
 		assertPrecondition("in/Company_FWD", "expected/Company_FWD");
 		//------------
-		tool.performAndPropagateSourceEdit(util.execute((Company c) -> helperCompany.createAdminForCEO(c, "Ingo"))
-					.andThen((c -> helperCompany.createEmployeeForFirstCEO(c, "Tony")))
-			);
+		tool.performAndPropagateSourceEdit(c -> helperCompany.createAdminForCEO(c, "Ingo"));
+		tool.performAndPropagateSourceEdit(c -> helperCompany.createEmployeeForFirstCEO(c, "Tony"));
 		//------------
 		assertPostcondition("in/Employee_Laptop_FWD", "expected/Employee_Laptop_FWD");
 	}
@@ -107,11 +79,10 @@ public class Batch extends SyncTestCase<Company, IT> {
 	{
 		assertPrecondition("in/Company_FWD", "expected/Company_FWD");
 		//------------
-		tool.performAndPropagateTargetEdit(util.execute((IT i) -> helperIT.createEmptyNetwork(i, "ES"))
-					.andThen((i -> helperIT.createRouterOnFirstNetwork(i, "Ingo")))
-					.andThen((i -> helperIT.createLaptopOnFirstNetwork(i, "Tony")))
-					.andThen((i -> helperIT.createLaptopOnFirstNetwork(i, "Marius")))
-			);
+		tool.performAndPropagateTargetEdit(i -> helperIT.createEmptyNetwork(i, "ES"));
+		tool.performAndPropagateTargetEdit(i -> helperIT.createRouterOnFirstNetwork(i, "Ingo"));
+		tool.performAndPropagateTargetEdit(i -> helperIT.createLaptopOnFirstNetwork(i, "Tony"));
+		tool.performAndPropagateTargetEdit(i -> helperIT.createLaptopOnFirstNetwork(i, "Marius"));
 		//------------
 		assertPostcondition("expected/Employee_Laptop_BWD", "in/Employee_Laptop_BWD");
 	}
@@ -133,12 +104,12 @@ public class Batch extends SyncTestCase<Company, IT> {
 		
 		assertPrecondition("in/Company_FWD", "expected/Company_FWD");
 		//------------
-		tool.performAndPropagateSourceEdit(util.execute((Company c) -> helperCompany.createAdminForCEO(c, "Ingo"))
-					.andThen((c -> helperCompany.createEmployeeForFirstCEO(c, "Marius")))
-			);
+		tool.performAndPropagateSourceEdit(c -> helperCompany.createAdminForCEO(c, "Ingo"));
+		tool.performAndPropagateSourceEdit(c -> helperCompany.createEmployeeForFirstCEO(c, "Marius"));
 		//------------
 		assertPostcondition("in/Employee_PC_FWD", "expected/Employee_PC_FWD");
 	}
+
 
 	/**
 	 * <b>Features</b>: bwd
@@ -148,11 +119,10 @@ public class Batch extends SyncTestCase<Company, IT> {
 	{
 		assertPrecondition("in/Company_FWD", "expected/Company_FWD");
 		//------------
-		tool.performAndPropagateTargetEdit(util.execute((IT i) -> helperIT.createEmptyNetwork(i, "ES"))
-					.andThen((i -> helperIT.createRouterOnFirstNetwork(i, "Ingo")))
-					.andThen((i -> helperIT.createPCOnFirstNetwork(i, "Tony")))
-					.andThen((i -> helperIT.createPCOnFirstNetwork(i, "Marius")))
-			);
+		tool.performAndPropagateTargetEdit(i -> helperIT.createEmptyNetwork(i, "ES"));
+		tool.performAndPropagateTargetEdit(i -> helperIT.createRouterOnFirstNetwork(i, "Ingo"));
+		tool.performAndPropagateTargetEdit(i -> helperIT.createPCOnFirstNetwork(i, "Tony"));
+		tool.performAndPropagateTargetEdit(i -> helperIT.createPCOnFirstNetwork(i, "Marius"));
 		//------------
 		assertPostcondition("expected/Employee_PC_BWD", "in/Employee_PC_BWD");
 	}
@@ -184,10 +154,9 @@ public class Batch extends SyncTestCase<Company, IT> {
 		
 		assertPrecondition("in/Company_FWD", "expected/Company_FWD");
 		//------------
-		tool.performAndPropagateSourceEdit(util.execute((Company c) -> helperCompany.createAdminForCEO(c, "Ingo"))
-					.andThen((c -> helperCompany.createEmployeeForFirstCEO(c, "Marius")))
-					.andThen((c -> helperCompany.createEmployeeForFirstCEO(c, "Tony")))
-			);
+		tool.performAndPropagateSourceEdit(c -> helperCompany.createAdminForCEO(c, "Ingo"));
+		tool.performAndPropagateSourceEdit(c -> helperCompany.createEmployeeForFirstCEO(c, "Marius"));
+		tool.performAndPropagateSourceEdit(c -> helperCompany.createEmployeeForFirstCEO(c, "Tony"));
 		//------------
 		assertPostcondition("in/Employee_PC_Laptop_FWD", "expected/Employee_PC_Laptop_FWD");
 	}
@@ -200,24 +169,12 @@ public class Batch extends SyncTestCase<Company, IT> {
 	{
 		assertPrecondition("in/Company_FWD", "expected/Company_FWD");
 		//------------
-		tool.performAndPropagateTargetEdit(util.execute((IT i) -> helperIT.createEmptyNetwork(i, "ES"))
-					.andThen((i -> helperIT.createRouterOnFirstNetwork(i, "Ingo")))
-					.andThen((i -> helperIT.createLaptopOnFirstNetwork(i, "Tony")))
-					.andThen((i -> helperIT.createPCOnFirstNetwork(i, "Marius")))
-			);
+		tool.performAndPropagateTargetEdit(i -> helperIT.createEmptyNetwork(i, "ES"));
+		tool.performAndPropagateTargetEdit(i -> helperIT.createRouterOnFirstNetwork(i, "Ingo"));
+		tool.performAndPropagateTargetEdit(i -> helperIT.createLaptopOnFirstNetwork(i, "Tony"));
+		tool.performAndPropagateTargetEdit(i -> helperIT.createPCOnFirstNetwork(i, "Marius"));
 		//------------
 		assertPostcondition("in/Employee_PC_Laptop_FWD", "expected/Employee_PC_Laptop_FWD");
 	}
 	
-	/**
-	 * <b>Features</b>: bwd, attribute-fix
-	 */
-	@Test
-	public void testRenameIT() {
-		assertPrecondition("in/Company_FWD", "expected/Company_FWD");
-		//------------
-		tool.performAndPropagateTargetEdit(util.execute((IT i) -> i.setName("FGES")));
-		//------------
-		assertPostcondition("in/Company_Renamed_FWD", "expected/Company_Renamed_FWD");
-	}
 }

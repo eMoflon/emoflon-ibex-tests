@@ -7,7 +7,7 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 import org.emoflon.ibex.tgg.operational.csp.constraints.factories.ibextgggantt2cpm.UserDefinedRuntimeTGGAttrConstraintFactory;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
-import org.emoflon.ibex.tgg.operational.strategies.OperationalStrategy;
+import org.emoflon.ibex.tgg.operational.strategies.modules.IbexExecutable;
 import org.emoflon.ibex.tgg.runtime.democles.DemoclesTGGEngine;
 
 import cpm.CpmPackage;
@@ -16,7 +16,7 @@ import gantt.GanttPackage;
 public class DemoclesRegistrationHelper implements IRegistrationHelper {
 
 	/** Load and register source and target metamodels */
-	public void registerMetamodels(ResourceSet rs, OperationalStrategy strategy)  throws IOException {
+	public void registerMetamodels(ResourceSet rs, IbexExecutable executable)  throws IOException {
 		EPackage cpmPack = CpmPackage.eINSTANCE;
 		EPackage ganttPack = GanttPackage.eINSTANCE;
 		
@@ -34,6 +34,7 @@ public class DemoclesRegistrationHelper implements IRegistrationHelper {
 		options.projectPath("IBeXTGGGantt2CPM");
 		options.debug(false);
 		options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
+		options.registrationHelper(this);
 		return options;
 	}
 }

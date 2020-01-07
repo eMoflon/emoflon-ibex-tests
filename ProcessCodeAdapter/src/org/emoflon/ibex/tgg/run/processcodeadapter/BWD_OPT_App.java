@@ -3,9 +3,8 @@ package org.emoflon.ibex.tgg.run.processcodeadapter;
 import java.io.IOException;
 
 import org.apache.log4j.BasicConfigurator;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
-import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
+import org.emoflon.ibex.tgg.operational.strategies.modules.TGGResourceHandler;
 import org.emoflon.ibex.tgg.operational.strategies.opt.BWD_OPT;
 import org.emoflon.ibex.tgg.run.processcodeadapter.config._DefaultRegistrationHelper;
 import org.emoflon.ibex.tgg.util.ilp.ILPFactory.SupportedILPSolver;
@@ -13,19 +12,17 @@ import org.emoflon.ibex.tgg.util.ilp.ILPFactory.SupportedILPSolver;
 public class BWD_OPT_App extends BWD_OPT {
 	public static IRegistrationHelper registrationHelper = new _DefaultRegistrationHelper();
 
-	String srcPath;
-	String trgPath;
-	String corrPath;
-	String protPath;
-	
 	public BWD_OPT_App(String projectName, String workspacePath, boolean debug, String srcPath, String trgPath, 
 			String corrPath, String protPath, SupportedILPSolver ilpSolver) throws IOException {
-		super(registrationHelper.createIbexOptions().projectName(projectName).workspacePath(workspacePath).debug(debug).setIlpSolver(ilpSolver));
-		this.srcPath = srcPath;
-		this.trgPath = trgPath;
-		this.corrPath = corrPath;
-		this.protPath = protPath;
-		registerBlackInterpreter(options.getBlackInterpreter());
+		super(registrationHelper.createIbexOptions().projectName(projectName).workspacePath(workspacePath).debug(debug).setIlpSolver(ilpSolver).setResourceHandler(new TGGResourceHandler() {
+			@Override
+			public void loadModels() throws IOException {
+				source = createResource(options.projectPath() +srcPath+".xmi");
+				target = loadResource(options.projectPath() +trgPath+".xmi");
+				corr = createResource(options.projectPath() +corrPath+".xmi");
+				protocol = createResource(options.projectPath() +protPath+".xmi");
+			}
+		}));
 	}
 
 	public static void main(String[] args) throws IOException {
@@ -42,23 +39,5 @@ public class BWD_OPT_App extends BWD_OPT {
 		
 		bwd_opt.saveModels();
 		bwd_opt.terminate();
-	}
-
-	@Override
-	protected void registerUserMetamodels() throws IOException {
-		registrationHelper.registerMetamodels(rs, this);
-			
-		// Register correspondence metamodel last
-		loadAndRegisterCorrMetamodel(options.projectPath() + "/model/" + options.projectName() + ".ecore");
-	}
-	
-	@Override
-	public void loadModels() throws IOException {
-		s = createResource(options.projectPath() +srcPath+".xmi");
-		t = loadResource(options.projectPath() +trgPath+".xmi");
-		c = createResource(options.projectPath() +corrPath+".xmi");
-		p = createResource(options.projectPath() +protPath+".xmi");
-	
-		EcoreUtil.resolveAll(rs);
 	}
 }

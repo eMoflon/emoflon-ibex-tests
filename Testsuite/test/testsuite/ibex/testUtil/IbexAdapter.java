@@ -56,13 +56,13 @@ public abstract class IbexAdapter<S extends EObject, T extends EObject> extends 
 	@SuppressWarnings("unchecked")
 	@Override
 	public S getSourceModel() {
-		return (S) synchroniser.getSourceResource().getContents().get(0);
+		return (S) synchroniser.getResourceHandler().getSourceResource().getContents().get(0);
 	} 
 
 	@SuppressWarnings("unchecked")
 	@Override
 	public T getTargetModel() {
-		return (T) synchroniser.getTargetResource().getContents().get(0);
+		return (T) synchroniser.getResourceHandler().getTargetResource().getContents().get(0);
 	}
 
 	@Override
@@ -116,6 +116,6 @@ public abstract class IbexAdapter<S extends EObject, T extends EObject> extends 
 	}
 
 	public ResourceSet getResourceSet() {
-		return synchroniser.getResourceSet();
+		return synchroniser.getResourceHandler().getResourceSet();
 	}
 }
