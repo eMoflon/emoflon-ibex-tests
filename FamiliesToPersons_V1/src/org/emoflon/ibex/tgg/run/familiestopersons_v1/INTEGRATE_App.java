@@ -2,16 +2,12 @@ package org.emoflon.ibex.tgg.run.familiestopersons_v1;
 
 import java.io.IOException;
 
+import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
-import org.apache.log4j.BasicConfigurator;
-
 import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
-
-import org.emoflon.ibex.tgg.run.familiestopersons_v1.config.*;
-
-import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.INTEGRATE;
+import org.emoflon.ibex.tgg.run.familiestopersons_v1.config._DefaultRegistrationHelper;
 
 public class INTEGRATE_App extends INTEGRATE {
 
@@ -19,7 +15,6 @@ public class INTEGRATE_App extends INTEGRATE {
 
 	public INTEGRATE_App() throws IOException {
 		super(registrationHelper.createIbexOptions());
-		registerBlackInterpreter(options.getBlackInterpreter());
 	}
 
 	public static void main(String[] args) throws IOException {
@@ -39,15 +34,6 @@ public class INTEGRATE_App extends INTEGRATE {
 		
 		integrate.saveModels();
 		integrate.terminate();
-	}
-	
-	
-	@Override
-	protected void registerUserMetamodels() throws IOException {
-		registrationHelper.registerMetamodels(rs, this);
-			
-		// Register correspondence metamodel last
-		loadAndRegisterCorrMetamodel(options.projectPath() + "/model/" + options.projectName() + ".ecore");
 	}
 	
 }

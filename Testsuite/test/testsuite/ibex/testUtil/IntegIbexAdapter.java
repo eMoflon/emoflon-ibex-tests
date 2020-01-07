@@ -80,17 +80,17 @@ public abstract class IntegIbexAdapter<S extends EObject, T extends EObject> ext
 	@SuppressWarnings("unchecked")
 	@Override
 	public S getSourceModel() {
-		return (S) integrator.getSourceResource().getContents().get(0);
+		return (S) integrator.getResourceHandler().getSourceResource().getContents().get(0);
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
 	public T getTargetModel() {
-		return (T) integrator.getTargetResource().getContents().get(0);
+		return (T) integrator.getResourceHandler().getTargetResource().getContents().get(0);
 	}
 
 	public Collection<EObject> getCorrs() {
-		return integrator.getCorrResource().getContents();
+		return integrator.getResourceHandler().getCorrResource().getContents();
 	}
 
 	public IbexOptions getOptions() {
@@ -122,7 +122,7 @@ public abstract class IntegIbexAdapter<S extends EObject, T extends EObject> ext
 	}
 
 	public ResourceSet getResourceSet() {
-		return integrator.getResourceSet();
+		return integrator.getResourceHandler().getResourceSet();
 	}
 	
 	abstract public void initiateIntegrationDialogue();

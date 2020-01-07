@@ -21,11 +21,6 @@ public class SYNC_App extends SYNC {
 				corr = createResource(options.projectPath() + "/instances/corr.xmi");
 				protocol = createResource(options.projectPath() + "/instances/protocol.xmi");
 			}
-			
-			@Override
-			public void saveModels() throws IOException {
-				// TODO Auto-generated method stub
-			}
 		}));
 	}
 
