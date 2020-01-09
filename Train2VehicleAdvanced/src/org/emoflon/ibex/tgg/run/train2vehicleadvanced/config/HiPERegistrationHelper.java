@@ -9,10 +9,9 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.emoflon.ibex.tgg.operational.csp.constraints.factories.train2vehicleadvanced.UserDefinedRuntimeTGGAttrConstraintFactory;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
-import org.emoflon.ibex.tgg.operational.strategies.OperationalStrategy;
+import org.emoflon.ibex.tgg.operational.strategies.modules.IbexExecutable;
 import org.emoflon.ibex.tgg.operational.strategies.opt.BWD_OPT;
 import org.emoflon.ibex.tgg.operational.strategies.opt.FWD_OPT;
-import org.emoflon.ibex.tgg.runtime.democles.DemoclesTGGEngine;
 import org.emoflon.ibex.tgg.runtime.hipe.HiPETGGEngine;
 import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 
@@ -32,7 +31,7 @@ public class HiPERegistrationHelper implements IRegistrationHelper {
 	}
 
 	/** Load and register source and target metamodels */
-	public void registerMetamodels(ResourceSet rs, OperationalStrategy strategy) throws IOException {
+	public void registerMetamodels(ResourceSet rs, IbexExecutable executable) throws IOException {
 		
 		// Set correct workspace root
 		setWorkspaceRootDirectory(rs);
@@ -42,22 +41,22 @@ public class HiPERegistrationHelper implements IRegistrationHelper {
 		EPackage advancedvehiclePack = null;
 		EPackage train2vehicleadvancedPack = null;
 		
-		if(strategy instanceof FWD_OPT) {
-			Resource res = strategy.loadResource("platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore");
+		if(executable instanceof FWD_OPT) {
+			Resource res = executable.getResourceHandler().loadResource("platform:/resource/AdvancedVehicle/model/AdvancedVehicle.ecore");
 			advancedvehiclePack = (EPackage) res.getContents().get(0);
 			rs.getResources().remove(res);
 			
-			res = strategy.loadResource("platform:/resource/Train2VehicleAdvanced/model/Train2VehicleAdvanced.ecore");
+			res = executable.getResourceHandler().loadResource("platform:/resource/Train2VehicleAdvanced/model/Train2VehicleAdvanced.ecore");
 			train2vehicleadvancedPack = (EPackage) res.getContents().get(0);
 			rs.getResources().remove(res);
 		}
 				
-		if(strategy instanceof BWD_OPT) {
-			Resource res = strategy.loadResource("platform:/resource/AdvancedTrain/model/AdvancedTrain.ecore");
+		if(executable instanceof BWD_OPT) {
+			Resource res = executable.getResourceHandler().loadResource("platform:/resource/AdvancedTrain/model/AdvancedTrain.ecore");
 			advancedtrainPack = (EPackage) res.getContents().get(0);
 			rs.getResources().remove(res);
 			
-			res = strategy.loadResource("platform:/resource/Train2VehicleAdvanced/model/Train2VehicleAdvanced.ecore");
+			res = executable.getResourceHandler().loadResource("platform:/resource/Train2VehicleAdvanced/model/Train2VehicleAdvanced.ecore");
 			train2vehicleadvancedPack = (EPackage) res.getContents().get(0);
 			rs.getResources().remove(res);
 		}
@@ -89,6 +88,7 @@ public class HiPERegistrationHelper implements IRegistrationHelper {
 		options.projectPath("Train2VehicleAdvanced");
 		options.debug(false);
 		options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
+		options.registrationHelper(this);
 		return options;
 	}
 }

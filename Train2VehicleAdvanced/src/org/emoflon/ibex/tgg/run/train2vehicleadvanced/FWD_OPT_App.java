@@ -2,16 +2,12 @@ package org.emoflon.ibex.tgg.run.train2vehicleadvanced;
 
 import java.io.IOException;
 
+import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
-import org.apache.log4j.BasicConfigurator;
-
 import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
-
-import org.emoflon.ibex.tgg.run.train2vehicleadvanced.config.*;
-
-import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.opt.FWD_OPT;
+import org.emoflon.ibex.tgg.run.train2vehicleadvanced.config._DefaultRegistrationHelper;
 
 public class FWD_OPT_App extends FWD_OPT {
 
@@ -19,7 +15,6 @@ public class FWD_OPT_App extends FWD_OPT {
 
 	public FWD_OPT_App() throws IOException {
 		super(registrationHelper.createIbexOptions());
-		registerBlackInterpreter(options.getBlackInterpreter());
 	}
 
 	public static void main(String[] args) throws IOException {
@@ -36,15 +31,6 @@ public class FWD_OPT_App extends FWD_OPT {
 		
 		fwd_opt.saveModels();
 		fwd_opt.terminate();
-	}
-	
-	
-	@Override
-	protected void registerUserMetamodels() throws IOException {
-		registrationHelper.registerMetamodels(rs, this);
-			
-		// Register correspondence metamodel last
-		loadAndRegisterCorrMetamodel(options.projectPath() + "/model/" + options.projectName() + ".ecore");
 	}
 	
 }

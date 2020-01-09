@@ -2,16 +2,12 @@ package org.emoflon.ibex.tgg.run.train2vehicleadvanced;
 
 import java.io.IOException;
 
+import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
-import org.apache.log4j.BasicConfigurator;
-
 import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
-
-import org.emoflon.ibex.tgg.run.train2vehicleadvanced.config.*;
-
-import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
-import org.emoflon.ibex.tgg.operational.strategies.opt.cc.CC;
+import org.emoflon.ibex.tgg.operational.strategies.opt.CC;
+import org.emoflon.ibex.tgg.run.train2vehicleadvanced.config._DefaultRegistrationHelper;
 
 public class CC_App extends CC {
 
@@ -19,7 +15,6 @@ public class CC_App extends CC {
 
 	public CC_App() throws IOException {
 		super(registrationHelper.createIbexOptions());
-		registerBlackInterpreter(options.getBlackInterpreter());
 	}
 
 	public static void main(String[] args) throws IOException {
@@ -37,15 +32,6 @@ public class CC_App extends CC {
 		cc.saveModels();
 		cc.terminate();
 		logger.info(cc.generateConsistencyReport());			
-	}
-	
-	
-	@Override
-	protected void registerUserMetamodels() throws IOException {
-		registrationHelper.registerMetamodels(rs, this);
-			
-		// Register correspondence metamodel last
-		loadAndRegisterCorrMetamodel(options.projectPath() + "/model/" + options.projectName() + ".ecore");
 	}
 	
 }

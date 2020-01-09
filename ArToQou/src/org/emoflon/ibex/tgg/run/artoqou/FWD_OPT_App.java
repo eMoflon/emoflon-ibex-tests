@@ -15,7 +15,6 @@ public class FWD_OPT_App extends FWD_OPT {
 
 	public FWD_OPT_App() throws IOException {
 		super(registrationHelper.createIbexOptions());
-		registerBlackInterpreter(options.getBlackInterpreter());
 	}
 
 	public static void main(String[] args) throws IOException {
@@ -32,15 +31,6 @@ public class FWD_OPT_App extends FWD_OPT {
 		
 		fwd_opt.saveModels();
 		fwd_opt.terminate();
-	}
-	
-	
-	@Override
-	protected void registerUserMetamodels() throws IOException {
-		registrationHelper.registerMetamodels(rs, this);
-			
-		// Register correspondence metamodel last
-		loadAndRegisterCorrMetamodel(options.projectPath() + "/model/" + options.projectName() + ".ecore");
 	}
 	
 }

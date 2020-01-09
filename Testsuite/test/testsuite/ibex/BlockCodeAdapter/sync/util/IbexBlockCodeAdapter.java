@@ -37,7 +37,7 @@ public class IbexBlockCodeAdapter extends IbexAdapter<File, Specification>   {
 			Specification s = BlockLanguageFactory.eINSTANCE.createSpecification();
 			s.setName("specification");
 			
-			synchroniser.getTargetResource().getContents().add(s);
+			synchroniser.getResourceHandler().getTargetResource().getContents().add(s);
 			synchroniser.backward();
 		} catch (IOException e) {
 			e.printStackTrace();

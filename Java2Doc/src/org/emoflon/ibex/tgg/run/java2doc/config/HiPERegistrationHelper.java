@@ -9,10 +9,9 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.emoflon.ibex.tgg.operational.csp.constraints.factories.java2doc.UserDefinedRuntimeTGGAttrConstraintFactory;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
-import org.emoflon.ibex.tgg.operational.strategies.OperationalStrategy;
+import org.emoflon.ibex.tgg.operational.strategies.modules.IbexExecutable;
 import org.emoflon.ibex.tgg.operational.strategies.opt.BWD_OPT;
 import org.emoflon.ibex.tgg.operational.strategies.opt.FWD_OPT;
-import org.emoflon.ibex.tgg.runtime.democles.DemoclesTGGEngine;
 import org.emoflon.ibex.tgg.runtime.hipe.HiPETGGEngine;
 import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 
@@ -32,7 +31,7 @@ public class HiPERegistrationHelper implements IRegistrationHelper {
 	}
 
 	/** Load and register source and target metamodels */
-	public void registerMetamodels(ResourceSet rs, OperationalStrategy strategy) throws IOException {
+	public void registerMetamodels(ResourceSet rs, IbexExecutable executable) throws IOException {
 		
 		// Set correct workspace root
 		setWorkspaceRootDirectory(rs);
@@ -42,22 +41,22 @@ public class HiPERegistrationHelper implements IRegistrationHelper {
 		EPackage simpledocPack = null;
 		EPackage java2docPack = null;
 		
-		if(strategy instanceof FWD_OPT) {
-			Resource res = strategy.loadResource("platform:/resource/SimpleDoc/model/SimpleDoc.ecore");
+		if(executable instanceof FWD_OPT) {
+			Resource res = executable.getResourceHandler().loadResource("platform:/resource/SimpleDoc/model/SimpleDoc.ecore");
 			simpledocPack = (EPackage) res.getContents().get(0);
 			rs.getResources().remove(res);
 			
-			res = strategy.loadResource("platform:/resource/Java2Doc/model/Java2Doc.ecore");
+			res = executable.getResourceHandler().loadResource("platform:/resource/Java2Doc/model/Java2Doc.ecore");
 			java2docPack = (EPackage) res.getContents().get(0);
 			rs.getResources().remove(res);
 		}
 				
-		if(strategy instanceof BWD_OPT) {
-			Resource res = strategy.loadResource("platform:/resource/SimpleJava/model/SimpleJava.ecore");
+		if(executable instanceof BWD_OPT) {
+			Resource res = executable.getResourceHandler().loadResource("platform:/resource/SimpleJava/model/SimpleJava.ecore");
 			simplejavaPack = (EPackage) res.getContents().get(0);
 			rs.getResources().remove(res);
 			
-			res = strategy.loadResource("platform:/resource/Java2Doc/model/Java2Doc.ecore");
+			res = executable.getResourceHandler().loadResource("platform:/resource/Java2Doc/model/Java2Doc.ecore");
 			java2docPack = (EPackage) res.getContents().get(0);
 			rs.getResources().remove(res);
 		}
@@ -89,6 +88,7 @@ public class HiPERegistrationHelper implements IRegistrationHelper {
 		options.projectPath("Java2Doc");
 		options.debug(false);
 		options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
+		options.registrationHelper(this);
 		return options;
 	}
 }

@@ -5,7 +5,6 @@ import java.io.IOException;
 import org.benchmarx.blockDiagram.core.BlockDiagramComparator;
 import org.benchmarx.mocaTree.core.MocaTreeFileComparator;
 import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
-import org.emoflon.ibex.tgg.run.blockdiagramcodeadapter.CO_App;
 import org.emoflon.ibex.tgg.run.blockdiagramcodeadapter.SYNC_App;
 import org.emoflon.ibex.tgg.run.blockdiagramcodeadapter.config.DemoclesRegistrationHelper;
 import org.emoflon.ibex.tgg.run.blockdiagramcodeadapter.config.HiPERegistrationHelper;
@@ -38,7 +37,7 @@ public class IbexBlockDiagramCodeAdapter extends IbexAdapter<BlockSystem, File> 
 			BlockSystem bs = BlockDiagramFactory.eINSTANCE.createBlockSystem();
 			bs.setName("aBlockSystem");
 			
-			synchroniser.getSourceResource().getContents().add(bs);
+			synchroniser.getResourceHandler().getSourceResource().getContents().add(bs);
 			synchroniser.forward();
 		} catch (IOException e) {
 			e.printStackTrace();

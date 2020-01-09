@@ -6,7 +6,7 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 import org.emoflon.ibex.tgg.operational.csp.constraints.factories.familiestopersons_v1.UserDefinedRuntimeTGGAttrConstraintFactory;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
-import org.emoflon.ibex.tgg.operational.strategies.OperationalStrategy;
+import org.emoflon.ibex.tgg.operational.strategies.modules.IbexExecutable;
 import org.emoflon.ibex.tgg.operational.strategies.opt.BWD_OPT;
 import org.emoflon.ibex.tgg.operational.strategies.opt.FWD_OPT;
 import org.emoflon.ibex.tgg.runtime.democles.DemoclesTGGEngine;
@@ -17,15 +17,15 @@ import SimplePersons.impl.SimplePersonsPackageImpl;
 public class DemoclesRegistrationHelper implements IRegistrationHelper {
 
 	/** Load and register source and target metamodels */
-	public void registerMetamodels(ResourceSet rs, OperationalStrategy strategy)  throws IOException {
+	public void registerMetamodels(ResourceSet rs, IbexExecutable executable)  throws IOException {
 		// Load and register source and target metamodels
 		SimpleFamiliesPackageImpl.init();
 		SimplePersonsPackageImpl.init();
 		
-		if(strategy instanceof FWD_OPT) {
+		if(executable instanceof FWD_OPT) {
 		}
 		
-		if(strategy instanceof BWD_OPT) {
+		if(executable instanceof BWD_OPT) {
 		}
 	}
 	
@@ -37,6 +37,7 @@ public class DemoclesRegistrationHelper implements IRegistrationHelper {
 		options.projectPath("FamiliesToPersons_V1");
 		options.debug(false);
 		options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
+		options.registrationHelper(this);
 		return options;
 	}
 }

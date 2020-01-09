@@ -6,7 +6,8 @@ import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 import org.emoflon.ibex.tgg.run.mocatreetoprocess.BWD_OPT_App;
 import org.emoflon.ibex.tgg.run.mocatreetoprocess.CO_App;
 import org.emoflon.ibex.tgg.run.mocatreetoprocess.FWD_OPT_App;
-import org.emoflon.ibex.tgg.run.mocatreetoprocess.config.*;
+import org.emoflon.ibex.tgg.run.mocatreetoprocess.config.DemoclesRegistrationHelper;
+import org.emoflon.ibex.tgg.run.mocatreetoprocess.config.HiPERegistrationHelper;
 import org.junit.Assert;
 import org.junit.Test;
 

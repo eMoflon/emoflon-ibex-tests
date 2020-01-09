@@ -15,7 +15,6 @@ public class CO_App extends CO {
 
 	public CO_App() throws IOException {
 		super(registrationHelper.createIbexOptions());
-		registerBlackInterpreter(options.getBlackInterpreter());
 	}
 
 	public static void main(String[] args) throws IOException {
@@ -33,15 +32,6 @@ public class CO_App extends CO {
 		co.saveModels();
 		co.terminate();
 		logger.info(co.generateConsistencyReport());
-	}
-	
-	
-	@Override
-	protected void registerUserMetamodels() throws IOException {
-		registrationHelper.registerMetamodels(rs, this);
-			
-		// Register correspondence metamodel last
-		loadAndRegisterCorrMetamodel(options.projectPath() + "/model/" + options.projectName() + ".ecore");
 	}
 	
 }

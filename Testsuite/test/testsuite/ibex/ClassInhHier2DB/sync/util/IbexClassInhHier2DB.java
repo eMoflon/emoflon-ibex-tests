@@ -5,7 +5,6 @@ import java.io.IOException;
 import org.benchmarx.classInheritanceHierarchy.core.ClassInheritanceHierarchyComparator;
 import org.benchmarx.database.core.DatabaseComparator;
 import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
-import org.emoflon.ibex.tgg.run.classinhhier2db.CO_App;
 import org.emoflon.ibex.tgg.run.classinhhier2db.SYNC_App;
 import org.emoflon.ibex.tgg.run.classinhhier2db.config.DemoclesRegistrationHelper;
 import org.emoflon.ibex.tgg.run.classinhhier2db.config.HiPERegistrationHelper;
@@ -31,7 +30,7 @@ public class IbexClassInhHier2DB extends IbexAdapter<ClassPackage, DB>   {
 			ClassPackage pkg = ClassInheritanceHierarchyFactory.eINSTANCE.createClassPackage();
 			pkg.setName("P");
 			
-			synchroniser.getSourceResource().getContents().add(pkg);
+			synchroniser.getResourceHandler().getSourceResource().getContents().add(pkg);
 			synchroniser.forward();
 		} catch (IOException e) {
 			e.printStackTrace();

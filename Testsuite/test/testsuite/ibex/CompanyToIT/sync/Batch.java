@@ -4,7 +4,7 @@ import java.util.Set;
 
 import org.benchmarx.companyLanguage.core.CompanyLanguageHelper;
 import org.benchmarx.itLanguage.core.ITLanguageHelper;
-import org.emoflon.ibex.tgg.operational.matches.IMatch;
+import org.emoflon.ibex.tgg.operational.matches.ITGGMatch;
 import org.junit.Test;
 
 import CompanyLanguage.Company;
@@ -82,9 +82,9 @@ public class Batch extends SyncTestCase<Company, IT> {
 	public void testEmployee_Laptop_FWD()
 	{
 		((IbexCompanyToIT)tool).getSYNC().setUpdatePolicy(matchContainer -> {
-			Set<IMatch> matches = matchContainer.getMatches();
-			for (IMatch match : matches) {
-				if (!matchContainer.getRuleName(match).equals("EmployeeToPCRule"))
+			Set<ITGGMatch> matches = matchContainer.getMatches();
+			for (ITGGMatch match : matches) {
+				if (!match.getRuleName().equals("EmployeeToPCRule"))
 					return match;
 			}
 			return matches.iterator().next();
@@ -123,9 +123,9 @@ public class Batch extends SyncTestCase<Company, IT> {
 	public void testEmployee_PC_FWD()
 	{
 		((IbexCompanyToIT)tool).getSYNC().setUpdatePolicy(matchContainer -> {
-			Set<IMatch> matches = matchContainer.getMatches();
-			for (IMatch match : matches) {
-				if (!matchContainer.getRuleName(match).equals("EmployeeToLaptopRule"))
+			Set<ITGGMatch> matches = matchContainer.getMatches();
+			for (ITGGMatch match : matches) {
+				if (!match.getRuleName().equals("EmployeeToLaptopRule"))
 					return match;
 			}
 			return matches.iterator().next();
@@ -164,9 +164,9 @@ public class Batch extends SyncTestCase<Company, IT> {
 	public void testEmployee_PC_Laptop_FWD()
 	{
 		((IbexCompanyToIT)tool).getSYNC().setUpdatePolicy(matchContainer -> {
-			Set<IMatch> matches = matchContainer.getMatches();
-			for (IMatch match : matches) {
-				String name = matchContainer.getRuleName(match);
+			Set<ITGGMatch> matches = matchContainer.getMatches();
+			for (ITGGMatch match : matches) {
+				String name = match.getRuleName();
 				if (name.equals("EmployeeToLaptopRule")) {
 					Employee e = (Employee)match.get("employee");
 					if (e.getName().equals("Marius"))

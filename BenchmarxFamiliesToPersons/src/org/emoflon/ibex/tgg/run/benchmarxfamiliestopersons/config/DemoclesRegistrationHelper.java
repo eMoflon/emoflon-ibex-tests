@@ -8,7 +8,7 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 import org.emoflon.ibex.tgg.operational.csp.constraints.factories.benchmarxfamiliestopersons.UserDefinedRuntimeTGGAttrConstraintFactory;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
-import org.emoflon.ibex.tgg.operational.strategies.OperationalStrategy;
+import org.emoflon.ibex.tgg.operational.strategies.modules.IbexExecutable;
 import org.emoflon.ibex.tgg.operational.strategies.opt.BWD_OPT;
 import org.emoflon.ibex.tgg.operational.strategies.opt.FWD_OPT;
 import org.emoflon.ibex.tgg.runtime.democles.DemoclesTGGEngine;
@@ -19,17 +19,17 @@ import Persons.impl.PersonsPackageImpl;
 public class DemoclesRegistrationHelper implements IRegistrationHelper {
 
 	/** Load and register source and target metamodels */
-	public void registerMetamodels(ResourceSet rs, OperationalStrategy strategy)  throws IOException {
+	public void registerMetamodels(ResourceSet rs, IbexExecutable executable)  throws IOException {
 		EPackage familyPack = null;
 		EPackage personsPack = null;
 
-		if (strategy instanceof FWD_OPT) {
-			Resource res = strategy.loadResource(
+		if (executable instanceof FWD_OPT) {
+			Resource res = executable.getResourceHandler().loadResource(
 					"platform:/resource/../benchmarx/examples/familiestopersons/metamodels/Persons/model/Persons.ecore");
 			personsPack = (EPackage) res.getContents().get(0);
 			rs.getResources().remove(res);
-		} else if (strategy instanceof BWD_OPT) {
-			Resource res = strategy.loadResource(
+		} else if (executable instanceof BWD_OPT) {
+			Resource res = executable.getResourceHandler().loadResource(
 					"platform:/resource/../benchmarx/examples/familiestopersons/metamodels/Families/model/Families.ecore");
 			familyPack = (EPackage) res.getContents().get(0);
 			rs.getResources().remove(res);
@@ -53,6 +53,7 @@ public class DemoclesRegistrationHelper implements IRegistrationHelper {
 		options.projectPath("BenchmarxFamiliesToPersons");
 		options.debug(false);
 		options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
+		options.registrationHelper(this);
 		return options;
 	}
 }

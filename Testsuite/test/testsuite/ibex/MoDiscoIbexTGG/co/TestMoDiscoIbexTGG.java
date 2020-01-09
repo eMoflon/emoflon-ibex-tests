@@ -6,7 +6,7 @@ import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 import org.emoflon.ibex.tgg.run.modiscoibextgg.BWD_OPT_App;
 import org.emoflon.ibex.tgg.run.modiscoibextgg.CO_App;
 import org.emoflon.ibex.tgg.run.modiscoibextgg.FWD_OPT_App;
-import org.emoflon.ibex.tgg.run.modiscoibextgg.config.*;
+import org.emoflon.ibex.tgg.run.modiscoibextgg.config.DemoclesRegistrationHelper;
 import org.junit.Assert;
 import org.junit.Test;
 

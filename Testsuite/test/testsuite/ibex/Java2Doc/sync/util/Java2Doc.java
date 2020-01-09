@@ -6,7 +6,8 @@ import org.benchmarx.simpledoc.core.SimpleDocComparator;
 import org.benchmarx.simpledoc.core.SimpleJavaComparator;
 import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 import org.emoflon.ibex.tgg.run.java2doc.SYNC_App;
-import org.emoflon.ibex.tgg.run.java2doc.config.*;
+import org.emoflon.ibex.tgg.run.java2doc.config.DemoclesRegistrationHelper;
+import org.emoflon.ibex.tgg.run.java2doc.config.HiPERegistrationHelper;
 
 import simpleDoc.Folder;
 import simpleJava.Package;
@@ -35,7 +36,7 @@ public class Java2Doc extends IbexAdapter<Package, Folder>{
 			Package p = SimpleJavaFactory.eINSTANCE.createPackage();
 			p.setName("org");
 			
-			synchroniser.getSourceResource().getContents().add(p);
+			synchroniser.getResourceHandler().getSourceResource().getContents().add(p);
 			synchroniser.forward();
 		} catch (IOException e) {
 			e.printStackTrace();

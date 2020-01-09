@@ -7,7 +7,8 @@ import java.io.IOException;
 
 import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 import org.emoflon.ibex.tgg.run.featuremodelconcisetosafe.CC_App;
-import org.emoflon.ibex.tgg.run.featuremodelconcisetosafe.config.*;
+import org.emoflon.ibex.tgg.run.featuremodelconcisetosafe.config.DemoclesRegistrationHelper;
+import org.emoflon.ibex.tgg.run.featuremodelconcisetosafe.config.HiPERegistrationHelper;
 import org.junit.Test;
 
 import testsuite.ibex.testUtil.CCTestCase;

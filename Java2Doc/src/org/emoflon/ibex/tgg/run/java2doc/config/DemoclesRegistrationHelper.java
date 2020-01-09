@@ -6,7 +6,7 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 import org.emoflon.ibex.tgg.operational.csp.constraints.factories.java2doc.UserDefinedRuntimeTGGAttrConstraintFactory;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
-import org.emoflon.ibex.tgg.operational.strategies.OperationalStrategy;
+import org.emoflon.ibex.tgg.operational.strategies.modules.IbexExecutable;
 import org.emoflon.ibex.tgg.runtime.democles.DemoclesTGGEngine;
 
 import simpleDoc.impl.SimpleDocPackageImpl;
@@ -15,7 +15,7 @@ import simpleJava.impl.SimpleJavaPackageImpl;
 public class DemoclesRegistrationHelper implements IRegistrationHelper {
 
 	/** Load and register source and target metamodels */
-	public void registerMetamodels(ResourceSet rs, OperationalStrategy strategy)  throws IOException {
+	public void registerMetamodels(ResourceSet rs, IbexExecutable executable)  throws IOException {
 		SimpleDocPackageImpl.init();
 		SimpleJavaPackageImpl.init();
 	}
@@ -29,6 +29,7 @@ public class DemoclesRegistrationHelper implements IRegistrationHelper {
 		options.debug(false);
 		options.repairAttributes(true);
 		options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
+		options.registrationHelper(this);
 		return options;
 	}
 }

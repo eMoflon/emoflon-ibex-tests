@@ -4,7 +4,8 @@ import java.io.IOException;
 
 import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 import org.emoflon.ibex.tgg.run.classinhhier2db.CC_App;
-import org.emoflon.ibex.tgg.run.classinhhier2db.config.*;
+import org.emoflon.ibex.tgg.run.classinhhier2db.config.DemoclesRegistrationHelper;
+import org.emoflon.ibex.tgg.run.classinhhier2db.config.HiPERegistrationHelper;
 import org.junit.Assert;
 import org.junit.Test;
 
