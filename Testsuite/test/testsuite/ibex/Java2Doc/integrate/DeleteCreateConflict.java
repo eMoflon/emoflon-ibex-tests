@@ -40,7 +40,7 @@ public class DeleteCreateConflict extends IntegrateTestCase<Package, Folder> {
 		// src:
 		EcoreUtil.delete(helperJava.getPackage(p, "cmoflon"), true);
 		// trg:
-		helperDoc.createDoc(helperDoc.getFolder(f, "cmoflon"), "newfolder", "new");
+		helperDoc.createDoc(helperDoc.getFolder(f, "cmoflon"), "criticalClazz_doc", "criticalbody");
 	};
 
 	@Test
@@ -77,7 +77,7 @@ public class DeleteCreateConflict extends IntegrateTestCase<Package, Folder> {
 		// src:
 		EcoreUtil.delete(helperJava.getPackage(p, "emoflon"), true);
 		// trg:
-		helperDoc.createDoc(helperDoc.getFolder(f, "ibex"), "criticalfolder", "criticalbody");
+		helperDoc.createDoc(helperDoc.getFolder(f, "ibex"), "criticalClazz_doc", "criticalbody");
 	};
 
 	@Test
@@ -117,7 +117,7 @@ public class DeleteCreateConflict extends IntegrateTestCase<Package, Folder> {
 		EcoreUtil.delete(helperJava.getPackage(p, "cmoflon"), true);
 		EcoreUtil.delete(helperJava.getPackage(p, "es"), true);
 		// trg:
-		helperDoc.createDoc(helperDoc.getFolder(f, "ibex"), "criticalfolder", "criticalbody");
+		helperDoc.createDoc(helperDoc.getFolder(f, "ibex"), "criticalClazz_doc", "criticalbody");
 	};
 
 	@Test
