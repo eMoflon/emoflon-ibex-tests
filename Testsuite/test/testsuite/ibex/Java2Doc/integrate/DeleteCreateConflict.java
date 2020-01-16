@@ -20,7 +20,7 @@ public class DeleteCreateConflict extends IntegrateTestCase<Package, Folder> {
 	SimpleDocHelper helperDoc;
 
 	public DeleteCreateConflict() {
-		super(new IntegIbexJava2Doc(projectName));
+		super(new IntegIbexJava2Doc(projectName, "moflon"));
 	}
 
 	@Override

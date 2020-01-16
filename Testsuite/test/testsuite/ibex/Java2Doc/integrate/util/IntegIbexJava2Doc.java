@@ -12,16 +12,19 @@ import testsuite.ibex.testUtil.IntegIbexAdapter;
 
 public class IntegIbexJava2Doc extends IntegIbexAdapter<Package, Folder> {
 
-	public IntegIbexJava2Doc(String projectName) {
+	private final String inFolder;
+
+	public IntegIbexJava2Doc(String projectName, String inFolder) {
 		super(new SimpleJavaComparator(true), new SimpleDocComparator(true), projectName);
+		this.inFolder = inFolder;
 	}
 
 	@Override
 	public void initiateIntegrationDialogue() {
 		try {
 			integrator = new INTEGRATE_App(projectName,
-					testsuite.ibex.performance.util.PerformanceConstants.workspacePath, "/resources/integ/in",
-					false);
+					testsuite.ibex.performance.util.PerformanceConstants.workspacePath,
+					"/resources/integ/in/" + inFolder, false);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
