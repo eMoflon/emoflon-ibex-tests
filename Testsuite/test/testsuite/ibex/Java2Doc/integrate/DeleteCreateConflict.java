@@ -1,10 +1,20 @@
 package testsuite.ibex.Java2Doc.integrate;
 
+import static org.emoflon.ibex.tgg.operational.strategies.integrate.provider.IntegrationFragmentProvider.APPLY_USER_DELTA;
+import static org.emoflon.ibex.tgg.operational.strategies.integrate.provider.IntegrationFragmentProvider.CHECK_LOCAL_CONSISTENCY;
+import static org.emoflon.ibex.tgg.operational.strategies.integrate.provider.IntegrationFragmentProvider.CLEAN_UP;
+import static org.emoflon.ibex.tgg.operational.strategies.integrate.provider.IntegrationFragmentProvider.REPAIR;
+import static org.emoflon.ibex.tgg.operational.strategies.integrate.provider.IntegrationFragmentProvider.RESOLVE_BROKEN_MATCHES;
+import static org.emoflon.ibex.tgg.operational.strategies.integrate.provider.IntegrationFragmentProvider.RESOLVE_CONFLICTS;
+import static org.emoflon.ibex.tgg.operational.strategies.integrate.provider.IntegrationFragmentProvider.TRANSLATE;
+
+import java.util.Arrays;
 import java.util.function.BiConsumer;
 
 import org.benchmarx.simpledoc.core.SimpleDocHelper;
 import org.benchmarx.simpledoc.core.SimpleJavaHelper;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.emoflon.ibex.tgg.operational.strategies.integrate.pattern.IntegrationPattern;
 import org.junit.Test;
 
 import simpleDoc.Folder;
@@ -34,6 +44,16 @@ public class DeleteCreateConflict extends IntegrateTestCase<Package, Folder> {
 		return projectName;
 	}
 
+	private final IntegrationPattern pattern = new IntegrationPattern(Arrays.asList( //
+			APPLY_USER_DELTA //
+			, REPAIR //
+			, CHECK_LOCAL_CONSISTENCY //
+			, RESOLVE_CONFLICTS //
+			, RESOLVE_BROKEN_MATCHES //
+			, TRANSLATE //
+			, CLEAN_UP //
+	));
+
 	private final String testpath = "integ/expected/dcc/";
 
 	private final BiConsumer<Package, Folder> dcc_simple_delta = (p, f) -> {
@@ -47,6 +67,7 @@ public class DeleteCreateConflict extends IntegrateTestCase<Package, Folder> {
 	public void dcc_simple1() {
 		final String path = testpath + "dcc_simple1/";
 
+		tool.getOptions().setIntegrationPattern(pattern);
 		tool.getOptions().setConflictSolver(c -> c.preserveDeletion());
 		tool.applyAndIntegrateDelta(dcc_simple_delta);
 
@@ -57,6 +78,7 @@ public class DeleteCreateConflict extends IntegrateTestCase<Package, Folder> {
 	public void dcc_simple2() {
 		final String path = testpath + "dcc_simple2/";
 
+		tool.getOptions().setIntegrationPattern(pattern);
 		tool.getOptions().setConflictSolver(c -> c.revokeDeletion());
 		tool.applyAndIntegrateDelta(dcc_simple_delta);
 
@@ -67,6 +89,7 @@ public class DeleteCreateConflict extends IntegrateTestCase<Package, Folder> {
 	public void dcc_simple3() {
 		final String path = testpath + "dcc_simple3/";
 
+		tool.getOptions().setIntegrationPattern(pattern);
 		tool.getOptions().setConflictSolver(c -> c.makeCompromise());
 		tool.applyAndIntegrateDelta(dcc_simple_delta);
 
@@ -84,6 +107,7 @@ public class DeleteCreateConflict extends IntegrateTestCase<Package, Folder> {
 	public void dcc_chain1() {
 		final String path = testpath + "dcc_chain1/";
 
+		tool.getOptions().setIntegrationPattern(pattern);
 		tool.getOptions().setConflictSolver(c -> c.preserveDeletion());
 		tool.applyAndIntegrateDelta(dcc_chain_delta);
 
@@ -94,6 +118,7 @@ public class DeleteCreateConflict extends IntegrateTestCase<Package, Folder> {
 	public void dcc_chain2() {
 		final String path = testpath + "dcc_chain2/";
 
+		tool.getOptions().setIntegrationPattern(pattern);
 		tool.getOptions().setConflictSolver(c -> c.revokeDeletion());
 		tool.applyAndIntegrateDelta(dcc_chain_delta);
 
@@ -104,6 +129,7 @@ public class DeleteCreateConflict extends IntegrateTestCase<Package, Folder> {
 	public void dcc_chain3() {
 		final String path = testpath + "dcc_chain3/";
 
+		tool.getOptions().setIntegrationPattern(pattern);
 		tool.getOptions().setConflictSolver(c -> c.makeCompromise());
 		tool.applyAndIntegrateDelta(dcc_chain_delta);
 
@@ -123,30 +149,33 @@ public class DeleteCreateConflict extends IntegrateTestCase<Package, Folder> {
 	@Test
 	public void dcc_chainMultiDel1() {
 		final String path = testpath + "dcc_chainMultiDel1/";
-		
+
+		tool.getOptions().setIntegrationPattern(pattern);
 		tool.getOptions().setConflictSolver(c -> c.preserveDeletion());
 		tool.applyAndIntegrateDelta(dcc_chainMultiDel_delta);
-		
+
 		assertCondition(path + "src", path + "trg", path + "corr");
 	}
-	
+
 	@Test
 	public void dcc_chainMultiDel2() {
 		final String path = testpath + "dcc_chainMultiDel2/";
-		
+
+		tool.getOptions().setIntegrationPattern(pattern);
 		tool.getOptions().setConflictSolver(c -> c.revokeDeletion());
 		tool.applyAndIntegrateDelta(dcc_chainMultiDel_delta);
-		
+
 		assertCondition(path + "src", path + "trg", path + "corr");
 	}
-	
+
 	@Test
 	public void dcc_chainMultiDel3() {
 		final String path = testpath + "dcc_chainMultiDel3/";
-		
+
+		tool.getOptions().setIntegrationPattern(pattern);
 		tool.getOptions().setConflictSolver(c -> c.makeCompromise());
 		tool.applyAndIntegrateDelta(dcc_chainMultiDel_delta);
-		
+
 		assertCondition(path + "src", path + "trg", path + "corr");
 	}
 
