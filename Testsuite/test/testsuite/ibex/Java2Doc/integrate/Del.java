@@ -18,7 +18,7 @@ public class Del extends IntegrateTestCase<Package, Folder> {
 	SimpleDocHelper helperDoc;
 
 	public Del() {
-		super(new IntegIbexJava2Doc(projectName));
+		super(new IntegIbexJava2Doc(projectName, "moflon"));
 	}
 
 	@Override
@@ -61,13 +61,15 @@ public class Del extends IntegrateTestCase<Package, Folder> {
 	}
 	
 	@Test
-	public void del_propagation() {
+	public void del_incompl() {
+		final String path = "integ/expected/del/del_incompl/";
+		
 		tool.applyAndIntegrateDelta((p, f) -> {
 			// trg:
 			EcoreUtil.delete(helperDoc.getDoc(f, "es_doc"), true);
 		});
 		
-		// TODO adrianm: add assertion
+		assertCondition(path + "src", path + "trg", path + "corr");
 	}
 
 }

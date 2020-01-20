@@ -60,6 +60,8 @@ pattern simpleTriangle4() {
 
 condition findTriangle1 = enforce simpleTriangle1
 condition findBToEReference = enforce bToEReference
+condition forbidBToEReference = forbid bToEReference
+condition forbidDToAReference = forbid dToAReference
 
 pattern invocationTriangle1() {
 	d : D_Class {
@@ -76,6 +78,16 @@ pattern bToEReference() {
 	
 	e : E_Class {
 		-b->b
+	}
+}
+
+pattern dToAReference() {
+	a : A_Class {
+		
+	}
+	
+	d : D_Class {
+		-a->a
 	}
 }
 

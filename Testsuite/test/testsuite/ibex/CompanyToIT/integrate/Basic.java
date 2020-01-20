@@ -2,7 +2,7 @@ package testsuite.ibex.CompanyToIT.integrate;
 
 import org.benchmarx.companyLanguage.core.CompanyLanguageHelper;
 import org.benchmarx.itLanguage.core.ITLanguageHelper;
-import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import CompanyLanguage.CEO;
@@ -34,13 +34,7 @@ public class Basic extends IntegrateTestCase<Company, IT> {
 		return projectName;
 	}
 
-	@Test
-	public void delete() {
-		tool.applyAndIntegrateDelta((c, it) -> {
-			EcoreUtil.delete(c.getAdmin().get(0), true);
-		});
-	}
-
+	@Ignore
 	@Test
 	public void filterNACViolation() {
 		tool.applyAndIntegrateDelta((c, it) -> {
@@ -51,6 +45,7 @@ public class Basic extends IntegrateTestCase<Company, IT> {
 		});
 	}
 	
+	@Ignore
 	@Test
 	public void modelChanges() {
 		tool.applyAndIntegrateDelta((c, it) -> {

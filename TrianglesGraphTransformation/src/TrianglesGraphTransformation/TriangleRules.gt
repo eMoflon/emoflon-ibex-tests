@@ -171,3 +171,49 @@ rule connectABCFull() {
 		++ -b->b
 	}
 } when abcNot
+
+rule deleteAB() refines simpleTriangle1 {
+	b : B_Class {
+		-- -a->a
+	}
+}
+
+rule deleteAC() refines simpleTriangle1 {
+	c : C_Class {
+		-- -a->a
+	}
+}
+
+rule deleteBC() refines simpleTriangle1 {
+	c : C_Class {
+		-- -b->b
+	}
+}
+
+rule connectDA() refines simpleTriangle2{
+	d : D_Class {
+		++ -a->a
+	}
+	
+	a : A_Class
+} when forbidDToAReference
+
+rule deleteDA(){
+	d : D_Class {
+		-- -a->a
+	}
+	
+	a : A_Class
+}when findTriangle1
+
+rule connectEB() refines simpleTriangle2{
+	e : E_Class {
+		++ -b->b
+	}
+} when forbidBToEReference
+
+rule deleteEB() refines simpleTriangle2{
+	e : E_Class {
+		-- -b->b
+	}
+}when findBToEReference
