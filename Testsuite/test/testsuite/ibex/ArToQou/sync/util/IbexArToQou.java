@@ -26,7 +26,7 @@ public class IbexArToQou extends IbexAdapter<RClass, QClass> {
 			synchroniser = new SYNC_App(projectName, testsuite.ibex.performance.util.PerformanceConstants.workspacePath, false);
 			
 			RClass r = ArFactory.eINSTANCE.createRClass();
-			synchroniser.getSourceResource().getContents().add(r);
+			synchroniser.getResourceHandler().getSourceResource().getContents().add(r);
 			
 			synchroniser.forward();
 		} catch (IOException e) {
