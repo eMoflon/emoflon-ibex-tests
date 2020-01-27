@@ -1,0 +1,29 @@
+#using TerraceHouses2BlockSet.*
+#using AttrCondDefLibrary.*
+
+#rule FirstBuilding2Construction #with TerraceHouses2BlockSet
+
+#source { 
+	++building:Building
+}
+
+#target {
+	++set:BlockSet {
+		++-constructions->constr
+	}
+	++constr:Construction {
+		++-components->cuboid
+	}
+	++cuboid:Cuboid
+}
+
+#correspondence {
+	++b2c:Building2Construction {
+		#src->building
+		#trg->constr
+	}
+}
+
+#attributeConditions {
+	eq_string(building.name, constr.name)
+}

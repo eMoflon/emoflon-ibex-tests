@@ -1,0 +1,19 @@
+#import "platform:/resource/TerraceHouses/model/TerraceHouses.ecore"
+#import "platform:/resource/WoodenBlockSet/model/WoodenBlockSet.ecore"
+
+#schema TerraceHouses2BlockSet
+	
+#source {
+	TerraceHouses
+}
+
+#target { 
+	WoodenBlockSet
+} 
+
+#correspondence {
+	Building2Construction {
+		#src->Building
+		#trg->Construction
+	}
+}

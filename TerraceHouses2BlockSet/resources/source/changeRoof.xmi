@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="ASCII"?>
+<TerraceHouses:Building xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:TerraceHouses="platform:/resource/TerraceHouses/model/TerraceHouses.ecore" name="Colorado Apartments">
+  <next xsi:type="TerraceHouses:House" address="5338 Colorado Ave NW" name="Apartment House" pitchedRoof="true">
+    <next xsi:type="TerraceHouses:House" address="5404 Colorado Ave NW" name="Smith's House" pitchedRoof="true">
+      <next xsi:type="TerraceHouses:House" address="5406 Colorado Ave NW" name="Wilson's House" pitchedRoof="true"/>
+    </next>
+  </next>
+</TerraceHouses:Building>
