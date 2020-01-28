@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <psf version="2.0">
 <provider id="org.eclipse.egit.core.GitProvider">
-<project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,AbcToNothing"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,Algorithms"/>
-<project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,AlgorithmToStrategy_MA"/>
 <project reference="1.0,https://github.com/eMoflon/benchmarx.git,master,core/Benchmarx"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,BenchmarxFamiliesToPersons"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,BlockCodeAdapter"/>
@@ -13,26 +11,19 @@
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,BlockLanguage"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,BPMN"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,BPMN-GraphTransformation"/>
-<project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,BPMNInstanceRepresentation"/>
-<project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,Class2Doc_MA"/>
-<project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,Class2TestClass_MA"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,ClassInheritanceHierarchy"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,ClassInhHier2DB"/>
-<project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,ClassInhHier2DB_MA"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,ClassMultipleInheritanceHierarchy"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,ClassMultipleInheritanceHierarchyGraphTransformation"/>
-<project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,ClassMultipleInhHier2DB_MA"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,CompanyLanguage"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,CompanyToIT"/>
 <project reference="1.0,https://github.com/eMoflon/benchmarx.git,master,examples/gantttocpm/metamodels/CPM"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,Database"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,Documents"/>
 <project reference="1.0,https://github.com/eMoflon/benchmarx.git,master,examples/familiestopersons/metamodels/Families"/>
-<project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,FamiliesToPersons_MA"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,FamiliesToPersons_V0"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,FamiliesToPersons_V1"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,FamiliesWithSiblings"/>
-<project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,FamilyWithSiblingsToPersons_MA"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,FeatureModelConcise"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,FeatureModelConciseToSafe"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,FeatureModelSafe"/>
@@ -72,7 +63,7 @@
 <item elementID="=SimpleFamiliesGraphTransformation" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=SimpleFamiliesToSimplePersonsGraphTransformation" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 </workingSets>
-<workingSets editPageId="org.eclipse.jdt.internal.ui.DynamicSourcesWorkingSet" id="1544811093585_0" label="Java Main Sources" name="main">
+<workingSets editPageId="org.eclipse.jdt.internal.ui.DynamicSourcesWorkingSet" id="1553510381836_0" label="Java Main Sources" name="main">
 <item elementID="=AbcToNothing/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=AlgorithmToStrategy_MA/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=Algorithms/gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
@@ -84,9 +75,6 @@
 <item elementID="=BPMN/injection" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=BPMN-GraphTransformation/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=BPMN-GraphTransformation/src-gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=BPMNInstanceRepresentation/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=BPMNInstanceRepresentation/gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=BPMNInstanceRepresentation/injection" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=Benchmarx/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=BenchmarxFamiliesToPersons/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=BlockCodeAdapter/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
@@ -223,33 +211,32 @@
 <item elementID="=VHDLTGGCodeAdapter/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 </workingSets>
 <workingSets editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" id="1544822822193_7" label="metamodels" name="metamodels">
-<item elementID="=Algorithms" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=BlockDiagram" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=BlockLanguage" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=BPMN" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=BPMNInstanceRepresentation" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=ClassInheritanceHierarchy" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=ClassMultipleInheritanceHierarchy" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=CompanyLanguage" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=CPM" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=Database" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=Documents" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=Families" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=FamiliesWithSiblings" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=FeatureModelConcise" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=FeatureModelSafe" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=FerrymanProblem" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=Gantt" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=ITLanguage" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=MocaTree" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=Persons" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=ProcessDefinition" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=SimpleJava" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=Strategies" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=SheRememberedCaterpillars" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=SimpleFamilies" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=SimpleJava" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=ClassInheritanceHierarchy" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=FeatureModelSafe" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=Families" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=Documents" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=FerrymanProblem" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=SimplePersons" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=Strategies" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=FamiliesWithSiblings" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=Algorithms" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=ITLanguage" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=FeatureModelConcise" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=BlockLanguage" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=VHDLModel" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=BPMN" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=ClassMultipleInheritanceHierarchy" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=CompanyLanguage" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=Gantt" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=Database" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=ProcessDefinition" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=Persons" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=BlockDiagram" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=MocaTree" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 </workingSets>
 <workingSets editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" id="1544812013290_7" label="testsuites" name="testsuites">
 <item elementID="=Testsuite" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>

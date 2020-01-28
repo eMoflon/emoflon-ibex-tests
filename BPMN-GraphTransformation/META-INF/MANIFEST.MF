@@ -4,14 +4,10 @@ Bundle-SymbolicName: BPMN-GraphTransformation;singleton:=true
 Export-Package: BPMNGraphTransformation.api,
  BPMNGraphTransformation.api.matches,
  BPMNGraphTransformation.api.matches,
- BPMNIRGraphTransformation.api,
- BPMNIRGraphTransformation.api.matches,
- BPMNIRGraphTransformation.api.rules,
  BPMNGraphTransformation.api.rules
 Bundle-Name: BPMN-GT
 Bundle-Version: 1.0.0.qualifier
 Require-Bundle: BPMN,
- BPMNInstanceRepresentation,
  org.emoflon.ibex.common,
  org.emoflon.ibex.gt,
  org.emoflon.ibex.gt.democles

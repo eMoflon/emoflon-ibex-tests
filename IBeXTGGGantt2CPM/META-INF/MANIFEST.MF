@@ -27,7 +27,9 @@ Require-Bundle: org.apache.log4j,
  org.gervarro.plan.dynprog,
  org.emoflon.ibex.tgg.runtime.democles,
  CPM,
- Gantt
+ Gantt,
+ org.emoflon.ibex.tgg.ui.debug,
+ org.emoflon.ibex.tgg.ui.debug.adapter
 Bundle-ManifestVersion: 2
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8

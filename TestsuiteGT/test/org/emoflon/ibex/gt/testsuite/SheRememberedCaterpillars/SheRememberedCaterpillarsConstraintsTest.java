@@ -2,13 +2,20 @@ package org.emoflon.ibex.gt.testsuite.SheRememberedCaterpillars;
 
 import static org.junit.Assert.assertTrue;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import SheRememberedCaterpillars.COLOR;
 import SheRememberedCaterpillars.ExitPlatform;
+import SheRememberedCaterpillars.Game;
+import SheRememberedCaterpillars.SheRememberedCaterpillarsFactory;
+import SheRememberedCaterpillars.SimplePlatform;
 import SheRememberedCaterpillarsGraphTransformation.api.SheRememberedCaterpillarsGraphTransformationAPI;
 import SheRememberedCaterpillarsGraphTransformation.api.matches.FindStandalonePlatformMatch;
 import SheRememberedCaterpillarsGraphTransformation.api.matches.FindTwoCharactersOnAnExitPlatformMatch;
+import SheRememberedCaterpillarsGraphTransformation.api.rules.FindPlatformWithExactlyOneNeighborPattern;
+import SheRememberedCaterpillarsGraphTransformation.api.rules.FindPlatformWithNeighborPattern;
+import SheRememberedCaterpillarsGraphTransformation.api.rules.FindPlatformWithTwoNeighborsPattern;
 
 /**
  * Tests for rule applications with the SheRememberedCaterpillars Graph
@@ -76,6 +83,53 @@ public class SheRememberedCaterpillarsConstraintsTest extends SheRememberedCater
 		assertMatchCount(2, api.findPlatformWithNeighbor());
 		assertMatchCount(1, api.findPlatformWithTwoNeighbors());
 	}
+	
+	@Ignore
+	@Test
+	public void findPlatformWithNeighbors_inc_create() {
+		SheRememberedCaterpillarsGraphTransformationAPI api = this.init("Instance3.xmi");
+
+		FindPlatformWithExactlyOneNeighborPattern findPlatformWithExactlyOneNeighbor = api.findPlatformWithExactlyOneNeighbor();
+		FindPlatformWithTwoNeighborsPattern findPlatformWithTwoNeighbors = api.findPlatformWithTwoNeighbors();
+		FindPlatformWithNeighborPattern findPlatformWithNeighbor = api.findPlatformWithNeighbor();
+		
+		assertMatchCount(2, findPlatformWithNeighbor);
+		assertMatchCount(1, findPlatformWithExactlyOneNeighbor);
+		assertMatchCount(1, findPlatformWithTwoNeighbors);
+		
+		SimplePlatform platform = findPlatformWithExactlyOneNeighbor.findAnyMatch().get().getPlatform();
+		Game game = (Game) platform.eContainer();
+		SimplePlatform newPlatform = SheRememberedCaterpillarsFactory.eINSTANCE.createSimplePlatform();
+		game.getObjects().add(newPlatform);
+		platform.getNeighbors().add(newPlatform);
+		
+		assertMatchCount(2, findPlatformWithNeighbor);
+		assertMatchCount(0, findPlatformWithExactlyOneNeighbor);
+		assertMatchCount(2, findPlatformWithTwoNeighbors);
+	}
+	
+	@Test
+	public void findPlatformWithNeighbors_inc_del() {
+		SheRememberedCaterpillarsGraphTransformationAPI api = this.init("Instance3.xmi");
+
+		FindPlatformWithExactlyOneNeighborPattern findPlatformWithExactlyOneNeighbor = api.findPlatformWithExactlyOneNeighbor();
+		FindPlatformWithTwoNeighborsPattern findPlatformWithTwoNeighbors = api.findPlatformWithTwoNeighbors();
+		FindPlatformWithNeighborPattern findPlatformWithNeighbor = api.findPlatformWithNeighbor();
+		
+		assertMatchCount(2, findPlatformWithNeighbor);
+		assertMatchCount(1, findPlatformWithExactlyOneNeighbor);
+		assertMatchCount(1, findPlatformWithTwoNeighbors);
+		
+		System.out.println("-----------CHANGE------------");
+		
+		SimplePlatform platform = findPlatformWithTwoNeighbors.findAnyMatch().get().getPlatform();
+		platform.getNeighbors().remove(0);
+		
+		assertMatchCount(2, findPlatformWithNeighbor);
+		assertMatchCount(2, findPlatformWithExactlyOneNeighbor);
+		assertMatchCount(0, findPlatformWithTwoNeighbors);
+	}
+
 
 	@Test
 	public void findPlatformWithConnections() {
@@ -100,7 +154,7 @@ public class SheRememberedCaterpillarsConstraintsTest extends SheRememberedCater
 	}
 
 	@Test
-	public void findPlatformWithSelfNeighborship() {
+	public void noPlatformWithSelfNeighborship() {
 		SheRememberedCaterpillarsGraphTransformationAPI api = this.init("Instance1.xmi");
 
 		api.findPlatformSelfNeighbor().forEachMatch(m -> {
@@ -108,5 +162,19 @@ public class SheRememberedCaterpillarsConstraintsTest extends SheRememberedCater
 		});
 
 		assertMatchCount(0, api.findPlatformSelfNeighbor());
+	}
+	
+	@Test
+	public void findPlatformWithSelfNeighborship() {
+		SheRememberedCaterpillarsGraphTransformationAPI api = this.init("Instance1.xmi");
+
+		api.findPlatformSelfNeighbor().forEachMatch(m -> {
+			System.out.println(m);
+		});
+		
+		SimplePlatform platform = api.findPlatformWithNeighbor().findAnyMatch().get().getPlatform();
+		platform.getNeighbors().add(platform);
+
+		assertMatchCount(1, api.findPlatformSelfNeighbor());
 	}
 }
