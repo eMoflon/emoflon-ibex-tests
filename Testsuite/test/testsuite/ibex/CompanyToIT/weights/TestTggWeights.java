@@ -5,10 +5,9 @@ import java.util.Collection;
 
 import org.eclipse.emf.ecore.EObject;
 import org.emoflon.ibex.common.emf.EMFEdge;
-import org.emoflon.ibex.common.operational.IMatch;
 import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 import org.emoflon.ibex.tgg.operational.matches.ITGGMatch;
-import org.emoflon.ibex.tgg.operational.matches.SimpleMatch;
+import org.emoflon.ibex.tgg.operational.matches.SimpleTGGMatch;
 import org.emoflon.ibex.tgg.operational.patterns.IGreenPatternFactory;
 import org.emoflon.ibex.tgg.run.companytoit.CC_App;
 import org.emoflon.ibex.tgg.run.companytoit.config.DemoclesRegistrationHelper;
@@ -60,7 +59,7 @@ public class TestTggWeights extends CCTestCase {
 
 	@Test
 	public void testCompanyToIT() {
-		ITGGMatch m = new SimpleMatch("CompanyToITRule_CC");
+		ITGGMatch m = new SimpleTGGMatch("CompanyToITRule_CC");
 		Company company = CompanyLanguageFactory.eINSTANCE.createCompany();
 		company.setName("SimpleCompany");
 		CEO ceo  = CompanyLanguageFactory.eINSTANCE.createCEO();
@@ -81,7 +80,7 @@ public class TestTggWeights extends CCTestCase {
 
 	@Test
 	public void testUnknownRule() {
-		ITGGMatch m = new SimpleMatch("NotExisting_CC");
+		ITGGMatch m = new SimpleTGGMatch("NotExisting_CC");
 		Company company = CompanyLanguageFactory.eINSTANCE.createCompany();
 		company.setName("SimpleCompany");
 		CEO ceo  = CompanyLanguageFactory.eINSTANCE.createCEO();
@@ -97,7 +96,7 @@ public class TestTggWeights extends CCTestCase {
 
 	@Test
 	public void testAdminToRouter() {
-		ITGGMatch m = new SimpleMatch("AdminToRouterRule_CC");
+		ITGGMatch m = new SimpleTGGMatch("AdminToRouterRule_CC");
 		Company company = CompanyLanguageFactory.eINSTANCE.createCompany();
 		company.setName("SimpleCompany");
 		CEO ceo  = CompanyLanguageFactory.eINSTANCE.createCEO();
@@ -120,7 +119,7 @@ public class TestTggWeights extends CCTestCase {
 
 	@Test
 	public void testEmployeeToLaptopRule() {
-		ITGGMatch m = new SimpleMatch("EmployeeToLaptopRule_CC");
+		ITGGMatch m = new SimpleTGGMatch("EmployeeToLaptopRule_CC");
 
 		Employee employeeShortName = CompanyLanguageFactory.eINSTANCE.createEmployee();
 		employeeShortName.setName("abc");
@@ -146,7 +145,7 @@ public class TestTggWeights extends CCTestCase {
 
 	@Test
 	public void testEmployeeToPCRule() {
-		ITGGMatch m = new SimpleMatch("EmployeeToPCRule_CC");
+		ITGGMatch m = new SimpleTGGMatch("EmployeeToPCRule_CC");
 
 		Employee employeeShortName = CompanyLanguageFactory.eINSTANCE.createEmployee();
 		employeeShortName.setName("abc");
