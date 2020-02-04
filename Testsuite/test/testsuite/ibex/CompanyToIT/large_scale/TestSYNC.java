@@ -2,11 +2,9 @@ package testsuite.ibex.CompanyToIT.large_scale;
 
 import java.io.IOException;
 
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 import org.emoflon.ibex.tgg.operational.strategies.modules.TGGResourceHandler;
 import org.emoflon.ibex.tgg.operational.strategies.sync.SYNC;
-import org.emoflon.ibex.tgg.run.classinhhier2db.FWD_OPT_App;
 import org.emoflon.ibex.tgg.run.companytoit.CO_App;
 import org.emoflon.ibex.tgg.run.companytoit.config.DemoclesRegistrationHelper;
 import org.emoflon.ibex.tgg.run.companytoit.config.HiPERegistrationHelper;
