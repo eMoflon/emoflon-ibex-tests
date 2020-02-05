@@ -23,11 +23,11 @@ public class DemoclesRegistrationHelper implements IRegistrationHelper {
 	/** Create default options **/
 	public IbexOptions createIbexOptions() {
 		IbexOptions options = new IbexOptions();
-		options.setBlackInterpreter(new DemoclesTGGEngine());
-		options.projectName("TerraceHouses2BlockSet");
-		options.projectPath("TerraceHouses2BlockSet");
-		options.debug(false);
-		options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
+		options.blackInterpreter(new DemoclesTGGEngine());
+		options.project.name("TerraceHouses2BlockSet");
+		options.project.path("TerraceHouses2BlockSet");
+		options.debug.ibexDebug(false);
+		options.csp.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
 		options.registrationHelper(this);
 		return options;
 	}
