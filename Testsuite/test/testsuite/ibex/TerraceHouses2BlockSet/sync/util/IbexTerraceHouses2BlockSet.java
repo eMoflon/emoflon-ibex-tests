@@ -49,7 +49,7 @@ public class IbexTerraceHouses2BlockSet extends IbexAdapter<Building, BlockSet> 
 			SYNC_App.registrationHelper = UsedPatternMatcher.choose(
 					new IRegistrationHelper[] { new DemoclesRegistrationHelper(), new HiPERegistrationHelper() });
 			synchroniser = new SYNC_App(projectName, workspacePath, false);
-			synchroniser.getOptions().setShortcutRuleUpdatePolicy(updatepolicy);
+			synchroniser.getOptions().repair.shortcutRuleUpdatePolicy(updatepolicy);
 
 			Building root = TerraceHousesFactory.eINSTANCE.createBuilding();
 			root.setName("Colorado Apartments");
