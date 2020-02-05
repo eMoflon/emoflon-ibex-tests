@@ -10,6 +10,6 @@ public class SYNC_App extends SYNC {
 	public static IRegistrationHelper registrationHelper = new _DefaultRegistrationHelper();
 
 	public SYNC_App(String projectName, String workspacePath, boolean debug) throws IOException {
-		super(registrationHelper.createIbexOptions().projectName(projectName).workspacePath(workspacePath).debug(debug));
+		super(registrationHelper.createIbexOptions().project.name(projectName).project.workspacePath(workspacePath).debug.ibexDebug(debug));
 	}
 }
