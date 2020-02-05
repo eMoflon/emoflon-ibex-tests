@@ -5,9 +5,9 @@
 
 #source { 
 	p : Package {
-		++ -classes->c
+		++ -clazzes->c
 	}
-	++ c : Class
+	++ c : Clazz
 }
 
 #target {
