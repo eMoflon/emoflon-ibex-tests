@@ -10,7 +10,6 @@ import org.emoflon.ibex.tgg.run.familiestopersons_v1.config.HiPERegistrationHelp
 import org.junit.Assert;
 import org.junit.Test;
 
-import Persons.Person;
 import SimpleFamilies.Family;
 import SimpleFamilies.FamilyMember;
 import SimpleFamilies.FamilyRegister;

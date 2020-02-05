@@ -1,5 +1,6 @@
 package testsuite.ibex.IBeXTGGGanttToCPM.sync.alignment_based.fwd;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import testsuite.ibex.IBeXTGGGanttToCPM.sync.GanttToCPMTestCase;
@@ -65,8 +66,10 @@ public class IncrementalForward extends GanttToCPMTestCase {
 	 * <b>Expect</b>: Change the values of the affected variables in Persons of the pdb2 database.
 	 * <b>Features</b>: fwd, attribute, fixed, structural, corr-based
 	 */
+	@Ignore
 	@Test
 	public void testIncrementalValueChange() {
+		// FIXME non-deterministic!
 		tool.performAndPropagateSourceEdit(util
 				.execute(helperGantt::createGantt2CPMTestCases)
 				.andThen(helperGantt::addGantt2CPMHelpers)

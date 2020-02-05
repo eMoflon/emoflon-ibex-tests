@@ -29,11 +29,11 @@ public class DemoclesRegistrationHelper implements IRegistrationHelper {
 	/** Create default options **/
 	public IbexOptions createIbexOptions() {
 		IbexOptions options = new IbexOptions();
-		options.setBlackInterpreter(new DemoclesTGGEngine());
-		options.projectName("IBeXTGGGantt2CPM");
-		options.projectPath("IBeXTGGGantt2CPM");
-		options.debug(false);
-		options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
+		options.blackInterpreter(new DemoclesTGGEngine());
+		options.project.name("IBeXTGGGantt2CPM");
+		options.project.path("IBeXTGGGantt2CPM");
+		options.debug.ibexDebug(false);
+		options.csp.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
 		options.registrationHelper(this);
 		return options;
 	}

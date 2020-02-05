@@ -4,7 +4,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.benchmarx.Configurator;
-import org.emoflon.ibex.common.operational.IMatch;
 import org.emoflon.ibex.tgg.compiler.patterns.PatternSuffixes;
 import org.emoflon.ibex.tgg.operational.matches.ITGGMatch;
 import org.emoflon.ibex.tgg.operational.matches.ImmutableMatchContainer;

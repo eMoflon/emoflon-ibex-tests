@@ -12,37 +12,39 @@ import org.emoflon.ibex.tgg.util.ilp.ILPFactory.SupportedILPSolver;
 public class FWD_OPT_App extends FWD_OPT {
 
 	public static IRegistrationHelper registrationHelper = new _DefaultRegistrationHelper();
-	
-	public FWD_OPT_App(String projectName, String workspacePath, boolean debug, String srcPath, String trgPath, 
+
+	public FWD_OPT_App(String projectName, String workspacePath, boolean debug, String srcPath, String trgPath,
 			String corrPath, String protPath, SupportedILPSolver ilpSolver) throws IOException {
-		super(registrationHelper.createIbexOptions().projectName(projectName).workspacePath(workspacePath).debug(debug).setIlpSolver(ilpSolver).setResourceHandler(new TGGResourceHandler() {
-			@Override
-			public void loadModels() throws IOException {
-				source = loadResource(options.projectPath() +srcPath+".xmi");
-				target = createResource(options.projectPath() +trgPath+".xmi");
-				corr = createResource(options.projectPath() +corrPath+".xmi");
-				protocol = createResource(options.projectPath() +protPath+".xmi");
-			}
-			
-			@Override
-			public void saveModels() throws IOException {
-				target.save(null);
-			}
-		}));
+		super(registrationHelper.createIbexOptions().project.name(projectName).project
+				.workspacePath(workspacePath).debug.ibexDebug(debug).ilpSolver(ilpSolver)
+						.resourceHandler(new TGGResourceHandler() {
+							@Override
+							public void loadModels() throws IOException {
+								source = loadResource(options.project.path() + srcPath + ".xmi");
+								target = createResource(options.project.path() + trgPath + ".xmi");
+								corr = createResource(options.project.path() + corrPath + ".xmi");
+								protocol = createResource(options.project.path() + protPath + ".xmi");
+							}
+
+							@Override
+							public void saveModels() throws IOException {
+								target.save(null);
+							}
+						}));
 	}
 
 	public static void main(String[] args) throws IOException {
 		BasicConfigurator.configure();
 
-		FWD_OPT_App sync = new FWD_OPT_App("BenchmarxFamiliesToPersons", "./../", true, "/resources/co/src", "/resources/co/trg", 
-				"/resources/co/corr", "/resources/co/protocol", SupportedILPSolver.Gurobi);
-		
+		FWD_OPT_App sync = new FWD_OPT_App("BenchmarxFamiliesToPersons", "./../", true, "/resources/co/src",
+				"/resources/co/trg", "/resources/co/corr", "/resources/co/protocol", SupportedILPSolver.Gurobi);
+
 		logger.info("Starting SYNC");
 		long tic = System.currentTimeMillis();
 		sync.forward();
 		long toc = System.currentTimeMillis();
 		logger.info("Completed SYNC in: " + (toc - tic) + " ms");
-		
+
 		sync.terminate();
 		sync.saveModels();
 	}
