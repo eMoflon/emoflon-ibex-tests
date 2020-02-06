@@ -87,6 +87,7 @@ public class HiPERegistrationHelper implements IRegistrationHelper {
 		options.project.name("TerraceHouses2BlockSet");
 		options.project.path("TerraceHouses2BlockSet");
 		options.debug.ibexDebug(false);
+		options.repair.useShortcutRules(true);
 		options.csp.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
 		options.registrationHelper(this);
 		return options;

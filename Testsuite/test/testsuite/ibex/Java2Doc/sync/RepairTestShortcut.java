@@ -14,12 +14,12 @@ import simpleJava.SimpleJavaFactory;
 import testsuite.ibex.Java2Doc.sync.util.Java2Doc;
 import testsuite.ibex.testUtil.SyncTestCase;
 
-public class ShortcutFix extends SyncTestCase<Package, Folder>{
+public class RepairTestShortcut extends SyncTestCase<Package, Folder>{
 	
 	private SimpleJavaHelper helperJava;
 	private SimpleDocHelper helperDoc;
 	
-	public ShortcutFix() {
+	public RepairTestShortcut() {
 		super(new Java2Doc(projectName));
 	}
 

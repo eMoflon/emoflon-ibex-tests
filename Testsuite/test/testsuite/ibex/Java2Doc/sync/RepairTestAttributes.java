@@ -9,12 +9,12 @@ import simpleJava.Package;
 import testsuite.ibex.Java2Doc.sync.util.Java2Doc;
 import testsuite.ibex.testUtil.SyncTestCase;
 
-public class RepairTest extends SyncTestCase<Package, Folder>{
+public class RepairTestAttributes extends SyncTestCase<Package, Folder>{
 	
 	private SimpleJavaHelper helperJava;
 	private SimpleDocHelper helperDoc;
 	
-	public RepairTest() {
+	public RepairTestAttributes() {
 		super(new Java2Doc(projectName));
 	}
 

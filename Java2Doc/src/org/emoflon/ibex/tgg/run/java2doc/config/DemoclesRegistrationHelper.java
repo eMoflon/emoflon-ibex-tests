@@ -27,7 +27,7 @@ public class DemoclesRegistrationHelper implements IRegistrationHelper {
 		options.project.name("Java2Doc");
 		options.project.path("Java2Doc");
 		options.debug.ibexDebug(false);
-		options.repair.repairAttributes(true);
+		options.repair.useShortcutRules(true);
 		options.csp.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
 		options.registrationHelper(this);
 		return options;
