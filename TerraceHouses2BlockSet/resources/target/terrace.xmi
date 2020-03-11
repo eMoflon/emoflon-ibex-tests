@@ -1,17 +1,38 @@
 <?xml version="1.0" encoding="ASCII"?>
-<WoodenBlockSet:BlockSet xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:WoodenBlockSet="platform:/resource/WoodenBlockSet/model/WoodenBlockSet.ecore">
-  <constructions constructor="Henry" name="Colorado Apartments">
-    <components xsi:type="WoodenBlockSet:Cuboid" color="red"/>
+<WoodenBlockSet:BlockSet
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:WoodenBlockSet="platform:/resource/WoodenBlockSet/model/WoodenBlockSet.ecore">
+  <constructions
+      constructor="Henry"
+      name="Colorado Apartments">
+    <components
+        xsi:type="WoodenBlockSet:Cuboid"
+        color="red"/>
   </constructions>
-  <constructions constructor="Henry" name="Apartment House">
-    <components xsi:type="WoodenBlockSet:Cube" color="green"/>
+  <constructions
+      constructor="Henry"
+      name="Apartment House">
+    <components
+        xsi:type="WoodenBlockSet:Cube"
+        color="green"/>
   </constructions>
-  <constructions constructor="Henry" name="Smith's House">
-    <components xsi:type="WoodenBlockSet:Cube" color="green"/>
-    <components xsi:type="WoodenBlockSet:TriangularPrism" color="blue"/>
+  <constructions
+      constructor="Henry"
+      name="Smith's House">
+    <components
+        xsi:type="WoodenBlockSet:Cube"
+        color="green"/>
   </constructions>
-  <constructions constructor="Henry" name="Wilson's House">
-    <components xsi:type="WoodenBlockSet:Cube" color="green"/>
-    <components xsi:type="WoodenBlockSet:TriangularPrism" color="blue"/>
+  <constructions
+      constructor="Henry"
+      name="Wilson's House">
+    <components
+        xsi:type="WoodenBlockSet:Cube"
+        color="green"/>
+    <components
+        xsi:type="WoodenBlockSet:TriangularPrism"
+        color="blue"/>
   </constructions>
 </WoodenBlockSet:BlockSet>

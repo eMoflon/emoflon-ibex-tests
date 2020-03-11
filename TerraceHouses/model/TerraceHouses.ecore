@@ -5,13 +5,14 @@
   <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
     <details key="documentation" value="TODO: Add documentation for TerraceHouses. Hint: You may copy this element in the Ecore editor to add documentation to EClasses, EOperations, ..."/>
   </eAnnotations>
-  <eClassifiers xsi:type="ecore:EClass" name="Building">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="next" eType="#//Building"
+  <eClassifiers xsi:type="ecore:EClass" name="Structure" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="next" eType="#//Structure"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="address" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="House" eSuperTypes="#//Building">
+  <eClassifiers xsi:type="ecore:EClass" name="House" eSuperTypes="#//Structure">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="pitchedRoof" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Building" eSuperTypes="#//Structure"/>
 </ecore:EPackage>

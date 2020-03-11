@@ -4,10 +4,10 @@
 #rule FlatRoof2Construction #with TerraceHouses2BlockSet
 
 #source { 
-	building:Building {
-		++-next->nextBuilding
+	struct:Structure {
+		++-next->nextHouse
 	}
-	++nextBuilding:House {
+	++nextHouse:House {
 		pitchedRoof:=false
 	}
 }
@@ -26,16 +26,16 @@
 }
 
 #correspondence {
-	b2c:Building2Construction {
-		#src->building
+	b2c:Structure2Construction {
+		#src->struct
 		#trg->constr
 	}
-	++nb2nc:Building2Construction {
-		#src->nextBuilding
+	++nb2nc:Structure2Construction {
+		#src->nextHouse
 		#trg->nextConstr
 	}
 }
 
 #attributeConditions {
-	eq_string(nextBuilding.name, nextConstr.name)
+	eq_string(nextHouse.name, nextConstr.name)
 }

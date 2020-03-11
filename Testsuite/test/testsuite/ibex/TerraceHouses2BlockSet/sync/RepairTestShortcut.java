@@ -3,6 +3,7 @@ package testsuite.ibex.TerraceHouses2BlockSet.sync;
 import org.benchmarx.terracehouses.core.TerraceHousesHelper;
 import org.benchmarx.woodenblockset.core.WoodenBlockSetHelper;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import TerraceHouses.Building;
@@ -13,10 +14,10 @@ import testsuite.ibex.TerraceHouses2BlockSet.sync.util.IbexTerraceHouses2BlockSe
 import testsuite.ibex.testUtil.IbexAdapter;
 import testsuite.ibex.testUtil.SyncTestCase;
 
-public class RepairTestShortcut extends SyncTestCase<Building, BlockSet>{
-	
+public class RepairTestShortcut extends SyncTestCase<Building, BlockSet> {
+
 	private static final String projectName = "TerraceHouses2BlockSet";
-	
+
 	private TerraceHousesHelper helperTerrace;
 	private WoodenBlockSetHelper helperBlockSet;
 
@@ -34,49 +35,50 @@ public class RepairTestShortcut extends SyncTestCase<Building, BlockSet>{
 	protected String getProjectName() {
 		return projectName;
 	}
-	
+
 	private void buildTerrace(IbexAdapter<Building, BlockSet> adapter) {
 		tool.performAndPropagateTargetEdit(s -> s.getConstructions().get(0).setConstructor("Henry"));
 		tool.performAndPropagateSourceEdit(helperTerrace::buildTerrace);
 		tool.performAndPropagateTargetEdit(helperBlockSet::setColors);
 	}
-	
+
 	@Test
 	public void testInit() {
 		assertPostcondition("source/init", "target/init");
 	}
-	
+
 	@Test
 	public void terrace() {
 		assertPrecondition("source/init", "target/init");
 		buildTerrace(tool);
 		assertPostcondition("source/terrace", "target/terrace");
 	}
-	
+
 	@Test
 	public void changeRoof_FWD() {
 		buildTerrace(tool);
 		assertPrecondition("source/terrace", "target/terrace");
-		
+
 		tool.performAndPropagateSourceEdit(root -> {
-			House flatRoof = helperTerrace.getHouse(root, "Apartment House");
+			House flatRoof = helperTerrace.getHouse(root, "Smith's House");
 			flatRoof.setPitchedRoof(true);
 		});
 		assertPostcondition("source/changeRoof", "target/changeRoof");
 	}
-	
+
 	@Test
 	public void changeRoof_BWD() {
 		buildTerrace(tool);
 		assertPrecondition("source/terrace", "target/terrace");
-		
+
 		tool.performAndPropagateTargetEdit(set -> {
-			Construction flatRoof = helperBlockSet.getConstruction(set, "Apartment House");
+			Construction flatRoof = helperBlockSet.getConstruction(set, "Smith's House");
 			helperBlockSet.createTriangularPrism(flatRoof, null);
 		});
 		assertPostcondition("source/changeRoof", "target/changeRoof");
 	}
-	
+
+	@Ignore("Inheritance is already checked by the both upper tests")
 	@Test
 	public void generalizeHouse_BWD() {
 		buildTerrace(tool);

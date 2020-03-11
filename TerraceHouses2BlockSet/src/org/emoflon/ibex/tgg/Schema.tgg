@@ -12,8 +12,8 @@
 } 
 
 #correspondence {
-	Building2Construction {
-		#src->Building
+	Structure2Construction {
+		#src->Structure
 		#trg->Construction
 	}
 }

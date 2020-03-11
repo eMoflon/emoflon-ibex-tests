@@ -15,18 +15,19 @@ public class SYNC_App extends SYNC {
 	public static IRegistrationHelper registrationHelper = new _DefaultRegistrationHelper();
 
 	public SYNC_App(String projectName, String workspacePath, boolean debug) throws IOException {
-		super(registrationHelper.createIbexOptions().project.name(projectName).project.workspacePath(workspacePath).debug.ibexDebug(debug)
-				.resourceHandler(new TGGResourceHandler() {
-					@Override
-					public void loadModels() throws IOException {
-						source = createResource(options.project.path() + "/instances/src.xmi");
-						target = createResource(options.project.path() + "/instances/trg.xmi");
-						corr = createResource(options.project.path() + "/instances/corr.xmi");
-						protocol = createResource(options.project.path() + "/instances/protocol.xmi");
-					}
-				}));
+		super(registrationHelper.createIbexOptions().project.name(projectName).project
+				.workspacePath(workspacePath).debug.ibexDebug(debug).propagate.usePrecedenceGraph(true)
+						.resourceHandler(new TGGResourceHandler() {
+							@Override
+							public void loadModels() throws IOException {
+								source = createResource(options.project.path() + "/instances/src.xmi");
+								target = createResource(options.project.path() + "/instances/trg.xmi");
+								corr = createResource(options.project.path() + "/instances/corr.xmi");
+								protocol = createResource(options.project.path() + "/instances/protocol.xmi");
+							}
+						}));
 	}
-	
+
 	public SYNC_App() throws IOException {
 		super(registrationHelper.createIbexOptions());
 	}
