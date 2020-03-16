@@ -1,0 +1,34 @@
+#using Clazz2GlossarDoc.*
+#using AttrCondDefLibrary.*
+
+#rule InheritanceRule #with Clazz2GlossarDoc
+
+#source {
+	superClazz : Clazz {
+		++ -subClazzes-> subClazz
+	}
+	++ subClazz : Clazz 
+}
+
+#target {
+	superDoc : Document 
+	++ subDoc : Document {
+		++ -hyperRefs-> subDoc
+	}
+}
+
+#correspondence {
+	super2super : Clazz2doc {
+		#src->superClazz
+		#trg->superDoc
+	}
+	
+	++ sub2sub : Clazz2doc {
+		#src->subClazz
+		#trg->subDoc
+	}
+}
+
+#attributeConditions {
+	
+}

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated Clazz2GlossarDoc -->
+      <package
+            uri="platform:/resource/Clazz2GlossarDoc/model/Clazz2GlossarDoc.ecore"
+            class="Clazz2GlossarDoc.Clazz2GlossarDocPackage"
+            genModel="model/Clazz2GlossarDoc.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated Clazz2GlossarDoc -->
+      <package
+            uri="platform:/resource/SimpleClassInheritance/model/simpleClassInheritance.ecore"
+            class="simpleClassInheritance.SimpleClassInheritancePackage"
+            genModel="model/Clazz2GlossarDoc.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated Clazz2GlossarDoc -->
+      <package
+            uri="platform:/resource/GlossarDocumentation/model/glossarDocumentation.ecore"
+            class="glossarDocumentation.GlossarDocumentationPackage"
+            genModel="model/Clazz2GlossarDoc.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated Clazz2GlossarDoc -->
+      <package
+            uri="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore"
+            class="runtime.RuntimePackage"
+            genModel="model/Clazz2GlossarDoc.genmodel"/>
+   </extension>
+</plugin>
