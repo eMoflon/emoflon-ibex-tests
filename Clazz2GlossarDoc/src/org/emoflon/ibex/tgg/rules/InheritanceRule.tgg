@@ -11,9 +11,12 @@
 }
 
 #target {
+	dCont : DocumentationContainer {
+		++ -documents-> subDoc
+	}
 	superDoc : Document 
 	++ subDoc : Document {
-		++ -hyperRefs-> subDoc
+		++ -hyperRefs-> superDoc
 	}
 }
 
@@ -30,5 +33,5 @@
 }
 
 #attributeConditions {
-	
+	eq_string(subClazz.name, subDoc.name)
 }

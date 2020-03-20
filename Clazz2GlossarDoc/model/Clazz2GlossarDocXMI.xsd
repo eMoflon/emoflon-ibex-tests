@@ -149,6 +149,29 @@
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:element name="GlossarLinkRule__Marker" type="Clazz2GlossarDoc:GlossarLinkRule__Marker"/>
+  <xsd:complexType name="InheritanceRule__Marker">
+    <xsd:complexContent>
+      <xsd:extension base="org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="CREATE__SRC__subClazz" type="simpleClassInheritance:Clazz"/>
+          <xsd:element name="CONTEXT__SRC__superClazz" type="simpleClassInheritance:Clazz"/>
+          <xsd:element name="CONTEXT__TRG__dCont" type="glossarDocumentation:DocumentationContainer"/>
+          <xsd:element name="CREATE__TRG__subDoc" type="glossarDocumentation:Document"/>
+          <xsd:element name="CONTEXT__TRG__superDoc" type="glossarDocumentation:Document"/>
+          <xsd:element name="CREATE__CORR__sub2sub" type="Clazz2GlossarDoc:Clazz2doc"/>
+          <xsd:element name="CONTEXT__CORR__super2super" type="Clazz2GlossarDoc:Clazz2doc"/>
+        </xsd:choice>
+        <xsd:attribute name="CREATE__SRC__subClazz" type="xsd:string"/>
+        <xsd:attribute name="CONTEXT__SRC__superClazz" type="xsd:string"/>
+        <xsd:attribute name="CONTEXT__TRG__dCont" type="xsd:string"/>
+        <xsd:attribute name="CREATE__TRG__subDoc" type="xsd:string"/>
+        <xsd:attribute name="CONTEXT__TRG__superDoc" type="xsd:string"/>
+        <xsd:attribute name="CREATE__CORR__sub2sub" type="xsd:string"/>
+        <xsd:attribute name="CONTEXT__CORR__super2super" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="InheritanceRule__Marker" type="Clazz2GlossarDoc:InheritanceRule__Marker"/>
   <xsd:complexType name="Method2EntityRule__Marker">
     <xsd:complexContent>
       <xsd:extension base="org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication">

@@ -56,6 +56,15 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Clazz2GlossarDoc.ecore#//GlossarLinkRule__Marker/CONTEXT__TRG__entry"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Clazz2GlossarDoc.ecore#//GlossarLinkRule__Marker/CONTEXT__TRG__gEntry"/>
     </genClasses>
+    <genClasses ecoreClass="Clazz2GlossarDoc.ecore#//InheritanceRule__Marker">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Clazz2GlossarDoc.ecore#//InheritanceRule__Marker/CREATE__SRC__subClazz"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Clazz2GlossarDoc.ecore#//InheritanceRule__Marker/CONTEXT__SRC__superClazz"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Clazz2GlossarDoc.ecore#//InheritanceRule__Marker/CONTEXT__TRG__dCont"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Clazz2GlossarDoc.ecore#//InheritanceRule__Marker/CREATE__TRG__subDoc"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Clazz2GlossarDoc.ecore#//InheritanceRule__Marker/CONTEXT__TRG__superDoc"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Clazz2GlossarDoc.ecore#//InheritanceRule__Marker/CREATE__CORR__sub2sub"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Clazz2GlossarDoc.ecore#//InheritanceRule__Marker/CONTEXT__CORR__super2super"/>
+    </genClasses>
     <genClasses ecoreClass="Clazz2GlossarDoc.ecore#//Method2EntityRule__Marker">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Clazz2GlossarDoc.ecore#//Method2EntityRule__Marker/CONTEXT__SRC__clazz"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Clazz2GlossarDoc.ecore#//Method2EntityRule__Marker/CREATE__SRC__method"/>
@@ -75,7 +84,7 @@
   <genPackages prefix="SimpleClassInheritance" ecorePackage="../../SimpleClassInheritance/model/simpleClassInheritance.ecore#/">
     <genClasses ecoreClass="../../SimpleClassInheritance/model/simpleClassInheritance.ecore#//Clazz">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../SimpleClassInheritance/model/simpleClassInheritance.ecore#//Clazz/methods"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../SimpleClassInheritance/model/simpleClassInheritance.ecore#//Clazz/fields"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../SimpleClassInheritance/model/simpleClassInheritance.ecore#//Clazz/fields"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ../../SimpleClassInheritance/model/simpleClassInheritance.ecore#//Clazz/superClazz"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../SimpleClassInheritance/model/simpleClassInheritance.ecore#//Clazz/subClazzes"/>
     </genClasses>
@@ -99,6 +108,7 @@
     <genClasses ecoreClass="../../GlossarDocumentation/model/glossarDocumentation.ecore#//Document">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../GlossarDocumentation/model/glossarDocumentation.ecore#//Document/entries"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../GlossarDocumentation/model/glossarDocumentation.ecore#//Document/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../GlossarDocumentation/model/glossarDocumentation.ecore#//Document/hyperRefs"/>
     </genClasses>
     <genClasses ecoreClass="../../GlossarDocumentation/model/glossarDocumentation.ecore#//Glossar">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../GlossarDocumentation/model/glossarDocumentation.ecore#//Glossar/entries"/>

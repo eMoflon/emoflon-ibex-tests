@@ -6,7 +6,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="methods" upperBound="-1"
         eType="#//Method" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="fields" upperBound="-1"
-        eType="#//Field"/>
+        eType="#//Field" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="superClazz" eType="#//Clazz"
         eOpposite="#//Clazz/subClazzes"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="subClazzes" upperBound="-1"

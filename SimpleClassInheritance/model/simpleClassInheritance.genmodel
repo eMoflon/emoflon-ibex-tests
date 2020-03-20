@@ -11,7 +11,7 @@
   <genPackages prefix="SimpleClassInheritance" disposableProviderFactory="true" ecorePackage="simpleClassInheritance.ecore#/">
     <genClasses ecoreClass="simpleClassInheritance.ecore#//Clazz">
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference simpleClassInheritance.ecore#//Clazz/methods"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference simpleClassInheritance.ecore#//Clazz/fields"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference simpleClassInheritance.ecore#//Clazz/fields"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference simpleClassInheritance.ecore#//Clazz/superClazz"/>
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference simpleClassInheritance.ecore#//Clazz/subClazzes"/>
     </genClasses>
