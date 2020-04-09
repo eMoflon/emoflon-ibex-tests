@@ -2,12 +2,12 @@ package testsuite.ibex.TerraceHouses2BlockSet.sync;
 
 import org.benchmarx.terracehouses.core.TerraceHousesHelper;
 import org.benchmarx.woodenblockset.core.WoodenBlockSetHelper;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.junit.Ignore;
 import org.junit.Test;
 
 import TerraceHouses.Building;
 import TerraceHouses.House;
+import TerraceHouses.Structure;
 import WoodenBlockSet.BlockSet;
 import WoodenBlockSet.Construction;
 import testsuite.ibex.TerraceHouses2BlockSet.sync.util.IbexTerraceHouses2BlockSet;
@@ -78,18 +78,34 @@ public class RepairTestShortcut extends SyncTestCase<Building, BlockSet> {
 		assertPostcondition("source/changeRoof", "target/changeRoof");
 	}
 
-	@Ignore("Inheritance is already checked by the both upper tests")
+	@Ignore("HiPE is buggy for this delta")
 	@Test
-	public void generalizeHouse_BWD() {
+	public void insertHouse_FWD() {
 		buildTerrace(tool);
 		assertPrecondition("source/terrace", "target/terrace");
-
-		tool.performAndPropagateTargetEdit(set -> {
-			Construction house = helperBlockSet.getConstruction(set, "Apartment House");
-			EcoreUtil.deleteAll(house.getComponents(), true);
-			helperBlockSet.createCuboid(house, "green");
+		
+		tool.performAndPropagateSourceEdit(root -> {
+			House before = helperTerrace.getHouse(root, "Apartment House");
+			Structure after = before.getNext();
+			House newHouse = helperTerrace.createHouse(before, "The New House", "45267 Oldtown", true);
+			newHouse.setNext(after);
 		});
-		assertPostcondition("source/generalizeHouse", "target/generalizeHouse");
+//		assertPostcondition("source/insertHouse", "target/insertHouse");
+	}
+	
+	@Test
+	public void removeMiddleHouse_FWD() {
+		buildTerrace(tool);
+		assertPrecondition("source/terrace", "target/terrace");
+		
+		tool.performAndPropagateSourceEdit(root -> {
+			House before = helperTerrace.getHouse(root, "Apartment House");
+			Structure middle = before.getNext();
+			Structure after = middle.getNext();
+			before.setNext(after);
+			middle.setNext(null);
+		});
+		assertPostcondition("source/removeMiddleHouse", "target/removeMiddleHouse");
 	}
 
 }

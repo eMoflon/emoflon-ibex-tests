@@ -28,6 +28,7 @@ public class DemoclesRegistrationHelper implements IRegistrationHelper {
 		options.project.path("Java2Doc");
 		options.debug.ibexDebug(false);
 		options.repair.useShortcutRules(true);
+		options.repair.advancedOverlapStrategies(true);
 		options.csp.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
 		options.registrationHelper(this);
 		return options;
