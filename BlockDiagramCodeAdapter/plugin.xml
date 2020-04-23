@@ -14,28 +14,4 @@
             genModel="model/BlockDiagramCodeAdapter.genmodel"/>
    </extension>
 
-   <extension point="org.eclipse.emf.ecore.generated_package">
-      <!-- @generated BlockDiagramCodeAdapter -->
-      <package
-            uri="platform:/resource/BlockDiagram/model/BlockDiagram.ecore"
-            class="BlockDiagram.BlockDiagramPackage"
-            genModel="model/BlockDiagramCodeAdapter.genmodel"/>
-   </extension>
-
-   <extension point="org.eclipse.emf.ecore.generated_package">
-      <!-- @generated BlockDiagramCodeAdapter -->
-      <package
-            uri="platform:/resource/MocaTree/model/MocaTree.ecore"
-            class="MocaTree.MocaTreePackage"
-            genModel="model/BlockDiagramCodeAdapter.genmodel"/>
-   </extension>
-
-   <extension point="org.eclipse.emf.ecore.generated_package">
-      <!-- @generated BlockDiagramCodeAdapter -->
-      <package
-            uri="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore"
-            class="runtime.RuntimePackage"
-            genModel="model/BlockDiagramCodeAdapter.genmodel"/>
-   </extension>
-
 </plugin>
