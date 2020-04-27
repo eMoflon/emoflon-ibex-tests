@@ -4,7 +4,7 @@
   <genmodel:GenModel modelDirectory="Clazz2GlossarDoc/gen/" modelPluginID="Clazz2GlossarDoc"
       modelName="Clazz2GlossarDoc" generateSchema="true" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
       importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
-      usedGenPackages="#/1/simpleClassInheritance #/2/glossarDocumentation #/3/runtime"
+      usedGenPackages="#/1/runtime #/2/simpleClassInheritance #/3/glossarDocumentation"
       operationReflection="true" importOrganizing="true">
     <foreignModel>Clazz2GlossarDoc.ecore</foreignModel>
     <genPackages prefix="Clazz2GlossarDoc" disposableProviderFactory="true" ecorePackage="Clazz2GlossarDoc.ecore#/">
@@ -132,6 +132,19 @@
       </genClasses>
     </genPackages>
   </genmodel:GenModel>
+  <genmodel:GenModel modelPluginID="org.emoflon.ibex.tgg.runtime">
+    <genPackages prefix="Runtime" ecorePackage="../../org.emoflon.ibex.tgg.runtime/model/Runtime.ecore#/">
+      <genClasses ecoreClass="../../org.emoflon.ibex.tgg.runtime/model/Runtime.ecore#//Protocol">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.emoflon.ibex.tgg.runtime/model/Runtime.ecore#//Protocol/steps"/>
+      </genClasses>
+      <genClasses ecoreClass="../../org.emoflon.ibex.tgg.runtime/model/Runtime.ecore#//TGGRuleApplication">
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ../../org.emoflon.ibex.tgg.runtime/model/Runtime.ecore#//TGGRuleApplication/protocol"/>
+      </genClasses>
+      <genClasses ecoreClass="../../org.emoflon.ibex.tgg.runtime/model/Runtime.ecore#//TempContainer">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.emoflon.ibex.tgg.runtime/model/Runtime.ecore#//TempContainer/objects"/>
+      </genClasses>
+    </genPackages>
+  </genmodel:GenModel>
   <genmodel:GenModel modelPluginID="SimpleClassInheritance">
     <genPackages prefix="SimpleClassInheritance" ecorePackage="../../SimpleClassInheritance/model/simpleClassInheritance.ecore#/">
       <genClasses ecoreClass="../../SimpleClassInheritance/model/simpleClassInheritance.ecore#//Clazz">
@@ -180,19 +193,6 @@
       <genClasses ecoreClass="../../GlossarDocumentation/model/glossarDocumentation.ecore#//DocumentationContainer">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../GlossarDocumentation/model/glossarDocumentation.ecore#//DocumentationContainer/documents"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../GlossarDocumentation/model/glossarDocumentation.ecore#//DocumentationContainer/glossar"/>
-      </genClasses>
-    </genPackages>
-  </genmodel:GenModel>
-  <genmodel:GenModel modelPluginID="org.emoflon.ibex.tgg.runtime">
-    <genPackages prefix="Runtime" ecorePackage="../../org.emoflon.ibex.tgg.runtime/model/Runtime.ecore#/">
-      <genClasses ecoreClass="../../org.emoflon.ibex.tgg.runtime/model/Runtime.ecore#//Protocol">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.emoflon.ibex.tgg.runtime/model/Runtime.ecore#//Protocol/steps"/>
-      </genClasses>
-      <genClasses ecoreClass="../../org.emoflon.ibex.tgg.runtime/model/Runtime.ecore#//TGGRuleApplication">
-        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ../../org.emoflon.ibex.tgg.runtime/model/Runtime.ecore#//TGGRuleApplication/protocol"/>
-      </genClasses>
-      <genClasses ecoreClass="../../org.emoflon.ibex.tgg.runtime/model/Runtime.ecore#//TempContainer">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.emoflon.ibex.tgg.runtime/model/Runtime.ecore#//TempContainer/objects"/>
       </genClasses>
     </genPackages>
   </genmodel:GenModel>
