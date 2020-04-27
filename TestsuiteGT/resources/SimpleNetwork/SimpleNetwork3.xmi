@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SimpleNetwork:Network
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:SimpleNetwork="platform:/resource/SimpleNetwork/model/SimpleNetwork.ecore"
+    maxBandwidth="20.0"
+    deviceNumber="2">
+  <devices maxBandwidth="9.0"
+      maxConnections="5"/>
+  <devices maxBandwidth="10.0"
+      maxConnections="5"/>
+  <devices maxConnections="5"/>
+</SimpleNetwork:Network>

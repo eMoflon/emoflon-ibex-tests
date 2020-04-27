@@ -4,7 +4,7 @@
   <genmodel:GenModel modelDirectory="Clazz2GlossarDoc/gen/" modelPluginID="Clazz2GlossarDoc"
       modelName="Clazz2GlossarDoc" generateSchema="true" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
       importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
-      usedGenPackages="#/1/glossarDocumentation #/2/runtime #/3/simpleClassInheritance"
+      usedGenPackages="#/1/simpleClassInheritance #/2/glossarDocumentation #/3/runtime"
       operationReflection="true" importOrganizing="true">
     <foreignModel>Clazz2GlossarDoc.ecore</foreignModel>
     <genPackages prefix="Clazz2GlossarDoc" disposableProviderFactory="true" ecorePackage="Clazz2GlossarDoc.ecore#/">
@@ -132,6 +132,27 @@
       </genClasses>
     </genPackages>
   </genmodel:GenModel>
+  <genmodel:GenModel modelPluginID="SimpleClassInheritance">
+    <genPackages prefix="SimpleClassInheritance" ecorePackage="../../SimpleClassInheritance/model/simpleClassInheritance.ecore#/">
+      <genClasses ecoreClass="../../SimpleClassInheritance/model/simpleClassInheritance.ecore#//Clazz">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../SimpleClassInheritance/model/simpleClassInheritance.ecore#//Clazz/methods"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../SimpleClassInheritance/model/simpleClassInheritance.ecore#//Clazz/fields"/>
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ../../SimpleClassInheritance/model/simpleClassInheritance.ecore#//Clazz/superClazz"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../SimpleClassInheritance/model/simpleClassInheritance.ecore#//Clazz/subClazzes"/>
+      </genClasses>
+      <genClasses ecoreClass="../../SimpleClassInheritance/model/simpleClassInheritance.ecore#//Field"/>
+      <genClasses ecoreClass="../../SimpleClassInheritance/model/simpleClassInheritance.ecore#//Method">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../SimpleClassInheritance/model/simpleClassInheritance.ecore#//Method/parameters"/>
+      </genClasses>
+      <genClasses ecoreClass="../../SimpleClassInheritance/model/simpleClassInheritance.ecore#//Parameter"/>
+      <genClasses ecoreClass="../../SimpleClassInheritance/model/simpleClassInheritance.ecore#//ClazzContainer">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../SimpleClassInheritance/model/simpleClassInheritance.ecore#//ClazzContainer/clazzes"/>
+      </genClasses>
+      <genClasses ecoreClass="../../SimpleClassInheritance/model/simpleClassInheritance.ecore#//NamedElement">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../SimpleClassInheritance/model/simpleClassInheritance.ecore#//NamedElement/name"/>
+      </genClasses>
+    </genPackages>
+  </genmodel:GenModel>
   <genmodel:GenModel modelPluginID="GlossarDocumentation">
     <genPackages prefix="GlossarDocumentation" ecorePackage="../../GlossarDocumentation/model/glossarDocumentation.ecore#/">
       <genEnums typeSafeEnumCompatible="false" ecoreEnum="../../GlossarDocumentation/model/glossarDocumentation.ecore#//EntryType">
@@ -172,27 +193,6 @@
       </genClasses>
       <genClasses ecoreClass="../../org.emoflon.ibex.tgg.runtime/model/Runtime.ecore#//TempContainer">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.emoflon.ibex.tgg.runtime/model/Runtime.ecore#//TempContainer/objects"/>
-      </genClasses>
-    </genPackages>
-  </genmodel:GenModel>
-  <genmodel:GenModel modelPluginID="SimpleClassInheritance">
-    <genPackages prefix="SimpleClassInheritance" ecorePackage="../../SimpleClassInheritance/model/simpleClassInheritance.ecore#/">
-      <genClasses ecoreClass="../../SimpleClassInheritance/model/simpleClassInheritance.ecore#//Clazz">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../SimpleClassInheritance/model/simpleClassInheritance.ecore#//Clazz/methods"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../SimpleClassInheritance/model/simpleClassInheritance.ecore#//Clazz/fields"/>
-        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ../../SimpleClassInheritance/model/simpleClassInheritance.ecore#//Clazz/superClazz"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../SimpleClassInheritance/model/simpleClassInheritance.ecore#//Clazz/subClazzes"/>
-      </genClasses>
-      <genClasses ecoreClass="../../SimpleClassInheritance/model/simpleClassInheritance.ecore#//Field"/>
-      <genClasses ecoreClass="../../SimpleClassInheritance/model/simpleClassInheritance.ecore#//Method">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../SimpleClassInheritance/model/simpleClassInheritance.ecore#//Method/parameters"/>
-      </genClasses>
-      <genClasses ecoreClass="../../SimpleClassInheritance/model/simpleClassInheritance.ecore#//Parameter"/>
-      <genClasses ecoreClass="../../SimpleClassInheritance/model/simpleClassInheritance.ecore#//ClazzContainer">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../SimpleClassInheritance/model/simpleClassInheritance.ecore#//ClazzContainer/clazzes"/>
-      </genClasses>
-      <genClasses ecoreClass="../../SimpleClassInheritance/model/simpleClassInheritance.ecore#//NamedElement">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../SimpleClassInheritance/model/simpleClassInheritance.ecore#//NamedElement/name"/>
       </genClasses>
     </genPackages>
   </genmodel:GenModel>
