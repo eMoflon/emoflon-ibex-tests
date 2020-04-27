@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="MetamodelInheritance2" nsURI="platform:/resource/MetamodelInheritance2/model/MetamodelInheritance2.ecore"
+    nsPrefix="metamodel_inheritance2">
+  <eClassifiers xsi:type="ecore:EClass" name="ChildA" eSuperTypes="../../MetamodelInheritance/model/MetamodelInheritance.ecore#//BaseContaineeA">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="b" upperBound="-1" eType="#//ChildB"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="childD" upperBound="-1"
+        eType="#//ChildContaineeD" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="c" upperBound="-1" eType="ecore:EClass ../../MetamodelInheritance/model/MetamodelInheritance.ecore#//BaseContaineeC"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ChildB" eSuperTypes="../../MetamodelInheritance/model/MetamodelInheritance.ecore#//BaseContaineeB">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="a" upperBound="-1" eType="#//ChildA"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="d" upperBound="-1" eType="#//ChildContaineeD"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ChildContaineeD"/>
+</ecore:EPackage>

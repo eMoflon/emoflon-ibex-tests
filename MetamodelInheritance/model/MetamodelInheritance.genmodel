@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/MetamodelInheritance/src-gen" creationIcons="false"
+    editDirectory="/MetamodelInheritance.edit/src-gen" editorDirectory="/MetamodelInheritance.editor/src-gen"
+    modelPluginID="MetamodelInheritance" modelName="MetamodelInheritance" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0"
+    copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>MetamodelInheritance.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="MetamodelInheritance" disposableProviderFactory="true" ecorePackage="MetamodelInheritance.ecore#/">
+    <genClasses ecoreClass="MetamodelInheritance.ecore#//BaseContainer">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MetamodelInheritance.ecore#//BaseContainer/baseA"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MetamodelInheritance.ecore#//BaseContainer/baseB"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MetamodelInheritance.ecore#//BaseContainer/baseC"/>
+    </genClasses>
+    <genClasses ecoreClass="MetamodelInheritance.ecore#//BaseContaineeA"/>
+    <genClasses ecoreClass="MetamodelInheritance.ecore#//BaseContaineeB"/>
+    <genClasses ecoreClass="MetamodelInheritance.ecore#//BaseContaineeC"/>
+  </genPackages>
+</genmodel:GenModel>

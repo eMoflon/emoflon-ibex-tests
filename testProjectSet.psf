@@ -35,6 +35,9 @@
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,IBeXTGGGantt2CPM"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,ITLanguage"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,Java2Doc"/>
+<project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,MetamodelInheritance"/>
+<project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,MetamodelInheritance2"/>
+<project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,MetamodelInheritance3"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,MocaTree"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,MocaTreeToProcess"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,MoDiscoIbexTGG"/>
@@ -68,6 +71,7 @@
 <item elementID="=FerrymanProblemGraphTransformation" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=SimpleFamiliesGraphTransformation" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=SimpleFamiliesToSimplePersonsGraphTransformation" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=MetamodelInheritanceTransformation" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 </workingSets>
 <workingSets editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" id="1544822822193_7" label="metamodels" name="metamodels">
 <item elementID="=CPM" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
@@ -100,6 +104,9 @@
 <item elementID="=MocaTree" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=GlossarDocumentation" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=SimpleClassInheritance" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=MetamodelInheritance" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=MetamodelInheritance2" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=MetamodelInheritance3" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 </workingSets>
 <workingSets editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" id="1544812013290_7" label="testsuites" name="testsuites">
 <item elementID="=Testsuite" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>

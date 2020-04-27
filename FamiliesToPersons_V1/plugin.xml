@@ -14,28 +14,4 @@
             genModel="model/FamiliesToPersons_V1.genmodel"/>
    </extension>
 
-   <extension point="org.eclipse.emf.ecore.generated_package">
-      <!-- @generated FamiliesToPersons_V1 -->
-      <package
-            uri="platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore"
-            class="SimpleFamilies.SimpleFamiliesPackage"
-            genModel="model/FamiliesToPersons_V1.genmodel"/>
-   </extension>
-
-   <extension point="org.eclipse.emf.ecore.generated_package">
-      <!-- @generated FamiliesToPersons_V1 -->
-      <package
-            uri="platform:/resource/SimplePersons/model/SimplePersons.ecore"
-            class="SimplePersons.SimplePersonsPackage"
-            genModel="model/FamiliesToPersons_V1.genmodel"/>
-   </extension>
-
-   <extension point="org.eclipse.emf.ecore.generated_package">
-      <!-- @generated FamiliesToPersons_V1 -->
-      <package
-            uri="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore"
-            class="runtime.RuntimePackage"
-            genModel="model/FamiliesToPersons_V1.genmodel"/>
-   </extension>
-
 </plugin>

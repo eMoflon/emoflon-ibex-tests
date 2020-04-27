@@ -1,31 +1,35 @@
 Manifest-Version: 1.0
 Bundle-SymbolicName: CompanyToIT;singleton:=true
-Bundle-Name: testsuite1_CompanyToIT
+Bundle-Name: %pluginName
 Bundle-Version: 1.0
+Bundle-ClassPath: .
 Require-Bundle: org.eclipse.emf.ecore.xmi,
  org.apache.log4j,
  org.junit;bundle-version="4.12.0",
  Benchmarx;bundle-version="1.0.0",
  org.emoflon.ibex.common,
  org.emoflon.ibex.tgg.language,
- org.emoflon.ibex.tgg.runtime,
+ org.emoflon.ibex.tgg.runtime;visibility:=reexport,
  org.emoflon.ibex.tgg.runtime.democles,
- CompanyLanguage;bundle-version="1.0.0",
- ITLanguage;bundle-version="1.0.0",
+ CompanyLanguage;bundle-version="1.0.0";visibility:=reexport,
+ ITLanguage;bundle-version="1.0.0";visibility:=reexport,
  org.sat4j.core;bundle-version="2.3.5",
  org.sat4j.pb;bundle-version="2.3.5",
  org.eclipse.xtend.lib;bundle-version="2.14.0",
  org.emoflon.ibex.tgg.ui.debug,
  org.emoflon.ibex.tgg.ui.debug.adapter;bundle-version="1.0.0",
- org.emoflon.ibex.tgg.runtime.hipe;bundle-version="1.0.0",
  org.emoflon.ibex.tgg.runtime.hipe,
- CompanyLanguage,
- ITLanguage
+ org.eclipse.core.runtime,
+ org.eclipse.emf.ecore;visibility:=reexport
 Bundle-ManifestVersion: 2
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Bundle-Vendor: eMoflon IBeX
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
 Export-Package: org.emoflon.ibex.tgg.run.companytoit,
  org.emoflon.ibex.tgg.run.companytoit.config,
- org.emoflon.ibex.tgg.weights
+ org.emoflon.ibex.tgg.weights,
+ CompanyToIT,
+ CompanyToIT.impl,
+ CompanyToIT.util
 Automatic-Module-Name: CompanyToIT
