@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/SimpleNetwork/gen" modelPluginID="SimpleNetwork"
+    modelName="SimpleNetwork" updateClasspath="false" codeFormatting="true" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="8.0" copyrightFields="false" operationReflection="true">
+  <foreignModel>SimpleNetwork.ecore</foreignModel>
+  <genPackages prefix="SimpleNetwork" disposableProviderFactory="true" ecorePackage="SimpleNetwork.ecore#/">
+    <genClasses ecoreClass="SimpleNetwork.ecore#//Network">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimpleNetwork.ecore#//Network/maxBandwidth"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimpleNetwork.ecore#//Network/deviceNumber"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SimpleNetwork.ecore#//Network/devices"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SimpleNetwork.ecore#//Network/connections"/>
+    </genClasses>
+    <genClasses ecoreClass="SimpleNetwork.ecore#//Device">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimpleNetwork.ecore#//Device/maxBandwidth"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimpleNetwork.ecore#//Device/currentConnections"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimpleNetwork.ecore#//Device/maxConnections"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SimpleNetwork.ecore#//Device/connections"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimpleNetwork.ecore#//Device/flag"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimpleNetwork.ecore#//Device/otherValue"/>
+    </genClasses>
+    <genClasses ecoreClass="SimpleNetwork.ecore#//Connection">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimpleNetwork.ecore#//Connection/bandwidth"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SimpleNetwork.ecore#//Connection/devices"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimpleNetwork.ecore#//Connection/flag"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
