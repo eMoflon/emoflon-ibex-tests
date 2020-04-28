@@ -57,5 +57,6 @@ Require-Bundle: org.apache.log4j,
  org.eclipse.emf.compare;bundle-version="3.5.3",
  FamiliesToPersons_V1
 Automatic-Module-Name: Testsuite
-Import-Package: org.emoflon.ibex.tgg.run.familiestopersons_v1
+Import-Package: org.benchmarx.cpm.core,
+ org.emoflon.ibex.tgg.run.familiestopersons_v1
 
