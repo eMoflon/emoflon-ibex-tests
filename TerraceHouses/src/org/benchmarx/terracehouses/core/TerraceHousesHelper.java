@@ -50,5 +50,34 @@ public class TerraceHousesHelper {
 		
 		return getBuilding(root.getNext(), name);
 	}
+	
+	// EVAL //
+	
+	public void generateHouseRow(Structure root, int length) {
+		Structure previous = root;
+		for (int i = 1; i < length; i++) {
+			previous = createHouse(previous, "Haus" + i, "", i > 5);
+		}
+	}
+	
+	public Structure changeRoof(Structure root, int number, boolean pitchedRoof) {
+		Structure previous = root;
+		for (int i = 1; i <= number; i++) {
+			Structure current = previous.getNext();
+			if(current == null) {
+				if (previous instanceof House) {
+					((House) previous).setPitchedRoof(pitchedRoof);
+					return previous;
+				}
+				return null;
+			}
+			previous = current;
+		}
+		if (previous instanceof House) {
+			((House) previous).setPitchedRoof(pitchedRoof);
+			return previous;
+		}
+		return null;
+	}
 
 }
