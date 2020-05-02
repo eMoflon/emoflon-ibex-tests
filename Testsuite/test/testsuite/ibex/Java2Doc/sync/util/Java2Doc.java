@@ -8,6 +8,7 @@ import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 import org.emoflon.ibex.tgg.run.java2doc.SYNC_App;
 import org.emoflon.ibex.tgg.run.java2doc.config.DemoclesRegistrationHelper;
 import org.emoflon.ibex.tgg.run.java2doc.config.HiPERegistrationHelper;
+import org.emoflon.ibex.tgg.run.java2doc.config.ViatraRegistrationHelper;
 
 import simpleDoc.Folder;
 import simpleJava.Package;
@@ -30,7 +31,7 @@ public class Java2Doc extends IbexAdapter<Package, Folder>{
 	@Override
 	public void initiateSynchronisationDialogue() {
 		try {
-			SYNC_App.registrationHelper = UsedPatternMatcher.choose(new IRegistrationHelper[]{new DemoclesRegistrationHelper(), new HiPERegistrationHelper()});
+			SYNC_App.registrationHelper = UsedPatternMatcher.choose(new IRegistrationHelper[]{new DemoclesRegistrationHelper(), new HiPERegistrationHelper(), new ViatraRegistrationHelper()});
 			synchroniser = new SYNC_App(projectName, testsuite.ibex.performance.util.PerformanceConstants.workspacePath, false);
 			
 			Package p = SimpleJavaFactory.eINSTANCE.createPackage();
