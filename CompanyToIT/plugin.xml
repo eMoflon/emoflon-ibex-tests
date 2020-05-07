@@ -14,28 +14,4 @@
             genModel="model/CompanyToIT.genmodel"/>
    </extension>
 
-   <extension point="org.eclipse.emf.ecore.generated_package">
-      <!-- @generated CompanyToIT -->
-      <package
-            uri="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore"
-            class="CompanyLanguage.CompanyLanguagePackage"
-            genModel="model/CompanyToIT.genmodel"/>
-   </extension>
-
-   <extension point="org.eclipse.emf.ecore.generated_package">
-      <!-- @generated CompanyToIT -->
-      <package
-            uri="platform:/resource/ITLanguage/model/ITLanguage.ecore"
-            class="ITLanguage.ITLanguagePackage"
-            genModel="model/CompanyToIT.genmodel"/>
-   </extension>
-
-   <extension point="org.eclipse.emf.ecore.generated_package">
-      <!-- @generated CompanyToIT -->
-      <package
-            uri="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore"
-            class="runtime.RuntimePackage"
-            genModel="model/CompanyToIT.genmodel"/>
-   </extension>
-
 </plugin>

@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="ASCII"?>
+<tgg:TripleGraphGrammarFile xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tgg="http://www.moflon.org/ide/tgg/mosl/TGG">
+  <imports name="platform:/resource/SimpleClassInheritance/model/simpleClassInheritance.ecore"/>
+  <imports name="platform:/resource/GlossarDocumentation/model/glossarDocumentation.ecore"/>
+  <schema name="Clazz2GlossarDoc">
+    <sourceTypes href="platform:/resource/SimpleClassInheritance/model/simpleClassInheritance.ecore#/"/>
+    <targetTypes href="platform:/resource/GlossarDocumentation/model/glossarDocumentation.ecore#/"/>
+    <correspondenceTypes name="Container2container">
+      <source href="platform:/resource/SimpleClassInheritance/model/simpleClassInheritance.ecore#//ClazzContainer"/>
+      <target href="platform:/resource/GlossarDocumentation/model/glossarDocumentation.ecore#//DocumentationContainer"/>
+    </correspondenceTypes>
+    <correspondenceTypes name="Clazz2doc">
+      <source href="platform:/resource/SimpleClassInheritance/model/simpleClassInheritance.ecore#//Clazz"/>
+      <target href="platform:/resource/GlossarDocumentation/model/glossarDocumentation.ecore#//Document"/>
+    </correspondenceTypes>
+    <correspondenceTypes name="Field2entry">
+      <source href="platform:/resource/SimpleClassInheritance/model/simpleClassInheritance.ecore#//Field"/>
+      <target href="platform:/resource/GlossarDocumentation/model/glossarDocumentation.ecore#//Entry"/>
+    </correspondenceTypes>
+    <correspondenceTypes name="Method2entry">
+      <source href="platform:/resource/SimpleClassInheritance/model/simpleClassInheritance.ecore#//Method"/>
+      <target href="platform:/resource/GlossarDocumentation/model/glossarDocumentation.ecore#//Entry"/>
+    </correspondenceTypes>
+    <correspondenceTypes name="Parameter2entry">
+      <source href="platform:/resource/SimpleClassInheritance/model/simpleClassInheritance.ecore#//Parameter"/>
+      <target href="platform:/resource/GlossarDocumentation/model/glossarDocumentation.ecore#//Entry"/>
+    </correspondenceTypes>
+    <attributeCondDefs name="eq_string">
+      <params paramName="a">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </params>
+      <params paramName="b">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </params>
+      <allowedSyncAdornments>
+        <value>B</value>
+        <value>B</value>
+      </allowedSyncAdornments>
+      <allowedSyncAdornments>
+        <value>B</value>
+        <value>F</value>
+      </allowedSyncAdornments>
+      <allowedSyncAdornments>
+        <value>F</value>
+        <value>B</value>
+      </allowedSyncAdornments>
+      <allowedGenAdornments>
+        <value>B</value>
+        <value>B</value>
+      </allowedGenAdornments>
+      <allowedGenAdornments>
+        <value>B</value>
+        <value>F</value>
+      </allowedGenAdornments>
+      <allowedGenAdornments>
+        <value>F</value>
+        <value>B</value>
+      </allowedGenAdornments>
+      <allowedGenAdornments>
+        <value>F</value>
+        <value>F</value>
+      </allowedGenAdornments>
+    </attributeCondDefs>
+  </schema>
+  <rules name="Clazz2DocRule" schema="//@schema">
+    <sourcePatterns name="cCont">
+      <type href="platform:/resource/SimpleClassInheritance/model/simpleClassInheritance.ecore#//ClazzContainer"/>
+      <linkVariablePatterns target="//@rules.0/@sourcePatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/SimpleClassInheritance/model/simpleClassInheritance.ecore#//ClazzContainer/clazzes"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="clazz">
+      <op value="++"/>
+      <type href="platform:/resource/SimpleClassInheritance/model/simpleClassInheritance.ecore#//Clazz"/>
+    </sourcePatterns>
+    <targetPatterns name="dCont">
+      <type href="platform:/resource/GlossarDocumentation/model/glossarDocumentation.ecore#//DocumentationContainer"/>
+      <linkVariablePatterns target="//@rules.0/@targetPatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/GlossarDocumentation/model/glossarDocumentation.ecore#//DocumentationContainer/documents"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="doc">
+      <op value="++"/>
+      <type href="platform:/resource/GlossarDocumentation/model/glossarDocumentation.ecore#//Document"/>
+    </targetPatterns>
+    <correspondencePatterns name="cont2cont" type="//@schema/@correspondenceTypes.0" source="//@rules.0/@sourcePatterns.0" target="//@rules.0/@targetPatterns.0"/>
+    <correspondencePatterns name="c2d" type="//@schema/@correspondenceTypes.1" source="//@rules.0/@sourcePatterns.1" target="//@rules.0/@targetPatterns.1">
+      <op value="++"/>
+    </correspondencePatterns>
+    <attrConditions name="//@schema/@attributeCondDefs.0">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.0/@sourcePatterns.1">
+        <attribute href="platform:/resource/SimpleClassInheritance/model/simpleClassInheritance.ecore#//NamedElement/name"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.0/@targetPatterns.1">
+        <attribute href="platform:/resource/GlossarDocumentation/model/glossarDocumentation.ecore#//Document/name"/>
+      </values>
+    </attrConditions>
+  </rules>
+  <rules name="Container2ContainerRule" schema="//@schema">
+    <sourcePatterns name="cCont">
+      <op value="++"/>
+      <type href="platform:/resource/SimpleClassInheritance/model/simpleClassInheritance.ecore#//ClazzContainer"/>
+    </sourcePatterns>
+    <targetPatterns name="dCont">
+      <op value="++"/>
+      <type href="platform:/resource/GlossarDocumentation/model/glossarDocumentation.ecore#//DocumentationContainer"/>
+      <linkVariablePatterns target="//@rules.1/@targetPatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/GlossarDocumentation/model/glossarDocumentation.ecore#//DocumentationContainer/glossar"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="glossar">
+      <op value="++"/>
+      <type href="platform:/resource/GlossarDocumentation/model/glossarDocumentation.ecore#//Glossar"/>
+    </targetPatterns>
+    <correspondencePatterns name="c2d" type="//@schema/@correspondenceTypes.0" source="//@rules.1/@sourcePatterns.0" target="//@rules.1/@targetPatterns.0">
+      <op value="++"/>
+    </correspondencePatterns>
+  </rules>
+  <rules name="Method2EntityRule" schema="//@schema">
+    <sourcePatterns name="clazz">
+      <type href="platform:/resource/SimpleClassInheritance/model/simpleClassInheritance.ecore#//Clazz"/>
+      <linkVariablePatterns target="//@rules.2/@sourcePatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/SimpleClassInheritance/model/simpleClassInheritance.ecore#//Clazz/methods"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="method">
+      <op value="++"/>
+      <type href="platform:/resource/SimpleClassInheritance/model/simpleClassInheritance.ecore#//Method"/>
+    </sourcePatterns>
+    <targetPatterns name="doc">
+      <type href="platform:/resource/GlossarDocumentation/model/glossarDocumentation.ecore#//Document"/>
+      <linkVariablePatterns target="//@rules.2/@targetPatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/GlossarDocumentation/model/glossarDocumentation.ecore#//Document/entries"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="entry">
+      <op value="++"/>
+      <type href="platform:/resource/GlossarDocumentation/model/glossarDocumentation.ecore#//Entry"/>
+      <attributeAssignments op=":=">
+        <attribute href="platform:/resource/GlossarDocumentation/model/glossarDocumentation.ecore#//Entry/type"/>
+        <valueExp xsi:type="tgg:EnumExpression">
+          <eenum href="platform:/resource/GlossarDocumentation/model/glossarDocumentation.ecore#//EntryType"/>
+          <literal href="platform:/resource/GlossarDocumentation/model/glossarDocumentation.ecore#//EntryType/METHOD"/>
+        </valueExp>
+      </attributeAssignments>
+    </targetPatterns>
+    <correspondencePatterns name="c2d" type="//@schema/@correspondenceTypes.1" source="//@rules.2/@sourcePatterns.0" target="//@rules.2/@targetPatterns.0"/>
+    <correspondencePatterns name="f2e" type="//@schema/@correspondenceTypes.3" source="//@rules.2/@sourcePatterns.1" target="//@rules.2/@targetPatterns.1">
+      <op value="++"/>
+    </correspondencePatterns>
+    <attrConditions name="//@schema/@attributeCondDefs.0">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.2/@sourcePatterns.1">
+        <attribute href="platform:/resource/SimpleClassInheritance/model/simpleClassInheritance.ecore#//NamedElement/name"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.2/@targetPatterns.1">
+        <attribute href="platform:/resource/GlossarDocumentation/model/glossarDocumentation.ecore#//Entry/name"/>
+      </values>
+    </attrConditions>
+  </rules>
+  <rules name="GlossarEntryRule" schema="//@schema">
+    <targetPatterns name="glossar">
+      <type href="platform:/resource/GlossarDocumentation/model/glossarDocumentation.ecore#//Glossar"/>
+      <linkVariablePatterns target="//@rules.3/@targetPatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/GlossarDocumentation/model/glossarDocumentation.ecore#//Glossar/entries"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="entry">
+      <op value="++"/>
+      <type href="platform:/resource/GlossarDocumentation/model/glossarDocumentation.ecore#//GlossarEntry"/>
+    </targetPatterns>
+  </rules>
+  <rules name="GlossarLinkRule" schema="//@schema">
+    <targetPatterns name="entry">
+      <type href="platform:/resource/GlossarDocumentation/model/glossarDocumentation.ecore#//Entry"/>
+      <linkVariablePatterns target="//@rules.4/@targetPatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/GlossarDocumentation/model/glossarDocumentation.ecore#//Entry/glossarentries"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="gEntry">
+      <type href="platform:/resource/GlossarDocumentation/model/glossarDocumentation.ecore#//GlossarEntry"/>
+    </targetPatterns>
+  </rules>
+  <rules name="InheritanceRule" schema="//@schema">
+    <sourcePatterns name="superClazz">
+      <type href="platform:/resource/SimpleClassInheritance/model/simpleClassInheritance.ecore#//Clazz"/>
+      <linkVariablePatterns target="//@rules.5/@sourcePatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/SimpleClassInheritance/model/simpleClassInheritance.ecore#//Clazz/subClazzes"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="subClazz">
+      <op value="++"/>
+      <type href="platform:/resource/SimpleClassInheritance/model/simpleClassInheritance.ecore#//Clazz"/>
+    </sourcePatterns>
+    <targetPatterns name="dCont">
+      <type href="platform:/resource/GlossarDocumentation/model/glossarDocumentation.ecore#//DocumentationContainer"/>
+      <linkVariablePatterns target="//@rules.5/@targetPatterns.2">
+        <op value="++"/>
+        <type href="platform:/resource/GlossarDocumentation/model/glossarDocumentation.ecore#//DocumentationContainer/documents"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="superDoc">
+      <type href="platform:/resource/GlossarDocumentation/model/glossarDocumentation.ecore#//Document"/>
+    </targetPatterns>
+    <targetPatterns name="subDoc">
+      <op value="++"/>
+      <type href="platform:/resource/GlossarDocumentation/model/glossarDocumentation.ecore#//Document"/>
+      <linkVariablePatterns target="//@rules.5/@targetPatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/GlossarDocumentation/model/glossarDocumentation.ecore#//Document/hyperRefs"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <correspondencePatterns name="super2super" type="//@schema/@correspondenceTypes.1" source="//@rules.5/@sourcePatterns.0" target="//@rules.5/@targetPatterns.1"/>
+    <correspondencePatterns name="sub2sub" type="//@schema/@correspondenceTypes.1" source="//@rules.5/@sourcePatterns.1" target="//@rules.5/@targetPatterns.2">
+      <op value="++"/>
+    </correspondencePatterns>
+    <attrConditions name="//@schema/@attributeCondDefs.0">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.5/@sourcePatterns.1">
+        <attribute href="platform:/resource/SimpleClassInheritance/model/simpleClassInheritance.ecore#//NamedElement/name"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.5/@targetPatterns.2">
+        <attribute href="platform:/resource/GlossarDocumentation/model/glossarDocumentation.ecore#//Document/name"/>
+      </values>
+    </attrConditions>
+  </rules>
+  <rules name="Field2EntityRule" schema="//@schema">
+    <sourcePatterns name="clazz">
+      <type href="platform:/resource/SimpleClassInheritance/model/simpleClassInheritance.ecore#//Clazz"/>
+      <linkVariablePatterns target="//@rules.6/@sourcePatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/SimpleClassInheritance/model/simpleClassInheritance.ecore#//Clazz/fields"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="field">
+      <op value="++"/>
+      <type href="platform:/resource/SimpleClassInheritance/model/simpleClassInheritance.ecore#//Field"/>
+    </sourcePatterns>
+    <targetPatterns name="doc">
+      <type href="platform:/resource/GlossarDocumentation/model/glossarDocumentation.ecore#//Document"/>
+      <linkVariablePatterns target="//@rules.6/@targetPatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/GlossarDocumentation/model/glossarDocumentation.ecore#//Document/entries"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="entry">
+      <op value="++"/>
+      <type href="platform:/resource/GlossarDocumentation/model/glossarDocumentation.ecore#//Entry"/>
+      <attributeAssignments op=":=">
+        <attribute href="platform:/resource/GlossarDocumentation/model/glossarDocumentation.ecore#//Entry/type"/>
+        <valueExp xsi:type="tgg:EnumExpression">
+          <eenum href="platform:/resource/GlossarDocumentation/model/glossarDocumentation.ecore#//EntryType"/>
+          <literal href="platform:/resource/GlossarDocumentation/model/glossarDocumentation.ecore#//EntryType/FIELD"/>
+        </valueExp>
+      </attributeAssignments>
+    </targetPatterns>
+    <correspondencePatterns name="c2d" type="//@schema/@correspondenceTypes.1" source="//@rules.6/@sourcePatterns.0" target="//@rules.6/@targetPatterns.0"/>
+    <correspondencePatterns name="f2e" type="//@schema/@correspondenceTypes.2" source="//@rules.6/@sourcePatterns.1" target="//@rules.6/@targetPatterns.1">
+      <op value="++"/>
+    </correspondencePatterns>
+    <attrConditions name="//@schema/@attributeCondDefs.0">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.6/@sourcePatterns.1">
+        <attribute href="platform:/resource/SimpleClassInheritance/model/simpleClassInheritance.ecore#//NamedElement/name"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.6/@targetPatterns.1">
+        <attribute href="platform:/resource/GlossarDocumentation/model/glossarDocumentation.ecore#//Entry/name"/>
+      </values>
+    </attrConditions>
+  </rules>
+  <rules name="ParameterRule" schema="//@schema">
+    <sourcePatterns name="method">
+      <type href="platform:/resource/SimpleClassInheritance/model/simpleClassInheritance.ecore#//Method"/>
+      <linkVariablePatterns target="//@rules.7/@sourcePatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/SimpleClassInheritance/model/simpleClassInheritance.ecore#//Method/parameters"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="param">
+      <op value="++"/>
+      <type href="platform:/resource/SimpleClassInheritance/model/simpleClassInheritance.ecore#//Parameter"/>
+    </sourcePatterns>
+    <targetPatterns name="entry">
+      <type href="platform:/resource/GlossarDocumentation/model/glossarDocumentation.ecore#//Entry"/>
+    </targetPatterns>
+    <correspondencePatterns name="m2e" type="//@schema/@correspondenceTypes.3" source="//@rules.7/@sourcePatterns.0" target="//@rules.7/@targetPatterns.0"/>
+    <correspondencePatterns name="p2e" type="//@schema/@correspondenceTypes.4" source="//@rules.7/@sourcePatterns.1" target="//@rules.7/@targetPatterns.0">
+      <op value="++"/>
+    </correspondencePatterns>
+  </rules>
+</tgg:TripleGraphGrammarFile>

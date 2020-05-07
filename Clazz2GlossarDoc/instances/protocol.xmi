@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:Clazz2GlossarDoc="platform:/resource/Clazz2GlossarDoc/model/Clazz2GlossarDoc.ecore">
+  <Clazz2GlossarDoc:GlossarLinkRule__Marker>
+    <CONTEXT__TRG__entry href="trg.xmi#//@documents.0/@entries.0"/>
+    <CONTEXT__TRG__gEntry href="trg.xmi#//@glossar/@entries.0"/>
+  </Clazz2GlossarDoc:GlossarLinkRule__Marker>
+  <Clazz2GlossarDoc:GlossarLinkRule__Marker>
+    <CONTEXT__TRG__entry href="trg.xmi#//@documents.0/@entries.1"/>
+    <CONTEXT__TRG__gEntry href="trg.xmi#//@glossar/@entries.0"/>
+  </Clazz2GlossarDoc:GlossarLinkRule__Marker>
+  <Clazz2GlossarDoc:GlossarEntryRule__Marker>
+    <CREATE__TRG__entry href="trg.xmi#//@glossar/@entries.0"/>
+    <CONTEXT__TRG__glossar href="trg.xmi#//@glossar"/>
+  </Clazz2GlossarDoc:GlossarEntryRule__Marker>
+  <Clazz2GlossarDoc:GlossarLinkRule__Marker>
+    <CONTEXT__TRG__entry href="trg.xmi#//@documents.2/@entries.0"/>
+    <CONTEXT__TRG__gEntry href="trg.xmi#//@glossar/@entries.1"/>
+  </Clazz2GlossarDoc:GlossarLinkRule__Marker>
+  <Clazz2GlossarDoc:GlossarLinkRule__Marker>
+    <CONTEXT__TRG__entry href="trg.xmi#//@documents.1/@entries.0"/>
+    <CONTEXT__TRG__gEntry href="trg.xmi#//@glossar/@entries.1"/>
+  </Clazz2GlossarDoc:GlossarLinkRule__Marker>
+  <Clazz2GlossarDoc:GlossarEntryRule__Marker>
+    <CREATE__TRG__entry href="trg.xmi#//@glossar/@entries.1"/>
+    <CONTEXT__TRG__glossar href="trg.xmi#//@glossar"/>
+  </Clazz2GlossarDoc:GlossarEntryRule__Marker>
+  <Clazz2GlossarDoc:Container2ContainerRule__Marker>
+    <CREATE__SRC__cCont href="src.xmi#/"/>
+    <CREATE__TRG__dCont href="trg.xmi#/"/>
+    <CREATE__TRG__glossar href="trg.xmi#//@glossar"/>
+    <CREATE__CORR__c2d href="corr.xmi#/0"/>
+  </Clazz2GlossarDoc:Container2ContainerRule__Marker>
+  <Clazz2GlossarDoc:Clazz2DocRule__Marker>
+    <CONTEXT__SRC__cCont href="src.xmi#/"/>
+    <CREATE__SRC__clazz href="src.xmi#//@clazzes.1"/>
+    <CONTEXT__TRG__dCont href="trg.xmi#/"/>
+    <CREATE__TRG__doc href="trg.xmi#//@documents.1"/>
+    <CREATE__CORR__c2d href="corr.xmi#/1"/>
+    <CONTEXT__CORR__cont2cont href="corr.xmi#/0"/>
+  </Clazz2GlossarDoc:Clazz2DocRule__Marker>
+  <Clazz2GlossarDoc:InheritanceRule__Marker>
+    <CREATE__SRC__subClazz href="src.xmi#//@clazzes.1/@subClazzes.0"/>
+    <CONTEXT__SRC__superClazz href="src.xmi#//@clazzes.1"/>
+    <CONTEXT__TRG__dCont href="trg.xmi#/"/>
+    <CREATE__TRG__subDoc href="trg.xmi#//@documents.2"/>
+    <CONTEXT__TRG__superDoc href="trg.xmi#//@documents.1"/>
+    <CREATE__CORR__sub2sub href="corr.xmi#/2"/>
+    <CONTEXT__CORR__super2super href="corr.xmi#/1"/>
+  </Clazz2GlossarDoc:InheritanceRule__Marker>
+  <Clazz2GlossarDoc:Field2EntityRule__Marker>
+    <CONTEXT__SRC__clazz href="src.xmi#//@clazzes.1"/>
+    <CREATE__SRC__field href="src.xmi#//@clazzes.1/@fields.0"/>
+    <CONTEXT__TRG__doc href="trg.xmi#//@documents.1"/>
+    <CREATE__TRG__entry href="trg.xmi#//@documents.1/@entries.1"/>
+    <CONTEXT__CORR__c2d href="corr.xmi#/1"/>
+    <CREATE__CORR__f2e href="corr.xmi#/3"/>
+  </Clazz2GlossarDoc:Field2EntityRule__Marker>
+  <Clazz2GlossarDoc:Method2EntityRule__Marker>
+    <CONTEXT__SRC__clazz href="src.xmi#//@clazzes.1"/>
+    <CREATE__SRC__method href="src.xmi#//@clazzes.1/@methods.0"/>
+    <CONTEXT__TRG__doc href="trg.xmi#//@documents.1"/>
+    <CREATE__TRG__entry href="trg.xmi#//@documents.1/@entries.0"/>
+    <CONTEXT__CORR__c2d href="corr.xmi#/1"/>
+    <CREATE__CORR__f2e href="corr.xmi#/4"/>
+  </Clazz2GlossarDoc:Method2EntityRule__Marker>
+  <Clazz2GlossarDoc:ParameterRule__Marker>
+    <CONTEXT__SRC__method href="src.xmi#//@clazzes.1/@methods.0"/>
+    <CREATE__SRC__param href="src.xmi#//@clazzes.1/@methods.0/@parameters.1"/>
+    <CONTEXT__TRG__entry href="trg.xmi#//@documents.1/@entries.0"/>
+    <CONTEXT__CORR__m2e href="corr.xmi#/4"/>
+    <CREATE__CORR__p2e href="corr.xmi#/5"/>
+  </Clazz2GlossarDoc:ParameterRule__Marker>
+  <Clazz2GlossarDoc:ParameterRule__Marker>
+    <CONTEXT__SRC__method href="src.xmi#//@clazzes.1/@methods.0"/>
+    <CREATE__SRC__param href="src.xmi#//@clazzes.1/@methods.0/@parameters.0"/>
+    <CONTEXT__TRG__entry href="trg.xmi#//@documents.1/@entries.0"/>
+    <CONTEXT__CORR__m2e href="corr.xmi#/4"/>
+    <CREATE__CORR__p2e href="corr.xmi#/6"/>
+  </Clazz2GlossarDoc:ParameterRule__Marker>
+  <Clazz2GlossarDoc:Clazz2DocRule__Marker>
+    <CONTEXT__SRC__cCont href="src.xmi#/"/>
+    <CREATE__SRC__clazz href="src.xmi#//@clazzes.0"/>
+    <CONTEXT__TRG__dCont href="trg.xmi#/"/>
+    <CREATE__TRG__doc href="trg.xmi#//@documents.0"/>
+    <CREATE__CORR__c2d href="corr.xmi#/7"/>
+    <CONTEXT__CORR__cont2cont href="corr.xmi#/0"/>
+  </Clazz2GlossarDoc:Clazz2DocRule__Marker>
+  <Clazz2GlossarDoc:Method2EntityRule__Marker>
+    <CONTEXT__SRC__clazz href="src.xmi#//@clazzes.0"/>
+    <CREATE__SRC__method href="src.xmi#//@clazzes.0/@methods.0"/>
+    <CONTEXT__TRG__doc href="trg.xmi#//@documents.0"/>
+    <CREATE__TRG__entry href="trg.xmi#//@documents.0/@entries.0"/>
+    <CONTEXT__CORR__c2d href="corr.xmi#/7"/>
+    <CREATE__CORR__f2e href="corr.xmi#/8"/>
+  </Clazz2GlossarDoc:Method2EntityRule__Marker>
+  <Clazz2GlossarDoc:Field2EntityRule__Marker>
+    <CONTEXT__SRC__clazz href="src.xmi#//@clazzes.0"/>
+    <CREATE__SRC__field href="src.xmi#//@clazzes.0/@fields.0"/>
+    <CONTEXT__TRG__doc href="trg.xmi#//@documents.0"/>
+    <CREATE__TRG__entry href="trg.xmi#//@documents.0/@entries.1"/>
+    <CONTEXT__CORR__c2d href="corr.xmi#/7"/>
+    <CREATE__CORR__f2e href="corr.xmi#/9"/>
+  </Clazz2GlossarDoc:Field2EntityRule__Marker>
+  <Clazz2GlossarDoc:ParameterRule__Marker>
+    <CONTEXT__SRC__method href="src.xmi#//@clazzes.0/@methods.0"/>
+    <CREATE__SRC__param href="src.xmi#//@clazzes.0/@methods.0/@parameters.0"/>
+    <CONTEXT__TRG__entry href="trg.xmi#//@documents.0/@entries.0"/>
+    <CONTEXT__CORR__m2e href="corr.xmi#/8"/>
+    <CREATE__CORR__p2e href="corr.xmi#/10"/>
+  </Clazz2GlossarDoc:ParameterRule__Marker>
+  <Clazz2GlossarDoc:Field2EntityRule__Marker>
+    <CONTEXT__SRC__clazz href="src.xmi#//@clazzes.1/@subClazzes.0"/>
+    <CREATE__SRC__field href="src.xmi#//@clazzes.1/@subClazzes.0/@fields.0"/>
+    <CONTEXT__TRG__doc href="trg.xmi#//@documents.2"/>
+    <CREATE__TRG__entry href="trg.xmi#//@documents.2/@entries.0"/>
+    <CONTEXT__CORR__c2d href="corr.xmi#/2"/>
+    <CREATE__CORR__f2e href="corr.xmi#/11"/>
+  </Clazz2GlossarDoc:Field2EntityRule__Marker>
+  <Clazz2GlossarDoc:GlossarLinkRule__Marker>
+    <CONTEXT__TRG__entry href="trg.xmi#//@documents.1/@entries.1"/>
+    <CONTEXT__TRG__gEntry href="trg.xmi#//@glossar/@entries.1"/>
+  </Clazz2GlossarDoc:GlossarLinkRule__Marker>
+</xmi:XMI>

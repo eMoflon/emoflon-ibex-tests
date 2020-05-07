@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ASCII"?>
+<glossarDocumentation:DocumentationContainer
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:glossarDocumentation="platform:/resource/GlossarDocumentation/model/glossarDocumentation.ecore">
+  <documents
+      name="c1">
+    <entries
+        type="METHOD"
+        glossarentries="//@glossar/@entries.0"
+        name="m1"/>
+    <entries
+        glossarentries="//@glossar/@entries.0"
+        name="f1"/>
+  </documents>
+  <documents
+      name="c2">
+    <entries
+        type="METHOD"
+        glossarentries="//@glossar/@entries.1"
+        name="m2"/>
+    <entries
+        glossarentries="//@glossar/@entries.1"
+        name="f2"/>
+  </documents>
+  <documents
+      name="c3"
+      hyperRefs="//@documents.1">
+    <entries
+        glossarentries="//@glossar/@entries.1"
+        name="f3"/>
+  </documents>
+  <glossar>
+    <entries
+        value="ge1"/>
+    <entries
+        value="ge2"/>
+  </glossar>
+</glossarDocumentation:DocumentationContainer>

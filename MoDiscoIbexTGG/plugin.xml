@@ -17,24 +17,16 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated MoDiscoIbexTGG -->
       <package
-            uri="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore"
-            class="java.JavaPackage"
+            uri="http://www.eclipse.org/emf/2002/Ecore"
+            class="ecore.EcorePackage"
             genModel="model/MoDiscoIbexTGG.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated MoDiscoIbexTGG -->
       <package
-            uri="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore"
-            class="uml.UmlPackage"
-            genModel="model/MoDiscoIbexTGG.genmodel"/>
-   </extension>
-
-   <extension point="org.eclipse.emf.ecore.generated_package">
-      <!-- @generated MoDiscoIbexTGG -->
-      <package
-            uri="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore"
-            class="runtime.RuntimePackage"
+            uri="platform:/resource/MoDiscoIbexTGG/metamodels/Types.ecore"
+            class="types.TypesPackage"
             genModel="model/MoDiscoIbexTGG.genmodel"/>
    </extension>
 

@@ -35,13 +35,13 @@ public class RepairTestAttributes extends SyncTestCase<Package, Folder>{
 	public void testInit()
 	{
 		//------------
-		assertPostcondition("in/Init", "expected/Init");
+		assertPostcondition("in/init", "expected/init");
 	}
 	
 	@Test
 	public void testMoflon_FWD()
 	{
-		assertPrecondition("in/Init", "expected/Init");
+		assertPrecondition("in/init", "expected/init");
 		tool.performAndPropagateSourceEdit(p -> helperJava.createMoflon(p));
 		tool.performAndPropagateTargetEdit(f -> helperDoc.fillContents(f));
 		//------------
@@ -51,7 +51,7 @@ public class RepairTestAttributes extends SyncTestCase<Package, Folder>{
 	@Test
 	public void testMoflon_BWD()
 	{
-		assertPrecondition("in/Init", "expected/Init");
+		assertPrecondition("in/init", "expected/init");
 		tool.performAndPropagateTargetEdit(p -> helperDoc.createMoflon(p));
 		tool.performAndPropagateSourceEdit(p -> helperJava.fillBodies(p));
 		//------------
@@ -61,7 +61,7 @@ public class RepairTestAttributes extends SyncTestCase<Package, Folder>{
 	@Test
 	public void testMoflon_rootRenamed_FWD()
 	{
-		assertPrecondition("in/Init", "expected/Init");
+		assertPrecondition("in/init", "expected/init");
 		tool.performAndPropagateSourceEdit(p -> helperJava.createMoflon(p));
 		tool.performAndPropagateTargetEdit(f -> helperDoc.fillContents(f));
 		assertPrecondition("in/moflon_FWD", "expected/moflon_FWD");
@@ -85,7 +85,7 @@ public class RepairTestAttributes extends SyncTestCase<Package, Folder>{
 	@Test
 	public void testMoflon_ibexRenamed_FWD()
 	{
-		assertPrecondition("in/Init", "expected/Init");
+		assertPrecondition("in/init", "expected/init");
 		tool.performAndPropagateSourceEdit(p -> helperJava.createMoflon(p));
 		tool.performAndPropagateTargetEdit(f -> helperDoc.fillContents(f));
 		assertPrecondition("in/moflon_FWD", "expected/moflon_FWD");
@@ -108,13 +108,13 @@ public class RepairTestAttributes extends SyncTestCase<Package, Folder>{
 	@Test
 	public void testMoflon_GTRenamed_FWD()
 	{
-		assertPrecondition("in/Init", "expected/Init");
+		assertPrecondition("in/init", "expected/init");
 		tool.performAndPropagateSourceEdit(p -> helperJava.createMoflon(p));
 		tool.performAndPropagateTargetEdit(f -> helperDoc.fillContents(f));
 		assertPrecondition("in/moflon_FWD", "expected/moflon_FWD");
 		//------------
 		tool.performIdleSourceEdit(p -> helperJava.rename(p, "GT", "SDM"));
-		assertPostcondition("in/moflon_GTRenamed_FWD", "expected/moflon_GTRenamed_FWD");
+		assertPostcondition("in/moflon_GTrenamed_FWD", "expected/moflon_GTrenamed_FWD");
 	}
 	
 	@Test
@@ -125,6 +125,6 @@ public class RepairTestAttributes extends SyncTestCase<Package, Folder>{
 		assertPrecondition("expected/moflon_BWD", "in/moflon_BWD");
 		//------------
 		tool.performIdleTargetEdit(f -> helperDoc.rename(f, "GT", "SDM"));
-		assertPostcondition("expected/moflon_GTRenamed_BWD", "in/moflon_GTRenamed_BWD");
+		assertPostcondition("expected/moflon_GTrenamed_BWD", "in/moflon_GTrenamed_BWD");
 	}
 }

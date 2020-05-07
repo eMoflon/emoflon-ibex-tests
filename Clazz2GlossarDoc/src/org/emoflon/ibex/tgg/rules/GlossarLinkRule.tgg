@@ -1,0 +1,23 @@
+#using Clazz2GlossarDoc.*
+#using AttrCondDefLibrary.*
+
+#rule GlossarLinkRule #with Clazz2GlossarDoc
+
+#source { 
+	
+}
+
+#target {
+	entry : Entry {
+		++ -glossarentries-> gEntry
+	}
+	gEntry : GlossarEntry
+}
+
+#correspondence {
+	
+}
+
+#attributeConditions {
+	
+}

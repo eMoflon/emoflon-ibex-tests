@@ -1,0 +1,36 @@
+#using Clazz2GlossarDoc.*
+#using AttrCondDefLibrary.*
+
+#rule Field2EntityRule #with Clazz2GlossarDoc
+
+#source { 
+	clazz : Clazz {
+		++ -fields-> field
+	}
+	++ field : Field
+}
+
+#target {
+	doc : Document {
+		++ -entries->entry
+	}
+	++ entry : Entry {
+		type := enum::EntryType::FIELD
+	}
+}
+
+#correspondence {
+	c2d : Clazz2doc {
+		#src->clazz
+		#trg->doc
+	}
+	
+	++ f2e : Field2entry {
+		#src->field
+		#trg->entry
+	}
+}
+
+#attributeConditions {
+	eq_string(field.name, entry.name)
+}
