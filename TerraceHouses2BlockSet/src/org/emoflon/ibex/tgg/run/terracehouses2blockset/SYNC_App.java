@@ -6,20 +6,22 @@ import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 import org.emoflon.ibex.tgg.operational.strategies.modules.TGGResourceHandler;
 import org.emoflon.ibex.tgg.operational.strategies.sync.SYNC;
 import org.emoflon.ibex.tgg.run.terracehouses2blockset.config._DefaultRegistrationHelper;
+import org.emoflon.ibex.tgg.util.ilp.ILPFactory.SupportedILPSolver;
 
 public class SYNC_App extends SYNC {
 
 	public static IRegistrationHelper registrationHelper = new _DefaultRegistrationHelper();
 
 	public SYNC_App(String projectName, String workspacePath, boolean debug) throws IOException {
-		super(registrationHelper.createIbexOptions() //
-				.project.name(projectName) //
-				.project.workspacePath(workspacePath) //
-				.debug.ibexDebug(debug) //
-				.propagate.usePrecedenceGraph(true) //
-				.repair.useShortcutRules(true) //
-				.repair.relaxedSCPatternMatching(true) //
-				.repair.advancedOverlapStrategies(true) //
+		super(registrationHelper.createIbexOptions()
+				.project.name(projectName)
+				.project.workspacePath(workspacePath)
+				.debug.ibexDebug(debug)
+				.ilpSolver(SupportedILPSolver.Sat4J)
+				.propagate.usePrecedenceGraph(true)
+				.repair.useShortcutRules(true)
+				.repair.relaxedSCPatternMatching(true)
+				.repair.advancedOverlapStrategies(true)
 				.resourceHandler(new TGGResourceHandler() {
 					@Override
 					public void loadModels() throws IOException {
