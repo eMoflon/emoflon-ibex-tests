@@ -1,7 +1,11 @@
 Manifest-Version: 1.0
 Bundle-SymbolicName: TerraceHouses2BlockSet;singleton:=true
-Bundle-Name: TerraceHouses2BlockSet
+Automatic-Module-Name: TerraceHouses2BlockSet
+Bundle-Name: %pluginName
 Bundle-Version: 0.0.1
+Bundle-ClassPath: .
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
 Require-Bundle: org.apache.log4j,
  com.google.guava,
  org.sat4j.core,
@@ -9,42 +13,21 @@ Require-Bundle: org.apache.log4j,
  org.eclipse.emf.ecore.xmi,
  org.emoflon.ibex.common,
  org.emoflon.ibex.tgg.language,
- org.emoflon.ibex.tgg.runtime,
- org.emoflon.ibex.gt,
+ org.eclipse.core.runtime,
+ org.eclipse.emf.ecore;visibility:=reexport,
+ org.emoflon.ibex.tgg.runtime;visibility:=reexport,
+ TerraceHouses;visibility:=reexport,
+ WoodenBlockSet;visibility:=reexport,
  org.emoflon.ibex.tgg.ui.debug,
  org.emoflon.ibex.tgg.ui.debug.adapter,
  org.eclipse.xtend.lib,
  org.emoflon.ibex.tgg.runtime.democles,
- org.emoflon.ibex.tgg.runtime.hipe,
- TerraceHouses,
- WoodenBlockSet
+ org.emoflon.ibex.tgg.runtime.hipe
 Bundle-ManifestVersion: 2
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Automatic-Module-Name: TerraceHouses2BlockSet
 Export-Package: TerraceHouses2BlockSet,
- TerraceHouses2BlockSet.cc.hipe.engine,
- TerraceHouses2BlockSet.cc.hipe.engine.actor,
- TerraceHouses2BlockSet.cc.hipe.engine.actor.junction,
- TerraceHouses2BlockSet.cc.hipe.engine.actor.node,
- TerraceHouses2BlockSet.cc.hipe.engine.actor.trianglejunction,
- TerraceHouses2BlockSet.co.hipe.engine,
- TerraceHouses2BlockSet.co.hipe.engine.actor,
- TerraceHouses2BlockSet.co.hipe.engine.actor.junction,
- TerraceHouses2BlockSet.co.hipe.engine.actor.node,
  TerraceHouses2BlockSet.impl,
- TerraceHouses2BlockSet.modelgen.hipe.engine,
- TerraceHouses2BlockSet.modelgen.hipe.engine.actor,
- TerraceHouses2BlockSet.sync.hipe.engine,
- TerraceHouses2BlockSet.sync.hipe.engine.actor,
- TerraceHouses2BlockSet.sync.hipe.engine.actor.junction,
- TerraceHouses2BlockSet.sync.hipe.engine.actor.node,
- TerraceHouses2BlockSet.sync.hipe.engine.actor.trianglejunction,
  TerraceHouses2BlockSet.util,
- org.emoflon.ibex.tgg,
- org.emoflon.ibex.tgg.csp.lib,
- org.emoflon.ibex.tgg.operational.csp.constraints.factories.terracehouses2blockset,
- org.emoflon.ibex.tgg.rules,
  org.emoflon.ibex.tgg.run.terracehouses2blockset,
- org.emoflon.ibex.tgg.run.terracehouses2blockset.config,
- org.emoflon.ibex.tgg.run.terracehouses2blockset.debug
+ org.emoflon.ibex.tgg.run.terracehouses2blockset.config
