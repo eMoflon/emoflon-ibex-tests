@@ -1,8 +1,7 @@
 package testsuite.ibex.Clazz2GlossarDoc.integrate.util;
 
 import java.io.IOException;
-
-import org.emoflon.ibex.tgg.run.java2doc.INTEGRATE_App;
+import org.emoflon.ibex.tgg.run.clazz2glossardoc.INTEGRATE_App;
 import org.glossarDoc.core.GlossarDocumentationComparator;
 import org.simpleClass.core.ClazzInheritanceComparator;
 
@@ -24,7 +23,7 @@ public class IntegIbexClazz2GlossarDoc extends IntegIbexAdapter<ClazzContainer, 
 		try {
 			integrator = new INTEGRATE_App(projectName,
 					testsuite.ibex.performance.util.PerformanceConstants.workspacePath,
-					"/resources/integ/in/" + inputFolder, false);
+					"/resources/in/" + inputFolder, false);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

@@ -24,7 +24,7 @@ public class IntegIbexJava2Doc extends IntegIbexAdapter<Package, Folder> {
 		try {
 			integrator = new INTEGRATE_App(projectName,
 					testsuite.ibex.performance.util.PerformanceConstants.workspacePath,
-					"/resources/in/" + inputFolder, false);
+					"/resources/integ/in/" + inputFolder, false);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

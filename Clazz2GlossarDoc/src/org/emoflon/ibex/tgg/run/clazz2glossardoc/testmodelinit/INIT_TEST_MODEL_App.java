@@ -1,4 +1,4 @@
-package org.emoflon.ibex.tgg.run.clazz2glossardoc;
+package org.emoflon.ibex.tgg.run.clazz2glossardoc.testmodelinit;
 
 import java.io.IOException;
 
@@ -16,11 +16,11 @@ import glossarDocumentation.DocumentationContainer;
 import simpleClassInheritance.ClazzContainer;
 import simpleClassInheritance.SimpleClassInheritanceFactory;
 
-public class INIT_EXPL_MODEL_App extends SYNC {
+public class INIT_TEST_MODEL_App extends SYNC {
 
 	public static IRegistrationHelper registrationHelper = new _DefaultRegistrationHelper();
 
-	public INIT_EXPL_MODEL_App() throws IOException {
+	public INIT_TEST_MODEL_App() throws IOException {
 		super(registrationHelper.createIbexOptions() //
 				.resourceHandler(new TGGResourceHandler() {
 					@Override
@@ -43,7 +43,7 @@ public class INIT_EXPL_MODEL_App extends SYNC {
 
 		logger.info("Starting SYNC");
 		long tic = System.currentTimeMillis();
-		INIT_EXPL_MODEL_App sync = new INIT_EXPL_MODEL_App();
+		INIT_TEST_MODEL_App sync = new INIT_TEST_MODEL_App();
 		long toc = System.currentTimeMillis();
 		logger.info("Completed init for SYNC in: " + (toc - tic) + " ms");
 

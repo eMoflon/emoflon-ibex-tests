@@ -18,12 +18,13 @@ public abstract class IntegrateTestCase<S extends EObject, T extends EObject> ex
 
 	@Before
 	public void initialise() {
-		// Initialise all helpers
 		util = new BenchmarxUtil<>(tool);
-		initHelpers();
 
 		// Initialise the bx tool
 		tool.initiateIntegrationDialogue();
+		
+		// Initialise all helpers
+		initHelpers();
 	}
 
 	@After
