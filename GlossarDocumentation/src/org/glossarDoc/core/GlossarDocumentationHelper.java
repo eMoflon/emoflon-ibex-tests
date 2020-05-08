@@ -89,4 +89,11 @@ public class GlossarDocumentationHelper {
 	public void deleteGlossarEntryLink(Entry e, GlossarEntry ge) {
 		e.getGlossarentries().remove(ge);
 	}
+	
+	public void completeExampleModel() {
+		createGlossarEntry("GE12");
+		GlossarEntry ge13 = createGlossarEntry("GE13");
+		createGlossarEntryLink(getEntry("F7"), ge13);
+		createGlossarEntryLink(getEntry("M8"), ge13);
+	}
 }

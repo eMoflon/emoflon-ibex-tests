@@ -14,7 +14,11 @@ public class INTEGRATE_App extends INTEGRATE {
 	public static IRegistrationHelper registrationHelper = new _DefaultRegistrationHelper();
 
 	public INTEGRATE_App(String projectName, String workspacePath, String initPath, boolean debug) throws IOException {
-		super(registrationHelper.createIbexOptions().project.name(projectName).project.workspacePath(workspacePath).debug.ibexDebug(debug)
+		super(registrationHelper.createIbexOptions()
+				.project.name(projectName)
+				.project.workspacePath(workspacePath)
+				.debug.ibexDebug(debug)
+				.propagate.usePrecedenceGraph(true)
 				.resourceHandler(new TGGResourceHandler() {
 					@Override
 					public void loadModels() throws IOException {

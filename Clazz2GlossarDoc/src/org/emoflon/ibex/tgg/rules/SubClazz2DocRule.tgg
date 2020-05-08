@@ -1,7 +1,7 @@
 #using Clazz2GlossarDoc.*
 #using AttrCondDefLibrary.*
 
-#rule InheritanceRule #with Clazz2GlossarDoc
+#rule SubClazz2DocRule #with Clazz2GlossarDoc
 
 #source {
 	superClazz : Clazz {
@@ -14,10 +14,10 @@
 	dCont : DocumentationContainer {
 		++ -documents-> subDoc
 	}
-	superDoc : Document 
-	++ subDoc : Document {
-		++ -hyperRefs-> superDoc
+	superDoc : Document {
+		++ -hyperRefs-> subDoc
 	}
+	++ subDoc : Document
 }
 
 #correspondence {

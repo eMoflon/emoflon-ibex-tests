@@ -105,7 +105,7 @@ public class SimpleClassInheritanceHelper {
 		return m;
 	}
 	
-	public Parameter createMethod(Method m, String name) {
+	public Parameter createParameter(Method m, String name) {
 		Parameter p = SimpleClassInheritanceFactory.eINSTANCE.createParameter();
 		p.setName(name);
 		m.getParameters().add(p);
@@ -118,5 +118,18 @@ public class SimpleClassInheritanceHelper {
 	
 	public void deleteInheritanceLink(Clazz superC, Clazz sub) {
 		superC.getSubClazzes().remove(sub);
+	}
+	
+	public void createExampleModel() {
+		Clazz c1 = createClazz("C1");
+		createField(c1, "F5");
+		Method m6 = createMethod(c1, "M6");
+		createParameter(m6, "P9");
+		createParameter(m6, "P10");
+		
+		Clazz c2 = createClazz("C2");
+		createField(c2, "F7");
+		Method m8 = createMethod(c2, "M8");
+		createParameter(m8, "P11");
 	}
 }
