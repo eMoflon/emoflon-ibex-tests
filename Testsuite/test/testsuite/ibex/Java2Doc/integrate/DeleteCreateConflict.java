@@ -14,6 +14,11 @@ import java.util.function.BiConsumer;
 import org.benchmarx.simpledoc.core.SimpleDocHelper;
 import org.benchmarx.simpledoc.core.SimpleJavaHelper;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.DeletePropConflict;
+import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.resolution.MergeAndPreserveCRS;
+import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.resolution.PreserveDeletionCRS;
+import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.resolution.RevokeDeletionCRS;
+import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.resolution.util.CRSHelper;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.pattern.IntegrationPattern;
 import org.junit.Test;
 
@@ -68,7 +73,8 @@ public class DeleteCreateConflict extends IntegrateTestCase<Package, Folder> {
 		final String path = testpath + "dcc_simple1/";
 
 		tool.getOptions().integration.pattern(pattern);
-		tool.getOptions().integration.conflictSolver(c -> c.preserveDeletion());
+		tool.getOptions().integration.conflictSolver( //
+				c -> CRSHelper.forEachResolve(c, DeletePropConflict.class, PreserveDeletionCRS.class));
 		tool.applyAndIntegrateDelta(dcc_simple_delta);
 
 		assertCondition(path + "src", path + "trg", path + "corr");
@@ -79,7 +85,8 @@ public class DeleteCreateConflict extends IntegrateTestCase<Package, Folder> {
 		final String path = testpath + "dcc_simple2/";
 
 		tool.getOptions().integration.pattern(pattern);
-		tool.getOptions().integration.conflictSolver(c -> c.revokeDeletion());
+		tool.getOptions().integration.conflictSolver( //
+				c -> CRSHelper.forEachResolve(c, DeletePropConflict.class, RevokeDeletionCRS.class));
 		tool.applyAndIntegrateDelta(dcc_simple_delta);
 
 		assertCondition(path + "src", path + "trg", path + "corr");
@@ -90,7 +97,8 @@ public class DeleteCreateConflict extends IntegrateTestCase<Package, Folder> {
 		final String path = testpath + "dcc_simple3/";
 
 		tool.getOptions().integration.pattern(pattern);
-		tool.getOptions().integration.conflictSolver(c -> c.makeCompromise());
+		tool.getOptions().integration.conflictSolver( //
+				c -> CRSHelper.forEachResolve(c, DeletePropConflict.class, MergeAndPreserveCRS.class));
 		tool.applyAndIntegrateDelta(dcc_simple_delta);
 
 		assertCondition(path + "src", path + "trg", path + "corr");
@@ -108,7 +116,8 @@ public class DeleteCreateConflict extends IntegrateTestCase<Package, Folder> {
 		final String path = testpath + "dcc_chain1/";
 
 		tool.getOptions().integration.pattern(pattern);
-		tool.getOptions().integration.conflictSolver(c -> c.preserveDeletion());
+		tool.getOptions().integration.conflictSolver( //
+				c -> CRSHelper.forEachResolve(c, DeletePropConflict.class, PreserveDeletionCRS.class));
 		tool.applyAndIntegrateDelta(dcc_chain_delta);
 
 		assertCondition(path + "src", path + "trg", path + "corr");
@@ -119,7 +128,8 @@ public class DeleteCreateConflict extends IntegrateTestCase<Package, Folder> {
 		final String path = testpath + "dcc_chain2/";
 
 		tool.getOptions().integration.pattern(pattern);
-		tool.getOptions().integration.conflictSolver(c -> c.revokeDeletion());
+		tool.getOptions().integration.conflictSolver( //
+				c -> CRSHelper.forEachResolve(c, DeletePropConflict.class, RevokeDeletionCRS.class));
 		tool.applyAndIntegrateDelta(dcc_chain_delta);
 
 		assertCondition(path + "src", path + "trg", path + "corr");
@@ -130,7 +140,8 @@ public class DeleteCreateConflict extends IntegrateTestCase<Package, Folder> {
 		final String path = testpath + "dcc_chain3/";
 
 		tool.getOptions().integration.pattern(pattern);
-		tool.getOptions().integration.conflictSolver(c -> c.makeCompromise());
+		tool.getOptions().integration.conflictSolver( //
+				c -> CRSHelper.forEachResolve(c, DeletePropConflict.class, MergeAndPreserveCRS.class));
 		tool.applyAndIntegrateDelta(dcc_chain_delta);
 
 		assertCondition(path + "src", path + "trg", path + "corr");
@@ -151,7 +162,8 @@ public class DeleteCreateConflict extends IntegrateTestCase<Package, Folder> {
 		final String path = testpath + "dcc_chainMultiDel1/";
 
 		tool.getOptions().integration.pattern(pattern);
-		tool.getOptions().integration.conflictSolver(c -> c.preserveDeletion());
+		tool.getOptions().integration.conflictSolver( //
+				c -> CRSHelper.forEachResolve(c, DeletePropConflict.class, PreserveDeletionCRS.class));
 		tool.applyAndIntegrateDelta(dcc_chainMultiDel_delta);
 
 		assertCondition(path + "src", path + "trg", path + "corr");
@@ -162,7 +174,8 @@ public class DeleteCreateConflict extends IntegrateTestCase<Package, Folder> {
 		final String path = testpath + "dcc_chainMultiDel2/";
 
 		tool.getOptions().integration.pattern(pattern);
-		tool.getOptions().integration.conflictSolver(c -> c.revokeDeletion());
+		tool.getOptions().integration.conflictSolver( //
+				c -> CRSHelper.forEachResolve(c, DeletePropConflict.class, RevokeDeletionCRS.class));
 		tool.applyAndIntegrateDelta(dcc_chainMultiDel_delta);
 
 		assertCondition(path + "src", path + "trg", path + "corr");
@@ -173,7 +186,8 @@ public class DeleteCreateConflict extends IntegrateTestCase<Package, Folder> {
 		final String path = testpath + "dcc_chainMultiDel3/";
 
 		tool.getOptions().integration.pattern(pattern);
-		tool.getOptions().integration.conflictSolver(c -> c.makeCompromise());
+		tool.getOptions().integration.conflictSolver( //
+				c -> CRSHelper.forEachResolve(c, DeletePropConflict.class, MergeAndPreserveCRS.class));
 		tool.applyAndIntegrateDelta(dcc_chainMultiDel_delta);
 
 		assertCondition(path + "src", path + "trg", path + "corr");
