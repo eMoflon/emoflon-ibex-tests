@@ -8,11 +8,12 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.INTEGRATE;
 import org.emoflon.ibex.tgg.operational.strategies.modules.TGGResourceHandler;
+import org.emoflon.ibex.tgg.run.clazz2glossardoc.config.HiPERegistrationHelper;
 import org.emoflon.ibex.tgg.run.clazz2glossardoc.config._DefaultRegistrationHelper;
 
 public class INTEGRATE_App extends INTEGRATE {
 
-	public static IRegistrationHelper registrationHelper = new _DefaultRegistrationHelper();
+	public static IRegistrationHelper registrationHelper = new HiPERegistrationHelper();
 
 	public INTEGRATE_App(String projectName, String workspacePath, String initPath, boolean debug) throws IOException {
 		super(registrationHelper.createIbexOptions()

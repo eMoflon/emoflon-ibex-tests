@@ -14,7 +14,8 @@ public class IntegIbexClazz2GlossarDoc extends IntegIbexAdapter<ClazzContainer, 
 	private final String inputFolder;
 
 	public IntegIbexClazz2GlossarDoc(String projectName, String inputFolder) {
-		super(new ClazzInheritanceComparator(true), new GlossarDocumentationComparator(true), null, projectName);
+		super(new ClazzInheritanceComparator(true), new GlossarDocumentationComparator(true),
+				new Clazz2GlossarDocCorrComp(), projectName);
 		this.inputFolder = inputFolder;
 	}
 
@@ -22,8 +23,8 @@ public class IntegIbexClazz2GlossarDoc extends IntegIbexAdapter<ClazzContainer, 
 	public void initiateIntegrationDialogue() {
 		try {
 			integrator = new INTEGRATE_App(projectName,
-					testsuite.ibex.performance.util.PerformanceConstants.workspacePath,
-					"/resources/in/" + inputFolder, false);
+					testsuite.ibex.performance.util.PerformanceConstants.workspacePath, "/resources/in/" + inputFolder,
+					false);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
