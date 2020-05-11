@@ -46,11 +46,11 @@ public class DeleteCreateConflict extends IntegrateTestCase<Package, Folder> {
 
 	private final IntegrationPattern pattern = new IntegrationPattern(Arrays.asList( //
 			APPLY_USER_DELTA //
-			, CHECK_LOCAL_CONSISTENCY //
+//			, CHECK_LOCAL_CONSISTENCY //
 			, RESOLVE_CONFLICTS //
 			, RESOLVE_BROKEN_MATCHES //
 			, TRANSLATE //
-			, CHECK_LOCAL_CONSISTENCY //
+//			, CHECK_LOCAL_CONSISTENCY //
 			, CLEAN_UP //
 	));
 
