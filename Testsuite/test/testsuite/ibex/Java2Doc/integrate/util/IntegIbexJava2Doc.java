@@ -15,7 +15,7 @@ public class IntegIbexJava2Doc extends IntegIbexAdapter<Package, Folder> {
 	private final String inputFolder;
 
 	public IntegIbexJava2Doc(String projectName, String inputFolder) {
-		super(new SimpleJavaComparator(true), new SimpleDocComparator(true), projectName);
+		super(new SimpleJavaComparator(true), new SimpleDocComparator(true), new Java2DocCorrComp(), projectName);
 		this.inputFolder = inputFolder;
 	}
 

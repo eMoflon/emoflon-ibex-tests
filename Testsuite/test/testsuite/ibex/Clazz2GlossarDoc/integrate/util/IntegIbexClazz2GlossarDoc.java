@@ -14,7 +14,7 @@ public class IntegIbexClazz2GlossarDoc extends IntegIbexAdapter<ClazzContainer, 
 	private final String inputFolder;
 
 	public IntegIbexClazz2GlossarDoc(String projectName, String inputFolder) {
-		super(new ClazzInheritanceComparator(true), new GlossarDocumentationComparator(true), projectName);
+		super(new ClazzInheritanceComparator(true), new GlossarDocumentationComparator(true), null, projectName);
 		this.inputFolder = inputFolder;
 	}
 
