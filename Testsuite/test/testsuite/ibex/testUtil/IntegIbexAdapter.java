@@ -27,14 +27,14 @@ public abstract class IntegIbexAdapter<S extends EObject, T extends EObject> ext
 	protected String projectName;
 	protected INTEGRATE integrator;
 	protected Configurator<Decisions> configurator;
-	
+
 	protected CorrComparator corrComp;
 
-	public IntegIbexAdapter(Comparator<S> src, Comparator<T> trg, String projectName) {
+	public IntegIbexAdapter(Comparator<S> src, Comparator<T> trg, CorrComparator corr, String projectName) {
 		super(src, trg);
 		this.projectName = projectName;
-		
-		this.corrComp = new CorrComparator();
+
+		this.corrComp = corr;
 	}
 
 	@Override
@@ -124,7 +124,7 @@ public abstract class IntegIbexAdapter<S extends EObject, T extends EObject> ext
 	public ResourceSet getResourceSet() {
 		return integrator.getResourceHandler().getResourceSet();
 	}
-	
+
 	abstract public void initiateIntegrationDialogue();
 
 	public void terminateIntegrationDialogue() {
@@ -151,9 +151,5 @@ public abstract class IntegIbexAdapter<S extends EObject, T extends EObject> ext
 	public void applyIdleDelta(BiConsumer<S, T> delta) {
 		integrator.applyDelta((BiConsumer<EObject, EObject>) delta);
 	}
-	
-	public void assertConditionCorr(String corr) {
-		corrComp.assertEquals(corrComp.loadCorrElements(corr, getResourceSet()), getCorrs());
-	}
-	
+
 }

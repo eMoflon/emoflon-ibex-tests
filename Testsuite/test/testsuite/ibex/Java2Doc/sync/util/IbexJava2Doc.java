@@ -22,8 +22,8 @@ import testsuite.ibex.testUtil.UsedPatternMatcher;
  * 
  * @author lars fritsche
  */
-public class Java2Doc extends IbexAdapter<Package, Folder>{
-	public Java2Doc(String projectName) {
+public class IbexJava2Doc extends IbexAdapter<Package, Folder>{
+	public IbexJava2Doc(String projectName) {
 		super(new SimpleJavaComparator(true), new SimpleDocComparator(true), projectName);
 	}
 
