@@ -8,10 +8,15 @@ import static org.emoflon.ibex.tgg.operational.strategies.integrate.provider.Int
 
 import java.util.Arrays;
 
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.AttributeConflict;
+import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.DeletePropConflict;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.resolution.ConflictResolutionStrategy;
+import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.resolution.MergeAndPreserveCRS;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.resolution.PreferSourceCRS;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.resolution.PreferTargetCRS;
+import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.resolution.PreserveDeletionCRS;
+import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.resolution.RevokeDeletionCRS;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.resolution.util.CRSHelper;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.pattern.IntegrationPattern;
 import org.glossarDoc.core.GlossarDocumentationHelper;
@@ -20,6 +25,8 @@ import org.simpleClass.core.SimpleClassInheritanceHelper;
 
 import glossarDocumentation.DocumentationContainer;
 import simpleClassInheritance.ClazzContainer;
+import simpleClassInheritance.Method;
+import simpleClassInheritance.Parameter;
 import testsuite.ibex.Clazz2GlossarDoc.integrate.util.IntegIbexClazz2GlossarDoc;
 import testsuite.ibex.testUtil.IntegrateTestCase;
 
@@ -55,6 +62,8 @@ public class Basic extends IntegrateTestCase<ClazzContainer, DocumentationContai
 			, CLEAN_UP //
 	));
 
+	//// ATTRIBUTE CONFLICT ////
+
 	private void attributeConflict(Class<? extends ConflictResolutionStrategy<AttributeConflict>> crs, String path) {
 		tool.getOptions().integration.pattern(pattern);
 		tool.getOptions().integration.conflictSolver( //
@@ -70,13 +79,49 @@ public class Basic extends IntegrateTestCase<ClazzContainer, DocumentationContai
 	}
 
 	@Test
-	public void attributeConflictPreferSource() {
+	public void attributeConflict_preferSource() {
 		attributeConflict(PreferSourceCRS.class, testpath + "attr_src/");
 	}
 
 	@Test
-	public void attributeConflictPreferTarget() {
+	public void attributeConflict_preferTarget() {
 		attributeConflict(PreferTargetCRS.class, testpath + "attr_trg/");
+	}
+
+	//// DELETE-PROPAGATE CONFLICT ////
+
+	private void deletePropagateConflict(Class<? extends ConflictResolutionStrategy<DeletePropConflict>> crs,
+			String path) {
+		tool.getOptions().integration.pattern(pattern);
+		tool.getOptions().integration.conflictSolver( //
+				c -> CRSHelper.forEachResolve(c, DeletePropConflict.class, crs));
+		tool.applyAndIntegrateDelta((c, d) -> {
+			// src:
+			Method m8 = helperClazz.getMethod("M8");
+			Method m6 = helperClazz.getMethod("M6");
+			Parameter p10 = helperClazz.getParameter(m6, "P10");
+			m8.getParameters().add(p10);
+			EcoreUtil.delete(m6, true);
+			// trg:
+			helperDoc.createGlossarEntryLink(helperDoc.getEntry("M6"), helperDoc.getGlossarEntry("GE12"));
+		});
+
+		assertCondition(path + "src", path + "trg", path + "corr");
+	}
+
+	@Test
+	public void deletePropConflict_preserveDeletion() {
+		deletePropagateConflict(PreserveDeletionCRS.class, testpath + "delprop_predel/");
+	}
+	
+	@Test
+	public void deletePropConflict_revokeDeletion() {
+		deletePropagateConflict(RevokeDeletionCRS.class, testpath + "delprop_revdel/");
+	}
+	
+	@Test
+	public void deletePropConflict_mergeAndPreserve() {
+		deletePropagateConflict(MergeAndPreserveCRS.class, testpath + "delprop_mrgpre/");
 	}
 
 }
