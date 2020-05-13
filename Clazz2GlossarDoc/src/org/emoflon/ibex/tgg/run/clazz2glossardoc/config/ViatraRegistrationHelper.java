@@ -9,13 +9,13 @@ import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 import org.emoflon.ibex.tgg.operational.strategies.modules.IbexExecutable;
 import org.emoflon.ibex.tgg.runtime.viatra.ViatraTGGEngine;
 
+
 public class ViatraRegistrationHelper implements IRegistrationHelper {
 
 	/** Load and register source and target metamodels */
 	public void registerMetamodels(ResourceSet rs, IbexExecutable executable) throws IOException {
 		// Replace to register generated code or handle other URI-related requirements
 		executable.getResourceHandler().loadAndRegisterMetamodel("platform:/resource/SimpleClassInheritance/model/simpleClassInheritance.ecore");
-		executable.getResourceHandler().loadAndRegisterMetamodel("platform:/resource/GlossarDocumentation/model/glossarDocumentation.ecore");
 	}
 
 	/** Create default options **/

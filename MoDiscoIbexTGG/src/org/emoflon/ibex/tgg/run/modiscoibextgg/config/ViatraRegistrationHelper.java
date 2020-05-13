@@ -7,15 +7,24 @@ import org.emoflon.ibex.tgg.operational.csp.constraints.factories.modiscoibextgg
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 import org.emoflon.ibex.tgg.operational.strategies.modules.IbexExecutable;
+import org.emoflon.ibex.tgg.operational.strategies.opt.BWD_OPT;
+import org.emoflon.ibex.tgg.operational.strategies.opt.FWD_OPT;
 import org.emoflon.ibex.tgg.runtime.viatra.ViatraTGGEngine;
+
 
 public class ViatraRegistrationHelper implements IRegistrationHelper {
 
 	/** Load and register source and target metamodels */
 	public void registerMetamodels(ResourceSet rs, IbexExecutable executable) throws IOException {
-		// Replace to register generated code or handle other URI-related requirements
+		// Load and register source and target metamodels
 		executable.getResourceHandler().loadAndRegisterMetamodel("platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore");
 		executable.getResourceHandler().loadAndRegisterMetamodel("platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore");
+							
+		if(executable instanceof FWD_OPT) {
+			}
+						
+		if(executable instanceof BWD_OPT) {
+			}
 	}
 
 	/** Create default options **/
