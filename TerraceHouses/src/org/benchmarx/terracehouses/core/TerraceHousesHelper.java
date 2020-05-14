@@ -8,7 +8,7 @@ import TerraceHouses.TerraceHousesFactory;
 public class TerraceHousesHelper {
 
 	@SuppressWarnings("unused")
-	public void buildTerrace(Building root) {
+	public void buildTerrace(Structure root) {
 		Structure house1 = createHouse(root, "Apartment House", "5338 Colorado Ave NW", false);
 		Structure house2 = createHouse(house1, "Smith's House", "5404 Colorado Ave NW", false);
 		Structure house3 = createHouse(house2, "Wilson's House", "5406 Colorado Ave NW", true);
