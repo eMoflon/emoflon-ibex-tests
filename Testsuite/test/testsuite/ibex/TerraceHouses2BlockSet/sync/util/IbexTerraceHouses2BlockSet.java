@@ -17,13 +17,14 @@ import org.emoflon.ibex.tgg.run.terracehouses2blockset.config.DemoclesRegistrati
 import org.emoflon.ibex.tgg.run.terracehouses2blockset.config.HiPERegistrationHelper;
 
 import TerraceHouses.Building;
+import TerraceHouses.Structure;
 import TerraceHouses.TerraceHousesFactory;
 import WoodenBlockSet.BlockSet;
 import language.TGGRule;
 import testsuite.ibex.testUtil.IbexAdapter;
 import testsuite.ibex.testUtil.UsedPatternMatcher;
 
-public class IbexTerraceHouses2BlockSet extends IbexAdapter<Building, BlockSet> {
+public class IbexTerraceHouses2BlockSet extends IbexAdapter<Structure, BlockSet> {
 
 	private static final List<String> notPreferred = Arrays.asList("Building2Construction");
 	
@@ -40,7 +41,7 @@ public class IbexTerraceHouses2BlockSet extends IbexAdapter<Building, BlockSet> 
 	};
 
 	public IbexTerraceHouses2BlockSet(String projectName) {
-		super(new TerraceHousesComparator(), new BlockSetComparator(), projectName);
+		super(new TerraceHousesComparator(true), new BlockSetComparator(true), projectName);
 	}
 
 	@Override

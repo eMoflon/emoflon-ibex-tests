@@ -6,7 +6,6 @@ import org.benchmarx.terracehouses.core.TerraceHousesHelper;
 import org.benchmarx.woodenblockset.core.WoodenBlockSetHelper;
 import org.junit.Test;
 
-import TerraceHouses.Building;
 import TerraceHouses.House;
 import TerraceHouses.Structure;
 import WoodenBlockSet.BlockSet;
@@ -17,7 +16,7 @@ import testsuite.ibex.testUtil.SyncTestCase;
 import testsuite.ibex.testUtil.UsedPatternMatcher;
 import testsuite.ibex.testUtil.UsedPatternMatcher.PatternMatcher;
 
-public class RepairTestShortcut extends SyncTestCase<Building, BlockSet> {
+public class RepairTestShortcut extends SyncTestCase<Structure, BlockSet> {
 
 	private static final String projectName = "TerraceHouses2BlockSet";
 
@@ -41,7 +40,7 @@ public class RepairTestShortcut extends SyncTestCase<Building, BlockSet> {
 		return projectName;
 	}
 
-	private void buildTerrace(IbexAdapter<Building, BlockSet> adapter) {
+	private void buildTerrace(IbexAdapter<Structure, BlockSet> adapter) {
 		tool.performAndPropagateTargetEdit(s -> s.getConstructions().get(0).setConstructor("Henry"));
 		tool.performAndPropagateSourceEdit(helperTerrace::buildTerrace);
 		tool.performAndPropagateTargetEdit(helperBlockSet::setColors);
