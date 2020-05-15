@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.INTEGRATE;
+import org.emoflon.ibex.tgg.util.ilp.ILPFactory.SupportedILPSolver;
 
 public abstract class IntegIbexAdapter<S extends EObject, T extends EObject> extends BXToolForEMF<S, T, Decisions> {
 
@@ -27,6 +28,7 @@ public abstract class IntegIbexAdapter<S extends EObject, T extends EObject> ext
 	protected String projectName;
 	protected INTEGRATE integrator;
 	protected Configurator<Decisions> configurator;
+	protected SupportedILPSolver ilpSolver = null;
 
 	protected CorrComparator corrComp;
 

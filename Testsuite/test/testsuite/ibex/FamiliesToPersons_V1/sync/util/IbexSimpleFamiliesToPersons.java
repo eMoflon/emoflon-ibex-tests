@@ -32,7 +32,7 @@ public class IbexSimpleFamiliesToPersons extends IbexAdapter<FamilyRegister, Per
 	public void initiateSynchronisationDialogue() {
 		try {
 			SYNC_App.registrationHelper = UsedPatternMatcher.choose(new IRegistrationHelper[]{new DemoclesRegistrationHelper(), new HiPERegistrationHelper()});
-			synchroniser = new SYNC_App(projectName, testsuite.ibex.performance.util.PerformanceConstants.workspacePath, false);
+			synchroniser = new SYNC_App(projectName, testsuite.ibex.performance.util.PerformanceConstants.workspacePath, ilpSolver, false);
 			
 			FamilyRegister reg = SimpleFamiliesFactory.eINSTANCE.createFamilyRegister();
 			synchroniser.getResourceHandler().getSourceResource().getContents().add(reg);

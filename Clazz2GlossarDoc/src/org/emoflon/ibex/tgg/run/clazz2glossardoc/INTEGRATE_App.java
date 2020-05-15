@@ -9,15 +9,17 @@ import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.INTEGRATE;
 import org.emoflon.ibex.tgg.operational.strategies.modules.TGGResourceHandler;
 import org.emoflon.ibex.tgg.run.clazz2glossardoc.config.HiPERegistrationHelper;
+import org.emoflon.ibex.tgg.util.ilp.ILPFactory.SupportedILPSolver;
 
 public class INTEGRATE_App extends INTEGRATE {
 
 	public static IRegistrationHelper registrationHelper = new HiPERegistrationHelper();
 
-	public INTEGRATE_App(String projectName, String workspacePath, String initPath, boolean debug) throws IOException {
+	public INTEGRATE_App(String projectName, String workspacePath, String initPath, SupportedILPSolver ilpSolver, boolean debug) throws IOException {
 		super(registrationHelper.createIbexOptions()
 				.project.name(projectName)
 				.project.workspacePath(workspacePath)
+				.ilpSolver(ilpSolver)
 				.debug.ibexDebug(debug)
 				.propagate.usePrecedenceGraph(true)
 				.repair.useShortcutRules(true)

@@ -21,6 +21,7 @@ public abstract class IntegrateTestCase<S extends EObject, T extends EObject> ex
 	@Before
 	public void initialise() {
 		// Initialise the bx tool
+		tool.ilpSolver = this.ilpSolver;
 		tool.initiateIntegrationDialogue();
 		
 		// Initialise all helpers

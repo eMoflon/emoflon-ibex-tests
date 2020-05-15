@@ -20,7 +20,7 @@ public class IntegIbexCompanyToIT extends IntegIbexAdapter<Company, IT> {
 	public void initiateIntegrationDialogue() {
 		try {
 			integrator = new INTEGRATE_App(projectName,
-					testsuite.ibex.performance.util.PerformanceConstants.workspacePath, "/resources/integ/basic/in", false);
+					testsuite.ibex.performance.util.PerformanceConstants.workspacePath, "/resources/integ/basic/in", ilpSolver, false);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

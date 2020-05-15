@@ -24,7 +24,7 @@ public class IntegIbexClazz2GlossarDoc extends IntegIbexAdapter<ClazzContainer, 
 		try {
 			integrator = new INTEGRATE_App(projectName,
 					testsuite.ibex.performance.util.PerformanceConstants.workspacePath, "/resources/in/" + inputFolder,
-					false);
+					ilpSolver, false);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
