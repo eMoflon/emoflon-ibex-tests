@@ -28,7 +28,7 @@ public class IbexTerraceHouses2BlockSet extends IbexAdapter<Structure, BlockSet>
 
 	private static final List<String> notPreferred = Arrays.asList("Building2Construction");
 	
-	private IShortcutRuleUpdatePolicy updatepolicy = (shortcutRules, brokenMatch, target) -> {
+	private IShortcutRuleUpdatePolicy updatepolicy = (shortcutRules, brokenMatch) -> {
 		List<OperationalShortcutRule> notPreferredSCRs = new ArrayList<>();
 		for (OperationalShortcutRule scr : shortcutRules) {
 			TGGRule replacingRule = scr.getScRule().getReplacingRule();

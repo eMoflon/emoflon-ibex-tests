@@ -2,6 +2,7 @@ package testsuite.ibex.Clazz2GlossarDoc.integrate;
 
 import static org.emoflon.ibex.tgg.operational.strategies.integrate.provider.IntegrationFragmentProvider.APPLY_USER_DELTA;
 import static org.emoflon.ibex.tgg.operational.strategies.integrate.provider.IntegrationFragmentProvider.CLEAN_UP;
+import static org.emoflon.ibex.tgg.operational.strategies.integrate.provider.IntegrationFragmentProvider.REPAIR;
 import static org.emoflon.ibex.tgg.operational.strategies.integrate.provider.IntegrationFragmentProvider.RESOLVE_BROKEN_MATCHES;
 import static org.emoflon.ibex.tgg.operational.strategies.integrate.provider.IntegrationFragmentProvider.RESOLVE_CONFLICTS;
 import static org.emoflon.ibex.tgg.operational.strategies.integrate.provider.IntegrationFragmentProvider.TRANSLATE;
@@ -24,7 +25,9 @@ import org.junit.Test;
 import org.simpleClass.core.SimpleClassInheritanceHelper;
 
 import glossarDocumentation.DocumentationContainer;
+import glossarDocumentation.Entry;
 import simpleClassInheritance.ClazzContainer;
+import simpleClassInheritance.Field;
 import simpleClassInheritance.Method;
 import simpleClassInheritance.Parameter;
 import testsuite.ibex.Clazz2GlossarDoc.integrate.util.IntegIbexClazz2GlossarDoc;
@@ -56,6 +59,7 @@ public class Basic extends IntegrateTestCase<ClazzContainer, DocumentationContai
 
 	private final IntegrationPattern pattern = new IntegrationPattern(Arrays.asList( //
 			APPLY_USER_DELTA //
+			, REPAIR //
 			, RESOLVE_CONFLICTS //
 			, RESOLVE_BROKEN_MATCHES //
 			, TRANSLATE //
@@ -113,15 +117,36 @@ public class Basic extends IntegrateTestCase<ClazzContainer, DocumentationContai
 	public void deletePropConflict_preserveDeletion() {
 		deletePropagateConflict(PreserveDeletionCRS.class, testpath + "delprop_predel/");
 	}
-	
+
 	@Test
 	public void deletePropConflict_revokeDeletion() {
 		deletePropagateConflict(RevokeDeletionCRS.class, testpath + "delprop_revdel/");
 	}
-	
+
 	@Test
 	public void deletePropConflict_mergeAndPreserve() {
 		deletePropagateConflict(MergeAndPreserveCRS.class, testpath + "delprop_mrgpre/");
+	}
+
+	//// SHORTCUT-CC ////
+
+	private void shortcutCC(String path) {
+		tool.getOptions().integration.pattern(pattern);
+		tool.applyAndIntegrateDelta((c, d) -> {
+			// src:
+			Field f7 = helperClazz.getField("F7");
+			helperClazz.getClazz("C1").getFields().add(f7);
+			// trg:
+			Entry e7 = helperDoc.getEntry("F7");
+			helperDoc.getDocumentation("C1").getEntries().add(e7);
+		});
+		
+		assertCondition(path + "src", path + "trg", path + "corr");
+	}
+	
+	@Test
+	public void shortcutCC() {
+		shortcutCC(testpath + "shortcutcc/");
 	}
 
 }
