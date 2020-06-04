@@ -8,6 +8,7 @@ import org.emoflon.ibex.tgg.operational.strategies.sync.SYNC;
 import org.emoflon.ibex.tgg.run.companytoit.CO_App;
 import org.emoflon.ibex.tgg.run.companytoit.config.DemoclesRegistrationHelper;
 import org.emoflon.ibex.tgg.run.companytoit.config.HiPERegistrationHelper;
+import org.emoflon.ibex.tgg.run.companytoit.config.ViatraRegistrationHelper;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -18,7 +19,7 @@ import testsuite.ibex.testUtil.CompleteSyncTestCase;
 import testsuite.ibex.testUtil.UsedPatternMatcher;
 
 public class TestSYNC extends CompleteSyncTestCase {
-	private static IRegistrationHelper registrationHelper = UsedPatternMatcher.choose(new IRegistrationHelper[]{new DemoclesRegistrationHelper(), new HiPERegistrationHelper()});
+	private static IRegistrationHelper registrationHelper = UsedPatternMatcher.choose(new IRegistrationHelper[]{new DemoclesRegistrationHelper(), new HiPERegistrationHelper(), new ViatraRegistrationHelper()});
 
 	static String fwdSrcPath;
 	static String fwdTrgPath;

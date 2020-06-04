@@ -18,7 +18,10 @@ Require-Bundle: org.apache.log4j,
  org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  Gantt;visibility:=reexport,
- CPM;visibility:=reexport
+ CPM;visibility:=reexport,
+ Gantt,
+ CPM,
+ org.emoflon.ibex.tgg.runtime.viatra
 Bundle-ManifestVersion: 2
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8

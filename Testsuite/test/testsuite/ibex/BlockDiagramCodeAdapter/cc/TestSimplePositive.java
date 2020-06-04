@@ -6,6 +6,7 @@ import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 import org.emoflon.ibex.tgg.run.blockdiagramcodeadapter.CC_App;
 import org.emoflon.ibex.tgg.run.blockdiagramcodeadapter.config.DemoclesRegistrationHelper;
 import org.emoflon.ibex.tgg.run.blockdiagramcodeadapter.config.HiPERegistrationHelper;
+import org.emoflon.ibex.tgg.run.blockdiagramcodeadapter.config.ViatraRegistrationHelper;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -14,7 +15,7 @@ import testsuite.ibex.testUtil.UsedPatternMatcher;
 
 public class TestSimplePositive extends CCTestCase {
 	public void createGenerator(String srcInstance, String trgInstance) throws IOException {
-		CC_App.registrationHelper = UsedPatternMatcher.choose(new IRegistrationHelper[]{new DemoclesRegistrationHelper(), new HiPERegistrationHelper()});
+		CC_App.registrationHelper = UsedPatternMatcher.choose(new IRegistrationHelper[]{new DemoclesRegistrationHelper(), new HiPERegistrationHelper(), new ViatraRegistrationHelper()});
 		checker = new CC_App("BlockDiagramCodeAdapter", testsuite.ibex.performance.util.PerformanceConstants.workspacePath, true, srcInstance, trgInstance, this.ilpSolver);
 	}
 	

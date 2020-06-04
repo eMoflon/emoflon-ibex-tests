@@ -4,10 +4,10 @@ import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 
 public class UsedPatternMatcher {
 	
-	public static PatternMatcher usedPatternMatcher = PatternMatcher.Democles;
+	public static PatternMatcher usedPatternMatcher = null;
 	
 	public enum PatternMatcher{
-		Democles, HiPE;
+		Democles, HiPE, Viatra;
 	}
 	
 	public static IRegistrationHelper choose(IRegistrationHelper[] regHelpers) {
@@ -18,6 +18,10 @@ public class UsedPatternMatcher {
 			}
 			if(rHelper.getClass().getSimpleName().equals("HiPERegistrationHelper")) {
 				if(usedPatternMatcher == PatternMatcher.HiPE)
+					return rHelper;
+			}
+			if(rHelper.getClass().getSimpleName().equals("ViatraRegistrationHelper")) {
+				if(usedPatternMatcher == PatternMatcher.Viatra)
 					return rHelper;
 			}
 		}
