@@ -8,16 +8,11 @@ import static org.emoflon.ibex.tgg.operational.strategies.integrate.provider.Int
 import static org.emoflon.ibex.tgg.operational.strategies.integrate.provider.IntegrationFragmentProvider.TRANSLATE;
 
 import java.util.Arrays;
+import java.util.function.Consumer;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.AttributeConflict;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.DeletePropConflict;
-import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.resolution.ConflictResolutionStrategy;
-import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.resolution.MergeAndPreserveCRS;
-import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.resolution.PreferSourceCRS;
-import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.resolution.PreferTargetCRS;
-import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.resolution.PreserveDeletionCRS;
-import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.resolution.RevokeDeletionCRS;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.resolution.util.CRSHelper;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.pattern.IntegrationPattern;
 import org.glossarDoc.core.GlossarDocumentationHelper;
@@ -68,10 +63,10 @@ public class Basic extends IntegrateTestCase<ClazzContainer, DocumentationContai
 
 	//// ATTRIBUTE CONFLICT ////
 
-	private void attributeConflict(Class<? extends ConflictResolutionStrategy<AttributeConflict>> crs, String path) {
+	private void attributeConflict(Consumer<AttributeConflict> s, String path) {
 		tool.getOptions().integration.pattern(pattern);
 		tool.getOptions().integration.conflictSolver( //
-				c -> CRSHelper.forEachResolve(c, AttributeConflict.class, crs));
+				c -> CRSHelper.forEachResolve(c, AttributeConflict.class, s));
 		tool.applyAndIntegrateDelta((c, d) -> {
 			// src:
 			helperClazz.getMethod("M8").setName("M8_a");
@@ -84,21 +79,20 @@ public class Basic extends IntegrateTestCase<ClazzContainer, DocumentationContai
 
 	@Test
 	public void attributeConflict_preferSource() {
-		attributeConflict(PreferSourceCRS.class, testpath + "attr_src/");
+		attributeConflict((s) -> s.crs_preferSource(), testpath + "attr_src/");
 	}
 
 	@Test
 	public void attributeConflict_preferTarget() {
-		attributeConflict(PreferTargetCRS.class, testpath + "attr_trg/");
+		attributeConflict((s) -> s.crs_preferTarget(), testpath + "attr_trg/");
 	}
 
 	//// DELETE-PROPAGATE CONFLICT ////
 
-	private void deletePropagateConflict(Class<? extends ConflictResolutionStrategy<DeletePropConflict>> crs,
-			String path) {
+	private void deletePropagateConflict(Consumer<DeletePropConflict> s, String path) {
 		tool.getOptions().integration.pattern(pattern);
 		tool.getOptions().integration.conflictSolver( //
-				c -> CRSHelper.forEachResolve(c, DeletePropConflict.class, crs));
+				c -> CRSHelper.forEachResolve(c, DeletePropConflict.class, s));
 		tool.applyAndIntegrateDelta((c, d) -> {
 			// src:
 			Method m8 = helperClazz.getMethod("M8");
@@ -115,17 +109,17 @@ public class Basic extends IntegrateTestCase<ClazzContainer, DocumentationContai
 
 	@Test
 	public void deletePropConflict_preserveDeletion() {
-		deletePropagateConflict(PreserveDeletionCRS.class, testpath + "delprop_predel/");
+		deletePropagateConflict((s) -> s.crs_revokeAddition(), testpath + "delprop_predel/");
 	}
 
 	@Test
 	public void deletePropConflict_revokeDeletion() {
-		deletePropagateConflict(RevokeDeletionCRS.class, testpath + "delprop_revdel/");
+		deletePropagateConflict((s) -> s.crs_revokeDeletion(), testpath + "delprop_revdel/");
 	}
 
 	@Test
 	public void deletePropConflict_mergeAndPreserve() {
-		deletePropagateConflict(MergeAndPreserveCRS.class, testpath + "delprop_mrgpre/");
+		deletePropagateConflict((s) -> s.crs_mergeAndPreserve(), testpath + "delprop_mrgpre/");
 	}
 
 	//// SHORTCUT-CC ////
@@ -140,10 +134,10 @@ public class Basic extends IntegrateTestCase<ClazzContainer, DocumentationContai
 			Entry e7 = helperDoc.getEntry("F7");
 			helperDoc.getDocumentation("C1").getEntries().add(e7);
 		});
-		
+
 		assertCondition(path + "src", path + "trg", path + "corr");
 	}
-	
+
 	@Test
 	public void shortcutCC() {
 		shortcutCC(testpath + "shortcutcc/");
