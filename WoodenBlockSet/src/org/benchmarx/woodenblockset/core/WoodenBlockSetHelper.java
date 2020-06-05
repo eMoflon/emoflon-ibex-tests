@@ -6,6 +6,7 @@ import WoodenBlockSet.BlockSet;
 import WoodenBlockSet.Construction;
 import WoodenBlockSet.Cube;
 import WoodenBlockSet.Cuboid;
+import WoodenBlockSet.Playroom;
 import WoodenBlockSet.Shape3D;
 import WoodenBlockSet.TriangularPrism;
 import WoodenBlockSet.WoodenBlockSetFactory;
@@ -13,23 +14,27 @@ import WoodenBlockSet.WoodenBlockSetPackage;
 
 public class WoodenBlockSetHelper {
 
-	public void setColors(BlockSet set) {
-		set.getConstructions().forEach(constr -> {
-			constr.getComponents().forEach(comp -> {
-				if (comp instanceof Cube)
-					comp.setColor("green");
-				else if (comp instanceof TriangularPrism)
-					comp.setColor("blue");
-				else if (comp instanceof Cuboid)
-					comp.setColor("red");
+	public void setColors(Playroom root) {
+		root.getBlocksets().forEach(set -> {
+			set.getConstructions().forEach(constr -> {
+				constr.getComponents().forEach(comp -> {
+					if (comp instanceof Cube)
+						comp.setColor("green");
+					else if (comp instanceof TriangularPrism)
+						comp.setColor("blue");
+					else if (comp instanceof Cuboid)
+						comp.setColor("red");
+				});
 			});
 		});
 	}
 	
-	public Construction getConstruction(BlockSet set, String name) {
-		for (Construction constr : set.getConstructions()) {
-			if (constr.getName().equals(name))
-				return constr;
+	public Construction getConstruction(Playroom root, String name) {
+		for (BlockSet set : root.getBlocksets()) {
+			for (Construction constr : set.getConstructions()) {
+				if (constr.getName().equals(name))
+					return constr;
+			}
 		}
 		return null;
 	}

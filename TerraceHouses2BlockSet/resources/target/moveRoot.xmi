@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="ASCII"?>
+<WoodenBlockSet:Playroom
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:WoodenBlockSet="platform:/resource/WoodenBlockSet/model/WoodenBlockSet.ecore">
+  <blocksets>
+    <constructions
+        constructor="Pete"
+        name="Kaufmann Industries">
+      <components
+          xsi:type="WoodenBlockSet:Cuboid"
+          color="red"/>
+    </constructions>
+    <constructions
+        constructor="Pete"
+        name="Wilson's House">
+      <components
+          xsi:type="WoodenBlockSet:Cube"
+          color="green"/>
+      <components
+          xsi:type="WoodenBlockSet:TriangularPrism"
+          color="blue"/>
+    </constructions>
+    <constructions
+        constructor="Pete"
+        name="Smith's House">
+      <components
+          xsi:type="WoodenBlockSet:Cube"
+          color="green"/>
+    </constructions>
+    <constructions
+        constructor="Pete"
+        name="Apartment House">
+      <components
+          xsi:type="WoodenBlockSet:Cube"
+          color="green"/>
+    </constructions>
+    <constructions
+        constructor="Pete"
+        name="Colorado Apartments">
+      <components
+          xsi:type="WoodenBlockSet:Cuboid"
+          color="red"/>
+    </constructions>
+  </blocksets>
+</WoodenBlockSet:Playroom>

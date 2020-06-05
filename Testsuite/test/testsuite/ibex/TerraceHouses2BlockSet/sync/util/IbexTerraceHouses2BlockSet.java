@@ -16,15 +16,14 @@ import org.emoflon.ibex.tgg.run.terracehouses2blockset.SYNC_App;
 import org.emoflon.ibex.tgg.run.terracehouses2blockset.config.DemoclesRegistrationHelper;
 import org.emoflon.ibex.tgg.run.terracehouses2blockset.config.HiPERegistrationHelper;
 
-import TerraceHouses.Building;
-import TerraceHouses.Structure;
+import TerraceHouses.District;
 import TerraceHouses.TerraceHousesFactory;
-import WoodenBlockSet.BlockSet;
+import WoodenBlockSet.Playroom;
 import language.TGGRule;
 import testsuite.ibex.testUtil.IbexAdapter;
 import testsuite.ibex.testUtil.UsedPatternMatcher;
 
-public class IbexTerraceHouses2BlockSet extends IbexAdapter<Structure, BlockSet> {
+public class IbexTerraceHouses2BlockSet extends IbexAdapter<District, Playroom> {
 
 	private static final List<String> notPreferred = Arrays.asList("Building2Construction");
 	
@@ -52,8 +51,7 @@ public class IbexTerraceHouses2BlockSet extends IbexAdapter<Structure, BlockSet>
 			synchroniser = new SYNC_App(projectName, workspacePath, ilpSolver, false);
 			synchroniser.getOptions().repair.shortcutRuleUpdatePolicy(updatepolicy);
 
-			Building root = TerraceHousesFactory.eINSTANCE.createBuilding();
-			root.setName("Colorado Apartments");
+			District root = TerraceHousesFactory.eINSTANCE.createDistrict();
 			synchroniser.getResourceHandler().getSourceResource().getContents().add(root);
 			synchroniser.forward();
 		} catch (IOException e) {

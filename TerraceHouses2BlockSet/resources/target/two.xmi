@@ -14,9 +14,10 @@
       <components xsi:type="WoodenBlockSet:Cube" color="green"/>
       <components xsi:type="WoodenBlockSet:TriangularPrism" color="blue"/>
     </constructions>
-    <constructions constructor="Henry" name="The New House">
-      <components xsi:type="WoodenBlockSet:Cube"/>
-      <components xsi:type="WoodenBlockSet:TriangularPrism"/>
+  </blocksets>
+  <blocksets>
+    <constructions constructor="Pete" name="Kaufmann Industries">
+      <components xsi:type="WoodenBlockSet:Cuboid" color="red"/>
     </constructions>
   </blocksets>
 </WoodenBlockSet:Playroom>

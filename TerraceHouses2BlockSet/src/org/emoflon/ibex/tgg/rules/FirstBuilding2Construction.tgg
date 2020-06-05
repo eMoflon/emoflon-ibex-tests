@@ -3,11 +3,17 @@
 
 #rule FirstBuilding2Construction #with TerraceHouses2BlockSet
 
-#source { 
+#source {
+	d:District {
+		++-streetBeginnings->building
+	}
 	++building:Building
 }
 
 #target {
+	p:Playroom {
+		++-blocksets->set
+	}
 	++set:BlockSet {
 		++-constructions->constr
 	}
@@ -18,6 +24,10 @@
 }
 
 #correspondence {
+	d2p:District2Playroom {
+		#src->d
+		#trg->p
+	}
 	++b2c:Structure2Construction {
 		#src->building
 		#trg->constr
