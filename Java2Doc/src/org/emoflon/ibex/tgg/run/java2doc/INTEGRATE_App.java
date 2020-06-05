@@ -8,13 +8,23 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.INTEGRATE;
 import org.emoflon.ibex.tgg.operational.strategies.modules.TGGResourceHandler;
-import org.emoflon.ibex.tgg.run.java2doc.config._DefaultRegistrationHelper;
+import org.emoflon.ibex.tgg.run.java2doc.config.HiPERegistrationHelper;
+import org.emoflon.ibex.tgg.util.ilp.ILPFactory.SupportedILPSolver;
 
 public class INTEGRATE_App extends INTEGRATE {
-	public static IRegistrationHelper registrationHelper = new _DefaultRegistrationHelper();
+	
+	public static IRegistrationHelper registrationHelper = new HiPERegistrationHelper();
 
-	public INTEGRATE_App(String projectName, String workspacePath, String initPath, boolean debug) throws IOException {
-		super(registrationHelper.createIbexOptions().project.name(projectName).project.workspacePath(workspacePath).debug.ibexDebug(debug)
+	public INTEGRATE_App(String projectName, String workspacePath, String initPath, SupportedILPSolver ilpSolver, boolean debug) throws IOException {
+		super(registrationHelper.createIbexOptions()
+				.project.name(projectName)
+				.project.workspacePath(workspacePath)
+				.ilpSolver(SupportedILPSolver.Sat4J)
+				.debug.ibexDebug(debug)
+				.propagate.usePrecedenceGraph(true)
+				.repair.useShortcutRules(true)
+				.repair.advancedOverlapStrategies(true)
+				.repair.relaxedSCPatternMatching(true)
 				.resourceHandler(new TGGResourceHandler() {
 					@Override
 					public void loadModels() throws IOException {

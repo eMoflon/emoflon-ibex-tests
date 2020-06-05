@@ -25,7 +25,7 @@ public class IbexFeatureModelConciseToSafe extends IbexAdapter<Model, FeatureMod
 	public void initiateSynchronisationDialogue() {
 		try {
 			SYNC_App.registrationHelper = UsedPatternMatcher.choose(new IRegistrationHelper[]{new DemoclesRegistrationHelper(), new HiPERegistrationHelper()});
-			synchroniser = new SYNC_App(projectName, testsuite.ibex.performance.util.PerformanceConstants.workspacePath, false);
+			synchroniser = new SYNC_App(projectName, testsuite.ibex.performance.util.PerformanceConstants.workspacePath, ilpSolver, false);
 			
 			Model m = FeatureModelConciseFactory.eINSTANCE.createModel();
 			Feature root = FeatureModelConciseFactory.eINSTANCE.createFeature();

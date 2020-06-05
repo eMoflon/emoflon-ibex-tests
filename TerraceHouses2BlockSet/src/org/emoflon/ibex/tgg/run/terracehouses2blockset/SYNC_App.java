@@ -12,12 +12,12 @@ public class SYNC_App extends SYNC {
 
 	public static IRegistrationHelper registrationHelper = new _DefaultRegistrationHelper();
 
-	public SYNC_App(String projectName, String workspacePath, boolean debug) throws IOException {
+	public SYNC_App(String projectName, String workspacePath, SupportedILPSolver ilpSolver, boolean debug) throws IOException {
 		super(registrationHelper.createIbexOptions()
 				.project.name(projectName)
 				.project.workspacePath(workspacePath)
 				.debug.ibexDebug(debug)
-				.ilpSolver(SupportedILPSolver.Sat4J)
+				.ilpSolver(SupportedILPSolver.Sat4J) // Gurobi gets no satisfying result
 				.propagate.usePrecedenceGraph(true)
 				.repair.useShortcutRules(true)
 				.repair.relaxedSCPatternMatching(true)

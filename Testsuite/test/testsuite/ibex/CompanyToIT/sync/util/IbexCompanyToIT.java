@@ -34,7 +34,7 @@ public class IbexCompanyToIT extends IbexAdapter<Company, IT>  {
 	public void initiateSynchronisationDialogue() {
 		try {
 			SYNC_App.registrationHelper = UsedPatternMatcher.choose(new IRegistrationHelper[]{new DemoclesRegistrationHelper(), new HiPERegistrationHelper()});
-			synchroniser = new SYNC_App(projectName, testsuite.ibex.performance.util.PerformanceConstants.workspacePath, false);
+			synchroniser = new SYNC_App(projectName, testsuite.ibex.performance.util.PerformanceConstants.workspacePath, ilpSolver, false);
 			
 			Company company = CompanyLanguageFactory.eINSTANCE.createCompany();
 			company.setName("ES");

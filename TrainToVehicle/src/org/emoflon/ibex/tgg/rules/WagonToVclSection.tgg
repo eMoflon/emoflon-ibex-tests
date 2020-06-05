@@ -1,0 +1,79 @@
+#using TrainToVehicle.*
+#using AttrCondDefLibrary.*
+
+#rule FirstWagonToVclSection #with TrainToVehicle
+
+#source { 
+	
+loc:TrainLanguage.Locomotive {
+		++ - firstWagon -> wagon
+	}
+
+	train:TrainLanguage.Train {
+		- locomotive -> loc
+		++ - wagons -> wagon
+	}
+
+	++wagon:TrainLanguage.Wagon
+}
+
+#target {
+	leadingVclSec:VehicleLanguage.VehicleSection {
+		++ - nextSection -> followingVclSec
+	}
+
+	++followingVclSec:VehicleLanguage.VehicleSection {
+		description := "wagon"
+	}
+}
+
+#correspondence {
+	loc2VclSec :locomotiveToVehicleSection {
+		#src->loc
+		#trg->leadingVclSec
+	}
+
+	++ wagon2VclSec :wagonToVehicleSection {
+		#src->wagon
+		#trg->followingVclSec
+	}
+}
+
+#rule WagonToVclSection #with TrainToVehicle
+
+#source {
+	leadingWagon:TrainLanguage.Wagon {
+		++ - nextWagon -> followingWagon
+	}
+
+	++followingWagon:TrainLanguage.Wagon
+
+	train:TrainLanguage.Train {
+		- wagons -> leadingWagon
+		++ - wagons -> followingWagon
+	}
+}
+
+#target {
+	leadingVclSec:VehicleLanguage.VehicleSection {
+		++ - nextSection -> followingVclSec
+	}
+
+	++followingVclSec:VehicleLanguage.VehicleSection {
+		description := "wagon"
+	}
+}
+
+#correspondence {
+	leadingWgn2VclSec :wagonToVehicleSection {
+		#src->leadingWagon
+		#trg->leadingVclSec
+	}
+
+	++ followingWgn2VclSec :wagonToVehicleSection {
+		#src->followingWagon
+		#trg->followingVclSec
+	}
+}
+
+

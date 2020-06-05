@@ -32,7 +32,7 @@ public class SYNC_OFF_1 extends SYNC {
 			"FlatRoof2Construction->PitchedRoof2Construction_CHANGER", //
 			"PitchedRoof2Construction->FlatRoof2Construction_CHANGER");
 	
-	private static IShortcutRuleUpdatePolicy updatepolicy = (shortcutRules, brokenMatch, target) -> {
+	private static IShortcutRuleUpdatePolicy updatepolicy = (shortcutRules, brokenMatch) -> {
 		for (OperationalShortcutRule scr : shortcutRules) {
 			if(!dontUse.contains(scr.getScRule().getName()))
 				return scr;

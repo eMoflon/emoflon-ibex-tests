@@ -1,13 +1,13 @@
 #using Clazz2GlossarDoc.*
 #using AttrCondDefLibrary.*
 
-#rule Field2EntityRule #with Clazz2GlossarDoc
+#rule Method2EntityRule #with Clazz2GlossarDoc
 
 #source { 
 	clazz : Clazz {
-		++ -fields-> field
+		++ -methods-> method
 	}
-	++ field : Field
+	++ method : Method
 }
 
 #target {
@@ -15,7 +15,7 @@
 		++ -entries->entry
 	}
 	++ entry : Entry {
-		type := enum::EntryType::FIELD
+		type := enum::EntryType::METHOD
 	}
 }
 
@@ -25,12 +25,12 @@
 		#trg->doc
 	}
 	
-	++ f2e : Field2entry {
-		#src->field
+	++ f2e : Method2entry {
+		#src->method
 		#trg->entry
 	}
 }
 
 #attributeConditions {
-	eq_string(field.name, entry.name)
+	eq_string(method.name, entry.name)
 }

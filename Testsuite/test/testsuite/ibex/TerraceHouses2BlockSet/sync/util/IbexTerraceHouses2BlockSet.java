@@ -28,7 +28,7 @@ public class IbexTerraceHouses2BlockSet extends IbexAdapter<Structure, BlockSet>
 
 	private static final List<String> notPreferred = Arrays.asList("Building2Construction");
 	
-	private IShortcutRuleUpdatePolicy updatepolicy = (shortcutRules, brokenMatch, target) -> {
+	private IShortcutRuleUpdatePolicy updatepolicy = (shortcutRules, brokenMatch) -> {
 		List<OperationalShortcutRule> notPreferredSCRs = new ArrayList<>();
 		for (OperationalShortcutRule scr : shortcutRules) {
 			TGGRule replacingRule = scr.getScRule().getReplacingRule();
@@ -49,7 +49,7 @@ public class IbexTerraceHouses2BlockSet extends IbexAdapter<Structure, BlockSet>
 		try {
 			SYNC_App.registrationHelper = UsedPatternMatcher.choose(
 					new IRegistrationHelper[] { new DemoclesRegistrationHelper(), new HiPERegistrationHelper() });
-			synchroniser = new SYNC_App(projectName, workspacePath, false);
+			synchroniser = new SYNC_App(projectName, workspacePath, ilpSolver, false);
 			synchroniser.getOptions().repair.shortcutRuleUpdatePolicy(updatepolicy);
 
 			Building root = TerraceHousesFactory.eINSTANCE.createBuilding();

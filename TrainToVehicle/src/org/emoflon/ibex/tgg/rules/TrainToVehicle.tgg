@@ -1,0 +1,22 @@
+#using TrainToVehicle.*
+#using AttrCondDefLibrary.*
+
+#rule TrainToVehicle #with TrainToVehicle
+
+#source { 
+	
+++train:TrainLanguage.Train
+}
+
+#target {
+	++vehicle:VehicleLanguage.Vehicle
+}
+
+#correspondence {
+	++ train2vcl :trainToVehicle {
+		#src->train
+		#trg->vehicle
+	}
+}
+
+
