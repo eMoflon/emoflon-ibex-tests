@@ -26,7 +26,8 @@ Require-Bundle: org.eclipse.emf.ecore.xmi,
  TrianglesGraphTransformation,
  SimpleNetwork;bundle-version="0.0.1",
  SimpleNetworkGraphTransformation;bundle-version="1.0.0",
- MetamodelInheritanceTransformation
+ MetamodelInheritanceTransformation,
+ org.emoflon.ibex.gt.viatra;bundle-version="1.0.0"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Automatic-Module-Name: TestsuiteGT

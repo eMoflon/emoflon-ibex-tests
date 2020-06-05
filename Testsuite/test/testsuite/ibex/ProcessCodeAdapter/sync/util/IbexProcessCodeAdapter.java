@@ -8,6 +8,7 @@ import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 import org.emoflon.ibex.tgg.run.processcodeadapter.SYNC_App;
 import org.emoflon.ibex.tgg.run.processcodeadapter.config.DemoclesRegistrationHelper;
 import org.emoflon.ibex.tgg.run.processcodeadapter.config.HiPERegistrationHelper;
+import org.emoflon.ibex.tgg.run.processcodeadapter.config.ViatraRegistrationHelper;
 
 import MocaTree.Folder;
 import MocaTree.MocaTreeFactory;
@@ -31,7 +32,7 @@ public class IbexProcessCodeAdapter extends IbexAdapter<Folder, SystemModule>   
 	@Override
 	public void initiateSynchronisationDialogue() {
 		try {
-			SYNC_App.registrationHelper = UsedPatternMatcher.choose(new IRegistrationHelper[]{new DemoclesRegistrationHelper(), new HiPERegistrationHelper()});
+			SYNC_App.registrationHelper = UsedPatternMatcher.choose(new IRegistrationHelper[]{new DemoclesRegistrationHelper(), new HiPERegistrationHelper(), new ViatraRegistrationHelper()});
 			synchroniser = new SYNC_App(projectName, testsuite.ibex.performance.util.PerformanceConstants.workspacePath, ilpSolver, false);
 			
 			Folder folder = MocaTreeFactory.eINSTANCE.createFolder();
