@@ -11,7 +11,7 @@ import simpleDoc.Folder;
 import simpleDoc.SimpleDocFactory;
 import simpleJava.Package;
 import simpleJava.SimpleJavaFactory;
-import testsuite.ibex.Java2Doc.sync.util.Java2Doc;
+import testsuite.ibex.Java2Doc.sync.util.IbexJava2Doc;
 import testsuite.ibex.testUtil.SyncTestCase;
 
 public class RepairTestShortcut extends SyncTestCase<Package, Folder>{
@@ -20,7 +20,7 @@ public class RepairTestShortcut extends SyncTestCase<Package, Folder>{
 	private SimpleDocHelper helperDoc;
 	
 	public RepairTestShortcut() {
-		super(new Java2Doc(projectName));
+		super(new IbexJava2Doc(projectName));
 	}
 
 	private static final String projectName = "Java2Doc";

@@ -1,22 +1,37 @@
 package org.benchmarx.terracehouses.core
 
 import TerraceHouses.Building
+import TerraceHouses.District
 import TerraceHouses.House
 import TerraceHouses.Structure
 import org.benchmarx.emf.Comparator
 
 import static org.junit.Assert.assertEquals
 
-class TerraceHousesComparator implements Comparator<Structure> {
+class TerraceHousesComparator implements Comparator<District> {
 
 	boolean checkAttributeValues;
+	StructureNormalizer structureNormalizer;
 
 	new(boolean checkAttributeValues) {
 		this.checkAttributeValues = checkAttributeValues;
+		structureNormalizer = new StructureNormalizer()
 	}
 
-	override assertEquals(Structure expected, Structure actual) {
+	override assertEquals(District expected, District actual) {
 		assertEquals(expected.stringify, actual.stringify)
+	}
+	
+	def String stringify(District district) {
+		'''
+		District {
+			streetBeginnings {
+				«FOR s : structureNormalizer.normalize(district.streetBeginnings)»
+					«s.stringify»
+				«ENDFOR»
+			}
+		}
+		'''
 	}
 
 	def String stringify(Structure structure) {

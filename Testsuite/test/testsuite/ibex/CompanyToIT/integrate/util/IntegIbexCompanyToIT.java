@@ -13,14 +13,14 @@ import testsuite.ibex.testUtil.IntegIbexAdapter;
 public class IntegIbexCompanyToIT extends IntegIbexAdapter<Company, IT> {
 
 	public IntegIbexCompanyToIT(String projectName) {
-		super(new CompanyLanguageComparator(true), new ITLanguageComparator(true), projectName);
+		super(new CompanyLanguageComparator(true), new ITLanguageComparator(true), new CompanyToITCorrComp(), projectName);
 	}
 
 	@Override
 	public void initiateIntegrationDialogue() {
 		try {
 			integrator = new INTEGRATE_App(projectName,
-					testsuite.ibex.performance.util.PerformanceConstants.workspacePath, "/resources/integ/basic/in", false);
+					testsuite.ibex.performance.util.PerformanceConstants.workspacePath, "/resources/integ/basic/in", ilpSolver, false);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

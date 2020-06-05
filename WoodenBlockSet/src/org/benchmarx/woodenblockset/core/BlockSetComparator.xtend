@@ -1,15 +1,18 @@
 package org.benchmarx.woodenblockset.core
 
-import org.benchmarx.emf.Comparator
 import WoodenBlockSet.BlockSet
-import static org.junit.Assert.assertEquals
 import WoodenBlockSet.Construction
-import WoodenBlockSet.Shape3D
-import WoodenBlockSet.Cuboid
 import WoodenBlockSet.Cube
+import WoodenBlockSet.Cuboid
+import WoodenBlockSet.Playroom
+import WoodenBlockSet.Shape3D
 import WoodenBlockSet.TriangularPrism
+import java.util.stream.Collectors
+import org.benchmarx.emf.Comparator
 
-class BlockSetComparator implements Comparator<BlockSet> {
+import static org.junit.Assert.assertEquals
+
+class BlockSetComparator implements Comparator<Playroom> {
 	
 	boolean checkAttributeValues;
 	ConstructionNormalizer constructionNormalizer;
@@ -21,8 +24,20 @@ class BlockSetComparator implements Comparator<BlockSet> {
 		shapeNormalizer = new Shape3DNormalizer()
 	}
 	
-	override assertEquals(BlockSet expected, BlockSet actual) {
+	override assertEquals(Playroom expected, Playroom actual) {
 		assertEquals(expected.stringify, actual.stringify)
+	}
+	
+	def String stringify(Playroom playroom) {
+		'''
+		Playroom {
+			blocksets {
+				«FOR s : playroom.blocksets.stream.map(b|b.stringify).collect(Collectors.toList).sort»
+					«s»
+				«ENDFOR»
+			}
+		}
+		'''
 	}
 	
 	def String stringify(BlockSet blockSet) {

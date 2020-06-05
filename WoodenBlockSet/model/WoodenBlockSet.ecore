@@ -21,4 +21,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="Cuboid" eSuperTypes="#//Shape3D"/>
   <eClassifiers xsi:type="ecore:EClass" name="TriangularPrism" eSuperTypes="#//Shape3D"/>
   <eClassifiers xsi:type="ecore:EClass" name="Cube" eSuperTypes="#//Shape3D"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Playroom">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="blocksets" upperBound="-1"
+        eType="#//BlockSet" containment="true"/>
+  </eClassifiers>
 </ecore:EPackage>

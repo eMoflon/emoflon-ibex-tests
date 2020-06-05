@@ -33,7 +33,7 @@ public class IbexVHDLTGGCodeAdapter extends IbexAdapter<File, VHDLSpecification>
 	public void initiateSynchronisationDialogue() {
 		try {
 			SYNC_App.registrationHelper = UsedPatternMatcher.choose(new IRegistrationHelper[]{new DemoclesRegistrationHelper(), new HiPERegistrationHelper(), new ViatraRegistrationHelper()});
-			synchroniser = new SYNC_App(projectName, testsuite.ibex.performance.util.PerformanceConstants.workspacePath, false);
+			synchroniser = new SYNC_App(projectName, testsuite.ibex.performance.util.PerformanceConstants.workspacePath, ilpSolver, false);
 			
 			VHDLSpecification spec = VHDLModelFactory.eINSTANCE.createVHDLSpecification();
 			spec.setName("Example");

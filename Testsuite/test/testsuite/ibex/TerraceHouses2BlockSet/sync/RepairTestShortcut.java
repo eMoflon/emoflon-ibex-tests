@@ -6,17 +6,18 @@ import org.benchmarx.terracehouses.core.TerraceHousesHelper;
 import org.benchmarx.woodenblockset.core.WoodenBlockSetHelper;
 import org.junit.Test;
 
+import TerraceHouses.Building;
+import TerraceHouses.District;
 import TerraceHouses.House;
 import TerraceHouses.Structure;
-import WoodenBlockSet.BlockSet;
 import WoodenBlockSet.Construction;
+import WoodenBlockSet.Playroom;
 import testsuite.ibex.TerraceHouses2BlockSet.sync.util.IbexTerraceHouses2BlockSet;
-import testsuite.ibex.testUtil.IbexAdapter;
 import testsuite.ibex.testUtil.SyncTestCase;
 import testsuite.ibex.testUtil.UsedPatternMatcher;
 import testsuite.ibex.testUtil.UsedPatternMatcher.PatternMatcher;
 
-public class RepairTestShortcut extends SyncTestCase<Structure, BlockSet> {
+public class RepairTestShortcut extends SyncTestCase<District, Playroom> {
 
 	private static final String projectName = "TerraceHouses2BlockSet";
 
@@ -40,11 +41,24 @@ public class RepairTestShortcut extends SyncTestCase<Structure, BlockSet> {
 		return projectName;
 	}
 
-	private void buildTerrace(IbexAdapter<Structure, BlockSet> adapter) {
-		tool.performAndPropagateTargetEdit(s -> s.getConstructions().get(0).setConstructor("Henry"));
-		tool.performAndPropagateSourceEdit(helperTerrace::buildTerrace);
+	private void buildTerrace() {
+		tool.performAndPropagateSourceEdit(d -> helperTerrace.createFirstBuilding(d, "Colorado Apartments", null));
+		tool.performAndPropagateTargetEdit(
+				p -> helperBlockSet.getConstruction(p, "Colorado Apartments").setConstructor("Henry"));
+		tool.performAndPropagateSourceEdit(
+				d -> helperTerrace.buildTerrace(helperTerrace.getBuilding(d, "Colorado Apartments")));
 		tool.performAndPropagateTargetEdit(helperBlockSet::setColors);
 	}
+
+	private void buildSecond() {
+		tool.performAndPropagateSourceEdit(
+				d -> helperTerrace.createFirstBuilding(d, "Kaufmann Industries", "Am Waldfeld 19"));
+		tool.performAndPropagateTargetEdit(
+				p -> helperBlockSet.getConstruction(p, "Kaufmann Industries").setConstructor("Pete"));
+		tool.performAndPropagateTargetEdit(helperBlockSet::setColors);
+	}
+
+	// TESTS //
 
 	@Test
 	public void testInit() {
@@ -54,13 +68,13 @@ public class RepairTestShortcut extends SyncTestCase<Structure, BlockSet> {
 	@Test
 	public void terrace() {
 		assertPrecondition("source/init", "target/init");
-		buildTerrace(tool);
+		buildTerrace();
 		assertPostcondition("source/terrace", "target/terrace");
 	}
 
 	@Test
 	public void changeRoof_FWD() {
-		buildTerrace(tool);
+		buildTerrace();
 		assertPrecondition("source/terrace", "target/terrace");
 
 		tool.performAndPropagateSourceEdit(root -> {
@@ -72,11 +86,11 @@ public class RepairTestShortcut extends SyncTestCase<Structure, BlockSet> {
 
 	@Test
 	public void changeRoof_BWD() {
-		buildTerrace(tool);
+		buildTerrace();
 		assertPrecondition("source/terrace", "target/terrace");
 
-		tool.performAndPropagateTargetEdit(set -> {
-			Construction flatRoof = helperBlockSet.getConstruction(set, "Smith's House");
+		tool.performAndPropagateTargetEdit(root -> {
+			Construction flatRoof = helperBlockSet.getConstruction(root, "Smith's House");
 			helperBlockSet.createTriangularPrism(flatRoof, null);
 		});
 		assertPostcondition("source/changeRoof", "target/changeRoof");
@@ -86,7 +100,7 @@ public class RepairTestShortcut extends SyncTestCase<Structure, BlockSet> {
 	public void insertHouse_FWD() {
 		assumeFalse(DONT_USE_DEMOCLES, PatternMatcher.Democles.equals(UsedPatternMatcher.usedPatternMatcher));
 
-		buildTerrace(tool);
+		buildTerrace();
 		assertPrecondition("source/terrace", "target/terrace");
 
 		tool.performAndPropagateSourceEdit(root -> {
@@ -102,7 +116,7 @@ public class RepairTestShortcut extends SyncTestCase<Structure, BlockSet> {
 	public void removeMiddleHouse_FWD() {
 		assumeFalse(DONT_USE_DEMOCLES, PatternMatcher.Democles.equals(UsedPatternMatcher.usedPatternMatcher));
 
-		buildTerrace(tool);
+		buildTerrace();
 		assertPrecondition("source/terrace", "target/terrace");
 
 		tool.performAndPropagateSourceEdit(root -> {
@@ -113,6 +127,40 @@ public class RepairTestShortcut extends SyncTestCase<Structure, BlockSet> {
 			middle.setNext(null);
 		});
 		assertPostcondition("source/removeMiddleHouse", "target/removeMiddleHouse");
+	}
+
+	@Test
+	public void moveMiddleHouseToTheTopOfAnotherOne() {
+		buildTerrace();
+		buildSecond();
+		assertPrecondition("source/two", "target/two");
+
+		tool.performAndPropagateSourceEdit(root -> {
+			House houseBefore = helperTerrace.getHouse(root, "Apartment House");
+			House house = (House) houseBefore.getNext();
+			Building building = helperTerrace.getBuilding(root, "Kaufmann Industries");
+
+			houseBefore.setNext(null);
+			building.setNext(house);
+		});
+
+		assertPostcondition("source/move", "target/move");
+	}
+
+	@Test
+	public void moveRootToTheTopOfAnotherOne() {
+		buildTerrace();
+		buildSecond();
+		assertPrecondition("source/two", "target/two");
+
+		tool.performAndPropagateSourceEdit(root -> {
+			Building buildingC = helperTerrace.getBuilding(root, "Colorado Apartments");
+			Building buildingK = helperTerrace.getBuilding(root, "Kaufmann Industries");
+
+			buildingK.setNext(buildingC);
+		});
+
+		assertPostcondition("source/moveRoot", "target/moveRoot");
 	}
 
 }

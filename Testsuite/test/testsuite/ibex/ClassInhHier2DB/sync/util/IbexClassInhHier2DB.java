@@ -26,7 +26,7 @@ public class IbexClassInhHier2DB extends IbexAdapter<ClassPackage, DB>   {
 	public void initiateSynchronisationDialogue() {
 		try {
 			SYNC_App.registrationHelper = UsedPatternMatcher.choose(new IRegistrationHelper[]{new DemoclesRegistrationHelper(), new HiPERegistrationHelper(), new ViatraRegistrationHelper()});
-			synchroniser = new SYNC_App("ClassInhHier2DB", testsuite.ibex.performance.util.PerformanceConstants.workspacePath, false);
+			synchroniser = new SYNC_App("ClassInhHier2DB", testsuite.ibex.performance.util.PerformanceConstants.workspacePath, ilpSolver, false);
 			
 			ClassPackage pkg = ClassInheritanceHierarchyFactory.eINSTANCE.createClassPackage();
 			pkg.setName("P");

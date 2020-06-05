@@ -23,6 +23,7 @@ public abstract class SyncTestCase<S extends EObject, T extends EObject> extends
 		initHelpers();
 		
 		// Initialise the bx tool
+		tool.ilpSolver = this.ilpSolver;
 		tool.initiateSynchronisationDialogue();
 	}
 	

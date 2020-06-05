@@ -25,7 +25,7 @@ public class IBeXTGGGantt2CPM extends IbexAdapter<GanttDiagram, CPMNetwork> {
 	public void initiateSynchronisationDialogue() {
 		try {
 			SYNC_App.registrationHelper = UsedPatternMatcher.choose(new IRegistrationHelper[]{new DemoclesRegistrationHelper(), new HiPERegistrationHelper(), new ViatraRegistrationHelper()});
-			synchroniser = new SYNC_App(projectName, testsuite.ibex.performance.util.PerformanceConstants.workspacePath, false);
+			synchroniser = new SYNC_App(projectName, testsuite.ibex.performance.util.PerformanceConstants.workspacePath, ilpSolver, false);
 			GanttDiagram gd = gantt.GanttFactory.eINSTANCE.createGanttDiagram();
 			gd.setName("");
 			synchroniser.getResourceHandler().getSourceResource().getContents().add(gd);

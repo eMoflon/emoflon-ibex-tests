@@ -62,8 +62,11 @@
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,TerraceHouses2BlockSet"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,Testsuite"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,TestsuiteGT"/>
+<project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,TrainLanguage"/>
+<project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,TrainToVehicle"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,Triangles"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,TrianglesGraphTransformation"/>
+<project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,VehicleLanguage"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,VHDLModel"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,VHDLTGGCodeAdapter"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,WoodenBlockSet"/>
@@ -88,6 +91,7 @@
 <item elementID="=MetamodelInheritance" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=SheRememberedCaterpillars" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=MetamodelInheritance2" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=TrainLanguage" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=Triangles" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=SimpleDoc" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=SimpleFamilies" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
@@ -95,6 +99,7 @@
 <item elementID="=ClassInheritanceHierarchy" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=TerraceHouses" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=FeatureModelSafe" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=VehicleLanguage" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=Families" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=GlossarDocumentation" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=Documents" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
@@ -137,6 +142,7 @@
 <item elementID="=TerraceHouses2BlockSet" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=ClassInhHier2DB" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=Clazz2GlossarDoc" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=TrainToVehicle" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=MoDiscoIbexTGG" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=VHDLTGGCodeAdapter" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=MocaTreeToProcess" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>

@@ -1,6 +1,7 @@
 package org.benchmarx.terracehouses.core;
 
 import TerraceHouses.Building;
+import TerraceHouses.District;
 import TerraceHouses.House;
 import TerraceHouses.Structure;
 import TerraceHouses.TerraceHousesFactory;
@@ -12,6 +13,14 @@ public class TerraceHousesHelper {
 		Structure house1 = createHouse(root, "Apartment House", "5338 Colorado Ave NW", false);
 		Structure house2 = createHouse(house1, "Smith's House", "5404 Colorado Ave NW", false);
 		Structure house3 = createHouse(house2, "Wilson's House", "5406 Colorado Ave NW", true);
+	}
+	
+	public Building createFirstBuilding(District root, String name, String address) {
+		Building newBuilding = TerraceHousesFactory.eINSTANCE.createBuilding();
+		newBuilding.setName(name);
+		newBuilding.setAddress(address);
+		root.getStreetBeginnings().add(newBuilding);
+		return newBuilding;
 	}
 
 	public Building createBuilding(Structure structureBefore, String name, String address) {
@@ -30,8 +39,26 @@ public class TerraceHousesHelper {
 		structureBefore.setNext(newHouse);
 		return newHouse;
 	}
+	
+	public House getHouse(District root, String name) {
+		for (Structure str : root.getStreetBeginnings()) {
+			House house = getHouse(str, name);
+			if(house != null)
+				return house;
+		}
+		return null;
+	}
+	
+	public Building getBuilding(District root, String name) {
+		for (Structure str : root.getStreetBeginnings()) {
+			Building building = getBuilding(str, name);
+			if(building != null)
+				return building;
+		}
+		return null;
+	}
 
-	public House getHouse(Structure root, String name) {
+	private House getHouse(Structure root, String name) {
 		if (root == null)
 			return null;
 
@@ -41,7 +68,7 @@ public class TerraceHousesHelper {
 		return getHouse(root.getNext(), name);
 	}
 
-	public Building getBuilding(Structure root, String name) {
+	private Building getBuilding(Structure root, String name) {
 		if (root == null)
 			return null;
 

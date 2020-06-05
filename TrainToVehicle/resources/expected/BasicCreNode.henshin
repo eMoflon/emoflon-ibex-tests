@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_l4M8gCfyEemzV9wCZbFELg">
+  <imports href="../../../VehicleLanguage/model/VehicleLanguage.ecore#/"/>
+  <imports href="../../../TrainLanguage/model/TrainLanguage.ecore#/"/>
+  <imports href="../../model/TrainToVehicle.ecore#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_l4WGcCfyEemzV9wCZbFELg" name="TrainToVehicle">
+    <lhs xmi:id="_l4WGcSfyEemzV9wCZbFELg" name="Lhs"/>
+    <rhs xmi:id="_l4WGcifyEemzV9wCZbFELg" name="Rhs">
+      <nodes xmi:id="_rgjDkCk7Eemdx6ZBhxSYaQ" name="train">
+        <type href="../../../TrainLanguage/model/TrainLanguage.ecore#//Train"/>
+      </nodes>
+    </rhs>
+  </units>
+</henshin:Module>

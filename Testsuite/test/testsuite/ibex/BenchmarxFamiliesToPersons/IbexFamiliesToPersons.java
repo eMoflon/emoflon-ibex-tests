@@ -28,7 +28,7 @@ public class IbexFamiliesToPersons extends IbexAdapter<FamilyRegister, PersonReg
 	public void initiateSynchronisationDialogue() {
 		try {
 			SYNC_App.registrationHelper = UsedPatternMatcher.choose(new IRegistrationHelper[]{new DemoclesRegistrationHelper(), new HiPERegistrationHelper(), new ViatraRegistrationHelper()});
-			synchroniser = new SYNC_App(projectName, testsuite.ibex.performance.util.PerformanceConstants.workspacePath, false);
+			synchroniser = new SYNC_App(projectName, testsuite.ibex.performance.util.PerformanceConstants.workspacePath, ilpSolver, false);
 			FamilyRegister familiesRoot = FamiliesFactory.eINSTANCE.createFamilyRegister();
 			synchroniser.getResourceHandler().getSourceResource().getContents().add(familiesRoot);
 			synchroniser.forward();

@@ -1,0 +1,23 @@
+#using TerraceHouses2BlockSet.*
+#using AttrCondDefLibrary.*
+
+#rule District2Playroom #with TerraceHouses2BlockSet
+
+#source { 
+	++d:District
+}
+
+#target {
+	++p:Playroom
+}
+
+#correspondence {
+	++d2p:District2Playroom {
+		#src->d
+		#trg->p
+	}
+}
+
+#attributeConditions {
+	
+}

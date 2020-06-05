@@ -6,7 +6,7 @@ import org.junit.Test;
 
 import simpleDoc.Folder;
 import simpleJava.Package;
-import testsuite.ibex.Java2Doc.sync.util.Java2Doc;
+import testsuite.ibex.Java2Doc.sync.util.IbexJava2Doc;
 import testsuite.ibex.testUtil.SyncTestCase;
 
 public class RepairTestAttributes extends SyncTestCase<Package, Folder>{
@@ -15,7 +15,7 @@ public class RepairTestAttributes extends SyncTestCase<Package, Folder>{
 	private SimpleDocHelper helperDoc;
 	
 	public RepairTestAttributes() {
-		super(new Java2Doc(projectName));
+		super(new IbexJava2Doc(projectName));
 	}
 
 	private static final String projectName = "Java2Doc";

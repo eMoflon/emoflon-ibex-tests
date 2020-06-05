@@ -17,19 +17,18 @@ import org.emoflon.ibex.tgg.run.terracehouses2blockset.config.DemoclesRegistrati
 import org.emoflon.ibex.tgg.run.terracehouses2blockset.config.HiPERegistrationHelper;
 import org.emoflon.ibex.tgg.run.terracehouses2blockset.config.ViatraRegistrationHelper;
 
-import TerraceHouses.Building;
-import TerraceHouses.Structure;
+import TerraceHouses.District;
 import TerraceHouses.TerraceHousesFactory;
-import WoodenBlockSet.BlockSet;
+import WoodenBlockSet.Playroom;
 import language.TGGRule;
 import testsuite.ibex.testUtil.IbexAdapter;
 import testsuite.ibex.testUtil.UsedPatternMatcher;
 
-public class IbexTerraceHouses2BlockSet extends IbexAdapter<Structure, BlockSet> {
+public class IbexTerraceHouses2BlockSet extends IbexAdapter<District, Playroom> {
 
 	private static final List<String> notPreferred = Arrays.asList("Building2Construction");
 	
-	private IShortcutRuleUpdatePolicy updatepolicy = (shortcutRules, brokenMatch, target) -> {
+	private IShortcutRuleUpdatePolicy updatepolicy = (shortcutRules, brokenMatch) -> {
 		List<OperationalShortcutRule> notPreferredSCRs = new ArrayList<>();
 		for (OperationalShortcutRule scr : shortcutRules) {
 			TGGRule replacingRule = scr.getScRule().getReplacingRule();
@@ -49,12 +48,11 @@ public class IbexTerraceHouses2BlockSet extends IbexAdapter<Structure, BlockSet>
 	public void initiateSynchronisationDialogue() {
 		try {
 			SYNC_App.registrationHelper = UsedPatternMatcher.choose(
-					new IRegistrationHelper[] { new DemoclesRegistrationHelper(), new HiPERegistrationHelper(), new ViatraRegistrationHelper()});
-			synchroniser = new SYNC_App(projectName, workspacePath, false);
+					new IRegistrationHelper[] { new DemoclesRegistrationHelper(), new HiPERegistrationHelper(), new ViatraRegistrationHelper() });
+			synchroniser = new SYNC_App(projectName, workspacePath, ilpSolver, false);
 			synchroniser.getOptions().repair.shortcutRuleUpdatePolicy(updatepolicy);
 
-			Building root = TerraceHousesFactory.eINSTANCE.createBuilding();
-			root.setName("Colorado Apartments");
+			District root = TerraceHousesFactory.eINSTANCE.createDistrict();
 			synchroniser.getResourceHandler().getSourceResource().getContents().add(root);
 			synchroniser.forward();
 		} catch (IOException e) {
