@@ -1,0 +1,100 @@
+#using Adele2Aadl.*
+#using AttrCondDefLibrary.*
+
+#abstract #rule ruleComponent2ComponentImplementationWithExtends19 #with Adele2Aadl
+
+#source { 
+	
+		adelePackage:ADELE_Components.Package 
+		adeleType:ADELE_Components.Component
+		{
+		++ -children->adeleImplementation
+		}
+		++adeleImplementation: ADELE_Components.Component 
+		{
+			++ -type->adeleType
+			++ -refines->adeleExtCompImpl
+		}
+	    adeleExtCompImpl:ADELE_Components.Component
+	}
+
+#target {
+		aadlPublicPackageSection:aadl2.PackageSection
+		{
+			-ownedClassifier->aadlType
+			++ -ownedClassifier->aadlImplementation
+		}
+		aadlType:aadl2.ComponentType 
+		++aadlRealization:aadl2.Realization 
+		{
+			++ -implemented->aadlType
+		}
+	   ++aadlImplementation:aadl2.ComponentImplementation 
+	   {
+	   	++ -ownedRealization->aadlRealization
+	   	++ -ownedExtension->implExtension
+	   }
+	   ++implExtension:aadl2.ImplementationExtension
+	   {
+	   	++ -extended->aadlExtCompImpl
+	   }
+	   aadlExtCompImpl:aadl2.ComponentImplementation 
+	
+}
+
+
+#correspondence {
+	corrAxiomOne: CorrAxiomPPS 
+	{
+		#src->adelePackage
+		#trg->aadlPublicPackageSection
+	}
+	corrType:CorrComponentType 
+	{
+		#src->adeleType
+		#trg->aadlType
+		
+	}
+	++ corrImplementation:CorrComponentImplementation
+	{
+		#src->adeleImplementation
+		#trg->aadlImplementation
+	}
+	++ corrImplementationR:CorrComponentImplementationR
+	{
+		#src->adeleImplementation
+		#trg->aadlRealization
+		
+	}
+	++ corrImplementationIE:CorrComponentImplementationIE
+	{
+		
+		#src->adeleImplementation
+		#trg->implExtension
+	}
+	++ corrCompImpl:CorrComponentImplementation 
+	{
+		#src->adeleExtCompImpl
+		#trg->aadlExtCompImpl
+	}
+}
+
+#attributeConditions {
+	eq_string(adeleImplementation.name, aadlImplementation.name)
+	
+}
+
+
+ #rule ruleComponent2ComponentImplementationWithExtendscomponent #extends ruleComponent2ComponentImplementationWithExtends19 #with Adele2Aadl
+
+#source { 
+		++adeleImplementation: ADELE_Components.Bus
+	}
+
+#target {
+	
+		++aadlImplementation:aadl2.BusImplementation
+}
+
+
+

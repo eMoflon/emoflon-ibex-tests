@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="ASCII"?>
+<ADELE_Components:Package xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ADELE_Components="http://ADELE_Components" name="external_circ_ref">
+  <children xsi:type="ADELE_Components:Processor" name="Test2_Proc1"/>
+  <children xsi:type="ADELE_Components:Data" name="Data1"/>
+  <children xsi:type="ADELE_Components:Processor" name="Test2_Proc2">
+    <refines xsi:type="ADELE_Components:Processor" href="component_type_circ_ref/forward.adele#component_type_circ_ref.Test1_Proc2"/>
+  </children>
+</ADELE_Components:Package>

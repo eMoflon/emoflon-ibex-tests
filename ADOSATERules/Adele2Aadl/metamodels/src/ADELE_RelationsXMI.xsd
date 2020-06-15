@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema xmlns:ADELE_Components="http://ADELE_Components" xmlns:ADELE_Features="http://ADELE_Features" xmlns:ADELE_Relations="http://ADELE_Relations" xmlns:KernelSpices="http://KernelSpices" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://ADELE_Relations">
+  <xsd:import namespace="http://ADELE_Components" schemaLocation="ADELE_Components.xsd"/>
+  <xsd:import namespace="http://ADELE_Features" schemaLocation="ADELE_Features.xsd"/>
+  <xsd:import namespace="http://KernelSpices" schemaLocation="KernelSpices.xsd"/>
+  <xsd:complexType abstract="true" name="Relation">
+    <xsd:complexContent>
+      <xsd:extension base="KernelSpices:SKRelation">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="originalSourceFeature" type="ADELE_Features:Feature"/>
+          <xsd:element name="originalSinkFeature" type="ADELE_Features:Feature"/>
+          <xsd:element name="originalSourceSubcomponent" type="ADELE_Components:Component"/>
+          <xsd:element name="originalSinkSubcomponent" type="ADELE_Components:Component"/>
+        </xsd:choice>
+        <xsd:attribute name="multiplicity" type="xsd:int" use="required"/>
+        <xsd:attribute name="min" type="xsd:int" use="required"/>
+        <xsd:attribute name="originalSourceFeature" type="xsd:string"/>
+        <xsd:attribute name="originalSinkFeature" type="xsd:string"/>
+        <xsd:attribute name="originalSourceSubcomponent" type="xsd:string"/>
+        <xsd:attribute name="originalSinkSubcomponent" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="Relation" type="ADELE_Relations:Relation"/>
+  <xsd:complexType abstract="true" name="AccessConnection">
+    <xsd:complexContent>
+      <xsd:extension base="ADELE_Relations:Relation"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="AccessConnection" type="ADELE_Relations:AccessConnection"/>
+  <xsd:complexType abstract="true" name="DirectedFeatureConnection">
+    <xsd:complexContent>
+      <xsd:extension base="ADELE_Relations:Relation"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="DirectedFeatureConnection" type="ADELE_Relations:DirectedFeatureConnection"/>
+  <xsd:complexType name="BusAccessConnection">
+    <xsd:complexContent>
+      <xsd:extension base="ADELE_Relations:AccessConnection"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="BusAccessConnection" type="ADELE_Relations:BusAccessConnection"/>
+  <xsd:complexType name="DataAccessConnection">
+    <xsd:complexContent>
+      <xsd:extension base="ADELE_Relations:AccessConnection"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="DataAccessConnection" type="ADELE_Relations:DataAccessConnection"/>
+  <xsd:complexType name="SubprogramAccessConnection">
+    <xsd:complexContent>
+      <xsd:extension base="ADELE_Relations:AccessConnection"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="SubprogramAccessConnection" type="ADELE_Relations:SubprogramAccessConnection"/>
+  <xsd:complexType name="SubprogramGroupAccessConnection">
+    <xsd:complexContent>
+      <xsd:extension base="ADELE_Relations:AccessConnection"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="SubprogramGroupAccessConnection" type="ADELE_Relations:SubprogramGroupAccessConnection"/>
+  <xsd:complexType name="EventPortConnection">
+    <xsd:complexContent>
+      <xsd:extension base="ADELE_Relations:DirectedFeatureConnection"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="EventPortConnection" type="ADELE_Relations:EventPortConnection"/>
+  <xsd:complexType name="DataPortConnection">
+    <xsd:complexContent>
+      <xsd:extension base="ADELE_Relations:DirectedFeatureConnection"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="DataPortConnection" type="ADELE_Relations:DataPortConnection"/>
+  <xsd:complexType name="EventDataPortConnection">
+    <xsd:complexContent>
+      <xsd:extension base="ADELE_Relations:DirectedFeatureConnection"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="EventDataPortConnection" type="ADELE_Relations:EventDataPortConnection"/>
+  <xsd:complexType name="ParameterConnection">
+    <xsd:complexContent>
+      <xsd:extension base="ADELE_Relations:DirectedFeatureConnection"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ParameterConnection" type="ADELE_Relations:ParameterConnection"/>
+  <xsd:complexType name="AbstractFeatureConnection">
+    <xsd:complexContent>
+      <xsd:extension base="ADELE_Relations:DirectedFeatureConnection"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="AbstractFeatureConnection" type="ADELE_Relations:AbstractFeatureConnection"/>
+  <xsd:complexType name="FeatureGroupConnection">
+    <xsd:complexContent>
+      <xsd:extension base="ADELE_Relations:DirectedFeatureConnection"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="FeatureGroupConnection" type="ADELE_Relations:FeatureGroupConnection"/>
+</xsd:schema>

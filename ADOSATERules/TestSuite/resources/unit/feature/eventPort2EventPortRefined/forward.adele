@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="ASCII"?>
+<ADELE_Components:Package xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ADELE_Components="http://ADELE_Components" xmlns:ADELE_Features="http://ADELE_Features" name="eventPort2EventPortRefined">
+  <children xsi:type="ADELE_Components:System" name="System0">
+    <features xsi:type="ADELE_Features:AbstractFeature" name="sys0InFeature"/>
+    <features xsi:type="ADELE_Features:EventPort" name="sys0InEventPort"/>
+    <features xsi:type="ADELE_Features:EventPort" name="sys0OutEventPort" direction="out"/>
+    <features xsi:type="ADELE_Features:EventPort" name="sys0InOutEventPort" direction="inout"/>
+  </children>
+  <children xsi:type="ADELE_Components:System" name="System1" refines="eventPort2EventPortRefined.System0">
+    <features xsi:type="ADELE_Features:EventPort" name="sys0InEventPort"/>
+    <features xsi:type="ADELE_Features:EventPort" name="sys0OutEventPort" direction="out"/>
+    <features xsi:type="ADELE_Features:EventPort" name="sys0InOutEventPort" direction="inout"/>
+    <features xsi:type="ADELE_Features:EventPort" name="sys1InEventPort"/>
+    <features xsi:type="ADELE_Features:EventPort" name="sys1OutEventPort" direction="out"/>
+    <features xsi:type="ADELE_Features:EventPort" name="sys1InOutEventPort" direction="inout"/>
+    <features xsi:type="ADELE_Features:EventPort" name="sys0InFeature" refinedFeature="eventPort2EventPortRefined.System0.sys0InFeature"/>
+  </children>
+</ADELE_Components:Package>

@@ -1,0 +1,35 @@
+#using Adele2Aadl.*
+#using AttrCondDefLibrary.*
+
+#rule ruleFeatureGroup2FeatureGroupTypeWithExtendsInverse58 #extends ruleFeatureGroup2FeatureGroupTypeWithExtends57 #with Adele2Aadl
+
+#source { 
+	
+	++adeleType:ADELE_Features.FeatureGroup
+	{
+		++ -inverseFeature->adeleInverse
+	}
+	adeleInverse:ADELE_Features.FeatureGroup 
+}
+
+#target {
+	++aadlType:aadl2.FeatureGroupType 
+	{
+	++ -inverse->aadlInverse	
+	}
+	aadlInverse:aadl2.FeatureGroupType 
+}
+
+
+#correspondence {
+	corrInverse:CorrComponentTypeFG
+	{
+		#src->adeleInverse
+		#trg->aadlInverse
+	}
+}
+
+#attributeConditions {
+	eq_string(adeleType.name, aadlType.name)
+	
+}

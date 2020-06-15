@@ -2,19 +2,26 @@ package org.emoflon.ibex.tgg.run.blockcodeadapter.debug;
 
 import java.io.IOException;
 
-import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
+import org.apache.log4j.BasicConfigurator;
+
+import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
+
 import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
-import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGEN;
-import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGENStopCriterion;
-import org.emoflon.ibex.tgg.run.blockcodeadapter.config._DefaultRegistrationHelper;
+import org.emoflon.ibex.tgg.operational.strategies.modules.TGGResourceHandler;
+
 import org.emoflon.ibex.tgg.ui.debug.adapter.TGGAdapter.IBeXOperation;
 import org.emoflon.ibex.tgg.ui.debug.adapter.TGGAdapter.VictoryIBeXAdapter;
 
+import org.emoflon.ibex.tgg.run.blockcodeadapter.config.*;
+
+import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGEN;
+import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGENStopCriterion;
+
 public class MODELGEN_Debug_App extends MODELGEN {
 
-	public static IRegistrationHelper registrationHelper = new _DefaultRegistrationHelper();
+	private static IRegistrationHelper registrationHelper = new _DefaultRegistrationHelper();
 
 	public MODELGEN_Debug_App() throws IOException {
 		super(registrationHelper.createIbexOptions());
@@ -55,4 +62,5 @@ public class MODELGEN_Debug_App extends MODELGEN {
 		    });
 		}
 	}
+	
 }

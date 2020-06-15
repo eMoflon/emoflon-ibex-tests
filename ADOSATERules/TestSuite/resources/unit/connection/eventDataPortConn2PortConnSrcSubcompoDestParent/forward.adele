@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="ASCII"?>
+<ADELE_Components:Package xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ADELE_Components="http://ADELE_Components" xmlns:ADELE_Features="http://ADELE_Features" name="eventDataPortConn2PortConnSrcSubcompoDestParent">
+  <children xsi:type="ADELE_Components:Data" name="Data0">
+    <children xsi:type="ADELE_Components:Data" name="Data0.impl" featuresLock="true"/>
+  </children>
+  <children xsi:type="ADELE_Components:Data" name="Data1">
+    <children xsi:type="ADELE_Components:Data" name="Data1.impl" featuresLock="true"/>
+  </children>
+  <children xsi:type="ADELE_Components:System" name="System0">
+    <children xsi:type="ADELE_Components:System" name="System0.impl" featuresLock="true">
+      <children xsi:type="ADELE_Components:System" name="sys0Sub1Sys2" featuresLock="true" subcomponentsLock="true">
+        <features xsi:type="ADELE_Features:EventDataPort" name="sys2InOutEventDataPort" direction="inout"/>
+        <features xsi:type="ADELE_Features:EventDataPort" name="sys2InEventDataPort"/>
+        <features xsi:type="ADELE_Features:EventDataPort" name="sys2OutEventDataPort" direction="out"/>
+      </children>
+      <children xsi:type="ADELE_Components:System" name="sys0Sub0Sys2" featuresLock="true" subcomponentsLock="true">
+        <features xsi:type="ADELE_Features:EventDataPort" name="sys2InOutEventDataPort" direction="inout"/>
+        <features xsi:type="ADELE_Features:EventDataPort" name="sys2InEventDataPort"/>
+        <features xsi:type="ADELE_Features:EventDataPort" name="sys2OutEventDataPort" direction="out"/>
+      </children>
+      <features xsi:type="ADELE_Features:EventDataPort" name="sys0OutEventDataPort1" direction="out"/>
+      <features xsi:type="ADELE_Features:AbstractFeature" name="sys0OutAbstractFeat" direction="out"/>
+      <features xsi:type="ADELE_Features:EventDataPort" name="sys0InEventDataPort1"/>
+      <features xsi:type="ADELE_Features:EventDataPort" name="sys0InOutEventDataPort1" direction="inout"/>
+      <eventDataPortConnection name="conn0"/>
+      <eventDataPortConnection name="conn1"/>
+      <eventDataPortConnection name="conn2"/>
+    </children>
+    <features xsi:type="ADELE_Features:EventDataPort" name="sys0OutEventDataPort1" direction="out"/>
+    <features xsi:type="ADELE_Features:AbstractFeature" name="sys0OutAbstractFeat" direction="out"/>
+    <features xsi:type="ADELE_Features:EventDataPort" name="sys0InEventDataPort1"/>
+    <features xsi:type="ADELE_Features:EventDataPort" name="sys0InOutEventDataPort1" direction="inout"/>
+  </children>
+  <children xsi:type="ADELE_Components:System" name="System2">
+    <children xsi:type="ADELE_Components:System" name="System2.impl" featuresLock="true">
+      <features xsi:type="ADELE_Features:EventDataPort" name="sys2InOutEventDataPort" direction="inout"/>
+      <features xsi:type="ADELE_Features:EventDataPort" name="sys2InEventDataPort"/>
+      <features xsi:type="ADELE_Features:EventDataPort" name="sys2OutEventDataPort" direction="out"/>
+    </children>
+    <features xsi:type="ADELE_Features:EventDataPort" name="sys2InOutEventDataPort" direction="inout"/>
+    <features xsi:type="ADELE_Features:EventDataPort" name="sys2InEventDataPort"/>
+    <features xsi:type="ADELE_Features:EventDataPort" name="sys2OutEventDataPort" direction="out"/>
+  </children>
+  <children xsi:type="ADELE_Components:System" name="System1">
+    <children xsi:type="ADELE_Components:System" name="System1.impl" featuresLock="true">
+      <children xsi:type="ADELE_Components:System" name="sys0Sub1Sys2" featuresLock="true" subcomponentsLock="true" subcomponentRefinement="true">
+        <features xsi:type="ADELE_Features:EventDataPort" name="sys2InOutEventDataPort" direction="inout"/>
+        <features xsi:type="ADELE_Features:EventDataPort" name="sys2InEventDataPort"/>
+        <features xsi:type="ADELE_Features:EventDataPort" name="sys2OutEventDataPort" direction="out"/>
+        <features xsi:type="ADELE_Features:EventDataPort" name="sys3OutEventDataPort" direction="out"/>
+      </children>
+      <children xsi:type="ADELE_Components:System" name="sys0Sub0Sys2" featuresLock="true" subcomponentsLock="true" subcomponentRefinement="true">
+        <features xsi:type="ADELE_Features:EventDataPort" name="sys2InOutEventDataPort" direction="inout"/>
+        <features xsi:type="ADELE_Features:EventDataPort" name="sys2InEventDataPort"/>
+        <features xsi:type="ADELE_Features:EventDataPort" name="sys2OutEventDataPort" direction="out"/>
+      </children>
+      <children xsi:type="ADELE_Components:System" name="sys1Sub1Sys2" featuresLock="true" subcomponentsLock="true">
+        <features xsi:type="ADELE_Features:EventDataPort" name="sys2InOutEventDataPort" direction="inout"/>
+        <features xsi:type="ADELE_Features:EventDataPort" name="sys2InEventDataPort"/>
+        <features xsi:type="ADELE_Features:EventDataPort" name="sys2OutEventDataPort" direction="out"/>
+      </children>
+      <features xsi:type="ADELE_Features:EventDataPort" name="sys0OutEventDataPort1" direction="out"/>
+      <features xsi:type="ADELE_Features:EventDataPort" name="sys0InEventDataPort1"/>
+      <features xsi:type="ADELE_Features:EventDataPort" name="sys0InOutEventDataPort1" direction="inout"/>
+      <features xsi:type="ADELE_Features:EventDataPort" name="sys1InEventDataPort1"/>
+      <features xsi:type="ADELE_Features:EventDataPort" name="sys1InOutEventDataPort1" direction="inout"/>
+      <features xsi:type="ADELE_Features:EventDataPort" name="sys1OutEventDataPort1" direction="out"/>
+      <features xsi:type="ADELE_Features:EventDataPort" name="sys0OutAbstractFeat" direction="out"/>
+      <eventDataPortConnection name="conn3"/>
+      <eventDataPortConnection name="conn4"/>
+      <eventDataPortConnection name="conn5"/>
+      <eventDataPortConnection name="conn6"/>
+    </children>
+    <features xsi:type="ADELE_Features:EventDataPort" name="sys0OutEventDataPort1" direction="out"/>
+    <features xsi:type="ADELE_Features:EventDataPort" name="sys0InEventDataPort1"/>
+    <features xsi:type="ADELE_Features:EventDataPort" name="sys0InOutEventDataPort1" direction="inout"/>
+    <features xsi:type="ADELE_Features:EventDataPort" name="sys1InEventDataPort1"/>
+    <features xsi:type="ADELE_Features:EventDataPort" name="sys1InOutEventDataPort1" direction="inout"/>
+    <features xsi:type="ADELE_Features:EventDataPort" name="sys1OutEventDataPort1" direction="out"/>
+    <features xsi:type="ADELE_Features:EventDataPort" name="sys0OutAbstractFeat" direction="out"/>
+  </children>
+  <children xsi:type="ADELE_Components:System" name="System3">
+    <features xsi:type="ADELE_Features:EventDataPort" name="sys2InOutEventDataPort" direction="inout"/>
+    <features xsi:type="ADELE_Features:EventDataPort" name="sys2InEventDataPort"/>
+    <features xsi:type="ADELE_Features:EventDataPort" name="sys2OutEventDataPort" direction="out"/>
+    <features xsi:type="ADELE_Features:EventDataPort" name="sys3OutEventDataPort" direction="out"/>
+  </children>
+</ADELE_Components:Package>

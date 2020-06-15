@@ -1,0 +1,99 @@
+
+#using Adele2Aadl.*
+#using AttrCondDefLibrary.*
+
+#abstract #rule ruleAccessConn2AccessConnSrcParentDestSubcompoFeatSameAccess9 #with Adele2Aadl
+
+#source { 
+	adeleCompImplType:ADELE_Components.Component{
+		-allRealFeatures->adeleComponentAccess
+	}
+	adeleComponentAccess:ADELE_Features.Access
+	adeleComponentImplementation:ADELE_Components.Component{
+		-type->adeleCompImplType
+		-allRealChildrenComponents->adeleSubcomponent
+		++ -allRealRelations->adeleConnection
+	}
+	adeleSubcomponent:ADELE_Components.Component
+	++ adeleConnection:ADELE_Relations.AccessConnection{
+		++ -originalSourceFeature->adeleComponentAccess
+		++ -originalSinkFeature->adeleComponentAccess
+	}
+	
+}
+
+#target {
+	aadlComponentAccess:aadl2.Access
+	++ sourceConnectedElement:aadl2.ConnectedElement{
+		++ -connectionEnd->aadlComponentAccess
+	}
+	++ aadlConnection:aadl2.AccessConnection
+	{
+		++ -source->sourceConnectedElement
+		++ -destination->destinationConnectedElement
+		
+	}
+	++ destinationConnectedElement:aadl2.ConnectedElement{
+		++ -connectionEnd->aadlComponentAccess
+		++ -context->aadlSubcomponent
+	}
+	aadlSubcomponent:aadl2.Subcomponent
+	aadlComponentImplementation:aadl2.ComponentImplementation{
+		++ -ownedAccessConnection->aadlConnection
+		-member->aadlSubcomponent
+		-type->aadlCompImplType
+	}
+	aadlCompImplType:aadl2.ComponentType{
+		-member->aadlComponentAccess
+	}
+	
+}
+
+#correspondence {
+	corrComponentAccess:CorrAccess{
+		#src->adeleComponentAccess
+		#trg->aadlComponentAccess
+	}
+	corrComponentType:CorrComponentType{
+		#src->adeleCompImplType
+		#trg->aadlCompImplType
+	}
+	corrComponentImplementation:CorrComponentImplementation{
+		#src->adeleComponentImplementation
+		#trg->aadlComponentImplementation
+	}
+	
+	++ corrConnection:CorrAccessConnection{
+		#src->adeleConnection
+		#trg->aadlConnection
+		
+	}
+	++ corrConnection1:CorrAccessConnectionttrgCE{
+		
+	
+	    #src->adeleConnection
+		#trg->sourceConnectedElement
+		
+}
+++ corrConnection2:CorrAccessConnectionttrgCE{
+		
+	
+	    #src->adeleConnection
+		#trg->destinationConnectedElement
+		
+}
+
+}
+
+#attributeConditions {
+	eq_string(adeleConnection.name, aadlConnection.name)
+}
+
+
+#rule ruleAccessConn2AccessConnSrcParentDestSubcompoFeatSameAccess #extends ruleAccessConn2AccessConnSrcParentDestSubcompoFeatSameAccess9 #with Adele2Aadl
+ 
+#source{
+	++ adeleConnection:ADELE_Relations.BusAccessConnection
+	
+}
+

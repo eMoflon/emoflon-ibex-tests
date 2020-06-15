@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated Adele2Aadl -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="Adele2Aadl.presentation.Adele2AadlModelWizardID"
+            name="%_UI_Adele2AadlModelWizard_label"
+            class="Adele2Aadl.presentation.Adele2AadlModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/Adele2AadlModelFile.gif">
+         <description>%_UI_Adele2AadlModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated Adele2Aadl -->
+      <editor
+            id="Adele2Aadl.presentation.Adele2AadlEditorID"
+            name="%_UI_Adele2AadlEditor_label"
+            icon="icons/full/obj16/Adele2AadlModelFile.gif"
+            extensions="adele2aadl"
+            class="Adele2Aadl.presentation.Adele2AadlEditor"
+            contributorClass="Adele2Aadl.presentation.Adele2AadlActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated Adele2Aadl -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="ADELE_Components.presentation.ADELE_ComponentsModelWizardID"
+            name="%_UI_ADELE_ComponentsModelWizard_label"
+            class="ADELE_Components.presentation.ADELE_ComponentsModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/ADELE_ComponentsModelFile.gif">
+         <description>%_UI_ADELE_ComponentsModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated Adele2Aadl -->
+      <editor
+            id="ADELE_Components.presentation.ADELE_ComponentsEditorID"
+            name="%_UI_ADELE_ComponentsEditor_label"
+            icon="icons/full/obj16/ADELE_ComponentsModelFile.gif"
+            extensions="adele_components"
+            class="ADELE_Components.presentation.ADELE_ComponentsEditor"
+            contributorClass="ADELE_Components.presentation.ADELE_ComponentsActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated Adele2Aadl -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="aadl2.presentation.Aadl2ModelWizardID"
+            name="%_UI_Aadl2ModelWizard_label"
+            class="aadl2.presentation.Aadl2ModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/Aadl2ModelFile.gif">
+         <description>%_UI_Aadl2ModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated Adele2Aadl -->
+      <editor
+            id="aadl2.presentation.Aadl2EditorID"
+            name="%_UI_Aadl2Editor_label"
+            icon="icons/full/obj16/Aadl2ModelFile.gif"
+            extensions="aadl2"
+            class="aadl2.presentation.Aadl2Editor"
+            contributorClass="aadl2.presentation.Aadl2ActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated Adele2Aadl -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="ADELE_Features.presentation.ADELE_FeaturesModelWizardID"
+            name="%_UI_ADELE_FeaturesModelWizard_label"
+            class="ADELE_Features.presentation.ADELE_FeaturesModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/ADELE_FeaturesModelFile.gif">
+         <description>%_UI_ADELE_FeaturesModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated Adele2Aadl -->
+      <editor
+            id="ADELE_Features.presentation.ADELE_FeaturesEditorID"
+            name="%_UI_ADELE_FeaturesEditor_label"
+            icon="icons/full/obj16/ADELE_FeaturesModelFile.gif"
+            extensions="adele_features"
+            class="ADELE_Features.presentation.ADELE_FeaturesEditor"
+            contributorClass="ADELE_Features.presentation.ADELE_FeaturesActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated Adele2Aadl -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="KernelSpices.presentation.KernelSpicesModelWizardID"
+            name="%_UI_KernelSpicesModelWizard_label"
+            class="KernelSpices.presentation.KernelSpicesModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/KernelSpicesModelFile.gif">
+         <description>%_UI_KernelSpicesModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated Adele2Aadl -->
+      <editor
+            id="KernelSpices.presentation.KernelSpicesEditorID"
+            name="%_UI_KernelSpicesEditor_label"
+            icon="icons/full/obj16/KernelSpicesModelFile.gif"
+            extensions="kernelspices"
+            class="KernelSpices.presentation.KernelSpicesEditor"
+            contributorClass="KernelSpices.presentation.KernelSpicesActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated Adele2Aadl -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="ADELE_Relations.presentation.ADELE_RelationsModelWizardID"
+            name="%_UI_ADELE_RelationsModelWizard_label"
+            class="ADELE_Relations.presentation.ADELE_RelationsModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/ADELE_RelationsModelFile.gif">
+         <description>%_UI_ADELE_RelationsModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated Adele2Aadl -->
+      <editor
+            id="ADELE_Relations.presentation.ADELE_RelationsEditorID"
+            name="%_UI_ADELE_RelationsEditor_label"
+            icon="icons/full/obj16/ADELE_RelationsModelFile.gif"
+            extensions="adele_relations"
+            class="ADELE_Relations.presentation.ADELE_RelationsEditor"
+            contributorClass="ADELE_Relations.presentation.ADELE_RelationsActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated Adele2Aadl -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="runtime.presentation.RuntimeModelWizardID"
+            name="%_UI_RuntimeModelWizard_label"
+            class="runtime.presentation.RuntimeModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/RuntimeModelFile.gif">
+         <description>%_UI_RuntimeModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated Adele2Aadl -->
+      <editor
+            id="runtime.presentation.RuntimeEditorID"
+            name="%_UI_RuntimeEditor_label"
+            icon="icons/full/obj16/RuntimeModelFile.gif"
+            extensions="runtime"
+            class="runtime.presentation.RuntimeEditor"
+            contributorClass="runtime.presentation.RuntimeActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated Adele2Aadl -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="ba_relations.presentation.Ba_relationsModelWizardID"
+            name="%_UI_Ba_relationsModelWizard_label"
+            class="ba_relations.presentation.Ba_relationsModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/Ba_relationsModelFile.gif">
+         <description>%_UI_Ba_relationsModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated Adele2Aadl -->
+      <editor
+            id="ba_relations.presentation.Ba_relationsEditorID"
+            name="%_UI_Ba_relationsEditor_label"
+            icon="icons/full/obj16/Ba_relationsModelFile.gif"
+            extensions="ba_relations"
+            class="ba_relations.presentation.Ba_relationsEditor"
+            contributorClass="ba_relations.presentation.Ba_relationsActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated Adele2Aadl -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="ObjectDescriptionModel.presentation.ObjectDescriptionModelModelWizardID"
+            name="%_UI_ObjectDescriptionModelModelWizard_label"
+            class="ObjectDescriptionModel.presentation.ObjectDescriptionModelModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/ObjectDescriptionModelModelFile.gif">
+         <description>%_UI_ObjectDescriptionModelModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated Adele2Aadl -->
+      <editor
+            id="ObjectDescriptionModel.presentation.ObjectDescriptionModelEditorID"
+            name="%_UI_ObjectDescriptionModelEditor_label"
+            icon="icons/full/obj16/ObjectDescriptionModelModelFile.gif"
+            extensions="objectdescriptionmodel"
+            class="ObjectDescriptionModel.presentation.ObjectDescriptionModelEditor"
+            contributorClass="ObjectDescriptionModel.presentation.ObjectDescriptionModelActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

@@ -1,0 +1,58 @@
+package eventPortConn2PortConnSrcSubcompoDestParent
+public
+	system System0
+	features
+		sys0InEventPort1: in event port;
+		sys0OutEventPort1: out event port;
+		sys0InOutEventPort1: in out event port;
+		sys0OutAbstractFeat: out feature;
+	end System0;
+	
+	-- Sunny day test
+	system implementation System0.impl
+	subcomponents
+		sys0Sub1Sys2: system System2;
+		sys0Sub0Sys2: system System2.impl;
+	connections
+		conn0: port sys0Sub1Sys2.sys2OutEventPort -> sys0InOutEventPort1; 
+		conn1: port sys0Sub1Sys2.sys2OutEventPort -> sys0OutEventPort1;
+		conn2: port sys0Sub1Sys2.sys2InOutEventPort -> sys0OutEventPort1;
+	end System0.impl;
+
+	system System1 extends System0
+	features
+		sys1InEventPort1: in event port;
+		sys1OutEventPort1: out event port;
+		sys1InOutEventPort1: in out event port;
+		sys0OutAbstractFeat: refined to out event port;
+	end System1;
+
+	-- Feature from extended component
+	system implementation System1.impl extends System0.impl
+	subcomponents
+		sys0Sub1Sys2: refined to system System3;
+		sys1Sub1Sys2: system System2.impl;
+	connections
+		-- Connections to inherited features
+		conn3: port sys0Sub0Sys2.sys2InOutEventPort -> sys0OutEventPort1;
+		conn4: port sys1Sub1Sys2.sys2OutEventPort -> sys1OutEventPort1;
+		conn5: port sys0Sub1Sys2.sys3OutEventPort -> sys1OutEventPort1; -- Connection from a refined subcomponent
+		conn6: port sys0Sub1Sys2.sys3OutEventPort -> sys0OutAbstractFeat; -- Connection from a refined subcomponent to a refined feature
+	end System1.impl;
+
+	system System2
+	features
+		sys2InEventPort: in event port;
+		sys2OutEventPort: out event port;
+		sys2InOutEventPort: in out event port;
+	end System2;
+
+	system implementation System2.impl
+	end System2.impl;
+	
+	system System3 extends System2
+	features
+		sys3OutEventPort: out event port;
+	end System3;
+	
+end eventPortConn2PortConnSrcSubcompoDestParent;

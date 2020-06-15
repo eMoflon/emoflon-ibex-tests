@@ -1,0 +1,25 @@
+#using Adele2Aadl.*
+#using AttrCondDefLibrary.*
+
+#rule ruleAccessConn2AccessConnSrcSubcompoFeatDestParentSameAccess14  #extends aabstractruleAccessConn2AccessConnSrcSubcompoFeatDestParent13 #with Adele2Aadl
+
+#source { 
+	++ adeleConnection: ADELE_Relations.BusAccessConnection{
+		++ - originalSourceFeature->adeleComponentAccess
+	}
+}
+
+#target {
+	++ sourceConnectedElement: aadl2.ConnectedElement{
+		
+		++ -connectionEnd ->aadlComponentAccess
+	}
+}
+
+#correspondence {
+	
+}
+
+#attributeConditions {
+	
+}

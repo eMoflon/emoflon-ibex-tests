@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema xmlns:KernelSpices="http://KernelSpices" xmlns:ObjectDescriptionModel="http://ObjectDescriptionModel" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://KernelSpices">
+  <xsd:import namespace="http://ObjectDescriptionModel" schemaLocation="ObjectDescriptionModel.xsd"/>
+  <xsd:import namespace="http://www.omg.org/XMI" schemaLocation="platform:/plugin/org.eclipse.emf.ecore/model/XMI.xsd"/>
+  <xsd:simpleType name="SKFeatureVisibility">
+    <xsd:restriction base="xsd:NCName">
+      <xsd:enumeration value="Provided"/>
+      <xsd:enumeration value="Internal"/>
+      <xsd:enumeration value="Required"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType abstract="true" name="SKObject">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="name" type="xsd:string" use="required"/>
+  </xsd:complexType>
+  <xsd:element name="SKObject" type="KernelSpices:SKObject"/>
+  <xsd:complexType abstract="true" name="SKHierarchicalObject">
+    <xsd:complexContent>
+      <xsd:extension base="KernelSpices:SKObject">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="properties" type="KernelSpices:SKProperty"/>
+          <xsd:element name="parent" type="KernelSpices:SKHierarchicalObject"/>
+          <xsd:element name="children" type="KernelSpices:SKHierarchicalObject"/>
+          <xsd:element name="odSystems" type="ObjectDescriptionModel:SKODSystem"/>
+        </xsd:choice>
+        <xsd:attribute name="parent" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="SKHierarchicalObject" type="KernelSpices:SKHierarchicalObject"/>
+  <xsd:complexType name="SKComponent">
+    <xsd:complexContent>
+      <xsd:extension base="KernelSpices:SKHierarchicalObject">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="features" type="KernelSpices:SKFeature"/>
+        </xsd:choice>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="SKComponent" type="KernelSpices:SKComponent"/>
+  <xsd:complexType name="SKFeature">
+    <xsd:complexContent>
+      <xsd:extension base="KernelSpices:SKHierarchicalObject">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="component" type="KernelSpices:SKComponent"/>
+        </xsd:choice>
+        <xsd:attribute name="visibility" type="KernelSpices:SKFeatureVisibility" use="required"/>
+        <xsd:attribute name="component" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="SKFeature" type="KernelSpices:SKFeature"/>
+  <xsd:complexType name="SKRelation">
+    <xsd:complexContent>
+      <xsd:extension base="KernelSpices:SKHierarchicalObject">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="objects" type="KernelSpices:SKObject"/>
+        </xsd:choice>
+        <xsd:attribute name="objects" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="SKRelation" type="KernelSpices:SKRelation"/>
+  <xsd:complexType name="SKProperty">
+    <xsd:complexContent>
+      <xsd:extension base="KernelSpices:SKHierarchicalObject">
+        <xsd:attribute name="value" type="xsd:string" use="required"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="SKProperty" type="KernelSpices:SKProperty"/>
+</xsd:schema>

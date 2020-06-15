@@ -1,0 +1,49 @@
+
+#using Adele2Aadl.*
+#using AttrCondDefLibrary.*
+
+#abstract #rule ruleFeatGroupAccess2FeatGroupAccessRefined47 #extends abstractruleFeatGroupAccess2FeatGroupAccess46  #with Adele2Aadl
+
+#source { 
+	++adeleAccess:ADELE_Features.Access{
+		++ -refinedFeature->adeleRefinedFeature
+	}
+	adeleRefinedFeature:ADELE_Features.Feature
+	
+	}
+
+#target {
+	++aadlAccess:aadl2.Access{
+		++ -refined->aadlRefinedFeature
+	}
+	aadlRefinedFeature:aadl2.Feature
+	
+}
+
+#correspondence {
+	corrRefinedFeature:CorrFeature{
+		#src->adeleRefinedFeature
+		#trg->aadlRefinedFeature
+	}
+	
+}
+
+#attributeConditions {
+eq_string(adeleAccess.name, aadlAccess.name)
+}
+
+
+#rule BusAccess2BusAccessRule #extends ruleFeatGroupAccess2FeatGroupAccessRefined47
+#with Adele2Aadl
+#source {
+	++ adeleAccess:BusAccess
+	
+	}
+#target {
+	++ aadlAccess:BusAccess
+}
+
+
+
+
+

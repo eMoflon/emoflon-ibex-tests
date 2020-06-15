@@ -1,0 +1,73 @@
+#using Adele2Aadl.*
+#using AttrCondDefLibrary.*
+
+#abstract #rule ruleAccess2AccessTypedRefined6 #with Adele2Aadl
+
+#source {
+	adeleType:ADELE_Components.Component{
+		++ -features -> adeleAccess
+	}
+
+	++adeleAccess:ADELE_Features.Access{
+		++-refinedFeature -> adeleRefinedFeature
+		++-classifier -> adeleClassifier
+	}
+
+	adeleRefinedFeature:ADELE_Features.Feature
+
+	adeleClassifier:ADELE_Components.Component
+}
+
+#target {
+	aadlType:aadl2.ComponentType{
+		++ -ownedFeature -> aadlAccess
+	}
+
+	++aadlAccess:aadl2.Access{
+		++-refined -> aadlRefinedFeature
+		++-featureClassifier -> aadlClassifier
+	}
+
+	aadlRefinedFeature:aadl2.Feature
+
+	aadlClassifier:aadl2.FeatureClassifier
+}
+
+#correspondence {
+	corrType:CorrComponentType{
+		#src->adeleType
+		#trg->aadlType
+	}
+
+	++corrAccess:CorrAccess{
+		#src->adeleAccess
+		#trg->aadlAccess
+	}
+
+	corrRefinedFeature:CorrFeature
+	{
+		#src->adeleRefinedFeature
+		#trg->aadlRefinedFeature
+	}
+
+	corrClassifier:CorrComponent{
+		#src->adeleClassifier
+		#trg->aadlClassifier
+	}
+}
+
+#attributeConditions {
+	eq_string(adeleAccess.name, aadlAccess.name)
+}
+
+#rule ruleAccess2AccessTypedRefined  #extends ruleAccess2AccessTypedRefined6 #with Adele2Aadl
+
+#source{
+	++adeleAccess:ADELE_Features.BusAccess
+}
+
+#target{
+	++aadlAccess:aadl2.BusAccess
+}
+
+

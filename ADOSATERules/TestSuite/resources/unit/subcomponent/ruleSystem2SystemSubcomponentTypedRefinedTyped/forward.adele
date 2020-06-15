@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="ASCII"?>
+<ADELE_Components:Package xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ADELE_Components="http://ADELE_Components" name="ruleSystem2SystemSubcomponentTypedRefinedTyped">
+  <children xsi:type="ADELE_Components:System" name="System0">
+    <children xsi:type="ADELE_Components:System" name="System0.impl" type="ruleSystem2SystemSubcomponentTypedRefinedTyped.System0" featuresLock="true">
+      <children xsi:type="ADELE_Components:System" name="system0_subcompo1" type="ruleSystem2SystemSubcomponentTypedRefinedTyped.System3" implementation="ruleSystem2SystemSubcomponentTypedRefinedTyped.System3.System3.impl" featuresLock="true" subcomponentsLock="true"/>
+    </children>
+  </children>
+  <children xsi:type="ADELE_Components:System" name="System3">
+    <children xsi:type="ADELE_Components:System" name="System3.impl" type="ruleSystem2SystemSubcomponentTypedRefinedTyped.System3" featuresLock="true"/>
+  </children>
+  <children xsi:type="ADELE_Components:System" name="System1" refines="ruleSystem2SystemSubcomponentTypedRefinedTyped.System0">
+    <children xsi:type="ADELE_Components:System" name="System1.impl" type="ruleSystem2SystemSubcomponentTypedRefinedTyped.System1" featuresLock="true" refines="ruleSystem2SystemSubcomponentTypedRefinedTyped.System0.System0.impl">
+      <children xsi:type="ADELE_Components:System" name="system1_subcompo3" type="ruleSystem2SystemSubcomponentTypedRefinedTyped.System4" implementation="ruleSystem2SystemSubcomponentTypedRefinedTyped.System4" featuresLock="true" subcomponentsLock="true"/>
+      <children xsi:type="ADELE_Components:System" name="system1_subcompo4" type="ruleSystem2SystemSubcomponentTypedRefinedTyped.System4" implementation="ruleSystem2SystemSubcomponentTypedRefinedTyped.System4" featuresLock="true" subcomponentsLock="true"/>
+      <children xsi:type="ADELE_Components:System" name="system0_subcompo1" type="ruleSystem2SystemSubcomponentTypedRefinedTyped.System3" implementation="ruleSystem2SystemSubcomponentTypedRefinedTyped.System3.System3.impl" featuresLock="true" subcomponentsLock="true" subcomponentRefinement="true"/>
+      <children xsi:type="ADELE_Components:System" name="system1_subcompo2" type="ruleSystem2SystemSubcomponentTypedRefinedTyped.System3" implementation="ruleSystem2SystemSubcomponentTypedRefinedTyped.System3.System3.impl" featuresLock="true" subcomponentsLock="true"/>
+      <children xsi:type="ADELE_Components:System" name="system1_subcompo1" type="ruleSystem2SystemSubcomponentTypedRefinedTyped.System3" implementation="ruleSystem2SystemSubcomponentTypedRefinedTyped.System3.System3.impl" featuresLock="true" subcomponentsLock="true"/>
+    </children>
+  </children>
+  <children xsi:type="ADELE_Components:System" name="System4" refines="ruleSystem2SystemSubcomponentTypedRefinedTyped.System3">
+    <children xsi:type="ADELE_Components:System" name="System4.impl" type="ruleSystem2SystemSubcomponentTypedRefinedTyped.System4" featuresLock="true" refines="ruleSystem2SystemSubcomponentTypedRefinedTyped.System3.System3.impl"/>
+  </children>
+  <children xsi:type="ADELE_Components:System" name="System2" refines="ruleSystem2SystemSubcomponentTypedRefinedTyped.System1">
+    <children xsi:type="ADELE_Components:System" name="System2.impl" type="ruleSystem2SystemSubcomponentTypedRefinedTyped.System2" featuresLock="true" refines="ruleSystem2SystemSubcomponentTypedRefinedTyped.System1.System1.impl">
+      <children xsi:type="ADELE_Components:System" name="system1_subcompo4" type="ruleSystem2SystemSubcomponentTypedRefinedTyped.System4" implementation="ruleSystem2SystemSubcomponentTypedRefinedTyped.System4" featuresLock="true" subcomponentsLock="true" subcomponentRefinement="true"/>
+      <children xsi:type="ADELE_Components:System" name="system1_subcompo2" type="ruleSystem2SystemSubcomponentTypedRefinedTyped.System3" implementation="ruleSystem2SystemSubcomponentTypedRefinedTyped.System3.System3.impl" featuresLock="true" subcomponentsLock="true" subcomponentRefinement="true"/>
+      <children xsi:type="ADELE_Components:System" name="system1_subcompo1" type="ruleSystem2SystemSubcomponentTypedRefinedTyped.System3" implementation="ruleSystem2SystemSubcomponentTypedRefinedTyped.System3.System3.impl" featuresLock="true" subcomponentsLock="true" subcomponentRefinement="true"/>
+      <children xsi:type="ADELE_Components:System" name="system0_subcompo1" type="ruleSystem2SystemSubcomponentTypedRefinedTyped.System3" implementation="ruleSystem2SystemSubcomponentTypedRefinedTyped.System3.System3.impl" featuresLock="true" subcomponentsLock="true" refines="ruleSystem2SystemSubcomponentTypedRefinedTyped.System4.System4.impl" subcomponentRefinement="true" refinedSubcomponent="ruleSystem2SystemSubcomponentTypedRefinedTyped.System0.System0.impl.system0_subcompo1"/>
+      <children xsi:type="ADELE_Components:System" name="system1_subcompo3" type="ruleSystem2SystemSubcomponentTypedRefinedTyped.System4" implementation="ruleSystem2SystemSubcomponentTypedRefinedTyped.System4" featuresLock="true" subcomponentsLock="true" refines="ruleSystem2SystemSubcomponentTypedRefinedTyped.System4.System4.impl" subcomponentRefinement="true" refinedSubcomponent="ruleSystem2SystemSubcomponentTypedRefinedTyped.System1.System1.impl.system1_subcompo3"/>
+    </children>
+  </children>
+  <children xsi:type="ADELE_Components:System" name="System6" refines="ruleSystem2SystemSubcomponentTypedRefinedTyped.System4">
+    <children xsi:type="ADELE_Components:System" name="System6.impl" type="ruleSystem2SystemSubcomponentTypedRefinedTyped.System6" featuresLock="true" refines="ruleSystem2SystemSubcomponentTypedRefinedTyped.System4.System4.impl"/>
+  </children>
+  <children xsi:type="ADELE_Components:System" name="System5" refines="ruleSystem2SystemSubcomponentTypedRefinedTyped.System2">
+    <children xsi:type="ADELE_Components:System" name="System5.impl" type="ruleSystem2SystemSubcomponentTypedRefinedTyped.System5" featuresLock="true" refines="ruleSystem2SystemSubcomponentTypedRefinedTyped.System2.System2.impl">
+      <children xsi:type="ADELE_Components:System" name="system1_subcompo4" type="ruleSystem2SystemSubcomponentTypedRefinedTyped.System4" implementation="ruleSystem2SystemSubcomponentTypedRefinedTyped.System4" featuresLock="true" subcomponentsLock="true" subcomponentRefinement="true"/>
+      <children xsi:type="ADELE_Components:System" name="system1_subcompo2" type="ruleSystem2SystemSubcomponentTypedRefinedTyped.System3" implementation="ruleSystem2SystemSubcomponentTypedRefinedTyped.System3.System3.impl" featuresLock="true" subcomponentsLock="true" subcomponentRefinement="true"/>
+      <children xsi:type="ADELE_Components:System" name="system1_subcompo1" type="ruleSystem2SystemSubcomponentTypedRefinedTyped.System3" implementation="ruleSystem2SystemSubcomponentTypedRefinedTyped.System3.System3.impl" featuresLock="true" subcomponentsLock="true" subcomponentRefinement="true"/>
+      <children xsi:type="ADELE_Components:System" name="system1_subcompo3" type="ruleSystem2SystemSubcomponentTypedRefinedTyped.System4" implementation="ruleSystem2SystemSubcomponentTypedRefinedTyped.System4" featuresLock="true" subcomponentsLock="true" refines="ruleSystem2SystemSubcomponentTypedRefinedTyped.System4.System4.impl" subcomponentRefinement="true" refinedSubcomponent="ruleSystem2SystemSubcomponentTypedRefinedTyped.System2.System2.impl.system1_subcompo3"/>
+      <children xsi:type="ADELE_Components:System" name="system0_subcompo1" type="ruleSystem2SystemSubcomponentTypedRefinedTyped.System3" implementation="ruleSystem2SystemSubcomponentTypedRefinedTyped.System3.System3.impl" featuresLock="true" subcomponentsLock="true" refines="ruleSystem2SystemSubcomponentTypedRefinedTyped.System6.System6.impl" subcomponentRefinement="true" refinedSubcomponent="ruleSystem2SystemSubcomponentTypedRefinedTyped.System2.System2.impl.system0_subcompo1"/>
+    </children>
+  </children>
+</ADELE_Components:Package>

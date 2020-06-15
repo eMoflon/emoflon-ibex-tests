@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema xmlns:KernelSpices="http://KernelSpices" xmlns:ObjectDescriptionModel="http://ObjectDescriptionModel" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://ObjectDescriptionModel">
+  <xsd:import namespace="http://www.omg.org/XMI" schemaLocation="platform:/plugin/org.eclipse.emf.ecore/model/XMI.xsd"/>
+  <xsd:import namespace="http://KernelSpices" schemaLocation="KernelSpices.xsd"/>
+  <xsd:simpleType name="SKODSMode">
+    <xsd:restriction base="xsd:NCName">
+      <xsd:enumeration value="HIERARCHICAL"/>
+      <xsd:enumeration value="SEQUENTIAL"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="SKODSection">
+    <xsd:complexContent>
+      <xsd:extension base="KernelSpices:SKHierarchicalObject">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="data" type="ObjectDescriptionModel:SKODData"/>
+        </xsd:choice>
+        <xsd:attribute name="label" type="xsd:string" use="required">
+          <xsd:annotation>
+            <xsd:documentation>Nom affiché de la section.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="domODSNode" type="xsd:string" use="required">
+          <xsd:annotation>
+            <xsd:documentation>Lien vers la section XML qui a donné naissance à cette section.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="SKODSection" type="ObjectDescriptionModel:SKODSection"/>
+  <xsd:complexType name="SKODSystem">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element name="sections" type="ObjectDescriptionModel:SKODSection"/>
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="id" type="xsd:string" use="required"/>
+    <xsd:attribute name="label" type="xsd:string" use="required"/>
+    <xsd:attribute name="mode" type="ObjectDescriptionModel:SKODSMode" use="required"/>
+    <xsd:attribute name="styleSheet" type="xsd:string" use="required"/>
+    <xsd:attribute name="domData" type="xsd:string" use="required"/>
+  </xsd:complexType>
+  <xsd:element name="SKODSystem" type="ObjectDescriptionModel:SKODSystem"/>
+  <xsd:complexType name="SKODSFactory">
+    <xsd:annotation>
+      <xsd:documentation>A SKODSFactory (Spices Kernel Object Description System Factory) is instanciate with the name of a XML file. Then it can build a specific SKODSystem for a specific SKHierarchicalObject.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element name="currentObject" type="KernelSpices:SKHierarchicalObject"/>
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="domODS" type="xsd:string" use="required"/>
+    <xsd:attribute name="currentODSDatafileNode" type="xsd:string" use="required"/>
+    <xsd:attribute name="domData" type="xsd:string"/>
+    <xsd:attribute name="currentObject" type="xsd:string"/>
+  </xsd:complexType>
+  <xsd:element name="SKODSFactory" type="ObjectDescriptionModel:SKODSFactory">
+    <xsd:annotation>
+      <xsd:documentation>A SKODSFactory (Spices Kernel Object Description System Factory) is instanciate with the name of a XML file. Then it can build a specific SKODSystem for a specific SKHierarchicalObject.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="SKODData">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="value" type="xsd:string" use="required"/>
+    <xsd:attribute name="modified" type="xsd:boolean" use="required"/>
+    <xsd:attribute name="dom" type="xsd:string" use="required"/>
+    <xsd:attribute name="node" type="xsd:string" use="required"/>
+    <xsd:attribute name="external" type="xsd:boolean" use="required"/>
+  </xsd:complexType>
+  <xsd:element name="SKODData" type="ObjectDescriptionModel:SKODData"/>
+</xsd:schema>

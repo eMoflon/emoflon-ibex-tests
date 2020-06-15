@@ -1,0 +1,68 @@
+#using Adele2Aadl.*
+#using AttrCondDefLibrary.*
+
+#abstract #rule ruleFeatGroupDirFeat2FeatGroupDirFeatTypedAsParentRefined54 #with Adele2Aadl
+
+#source { 
+	
+	adeleType:ADELE_Features.FeatureGroup 
+	{
+		++ -features->adeleFeature
+	}
+	++adeleFeature:ADELE_Features.DirectedFeature
+	{
+		++ -classifier->adeleType
+		++ -refinedFeature->adeleRefinedFeature
+	}
+	adeleRefinedFeature:ADELE_Features.Feature
+	
+}
+
+#target {
+	aadlType:aadl2.FeatureGroupType 
+	{
+		++ -ownedFeature->aadlFeature
+		
+	}
+	++aadlFeature:aadl2.DirectedFeature
+	{
+		++ -classifier->aadlType
+		++ -refined->aadlRefinedFeature
+	}
+	aadlRefinedFeature:aadl2.Feature 
+	
+}
+
+#correspondence {
+	corrType:CorrComponentTypeFG
+	{
+		#src->adeleType
+		#trg->aadlType
+	}
+	++corrFeature:CorrDirectedFeature 
+	{
+		#src->adeleFeature
+		#trg->aadlFeature
+	}
+	corrRefinedFeature:CorrFeature 
+	{
+		#src->adeleRefinedFeature
+		#trg->aadlRefinedFeature
+	}
+}
+
+
+#attributeConditions {
+eq_string(adeleFeature.name, aadlFeature.name)
+}
+
+ #rule ruleFeatGroupDirFeat2FeatGroupDirFeatTypedAsParentRefinedabstract #extends ruleFeatGroupDirFeat2FeatGroupDirFeatTypedAsParentRefined54 #with Adele2Aadl
+#source { 
+	++adeleFeature:ADELE_Features.FeatureGroup
+	}
+
+#target {
+	++aadlFeature:aadl2.FeatureGroup
+	}
+
+

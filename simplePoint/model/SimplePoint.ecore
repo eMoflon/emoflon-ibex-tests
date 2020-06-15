@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="SimplePoint" nsURI="platform:/resource/SimplePoint/model/SimplePoint.ecore"
+    nsPrefix="SimplePoint">
+  <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+    <details key="originalName" value="SimplePoint"/>
+  </eAnnotations>
+  <eSubpackages name="SystemDesign" nsURI="http:///SimplePoint/SystemDesign.ecore"
+      nsPrefix="SimplePoint.SystemDesign">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="SystemDesign"/>
+    </eAnnotations>
+    <eClassifiers xsi:type="ecore:EClass" name="Point">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="movePointLeft" ordered="false"
+          lowerBound="1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
+          containment="true">
+        <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <details key="originalName" value="move_point_left"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="left" ordered="false"
+          lowerBound="1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="right" ordered="false"
+          lowerBound="1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="movePointRight" ordered="false"
+          lowerBound="1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
+          containment="true">
+        <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <details key="originalName" value="move_point_right"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="StateMachine1">
+      <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <details key="originalName" value="State Machine1"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Transition"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Effects"/>
+    <eClassifiers xsi:type="ecore:EClass" name="State"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Change1"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Change2"/>
+  </eSubpackages>
+</ecore:EPackage>

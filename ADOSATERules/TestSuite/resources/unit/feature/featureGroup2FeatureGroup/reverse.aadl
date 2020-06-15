@@ -1,0 +1,100 @@
+package featureGroup2FeatureGroup
+public
+with external_specification;
+	data Data1
+	end Data1;
+
+	data implementation Data1.impl
+	end Data1.impl;
+
+	feature group FeatureGroup0
+	features
+		fg0Feature0 : in feature;
+		fg0Feature1 : out feature;
+		fg0Feature2 : feature;
+	end FeatureGroup0;
+
+	feature group FeatureGroup1
+	features
+		fg1Feature0 : in feature;
+		fg1Feature1 : requires data access Data1.impl;
+	end FeatureGroup1;
+
+	feature group FeatureGroup2
+	features
+		fg2Feature0 : out feature;
+		fg2Feature1 : provides data access Data1.impl;
+	end FeatureGroup2;
+
+	feature group FeatureGroup3
+	features
+		fg3Feature0 : feature;
+		fg3Feature1 : provides data access Data1.impl;
+	end FeatureGroup3;
+	
+	processor Processor0
+	features
+		proc0FeatGroup0: feature;
+		proc0FeatGroup1: in feature group FeatureGroup1;
+		proc0FeatGroup2: out feature group FeatureGroup2;
+		proc0FeatGroup3: feature group FeatureGroup3;
+	end Processor0;
+
+	processor Processor1 extends Processor0
+	features
+		proc0FeatGroup0: refined to out feature group FeatureGroup2;
+		proc1FeatGroup1 : out event data port external_specification::Data_Parent.impl;
+	end Processor1;
+
+	-- Test the case where the classifier of the feature group is the parent of the feature.
+	feature group FeatureGroup4 extends FeatureGroup3
+	features
+		fg4Feature1 : feature group FeatureGroup4;
+		fg3Feature0 : refined to feature group FeatureGroup4;
+	end FeatureGroup4;
+
+	data Lower_Desired_Temp_Value
+	end Lower_Desired_Temp_Value;
+
+	data Lower_Desired_Temp_Status
+	end Lower_Desired_Temp_Status;
+
+	data Upper_Desired_Temp_Value
+	end Upper_Desired_Temp_Value;
+
+	data Upper_Desired_Temp_Status
+	end Upper_Desired_Temp_Status;
+
+	feature group Lower_Desired_Temperature
+		features
+			value : in data port Lower_Desired_Temp_Value;
+			status : in data port Lower_Desired_Temp_Status;
+	end Lower_Desired_Temperature;
+
+	feature group Upper_Desired_Temperature
+		features
+			value : in data port Upper_Desired_Temp_Value;
+			status : in data port Upper_Desired_Temp_Status;
+	end Upper_Desired_Temperature;
+
+	feature group Desired_Temperature_Range
+		features
+			lower : in feature group Lower_Desired_Temperature;
+			upper : in feature group Upper_Desired_Temperature;
+	end Desired_Temperature_Range;
+	
+	process Process1
+	features
+		DataPort1 : in data port Data1;
+		EventPort1 : in event port;
+		featGroup : feature group FeatureGroup5;
+	end Process1;
+
+	feature group FeatureGroup5
+	features
+		DataPort1 : in data port;
+		EventPort1 : in event port;
+		FeatureGroup1 : out feature group FeatureGroup2;
+	end FeatureGroup5;
+
+end featureGroup2FeatureGroup;

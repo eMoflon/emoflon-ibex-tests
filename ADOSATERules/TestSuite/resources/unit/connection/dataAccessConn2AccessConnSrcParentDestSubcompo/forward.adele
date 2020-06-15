@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="ASCII"?>
+<ADELE_Components:Package xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ADELE_Components="http://ADELE_Components" xmlns:ADELE_Features="http://ADELE_Features" name="dataAccessConn2AccessConnSrcParentDestSubcompo">
+  <children xsi:type="ADELE_Components:Data" name="Data0">
+    <children xsi:type="ADELE_Components:Data" name="Data0.impl" featuresLock="true"/>
+  </children>
+  <children xsi:type="ADELE_Components:Data" name="Data1">
+    <children xsi:type="ADELE_Components:Data" name="Data1.impl" featuresLock="true"/>
+  </children>
+  <children xsi:type="ADELE_Components:System" name="System0">
+    <children xsi:type="ADELE_Components:System" name="System0.impl" featuresLock="true">
+      <children xsi:type="ADELE_Components:System" name="sys0Sub2Sys0" featuresLock="true" subcomponentsLock="true">
+        <features xsi:type="ADELE_Features:DataAccess" name="sys0ProvDataAccess1"/>
+        <features xsi:type="ADELE_Features:AbstractFeature" name="sys0AbstractFeat" direction="inout"/>
+        <features xsi:type="ADELE_Features:DataAccess" name="sys0ReqDataAccess1" direction="required"/>
+      </children>
+      <children xsi:type="ADELE_Components:System" name="sys0Sub1Sys2" featuresLock="true" subcomponentsLock="true">
+        <features xsi:type="ADELE_Features:DataAccess" name="sys2ProvDataAccess"/>
+        <features xsi:type="ADELE_Features:DataAccess" name="sys2ReqDataAccess" direction="required"/>
+      </children>
+      <children xsi:type="ADELE_Components:System" name="sys0Sub0Sys2" featuresLock="true" subcomponentsLock="true">
+        <features xsi:type="ADELE_Features:DataAccess" name="sys2ProvDataAccess"/>
+        <features xsi:type="ADELE_Features:DataAccess" name="sys2ReqDataAccess" direction="required"/>
+      </children>
+      <features xsi:type="ADELE_Features:DataAccess" name="sys0ProvDataAccess1"/>
+      <features xsi:type="ADELE_Features:AbstractFeature" name="sys0AbstractFeat" direction="inout"/>
+      <features xsi:type="ADELE_Features:DataAccess" name="sys0ReqDataAccess1" direction="required"/>
+      <dataAccessConnection name="conn2"/>
+      <dataAccessConnection name="conn0"/>
+      <dataAccessConnection name="conn1"/>
+    </children>
+    <features xsi:type="ADELE_Features:DataAccess" name="sys0ProvDataAccess1"/>
+    <features xsi:type="ADELE_Features:AbstractFeature" name="sys0AbstractFeat" direction="inout"/>
+    <features xsi:type="ADELE_Features:DataAccess" name="sys0ReqDataAccess1" direction="required"/>
+  </children>
+  <children xsi:type="ADELE_Components:System" name="System2">
+    <children xsi:type="ADELE_Components:System" name="System2.impl" featuresLock="true">
+      <features xsi:type="ADELE_Features:DataAccess" name="sys2ProvDataAccess"/>
+      <features xsi:type="ADELE_Features:DataAccess" name="sys2ReqDataAccess" direction="required"/>
+    </children>
+    <features xsi:type="ADELE_Features:DataAccess" name="sys2ProvDataAccess"/>
+    <features xsi:type="ADELE_Features:DataAccess" name="sys2ReqDataAccess" direction="required"/>
+  </children>
+  <children xsi:type="ADELE_Components:System" name="System1">
+    <children xsi:type="ADELE_Components:System" name="System1.impl" featuresLock="true">
+      <children xsi:type="ADELE_Components:System" name="sys0Sub2Sys0" featuresLock="true" subcomponentsLock="true" subcomponentRefinement="true">
+        <features xsi:type="ADELE_Features:DataAccess" name="sys0ProvDataAccess1"/>
+        <features xsi:type="ADELE_Features:AbstractFeature" name="sys0AbstractFeat" direction="inout"/>
+        <features xsi:type="ADELE_Features:DataAccess" name="sys0ReqDataAccess1" direction="required"/>
+      </children>
+      <children xsi:type="ADELE_Components:System" name="sys0Sub1Sys2" featuresLock="true" subcomponentsLock="true" subcomponentRefinement="true">
+        <features xsi:type="ADELE_Features:DataAccess" name="sys2ProvDataAccess"/>
+        <features xsi:type="ADELE_Features:DataAccess" name="sys2ReqDataAccess" direction="required"/>
+        <features xsi:type="ADELE_Features:DataAccess" name="sys3ReqDataAccess" direction="required"/>
+      </children>
+      <children xsi:type="ADELE_Components:System" name="sys0Sub0Sys2" featuresLock="true" subcomponentsLock="true" subcomponentRefinement="true">
+        <features xsi:type="ADELE_Features:DataAccess" name="sys2ProvDataAccess"/>
+        <features xsi:type="ADELE_Features:DataAccess" name="sys2ReqDataAccess" direction="required"/>
+      </children>
+      <children xsi:type="ADELE_Components:System" name="sys1Sub1Sys2" featuresLock="true" subcomponentsLock="true">
+        <features xsi:type="ADELE_Features:DataAccess" name="sys2ProvDataAccess"/>
+        <features xsi:type="ADELE_Features:DataAccess" name="sys2ReqDataAccess" direction="required"/>
+      </children>
+      <features xsi:type="ADELE_Features:DataAccess" name="sys0ProvDataAccess1"/>
+      <features xsi:type="ADELE_Features:DataAccess" name="sys0ReqDataAccess1" direction="required"/>
+      <features xsi:type="ADELE_Features:DataAccess" name="sys1ReqDataAccess1" direction="required"/>
+      <features xsi:type="ADELE_Features:DataAccess" name="sys1ProvDataAccess1"/>
+      <features xsi:type="ADELE_Features:DataAccess" name="sys0AbstractFeat" direction="required"/>
+      <dataAccessConnection name="conn3"/>
+      <dataAccessConnection name="conn4"/>
+      <dataAccessConnection name="conn5"/>
+      <dataAccessConnection name="conn6"/>
+    </children>
+    <features xsi:type="ADELE_Features:DataAccess" name="sys0ProvDataAccess1"/>
+    <features xsi:type="ADELE_Features:DataAccess" name="sys0ReqDataAccess1" direction="required"/>
+    <features xsi:type="ADELE_Features:DataAccess" name="sys1ReqDataAccess1" direction="required"/>
+    <features xsi:type="ADELE_Features:DataAccess" name="sys1ProvDataAccess1"/>
+    <features xsi:type="ADELE_Features:DataAccess" name="sys0AbstractFeat" direction="required"/>
+  </children>
+  <children xsi:type="ADELE_Components:System" name="System3">
+    <features xsi:type="ADELE_Features:DataAccess" name="sys2ProvDataAccess"/>
+    <features xsi:type="ADELE_Features:DataAccess" name="sys2ReqDataAccess" direction="required"/>
+    <features xsi:type="ADELE_Features:DataAccess" name="sys3ReqDataAccess" direction="required"/>
+  </children>
+</ADELE_Components:Package>

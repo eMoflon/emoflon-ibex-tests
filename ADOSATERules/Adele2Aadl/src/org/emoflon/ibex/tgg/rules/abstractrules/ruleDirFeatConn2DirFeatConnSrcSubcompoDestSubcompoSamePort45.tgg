@@ -1,0 +1,31 @@
+#using Adele2Aadl.*
+#using AttrCondDefLibrary.*
+
+#rule ruleDirFeatConn2DirFeatConnSrcSubcompoDestSubcompoSamePort45 #extends abstractruleDirFeatConn2DirFeatConnSrcSubcompoDestSubcompo44 #with Adele2Aadl
+
+#source { 
+	++adeleConnection:ADELE_Relations.FeatureGroupConnection {
+		++ -originalSourceFeature->adeleDestinationSubcomponentFeature
+	}
+	adeleComponentImplementation:ADELE_Components.Component{
+		-allRealChildrenComponents->adeleSourceSubcomponent
+	}
+	adeleSourceSubcomponent:ADELE_Components.Component
+	
+}
+
+#target {
+	++aadlConnection:aadl2.FeatureGroupConnection
+	++sourceConnectedElement:aadl2.ConnectedElement{
+		++ -connectionEnd->aadlDestinationSubcomponentFeature
+	}
+}
+
+#correspondence {
+	
+}
+
+#attributeConditions {
+	eq_string(adeleConnection.name, aadlConnection.name)
+	
+}

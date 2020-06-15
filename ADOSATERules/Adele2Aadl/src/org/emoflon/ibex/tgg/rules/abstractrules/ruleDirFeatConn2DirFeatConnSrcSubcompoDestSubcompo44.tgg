@@ -1,0 +1,110 @@
+#using Adele2Aadl.*
+#using AttrCondDefLibrary.*
+
+
+#abstract #rule abstractruleDirFeatConn2DirFeatConnSrcSubcompoDestSubcompo44 #with Adele2Aadl
+#source { 
+    adeleDestinationSubcomponentFeature:ADELE_Features.DirectedFeature 
+    adeleDestinationSubcomponent:ADELE_Components.Component 
+    adeleComponentImplementation:ADELE_Components.Component 
+    {
+        ++ -allRealRelations->adeleConnection
+        ++ -allRealChildrenComponents->adeleDestinationSubcomponent
+        ++ -allRealChildrenComponents->adeleSourceSubcomponent
+    }
+    adeleSourceSubcomponent:ADELE_Components.Component 
+    
+    ++adeleConnection:ADELE_Relations.DirectedFeatureConnection 
+    {
+        ++ -originalSinkFeature->adeleDestinationSubcomponentFeature
+        
+    }
+    }
+#target {
+aadlDestinationSubcomponentFeature:aadl2.DirectedFeature
+aadlDestinationSubcomponent:aadl2.Subcomponent
+aadlComponentImplementation:aadl2.ComponentImplementation 
+{
+    -member->aadlDestinationSubcomponent
+    -member->aadlSourceSubcomponent
+    ++ -ownedConnection->aadlConnection
+}
+aadlSourceSubcomponent:aadl2.Subcomponent
+
+++destinationConnectedElement:aadl2.ConnectedElement 
+{
+    ++ -connectionEnd->aadlDestinationSubcomponentFeature
+    ++ -context->aadlDestinationSubcomponent
+    
+}
+++aadlConnection:aadl2.Connection
+{
+    ++ -destination->destinationConnectedElement
+    ++ -source->sourceConnectedElement
+}
+++sourceConnectedElement:aadl2.ConnectedElement
+{
+    ++ -context->aadlSourceSubcomponent
+   
+}
+}
+#correspondence {
+    corrDestinationSubcomponentFeature:CorrDirectedFeature 
+    {
+        #src->adeleDestinationSubcomponentFeature
+        #trg->aadlDestinationSubcomponentFeature
+    }
+    corrDestinationSubcomponent:CorrSubcomponenttrgSC 
+    {
+        #src->adeleDestinationSubcomponent
+        #trg->aadlDestinationSubcomponent
+        
+    }
+    
+    corrComponentImplementation:CorrComponentImplementation 
+    {
+        #src->adeleComponentImplementation
+        #trg->aadlComponentImplementation
+    }
+    ++corrConnection:CorrDirectedFeatureConnection 
+    {
+        #src->adeleConnection
+        #trg->aadlConnection
+    }
+    corrSourceSubcomponent:CorrSubcomponenttrgSC 
+    {
+        #src->adeleSourceSubcomponent
+        #trg->aadlSourceSubcomponent
+    }
+    
+}
+#attributeConditions {
+	eq_string(adeleConnection.name, aadlConnection.name)
+	
+}
+#rule ruleDirFeatConn2DirFeatConnSrcSubcompoDestSubcompo44 #extends abstractruleDirFeatConn2DirFeatConnSrcSubcompoDestSubcompo44 #with Adele2Aadl
+#source
+{
+    ++adeleConnection:ADELE_Relations.FeatureGroupConnection {
+    	++ -originalSourceFeature->adeleSourceSubcomponentFeature
+    }
+    adeleSourceSubcomponentFeature:ADELE_Features.DirectedFeature
+    
+}
+#target
+{
+    ++aadlConnection:aadl2.FeatureGroupConnection
+    ++sourceConnectedElement:aadl2.ConnectedElement
+	{
+    
+    ++ -connectionEnd->aadlSourceSubcomponentFeature
+	}
+    aadlSourceSubcomponentFeature:aadl2.DirectedFeature
+}
+#correspondence{
+	corrSourceSubcomponentFeature:CorrDirectedFeature 
+    {
+        #src->adeleSourceSubcomponentFeature
+        #trg->aadlSourceSubcomponentFeature
+    }
+}

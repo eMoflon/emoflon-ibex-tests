@@ -1,0 +1,54 @@
+package access2AccessTypedRefined
+public
+with external_specification;
+	data Data1
+	end Data1;
+
+	data implementation Data1.impl
+	end Data1.impl;
+
+	system System0
+	features
+		sys0Feature1 : feature;
+		sys0ProvDataAccess1 : provides data access;
+		sys0ReqDataAccess1 : requires data access;
+	end System0;
+
+	system System1 extends System0
+	features
+		sys0Feature1 : refined to requires data access Data1.impl;
+		sys0ProvDataAccess1 : refined to provides data access external_specification::Data_Parent.impl;
+		sys1ReqDataAccess1 : requires data access Data1;
+	end System1;
+	-- The following components test the case where the type of the access is the same as the parent of the feature.
+	bus Bus0
+	features
+		bus0BusAcc0: requires bus access Bus0;
+	end Bus0;
+
+	bus Bus1 extends Bus0
+	features
+		bus0BusAcc0: refined to requires bus access Bus1;
+	end Bus1;
+
+	subprogram Subprogram0
+	features
+		sub0SubAcc0: requires subprogram access Subprogram0;
+	end Subprogram0;
+
+	subprogram Subprogram1 extends Subprogram0
+	features
+		sub0SubAcc0: refined to requires subprogram access Subprogram1;
+	end Subprogram1;
+
+	subprogram group SubprogramGroup0
+	features
+		sub0SubAcc0: provides subprogram group access SubprogramGroup0;
+	end SubprogramGroup0;
+
+	subprogram group SubprogramGroup1 extends SubprogramGroup0
+	features
+		sub0SubAcc0: refined to provides subprogram group access SubprogramGroup1;
+	end SubprogramGroup1;
+
+end access2AccessTypedRefined;

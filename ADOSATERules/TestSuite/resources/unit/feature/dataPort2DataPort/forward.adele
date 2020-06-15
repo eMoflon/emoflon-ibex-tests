@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ASCII"?>
+<ADELE_Components:Package xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ADELE_Components="http://ADELE_Components" xmlns:ADELE_Features="http://ADELE_Features" name="dataPort2DataPort">
+  <children xsi:type="ADELE_Components:System" name="System0">
+    <features xsi:type="ADELE_Features:DataPort" name="sys0InDataPort1"/>
+    <features xsi:type="ADELE_Features:DataPort" name="sys0OutDataPort1" direction="out"/>
+    <features xsi:type="ADELE_Features:DataPort" name="sys0InOutDataPort1" direction="inout"/>
+  </children>
+  <children xsi:type="ADELE_Components:System" name="System1" refines="dataPort2DataPort.System0">
+    <features xsi:type="ADELE_Features:DataPort" name="sys0InDataPort1"/>
+    <features xsi:type="ADELE_Features:DataPort" name="sys0OutDataPort1" direction="out"/>
+    <features xsi:type="ADELE_Features:DataPort" name="sys0InOutDataPort1" direction="inout"/>
+    <features xsi:type="ADELE_Features:DataPort" name="sys1InDataPort1"/>
+    <features xsi:type="ADELE_Features:DataPort" name="sys1OutDataPort1" direction="out"/>
+    <features xsi:type="ADELE_Features:DataPort" name="sys1InOutDataPort1" direction="inout"/>
+  </children>
+</ADELE_Components:Package>

@@ -1,0 +1,90 @@
+#using Adele2Aadl.*
+#using AttrCondDefLibrary.*
+
+#abstract #rule ruleAccess2AccessTyped3 #with Adele2Aadl
+
+#source { 
+	adeleType:ADELE_Components.Component
+	{
+		++ -features->adeleAccess
+	
+	}
+	++adeleAccess:ADELE_Features.Access
+	{
+		++ -classifier->adeleClassifier
+	}
+	adeleClassifier: ADELE_Components.Component
+}
+
+#target {
+	aadlType:aadl2.ComponentType
+	{
+		++ -ownedFeature->aadlAccess	
+	}
+	++aadlAccess:aadl2.Access
+	{
+		++ -featureClassifier-> aadlClassifier
+		
+	}
+	
+	aadlClassifier:aadl2.FeatureClassifier
+	
+	
+}
+
+#correspondence {
+	corrType:CorrComponentType{
+		#src->adeleType
+        #trg->aadlType
+	}
+	++corrAccess:CorrAccess{
+	   #src->adeleAccess
+       #trg->aadlAccess
+	}
+//	corrComponentClassifier:CorrComponent
+//	{
+//		#src->adeleClassifier
+//		#trg->aadlClassifier
+//	}	
+}
+
+#attributeConditions {
+	eq_string(adeleAccess.name, aadlAccess.name)
+	
+}
+#rule ruleAccess2AccessTypedData #extends ruleAccess2AccessTyped3 #with Adele2Aadl
+
+#source { 
+	adeleType:ADELE_Components.System
+	
+	
+	++adeleAccess:ADELE_Features.DataAccess
+	
+	adeleClassifier: ADELE_Components.Data
+}
+
+#target {
+	
+aadlType:aadl2.SystemType{
+	++ -ownedDataAccess->aadlAccess
+}
+	
+	++aadlAccess:aadl2.DataAccess
+	{
+		++ -dataFeatureClassifier -> aadlClassifier
+		
+	}
+	
+	
+	aadlClassifier:aadl2.DataImplementation
+	
+	
+}
+#correspondence {
+corrComponentClassifier:CorrComponentImplementation
+	{
+		#src->adeleClassifier
+		#trg->aadlClassifier
+	}	
+
+}

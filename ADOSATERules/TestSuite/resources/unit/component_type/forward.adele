@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="ASCII"?>
+<ADELE_Components:Package xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ADELE_Components="http://ADELE_Components" xmlns:ADELE_Features="http://ADELE_Features" name="component_type">
+  <children xsi:type="ADELE_Components:Process" name="Process0"/>
+  <children xsi:type="ADELE_Components:ThreadGroup" name="ThreadGroup0"/>
+  <children xsi:type="ADELE_Components:Bus" name="Bus0"/>
+  <children xsi:type="ADELE_Components:VirtualBus" name="VirtualBus0"/>
+  <children xsi:type="ADELE_Components:Abstract" name="Abstract0"/>
+  <children xsi:type="ADELE_Components:Device" name="Device0"/>
+  <children xsi:type="ADELE_Components:System" name="System0">
+    <refines xsi:type="ADELE_Components:System" href="../external_specification1.adele#external_specification1.System_Parent"/>
+  </children>
+  <children xsi:type="ADELE_Components:Process" name="Process1"/>
+  <children xsi:type="ADELE_Components:ThreadGroup" name="ThreadGroup1"/>
+  <children xsi:type="ADELE_Components:Bus" name="Bus1"/>
+  <children xsi:type="ADELE_Components:VirtualBus" name="VirtualBus1"/>
+  <children xsi:type="ADELE_Components:Device" name="Device1"/>
+  <children xsi:type="ADELE_Components:Data" name="Data1">
+    <refines xsi:type="ADELE_Components:Data" href="../external_specification2.adele#external_specification2.Data_Parent"/>
+  </children>
+  <children xsi:type="ADELE_Features:FeatureGroup" name="FeatureGroup3">
+    <features xsi:type="ADELE_Features:EventDataPort" name="fg3EventDataPort0" direction="out">
+      <classifier href="../external_specification2.adele#external_specification2.Data_Parent"/>
+    </features>
+  </children>
+  <children xsi:type="ADELE_Features:FeatureGroup" name="FeatureGroup0">
+    <features xsi:type="ADELE_Features:AbstractFeature" name="fg0Feature0"/>
+    <features xsi:type="ADELE_Features:AbstractFeature" name="fg0Feature1" direction="out"/>
+    <features xsi:type="ADELE_Features:AbstractFeature" name="fg0Feature2" direction="inout"/>
+  </children>
+  <children xsi:type="ADELE_Features:FeatureGroup" name="FeatureGroup1">
+    <features xsi:type="ADELE_Features:DataAccess" name="fg1Feature1" direction="required"/>
+    <features xsi:type="ADELE_Features:AbstractFeature" name="fg0Feature1" direction="out"/>
+    <features xsi:type="ADELE_Features:AbstractFeature" name="fg0Feature2" direction="inout"/>
+    <features xsi:type="ADELE_Features:EventPort" name="fg0Feature0"/>
+  </children>
+  <children xsi:type="ADELE_Features:FeatureGroup" name="FeatureGroup4">
+    <features xsi:type="ADELE_Features:EventDataPort" name="fg3EventDataPort0" direction="out"/>
+  </children>
+  <children xsi:type="ADELE_Components:System" name="System1"/>
+  <children xsi:type="ADELE_Features:FeatureGroup" name="FeatureGroup2">
+    <features xsi:type="ADELE_Features:DataAccess" name="fg1Feature1"/>
+    <features xsi:type="ADELE_Features:AbstractFeature" name="fg0Feature1"/>
+    <features xsi:type="ADELE_Features:AbstractFeature" name="fg0Feature2" direction="inout"/>
+    <features xsi:type="ADELE_Features:EventPort" name="fg0Feature0" direction="out"/>
+  </children>
+</ADELE_Components:Package>

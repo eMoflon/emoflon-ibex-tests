@@ -1,0 +1,41 @@
+#using Adele2Aadl.*
+#using AttrCondDefLibrary.*
+
+#rule ruleFeatureGroup2FeatureGroupType56 #with Adele2Aadl
+
+#source { 
+	adelePackage:ADELE_Components.Package 
+	{
+		++ -children->adeleType
+	}
+	++adeleType:ADELE_Features.FeatureGroup 
+}
+
+#target {
+	aadlPublicPackageSection:aadl2.PublicPackageSection 
+	{
+		++ -ownedClassifier->aadlType
+	}
+	
+	++aadlType:aadl2.FeatureGroupType 
+	
+}
+
+
+#correspondence {
+	corrAxiom:CorrAxiomPPS
+{
+	#src->adelePackage
+	#trg->aadlPublicPackageSection
+}
+++corrType:CorrComponentTypeFG
+{
+	#src->adeleType
+	#trg->aadlType
+}
+}
+
+#attributeConditions {
+	eq_string(adeleType.name, aadlType.name)
+	
+}

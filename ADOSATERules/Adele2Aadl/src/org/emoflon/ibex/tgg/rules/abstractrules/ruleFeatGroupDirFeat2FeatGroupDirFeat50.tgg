@@ -1,0 +1,51 @@
+#using Adele2Aadl.*
+#using AttrCondDefLibrary.*
+
+#abstract #rule ruleFeatGroupDirFeat2FeatGroupDirFeat50 #with Adele2Aadl
+
+#source { 
+
+	adeleType:ADELE_Features.FeatureGroup{
+		++ -features ->adeleFeature
+
+	}
+	++ adeleFeature:ADELE_Features.DirectedFeature
+}
+
+
+#target {
+	aadlType:aadl2.FeatureGroupType{
+		++ -ownedFeature->aadlFeature
+	}
+	++aadlFeature:aadl2.DirectedFeature
+}
+
+#correspondence {
+
+
+	++corrFeature:CorrDirectedFeature{
+		#src->adeleFeature
+		#trg->aadlFeature
+	}
+	corrType:CorrComponentTypeFG{
+		#src->adeleType
+		#trg->aadlType
+
+}
+}
+
+
+#attributeConditions {
+	eq_string(adeleFeature.name, aadlFeature.name)
+
+}
+
+#rule ruleFeatGroupDirFeat2FeatGroupDirFeat #extends ruleFeatGroupDirFeat2FeatGroupDirFeat50 #with Adele2Aadl
+
+#source{
+	++ adeleFeature:ADELE_Features.BusAccess
+}
+#target{
+	++aadlFeature:aadl2.BusAccess
+	
+}

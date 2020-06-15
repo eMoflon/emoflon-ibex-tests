@@ -1,0 +1,100 @@
+#using Adele2Aadl.*
+#using AttrCondDefLibrary.*
+
+#abstract #rule ruleAccess2Access1 #with Adele2Aadl
+
+#source { 
+	 adeleType:ADELE_Components.Component
+	{
+		++ -features->adeleAccess 
+	}
+	
+		++adeleAccess:ADELE_Features.Access{
+			++ -component->adeleType
+		}
+	
+}
+
+#target {
+	  aadlType:aadl2.ComponentType
+	 
+	 //should be commented for initial_bwd_app to apply
+	 {
+  	++ -ownedFeature->aadlAccess
+  }
+	++aadlAccess:aadl2.Access
+}
+
+#correspondence {
+	  corrType:CorrComponentType{
+		#src->adeleType
+        #trg->aadlType
+	}
+	++corrAccess:CorrAccess{
+	   #src->adeleAccess
+       #trg->aadlAccess
+	}
+	
+}
+
+#attributeConditions {
+	eq_string(adeleAccess.name, aadlAccess.name)
+   accessdirection(adeleAccess.direction, aadlAccess.kind)
+	
+}
+
+#abstract #rule ruleAccess2Accessabstract #extends ruleAccess2Access1 #with Adele2Aadl
+
+#source
+{
+	++adeleAccess:ADELE_Features.BusAccess
+} 
+#target
+{
+	
+	++aadlAccess:aadl2.BusAccess
+}
+ 
+//Used adeleType:ADELE_Components.System and aadlType:aadl2.SystemType in each rule as dividing in two iteration gives error
+#rule ruleAccess2AccessSystem #extends ruleAccess2Access1 #with Adele2Aadl
+
+#source
+{
+	 adeleType:ADELE_Components.System
+    ++adeleAccess:ADELE_Features.DataAccess
+}
+
+#target
+{
+   aadlType:aadl2.SystemType
+	{
+		++ -ownedDataAccess->aadlAccess
+	}
+    
+    ++aadlAccess:aadl2.DataAccess
+}
+#rule ruletest2test #with Adele2Aadl
+#source {
+	adeleType:ADELE_Components.System{
+	++ -features->adeleAccess
+		
+	}
+	++ adeleAccess:ADELE_Features.DataAccess{
+		++ -component->adeleType
+	}
+}
+#target{
+	
+}
+
+#rule ruletest2testextend  #with Adele2Aadl
+#source {
+	adeleAccess:ADELE_Features.DataAccess{
+		++ -classifier->adeleClassifier
+	}
+	
+	adeleClassifier: ADELE_Components.Data
+}
+#target{
+	
+}

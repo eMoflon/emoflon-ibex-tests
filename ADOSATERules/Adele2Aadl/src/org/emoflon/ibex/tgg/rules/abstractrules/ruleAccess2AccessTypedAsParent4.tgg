@@ -1,0 +1,111 @@
+#using Adele2Aadl.*
+#using AttrCondDefLibrary.*
+
+#abstract #rule ruleAccess2AccessTypedAsParent4 #with Adele2Aadl
+
+#source { 
+ adeleType:ADELE_Components.Component
+ {
+ 	++ -features -> adeleAccess
+ 
+ }
+ ++adeleAccess:ADELE_Features.Access
+ {
+ 	++ -classifier -> adeleType
+ }
+ 
+}
+
+#target {
+	aadlType:aadl2.ComponentType
+	{
+		
+		++ -ownedFeature->aadlAccess
+	}
+	++aadlAccess:aadl2.Access
+	{
+	++ -featureClassifier -> aadlType
+		
+	}
+	
+}
+
+#correspondence {
+	corrType:CorrComponentType
+	{
+	#src->adeleType
+	#trg->aadlType
+    }	
+	++corrAccess:CorrAccess{
+	#src->adeleAccess
+	#trg->aadlAccess
+	}
+	
+	
+}
+
+#attributeConditions {
+	eq_string(adeleAccess.name, aadlAccess.name)
+	
+	
+}
+#rule ruleAccess2AccessTypedAsParentabstract #extends ruleAccess2AccessTypedAsParent4 #with Adele2Aadl
+
+#source
+{adeleType:ADELE_Components.System
+	++adeleAccess:ADELE_Features.DataAccess
+}
+#target
+{aadlType:aadl2.SystemType{
+	++ -ownedDataAccess->aadlAccess
+}
+	++aadlAccess:aadl2.DataAccess
+}
+#rule ruleAccess2AccessTypedAsParentBusAccess #extends ruleAccess2AccessTypedAsParent4 #with Adele2Aadl
+
+#source
+{adeleType:ADELE_Components.Bus
+	++adeleAccess:ADELE_Features.BusAccess
+}
+#target
+{aadlType:aadl2.BusType
+	{
+	 ++ -ownedBusAccess->aadlAccess
+	 }
+	++aadlAccess:aadl2.BusAccess{
+		++ -busFeatureClassifier->aadlType
+	}
+}
+#rule ruleAccess2AccessTypedAsParentSubprogramAccess #extends ruleAccess2AccessTypedAsParent4 #with Adele2Aadl
+
+#source
+{adeleType:ADELE_Components.Subprogram
+	++adeleAccess:ADELE_Features.SubprogramAccess
+}
+#target
+{aadlType:aadl2.SubprogramType
+	{
+	 ++ -ownedSubprogramAccess->aadlAccess
+	 }
+	++aadlAccess:aadl2.SubprogramAccess{
+		++ -subprogramFeatureClassifier->aadlType
+	}
+}
+#rule ruleAccess2AccessTypedAsParentSubprogramGroupAccess #extends ruleAccess2AccessTypedAsParent4 #with Adele2Aadl
+
+#source
+{adeleType:ADELE_Components.SubprogramGroup
+	++adeleAccess:ADELE_Features.SubprogramGroupAccess
+}
+#target
+{aadlType:aadl2.SubprogramGroupType{
+	++ -ownedSubprogramGroupAccess->aadlAccess
+}
+	++aadlAccess:aadl2.SubprogramGroupAccess{
+		++ -subprogramGroupFeatureClassifier->aadlType
+	}
+	
+}
+
+
+

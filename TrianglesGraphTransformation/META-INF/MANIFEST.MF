@@ -1,9 +1,6 @@
 Manifest-Version: 1.0
 Automatic-Module-Name: TrianglesGraphTransformation
 Bundle-SymbolicName: TrianglesGraphTransformation; singleton:=true
-Export-Package: TrianglesGraphTransformation.api,
- TrianglesGraphTransformation.api.matches,
- TrianglesGraphTransformation.api.rules
 Bundle-Name: TrianglesGraphTransformation
 Bundle-Version: 1.0.0.qualifier
 Require-Bundle: org.emoflon.ibex.common,
@@ -17,3 +14,6 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-Vendor: My Company
 Import-Package: org.apache.log4j,
  org.apache.commons.logging
+Export-Package: TrianglesGraphTransformation.api,
+ TrianglesGraphTransformation.api.matches,
+ TrianglesGraphTransformation.api.rules
