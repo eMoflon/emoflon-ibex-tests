@@ -8,7 +8,6 @@ import org.emoflon.ibex.tgg.operational.strategies.sync.SYNC;
 import org.emoflon.ibex.tgg.run.companytoit.CO_App;
 import org.emoflon.ibex.tgg.run.companytoit.config.DemoclesRegistrationHelper;
 import org.emoflon.ibex.tgg.run.companytoit.config.HiPERegistrationHelper;
-import org.emoflon.ibex.tgg.run.companytoit.config.ViatraRegistrationHelper;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -19,7 +18,7 @@ import testsuite.ibex.testUtil.CompleteSyncTestCase;
 import testsuite.ibex.testUtil.UsedPatternMatcher;
 
 public class TestSYNC extends CompleteSyncTestCase {
-	private static IRegistrationHelper registrationHelper = UsedPatternMatcher.choose(new IRegistrationHelper[]{new DemoclesRegistrationHelper(), new HiPERegistrationHelper(), new ViatraRegistrationHelper()});
+	private static IRegistrationHelper registrationHelper = UsedPatternMatcher.choose(new IRegistrationHelper[]{new DemoclesRegistrationHelper(), new HiPERegistrationHelper()});
 
 	static String fwdSrcPath;
 	static String fwdTrgPath;
@@ -41,7 +40,7 @@ public class TestSYNC extends CompleteSyncTestCase {
 		
 		public FWD_App(String projectName, String workspacePath, boolean debug, String srcPath, String trgPath, 
 				String corrPath, String protPath) throws IOException {
-			super(registrationHelper.createIbexOptions().project.name(projectName).project.workspacePath(workspacePath).debug.ibexDebug(debug));
+			super(registrationHelper.createIbexOptions().projectName(projectName).workspacePath(workspacePath).debug(debug));
 			
 			TestSYNC.fwdSrcPath = srcPath;
 			TestSYNC.fwdTrgPath = trgPath;
@@ -58,10 +57,10 @@ public class TestSYNC extends CompleteSyncTestCase {
 
 		@Override
 		public void loadModels() throws IOException {
-			source = loadResource(options.project.path() + TestSYNC.fwdSrcPath + ".xmi");
-			target = createResource(options.project.path() + TestSYNC.fwdTrgPath + ".xmi");
-			corr = createResource(options.project.path() + TestSYNC.fwdCorrPath + ".xmi");
-			protocol = createResource(options.project.path() + TestSYNC.fwdProtPath + ".xmi");
+			source = loadResource(options.projectPath() + TestSYNC.fwdSrcPath + ".xmi");
+			target = createResource(options.projectPath() + TestSYNC.fwdTrgPath + ".xmi");
+			corr = createResource(options.projectPath() + TestSYNC.fwdCorrPath + ".xmi");
+			protocol = createResource(options.projectPath() + TestSYNC.fwdProtPath + ".xmi");
 		}
 		
 		@Override
@@ -70,7 +69,7 @@ public class TestSYNC extends CompleteSyncTestCase {
 			rs.getPackageRegistry().put("platform:/resource/ITLanguage/model/ITLanguage.ecore", ITLanguagePackageImpl.init());
 			
 			// Register correspondence metamodel last
-			loadAndRegisterMetamodel(options.project.path() + "/model/" + options.project.path() + ".ecore");
+			loadAndRegisterMetamodel(options.projectPath() + "/model/" + options.projectPath() + ".ecore");
 			
 			super.registerUserMetamodels();
 		}
@@ -91,7 +90,7 @@ public class TestSYNC extends CompleteSyncTestCase {
 	public class BWD_App extends SYNC {
 		public BWD_App(String projectName, String workspacePath, boolean debug, String srcPath, String trgPath, 
 				String corrPath, String protPath) throws IOException {
-			super(registrationHelper.createIbexOptions().project.name(projectName).project.workspacePath(workspacePath).debug.ibexDebug(debug));
+			super(registrationHelper.createIbexOptions().projectName(projectName).workspacePath(workspacePath).debug(debug));
 
 			TestSYNC.bwdSrcPath = srcPath;
 			TestSYNC.bwdTrgPath = trgPath;
@@ -108,10 +107,10 @@ public class TestSYNC extends CompleteSyncTestCase {
 
 		@Override
 		public void loadModels() throws IOException {
-			source = createResource(options.project.path() + TestSYNC.bwdSrcPath + ".xmi");
-			target = loadResource(options.project.path() + TestSYNC.bwdTrgPath + ".xmi");
-			corr = createResource(options.project.path() + TestSYNC.bwdCorrPath + ".xmi");
-			protocol = createResource(options.project.path() + TestSYNC.bwdProtPath + ".xmi");
+			source = createResource(options.projectPath() + TestSYNC.bwdSrcPath + ".xmi");
+			target = loadResource(options.projectPath() + TestSYNC.bwdTrgPath + ".xmi");
+			corr = createResource(options.projectPath() + TestSYNC.bwdCorrPath + ".xmi");
+			protocol = createResource(options.projectPath() + TestSYNC.bwdProtPath + ".xmi");
 		}
 		
 		@Override
@@ -120,7 +119,7 @@ public class TestSYNC extends CompleteSyncTestCase {
 			rs.getPackageRegistry().put("platform:/resource/ITLanguage/model/ITLanguage.ecore", ITLanguagePackageImpl.init());
 			
 			// Register correspondence metamodel last
-			loadAndRegisterMetamodel(options.project.path() + "/model/" + options.project.path() + ".ecore");
+			loadAndRegisterMetamodel(options.projectPath() + "/model/" + options.projectPath() + ".ecore");
 			
 			super.registerUserMetamodels();
 		}

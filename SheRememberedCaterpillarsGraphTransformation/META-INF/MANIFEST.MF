@@ -1,21 +1,20 @@
 Manifest-Version: 1.0
 Automatic-Module-Name: SheRememberedCaterpillarsGraphTransformation
 Bundle-SymbolicName: SheRememberedCaterpillarsGraphTransformation; singleton:=true
+Export-Package: SheRememberedCaterpillarsGraphTransformation.api,
+ SheRememberedCaterpillarsGraphTransformation.api.matches,
+ SheRememberedCaterpillarsGraphTransformation.api.rules
+Bundle-Name: SheRememberedCaterpillarsGraphTransformation
+Bundle-Version: 1.0.0.qualifier
 Require-Bundle: org.emoflon.ibex.common,
  org.emoflon.ibex.gt,
  org.emoflon.ibex.gt.democles,
  SheRememberedCaterpillars,
- org.emoflon.ibex.gt.hipe,
- org.emoflon.ibex.gt.viatra
+ org.emoflon.ibex.gt.hipe
 Bundle-ManifestVersion: 2
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-Vendor: eMoflon::IBeX Developers
 Import-Package: org.apache.log4j,
  org.apache.commons.logging
-Export-Package: SheRememberedCaterpillarsGraphTransformation.api,
- SheRememberedCaterpillarsGraphTransformation.api.matches,
- SheRememberedCaterpillarsGraphTransformation.api.rules
-Bundle-Name: SheRememberedCaterpillarsGraphTransformation
-Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .

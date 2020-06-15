@@ -2,6 +2,7 @@ Manifest-Version: 1.0
 Automatic-Module-Name: ClassMultipleInheritanceHierarchyGraphTransformation
 Bundle-SymbolicName: ClassMultipleInheritanceHierarchyGraphTransformation; singleton:=true
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 Export-Package: ClassMultipleInheritanceHierarchyGraphTransformation.api,
  ClassMultipleInheritanceHierarchyGraphTransformation.api.matches,
@@ -9,21 +10,24 @@ Export-Package: ClassMultipleInheritanceHierarchyGraphTransformation.api,
 Bundle-Name: ClassMultipleInheritanceHierarchyGraphTransformation
 Bundle-Version: 1.0.0.qualifier
 >>>>>>> parent of b4660142... Generate gifs
+=======
+Export-Package: ClassMultipleInheritanceHierarchyGraphTransformation.a,
+ pi,
+ ClassMultipleInheritanceHierarchyGraphTransformation.api.matches,
+ ClassMultipleInheritanceHierarchyGraphTransformation.api.rules,
+ ClassMultipleInheritanceHierarchyGraphTransformation.api
+Bundle-Name: ClassMultipleInheritanceHierarchyGraphTransformation
+Bundle-Version: 1.0.0.qualifier
+>>>>>>> parent of e106d3c8... Merge branch 'master' of https://github.com/eMoflon/emoflon-ibex-tests
 Require-Bundle: org.emoflon.ibex.common,
  org.emoflon.ibex.gt,
  org.emoflon.ibex.gt.democles,
  ClassMultipleInheritanceHierarchy,
- org.emoflon.ibex.gt.hipe,
- org.emoflon.ibex.gt.viatra
+ org.emoflon.ibex.gt.hipe
 Bundle-ManifestVersion: 2
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-Vendor: eMoflon::IBeX Developers
 Import-Package: org.apache.log4j,
  org.apache.commons.logging
-Export-Package: ClassMultipleInheritanceHierarchyGraphTransformation.api,
- ClassMultipleInheritanceHierarchyGraphTransformation.api.matches,
- ClassMultipleInheritanceHierarchyGraphTransformation.api.rules
-Bundle-Name: ClassMultipleInheritanceHierarchyGraphTransformation
-Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .

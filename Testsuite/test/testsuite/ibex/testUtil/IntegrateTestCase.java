@@ -1,18 +1,16 @@
 package testsuite.ibex.testUtil;
 
-import java.io.IOException;
-
+import org.benchmarx.util.BenchmarxUtil;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.junit.After;
 import org.junit.Before;
 
 public abstract class IntegrateTestCase<S extends EObject, T extends EObject> extends TestCase {
 
-	private final String resourcePath = getProjectName() + "/resources/";
+	private final String resourcePath = "../../" + getProjectName() + "/resources/";
 
 	protected IntegIbexAdapter<S, T> tool;
+	private BenchmarxUtil<S, T, Decisions> util;
 
 	public IntegrateTestCase(IntegIbexAdapter<S, T> tool) {
 		this.tool = tool;
@@ -20,12 +18,12 @@ public abstract class IntegrateTestCase<S extends EObject, T extends EObject> ex
 
 	@Before
 	public void initialise() {
-		// Initialise the bx tool
-		tool.ilpSolver = this.ilpSolver;
-		tool.initiateIntegrationDialogue();
-		
 		// Initialise all helpers
+		util = new BenchmarxUtil<>(tool);
 		initHelpers();
+
+		// Initialise the bx tool
+		tool.initiateIntegrationDialogue();
 	}
 
 	@After
@@ -37,19 +35,18 @@ public abstract class IntegrateTestCase<S extends EObject, T extends EObject> ex
 
 	protected abstract String getProjectName();
 
-	@SuppressWarnings("unchecked")
-	protected void assertCondition(String src, String trg, String corr) {
-		try {
-			Resource rSrc = tool.getOptions().resourceHandler().loadResource(resourcePath + src + ".xmi");
-			Resource rTrg = tool.getOptions().resourceHandler().loadResource(resourcePath + trg + ".xmi");
-			Resource rCorr = tool.getOptions().resourceHandler().loadResource(resourcePath + corr + ".xmi");
-			EcoreUtil.resolveAll(tool.getResourceSet());
+	protected void assertPrecondition(String source, String target) {
+		util.assertPrecondition(tool.getResourceSet(), resourcePath + source, resourcePath + target);
+	}
 
-			tool.assertPostcondition((S) rSrc.getContents().get(0), (T) rTrg.getContents().get(0));
-			tool.corrComp.assertEquals(rCorr.getContents(), tool.getCorrs());
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+	protected void assertPostcondition(String source, String target) {
+		util.assertPostcondition(tool.getResourceSet(), resourcePath + source, resourcePath + target);
+	}
+
+	protected void assertCondition(String src, String trg, String corr) {
+		util.assertPostcondition(tool.getResourceSet(), resourcePath + src, resourcePath + trg);
+		// TODO adrianm: fix corr comparison
+//		tool.assertConditionCorr(resourcePath + corr);
 	}
 
 }

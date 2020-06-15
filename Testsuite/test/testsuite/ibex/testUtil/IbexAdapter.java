@@ -14,7 +14,6 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.emoflon.ibex.tgg.operational.strategies.sync.SYNC;
-import org.emoflon.ibex.tgg.util.ilp.ILPFactory.SupportedILPSolver;
 
 public abstract class IbexAdapter<S extends EObject, T extends EObject> extends BXToolForEMF<S, T, Decisions>   {
 
@@ -23,7 +22,6 @@ public abstract class IbexAdapter<S extends EObject, T extends EObject> extends 
 	protected String projectName;
 	protected SYNC synchroniser;
 	protected Configurator<Decisions> configurator;
-	protected SupportedILPSolver ilpSolver = null;
 	
 	public IbexAdapter(Comparator<S> src, Comparator<T> trg, String projectName) {
 		super(src, trg);

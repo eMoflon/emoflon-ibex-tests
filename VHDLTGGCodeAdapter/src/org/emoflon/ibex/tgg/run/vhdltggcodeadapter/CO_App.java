@@ -15,13 +15,13 @@ public class CO_App extends CO {
 	
 	public CO_App(String projectName, String workspacePath, boolean debug, String srcPath, String trgPath, 
 			String corrPath, String protPath, SupportedILPSolver ilpSolver) throws IOException {
-		super(registrationHelper.createIbexOptions().project.name(projectName).project.workspacePath(workspacePath).debug.ibexDebug(debug).ilpSolver(ilpSolver).resourceHandler(new TGGResourceHandler() {
+		super(registrationHelper.createIbexOptions().projectName(projectName).workspacePath(workspacePath).debug(debug).setIlpSolver(ilpSolver).setResourceHandler(new TGGResourceHandler() {
 			@Override
 			public void loadModels() throws IOException {
-				source = loadResource(options.project.path() +srcPath+".xmi");
-				target = loadResource(options.project.path() +trgPath+".xmi");
-				corr = loadResource(options.project.path() +corrPath+".xmi");
-				protocol = createResource(options.project.path() +protPath+".xmi");
+				source = loadResource(options.projectPath() +srcPath+".xmi");
+				target = loadResource(options.projectPath() +trgPath+".xmi");
+				corr = loadResource(options.projectPath() +corrPath+".xmi");
+				protocol = createResource(options.projectPath() +protPath+".xmi");
 			}
 		}));
 	}

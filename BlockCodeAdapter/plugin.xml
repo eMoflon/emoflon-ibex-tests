@@ -14,4 +14,28 @@
             genModel="model/BlockCodeAdapter.genmodel"/>
    </extension>
 
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated BlockCodeAdapter -->
+      <package
+            uri="platform:/resource/MocaTree/model/MocaTree.ecore"
+            class="MocaTree.MocaTreePackage"
+            genModel="model/BlockCodeAdapter.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated BlockCodeAdapter -->
+      <package
+            uri="platform:/resource/BlockLanguage/model/BlockLanguage.ecore"
+            class="BlockLanguage.BlockLanguagePackage"
+            genModel="model/BlockCodeAdapter.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated BlockCodeAdapter -->
+      <package
+            uri="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore"
+            class="runtime.RuntimePackage"
+            genModel="model/BlockCodeAdapter.genmodel"/>
+   </extension>
+
 </plugin>

@@ -83,11 +83,11 @@ public class HiPERegistrationHelper implements IRegistrationHelper {
 	/** Create default options **/
 	public IbexOptions createIbexOptions() {
 		IbexOptions options = new IbexOptions();
-		options.blackInterpreter(new HiPETGGEngine());
-		options.project.name("BlockCodeAdapter");
-		options.project.path("BlockCodeAdapter");
-		options.debug.ibexDebug(false);
-		options.csp.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
+		options.setBlackInterpreter(new HiPETGGEngine());
+		options.projectName("BlockCodeAdapter");
+		options.projectPath("BlockCodeAdapter");
+		options.debug(false);
+		options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
 		options.registrationHelper(this);
 		return options;
 	}

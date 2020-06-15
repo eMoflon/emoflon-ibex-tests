@@ -14,13 +14,13 @@ public class LocalCC_App extends LocalCC {
 
 	public LocalCC_App(String projectName, String workspacePath, boolean debug,
 			String srcPath, String trgPath, String corrPath, String protocolPath, SupportedILPSolver ilpSolver) throws IOException {
-		super(registrationHelper.createIbexOptions().project.name(projectName).project.workspacePath(workspacePath).debug.ibexDebug(debug).ilpSolver(ilpSolver).resourceHandler(new TGGResourceHandler() {
+		super(registrationHelper.createIbexOptions().projectName(projectName).workspacePath(workspacePath).debug(debug).setIlpSolver(ilpSolver).setResourceHandler(new TGGResourceHandler() {
 			@Override
 			public void loadModels() throws IOException {
-				source = loadResource(options.project.path() + "/resources/"+srcPath+".xmi");
-				target = loadResource(options.project.path() + "/resources/"+trgPath+".xmi");
-				corr = loadResource(options.project.path() + "/resources/"+corrPath+".xmi");
-				protocol = loadResource(options.project.path() + "/resources/"+protocolPath+".xmi");
+				source = loadResource(options.projectPath() + "/resources/"+srcPath+".xmi");
+				target = loadResource(options.projectPath() + "/resources/"+trgPath+".xmi");
+				corr = loadResource(options.projectPath() + "/resources/"+corrPath+".xmi");
+				protocol = loadResource(options.projectPath() + "/resources/"+protocolPath+".xmi");
 			}
 			
 			@Override
@@ -31,13 +31,13 @@ public class LocalCC_App extends LocalCC {
 	
 	public LocalCC_App(String projectName, String workspacePath, boolean debug,
 			String srcPath, String trgPath, SupportedILPSolver ilpSolver) throws IOException {
-		super(registrationHelper.createIbexOptions().project.name(projectName).project.workspacePath(workspacePath).debug.ibexDebug(debug).ilpSolver(ilpSolver).resourceHandler(new TGGResourceHandler() {
+		super(registrationHelper.createIbexOptions().projectName(projectName).workspacePath(workspacePath).debug(debug).setIlpSolver(ilpSolver).setResourceHandler(new TGGResourceHandler() {
 			@Override
 			public void loadModels() throws IOException {
-				source = loadResource(options.project.path() + "/resources/"+srcPath+".xmi");
-				target = loadResource(options.project.path() + "/resources/"+trgPath+".xmi");
-				corr = createResource(options.project.path() + "/instances/corr.xmi");
-				protocol = createResource(options.project.path() + "/instances/protocol.xmi");
+				source = loadResource(options.projectPath() + "/resources/"+srcPath+".xmi");
+				target = loadResource(options.projectPath() + "/resources/"+trgPath+".xmi");
+				corr = createResource(options.projectPath() + "/instances/corr.xmi");
+				protocol = createResource(options.projectPath() + "/instances/protocol.xmi");
 			}
 			
 			@Override

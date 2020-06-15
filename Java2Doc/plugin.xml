@@ -14,4 +14,28 @@
             genModel="model/Java2Doc.genmodel"/>
    </extension>
 
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated Java2Doc -->
+      <package
+            uri="platform:/resource/SimpleJava/model/simpleJava.ecore"
+            class="simpleJava.SimpleJavaPackage"
+            genModel="model/Java2Doc.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated Java2Doc -->
+      <package
+            uri="platform:/resource/SimpleDoc/model/simpleDoc.ecore"
+            class="simpleDoc.SimpleDocPackage"
+            genModel="model/Java2Doc.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated Java2Doc -->
+      <package
+            uri="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore"
+            class="runtime.RuntimePackage"
+            genModel="model/Java2Doc.genmodel"/>
+   </extension>
+
 </plugin>

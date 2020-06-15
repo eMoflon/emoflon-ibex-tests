@@ -12,39 +12,37 @@ import org.emoflon.ibex.tgg.util.ilp.ILPFactory.SupportedILPSolver;
 public class BWD_OPT_App extends BWD_OPT {
 
 	public static IRegistrationHelper registrationHelper = new _DefaultRegistrationHelper();
-
-	public BWD_OPT_App(String projectName, String workspacePath, boolean debug, String srcPath, String trgPath,
+	
+	public BWD_OPT_App(String projectName, String workspacePath, boolean debug, String srcPath, String trgPath, 
 			String corrPath, String protPath, SupportedILPSolver ilpSolver) throws IOException {
-		super(registrationHelper.createIbexOptions().project.name(projectName).project
-				.workspacePath(workspacePath).debug.ibexDebug(debug).ilpSolver(ilpSolver)
-						.resourceHandler(new TGGResourceHandler() {
-							@Override
-							public void loadModels() throws IOException {
-								source = createResource(options.project.path() + srcPath + ".xmi");
-								target = loadResource(options.project.path() + trgPath + ".xmi");
-								corr = createResource(options.project.path() + corrPath + ".xmi");
-								protocol = createResource(options.project.path() + protPath + ".xmi");
-							}
-
-							@Override
-							public void saveModels() throws IOException {
-								source.save(null);
-							}
-						}));
+		super(registrationHelper.createIbexOptions().projectName(projectName).workspacePath(workspacePath).debug(debug).setIlpSolver(ilpSolver).setResourceHandler(new TGGResourceHandler() {
+			@Override
+			public void loadModels() throws IOException {
+				source = createResource(options.projectPath() +srcPath+".xmi");
+				target = loadResource(options.projectPath() +trgPath+".xmi");
+				corr = createResource(options.projectPath() +corrPath+".xmi");
+				protocol = createResource(options.projectPath() +protPath+".xmi");
+			}
+			
+			@Override
+			public void saveModels() throws IOException {
+				source.save(null);
+			}
+		}));
 	}
 
 	public static void main(String[] args) throws IOException {
 		BasicConfigurator.configure();
 
-		BWD_OPT_App bwd_opt = new BWD_OPT_App("BenchmarxFamiliesToPersons", "./../", true, "/resources/co/src",
-				"/resources/co/trg", "/resources/co/corr", "/resources/co/protocol", SupportedILPSolver.Gurobi);
-
+		BWD_OPT_App bwd_opt = new BWD_OPT_App("BenchmarxFamiliesToPersons", "./../", true, "/resources/co/src", "/resources/co/trg", 
+				"/resources/co/corr", "/resources/co/protocol", SupportedILPSolver.Gurobi);
+		
 		logger.info("Starting BWD_OPT");
 		long tic = System.currentTimeMillis();
 		bwd_opt.run();
 		long toc = System.currentTimeMillis();
 		logger.info("Completed BWD_OPT in: " + (toc - tic) + " ms");
-
+		
 		bwd_opt.saveModels();
 		bwd_opt.terminate();
 	}

@@ -14,4 +14,36 @@
             genModel="model/MocaTreeToProcess.genmodel"/>
    </extension>
 
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated MocaTreeToProcess -->
+      <package
+            uri="platform:/resource/MocaTree/model/MocaTree.ecore"
+            class="MocaTree.MocaTreePackage"
+            genModel="model/MocaTreeToProcess.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated MocaTreeToProcess -->
+      <package
+            uri="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore"
+            class="ProcessDefinition.ProcessDefinitionPackage"
+            genModel="model/MocaTreeToProcess.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated MocaTreeToProcess -->
+      <package
+            uri="platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore#//facade"
+            class="ProcessDefinition.facade.FacadePackage"
+            genModel="model/MocaTreeToProcess.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated MocaTreeToProcess -->
+      <package
+            uri="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore"
+            class="runtime.RuntimePackage"
+            genModel="model/MocaTreeToProcess.genmodel"/>
+   </extension>
+
 </plugin>

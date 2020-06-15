@@ -1,36 +1,29 @@
 Manifest-Version: 1.0
-Bundle-SymbolicName: FamiliesToPersons_V1;singleton:=true
-Bundle-Name: %pluginName
+Bundle-SymbolicName: testsuite1_familiestopersons_V1;singleton:=true
+Bundle-Name: testsuite1.familiestopersons_V1
 Bundle-Version: 1.0
-Bundle-ClassPath: .
 Require-Bundle: org.eclipse.emf.ecore.xmi,
  org.junit,
  Benchmarx;bundle-version="1.0.0",
  org.apache.log4j;bundle-version="1.2.15",
- SimpleFamilies;bundle-version="1.0.0";visibility:=reexport,
- SimplePersons;bundle-version="1.0.0";visibility:=reexport,
+ SimpleFamilies;bundle-version="1.0.0",
+ SimplePersons;bundle-version="1.0.0",
  org.emoflon.ibex.common,
  org.emoflon.ibex.tgg.language,
- org.emoflon.ibex.tgg.runtime;visibility:=reexport,
+ org.emoflon.ibex.tgg.runtime,
  org.emoflon.ibex.tgg.runtime.democles,
  org.sat4j.core;bundle-version="2.3.5",
  org.sat4j.pb;bundle-version="2.3.5",
  org.emoflon.ibex.tgg.ui.debug,
+ org.emoflon.ibex.tgg.runtime.hipe;bundle-version="1.0.0",
  org.emoflon.ibex.tgg.runtime.hipe,
- org.emoflon.ibex.tgg.ui.debug.adapter;bundle-version="1.0.0",
- org.eclipse.core.runtime,
- org.eclipse.emf.ecore;visibility:=reexport,
  SimpleFamilies,
  SimplePersons,
- org.emoflon.ibex.tgg.runtime.viatra
+ org.emoflon.ibex.tgg.ui.debug.adapter;bundle-version="1.0.0"
 Bundle-ManifestVersion: 2
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Bundle-Vendor: %providerName
-Bundle-Localization: plugin
+Bundle-Vendor: eMoflon IBeX
 Export-Package: org.emoflon.ibex.tgg.run.familiestopersons_v1,
- org.emoflon.ibex.tgg.run.familiestopersons_v1.config,
- FamiliesToPersons_V1,
- FamiliesToPersons_V1.impl,
- FamiliesToPersons_V1.util
-Automatic-Module-Name: FamiliesToPersons_V1
+ org.emoflon.ibex.tgg.run.familiestopersons_v1.config
+Automatic-Module-Name: testsuite1_familiestopersons_V1

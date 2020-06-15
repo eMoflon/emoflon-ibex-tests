@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated MoDiscoIbexTGG -->
+      <package
+            uri="platform:/resource/MoDiscoIbexTGG/model/MoDiscoIbexTGG.ecore"
+            class="MoDiscoIbexTGG.MoDiscoIbexTGGPackage"
+            genModel="model/MoDiscoIbexTGG.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated MoDiscoIbexTGG -->
+      <package
+            uri="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore"
+            class="java.JavaPackage"
+            genModel="model/MoDiscoIbexTGG.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated MoDiscoIbexTGG -->
+      <package
+            uri="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore"
+            class="uml.UmlPackage"
+            genModel="model/MoDiscoIbexTGG.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated MoDiscoIbexTGG -->
+      <package
+            uri="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore"
+            class="runtime.RuntimePackage"
+            genModel="model/MoDiscoIbexTGG.genmodel"/>
+   </extension>
+
+</plugin>

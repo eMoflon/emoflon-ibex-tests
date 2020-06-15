@@ -48,11 +48,11 @@ public class DemoclesRegistrationHelper implements IRegistrationHelper {
 	/** Create default options **/
 	public IbexOptions createIbexOptions() {
 		IbexOptions options = new IbexOptions();
-		options.blackInterpreter(new DemoclesTGGEngine());
-		options.project.name("BenchmarxFamiliesToPersons");
-		options.project.path("BenchmarxFamiliesToPersons");
-		options.debug.ibexDebug(false);
-		options.csp.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
+		options.setBlackInterpreter(new DemoclesTGGEngine());
+		options.projectName("BenchmarxFamiliesToPersons");
+		options.projectPath("BenchmarxFamiliesToPersons");
+		options.debug(false);
+		options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
 		options.registrationHelper(this);
 		return options;
 	}

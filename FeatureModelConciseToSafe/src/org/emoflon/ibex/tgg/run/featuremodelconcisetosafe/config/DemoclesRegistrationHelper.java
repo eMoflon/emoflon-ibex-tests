@@ -44,11 +44,11 @@ public class DemoclesRegistrationHelper implements IRegistrationHelper {
 	/** Create default options **/
 	public IbexOptions createIbexOptions() {
 		IbexOptions options = new IbexOptions();
-		options.blackInterpreter(new DemoclesTGGEngine());
-		options.project.name("FeatureModelConciseToSafe");
-		options.project.path("FeatureModelConciseToSafe");
-		options.debug.ibexDebug(false);
-		options.csp.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
+		options.setBlackInterpreter(new DemoclesTGGEngine());
+		options.projectName("FeatureModelConciseToSafe");
+		options.projectPath("FeatureModelConciseToSafe");
+		options.debug(false);
+		options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
 		options.registrationHelper(this);
 		return options;
 	}

@@ -14,9 +14,9 @@ public class MODELGEN_App extends MODELGEN {
 
 	public MODELGEN_App(String projectName, String workspacePath, boolean debug) throws IOException {
 		super(registrationHelper.createIbexOptions()
-				.project.name(projectName)
-				.project.workspacePath(workspacePath)
-				.debug.ibexDebug(debug));
+				.projectName(projectName)
+				.workspacePath(workspacePath)
+				.debug(debug));
 	}
 
 	public static void main(String[] args) throws IOException {
