@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/SimplePoint/gen" modelPluginID="SimplePoint" modelName="SimplePoint"
+    updateClasspath="false" codeFormatting="true" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="8.0" copyrightFields="false" operationReflection="true">
+  <foreignModel>SimplePoint.ecore</foreignModel>
+  <genPackages prefix="SimplePoint" disposableProviderFactory="true" ecorePackage="SimplePoint.ecore#/">
+    <nestedGenPackages prefix="SystemDesign" disposableProviderFactory="true" ecorePackage="SimplePoint.ecore#//SystemDesign">
+      <genClasses ecoreClass="SimplePoint.ecore#//SystemDesign/Point">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SimplePoint.ecore#//SystemDesign/Point/movePointLeft"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SimplePoint.ecore#//SystemDesign/Point/left"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SimplePoint.ecore#//SystemDesign/Point/right"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SimplePoint.ecore#//SystemDesign/Point/movePointRight"/>
+      </genClasses>
+      <genClasses ecoreClass="SimplePoint.ecore#//SystemDesign/StateMachine1"/>
+      <genClasses ecoreClass="SimplePoint.ecore#//SystemDesign/Transition"/>
+      <genClasses ecoreClass="SimplePoint.ecore#//SystemDesign/Effects"/>
+      <genClasses ecoreClass="SimplePoint.ecore#//SystemDesign/State"/>
+      <genClasses ecoreClass="SimplePoint.ecore#//SystemDesign/Change1"/>
+      <genClasses ecoreClass="SimplePoint.ecore#//SystemDesign/Change2"/>
+    </nestedGenPackages>
+  </genPackages>
+</genmodel:GenModel>

@@ -1,6 +1,14 @@
 Manifest-Version: 1.0
 Automatic-Module-Name: ClassMultipleInheritanceHierarchyGraphTransformation
 Bundle-SymbolicName: ClassMultipleInheritanceHierarchyGraphTransformation; singleton:=true
+<<<<<<< HEAD
+=======
+Export-Package: ClassMultipleInheritanceHierarchyGraphTransformation.api,
+ ClassMultipleInheritanceHierarchyGraphTransformation.api.matches,
+ ClassMultipleInheritanceHierarchyGraphTransformation.api.rules
+Bundle-Name: ClassMultipleInheritanceHierarchyGraphTransformation
+Bundle-Version: 1.0.0.qualifier
+>>>>>>> parent of b4660142... Generate gifs
 Require-Bundle: org.emoflon.ibex.common,
  org.emoflon.ibex.gt,
  org.emoflon.ibex.gt.democles,
