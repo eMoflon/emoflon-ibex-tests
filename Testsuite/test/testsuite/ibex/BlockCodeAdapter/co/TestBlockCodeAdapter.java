@@ -8,6 +8,7 @@ import org.emoflon.ibex.tgg.run.blockcodeadapter.CO_App;
 import org.emoflon.ibex.tgg.run.blockcodeadapter.FWD_OPT_App;
 import org.emoflon.ibex.tgg.run.blockcodeadapter.config.DemoclesRegistrationHelper;
 import org.emoflon.ibex.tgg.run.blockcodeadapter.config.HiPERegistrationHelper;
+import org.emoflon.ibex.tgg.run.blockcodeadapter.config.ViatraRegistrationHelper;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -17,17 +18,17 @@ import testsuite.ibex.testUtil.UsedPatternMatcher;
 public class TestBlockCodeAdapter extends COTestCase{
 
 	public void createGenerator(String srcInstance, String trgInstance, String corrInstance, String protInstance) throws IOException {
-		CO_App.registrationHelper = UsedPatternMatcher.choose(new IRegistrationHelper[]{new DemoclesRegistrationHelper(), new HiPERegistrationHelper()});
+		CO_App.registrationHelper = UsedPatternMatcher.choose(new IRegistrationHelper[]{new DemoclesRegistrationHelper(), new HiPERegistrationHelper(), new ViatraRegistrationHelper()});
 		checker = new CO_App("BlockCodeAdapter", testsuite.ibex.performance.util.PerformanceConstants.workspacePath, false, srcInstance, trgInstance, corrInstance, protInstance, this.ilpSolver);
 	}
 	
 	public void createTransformation(String srcInstance, String trgInstance, String corrInstance, String protInstance) throws IOException {
-		FWD_OPT_App.registrationHelper = UsedPatternMatcher.choose(new IRegistrationHelper[]{new DemoclesRegistrationHelper(), new HiPERegistrationHelper()});
+		FWD_OPT_App.registrationHelper = UsedPatternMatcher.choose(new IRegistrationHelper[]{new DemoclesRegistrationHelper(), new HiPERegistrationHelper(), new ViatraRegistrationHelper()});
 		forward = new FWD_OPT_App("BlockCodeAdapter", testsuite.ibex.performance.util.PerformanceConstants.workspacePath, false, srcInstance, trgInstance, corrInstance, protInstance, this.ilpSolver);
 	}
 	
 	public void createBackward(String srcInstance, String trgInstance, String corrInstance, String protInstance) throws IOException {
-		BWD_OPT_App.registrationHelper = UsedPatternMatcher.choose(new IRegistrationHelper[]{new DemoclesRegistrationHelper(), new HiPERegistrationHelper()});
+		BWD_OPT_App.registrationHelper = UsedPatternMatcher.choose(new IRegistrationHelper[]{new DemoclesRegistrationHelper(), new HiPERegistrationHelper(), new ViatraRegistrationHelper()});
 		backward = new BWD_OPT_App("BlockCodeAdapter", testsuite.ibex.performance.util.PerformanceConstants.workspacePath, false, srcInstance, trgInstance, corrInstance, protInstance, this.ilpSolver);
 	}
 	

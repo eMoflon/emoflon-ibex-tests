@@ -35,7 +35,7 @@ public abstract class TestCase {
 			UsedPatternMatcher.usedPatternMatcher = patternMatcher;
 		}
 		catch (Exception e) {
-			System.err.println("Pattern Matcher is not specified. Defaulting to " + UsedPatternMatcher.usedPatternMatcher.name());
+			throw new RuntimeException("Pattern Matcher is not specified.");
 		}
 	}
 	

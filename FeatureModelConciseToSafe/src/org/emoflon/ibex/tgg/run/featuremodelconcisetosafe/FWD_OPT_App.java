@@ -15,13 +15,13 @@ public class FWD_OPT_App extends FWD_OPT {
 	
 	public FWD_OPT_App(String projectName, String workspacePath, boolean debug, String srcPath, String trgPath, 
 			String corrPath, String protPath, SupportedILPSolver ilpSolver) throws IOException {
-		super(registrationHelper.createIbexOptions().projectName(projectName).workspacePath(workspacePath).debug(debug).setIlpSolver(ilpSolver).setResourceHandler(new TGGResourceHandler() {
+		super(registrationHelper.createIbexOptions().project.name(projectName).project.workspacePath(workspacePath).debug.ibexDebug(debug).ilpSolver(ilpSolver).resourceHandler(new TGGResourceHandler() {
 			@Override
 			public void loadModels() throws IOException {
-				source = loadResource(options.projectPath() +srcPath+".xmi");
-				target = createResource(options.projectPath() +trgPath+".xmi");
-				corr = createResource(options.projectPath() +corrPath+".xmi");
-				protocol = createResource(options.projectPath() +protPath+".xmi");
+				source = loadResource(options.project.path() +srcPath+".xmi");
+				target = createResource(options.project.path() +trgPath+".xmi");
+				corr = createResource(options.project.path() +corrPath+".xmi");
+				protocol = createResource(options.project.path() +protPath+".xmi");
 			}
 		}));
 	}

@@ -12,7 +12,7 @@ public class CC_App extends CC {
 	public static IRegistrationHelper registrationHelper = new _DefaultRegistrationHelper();
 
 	public CC_App(String projectName, String workspacePath, boolean debug) throws IOException {
-		super(registrationHelper.createIbexOptions().projectName(projectName).workspacePath(workspacePath).debug(debug));
+		super(registrationHelper.createIbexOptions().project.name(projectName).project.workspacePath(workspacePath).debug.ibexDebug(debug));
 	}
 
 	public static void main(String[] args) throws IOException {

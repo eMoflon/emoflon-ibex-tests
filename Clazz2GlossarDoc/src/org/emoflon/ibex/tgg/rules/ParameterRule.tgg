@@ -1,0 +1,32 @@
+#using Clazz2GlossarDoc.*
+#using AttrCondDefLibrary.*
+
+#rule ParameterRule #with Clazz2GlossarDoc
+
+#source { 
+	method : Method {
+		++ -parameters-> param
+	}
+	
+	++ param : Parameter
+}
+
+#target {
+	entry : Entry
+}
+
+#correspondence {
+	m2e : Method2entry {
+		#src->method
+		#trg->entry
+	}
+	
+	++ p2e : Parameter2entry {
+		#src->param
+		#trg->entry
+	}
+}
+
+#attributeConditions {
+	
+}

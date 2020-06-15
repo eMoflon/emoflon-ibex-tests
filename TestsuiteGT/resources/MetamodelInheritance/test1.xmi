@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metamodel_inheritance:BaseContainer
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:metamodel_inheritance="platform:/resource/MetamodelInheritance/model/MetamodelInheritance.ecore"
+    xmlns:metamodel_inheritance2="platform:/resource/MetamodelInheritance2/model/MetamodelInheritance2.ecore"
+    xmlns:metamodel_inheritance3="platform:/resource/MetamodelInheritance3/model/MetamodelInheritance3.ecore">
+  <baseA xsi:type="metamodel_inheritance2:ChildA">
+    <childD
+        xsi:type="metamodel_inheritance3:ChildD"
+        c="//@baseC.0"/>
+    <childD
+        xsi:type="metamodel_inheritance3:ChildD"/>
+  </baseA>
+  <baseC xsi:type="metamodel_inheritance3:ChildC"
+      d="//@baseA.0/@childD.0"/>
+  <baseC xsi:type="metamodel_inheritance3:ChildC"/>
+</metamodel_inheritance:BaseContainer>

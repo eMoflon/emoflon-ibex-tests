@@ -1,0 +1,39 @@
+#using TerraceHouses2BlockSet.*
+#using AttrCondDefLibrary.*
+
+#rule FirstBuilding2Construction #with TerraceHouses2BlockSet
+
+#source {
+	d:District {
+		++-streetBeginnings->building
+	}
+	++building:Building
+}
+
+#target {
+	p:Playroom {
+		++-blocksets->set
+	}
+	++set:BlockSet {
+		++-constructions->constr
+	}
+	++constr:Construction {
+		++-components->cuboid
+	}
+	++cuboid:Cuboid
+}
+
+#correspondence {
+	d2p:District2Playroom {
+		#src->d
+		#trg->p
+	}
+	++b2c:Structure2Construction {
+		#src->building
+		#trg->constr
+	}
+}
+
+#attributeConditions {
+	eq_string(building.name, constr.name)
+}

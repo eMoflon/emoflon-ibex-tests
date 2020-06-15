@@ -15,6 +15,7 @@
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,ClassInhHier2DB"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,ClassMultipleInheritanceHierarchy"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,ClassMultipleInheritanceHierarchyGraphTransformation"/>
+<project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,Clazz2GlossarDoc"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,CompanyLanguage"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,CompanyToIT"/>
 <project reference="1.0,https://github.com/eMoflon/benchmarx.git,master,examples/gantttocpm/metamodels/CPM"/>
@@ -30,9 +31,14 @@
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,FerrymanProblem"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,FerrymanProblemGraphTransformation"/>
 <project reference="1.0,https://github.com/eMoflon/benchmarx.git,master,examples/gantttocpm/metamodels/Gantt"/>
+<project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,GlossarDocumentation"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,IBeXTGGGantt2CPM"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,ITLanguage"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,Java2Doc"/>
+<project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,MetamodelInheritance"/>
+<project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,MetamodelInheritance2"/>
+<project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,MetamodelInheritance3"/>
+<project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,MetamodelInheritanceTransformation"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,MocaTree"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,MocaTreeToProcess"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,MoDiscoIbexTGG"/>
@@ -41,194 +47,67 @@
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,ProcessDefinition"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,SheRememberedCaterpillars"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,SheRememberedCaterpillarsGraphTransformation"/>
+<project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,SimpleClassInheritance"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,SimpleDoc"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,SimpleFamilies"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,SimpleFamiliesGraphTransformation"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,SimpleFamiliesToSimplePersonsGraphTransformation"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,SimpleJava"/>
+<project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,SimpleNetwork"/>
+<project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,SimpleNetworkGraphTransformation"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,SimplePersons"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,SimplePersonsGraphTransformation"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,Strategies"/>
+<project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,TerraceHouses"/>
+<project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,TerraceHouses2BlockSet"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,Testsuite"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,TestsuiteGT"/>
+<project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,TrainLanguage"/>
+<project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,TrainToVehicle"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,Triangles"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,TrianglesGraphTransformation"/>
+<project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,VehicleLanguage"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,VHDLModel"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,VHDLTGGCodeAdapter"/>
+<project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,WoodenBlockSet"/>
 </provider>
 <workingSets editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" id="1544812018381_8" label="gt" name="gt">
 <item elementID="=ClassMultipleInheritanceHierarchyGraphTransformation" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=SimplePersonsGraphTransformation" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=TrianglesGraphTransformation" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=MetamodelInheritanceTransformation" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=SimpleNetworkGraphTransformation" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=SheRememberedCaterpillarsGraphTransformation" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=BPMN-GraphTransformation" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=FerrymanProblemGraphTransformation" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=SimpleFamiliesGraphTransformation" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=SimpleFamiliesToSimplePersonsGraphTransformation" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=TrianglesGraphTransformation" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-</workingSets>
-<workingSets editPageId="org.eclipse.jdt.internal.ui.DynamicSourcesWorkingSet" id="1553510381836_0" label="Java Main Sources" name="main">
-<item elementID="=AbcToNothing/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=AlgorithmToStrategy_MA/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=Algorithms/gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=Algorithms/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=Algorithms/xtend-gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=Algorithms/injection" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=BPMN/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=BPMN/gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=BPMN/injection" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=BPMN-GraphTransformation/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=BPMN-GraphTransformation/src-gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=Benchmarx/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=BenchmarxFamiliesToPersons/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=BlockCodeAdapter/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=BlockDiagram/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=BlockDiagram/xtend-gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=BlockDiagram/gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=BlockDiagram/injection" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=BlockDiagramCodeAdapter/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=BlockDiagramCodeAdapter_EdgeRules/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=BlockLanguage/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=BlockLanguage/xtend-gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=BlockLanguage/gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=BlockLanguage/injection" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=CPM/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=CPM/custom-src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=CPM/xtend-gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=Class2Doc_MA/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=Class2TestClass_MA/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=ClassInhHier2DB/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=ClassInhHier2DB_MA/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=ClassInheritanceHierarchy/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=ClassInheritanceHierarchy/xtend-gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=ClassInheritanceHierarchy/gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=ClassInheritanceHierarchy/injection" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=ClassMultipleInhHier2DB_MA/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=ClassMultipleInheritanceHierarchy/gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=ClassMultipleInheritanceHierarchy/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=ClassMultipleInheritanceHierarchy/xtend-gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=ClassMultipleInheritanceHierarchy/injection" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=ClassMultipleInheritanceHierarchyGraphTransformation/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=ClassMultipleInheritanceHierarchyGraphTransformation/src-gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=CompanyLanguage/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=CompanyLanguage/xtend-gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=CompanyLanguage/gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=CompanyLanguage/injection" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=CompanyToIT/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=CompanyToIT/src-gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=Database/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=Database/xtend-gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=Database/gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=Database/injection" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=Documents/gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=Documents/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=Documents/xtend-gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=Documents/injection" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=Families/gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=Families/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=Families/xtend-gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=Families/injection" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=FamiliesToPersons_MA/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=FamiliesToPersons_V0/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=FamiliesToPersons_V1/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=FamiliesWithSiblings/gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=FamiliesWithSiblings/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=FamiliesWithSiblings/xtend-gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=FamiliesWithSiblings/injection" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=FamilyWithSiblingsToPersons_MA/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=FeatureModelConcise/gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=FeatureModelConcise/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=FeatureModelConcise/xtend-gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=FeatureModelConcise/injection" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=FeatureModelConciseToSafe/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=FeatureModelSafe/gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=FeatureModelSafe/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=FeatureModelSafe/xtend-gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=FeatureModelSafe/injection" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=FerrymanProblem/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=FerrymanProblem/gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=FerrymanProblem/injection" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=FerrymanProblemGraphTransformation/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=FerrymanProblemGraphTransformation/src-gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=Gantt/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=Gantt/custom-src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=Gantt/xtend-gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=IBeXTGGGantt2CPM/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=ITLanguage/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=ITLanguage/xtend-gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=ITLanguage/gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=ITLanguage/injection" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=Java2Doc/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=MoDiscoIbexTGG/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=MocaTree/gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=MocaTree/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=MocaTree/xtend-gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=MocaTree/injection" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=MocaTreeToProcess/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=Persons/gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=Persons/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=Persons/xtend-gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=Persons/injection" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=ProcessCodeAdapter/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=ProcessDefinition/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=ProcessDefinition/xtend-gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=ProcessDefinition/gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=ProcessDefinition/injection" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=SheRememberedCaterpillars/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=SheRememberedCaterpillars/gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=SheRememberedCaterpillars/injection" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=SheRememberedCaterpillarsGraphTransformation/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=SheRememberedCaterpillarsGraphTransformation/src-gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=SimpleDoc/src-gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=SimpleDoc/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=SimpleDoc/xtend-gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=SimpleFamilies/gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=SimpleFamilies/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=SimpleFamilies/xtend-gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=SimpleFamilies/injection" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=SimpleFamiliesGraphTransformation/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=SimpleFamiliesGraphTransformation/src-gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=SimpleFamiliesToSimplePersonsGraphTransformation/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=SimpleFamiliesToSimplePersonsGraphTransformation/src-gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=SimpleJava/src-gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=SimpleJava/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=SimpleJava/xtend-gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=SimplePersons/gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=SimplePersons/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=SimplePersons/xtend-gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=SimplePersons/injection" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=SimplePersonsGraphTransformation/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=SimplePersonsGraphTransformation/src-gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=Strategies/gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=Strategies/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=Strategies/xtend-gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=Strategies/injection" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=Testsuite/test" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=Testsuite/xtend-gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=Testsuite/performance_src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=TestsuiteGT/test" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=TestsuiteGT/performance-test" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=Triangles/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=Triangles/src-gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=VHDLModel/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=VHDLModel/xtend-gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=VHDLModel/gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=VHDLModel/injection" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=VHDLTGGCodeAdapter/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 </workingSets>
 <workingSets editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" id="1544822822193_7" label="metamodels" name="metamodels">
 <item elementID="=CPM" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=SimpleJava" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=SimpleNetwork" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=Strategies" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=MetamodelInheritance" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=SheRememberedCaterpillars" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=MetamodelInheritance2" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=TrainLanguage" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=Triangles" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=SimpleDoc" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=SimpleFamilies" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=SimpleClassInheritance" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=ClassInheritanceHierarchy" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=TerraceHouses" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=FeatureModelSafe" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=VehicleLanguage" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=Families" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=GlossarDocumentation" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=Documents" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=FerrymanProblem" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=SimplePersons" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=FamiliesWithSiblings" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=Algorithms" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=WoodenBlockSet" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=ITLanguage" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=FeatureModelConcise" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=BlockLanguage" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
@@ -239,11 +118,10 @@
 <item elementID="=Gantt" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=Database" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=ProcessDefinition" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=MetamodelInheritance3" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=Persons" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=BlockDiagram" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=MocaTree" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=SimpleDoc" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=Triangles" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 </workingSets>
 <workingSets editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" id="1544812013290_7" label="testsuites" name="testsuites">
 <item elementID="=Testsuite" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
@@ -251,11 +129,9 @@
 <item elementID="=TestsuiteGT" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 </workingSets>
 <workingSets editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" id="1544812007133_6" label="tggs" name="tggs">
-<item elementID="=ClassMultipleInhHier2DB_MA" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=BlockCodeAdapter" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=CompanyToIT" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=BlockDiagramCodeAdapter" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=Class2Doc_MA" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=BenchmarxFamiliesToPersons" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=IBeXTGGGantt2CPM" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=BlockDiagramCodeAdapter_EdgeRules" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
@@ -263,16 +139,13 @@
 <item elementID="=ProcessCodeAdapter" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=Java2Doc" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=FamiliesToPersons_V1" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=ClassInhHier2DB_MA" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=Class2TestClass_MA" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=TerraceHouses2BlockSet" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=ClassInhHier2DB" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=FamilyWithSiblingsToPersons_MA" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=AlgorithmToStrategy_MA" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=AbcToNothing" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=Clazz2GlossarDoc" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=TrainToVehicle" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=MoDiscoIbexTGG" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=VHDLTGGCodeAdapter" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=MocaTreeToProcess" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=FamiliesToPersons_MA" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=FamiliesToPersons_V0" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 </workingSets>
 </psf>

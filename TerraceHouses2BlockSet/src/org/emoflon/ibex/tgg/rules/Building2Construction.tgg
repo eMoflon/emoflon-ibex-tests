@@ -1,0 +1,39 @@
+#using TerraceHouses2BlockSet.*
+#using AttrCondDefLibrary.*
+
+#rule Building2Construction #with TerraceHouses2BlockSet
+
+#source {
+	struct:Structure {
+		++-next->nextBuilding
+	}
+	++nextBuilding:Building
+}
+
+#target {
+	set:BlockSet {
+		-constructions->constr
+		++-constructions->nextConstr
+	}
+	constr:Construction
+	++nextConstr:Construction {
+		constructor:=constr.constructor
+		++-components->cuboid
+	}
+	++cuboid:Cuboid
+}
+
+#correspondence {
+	b2c:Structure2Construction {
+		#src->struct
+		#trg->constr
+	}
+	++nb2nc:Structure2Construction {
+		#src->nextBuilding
+		#trg->nextConstr
+	}
+}
+
+#attributeConditions {
+	eq_string(nextBuilding.name, nextConstr.name)
+}

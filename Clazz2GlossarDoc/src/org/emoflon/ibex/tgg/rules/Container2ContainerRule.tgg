@@ -1,0 +1,26 @@
+#using Clazz2GlossarDoc.*
+#using AttrCondDefLibrary.*
+
+#rule Container2ContainerRule #with Clazz2GlossarDoc
+
+#source { 
+	++ cCont : ClazzContainer
+}
+
+#target {
+	++ dCont : DocumentationContainer {
+		++ -glossar->glossar
+	}
+	++ glossar : Glossar
+}
+
+#correspondence {
+	++ c2d  : Container2container{
+		#src->cCont
+		#trg->dCont
+	}
+}
+
+#attributeConditions {
+	
+}

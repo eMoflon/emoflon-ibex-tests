@@ -1,0 +1,38 @@
+#import "platform:/resource/TrainLanguage/model/TrainLanguage.ecore"
+#import "platform:/resource/VehicleLanguage/model/VehicleLanguage.ecore"
+
+#schema TrainToVehicle
+	
+#source {
+	TrainLanguage
+}
+
+#target { 
+	VehicleLanguage
+} 
+
+#correspondence {
+	trainToVehicle {
+		#src->Train
+		#trg->Vehicle
+	}
+	
+	locDriverToDriver {
+		#src->LocDriver
+		#trg->Driver
+	}
+	
+	locomotiveToVehicleSection {
+		#src->Locomotive
+		#trg->VehicleSection
+	}
+	
+	wagonToVehicleSection {
+		#src->Wagon
+		#trg->VehicleSection
+	}
+}
+
+#attributeConditions {
+	
+}

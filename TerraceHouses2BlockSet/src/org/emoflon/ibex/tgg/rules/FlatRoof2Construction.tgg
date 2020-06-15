@@ -1,0 +1,41 @@
+#using TerraceHouses2BlockSet.*
+#using AttrCondDefLibrary.*
+
+#rule FlatRoof2Construction #with TerraceHouses2BlockSet
+
+#source { 
+	struct:Structure {
+		++-next->nextHouse
+	}
+	++nextHouse:House {
+		pitchedRoof:=false
+	}
+}
+
+#target {
+	set:BlockSet {
+		-constructions->constr
+		++-constructions->nextConstr
+	}
+	constr:Construction
+	++nextConstr:Construction {
+		constructor:=constr.constructor
+		++-components->cube
+	}
+	++cube:Cube
+}
+
+#correspondence {
+	b2c:Structure2Construction {
+		#src->struct
+		#trg->constr
+	}
+	++nb2nc:Structure2Construction {
+		#src->nextHouse
+		#trg->nextConstr
+	}
+}
+
+#attributeConditions {
+	eq_string(nextHouse.name, nextConstr.name)
+}

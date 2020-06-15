@@ -1,0 +1,37 @@
+#using Clazz2GlossarDoc.*
+#using AttrCondDefLibrary.*
+
+#rule SubClazz2DocRule #with Clazz2GlossarDoc
+
+#source {
+	superClazz : Clazz {
+		++ -subClazzes-> subClazz
+	}
+	++ subClazz : Clazz 
+}
+
+#target {
+	dCont : DocumentationContainer {
+		++ -documents-> subDoc
+	}
+	superDoc : Document {
+		++ -hyperRefs-> subDoc
+	}
+	++ subDoc : Document
+}
+
+#correspondence {
+	super2super : Clazz2doc {
+		#src->superClazz
+		#trg->superDoc
+	}
+	
+	++ sub2sub : Clazz2doc {
+		#src->subClazz
+		#trg->subDoc
+	}
+}
+
+#attributeConditions {
+	eq_string(subClazz.name, subDoc.name)
+}

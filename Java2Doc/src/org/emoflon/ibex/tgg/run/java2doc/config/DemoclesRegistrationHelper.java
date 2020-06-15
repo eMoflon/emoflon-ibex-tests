@@ -23,12 +23,13 @@ public class DemoclesRegistrationHelper implements IRegistrationHelper {
 	/** Create default options **/
 	public IbexOptions createIbexOptions() {
 		IbexOptions options = new IbexOptions();
-		options.setBlackInterpreter(new DemoclesTGGEngine());
-		options.projectName("Java2Doc");
-		options.projectPath("Java2Doc");
-		options.debug(false);
-		options.repairAttributes(true);
-		options.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
+		options.blackInterpreter(new DemoclesTGGEngine());
+		options.project.name("Java2Doc");
+		options.project.path("Java2Doc");
+		options.debug.ibexDebug(false);
+		options.repair.useShortcutRules(true);
+		options.repair.advancedOverlapStrategies(true);
+		options.csp.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
 		options.registrationHelper(this);
 		return options;
 	}

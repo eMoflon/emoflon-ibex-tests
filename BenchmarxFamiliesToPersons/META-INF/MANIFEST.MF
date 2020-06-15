@@ -1,26 +1,34 @@
 Manifest-Version: 1.0
 Bundle-SymbolicName: BenchmarxFamiliesToPersons;singleton:=true
-Bundle-Name: BenchmarxFamiliesToPersons
+Bundle-Name: %pluginName
 Bundle-Version: 1.0
+Bundle-ClassPath: .
 Require-Bundle: org.apache.log4j,
  org.eclipse.emf.ecore.xmi,
  org.emoflon.ibex.common,
  org.emoflon.ibex.tgg.runtime.democles,
- Families;bundle-version="1.0.0",
- Persons;bundle-version="1.0.0",
+ Families;bundle-version="1.0.0";visibility:=reexport,
+ org.emoflon.ibex.tgg.runtime;visibility:=reexport,
+ Persons;bundle-version="1.0.0";visibility:=reexport,
  org.sat4j.core;bundle-version="2.3.5",
  org.sat4j.pb;bundle-version="2.3.5",
  org.emoflon.ibex.tgg.ui.debug,
- org.emoflon.ibex.tgg.runtime.hipe,
- Families,
- Persons,
  org.emoflon.ibex.tgg.ui.debug.adapter;bundle-version="1.0.0",
  org.emoflon.ibex.tgg.language;bundle-version="1.0.0",
- org.emoflon.ibex.tgg.runtime;bundle-version="1.0.0"
+ org.eclipse.core.runtime,
+ org.eclipse.emf.ecore;visibility:=reexport,
+ Families,
+ Persons,
+ org.emoflon.ibex.tgg.runtime.hipe,
+ org.emoflon.ibex.tgg.runtime.viatra
 Bundle-ManifestVersion: 2
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Bundle-Vendor: eMoflon IBeX
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
 Export-Package: org.emoflon.ibex.tgg.run.benchmarxfamiliestopersons,
- org.emoflon.ibex.tgg.run.benchmarxfamiliestopersons.config
+ org.emoflon.ibex.tgg.run.benchmarxfamiliestopersons.config,
+ BenchmarxFamiliesToPersons,
+ BenchmarxFamiliesToPersons.impl,
+ BenchmarxFamiliesToPersons.util
 Automatic-Module-Name: BenchmarxFamiliesToPersons

@@ -1,0 +1,34 @@
+#using Clazz2GlossarDoc.*
+#using AttrCondDefLibrary.*
+
+#rule Clazz2DocRule #with Clazz2GlossarDoc
+
+#source { 
+	cCont : ClazzContainer {
+		++ -clazzes->clazz
+	}
+	++ clazz : Clazz 
+}
+
+#target {
+	dCont : DocumentationContainer {
+		++ -documents->doc
+	}
+	++ doc : Document
+}
+
+#correspondence {
+	cont2cont : Container2container {
+		#src->cCont
+		#trg->dCont
+	}
+	
+	++ c2d : Clazz2doc {
+		#src->clazz
+		#trg->doc
+	}
+}
+
+#attributeConditions {
+	eq_string(clazz.name, doc.name)
+}

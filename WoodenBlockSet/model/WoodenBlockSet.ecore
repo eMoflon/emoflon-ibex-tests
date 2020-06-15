@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ASCII"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="WoodenBlockSet" nsURI="platform:/resource/WoodenBlockSet/model/WoodenBlockSet.ecore"
+    nsPrefix="WoodenBlockSet">
+  <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+    <details key="documentation" value="TODO: Add documentation for WoodenBlockSet. Hint: You may copy this element in the Ecore editor to add documentation to EClasses, EOperations, ..."/>
+  </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="BlockSet">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="constructions" upperBound="-1"
+        eType="#//Construction" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Construction">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="components" lowerBound="1"
+        upperBound="-1" eType="#//Shape3D" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="constructor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Shape3D" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="color" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Cuboid" eSuperTypes="#//Shape3D"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TriangularPrism" eSuperTypes="#//Shape3D"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Cube" eSuperTypes="#//Shape3D"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Playroom">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="blocksets" upperBound="-1"
+        eType="#//BlockSet" containment="true"/>
+  </eClassifiers>
+</ecore:EPackage>
