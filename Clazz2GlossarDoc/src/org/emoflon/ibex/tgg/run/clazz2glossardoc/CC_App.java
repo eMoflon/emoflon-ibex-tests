@@ -5,6 +5,7 @@ import java.io.IOException;
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 import org.emoflon.ibex.tgg.operational.strategies.modules.TGGResourceHandler;
 import org.emoflon.ibex.tgg.operational.strategies.opt.CC;
@@ -38,6 +39,31 @@ public class CC_App extends CC {
 				// protocol = createResource(options.project.path() + "/instances/protocol.xmi");
 				
 				super.loadModels();
+			}
+		}));
+	}
+	
+	public CC_App(String folder, String name) throws IOException {
+		super(registrationHelper.createIbexOptions().resourceHandler(new TGGResourceHandler() {
+			@Override
+			public void saveModels() throws IOException {
+				// Use the commented code below to implement saveModels individually.
+				// source.save(null);
+				// target.save(null);
+				// corr.save(null);
+				// protocol.save(null);
+				
+				super.saveModels();
+			}
+			
+			@Override
+			public void loadModels() throws IOException {
+				// Use the commented code below to implement loadModels individually.
+				// loadResource loads from a file while createResource creates a new resource without content
+				 source = createResource(options.project.path() + "/" + folder +"/" + name + "_src.xmi");
+				 target = createResource(options.project.path() + "/" + folder +"/" + name + "_trg.xmi");
+				 corr = createResource(options.project.path() + "/" + folder +"/" + name + "_corr.xmi");
+				 protocol = createResource(options.project.path() + "/" + folder +"/" + name + "_protocol.xmi");
 			}
 		}));
 	}

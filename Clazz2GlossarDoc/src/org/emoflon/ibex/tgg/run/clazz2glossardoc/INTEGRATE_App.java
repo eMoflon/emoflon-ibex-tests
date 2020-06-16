@@ -8,6 +8,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.INTEGRATE;
 import org.emoflon.ibex.tgg.operational.strategies.modules.TGGResourceHandler;
+import org.emoflon.ibex.tgg.operational.strategies.opt.CC;
 import org.emoflon.ibex.tgg.run.clazz2glossardoc.config.HiPERegistrationHelper;
 import org.emoflon.ibex.tgg.util.ilp.ILPFactory.SupportedILPSolver;
 
@@ -23,8 +24,10 @@ public class INTEGRATE_App extends INTEGRATE {
 				.debug.ibexDebug(debug)
 				.propagate.usePrecedenceGraph(true)
 				.repair.useShortcutRules(true)
-				.repair.advancedOverlapStrategies(true)
+				.repair.advancedOverlapStrategies(false)
 				.repair.relaxedSCPatternMatching(true)
+				.repair.omitUnnecessaryContext(true)
+				.repair.disableInjectivity(true)
 				.resourceHandler(new TGGResourceHandler() {
 					@Override
 					public void loadModels() throws IOException {
@@ -50,4 +53,37 @@ public class INTEGRATE_App extends INTEGRATE {
 				}));
 	}
 
+	public INTEGRATE_App(CC cc) throws IOException {
+		super(registrationHelper.createIbexOptions()
+				.propagate.usePrecedenceGraph(true)
+				.repair.useShortcutRules(true)
+				.repair.advancedOverlapStrategies(false)
+				.repair.relaxedSCPatternMatching(true)
+				.repair.omitUnnecessaryContext(true)
+				.repair.disableInjectivity(true)
+				.resourceHandler(new TGGResourceHandler() {
+					@Override
+					public void loadModels() throws IOException {
+						rs = cc.getResourceHandler().getResourceSet();
+						source = cc.getResourceHandler().getSourceResource();
+						target = cc.getResourceHandler().getTargetResource();
+						corr = cc.getResourceHandler().getCorrResource();
+						protocol = cc.getResourceHandler().getProtocolResource();
+
+						changeURI(source, "/instances/src.xmi");
+						changeURI(target, "/instances/trg.xmi");
+						changeURI(corr, "/instances/corr.xmi");
+						changeURI(protocol, "/instances/protocol.xmi");
+
+						precedence = createResource(options.project.path() + "/instances/epg.xmi");
+
+						EcoreUtil.resolveAll(rs);
+					}
+
+					private void changeURI(Resource r, String path) {
+						URI uri = URI.createURI(options.project.path() + path);
+						r.setURI(uri.resolve(base));
+					}
+				}));
+	}
 }

@@ -12,6 +12,7 @@
 
 #target {
 	dCont : DocumentationContainer {
+		-documents->superDoc
 		++ -documents-> subDoc
 	}
 	superDoc : Document {
