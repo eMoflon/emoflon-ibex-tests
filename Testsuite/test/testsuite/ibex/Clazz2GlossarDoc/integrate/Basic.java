@@ -12,7 +12,7 @@ import java.util.function.Consumer;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.AttributeConflict;
-import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.DeletePropConflict;
+import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.DeletePreserveConflict;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.resolution.util.CRSHelper;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.pattern.IntegrationPattern;
 import org.glossarDoc.core.GlossarDocumentationHelper;
@@ -89,10 +89,10 @@ public class Basic extends IntegrateTestCase<ClazzContainer, DocumentationContai
 
 	//// DELETE-PROPAGATE CONFLICT ////
 
-	private void deletePropagateConflict(Consumer<DeletePropConflict> s, String path) {
+	private void deletePropagateConflict(Consumer<DeletePreserveConflict> s, String path) {
 		tool.getOptions().integration.pattern(pattern);
 		tool.getOptions().integration.conflictSolver( //
-				c -> CRSHelper.forEachResolve(c, DeletePropConflict.class, s));
+				c -> CRSHelper.forEachResolve(c, DeletePreserveConflict.class, s));
 		tool.applyAndIntegrateDelta((c, d) -> {
 			// src:
 			Method m8 = helperClazz.getMethod("M8");
@@ -108,17 +108,17 @@ public class Basic extends IntegrateTestCase<ClazzContainer, DocumentationContai
 	}
 
 	@Test
-	public void deletePropConflict_preserveDeletion() {
+	public void DeletePreserveConflict_preserveDeletion() {
 		deletePropagateConflict((s) -> s.crs_revokeAddition(), testpath + "delprop_predel/");
 	}
 
 	@Test
-	public void deletePropConflict_revokeDeletion() {
+	public void DeletePreserveConflict_revokeDeletion() {
 		deletePropagateConflict((s) -> s.crs_revokeDeletion(), testpath + "delprop_revdel/");
 	}
 
 	@Test
-	public void deletePropConflict_mergeAndPreserve() {
+	public void DeletePreserveConflict_mergeAndPreserve() {
 		deletePropagateConflict((s) -> s.crs_mergeAndPreserve(), testpath + "delprop_mrgpre/");
 	}
 
