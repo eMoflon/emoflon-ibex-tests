@@ -4,7 +4,7 @@ import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 
 public class UsedPatternMatcher {
 	
-	public static PatternMatcher usedPatternMatcher = null;
+	public static PatternMatcher usedPatternMatcher = PatternMatcher.Democles;
 	
 	public enum PatternMatcher{
 		Democles, HiPE, Viatra;

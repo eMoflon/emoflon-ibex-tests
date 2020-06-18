@@ -41,23 +41,23 @@ class ClazzInheritanceComparator implements Comparator<ClazzContainer> {
 	def String stringify(Clazz doc) {
 		'''
 			Class {
-				name=«doc.name»
+				name = «doc.name»
 				methods = {
-				«FOR f : methodNormaliser.normalise(doc.methods)»
-					«stringify(f)»
-				«ENDFOR»
+					«FOR f : methodNormaliser.normalise(doc.methods)»
+						«stringify(f)»
+					«ENDFOR»
 				}
 				
 				fields = {
-				«FOR f : fieldNormaliser.normalise(doc.fields)»
-					Field «f.name»
-				«ENDFOR»
+					«FOR f : fieldNormaliser.normalise(doc.fields)»
+						Field «f.name»
+					«ENDFOR»
 				}
 				
 				subClazzes = {
-				«FOR f : clazzNormaliser.normalise(doc.subClazzes)»
-					«stringify(f)»
-				«ENDFOR»
+					«FOR f : clazzNormaliser.normalise(doc.subClazzes)»
+						«stringify(f)»
+					«ENDFOR»
 				}
 			}
 		'''
@@ -66,7 +66,7 @@ class ClazzInheritanceComparator implements Comparator<ClazzContainer> {
 	def String stringify(Method cont){
 		'''
 			Method {
-				name=«cont.name»
+				name = «cont.name»
 				
 				parameters = {
 					«FOR f : parameterNormaliser.normalise(cont.parameters)»

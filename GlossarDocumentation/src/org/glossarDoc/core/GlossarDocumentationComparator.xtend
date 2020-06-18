@@ -1,7 +1,9 @@
 package org.glossarDoc.core
 
+import glossarDocumentation.Document
+import glossarDocumentation.DocumentationContainer
+import glossarDocumentation.Entry
 import org.benchmarx.emf.Comparator
-import glossarDocumentation.*
 
 import static org.junit.Assert.*
 
@@ -43,18 +45,18 @@ class GlossarDocumentationComparator implements Comparator<DocumentationContaine
 	def String stringify(Document doc) {
 		'''
 			Document {
-				name=«doc.name»
+				name = «doc.name»
 				
 				entries = {
-				«FOR f : entryNormaliser.normalise(doc.entries)»
-					«stringify(f)»
-				«ENDFOR» 
+					«FOR f : entryNormaliser.normalise(doc.entries)»
+						«stringify(f)»
+					«ENDFOR» 
 				}
 				
 				hyperRefs = {
-				«FOR f : docNormaliser.normalise(doc.hyperRefs)»
-					«f.name»
-				«ENDFOR»
+					«FOR f : docNormaliser.normalise(doc.hyperRefs)»
+						«f.name»
+					«ENDFOR»
 				}
 			}
 		'''
@@ -63,8 +65,8 @@ class GlossarDocumentationComparator implements Comparator<DocumentationContaine
 	def String stringify(Entry cont){
 		'''
 			Entry {
-				name=«cont.name»
-				type=«cont.type.getName()»
+				name = «cont.name»
+				type = «cont.type.getName()»
 				
 				glossarRefs = {
 					«FOR f : gEntryNormaliser.normalise(cont.glossarentries)»
