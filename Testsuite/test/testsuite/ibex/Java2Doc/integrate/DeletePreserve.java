@@ -22,14 +22,14 @@ import simpleJava.Package;
 import testsuite.ibex.Java2Doc.integrate.util.IntegIbexJava2Doc;
 import testsuite.ibex.testUtil.IntegrateTestCase;
 
-public class DeleteCreateConflict extends IntegrateTestCase<Package, Folder> {
+public class DeletePreserve extends IntegrateTestCase<Package, Folder> {
 
 	public final static String projectName = "Java2Doc";
 
 	SimpleJavaHelper helperJava;
 	SimpleDocHelper helperDoc;
 
-	public DeleteCreateConflict() {
+	public DeletePreserve() {
 		super(new IntegIbexJava2Doc(projectName, "moflon"));
 	}
 
