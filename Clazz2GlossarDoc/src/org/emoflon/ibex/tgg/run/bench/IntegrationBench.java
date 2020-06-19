@@ -69,28 +69,30 @@ public class IntegrationBench {
 	private Map<String, Field> name2field;
 	private Map<String, Parameter> name2param;
 	
+	private int elementCounter = 0;
+	
 	public static void main(String[] args) {
-		new IntegrationBench().generate("test", 1, 1);
+		new IntegrationBench().generate("test", 1);
 	}
 	
-	private void initScale(int n, int d) {
-		num_of_root_classes = n*2;
-		inheritance_depth = d;
-		horizontal_inheritance_scale = 1;
-		num_of_fields = 1;
-		num_of_methods = 0;
+	private void initScale(int n) {
+		num_of_root_classes = n;
+		inheritance_depth = 2;
+		horizontal_inheritance_scale = 3;
+		num_of_fields = 3;
+		num_of_methods = 3;
 		num_of_parameters = 2;
-		num_of_glossar_entries = 2;
-		num_of_glossar_links_per_entry = 1;
+		num_of_glossar_entries = (int) (Math.sqrt(n) / 10) + 1;
+		num_of_glossar_links_per_entry = 2;
 	}
 	
-	public void generate(String name, int n, int d) {
+	public void generate(String name, int n) {
 		System.out.println("Initializing...");
 		try {
 			CC cc = new CC_App("bench", "test");
 			
 			initializeResource(cc);
-			initScale(n, d);
+			initScale(n);
 			clearAll();
 			System.out.println("Generating Models...");
 			generateModels();
@@ -108,20 +110,8 @@ public class IntegrationBench {
 			System.out.println("Integrate...");
 			INTEGRATE integrate = new INTEGRATE_App(cc);
 			System.out.println("Apply Deltas...");
-			BiConsumer<EObject, EObject> delta = (s, t) -> {
-				Field next = name2field.values().iterator().next();
-				Entry entry = name2entry.get(next.getName());
-				Iterator<GlossarEntry> iterator = value2gEntry.values().iterator();
-				GlossarEntry gEntry = iterator.next();
-				while(entry.getGlossarentries().contains(gEntry))
-					gEntry = iterator.next();
-				entry.getGlossarentries().add(gEntry);
-				EcoreUtil.delete(next, true);
-			};
-			
-//			BiConsumer<EObject, EObject> delta = (s, t) -> name2field.values().forEach(f -> EcoreUtil.delete(f, true));
+			BiConsumer<EObject, EObject> delta = this::createDeltaOperation;
 			integrate.applyDelta(delta);
-//			delta.accept(cContainer, dContainer);
 			tic = System.currentTimeMillis();
 			System.out.println("Run...");
 			integrate.integrate();
@@ -133,6 +123,29 @@ public class IntegrationBench {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+
+	private void createDeltaOperation(EObject source, EObject target) {
+		Field next = name2field.values().iterator().next();
+		Entry entry = name2entry.get(next.getName());
+		Iterator<GlossarEntry> iterator = value2gEntry.values().iterator();
+		GlossarEntry gEntry = iterator.next();
+		while(entry.getGlossarentries().contains(gEntry))
+			gEntry = iterator.next();
+		entry.getGlossarentries().add(gEntry);
+		EcoreUtil.delete(next, true);
+	}
+	
+	private void createDeltePreserveConflict(Clazz c) {
+		
+	}
+	
+	private void createAttributeConflict(Clazz c) {
+		
+	}
+	
+	private void createContradictingMoveConflict(Clazz c) {
+		
 	}
 
 
@@ -149,11 +162,15 @@ public class IntegrationBench {
 		glossar = gFactory.createGlossar();
 		dContainer.setGlossar(glossar);
 		target.getContents().add(dContainer);
+		
+		elementCounter += 2;
 	}
 	
 	private void createClazzContainer() {
 		cContainer = cFactory.createClazzContainer();
 		source.getContents().add(cContainer);
+		
+		elementCounter++;
 	}
 
 	private void createClazzAndDocs() {
@@ -169,6 +186,8 @@ public class IntegrationBench {
 			dRoot.setName(cRoot.getName());
 			name2documents.put(dRoot.getName(), dRoot);
 			dContainer.getDocuments().add(dRoot);
+			
+			elementCounter+=2;
 
 			createMethods(cRoot, dRoot, newPrefix);
 			createFields(cRoot, dRoot, newPrefix);
@@ -197,6 +216,8 @@ public class IntegrationBench {
 			dParent.getHyperRefs().add(dSub);
 			dContainer.getDocuments().add(dSub);
 			
+			elementCounter+=2;
+			
 			createMethods(cSub, dSub, newPrefix);
 			createFields(cSub, dSub, newPrefix);
 			
@@ -222,6 +243,8 @@ public class IntegrationBench {
 			createGlossarLinks(e);
 			
 			createParameters(m, newPrefix);
+			
+			elementCounter++;
 		}
 	}
 
@@ -233,6 +256,8 @@ public class IntegrationBench {
 			p.setName("Param" + newPrefix);
 			name2param.put(p.getName(), p);
 			m.getParameters().add(p);
+			
+			elementCounter++;
 		}
 	}
 
@@ -252,6 +277,8 @@ public class IntegrationBench {
 			d.getEntries().add(e);
 			
 			createGlossarLinks(e);
+			
+			elementCounter++;
 		}
 	}
 	
@@ -261,6 +288,8 @@ public class IntegrationBench {
 			ge.setValue("GlossarEntry_" + i);
 			value2gEntry.put(ge.getValue(), ge);
 			glossar.getEntries().add(ge);
+			
+			elementCounter++;
 		}
 	}
 	
