@@ -5,8 +5,10 @@ import static org.emoflon.ibex.tgg.operational.strategies.integrate.FragmentProv
 import static org.emoflon.ibex.tgg.operational.strategies.integrate.FragmentProvider.RESOLVE_BROKEN_MATCHES;
 import static org.emoflon.ibex.tgg.operational.strategies.integrate.FragmentProvider.RESOLVE_CONFLICTS;
 import static org.emoflon.ibex.tgg.operational.strategies.integrate.FragmentProvider.TRANSLATE;
+import static org.junit.Assert.assertEquals;
 
 import java.util.Arrays;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.BiConsumer;
 
 import org.benchmarx.simpledoc.core.SimpleDocHelper;
@@ -161,6 +163,18 @@ public class DeletePreserve extends IntegrateTestCase<Package, Folder> {
 
 		assertCondition(path + "src", path + "trg", path + "corr");
 	}
+	
+	@Test
+	public void dcc_chainMultiDel1a() {
+		final String path = testpath + "dcc_chainMultiDel1/";
+
+		tool.getOptions().integration.pattern(pattern);
+		tool.getOptions().integration.conflictSolver( //
+				c -> CRSHelper.forEachResolve(c, DeletePreserveConflict.class, (s) -> s.crs_preferSource()));
+		tool.applyAndIntegrateDelta(dcc_chainMultiDel_delta);
+
+		assertCondition(path + "src", path + "trg", path + "corr");
+	}
 
 	@Test
 	public void dcc_chainMultiDel2() {
@@ -169,6 +183,18 @@ public class DeletePreserve extends IntegrateTestCase<Package, Folder> {
 		tool.getOptions().integration.pattern(pattern);
 		tool.getOptions().integration.conflictSolver( //
 				c -> CRSHelper.forEachResolve(c, DeletePreserveConflict.class, (s) -> s.crs_revokeDeletion()));
+		tool.applyAndIntegrateDelta(dcc_chainMultiDel_delta);
+
+		assertCondition(path + "src", path + "trg", path + "corr");
+	}
+	
+	@Test
+	public void dcc_chainMultiDel2a() {
+		final String path = testpath + "dcc_chainMultiDel2/";
+
+		tool.getOptions().integration.pattern(pattern);
+		tool.getOptions().integration.conflictSolver( //
+				c -> CRSHelper.forEachResolve(c, DeletePreserveConflict.class, (s) -> s.crs_preferTarget()));
 		tool.applyAndIntegrateDelta(dcc_chainMultiDel_delta);
 
 		assertCondition(path + "src", path + "trg", path + "corr");
@@ -185,14 +211,27 @@ public class DeletePreserve extends IntegrateTestCase<Package, Folder> {
 
 		assertCondition(path + "src", path + "trg", path + "corr");
 	}
-
+	
 	@Test
-	public void move() {
+	public void dcc_conflHierarchy() {
+		final String path = testpath + "dcc_conflHierarchy/";
+		
+		AtomicInteger ccCount = new AtomicInteger(0);
+		tool.getOptions().integration.pattern(pattern);
+		tool.getOptions().integration.conflictSolver( //
+				cc -> {
+					CRSHelper.forEachResolve(cc, DeletePreserveConflict.class, (s) -> s.crs_preferTarget());
+					
+					ccCount.incrementAndGet();
+					assertEquals(1, cc.getSubContainers().size());
+				});
 		tool.applyAndIntegrateDelta((p, f) -> {
-			// trg:
-			Folder es = helperDoc.getFolder(f, "es");
-			f.getSubFolders().addAll(es.getSubFolders());
+			dcc_chainMultiDel_delta.accept(p, f);
+			helperDoc.createDoc(helperDoc.getFolder(f, "es"), "conflictingClazz_doc", "conflictingbody");
 		});
+
+		assertEquals(1, ccCount.get());
+		assertCondition(path + "src", path + "trg", path + "corr");
 	}
 
 }
