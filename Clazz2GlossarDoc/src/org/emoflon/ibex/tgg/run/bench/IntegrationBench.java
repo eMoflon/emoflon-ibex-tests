@@ -99,7 +99,7 @@ public class IntegrationBench {
 	private int num_of_conflicts = -1;
 	
 	public static void main(String[] args) {
-		new IntegrationBench().generate("test", 60, 3);
+		new IntegrationBench().generate("test", 60, 1);
 	}
 	
 	private void initScale(int n, int c) {
@@ -137,13 +137,9 @@ public class IntegrationBench {
 			toc = System.currentTimeMillis();
 			System.out.println("	Completed in: " + (toc - tic) + " ms");
 
-			System.out.println("Apply Deltas...");
-			tic = System.currentTimeMillis();
-//			BiConsumer<EObject, EObject> delta = this::createDeltaOperation;
+			System.out.println("Register Deltas...");
 			BiConsumer<EObject, EObject> delta = this::applyDelta;
 			integrate.applyDelta(delta);
-			toc = System.currentTimeMillis();
-			System.out.println("	Completed in: " + (toc - tic) + " ms");
 
 			tic = System.currentTimeMillis();
 			System.out.println("Propagating...");
@@ -159,6 +155,9 @@ public class IntegrationBench {
 	}
 	
 	private void applyDelta(EObject source, EObject target) {
+		System.out.print("	Applying Deltas...");
+		long tic = System.currentTimeMillis();
+
 		ClazzContainer cCont = (ClazzContainer) source;
 		
 		List<Consumer<Clazz>> deltaFuncs = new LinkedList<>();
@@ -171,6 +170,8 @@ public class IntegrationBench {
 		for(int i=0; i < num_of_conflicts; i++)  {
 			deltaFuncs.get(i % 3).accept(cCont.getClazzes().get(i));
 		}
+		long toc = System.currentTimeMillis();
+		System.out.println("completed in: " + (toc - tic) + " ms");
 	}
 
 	private void createDeltePreserveConflict(Clazz c) {
