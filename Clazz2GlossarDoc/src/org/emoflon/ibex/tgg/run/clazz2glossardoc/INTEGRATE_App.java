@@ -53,7 +53,7 @@ public class INTEGRATE_App extends INTEGRATE {
 				}));
 	}
 
-	public INTEGRATE_App(CC cc) throws IOException {
+	public INTEGRATE_App(String folder, String name) throws IOException {
 		super(registrationHelper.createIbexOptions()
 				.propagate.usePrecedenceGraph(true)
 				.repair.useShortcutRules(true)
@@ -64,11 +64,10 @@ public class INTEGRATE_App extends INTEGRATE {
 				.resourceHandler(new TGGResourceHandler() {
 					@Override
 					public void loadModels() throws IOException {
-						rs = cc.getResourceHandler().getResourceSet();
-						source = cc.getResourceHandler().getSourceResource();
-						target = cc.getResourceHandler().getTargetResource();
-						corr = cc.getResourceHandler().getCorrResource();
-						protocol = cc.getResourceHandler().getProtocolResource();
+						source = createResource(options.project.path() + "/" + folder +"/" + name + "_src.xmi");
+						target = createResource(options.project.path() + "/" + folder +"/" + name + "_trg.xmi");
+						corr = createResource(options.project.path() + "/" + folder +"/" + name + "_corr.xmi");
+						protocol = createResource(options.project.path() + "/" + folder +"/" + name + "_protocol.xmi");
 
 						changeURI(source, "/instances/src.xmi");
 						changeURI(target, "/instances/trg.xmi");
