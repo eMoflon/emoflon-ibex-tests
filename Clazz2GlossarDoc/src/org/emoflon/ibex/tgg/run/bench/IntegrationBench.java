@@ -99,7 +99,7 @@ public class IntegrationBench {
 	private int num_of_conflicts = -1;
 	
 	public static void main(String[] args) {
-		new IntegrationBench().generate("test", 60, 30);
+		new IntegrationBench().generate("test", 60, 3);
 	}
 	
 	private void initScale(int n, int c) {
@@ -123,8 +123,6 @@ public class IntegrationBench {
 			initScale(n, c);
 			clearAll();
 			
-			HiPEConfig.logWorkloadActivated = true;
-			
 			System.out.print("Generating Models...");
 			long tic = System.currentTimeMillis();
 			generateModels();
@@ -142,18 +140,18 @@ public class IntegrationBench {
 			System.out.println("Apply Deltas...");
 			tic = System.currentTimeMillis();
 //			BiConsumer<EObject, EObject> delta = this::createDeltaOperation;
-//			BiConsumer<EObject, EObject> delta = this::applyDelta;
-//			integrate.applyDelta(delta);
-//			toc = System.currentTimeMillis();
-//			System.out.println("	Completed in: " + (toc - tic) + " ms");
-//
-//			tic = System.currentTimeMillis();
-//			System.out.println("Run...");
-//			integrate.integrate();
-//			toc = System.currentTimeMillis();
-//			System.out.println("	Completed in: " + (toc - tic) + " ms");
-//			System.out.println(integrate.getConflicts().isEmpty());
-//			integrate.saveModels();
+			BiConsumer<EObject, EObject> delta = this::applyDelta;
+			integrate.applyDelta(delta);
+			toc = System.currentTimeMillis();
+			System.out.println("	Completed in: " + (toc - tic) + " ms");
+
+			tic = System.currentTimeMillis();
+			System.out.println("Propagating...");
+			integrate.integrate();
+			toc = System.currentTimeMillis();
+			System.out.println("	Completed in: " + (toc - tic) + " ms");
+			System.out.println(integrate.getConflicts().isEmpty());
+			integrate.saveModels();
 			integrate.terminate();
 		} catch (IOException e) {
 			e.printStackTrace();
