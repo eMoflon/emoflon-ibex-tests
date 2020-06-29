@@ -2,8 +2,8 @@ package org.emoflon.ibex.tgg.run.bench;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Collection;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -17,11 +17,9 @@ import org.eclipse.emf.ecore.resource.ContentHandler;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
+import org.emoflon.ibex.tgg.operational.benchmark.TimeRegistry;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.INTEGRATE;
-import org.emoflon.ibex.tgg.operational.strategies.opt.CC;
-import org.emoflon.ibex.tgg.run.clazz2glossardoc.CC_App;
 import org.emoflon.ibex.tgg.run.clazz2glossardoc.INTEGRATE_App;
 
 import Clazz2GlossarDoc.Clazz2DocRule__Marker;
@@ -45,7 +43,6 @@ import glossarDocumentation.EntryType;
 import glossarDocumentation.Glossar;
 import glossarDocumentation.GlossarDocumentationFactory;
 import glossarDocumentation.GlossarEntry;
-import hipe.generic.actor.junction.util.HiPEConfig;
 import simpleClassInheritance.Clazz;
 import simpleClassInheritance.ClazzContainer;
 import simpleClassInheritance.Field;
@@ -99,7 +96,8 @@ public class IntegrationBench {
 	private int num_of_conflicts = -1;
 	
 	public static void main(String[] args) {
-		new IntegrationBench().generate("test", 120, 60);
+		new IntegrationBench().generate("test", 3000, 1500);
+		TimeRegistry.logTimes();
 	}
 	
 	private void initScale(int n, int c) {
@@ -182,14 +180,24 @@ public class IntegrationBench {
 		Document subD = d.getHyperRefs().get(0);
 		Clazz subC = c.getSubClazzes().get(0);
 		
-		EcoreUtil.delete(subC, true);
+//		EcoreUtil.delete(subC, true);
+		delete(subC);
+		
 		if(!subD.getHyperRefs().isEmpty()) {
 			subD = subD.getHyperRefs().get(0);
 		}
 		
 		subD.getEntries().get(0).getGlossarentries().add(value2gEntry.get("GlossarEntry_" + (attr_conflict_counter++ % num_of_glossar_entries)));
 	}
-	
+
+	private void delete(Clazz subC) {
+		subC.setSuperClazz(null);
+		subC.getFields().clear();
+		subC.getMethods().forEach(m -> m.getParameters().clear());
+		subC.getMethods().clear();
+		subC.getSubClazzes().stream().collect(Collectors.toList()).forEach(this::delete);
+	}
+
 	private void createAttributeConflict(Clazz c) {
 		Document d = name2documents.get(c.getName());
 
@@ -245,18 +253,21 @@ public class IntegrationBench {
 	}
 	
 	private void createClazzAndDocs() {
+		Collection<Clazz> clazzes = new LinkedList<>();
+		Collection<Document> docs = new LinkedList<>();
+		
 		for(int i=0; i<num_of_root_classes; i++) {
 			String newPrefix = "_" + i;
 
 			Clazz cRoot = cFactory.createClazz();
 			cRoot.setName("Clazz" + newPrefix);
 			name2clazz.put(cRoot.getName(), cRoot);
-			cContainer.getClazzes().add(cRoot);
+			clazzes.add(cRoot);
 			
 			Document dRoot = gFactory.createDocument();
 			dRoot.setName(cRoot.getName());
 			name2documents.put(dRoot.getName(), dRoot);
-			dContainer.getDocuments().add(dRoot);
+			docs.add(dRoot);
 			
 			elementCounter+=2;
 			
@@ -280,6 +291,9 @@ public class IntegrationBench {
 			
 			createInheritance(cRoot, dRoot, 1, newPrefix);
 		}
+		cContainer.getClazzes().addAll(clazzes);
+		dContainer.getDocuments().addAll(docs);
+
 	}
 	
 
