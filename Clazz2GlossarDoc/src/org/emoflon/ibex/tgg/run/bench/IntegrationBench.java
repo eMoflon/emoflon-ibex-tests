@@ -99,7 +99,7 @@ public class IntegrationBench {
 	private int num_of_conflicts = -1;
 	
 	public static void main(String[] args) {
-		new IntegrationBench().generate("test", 60, 1);
+		new IntegrationBench().generate("test", 120, 60);
 	}
 	
 	private void initScale(int n, int c) {
@@ -146,7 +146,7 @@ public class IntegrationBench {
 			integrate.integrate();
 			toc = System.currentTimeMillis();
 			System.out.println("	Completed in: " + (toc - tic) + " ms");
-			System.out.println(integrate.getConflicts().isEmpty());
+			System.out.println("No conflicts: " + integrate.getConflicts().isEmpty());
 			integrate.saveModels();
 			integrate.terminate();
 		} catch (IOException e) {
