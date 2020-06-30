@@ -1,7 +1,15 @@
 package org.emoflon.ibex.tgg.run.bench;
 
+import static org.emoflon.ibex.tgg.operational.strategies.integrate.FragmentProvider.APPLY_USER_DELTA;
+import static org.emoflon.ibex.tgg.operational.strategies.integrate.FragmentProvider.CLEAN_UP;
+import static org.emoflon.ibex.tgg.operational.strategies.integrate.FragmentProvider.REPAIR;
+import static org.emoflon.ibex.tgg.operational.strategies.integrate.FragmentProvider.RESOLVE_BROKEN_MATCHES;
+import static org.emoflon.ibex.tgg.operational.strategies.integrate.FragmentProvider.RESOLVE_CONFLICTS;
+import static org.emoflon.ibex.tgg.operational.strategies.integrate.FragmentProvider.TRANSLATE;
+
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -17,9 +25,20 @@ import org.eclipse.emf.ecore.resource.ContentHandler;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.emoflon.ibex.tgg.operational.benchmark.TimeRegistry;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.INTEGRATE;
+import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.AttributeConflict;
+import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.Conflict;
+import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.ConflictContainer;
+import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.DelPreserveEdgeConflict;
+import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.DeletePreserveConflict;
+import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.InconsDelConflict;
+import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.resolution.CRS_PreferTarget;
+import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.resolution.util.CRSHelper;
+import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.resolution.util.ConflictResolver;
+import org.emoflon.ibex.tgg.operational.strategies.integrate.pattern.IntegrationPattern;
 import org.emoflon.ibex.tgg.run.clazz2glossardoc.INTEGRATE_App;
 
 import Clazz2GlossarDoc.Clazz2DocRule__Marker;
@@ -43,6 +62,7 @@ import glossarDocumentation.EntryType;
 import glossarDocumentation.Glossar;
 import glossarDocumentation.GlossarDocumentationFactory;
 import glossarDocumentation.GlossarEntry;
+import language.DomainType;
 import simpleClassInheritance.Clazz;
 import simpleClassInheritance.ClazzContainer;
 import simpleClassInheritance.Field;
@@ -91,19 +111,35 @@ public class IntegrationBench {
 	
 	private int elementCounter = 0;
 	
+	private int conflict_counter = 0;
+	private int conflict_solved_attr_counter = 0;
+	private int conflict_solved_delPres_counter = 0;
+	private int conflict_solved_move_counter = 0;
+	
 	private int attr_conflict_counter = 0;
 	
 	private int num_of_conflicts = -1;
 	
+	private final IntegrationPattern pattern = new IntegrationPattern(Arrays.asList( //
+			APPLY_USER_DELTA, //
+			REPAIR, //
+//			CHECK_LOCAL_CONSISTENCY, //
+			RESOLVE_CONFLICTS, //
+			REPAIR, //
+			RESOLVE_BROKEN_MATCHES, //
+			TRANSLATE, //
+			CLEAN_UP //
+	));
+	
 	public static void main(String[] args) {
-		new IntegrationBench().generate("test", 3000, 1500);
-		TimeRegistry.logTimes();
+		new IntegrationBench().generate("test", 600, 300);
+//		TimeRegistry.logTimes();
 	}
 	
 	private void initScale(int n, int c) {
 		num_of_root_classes = n;
 		inheritance_depth = 3;
-		horizontal_inheritance_scale = 2;
+		horizontal_inheritance_scale = 3;
 		num_of_fields = 3;
 		num_of_methods = 3;
 		num_of_parameters = 2;
@@ -117,6 +153,37 @@ public class IntegrationBench {
 		System.out.println("Initializing...");
 		try {
 			INTEGRATE integrate = new INTEGRATE_App("bench", name);
+			integrate.getOptions().integration.conflictSolver(
+					conf -> {
+						conflict_counter++;
+						if(conf.getConflicts().stream().noneMatch(InconsDelConflict.class::isInstance)) {
+							CRSHelper.forEachResolve(conf, DeletePreserveConflict.class, 
+									s -> {
+										s.crs_mergeAndPreserve();
+										conflict_solved_delPres_counter++;
+									});
+						}
+						else {
+							CRSHelper.forEachResolve(conf, InconsDelConflict.class, 
+									s -> {
+										s.crs_preferSource();
+										conflict_solved_move_counter++;
+									});
+							CRSHelper.forEachResolve(conf, DelPreserveEdgeConflict.class, 
+									s -> {
+										if(s.getDomainToBePreserved() == DomainType.TRG)
+											s.crs_revokeAddition();
+									});							
+						}
+						CRSHelper.forEachResolve(conf, AttributeConflict.class, 
+							s -> {
+								s.crs_preferSource();
+								conflict_solved_attr_counter++;
+							});
+					}
+			);
+			integrate.getOptions().integration.pattern(pattern);
+			
 			initializeResource(integrate);
 			initScale(n, c);
 			clearAll();
@@ -145,6 +212,10 @@ public class IntegrationBench {
 			toc = System.currentTimeMillis();
 			System.out.println("	Completed in: " + (toc - tic) + " ms");
 			System.out.println("No conflicts: " + integrate.getConflicts().isEmpty());
+			System.out.println("Conflicts detected: " + conflict_counter);
+			System.out.println("Attr_Conf: " + conflict_solved_attr_counter);
+			System.out.println("DelPres_Conf: " + conflict_solved_delPres_counter);
+			System.out.println("Move_Conf: " + conflict_solved_move_counter);
 			integrate.saveModels();
 			integrate.terminate();
 		} catch (IOException e) {
@@ -166,7 +237,7 @@ public class IntegrationBench {
 		if(num_of_conflicts > num_of_root_classes)
 			throw new RuntimeException("Too many conflicts for this model");
 		for(int i=0; i < num_of_conflicts; i++)  {
-			deltaFuncs.get(i % 3).accept(cCont.getClazzes().get(i));
+			deltaFuncs.get(i % deltaFuncs.size()).accept(cCont.getClazzes().get(i));
 		}
 		long toc = System.currentTimeMillis();
 		System.out.println("completed in: " + (toc - tic) + " ms");
@@ -187,7 +258,13 @@ public class IntegrationBench {
 			subD = subD.getHyperRefs().get(0);
 		}
 		
-		subD.getEntries().get(0).getGlossarentries().add(value2gEntry.get("GlossarEntry_" + (attr_conflict_counter++ % num_of_glossar_entries)));
+		Entry e = gFactory.createEntry();
+		e.setName(c.getName() + "_new_method");
+		e.setType(EntryType.METHOD);
+		name2entry.put(e.getName(), e);
+		subD.getEntries().add(e);
+		
+//		subD.getEntries().get(0).getGlossarentries().add(value2gEntry.get("GlossarEntry_" + (attr_conflict_counter++ % num_of_glossar_entries)));
 	}
 
 	private void delete(Clazz subC) {
@@ -215,8 +292,9 @@ public class IntegrationBench {
 		d.getHyperRefs().remove(subD1);
 		subD2.getHyperRefs().add(subD1);
 		
-		Clazz subC = c.getSubClazzes().get(0);
-		subC.getSubClazzes().get(0).setSuperClazz(c);
+		Clazz subC1 = c.getSubClazzes().get(0);
+		Clazz subC3 = c.getSubClazzes().get(2);
+		subC1.setSuperClazz(subC3);
 	}
 
 
