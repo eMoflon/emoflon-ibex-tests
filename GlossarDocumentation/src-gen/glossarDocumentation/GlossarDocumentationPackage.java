@@ -68,22 +68,13 @@ public interface GlossarDocumentationPackage extends EPackage {
 	int DOCUMENT = 0;
 
 	/**
-	 * The feature id for the '<em><b>Entries</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOCUMENT__ENTRIES = 0;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT__NAME = 1;
+	int DOCUMENT__NAME = 0;
 
 	/**
 	 * The feature id for the '<em><b>Hyper Refs</b></em>' reference list.
@@ -92,7 +83,25 @@ public interface GlossarDocumentationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT__HYPER_REFS = 2;
+	int DOCUMENT__HYPER_REFS = 1;
+
+	/**
+	 * The feature id for the '<em><b>Container</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOCUMENT__CONTAINER = 2;
+
+	/**
+	 * The feature id for the '<em><b>Entries</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOCUMENT__ENTRIES = 3;
 
 	/**
 	 * The number of structural features of the '<em>Document</em>' class.
@@ -101,7 +110,7 @@ public interface GlossarDocumentationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_FEATURE_COUNT = 3;
+	int DOCUMENT_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Document</em>' class.
@@ -123,13 +132,22 @@ public interface GlossarDocumentationPackage extends EPackage {
 	int GLOSSAR = 1;
 
 	/**
+	 * The feature id for the '<em><b>Container</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GLOSSAR__CONTAINER = 0;
+
+	/**
 	 * The feature id for the '<em><b>Entries</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GLOSSAR__ENTRIES = 0;
+	int GLOSSAR__ENTRIES = 1;
 
 	/**
 	 * The number of structural features of the '<em>Glossar</em>' class.
@@ -138,7 +156,7 @@ public interface GlossarDocumentationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GLOSSAR_FEATURE_COUNT = 1;
+	int GLOSSAR_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Glossar</em>' class.
@@ -169,13 +187,31 @@ public interface GlossarDocumentationPackage extends EPackage {
 	int GLOSSAR_ENTRY__VALUE = 0;
 
 	/**
+	 * The feature id for the '<em><b>Glossar</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GLOSSAR_ENTRY__GLOSSAR = 1;
+
+	/**
+	 * The feature id for the '<em><b>Entries</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GLOSSAR_ENTRY__ENTRIES = 2;
+
+	/**
 	 * The number of structural features of the '<em>Glossar Entry</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GLOSSAR_ENTRY_FEATURE_COUNT = 1;
+	int GLOSSAR_ENTRY_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Glossar Entry</em>' class.
@@ -206,22 +242,31 @@ public interface GlossarDocumentationPackage extends EPackage {
 	int ENTRY__TYPE = 0;
 
 	/**
-	 * The feature id for the '<em><b>Glossarentries</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENTRY__GLOSSARENTRIES = 1;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENTRY__NAME = 2;
+	int ENTRY__NAME = 1;
+
+	/**
+	 * The feature id for the '<em><b>Document</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENTRY__DOCUMENT = 2;
+
+	/**
+	 * The feature id for the '<em><b>Glossarentries</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENTRY__GLOSSARENTRIES = 3;
 
 	/**
 	 * The number of structural features of the '<em>Entry</em>' class.
@@ -230,7 +275,7 @@ public interface GlossarDocumentationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENTRY_FEATURE_COUNT = 3;
+	int ENTRY_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Entry</em>' class.
@@ -252,22 +297,22 @@ public interface GlossarDocumentationPackage extends EPackage {
 	int DOCUMENTATION_CONTAINER = 4;
 
 	/**
-	 * The feature id for the '<em><b>Documents</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOCUMENTATION_CONTAINER__DOCUMENTS = 0;
-
-	/**
 	 * The feature id for the '<em><b>Glossar</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENTATION_CONTAINER__GLOSSAR = 1;
+	int DOCUMENTATION_CONTAINER__GLOSSAR = 0;
+
+	/**
+	 * The feature id for the '<em><b>Documents</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOCUMENTATION_CONTAINER__DOCUMENTS = 1;
 
 	/**
 	 * The number of structural features of the '<em>Documentation Container</em>' class.
@@ -341,6 +386,17 @@ public interface GlossarDocumentationPackage extends EPackage {
 	EReference getDocument_HyperRefs();
 
 	/**
+	 * Returns the meta object for the container reference '{@link glossarDocumentation.Document#getContainer <em>Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Container</em>'.
+	 * @see glossarDocumentation.Document#getContainer()
+	 * @see #getDocument()
+	 * @generated
+	 */
+	EReference getDocument_Container();
+
+	/**
 	 * Returns the meta object for class '{@link glossarDocumentation.Glossar <em>Glossar</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -349,6 +405,17 @@ public interface GlossarDocumentationPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getGlossar();
+
+	/**
+	 * Returns the meta object for the container reference '{@link glossarDocumentation.Glossar#getContainer <em>Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Container</em>'.
+	 * @see glossarDocumentation.Glossar#getContainer()
+	 * @see #getGlossar()
+	 * @generated
+	 */
+	EReference getGlossar_Container();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link glossarDocumentation.Glossar#getEntries <em>Entries</em>}'.
@@ -381,6 +448,28 @@ public interface GlossarDocumentationPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getGlossarEntry_Value();
+
+	/**
+	 * Returns the meta object for the container reference '{@link glossarDocumentation.GlossarEntry#getGlossar <em>Glossar</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Glossar</em>'.
+	 * @see glossarDocumentation.GlossarEntry#getGlossar()
+	 * @see #getGlossarEntry()
+	 * @generated
+	 */
+	EReference getGlossarEntry_Glossar();
+
+	/**
+	 * Returns the meta object for the reference list '{@link glossarDocumentation.GlossarEntry#getEntries <em>Entries</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Entries</em>'.
+	 * @see glossarDocumentation.GlossarEntry#getEntries()
+	 * @see #getGlossarEntry()
+	 * @generated
+	 */
+	EReference getGlossarEntry_Entries();
 
 	/**
 	 * Returns the meta object for class '{@link glossarDocumentation.Entry <em>Entry</em>}'.
@@ -424,6 +513,17 @@ public interface GlossarDocumentationPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getEntry_Name();
+
+	/**
+	 * Returns the meta object for the container reference '{@link glossarDocumentation.Entry#getDocument <em>Document</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Document</em>'.
+	 * @see glossarDocumentation.Entry#getDocument()
+	 * @see #getEntry()
+	 * @generated
+	 */
+	EReference getEntry_Document();
 
 	/**
 	 * Returns the meta object for class '{@link glossarDocumentation.DocumentationContainer <em>Documentation Container</em>}'.
@@ -525,6 +625,14 @@ public interface GlossarDocumentationPackage extends EPackage {
 		EReference DOCUMENT__HYPER_REFS = eINSTANCE.getDocument_HyperRefs();
 
 		/**
+		 * The meta object literal for the '<em><b>Container</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DOCUMENT__CONTAINER = eINSTANCE.getDocument_Container();
+
+		/**
 		 * The meta object literal for the '{@link glossarDocumentation.impl.GlossarImpl <em>Glossar</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -533,6 +641,14 @@ public interface GlossarDocumentationPackage extends EPackage {
 		 * @generated
 		 */
 		EClass GLOSSAR = eINSTANCE.getGlossar();
+
+		/**
+		 * The meta object literal for the '<em><b>Container</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference GLOSSAR__CONTAINER = eINSTANCE.getGlossar_Container();
 
 		/**
 		 * The meta object literal for the '<em><b>Entries</b></em>' containment reference list feature.
@@ -559,6 +675,22 @@ public interface GlossarDocumentationPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute GLOSSAR_ENTRY__VALUE = eINSTANCE.getGlossarEntry_Value();
+
+		/**
+		 * The meta object literal for the '<em><b>Glossar</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference GLOSSAR_ENTRY__GLOSSAR = eINSTANCE.getGlossarEntry_Glossar();
+
+		/**
+		 * The meta object literal for the '<em><b>Entries</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference GLOSSAR_ENTRY__ENTRIES = eINSTANCE.getGlossarEntry_Entries();
 
 		/**
 		 * The meta object literal for the '{@link glossarDocumentation.impl.EntryImpl <em>Entry</em>}' class.
@@ -593,6 +725,14 @@ public interface GlossarDocumentationPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ENTRY__NAME = eINSTANCE.getEntry_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Document</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ENTRY__DOCUMENT = eINSTANCE.getEntry_Document();
 
 		/**
 		 * The meta object literal for the '{@link glossarDocumentation.impl.DocumentationContainerImpl <em>Documentation Container</em>}' class.

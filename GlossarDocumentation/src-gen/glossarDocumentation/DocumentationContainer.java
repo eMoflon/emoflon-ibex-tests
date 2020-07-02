@@ -15,8 +15,8 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link glossarDocumentation.DocumentationContainer#getDocuments <em>Documents</em>}</li>
  *   <li>{@link glossarDocumentation.DocumentationContainer#getGlossar <em>Glossar</em>}</li>
+ *   <li>{@link glossarDocumentation.DocumentationContainer#getDocuments <em>Documents</em>}</li>
  * </ul>
  *
  * @see glossarDocumentation.GlossarDocumentationPackage#getDocumentationContainer()
@@ -27,23 +27,27 @@ public interface DocumentationContainer extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Documents</b></em>' containment reference list.
 	 * The list contents are of type {@link glossarDocumentation.Document}.
+	 * It is bidirectional and its opposite is '{@link glossarDocumentation.Document#getContainer <em>Container</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Documents</em>' containment reference list.
 	 * @see glossarDocumentation.GlossarDocumentationPackage#getDocumentationContainer_Documents()
-	 * @model containment="true"
+	 * @see glossarDocumentation.Document#getContainer
+	 * @model opposite="container" containment="true"
 	 * @generated
 	 */
 	EList<Document> getDocuments();
 
 	/**
 	 * Returns the value of the '<em><b>Glossar</b></em>' containment reference.
+	 * It is bidirectional and its opposite is '{@link glossarDocumentation.Glossar#getContainer <em>Container</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Glossar</em>' containment reference.
 	 * @see #setGlossar(Glossar)
 	 * @see glossarDocumentation.GlossarDocumentationPackage#getDocumentationContainer_Glossar()
-	 * @model containment="true" required="true"
+	 * @see glossarDocumentation.Glossar#getContainer
+	 * @model opposite="container" containment="true" required="true"
 	 * @generated
 	 */
 	Glossar getGlossar();
