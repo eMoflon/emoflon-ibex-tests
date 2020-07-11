@@ -112,6 +112,9 @@ public class IntegrationBench {
 	
 	private int num_of_conflicts = -1;
 	
+	private int change_index = -1;
+	private boolean[] generate_conflict = {}; 
+	
 	private final IntegrationPattern pattern = new IntegrationPattern(Arrays.asList( //
 			APPLY_USER_DELTA, //
 			REPAIR, //
@@ -134,6 +137,8 @@ public class IntegrationBench {
 		num_of_glossar_links_per_entry = 2;
 		
 		num_of_conflicts = c;
+		
+		change_index = 0;
 	}
 	
 	public void generateHorizontal(String name, int n, int c) {
@@ -210,8 +215,14 @@ public class IntegrationBench {
 		}
 	}
 	
-	public BenchEntry bench(String name, int n, int c) {
+	public BenchEntry bench(String name, int model_scale, int number_of_changes) {
+		return bench(name, model_scale, number_of_changes, new boolean[]{true});
+	}
+	
+	public BenchEntry bench(String name, int model_scale, int number_of_changes, boolean[] when_to_generate) {
 		try {
+			this.generate_conflict = when_to_generate;
+			
 			INTEGRATE integrate = new INTEGRATE_App("bench", name);
 			integrate.getOptions().integration.conflictSolver(
 					conf -> {
@@ -245,7 +256,7 @@ public class IntegrationBench {
 			integrate.getOptions().integration.pattern(pattern);
 			
 			initializeResource(integrate);
-			initScale(n, c);
+			initScale(model_scale, number_of_changes);
 			clearAll();
 			
 			generateModels();
@@ -263,7 +274,7 @@ public class IntegrationBench {
 			toc = System.currentTimeMillis();
 			double resolve = (double) (toc - tic)  / 1000;
 			integrate.terminate();
-			return new BenchEntry(n, c, elementCounter, init, resolve);
+			return new BenchEntry(model_scale, number_of_changes, elementCounter, init, resolve);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -271,23 +282,23 @@ public class IntegrationBench {
 	}
 	
 	private void applyDelta(EObject source, EObject target) {
-//		System.out.print("	Applying Deltas...");
-		long tic = System.currentTimeMillis();
 
 		ClazzContainer cCont = (ClazzContainer) source;
 		
 		List<Consumer<Clazz>> deltaFuncs = new LinkedList<>();
-		deltaFuncs.add(this::createAttributeConflict);
+//		deltaFuncs.add(this::createAttributeConflict);
 		deltaFuncs.add(this::createContradictingMoveConflict);
-		deltaFuncs.add(this::createDeltePreserveConflict);
+//		deltaFuncs.add(this::createDeltePreserveConflict);
 		
 		if(num_of_conflicts > num_of_root_classes)
 			throw new RuntimeException("Too many conflicts for this model");
 		for(int i=0; i < num_of_conflicts; i++)  {
+			if(i % deltaFuncs.size() == deltaFuncs.size() - 1) {
+				change_index = (change_index + 1) % generate_conflict.length;
+			}
+			
 			deltaFuncs.get(i % deltaFuncs.size()).accept(cCont.getClazzes().get(i));
 		}
-		long toc = System.currentTimeMillis();
-//		System.out.println("completed in: " + (toc - tic) + " ms");
 	}
 
 	private void createDeltePreserveConflict(Clazz c) {
@@ -298,7 +309,6 @@ public class IntegrationBench {
 		Document subD = d.getHyperRefs().get(0);
 		Clazz subC = c.getSubClazzes().get(0);
 		
-//		EcoreUtil.delete(subC, true);
 		c.getMethods().add(subC.getMethods().get(0));
 		delete(subC);
 		
@@ -306,11 +316,13 @@ public class IntegrationBench {
 			subD = subD.getHyperRefs().get(0);
 		}
 		
-		Entry e = gFactory.createEntry();
-		e.setName(c.getName() + "_new_method");
-		e.setType(EntryType.METHOD);
-		name2entry.put(e.getName(), e);
-		subD.getEntries().add(e);
+		if(generate_conflict[change_index]) {
+			Entry e = gFactory.createEntry();
+			e.setName(c.getName() + "_new_method");
+			e.setType(EntryType.METHOD);
+			name2entry.put(e.getName(), e);
+			subD.getEntries().add(e);
+		}
 		
 //		subD.getEntries().get(0).getGlossarentries().add(value2gEntry.get("GlossarEntry_" + (attr_conflict_counter++ % num_of_glossar_entries)));
 	}
@@ -327,7 +339,9 @@ public class IntegrationBench {
 		Document d = name2documents.get(c.getName());
 
 		c.setName("ATTR_CONFLICT_" + c.getName() + "_a");
-		d.setName("ATTR_CONFLICT_" + d.getName() + "_b");
+		if(generate_conflict[change_index]) {
+			d.setName("ATTR_CONFLICT_" + d.getName() + "_b");
+		}
 	}
 	
 	private void createContradictingMoveConflict(Clazz c) {
@@ -340,9 +354,11 @@ public class IntegrationBench {
 		d.getHyperRefs().remove(subD1);
 		subD2.getHyperRefs().add(subD1);
 		
-		Clazz subC1 = c.getSubClazzes().get(0);
-		Clazz subC3 = c.getSubClazzes().get(2);
-		subC1.setSuperClazz(subC3);
+		if(generate_conflict[change_index]) {
+			Clazz subC1 = c.getSubClazzes().get(0);
+			Clazz subC3 = c.getSubClazzes().get(2);
+			subC1.setSuperClazz(subC3);
+		}
 	}
 
 
