@@ -25,19 +25,13 @@ import org.eclipse.emf.ecore.resource.ContentHandler;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
-import org.emoflon.ibex.tgg.operational.benchmark.TimeRegistry;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.INTEGRATE;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.AttributeConflict;
-import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.Conflict;
-import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.ConflictContainer;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.DelPreserveEdgeConflict;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.DeletePreserveConflict;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.InconsDelConflict;
-import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.resolution.CRS_PreferTarget;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.resolution.util.CRSHelper;
-import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.resolution.util.ConflictResolver;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.pattern.IntegrationPattern;
 import org.emoflon.ibex.tgg.run.clazz2glossardoc.INTEGRATE_App;
 
@@ -116,8 +110,6 @@ public class IntegrationBench {
 	private int conflict_solved_delPres_counter = 0;
 	private int conflict_solved_move_counter = 0;
 	
-	private int attr_conflict_counter = 0;
-	
 	private int num_of_conflicts = -1;
 	
 	private final IntegrationPattern pattern = new IntegrationPattern(Arrays.asList( //
@@ -130,11 +122,6 @@ public class IntegrationBench {
 			TRANSLATE, //
 			CLEAN_UP //
 	));
-	
-	public static void main(String[] args) {
-		new IntegrationBench().generate("test", 600, 300);
-//		TimeRegistry.logTimes();
-	}
 	
 	private void initScale(int n, int c) {
 		num_of_root_classes = n;
@@ -149,7 +136,7 @@ public class IntegrationBench {
 		num_of_conflicts = c;
 	}
 	
-	public void generate(String name, int n, int c) {
+	public void generateHorizontal(String name, int n, int c) {
 		System.out.println("Initializing...");
 		try {
 			INTEGRATE integrate = new INTEGRATE_App("bench", name);
@@ -223,8 +210,68 @@ public class IntegrationBench {
 		}
 	}
 	
+	public BenchEntry bench(String name, int n, int c) {
+		try {
+			INTEGRATE integrate = new INTEGRATE_App("bench", name);
+			integrate.getOptions().integration.conflictSolver(
+					conf -> {
+						conflict_counter++;
+						if(conf.getConflicts().stream().noneMatch(InconsDelConflict.class::isInstance)) {
+							CRSHelper.forEachResolve(conf, DeletePreserveConflict.class, 
+									s -> {
+										s.crs_mergeAndPreserve();
+										conflict_solved_delPres_counter++;
+									});
+						}
+						else {
+							CRSHelper.forEachResolve(conf, InconsDelConflict.class, 
+									s -> {
+										s.crs_preferSource();
+										conflict_solved_move_counter++;
+									});
+							CRSHelper.forEachResolve(conf, DelPreserveEdgeConflict.class, 
+									s -> {
+										if(s.getDomainToBePreserved() == DomainType.TRG)
+											s.crs_revokeAddition();
+									});							
+						}
+						CRSHelper.forEachResolve(conf, AttributeConflict.class, 
+							s -> {
+								s.crs_preferSource();
+								conflict_solved_attr_counter++;
+							});
+					}
+			);
+			integrate.getOptions().integration.pattern(pattern);
+			
+			initializeResource(integrate);
+			initScale(n, c);
+			clearAll();
+			
+			generateModels();
+			
+			long tic = System.currentTimeMillis();
+			integrate.run();
+			long toc = System.currentTimeMillis();
+			double init = (double) (toc-tic) / 1000;
+
+			BiConsumer<EObject, EObject> delta = this::applyDelta;
+			integrate.applyDelta(delta);
+
+			tic = System.currentTimeMillis();
+			integrate.integrate();
+			toc = System.currentTimeMillis();
+			double resolve = (double) (toc - tic)  / 1000;
+			integrate.terminate();
+			return new BenchEntry(n, c, elementCounter, init, resolve);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
 	private void applyDelta(EObject source, EObject target) {
-		System.out.print("	Applying Deltas...");
+//		System.out.print("	Applying Deltas...");
 		long tic = System.currentTimeMillis();
 
 		ClazzContainer cCont = (ClazzContainer) source;
@@ -240,7 +287,7 @@ public class IntegrationBench {
 			deltaFuncs.get(i % deltaFuncs.size()).accept(cCont.getClazzes().get(i));
 		}
 		long toc = System.currentTimeMillis();
-		System.out.println("completed in: " + (toc - tic) + " ms");
+//		System.out.println("completed in: " + (toc - tic) + " ms");
 	}
 
 	private void createDeltePreserveConflict(Clazz c) {
@@ -252,6 +299,7 @@ public class IntegrationBench {
 		Clazz subC = c.getSubClazzes().get(0);
 		
 //		EcoreUtil.delete(subC, true);
+		c.getMethods().add(subC.getMethods().get(0));
 		delete(subC);
 		
 		if(!subD.getHyperRefs().isEmpty()) {
