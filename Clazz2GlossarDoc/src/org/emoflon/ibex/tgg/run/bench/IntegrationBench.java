@@ -115,6 +115,8 @@ public class IntegrationBench {
 	private int change_index = -1;
 	private boolean[] generate_conflict = {}; 
 	
+	private boolean horizontal;
+	
 	private final IntegrationPattern pattern = new IntegrationPattern(Arrays.asList( //
 			APPLY_USER_DELTA, //
 			REPAIR, //
@@ -127,8 +129,14 @@ public class IntegrationBench {
 	));
 	
 	private void initScale(int n, int c) {
-		num_of_root_classes = n;
-		inheritance_depth = 3;
+		if(horizontal) {
+			num_of_root_classes = n;
+			inheritance_depth = 3;
+		}
+		else {
+			num_of_root_classes = 1;
+			inheritance_depth = n;
+		}
 		horizontal_inheritance_scale = 3;
 		num_of_fields = 3;
 		num_of_methods = 3;
@@ -141,7 +149,9 @@ public class IntegrationBench {
 		change_index = 0;
 	}
 	
-	public void generateHorizontal(String name, int n, int c) {
+	public void generate(String name, int n, int c, boolean horizontal) {
+		this.horizontal = horizontal;
+		
 		System.out.println("Initializing...");
 		try {
 			INTEGRATE integrate = new INTEGRATE_App("bench", name);
@@ -215,12 +225,13 @@ public class IntegrationBench {
 		}
 	}
 	
-	public BenchEntry bench(String name, int model_scale, int number_of_changes) {
-		return bench(name, model_scale, number_of_changes, new boolean[]{true});
+	public BenchEntry bench(String name, int model_scale, int number_of_changes, boolean horizontal) {
+		return bench(name, model_scale, number_of_changes, new boolean[]{true}, horizontal);
 	}
 	
-	public BenchEntry bench(String name, int model_scale, int number_of_changes, boolean[] when_to_generate) {
+	public BenchEntry bench(String name, int model_scale, int number_of_changes, boolean[] when_to_generate, boolean horizontal) {
 		try {
+			this.horizontal = horizontal;
 			this.generate_conflict = when_to_generate;
 			
 			INTEGRATE integrate = new INTEGRATE_App("bench", name);
@@ -286,22 +297,30 @@ public class IntegrationBench {
 		ClazzContainer cCont = (ClazzContainer) source;
 		
 		List<Consumer<Clazz>> deltaFuncs = new LinkedList<>();
-//		deltaFuncs.add(this::createAttributeConflict);
-		deltaFuncs.add(this::createContradictingMoveConflict);
-//		deltaFuncs.add(this::createDeltePreserveConflict);
+		if(horizontal) {
+			deltaFuncs.add(this::createAttributeConflict);
+			deltaFuncs.add(this::createContradictingMoveConflict);
+			deltaFuncs.add(this::createDeltePreserveConflict_Horizontal);
+		}
+		else {
+			deltaFuncs.add(this::createDeltePreserveConflict_Vertical);
+		}
 		
-		if(num_of_conflicts > num_of_root_classes)
+		if(horizontal && num_of_conflicts > num_of_root_classes || !horizontal && num_of_conflicts > inheritance_depth)
 			throw new RuntimeException("Too many conflicts for this model");
+		
 		for(int i=0; i < num_of_conflicts; i++)  {
 			if(i % deltaFuncs.size() == deltaFuncs.size() - 1) {
 				change_index = (change_index + 1) % generate_conflict.length;
 			}
 			
 			deltaFuncs.get(i % deltaFuncs.size()).accept(cCont.getClazzes().get(i));
+			if(!horizontal)
+				break;
 		}
 	}
 
-	private void createDeltePreserveConflict(Clazz c) {
+	private void createDeltePreserveConflict_Horizontal(Clazz c) {
 		Document d = name2documents.get(c.getName());
 		c.setName("DELETE_PRESERVE_" + c.getName());
 		d.setName(c.getName());
@@ -309,7 +328,6 @@ public class IntegrationBench {
 		Document subD = d.getHyperRefs().get(0);
 		Clazz subC = c.getSubClazzes().get(0);
 		
-		c.getMethods().add(subC.getMethods().get(0));
 		delete(subC);
 		
 		if(!subD.getHyperRefs().isEmpty()) {
@@ -323,8 +341,41 @@ public class IntegrationBench {
 			name2entry.put(e.getName(), e);
 			subD.getEntries().add(e);
 		}
+	}
+	
+	private void createDeltePreserveConflict_Vertical(Clazz c) {
+		Document d = name2documents.get(c.getName());
+		c.setName("DELETE_PRESERVE_" + c.getName());
+		d.setName(c.getName());
 		
-//		subD.getEntries().get(0).getGlossarentries().add(value2gEntry.get("GlossarEntry_" + (attr_conflict_counter++ % num_of_glossar_entries)));
+		Document subD = d.getHyperRefs().get(0);
+		Clazz subC = c.getSubClazzes().get(0);
+		
+		// go to last class in hierachy
+		while(!subC.getSubClazzes().isEmpty()) {
+			subC = subC.getSubClazzes().get(0);
+		}
+		// traverse backward and increase conflict size. 
+		// start with 1 if the last clazz is only meant to be deleted
+		for(int i=1; i < num_of_conflicts; i++) {
+			subC = subC.getSuperClazz();
+		}
+		delete(subC);
+		
+		if(!subD.getHyperRefs().isEmpty()) {
+			subD = subD.getHyperRefs().get(0);
+		}
+		
+		// traverse to sub document in line
+		while(!subD.getHyperRefs().isEmpty()) {
+			subD = subD.getHyperRefs().get(0);
+		}
+		
+		Entry e = gFactory.createEntry();
+		e.setName(c.getName() + "_new_method");
+		e.setType(EntryType.METHOD);
+		name2entry.put(e.getName(), e);
+		subD.getEntries().add(e);
 	}
 
 	private void delete(Clazz subC) {
@@ -431,16 +482,20 @@ public class IntegrationBench {
 			createMethods(cRoot, dRoot, newPrefix);
 			createFields(cRoot, dRoot, newPrefix);
 			
-			createInheritance(cRoot, dRoot, 1, newPrefix);
+			if(horizontal)
+				createInheritance_horizontal(cRoot, dRoot, 1, newPrefix);
+			else
+				createInheritance_vertical(cRoot, dRoot, 1, newPrefix);
+			
+			if(!horizontal)
+				break;
 		}
 		cContainer.getClazzes().addAll(clazzes);
 		dContainer.getDocuments().addAll(docs);
 
 	}
 	
-
-
-	private void createInheritance(Clazz cParent, Document dParent, int depth, String prefix) {
+	private void createInheritance_horizontal(Clazz cParent, Document dParent, int depth, String prefix) {
 		if(depth >= inheritance_depth)
 			return;
 		
@@ -479,7 +534,62 @@ public class IntegrationBench {
 			createMethods(cSub, dSub, newPrefix);
 			createFields(cSub, dSub, newPrefix);
 			
-			createInheritance(cSub, dSub, depth+1, newPrefix);
+			createInheritance_horizontal(cSub, dSub, depth+1, newPrefix);
+		}
+	}
+	
+	private void createInheritance_vertical(Clazz cRoot, Document dRoot, int depth, String prefix) {
+		Clazz cParent = cRoot;
+		Document dParent = dRoot;
+		
+		Clazz tempCParent = cRoot;
+		Document tempDParent = dRoot;
+		
+		while(depth < inheritance_depth) {
+			cParent = tempCParent;
+			dParent = tempDParent;
+			for(int i=0; i < horizontal_inheritance_scale; i++) {
+				String newPrefix = prefix + "_" + i;
+	
+				Clazz cSub = cFactory.createClazz();
+				cSub.setName("Clazz" + newPrefix);
+				name2clazz.put(cSub.getName(), cSub);
+				cSub.setSuperClazz(cParent);
+				
+				Document dSub = gFactory.createDocument();
+				dSub.setName(cSub.getName());
+				name2documents.put(dSub.getName(), dSub);
+				dParent.getHyperRefs().add(dSub);
+				dContainer.getDocuments().add(dSub);
+				
+				elementCounter+=2;
+				
+				Clazz2doc c2d = corrFactory.createClazz2doc();
+				corr.getContents().add(c2d);
+				c2d.setSource(cSub);
+				c2d.setTarget(dSub);
+				src2corr.put(cSub, c2d);
+				
+				SubClazz2DocRule__Marker marker = corrFactory.createSubClazz2DocRule__Marker();
+				marker.setCONTEXT__SRC__superClazz(cParent);
+				marker.setCONTEXT__CORR__super2super((Clazz2doc) src2corr.get(cParent));
+				marker.setCONTEXT__TRG__dCont(dContainer);
+				marker.setCONTEXT__TRG__superDoc(dParent);
+				marker.setCREATE__SRC__subClazz(cSub);
+				marker.setCREATE__CORR__sub2sub(c2d);
+				marker.setCREATE__TRG__subDoc(dSub);
+				protocol.getContents().add(marker);
+	
+				createMethods(cSub, dSub, newPrefix);
+				createFields(cSub, dSub, newPrefix);
+				
+				if(i == 0) {
+					depth++;
+	//				createInheritance_horizontal(cSub, dSub, depth+1, newPrefix);
+					tempCParent = cSub;
+					tempDParent = dSub;
+				}
+			}
 		}
 	}
 
