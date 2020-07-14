@@ -15,10 +15,11 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link glossarDocumentation.Document#getEntries <em>Entries</em>}</li>
  *   <li>{@link glossarDocumentation.Document#getName <em>Name</em>}</li>
  *   <li>{@link glossarDocumentation.Document#getHyperRefs <em>Hyper Refs</em>}</li>
  *   <li>{@link glossarDocumentation.Document#getContainer <em>Container</em>}</li>
- *   <li>{@link glossarDocumentation.Document#getEntries <em>Entries</em>}</li>
+ *   <li>{@link glossarDocumentation.Document#getReverseHRef <em>Reverse HRef</em>}</li>
  * </ul>
  *
  * @see glossarDocumentation.GlossarDocumentationPackage#getDocument()
@@ -65,11 +66,13 @@ public interface Document extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Hyper Refs</b></em>' reference list.
 	 * The list contents are of type {@link glossarDocumentation.Document}.
+	 * It is bidirectional and its opposite is '{@link glossarDocumentation.Document#getReverseHRef <em>Reverse HRef</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Hyper Refs</em>' reference list.
 	 * @see glossarDocumentation.GlossarDocumentationPackage#getDocument_HyperRefs()
-	 * @model
+	 * @see glossarDocumentation.Document#getReverseHRef
+	 * @model opposite="reverseHRef"
 	 * @generated
 	 */
 	EList<Document> getHyperRefs();
@@ -83,7 +86,7 @@ public interface Document extends EObject {
 	 * @see #setContainer(DocumentationContainer)
 	 * @see glossarDocumentation.GlossarDocumentationPackage#getDocument_Container()
 	 * @see glossarDocumentation.DocumentationContainer#getDocuments
-	 * @model opposite="documents" required="true" transient="false"
+	 * @model opposite="documents" transient="false"
 	 * @generated
 	 */
 	DocumentationContainer getContainer();
@@ -97,5 +100,19 @@ public interface Document extends EObject {
 	 * @generated
 	 */
 	void setContainer(DocumentationContainer value);
+
+	/**
+	 * Returns the value of the '<em><b>Reverse HRef</b></em>' reference list.
+	 * The list contents are of type {@link glossarDocumentation.Document}.
+	 * It is bidirectional and its opposite is '{@link glossarDocumentation.Document#getHyperRefs <em>Hyper Refs</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Reverse HRef</em>' reference list.
+	 * @see glossarDocumentation.GlossarDocumentationPackage#getDocument_ReverseHRef()
+	 * @see glossarDocumentation.Document#getHyperRefs
+	 * @model opposite="hyperRefs"
+	 * @generated
+	 */
+	EList<Document> getReverseHRef();
 
 } // Document

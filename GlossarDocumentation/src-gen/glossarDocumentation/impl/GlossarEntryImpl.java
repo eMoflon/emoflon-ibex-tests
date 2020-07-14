@@ -6,7 +6,6 @@ import glossarDocumentation.Entry;
 import glossarDocumentation.Glossar;
 import glossarDocumentation.GlossarDocumentationPackage;
 import glossarDocumentation.GlossarEntry;
-
 import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 

@@ -33,9 +33,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link glossarDocumentation.impl.EntryImpl#getType <em>Type</em>}</li>
+ *   <li>{@link glossarDocumentation.impl.EntryImpl#getGlossarentries <em>Glossarentries</em>}</li>
  *   <li>{@link glossarDocumentation.impl.EntryImpl#getName <em>Name</em>}</li>
  *   <li>{@link glossarDocumentation.impl.EntryImpl#getDocument <em>Document</em>}</li>
- *   <li>{@link glossarDocumentation.impl.EntryImpl#getGlossarentries <em>Glossarentries</em>}</li>
  * </ul>
  *
  * @generated
@@ -62,6 +62,16 @@ public class EntryImpl extends MinimalEObjectImpl.Container implements Entry {
 	protected EntryType type = TYPE_EDEFAULT;
 
 	/**
+	 * The cached value of the '{@link #getGlossarentries() <em>Glossarentries</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getGlossarentries()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<GlossarEntry> glossarentries;
+
+	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -80,16 +90,6 @@ public class EntryImpl extends MinimalEObjectImpl.Container implements Entry {
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getGlossarentries() <em>Glossarentries</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getGlossarentries()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<GlossarEntry> glossarentries;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -158,12 +158,12 @@ public class EntryImpl extends MinimalEObjectImpl.Container implements Entry {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+		case GlossarDocumentationPackage.ENTRY__GLOSSARENTRIES:
+			return ((InternalEList<InternalEObject>) (InternalEList<?>) getGlossarentries()).basicAdd(otherEnd, msgs);
 		case GlossarDocumentationPackage.ENTRY__DOCUMENT:
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			return basicSetDocument((Document) otherEnd, msgs);
-		case GlossarDocumentationPackage.ENTRY__GLOSSARENTRIES:
-			return ((InternalEList<InternalEObject>) (InternalEList<?>) getGlossarentries()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -176,10 +176,10 @@ public class EntryImpl extends MinimalEObjectImpl.Container implements Entry {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case GlossarDocumentationPackage.ENTRY__DOCUMENT:
-			return basicSetDocument(null, msgs);
 		case GlossarDocumentationPackage.ENTRY__GLOSSARENTRIES:
 			return ((InternalEList<?>) getGlossarentries()).basicRemove(otherEnd, msgs);
+		case GlossarDocumentationPackage.ENTRY__DOCUMENT:
+			return basicSetDocument(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -280,12 +280,12 @@ public class EntryImpl extends MinimalEObjectImpl.Container implements Entry {
 		switch (featureID) {
 		case GlossarDocumentationPackage.ENTRY__TYPE:
 			return getType();
+		case GlossarDocumentationPackage.ENTRY__GLOSSARENTRIES:
+			return getGlossarentries();
 		case GlossarDocumentationPackage.ENTRY__NAME:
 			return getName();
 		case GlossarDocumentationPackage.ENTRY__DOCUMENT:
 			return getDocument();
-		case GlossarDocumentationPackage.ENTRY__GLOSSARENTRIES:
-			return getGlossarentries();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -302,15 +302,15 @@ public class EntryImpl extends MinimalEObjectImpl.Container implements Entry {
 		case GlossarDocumentationPackage.ENTRY__TYPE:
 			setType((EntryType) newValue);
 			return;
+		case GlossarDocumentationPackage.ENTRY__GLOSSARENTRIES:
+			getGlossarentries().clear();
+			getGlossarentries().addAll((Collection<? extends GlossarEntry>) newValue);
+			return;
 		case GlossarDocumentationPackage.ENTRY__NAME:
 			setName((String) newValue);
 			return;
 		case GlossarDocumentationPackage.ENTRY__DOCUMENT:
 			setDocument((Document) newValue);
-			return;
-		case GlossarDocumentationPackage.ENTRY__GLOSSARENTRIES:
-			getGlossarentries().clear();
-			getGlossarentries().addAll((Collection<? extends GlossarEntry>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -327,14 +327,14 @@ public class EntryImpl extends MinimalEObjectImpl.Container implements Entry {
 		case GlossarDocumentationPackage.ENTRY__TYPE:
 			setType(TYPE_EDEFAULT);
 			return;
+		case GlossarDocumentationPackage.ENTRY__GLOSSARENTRIES:
+			getGlossarentries().clear();
+			return;
 		case GlossarDocumentationPackage.ENTRY__NAME:
 			setName(NAME_EDEFAULT);
 			return;
 		case GlossarDocumentationPackage.ENTRY__DOCUMENT:
 			setDocument((Document) null);
-			return;
-		case GlossarDocumentationPackage.ENTRY__GLOSSARENTRIES:
-			getGlossarentries().clear();
 			return;
 		}
 		super.eUnset(featureID);
@@ -350,12 +350,12 @@ public class EntryImpl extends MinimalEObjectImpl.Container implements Entry {
 		switch (featureID) {
 		case GlossarDocumentationPackage.ENTRY__TYPE:
 			return type != TYPE_EDEFAULT;
+		case GlossarDocumentationPackage.ENTRY__GLOSSARENTRIES:
+			return glossarentries != null && !glossarentries.isEmpty();
 		case GlossarDocumentationPackage.ENTRY__NAME:
 			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		case GlossarDocumentationPackage.ENTRY__DOCUMENT:
 			return getDocument() != null;
-		case GlossarDocumentationPackage.ENTRY__GLOSSARENTRIES:
-			return glossarentries != null && !glossarentries.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -1,14 +1,28 @@
 <?xml version="1.0" encoding="ASCII"?>
-<GlossarDocumentation:DocumentationContainer xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:GlossarDocumentation="platform:/resource/GlossarDocumentation/model/glossarDocumentation.ecore">
-  <documents name="C1">
-    <entries name="F5"/>
+<GlossarDocumentation:DocumentationContainer
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:GlossarDocumentation="platform:/resource/GlossarDocumentation/model/glossarDocumentation.ecore">
+  <documents
+      name="C1">
+    <entries
+        name="F5"/>
   </documents>
-  <documents name="C2">
-    <entries glossarentries="//@glossar/@entries.1" name="F7"/>
-    <entries type="METHOD" glossarentries="//@glossar/@entries.1" name="M8"/>
+  <documents
+      name="C2">
+    <entries
+        glossarentries="//@glossar/@entries.1"
+        name="F7"/>
+    <entries
+        type="METHOD"
+        glossarentries="//@glossar/@entries.1"
+        name="M8"/>
   </documents>
   <glossar>
-    <entries value="GE12"/>
-    <entries value="GE13"/>
+    <entries
+        value="GE12"/>
+    <entries
+        value="GE13"
+        entries="//@documents.1/@entries.0 //@documents.1/@entries.1"/>
   </glossar>
 </GlossarDocumentation:DocumentationContainer>

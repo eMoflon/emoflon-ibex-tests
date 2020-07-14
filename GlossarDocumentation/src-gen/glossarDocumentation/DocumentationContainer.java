@@ -15,8 +15,8 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link glossarDocumentation.DocumentationContainer#getGlossar <em>Glossar</em>}</li>
  *   <li>{@link glossarDocumentation.DocumentationContainer#getDocuments <em>Documents</em>}</li>
+ *   <li>{@link glossarDocumentation.DocumentationContainer#getGlossar <em>Glossar</em>}</li>
  * </ul>
  *
  * @see glossarDocumentation.GlossarDocumentationPackage#getDocumentationContainer()

@@ -14,14 +14,15 @@
       <genEnumLiterals ecoreEnumLiteral="glossarDocumentation.ecore#//EntryType/METHOD"/>
     </genEnums>
     <genClasses ecoreClass="glossarDocumentation.ecore#//Document">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference glossarDocumentation.ecore#//Document/entries"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute glossarDocumentation.ecore#//Document/name"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference glossarDocumentation.ecore#//Document/hyperRefs"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference glossarDocumentation.ecore#//Document/container"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference glossarDocumentation.ecore#//Document/entries"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference glossarDocumentation.ecore#//Document/reverseHRef"/>
     </genClasses>
     <genClasses ecoreClass="glossarDocumentation.ecore#//Glossar">
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference glossarDocumentation.ecore#//Glossar/container"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference glossarDocumentation.ecore#//Glossar/entries"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference glossarDocumentation.ecore#//Glossar/container"/>
     </genClasses>
     <genClasses ecoreClass="glossarDocumentation.ecore#//GlossarEntry">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute glossarDocumentation.ecore#//GlossarEntry/value"/>
@@ -30,13 +31,13 @@
     </genClasses>
     <genClasses ecoreClass="glossarDocumentation.ecore#//Entry">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute glossarDocumentation.ecore#//Entry/type"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference glossarDocumentation.ecore#//Entry/glossarentries"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute glossarDocumentation.ecore#//Entry/name"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference glossarDocumentation.ecore#//Entry/document"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference glossarDocumentation.ecore#//Entry/glossarentries"/>
     </genClasses>
     <genClasses ecoreClass="glossarDocumentation.ecore#//DocumentationContainer">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference glossarDocumentation.ecore#//DocumentationContainer/glossar"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference glossarDocumentation.ecore#//DocumentationContainer/documents"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference glossarDocumentation.ecore#//DocumentationContainer/glossar"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

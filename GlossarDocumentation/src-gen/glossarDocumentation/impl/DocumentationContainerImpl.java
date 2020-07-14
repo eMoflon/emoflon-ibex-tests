@@ -30,23 +30,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link glossarDocumentation.impl.DocumentationContainerImpl#getGlossar <em>Glossar</em>}</li>
  *   <li>{@link glossarDocumentation.impl.DocumentationContainerImpl#getDocuments <em>Documents</em>}</li>
+ *   <li>{@link glossarDocumentation.impl.DocumentationContainerImpl#getGlossar <em>Glossar</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class DocumentationContainerImpl extends MinimalEObjectImpl.Container implements DocumentationContainer {
-	/**
-	 * The cached value of the '{@link #getGlossar() <em>Glossar</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getGlossar()
-	 * @generated
-	 * @ordered
-	 */
-	protected Glossar glossar;
-
 	/**
 	 * The cached value of the '{@link #getDocuments() <em>Documents</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -56,6 +46,16 @@ public class DocumentationContainerImpl extends MinimalEObjectImpl.Container imp
 	 * @ordered
 	 */
 	protected EList<Document> documents;
+
+	/**
+	 * The cached value of the '{@link #getGlossar() <em>Glossar</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getGlossar()
+	 * @generated
+	 * @ordered
+	 */
+	protected Glossar glossar;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -100,14 +100,14 @@ public class DocumentationContainerImpl extends MinimalEObjectImpl.Container imp
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+		case GlossarDocumentationPackage.DOCUMENTATION_CONTAINER__DOCUMENTS:
+			return ((InternalEList<InternalEObject>) (InternalEList<?>) getDocuments()).basicAdd(otherEnd, msgs);
 		case GlossarDocumentationPackage.DOCUMENTATION_CONTAINER__GLOSSAR:
 			if (glossar != null)
 				msgs = ((InternalEObject) glossar).eInverseRemove(this,
 						EOPPOSITE_FEATURE_BASE - GlossarDocumentationPackage.DOCUMENTATION_CONTAINER__GLOSSAR, null,
 						msgs);
 			return basicSetGlossar((Glossar) otherEnd, msgs);
-		case GlossarDocumentationPackage.DOCUMENTATION_CONTAINER__DOCUMENTS:
-			return ((InternalEList<InternalEObject>) (InternalEList<?>) getDocuments()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -172,10 +172,10 @@ public class DocumentationContainerImpl extends MinimalEObjectImpl.Container imp
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case GlossarDocumentationPackage.DOCUMENTATION_CONTAINER__GLOSSAR:
-			return basicSetGlossar(null, msgs);
 		case GlossarDocumentationPackage.DOCUMENTATION_CONTAINER__DOCUMENTS:
 			return ((InternalEList<?>) getDocuments()).basicRemove(otherEnd, msgs);
+		case GlossarDocumentationPackage.DOCUMENTATION_CONTAINER__GLOSSAR:
+			return basicSetGlossar(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -188,10 +188,10 @@ public class DocumentationContainerImpl extends MinimalEObjectImpl.Container imp
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case GlossarDocumentationPackage.DOCUMENTATION_CONTAINER__GLOSSAR:
-			return getGlossar();
 		case GlossarDocumentationPackage.DOCUMENTATION_CONTAINER__DOCUMENTS:
 			return getDocuments();
+		case GlossarDocumentationPackage.DOCUMENTATION_CONTAINER__GLOSSAR:
+			return getGlossar();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -205,12 +205,12 @@ public class DocumentationContainerImpl extends MinimalEObjectImpl.Container imp
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case GlossarDocumentationPackage.DOCUMENTATION_CONTAINER__GLOSSAR:
-			setGlossar((Glossar) newValue);
-			return;
 		case GlossarDocumentationPackage.DOCUMENTATION_CONTAINER__DOCUMENTS:
 			getDocuments().clear();
 			getDocuments().addAll((Collection<? extends Document>) newValue);
+			return;
+		case GlossarDocumentationPackage.DOCUMENTATION_CONTAINER__GLOSSAR:
+			setGlossar((Glossar) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -224,11 +224,11 @@ public class DocumentationContainerImpl extends MinimalEObjectImpl.Container imp
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case GlossarDocumentationPackage.DOCUMENTATION_CONTAINER__GLOSSAR:
-			setGlossar((Glossar) null);
-			return;
 		case GlossarDocumentationPackage.DOCUMENTATION_CONTAINER__DOCUMENTS:
 			getDocuments().clear();
+			return;
+		case GlossarDocumentationPackage.DOCUMENTATION_CONTAINER__GLOSSAR:
+			setGlossar((Glossar) null);
 			return;
 		}
 		super.eUnset(featureID);
@@ -242,10 +242,10 @@ public class DocumentationContainerImpl extends MinimalEObjectImpl.Container imp
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case GlossarDocumentationPackage.DOCUMENTATION_CONTAINER__GLOSSAR:
-			return glossar != null;
 		case GlossarDocumentationPackage.DOCUMENTATION_CONTAINER__DOCUMENTS:
 			return documents != null && !documents.isEmpty();
+		case GlossarDocumentationPackage.DOCUMENTATION_CONTAINER__GLOSSAR:
+			return glossar != null;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -15,8 +15,8 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link glossarDocumentation.Glossar#getContainer <em>Container</em>}</li>
  *   <li>{@link glossarDocumentation.Glossar#getEntries <em>Entries</em>}</li>
+ *   <li>{@link glossarDocumentation.Glossar#getContainer <em>Container</em>}</li>
  * </ul>
  *
  * @see glossarDocumentation.GlossarDocumentationPackage#getGlossar()
@@ -33,7 +33,7 @@ public interface Glossar extends EObject {
 	 * @see #setContainer(DocumentationContainer)
 	 * @see glossarDocumentation.GlossarDocumentationPackage#getGlossar_Container()
 	 * @see glossarDocumentation.DocumentationContainer#getGlossar
-	 * @model opposite="glossar" required="true" transient="false"
+	 * @model opposite="glossar" transient="false"
 	 * @generated
 	 */
 	DocumentationContainer getContainer();

@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -32,15 +32,26 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link glossarDocumentation.impl.DocumentImpl#getEntries <em>Entries</em>}</li>
  *   <li>{@link glossarDocumentation.impl.DocumentImpl#getName <em>Name</em>}</li>
  *   <li>{@link glossarDocumentation.impl.DocumentImpl#getHyperRefs <em>Hyper Refs</em>}</li>
  *   <li>{@link glossarDocumentation.impl.DocumentImpl#getContainer <em>Container</em>}</li>
- *   <li>{@link glossarDocumentation.impl.DocumentImpl#getEntries <em>Entries</em>}</li>
+ *   <li>{@link glossarDocumentation.impl.DocumentImpl#getReverseHRef <em>Reverse HRef</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class DocumentImpl extends MinimalEObjectImpl.Container implements Document {
+	/**
+	 * The cached value of the '{@link #getEntries() <em>Entries</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEntries()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Entry> entries;
+
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -72,14 +83,14 @@ public class DocumentImpl extends MinimalEObjectImpl.Container implements Docume
 	protected EList<Document> hyperRefs;
 
 	/**
-	 * The cached value of the '{@link #getEntries() <em>Entries</em>}' containment reference list.
+	 * The cached value of the '{@link #getReverseHRef() <em>Reverse HRef</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getEntries()
+	 * @see #getReverseHRef()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Entry> entries;
+	protected EList<Document> reverseHRef;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -123,12 +134,16 @@ public class DocumentImpl extends MinimalEObjectImpl.Container implements Docume
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+		case GlossarDocumentationPackage.DOCUMENT__ENTRIES:
+			return ((InternalEList<InternalEObject>) (InternalEList<?>) getEntries()).basicAdd(otherEnd, msgs);
+		case GlossarDocumentationPackage.DOCUMENT__HYPER_REFS:
+			return ((InternalEList<InternalEObject>) (InternalEList<?>) getHyperRefs()).basicAdd(otherEnd, msgs);
 		case GlossarDocumentationPackage.DOCUMENT__CONTAINER:
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			return basicSetContainer((DocumentationContainer) otherEnd, msgs);
-		case GlossarDocumentationPackage.DOCUMENT__ENTRIES:
-			return ((InternalEList<InternalEObject>) (InternalEList<?>) getEntries()).basicAdd(otherEnd, msgs);
+		case GlossarDocumentationPackage.DOCUMENT__REVERSE_HREF:
+			return ((InternalEList<InternalEObject>) (InternalEList<?>) getReverseHRef()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -165,8 +180,9 @@ public class DocumentImpl extends MinimalEObjectImpl.Container implements Docume
 	@Override
 	public EList<Document> getHyperRefs() {
 		if (hyperRefs == null) {
-			hyperRefs = new EObjectResolvingEList<Document>(Document.class, this,
-					GlossarDocumentationPackage.DOCUMENT__HYPER_REFS);
+			hyperRefs = new EObjectWithInverseResolvingEList.ManyInverse<Document>(Document.class, this,
+					GlossarDocumentationPackage.DOCUMENT__HYPER_REFS,
+					GlossarDocumentationPackage.DOCUMENT__REVERSE_HREF);
 		}
 		return hyperRefs;
 	}
@@ -226,12 +242,31 @@ public class DocumentImpl extends MinimalEObjectImpl.Container implements Docume
 	 * @generated
 	 */
 	@Override
+	public EList<Document> getReverseHRef() {
+		if (reverseHRef == null) {
+			reverseHRef = new EObjectWithInverseResolvingEList.ManyInverse<Document>(Document.class, this,
+					GlossarDocumentationPackage.DOCUMENT__REVERSE_HREF,
+					GlossarDocumentationPackage.DOCUMENT__HYPER_REFS);
+		}
+		return reverseHRef;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case GlossarDocumentationPackage.DOCUMENT__CONTAINER:
-			return basicSetContainer(null, msgs);
 		case GlossarDocumentationPackage.DOCUMENT__ENTRIES:
 			return ((InternalEList<?>) getEntries()).basicRemove(otherEnd, msgs);
+		case GlossarDocumentationPackage.DOCUMENT__HYPER_REFS:
+			return ((InternalEList<?>) getHyperRefs()).basicRemove(otherEnd, msgs);
+		case GlossarDocumentationPackage.DOCUMENT__CONTAINER:
+			return basicSetContainer(null, msgs);
+		case GlossarDocumentationPackage.DOCUMENT__REVERSE_HREF:
+			return ((InternalEList<?>) getReverseHRef()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -259,14 +294,16 @@ public class DocumentImpl extends MinimalEObjectImpl.Container implements Docume
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+		case GlossarDocumentationPackage.DOCUMENT__ENTRIES:
+			return getEntries();
 		case GlossarDocumentationPackage.DOCUMENT__NAME:
 			return getName();
 		case GlossarDocumentationPackage.DOCUMENT__HYPER_REFS:
 			return getHyperRefs();
 		case GlossarDocumentationPackage.DOCUMENT__CONTAINER:
 			return getContainer();
-		case GlossarDocumentationPackage.DOCUMENT__ENTRIES:
-			return getEntries();
+		case GlossarDocumentationPackage.DOCUMENT__REVERSE_HREF:
+			return getReverseHRef();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -280,6 +317,10 @@ public class DocumentImpl extends MinimalEObjectImpl.Container implements Docume
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+		case GlossarDocumentationPackage.DOCUMENT__ENTRIES:
+			getEntries().clear();
+			getEntries().addAll((Collection<? extends Entry>) newValue);
+			return;
 		case GlossarDocumentationPackage.DOCUMENT__NAME:
 			setName((String) newValue);
 			return;
@@ -290,9 +331,9 @@ public class DocumentImpl extends MinimalEObjectImpl.Container implements Docume
 		case GlossarDocumentationPackage.DOCUMENT__CONTAINER:
 			setContainer((DocumentationContainer) newValue);
 			return;
-		case GlossarDocumentationPackage.DOCUMENT__ENTRIES:
-			getEntries().clear();
-			getEntries().addAll((Collection<? extends Entry>) newValue);
+		case GlossarDocumentationPackage.DOCUMENT__REVERSE_HREF:
+			getReverseHRef().clear();
+			getReverseHRef().addAll((Collection<? extends Document>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -306,6 +347,9 @@ public class DocumentImpl extends MinimalEObjectImpl.Container implements Docume
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+		case GlossarDocumentationPackage.DOCUMENT__ENTRIES:
+			getEntries().clear();
+			return;
 		case GlossarDocumentationPackage.DOCUMENT__NAME:
 			setName(NAME_EDEFAULT);
 			return;
@@ -315,8 +359,8 @@ public class DocumentImpl extends MinimalEObjectImpl.Container implements Docume
 		case GlossarDocumentationPackage.DOCUMENT__CONTAINER:
 			setContainer((DocumentationContainer) null);
 			return;
-		case GlossarDocumentationPackage.DOCUMENT__ENTRIES:
-			getEntries().clear();
+		case GlossarDocumentationPackage.DOCUMENT__REVERSE_HREF:
+			getReverseHRef().clear();
 			return;
 		}
 		super.eUnset(featureID);
@@ -330,14 +374,16 @@ public class DocumentImpl extends MinimalEObjectImpl.Container implements Docume
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+		case GlossarDocumentationPackage.DOCUMENT__ENTRIES:
+			return entries != null && !entries.isEmpty();
 		case GlossarDocumentationPackage.DOCUMENT__NAME:
 			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		case GlossarDocumentationPackage.DOCUMENT__HYPER_REFS:
 			return hyperRefs != null && !hyperRefs.isEmpty();
 		case GlossarDocumentationPackage.DOCUMENT__CONTAINER:
 			return getContainer() != null;
-		case GlossarDocumentationPackage.DOCUMENT__ENTRIES:
-			return entries != null && !entries.isEmpty();
+		case GlossarDocumentationPackage.DOCUMENT__REVERSE_HREF:
+			return reverseHRef != null && !reverseHRef.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

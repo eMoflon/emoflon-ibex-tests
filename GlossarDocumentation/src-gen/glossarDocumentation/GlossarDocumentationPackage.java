@@ -68,13 +68,22 @@ public interface GlossarDocumentationPackage extends EPackage {
 	int DOCUMENT = 0;
 
 	/**
+	 * The feature id for the '<em><b>Entries</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOCUMENT__ENTRIES = 0;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT__NAME = 0;
+	int DOCUMENT__NAME = 1;
 
 	/**
 	 * The feature id for the '<em><b>Hyper Refs</b></em>' reference list.
@@ -83,7 +92,7 @@ public interface GlossarDocumentationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT__HYPER_REFS = 1;
+	int DOCUMENT__HYPER_REFS = 2;
 
 	/**
 	 * The feature id for the '<em><b>Container</b></em>' container reference.
@@ -92,16 +101,16 @@ public interface GlossarDocumentationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT__CONTAINER = 2;
+	int DOCUMENT__CONTAINER = 3;
 
 	/**
-	 * The feature id for the '<em><b>Entries</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Reverse HRef</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT__ENTRIES = 3;
+	int DOCUMENT__REVERSE_HREF = 4;
 
 	/**
 	 * The number of structural features of the '<em>Document</em>' class.
@@ -110,7 +119,7 @@ public interface GlossarDocumentationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_FEATURE_COUNT = 4;
+	int DOCUMENT_FEATURE_COUNT = 5;
 
 	/**
 	 * The number of operations of the '<em>Document</em>' class.
@@ -132,22 +141,22 @@ public interface GlossarDocumentationPackage extends EPackage {
 	int GLOSSAR = 1;
 
 	/**
-	 * The feature id for the '<em><b>Container</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GLOSSAR__CONTAINER = 0;
-
-	/**
 	 * The feature id for the '<em><b>Entries</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GLOSSAR__ENTRIES = 1;
+	int GLOSSAR__ENTRIES = 0;
+
+	/**
+	 * The feature id for the '<em><b>Container</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GLOSSAR__CONTAINER = 1;
 
 	/**
 	 * The number of structural features of the '<em>Glossar</em>' class.
@@ -242,13 +251,22 @@ public interface GlossarDocumentationPackage extends EPackage {
 	int ENTRY__TYPE = 0;
 
 	/**
+	 * The feature id for the '<em><b>Glossarentries</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENTRY__GLOSSARENTRIES = 1;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENTRY__NAME = 1;
+	int ENTRY__NAME = 2;
 
 	/**
 	 * The feature id for the '<em><b>Document</b></em>' container reference.
@@ -257,16 +275,7 @@ public interface GlossarDocumentationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENTRY__DOCUMENT = 2;
-
-	/**
-	 * The feature id for the '<em><b>Glossarentries</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENTRY__GLOSSARENTRIES = 3;
+	int ENTRY__DOCUMENT = 3;
 
 	/**
 	 * The number of structural features of the '<em>Entry</em>' class.
@@ -297,22 +306,22 @@ public interface GlossarDocumentationPackage extends EPackage {
 	int DOCUMENTATION_CONTAINER = 4;
 
 	/**
-	 * The feature id for the '<em><b>Glossar</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOCUMENTATION_CONTAINER__GLOSSAR = 0;
-
-	/**
 	 * The feature id for the '<em><b>Documents</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENTATION_CONTAINER__DOCUMENTS = 1;
+	int DOCUMENTATION_CONTAINER__DOCUMENTS = 0;
+
+	/**
+	 * The feature id for the '<em><b>Glossar</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOCUMENTATION_CONTAINER__GLOSSAR = 1;
 
 	/**
 	 * The number of structural features of the '<em>Documentation Container</em>' class.
@@ -395,6 +404,17 @@ public interface GlossarDocumentationPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getDocument_Container();
+
+	/**
+	 * Returns the meta object for the reference list '{@link glossarDocumentation.Document#getReverseHRef <em>Reverse HRef</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Reverse HRef</em>'.
+	 * @see glossarDocumentation.Document#getReverseHRef()
+	 * @see #getDocument()
+	 * @generated
+	 */
+	EReference getDocument_ReverseHRef();
 
 	/**
 	 * Returns the meta object for class '{@link glossarDocumentation.Glossar <em>Glossar</em>}'.
@@ -631,6 +651,14 @@ public interface GlossarDocumentationPackage extends EPackage {
 		 * @generated
 		 */
 		EReference DOCUMENT__CONTAINER = eINSTANCE.getDocument_Container();
+
+		/**
+		 * The meta object literal for the '<em><b>Reverse HRef</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DOCUMENT__REVERSE_HREF = eINSTANCE.getDocument_ReverseHRef();
 
 		/**
 		 * The meta object literal for the '{@link glossarDocumentation.impl.GlossarImpl <em>Glossar</em>}' class.

@@ -150,7 +150,7 @@ public class GlossarDocumentationPackageImpl extends EPackageImpl implements Glo
 	 */
 	@Override
 	public EReference getDocument_Entries() {
-		return (EReference) documentEClass.getEStructuralFeatures().get(3);
+		return (EReference) documentEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -160,7 +160,7 @@ public class GlossarDocumentationPackageImpl extends EPackageImpl implements Glo
 	 */
 	@Override
 	public EAttribute getDocument_Name() {
-		return (EAttribute) documentEClass.getEStructuralFeatures().get(0);
+		return (EAttribute) documentEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -170,7 +170,7 @@ public class GlossarDocumentationPackageImpl extends EPackageImpl implements Glo
 	 */
 	@Override
 	public EReference getDocument_HyperRefs() {
-		return (EReference) documentEClass.getEStructuralFeatures().get(1);
+		return (EReference) documentEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -180,7 +180,17 @@ public class GlossarDocumentationPackageImpl extends EPackageImpl implements Glo
 	 */
 	@Override
 	public EReference getDocument_Container() {
-		return (EReference) documentEClass.getEStructuralFeatures().get(2);
+		return (EReference) documentEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getDocument_ReverseHRef() {
+		return (EReference) documentEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -200,7 +210,7 @@ public class GlossarDocumentationPackageImpl extends EPackageImpl implements Glo
 	 */
 	@Override
 	public EReference getGlossar_Container() {
-		return (EReference) glossarEClass.getEStructuralFeatures().get(0);
+		return (EReference) glossarEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -210,7 +220,7 @@ public class GlossarDocumentationPackageImpl extends EPackageImpl implements Glo
 	 */
 	@Override
 	public EReference getGlossar_Entries() {
-		return (EReference) glossarEClass.getEStructuralFeatures().get(1);
+		return (EReference) glossarEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -280,7 +290,7 @@ public class GlossarDocumentationPackageImpl extends EPackageImpl implements Glo
 	 */
 	@Override
 	public EReference getEntry_Glossarentries() {
-		return (EReference) entryEClass.getEStructuralFeatures().get(3);
+		return (EReference) entryEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -290,7 +300,7 @@ public class GlossarDocumentationPackageImpl extends EPackageImpl implements Glo
 	 */
 	@Override
 	public EAttribute getEntry_Name() {
-		return (EAttribute) entryEClass.getEStructuralFeatures().get(1);
+		return (EAttribute) entryEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -300,7 +310,7 @@ public class GlossarDocumentationPackageImpl extends EPackageImpl implements Glo
 	 */
 	@Override
 	public EReference getEntry_Document() {
-		return (EReference) entryEClass.getEStructuralFeatures().get(2);
+		return (EReference) entryEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -320,7 +330,7 @@ public class GlossarDocumentationPackageImpl extends EPackageImpl implements Glo
 	 */
 	@Override
 	public EReference getDocumentationContainer_Documents() {
-		return (EReference) documentationContainerEClass.getEStructuralFeatures().get(1);
+		return (EReference) documentationContainerEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -330,7 +340,7 @@ public class GlossarDocumentationPackageImpl extends EPackageImpl implements Glo
 	 */
 	@Override
 	public EReference getDocumentationContainer_Glossar() {
-		return (EReference) documentationContainerEClass.getEStructuralFeatures().get(0);
+		return (EReference) documentationContainerEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -374,14 +384,15 @@ public class GlossarDocumentationPackageImpl extends EPackageImpl implements Glo
 
 		// Create classes and their features
 		documentEClass = createEClass(DOCUMENT);
+		createEReference(documentEClass, DOCUMENT__ENTRIES);
 		createEAttribute(documentEClass, DOCUMENT__NAME);
 		createEReference(documentEClass, DOCUMENT__HYPER_REFS);
 		createEReference(documentEClass, DOCUMENT__CONTAINER);
-		createEReference(documentEClass, DOCUMENT__ENTRIES);
+		createEReference(documentEClass, DOCUMENT__REVERSE_HREF);
 
 		glossarEClass = createEClass(GLOSSAR);
-		createEReference(glossarEClass, GLOSSAR__CONTAINER);
 		createEReference(glossarEClass, GLOSSAR__ENTRIES);
+		createEReference(glossarEClass, GLOSSAR__CONTAINER);
 
 		glossarEntryEClass = createEClass(GLOSSAR_ENTRY);
 		createEAttribute(glossarEntryEClass, GLOSSAR_ENTRY__VALUE);
@@ -390,13 +401,13 @@ public class GlossarDocumentationPackageImpl extends EPackageImpl implements Glo
 
 		entryEClass = createEClass(ENTRY);
 		createEAttribute(entryEClass, ENTRY__TYPE);
+		createEReference(entryEClass, ENTRY__GLOSSARENTRIES);
 		createEAttribute(entryEClass, ENTRY__NAME);
 		createEReference(entryEClass, ENTRY__DOCUMENT);
-		createEReference(entryEClass, ENTRY__GLOSSARENTRIES);
 
 		documentationContainerEClass = createEClass(DOCUMENTATION_CONTAINER);
-		createEReference(documentationContainerEClass, DOCUMENTATION_CONTAINER__GLOSSAR);
 		createEReference(documentationContainerEClass, DOCUMENTATION_CONTAINER__DOCUMENTS);
+		createEReference(documentationContainerEClass, DOCUMENTATION_CONTAINER__GLOSSAR);
 
 		// Create enums
 		entryTypeEEnum = createEEnum(ENTRY_TYPE);
@@ -435,27 +446,30 @@ public class GlossarDocumentationPackageImpl extends EPackageImpl implements Glo
 		// Initialize classes, features, and operations; add parameters
 		initEClass(documentEClass, Document.class, "Document", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDocument_Name(), ecorePackage.getEString(), "name", null, 0, 1, Document.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDocument_HyperRefs(), this.getDocument(), null, "hyperRefs", null, 0, -1, Document.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDocument_Container(), this.getDocumentationContainer(),
-				this.getDocumentationContainer_Documents(), "container", null, 1, 1, Document.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
 		initEReference(getDocument_Entries(), this.getEntry(), this.getEntry_Document(), "entries", null, 0, -1,
 				Document.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(glossarEClass, Glossar.class, "Glossar", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getGlossar_Container(), this.getDocumentationContainer(),
-				this.getDocumentationContainer_Glossar(), "container", null, 1, 1, Glossar.class, !IS_TRANSIENT,
+		initEAttribute(getDocument_Name(), ecorePackage.getEString(), "name", null, 0, 1, Document.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDocument_HyperRefs(), this.getDocument(), this.getDocument_ReverseHRef(), "hyperRefs", null,
+				0, -1, Document.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDocument_Container(), this.getDocumentationContainer(),
+				this.getDocumentationContainer_Documents(), "container", null, 0, 1, Document.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
+		initEReference(getDocument_ReverseHRef(), this.getDocument(), this.getDocument_HyperRefs(), "reverseHRef", null,
+				0, -1, Document.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(glossarEClass, Glossar.class, "Glossar", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getGlossar_Entries(), this.getGlossarEntry(), this.getGlossarEntry_Glossar(), "entries", null, 0,
 				-1, Glossar.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGlossar_Container(), this.getDocumentationContainer(),
+				this.getDocumentationContainer_Glossar(), "container", null, 0, 1, Glossar.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
 
 		initEClass(glossarEntryEClass, GlossarEntry.class, "GlossarEntry", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -471,23 +485,23 @@ public class GlossarDocumentationPackageImpl extends EPackageImpl implements Glo
 		initEClass(entryEClass, Entry.class, "Entry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getEntry_Type(), this.getEntryType(), "type", null, 0, 1, Entry.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEntry_Glossarentries(), this.getGlossarEntry(), this.getGlossarEntry_Entries(),
+				"glossarentries", null, 0, -1, Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEntry_Name(), ecorePackage.getEString(), "name", null, 0, 1, Entry.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEntry_Document(), this.getDocument(), this.getDocument_Entries(), "document", null, 0, 1,
 				Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEntry_Glossarentries(), this.getGlossarEntry(), this.getGlossarEntry_Entries(),
-				"glossarentries", null, 0, -1, Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(documentationContainerEClass, DocumentationContainer.class, "DocumentationContainer", !IS_ABSTRACT,
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDocumentationContainer_Glossar(), this.getGlossar(), this.getGlossar_Container(), "glossar",
-				null, 1, 1, DocumentationContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDocumentationContainer_Documents(), this.getDocument(), this.getDocument_Container(),
 				"documents", null, 0, -1, DocumentationContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
 				IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDocumentationContainer_Glossar(), this.getGlossar(), this.getGlossar_Container(), "glossar",
+				null, 1, 1, DocumentationContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(entryTypeEEnum, EntryType.class, "EntryType");

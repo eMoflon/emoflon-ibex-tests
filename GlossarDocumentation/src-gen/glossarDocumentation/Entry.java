@@ -16,9 +16,9 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link glossarDocumentation.Entry#getType <em>Type</em>}</li>
+ *   <li>{@link glossarDocumentation.Entry#getGlossarentries <em>Glossarentries</em>}</li>
  *   <li>{@link glossarDocumentation.Entry#getName <em>Name</em>}</li>
  *   <li>{@link glossarDocumentation.Entry#getDocument <em>Document</em>}</li>
- *   <li>{@link glossarDocumentation.Entry#getGlossarentries <em>Glossarentries</em>}</li>
  * </ul>
  *
  * @see glossarDocumentation.GlossarDocumentationPackage#getEntry()

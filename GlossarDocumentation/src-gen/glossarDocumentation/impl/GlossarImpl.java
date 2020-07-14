@@ -31,8 +31,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link glossarDocumentation.impl.GlossarImpl#getContainer <em>Container</em>}</li>
  *   <li>{@link glossarDocumentation.impl.GlossarImpl#getEntries <em>Entries</em>}</li>
+ *   <li>{@link glossarDocumentation.impl.GlossarImpl#getContainer <em>Container</em>}</li>
  * </ul>
  *
  * @generated
@@ -138,12 +138,12 @@ public class GlossarImpl extends MinimalEObjectImpl.Container implements Glossar
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+		case GlossarDocumentationPackage.GLOSSAR__ENTRIES:
+			return ((InternalEList<InternalEObject>) (InternalEList<?>) getEntries()).basicAdd(otherEnd, msgs);
 		case GlossarDocumentationPackage.GLOSSAR__CONTAINER:
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			return basicSetContainer((DocumentationContainer) otherEnd, msgs);
-		case GlossarDocumentationPackage.GLOSSAR__ENTRIES:
-			return ((InternalEList<InternalEObject>) (InternalEList<?>) getEntries()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -156,10 +156,10 @@ public class GlossarImpl extends MinimalEObjectImpl.Container implements Glossar
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case GlossarDocumentationPackage.GLOSSAR__CONTAINER:
-			return basicSetContainer(null, msgs);
 		case GlossarDocumentationPackage.GLOSSAR__ENTRIES:
 			return ((InternalEList<?>) getEntries()).basicRemove(otherEnd, msgs);
+		case GlossarDocumentationPackage.GLOSSAR__CONTAINER:
+			return basicSetContainer(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -187,10 +187,10 @@ public class GlossarImpl extends MinimalEObjectImpl.Container implements Glossar
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case GlossarDocumentationPackage.GLOSSAR__CONTAINER:
-			return getContainer();
 		case GlossarDocumentationPackage.GLOSSAR__ENTRIES:
 			return getEntries();
+		case GlossarDocumentationPackage.GLOSSAR__CONTAINER:
+			return getContainer();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -204,12 +204,12 @@ public class GlossarImpl extends MinimalEObjectImpl.Container implements Glossar
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case GlossarDocumentationPackage.GLOSSAR__CONTAINER:
-			setContainer((DocumentationContainer) newValue);
-			return;
 		case GlossarDocumentationPackage.GLOSSAR__ENTRIES:
 			getEntries().clear();
 			getEntries().addAll((Collection<? extends GlossarEntry>) newValue);
+			return;
+		case GlossarDocumentationPackage.GLOSSAR__CONTAINER:
+			setContainer((DocumentationContainer) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -223,11 +223,11 @@ public class GlossarImpl extends MinimalEObjectImpl.Container implements Glossar
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case GlossarDocumentationPackage.GLOSSAR__CONTAINER:
-			setContainer((DocumentationContainer) null);
-			return;
 		case GlossarDocumentationPackage.GLOSSAR__ENTRIES:
 			getEntries().clear();
+			return;
+		case GlossarDocumentationPackage.GLOSSAR__CONTAINER:
+			setContainer((DocumentationContainer) null);
 			return;
 		}
 		super.eUnset(featureID);
@@ -241,10 +241,10 @@ public class GlossarImpl extends MinimalEObjectImpl.Container implements Glossar
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case GlossarDocumentationPackage.GLOSSAR__CONTAINER:
-			return getContainer() != null;
 		case GlossarDocumentationPackage.GLOSSAR__ENTRIES:
 			return entries != null && !entries.isEmpty();
+		case GlossarDocumentationPackage.GLOSSAR__CONTAINER:
+			return getContainer() != null;
 		}
 		return super.eIsSet(featureID);
 	}
