@@ -28,9 +28,9 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.INTEGRATE;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.AttributeConflict;
+import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.ContradictingChangesConflict;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.DelPreserveEdgeConflict;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.DeletePreserveConflict;
-import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.InconsDelConflict;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.resolution.util.CRSHelper;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.pattern.IntegrationPattern;
 import org.emoflon.ibex.tgg.run.clazz2glossardoc.INTEGRATE_App;
@@ -158,7 +158,7 @@ public class IntegrationBench {
 			integrate.getOptions().integration.conflictSolver(
 					conf -> {
 						conflict_counter++;
-						if(conf.getConflicts().stream().noneMatch(InconsDelConflict.class::isInstance)) {
+						if(conf.getConflicts().stream().noneMatch(ContradictingChangesConflict.class::isInstance)) {
 							CRSHelper.forEachResolve(conf, DeletePreserveConflict.class, 
 									s -> {
 										s.crs_mergeAndPreserve();
@@ -166,7 +166,7 @@ public class IntegrationBench {
 									});
 						}
 						else {
-							CRSHelper.forEachResolve(conf, InconsDelConflict.class, 
+							CRSHelper.forEachResolve(conf, ContradictingChangesConflict.class, 
 									s -> {
 										s.crs_preferSource();
 										conflict_solved_move_counter++;
@@ -238,7 +238,7 @@ public class IntegrationBench {
 			integrate.getOptions().integration.conflictSolver(
 					conf -> {
 						conflict_counter++;
-						if(conf.getConflicts().stream().noneMatch(InconsDelConflict.class::isInstance)) {
+						if(conf.getConflicts().stream().noneMatch(ContradictingChangesConflict.class::isInstance)) {
 							CRSHelper.forEachResolve(conf, DeletePreserveConflict.class, 
 									s -> {
 										s.crs_mergeAndPreserve();
@@ -246,7 +246,7 @@ public class IntegrationBench {
 									});
 						}
 						else {
-							CRSHelper.forEachResolve(conf, InconsDelConflict.class, 
+							CRSHelper.forEachResolve(conf, ContradictingChangesConflict.class, 
 									s -> {
 										s.crs_preferSource();
 										conflict_solved_move_counter++;
