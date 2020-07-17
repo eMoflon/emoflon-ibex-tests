@@ -68,7 +68,8 @@ public class SimpleFamiliesToSimplePersonsTest extends
 		assertEquals(1, sonRule.countRuleApplications());
 		
 		SimplePersonsGraphTransformationApp personsApp = new SimplePersonsGraphTransformationApp(this.initEngine(), workspacePath);
-		api.getModel().getResources().forEach(res -> personsApp.getModel().getResources().add(res));
+		personsApp.setModel(api.getModel());
+		personsApp.registerMetaModels();
 		SimplePersonsGraphTransformationAPI personsAPI = personsApp.initAPI();
 		assertMatchCount(1, personsAPI.findRegister());
 		assertMatchCount(3, personsAPI.findMale());
