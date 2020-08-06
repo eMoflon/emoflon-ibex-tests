@@ -16,6 +16,7 @@ import SimpleFamiliesToSimplePersonsGraphTransformation.api.rules.MotherToFemale
 import SimpleFamiliesToSimplePersonsGraphTransformation.api.rules.SonToMaleRule;
 import SimplePersons.Person;
 import SimplePersonsGraphTransformation.api.SimplePersonsGraphTransformationAPI;
+import SimplePersonsGraphTransformation.api.SimplePersonsGraphTransformationApp;
 
 /**
  * Tests for the SimpleFamiliesToSimplePersons Graph Transformation API.
@@ -65,9 +66,11 @@ public class SimpleFamiliesToSimplePersonsTest extends
 		assertEquals(2, daughterRule.countRuleApplications());
 		assertEquals(2, fatherRule.countRuleApplications());
 		assertEquals(1, sonRule.countRuleApplications());
-
-		SimplePersonsGraphTransformationAPI personsAPI = new SimplePersonsGraphTransformationAPI(new DemoclesGTEngine(),
-				api.getModel(), workspacePath);
+		
+		SimplePersonsGraphTransformationApp personsApp = new SimplePersonsGraphTransformationApp(this.initEngine(), workspacePath);
+		personsApp.setModel(api.getModel());
+		personsApp.registerMetaModels();
+		SimplePersonsGraphTransformationAPI personsAPI = personsApp.initAPI();
 		assertMatchCount(1, personsAPI.findRegister());
 		assertMatchCount(3, personsAPI.findMale());
 		assertMatchCount(4, personsAPI.findFemale());
