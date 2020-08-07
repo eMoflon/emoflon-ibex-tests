@@ -149,13 +149,22 @@ public interface SimpleClassInheritancePackage extends EPackage {
 	int CLAZZ__SUB_CLAZZES = NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Container</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLAZZ__CONTAINER = NAMED_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Clazz</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CLAZZ_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 4;
+	int CLAZZ_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of operations of the '<em>Clazz</em>' class.
@@ -186,13 +195,22 @@ public interface SimpleClassInheritancePackage extends EPackage {
 	int FIELD__NAME = NAMED_ELEMENT__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Clazz</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIELD__CLAZZ = NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Field</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FIELD_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 0;
+	int FIELD_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Field</em>' class.
@@ -232,13 +250,22 @@ public interface SimpleClassInheritancePackage extends EPackage {
 	int METHOD__PARAMETERS = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Clazz</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD__CLAZZ = NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Method</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int METHOD_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int METHOD_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Method</em>' class.
@@ -269,13 +296,22 @@ public interface SimpleClassInheritancePackage extends EPackage {
 	int PARAMETER__NAME = NAMED_ELEMENT__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Method</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__METHOD = NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Parameter</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 0;
+	int PARAMETER_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Parameter</em>' class.
@@ -378,6 +414,17 @@ public interface SimpleClassInheritancePackage extends EPackage {
 	EReference getClazz_SubClazzes();
 
 	/**
+	 * Returns the meta object for the container reference '{@link simpleClassInheritance.Clazz#getContainer <em>Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Container</em>'.
+	 * @see simpleClassInheritance.Clazz#getContainer()
+	 * @see #getClazz()
+	 * @generated
+	 */
+	EReference getClazz_Container();
+
+	/**
 	 * Returns the meta object for class '{@link simpleClassInheritance.Field <em>Field</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -386,6 +433,17 @@ public interface SimpleClassInheritancePackage extends EPackage {
 	 * @generated
 	 */
 	EClass getField();
+
+	/**
+	 * Returns the meta object for the container reference '{@link simpleClassInheritance.Field#getClazz <em>Clazz</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Clazz</em>'.
+	 * @see simpleClassInheritance.Field#getClazz()
+	 * @see #getField()
+	 * @generated
+	 */
+	EReference getField_Clazz();
 
 	/**
 	 * Returns the meta object for class '{@link simpleClassInheritance.Method <em>Method</em>}'.
@@ -409,6 +467,17 @@ public interface SimpleClassInheritancePackage extends EPackage {
 	EReference getMethod_Parameters();
 
 	/**
+	 * Returns the meta object for the container reference '{@link simpleClassInheritance.Method#getClazz <em>Clazz</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Clazz</em>'.
+	 * @see simpleClassInheritance.Method#getClazz()
+	 * @see #getMethod()
+	 * @generated
+	 */
+	EReference getMethod_Clazz();
+
+	/**
 	 * Returns the meta object for class '{@link simpleClassInheritance.Parameter <em>Parameter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -417,6 +486,17 @@ public interface SimpleClassInheritancePackage extends EPackage {
 	 * @generated
 	 */
 	EClass getParameter();
+
+	/**
+	 * Returns the meta object for the container reference '{@link simpleClassInheritance.Parameter#getMethod <em>Method</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Method</em>'.
+	 * @see simpleClassInheritance.Parameter#getMethod()
+	 * @see #getParameter()
+	 * @generated
+	 */
+	EReference getParameter_Method();
 
 	/**
 	 * Returns the meta object for class '{@link simpleClassInheritance.ClazzContainer <em>Clazz Container</em>}'.
@@ -526,6 +606,14 @@ public interface SimpleClassInheritancePackage extends EPackage {
 		EReference CLAZZ__SUB_CLAZZES = eINSTANCE.getClazz_SubClazzes();
 
 		/**
+		 * The meta object literal for the '<em><b>Container</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CLAZZ__CONTAINER = eINSTANCE.getClazz_Container();
+
+		/**
 		 * The meta object literal for the '{@link simpleClassInheritance.impl.FieldImpl <em>Field</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -534,6 +622,14 @@ public interface SimpleClassInheritancePackage extends EPackage {
 		 * @generated
 		 */
 		EClass FIELD = eINSTANCE.getField();
+
+		/**
+		 * The meta object literal for the '<em><b>Clazz</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FIELD__CLAZZ = eINSTANCE.getField_Clazz();
 
 		/**
 		 * The meta object literal for the '{@link simpleClassInheritance.impl.MethodImpl <em>Method</em>}' class.
@@ -554,6 +650,14 @@ public interface SimpleClassInheritancePackage extends EPackage {
 		EReference METHOD__PARAMETERS = eINSTANCE.getMethod_Parameters();
 
 		/**
+		 * The meta object literal for the '<em><b>Clazz</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference METHOD__CLAZZ = eINSTANCE.getMethod_Clazz();
+
+		/**
 		 * The meta object literal for the '{@link simpleClassInheritance.impl.ParameterImpl <em>Parameter</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -562,6 +666,14 @@ public interface SimpleClassInheritancePackage extends EPackage {
 		 * @generated
 		 */
 		EClass PARAMETER = eINSTANCE.getParameter();
+
+		/**
+		 * The meta object literal for the '<em><b>Method</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARAMETER__METHOD = eINSTANCE.getParameter_Method();
 
 		/**
 		 * The meta object literal for the '{@link simpleClassInheritance.impl.ClazzContainerImpl <em>Clazz Container</em>}' class.

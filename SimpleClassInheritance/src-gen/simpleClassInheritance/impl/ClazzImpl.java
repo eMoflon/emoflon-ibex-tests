@@ -13,13 +13,12 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import simpleClassInheritance.Clazz;
+import simpleClassInheritance.ClazzContainer;
 import simpleClassInheritance.Field;
 import simpleClassInheritance.Method;
 import simpleClassInheritance.SimpleClassInheritancePackage;
@@ -36,6 +35,7 @@ import simpleClassInheritance.SimpleClassInheritancePackage;
  *   <li>{@link simpleClassInheritance.impl.ClazzImpl#getFields <em>Fields</em>}</li>
  *   <li>{@link simpleClassInheritance.impl.ClazzImpl#getSuperClazz <em>Super Clazz</em>}</li>
  *   <li>{@link simpleClassInheritance.impl.ClazzImpl#getSubClazzes <em>Sub Clazzes</em>}</li>
+ *   <li>{@link simpleClassInheritance.impl.ClazzImpl#getContainer <em>Container</em>}</li>
  * </ul>
  *
  * @generated
@@ -98,8 +98,8 @@ public class ClazzImpl extends NamedElementImpl implements Clazz {
 	@Override
 	public EList<Method> getMethods() {
 		if (methods == null) {
-			methods = new EObjectContainmentEList<Method>(Method.class, this,
-					SimpleClassInheritancePackage.CLAZZ__METHODS);
+			methods = new EObjectContainmentWithInverseEList<Method>(Method.class, this,
+					SimpleClassInheritancePackage.CLAZZ__METHODS, SimpleClassInheritancePackage.METHOD__CLAZZ);
 		}
 		return methods;
 	}
@@ -112,7 +112,8 @@ public class ClazzImpl extends NamedElementImpl implements Clazz {
 	@Override
 	public EList<Field> getFields() {
 		if (fields == null) {
-			fields = new EObjectContainmentEList<Field>(Field.class, this, SimpleClassInheritancePackage.CLAZZ__FIELDS);
+			fields = new EObjectContainmentWithInverseEList<Field>(Field.class, this,
+					SimpleClassInheritancePackage.CLAZZ__FIELDS, SimpleClassInheritancePackage.FIELD__CLAZZ);
 		}
 		return fields;
 	}
@@ -185,16 +186,71 @@ public class ClazzImpl extends NamedElementImpl implements Clazz {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public ClazzContainer getContainer() {
+		if (eContainerFeatureID() != SimpleClassInheritancePackage.CLAZZ__CONTAINER)
+			return null;
+		return (ClazzContainer) eInternalContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetContainer(ClazzContainer newContainer, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject) newContainer, SimpleClassInheritancePackage.CLAZZ__CONTAINER, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setContainer(ClazzContainer newContainer) {
+		if (newContainer != eInternalContainer()
+				|| (eContainerFeatureID() != SimpleClassInheritancePackage.CLAZZ__CONTAINER && newContainer != null)) {
+			if (EcoreUtil.isAncestor(this, newContainer))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newContainer != null)
+				msgs = ((InternalEObject) newContainer).eInverseAdd(this,
+						SimpleClassInheritancePackage.CLAZZ_CONTAINER__CLAZZES, ClazzContainer.class, msgs);
+			msgs = basicSetContainer(newContainer, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SimpleClassInheritancePackage.CLAZZ__CONTAINER,
+					newContainer, newContainer));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+		case SimpleClassInheritancePackage.CLAZZ__METHODS:
+			return ((InternalEList<InternalEObject>) (InternalEList<?>) getMethods()).basicAdd(otherEnd, msgs);
+		case SimpleClassInheritancePackage.CLAZZ__FIELDS:
+			return ((InternalEList<InternalEObject>) (InternalEList<?>) getFields()).basicAdd(otherEnd, msgs);
 		case SimpleClassInheritancePackage.CLAZZ__SUPER_CLAZZ:
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			return basicSetSuperClazz((Clazz) otherEnd, msgs);
 		case SimpleClassInheritancePackage.CLAZZ__SUB_CLAZZES:
 			return ((InternalEList<InternalEObject>) (InternalEList<?>) getSubClazzes()).basicAdd(otherEnd, msgs);
+		case SimpleClassInheritancePackage.CLAZZ__CONTAINER:
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			return basicSetContainer((ClazzContainer) otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -215,6 +271,8 @@ public class ClazzImpl extends NamedElementImpl implements Clazz {
 			return basicSetSuperClazz(null, msgs);
 		case SimpleClassInheritancePackage.CLAZZ__SUB_CLAZZES:
 			return ((InternalEList<?>) getSubClazzes()).basicRemove(otherEnd, msgs);
+		case SimpleClassInheritancePackage.CLAZZ__CONTAINER:
+			return basicSetContainer(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -230,6 +288,9 @@ public class ClazzImpl extends NamedElementImpl implements Clazz {
 		case SimpleClassInheritancePackage.CLAZZ__SUPER_CLAZZ:
 			return eInternalContainer().eInverseRemove(this, SimpleClassInheritancePackage.CLAZZ__SUB_CLAZZES,
 					Clazz.class, msgs);
+		case SimpleClassInheritancePackage.CLAZZ__CONTAINER:
+			return eInternalContainer().eInverseRemove(this, SimpleClassInheritancePackage.CLAZZ_CONTAINER__CLAZZES,
+					ClazzContainer.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -250,6 +311,8 @@ public class ClazzImpl extends NamedElementImpl implements Clazz {
 			return getSuperClazz();
 		case SimpleClassInheritancePackage.CLAZZ__SUB_CLAZZES:
 			return getSubClazzes();
+		case SimpleClassInheritancePackage.CLAZZ__CONTAINER:
+			return getContainer();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -278,6 +341,9 @@ public class ClazzImpl extends NamedElementImpl implements Clazz {
 			getSubClazzes().clear();
 			getSubClazzes().addAll((Collection<? extends Clazz>) newValue);
 			return;
+		case SimpleClassInheritancePackage.CLAZZ__CONTAINER:
+			setContainer((ClazzContainer) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -302,6 +368,9 @@ public class ClazzImpl extends NamedElementImpl implements Clazz {
 		case SimpleClassInheritancePackage.CLAZZ__SUB_CLAZZES:
 			getSubClazzes().clear();
 			return;
+		case SimpleClassInheritancePackage.CLAZZ__CONTAINER:
+			setContainer((ClazzContainer) null);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -322,6 +391,8 @@ public class ClazzImpl extends NamedElementImpl implements Clazz {
 			return getSuperClazz() != null;
 		case SimpleClassInheritancePackage.CLAZZ__SUB_CLAZZES:
 			return subClazzes != null && !subClazzes.isEmpty();
+		case SimpleClassInheritancePackage.CLAZZ__CONTAINER:
+			return getContainer() != null;
 		}
 		return super.eIsSet(featureID);
 	}

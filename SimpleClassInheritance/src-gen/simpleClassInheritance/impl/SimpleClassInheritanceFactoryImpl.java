@@ -66,8 +66,6 @@ public class SimpleClassInheritanceFactoryImpl extends EFactoryImpl implements S
 			return createParameter();
 		case SimpleClassInheritancePackage.CLAZZ_CONTAINER:
 			return createClazzContainer();
-		case SimpleClassInheritancePackage.NAMED_ELEMENT:
-			return createNamedElement();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -126,17 +124,6 @@ public class SimpleClassInheritanceFactoryImpl extends EFactoryImpl implements S
 	public ClazzContainer createClazzContainer() {
 		ClazzContainerImpl clazzContainer = new ClazzContainerImpl();
 		return clazzContainer;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NamedElement createNamedElement() {
-		NamedElementImpl namedElement = new NamedElementImpl();
-		return namedElement;
 	}
 
 	/**
