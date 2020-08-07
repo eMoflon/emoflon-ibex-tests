@@ -90,7 +90,7 @@ public class GlossarDocumentationHelper {
 		e.getGlossarentries().remove(ge);
 	}
 
-	public void completeExampleModel() {
+	public void completeTestModel_basic() {
 		createGlossarEntry("GE12");
 		GlossarEntry ge13 = createGlossarEntry("GE13");
 		createGlossarEntryLink(getEntry("F7"), ge13);

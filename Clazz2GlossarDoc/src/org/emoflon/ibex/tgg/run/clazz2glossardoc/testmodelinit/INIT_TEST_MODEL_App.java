@@ -34,12 +34,12 @@ public class INIT_TEST_MODEL_App extends SYNC {
 				}));
 	}
 
+		private static SimpleClassInheritanceHelper helperClazz;
+		private static GlossarDocumentationHelper helperDoc;
+		
 	public static void main(String[] args) throws IOException {
 		BasicConfigurator.configure();
 		Logger.getRootLogger().setLevel(Level.INFO);
-
-		SimpleClassInheritanceHelper helperClazz;
-		GlossarDocumentationHelper helperDoc;
 
 		logger.info("Starting SYNC");
 		long tic = System.currentTimeMillis();
@@ -53,14 +53,24 @@ public class INIT_TEST_MODEL_App extends SYNC {
 				(ClazzContainer) sync.getResourceHandler().getSourceResource().getContents().get(0));
 		helperDoc = new GlossarDocumentationHelper(
 				(DocumentationContainer) sync.getResourceHandler().getTargetResource().getContents().get(0));
-		helperClazz.createExampleModel();
-		sync.forward();
-		helperDoc.completeExampleModel();
-		sync.backward();
+		basic(sync);
 		toc = System.currentTimeMillis();
 		logger.info("Completed SYNC in: " + (toc - tic) + " ms");
 
 		sync.saveModels();
 		sync.terminate();
 	}
+
+	private static void basic(SYNC sync) throws IOException {
+		helperClazz.createTestModel_basic();
+		sync.forward();
+		helperDoc.completeTestModel_basic();
+		sync.backward();
+	}
+	
+	private static void move(SYNC sync) throws IOException {
+		helperClazz.createTestModel_move();
+		sync.forward();
+	}
+	
 }

@@ -128,7 +128,7 @@ public class SimpleClassInheritanceHelper {
 		superC.getSubClazzes().remove(sub);
 	}
 
-	public void createExampleModel() {
+	public void createTestModel_basic() {
 		Clazz c1 = createClazz("C1");
 		createField(c1, "F5");
 		Method m6 = createMethod(c1, "M6");
@@ -139,5 +139,16 @@ public class SimpleClassInheritanceHelper {
 		createField(c2, "F7");
 		Method m8 = createMethod(c2, "M8");
 		createParameter(m8, "P11");
+	}
+	
+	public void createTestModel_move() {
+		Clazz c0 = createClazz("C0");
+		Clazz c1 = createSubClazz(c0, "C1");
+		Clazz c2 = createSubClazz(c0, "C2");
+		Clazz c3 = createSubClazz(c0, "C3");
+		
+		createMethod(c1, "M1");
+		createMethod(c2, "M2");
+		createMethod(c3, "M3");
 	}
 }
