@@ -17,7 +17,7 @@ import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 
 import MoDiscoIbexTGG.MoDiscoIbexTGGPackage;
 import MoDiscoIbexTGG.impl.MoDiscoIbexTGGPackageImpl;
-import <<SRC_Package>>.impl.<<SRC_Package>>PackageImpl;
+import java.impl.JavaPackageImpl;
 import <<TRG_Package>>.impl.<<TRG_Package>>PackageImpl;
 
 public class HiPERegistrationHelper implements IRegistrationHelper {

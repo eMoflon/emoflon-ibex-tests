@@ -1,0 +1,40 @@
+#using Express2UML.*
+#using AttrCondDefLibrary.*
+
+#rule Entity2Class #with Express2UML
+
+#source {
+	++e:Entity {
+		abstract := false
+	}
+
+	s:Schema {
+		++ -declarations -> e
+	}
+}
+
+#target {
+	++c:Class
+
+	p:Package {
+		++ -classes -> c
+	}
+}
+
+#correspondence {
+	s2p:Schema2Package {
+		#src->s
+		#trg->p
+	}
+
+	++ e2c:Entity2Class {
+		#src->e
+		#trg->c
+	}
+}
+
+#attributeConditions {
+	eq_string(e.name, c.name)
+}
+
+

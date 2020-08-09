@@ -1,0 +1,73 @@
+#import "platform:/resource/org.emoflon.express/model/generated/Express.ecore"
+#import "platform:/resource/UML/model/UML.ecore"
+
+#schema Express2UML
+	
+#source {
+	express
+}
+
+#target { 
+	uml
+} 
+
+#correspondence {
+	Schema2Package {
+		#src->Schema
+		#trg->Package
+	}
+	
+	Entity2Class {
+		#src->Entity
+		#trg->Class
+	}
+	
+	Function2SingleMethodClass {
+		#src->Function
+		#trg->Class
+	}
+	
+	EnumerationType2Enum {
+		#src->EnumerationType
+		#trg->Enumeration
+	}
+	
+	EnumerationValue2EnumerationValue {
+		#src->EnumerationValue
+		#trg->EnumerationValue
+	}
+	
+	ClassAttribute2Association {
+		#src->Attribute
+		#trg->Association
+	}
+	
+	EnumAttribute2Association {
+		#src->Attribute
+		#trg->Association
+	}
+	
+	IntegerTypeAttribute2IntegerAttribute {
+		#src->IntegerType
+		#trg->Integer
+	}
+	
+	BooleanTypeAttribute2BooleanAttribute {
+		#src->BooleanType
+		#trg->Boolean
+	}
+	
+	RealTypeAttribute2RealAttribute {
+		#src->RealType
+		#trg->Real
+	}
+	
+	StringTypeAttribute2StringAttribute {
+		#src->StringType
+		#trg->String
+	}
+}
+
+#attributeConditions {
+	
+}

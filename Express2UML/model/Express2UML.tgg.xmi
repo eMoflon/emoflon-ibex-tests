@@ -1,0 +1,662 @@
+<?xml version="1.0" encoding="ASCII"?>
+<language:TGG xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:language="platform:/plugin/org.emoflon.ibex.tgg.language/model/Language.ecore" name="Express2UML">
+  <src href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#/"/>
+  <trg href="platform:/resource/UML/model/UML.ecore#/"/>
+  <corr href="platform:/resource/Express2UML/model/Express2UML.ecore#/"/>
+  <rules name="IntegerAttribute2IntegerAttribute">
+    <nodes name="it" bindingType="CREATE" incomingEdges="//@rules.0/@edges.2 //@rules.0/@edges.4" incomingCorrsSource="//@rules.0/@nodes.6">
+      <type href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//IntegerType"/>
+    </nodes>
+    <nodes name="aSrc" bindingType="CREATE" incomingEdges="//@rules.0/@edges.5" outgoingEdges="//@rules.0/@edges.4">
+      <type href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//Attribute"/>
+    </nodes>
+    <nodes name="e" incomingEdges="//@rules.0/@edges.0" outgoingEdges="//@rules.0/@edges.5" incomingCorrsSource="//@rules.0/@nodes.5">
+      <type href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//Entity"/>
+    </nodes>
+    <nodes name="i" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.0/@edges.3 //@rules.0/@edges.6" incomingCorrsTarget="//@rules.0/@nodes.6">
+      <type href="platform:/resource/UML/model/UML.ecore#//Integer"/>
+    </nodes>
+    <nodes name="c" domainType="TRG" incomingEdges="//@rules.0/@edges.1" outgoingEdges="//@rules.0/@edges.6" incomingCorrsTarget="//@rules.0/@nodes.5">
+      <type href="platform:/resource/UML/model/UML.ecore#//Class"/>
+    </nodes>
+    <nodes xsi:type="language:TGGRuleCorr" name="e2c" domainType="CORR" outgoingEdges="//@rules.0/@edges.0 //@rules.0/@edges.1" source="//@rules.0/@nodes.2" target="//@rules.0/@nodes.4">
+      <type href="platform:/resource/Express2UML/model/Express2UML.ecore#//Entity2Class"/>
+    </nodes>
+    <nodes xsi:type="language:TGGRuleCorr" name="it2i" domainType="CORR" bindingType="CREATE" outgoingEdges="//@rules.0/@edges.2 //@rules.0/@edges.3" source="//@rules.0/@nodes.0" target="//@rules.0/@nodes.3">
+      <type href="platform:/resource/Express2UML/model/Express2UML.ecore#//IntegerTypeAttribute2IntegerAttribute"/>
+    </nodes>
+    <edges name="e2c__source__e_eMoflonEdge" domainType="CORR" srcNode="//@rules.0/@nodes.5" trgNode="//@rules.0/@nodes.2">
+      <type href="platform:/resource/Express2UML/model/Express2UML.ecore#//Entity2Class/source"/>
+    </edges>
+    <edges name="e2c__target__c_eMoflonEdge" domainType="CORR" srcNode="//@rules.0/@nodes.5" trgNode="//@rules.0/@nodes.4">
+      <type href="platform:/resource/Express2UML/model/Express2UML.ecore#//Entity2Class/target"/>
+    </edges>
+    <edges name="it2i__source__it_eMoflonEdge" domainType="CORR" bindingType="CREATE" srcNode="//@rules.0/@nodes.6" trgNode="//@rules.0/@nodes.0">
+      <type href="platform:/resource/Express2UML/model/Express2UML.ecore#//IntegerTypeAttribute2IntegerAttribute/source"/>
+    </edges>
+    <edges name="it2i__target__i_eMoflonEdge" domainType="CORR" bindingType="CREATE" srcNode="//@rules.0/@nodes.6" trgNode="//@rules.0/@nodes.3">
+      <type href="platform:/resource/Express2UML/model/Express2UML.ecore#//IntegerTypeAttribute2IntegerAttribute/target"/>
+    </edges>
+    <edges name="aSrc__type__it_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.0/@nodes.1" trgNode="//@rules.0/@nodes.0">
+      <type href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//Attribute/type"/>
+    </edges>
+    <edges name="e__attributes__aSrc_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.0/@nodes.2" trgNode="//@rules.0/@nodes.1">
+      <type href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//Entity/attributes"/>
+    </edges>
+    <edges name="c__attributes__i_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.0/@nodes.4" trgNode="//@rules.0/@nodes.3">
+      <type href="platform:/resource/UML/model/UML.ecore#//Class/attributes"/>
+    </edges>
+    <attributeConditionLibrary>
+      <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0" parameters="//@rules.0/@attributeConditionLibrary/@parameterValues.0 //@rules.0/@attributeConditionLibrary/@parameterValues.1"/>
+      <parameterValues xsi:type="language:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.0" objectVar="//@rules.0/@nodes.0">
+        <attribute href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//DataType/name"/>
+      </parameterValues>
+      <parameterValues xsi:type="language:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.1" objectVar="//@rules.0/@nodes.3">
+        <attribute href="platform:/resource/UML/model/UML.ecore#//DataType/name"/>
+      </parameterValues>
+    </attributeConditionLibrary>
+  </rules>
+  <rules name="BooleanAttribute2BooleanAttribute">
+    <nodes name="bt" bindingType="CREATE" incomingEdges="//@rules.1/@edges.2 //@rules.1/@edges.4" incomingCorrsSource="//@rules.1/@nodes.6">
+      <type href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//BooleanType"/>
+    </nodes>
+    <nodes name="aSrc" bindingType="CREATE" incomingEdges="//@rules.1/@edges.5" outgoingEdges="//@rules.1/@edges.4">
+      <type href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//Attribute"/>
+    </nodes>
+    <nodes name="e" incomingEdges="//@rules.1/@edges.0" outgoingEdges="//@rules.1/@edges.5" incomingCorrsSource="//@rules.1/@nodes.5">
+      <type href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//Entity"/>
+    </nodes>
+    <nodes name="b" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.1/@edges.3 //@rules.1/@edges.6" incomingCorrsTarget="//@rules.1/@nodes.6">
+      <type href="platform:/resource/UML/model/UML.ecore#//Boolean"/>
+    </nodes>
+    <nodes name="c" domainType="TRG" incomingEdges="//@rules.1/@edges.1" outgoingEdges="//@rules.1/@edges.6" incomingCorrsTarget="//@rules.1/@nodes.5">
+      <type href="platform:/resource/UML/model/UML.ecore#//Class"/>
+    </nodes>
+    <nodes xsi:type="language:TGGRuleCorr" name="e2c" domainType="CORR" outgoingEdges="//@rules.1/@edges.0 //@rules.1/@edges.1" source="//@rules.1/@nodes.2" target="//@rules.1/@nodes.4">
+      <type href="platform:/resource/Express2UML/model/Express2UML.ecore#//Entity2Class"/>
+    </nodes>
+    <nodes xsi:type="language:TGGRuleCorr" name="bt2b" domainType="CORR" bindingType="CREATE" outgoingEdges="//@rules.1/@edges.2 //@rules.1/@edges.3" source="//@rules.1/@nodes.0" target="//@rules.1/@nodes.3">
+      <type href="platform:/resource/Express2UML/model/Express2UML.ecore#//BooleanTypeAttribute2BooleanAttribute"/>
+    </nodes>
+    <edges name="e2c__source__e_eMoflonEdge" domainType="CORR" srcNode="//@rules.1/@nodes.5" trgNode="//@rules.1/@nodes.2">
+      <type href="platform:/resource/Express2UML/model/Express2UML.ecore#//Entity2Class/source"/>
+    </edges>
+    <edges name="e2c__target__c_eMoflonEdge" domainType="CORR" srcNode="//@rules.1/@nodes.5" trgNode="//@rules.1/@nodes.4">
+      <type href="platform:/resource/Express2UML/model/Express2UML.ecore#//Entity2Class/target"/>
+    </edges>
+    <edges name="bt2b__source__bt_eMoflonEdge" domainType="CORR" bindingType="CREATE" srcNode="//@rules.1/@nodes.6" trgNode="//@rules.1/@nodes.0">
+      <type href="platform:/resource/Express2UML/model/Express2UML.ecore#//BooleanTypeAttribute2BooleanAttribute/source"/>
+    </edges>
+    <edges name="bt2b__target__b_eMoflonEdge" domainType="CORR" bindingType="CREATE" srcNode="//@rules.1/@nodes.6" trgNode="//@rules.1/@nodes.3">
+      <type href="platform:/resource/Express2UML/model/Express2UML.ecore#//BooleanTypeAttribute2BooleanAttribute/target"/>
+    </edges>
+    <edges name="aSrc__type__bt_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.1/@nodes.1" trgNode="//@rules.1/@nodes.0">
+      <type href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//Attribute/type"/>
+    </edges>
+    <edges name="e__attributes__aSrc_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.1/@nodes.2" trgNode="//@rules.1/@nodes.1">
+      <type href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//Entity/attributes"/>
+    </edges>
+    <edges name="c__attributes__b_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.1/@nodes.4" trgNode="//@rules.1/@nodes.3">
+      <type href="platform:/resource/UML/model/UML.ecore#//Class/attributes"/>
+    </edges>
+    <attributeConditionLibrary>
+      <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0" parameters="//@rules.1/@attributeConditionLibrary/@parameterValues.0 //@rules.1/@attributeConditionLibrary/@parameterValues.1"/>
+      <parameterValues xsi:type="language:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.0" objectVar="//@rules.1/@nodes.0">
+        <attribute href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//DataType/name"/>
+      </parameterValues>
+      <parameterValues xsi:type="language:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.1" objectVar="//@rules.1/@nodes.3">
+        <attribute href="platform:/resource/UML/model/UML.ecore#//DataType/name"/>
+      </parameterValues>
+    </attributeConditionLibrary>
+  </rules>
+  <rules name="RealAttribute2RealAttribute">
+    <nodes name="rt" bindingType="CREATE" incomingEdges="//@rules.2/@edges.2 //@rules.2/@edges.4" incomingCorrsSource="//@rules.2/@nodes.6">
+      <type href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//RealType"/>
+    </nodes>
+    <nodes name="aSrc" bindingType="CREATE" incomingEdges="//@rules.2/@edges.5" outgoingEdges="//@rules.2/@edges.4">
+      <type href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//Attribute"/>
+    </nodes>
+    <nodes name="e" incomingEdges="//@rules.2/@edges.0" outgoingEdges="//@rules.2/@edges.5" incomingCorrsSource="//@rules.2/@nodes.5">
+      <type href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//Entity"/>
+    </nodes>
+    <nodes name="r" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.2/@edges.3 //@rules.2/@edges.6" incomingCorrsTarget="//@rules.2/@nodes.6">
+      <type href="platform:/resource/UML/model/UML.ecore#//Real"/>
+    </nodes>
+    <nodes name="c" domainType="TRG" incomingEdges="//@rules.2/@edges.1" outgoingEdges="//@rules.2/@edges.6" incomingCorrsTarget="//@rules.2/@nodes.5">
+      <type href="platform:/resource/UML/model/UML.ecore#//Class"/>
+    </nodes>
+    <nodes xsi:type="language:TGGRuleCorr" name="e2c" domainType="CORR" outgoingEdges="//@rules.2/@edges.0 //@rules.2/@edges.1" source="//@rules.2/@nodes.2" target="//@rules.2/@nodes.4">
+      <type href="platform:/resource/Express2UML/model/Express2UML.ecore#//Entity2Class"/>
+    </nodes>
+    <nodes xsi:type="language:TGGRuleCorr" name="rt2r" domainType="CORR" bindingType="CREATE" outgoingEdges="//@rules.2/@edges.2 //@rules.2/@edges.3" source="//@rules.2/@nodes.0" target="//@rules.2/@nodes.3">
+      <type href="platform:/resource/Express2UML/model/Express2UML.ecore#//RealTypeAttribute2RealAttribute"/>
+    </nodes>
+    <edges name="e2c__source__e_eMoflonEdge" domainType="CORR" srcNode="//@rules.2/@nodes.5" trgNode="//@rules.2/@nodes.2">
+      <type href="platform:/resource/Express2UML/model/Express2UML.ecore#//Entity2Class/source"/>
+    </edges>
+    <edges name="e2c__target__c_eMoflonEdge" domainType="CORR" srcNode="//@rules.2/@nodes.5" trgNode="//@rules.2/@nodes.4">
+      <type href="platform:/resource/Express2UML/model/Express2UML.ecore#//Entity2Class/target"/>
+    </edges>
+    <edges name="rt2r__source__rt_eMoflonEdge" domainType="CORR" bindingType="CREATE" srcNode="//@rules.2/@nodes.6" trgNode="//@rules.2/@nodes.0">
+      <type href="platform:/resource/Express2UML/model/Express2UML.ecore#//RealTypeAttribute2RealAttribute/source"/>
+    </edges>
+    <edges name="rt2r__target__r_eMoflonEdge" domainType="CORR" bindingType="CREATE" srcNode="//@rules.2/@nodes.6" trgNode="//@rules.2/@nodes.3">
+      <type href="platform:/resource/Express2UML/model/Express2UML.ecore#//RealTypeAttribute2RealAttribute/target"/>
+    </edges>
+    <edges name="aSrc__type__rt_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.2/@nodes.1" trgNode="//@rules.2/@nodes.0">
+      <type href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//Attribute/type"/>
+    </edges>
+    <edges name="e__attributes__aSrc_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.2/@nodes.2" trgNode="//@rules.2/@nodes.1">
+      <type href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//Entity/attributes"/>
+    </edges>
+    <edges name="c__attributes__r_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.2/@nodes.4" trgNode="//@rules.2/@nodes.3">
+      <type href="platform:/resource/UML/model/UML.ecore#//Class/attributes"/>
+    </edges>
+    <attributeConditionLibrary>
+      <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0" parameters="//@rules.2/@attributeConditionLibrary/@parameterValues.0 //@rules.2/@attributeConditionLibrary/@parameterValues.1"/>
+      <parameterValues xsi:type="language:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.0" objectVar="//@rules.2/@nodes.0">
+        <attribute href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//DataType/name"/>
+      </parameterValues>
+      <parameterValues xsi:type="language:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.1" objectVar="//@rules.2/@nodes.3">
+        <attribute href="platform:/resource/UML/model/UML.ecore#//DataType/name"/>
+      </parameterValues>
+    </attributeConditionLibrary>
+  </rules>
+  <rules name="StringAttribute2StringAttribute">
+    <nodes name="st" bindingType="CREATE" incomingEdges="//@rules.3/@edges.2 //@rules.3/@edges.4" incomingCorrsSource="//@rules.3/@nodes.6">
+      <type href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//StringType"/>
+    </nodes>
+    <nodes name="aSrc" bindingType="CREATE" incomingEdges="//@rules.3/@edges.5" outgoingEdges="//@rules.3/@edges.4">
+      <type href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//Attribute"/>
+    </nodes>
+    <nodes name="e" incomingEdges="//@rules.3/@edges.0" outgoingEdges="//@rules.3/@edges.5" incomingCorrsSource="//@rules.3/@nodes.5">
+      <type href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//Entity"/>
+    </nodes>
+    <nodes name="s" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.3/@edges.3 //@rules.3/@edges.6" incomingCorrsTarget="//@rules.3/@nodes.6">
+      <type href="platform:/resource/UML/model/UML.ecore#//String"/>
+    </nodes>
+    <nodes name="c" domainType="TRG" incomingEdges="//@rules.3/@edges.1" outgoingEdges="//@rules.3/@edges.6" incomingCorrsTarget="//@rules.3/@nodes.5">
+      <type href="platform:/resource/UML/model/UML.ecore#//Class"/>
+    </nodes>
+    <nodes xsi:type="language:TGGRuleCorr" name="e2c" domainType="CORR" outgoingEdges="//@rules.3/@edges.0 //@rules.3/@edges.1" source="//@rules.3/@nodes.2" target="//@rules.3/@nodes.4">
+      <type href="platform:/resource/Express2UML/model/Express2UML.ecore#//Entity2Class"/>
+    </nodes>
+    <nodes xsi:type="language:TGGRuleCorr" name="st2s" domainType="CORR" bindingType="CREATE" outgoingEdges="//@rules.3/@edges.2 //@rules.3/@edges.3" source="//@rules.3/@nodes.0" target="//@rules.3/@nodes.3">
+      <type href="platform:/resource/Express2UML/model/Express2UML.ecore#//StringTypeAttribute2StringAttribute"/>
+    </nodes>
+    <edges name="e2c__source__e_eMoflonEdge" domainType="CORR" srcNode="//@rules.3/@nodes.5" trgNode="//@rules.3/@nodes.2">
+      <type href="platform:/resource/Express2UML/model/Express2UML.ecore#//Entity2Class/source"/>
+    </edges>
+    <edges name="e2c__target__c_eMoflonEdge" domainType="CORR" srcNode="//@rules.3/@nodes.5" trgNode="//@rules.3/@nodes.4">
+      <type href="platform:/resource/Express2UML/model/Express2UML.ecore#//Entity2Class/target"/>
+    </edges>
+    <edges name="st2s__source__st_eMoflonEdge" domainType="CORR" bindingType="CREATE" srcNode="//@rules.3/@nodes.6" trgNode="//@rules.3/@nodes.0">
+      <type href="platform:/resource/Express2UML/model/Express2UML.ecore#//StringTypeAttribute2StringAttribute/source"/>
+    </edges>
+    <edges name="st2s__target__s_eMoflonEdge" domainType="CORR" bindingType="CREATE" srcNode="//@rules.3/@nodes.6" trgNode="//@rules.3/@nodes.3">
+      <type href="platform:/resource/Express2UML/model/Express2UML.ecore#//StringTypeAttribute2StringAttribute/target"/>
+    </edges>
+    <edges name="aSrc__type__st_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.3/@nodes.1" trgNode="//@rules.3/@nodes.0">
+      <type href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//Attribute/type"/>
+    </edges>
+    <edges name="e__attributes__aSrc_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.3/@nodes.2" trgNode="//@rules.3/@nodes.1">
+      <type href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//Entity/attributes"/>
+    </edges>
+    <edges name="c__attributes__s_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.3/@nodes.4" trgNode="//@rules.3/@nodes.3">
+      <type href="platform:/resource/UML/model/UML.ecore#//Class/attributes"/>
+    </edges>
+    <attributeConditionLibrary>
+      <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0" parameters="//@rules.3/@attributeConditionLibrary/@parameterValues.0 //@rules.3/@attributeConditionLibrary/@parameterValues.1"/>
+      <parameterValues xsi:type="language:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.0" objectVar="//@rules.3/@nodes.0">
+        <attribute href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//DataType/name"/>
+      </parameterValues>
+      <parameterValues xsi:type="language:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.1" objectVar="//@rules.3/@nodes.3">
+        <attribute href="platform:/resource/UML/model/UML.ecore#//DataType/name"/>
+      </parameterValues>
+    </attributeConditionLibrary>
+  </rules>
+  <rules name="ClassAttribute2Association">
+    <nodes name="e2" incomingEdges="//@rules.4/@edges.2 //@rules.4/@edges.6" incomingCorrsSource="//@rules.4/@nodes.8">
+      <type href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//Entity"/>
+    </nodes>
+    <nodes name="udtr" bindingType="CREATE" incomingEdges="//@rules.4/@edges.7" outgoingEdges="//@rules.4/@edges.6">
+      <type href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//UserDefinedTypeReference"/>
+    </nodes>
+    <nodes name="attr" bindingType="CREATE" incomingEdges="//@rules.4/@edges.4 //@rules.4/@edges.8" outgoingEdges="//@rules.4/@edges.7" incomingCorrsSource="//@rules.4/@nodes.9">
+      <type href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//Attribute"/>
+    </nodes>
+    <nodes name="e1" incomingEdges="//@rules.4/@edges.0" outgoingEdges="//@rules.4/@edges.8" incomingCorrsSource="//@rules.4/@nodes.7">
+      <type href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//Entity"/>
+    </nodes>
+    <nodes name="c2" domainType="TRG" incomingEdges="//@rules.4/@edges.3 //@rules.4/@edges.10" incomingCorrsTarget="//@rules.4/@nodes.8">
+      <type href="platform:/resource/UML/model/UML.ecore#//Class"/>
+    </nodes>
+    <nodes name="c1" domainType="TRG" incomingEdges="//@rules.4/@edges.1 //@rules.4/@edges.9" incomingCorrsTarget="//@rules.4/@nodes.7">
+      <type href="platform:/resource/UML/model/UML.ecore#//Class"/>
+    </nodes>
+    <nodes name="a" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.4/@edges.5" outgoingEdges="//@rules.4/@edges.9 //@rules.4/@edges.10" incomingCorrsTarget="//@rules.4/@nodes.9">
+      <type href="platform:/resource/UML/model/UML.ecore#//Association"/>
+    </nodes>
+    <nodes xsi:type="language:TGGRuleCorr" name="e2c1" domainType="CORR" outgoingEdges="//@rules.4/@edges.0 //@rules.4/@edges.1" source="//@rules.4/@nodes.3" target="//@rules.4/@nodes.5">
+      <type href="platform:/resource/Express2UML/model/Express2UML.ecore#//Entity2Class"/>
+    </nodes>
+    <nodes xsi:type="language:TGGRuleCorr" name="e2c2" domainType="CORR" outgoingEdges="//@rules.4/@edges.2 //@rules.4/@edges.3" source="//@rules.4/@nodes.0" target="//@rules.4/@nodes.4">
+      <type href="platform:/resource/Express2UML/model/Express2UML.ecore#//Entity2Class"/>
+    </nodes>
+    <nodes xsi:type="language:TGGRuleCorr" name="ca2a" domainType="CORR" bindingType="CREATE" outgoingEdges="//@rules.4/@edges.4 //@rules.4/@edges.5" source="//@rules.4/@nodes.2" target="//@rules.4/@nodes.6">
+      <type href="platform:/resource/Express2UML/model/Express2UML.ecore#//ClassAttribute2Association"/>
+    </nodes>
+    <edges name="e2c1__source__e1_eMoflonEdge" domainType="CORR" srcNode="//@rules.4/@nodes.7" trgNode="//@rules.4/@nodes.3">
+      <type href="platform:/resource/Express2UML/model/Express2UML.ecore#//Entity2Class/source"/>
+    </edges>
+    <edges name="e2c1__target__c1_eMoflonEdge" domainType="CORR" srcNode="//@rules.4/@nodes.7" trgNode="//@rules.4/@nodes.5">
+      <type href="platform:/resource/Express2UML/model/Express2UML.ecore#//Entity2Class/target"/>
+    </edges>
+    <edges name="e2c2__source__e2_eMoflonEdge" domainType="CORR" srcNode="//@rules.4/@nodes.8" trgNode="//@rules.4/@nodes.0">
+      <type href="platform:/resource/Express2UML/model/Express2UML.ecore#//Entity2Class/source"/>
+    </edges>
+    <edges name="e2c2__target__c2_eMoflonEdge" domainType="CORR" srcNode="//@rules.4/@nodes.8" trgNode="//@rules.4/@nodes.4">
+      <type href="platform:/resource/Express2UML/model/Express2UML.ecore#//Entity2Class/target"/>
+    </edges>
+    <edges name="ca2a__source__attr_eMoflonEdge" domainType="CORR" bindingType="CREATE" srcNode="//@rules.4/@nodes.9" trgNode="//@rules.4/@nodes.2">
+      <type href="platform:/resource/Express2UML/model/Express2UML.ecore#//ClassAttribute2Association/source"/>
+    </edges>
+    <edges name="ca2a__target__a_eMoflonEdge" domainType="CORR" bindingType="CREATE" srcNode="//@rules.4/@nodes.9" trgNode="//@rules.4/@nodes.6">
+      <type href="platform:/resource/Express2UML/model/Express2UML.ecore#//ClassAttribute2Association/target"/>
+    </edges>
+    <edges name="udtr__type__e2_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.4/@nodes.1" trgNode="//@rules.4/@nodes.0">
+      <type href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//UserDefinedTypeReference/type"/>
+    </edges>
+    <edges name="attr__type__udtr_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.4/@nodes.2" trgNode="//@rules.4/@nodes.1">
+      <type href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//Attribute/type"/>
+    </edges>
+    <edges name="e1__attributes__attr_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.4/@nodes.3" trgNode="//@rules.4/@nodes.2">
+      <type href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//Entity/attributes"/>
+    </edges>
+    <edges name="a__source__c1_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.4/@nodes.6" trgNode="//@rules.4/@nodes.5">
+      <type href="platform:/resource/UML/model/UML.ecore#//Association/source"/>
+    </edges>
+    <edges name="a__target__c2_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.4/@nodes.6" trgNode="//@rules.4/@nodes.4">
+      <type href="platform:/resource/UML/model/UML.ecore#//Association/target"/>
+    </edges>
+    <attributeConditionLibrary>
+      <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0" parameters="//@rules.4/@attributeConditionLibrary/@parameterValues.0 //@rules.4/@attributeConditionLibrary/@parameterValues.1"/>
+      <parameterValues xsi:type="language:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.0" objectVar="//@rules.4/@nodes.2">
+        <attribute href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//Attribute/name"/>
+      </parameterValues>
+      <parameterValues xsi:type="language:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.1" objectVar="//@rules.4/@nodes.6">
+        <attribute href="platform:/resource/UML/model/UML.ecore#//Association/name"/>
+      </parameterValues>
+    </attributeConditionLibrary>
+  </rules>
+  <rules name="Entity2Class">
+    <nodes name="e" bindingType="CREATE" incomingEdges="//@rules.5/@edges.2 //@rules.5/@edges.4" incomingCorrsSource="//@rules.5/@nodes.5">
+      <type href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//Entity"/>
+      <attrExpr>
+        <attribute href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//Entity/abstract"/>
+        <valueExpr xsi:type="language:TGGLiteralExpression" value="false"/>
+      </attrExpr>
+    </nodes>
+    <nodes name="s" incomingEdges="//@rules.5/@edges.0" outgoingEdges="//@rules.5/@edges.4" incomingCorrsSource="//@rules.5/@nodes.4">
+      <type href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//Schema"/>
+    </nodes>
+    <nodes name="c" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.5/@edges.3 //@rules.5/@edges.5" outgoingEdges="//@rules.5/@edges.6" incomingCorrsTarget="//@rules.5/@nodes.5">
+      <type href="platform:/resource/UML/model/UML.ecore#//Class"/>
+    </nodes>
+    <nodes name="p" domainType="TRG" incomingEdges="//@rules.5/@edges.1 //@rules.5/@edges.6" outgoingEdges="//@rules.5/@edges.5" incomingCorrsTarget="//@rules.5/@nodes.4">
+      <type href="platform:/resource/UML/model/UML.ecore#//Package"/>
+    </nodes>
+    <nodes xsi:type="language:TGGRuleCorr" name="s2p" domainType="CORR" outgoingEdges="//@rules.5/@edges.0 //@rules.5/@edges.1" source="//@rules.5/@nodes.1" target="//@rules.5/@nodes.3">
+      <type href="platform:/resource/Express2UML/model/Express2UML.ecore#//Schema2Package"/>
+    </nodes>
+    <nodes xsi:type="language:TGGRuleCorr" name="e2c" domainType="CORR" bindingType="CREATE" outgoingEdges="//@rules.5/@edges.2 //@rules.5/@edges.3" source="//@rules.5/@nodes.0" target="//@rules.5/@nodes.2">
+      <type href="platform:/resource/Express2UML/model/Express2UML.ecore#//Entity2Class"/>
+    </nodes>
+    <edges name="s2p__source__s_eMoflonEdge" domainType="CORR" srcNode="//@rules.5/@nodes.4" trgNode="//@rules.5/@nodes.1">
+      <type href="platform:/resource/Express2UML/model/Express2UML.ecore#//Schema2Package/source"/>
+    </edges>
+    <edges name="s2p__target__p_eMoflonEdge" domainType="CORR" srcNode="//@rules.5/@nodes.4" trgNode="//@rules.5/@nodes.3">
+      <type href="platform:/resource/Express2UML/model/Express2UML.ecore#//Schema2Package/target"/>
+    </edges>
+    <edges name="e2c__source__e_eMoflonEdge" domainType="CORR" bindingType="CREATE" srcNode="//@rules.5/@nodes.5" trgNode="//@rules.5/@nodes.0">
+      <type href="platform:/resource/Express2UML/model/Express2UML.ecore#//Entity2Class/source"/>
+    </edges>
+    <edges name="e2c__target__c_eMoflonEdge" domainType="CORR" bindingType="CREATE" srcNode="//@rules.5/@nodes.5" trgNode="//@rules.5/@nodes.2">
+      <type href="platform:/resource/Express2UML/model/Express2UML.ecore#//Entity2Class/target"/>
+    </edges>
+    <edges name="s__declarations__e_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.5/@nodes.1" trgNode="//@rules.5/@nodes.0">
+      <type href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//Schema/declarations"/>
+    </edges>
+    <edges name="p__classes__c_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.5/@nodes.3" trgNode="//@rules.5/@nodes.2">
+      <type href="platform:/resource/UML/model/UML.ecore#//Package/classes"/>
+    </edges>
+    <edges name="c__packages__p_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.5/@nodes.2" trgNode="//@rules.5/@nodes.3">
+      <type href="platform:/resource/UML/model/UML.ecore#//Class/packages"/>
+    </edges>
+    <attributeConditionLibrary>
+      <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0" parameters="//@rules.5/@attributeConditionLibrary/@parameterValues.0 //@rules.5/@attributeConditionLibrary/@parameterValues.1"/>
+      <parameterValues xsi:type="language:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.0" objectVar="//@rules.5/@nodes.0">
+        <attribute href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//UserDefinedType/name"/>
+      </parameterValues>
+      <parameterValues xsi:type="language:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.1" objectVar="//@rules.5/@nodes.2">
+        <attribute href="platform:/resource/UML/model/UML.ecore#//Class/name"/>
+      </parameterValues>
+    </attributeConditionLibrary>
+  </rules>
+  <rules name="EnumAttribute2Association">
+    <nodes name="enumSrc" incomingEdges="//@rules.6/@edges.0 //@rules.6/@edges.6" incomingCorrsSource="//@rules.6/@nodes.7">
+      <type href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//EnumerationType"/>
+    </nodes>
+    <nodes name="udr" bindingType="CREATE" incomingEdges="//@rules.6/@edges.7" outgoingEdges="//@rules.6/@edges.6">
+      <type href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//UserDefinedTypeReference"/>
+    </nodes>
+    <nodes name="attr" bindingType="CREATE" incomingEdges="//@rules.6/@edges.4 //@rules.6/@edges.8" outgoingEdges="//@rules.6/@edges.7" incomingCorrsSource="//@rules.6/@nodes.9">
+      <type href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//Attribute"/>
+    </nodes>
+    <nodes name="e" incomingEdges="//@rules.6/@edges.2" outgoingEdges="//@rules.6/@edges.8" incomingCorrsSource="//@rules.6/@nodes.8">
+      <type href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//Entity"/>
+    </nodes>
+    <nodes name="enumTrg" domainType="TRG" incomingEdges="//@rules.6/@edges.1 //@rules.6/@edges.10" incomingCorrsTarget="//@rules.6/@nodes.7">
+      <type href="platform:/resource/UML/model/UML.ecore#//Enumeration"/>
+    </nodes>
+    <nodes name="c" domainType="TRG" incomingEdges="//@rules.6/@edges.3 //@rules.6/@edges.9" incomingCorrsTarget="//@rules.6/@nodes.8">
+      <type href="platform:/resource/UML/model/UML.ecore#//Class"/>
+    </nodes>
+    <nodes name="a" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.6/@edges.5" outgoingEdges="//@rules.6/@edges.9 //@rules.6/@edges.10" incomingCorrsTarget="//@rules.6/@nodes.9">
+      <type href="platform:/resource/UML/model/UML.ecore#//Association"/>
+    </nodes>
+    <nodes xsi:type="language:TGGRuleCorr" name="e2e" domainType="CORR" outgoingEdges="//@rules.6/@edges.0 //@rules.6/@edges.1" source="//@rules.6/@nodes.0" target="//@rules.6/@nodes.4">
+      <type href="platform:/resource/Express2UML/model/Express2UML.ecore#//EnumerationType2Enum"/>
+    </nodes>
+    <nodes xsi:type="language:TGGRuleCorr" name="e2c" domainType="CORR" outgoingEdges="//@rules.6/@edges.2 //@rules.6/@edges.3" source="//@rules.6/@nodes.3" target="//@rules.6/@nodes.5">
+      <type href="platform:/resource/Express2UML/model/Express2UML.ecore#//Entity2Class"/>
+    </nodes>
+    <nodes xsi:type="language:TGGRuleCorr" name="ea2a" domainType="CORR" bindingType="CREATE" outgoingEdges="//@rules.6/@edges.4 //@rules.6/@edges.5" source="//@rules.6/@nodes.2" target="//@rules.6/@nodes.6">
+      <type href="platform:/resource/Express2UML/model/Express2UML.ecore#//EnumAttribute2Association"/>
+    </nodes>
+    <edges name="e2e__source__enumSrc_eMoflonEdge" domainType="CORR" srcNode="//@rules.6/@nodes.7" trgNode="//@rules.6/@nodes.0">
+      <type href="platform:/resource/Express2UML/model/Express2UML.ecore#//EnumerationType2Enum/source"/>
+    </edges>
+    <edges name="e2e__target__enumTrg_eMoflonEdge" domainType="CORR" srcNode="//@rules.6/@nodes.7" trgNode="//@rules.6/@nodes.4">
+      <type href="platform:/resource/Express2UML/model/Express2UML.ecore#//EnumerationType2Enum/target"/>
+    </edges>
+    <edges name="e2c__source__e_eMoflonEdge" domainType="CORR" srcNode="//@rules.6/@nodes.8" trgNode="//@rules.6/@nodes.3">
+      <type href="platform:/resource/Express2UML/model/Express2UML.ecore#//Entity2Class/source"/>
+    </edges>
+    <edges name="e2c__target__c_eMoflonEdge" domainType="CORR" srcNode="//@rules.6/@nodes.8" trgNode="//@rules.6/@nodes.5">
+      <type href="platform:/resource/Express2UML/model/Express2UML.ecore#//Entity2Class/target"/>
+    </edges>
+    <edges name="ea2a__source__attr_eMoflonEdge" domainType="CORR" bindingType="CREATE" srcNode="//@rules.6/@nodes.9" trgNode="//@rules.6/@nodes.2">
+      <type href="platform:/resource/Express2UML/model/Express2UML.ecore#//EnumAttribute2Association/source"/>
+    </edges>
+    <edges name="ea2a__target__a_eMoflonEdge" domainType="CORR" bindingType="CREATE" srcNode="//@rules.6/@nodes.9" trgNode="//@rules.6/@nodes.6">
+      <type href="platform:/resource/Express2UML/model/Express2UML.ecore#//EnumAttribute2Association/target"/>
+    </edges>
+    <edges name="udr__type__enumSrc_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.6/@nodes.1" trgNode="//@rules.6/@nodes.0">
+      <type href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//UserDefinedTypeReference/type"/>
+    </edges>
+    <edges name="attr__type__udr_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.6/@nodes.2" trgNode="//@rules.6/@nodes.1">
+      <type href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//Attribute/type"/>
+    </edges>
+    <edges name="e__attributes__attr_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.6/@nodes.3" trgNode="//@rules.6/@nodes.2">
+      <type href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//Entity/attributes"/>
+    </edges>
+    <edges name="a__source__c_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.6/@nodes.6" trgNode="//@rules.6/@nodes.5">
+      <type href="platform:/resource/UML/model/UML.ecore#//Association/source"/>
+    </edges>
+    <edges name="a__target__enumTrg_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.6/@nodes.6" trgNode="//@rules.6/@nodes.4">
+      <type href="platform:/resource/UML/model/UML.ecore#//Association/target"/>
+    </edges>
+    <attributeConditionLibrary>
+      <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0" parameters="//@rules.6/@attributeConditionLibrary/@parameterValues.0 //@rules.6/@attributeConditionLibrary/@parameterValues.1"/>
+      <parameterValues xsi:type="language:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.0" objectVar="//@rules.6/@nodes.2">
+        <attribute href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//Attribute/name"/>
+      </parameterValues>
+      <parameterValues xsi:type="language:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.1" objectVar="//@rules.6/@nodes.6">
+        <attribute href="platform:/resource/UML/model/UML.ecore#//Association/name"/>
+      </parameterValues>
+    </attributeConditionLibrary>
+  </rules>
+  <rules name="EnumerationType2Enum">
+    <nodes name="et" bindingType="CREATE" incomingEdges="//@rules.7/@edges.2 //@rules.7/@edges.4" incomingCorrsSource="//@rules.7/@nodes.5">
+      <type href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//EnumerationType"/>
+    </nodes>
+    <nodes name="s" incomingEdges="//@rules.7/@edges.0" outgoingEdges="//@rules.7/@edges.4" incomingCorrsSource="//@rules.7/@nodes.4">
+      <type href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//Schema"/>
+    </nodes>
+    <nodes name="e" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.7/@edges.3 //@rules.7/@edges.5" outgoingEdges="//@rules.7/@edges.6" incomingCorrsTarget="//@rules.7/@nodes.5">
+      <type href="platform:/resource/UML/model/UML.ecore#//Enumeration"/>
+    </nodes>
+    <nodes name="p" domainType="TRG" incomingEdges="//@rules.7/@edges.1 //@rules.7/@edges.6" outgoingEdges="//@rules.7/@edges.5" incomingCorrsTarget="//@rules.7/@nodes.4">
+      <type href="platform:/resource/UML/model/UML.ecore#//Package"/>
+    </nodes>
+    <nodes xsi:type="language:TGGRuleCorr" name="s2p" domainType="CORR" outgoingEdges="//@rules.7/@edges.0 //@rules.7/@edges.1" source="//@rules.7/@nodes.1" target="//@rules.7/@nodes.3">
+      <type href="platform:/resource/Express2UML/model/Express2UML.ecore#//Schema2Package"/>
+    </nodes>
+    <nodes xsi:type="language:TGGRuleCorr" name="et2e" domainType="CORR" bindingType="CREATE" outgoingEdges="//@rules.7/@edges.2 //@rules.7/@edges.3" source="//@rules.7/@nodes.0" target="//@rules.7/@nodes.2">
+      <type href="platform:/resource/Express2UML/model/Express2UML.ecore#//EnumerationType2Enum"/>
+    </nodes>
+    <edges name="s2p__source__s_eMoflonEdge" domainType="CORR" srcNode="//@rules.7/@nodes.4" trgNode="//@rules.7/@nodes.1">
+      <type href="platform:/resource/Express2UML/model/Express2UML.ecore#//Schema2Package/source"/>
+    </edges>
+    <edges name="s2p__target__p_eMoflonEdge" domainType="CORR" srcNode="//@rules.7/@nodes.4" trgNode="//@rules.7/@nodes.3">
+      <type href="platform:/resource/Express2UML/model/Express2UML.ecore#//Schema2Package/target"/>
+    </edges>
+    <edges name="et2e__source__et_eMoflonEdge" domainType="CORR" bindingType="CREATE" srcNode="//@rules.7/@nodes.5" trgNode="//@rules.7/@nodes.0">
+      <type href="platform:/resource/Express2UML/model/Express2UML.ecore#//EnumerationType2Enum/source"/>
+    </edges>
+    <edges name="et2e__target__e_eMoflonEdge" domainType="CORR" bindingType="CREATE" srcNode="//@rules.7/@nodes.5" trgNode="//@rules.7/@nodes.2">
+      <type href="platform:/resource/Express2UML/model/Express2UML.ecore#//EnumerationType2Enum/target"/>
+    </edges>
+    <edges name="s__declarations__et_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.7/@nodes.1" trgNode="//@rules.7/@nodes.0">
+      <type href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//Schema/declarations"/>
+    </edges>
+    <edges name="p__enumerations__e_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.7/@nodes.3" trgNode="//@rules.7/@nodes.2">
+      <type href="platform:/resource/UML/model/UML.ecore#//Package/enumerations"/>
+    </edges>
+    <edges name="e__package__p_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.7/@nodes.2" trgNode="//@rules.7/@nodes.3">
+      <type href="platform:/resource/UML/model/UML.ecore#//Enumeration/package"/>
+    </edges>
+    <attributeConditionLibrary>
+      <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0" parameters="//@rules.7/@attributeConditionLibrary/@parameterValues.0 //@rules.7/@attributeConditionLibrary/@parameterValues.1"/>
+      <parameterValues xsi:type="language:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.0" objectVar="//@rules.7/@nodes.0">
+        <attribute href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//UserDefinedType/name"/>
+      </parameterValues>
+      <parameterValues xsi:type="language:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.1" objectVar="//@rules.7/@nodes.2">
+        <attribute href="platform:/resource/UML/model/UML.ecore#//Enumeration/name"/>
+      </parameterValues>
+    </attributeConditionLibrary>
+  </rules>
+  <rules name="EnumerationTypeValues2EnumValues">
+    <nodes name="evSrc" bindingType="CREATE" incomingEdges="//@rules.8/@edges.4 //@rules.8/@edges.6" incomingCorrsSource="//@rules.8/@nodes.8">
+      <type href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//EnumerationValue"/>
+    </nodes>
+    <nodes name="et" incomingEdges="//@rules.8/@edges.2 //@rules.8/@edges.7" outgoingEdges="//@rules.8/@edges.6" incomingCorrsSource="//@rules.8/@nodes.7">
+      <type href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//EnumerationType"/>
+    </nodes>
+    <nodes name="s" incomingEdges="//@rules.8/@edges.0" outgoingEdges="//@rules.8/@edges.7" incomingCorrsSource="//@rules.8/@nodes.6">
+      <type href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//Schema"/>
+    </nodes>
+    <nodes name="evTrg" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.8/@edges.5 //@rules.8/@edges.8" incomingCorrsTarget="//@rules.8/@nodes.8">
+      <type href="platform:/resource/UML/model/UML.ecore#//EnumerationValue"/>
+    </nodes>
+    <nodes name="e" domainType="TRG" incomingEdges="//@rules.8/@edges.3 //@rules.8/@edges.9" outgoingEdges="//@rules.8/@edges.8 //@rules.8/@edges.10" incomingCorrsTarget="//@rules.8/@nodes.7">
+      <type href="platform:/resource/UML/model/UML.ecore#//Enumeration"/>
+    </nodes>
+    <nodes name="p" domainType="TRG" incomingEdges="//@rules.8/@edges.1 //@rules.8/@edges.10" outgoingEdges="//@rules.8/@edges.9" incomingCorrsTarget="//@rules.8/@nodes.6">
+      <type href="platform:/resource/UML/model/UML.ecore#//Package"/>
+    </nodes>
+    <nodes xsi:type="language:TGGRuleCorr" name="s2p" domainType="CORR" outgoingEdges="//@rules.8/@edges.0 //@rules.8/@edges.1" source="//@rules.8/@nodes.2" target="//@rules.8/@nodes.5">
+      <type href="platform:/resource/Express2UML/model/Express2UML.ecore#//Schema2Package"/>
+    </nodes>
+    <nodes xsi:type="language:TGGRuleCorr" name="et2e" domainType="CORR" outgoingEdges="//@rules.8/@edges.2 //@rules.8/@edges.3" source="//@rules.8/@nodes.1" target="//@rules.8/@nodes.4">
+      <type href="platform:/resource/Express2UML/model/Express2UML.ecore#//EnumerationType2Enum"/>
+    </nodes>
+    <nodes xsi:type="language:TGGRuleCorr" name="ev2ev" domainType="CORR" bindingType="CREATE" outgoingEdges="//@rules.8/@edges.4 //@rules.8/@edges.5" source="//@rules.8/@nodes.0" target="//@rules.8/@nodes.3">
+      <type href="platform:/resource/Express2UML/model/Express2UML.ecore#//EnumerationValue2EnumerationValue"/>
+    </nodes>
+    <edges name="s2p__source__s_eMoflonEdge" domainType="CORR" srcNode="//@rules.8/@nodes.6" trgNode="//@rules.8/@nodes.2">
+      <type href="platform:/resource/Express2UML/model/Express2UML.ecore#//Schema2Package/source"/>
+    </edges>
+    <edges name="s2p__target__p_eMoflonEdge" domainType="CORR" srcNode="//@rules.8/@nodes.6" trgNode="//@rules.8/@nodes.5">
+      <type href="platform:/resource/Express2UML/model/Express2UML.ecore#//Schema2Package/target"/>
+    </edges>
+    <edges name="et2e__source__et_eMoflonEdge" domainType="CORR" srcNode="//@rules.8/@nodes.7" trgNode="//@rules.8/@nodes.1">
+      <type href="platform:/resource/Express2UML/model/Express2UML.ecore#//EnumerationType2Enum/source"/>
+    </edges>
+    <edges name="et2e__target__e_eMoflonEdge" domainType="CORR" srcNode="//@rules.8/@nodes.7" trgNode="//@rules.8/@nodes.4">
+      <type href="platform:/resource/Express2UML/model/Express2UML.ecore#//EnumerationType2Enum/target"/>
+    </edges>
+    <edges name="ev2ev__source__evSrc_eMoflonEdge" domainType="CORR" bindingType="CREATE" srcNode="//@rules.8/@nodes.8" trgNode="//@rules.8/@nodes.0">
+      <type href="platform:/resource/Express2UML/model/Express2UML.ecore#//EnumerationValue2EnumerationValue/source"/>
+    </edges>
+    <edges name="ev2ev__target__evTrg_eMoflonEdge" domainType="CORR" bindingType="CREATE" srcNode="//@rules.8/@nodes.8" trgNode="//@rules.8/@nodes.3">
+      <type href="platform:/resource/Express2UML/model/Express2UML.ecore#//EnumerationValue2EnumerationValue/target"/>
+    </edges>
+    <edges name="et__values__evSrc_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.8/@nodes.1" trgNode="//@rules.8/@nodes.0">
+      <type href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//EnumerationType/values"/>
+    </edges>
+    <edges name="s__declarations__et_eMoflonEdge" srcNode="//@rules.8/@nodes.2" trgNode="//@rules.8/@nodes.1">
+      <type href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//Schema/declarations"/>
+    </edges>
+    <edges name="e__values__evTrg_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.8/@nodes.4" trgNode="//@rules.8/@nodes.3">
+      <type href="platform:/resource/UML/model/UML.ecore#//Enumeration/values"/>
+    </edges>
+    <edges name="p__enumerations__e_eMoflonEdge" domainType="TRG" srcNode="//@rules.8/@nodes.5" trgNode="//@rules.8/@nodes.4">
+      <type href="platform:/resource/UML/model/UML.ecore#//Package/enumerations"/>
+    </edges>
+    <edges name="e__package__p_eMoflonEdge" domainType="TRG" srcNode="//@rules.8/@nodes.4" trgNode="//@rules.8/@nodes.5">
+      <type href="platform:/resource/UML/model/UML.ecore#//Enumeration/package"/>
+    </edges>
+    <attributeConditionLibrary>
+      <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0" parameters="//@rules.8/@attributeConditionLibrary/@parameterValues.0 //@rules.8/@attributeConditionLibrary/@parameterValues.1"/>
+      <parameterValues xsi:type="language:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.0" objectVar="//@rules.8/@nodes.0">
+        <attribute href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//EnumerationValue/name"/>
+      </parameterValues>
+      <parameterValues xsi:type="language:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.1" objectVar="//@rules.8/@nodes.3">
+        <attribute href="platform:/resource/UML/model/UML.ecore#//EnumerationValue/name"/>
+      </parameterValues>
+    </attributeConditionLibrary>
+  </rules>
+  <rules name="Function2SingleMethodClass">
+    <nodes name="f" bindingType="CREATE" incomingEdges="//@rules.9/@edges.2 //@rules.9/@edges.4" incomingCorrsSource="//@rules.9/@nodes.6">
+      <type href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//Function"/>
+    </nodes>
+    <nodes name="s" incomingEdges="//@rules.9/@edges.0" outgoingEdges="//@rules.9/@edges.4" incomingCorrsSource="//@rules.9/@nodes.5">
+      <type href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//Schema"/>
+    </nodes>
+    <nodes name="m" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.9/@edges.5">
+      <type href="platform:/resource/UML/model/UML.ecore#//Method"/>
+      <attrExpr>
+        <attribute href="platform:/resource/UML/model/UML.ecore#//Method/static"/>
+        <valueExpr xsi:type="language:TGGLiteralExpression" value="true"/>
+      </attrExpr>
+    </nodes>
+    <nodes name="c" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.9/@edges.3 //@rules.9/@edges.6" outgoingEdges="//@rules.9/@edges.5 //@rules.9/@edges.7" incomingCorrsTarget="//@rules.9/@nodes.6">
+      <type href="platform:/resource/UML/model/UML.ecore#//Class"/>
+    </nodes>
+    <nodes name="p" domainType="TRG" incomingEdges="//@rules.9/@edges.1 //@rules.9/@edges.7" outgoingEdges="//@rules.9/@edges.6" incomingCorrsTarget="//@rules.9/@nodes.5">
+      <type href="platform:/resource/UML/model/UML.ecore#//Package"/>
+    </nodes>
+    <nodes xsi:type="language:TGGRuleCorr" name="s2p" domainType="CORR" outgoingEdges="//@rules.9/@edges.0 //@rules.9/@edges.1" source="//@rules.9/@nodes.1" target="//@rules.9/@nodes.4">
+      <type href="platform:/resource/Express2UML/model/Express2UML.ecore#//Schema2Package"/>
+    </nodes>
+    <nodes xsi:type="language:TGGRuleCorr" name="f2smc" domainType="CORR" bindingType="CREATE" outgoingEdges="//@rules.9/@edges.2 //@rules.9/@edges.3" source="//@rules.9/@nodes.0" target="//@rules.9/@nodes.3">
+      <type href="platform:/resource/Express2UML/model/Express2UML.ecore#//Function2SingleMethodClass"/>
+    </nodes>
+    <edges name="s2p__source__s_eMoflonEdge" domainType="CORR" srcNode="//@rules.9/@nodes.5" trgNode="//@rules.9/@nodes.1">
+      <type href="platform:/resource/Express2UML/model/Express2UML.ecore#//Schema2Package/source"/>
+    </edges>
+    <edges name="s2p__target__p_eMoflonEdge" domainType="CORR" srcNode="//@rules.9/@nodes.5" trgNode="//@rules.9/@nodes.4">
+      <type href="platform:/resource/Express2UML/model/Express2UML.ecore#//Schema2Package/target"/>
+    </edges>
+    <edges name="f2smc__source__f_eMoflonEdge" domainType="CORR" bindingType="CREATE" srcNode="//@rules.9/@nodes.6" trgNode="//@rules.9/@nodes.0">
+      <type href="platform:/resource/Express2UML/model/Express2UML.ecore#//Function2SingleMethodClass/source"/>
+    </edges>
+    <edges name="f2smc__target__c_eMoflonEdge" domainType="CORR" bindingType="CREATE" srcNode="//@rules.9/@nodes.6" trgNode="//@rules.9/@nodes.3">
+      <type href="platform:/resource/Express2UML/model/Express2UML.ecore#//Function2SingleMethodClass/target"/>
+    </edges>
+    <edges name="s__declarations__f_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.9/@nodes.1" trgNode="//@rules.9/@nodes.0">
+      <type href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//Schema/declarations"/>
+    </edges>
+    <edges name="c__methods__m_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.9/@nodes.3" trgNode="//@rules.9/@nodes.2">
+      <type href="platform:/resource/UML/model/UML.ecore#//Class/methods"/>
+    </edges>
+    <edges name="p__classes__c_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.9/@nodes.4" trgNode="//@rules.9/@nodes.3">
+      <type href="platform:/resource/UML/model/UML.ecore#//Package/classes"/>
+    </edges>
+    <edges name="c__packages__p_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.9/@nodes.3" trgNode="//@rules.9/@nodes.4">
+      <type href="platform:/resource/UML/model/UML.ecore#//Class/packages"/>
+    </edges>
+    <attributeConditionLibrary>
+      <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0" parameters="//@rules.9/@attributeConditionLibrary/@parameterValues.0 //@rules.9/@attributeConditionLibrary/@parameterValues.1"/>
+      <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0" parameters="//@rules.9/@attributeConditionLibrary/@parameterValues.2 //@rules.9/@attributeConditionLibrary/@parameterValues.3"/>
+      <parameterValues xsi:type="language:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.0" objectVar="//@rules.9/@nodes.0">
+        <attribute href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//Function/name"/>
+      </parameterValues>
+      <parameterValues xsi:type="language:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.1" objectVar="//@rules.9/@nodes.3">
+        <attribute href="platform:/resource/UML/model/UML.ecore#//Class/name"/>
+      </parameterValues>
+      <parameterValues xsi:type="language:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.0" objectVar="//@rules.9/@nodes.2">
+        <attribute href="platform:/resource/UML/model/UML.ecore#//Method/name"/>
+      </parameterValues>
+      <parameterValues xsi:type="language:TGGLiteralExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.1" value="&quot;apply&quot;"/>
+    </attributeConditionLibrary>
+  </rules>
+  <rules name="Schema2Package">
+    <nodes name="s" bindingType="CREATE" incomingEdges="//@rules.10/@edges.0" incomingCorrsSource="//@rules.10/@nodes.2">
+      <type href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//Schema"/>
+    </nodes>
+    <nodes name="p" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.10/@edges.1" incomingCorrsTarget="//@rules.10/@nodes.2">
+      <type href="platform:/resource/UML/model/UML.ecore#//Package"/>
+    </nodes>
+    <nodes xsi:type="language:TGGRuleCorr" name="s2p" domainType="CORR" bindingType="CREATE" outgoingEdges="//@rules.10/@edges.0 //@rules.10/@edges.1" source="//@rules.10/@nodes.0" target="//@rules.10/@nodes.1">
+      <type href="platform:/resource/Express2UML/model/Express2UML.ecore#//Schema2Package"/>
+    </nodes>
+    <edges name="s2p__source__s_eMoflonEdge" domainType="CORR" bindingType="CREATE" srcNode="//@rules.10/@nodes.2" trgNode="//@rules.10/@nodes.0">
+      <type href="platform:/resource/Express2UML/model/Express2UML.ecore#//Schema2Package/source"/>
+    </edges>
+    <edges name="s2p__target__p_eMoflonEdge" domainType="CORR" bindingType="CREATE" srcNode="//@rules.10/@nodes.2" trgNode="//@rules.10/@nodes.1">
+      <type href="platform:/resource/Express2UML/model/Express2UML.ecore#//Schema2Package/target"/>
+    </edges>
+    <attributeConditionLibrary/>
+  </rules>
+  <attributeConstraintDefinitionLibrary>
+    <tggAttributeConstraintDefinitions name="eq_string" userDefined="false">
+      <parameterDefinitions name="a">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </parameterDefinitions>
+      <parameterDefinitions name="b">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </parameterDefinitions>
+      <syncAdornments>
+        <value>B</value>
+        <value>B</value>
+      </syncAdornments>
+      <syncAdornments>
+        <value>B</value>
+        <value>F</value>
+      </syncAdornments>
+      <syncAdornments>
+        <value>F</value>
+        <value>B</value>
+      </syncAdornments>
+      <genAdornments>
+        <value>B</value>
+        <value>B</value>
+      </genAdornments>
+      <genAdornments>
+        <value>B</value>
+        <value>F</value>
+      </genAdornments>
+      <genAdornments>
+        <value>F</value>
+        <value>B</value>
+      </genAdornments>
+      <genAdornments>
+        <value>F</value>
+        <value>F</value>
+      </genAdornments>
+    </tggAttributeConstraintDefinitions>
+  </attributeConstraintDefinitionLibrary>
+</language:TGG>

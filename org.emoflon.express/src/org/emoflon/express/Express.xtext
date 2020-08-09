@@ -1,0 +1,110 @@
+grammar org.emoflon.express.Express with org.eclipse.xtext.common.Terminals
+
+generate express "http://www.emoflon.org/express/Express"
+
+Schema:
+	'SCHEMA' name=ID declarations+=Declaration* 'END_SCHEMA;';
+
+Declaration:
+	UserDefinedType | Function | UseFrom;
+
+Type:
+	UserDefinedTypeReference | DataType;
+
+UserDefinedTypeReference:
+	type=[UserDefinedType];
+
+UserDefinedType:
+	SelectType | EnumerationType | AliasType | Entity;
+
+UseFrom:
+	'USE' 'FROM' schema=[Schema] ('(' importedEntities=ImportedEntityList ')')?;
+
+ImportedEntityList:
+	entities+=ImportedEntity (',' entities+=ImportedEntity)*;
+
+ImportedEntity:
+	entity=[Entity] ('AS' alias=ID)?;
+
+SelectType:
+	'TYPE' name=ID '=' 'SELECT' '(' types=UserDefinedTypeList ');' 'END_TYPE;';
+
+EnumerationType:
+	'TYPE' name=ID '=' 'ENUMERATION' 'OF' '(' values+=EnumerationValue (',' values+=EnumerationValue)? ');' 'END_TYPE;';
+
+EnumerationValue:
+	name=ID;
+
+AliasType:
+	'TYPE' name=ID '=' (element=[UserDefinedType]) ';' 'END_TYPE;';
+
+Entity:
+	'ENTITY' name=ID (abstract?='ABSTRACT')?
+	('SUPERTYPE' 'OF' '(' subTypes+=[Entity] (',' subTypes+=[Entity])* ')')?
+	('SUBTYPE' 'OF' '(' superTypes+=[Entity] ')')? ';'
+	(attributes+=Attribute)*
+	'END_ENTITY;';
+
+Attribute:
+	name=ID ':' (optional?='OPTIONAL')? (type=Type) ';';
+
+Function:
+	'FUNCTION' name=ID '(' (parameters=ParameterList)? ')' (':' (returnType=Type)) ';'
+	'...'
+	'END_FUNCTION;';
+
+ParameterList:
+	parameters+=Parameter (';' parameters+=Parameter)*;
+
+Parameter:
+	name=ID ':' (type=Type);
+
+UserDefinedTypeList:
+	(elements+=[UserDefinedType]) (',' (elements+=[UserDefinedType]))*;
+
+DataType:
+	BooleanType | RealType | IntegerType | StringType;
+
+// The word "STRING" does not seem to be parsed correctly or something, can't be used right now
+StringType:
+	name='STRING';
+
+BooleanType:
+	name='BOOLEAN';
+
+RealType:
+	name='REAL';
+
+IntegerType:
+	name='INTEGER';
+
+	/* 
+GeneralizedTypes:  GeneralAggregationTypes; // AggregateType | GenericEntityType | GenericType
+GeneralAggregationTypes: GeneralArrayType | GeneralBagType | GeneralListType | GeneralSetType ;
+GeneralArrayType: 'ARRAY' (bounds=BoundSpec)? 'OF' type=ParameterType ;
+GeneralBagType: 'BAG' (bounds=BoundSpec)? 'OF' type=ParameterType
+;
+GeneralListType: 'LIST' (bounds=BoundSpec)? 'OF' (unique?='UNIQUE')? type=ParameterType ;
+GeneralSetType: 'SET' (bounds=BoundSpec)? 'OF' type=ParameterType ;
+BoundSpec: '[' bound1=INT":" bound2=INT ']' ;
+
+InstantiableType: AggregationTypes | SimpleTypes | NamedTypes ;
+UnderlyingType: EnumerationType | SelectType | AggregationTypes | SimpleTypes | DeclaredType ;
+AggregationTypes: ArrayType | BagType | ListType | SetType ; // Instantiable versions
+
+ArrayType: 'ARRAY' (bounds=BoundSpec)? 'OF' (optional?='OPTIONAL')? (unique?='UNIQUE')? type=InstantiableType ;
+BagType: 'BAG' (bounds=BoundSpec)? 'OF' type=InstantiableType;
+ListType: 'LIST' (bounds=BoundSpec)? 'OF' (unique?='UNIQUE')? type=InstantiableType ;
+SetType: 'SET' (bounds=BoundSpec)? 'OF' type=InstantiableType ;
+
+EnumerationType: (extensible?='EXTENSIBLE')? 'ENUMERATION' (
+	( 'OF' '(' items+=SimpleId ( "," items+=SimpleId )* ')' ) | 
+	'BASED_ON' baseType=[TypeDecl|SimpleId] ( 'WITH' '(' items+=SimpleId ( "," items+=SimpleId )* ')' )?
+)?;
+
+SelectType: (extensible?='EXTENSIBLE')? 'SELECT' (
+	'(' types+=NamedTypes ( ',' types+=NamedTypes)* ')' |
+	'BASED_ON' baseType=DeclaredType ('WITH' '(' types+=NamedTypes ( ',' types+=NamedTypes)* ')')?  
+)? ;
+*/
+

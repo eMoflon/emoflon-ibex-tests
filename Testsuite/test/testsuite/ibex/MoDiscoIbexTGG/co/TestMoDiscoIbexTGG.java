@@ -3,9 +3,9 @@ package testsuite.ibex.MoDiscoIbexTGG.co;
 import java.io.IOException;
 
 import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
-import org.emoflon.ibex.tgg.run.modiscoibextgg.BWD_OPT_App;
 import org.emoflon.ibex.tgg.run.modiscoibextgg.CO_App;
 import org.emoflon.ibex.tgg.run.modiscoibextgg.FWD_OPT_App;
+import org.emoflon.ibex.tgg.run.modiscoibextgg.BWD_OPT_App;
 import org.emoflon.ibex.tgg.run.modiscoibextgg.config.DemoclesRegistrationHelper;
 import org.emoflon.ibex.tgg.run.modiscoibextgg.config.ViatraRegistrationHelper;
 import org.junit.Assert;

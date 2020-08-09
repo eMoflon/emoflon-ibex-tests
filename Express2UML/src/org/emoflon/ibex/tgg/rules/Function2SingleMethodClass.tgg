@@ -1,0 +1,45 @@
+#using Express2UML.*
+#using AttrCondDefLibrary.*
+
+#rule Function2SingleMethodClass #with Express2UML
+
+#source {
+	++f:Function
+
+	s:Schema {
+		++ -declarations -> f
+	}
+}
+
+#target {
+	++m:Method {
+		static := true
+	}
+
+	++c:Class {
+		++ -methods -> m
+	}
+
+	p:Package {
+		++ -classes -> c
+	}
+}
+
+#correspondence {
+	s2p:Schema2Package {
+		#src->s
+		#trg->p
+	}
+
+	++f2smc:Function2SingleMethodClass {
+		#src->f
+		#trg->c
+	}
+}
+
+#attributeConditions {
+	eq_string(f.name, c.name)
+	eq_string(m.name, "apply")
+}
+
+

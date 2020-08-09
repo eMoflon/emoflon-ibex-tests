@@ -1,0 +1,13 @@
+package Java2Doc.integrate
+
+#import Class2Doc
+
+solve conflict for all {
+	var srcCount = #src | created | type Clazz | count
+	var trgCount = #trg | deleted | count
+	
+	satisfies {
+		srcCount < trgCount
+	}
+	
+} with mergeAndPreserve fallback preferSource
