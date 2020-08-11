@@ -12,8 +12,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import simpleClassInheritance.Clazz;
@@ -71,10 +70,26 @@ public class ClazzContainerImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public EList<Clazz> getClazzes() {
 		if (clazzes == null) {
-			clazzes = new EObjectContainmentEList<Clazz>(Clazz.class, this,
-					SimpleClassInheritancePackage.CLAZZ_CONTAINER__CLAZZES);
+			clazzes = new EObjectContainmentWithInverseEList<Clazz>(Clazz.class, this,
+					SimpleClassInheritancePackage.CLAZZ_CONTAINER__CLAZZES,
+					SimpleClassInheritancePackage.CLAZZ__CONTAINER);
 		}
 		return clazzes;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+		case SimpleClassInheritancePackage.CLAZZ_CONTAINER__CLAZZES:
+			return ((InternalEList<InternalEObject>) (InternalEList<?>) getClazzes()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**

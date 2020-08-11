@@ -25,7 +25,7 @@ import simpleClassInheritance.SimpleClassInheritancePackage;
  *
  * @generated
  */
-public class NamedElementImpl extends MinimalEObjectImpl.Container implements NamedElement {
+public abstract class NamedElementImpl extends MinimalEObjectImpl.Container implements NamedElement {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->

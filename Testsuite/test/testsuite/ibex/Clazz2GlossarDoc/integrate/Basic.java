@@ -12,6 +12,7 @@ import java.util.function.Consumer;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.AttributeConflict;
+import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.ContradictingChangesConflict;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.DeletePreserveConflict;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.resolution.util.CRSHelper;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.pattern.IntegrationPattern;
@@ -19,8 +20,10 @@ import org.glossarDoc.core.GlossarDocumentationHelper;
 import org.junit.Test;
 import org.simpleClass.core.SimpleClassInheritanceHelper;
 
+import glossarDocumentation.Document;
 import glossarDocumentation.DocumentationContainer;
 import glossarDocumentation.Entry;
+import simpleClassInheritance.Clazz;
 import simpleClassInheritance.ClazzContainer;
 import simpleClassInheritance.Field;
 import simpleClassInheritance.Method;
@@ -79,12 +82,12 @@ public class Basic extends IntegrateTestCase<ClazzContainer, DocumentationContai
 
 	@Test
 	public void attributeConflict_preferSource() {
-		attributeConflict((s) -> s.crs_preferSource(), testpath + "attr_src/");
+		attributeConflict(s -> s.crs_preferSource(), testpath + "attr_src/");
 	}
 
 	@Test
 	public void attributeConflict_preferTarget() {
-		attributeConflict((s) -> s.crs_preferTarget(), testpath + "attr_trg/");
+		attributeConflict(s -> s.crs_preferTarget(), testpath + "attr_trg/");
 	}
 
 	//// DELETE-PROPAGATE CONFLICT ////
@@ -109,17 +112,17 @@ public class Basic extends IntegrateTestCase<ClazzContainer, DocumentationContai
 
 	@Test
 	public void DeletePreserveConflict_preserveDeletion() {
-		deletePropagateConflict((s) -> s.crs_revokeAddition(), testpath + "delprop_predel/");
+		deletePropagateConflict(s -> s.crs_revokeAddition(), testpath + "delprop_predel/");
 	}
 
 	@Test
 	public void DeletePreserveConflict_revokeDeletion() {
-		deletePropagateConflict((s) -> s.crs_revokeDeletion(), testpath + "delprop_revdel/");
+		deletePropagateConflict(s -> s.crs_revokeDeletion(), testpath + "delprop_revdel/");
 	}
 
 	@Test
 	public void DeletePreserveConflict_mergeAndPreserve() {
-		deletePropagateConflict((s) -> s.crs_mergeAndPreserve(), testpath + "delprop_mrgpre/");
+		deletePropagateConflict(s -> s.crs_mergeAndPreserve(), testpath + "delprop_mrgpre/");
 	}
 
 	//// SHORTCUT-CC ////
@@ -141,6 +144,37 @@ public class Basic extends IntegrateTestCase<ClazzContainer, DocumentationContai
 	@Test
 	public void shortcutCC() {
 		shortcutCC(testpath + "shortcutcc/");
+	}
+
+	//// CONTRADICTORY MOVE ////
+
+	private void contradictoryMove(Consumer<ContradictingChangesConflict> s, String path) {
+		tool.getOptions().integration.pattern(pattern);
+		tool.getOptions().integration.conflictSolver( //
+				c -> CRSHelper.forEachResolve(c, ContradictingChangesConflict.class, s));
+		tool.applyAndIntegrateDelta((c, d) -> {
+			// src:
+			Clazz c2 = helperClazz.getClazz("C2");
+			Clazz c3 = helperClazz.createSubClazz(c2, "C3");
+			Field f7 = helperClazz.getField("F7");
+			c3.getFields().add(f7);
+			// trg:
+			Document d1 = helperDoc.getDocumentation("C1");
+			Entry e7 = helperDoc.getEntry("F7");
+			d1.getEntries().add(e7);
+		});
+
+		assertCondition(path + "src", path + "trg", path + "corr");
+	}
+
+	@Test
+	public void contradictoryMove_preferSource() {
+		contradictoryMove(s -> s.crs_preferSource(), testpath + "contramove_src/");
+	}
+	
+	@Test
+	public void contradictoryMove_preferTarget() {
+		contradictoryMove(s -> s.crs_preferTarget(), testpath + "contramove_trg/");
 	}
 
 }

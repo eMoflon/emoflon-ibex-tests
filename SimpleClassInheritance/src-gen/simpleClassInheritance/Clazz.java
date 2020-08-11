@@ -17,6 +17,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link simpleClassInheritance.Clazz#getFields <em>Fields</em>}</li>
  *   <li>{@link simpleClassInheritance.Clazz#getSuperClazz <em>Super Clazz</em>}</li>
  *   <li>{@link simpleClassInheritance.Clazz#getSubClazzes <em>Sub Clazzes</em>}</li>
+ *   <li>{@link simpleClassInheritance.Clazz#getContainer <em>Container</em>}</li>
  * </ul>
  *
  * @see simpleClassInheritance.SimpleClassInheritancePackage#getClazz()
@@ -27,11 +28,13 @@ public interface Clazz extends NamedElement {
 	/**
 	 * Returns the value of the '<em><b>Methods</b></em>' containment reference list.
 	 * The list contents are of type {@link simpleClassInheritance.Method}.
+	 * It is bidirectional and its opposite is '{@link simpleClassInheritance.Method#getClazz <em>Clazz</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Methods</em>' containment reference list.
 	 * @see simpleClassInheritance.SimpleClassInheritancePackage#getClazz_Methods()
-	 * @model containment="true"
+	 * @see simpleClassInheritance.Method#getClazz
+	 * @model opposite="clazz" containment="true"
 	 * @generated
 	 */
 	EList<Method> getMethods();
@@ -39,11 +42,13 @@ public interface Clazz extends NamedElement {
 	/**
 	 * Returns the value of the '<em><b>Fields</b></em>' containment reference list.
 	 * The list contents are of type {@link simpleClassInheritance.Field}.
+	 * It is bidirectional and its opposite is '{@link simpleClassInheritance.Field#getClazz <em>Clazz</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Fields</em>' containment reference list.
 	 * @see simpleClassInheritance.SimpleClassInheritancePackage#getClazz_Fields()
-	 * @model containment="true"
+	 * @see simpleClassInheritance.Field#getClazz
+	 * @model opposite="clazz" containment="true"
 	 * @generated
 	 */
 	EList<Field> getFields();
@@ -85,5 +90,29 @@ public interface Clazz extends NamedElement {
 	 * @generated
 	 */
 	EList<Clazz> getSubClazzes();
+
+	/**
+	 * Returns the value of the '<em><b>Container</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link simpleClassInheritance.ClazzContainer#getClazzes <em>Clazzes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Container</em>' container reference.
+	 * @see #setContainer(ClazzContainer)
+	 * @see simpleClassInheritance.SimpleClassInheritancePackage#getClazz_Container()
+	 * @see simpleClassInheritance.ClazzContainer#getClazzes
+	 * @model opposite="clazzes" transient="false"
+	 * @generated
+	 */
+	ClazzContainer getContainer();
+
+	/**
+	 * Sets the value of the '{@link simpleClassInheritance.Clazz#getContainer <em>Container</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Container</em>' container reference.
+	 * @see #getContainer()
+	 * @generated
+	 */
+	void setContainer(ClazzContainer value);
 
 } // Clazz

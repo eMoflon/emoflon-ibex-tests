@@ -188,8 +188,28 @@ public class SimpleClassInheritancePackageImpl extends EPackageImpl implements S
 	 * @generated
 	 */
 	@Override
+	public EReference getClazz_Container() {
+		return (EReference) clazzEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getField() {
 		return fieldEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getField_Clazz() {
+		return (EReference) fieldEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -218,8 +238,28 @@ public class SimpleClassInheritancePackageImpl extends EPackageImpl implements S
 	 * @generated
 	 */
 	@Override
+	public EReference getMethod_Clazz() {
+		return (EReference) methodEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getParameter() {
 		return parameterEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getParameter_Method() {
+		return (EReference) parameterEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -297,13 +337,17 @@ public class SimpleClassInheritancePackageImpl extends EPackageImpl implements S
 		createEReference(clazzEClass, CLAZZ__FIELDS);
 		createEReference(clazzEClass, CLAZZ__SUPER_CLAZZ);
 		createEReference(clazzEClass, CLAZZ__SUB_CLAZZES);
+		createEReference(clazzEClass, CLAZZ__CONTAINER);
 
 		fieldEClass = createEClass(FIELD);
+		createEReference(fieldEClass, FIELD__CLAZZ);
 
 		methodEClass = createEClass(METHOD);
 		createEReference(methodEClass, METHOD__PARAMETERS);
+		createEReference(methodEClass, METHOD__CLAZZ);
 
 		parameterEClass = createEClass(PARAMETER);
+		createEReference(parameterEClass, PARAMETER__METHOD);
 
 		clazzContainerEClass = createEClass(CLAZZ_CONTAINER);
 		createEReference(clazzContainerEClass, CLAZZ_CONTAINER__CLAZZES);
@@ -348,36 +392,48 @@ public class SimpleClassInheritancePackageImpl extends EPackageImpl implements S
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(clazzEClass, Clazz.class, "Clazz", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getClazz_Methods(), this.getMethod(), null, "methods", null, 0, -1, Clazz.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
-		initEReference(getClazz_Fields(), this.getField(), null, "fields", null, 0, -1, Clazz.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
+		initEReference(getClazz_Methods(), this.getMethod(), this.getMethod_Clazz(), "methods", null, 0, -1,
+				Clazz.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getClazz_Fields(), this.getField(), this.getField_Clazz(), "fields", null, 0, -1, Clazz.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getClazz_SuperClazz(), this.getClazz(), this.getClazz_SubClazzes(), "superClazz", null, 0, 1,
 				Clazz.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getClazz_SubClazzes(), this.getClazz(), this.getClazz_SuperClazz(), "subClazzes", null, 0, -1,
 				Clazz.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getClazz_Container(), this.getClazzContainer(), this.getClazzContainer_Clazzes(), "container",
+				null, 0, 1, Clazz.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(fieldEClass, Field.class, "Field", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getField_Clazz(), this.getClazz(), this.getClazz_Fields(), "clazz", null, 0, 1, Field.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(methodEClass, Method.class, "Method", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getMethod_Parameters(), this.getParameter(), null, "parameters", null, 0, -1, Method.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+		initEReference(getMethod_Parameters(), this.getParameter(), this.getParameter_Method(), "parameters", null, 0,
+				-1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMethod_Clazz(), this.getClazz(), this.getClazz_Methods(), "clazz", null, 0, 1, Method.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(parameterEClass, Parameter.class, "Parameter", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getParameter_Method(), this.getMethod(), this.getMethod_Parameters(), "method", null, 0, 1,
+				Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(clazzContainerEClass, ClazzContainer.class, "ClazzContainer", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getClazzContainer_Clazzes(), this.getClazz(), null, "clazzes", null, 0, -1, ClazzContainer.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getClazzContainer_Clazzes(), this.getClazz(), this.getClazz_Container(), "clazzes", null, 0, -1,
+				ClazzContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(namedElementEClass, NamedElement.class, "NamedElement", !IS_ABSTRACT, !IS_INTERFACE,
+		initEClass(namedElementEClass, NamedElement.class, "NamedElement", IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNamedElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, NamedElement.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

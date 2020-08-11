@@ -34,7 +34,7 @@ public class Basic extends IntegrateTestCase<Company, IT> {
 		return projectName;
 	}
 
-	@Ignore
+//	@Ignore
 	@Test
 	public void filterNACViolation() {
 		tool.applyAndIntegrateDelta((c, it) -> {

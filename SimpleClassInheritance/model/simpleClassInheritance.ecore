@@ -4,23 +4,33 @@
     nsPrefix="SimpleClassInheritance">
   <eClassifiers xsi:type="ecore:EClass" name="Clazz" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="methods" upperBound="-1"
-        eType="#//Method" containment="true"/>
+        eType="#//Method" containment="true" eOpposite="#//Method/clazz"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="fields" upperBound="-1"
-        eType="#//Field" containment="true"/>
+        eType="#//Field" containment="true" eOpposite="#//Field/clazz"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="superClazz" eType="#//Clazz"
         eOpposite="#//Clazz/subClazzes"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="subClazzes" upperBound="-1"
         eType="#//Clazz" containment="true" eOpposite="#//Clazz/superClazz"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="container" eType="#//ClazzContainer"
+        eOpposite="#//ClazzContainer/clazzes"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Field" eSuperTypes="#//NamedElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Field" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="clazz" eType="#//Clazz"
+        eOpposite="#//Clazz/fields"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Method" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
-        eType="#//Parameter" containment="true"/>
+        eType="#//Parameter" containment="true" eOpposite="#//Parameter/method"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="clazz" eType="#//Clazz"
+        eOpposite="#//Clazz/methods"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Parameter" eSuperTypes="#//NamedElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Parameter" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="method" eType="#//Method"
+        eOpposite="#//Method/parameters"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ClazzContainer">
     <eStructuralFeatures xsi:type="ecore:EReference" name="clazzes" upperBound="-1"
-        eType="#//Clazz" containment="true"/>
+        eType="#//Clazz" containment="true" eOpposite="#//Clazz/container"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

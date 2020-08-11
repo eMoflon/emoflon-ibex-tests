@@ -14,12 +14,18 @@
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference simpleClassInheritance.ecore#//Clazz/fields"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference simpleClassInheritance.ecore#//Clazz/superClazz"/>
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference simpleClassInheritance.ecore#//Clazz/subClazzes"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference simpleClassInheritance.ecore#//Clazz/container"/>
     </genClasses>
-    <genClasses ecoreClass="simpleClassInheritance.ecore#//Field"/>
+    <genClasses ecoreClass="simpleClassInheritance.ecore#//Field">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference simpleClassInheritance.ecore#//Field/clazz"/>
+    </genClasses>
     <genClasses ecoreClass="simpleClassInheritance.ecore#//Method">
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference simpleClassInheritance.ecore#//Method/parameters"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference simpleClassInheritance.ecore#//Method/clazz"/>
     </genClasses>
-    <genClasses ecoreClass="simpleClassInheritance.ecore#//Parameter"/>
+    <genClasses ecoreClass="simpleClassInheritance.ecore#//Parameter">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference simpleClassInheritance.ecore#//Parameter/method"/>
+    </genClasses>
     <genClasses ecoreClass="simpleClassInheritance.ecore#//ClazzContainer">
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference simpleClassInheritance.ecore#//ClazzContainer/clazzes"/>
     </genClasses>
