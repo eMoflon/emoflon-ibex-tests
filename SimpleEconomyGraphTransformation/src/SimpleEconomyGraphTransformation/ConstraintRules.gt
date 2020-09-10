@@ -1,0 +1,87 @@
+import "platform:/resource/SimpleEconomy/model/SimpleEconomy.ecore"
+import "http://www.eclipse.org/emf/2002/Ecore"
+
+rule changeBudget(newBudget: EDouble){
+	c: Client{
+		.budget != param::newBudget
+		.budget := param::newBudget
+	}
+}
+pattern smallerThan{
+	p: Product
+	c: Client{
+		.budget < p.price
+	}
+}
+pattern smallerOrEqual{
+	p: Product
+	c: Client{
+		.budget <= p.price
+	}
+}
+pattern equal{
+	p: Product
+	c: Client{
+		.budget == p.price
+	}
+}
+pattern unequal{
+	p: Product
+	c: Client{
+		.budget != p.price
+	}
+}
+pattern greater{
+	p: Product
+	c: Client{
+		.budget > p.price
+	}
+}
+pattern greaterOrEqual{
+	p: Product
+	c: Client{
+		.budget >= p.price
+	}
+}
+@notDisjoint
+pattern notDisjointsmallerThan{
+	p: Product
+	c: Client{
+		.budget < p.price
+	}
+}
+@notDisjoint
+pattern notDisjointsmallerOrEqual{
+	p: Product
+	c: Client{
+		.budget <= p.price
+	}
+}
+@notDisjoint
+pattern notDisjointequal{
+	p: Product
+	c: Client{
+		.budget == p.price
+	}
+}
+@notDisjoint
+pattern notDisjointunequal{
+	p: Product
+	c: Client{
+		.budget != p.price
+	}
+}
+@notDisjoint
+pattern notDisjointgreater{
+	p: Product
+	c: Client{
+		.budget > p.price
+	}
+}
+@notDisjoint
+pattern notDisjointgreaterOrEqual{
+	p: Product
+	c: Client{
+		.budget >= p.price
+	}
+}

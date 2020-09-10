@@ -32,6 +32,7 @@ public class SimpleNetworkCalculationTest extends SimpleNetworkAbstractTest{
 		//check stream functions
 		assertNoMatch(api.generateDevice());
 		assertMatchCount(0, api.generateDevice());
+		
 	}
 	
 	@Test
@@ -74,6 +75,8 @@ public class SimpleNetworkCalculationTest extends SimpleNetworkAbstractTest{
 		//check stream functions
 		assertMatchCount(3, api.testConstraint1());
 		assertNoMatch(api.testConstraint2());	
+		assertMatchCount(3, api.notDisjointtestConstraint1());
+		assertNoMatch(api.notDisjointtestConstraint2());	
 	}
 	
 	@Test(expected = IllegalArgumentException.class)
