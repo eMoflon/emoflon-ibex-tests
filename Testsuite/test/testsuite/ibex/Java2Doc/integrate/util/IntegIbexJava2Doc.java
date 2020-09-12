@@ -4,11 +4,16 @@ import java.io.IOException;
 
 import org.benchmarx.simpledoc.core.SimpleDocComparator;
 import org.benchmarx.simpledoc.core.SimpleJavaComparator;
+import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 import org.emoflon.ibex.tgg.run.java2doc.INTEGRATE_App;
+import org.emoflon.ibex.tgg.run.java2doc.config.DemoclesRegistrationHelper;
+import org.emoflon.ibex.tgg.run.java2doc.config.HiPERegistrationHelper;
+import org.emoflon.ibex.tgg.run.java2doc.config.ViatraRegistrationHelper;
 
 import simpleDoc.Folder;
 import simpleJava.Package;
 import testsuite.ibex.testUtil.IntegIbexAdapter;
+import testsuite.ibex.testUtil.UsedPatternMatcher;
 
 public class IntegIbexJava2Doc extends IntegIbexAdapter<Package, Folder> {
 
@@ -22,6 +27,8 @@ public class IntegIbexJava2Doc extends IntegIbexAdapter<Package, Folder> {
 	@Override
 	public void initiateIntegrationDialogue() {
 		try {
+			INTEGRATE_App.registrationHelper = UsedPatternMatcher.choose(new IRegistrationHelper[] {
+					new DemoclesRegistrationHelper(), new HiPERegistrationHelper(), new ViatraRegistrationHelper() });
 			integrator = new INTEGRATE_App(projectName,
 					testsuite.ibex.performance.util.PerformanceConstants.workspacePath,
 					"/resources/integ/in/" + inputFolder, ilpSolver, false);
