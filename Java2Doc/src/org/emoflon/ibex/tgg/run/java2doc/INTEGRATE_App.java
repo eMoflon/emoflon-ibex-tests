@@ -23,8 +23,11 @@ public class INTEGRATE_App extends INTEGRATE {
 				.debug.ibexDebug(debug)
 				.propagate.usePrecedenceGraph(true)
 				.repair.useShortcutRules(true)
-				.repair.advancedOverlapStrategies(true)
+				.repair.advancedOverlapStrategies(false)
 				.repair.relaxedSCPatternMatching(true)
+				.repair.omitUnnecessaryContext(true)
+				.repair.disableInjectivity(true)
+				.invocation.usePatternInvocation(true)
 				.resourceHandler(new TGGResourceHandler() {
 					@Override
 					public void loadModels() throws IOException {

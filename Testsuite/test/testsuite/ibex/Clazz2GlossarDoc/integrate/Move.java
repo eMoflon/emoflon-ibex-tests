@@ -10,7 +10,7 @@ import static org.emoflon.ibex.tgg.operational.strategies.integrate.FragmentProv
 import java.util.Arrays;
 import java.util.function.Consumer;
 
-import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.ContradictingChangesConflict;
+import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.CorrPreservationConflict;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.resolution.util.CRSHelper;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.pattern.IntegrationPattern;
 import org.glossarDoc.core.GlossarDocumentationHelper;
@@ -59,10 +59,10 @@ public class Move extends IntegrateTestCase<ClazzContainer, DocumentationContain
 
 	////CONTRADICTORY MOVE ////
 
-	private void contradictoryMove(Consumer<ContradictingChangesConflict> s, String path) {
+	private void contradictoryMove(Consumer<CorrPreservationConflict> s, String path) {
 		tool.getOptions().integration.pattern(pattern);
 		tool.getOptions().integration.conflictSolver( //
-				c -> CRSHelper.forEachResolve(c, ContradictingChangesConflict.class, s));
+				c -> CRSHelper.forEachResolve(c, CorrPreservationConflict.class, s));
 		tool.applyAndIntegrateDelta((c, d) -> {
 			// src:
 			Clazz c1 = helperClazz.getClazz("C1");
