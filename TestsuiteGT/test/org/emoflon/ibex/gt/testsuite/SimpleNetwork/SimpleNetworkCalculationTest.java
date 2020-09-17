@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
+import SimpleNetwork.Network;
 import SimpleNetworkGraphTransformation.api.SimpleNetworkGraphTransformationAPI;
 import SimpleNetworkGraphTransformation.api.matches.ConnectMatch;
 import SimpleNetworkGraphTransformation.api.matches.GenerateDeviceMatch;
@@ -99,6 +100,36 @@ public class SimpleNetworkCalculationTest extends SimpleNetworkAbstractTest{
 		//test that divide by zero throws a exception
 		SimpleNetworkGraphTransformationAPI api = this.init("SimpleNetwork2.xmi");
 		api.testException4().apply();
+	}
+	
+	@Test
+	public void checkCount() {
+		SimpleNetworkGraphTransformationAPI api = this.init("SimpleNetwork1.xmi");
+		Network network1 = api.findNetwork().findAnyMatch().get().getNetwork();
+		// simple sanity check
+		assertMatchCount(0, api.testConstraint3());
+		assertApplicable(api.generateDevice());
+		assertApplicable(api.generateDevice());
+		assertApplicable(api.generateDevice());
+		assertApplicable(api.insertDevicesIntoNetwork());
+		assertApplicable(api.insertDevicesIntoNetwork());
+		assertApplicable(api.insertDevicesIntoNetwork());
+		assertMatchCount(3, api.findDevice());
+		assertApplicable(api.setNumberOfDevices(3));
+		assertMatchCount(1, api.testConstraint3());
+		// add a network and check
+		Network network2 = api.createNetwork().apply().get().getNetwork();
+		api.setNumberOfDevices(0).bindNetwork(network2).apply();
+		assertMatchCount(2, api.testConstraint3());
+		api.setNumberOfDevices(1).bindNetwork(network2).apply();
+		assertMatchCount(1, api.testConstraint3());
+		// set correct amounts automatically
+		api.findNetwork().findMatches().forEach(match -> {
+			assertApplicable(api.findAndsetNumberOfDevices().bind(match).apply());
+		});
+		assertMatchCount(2, api.testConstraint3());
+		assertEquals(3, network1.getDeviceNumber());
+		assertEquals(0, network2.getDeviceNumber());
 	}
 }
 

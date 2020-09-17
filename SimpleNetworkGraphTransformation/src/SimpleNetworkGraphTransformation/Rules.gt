@@ -92,3 +92,47 @@ pattern testConstraint2{
 	}
 	device2: Device
 }
+
+pattern testConstraint3{
+	network : Network {
+		.deviceNumber == calc(count(findDevice))
+	}
+}
+
+rule createNetwork {
+	++ network : Network
+}
+
+pattern findNetwork{
+	network : Network
+}
+
+rule setNumberOfDevices(num : EInt){
+	network : Network {
+		.deviceNumber := param::num
+	}
+}
+
+rule findAndsetNumberOfDevices(){
+	network : Network {
+		.deviceNumber := calc(count(findDevice))
+	}
+}
+
+rule insertDevicesIntoNetwork() {
+	network : Network {
+		++ -devices->device
+	}
+	
+	device : Device
+} when deviceNotInNetwork
+
+condition deviceNotInNetwork = forbid findDevice
+
+pattern findDevice{
+	network : Network {
+		-devices->device
+	}
+	
+	device : Device
+}
