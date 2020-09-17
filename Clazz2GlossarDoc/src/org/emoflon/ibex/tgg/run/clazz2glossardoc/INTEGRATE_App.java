@@ -7,12 +7,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.INTEGRATE;
-import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.Conflict;
-import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.ConflictContainer;
-import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.resolution.CRS_PreferTarget;
-import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.resolution.util.ConflictResolver;
 import org.emoflon.ibex.tgg.operational.strategies.modules.TGGResourceHandler;
-import org.emoflon.ibex.tgg.operational.strategies.opt.CC;
 import org.emoflon.ibex.tgg.run.clazz2glossardoc.config.HiPERegistrationHelper;
 import org.emoflon.ibex.tgg.util.ilp.ILPFactory.SupportedILPSolver;
 
@@ -32,6 +27,7 @@ public class INTEGRATE_App extends INTEGRATE {
 				.repair.relaxedSCPatternMatching(true)
 				.repair.omitUnnecessaryContext(true)
 				.repair.disableInjectivity(true)
+				.invocation.usePatternInvocation(true)
 				.resourceHandler(new TGGResourceHandler() {
 					@Override
 					public void loadModels() throws IOException {

@@ -12,7 +12,7 @@ import java.util.function.Consumer;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.AttributeConflict;
-import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.ContradictingChangesConflict;
+import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.CorrPreservationConflict;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.DeletePreserveConflict;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.resolution.util.CRSHelper;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.pattern.IntegrationPattern;
@@ -111,17 +111,17 @@ public class Basic extends IntegrateTestCase<ClazzContainer, DocumentationContai
 	}
 
 	@Test
-	public void DeletePreserveConflict_preserveDeletion() {
+	public void deletePreserveConflict_preserveDeletion() {
 		deletePropagateConflict(s -> s.crs_revokeAddition(), testpath + "delprop_predel/");
 	}
 
 	@Test
-	public void DeletePreserveConflict_revokeDeletion() {
+	public void deletePreserveConflict_revokeDeletion() {
 		deletePropagateConflict(s -> s.crs_revokeDeletion(), testpath + "delprop_revdel/");
 	}
 
 	@Test
-	public void DeletePreserveConflict_mergeAndPreserve() {
+	public void deletePreserveConflict_mergeAndPreserve() {
 		deletePropagateConflict(s -> s.crs_mergeAndPreserve(), testpath + "delprop_mrgpre/");
 	}
 
@@ -148,10 +148,10 @@ public class Basic extends IntegrateTestCase<ClazzContainer, DocumentationContai
 
 	//// CONTRADICTORY MOVE ////
 
-	private void contradictoryMove(Consumer<ContradictingChangesConflict> s, String path) {
+	private void contradictoryMove(Consumer<CorrPreservationConflict> s, String path) {
 		tool.getOptions().integration.pattern(pattern);
 		tool.getOptions().integration.conflictSolver( //
-				c -> CRSHelper.forEachResolve(c, ContradictingChangesConflict.class, s));
+				c -> CRSHelper.forEachResolve(c, CorrPreservationConflict.class, s));
 		tool.applyAndIntegrateDelta((c, d) -> {
 			// src:
 			Clazz c2 = helperClazz.getClazz("C2");

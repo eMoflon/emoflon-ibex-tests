@@ -19,8 +19,15 @@ public class INTEGRATE_App extends INTEGRATE {
 		super(registrationHelper.createIbexOptions()
 				.project.name(projectName)
 				.project.workspacePath(workspacePath)
-				.ilpSolver(ilpSolver)
+				.ilpSolver(SupportedILPSolver.Sat4J)
 				.debug.ibexDebug(debug)
+				.propagate.usePrecedenceGraph(true)
+				.repair.useShortcutRules(true)
+				.repair.advancedOverlapStrategies(false)
+				.repair.relaxedSCPatternMatching(true)
+				.repair.omitUnnecessaryContext(true)
+				.repair.disableInjectivity(true)
+				.invocation.usePatternInvocation(true)
 				.resourceHandler(new TGGResourceHandler() {
 					@Override
 					public void loadModels() throws IOException {
