@@ -107,6 +107,18 @@ pattern findNetwork{
 	network : Network
 }
 
+pattern findNetworkWithMoreThan2Devices(){
+	network : Network {
+		.deviceNumber == calc(max(network.deviceNumber, 2) )
+	}
+}
+
+pattern findNetworkWithLessThan2Devices(){
+	network : Network {
+		.deviceNumber == calc(min(network.deviceNumber, 2) )
+	}
+}
+
 rule setNumberOfDevices(num : EInt){
 	network : Network {
 		.deviceNumber := param::num

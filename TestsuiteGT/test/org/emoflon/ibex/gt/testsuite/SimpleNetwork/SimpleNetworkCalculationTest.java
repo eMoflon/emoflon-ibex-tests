@@ -131,6 +131,31 @@ public class SimpleNetworkCalculationTest extends SimpleNetworkAbstractTest{
 		assertEquals(3, network1.getDeviceNumber());
 		assertEquals(0, network2.getDeviceNumber());
 	}
+	
+	@Test
+	public void checkMinMax() {
+		SimpleNetworkGraphTransformationAPI api = this.init("SimpleNetwork1.xmi");
+		Network network1 = api.findNetwork().findAnyMatch().get().getNetwork();
+		Network network2 = api.createNetwork().apply().get().getNetwork();
+		api.setNumberOfDevices(0).bindNetwork(network1).apply();
+		api.setNumberOfDevices(0).bindNetwork(network2).apply();
+		// simple sanity check
+		assertMatchCount(0, api.findNetworkWithMoreThan2Devices());
+		assertMatchCount(2, api.findNetworkWithLessThan2Devices());
+		api.setNumberOfDevices(3).bindNetwork(network1).apply();
+		assertApplicable(api.generateDevice().bindNetwork(network1));
+		assertApplicable(api.generateDevice().bindNetwork(network1));
+		assertApplicable(api.generateDevice().bindNetwork(network1));
+		assertApplicable(api.insertDevicesIntoNetwork().bindNetwork(network1));
+		assertApplicable(api.insertDevicesIntoNetwork().bindNetwork(network1));
+		assertApplicable(api.insertDevicesIntoNetwork().bindNetwork(network1));
+		api.setNumberOfDevices(3).bindNetwork(network1).apply();
+		// check min / max
+		assertMatchCount(3, api.findDevice().bindNetwork(network1));
+		assertMatchCount(0, api.findDevice().bindNetwork(network2));
+		assertMatchCount(1, api.findNetworkWithMoreThan2Devices());
+		assertMatchCount(1, api.findNetworkWithLessThan2Devices());
+	}
 }
 
 
