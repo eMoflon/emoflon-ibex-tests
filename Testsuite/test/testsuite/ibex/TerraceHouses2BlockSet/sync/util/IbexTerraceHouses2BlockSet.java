@@ -31,7 +31,7 @@ public class IbexTerraceHouses2BlockSet extends IbexAdapter<District, Playroom> 
 	private IShortcutRuleUpdatePolicy updatepolicy = (shortcutRules, brokenMatch) -> {
 		List<OperationalShortcutRule> notPreferredSCRs = new ArrayList<>();
 		for (OperationalShortcutRule scr : shortcutRules) {
-			TGGRule replacingRule = scr.getScRule().getReplacingRule();
+			TGGRule replacingRule = scr.getOpScRule().getReplacingRule();
 			if (notPreferred.contains(replacingRule.getName()))
 				notPreferredSCRs.add(scr);
 			else
