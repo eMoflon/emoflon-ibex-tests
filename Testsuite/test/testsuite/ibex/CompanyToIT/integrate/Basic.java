@@ -2,13 +2,17 @@ package testsuite.ibex.CompanyToIT.integrate;
 
 import org.benchmarx.companyLanguage.core.CompanyLanguageHelper;
 import org.benchmarx.itLanguage.core.ITLanguageHelper;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.junit.Ignore;
 import org.junit.Test;
 
 import CompanyLanguage.CEO;
 import CompanyLanguage.Company;
 import CompanyLanguage.CompanyLanguageFactory;
+import CompanyLanguage.Employee;
 import ITLanguage.IT;
+import ITLanguage.ITLanguageFactory;
+import ITLanguage.Laptop;
 import testsuite.ibex.CompanyToIT.integrate.util.IntegIbexCompanyToIT;
 import testsuite.ibex.testUtil.IntegrateTestCase;
 
@@ -34,7 +38,6 @@ public class Basic extends IntegrateTestCase<Company, IT> {
 		return projectName;
 	}
 
-	@Ignore
 	@Test
 	public void filterNACViolation() {
 		tool.applyAndIntegrateDelta((c, it) -> {
@@ -54,5 +57,45 @@ public class Basic extends IntegrateTestCase<Company, IT> {
 			c.setName("");
 		});
 	}
-
+	
+	@Test
+	public void attributeConflict() {
+		tool.applyAndIntegrateDelta((c, it) -> {
+			c.setName("CompanyAbc");
+			it.setName("ItCompanyAbc");
+		});
+	}
+	
+	@Test 
+	public void inconsDomainChangesConflict() {
+		tool.applyAndIntegrateDelta((c, it) -> {
+			Employee newEmployee = CompanyLanguageFactory.eINSTANCE.createEmployee();
+			newEmployee.setName("Dominique");
+			c.getEmployee().add(newEmployee);
+			
+			EcoreUtil.delete(it.getRouter().get(0));
+		});
+	}
+	
+	@Test
+	public void delPreserveEdgeConflict() {
+		tool.applyAndIntegrateDelta((c, it) -> {
+			EcoreUtil.delete(c.getAdmin().get(0));
+			
+			Laptop laptop = ITLanguageFactory.eINSTANCE.createLaptop();
+			laptop.setName("Dominique");
+			it.getNetwork().get(0).getLaptop().add(laptop);
+		});
+	}
+	
+	@Test
+	public void contradictingChangesConflict() {
+		tool.applyAndIntegrateDelta((c, it) -> {
+			EcoreUtil.delete(c.getAdmin().get(0));
+			
+			Laptop laptop = ITLanguageFactory.eINSTANCE.createLaptop();
+			laptop.setName("Dominique");
+			it.getNetwork().get(0).getLaptop().add(laptop);
+		});
+	}
 }

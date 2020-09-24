@@ -12,7 +12,7 @@ import testsuite.ibex.testUtil.IntegrateTestCase;
 
 public class Delete extends IntegrateTestCase<Schema, uml.Package> {
 
-	private static final String PROJECT_NAME = "Express2Uml";
+	private static final String PROJECT_NAME = "Express2UML";
 
 	public Delete() {
 		super(new IntegIbexSchema2Package(PROJECT_NAME, "moflon"));
@@ -26,19 +26,22 @@ public class Delete extends IntegrateTestCase<Schema, uml.Package> {
 	protected String getProjectName() {
 		return PROJECT_NAME;
 	}
-	
+
 	@Test
-	public void del_simple(){
+	public void del_simple() {
 		final String path = "integ/expected/del/del_single/";
-		
+
 		tool.applyAndIntegrateDelta((schema, pkg) -> {
 			// src:
-			Entity entity = GenericHelper.getElement(() -> schema.getDeclarations(), decl -> decl instanceof Entity, e -> e.getName().equals("MOFLON_ENTITY"));
+			Entity entity = GenericHelper.getElement(() -> schema.getDeclarations(), 
+					decl -> decl instanceof Entity,
+					e -> e.getName().equals("MOFLON_ENTITY"));
+			
 			EcoreUtil.delete(entity, true);
 			// trg:
 			UMLHelper.createClazz(pkg, "MoflonClass");
 		});
-		
+
 		assertCondition(path + "src", path + "trg", path + "corr");
 	}
 }

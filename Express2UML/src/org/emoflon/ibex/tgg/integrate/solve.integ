@@ -1,0 +1,14 @@
+package Express2UML.integrate
+
+#import Entity2Class
+
+handleConflict: solve conflict for all {
+	var packagesAreDeleted = #trg | deleted | type Package | exists 
+	var numSchemasCreated = #src | created | type Schema | count  
+	var numSchemasDeleted = #src | deleted | type Schema | count 
+	
+	satisfies {
+		packagesAreDeleted and numSchemasCreated > 0
+ 	}
+	
+} with preferSource

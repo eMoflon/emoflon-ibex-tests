@@ -3,7 +3,7 @@
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="Express2UML/gen/" modelPluginID="Express2UML" modelName="Express2UML"
     generateSchema="true" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0" copyrightFields="false"
-    usedGenPackages="../../org.emoflon.express/model/generated/Express.genmodel#//express platform:/plugin/org.emoflon.ibex.tgg.runtime/model/Runtime.genmodel#//runtime ../../UML/model/UML.genmodel#//uml"
+    usedGenPackages="../../org.emoflon.express/model/generated/Express.genmodel#//express ../../UML/model/UML.genmodel#//uml platform:/plugin/org.emoflon.ibex.tgg.runtime/model/Runtime.genmodel#//runtime"
     operationReflection="true" importOrganizing="true">
   <foreignModel>Express2UML.ecore</foreignModel>
   <genPackages prefix="Express2UML" disposableProviderFactory="true" ecorePackage="Express2UML.ecore#/">

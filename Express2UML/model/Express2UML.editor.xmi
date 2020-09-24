@@ -571,5 +571,13 @@
     <correspondencePatterns name="s2p" type="//@schema/@correspondenceTypes.0" source="//@rules.10/@sourcePatterns.0" target="//@rules.10/@targetPatterns.0">
       <op value="++"/>
     </correspondencePatterns>
+    <attrConditions name="//@schema/@attributeCondDefs.0">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.10/@sourcePatterns.0">
+        <attribute href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//Schema/name"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.10/@targetPatterns.0">
+        <attribute href="platform:/resource/UML/model/UML.ecore#//Package/name"/>
+      </values>
+    </attrConditions>
   </rules>
 </tgg:TripleGraphGrammarFile>

@@ -527,6 +527,14 @@
     <correspondencePatterns name="s2p" type="//@schema/@correspondenceTypes.0" source="//@rules.9/@sourcePatterns.0" target="//@rules.9/@targetPatterns.0">
       <op value="++"/>
     </correspondencePatterns>
+    <attrConditions name="//@schema/@attributeCondDefs.0">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.9/@sourcePatterns.0">
+        <attribute href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//Schema/name"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.9/@targetPatterns.0">
+        <attribute href="platform:/resource/UML/model/UML.ecore#//Package/name"/>
+      </values>
+    </attrConditions>
   </rules>
   <rules name="StringAttribute2StringAttribute" schema="//@schema">
     <sourcePatterns name="aSrc">

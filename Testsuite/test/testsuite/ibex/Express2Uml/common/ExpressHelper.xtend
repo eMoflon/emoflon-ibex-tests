@@ -1,10 +1,7 @@
 package testsuite.ibex.Express2Uml.common
 
-import org.emoflon.express.express.Schema
-import org.emoflon.express.express.Entity
 import org.emoflon.express.express.ExpressFactory
-import org.emoflon.express.express.Declaration
-import java.util.Collection
+import org.emoflon.express.express.Schema
 
 class ExpressHelper {
 	

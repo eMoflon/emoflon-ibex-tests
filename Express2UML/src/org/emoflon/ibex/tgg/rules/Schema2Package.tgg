@@ -3,21 +3,23 @@
 
 #rule Schema2Package #with Express2UML
 
-#source { 
-	++s: Schema
+#source {
+	++s:Schema
 }
 
 #target {
-	++p: Package
+	++p:Package
 }
 
 #correspondence {
-	++s2p: Schema2Package {
+	++s2p:Schema2Package {
 		#src->s
 		#trg->p
 	}
 }
 
 #attributeConditions {
-	
+	eq_string(s.name, p.name)
 }
+
+

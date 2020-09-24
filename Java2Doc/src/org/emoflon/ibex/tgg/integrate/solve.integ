@@ -2,12 +2,12 @@ package Java2Doc.integrate
 
 #import Class2Doc
 
-solve conflict for all {
-	var srcCount = #src | created | type Clazz | count
-	var trgCount = #trg | deleted | count
+solvePlz: solve conflict for all {
+	var classCreated = #src | created | type Clazz | exists
+	var folderDeleted = #trg | deleted | type Folder | exists
 	
 	satisfies {
-		srcCount < trgCount
+		classCreated and folderDeleted
 	}
 	
-} with mergeAndPreserve fallback preferSource
+} with preferSource

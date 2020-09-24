@@ -1,0 +1,21 @@
+package org.emoflon.ibex.tgg.integrate
+
+#import AdminToRouterRule
+
+//#NameOfConflictResolutionStrategy
+someName: solve conflict for all {
+	var numAdminsDeleted = #src | created | type Admin | count
+	var numLaptopsCreated = #trg | created |type Laptop | count
+	var numComputersCreated = #trg | created | type PC | exists 
+	
+	satisfies {
+		numAdminsDeleted > numLaptopsCreated and numLaptopsCreated > 0 or
+		numAdminsDeleted > 0 and numComputersCreated 
+	}
+} with preferSource
+
+/*solve attribute conflict for Schema2Package{
+	#src=Company
+	#trg=It
+	
+} with preferSource */

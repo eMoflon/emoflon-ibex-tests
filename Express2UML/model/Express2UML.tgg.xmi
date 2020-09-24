@@ -619,7 +619,15 @@
     <edges name="s2p__target__p_eMoflonEdge" domainType="CORR" bindingType="CREATE" srcNode="//@rules.10/@nodes.2" trgNode="//@rules.10/@nodes.1">
       <type href="platform:/resource/Express2UML/model/Express2UML.ecore#//Schema2Package/target"/>
     </edges>
-    <attributeConditionLibrary/>
+    <attributeConditionLibrary>
+      <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0" parameters="//@rules.10/@attributeConditionLibrary/@parameterValues.0 //@rules.10/@attributeConditionLibrary/@parameterValues.1"/>
+      <parameterValues xsi:type="language:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.0" objectVar="//@rules.10/@nodes.0">
+        <attribute href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//Schema/name"/>
+      </parameterValues>
+      <parameterValues xsi:type="language:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.1" objectVar="//@rules.10/@nodes.1">
+        <attribute href="platform:/resource/UML/model/UML.ecore#//Package/name"/>
+      </parameterValues>
+    </attributeConditionLibrary>
   </rules>
   <attributeConstraintDefinitionLibrary>
     <tggAttributeConstraintDefinitions name="eq_string" userDefined="false">
