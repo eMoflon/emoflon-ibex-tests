@@ -52,7 +52,7 @@ public class HiPERegistrationHelper implements IRegistrationHelper {
 		}
 				
 		if(executable instanceof BWD_OPT) {
-			Resource res = executable.getResourceHandler().loadResource("platform:/resource/<<SRC_Project>>/model/<<SRC_Project>>.ecore");
+			Resource res = executable.getResourceHandler().loadResource("platform:/resource/org.emoflon.express/model/generated/Express.ecore");
 			expressPack = (EPackage) res.getContents().get(0);
 			rs.getResources().remove(res);
 			
@@ -73,8 +73,8 @@ public class HiPERegistrationHelper implements IRegistrationHelper {
 			rs.getPackageRegistry().put("platform:/plugin/Express2UML/model/Express2UML.ecore", Express2UMLPackage.eINSTANCE);
 		}
 			
-		rs.getPackageRegistry().put("platform:/resource/<<SRC_Project>>/model/<<SRC_Project>>.ecore", expressPack);
-	    rs.getPackageRegistry().put("platform:/plugin/<<SRC_Project>>/model/<<SRC_Project>>.ecore", expressPack);	
+		rs.getPackageRegistry().put("platform:/resource/org.emoflon.express/model/generated/Express.ecore", expressPack);
+	    rs.getPackageRegistry().put("platform:/plugin/org.emoflon.express/model/generated/Express.ecore", expressPack);	
 			
 		rs.getPackageRegistry().put("platform:/resource/UML/model/UML.ecore", umlPack);
 		rs.getPackageRegistry().put("platform:/plugin/UML/model/UML.ecore", umlPack);

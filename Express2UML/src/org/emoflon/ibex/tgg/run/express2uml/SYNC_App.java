@@ -28,12 +28,10 @@ public class SYNC_App extends SYNC {
 										.resourceHandler(new TGGResourceHandler() {
 											@Override
 											public void loadModels() throws IOException {
-												super.loadModels();
-												/*source = createResource(options.project.path() + "/instances/src.xmi");
+												source = createResource(options.project.path() + "/instances/src.xmi");
 												target = createResource(options.project.path() + "/instances/trg.xmi");
 												corr = createResource(options.project.path() + "/instances/corr.xmi");
-												protocol = createResource(
-														options.project.path() + "/instances/protocol.xmi");*/
+												protocol = createResource(options.project.path() + "/instances/protocol.xmi");
 											}
 										}));
 	}
