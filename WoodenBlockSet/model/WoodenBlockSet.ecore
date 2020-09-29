@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ASCII"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="WoodenBlockSet" nsURI="platform:/resource/WoodenBlockSet/model/WoodenBlockSet.ecore"
     nsPrefix="WoodenBlockSet">
@@ -7,22 +7,28 @@
   </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="BlockSet">
     <eStructuralFeatures xsi:type="ecore:EReference" name="constructions" upperBound="-1"
-        eType="#//Construction" containment="true"/>
+        eType="#//Construction" containment="true" eOpposite="#//Construction/blockSet"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="playroom" eType="#//Playroom"
+        eOpposite="#//Playroom/blocksets"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Construction">
     <eStructuralFeatures xsi:type="ecore:EReference" name="components" lowerBound="1"
-        upperBound="-1" eType="#//Shape3D" containment="true"/>
+        upperBound="-1" eType="#//Shape3D" containment="true" eOpposite="#//Shape3D/construction"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="constructor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="blockSet" eType="#//BlockSet"
+        eOpposite="#//BlockSet/constructions"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Shape3D" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="color" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="construction" eType="#//Construction"
+        eOpposite="#//Construction/components"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Cuboid" eSuperTypes="#//Shape3D"/>
   <eClassifiers xsi:type="ecore:EClass" name="TriangularPrism" eSuperTypes="#//Shape3D"/>
   <eClassifiers xsi:type="ecore:EClass" name="Cube" eSuperTypes="#//Shape3D"/>
   <eClassifiers xsi:type="ecore:EClass" name="Playroom">
     <eStructuralFeatures xsi:type="ecore:EReference" name="blocksets" upperBound="-1"
-        eType="#//BlockSet" containment="true"/>
+        eType="#//BlockSet" containment="true" eOpposite="#//BlockSet/playroom"/>
   </eClassifiers>
 </ecore:EPackage>
