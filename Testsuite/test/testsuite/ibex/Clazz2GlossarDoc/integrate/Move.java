@@ -76,8 +76,7 @@ public class Move extends IntegrateTestCase<ClazzContainer, DocumentationContain
 			d3.getHyperRefs().add(d1);
 		});
 
-		// TODO adrianm: add expected model files
-//		assertCondition(path + "src", path + "trg", path + "corr");
+		assertCondition(path + "src", path + "trg", path + "corr");
 	}
 
 	@Test
