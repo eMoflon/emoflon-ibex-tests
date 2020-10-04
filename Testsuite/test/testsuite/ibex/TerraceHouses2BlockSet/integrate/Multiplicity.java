@@ -20,6 +20,8 @@ import org.emoflon.ibex.tgg.operational.strategies.integrate.pattern.Integration
 import org.junit.Test;
 
 import TerraceHouses.District;
+import WoodenBlockSet.BlockSet;
+import WoodenBlockSet.Construction;
 import WoodenBlockSet.Playroom;
 import testsuite.ibex.TerraceHouses2BlockSet.integrate.util.IntegIbexTerraceHouses2BlockSet;
 import testsuite.ibex.testUtil.IntegrateTestCase;
@@ -46,7 +48,7 @@ public class Multiplicity extends IntegrateTestCase<District, Playroom> {
 		return projectName;
 	}
 
-	private final String testpath = "expected/multipl/";
+	private final String testpath = "integrate/expected/multipl/";
 
 	private final IntegrationPattern pattern = new IntegrationPattern(Arrays.asList( //
 			APPLY_USER_DELTA //
@@ -70,11 +72,13 @@ public class Multiplicity extends IntegrateTestCase<District, Playroom> {
 			// src:
 			helperTerraceHouses.createBuilding(helperTerraceHouses.getBuilding(c, "Colorado Apartments"), "Left Building", null);
 			// trg:
-			helperWoodenBlockSet.createConstruction(helperWoodenBlockSet.getConstruction(d, "Colorado Apartments").getBlockSet(), "Right Building");
+			BlockSet set = helperWoodenBlockSet.getConstruction(d, "Colorado Apartments").getBlockSet();
+			Construction constr = helperWoodenBlockSet.createConstruction(set, "Right Building");
+			helperWoodenBlockSet.createCuboid(constr, "red");
 		});
 
 		assertTrue(detectedConflict.get());
-//		assertCondition(path + "src", path + "trg", path + "corr");
+		assertCondition(path + "src", path + "trg", path + "corr");
 	}
 
 	@Test
