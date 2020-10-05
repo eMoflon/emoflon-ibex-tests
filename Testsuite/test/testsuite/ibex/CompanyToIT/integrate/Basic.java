@@ -94,13 +94,12 @@ public class Basic extends IntegrateTestCase<Company, IT> {
 	}
 	
 	@Test
-	
 	public void delPreserveAttributeConflict() {
 		tool.applyAndIntegrateDelta((c, it) -> {
 			EcoreUtil.delete(c.getAdmin().get(0));
-
 			it.getNetwork().get(0).getLaptop().get(0).setName("Dominique");
 		});
+
 		String prefix = "/integ/basic/expected/delete_preserve_attribute_conflict/";
 		assertCondition(prefix + "src", prefix + "trg", prefix + "corr");
 	}
