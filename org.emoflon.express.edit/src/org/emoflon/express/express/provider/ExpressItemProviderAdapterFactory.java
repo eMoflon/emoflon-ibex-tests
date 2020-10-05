@@ -372,26 +372,118 @@ public class ExpressItemProviderAdapterFactory extends ExpressAdapterFactory imp
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.emoflon.express.express.Attribute} instances.
+	 * This keeps track of the one adapter used for all {@link org.emoflon.express.express.IntegerAttribute} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected AttributeItemProvider attributeItemProvider;
+	protected IntegerAttributeItemProvider integerAttributeItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.emoflon.express.express.Attribute}.
+	 * This creates an adapter for a {@link org.emoflon.express.express.IntegerAttribute}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createAttributeAdapter() {
-		if (attributeItemProvider == null) {
-			attributeItemProvider = new AttributeItemProvider(this);
+	public Adapter createIntegerAttributeAdapter() {
+		if (integerAttributeItemProvider == null) {
+			integerAttributeItemProvider = new IntegerAttributeItemProvider(this);
 		}
 
-		return attributeItemProvider;
+		return integerAttributeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.emoflon.express.express.StringAttribute} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected StringAttributeItemProvider stringAttributeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.emoflon.express.express.StringAttribute}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createStringAttributeAdapter() {
+		if (stringAttributeItemProvider == null) {
+			stringAttributeItemProvider = new StringAttributeItemProvider(this);
+		}
+
+		return stringAttributeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.emoflon.express.express.RealAttribute} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RealAttributeItemProvider realAttributeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.emoflon.express.express.RealAttribute}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createRealAttributeAdapter() {
+		if (realAttributeItemProvider == null) {
+			realAttributeItemProvider = new RealAttributeItemProvider(this);
+		}
+
+		return realAttributeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.emoflon.express.express.BooleanAttribute} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BooleanAttributeItemProvider booleanAttributeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.emoflon.express.express.BooleanAttribute}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBooleanAttributeAdapter() {
+		if (booleanAttributeItemProvider == null) {
+			booleanAttributeItemProvider = new BooleanAttributeItemProvider(this);
+		}
+
+		return booleanAttributeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.emoflon.express.express.EntityAttribute} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EntityAttributeItemProvider entityAttributeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.emoflon.express.express.EntityAttribute}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createEntityAttributeAdapter() {
+		if (entityAttributeItemProvider == null) {
+			entityAttributeItemProvider = new EntityAttributeItemProvider(this);
+		}
+
+		return entityAttributeItemProvider;
 	}
 
 	/**
@@ -487,118 +579,26 @@ public class ExpressItemProviderAdapterFactory extends ExpressAdapterFactory imp
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.emoflon.express.express.DataType} instances.
+	 * This keeps track of the one adapter used for all {@link org.emoflon.express.express.Attribute} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected DataTypeItemProvider dataTypeItemProvider;
+	protected AttributeItemProvider attributeItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.emoflon.express.express.DataType}.
+	 * This creates an adapter for a {@link org.emoflon.express.express.Attribute}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createDataTypeAdapter() {
-		if (dataTypeItemProvider == null) {
-			dataTypeItemProvider = new DataTypeItemProvider(this);
+	public Adapter createAttributeAdapter() {
+		if (attributeItemProvider == null) {
+			attributeItemProvider = new AttributeItemProvider(this);
 		}
 
-		return dataTypeItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link org.emoflon.express.express.StringType} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected StringTypeItemProvider stringTypeItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.emoflon.express.express.StringType}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createStringTypeAdapter() {
-		if (stringTypeItemProvider == null) {
-			stringTypeItemProvider = new StringTypeItemProvider(this);
-		}
-
-		return stringTypeItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link org.emoflon.express.express.BooleanType} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected BooleanTypeItemProvider booleanTypeItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.emoflon.express.express.BooleanType}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createBooleanTypeAdapter() {
-		if (booleanTypeItemProvider == null) {
-			booleanTypeItemProvider = new BooleanTypeItemProvider(this);
-		}
-
-		return booleanTypeItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link org.emoflon.express.express.RealType} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected RealTypeItemProvider realTypeItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.emoflon.express.express.RealType}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createRealTypeAdapter() {
-		if (realTypeItemProvider == null) {
-			realTypeItemProvider = new RealTypeItemProvider(this);
-		}
-
-		return realTypeItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link org.emoflon.express.express.IntegerType} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected IntegerTypeItemProvider integerTypeItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.emoflon.express.express.IntegerType}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createIntegerTypeAdapter() {
-		if (integerTypeItemProvider == null) {
-			integerTypeItemProvider = new IntegerTypeItemProvider(this);
-		}
-
-		return integerTypeItemProvider;
+		return attributeItemProvider;
 	}
 
 	/**
@@ -719,16 +719,16 @@ public class ExpressItemProviderAdapterFactory extends ExpressAdapterFactory imp
 		if (enumerationValueItemProvider != null) enumerationValueItemProvider.dispose();
 		if (aliasTypeItemProvider != null) aliasTypeItemProvider.dispose();
 		if (entityItemProvider != null) entityItemProvider.dispose();
-		if (attributeItemProvider != null) attributeItemProvider.dispose();
 		if (functionItemProvider != null) functionItemProvider.dispose();
 		if (parameterListItemProvider != null) parameterListItemProvider.dispose();
 		if (parameterItemProvider != null) parameterItemProvider.dispose();
 		if (userDefinedTypeListItemProvider != null) userDefinedTypeListItemProvider.dispose();
-		if (dataTypeItemProvider != null) dataTypeItemProvider.dispose();
-		if (stringTypeItemProvider != null) stringTypeItemProvider.dispose();
-		if (booleanTypeItemProvider != null) booleanTypeItemProvider.dispose();
-		if (realTypeItemProvider != null) realTypeItemProvider.dispose();
-		if (integerTypeItemProvider != null) integerTypeItemProvider.dispose();
+		if (attributeItemProvider != null) attributeItemProvider.dispose();
+		if (integerAttributeItemProvider != null) integerAttributeItemProvider.dispose();
+		if (stringAttributeItemProvider != null) stringAttributeItemProvider.dispose();
+		if (realAttributeItemProvider != null) realAttributeItemProvider.dispose();
+		if (booleanAttributeItemProvider != null) booleanAttributeItemProvider.dispose();
+		if (entityAttributeItemProvider != null) entityAttributeItemProvider.dispose();
 	}
 
 }

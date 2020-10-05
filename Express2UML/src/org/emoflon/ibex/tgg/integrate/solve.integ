@@ -3,12 +3,11 @@ package Express2UML.integrate
 #import Entity2Class
 
 handleConflict: solve conflict for all {
-	var packagesAreDeleted = #trg | deleted | type Package | exists 
-	var numSchemasCreated = #src | created | type Schema | count  
-	var numSchemasDeleted = #src | deleted | type Schema | count 
+	var numSchemasDeleted = #src | deleted | type Schema | count
+	var classesAreCreated = #trg | created | type Class | exists
 	
 	satisfies {
-		packagesAreDeleted and numSchemasCreated > 0
+		classesAreCreated and numSchemasDeleted > 0
  	}
 	
-} with preferSource
+} with preferSource 

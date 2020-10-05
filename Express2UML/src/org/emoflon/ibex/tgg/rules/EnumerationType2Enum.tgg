@@ -2,7 +2,7 @@
 #using AttrCondDefLibrary.*
 
 #rule EnumerationType2Enum #with Express2UML
-
+/*
 #source {
 	++et:EnumerationType
 
@@ -81,5 +81,5 @@
 #attributeConditions {
 	eq_string(evSrc.name, evTrg.name)
 }
-
+ */
 

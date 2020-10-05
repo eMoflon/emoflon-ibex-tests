@@ -189,31 +189,6 @@ public class ParameterItemProvider
 			(createChildParameter
 				(ExpressPackage.Literals.PARAMETER__TYPE,
 				 ExpressFactory.eINSTANCE.createUserDefinedTypeReference()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ExpressPackage.Literals.PARAMETER__TYPE,
-				 ExpressFactory.eINSTANCE.createDataType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ExpressPackage.Literals.PARAMETER__TYPE,
-				 ExpressFactory.eINSTANCE.createStringType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ExpressPackage.Literals.PARAMETER__TYPE,
-				 ExpressFactory.eINSTANCE.createBooleanType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ExpressPackage.Literals.PARAMETER__TYPE,
-				 ExpressFactory.eINSTANCE.createRealType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ExpressPackage.Literals.PARAMETER__TYPE,
-				 ExpressFactory.eINSTANCE.createIntegerType()));
 	}
 
 	/**

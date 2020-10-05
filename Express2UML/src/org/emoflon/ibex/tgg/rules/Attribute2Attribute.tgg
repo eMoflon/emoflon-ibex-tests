@@ -1,154 +1,41 @@
 #using Express2UML.*
 #using AttrCondDefLibrary.*
 
-#rule IntegerAttribute2IntegerAttribute #with Express2UML
+#rule IntegerAttribute2Integer #with Express2UML
 
 #source {
-	++it: IntegerType
-	
-	++aSrc:Attribute {
-		++ -type -> it	
+	++ia:IntegerAttribute {
+		optional := false
 	}
 
 	e:Entity {
-		++ -attributes -> aSrc
+		abstracct == false
+		++ -attributes -> ia
 	}
 }
 
 #target {
-	++i: Integer
-	
+	++i:Integer
+
 	c:Class {
-		++ -attributes-> i
+		++ -attributes -> i
 	}
 }
 
 #correspondence {
-	e2c: Entity2Class {
+	e2c:Entity2Class {
 		#src->e
 		#trg->c
 	}
-	
-	++ it2i: IntegerTypeAttribute2IntegerAttribute {
-		#src->it
+
+	++ it2i:IntegerTypeAttribute2Integer {
+		#src->ia
 		#trg->i
 	}
 }
 
 #attributeConditions {
-	eq_string(it.name, i.name)
+	eq_string(ia.name, i.name)
 }
 
-#rule BooleanAttribute2BooleanAttribute #with Express2UML
 
-#source {
-	++bt: BooleanType
-	
-	++aSrc:Attribute {
-		++ -type -> bt	
-	}
-
-	e:Entity {
-		++ -attributes -> aSrc
-	}
-}
-
-#target {
-	++b: Boolean
-	
-	c:Class {
-		++ -attributes-> b
-	}
-}
-
-#correspondence {
-	e2c: Entity2Class {
-		#src->e
-		#trg->c
-	}
-	
-	++ bt2b: BooleanTypeAttribute2BooleanAttribute {
-		#src->bt
-		#trg->b
-	}
-}
-
-#attributeConditions {
-	eq_string(bt.name, b.name)
-}
-
-#rule RealAttribute2RealAttribute #with Express2UML
-
-#source {
-	++rt: RealType
-	
-	++aSrc:Attribute {
-		++ -type -> rt	
-	}
-
-	e:Entity {
-		++ -attributes -> aSrc
-	}
-}
-
-#target {
-	++r: Real
-	
-	c:Class {
-		++ -attributes-> r
-	}
-}
-
-#correspondence {
-	e2c: Entity2Class {
-		#src->e
-		#trg->c
-	}
-	
-	++ rt2r: RealTypeAttribute2RealAttribute {
-		#src->rt
-		#trg->r
-	}
-}
-
-#attributeConditions {
-	eq_string(rt.name, r.name)
-}
-
-#rule StringAttribute2StringAttribute #with Express2UML
-
-#source {
-	++st: StringType
-	
-	++aSrc:Attribute {
-		++ -type -> st	
-	}
-
-	e:Entity {
-		++ -attributes -> aSrc
-	}
-}
-
-#target {
-	++s: String
-	
-	c:Class {
-		++ -attributes-> s
-	}
-}
-
-#correspondence {
-	e2c: Entity2Class {
-		#src->e
-		#trg->c
-	}
-	
-	++ st2s: StringTypeAttribute2StringAttribute {
-		#src->st
-		#trg->s
-	}
-}
-
-#attributeConditions {
-	eq_string(st.name, s.name)
-}

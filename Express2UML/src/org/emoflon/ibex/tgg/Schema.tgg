@@ -27,6 +27,12 @@
 		#trg->Class
 	}
 	
+	IntegerTypeAttribute2Integer {
+		#src->IntegerAttribute
+		#trg->Integer
+	}
+	
+	/* 
 	EnumerationType2Enum {
 		#src->EnumerationType
 		#trg->Enumeration
@@ -46,26 +52,7 @@
 		#src->Attribute
 		#trg->Association
 	}
-	
-	IntegerTypeAttribute2IntegerAttribute {
-		#src->IntegerType
-		#trg->Integer
-	}
-	
-	BooleanTypeAttribute2BooleanAttribute {
-		#src->BooleanType
-		#trg->Boolean
-	}
-	
-	RealTypeAttribute2RealAttribute {
-		#src->RealType
-		#trg->Real
-	}
-	
-	StringTypeAttribute2StringAttribute {
-		#src->StringType
-		#trg->String
-	}
+	*/
 }
 
 #attributeConditions {

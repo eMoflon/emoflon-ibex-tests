@@ -3,7 +3,7 @@
 <plugin>
 	<extension point="org.eclipse.emf.ecore.generated_package">
 		<package
-			uri = "http://www.emoflon.org/express/Express"
+			uri = "platform:/org.emoflon.express/model/generated/Express.ecore"
 			class = "org.emoflon.express.express.ExpressPackage"
 			genModel = "model/generated/Express.genmodel" />
 	</extension>

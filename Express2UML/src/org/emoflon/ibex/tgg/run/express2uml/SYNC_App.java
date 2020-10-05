@@ -6,6 +6,7 @@ import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
+import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.resolution.util.ConflictResolver;
 import org.emoflon.ibex.tgg.operational.strategies.modules.TGGResourceHandler;
 import org.emoflon.ibex.tgg.operational.strategies.sync.SYNC;
 import org.emoflon.ibex.tgg.run.express2uml.config.HiPERegistrationHelper;
@@ -21,19 +22,24 @@ public class SYNC_App extends SYNC {
 
 	public SYNC_App(String projectName, String workspacePath, boolean debug)
 			throws IOException {
-		super(registrationHelper.createIbexOptions().project.name(projectName).project
-				.workspacePath(workspacePath).debug.ibexDebug(debug).ilpSolver(SupportedILPSolver.Sat4J).propagate
-						.usePrecedenceGraph(true).repair.useShortcutRules(false).repair
-								.relaxedSCPatternMatching(false).repair.advancedOverlapStrategies(false)
-										.resourceHandler(new TGGResourceHandler() {
-											@Override
-											public void loadModels() throws IOException {
-												source = createResource(options.project.path() + "/instances/src.xmi");
-												target = createResource(options.project.path() + "/instances/trg.xmi");
-												corr = createResource(options.project.path() + "/instances/corr.xmi");
-												protocol = createResource(options.project.path() + "/instances/protocol.xmi");
-											}
-										}));
+		super(registrationHelper.createIbexOptions()
+				.project.name(projectName)
+				.project.workspacePath(workspacePath)
+				.debug.ibexDebug(debug)
+				.ilpSolver(SupportedILPSolver.Sat4J)
+				.propagate.usePrecedenceGraph(true)
+				.repair.useShortcutRules(false)
+				.repair.relaxedSCPatternMatching(false)
+				.repair.advancedOverlapStrategies(false)
+				.resourceHandler(new TGGResourceHandler() {
+					@Override
+					public void loadModels() throws IOException {
+						source = createResource(options.project.path() + "/instances/src.xmi");
+						target = createResource(options.project.path() + "/instances/trg.xmi");
+						corr = createResource(options.project.path() + "/instances/corr.xmi");
+						protocol = createResource(options.project.path() + "/instances/protocol.xmi");
+					}
+				}));
 	}
 
 	public SYNC_App() throws IOException {

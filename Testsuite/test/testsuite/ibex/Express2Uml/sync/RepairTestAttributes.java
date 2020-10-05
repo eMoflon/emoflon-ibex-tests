@@ -23,13 +23,12 @@ public class RepairTestAttributes extends SyncTestCase<Schema, Package> {
 
 	@Override
 	protected void initHelpers() {
-		
+
 	}
-	
+
 	@Test
-	public void test_FWD()
-	{
-		
+	public void test_FWD() {
+
 	}
 
 }

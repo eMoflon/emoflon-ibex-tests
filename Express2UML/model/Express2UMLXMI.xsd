@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<xsd:schema xmlns:Express2UML="platform:/resource/Express2UML/model/Express2UML.ecore" xmlns:express="http://www.emoflon.org/express/Express" xmlns:org.emoflon.ibex.tgg.runtime="platform:/plugin/org.emoflon.ibex.tgg.runtime/model/Runtime.ecore" xmlns:uml="platform:/resource/uml/model/Uml.ecore" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="platform:/resource/Express2UML/model/Express2UML.ecore">
+<xsd:schema xmlns:Express2UML="platform:/resource/Express2UML/model/Express2UML.ecore" xmlns:express="platform:/org.emoflon.express/model/generated/Express.ecore" xmlns:org.emoflon.ibex.tgg.runtime="platform:/plugin/org.emoflon.ibex.tgg.runtime/model/Runtime.ecore" xmlns:uml="platform:/resource/uml/model/Uml.ecore" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="platform:/resource/Express2UML/model/Express2UML.ecore">
   <xsd:import namespace="platform:/plugin/org.emoflon.ibex.tgg.runtime/model/Runtime.ecore" schemaLocation="runtime.xsd"/>
   <xsd:import namespace="http://www.omg.org/XMI" schemaLocation="platform:/plugin/org.eclipse.emf.ecore/model/XMI.xsd"/>
   <xsd:import namespace="platform:/resource/uml/model/Uml.ecore" schemaLocation="uml.xsd"/>
-  <xsd:import namespace="http://www.emoflon.org/express/Express" schemaLocation="express.xsd"/>
+  <xsd:import namespace="platform:/org.emoflon.express/model/generated/Express.ecore" schemaLocation="express.xsd"/>
   <xsd:complexType name="Schema2Package">
     <xsd:choice maxOccurs="unbounded" minOccurs="0">
       <xsd:element name="source" type="express:Schema"/>
@@ -40,57 +40,9 @@
     <xsd:attribute name="target" type="xsd:string"/>
   </xsd:complexType>
   <xsd:element name="Function2SingleMethodClass" type="Express2UML:Function2SingleMethodClass"/>
-  <xsd:complexType name="EnumerationType2Enum">
+  <xsd:complexType name="IntegerTypeAttribute2Integer">
     <xsd:choice maxOccurs="unbounded" minOccurs="0">
-      <xsd:element name="source" type="express:EnumerationType"/>
-      <xsd:element name="target" type="uml:Enumeration"/>
-      <xsd:element ref="xmi:Extension"/>
-    </xsd:choice>
-    <xsd:attribute ref="xmi:id"/>
-    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
-    <xsd:attribute name="source" type="xsd:string"/>
-    <xsd:attribute name="target" type="xsd:string"/>
-  </xsd:complexType>
-  <xsd:element name="EnumerationType2Enum" type="Express2UML:EnumerationType2Enum"/>
-  <xsd:complexType name="EnumerationValue2EnumerationValue">
-    <xsd:choice maxOccurs="unbounded" minOccurs="0">
-      <xsd:element name="source" type="express:EnumerationValue"/>
-      <xsd:element name="target" type="uml:EnumerationValue"/>
-      <xsd:element ref="xmi:Extension"/>
-    </xsd:choice>
-    <xsd:attribute ref="xmi:id"/>
-    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
-    <xsd:attribute name="source" type="xsd:string"/>
-    <xsd:attribute name="target" type="xsd:string"/>
-  </xsd:complexType>
-  <xsd:element name="EnumerationValue2EnumerationValue" type="Express2UML:EnumerationValue2EnumerationValue"/>
-  <xsd:complexType name="ClassAttribute2Association">
-    <xsd:choice maxOccurs="unbounded" minOccurs="0">
-      <xsd:element name="source" type="express:Attribute"/>
-      <xsd:element name="target" type="uml:Association"/>
-      <xsd:element ref="xmi:Extension"/>
-    </xsd:choice>
-    <xsd:attribute ref="xmi:id"/>
-    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
-    <xsd:attribute name="source" type="xsd:string"/>
-    <xsd:attribute name="target" type="xsd:string"/>
-  </xsd:complexType>
-  <xsd:element name="ClassAttribute2Association" type="Express2UML:ClassAttribute2Association"/>
-  <xsd:complexType name="EnumAttribute2Association">
-    <xsd:choice maxOccurs="unbounded" minOccurs="0">
-      <xsd:element name="source" type="express:Attribute"/>
-      <xsd:element name="target" type="uml:Association"/>
-      <xsd:element ref="xmi:Extension"/>
-    </xsd:choice>
-    <xsd:attribute ref="xmi:id"/>
-    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
-    <xsd:attribute name="source" type="xsd:string"/>
-    <xsd:attribute name="target" type="xsd:string"/>
-  </xsd:complexType>
-  <xsd:element name="EnumAttribute2Association" type="Express2UML:EnumAttribute2Association"/>
-  <xsd:complexType name="IntegerTypeAttribute2IntegerAttribute">
-    <xsd:choice maxOccurs="unbounded" minOccurs="0">
-      <xsd:element name="source" type="express:IntegerType"/>
+      <xsd:element name="source" type="express:IntegerAttribute"/>
       <xsd:element name="target" type="uml:Integer"/>
       <xsd:element ref="xmi:Extension"/>
     </xsd:choice>
@@ -99,92 +51,10 @@
     <xsd:attribute name="source" type="xsd:string"/>
     <xsd:attribute name="target" type="xsd:string"/>
   </xsd:complexType>
-  <xsd:element name="IntegerTypeAttribute2IntegerAttribute" type="Express2UML:IntegerTypeAttribute2IntegerAttribute"/>
-  <xsd:complexType name="BooleanTypeAttribute2BooleanAttribute">
-    <xsd:choice maxOccurs="unbounded" minOccurs="0">
-      <xsd:element name="source" type="express:BooleanType"/>
-      <xsd:element name="target" type="uml:Boolean"/>
-      <xsd:element ref="xmi:Extension"/>
-    </xsd:choice>
-    <xsd:attribute ref="xmi:id"/>
-    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
-    <xsd:attribute name="source" type="xsd:string"/>
-    <xsd:attribute name="target" type="xsd:string"/>
-  </xsd:complexType>
-  <xsd:element name="BooleanTypeAttribute2BooleanAttribute" type="Express2UML:BooleanTypeAttribute2BooleanAttribute"/>
-  <xsd:complexType name="RealTypeAttribute2RealAttribute">
-    <xsd:choice maxOccurs="unbounded" minOccurs="0">
-      <xsd:element name="source" type="express:RealType"/>
-      <xsd:element name="target" type="uml:Real"/>
-      <xsd:element ref="xmi:Extension"/>
-    </xsd:choice>
-    <xsd:attribute ref="xmi:id"/>
-    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
-    <xsd:attribute name="source" type="xsd:string"/>
-    <xsd:attribute name="target" type="xsd:string"/>
-  </xsd:complexType>
-  <xsd:element name="RealTypeAttribute2RealAttribute" type="Express2UML:RealTypeAttribute2RealAttribute"/>
-  <xsd:complexType name="StringTypeAttribute2StringAttribute">
-    <xsd:choice maxOccurs="unbounded" minOccurs="0">
-      <xsd:element name="source" type="express:StringType"/>
-      <xsd:element name="target" type="uml:String"/>
-      <xsd:element ref="xmi:Extension"/>
-    </xsd:choice>
-    <xsd:attribute ref="xmi:id"/>
-    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
-    <xsd:attribute name="source" type="xsd:string"/>
-    <xsd:attribute name="target" type="xsd:string"/>
-  </xsd:complexType>
-  <xsd:element name="StringTypeAttribute2StringAttribute" type="Express2UML:StringTypeAttribute2StringAttribute"/>
-  <xsd:complexType name="BooleanAttribute2BooleanAttribute__Marker">
-    <xsd:complexContent>
-      <xsd:extension base="org.emoflon.ibex.tgg.runtime:TGGRuleApplication">
-        <xsd:choice maxOccurs="unbounded" minOccurs="0">
-          <xsd:element name="CREATE__SRC__aSrc" type="express:Attribute"/>
-          <xsd:element name="CREATE__SRC__bt" type="express:BooleanType"/>
-          <xsd:element name="CONTEXT__SRC__e" type="express:Entity"/>
-          <xsd:element name="CREATE__TRG__b" type="uml:Boolean"/>
-          <xsd:element name="CONTEXT__TRG__c" type="uml:Class"/>
-          <xsd:element name="CREATE__CORR__bt2b" type="Express2UML:BooleanTypeAttribute2BooleanAttribute"/>
-          <xsd:element name="CONTEXT__CORR__e2c" type="Express2UML:Entity2Class"/>
-        </xsd:choice>
-        <xsd:attribute name="CREATE__SRC__aSrc" type="xsd:string"/>
-        <xsd:attribute name="CREATE__SRC__bt" type="xsd:string"/>
-        <xsd:attribute name="CONTEXT__SRC__e" type="xsd:string"/>
-        <xsd:attribute name="CREATE__TRG__b" type="xsd:string"/>
-        <xsd:attribute name="CONTEXT__TRG__c" type="xsd:string"/>
-        <xsd:attribute name="CREATE__CORR__bt2b" type="xsd:string"/>
-        <xsd:attribute name="CONTEXT__CORR__e2c" type="xsd:string"/>
-      </xsd:extension>
-    </xsd:complexContent>
-  </xsd:complexType>
-  <xsd:element name="BooleanAttribute2BooleanAttribute__Marker" type="Express2UML:BooleanAttribute2BooleanAttribute__Marker"/>
+  <xsd:element name="IntegerTypeAttribute2Integer" type="Express2UML:IntegerTypeAttribute2Integer"/>
   <xsd:complexType name="ClassAttribute2Association__Marker">
     <xsd:complexContent>
-      <xsd:extension base="org.emoflon.ibex.tgg.runtime:TGGRuleApplication">
-        <xsd:choice maxOccurs="unbounded" minOccurs="0">
-          <xsd:element name="CREATE__SRC__attr" type="express:Attribute"/>
-          <xsd:element name="CONTEXT__SRC__e1" type="express:Entity"/>
-          <xsd:element name="CONTEXT__SRC__e2" type="express:Entity"/>
-          <xsd:element name="CREATE__SRC__udtr" type="express:UserDefinedTypeReference"/>
-          <xsd:element name="CREATE__TRG__a" type="uml:Association"/>
-          <xsd:element name="CONTEXT__TRG__c1" type="uml:Class"/>
-          <xsd:element name="CONTEXT__TRG__c2" type="uml:Class"/>
-          <xsd:element name="CREATE__CORR__ca2a" type="Express2UML:ClassAttribute2Association"/>
-          <xsd:element name="CONTEXT__CORR__e2c1" type="Express2UML:Entity2Class"/>
-          <xsd:element name="CONTEXT__CORR__e2c2" type="Express2UML:Entity2Class"/>
-        </xsd:choice>
-        <xsd:attribute name="CREATE__SRC__attr" type="xsd:string"/>
-        <xsd:attribute name="CONTEXT__SRC__e1" type="xsd:string"/>
-        <xsd:attribute name="CONTEXT__SRC__e2" type="xsd:string"/>
-        <xsd:attribute name="CREATE__SRC__udtr" type="xsd:string"/>
-        <xsd:attribute name="CREATE__TRG__a" type="xsd:string"/>
-        <xsd:attribute name="CONTEXT__TRG__c1" type="xsd:string"/>
-        <xsd:attribute name="CONTEXT__TRG__c2" type="xsd:string"/>
-        <xsd:attribute name="CREATE__CORR__ca2a" type="xsd:string"/>
-        <xsd:attribute name="CONTEXT__CORR__e2c1" type="xsd:string"/>
-        <xsd:attribute name="CONTEXT__CORR__e2c2" type="xsd:string"/>
-      </xsd:extension>
+      <xsd:extension base="org.emoflon.ibex.tgg.runtime:TGGRuleApplication"/>
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:element name="ClassAttribute2Association__Marker" type="Express2UML:ClassAttribute2Association__Marker"/>
@@ -209,83 +79,12 @@
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:element name="Entity2Class__Marker" type="Express2UML:Entity2Class__Marker"/>
-  <xsd:complexType name="EnumAttribute2Association__Marker">
-    <xsd:complexContent>
-      <xsd:extension base="org.emoflon.ibex.tgg.runtime:TGGRuleApplication">
-        <xsd:choice maxOccurs="unbounded" minOccurs="0">
-          <xsd:element name="CREATE__SRC__attr" type="express:Attribute"/>
-          <xsd:element name="CONTEXT__SRC__e" type="express:Entity"/>
-          <xsd:element name="CONTEXT__SRC__enumSrc" type="express:EnumerationType"/>
-          <xsd:element name="CREATE__SRC__udr" type="express:UserDefinedTypeReference"/>
-          <xsd:element name="CREATE__TRG__a" type="uml:Association"/>
-          <xsd:element name="CONTEXT__TRG__c" type="uml:Class"/>
-          <xsd:element name="CONTEXT__TRG__enumTrg" type="uml:Enumeration"/>
-          <xsd:element name="CONTEXT__CORR__e2c" type="Express2UML:Entity2Class"/>
-          <xsd:element name="CONTEXT__CORR__e2e" type="Express2UML:EnumerationType2Enum"/>
-          <xsd:element name="CREATE__CORR__ea2a" type="Express2UML:EnumAttribute2Association"/>
-        </xsd:choice>
-        <xsd:attribute name="CREATE__SRC__attr" type="xsd:string"/>
-        <xsd:attribute name="CONTEXT__SRC__e" type="xsd:string"/>
-        <xsd:attribute name="CONTEXT__SRC__enumSrc" type="xsd:string"/>
-        <xsd:attribute name="CREATE__SRC__udr" type="xsd:string"/>
-        <xsd:attribute name="CREATE__TRG__a" type="xsd:string"/>
-        <xsd:attribute name="CONTEXT__TRG__c" type="xsd:string"/>
-        <xsd:attribute name="CONTEXT__TRG__enumTrg" type="xsd:string"/>
-        <xsd:attribute name="CONTEXT__CORR__e2c" type="xsd:string"/>
-        <xsd:attribute name="CONTEXT__CORR__e2e" type="xsd:string"/>
-        <xsd:attribute name="CREATE__CORR__ea2a" type="xsd:string"/>
-      </xsd:extension>
-    </xsd:complexContent>
-  </xsd:complexType>
-  <xsd:element name="EnumAttribute2Association__Marker" type="Express2UML:EnumAttribute2Association__Marker"/>
   <xsd:complexType name="EnumerationType2Enum__Marker">
     <xsd:complexContent>
-      <xsd:extension base="org.emoflon.ibex.tgg.runtime:TGGRuleApplication">
-        <xsd:choice maxOccurs="unbounded" minOccurs="0">
-          <xsd:element name="CREATE__SRC__et" type="express:EnumerationType"/>
-          <xsd:element name="CONTEXT__SRC__s" type="express:Schema"/>
-          <xsd:element name="CREATE__TRG__e" type="uml:Enumeration"/>
-          <xsd:element name="CONTEXT__TRG__p" type="uml:Package"/>
-          <xsd:element name="CREATE__CORR__et2e" type="Express2UML:EnumerationType2Enum"/>
-          <xsd:element name="CONTEXT__CORR__s2p" type="Express2UML:Schema2Package"/>
-        </xsd:choice>
-        <xsd:attribute name="CREATE__SRC__et" type="xsd:string"/>
-        <xsd:attribute name="CONTEXT__SRC__s" type="xsd:string"/>
-        <xsd:attribute name="CREATE__TRG__e" type="xsd:string"/>
-        <xsd:attribute name="CONTEXT__TRG__p" type="xsd:string"/>
-        <xsd:attribute name="CREATE__CORR__et2e" type="xsd:string"/>
-        <xsd:attribute name="CONTEXT__CORR__s2p" type="xsd:string"/>
-      </xsd:extension>
+      <xsd:extension base="org.emoflon.ibex.tgg.runtime:TGGRuleApplication"/>
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:element name="EnumerationType2Enum__Marker" type="Express2UML:EnumerationType2Enum__Marker"/>
-  <xsd:complexType name="EnumerationTypeValues2EnumValues__Marker">
-    <xsd:complexContent>
-      <xsd:extension base="org.emoflon.ibex.tgg.runtime:TGGRuleApplication">
-        <xsd:choice maxOccurs="unbounded" minOccurs="0">
-          <xsd:element name="CONTEXT__SRC__et" type="express:EnumerationType"/>
-          <xsd:element name="CREATE__SRC__evSrc" type="express:EnumerationValue"/>
-          <xsd:element name="CONTEXT__SRC__s" type="express:Schema"/>
-          <xsd:element name="CONTEXT__TRG__e" type="uml:Enumeration"/>
-          <xsd:element name="CREATE__TRG__evTrg" type="uml:EnumerationValue"/>
-          <xsd:element name="CONTEXT__TRG__p" type="uml:Package"/>
-          <xsd:element name="CONTEXT__CORR__et2e" type="Express2UML:EnumerationType2Enum"/>
-          <xsd:element name="CREATE__CORR__ev2ev" type="Express2UML:EnumerationValue2EnumerationValue"/>
-          <xsd:element name="CONTEXT__CORR__s2p" type="Express2UML:Schema2Package"/>
-        </xsd:choice>
-        <xsd:attribute name="CONTEXT__SRC__et" type="xsd:string"/>
-        <xsd:attribute name="CREATE__SRC__evSrc" type="xsd:string"/>
-        <xsd:attribute name="CONTEXT__SRC__s" type="xsd:string"/>
-        <xsd:attribute name="CONTEXT__TRG__e" type="xsd:string"/>
-        <xsd:attribute name="CREATE__TRG__evTrg" type="xsd:string"/>
-        <xsd:attribute name="CONTEXT__TRG__p" type="xsd:string"/>
-        <xsd:attribute name="CONTEXT__CORR__et2e" type="xsd:string"/>
-        <xsd:attribute name="CREATE__CORR__ev2ev" type="xsd:string"/>
-        <xsd:attribute name="CONTEXT__CORR__s2p" type="xsd:string"/>
-      </xsd:extension>
-    </xsd:complexContent>
-  </xsd:complexType>
-  <xsd:element name="EnumerationTypeValues2EnumValues__Marker" type="Express2UML:EnumerationTypeValues2EnumValues__Marker"/>
   <xsd:complexType name="Function2SingleMethodClass__Marker">
     <xsd:complexContent>
       <xsd:extension base="org.emoflon.ibex.tgg.runtime:TGGRuleApplication">
@@ -309,21 +108,19 @@
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:element name="Function2SingleMethodClass__Marker" type="Express2UML:Function2SingleMethodClass__Marker"/>
-  <xsd:complexType name="IntegerAttribute2IntegerAttribute__Marker">
+  <xsd:complexType name="IntegerAttribute2Integer__Marker">
     <xsd:complexContent>
       <xsd:extension base="org.emoflon.ibex.tgg.runtime:TGGRuleApplication">
         <xsd:choice maxOccurs="unbounded" minOccurs="0">
-          <xsd:element name="CREATE__SRC__aSrc" type="express:Attribute"/>
           <xsd:element name="CONTEXT__SRC__e" type="express:Entity"/>
-          <xsd:element name="CREATE__SRC__it" type="express:IntegerType"/>
+          <xsd:element name="CREATE__SRC__ia" type="express:IntegerAttribute"/>
           <xsd:element name="CONTEXT__TRG__c" type="uml:Class"/>
           <xsd:element name="CREATE__TRG__i" type="uml:Integer"/>
           <xsd:element name="CONTEXT__CORR__e2c" type="Express2UML:Entity2Class"/>
-          <xsd:element name="CREATE__CORR__it2i" type="Express2UML:IntegerTypeAttribute2IntegerAttribute"/>
+          <xsd:element name="CREATE__CORR__it2i" type="Express2UML:IntegerTypeAttribute2Integer"/>
         </xsd:choice>
-        <xsd:attribute name="CREATE__SRC__aSrc" type="xsd:string"/>
         <xsd:attribute name="CONTEXT__SRC__e" type="xsd:string"/>
-        <xsd:attribute name="CREATE__SRC__it" type="xsd:string"/>
+        <xsd:attribute name="CREATE__SRC__ia" type="xsd:string"/>
         <xsd:attribute name="CONTEXT__TRG__c" type="xsd:string"/>
         <xsd:attribute name="CREATE__TRG__i" type="xsd:string"/>
         <xsd:attribute name="CONTEXT__CORR__e2c" type="xsd:string"/>
@@ -331,30 +128,7 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:element name="IntegerAttribute2IntegerAttribute__Marker" type="Express2UML:IntegerAttribute2IntegerAttribute__Marker"/>
-  <xsd:complexType name="RealAttribute2RealAttribute__Marker">
-    <xsd:complexContent>
-      <xsd:extension base="org.emoflon.ibex.tgg.runtime:TGGRuleApplication">
-        <xsd:choice maxOccurs="unbounded" minOccurs="0">
-          <xsd:element name="CREATE__SRC__aSrc" type="express:Attribute"/>
-          <xsd:element name="CONTEXT__SRC__e" type="express:Entity"/>
-          <xsd:element name="CREATE__SRC__rt" type="express:RealType"/>
-          <xsd:element name="CONTEXT__TRG__c" type="uml:Class"/>
-          <xsd:element name="CREATE__TRG__r" type="uml:Real"/>
-          <xsd:element name="CONTEXT__CORR__e2c" type="Express2UML:Entity2Class"/>
-          <xsd:element name="CREATE__CORR__rt2r" type="Express2UML:RealTypeAttribute2RealAttribute"/>
-        </xsd:choice>
-        <xsd:attribute name="CREATE__SRC__aSrc" type="xsd:string"/>
-        <xsd:attribute name="CONTEXT__SRC__e" type="xsd:string"/>
-        <xsd:attribute name="CREATE__SRC__rt" type="xsd:string"/>
-        <xsd:attribute name="CONTEXT__TRG__c" type="xsd:string"/>
-        <xsd:attribute name="CREATE__TRG__r" type="xsd:string"/>
-        <xsd:attribute name="CONTEXT__CORR__e2c" type="xsd:string"/>
-        <xsd:attribute name="CREATE__CORR__rt2r" type="xsd:string"/>
-      </xsd:extension>
-    </xsd:complexContent>
-  </xsd:complexType>
-  <xsd:element name="RealAttribute2RealAttribute__Marker" type="Express2UML:RealAttribute2RealAttribute__Marker"/>
+  <xsd:element name="IntegerAttribute2Integer__Marker" type="Express2UML:IntegerAttribute2Integer__Marker"/>
   <xsd:complexType name="Schema2Package__Marker">
     <xsd:complexContent>
       <xsd:extension base="org.emoflon.ibex.tgg.runtime:TGGRuleApplication">
@@ -370,27 +144,4 @@
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:element name="Schema2Package__Marker" type="Express2UML:Schema2Package__Marker"/>
-  <xsd:complexType name="StringAttribute2StringAttribute__Marker">
-    <xsd:complexContent>
-      <xsd:extension base="org.emoflon.ibex.tgg.runtime:TGGRuleApplication">
-        <xsd:choice maxOccurs="unbounded" minOccurs="0">
-          <xsd:element name="CREATE__SRC__aSrc" type="express:Attribute"/>
-          <xsd:element name="CONTEXT__SRC__e" type="express:Entity"/>
-          <xsd:element name="CREATE__SRC__st" type="express:StringType"/>
-          <xsd:element name="CONTEXT__TRG__c" type="uml:Class"/>
-          <xsd:element name="CREATE__TRG__s" type="uml:String"/>
-          <xsd:element name="CONTEXT__CORR__e2c" type="Express2UML:Entity2Class"/>
-          <xsd:element name="CREATE__CORR__st2s" type="Express2UML:StringTypeAttribute2StringAttribute"/>
-        </xsd:choice>
-        <xsd:attribute name="CREATE__SRC__aSrc" type="xsd:string"/>
-        <xsd:attribute name="CONTEXT__SRC__e" type="xsd:string"/>
-        <xsd:attribute name="CREATE__SRC__st" type="xsd:string"/>
-        <xsd:attribute name="CONTEXT__TRG__c" type="xsd:string"/>
-        <xsd:attribute name="CREATE__TRG__s" type="xsd:string"/>
-        <xsd:attribute name="CONTEXT__CORR__e2c" type="xsd:string"/>
-        <xsd:attribute name="CREATE__CORR__st2s" type="xsd:string"/>
-      </xsd:extension>
-    </xsd:complexContent>
-  </xsd:complexType>
-  <xsd:element name="StringAttribute2StringAttribute__Marker" type="Express2UML:StringAttribute2StringAttribute__Marker"/>
 </xsd:schema>

@@ -4,29 +4,38 @@
   <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
     <details key="documentation" value="TODO: Add documentation for uml. Hint: You may copy this element in the Ecore editor to add documentation to EClasses, EOperations, ..."/>
   </eAnnotations>
-  <eClassifiers xsi:type="ecore:EClass" name="Class" eSuperTypes="#//Attribute #//AssociationTarget #//AssociationSource">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="packages" lowerBound="1"
+  <eClassifiers xsi:type="ecore:EClass" name="Class" eSuperTypes="#//Attribute #//AssociationTarget">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="package" lowerBound="1"
         eType="#//Package" eOpposite="#//Package/classes"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="imports" upperBound="-1"
-        eType="#//Import"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="attributes" upperBound="-1"
-        eType="#//Attribute"/>
+        eType="#//Import" containment="true" eOpposite="#//Import/clazz"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attributes" lowerBound="1"
+        eType="#//Attribute" containment="true" eOpposite="#//Attribute/clazz"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="methods" upperBound="-1"
-        eType="#//Method"/>
+        eType="#//Method" containment="true" eOpposite="#//Method/clazz"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="associations" upperBound="-1"
+        eType="#//Association" containment="true" eOpposite="#//Association/source"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Package">
     <eStructuralFeatures xsi:type="ecore:EReference" name="classes" upperBound="-1"
-        eType="#//Class" eOpposite="#//Class/packages"/>
+        eType="#//Class" containment="true" eOpposite="#//Class/package"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="enumerations" upperBound="-1"
-        eType="#//Enumeration" eOpposite="#//Enumeration/package"/>
+        eType="#//Enumeration" containment="true" eOpposite="#//Enumeration/package"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="imports" upperBound="-1"
+        eType="#//Import" eOpposite="#//Import/importedPackage"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Import">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="package" lowerBound="1"
-        eType="#//Package"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="importedPackage" lowerBound="1"
+        eType="#//Package" eOpposite="#//Package/imports"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="clazz" eType="#//Class"
+        eOpposite="#//Class/imports"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Attribute" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Attribute" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="clazz" eType="#//Class"
+        eOpposite="#//Class/attributes"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DataType" abstract="true" eSuperTypes="#//Attribute">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
@@ -35,26 +44,32 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="static" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="false"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="clazz" eType="#//Class"
+        eOpposite="#//Class/methods"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Enumeration" eSuperTypes="#//Attribute #//AssociationTarget">
     <eStructuralFeatures xsi:type="ecore:EReference" name="package" lowerBound="1"
         eType="#//Package" eOpposite="#//Package/enumerations"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="values" upperBound="-1"
-        eType="#//EnumerationValue"/>
+        eType="#//EnumerationValue" containment="true" eOpposite="#//EnumerationValue/enumeration"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EnumerationValue">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="enumeration" eType="#//Enumeration"
+        eOpposite="#//Enumeration/values"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Association">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
-        eType="#//AssociationSource"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
-        eType="#//AssociationTarget"/>
+        eType="#//AssociationTarget" eOpposite="#//AssociationTarget/association"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//Class"
+        eOpposite="#//Class/associations"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AssociationSource" abstract="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="AssociationTarget" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AssociationTarget" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="association" eType="#//Association"
+        eOpposite="#//Association/target"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Boolean" eSuperTypes="#//DataType"/>
   <eClassifiers xsi:type="ecore:EClass" name="Real" eSuperTypes="#//DataType"/>
   <eClassifiers xsi:type="ecore:EClass" name="String" eSuperTypes="#//DataType"/>

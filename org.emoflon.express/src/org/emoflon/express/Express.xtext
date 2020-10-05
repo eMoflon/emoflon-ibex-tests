@@ -1,6 +1,6 @@
 grammar org.emoflon.express.Express with org.eclipse.xtext.common.Terminals
 
-generate express "http://www.emoflon.org/express/Express"
+generate express "platform:/org.emoflon.express/model/generated/Express.ecore"
 
 Schema:
 	'SCHEMA' name=ID declarations+=Declaration* 'END_SCHEMA;';
@@ -9,7 +9,7 @@ Declaration:
 	UserDefinedType | Function | UseFrom;
 
 Type:
-	UserDefinedTypeReference | DataType;
+	UserDefinedTypeReference;
 
 UserDefinedTypeReference:
 	type=[UserDefinedType];
@@ -39,14 +39,11 @@ AliasType:
 	'TYPE' name=ID '=' (element=[UserDefinedType]) ';' 'END_TYPE;';
 
 Entity:
-	'ENTITY' name=ID (abstract?='ABSTRACT')?
+	'ENTITY' name=ID (abstracct?='ABSTRACT')?
 	('SUPERTYPE' 'OF' '(' subTypes+=[Entity] (',' subTypes+=[Entity])* ')')?
 	('SUBTYPE' 'OF' '(' superTypes+=[Entity] ')')? ';'
 	(attributes+=Attribute)*
 	'END_ENTITY;';
-
-Attribute:
-	name=ID ':' (optional?='OPTIONAL')? (type=Type) ';';
 
 Function:
 	'FUNCTION' name=ID '(' (parameters=ParameterList)? ')' (':' (returnType=Type)) ';'
@@ -62,21 +59,23 @@ Parameter:
 UserDefinedTypeList:
 	(elements+=[UserDefinedType]) (',' (elements+=[UserDefinedType]))*;
 
-DataType:
-	BooleanType | RealType | IntegerType | StringType;
+Attribute:
+	IntegerAttribute | StringAttribute | RealAttribute | BooleanAttribute | EntityAttribute;
 
-// The word "STRING" does not seem to be parsed correctly or something, can't be used right now
-StringType:
-	name='STRING';
+IntegerAttribute:
+	name=ID ':' (optional?='OPTIONAL')? 'INTEGER' ';';
 
-BooleanType:
-	name='BOOLEAN';
+StringAttribute:
+	name=ID ':' (optional?='OPTIONAL')? 'STRING' ';';
 
-RealType:
-	name='REAL';
+RealAttribute:
+	name=ID ':' (optional?='OPTIONAL')? 'REAL' ';';
 
-IntegerType:
-	name='INTEGER';
+BooleanAttribute:
+	name=ID ':' (optional?='OPTIONAL')? 'BOOLEAN' ';';
+	
+EntityAttribute:
+	name=ID ':' (optional?='OPTIONAL')? entity=[Entity] ';';
 
 	/* 
 GeneralizedTypes:  GeneralAggregationTypes; // AggregateType | GenericEntityType | GenericType

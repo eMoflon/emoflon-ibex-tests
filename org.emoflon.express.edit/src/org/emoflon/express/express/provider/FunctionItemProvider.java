@@ -181,31 +181,6 @@ public class FunctionItemProvider extends DeclarationItemProvider {
 			(createChildParameter
 				(ExpressPackage.Literals.FUNCTION__RETURN_TYPE,
 				 ExpressFactory.eINSTANCE.createUserDefinedTypeReference()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ExpressPackage.Literals.FUNCTION__RETURN_TYPE,
-				 ExpressFactory.eINSTANCE.createDataType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ExpressPackage.Literals.FUNCTION__RETURN_TYPE,
-				 ExpressFactory.eINSTANCE.createStringType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ExpressPackage.Literals.FUNCTION__RETURN_TYPE,
-				 ExpressFactory.eINSTANCE.createBooleanType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ExpressPackage.Literals.FUNCTION__RETURN_TYPE,
-				 ExpressFactory.eINSTANCE.createRealType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ExpressPackage.Literals.FUNCTION__RETURN_TYPE,
-				 ExpressFactory.eINSTANCE.createIntegerType()));
 	}
 
 }

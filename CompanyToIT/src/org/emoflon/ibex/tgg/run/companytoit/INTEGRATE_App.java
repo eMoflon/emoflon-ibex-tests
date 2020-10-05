@@ -11,6 +11,8 @@ import org.emoflon.ibex.tgg.operational.strategies.modules.TGGResourceHandler;
 import org.emoflon.ibex.tgg.run.companytoit.config.HiPERegistrationHelper;
 import org.emoflon.ibex.tgg.util.ilp.ILPFactory.SupportedILPSolver;
 
+import CompanyToIT.integrate.solve.SolveConflictResolver;
+
 public class INTEGRATE_App extends INTEGRATE {
 
 	public static IRegistrationHelper registrationHelper = new HiPERegistrationHelper();
@@ -29,6 +31,7 @@ public class INTEGRATE_App extends INTEGRATE {
 				.repair.omitUnnecessaryContext(true)
 				.repair.disableInjectivity(true)
 				.patterns.useSrcTrgPattern(true)
+				.integration.conflictSolver(new SolveConflictResolver())
 				.resourceHandler(new TGGResourceHandler() {
 					@Override
 					public void loadModels() throws IOException {

@@ -2,8 +2,10 @@ package testsuite.ibex.Express2Uml.sync.util;
 
 import java.io.IOException;
 
+import org.emoflon.express.express.Entity;
 import org.emoflon.express.express.Schema;
 import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
+import org.emoflon.ibex.tgg.run.express2uml.config.DemoclesRegistrationHelper;
 import org.emoflon.ibex.tgg.run.express2uml.SYNC_App;
 import org.emoflon.ibex.tgg.run.express2uml.config.HiPERegistrationHelper;
 
@@ -23,18 +25,22 @@ public class IbexExpress2UML extends IbexAdapter<Schema, Package> {
 	@Override
 	public void initiateSynchronisationDialogue() {
 		try {
-			SYNC_App.registrationHelper = UsedPatternMatcher.choose(new IRegistrationHelper[]{new HiPERegistrationHelper()});
-			synchroniser = new SYNC_App(projectName, testsuite.ibex.performance.util.PerformanceConstants.workspacePath, false);
-			
-			Schema schema = ExpressHelper.createSchema("MOFLON_SCHEMA");
-			//ExpressHelper.createEntity(schema, "MOFLON_ENTITY");
-			
+			SYNC_App.registrationHelper = UsedPatternMatcher.choose(
+					new IRegistrationHelper[] { new DemoclesRegistrationHelper(), new HiPERegistrationHelper() });
+			synchroniser = new SYNC_App(projectName, testsuite.ibex.performance.util.PerformanceConstants.workspacePath,
+					false);
+
+			Schema schema = ExpressHelper.createSchema("Moflon_Schema");
+			Entity entity = ExpressHelper.createEntity(schema, "Moflon_Entity");
+			ExpressHelper.createIntegerAttribute(entity, "integerAttribute");
+			ExpressHelper.createFunction(schema, "func");
+
 			synchroniser.getResourceHandler().getSourceResource().getContents().add(schema);
 			synchroniser.forward();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+
 	}
 
 }
