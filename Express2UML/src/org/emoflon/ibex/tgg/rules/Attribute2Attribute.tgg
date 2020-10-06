@@ -5,11 +5,9 @@
 
 #source {
 	++ia:IntegerAttribute {
-		optional := false
 	}
 
 	e:Entity {
-		abstracct == false
 		++ -attributes -> ia
 	}
 }
@@ -17,13 +15,13 @@
 #target {
 	++i:Integer
 
-	c:Class {
+	c:Clazz {
 		++ -attributes -> i
 	}
 }
 
 #correspondence {
-	e2c:Entity2Class {
+	e2c:Entity2Clazz {
 		#src->e
 		#trg->c
 	}

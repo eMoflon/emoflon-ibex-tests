@@ -1,13 +1,14 @@
 package Express2UML.integrate
 
-#import Entity2Class
+#import Entity2Clazz
+
 
 handleConflict: solve conflict for all {
 	var numSchemasDeleted = #src | deleted | type Schema | count
-	var classesAreCreated = #trg | created | type Class | exists
+	var classesAreCreated = #trg | created | type Clazz | exists
 	
 	satisfies {
 		classesAreCreated and numSchemasDeleted > 0
  	}
 	
-} with preferSource 
+} with preferSource

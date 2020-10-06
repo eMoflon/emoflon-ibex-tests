@@ -1,7 +1,7 @@
 #using Express2UML.*
 #using AttrCondDefLibrary.*
-
-#rule Function2SingleMethodClass #with Express2UML
+ 
+#rule Function2SingleMethodClazz #with Express2UML
 
 #source {
 	++f:Function
@@ -13,15 +13,15 @@
 
 #target {
 	++m:Method {
-		static := true
+		static_ := true
 	}
 
-	++c:Class {
+	++c:Clazz {
 		++ -methods -> m
 	}
 
 	p:Package {
-		++ -classes -> c
+		++ -clazzes -> c
 	}
 }
 
@@ -31,7 +31,7 @@
 		#trg->p
 	}
 
-	++f2smc:Function2SingleMethodClass {
+	++f2smc:Function2SingleMethodClazz {
 		#src->f
 		#trg->c
 	}

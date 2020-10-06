@@ -29,12 +29,8 @@ public class IbexExpress2UML extends IbexAdapter<Schema, Package> {
 					new IRegistrationHelper[] { new DemoclesRegistrationHelper(), new HiPERegistrationHelper() });
 			synchroniser = new SYNC_App(projectName, testsuite.ibex.performance.util.PerformanceConstants.workspacePath,
 					false);
-
-			Schema schema = ExpressHelper.createSchema("Moflon_Schema");
-			Entity entity = ExpressHelper.createEntity(schema, "Moflon_Entity");
-			ExpressHelper.createIntegerAttribute(entity, "integerAttribute");
-			ExpressHelper.createFunction(schema, "func");
-
+			
+			Schema schema = ExpressHelper.createSchema("schema");
 			synchroniser.getResourceHandler().getSourceResource().getContents().add(schema);
 			synchroniser.forward();
 		} catch (IOException e) {

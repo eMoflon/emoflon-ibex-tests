@@ -49,7 +49,7 @@ public class EntityItemProvider extends UserDefinedTypeItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addAbstracctPropertyDescriptor(object);
+			addAbstract_PropertyDescriptor(object);
 			addSubTypesPropertyDescriptor(object);
 			addSuperTypesPropertyDescriptor(object);
 		}
@@ -57,19 +57,19 @@ public class EntityItemProvider extends UserDefinedTypeItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Abstracct feature.
+	 * This adds a property descriptor for the Abstract  feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addAbstracctPropertyDescriptor(Object object) {
+	protected void addAbstract_PropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Entity_abstracct_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Entity_abstracct_feature", "_UI_Entity_type"),
-				 ExpressPackage.Literals.ENTITY__ABSTRACCT,
+				 getString("_UI_Entity_abstract__feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Entity_abstract__feature", "_UI_Entity_type"),
+				 ExpressPackage.Literals.ENTITY__ABSTRACT_,
 				 true,
 				 false,
 				 false,
@@ -190,7 +190,7 @@ public class EntityItemProvider extends UserDefinedTypeItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Entity.class)) {
-			case ExpressPackage.ENTITY__ABSTRACCT:
+			case ExpressPackage.ENTITY__ABSTRACT_:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case ExpressPackage.ENTITY__ATTRIBUTES:

@@ -1,16 +1,16 @@
 package testsuite.ibex.Express2Uml.comparison
 
+import Express2UML.Entity2Clazz
+import Express2UML.Schema2Package
 import org.eclipse.emf.ecore.EObject
 import testsuite.ibex.testUtil.CorrComparator
-import Express2UML.Schema2Package
-import Express2UML.Entity2Class
 
 class Express2UMLCorrespondenceComparator extends CorrComparator {
 	
 	override stringify(EObject corr) {
 		switch corr {
 			Schema2Package: corr.stringify()
-			Entity2Class: corr.stringify()
+			Entity2Clazz: corr.stringify()
 		}
 	}
 	
@@ -23,7 +23,7 @@ class Express2UMLCorrespondenceComparator extends CorrComparator {
 		'''
 	}
 	
-	private def String stringify(Entity2Class corr) {
+	private def String stringify(Entity2Clazz corr) {
 		'''
 		Entity2Class {
 			SRC {"«corr.source.name»}

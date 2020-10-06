@@ -1,11 +1,10 @@
 #using Express2UML.*
 #using AttrCondDefLibrary.*
 
-#rule Entity2Class #with Express2UML
+#rule Entity2Clazz #with Express2UML
 
 #source {
 	++e:Entity {
-		abstracct := false
 	}
 
 	s:Schema {
@@ -14,10 +13,10 @@
 }
 
 #target {
-	++c:Class
+	++c:Clazz
 
 	p:Package {
-		++ -classes -> c
+		++ -clazzes -> c
 	}
 }
 
@@ -27,7 +26,7 @@
 		#trg->p
 	}
 
-	++ e2c:Entity2Class {
+	++ e2c:Entity2Clazz {
 		#src->e
 		#trg->c
 	}

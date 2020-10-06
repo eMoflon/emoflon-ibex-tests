@@ -42,7 +42,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Express.ecore#//AliasType/element"/>
     </genClasses>
     <genClasses ecoreClass="Express.ecore#//Entity">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Express.ecore#//Entity/abstracct"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Express.ecore#//Entity/abstract_"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Express.ecore#//Entity/subTypes"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Express.ecore#//Entity/superTypes"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Express.ecore#//Entity/attributes"/>

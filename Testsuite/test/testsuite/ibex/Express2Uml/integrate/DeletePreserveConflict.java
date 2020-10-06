@@ -1,13 +1,11 @@
 package testsuite.ibex.Express2Uml.integrate;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.emoflon.express.express.Declaration;
 import org.emoflon.express.express.Entity;
 import org.emoflon.express.express.Schema;
 import org.junit.Test;
 
 import testsuite.ibex.Express2Uml.common.ExpressHelper;
-import testsuite.ibex.Express2Uml.common.UMLHelper;
 import testsuite.ibex.Express2Uml.integrate.util.IntegIbexSchema2Package;
 import testsuite.ibex.testUtil.IntegrateTestCase;
 
@@ -37,7 +35,7 @@ public class DeletePreserveConflict extends IntegrateTestCase<Schema, uml.Packag
 			Entity entity = (Entity) schema.getDeclarations().get(0);
 			ExpressHelper.createIntegerAttribute(entity, "integerAttribute");
 			// trg:
-			EcoreUtil.delete(pkg.getClasses().get(0));
+			EcoreUtil.delete(pkg.getClazzes().get(0));
 		});
 
 		// assertCondition(path + "src", path + "trg", path + "corr");

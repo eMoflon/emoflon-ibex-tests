@@ -3,7 +3,7 @@
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="Express2UML/gen/" modelPluginID="Express2UML" modelName="Express2UML"
     generateSchema="true" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
-    usedGenPackages="../../UML/model/UML.genmodel#//uml platform:/plugin/org.emoflon.ibex.tgg.runtime/model/Runtime.genmodel#//runtime ../../org.emoflon.express/model/generated/Express.genmodel#//express"
+    usedGenPackages="../../org.emoflon.express/model/generated/Express.genmodel#//express platform:/plugin/org.emoflon.ibex.tgg.runtime/model/Runtime.genmodel#//runtime ../../UML/model/UML.genmodel#//uml"
     operationReflection="true" importOrganizing="true">
   <foreignModel>Express2UML.ecore</foreignModel>
   <genPackages prefix="Express2UML" disposableProviderFactory="true" ecorePackage="Express2UML.ecore#/">
@@ -11,36 +11,47 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Express2UML.ecore#//Schema2Package/source"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Express2UML.ecore#//Schema2Package/target"/>
     </genClasses>
-    <genClasses ecoreClass="Express2UML.ecore#//Entity2Class">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Express2UML.ecore#//Entity2Class/source"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Express2UML.ecore#//Entity2Class/target"/>
+    <genClasses ecoreClass="Express2UML.ecore#//Entity2Clazz">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Express2UML.ecore#//Entity2Clazz/source"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Express2UML.ecore#//Entity2Clazz/target"/>
     </genClasses>
-    <genClasses ecoreClass="Express2UML.ecore#//Function2SingleMethodClass">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Express2UML.ecore#//Function2SingleMethodClass/source"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Express2UML.ecore#//Function2SingleMethodClass/target"/>
+    <genClasses ecoreClass="Express2UML.ecore#//Function2SingleMethodClazz">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Express2UML.ecore#//Function2SingleMethodClazz/source"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Express2UML.ecore#//Function2SingleMethodClazz/target"/>
     </genClasses>
     <genClasses ecoreClass="Express2UML.ecore#//IntegerTypeAttribute2Integer">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Express2UML.ecore#//IntegerTypeAttribute2Integer/source"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Express2UML.ecore#//IntegerTypeAttribute2Integer/target"/>
     </genClasses>
-    <genClasses ecoreClass="Express2UML.ecore#//ClassAttribute2Association__Marker"/>
-    <genClasses ecoreClass="Express2UML.ecore#//Entity2Class__Marker">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Express2UML.ecore#//Entity2Class__Marker/CREATE__SRC__e"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Express2UML.ecore#//Entity2Class__Marker/CONTEXT__SRC__s"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Express2UML.ecore#//Entity2Class__Marker/CREATE__TRG__c"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Express2UML.ecore#//Entity2Class__Marker/CONTEXT__TRG__p"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Express2UML.ecore#//Entity2Class__Marker/CREATE__CORR__e2c"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Express2UML.ecore#//Entity2Class__Marker/CONTEXT__CORR__s2p"/>
+    <genClasses ecoreClass="Express2UML.ecore#//EnumerationType2Enum">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Express2UML.ecore#//EnumerationType2Enum/source"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Express2UML.ecore#//EnumerationType2Enum/target"/>
     </genClasses>
-    <genClasses ecoreClass="Express2UML.ecore#//EnumerationType2Enum__Marker"/>
-    <genClasses ecoreClass="Express2UML.ecore#//Function2SingleMethodClass__Marker">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Express2UML.ecore#//Function2SingleMethodClass__Marker/CREATE__SRC__f"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Express2UML.ecore#//Function2SingleMethodClass__Marker/CONTEXT__SRC__s"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Express2UML.ecore#//Function2SingleMethodClass__Marker/CREATE__TRG__c"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Express2UML.ecore#//Function2SingleMethodClass__Marker/CREATE__TRG__m"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Express2UML.ecore#//Function2SingleMethodClass__Marker/CONTEXT__TRG__p"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Express2UML.ecore#//Function2SingleMethodClass__Marker/CREATE__CORR__f2smc"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Express2UML.ecore#//Function2SingleMethodClass__Marker/CONTEXT__CORR__s2p"/>
+    <genClasses ecoreClass="Express2UML.ecore#//ClassAttribute2Association__Marker"/>
+    <genClasses ecoreClass="Express2UML.ecore#//Entity2Clazz__Marker">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Express2UML.ecore#//Entity2Clazz__Marker/CREATE__SRC__e"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Express2UML.ecore#//Entity2Clazz__Marker/CONTEXT__SRC__s"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Express2UML.ecore#//Entity2Clazz__Marker/CREATE__TRG__c"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Express2UML.ecore#//Entity2Clazz__Marker/CONTEXT__TRG__p"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Express2UML.ecore#//Entity2Clazz__Marker/CREATE__CORR__e2c"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Express2UML.ecore#//Entity2Clazz__Marker/CONTEXT__CORR__s2p"/>
+    </genClasses>
+    <genClasses ecoreClass="Express2UML.ecore#//EnumerationType2Enum__Marker">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Express2UML.ecore#//EnumerationType2Enum__Marker/CREATE__SRC__et"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Express2UML.ecore#//EnumerationType2Enum__Marker/CONTEXT__SRC__s"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Express2UML.ecore#//EnumerationType2Enum__Marker/CREATE__TRG__e"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Express2UML.ecore#//EnumerationType2Enum__Marker/CONTEXT__TRG__p"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Express2UML.ecore#//EnumerationType2Enum__Marker/CREATE__CORR__et2e"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Express2UML.ecore#//EnumerationType2Enum__Marker/CONTEXT__CORR__s2p"/>
+    </genClasses>
+    <genClasses ecoreClass="Express2UML.ecore#//Function2SingleMethodClazz__Marker">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Express2UML.ecore#//Function2SingleMethodClazz__Marker/CREATE__SRC__f"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Express2UML.ecore#//Function2SingleMethodClazz__Marker/CONTEXT__SRC__s"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Express2UML.ecore#//Function2SingleMethodClazz__Marker/CREATE__TRG__c"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Express2UML.ecore#//Function2SingleMethodClazz__Marker/CREATE__TRG__m"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Express2UML.ecore#//Function2SingleMethodClazz__Marker/CONTEXT__TRG__p"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Express2UML.ecore#//Function2SingleMethodClazz__Marker/CREATE__CORR__f2smc"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Express2UML.ecore#//Function2SingleMethodClazz__Marker/CONTEXT__CORR__s2p"/>
     </genClasses>
     <genClasses ecoreClass="Express2UML.ecore#//IntegerAttribute2Integer__Marker">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Express2UML.ecore#//IntegerAttribute2Integer__Marker/CONTEXT__SRC__e"/>

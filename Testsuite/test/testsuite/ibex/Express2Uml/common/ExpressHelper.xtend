@@ -14,7 +14,7 @@ class ExpressHelper {
 
 	def static createEntity(Schema schema, String name) {
 		val entity = ExpressFactory.eINSTANCE.createEntity();
-		entity.abstracct = false
+		entity.abstract_ = false
 		entity.name = name;
 		schema.getDeclarations().add(entity);
 		entity
@@ -33,6 +33,13 @@ class ExpressHelper {
 		val function = ExpressFactory.eINSTANCE.createFunction()
 		function.name = name
 		schema.declarations.add(function)
+	}
+	
+	def static createEnumerationType(Schema schema, String name) {
+		val enumerationType = ExpressFactory.eINSTANCE.createEnumerationType()
+		enumerationType.name = name
+		schema.declarations.add(enumerationType)
+		enumerationType
 	}
 
 }

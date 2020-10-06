@@ -17,14 +17,14 @@
 		#trg->Package
 	}
 	
-	Entity2Class {
+	Entity2Clazz {
 		#src->Entity
-		#trg->Class
+		#trg->Clazz
 	}
 	
-	Function2SingleMethodClass {
+	Function2SingleMethodClazz {
 		#src->Function
-		#trg->Class
+		#trg->Clazz
 	}
 	
 	IntegerTypeAttribute2Integer {
@@ -32,12 +32,12 @@
 		#trg->Integer
 	}
 	
-	/* 
+	 
 	EnumerationType2Enum {
 		#src->EnumerationType
 		#trg->Enumeration
 	}
-	
+	/*
 	EnumerationValue2EnumerationValue {
 		#src->EnumerationValue
 		#trg->EnumerationValue

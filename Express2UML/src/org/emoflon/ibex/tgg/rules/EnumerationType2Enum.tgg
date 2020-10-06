@@ -2,7 +2,7 @@
 #using AttrCondDefLibrary.*
 
 #rule EnumerationType2Enum #with Express2UML
-/*
+
 #source {
 	++et:EnumerationType
 
@@ -34,52 +34,4 @@
 #attributeConditions {
 	eq_string(et.name, e.name)
 }
-
-#rule EnumerationTypeValues2EnumValues #with Express2UML
-
-#source {
-	++evSrc:EnumerationValue
-
-	et:EnumerationType {
-		++ -values -> evSrc
-	}
-
-	s:Schema {
-		-declarations -> et
-	}
-}
-
-#target {
-	++evTrg:EnumerationValue
-
-	e:Enumeration {
-		++ -values -> evTrg
-	}
-
-	p:Package {
-		-enumerations -> e
-	}
-}
-
-#correspondence {
-	s2p:Schema2Package {
-		#src->s
-		#trg->p
-	}
-
-	et2e:EnumerationType2Enum {
-		#src->et
-		#trg->e
-	}
-
-	++ ev2ev:EnumerationValue2EnumerationValue {
-		#src->evSrc
-		#trg->evTrg
-	}
-}
-
-#attributeConditions {
-	eq_string(evSrc.name, evTrg.name)
-}
- */
 
