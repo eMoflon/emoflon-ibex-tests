@@ -31,6 +31,8 @@ public class IbexExpress2UML extends IbexAdapter<Schema, Package> {
 					false);
 			
 			Schema schema = ExpressHelper.createSchema("schema");
+			Entity entity = ExpressHelper.createEntity(schema, "entity");
+			ExpressHelper.createIntegerAttribute(entity, "integerAttr");
 			synchroniser.getResourceHandler().getSourceResource().getContents().add(schema);
 			synchroniser.forward();
 		} catch (IOException e) {

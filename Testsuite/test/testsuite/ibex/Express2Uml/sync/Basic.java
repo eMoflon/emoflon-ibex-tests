@@ -28,6 +28,11 @@ public class Basic extends SyncTestCase<Schema, Package> {
 	protected void initHelpers() {
 
 	}
+	
+	@Test
+	public void executeFWD() {
+		
+	}
 
 	@Test
 	public void Entity2Clazz_FWD() {

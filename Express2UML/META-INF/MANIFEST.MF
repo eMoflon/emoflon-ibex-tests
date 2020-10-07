@@ -11,7 +11,7 @@ Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: Express2UML,
  Express2UML.impl,
- Express2UML.integrate.solve,
+ Express2UML.integrate.deletePreserve,
  Express2UML.util,
  org.emoflon.ibex.tgg.run.express2uml,
  org.emoflon.ibex.tgg.run.express2uml.config

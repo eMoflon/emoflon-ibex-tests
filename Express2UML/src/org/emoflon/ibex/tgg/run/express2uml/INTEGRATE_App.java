@@ -10,12 +10,9 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.INTEGRATE;
-import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.resolution.util.ConflictResolver;
 import org.emoflon.ibex.tgg.operational.strategies.modules.TGGResourceHandler;
 import org.emoflon.ibex.tgg.run.express2uml.config.HiPERegistrationHelper;
 import org.emoflon.ibex.tgg.util.ilp.ILPFactory.SupportedILPSolver;
-
-import Express2UML.integrate.solve.SolveConflictResolver;
 
 public class INTEGRATE_App extends INTEGRATE {
 
@@ -25,11 +22,10 @@ public class INTEGRATE_App extends INTEGRATE {
 	public static IRegistrationHelper registrationHelper = new HiPERegistrationHelper();
 
 	public INTEGRATE_App(String projectName, String workspacePath, String initPath, SupportedILPSolver ilpSolver,
-			boolean debug, ConflictResolver conflictResolver) throws IOException {
+			boolean debug) throws IOException {
 		super(registrationHelper.createIbexOptions()
 				.project.name(projectName)
 				.project.workspacePath(workspacePath)
-				.integration.conflictSolver(conflictResolver)
 				.ilpSolver(SupportedILPSolver.Sat4J)
 				.debug.ibexDebug(debug)
 				.propagate.usePrecedenceGraph(true)
