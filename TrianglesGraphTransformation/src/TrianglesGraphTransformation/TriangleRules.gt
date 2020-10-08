@@ -46,10 +46,10 @@ rule connectA2B() {
 } when a2bNot
 
 rule connectA2BOrdered() {
-	a : A_Class {
-		.id <= b.id
+	a : A_Class {	
 		++ -b->b
 	}
+	a.id <= b.id
 	
 	b : B_Class {
 		++ -a->a
@@ -58,9 +58,9 @@ rule connectA2BOrdered() {
 
 rule connectA2COrdered() {
 	a : A_Class {
-		.id <= c.id
 		++ -c-> c
 	}
+	a.id <= c.id
 	
 	c : C_Class {
 		++ -a->a
@@ -79,10 +79,9 @@ rule connectA2C() {
 
 rule connectB2COrdered() {
 	b : B_Class {
-		.id <= c.id
 		++ -c-> c
 	}
-	
+	b.id <= c.id
 	c : C_Class {
 		++ -b->b
 	}
@@ -100,17 +99,17 @@ rule connectB2C() {
 
 rule connectABCIncrementalOrdered() {
 	a : A_Class {
-		.id <= b.id
-		.id <= c.id
 		-b-> b
 		-c-> c
 	}
+	a.id <= b.id
+	a.id <= c.id
 	
 	b : B_Class {
-		.id <= c.id
 		-a->a
 		++ -c->c
 	}
+	b.id <= c.id
 	
 	c : C_Class {
 		-a->a
@@ -136,18 +135,18 @@ rule connectABCIncremental() {
 } when b2cNot
 
 rule connectABCFullOrdered() {
-	a : A_Class {
-		.id <= b.id
-		.id <= c.id
+	a : A_Class {	
 		++ -b-> b
 		++ -c-> c
 	}
+	a.id <= b.id
+	a.id <= c.id
 	
 	b : B_Class {
-		.id <= c.id
 		++ -a->a
 		++ -c->c
 	}
+	b.id <= c.id
 	
 	c : C_Class {
 		++ -a->a
