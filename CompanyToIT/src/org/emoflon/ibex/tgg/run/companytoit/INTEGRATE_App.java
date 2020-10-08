@@ -27,7 +27,7 @@ public class INTEGRATE_App extends INTEGRATE {
 				.repair.relaxedSCPatternMatching(true)
 				.repair.omitUnnecessaryContext(true)
 				.repair.disableInjectivity(true)
-				.invocation.usePatternInvocation(true)
+				.patterns.useSrcTrgPattern(true)
 				.resourceHandler(new TGGResourceHandler() {
 					@Override
 					public void loadModels() throws IOException {
