@@ -15,12 +15,11 @@ condition isEmptyPackage = forbid findClassInPackage
  * Deletes the package with the given name.
  */
 rule deletePackageByName(name: EString) {
-	-- package: ClassPackage {
-		.name == param::name
-	}
-}
+	--package: ClassPackage
+	package.name == param::name
+}  
 
-/**
+/** 
  * Deletes a class.
  */
 rule deleteClass {

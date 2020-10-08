@@ -16,9 +16,8 @@ pattern findCharacter() {
  */
 pattern findCharacterOfColor(color: COLOR)
 refines findCharacter {
-	character: Character {
-		.color == param::color
-	}
+	character: Character
+	character.color == param::color
 }
 
 /*
