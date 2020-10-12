@@ -12,7 +12,7 @@ pattern findFatherAndSonWithSameName() {
 	father: FamilyMember
 
 	son: FamilyMember
-	son.name == father.name
+	# son.name == father.name
 }
 
 /**

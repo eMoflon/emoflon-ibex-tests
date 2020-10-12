@@ -8,12 +8,12 @@ rule transformBlueAndRedToPurpleCharacter {
 	-- blueCharacter: Character {
 		-- -standsOn -> platform
 	}
-	blueCharacter.color == enum::BLUE 
+	# blueCharacter.color == enum::BLUE 
 
 	-- redCharacter: Character {
 		-- -standsOn -> platform
 	}
-	redCharacter.color == enum::RED
+	# redCharacter.color == enum::RED
 
 	++ purpleCharacter: Character {
 		.color := enum::PURPLE
@@ -46,7 +46,7 @@ rule transformPurpleToBlueAndRedCharacter {
 	-- purpleCharacter: Character {
 		-- -standsOn -> platform
 	}
-	purpleCharacter.color == enum::PURPLE
+	# purpleCharacter.color == enum::PURPLE
 
 	platform: Platform
 

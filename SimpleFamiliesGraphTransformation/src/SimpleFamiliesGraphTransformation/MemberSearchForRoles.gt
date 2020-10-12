@@ -76,5 +76,5 @@ condition memberIsNamedBart = enforce findMemberNamedBart
  */
 abstract pattern findMemberNamedBart {
 	member: FamilyMember
-	member.name == "Bart"
+	# member.name == "Bart"
 }

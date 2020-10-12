@@ -102,5 +102,5 @@ refines findMember {
  */
 pattern findMemberByFirstName(firstName: EString) {
 	member: FamilyMember
-	member.name == param::firstName
+	# member.name == param::firstName
 }

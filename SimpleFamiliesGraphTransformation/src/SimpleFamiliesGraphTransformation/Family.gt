@@ -60,7 +60,7 @@ pattern findFamily {
 pattern findSimpsonFamily
 refines findFamily {
 	family: Family 
-	family.name == "Simpson"
+	# family.name == "Simpson"
 }
 
 /**
@@ -69,7 +69,7 @@ refines findFamily {
 pattern findFamilyButNotSimpson
 refines findFamily {
 	family: Family 
-	family.name != "Simpson"
+	# family.name != "Simpson"
 }
 
 /**
@@ -78,7 +78,7 @@ refines findFamily {
 pattern findFamilyWithNameGreaterOrEqualThanSimpson
 refines findFamily {
 	family: Family 
-	family.name >= "Simpson"
+	# family.name >= "Simpson"
 }
 
 /**
@@ -87,7 +87,7 @@ refines findFamily {
 pattern findFamilyWithNameGreaterThanSimpson
 refines findFamily {
 	family: Family 
-	family.name > "Simpson"
+	# family.name > "Simpson"
 }
 
 /**
@@ -96,7 +96,7 @@ refines findFamily {
 pattern findFamilyWithNameSmallerOrEqualThanSimpson
 refines findFamily {
 	family: Family
-	family.name <= "Simpson"
+	# family.name <= "Simpson"
 }
 
 /**
@@ -105,7 +105,7 @@ refines findFamily {
 pattern findFamilyWithNameSmallerThanSimpson
 refines findFamily {
 	family: Family
-	family.name < "Simpson"
+	# family.name < "Simpson"
 }
 
 /**
@@ -114,7 +114,7 @@ refines findFamily {
 pattern findFamilyByName(name: EString)
 refines findFamily {
 	family: Family
-	family.name == param::name
+	# family.name == param::name
 }
 
 /**
@@ -123,7 +123,7 @@ refines findFamily {
 pattern findFamilyNotNamed(name: EString)
 refines findFamily {
 	family: Family
-	family.name != param::name
+	# family.name != param::name
 }
 
 /**
@@ -132,7 +132,7 @@ refines findFamily {
 pattern findFamilyWithNameGreaterThan(name: EString)
 refines findFamily {
 	family: Family
-	family.name > param::name
+	# family.name > param::name
 }
 
 /**
@@ -142,7 +142,7 @@ refines findFamily {
 pattern findFamilyWithNameGreaterOrEqualThan(name: EString)
 refines findFamily {
 	family: Family
-	family.name >= param::name
+	# family.name >= param::name
 }
 
 /**
@@ -151,7 +151,7 @@ refines findFamily {
 pattern findFamilyWithNameSmallerThan(name: EString)
 refines findFamily {
 	family: Family
-	family.name < param::name
+	# family.name < param::name
 }
 
 /**
@@ -161,7 +161,7 @@ refines findFamily {
 pattern findFamilyWithNameSmallerOrEqualThan(name: EString)
 refines findFamily {
 	family: Family
-	family.name <= param::name
+	# family.name <= param::name
 }
 
 /**
@@ -171,7 +171,7 @@ rule renameFamily(oldName: EString, newName: EString) {
 	family: Family {
 		.name := param::newName
 	}
-	family.name == param::oldName
+	# family.name == param::oldName
 }
 
 /**
@@ -181,8 +181,8 @@ pattern findThreeFamiliesOfTheSameName {
 	family1: Family
 
 	family2: Family
-	family2.name == family1.name
+	# family2.name == family1.name
 
 	family3: Family
-	family3.name == family1.name
+	# family3.name == family1.name
 }

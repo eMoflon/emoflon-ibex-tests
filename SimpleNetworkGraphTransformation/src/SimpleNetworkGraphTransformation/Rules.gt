@@ -12,7 +12,7 @@ rule connect{
 		.otherValue := calc(-from.maxBandwidth)
 		++ -connections -> connection
 	}
-	from.maxBandwidth >=calc(3)
+	# from.maxBandwidth >=calc(3)
 	
 	to: Device{
 		.maxBandwidth := calc(to.maxBandwidth -3)
@@ -20,7 +20,7 @@ rule connect{
 		.otherValue := calc(-(3+to.currentConnections))
 		++ -connections -> connection
 	}
-	to.maxBandwidth >= calc(3)
+	# to.maxBandwidth >= calc(3)
 	
 	++ connection: Connection{
 		.bandwidth := calc(exp(-to.currentConnections))
@@ -50,13 +50,13 @@ rule testFunctions{
 		.otherValue := calc(abs(-device1.maxBandwidth))
 		.maxBandwidth := calc(log(device1.maxConnections))
 	}
-	device1.maxBandwidth > calc(0.0)
+	# device1.maxBandwidth > calc(0.0)
 	
 	device2: Device{
 		.flag := calc(tan(device2.maxBandwidth))
 		.otherValue := calc(exp(-device2.maxConnections)) 
 	}
-	device2.maxBandwidth > calc(0.0)
+	# device2.maxBandwidth > calc(0.0)
 }
 
 rule testException1{
@@ -86,21 +86,21 @@ rule testException4{
 
 pattern testConstraint1{
 	device1: Device
-	device1.maxBandwidth <= calc(device2.maxBandwidth)
+	# device1.maxBandwidth <= calc(device2.maxBandwidth)
 	
 	device2: Device
 }
 
 pattern testConstraint2{
 	device1: Device
-	device1.maxBandwidth != calc(device2.maxBandwidth/device2.currentConnections+1)
+	# device1.maxBandwidth != calc(device2.maxBandwidth/device2.currentConnections+1)
 	
 	device2: Device
 }
 
 pattern testConstraint3{
 	network : Network
-	network.deviceNumber == calc(count(findDevice))
+	# network.deviceNumber == calc(count(findDevice))
 }
 
 rule createNetwork {
@@ -113,12 +113,12 @@ pattern findNetwork{
 
 pattern findNetworkWithMoreThan2Devices(){
 	network : Network
-	network.deviceNumber == calc(max(network.deviceNumber, 2) )
+	# network.deviceNumber == calc(max(network.deviceNumber, 2) )
 }
 
 pattern findNetworkWithLessThan2Devices(){
 	network : Network
-	network.deviceNumber == calc(min(network.deviceNumber, 2) )
+	# network.deviceNumber == calc(min(network.deviceNumber, 2) )
 }
 
 rule setNumberOfDevices(num : EInt){

@@ -8,5 +8,5 @@ rule renameClass(oldName: EString, newName: EString) {
 	clazz: Clazz {
 		.name := param::newName
 	}
-	clazz.name == param::oldName
+	# clazz.name == param::oldName
 }

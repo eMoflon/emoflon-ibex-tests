@@ -31,7 +31,7 @@ refines findClass {
 pattern findClassByName(name: EString)
 refines findClass {
 	clazz: Clazz
-	clazz.name == param::name
+	# clazz.name == param::name
 }
 
 /**
@@ -42,10 +42,10 @@ refines findClass {
 	package: ClassPackage {
 		-classes -> clazz
 	}
-	package.name == param::packageName
+	# package.name == param::packageName
 
 	clazz: Clazz
-	clazz.name == param::className
+	# clazz.name == param::className
 }
 
 /**
