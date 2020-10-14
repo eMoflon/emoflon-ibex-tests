@@ -65,7 +65,7 @@ condition noPersonWithSmallerName = forbid anotherPersonWithSmallerName
 abstract pattern anotherPersonWithSmallerName
 refines findPerson {
 	anotherPerson: Person
-	anotherPerson.name < person.name
+	# anotherPerson.name < person.name 
 }
 
 /**
@@ -80,7 +80,7 @@ condition noPersonWithGreaterName = forbid anotherPersonWithGreaterName
 abstract pattern anotherPersonWithGreaterName
 refines findPerson {
 	person: Person 
-	person.name < anotherPerson.name
-
+	# person.name < anotherPerson.name
+	
 	anotherPerson: Person
 }

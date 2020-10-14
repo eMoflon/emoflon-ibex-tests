@@ -28,7 +28,7 @@ rule createUnnamedFamily {
 rule createMillerFamily
 refines createUnnamedFamily {
 	++ family: Family {
-		.name := "Miller"
+		.name := "Miller"  
 	}
 }
 

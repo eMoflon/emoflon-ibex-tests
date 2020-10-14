@@ -7,24 +7,24 @@ rule connect{
 	}
 	
 	from: Device{ 
-		.maxBandwidth := calc(from.maxBandwidth -3)
-		.currentConnections := calc(from.currentConnections+1)
-		.otherValue := calc(-from.maxBandwidth)
+		.maxBandwidth := from.maxBandwidth -3
+		.currentConnections := from.currentConnections+1
+		.otherValue := -(from.maxBandwidth)
 		++ -connections -> connection
-	}
-	# from.maxBandwidth >=calc(3)
+	} 
+	# from.maxBandwidth >=3
 	
 	to: Device{
-		.maxBandwidth := calc(to.maxBandwidth -3)
-		.currentConnections := calc(to.currentConnections+1)
-		.otherValue := calc(-(3+to.currentConnections))
+		.maxBandwidth := to.maxBandwidth -3
+		.currentConnections := to.currentConnections+1
+		.otherValue := -(3+to.currentConnections)
 		++ -connections -> connection
 	}
-	# to.maxBandwidth >= calc(3)
+	# to.maxBandwidth >= 3
 	
 	++ connection: Connection{
-		.bandwidth := calc(exp(-to.currentConnections))
-		.flag := calc((3+to.currentConnections)%4)
+		.bandwidth := exp(-(to.currentConnections))
+		.flag := (3+to.currentConnections)%4
 		++ -devices ->from
 		++ -devices ->from
 	}
@@ -32,75 +32,75 @@ rule connect{
 
 rule generateDevice{
 	network: Network{
-		.deviceNumber := calc(network.deviceNumber -1)
-		.maxBandwidth := calc(network.maxBandwidth - network.maxBandwidth/network.deviceNumber)
+		.deviceNumber := network.deviceNumber -1
+		.maxBandwidth := network.maxBandwidth - network.maxBandwidth/network.deviceNumber
 	}
-	network.deviceNumber > calc(0)
+	# network.deviceNumber > 0
 	
 	++ device: Device{
-		.maxBandwidth := calc(network.maxBandwidth/network.deviceNumber)
-		.flag := calc(network.maxBandwidth%6)
-		.maxConnections := calc(ln(network.maxBandwidth))
+		.maxBandwidth := network.maxBandwidth/network.deviceNumber
+		.flag := network.maxBandwidth%6
+		.maxConnections := ln(network.maxBandwidth)
 	}
 }
 
 rule testFunctions{
 	device1: Device{
-		.flag := calc(sqrt(device1.maxBandwidth))
-		.otherValue := calc(abs(-device1.maxBandwidth))
-		.maxBandwidth := calc(log(device1.maxConnections))
+		.flag := sqrt(device1.maxBandwidth)
+		.otherValue := abs(-(device1.maxBandwidth))
+		.maxBandwidth := log(device1.maxConnections)
 	}
-	# device1.maxBandwidth > calc(0.0)
+	# device1.maxBandwidth > 0.0
 	
 	device2: Device{
-		.flag := calc(tan(device2.maxBandwidth))
-		.otherValue := calc(exp(-device2.maxConnections)) 
+		.flag := tan(device2.maxBandwidth)
+		.otherValue := exp(-(device2.maxConnections))
 	}
-	# device2.maxBandwidth > calc(0.0)
+	# device2.maxBandwidth > 0.0
 }
 
 rule testException1{
 	network:Network
 	++ device: Device{
-		.otherValue := calc(ln(network.deviceNumber))		
+		.otherValue := ln(network.deviceNumber)		
 	}
 }
 rule testException2{
 	network:Network
 	++ device: Device{
-		.otherValue := calc(log(network.deviceNumber))		
+		.otherValue := log(network.deviceNumber)	
 	}
 }
 rule testException3{
 	network:Network
 	++ device: Device{
-		.otherValue := calc(sqrt(-network.maxBandwidth))		
+		.otherValue := sqrt(-(network.maxBandwidth))	
 	}
 }
 rule testException4{
 	network:Network
 	++ device: Device{
-		.otherValue := calc(100.0/network.deviceNumber)		
+		.otherValue := 100.0/network.deviceNumber	
 	}
 }
 
 pattern testConstraint1{
 	device1: Device
-	# device1.maxBandwidth <= calc(device2.maxBandwidth)
+	# device1.maxBandwidth <= device2.maxBandwidth
 	
 	device2: Device
 }
 
 pattern testConstraint2{
 	device1: Device
-	# device1.maxBandwidth != calc(device2.maxBandwidth/device2.currentConnections+1)
+	# device1.maxBandwidth != device2.maxBandwidth/device2.currentConnections+1
 	
 	device2: Device
 }
 
 pattern testConstraint3{
 	network : Network
-	# network.deviceNumber == calc(count(findDevice))
+	# network.deviceNumber == count(findDevice)
 }
 
 rule createNetwork {
@@ -113,12 +113,12 @@ pattern findNetwork{
 
 pattern findNetworkWithMoreThan2Devices(){
 	network : Network
-	# network.deviceNumber == calc(max(network.deviceNumber, 2) )
+	# network.deviceNumber == max(network.deviceNumber, 2)
 }
 
 pattern findNetworkWithLessThan2Devices(){
 	network : Network
-	# network.deviceNumber == calc(min(network.deviceNumber, 2) )
+	# network.deviceNumber == min(network.deviceNumber, 2)
 }
 
 rule setNumberOfDevices(num : EInt){
@@ -130,7 +130,7 @@ rule setNumberOfDevices(num : EInt){
 
 rule findAndsetNumberOfDevices(){
 	network : Network {
-		.deviceNumber := calc(count(findDevice))
+		.deviceNumber := count(findDevice)
 	} 
 }
 

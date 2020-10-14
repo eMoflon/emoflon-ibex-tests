@@ -13,7 +13,7 @@ pattern findTask() {
  */
 pattern findTaskByName(name: EString) {
 	task: Task
-	# task.name == param::name 
+	# task.name == param::name
 } 
 
 /**

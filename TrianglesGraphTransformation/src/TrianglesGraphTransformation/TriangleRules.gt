@@ -49,7 +49,7 @@ rule connectA2BOrdered() {
 	a : A_Class {	
 		++ -b->b
 	}
-	a.id <= b.id
+	# a.id <= b.id
 	
 	b : B_Class {
 		++ -a->a
@@ -60,7 +60,7 @@ rule connectA2COrdered() {
 	a : A_Class {
 		++ -c-> c
 	}
-	a.id <= c.id
+	# a.id <= c.id
 	
 	c : C_Class {
 		++ -a->a
@@ -81,7 +81,7 @@ rule connectB2COrdered() {
 	b : B_Class {
 		++ -c-> c
 	}
-	b.id <= c.id
+	# b.id <= c.id 
 	c : C_Class {
 		++ -b->b
 	}
@@ -102,14 +102,14 @@ rule connectABCIncrementalOrdered() {
 		-b-> b
 		-c-> c
 	}
-	a.id <= b.id
-	a.id <= c.id
-	
+	# a.id <= b.id
+	# a.id <= c.id
+	 
 	b : B_Class {
 		-a->a
 		++ -c->c
 	}
-	b.id <= c.id
+	# b.id <= c.id
 	
 	c : C_Class {
 		-a->a
@@ -139,14 +139,14 @@ rule connectABCFullOrdered() {
 		++ -b-> b
 		++ -c-> c
 	}
-	a.id <= b.id
-	a.id <= c.id
+	# a.id <= b.id
+	# a.id <= c.id
 	
 	b : B_Class {
 		++ -a->a
 		++ -c->c
 	}
-	b.id <= c.id
+	# b.id <= c.id
 	
 	c : C_Class {
 		++ -a->a
