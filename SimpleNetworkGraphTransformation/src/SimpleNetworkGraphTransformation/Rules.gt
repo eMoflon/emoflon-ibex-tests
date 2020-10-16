@@ -7,12 +7,12 @@ rule connect{
 	}
 	
 	from: Device{ 
-		.maxBandwidth := from.maxBandwidth -3
+		.maxBandwidth := from.maxBandwidth -3.0
 		.currentConnections := from.currentConnections+1
 		.otherValue := -(from.maxBandwidth)
 		++ -connections -> connection
 	} 
-	# from.maxBandwidth >=3
+	# from.maxBandwidth >=3.0
 	
 	to: Device{
 		.maxBandwidth := to.maxBandwidth -3
@@ -20,7 +20,7 @@ rule connect{
 		.otherValue := -(3+to.currentConnections)
 		++ -connections -> connection
 	}
-	# to.maxBandwidth >= 3
+	# to.maxBandwidth >= 3.0
 	
 	++ connection: Connection{
 		.bandwidth := exp(-(to.currentConnections))
