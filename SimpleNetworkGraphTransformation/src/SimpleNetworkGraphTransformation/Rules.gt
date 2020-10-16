@@ -151,3 +151,13 @@ pattern findDevice{
 	
 	device : Device
 }
+
+pattern findNetworkTrue {
+	network : Network
+	# network.flag == true
+}
+
+pattern findNetworkFalse {
+	network : Network
+	# network.flag == false
+}
