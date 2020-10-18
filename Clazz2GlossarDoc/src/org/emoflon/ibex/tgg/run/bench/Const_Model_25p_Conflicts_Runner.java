@@ -53,7 +53,8 @@ public class Const_Model_25p_Conflicts_Runner {
 							 Integer.valueOf(output[1]), //
 							 Integer.valueOf(output[2]), //
 							 Double.valueOf(output[3]), //
-							 Double.valueOf(output[4]));
+							 Double.valueOf(output[4]), //
+							 Integer.valueOf(output[5]));
 					 cont.addBench(b);
 					 System.out.println(b);
 				}

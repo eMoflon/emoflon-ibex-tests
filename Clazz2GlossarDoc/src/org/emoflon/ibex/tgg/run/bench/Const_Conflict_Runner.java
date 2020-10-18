@@ -14,21 +14,22 @@ public class Const_Conflict_Runner {
 
 	
 	private static int[] ns = {
-			100, 200, 300, 500, 1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000
+//			100, 200, 300, 500, 1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000
+			100, 150, 200
 	};
 	
 	private static int[] cs = {
-			100
+			1
 	};
 	
-	private static int repetitions = 20;
+	private static int repetitions = 1;
 	
 	public static void main(String[] args) throws IOException, InterruptedException {
 		BenchContainer cont = new BenchContainer();
 		for(int i = 0; i < ns.length; i++) {
 			for(int j = 0; j < cs.length; j++) {
 				for(int r = 0; r < repetitions; r++) {
-				     Process proc = exec(Horizontal_IntegrationBench.class, Arrays.asList("-Xmx120G"), Arrays.asList(""+ns[i], ""+cs[j]));
+				     Process proc = exec(Horizontal_IntegrationBench.class, Arrays.asList("-Xmx28G"), Arrays.asList(""+ns[i], ""+cs[j]));
 				     proc.waitFor();
 					 proc.exitValue();
 					 
@@ -48,13 +49,14 @@ public class Const_Conflict_Runner {
 					        sb.append("\n");
 					        read =br.readLine();
 					    }
-					 String[] output = sb.toString().split(";");
+					 String[] output = sb.toString().trim().split(";");
 					 BenchEntry b = new BenchEntry( //
 							 Integer.valueOf(output[0]), //
 							 Integer.valueOf(output[1]), //
 							 Integer.valueOf(output[2]), //
 							 Double.valueOf(output[3]), //
-							 Double.valueOf(output[4]));
+							 Double.valueOf(output[4]), //
+							 Integer.valueOf(output[5]));
 					 cont.addBench(b);
 					 System.out.println(b);
 				}
