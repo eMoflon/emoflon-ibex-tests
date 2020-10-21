@@ -119,7 +119,7 @@ public class SheRememberedCaterpillarsConstraintsTest extends SheRememberedCater
 		assertMatchCount(1, findPlatformWithExactlyOneNeighbor);
 		assertMatchCount(1, findPlatformWithTwoNeighbors);
 		
-		System.out.println("-----------CHANGE------------");
+//		System.out.println("-----------CHANGE------------");
 		
 		SimplePlatform platform = findPlatformWithTwoNeighbors.findAnyMatch().get().getPlatform();
 		platform.getNeighbors().remove(0);

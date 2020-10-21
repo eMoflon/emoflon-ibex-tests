@@ -28,7 +28,7 @@ rule createUnnamedFamily {
 rule createMillerFamily
 refines createUnnamedFamily {
 	++ family: Family {
-		.name := "Miller"
+		.name := "Miller"  
 	}
 }
 
@@ -59,9 +59,8 @@ pattern findFamily {
  */
 pattern findSimpsonFamily
 refines findFamily {
-	family: Family {
-		.name == "Simpson"
-	}
+	family: Family 
+	# family.name == "Simpson"
 }
 
 /**
@@ -69,9 +68,8 @@ refines findFamily {
  */
 pattern findFamilyButNotSimpson
 refines findFamily {
-	family: Family {
-		.name != "Simpson"
-	}
+	family: Family 
+	# family.name != "Simpson"
 }
 
 /**
@@ -79,9 +77,8 @@ refines findFamily {
  */
 pattern findFamilyWithNameGreaterOrEqualThanSimpson
 refines findFamily {
-	family: Family {
-		.name >= "Simpson"
-	}
+	family: Family 
+	# family.name >= "Simpson"
 }
 
 /**
@@ -89,9 +86,8 @@ refines findFamily {
  */
 pattern findFamilyWithNameGreaterThanSimpson
 refines findFamily {
-	family: Family {
-		.name > "Simpson"
-	}
+	family: Family 
+	# family.name > "Simpson"
 }
 
 /**
@@ -99,9 +95,8 @@ refines findFamily {
  */
 pattern findFamilyWithNameSmallerOrEqualThanSimpson
 refines findFamily {
-	family: Family {
-		.name <= "Simpson"
-	}
+	family: Family
+	# family.name <= "Simpson"
 }
 
 /**
@@ -109,9 +104,8 @@ refines findFamily {
  */
 pattern findFamilyWithNameSmallerThanSimpson
 refines findFamily {
-	family: Family {
-		.name < "Simpson"
-	}
+	family: Family
+	# family.name < "Simpson"
 }
 
 /**
@@ -119,9 +113,8 @@ refines findFamily {
  */
 pattern findFamilyByName(name: EString)
 refines findFamily {
-	family: Family {
-		.name == param::name
-	}
+	family: Family
+	# family.name == param::name
 }
 
 /**
@@ -129,9 +122,8 @@ refines findFamily {
  */
 pattern findFamilyNotNamed(name: EString)
 refines findFamily {
-	family: Family {
-		.name != param::name
-	}
+	family: Family
+	# family.name != param::name
 }
 
 /**
@@ -139,9 +131,8 @@ refines findFamily {
  */
 pattern findFamilyWithNameGreaterThan(name: EString)
 refines findFamily {
-	family: Family {
-		.name > param::name
-	}
+	family: Family
+	# family.name > param::name
 }
 
 /**
@@ -150,9 +141,8 @@ refines findFamily {
  */
 pattern findFamilyWithNameGreaterOrEqualThan(name: EString)
 refines findFamily {
-	family: Family {
-		.name >= param::name
-	}
+	family: Family
+	# family.name >= param::name
 }
 
 /**
@@ -160,9 +150,8 @@ refines findFamily {
  */
 pattern findFamilyWithNameSmallerThan(name: EString)
 refines findFamily {
-	family: Family {
-		.name < param::name
-	}
+	family: Family
+	# family.name < param::name
 }
 
 /**
@@ -171,9 +160,8 @@ refines findFamily {
  */
 pattern findFamilyWithNameSmallerOrEqualThan(name: EString)
 refines findFamily {
-	family: Family {
-		.name <= param::name
-	}
+	family: Family
+	# family.name <= param::name
 }
 
 /**
@@ -181,9 +169,9 @@ refines findFamily {
  */
 rule renameFamily(oldName: EString, newName: EString) {
 	family: Family {
-		.name == param::oldName
 		.name := param::newName
 	}
+	# family.name == param::oldName
 }
 
 /**
@@ -192,11 +180,9 @@ rule renameFamily(oldName: EString, newName: EString) {
 pattern findThreeFamiliesOfTheSameName {
 	family1: Family
 
-	family2: Family {
-		.name == family1.name
-	}
+	family2: Family
+	# family2.name == family1.name
 
-	family3: Family {
-		.name == family1.name
-	}
+	family3: Family
+	# family3.name == family1.name
 }

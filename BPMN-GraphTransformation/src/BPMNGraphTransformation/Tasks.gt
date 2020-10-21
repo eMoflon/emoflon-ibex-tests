@@ -12,10 +12,9 @@ pattern findTask() {
  * Finds a task with the given name.
  */
 pattern findTaskByName(name: EString) {
-	task: Task {
-		.name == param::name
-	}
-}
+	task: Task
+	# task.name == param::name
+} 
 
 /**
  * Adds a task.

@@ -6,7 +6,7 @@ import "platform:/resource/ClassMultipleInheritanceHierarchy/model/ClassMultiple
  */
 rule renameClass(oldName: EString, newName: EString) {
 	clazz: Clazz {
-		.name == param::oldName
 		.name := param::newName
 	}
+	# clazz.name == param::oldName
 }

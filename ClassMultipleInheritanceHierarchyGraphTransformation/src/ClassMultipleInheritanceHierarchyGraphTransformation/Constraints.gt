@@ -11,7 +11,6 @@ pattern findTwoClassesOfSameName() {
 
 	clazz1: Clazz
 
-	clazz2: Clazz {
-		.name == clazz1.name
-	}
+	clazz2: Clazz
+	# clazz2.name == clazz1.name 
 }
