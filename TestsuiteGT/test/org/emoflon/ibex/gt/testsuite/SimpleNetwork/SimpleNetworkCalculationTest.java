@@ -156,6 +156,21 @@ public class SimpleNetworkCalculationTest extends SimpleNetworkAbstractTest{
 		assertMatchCount(1, api.findNetworkWithMoreThan2Devices());
 		assertMatchCount(1, api.findNetworkWithLessThan2Devices());
 	}
+	
+	@Test
+	public void booleanLiterals() {
+		SimpleNetworkGraphTransformationAPI api = this.init("SimpleNetwork1.xmi");
+		Network network1 = api.findNetwork().findAnyMatch().get().getNetwork();
+		Network network2 = api.createNetwork().apply().get().getNetwork();
+		assertMatchCount(2, api.findNetworkFalse());
+		assertMatchCount(0, api.findNetworkTrue());
+		
+		network2.setFlag(true);
+		api.updateMatches();
+		
+		assertMatchCount(1, api.findNetworkFalse());
+		assertMatchCount(1, api.findNetworkTrue());
+	}
 }
 
 
