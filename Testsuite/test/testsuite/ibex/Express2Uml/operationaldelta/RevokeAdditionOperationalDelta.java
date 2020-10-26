@@ -1,0 +1,64 @@
+package testsuite.ibex.Express2Uml.operationaldelta;
+
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.emoflon.express.express.Entity;
+import org.emoflon.express.express.Schema;
+import org.junit.Test;
+
+import Express2UML.operationaldelta.revokeAddition.RevokeAdditionConflictResolver;
+import testsuite.ibex.Express2Uml.common.ExpressHelper;
+import testsuite.ibex.Express2Uml.common.UMLHelper;
+import testsuite.ibex.Express2Uml.integrate.util.IntegIbexSchema2Package;
+import testsuite.ibex.testUtil.IntegrateTestCase;
+import uml.Clazz;
+
+public class RevokeAdditionOperationalDelta extends IntegrateTestCase<Schema, uml.Package> {
+
+	private static final String PROJECT_NAME = "Express2UML";
+
+	public RevokeAdditionOperationalDelta() {
+		super(new IntegIbexSchema2Package(PROJECT_NAME, "/resources/operationaldelta/in"));
+	}
+
+	@Override
+	protected void initHelpers() {
+	}
+
+	@Override
+	protected String getProjectName() {
+		return PROJECT_NAME;
+	}
+
+	@Test
+	public void revokeAdditionOnSource() {
+		tool.getOptions().integration.conflictSolver(new RevokeAdditionConflictResolver());
+
+		tool.applyAndIntegrateDelta((schema, pkg) -> {
+			// src:
+			Entity entity = (Entity) schema.getDeclarations().get(0);
+			ExpressHelper.createIntegerAttribute(entity, "integerAttr");
+			// trg:
+			EcoreUtil.delete(pkg.getClazzes().get(0));
+		});
+
+		final String path = "operationaldelta/expected/revoke_addition_target/";
+		assertCondition(path + "src", path + "trg", path + "corr");
+	}
+
+	@Test
+	public void revokeAdditionOnTarget() {
+		tool.getOptions().integration.conflictSolver(new RevokeAdditionConflictResolver());
+
+		tool.applyAndIntegrateDelta((schema, pkg) -> {
+			// src:
+			EcoreUtil.delete(schema.getDeclarations().get(0));
+			// trg:
+			Clazz clazz = pkg.getClazzes().get(0);
+			UMLHelper.createInteger(clazz, "integerAttr");
+		});
+
+		final String path = "operationaldelta/expected/revoke_addition_source/";
+		assertCondition(path + "src", path + "trg", path + "corr");
+	}
+
+}

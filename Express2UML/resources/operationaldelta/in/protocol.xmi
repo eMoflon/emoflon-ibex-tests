@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:Express2UML="platform:/resource/Express2UML/model/Express2UML.ecore">
+  <Express2UML:Schema2Package__Marker>
+    <CREATE__SRC__s href="src.xmi#/"/>
+    <CREATE__TRG__p href="trg.xmi#/"/>
+    <CREATE__CORR__s2p href="corr.xmi#/0"/>
+  </Express2UML:Schema2Package__Marker>
+  <Express2UML:Entity2Clazz__Marker>
+    <CREATE__SRC__e href="src.xmi#//@declarations.0"/>
+    <CONTEXT__SRC__s href="src.xmi#/"/>
+    <CREATE__TRG__c href="trg.xmi#//@clazzes.0"/>
+    <CONTEXT__TRG__p href="trg.xmi#/"/>
+    <CREATE__CORR__e2c href="corr.xmi#/1"/>
+    <CONTEXT__CORR__s2p href="corr.xmi#/0"/>
+  </Express2UML:Entity2Clazz__Marker>
+  <Express2UML:StringAttribute2String__Marker>
+    <CONTEXT__SRC__e href="src.xmi#//@declarations.0"/>
+    <CREATE__SRC__sa href="src.xmi#//@declarations.0/@attributes.0"/>
+    <CONTEXT__TRG__c href="trg.xmi#//@clazzes.0"/>
+    <CREATE__TRG__s href="trg.xmi#//@clazzes.0/@attributes.0"/>
+    <CONTEXT__CORR__e2c href="corr.xmi#/1"/>
+    <CREATE__CORR__it2i href="corr.xmi#/2"/>
+  </Express2UML:StringAttribute2String__Marker>
+</xmi:XMI>

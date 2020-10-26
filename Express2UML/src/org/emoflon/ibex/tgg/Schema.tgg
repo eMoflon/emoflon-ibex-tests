@@ -32,6 +32,10 @@
 		#trg->Integer
 	}
 	
+	StringTypeAttribute2String {
+		#src->StringAttribute
+		#trg->String
+	}
 	 
 	EnumerationType2Enum {
 		#src->EnumerationType

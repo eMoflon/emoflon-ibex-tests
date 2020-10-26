@@ -1,0 +1,34 @@
+package Express2UML.integrate
+
+#import Entity2Clazz
+
+createdIntegerAttributeDeletedClazz: solve conflict for all {
+	var integerAttributeAdded = #src | created | type IntegerAttribute | count
+	var classesAreDeleted = #trg | deleted | type Clazz | exists
+	
+	satisfies {
+		integerAttributeAdded > 0 and classesAreDeleted
+ 	}
+	
+} with preferSource when {
+	var elementsWillBeCreated = #src | created | count
+	var noElementsWillBeDeleted = #trg | deleted | count
+	satisfies {
+		elementsWillBeCreated >= 1 and noElementsWillBeDeleted == 0
+	}
+}
+
+deletedEntityCreatedIntegerAttribute: solve conflict for all{
+	var numIntegerAdded = #trg | created | type Integer | count
+	var entitiesAreDeleted = #src | deleted | type Entity | exists
+	
+	satisfies {
+		numIntegerAdded > 0 and entitiesAreDeleted
+ 	}
+} with preferSource when {
+	var noElementsWillBeCreated = #src | created | count
+	var elementsWillBeDeleted = #trg | deleted | count
+	satisfies {
+		elementsWillBeDeleted >= 1 and noElementsWillBeCreated == 0
+	}
+}

@@ -26,7 +26,7 @@ public class IntegIbexSchema2Package extends IntegIbexAdapter<Schema, Package> {
 		try {
 			integrator = new INTEGRATE_App(projectName,
 					testsuite.ibex.performance.util.PerformanceConstants.workspacePath,
-					"/resources/integ/in/" + inputFolder, ilpSolver, false);
+					inputFolder, ilpSolver, false);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

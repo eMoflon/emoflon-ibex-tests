@@ -1,6 +1,7 @@
 package testsuite.ibex.Express2Uml.common
 
 import org.emoflon.express.express.Entity
+import org.emoflon.express.express.Attribute
 import org.emoflon.express.express.ExpressFactory
 import org.emoflon.express.express.Schema
 
@@ -21,7 +22,15 @@ class ExpressHelper {
 	}
 	
 	def static createIntegerAttribute(Entity entity, String name) {
-		val attr = ExpressFactory.eINSTANCE.createIntegerAttribute()
+		createAttribute([ExpressFactory.eINSTANCE.createIntegerAttribute], entity, name)
+	}
+	
+	def static createStringAttribute(Entity entity, String name) {
+		createAttribute([ExpressFactory.eINSTANCE.createStringAttribute], entity, name)
+	}
+	
+	def static createAttribute(()=>Attribute f, Entity entity, String name) {
+		val attr = f.apply()
 		attr.name = name
 		attr.optional = false
 

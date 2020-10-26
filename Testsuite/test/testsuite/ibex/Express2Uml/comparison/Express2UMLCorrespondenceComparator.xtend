@@ -6,6 +6,7 @@ import Express2UML.IntegerTypeAttribute2Integer
 import Express2UML.Schema2Package
 import org.eclipse.emf.ecore.EObject
 import testsuite.ibex.testUtil.CorrComparator
+import Express2UML.StringTypeAttribute2String
 
 class Express2UMLCorrespondenceComparator extends CorrComparator {
 	
@@ -15,6 +16,7 @@ class Express2UMLCorrespondenceComparator extends CorrComparator {
 			Entity2Clazz: corr.stringify()
 			Function2SingleMethodClazz: corr.stringify()
 			IntegerTypeAttribute2Integer: corr.stringify()
+			StringTypeAttribute2String: corr.stringify()
 		}
 	}
 	
@@ -47,6 +49,15 @@ class Express2UMLCorrespondenceComparator extends CorrComparator {
 	}
 	
 	private def String stringify(IntegerTypeAttribute2Integer corr) {
+		'''
+		IntegerTypeAttribute2Integer {
+			SRC {"«corr.source.name»"}
+			TRG {"«corr.target.name»"}
+		}
+		'''
+	}
+	
+	private def String stringify(StringTypeAttribute2String corr) {
 		'''
 		IntegerTypeAttribute2Integer {
 			SRC {"«corr.source.name»"}

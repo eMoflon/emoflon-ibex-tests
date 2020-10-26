@@ -1,0 +1,41 @@
+package Express2UML.operationaldelta
+
+#import Entity2Clazz
+
+revokeAdditionOnSource: solve conflict for all {
+	var elementsCreated = #src | created | exists
+	satisfies {
+		elementsCreated
+	}
+} with revokeAddition when {
+	var elementsToBeCreatedOnSource = #src | created | count
+	var elementsToBeDeletedOnSource = #src | deleted | count 
+	var elementsToBeCreatedOnTarget = #trg | created | count
+	var elementsToBeDeletedOnTarget = #trg | deleted | count 
+	
+	satisfies {
+		elementsToBeCreatedOnSource == 0 and
+		elementsToBeDeletedOnSource == 2 and 
+		elementsToBeCreatedOnTarget == 0 and
+		elementsToBeDeletedOnTarget == 0
+	}
+}
+
+revokeAdditionOnTarget: solve conflict for all {
+	var elementsCreated = #trg | created | exists
+	satisfies {
+		elementsCreated
+	}
+} with revokeAddition when {
+	var elementsToBeCreatedOnSource = #src | created | count
+	var elementsToBeDeletedOnSource = #src | deleted | count 
+	var elementsToBeCreatedOnTarget = #trg | created | count
+	var elementsToBeDeletedOnTarget = #trg | deleted | count 
+	
+	satisfies {
+		elementsToBeCreatedOnSource == 0 and
+		elementsToBeDeletedOnSource == 0 and 
+		elementsToBeCreatedOnTarget == 0 and
+		elementsToBeDeletedOnTarget == 2
+	}
+}

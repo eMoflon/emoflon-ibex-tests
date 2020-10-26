@@ -36,4 +36,39 @@
 	eq_string(ia.name, i.name)
 }
 
+#rule StringAttribute2String #with Express2UML
+
+#source {
+	++sa:StringAttribute {
+	}
+
+	e:Entity {
+		++ -attributes -> sa
+	}
+}
+
+#target {
+	++s:String
+
+	c:Clazz {
+		++ -attributes -> s
+	}
+}
+
+#correspondence {
+	e2c:Entity2Clazz {
+		#src->e
+		#trg->c
+	}
+
+	++ it2i:StringTypeAttribute2String {
+		#src->sa
+		#trg->s
+	}
+}
+
+#attributeConditions {
+	eq_string(sa.name, s.name)
+}
+
 

@@ -36,10 +36,10 @@ public class INTEGRATE_App extends INTEGRATE {
 					new TGGResourceHandler() {
 						@Override
 						public void loadModels() throws IOException {
-							source = loadResource(options.project.path() + "/resources/integ/in/src.xmi");
-							target = loadResource(options.project.path() + "/resources/integ/in/trg.xmi");
-							corr = loadResource(options.project.path() + "/resources/integ/in/corr.xmi");
-							protocol = loadResource(options.project.path() + "/resources/integ/in/protocol.xmi");
+							source = loadResource(options.project.path() + initPath+"/src.xmi");
+							target = loadResource(options.project.path() + initPath+"/trg.xmi");
+							corr = loadResource(options.project.path() + initPath+"/corr.xmi");
+							protocol = loadResource(options.project.path() + initPath+"/protocol.xmi");
 							
 							changeURI(source, options.project.path() + "/resources/integ/actual/delete_preserve_conflict/src.xmi");
 							changeURI(target, options.project.path() + "/resources/integ/actual/delete_preserve_conflict/trg.xmi");
