@@ -39,9 +39,3 @@
 #attributeConditions {
 	 eq_string(p.name, m.name)
 }
-
-#nac NoOtherFamily #for CreateMotherInNewFamily
-
-#source {
-	other:Family
-}
