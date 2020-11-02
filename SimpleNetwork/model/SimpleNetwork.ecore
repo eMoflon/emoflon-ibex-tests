@@ -23,6 +23,10 @@
         eType="#//Connection"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="flag" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="otherValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outgoing" upperBound="-1"
+        eType="#//Device" eOpposite="#//Device/incoming"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="incoming" upperBound="-1"
+        eType="#//Device" eOpposite="#//Device/outgoing"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Connection">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="bandwidth" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>

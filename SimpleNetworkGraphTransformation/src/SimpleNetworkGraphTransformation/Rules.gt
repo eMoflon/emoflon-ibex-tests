@@ -161,3 +161,82 @@ pattern findNetworkFalse {
 	network : Network
 	# network.flag == false
 }
+
+rule repairMissingEdges() {
+	network : Network {
+		-devices->device1
+		-devices->device2
+	}
+	
+	device1 : Device {
+		-connections->connection
+		++ -outgoing->device2
+	}
+	device2 : Device {
+		-connections->connection
+		++ -outgoing->device1
+	}
+	
+	connection: Connection
+} when edgesNotPresent
+
+rule deleteBrokenEdges() {
+	network : Network {
+		-devices->device1
+		-devices->device2
+	}
+	
+	device1 : Device {
+		-- -outgoing->device2
+	}
+	device2 : Device {
+		-- -outgoing->device1
+	}
+	
+} when connectionsNotPresent
+
+condition edgesNotPresent = forbid presentEdges
+
+pattern presentEdges() {
+	network : Network {
+		-devices->device1
+		-devices->device2
+	}
+	
+	device1 : Device {
+		-outgoing->device2
+	}
+	device2 : Device {
+		-outgoing->device1
+	}
+}
+
+condition connectionsNotPresent = forbid presentConnection
+
+pattern presentConnection() {
+	network : Network {
+		-devices->device1
+		-devices->device2
+	}
+	
+	device1 : Device {
+		-connections->connection
+	}
+	device2 : Device {
+		-connections->connection
+	}
+	
+	connection: Connection
+}
+
+pattern connectedDevices {
+	network : Network {
+		-devices->device1
+		-devices->device2
+	}
+	
+	device1 : Device {
+		~outgoing~>device2
+	}
+	device2 : Device 
+}
