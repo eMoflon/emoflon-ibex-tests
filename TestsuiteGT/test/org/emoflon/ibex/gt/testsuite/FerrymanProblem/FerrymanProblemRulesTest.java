@@ -117,7 +117,8 @@ public class FerrymanProblemRulesTest extends FerrymanProblemAbstractTest {
 		assertMatchCount(1, api.findGoat());
 		assertNotApplicable(api.killGoat().setDPO());
 		assertMatchCount(1, api.findGoat());
-
+		
+		api.killGoat().setSPO();
 		assertApplicable(api.killGoat());
 		assertNoMatch(api.findGoat());
 
