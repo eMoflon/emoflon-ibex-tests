@@ -75,7 +75,9 @@ public class Combined extends IntegrateTestCase<ClazzContainer, DocumentationCon
 			c1.getMethods().add(m8);
 			EcoreUtil.delete(f7, true);
 			helperClazz.createParameter(m6, "P15");
-			helperClazz.createClazz("C3").getSubClazzes().add(c1);
+			Clazz c3 = helperClazz.createClazz("C3");
+			c3.getSubClazzes().add(c1);
+			c3.getMethods().add(m6);
 
 			// trg:
 			Entry e6 = helperDoc.getEntry("M6");
@@ -94,7 +96,7 @@ public class Combined extends IntegrateTestCase<ClazzContainer, DocumentationCon
 
 //		assertCondition(path + "src", path + "trg", path + "corr");
 	}
-	
+
 	@Test
 	public void combinedConflicts() {
 		combinedConflicts(c -> {}, testpath + "combC/");
