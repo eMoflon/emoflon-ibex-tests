@@ -89,4 +89,8 @@ public class Move extends IntegrateTestCase<ClazzContainer, DocumentationContain
 		contradictoryMove(s -> s.crs_preferTarget(), testpath + "contramove_trg/");
 	}
 
+	@Test
+	public void contradictoryMove_deleteCorrs() {
+		contradictoryMove(s -> s.crs_deleteCorrs(), testpath + "contramove_delCorrs/");
+	}
 }

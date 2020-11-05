@@ -171,10 +171,15 @@ public class Basic extends IntegrateTestCase<ClazzContainer, DocumentationContai
 	public void contradictoryMove_preferSource() {
 		contradictoryMove(s -> s.crs_preferSource(), testpath + "contramove_src/");
 	}
-	
+
 	@Test
 	public void contradictoryMove_preferTarget() {
 		contradictoryMove(s -> s.crs_preferTarget(), testpath + "contramove_trg/");
+	}
+
+	@Test
+	public void contradictoryMove_deleteCorrs() {
+		contradictoryMove(s -> s.crs_deleteCorrs(), testpath + "contramove_delCorrs/");
 	}
 
 }

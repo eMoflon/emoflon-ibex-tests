@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ASCII"?>
+<SimpleClassInheritance:ClazzContainer xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:SimpleClassInheritance="platform:/resource/SimpleClassInheritance/model/simpleClassInheritance.ecore">
+  <clazzes name="C1">
+    <methods name="M6">
+      <parameters name="P9"/>
+      <parameters name="P10"/>
+    </methods>
+    <fields name="F5"/>
+    <fields name="F7"/>
+  </clazzes>
+  <clazzes name="C2">
+    <methods name="M8">
+      <parameters name="P11"/>
+    </methods>
+    <subClazzes name="C3">
+      <fields name="F7"/>
+    </subClazzes>
+  </clazzes>
+</SimpleClassInheritance:ClazzContainer>
