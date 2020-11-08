@@ -101,7 +101,6 @@ refines findMember {
  * Finds a family member by his/her first name.
  */
 pattern findMemberByFirstName(firstName: EString) {
-	member: FamilyMember {
-		.name == param::firstName
-	}
+	member: FamilyMember
+	# member.name == param::firstName
 }

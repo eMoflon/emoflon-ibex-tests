@@ -38,22 +38,3 @@
 	}
 }
 
-#nac NoOtherInLeftForOrGate #for Mapping2OrGate   
-
-#target {
-	noIn:Port {
-		- src->leftExtern
-	}
-	
-	leftExtern:InputPort
-}
-
-#nac NoOtherInRightForOrGate #for Mapping2OrGate
-
-#target {
-	noInRight:Port {
-		- src->rightExtern
-	}
-	
-	rightExtern:InputPort
-}

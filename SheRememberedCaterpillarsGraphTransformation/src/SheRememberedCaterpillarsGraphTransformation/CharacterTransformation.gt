@@ -6,14 +6,14 @@ import "platform:/resource/SheRememberedCaterpillars/model/SheRememberedCaterpil
  */
 rule transformBlueAndRedToPurpleCharacter {
 	-- blueCharacter: Character {
-		.color == enum::BLUE
 		-- -standsOn -> platform
 	}
+	# blueCharacter.color == enum::BLUE
 
 	-- redCharacter: Character {
-		.color == enum::RED
 		-- -standsOn -> platform
 	}
+	# redCharacter.color == enum::RED
 
 	++ purpleCharacter: Character {
 		.color := enum::PURPLE
@@ -44,9 +44,9 @@ rule transformPurpleToBlueAndRedCharacter {
 	}
 
 	-- purpleCharacter: Character {
-		.color == enum::PURPLE
 		-- -standsOn -> platform
 	}
+	# purpleCharacter.color == enum::PURPLE
 
 	platform: Platform
 

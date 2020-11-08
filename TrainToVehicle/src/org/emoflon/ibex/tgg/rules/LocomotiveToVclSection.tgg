@@ -90,22 +90,3 @@ train:TrainLanguage.Train {
 	eq_int (loc.ps, engine.ps)
 }
 
-#nac firstVehicleSection_electric #for LocomotiveToVclSection_electric
-
-#target {
-	vclSec:VehicleSection
-	
-	otherVclSec:VehicleSection {
-		- nextSection -> vclSec
-	}
-}
-
-#nac firstVehicleSection_combustion #for LocomotiveToVclSection_combustion
-
-#target {
-	vclSec:VehicleSection
-	
-	otherVclSec:VehicleSection {
-		- nextSection -> vclSec
-	}
-}

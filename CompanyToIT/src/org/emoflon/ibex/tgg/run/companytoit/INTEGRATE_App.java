@@ -1,28 +1,25 @@
 package org.emoflon.ibex.tgg.run.companytoit;
 
 import java.io.IOException;
-
 import org.eclipse.emf.common.util.URI;
+
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.INTEGRATE;
 import org.emoflon.ibex.tgg.operational.strategies.modules.TGGResourceHandler;
-import org.emoflon.ibex.tgg.run.companytoit.config.HiPERegistrationHelper;
+import org.emoflon.ibex.tgg.run.companytoit.config._DefaultRegistrationHelper;
 import org.emoflon.ibex.tgg.util.ilp.ILPFactory.SupportedILPSolver;
-
-import CompanyToIT.integrate.solve.SolveConflictResolver;
 
 public class INTEGRATE_App extends INTEGRATE {
 
-	public static IRegistrationHelper registrationHelper = new HiPERegistrationHelper();
+	public static IRegistrationHelper registrationHelper = new _DefaultRegistrationHelper();
 
 	public INTEGRATE_App(String projectName, String workspacePath, String initPath, SupportedILPSolver ilpSolver, boolean debug) throws IOException {
 		super(registrationHelper.createIbexOptions()
 				.project.name(projectName)
 				.project.workspacePath(workspacePath)
-				.repair.useShortcutRules(true)
-				.ilpSolver(ilpSolver)
+				.ilpSolver(SupportedILPSolver.Sat4J)
 				.debug.ibexDebug(debug)
 				.propagate.usePrecedenceGraph(true)
 				.repair.useShortcutRules(true)
@@ -30,8 +27,6 @@ public class INTEGRATE_App extends INTEGRATE {
 				.repair.relaxedSCPatternMatching(true)
 				.repair.omitUnnecessaryContext(true)
 				.repair.disableInjectivity(true)
-				.patterns.useSrcTrgPattern(true)
-				.integration.conflictSolver(new SolveConflictResolver())
 				.resourceHandler(new TGGResourceHandler() {
 					@Override
 					public void loadModels() throws IOException {

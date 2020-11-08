@@ -171,6 +171,7 @@ public class SimpleFamiliesConstraintsTest extends SimpleFamiliesAbstractTest {
 
 		Family adamsFamily = api.findFamilyByName("Adams").findAnyMatch().get().getFamily();
 		assertMatchCount(2, api.findOrphan().bindFamily(adamsFamily));
+		api.findOrphan().unbindFamily();
 		assertMatchCount(3, api.findOrphan());
 	}
 

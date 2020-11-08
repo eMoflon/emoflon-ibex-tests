@@ -48,10 +48,10 @@ condition platformHasNeighborAndConnection = platformHasExactlyOneNeighbor
 pattern findPlatformWithNeighbor
 refines findSimplePlatform {
 	platform: SimplePlatform {
-		-neighbors -> _neighbor
+		-neighbors -> neighbor
 	}
 
-	_neighbor: Platform
+	local neighbor: Platform
 }
 
 /**
@@ -60,10 +60,10 @@ refines findSimplePlatform {
 pattern findPlatformWithTwoNeighbors
 refines findPlatformWithNeighbor {
 	platform: SimplePlatform {
-		-neighbors -> _neighbor2
+		-neighbors -> neighbor2
 	}
 
-	_neighbor2: Platform
+	local neighbor2: Platform
 }
 
 condition platformHasAtLeastOneNeighbor = enforce findPlatformWithNeighbor
@@ -88,10 +88,10 @@ when platformHasExactlyOneNeighbor
 pattern findPlatformWithConnection
 refines findSimplePlatform {
 	platform: SimplePlatform {
-		-connectedBy -> _connector
+		-connectedBy -> connector
 	}
 
-	_connector: PlatformConnector
+	local connector: PlatformConnector
 }
 
 /**
@@ -100,10 +100,10 @@ refines findSimplePlatform {
 pattern findPlatformWithTwoConnections
 refines findPlatformWithConnection {
 	platform: SimplePlatform {
-		-connectedBy -> _connector2
+		-connectedBy -> connector2
 	}
 
-	_connector2: PlatformConnector
+	local connector2: PlatformConnector
 }
 
 condition platformHasAtLeastOneConnection = enforce findPlatformWithConnection
