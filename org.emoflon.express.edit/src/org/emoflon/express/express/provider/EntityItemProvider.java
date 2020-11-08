@@ -239,7 +239,7 @@ public class EntityItemProvider extends UserDefinedTypeItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(ExpressPackage.Literals.ENTITY__ATTRIBUTES,
-				 ExpressFactory.eINSTANCE.createEntityAttribute()));
+				 ExpressFactory.eINSTANCE.createReferenceAttribute()));
 	}
 
 }

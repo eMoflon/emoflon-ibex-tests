@@ -29,7 +29,7 @@ public class Vertical_Model_Runner {
 		for(int i = 0; i < ns.length; i++) {
 			for(int j = 0; j < cs.length; j++) {
 				for(int r = 0; r < repetitions; r++) {
-				     Process proc = exec(Vertical_IntegrationBench.class, Arrays.asList("-Xmx120G"), Arrays.asList(""+ns[i], ""+cs[j]));
+				     Process proc = exec(Vertical_IntegrationBench.class, Arrays.asList("-Xmx4G"), Arrays.asList(""+ns[i], ""+cs[j]));
 				     proc.waitFor();
 					 proc.exitValue();
 					 

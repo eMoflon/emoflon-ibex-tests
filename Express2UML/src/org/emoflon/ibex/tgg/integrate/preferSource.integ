@@ -1,31 +1,41 @@
 package Express2UML.operationaldelta
 
-#import Entity2Clazz
+import Entity2Clazz
 
 preferSourceCreate: solve conflict for all {
-	var elemCreated = #src | created | exists
+	var elemCreated = src | created | exists
 	satisfies {
 		elemCreated
 	}
 } with preferSource when {
-	var noElementsCreatedOnSource = #src | created | count
-	var oneElementCreatedOnTarget = #trg | created | count
+	var elementsCreatedOnSource = src | created | count
+	var elementsDeletedOnSource = src | deleted | count
+	var elementsCreatedOnTarget = trg | created | count
+	var elementsDeletedOnTarget = trg | deleted | count
 	
 	satisfies {
-		noElementsCreatedOnSource == 0 and oneElementCreatedOnTarget == 1
+		elementsCreatedOnSource == 0 and 
+		elementsDeletedOnSource == 0 and
+		elementsCreatedOnTarget == 1 and
+		elementsDeletedOnTarget == 0
 	}
 }
 
 preferSourceDelete: solve conflict for all {
-	var elemDeleted = #src | deleted | exists
+	var elemDeleted = src | deleted | exists
 	satisfies {
 		elemDeleted
 	}
 } with preferSource when {
-	var elementsCreatedOnSource = #src | created | count
-	var elementsDeletedOnTarget = #trg | deleted | count
+	var elementsCreatedOnSource = src | created | count
+	var elementsDeletedOnSource = src | deleted | count
+	var elementsCreatedOnTarget = trg | created | count
+	var elementsDeletedOnTarget = trg | deleted | count
 	
 	satisfies {
-		elementsCreatedOnSource == 0 and elementsDeletedOnTarget == 2
+		elementsCreatedOnSource == 0 and 
+		elementsDeletedOnSource == 0 and
+		elementsCreatedOnTarget == 0 and
+		elementsDeletedOnTarget == 2
 	}
 }

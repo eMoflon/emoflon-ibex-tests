@@ -5,17 +5,23 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+
+import org.apache.commons.io.IOUtils;
+
+import com.google.common.io.CharStreams;
 
 public class Const_Conflict_Runner {
 
 	
 	private static int[] ns = {
 //			100, 200, 300, 500, 1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000
-			100, 150, 200
+			//100, 150, 
+			200
 	};
 	
 	private static int[] cs = {
@@ -29,14 +35,15 @@ public class Const_Conflict_Runner {
 		for(int i = 0; i < ns.length; i++) {
 			for(int j = 0; j < cs.length; j++) {
 				for(int r = 0; r < repetitions; r++) {
-				     Process proc = exec(Horizontal_IntegrationBench.class, Arrays.asList("-Xmx28G"), Arrays.asList(""+ns[i], ""+cs[j]));
+				     Process proc = exec(Horizontal_IntegrationBench.class, Arrays.asList("-Xmx4G"), Arrays.asList(""+ns[i], ""+cs[j]));
 				     proc.waitFor();
 					 proc.exitValue();
 					 
 					// Then retreive the process output
 					 InputStream in = proc.getInputStream();
 					 InputStream err = proc.getErrorStream();
-			
+					 String errStr = IOUtils.toString(err, StandardCharsets.UTF_8);
+					 System.out.println(errStr);
 					
 					 
 					 InputStreamReader is = new InputStreamReader(in);

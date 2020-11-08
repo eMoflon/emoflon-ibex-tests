@@ -23,6 +23,10 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="imports" upperBound="-1"
         eType="#//Import" eOpposite="#//Import/importedPkg"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subpackages" upperBound="-1"
+        eType="#//Package" containment="true" eOpposite="#//Package/parentPackage"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parentPackage" eType="#//Package"
+        eOpposite="#//Package/subpackages"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Import">
     <eStructuralFeatures xsi:type="ecore:EReference" name="importedPkg" lowerBound="1"

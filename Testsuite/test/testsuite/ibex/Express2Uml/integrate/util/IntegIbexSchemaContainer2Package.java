@@ -2,22 +2,22 @@ package testsuite.ibex.Express2Uml.integrate.util;
 
 import java.io.IOException;
 
-import org.emoflon.express.express.Schema;
+import org.emoflon.express.express.SchemaContainer;
 import org.emoflon.ibex.tgg.run.express2uml.INTEGRATE_App;
 
 import testsuite.ibex.Express2Uml.comparison.Express2UMLCorrespondenceComparator;
 import testsuite.ibex.Express2Uml.comparison.PackageComparator;
-import testsuite.ibex.Express2Uml.comparison.SchemaComparator;
+import testsuite.ibex.Express2Uml.comparison.SchemaContainerComparator;
 import testsuite.ibex.testUtil.IntegIbexAdapter;
 import uml.Package;
 
-public class IntegIbexSchema2Package extends IntegIbexAdapter<Schema, Package> {
+public class IntegIbexSchemaContainer2Package extends IntegIbexAdapter<SchemaContainer, Package> {
 
 	private final String inputFolder;
 
-	public IntegIbexSchema2Package(String projectName, String inputFolder) {
+	public IntegIbexSchemaContainer2Package(String projectName, String inputFolder) {
 
-		super(new SchemaComparator(), new PackageComparator(), new Express2UMLCorrespondenceComparator(), projectName);
+		super(new SchemaContainerComparator(), new PackageComparator(), new Express2UMLCorrespondenceComparator(), projectName);
 		this.inputFolder = inputFolder;
 	}
 

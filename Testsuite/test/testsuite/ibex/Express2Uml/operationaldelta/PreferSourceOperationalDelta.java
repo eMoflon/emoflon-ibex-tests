@@ -3,21 +3,22 @@ package testsuite.ibex.Express2Uml.operationaldelta;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.express.express.Entity;
 import org.emoflon.express.express.Schema;
+import org.emoflon.express.express.SchemaContainer;
 import org.junit.Test;
 
 import Express2UML.operationaldelta.preferSource.PreferSourceConflictResolver;
 import testsuite.ibex.Express2Uml.common.ExpressHelper;
 import testsuite.ibex.Express2Uml.common.UMLHelper;
-import testsuite.ibex.Express2Uml.integrate.util.IntegIbexSchema2Package;
+import testsuite.ibex.Express2Uml.integrate.util.IntegIbexSchemaContainer2Package;
 import testsuite.ibex.testUtil.IntegrateTestCase;
 import uml.Clazz;
 
-public class PreferSourceOperationalDelta extends IntegrateTestCase<Schema, uml.Package> {
+public class PreferSourceOperationalDelta extends IntegrateTestCase<SchemaContainer, uml.Package> {
 
 	private static final String PROJECT_NAME = "Express2UML";
 
 	public PreferSourceOperationalDelta() {
-		super(new IntegIbexSchema2Package(PROJECT_NAME, "/resources/operationaldelta/in"));
+		super(new IntegIbexSchemaContainer2Package(PROJECT_NAME, "/resources/operationaldelta/in"));
 	}
 
 	@Override
@@ -33,9 +34,11 @@ public class PreferSourceOperationalDelta extends IntegrateTestCase<Schema, uml.
 	public void preferSourceCreate() {
 		tool.getOptions().integration.conflictSolver(new PreferSourceConflictResolver());
 
-		tool.applyAndIntegrateDelta((schema, pkg) -> {
+		tool.applyAndIntegrateDelta((schemaContainer, pkg) -> {
 			// src:
+			Schema schema = schemaContainer.getSchemas().get(0);
 			Entity entity = (Entity) schema.getDeclarations().get(0);
+			EcoreUtil.delete(entity.getAttributes().get(0));
 			ExpressHelper.createIntegerAttribute(entity, "integerAttr");
 			// trg:
 			EcoreUtil.delete(pkg.getClazzes().get(0));
@@ -49,8 +52,9 @@ public class PreferSourceOperationalDelta extends IntegrateTestCase<Schema, uml.
 	public void preferSourceDelete() {
 		tool.getOptions().integration.conflictSolver(new PreferSourceConflictResolver());
 
-		tool.applyAndIntegrateDelta((schema, pkg) -> {
+		tool.applyAndIntegrateDelta((schemaContainer, pkg) -> {
 			// src:
+			Schema schema = schemaContainer.getSchemas().get(0);
 			EcoreUtil.delete(schema.getDeclarations().get(0));
 			// trg:
 			Clazz clazz = pkg.getClazzes().get(0);

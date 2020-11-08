@@ -5,21 +5,29 @@
 
 #source {
 	++s:Schema
+
+	sc:SchemaContainer {
+		++ -schemas -> s
+	}
 }
 
 #target {
-	++p:Package
+	++sp:Package
+
+	pp:Package {
+		++- subpackages -> sp
+	}
 }
 
 #correspondence {
-	++s2p:Schema2Package {
+	++s2sp:Schema2Package {
 		#src->s
-		#trg->p
+		#trg->sp
 	}
 }
 
 #attributeConditions {
-	eq_string(s.name, p.name)
+	eq_string(s.name, sp.name)
 }
 
 

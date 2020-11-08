@@ -3,19 +3,20 @@ package testsuite.ibex.Express2Uml.integrate;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.express.express.Entity;
 import org.emoflon.express.express.Schema;
+import org.emoflon.express.express.SchemaContainer;
 import org.junit.Test;
 
 import Express2UML.integrate.deletePreserveMultiEntity.DeletePreserveMultiEntityConflictResolver;
 import testsuite.ibex.Express2Uml.common.ExpressHelper;
-import testsuite.ibex.Express2Uml.integrate.util.IntegIbexSchema2Package;
+import testsuite.ibex.Express2Uml.integrate.util.IntegIbexSchemaContainer2Package;
 import testsuite.ibex.testUtil.IntegrateTestCase;
 
-public class DeletePreserveConflictMultiEntity extends IntegrateTestCase<Schema, uml.Package> {
+public class DeletePreserveConflictMultiEntity extends IntegrateTestCase<SchemaContainer, uml.Package> {
 
 	private static final String PROJECT_NAME = "Express2UML";
 
 	public DeletePreserveConflictMultiEntity() {
-		super(new IntegIbexSchema2Package(PROJECT_NAME, "/resources/integ/in/multi_entity"));
+		super(new IntegIbexSchemaContainer2Package(PROJECT_NAME, "/resources/integ/in/multi_entity"));
 	}
 
 	@Override
@@ -31,8 +32,9 @@ public class DeletePreserveConflictMultiEntity extends IntegrateTestCase<Schema,
 	public void multipleDeletePreserveConflicts() {
 		tool.getOptions().integration.conflictSolver(new DeletePreserveMultiEntityConflictResolver());
 
-		tool.applyAndIntegrateDelta((schema, pkg) -> {
+		tool.applyAndIntegrateDelta((schemaContainer, pkg) -> {
 			// src:
+			Schema schema = schemaContainer.getSchemas().get(0);
 			Entity entity1 = (Entity) schema.getDeclarations().get(0);
 			ExpressHelper.createIntegerAttribute(entity1, "integerAttr");
 			Entity entity2 = (Entity) schema.getDeclarations().get(1);

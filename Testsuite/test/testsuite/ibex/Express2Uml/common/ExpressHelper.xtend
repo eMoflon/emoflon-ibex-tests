@@ -4,12 +4,19 @@ import org.emoflon.express.express.Entity
 import org.emoflon.express.express.Attribute
 import org.emoflon.express.express.ExpressFactory
 import org.emoflon.express.express.Schema
+import org.emoflon.express.express.SchemaContainer
 
 class ExpressHelper {
 	
-	def static createSchema(String name) {
+	def static createSchemaContainer() {
+		val container = ExpressFactory.eINSTANCE.createSchemaContainer();
+		container
+	}
+	
+	def static createSchema(SchemaContainer container ,String name) {
 		val schema = ExpressFactory.eINSTANCE.createSchema();
 		schema.name = name
+		container.schemas.add(schema);
 		schema
 	}
 

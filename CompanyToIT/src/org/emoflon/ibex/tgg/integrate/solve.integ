@@ -1,10 +1,10 @@
 package CompanyToIT.integrate
 
-#import AdminToRouterRule
+import AdminToRouterRule
 
 adminDeletedAndLaptopCreated: solve conflict for all {
-	var adminDeleted = #src | deleted | type Admin | exists
-	var laptopCreated = #trg | created | type Laptop | exists
+	var adminDeleted = src | deleted | type Admin | exists
+	var laptopCreated = trg | created | type Laptop | exists
 	
 	satisfies {
 		adminDeleted and laptopCreated  
@@ -12,11 +12,11 @@ adminDeletedAndLaptopCreated: solve conflict for all {
 	 
 } with preferTarget
  
- solveAttributeConflict: solve conflict for all {
- 	var adminDeleted = #src | deleted | type Admin | exists
- 	var laptopsCreated = #trg | created | type Laptop | count
+solveAttributeConflict: solve conflict for all {
+ 	var adminDeleted = src | deleted | type Admin | exists
+ 	var laptopsCreated = trg | created | type Laptop | count
  	
  	satisfies {
  		adminDeleted and laptopsCreated == 0
- 	}
- } with preferSource 
+	}
+} with preferSource 

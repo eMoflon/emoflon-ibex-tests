@@ -3,19 +3,20 @@ package testsuite.ibex.Express2Uml.integrate;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.express.express.Entity;
 import org.emoflon.express.express.Schema;
+import org.emoflon.express.express.SchemaContainer;
 import org.junit.Test;
 
 import Express2UML.integrate.deletePreserveMultiAttr.DeletePreserveMultiAttrConflictResolver;
 import testsuite.ibex.Express2Uml.common.ExpressHelper;
-import testsuite.ibex.Express2Uml.integrate.util.IntegIbexSchema2Package;
+import testsuite.ibex.Express2Uml.integrate.util.IntegIbexSchemaContainer2Package;
 import testsuite.ibex.testUtil.IntegrateTestCase;
 
-public class DeletePreserveConflictMultiAttr extends IntegrateTestCase<Schema, uml.Package> {
+public class DeletePreserveConflictMultiAttr extends IntegrateTestCase<SchemaContainer, uml.Package> {
 
 	private static final String PROJECT_NAME = "Express2UML";
 
 	public DeletePreserveConflictMultiAttr() {
-		super(new IntegIbexSchema2Package(PROJECT_NAME, "/resources/integ/in/multi_attr"));
+		super(new IntegIbexSchemaContainer2Package(PROJECT_NAME, "/resources/integ/in/multi_attr"));
 	}
 
 	@Override
@@ -31,8 +32,9 @@ public class DeletePreserveConflictMultiAttr extends IntegrateTestCase<Schema, u
 	public void createdIntegerTypeAttributeAndStringTypeAttributeDeletedClazz() {
 		tool.getOptions().integration.conflictSolver(new DeletePreserveMultiAttrConflictResolver());
 
-		tool.applyAndIntegrateDelta((schema, pkg) -> {
+		tool.applyAndIntegrateDelta((schemaContainer, pkg) -> {
 			// src:
+			Schema schema = schemaContainer.getSchemas().get(0);
 			Entity entity = (Entity) schema.getDeclarations().get(0);
 			ExpressHelper.createIntegerAttribute(entity, "integerAttr");
 			ExpressHelper.createStringAttribute(entity, "stringAttr");

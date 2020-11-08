@@ -2,6 +2,7 @@ package testsuite.ibex.Express2Uml.sync;
 
 import org.emoflon.express.express.Entity;
 import org.emoflon.express.express.Schema;
+import org.emoflon.express.express.SchemaContainer;
 import org.junit.Test;
 
 import testsuite.ibex.Express2Uml.common.ExpressHelper;
@@ -11,7 +12,7 @@ import testsuite.ibex.testUtil.SyncTestCase;
 import uml.Clazz;
 import uml.Package;
 
-public class Basic extends SyncTestCase<Schema, Package> {
+public class Basic extends SyncTestCase<SchemaContainer, Package> {
 
 	private static final String PROJECT_NAME = "Express2UML";
 
@@ -38,7 +39,8 @@ public class Basic extends SyncTestCase<Schema, Package> {
 	public void Entity2Clazz_FWD() {
 		assertPrecondition("sync/in/src", "sync/in/trg");
 
-		tool.performAndPropagateSourceEdit(schema -> {
+		tool.performAndPropagateSourceEdit(schemaContainer -> {
+			Schema schema = schemaContainer.getSchemas().get(0);
 			ExpressHelper.createEntity(schema, "entity");
 		});
 
@@ -60,7 +62,8 @@ public class Basic extends SyncTestCase<Schema, Package> {
 	public void Function2SingleMethodClazz_FWD() {
 		assertPrecondition("sync/in/src", "sync/in/trg");
 
-		tool.performAndPropagateSourceEdit(schema -> {
+		tool.performAndPropagateSourceEdit(schemaContainer -> {
+			Schema schema = schemaContainer.getSchemas().get(0);
 			ExpressHelper.createFunction(schema, "function");
 		});
 
@@ -83,7 +86,8 @@ public class Basic extends SyncTestCase<Schema, Package> {
 	public void EnumerationType2Enumeration_FWD() {
 		assertPrecondition("sync/in/src", "sync/in/trg");
 
-		tool.performAndPropagateSourceEdit(schema -> {
+		tool.performAndPropagateSourceEdit(schemaContainer -> {
+			Schema schema = schemaContainer.getSchemas().get(0);
 			ExpressHelper.createEnumerationType(schema, "enumerationType");
 		});
 
@@ -105,7 +109,8 @@ public class Basic extends SyncTestCase<Schema, Package> {
 	public void IntegerAttribute2Integer_FWD() {
 		assertPrecondition("sync/in/src", "sync/in/trg");
 
-		tool.performAndPropagateSourceEdit(schema -> {
+		tool.performAndPropagateSourceEdit(schemaContainer -> {
+			Schema schema = schemaContainer.getSchemas().get(0);
 			Entity entity = ExpressHelper.createEntity(schema, "entity");
 			ExpressHelper.createIntegerAttribute(entity, "integer");
 		});

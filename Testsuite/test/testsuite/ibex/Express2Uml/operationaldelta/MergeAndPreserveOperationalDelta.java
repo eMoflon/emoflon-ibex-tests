@@ -3,20 +3,21 @@ package testsuite.ibex.Express2Uml.operationaldelta;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.express.express.Entity;
 import org.emoflon.express.express.Schema;
+import org.emoflon.express.express.SchemaContainer;
 import org.junit.Test;
 
 import Express2UML.operationaldelta.mergeAndPreserve.MergeAndPreserveConflictResolver;
 import testsuite.ibex.Express2Uml.common.ExpressHelper;
 import testsuite.ibex.Express2Uml.common.UMLHelper;
-import testsuite.ibex.Express2Uml.integrate.util.IntegIbexSchema2Package;
+import testsuite.ibex.Express2Uml.integrate.util.IntegIbexSchemaContainer2Package;
 import testsuite.ibex.testUtil.IntegrateTestCase;
 import uml.Clazz;
 
-public class MergeAndPreserveOperationalDelta extends IntegrateTestCase<Schema, uml.Package> {
+public class MergeAndPreserveOperationalDelta extends IntegrateTestCase<SchemaContainer, uml.Package> {
 	private static final String PROJECT_NAME = "Express2UML";
 
 	public MergeAndPreserveOperationalDelta() {
-		super(new IntegIbexSchema2Package(PROJECT_NAME, "/resources/operationaldelta/in"));
+		super(new IntegIbexSchemaContainer2Package(PROJECT_NAME, "/resources/operationaldelta/in"));
 	}
 
 	@Override
@@ -32,8 +33,9 @@ public class MergeAndPreserveOperationalDelta extends IntegrateTestCase<Schema, 
 	public void mergeAndPreserveSourceCreatedTargetDeleted() {
 		tool.getOptions().integration.conflictSolver(new MergeAndPreserveConflictResolver());
 
-		tool.applyAndIntegrateDelta((schema, pkg) -> {
+		tool.applyAndIntegrateDelta((schemaContainer, pkg) -> {
 			// src:
+			Schema schema = schemaContainer.getSchemas().get(0);
 			Entity entity = (Entity) schema.getDeclarations().get(0);
 			ExpressHelper.createIntegerAttribute(entity, "integerAttr");
 			// trg:
@@ -48,8 +50,9 @@ public class MergeAndPreserveOperationalDelta extends IntegrateTestCase<Schema, 
 	public void mergeAndPreserveSourceDeletedTargetCreated() {
 		tool.getOptions().integration.conflictSolver(new MergeAndPreserveConflictResolver());
 
-		tool.applyAndIntegrateDelta((schema, pkg) -> {
+		tool.applyAndIntegrateDelta((schemaContainer, pkg) -> {
 			// src:
+			Schema schema = schemaContainer.getSchemas().get(0);
 			EcoreUtil.delete(schema.getDeclarations().get(0));
 			
 			// trg:
@@ -60,4 +63,5 @@ public class MergeAndPreserveOperationalDelta extends IntegrateTestCase<Schema, 
 		final String path = "operationaldelta/expected/merge_and_preserve/";
 		assertCondition(path + "src", path + "trg", path + "corr");
 	}
+	
 }

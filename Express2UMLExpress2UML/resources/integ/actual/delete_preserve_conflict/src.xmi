@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="ASCII"?>
-<express:Schema xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:express="platform:/org.emoflon.express/model/generated/Express.ecore" name="schema">
-  <declarations xsi:type="express:Entity" name="entity">
-    <attributes xsi:type="express:IntegerAttribute" name="integerAttr"/>
-  </declarations>
-</express:Schema>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:express="platform:/org.emoflon.express/model/generated/Express.ecore">
+  <express:SchemaContainer>
+    <schemas name="parent"/>
+    <schemas name="sub">
+      <declarations xsi:type="express:Entity" name="clazz1">
+        <attributes xsi:type="express:StringAttribute" name="stringAttr"/>
+        <attributes xsi:type="express:IntegerAttribute" name="integerAttr"/>
+      </declarations>
+    </schemas>
+  </express:SchemaContainer>
+  <express:SchemaContainer>
+    <schemas name="parent"/>
+  </express:SchemaContainer>
+</xmi:XMI>

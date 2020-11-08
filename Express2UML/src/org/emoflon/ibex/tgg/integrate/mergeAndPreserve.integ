@@ -1,18 +1,18 @@
 package Express2UML.operationaldelta
 
-#import Entity2Clazz
+import Entity2Clazz
 
 mergeAndPreserveOnSourceCreatedAndTargetDeleted: solve conflict for all {
-	var elementsCreated = #src | created | exists
-	var elementsDeleted = #trg | deleted | exists
+	var elementsCreated = src | created | exists
+	var elementsDeleted = trg | deleted | exists
 	satisfies {
 		elementsCreated and elementsDeleted
 	}
 } with mergeAndPreserve when {
-	var elementsToBeCreatedOnSource = #src | created | count
-	var elementsToBeDeletedOnSource = #src | deleted | count 
-	var elementsToBeCreatedOnTarget = #trg | created | count
-	var elementsToBeDeletedOnTarget = #trg | deleted | count 
+	var elementsToBeCreatedOnSource = src | created | count
+	var elementsToBeDeletedOnSource = src | deleted | count 
+	var elementsToBeCreatedOnTarget = trg | created | count
+	var elementsToBeDeletedOnTarget = trg | deleted | count 
 	
 	satisfies {
 		elementsToBeCreatedOnSource == 0 and
@@ -23,16 +23,16 @@ mergeAndPreserveOnSourceCreatedAndTargetDeleted: solve conflict for all {
 }
 
 mergeAndPreserveOnSourceDeletedAndTargetCreated: solve conflict for all {
-	var elementsDeleted = #src | deleted | exists
-	var elementsCreated = #trg | created | exists
+	var elementsDeleted = src | deleted | exists
+	var elementsCreated = trg | created | exists
 	satisfies {
 		elementsCreated and elementsDeleted
 	}
 } with mergeAndPreserve when {
-	var elementsToBeCreatedOnSource = #src | created | count
-	var elementsToBeDeletedOnSource = #src | deleted | count 
-	var elementsToBeCreatedOnTarget = #trg | created | count
-	var elementsToBeDeletedOnTarget = #trg | deleted | count 
+	var elementsToBeCreatedOnSource = src | created | count
+	var elementsToBeDeletedOnSource = src | deleted | count 
+	var elementsToBeCreatedOnTarget = trg | created | count
+	var elementsToBeDeletedOnTarget = trg | deleted | count 
 	
 	satisfies {
 		elementsToBeCreatedOnSource == 1 and
@@ -41,3 +41,12 @@ mergeAndPreserveOnSourceDeletedAndTargetCreated: solve conflict for all {
 		elementsToBeDeletedOnTarget == 1
 	}
 }
+
+
+mergeAndPreserveSubpackages: solve conflict for all {
+	var packageDeleted = src | deleted | type Package | exists
+	var intAttrCreated = trg | created | type IntegerAttribute | exists
+	satisfies {
+		packageDeleted and intAttrCreated
+	}
+} with mergeAndPreserve 

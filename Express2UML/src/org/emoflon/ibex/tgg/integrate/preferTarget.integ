@@ -1,15 +1,15 @@
 package Express2UML.operationaldelta
 
-#import Entity2Clazz
+import Entity2Clazz
 
 preferTargetCreate: solve conflict for all {
-	var elemCreated = #trg | created | exists
+	var elemCreated = trg | created | exists
 	satisfies {
 		elemCreated
 	}
 } with preferTarget when {
-	var elementsCreatedOnSource = #src | created | count
-	var elementsCreatedOnTarget = #trg | created | count
+	var elementsCreatedOnSource = src | created | count
+	var elementsCreatedOnTarget = trg | created | count
 	
 	satisfies {
 		elementsCreatedOnTarget == 0 and elementsCreatedOnSource == 1
@@ -17,13 +17,13 @@ preferTargetCreate: solve conflict for all {
 }
 
 preferTargetDelete: solve conflict for all {
-	var elemDeleted = #trg | deleted | exists
+	var elemDeleted = trg | deleted | exists
 	satisfies {
 		elemDeleted
 	}
 } with preferTarget when {
-	var elementsDeletedOnSource = #src | deleted | count
-	var elementsCreatedOnTarget = #trg | created | count
+	var elementsDeletedOnSource = src | deleted | count
+	var elementsCreatedOnTarget = trg | created | count
 	
 	satisfies {
 		elementsCreatedOnTarget == 0 and elementsDeletedOnSource == 2

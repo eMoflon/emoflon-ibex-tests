@@ -2,17 +2,17 @@ grammar org.emoflon.express.Express with org.eclipse.xtext.common.Terminals
 
 generate express "platform:/org.emoflon.express/model/generated/Express.ecore"
 
+SchemaContainer:
+	schemas+=Schema;
+
 Schema:
-	'SCHEMA' name=ID declarations+=Declaration* 'END_SCHEMA;';
+	'SCHEMA' name=ID ';' declarations+=Declaration* 'END_SCHEMA;';
 
 Declaration:
 	UserDefinedType | Function | UseFrom;
 
-Type:
-	UserDefinedTypeReference;
-
-UserDefinedTypeReference:
-	type=[UserDefinedType];
+ReferenceOrValue:
+	reference=[UserDefinedType] | value=('INTEGER' | 'BOOLEAN' | 'STRING');
 
 UserDefinedType:
 	SelectType | EnumerationType | AliasType | Entity;
@@ -46,7 +46,7 @@ Entity:
 	'END_ENTITY;';
 
 Function:
-	'FUNCTION' name=ID '(' (parameters=ParameterList)? ')' (':' (returnType=Type)) ';'
+	'FUNCTION' name=ID '(' (parameters=ParameterList)? ')' (':' (returnType=ReferenceOrValue)) ';'
 	'...'
 	'END_FUNCTION;';
 
@@ -54,13 +54,13 @@ ParameterList:
 	parameters+=Parameter (';' parameters+=Parameter)*;
 
 Parameter:
-	name=ID ':' (type=Type);
+	name=ID ':' (type=ReferenceOrValue);
 
 UserDefinedTypeList:
 	(elements+=[UserDefinedType]) (',' (elements+=[UserDefinedType]))*;
 
 Attribute:
-	IntegerAttribute | StringAttribute | RealAttribute | BooleanAttribute | EntityAttribute;
+	IntegerAttribute | StringAttribute | RealAttribute | BooleanAttribute | ReferenceAttribute;
 
 IntegerAttribute:
 	name=ID ':' (optional?='OPTIONAL')? 'INTEGER' ';';
@@ -73,9 +73,9 @@ RealAttribute:
 
 BooleanAttribute:
 	name=ID ':' (optional?='OPTIONAL')? 'BOOLEAN' ';';
-	
-EntityAttribute:
-	name=ID ':' (optional?='OPTIONAL')? entity=[Entity] ';';
+
+ReferenceAttribute:
+	name=ID ':' (optional?='OPTIONAL')? (reference=[UserDefinedType]) ';';
 
 	/* 
 GeneralizedTypes:  GeneralAggregationTypes; // AggregateType | GenericEntityType | GenericType

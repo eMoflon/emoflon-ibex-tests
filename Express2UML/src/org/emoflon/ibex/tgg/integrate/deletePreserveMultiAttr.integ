@@ -1,11 +1,11 @@
 package Express2UML.integrate
 
-#import Entity2Clazz
+import Entity2Clazz
 
 createdIntegerTypeAttributeAndStringTypeAttributeDeletedClazz: solve conflict for all {
-	var integerAttributeAdded = #src | created | type IntegerAttribute | count
-	var stringAttributeAdded = #src | created | type StringAttribute | count
-	var classesAreDeleted = #trg | deleted | type Clazz | exists
+	var integerAttributeAdded = src | created | type IntegerAttribute | count
+	var stringAttributeAdded = src | created | type StringAttribute | count
+	var classesAreDeleted = trg | deleted | type Clazz | exists
 	
 	satisfies {
 		integerAttributeAdded > 0 and stringAttributeAdded > 0 and classesAreDeleted

@@ -12,6 +12,11 @@
 } 
 
 #correspondence {
+	SchemaContainer2RootPackage {
+		#src->SchemaContainer
+		#trg->Package
+	}
+	
 	Schema2Package {
 		#src->Schema
 		#trg->Package
