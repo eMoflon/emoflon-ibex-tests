@@ -11,4 +11,11 @@ createdIntegerTypeAttributeAndStringTypeAttributeDeletedClazz: solve conflict fo
 		integerAttributeAdded > 0 and stringAttributeAdded > 0 and classesAreDeleted
  	}
 	
-} with preferSource
+} with preferSource when {
+	var elementsToBeCreated = trg | created | count
+	var elementsToBeDeleted = src | deleted | count
+	
+	satisfies {
+		elementsToBeCreated == 2 and elementsToBeDeleted == 0
+	}
+}

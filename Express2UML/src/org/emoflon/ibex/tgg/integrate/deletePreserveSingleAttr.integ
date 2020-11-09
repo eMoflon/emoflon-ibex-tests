@@ -11,10 +11,10 @@ createdIntegerAttributeDeletedClazz: solve conflict for all {
  	}
 	
 } with preferSource when {
-	var elementsWillBeCreated = src | created | count
-	var noElementsWillBeDeleted = trg | deleted | count
+	var elementsWillBeCreated = trg | created | count
+	var noElementsWillBeDeleted = src | deleted | count
 	satisfies {
-		elementsWillBeCreated >= 1 and noElementsWillBeDeleted == 0
+		elementsWillBeCreated == 1 and noElementsWillBeDeleted == 0
 	}
 }
 
@@ -25,10 +25,10 @@ deletedEntityCreatedIntegerAttribute: solve conflict for all{
 	satisfies {
 		numIntegerAdded > 0 and entitiesAreDeleted
  	}
-} with preferSource when {
-	var noElementsWillBeCreated = src | created | count
-	var elementsWillBeDeleted = trg | deleted | count
+} with preferTarget when {
+	var elementsToBeCreated = src | created | count
+	var elementsToBeDeleted = trg | deleted | count
 	satisfies {
-		elementsWillBeDeleted >= 1 and noElementsWillBeCreated == 0
+		elementsToBeCreated == 1 and elementsToBeDeleted == 0
 	}
 }

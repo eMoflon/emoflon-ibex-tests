@@ -12,8 +12,10 @@ import testsuite.ibex.Express2Uml.common.UMLHelper;
 import testsuite.ibex.Express2Uml.integrate.util.IntegIbexSchemaContainer2Package;
 import testsuite.ibex.testUtil.IntegrateTestCase;
 import uml.Clazz;
+import uml.Package;
+import uml.UMLContainer;
 
-public class PreferTargetOperationalDelta extends IntegrateTestCase<SchemaContainer, uml.Package> {
+public class PreferTargetOperationalDelta extends IntegrateTestCase<SchemaContainer, UMLContainer> {
 
 	private static final String PROJECT_NAME = "Express2UML";
 
@@ -34,11 +36,12 @@ public class PreferTargetOperationalDelta extends IntegrateTestCase<SchemaContai
 	public void preferTargetCreate() {
 		tool.getOptions().integration.conflictSolver(new PreferTargetConflictResolver());
 
-		tool.applyAndIntegrateDelta((schemaContainer, pkg) -> {
+		tool.applyAndIntegrateDelta((schemaContainer, container) -> {
 			// src:
 			Schema schema = schemaContainer.getSchemas().get(0);
 			EcoreUtil.delete(schema.getDeclarations().get(0));
 			// trg:
+			Package pkg = container.getPackage();
 			Clazz clazz = pkg.getClazzes().get(0);
 			UMLHelper.createInteger(clazz, "integerAttr");
 		});
@@ -51,12 +54,13 @@ public class PreferTargetOperationalDelta extends IntegrateTestCase<SchemaContai
 	public void preferTargetDelete() {
 		tool.getOptions().integration.conflictSolver(new PreferTargetConflictResolver());
 
-		tool.applyAndIntegrateDelta((schemaContainer, pkg) -> {
+		tool.applyAndIntegrateDelta((schemaContainer, container) -> {
 			// src:
 			Schema schema = schemaContainer.getSchemas().get(0);
 			Entity entity = (Entity) schema.getDeclarations().get(0);
 			ExpressHelper.createIntegerAttribute(entity, "integerAttr");
 			// trg:
+			Package pkg = container.getPackage();
 			EcoreUtil.delete(pkg.getClazzes().get(0));
 		});
 

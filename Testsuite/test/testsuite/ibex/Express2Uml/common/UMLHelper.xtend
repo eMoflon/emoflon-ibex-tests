@@ -3,12 +3,18 @@ package testsuite.ibex.Express2Uml.common
 import uml.Clazz
 import uml.Package
 import uml.UmlFactory
+import uml.UMLContainer
 
 class UMLHelper {
 
-	def static createPackage(String name) {
+	def static createUMLContainer()  {
+		UmlFactory.eINSTANCE.createUMLContainer()
+	}
+
+	def static createPackage(UMLContainer container, String name) {
 		val pkg = UmlFactory.eINSTANCE.createPackage()
 		pkg.name = name
+		container.package = pkg
 		pkg
 	}
 	

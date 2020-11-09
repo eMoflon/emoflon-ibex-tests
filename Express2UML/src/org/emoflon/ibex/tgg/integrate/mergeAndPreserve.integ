@@ -42,11 +42,3 @@ mergeAndPreserveOnSourceDeletedAndTargetCreated: solve conflict for all {
 	}
 }
 
-
-mergeAndPreserveSubpackages: solve conflict for all {
-	var packageDeleted = src | deleted | type Package | exists
-	var intAttrCreated = trg | created | type IntegerAttribute | exists
-	satisfies {
-		packageDeleted and intAttrCreated
-	}
-} with mergeAndPreserve 

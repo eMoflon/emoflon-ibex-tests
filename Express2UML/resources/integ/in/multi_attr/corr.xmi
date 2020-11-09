@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="ASCII"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:Express2UML="platform:/resource/Express2UML/model/Express2UML.ecore">
-  <Express2UML:Schema2Package>
+  <Express2UML:SchemaContainer2UMLContainer>
     <source href="src.xmi#/"/>
     <target href="trg.xmi#/"/>
+  </Express2UML:SchemaContainer2UMLContainer>
+  <Express2UML:Schema2Package>
+    <source href="src.xmi#//@schemas.0"/>
+    <target href="trg.xmi#//@package"/>
   </Express2UML:Schema2Package>
   <Express2UML:Entity2Clazz>
-    <source href="src.xmi#//@declarations.0"/>
-    <target href="trg.xmi#//@clazzes.0"/>
+    <source href="src.xmi#//@schemas.0/@declarations.0"/>
+    <target href="trg.xmi#//@package/@clazzes.0"/>
   </Express2UML:Entity2Clazz>
 </xmi:XMI>

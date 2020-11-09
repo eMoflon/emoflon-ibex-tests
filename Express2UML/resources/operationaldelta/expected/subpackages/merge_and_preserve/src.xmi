@@ -3,8 +3,8 @@
   <schemas name="parent"/>
   <schemas name="sub">
     <declarations xsi:type="express:Entity" name="clazz1">
-      <attributes xsi:type="express:StringAttribute" name="stringAttr"/>
       <attributes xsi:type="express:IntegerAttribute" name="integerAttr"/>
+      <attributes xsi:type="express:StringAttribute" name="stringAttr"/>
     </declarations>
   </schemas>
 </express:SchemaContainer>

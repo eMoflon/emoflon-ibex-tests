@@ -27,6 +27,8 @@
         eType="#//Package" containment="true" eOpposite="#//Package/parentPackage"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parentPackage" eType="#//Package"
         eOpposite="#//Package/subpackages"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="container" eType="#//UMLContainer"
+        eOpposite="#//UMLContainer/package"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Import">
     <eStructuralFeatures xsi:type="ecore:EReference" name="importedPkg" lowerBound="1"
@@ -67,10 +69,14 @@
         eOpposite="#//Clazz/associations"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AssociationTarget" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="association" eType="#//Association"
-        eOpposite="#//Association/target"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="association" upperBound="-1"
+        eType="#//Association" eOpposite="#//Association/target"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Boolean" eSuperTypes="#//DataType"/>
   <eClassifiers xsi:type="ecore:EClass" name="Real" eSuperTypes="#//DataType"/>
   <eClassifiers xsi:type="ecore:EClass" name="String" eSuperTypes="#//DataType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UMLContainer">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="package" lowerBound="1"
+        eType="#//Package" containment="true" eOpposite="#//Package/container"/>
+  </eClassifiers>
 </ecore:EPackage>

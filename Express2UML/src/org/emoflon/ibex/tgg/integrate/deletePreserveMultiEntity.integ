@@ -10,7 +10,14 @@ keepIntegerAttribute: solve conflict for all {
 		integerAttributeAdded > 0 and classesAreDeleted
  	}
 	
-} with preferSource
+} with preferSource when {
+	var elementsToBeCreated = trg | created | count
+	var elementsToBeDeleted = src | deleted | count
+	
+	satisfies {
+		elementsToBeCreated == 1 and elementsToBeDeleted == 0
+	}
+}
 
 deleteStringAttribute: solve conflict for all {
 	var stringAttributeAdded = src | created | type StringAttribute | count
@@ -20,4 +27,11 @@ deleteStringAttribute: solve conflict for all {
 		stringAttributeAdded > 0 and classesAreDeleted
  	}
 	
-} with preferTarget
+} with preferTarget when {
+	var elementsToBeCreated = trg | created | count
+	var elementsToBeDeleted = src | deleted | count
+	
+	satisfies {
+		elementsToBeCreated == 0 and elementsToBeDeleted == 1
+	}
+}

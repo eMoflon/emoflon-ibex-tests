@@ -49,6 +49,7 @@ class ExpressHelper {
 		val function = ExpressFactory.eINSTANCE.createFunction()
 		function.name = name
 		schema.declarations.add(function)
+		function
 	}
 	
 	def static createEnumerationType(Schema schema, String name) {

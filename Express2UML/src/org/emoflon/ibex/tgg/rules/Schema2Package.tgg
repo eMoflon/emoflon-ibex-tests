@@ -12,15 +12,57 @@
 }
 
 #target {
-	++sp:Package
+	++p:Package
 
-	pp:Package {
-		++- subpackages -> sp
+	uc:UMLContainer {
+		++- package -> p
 	}
 }
 
 #correspondence {
-	++s2sp:Schema2Package {
+	sc2uc: SchemaContainer2UMLContainer{
+		#src->sc
+		#trg->uc
+	}
+	
+	++s2p:Schema2Package {
+		#src->s
+		#trg->p
+	}
+}
+
+#attributeConditions {
+	eq_string(s.name, p.name)
+}
+
+/* 
+#rule Schema2SubPackage #with Express2UML
+
+#source {
+	++s:Schema
+	es: Schema
+
+	sc:SchemaContainer {
+		-schemas->es
+		++ -schemas -> s
+	}
+}
+
+#target {
+	++sp:Package
+
+	p:Package {
+		++-subpackages -> sp
+	}
+}
+
+#correspondence {
+	es2p: Schema2Package {
+		#src->es
+		#trg->p
+	}
+	
+	++s2p:Schema2Package {
 		#src->s
 		#trg->sp
 	}
@@ -28,6 +70,5 @@
 
 #attributeConditions {
 	eq_string(s.name, sp.name)
-}
-
+}*/
 

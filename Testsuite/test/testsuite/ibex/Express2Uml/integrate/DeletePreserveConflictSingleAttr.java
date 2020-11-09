@@ -11,8 +11,10 @@ import testsuite.ibex.Express2Uml.common.ExpressHelper;
 import testsuite.ibex.Express2Uml.common.UMLHelper;
 import testsuite.ibex.Express2Uml.integrate.util.IntegIbexSchemaContainer2Package;
 import testsuite.ibex.testUtil.IntegrateTestCase;
+import uml.Package;
+import uml.UMLContainer;
 
-public class DeletePreserveConflictSingleAttr extends IntegrateTestCase<SchemaContainer, uml.Package> {
+public class DeletePreserveConflictSingleAttr extends IntegrateTestCase<SchemaContainer, UMLContainer> {
 
 	private static final String PROJECT_NAME = "Express2UML";
 
@@ -33,12 +35,13 @@ public class DeletePreserveConflictSingleAttr extends IntegrateTestCase<SchemaCo
 	public void createdIntegerTypeAttributeDeletedClazz() {
 		tool.getOptions().integration.conflictSolver(new DeletePreserveSingleAttrConflictResolver());
 
-		tool.applyAndIntegrateDelta((schemaContainer, pkg) -> {
+		tool.applyAndIntegrateDelta((schemaContainer, umlContainer) -> {
 			// src:
 			Schema schema = schemaContainer.getSchemas().get(0);
 			Entity entity = (Entity) schema.getDeclarations().get(0);
 			ExpressHelper.createIntegerAttribute(entity, "integerAttr");
 			// trg:
+			Package pkg = umlContainer.getPackage();
 			EcoreUtil.delete(pkg.getClazzes().get(0));
 		});
 
@@ -50,11 +53,12 @@ public class DeletePreserveConflictSingleAttr extends IntegrateTestCase<SchemaCo
 	public void deletedEntityCreatedIntegerAttribute() {
 		tool.getOptions().integration.conflictSolver(new DeletePreserveSingleAttrConflictResolver());
 
-		tool.applyAndIntegrateDelta((schemaContainer, pkg) -> {
+		tool.applyAndIntegrateDelta((schemaContainer, umlContainer) -> {
 			// src:
 			Schema schema = schemaContainer.getSchemas().get(0);
 			EcoreUtil.delete(schema.getDeclarations().get(0));
 			// trg:
+			Package pkg = umlContainer.getPackage();
 			UMLHelper.createInteger(pkg.getClazzes().get(0), "integerAttr");
 		});
 

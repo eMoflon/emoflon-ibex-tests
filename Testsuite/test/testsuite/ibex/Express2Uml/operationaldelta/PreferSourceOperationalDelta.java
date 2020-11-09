@@ -1,6 +1,7 @@
 package testsuite.ibex.Express2Uml.operationaldelta;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.emoflon.express.express.Declaration;
 import org.emoflon.express.express.Entity;
 import org.emoflon.express.express.Schema;
 import org.emoflon.express.express.SchemaContainer;
@@ -12,8 +13,10 @@ import testsuite.ibex.Express2Uml.common.UMLHelper;
 import testsuite.ibex.Express2Uml.integrate.util.IntegIbexSchemaContainer2Package;
 import testsuite.ibex.testUtil.IntegrateTestCase;
 import uml.Clazz;
+import uml.Package;
+import uml.UMLContainer;
 
-public class PreferSourceOperationalDelta extends IntegrateTestCase<SchemaContainer, uml.Package> {
+public class PreferSourceOperationalDelta extends IntegrateTestCase<SchemaContainer, UMLContainer> {
 
 	private static final String PROJECT_NAME = "Express2UML";
 
@@ -34,13 +37,14 @@ public class PreferSourceOperationalDelta extends IntegrateTestCase<SchemaContai
 	public void preferSourceCreate() {
 		tool.getOptions().integration.conflictSolver(new PreferSourceConflictResolver());
 
-		tool.applyAndIntegrateDelta((schemaContainer, pkg) -> {
+		tool.applyAndIntegrateDelta((schemaContainer, umlContainer) -> {
 			// src:
 			Schema schema = schemaContainer.getSchemas().get(0);
 			Entity entity = (Entity) schema.getDeclarations().get(0);
 			EcoreUtil.delete(entity.getAttributes().get(0));
 			ExpressHelper.createIntegerAttribute(entity, "integerAttr");
 			// trg:
+			Package pkg = umlContainer.getPackage();
 			EcoreUtil.delete(pkg.getClazzes().get(0));
 		});
 
@@ -52,11 +56,13 @@ public class PreferSourceOperationalDelta extends IntegrateTestCase<SchemaContai
 	public void preferSourceDelete() {
 		tool.getOptions().integration.conflictSolver(new PreferSourceConflictResolver());
 
-		tool.applyAndIntegrateDelta((schemaContainer, pkg) -> {
+		tool.applyAndIntegrateDelta((schemaContainer, umlContainer) -> {
 			// src:
 			Schema schema = schemaContainer.getSchemas().get(0);
-			EcoreUtil.delete(schema.getDeclarations().get(0));
+			Entity entity = (Entity) schema.getDeclarations().get(0);
+			EcoreUtil.delete(entity);
 			// trg:
+			Package pkg = umlContainer.getPackage();
 			Clazz clazz = pkg.getClazzes().get(0);
 			UMLHelper.createInteger(clazz, "intAttr");
 		});

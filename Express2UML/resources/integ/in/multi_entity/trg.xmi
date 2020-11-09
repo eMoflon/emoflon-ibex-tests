@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="ASCII"?>
-<uml:Package xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:uml="platform:/resource/uml/model/Uml.ecore" name="schema">
-  <clazzes name="entity2"/>
-  <clazzes name="entity1"/>
-</uml:Package>
+<uml:UMLContainer xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:uml="platform:/resource/uml/model/Uml.ecore">
+  <package name="schema">
+    <clazzes name="entity1"/>
+    <clazzes name="entity2"/>
+  </package>
+</uml:UMLContainer>

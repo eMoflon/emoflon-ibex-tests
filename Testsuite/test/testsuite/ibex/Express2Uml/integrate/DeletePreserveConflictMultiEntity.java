@@ -10,8 +10,10 @@ import Express2UML.integrate.deletePreserveMultiEntity.DeletePreserveMultiEntity
 import testsuite.ibex.Express2Uml.common.ExpressHelper;
 import testsuite.ibex.Express2Uml.integrate.util.IntegIbexSchemaContainer2Package;
 import testsuite.ibex.testUtil.IntegrateTestCase;
+import uml.Package;
+import uml.UMLContainer;
 
-public class DeletePreserveConflictMultiEntity extends IntegrateTestCase<SchemaContainer, uml.Package> {
+public class DeletePreserveConflictMultiEntity extends IntegrateTestCase<SchemaContainer, UMLContainer> {
 
 	private static final String PROJECT_NAME = "Express2UML";
 
@@ -32,7 +34,7 @@ public class DeletePreserveConflictMultiEntity extends IntegrateTestCase<SchemaC
 	public void multipleDeletePreserveConflicts() {
 		tool.getOptions().integration.conflictSolver(new DeletePreserveMultiEntityConflictResolver());
 
-		tool.applyAndIntegrateDelta((schemaContainer, pkg) -> {
+		tool.applyAndIntegrateDelta((schemaContainer, container) -> {
 			// src:
 			Schema schema = schemaContainer.getSchemas().get(0);
 			Entity entity1 = (Entity) schema.getDeclarations().get(0);
@@ -40,6 +42,7 @@ public class DeletePreserveConflictMultiEntity extends IntegrateTestCase<SchemaC
 			Entity entity2 = (Entity) schema.getDeclarations().get(1);
 			ExpressHelper.createStringAttribute(entity2, "stringAttr");
 			// trg:
+			Package pkg = container.getPackage();
 			EcoreUtil.delete(pkg.getClazzes().get(1));
 			EcoreUtil.delete(pkg.getClazzes().get(0));
 		});

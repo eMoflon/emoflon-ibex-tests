@@ -10,8 +10,10 @@ import Express2UML.integrate.deletePreserveMultiAttr.DeletePreserveMultiAttrConf
 import testsuite.ibex.Express2Uml.common.ExpressHelper;
 import testsuite.ibex.Express2Uml.integrate.util.IntegIbexSchemaContainer2Package;
 import testsuite.ibex.testUtil.IntegrateTestCase;
+import uml.Package;
+import uml.UMLContainer;
 
-public class DeletePreserveConflictMultiAttr extends IntegrateTestCase<SchemaContainer, uml.Package> {
+public class DeletePreserveConflictMultiAttr extends IntegrateTestCase<SchemaContainer, UMLContainer> {
 
 	private static final String PROJECT_NAME = "Express2UML";
 
@@ -32,13 +34,14 @@ public class DeletePreserveConflictMultiAttr extends IntegrateTestCase<SchemaCon
 	public void createdIntegerTypeAttributeAndStringTypeAttributeDeletedClazz() {
 		tool.getOptions().integration.conflictSolver(new DeletePreserveMultiAttrConflictResolver());
 
-		tool.applyAndIntegrateDelta((schemaContainer, pkg) -> {
+		tool.applyAndIntegrateDelta((schemaContainer, umlContainer) -> {
 			// src:
 			Schema schema = schemaContainer.getSchemas().get(0);
 			Entity entity = (Entity) schema.getDeclarations().get(0);
 			ExpressHelper.createIntegerAttribute(entity, "integerAttr");
 			ExpressHelper.createStringAttribute(entity, "stringAttr");
 			// trg:
+			Package pkg = umlContainer.getPackage();
 			EcoreUtil.delete(pkg.getClazzes().get(0));
 		});
 

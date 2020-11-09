@@ -1,0 +1,23 @@
+package Express2UML.operationaldelta
+
+import Entity2Clazz
+
+mergeAndPreserveOnDeletedPackage: solve conflict for all {
+	var packageDeleted = trg | deleted | type Package | exists
+	satisfies {
+		packageDeleted
+	}
+} with mergeAndPreserve when {
+	var elementsToBeCreatedOnSource = src | created | count
+	var elementsToBeDeletedOnSource = src | deleted | count 
+	var elementsToBeCreatedOnTarget = trg | created | count
+	var elementsToBeDeletedOnTarget = trg | deleted | count 
+	
+	satisfies {
+		elementsToBeCreatedOnSource == 0 and
+		elementsToBeDeletedOnSource == 1 and 
+		elementsToBeCreatedOnTarget == 1 and
+		elementsToBeDeletedOnTarget == 0
+	}
+}
+

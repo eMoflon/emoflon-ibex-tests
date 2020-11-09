@@ -12,8 +12,10 @@ import testsuite.ibex.Express2Uml.common.UMLHelper;
 import testsuite.ibex.Express2Uml.integrate.util.IntegIbexSchemaContainer2Package;
 import testsuite.ibex.testUtil.IntegrateTestCase;
 import uml.Clazz;
+import uml.Package;
+import uml.UMLContainer;
 
-public class MergeAndPreserveOperationalDelta extends IntegrateTestCase<SchemaContainer, uml.Package> {
+public class MergeAndPreserveOperationalDelta extends IntegrateTestCase<SchemaContainer, UMLContainer> {
 	private static final String PROJECT_NAME = "Express2UML";
 
 	public MergeAndPreserveOperationalDelta() {
@@ -33,13 +35,15 @@ public class MergeAndPreserveOperationalDelta extends IntegrateTestCase<SchemaCo
 	public void mergeAndPreserveSourceCreatedTargetDeleted() {
 		tool.getOptions().integration.conflictSolver(new MergeAndPreserveConflictResolver());
 
-		tool.applyAndIntegrateDelta((schemaContainer, pkg) -> {
+		tool.applyAndIntegrateDelta((schemaContainer, container) -> {
 			// src:
 			Schema schema = schemaContainer.getSchemas().get(0);
 			Entity entity = (Entity) schema.getDeclarations().get(0);
 			ExpressHelper.createIntegerAttribute(entity, "integerAttr");
 			// trg:
-			EcoreUtil.delete(pkg.getClazzes().get(0));
+			Package pkg = container.getPackage();
+			Clazz clazz = pkg.getClazzes().get(0);
+			EcoreUtil.delete(clazz);
 		});
 
 		final String path = "operationaldelta/expected/merge_and_preserve/";
@@ -50,12 +54,12 @@ public class MergeAndPreserveOperationalDelta extends IntegrateTestCase<SchemaCo
 	public void mergeAndPreserveSourceDeletedTargetCreated() {
 		tool.getOptions().integration.conflictSolver(new MergeAndPreserveConflictResolver());
 
-		tool.applyAndIntegrateDelta((schemaContainer, pkg) -> {
+		tool.applyAndIntegrateDelta((schemaContainer, container) -> {
 			// src:
 			Schema schema = schemaContainer.getSchemas().get(0);
 			EcoreUtil.delete(schema.getDeclarations().get(0));
-			
 			// trg:
+			Package pkg = container.getPackage();
 			Clazz clazz = pkg.getClazzes().get(0);
 			UMLHelper.createInteger(clazz, "integerAttr");
 		});

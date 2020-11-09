@@ -1,4 +1,4 @@
-package testsuite.ibex.Express2Uml.operationaldelta.subpackages;
+package testsuite.ibex.Express2Uml.operationaldelta.multi;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.express.express.Entity;
@@ -7,17 +7,20 @@ import org.emoflon.express.express.SchemaContainer;
 import org.junit.Test;
 
 import Express2UML.operationaldelta.mergeAndPreserve.MergeAndPreserveConflictResolver;
+import Express2UML.operationaldelta.mergeAndPreserveMulti.MergeAndPreserveMultiConflictResolver;
 import testsuite.ibex.Express2Uml.common.ExpressHelper;
 import testsuite.ibex.Express2Uml.common.UMLHelper;
 import testsuite.ibex.Express2Uml.integrate.util.IntegIbexSchemaContainer2Package;
 import testsuite.ibex.testUtil.IntegrateTestCase;
 import uml.Clazz;
+import uml.Package;
+import uml.UMLContainer;
 
-public class MergeAndPreserveOperationalDelta extends IntegrateTestCase<SchemaContainer, uml.Package> {
+public class MergeAndPreserveOperationalDelta extends IntegrateTestCase<SchemaContainer, UMLContainer> {
 	private static final String PROJECT_NAME = "Express2UML";
 
 	public MergeAndPreserveOperationalDelta() {
-		super(new IntegIbexSchemaContainer2Package(PROJECT_NAME, "/resources/operationaldelta/in/subpackages"));
+		super(new IntegIbexSchemaContainer2Package(PROJECT_NAME, "/resources/operationaldelta/in/multi"));
 	}
 
 	@Override
@@ -30,16 +33,17 @@ public class MergeAndPreserveOperationalDelta extends IntegrateTestCase<SchemaCo
 	}
 
 	@Test
-	public void mergeAndPreserveSourceCreatedTargetDeleted() {
-		tool.getOptions().integration.conflictSolver(new MergeAndPreserveConflictResolver());
+	public void mergeAndPreserveWithMultipleDeletionsToBeRevoked() {
+		tool.getOptions().integration.conflictSolver(new MergeAndPreserveMultiConflictResolver());
 
-		tool.applyAndIntegrateDelta((schemaContainer, pkg) -> {
+		tool.applyAndIntegrateDelta((schemaContainer, container) -> {
 			// src:
-			//Schema schema = schemaContainer.getSchemas().get(1);
-			//Entity entity = (Entity) schema.getDeclarations().get(0);
-			//ExpressHelper.createIntegerAttribute(entity, "integerAttr");
+			Schema schema = schemaContainer.getSchemas().get(0);
+			Entity entity = (Entity) schema.getDeclarations().get(0);
+			ExpressHelper.createStringAttribute(entity, "stringAttr");
 			// trg:
-			//EcoreUtil.delete(pkg.getSubpackages().get(0).getClazzes().get(0));
+			Package pkg = container.getPackage();
+			EcoreUtil.delete(pkg);
 		});
 
 		final String path = "operationaldelta/expected/merge_and_preserve/";

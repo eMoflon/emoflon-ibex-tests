@@ -12,12 +12,17 @@
 } 
 
 #correspondence {
-	SchemaContainer2RootPackage {
+	SchemaContainer2UMLContainer {
 		#src->SchemaContainer
-		#trg->Package
+		#trg->UMLContainer
 	}
 	
 	Schema2Package {
+		#src->Schema
+		#trg->Package
+	}
+	
+	Schema2SubPackage {
 		#src->Schema
 		#trg->Package
 	}

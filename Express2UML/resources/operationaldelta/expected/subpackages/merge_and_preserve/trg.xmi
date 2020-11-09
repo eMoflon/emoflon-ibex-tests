@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ASCII"?>
+<uml:UMLContainer xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uml="platform:/resource/uml/model/Uml.ecore">
+  <package name="parent">
+    <subpackages name="sub">
+      <clazzes name="clazz1">
+        <attributes xsi:type="uml:Integer" name="integerAttr"/>
+        <attributes xsi:type="uml:String" name="stringAttr"/>
+      </clazzes>
+    </subpackages>
+  </package>
+</uml:UMLContainer>
