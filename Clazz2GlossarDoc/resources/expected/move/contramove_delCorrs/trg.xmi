@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ASCII"?>
+<GlossarDocumentation:DocumentationContainer xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:GlossarDocumentation="platform:/resource/GlossarDocumentation/model/glossarDocumentation.ecore">
+  <documents name="C0" hyperRefs="//@documents.2 //@documents.3"/>
+  <documents name="C1" reverseHRef="//@documents.2">
+    <entries type="METHOD" name="M1"/>
+  </documents>
+  <documents name="C3" hyperRefs="//@documents.1" reverseHRef="//@documents.0">
+    <entries type="METHOD" name="M3"/>
+  </documents>
+  <documents name="C2" hyperRefs="//@documents.4" reverseHRef="//@documents.0">
+    <entries type="METHOD" name="M2"/>
+  </documents>
+  <documents name="C1" reverseHRef="//@documents.3">
+    <entries type="METHOD" name="M1"/>
+  </documents>
+  <glossar/>
+</GlossarDocumentation:DocumentationContainer>

@@ -39,6 +39,13 @@ public class WoodenBlockSetHelper {
 		return null;
 	}
 	
+	public Construction createConstruction(BlockSet blockSet, String name) {
+		Construction constr = WoodenBlockSetFactory.eINSTANCE.createConstruction();
+		constr.setName(name);
+		blockSet.getConstructions().add(constr);
+		return constr;
+	}
+	
 	public Shape3D createCube(Construction constr, String color) {
 		return createShape3D(constr, WoodenBlockSetPackage.eINSTANCE.getCube(), color);
 	}

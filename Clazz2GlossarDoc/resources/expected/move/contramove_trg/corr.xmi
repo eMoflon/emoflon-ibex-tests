@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:Clazz2GlossarDoc="platform:/resource/Clazz2GlossarDoc/model/Clazz2GlossarDoc.ecore">
+  <Clazz2GlossarDoc:Container2container>
+    <source href="src.xmi#/"/>
+    <target href="trg.xmi#/"/>
+  </Clazz2GlossarDoc:Container2container>
+  <Clazz2GlossarDoc:Clazz2doc>
+    <source href="src.xmi#//@clazzes.0"/>
+    <target href="trg.xmi#//@documents.0"/>
+  </Clazz2GlossarDoc:Clazz2doc>
+  <Clazz2GlossarDoc:Clazz2doc>
+    <source href="src.xmi#//@clazzes.0/@subClazzes.1/@subClazzes.0"/>
+    <target href="trg.xmi#//@documents.1"/>
+  </Clazz2GlossarDoc:Clazz2doc>
+  <Clazz2GlossarDoc:Clazz2doc>
+    <source href="src.xmi#//@clazzes.0/@subClazzes.1"/>
+    <target href="trg.xmi#//@documents.2"/>
+  </Clazz2GlossarDoc:Clazz2doc>
+  <Clazz2GlossarDoc:Clazz2doc>
+    <source href="src.xmi#//@clazzes.0/@subClazzes.0"/>
+    <target href="trg.xmi#//@documents.3"/>
+  </Clazz2GlossarDoc:Clazz2doc>
+  <Clazz2GlossarDoc:Method2entry>
+    <source href="src.xmi#//@clazzes.0/@subClazzes.1/@subClazzes.0/@methods.0"/>
+    <target href="trg.xmi#//@documents.1/@entries.0"/>
+  </Clazz2GlossarDoc:Method2entry>
+  <Clazz2GlossarDoc:Method2entry>
+    <source href="src.xmi#//@clazzes.0/@subClazzes.1/@methods.0"/>
+    <target href="trg.xmi#//@documents.2/@entries.0"/>
+  </Clazz2GlossarDoc:Method2entry>
+  <Clazz2GlossarDoc:Method2entry>
+    <source href="src.xmi#//@clazzes.0/@subClazzes.0/@methods.0"/>
+    <target href="trg.xmi#//@documents.3/@entries.0"/>
+  </Clazz2GlossarDoc:Method2entry>
+</xmi:XMI>

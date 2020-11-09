@@ -7,19 +7,18 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 public class Vertical_Model_Runner {
 
 	
-	private static int[] ns = {
-			8333//100, 200, 300, 500, 1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000
+	private static int[] ns = { //
+			8333 //100, 200, 300, 500, 1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000 //
 	};
 	
-	private static int[] cs = {
+	private static int[] cs = { //
 			 1, 25, 50, 75, 100, 150, 200, 250, 300, 400, 500, 750, 1000, 
-			1500, 2000, 3000, 4000, 5000, 6000, 7000, 8333
+			1500, 2000, 3000, 4000, 5000, 6000, 7000, 8333 //
 	};
 	
 	private static int repetitions = 20;
@@ -35,7 +34,8 @@ public class Vertical_Model_Runner {
 					 
 					// Then retreive the process output
 					 InputStream in = proc.getInputStream();
-					 InputStream err = proc.getErrorStream();
+					 @SuppressWarnings("unused")
+					InputStream err = proc.getErrorStream();
 					 
 					 InputStreamReader is = new InputStreamReader(in);
 					 StringBuilder sb=new StringBuilder();
@@ -63,7 +63,7 @@ public class Vertical_Model_Runner {
 		cont.print();
 	}
 	
-	public static Process exec(Class clazz, List<String> jvmArgs, List<String> args) throws IOException, InterruptedException {
+	public static Process exec(Class<?> clazz, List<String> jvmArgs, List<String> args) throws IOException, InterruptedException {
 		String javaHome = System.getProperty("java.home");
 		String javaBin = javaHome + File.separator + "bin" + File.separator + "java";
 		String classpath = System.getProperty("java.class.path");

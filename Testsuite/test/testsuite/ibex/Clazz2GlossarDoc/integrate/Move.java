@@ -76,8 +76,7 @@ public class Move extends IntegrateTestCase<ClazzContainer, DocumentationContain
 			d3.getHyperRefs().add(d1);
 		});
 
-		// TODO adrianm: add expected model files
-//		assertCondition(path + "src", path + "trg", path + "corr");
+		assertCondition(path + "src", path + "trg", path + "corr");
 	}
 
 	@Test
@@ -90,4 +89,8 @@ public class Move extends IntegrateTestCase<ClazzContainer, DocumentationContain
 		contradictoryMove(s -> s.crs_preferTarget(), testpath + "contramove_trg/");
 	}
 
+	@Test
+	public void contradictoryMove_deleteCorrs() {
+		contradictoryMove(s -> s.crs_deleteCorrs(), testpath + "contramove_delCorrs/");
+	}
 }
