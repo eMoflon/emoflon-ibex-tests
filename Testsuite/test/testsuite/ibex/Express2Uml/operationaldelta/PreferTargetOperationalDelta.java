@@ -36,12 +36,12 @@ public class PreferTargetOperationalDelta extends IntegrateTestCase<SchemaContai
 	public void preferTargetCreate() {
 		tool.getOptions().integration.conflictSolver(new PreferTargetConflictResolver());
 
-		tool.applyAndIntegrateDelta((schemaContainer, container) -> {
+		tool.applyAndIntegrateDelta((schemaContainer, umlContainer) -> {
 			// src:
 			Schema schema = schemaContainer.getSchemas().get(0);
 			EcoreUtil.delete(schema.getDeclarations().get(0));
 			// trg:
-			Package pkg = container.getPackage();
+			Package pkg = umlContainer.getPackage();
 			Clazz clazz = pkg.getClazzes().get(0);
 			UMLHelper.createInteger(clazz, "integerAttr");
 		});
@@ -54,14 +54,15 @@ public class PreferTargetOperationalDelta extends IntegrateTestCase<SchemaContai
 	public void preferTargetDelete() {
 		tool.getOptions().integration.conflictSolver(new PreferTargetConflictResolver());
 
-		tool.applyAndIntegrateDelta((schemaContainer, container) -> {
+		tool.applyAndIntegrateDelta((schemaContainer, umlContainer) -> {
 			// src:
 			Schema schema = schemaContainer.getSchemas().get(0);
 			Entity entity = (Entity) schema.getDeclarations().get(0);
 			ExpressHelper.createIntegerAttribute(entity, "integerAttr");
 			// trg:
-			Package pkg = container.getPackage();
-			EcoreUtil.delete(pkg.getClazzes().get(0));
+			Package pkg = umlContainer.getPackage();
+			Clazz clazz = pkg.getClazzes().get(0);
+			EcoreUtil.delete(clazz);
 		});
 
 		final String path = "operationaldelta/expected/prefer_target_delete/";

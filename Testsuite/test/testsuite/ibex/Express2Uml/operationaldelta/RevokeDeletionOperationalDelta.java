@@ -63,7 +63,7 @@ public class RevokeDeletionOperationalDelta extends IntegrateTestCase<SchemaCont
 			Package pkg = container.getPackage();
 			Clazz clazz = pkg.getClazzes().get(0);
 			UMLHelper.createInteger(clazz, "integerAttr");
-		});
+		}); 
 
 		final String path = "operationaldelta/expected/revoke_deletion_source/";
 		assertCondition(path + "src", path + "trg", path + "corr");
