@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.emoflon.ibex.gt.democles.runtime.DemoclesGTEngine;
 import org.emoflon.ibex.gt.testsuite.GTAppTestCase;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import SimpleFamilies.Family;

@@ -120,12 +120,15 @@ public class SimpleNetworkCalculationTest extends SimpleNetworkAbstractTest{
 		// add a network and check
 		Network network2 = api.createNetwork().apply().get().getNetwork();
 		api.setNumberOfDevices(0).bindNetwork(network2).apply();
+		api.setNumberOfDevices(0).unbindNetwork();
 		assertMatchCount(2, api.testConstraint3());
 		api.setNumberOfDevices(1).bindNetwork(network2).apply();
+		api.setNumberOfDevices(1).unbindNetwork();
 		assertMatchCount(1, api.testConstraint3());
-		// set correct amounts automatically
+//		 set correct amounts automatically
 		api.findNetwork().findMatches().forEach(match -> {
 			assertApplicable(api.findAndsetNumberOfDevices().bind(match).apply());
+			api.findAndsetNumberOfDevices().unbind(match);
 		});
 		assertMatchCount(2, api.testConstraint3());
 		assertEquals(3, network1.getDeviceNumber());
