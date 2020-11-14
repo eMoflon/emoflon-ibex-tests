@@ -253,8 +253,10 @@ public class IntegrationBench {
 			integrate.integrate();
 			toc = System.currentTimeMillis();
 			double resolve = (double) (toc - tic) / 1000;
+			Runtime.getRuntime().gc();
+			long ram = (Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()) / (1024*1024);
 			integrate.terminate();
-			return new BenchEntry(model_scale, number_of_changes, elementCounter, init, resolve);
+			return new BenchEntry(model_scale, number_of_changes, elementCounter, init, resolve, ram);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

@@ -25,7 +25,7 @@ public class BenchContainer {
 	
 	public void print() {
 		System.out.println();
-		System.out.println("n;c;elts;avg_init;median_init;avg_resolve;median_resolve");
+		System.out.println("n;c;elts;avg_init;median_init;avg_resolve;median_resolve; ram");
 		for(Integer n : n2c2entries.keySet()) {
 			Map<Integer, List<BenchEntry>> c2entries = n2c2entries.get(n);
 			for(Integer c : c2entries.keySet()) {
@@ -37,22 +37,26 @@ public class BenchContainer {
 	private String average(List<BenchEntry> entries) {
 		double avg_init = 0;
 		double avg_resolve = 0;
+		double avg_rams = 0;
 		int n = -1;
 		int c = -1;
 		int elts = -1;
 		List<Double> inits = new LinkedList<>();
 		List<Double> resolves = new LinkedList<>();
+		List<Double> rams = new LinkedList<>();
 		for(BenchEntry entry : entries) {
 			n = entry.n;
 			c = entry.c;
 			elts = entry.elts;
 			avg_init += entry.init;
 			avg_resolve += entry.resolve;
+			avg_rams += entry.ram;
 			inits.add(entry.init);
 			resolves.add(entry.resolve);
+			rams.add((double) entry.ram);
 		}
 		Collections.sort(inits);
 		Collections.sort(resolves);
-		return n + ";" + c + ";" + elts + ";" + avg_init / entries.size() + ";" + inits.get((int) (inits.size() / 2)) + ";" + avg_resolve / entries.size() + ";" + resolves.get((int) (resolves.size() / 2));
+		return n + ";" + c + ";" + elts + ";" + avg_init / entries.size() + ";" + inits.get((int) (inits.size() / 2)) + ";" + avg_resolve / entries.size() + ";" + resolves.get((int) (resolves.size() / 2)) + ";" + avg_rams / entries.size() + ";" +  rams.get((int) (rams.size() / 2));
 	}
 }
