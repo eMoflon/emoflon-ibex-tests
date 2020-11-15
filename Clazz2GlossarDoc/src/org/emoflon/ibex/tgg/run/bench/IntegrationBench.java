@@ -349,11 +349,11 @@ public class IntegrationBench {
 	}
 
 	private void delete(Clazz subC) {
+		subC.getSubClazzes().stream().collect(Collectors.toList()).forEach(this::delete);
 		subC.setSuperClazz(null);
 		subC.getFields().clear();
 		subC.getMethods().forEach(m -> m.getParameters().clear());
 		subC.getMethods().clear();
-		subC.getSubClazzes().stream().collect(Collectors.toList()).forEach(this::delete);
 	}
 
 	private void createAttributeConflict(Clazz c) {
