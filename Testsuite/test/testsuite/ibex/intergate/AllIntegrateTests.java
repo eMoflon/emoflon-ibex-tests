@@ -14,6 +14,6 @@ import org.junit.runners.Suite.SuiteClasses;
 		testsuite.ibex.Java2Doc.integrate.DeletePreserve.class, //
 		testsuite.ibex.TerraceHouses2BlockSet.integrate.Multiplicity.class //
 })
-public class IntegrateTests {
+public class AllIntegrateTests {
 
 }
