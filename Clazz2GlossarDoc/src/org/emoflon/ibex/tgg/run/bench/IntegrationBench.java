@@ -55,6 +55,7 @@ import glossarDocumentation.EntryType;
 import glossarDocumentation.Glossar;
 import glossarDocumentation.GlossarDocumentationFactory;
 import glossarDocumentation.GlossarEntry;
+import hipe.engine.HiPEContentAdapter;
 import simpleClassInheritance.Clazz;
 import simpleClassInheritance.ClazzContainer;
 import simpleClassInheritance.Field;
@@ -383,20 +384,27 @@ public class IntegrationBench {
 	}
 
 	private void generateModels() {
+		HiPEContentAdapter sourceAdapter = (HiPEContentAdapter) source.eAdapters().get(0);
+		
+		source.eAdapters().remove(sourceAdapter);
+		target.eAdapters().remove(sourceAdapter);
+		corr.eAdapters().remove(sourceAdapter);
+		protocol.eAdapters().remove(sourceAdapter);
+		
 		createContainer();
 
 		createGlossarEntries();
 		createClazzAndDocs();
+		
+		sourceAdapter.reinitialize();
 	}
 
 	private void createContainer() {
 		dContainer = gFactory.createDocumentationContainer();
 		glossar = gFactory.createGlossar();
 		dContainer.setGlossar(glossar);
-		target.getContents().add(dContainer);
 
 		cContainer = cFactory.createClazzContainer();
-		source.getContents().add(cContainer);
 
 		elementCounter += 3;
 
@@ -412,6 +420,9 @@ public class IntegrationBench {
 		marker.setCREATE__TRG__dCont(dContainer);
 		marker.setCREATE__TRG__glossar(glossar);
 		protocol.getContents().add(marker);
+
+		source.getContents().add(cContainer);
+		target.getContents().add(dContainer);
 	}
 
 	private void createClazzAndDocs() {
@@ -681,7 +692,7 @@ public class IntegrationBench {
 		}
 	}
 
-	private void createGlossarLinks(Entry e) {
+	private synchronized void createGlossarLinks(Entry e) {
 		for (int i = 0; i < num_of_glossar_links_per_entry; i++) {
 			GlossarEntry ge = value2gEntry.get("GlossarEntry_" + (entry2glossarEntryCounter % num_of_glossar_entries));
 			e.getGlossarentries().add(ge);
