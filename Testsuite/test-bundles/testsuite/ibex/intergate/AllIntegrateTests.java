@@ -15,5 +15,4 @@ import org.junit.runners.Suite.SuiteClasses;
 		testsuite.ibex.TerraceHouses2BlockSet.integrate.Multiplicity.class //
 })
 public class AllIntegrateTests {
-
 }
