@@ -5,7 +5,7 @@ import "platform:/resource/ClassMultipleInheritanceHierarchy/model/ClassMultiple
  * Adds a package to the model.
  */
 rule createPackage(name: EString) {
-	++ package: ClassPackage {
+	++ pkg: ClassPackage {
 		.name := param::name
 	}
 }
@@ -14,7 +14,7 @@ rule createPackage(name: EString) {
  * Adds a class to the package.
  */
 rule createClass(name: EString) {
-	package: ClassPackage {
+	pkg: ClassPackage {
 		++ -classes -> clazz
 	}
 

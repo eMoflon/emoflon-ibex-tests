@@ -20,17 +20,17 @@ public class ClassMultipleInheritanceRulesTest extends ClassMultipleInheritanceH
 		ClassMultipleInheritanceHierarchyGraphTransformationAPI api = this.init("ModifiedDiagram1.xmi",
 				"ClassDiagram1.xmi");
 
-		ClassPackage p = assertApplicable(api.createPackage("SecondPackage")).getPackage();
+		ClassPackage p = assertApplicable(api.createPackage("SecondPackage")).getPkg();
 		assertMatchCount(2, api.findPackage());
 
-		FindClassInPackagePattern findPackages = api.findClassInPackage().bindPackage(p);
+		FindClassInPackagePattern findPackages = api.findClassInPackage().bindPkg(p);
 
 		assertMatchCount(0, findPackages);
-		Clazz a = assertApplicable(api.createClass("SecondA").bindPackage(p)).getClazz();
+		Clazz a = assertApplicable(api.createClass("SecondA").bindPkg(p)).getClazz();
 		assertMatchCount(1, findPackages);
 
 		Clazz b = assertApplicable(api.createClassAsSubClass("SecondB") //
-				.bindPackage(p).bindSuperClass(a)).getClazz();
+				.bindPkg(p).bindSuperClass(a)).getClazz();
 		assertMatchCount(2, findPackages);
 		assertTrue(b.getSuperClass().contains(a));
 

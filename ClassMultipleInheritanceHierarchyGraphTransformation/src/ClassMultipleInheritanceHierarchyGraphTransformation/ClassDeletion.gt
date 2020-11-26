@@ -5,7 +5,7 @@ import "platform:/resource/ClassMultipleInheritanceHierarchy/model/ClassMultiple
  * Deletes a package.
  */
 rule deletePackage {
-	-- package: ClassPackage
+	-- pkg: ClassPackage
 }
 when isEmptyPackage
 
@@ -15,8 +15,8 @@ condition isEmptyPackage = forbid findClassInPackage
  * Deletes the package with the given name.
  */
 rule deletePackageByName(name: EString) {
-	-- package: ClassPackage
-	# package.name == param::name       
+	-- pkg: ClassPackage
+	# pkg.name == param::name       
 }   
 
 /** 
@@ -25,7 +25,7 @@ rule deletePackageByName(name: EString) {
 rule deleteClass {
 	-- clazz: Clazz
 
-	package: ClassPackage {
+	pkg: ClassPackage {
 		-- -classes -> clazz
 	}
 }

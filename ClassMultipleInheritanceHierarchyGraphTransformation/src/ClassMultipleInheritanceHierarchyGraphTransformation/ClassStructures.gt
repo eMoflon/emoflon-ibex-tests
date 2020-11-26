@@ -5,7 +5,7 @@ import "platform:/resource/ClassMultipleInheritanceHierarchy/model/ClassMultiple
  * Finds a package.
  */
 pattern findPackage {
-	package: ClassPackage
+	pkg: ClassPackage
 }
 
 /**
@@ -20,7 +20,7 @@ pattern findClass {
  */
 pattern findClassInPackage
 refines findClass {
-	package: ClassPackage {
+	pkg: ClassPackage {
 		-classes -> clazz
 	}
 }
@@ -39,10 +39,10 @@ refines findClass {
  */
 pattern findClassByQualifiedName(packageName: EString, className: EString)
 refines findClass {
-	package: ClassPackage {
+	pkg: ClassPackage {
 		-classes -> clazz
 	}
-	# package.name == param::packageName
+	# pkg.name == param::packageName
 
 	clazz: Clazz
 	# clazz.name == param::className

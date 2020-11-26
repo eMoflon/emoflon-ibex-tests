@@ -4,7 +4,7 @@ import "platform:/resource/ClassMultipleInheritanceHierarchy/model/ClassMultiple
  * Finds two classes of the same name in the same package.
  */
 pattern findTwoClassesOfSameName() {
-	package: ClassPackage {
+	pkg: ClassPackage {
 		-classes -> clazz1
 		-classes -> clazz2
 	}
