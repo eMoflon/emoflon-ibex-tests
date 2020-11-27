@@ -6,16 +6,21 @@ import static org.emoflon.ibex.tgg.operational.strategies.integrate.FragmentProv
 import static org.emoflon.ibex.tgg.operational.strategies.integrate.FragmentProvider.RESOLVE_BROKEN_MATCHES;
 import static org.emoflon.ibex.tgg.operational.strategies.integrate.FragmentProvider.RESOLVE_CONFLICTS;
 import static org.emoflon.ibex.tgg.operational.strategies.integrate.FragmentProvider.TRANSLATE;
+import static org.junit.Assert.assertFalse;
 
 import java.util.Arrays;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.ConflictContainer;
+import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.InconsDomainChangesConflict;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.resolution.util.ConflictResolver;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.pattern.IntegrationPattern;
 import org.glossarDoc.core.GlossarDocumentationHelper;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.simpleClass.core.SimpleClassInheritanceHelper;
 
+import Clazz2GlossarDoc.integrate.combined.CombinedConflictResolver;
 import glossarDocumentation.Document;
 import glossarDocumentation.DocumentationContainer;
 import glossarDocumentation.Entry;
@@ -26,7 +31,9 @@ import simpleClassInheritance.Field;
 import simpleClassInheritance.Method;
 import testsuite.ibex.Clazz2GlossarDoc.integrate.util.IntegIbexClazz2GlossarDoc;
 import testsuite.ibex.testUtil.IntegrateTestCase;
+import testsuite.ibex.testUtil.RunUntilFailure;
 
+@RunWith(RunUntilFailure.class)
 public class Combined extends IntegrateTestCase<ClazzContainer, DocumentationContainer> {
 
 	public final static String projectName = "Clazz2GlossarDoc";
@@ -99,7 +106,12 @@ public class Combined extends IntegrateTestCase<ClazzContainer, DocumentationCon
 
 	@Test
 	public void combinedConflicts() {
-		combinedConflicts(c -> {}, testpath + "combC/");
+		combinedConflicts(container -> assertRightConflict(container), testpath + "combC/");
+	}
+	
+	private void assertRightConflict(ConflictContainer container) {
+		container.getConflicts().forEach(conflict -> assertFalse(conflict instanceof InconsDomainChangesConflict));
+		container.getSubContainers().forEach(c -> assertRightConflict(c));
 	}
 
 }

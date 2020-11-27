@@ -1,0 +1,13 @@
+package Clazz2GlossarDoc.integrate
+
+import Clazz2DocRule
+import Method2EntityRule
+
+combined: solve conflict for all {
+	var delSrc = src | deleted | count
+	var delTrg = trg | deleted | count
+	satisfies {
+		delSrc >= delTrg
+	}
+} with preferSource
+
