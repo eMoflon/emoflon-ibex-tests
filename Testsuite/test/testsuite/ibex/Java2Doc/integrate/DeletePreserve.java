@@ -163,7 +163,7 @@ public class DeletePreserve extends IntegrateTestCase<Package, Folder> {
 
 		assertCondition(path + "src", path + "trg", path + "corr");
 	}
-	
+
 	@Test
 	public void dcc_chainMultiDel1a() {
 		final String path = testpath + "dcc_chainMultiDel1/";
@@ -187,7 +187,7 @@ public class DeletePreserve extends IntegrateTestCase<Package, Folder> {
 
 		assertCondition(path + "src", path + "trg", path + "corr");
 	}
-	
+
 	@Test
 	public void dcc_chainMultiDel2a() {
 		final String path = testpath + "dcc_chainMultiDel2/";
@@ -211,17 +211,17 @@ public class DeletePreserve extends IntegrateTestCase<Package, Folder> {
 
 		assertCondition(path + "src", path + "trg", path + "corr");
 	}
-	
+
 	@Test
 	public void dcc_conflHierarchy() {
 		final String path = testpath + "dcc_conflHierarchy/";
-		
+
 		AtomicInteger ccCount = new AtomicInteger(0);
 		tool.getOptions().integration.pattern(pattern);
 		tool.getOptions().integration.conflictSolver( //
 				cc -> {
 					CRSHelper.forEachResolve(cc, DeletePreserveConflict.class, (s) -> s.crs_preferTarget());
-					
+
 					ccCount.incrementAndGet();
 					assertEquals(1, cc.getSubContainers().size());
 				});
@@ -231,6 +231,26 @@ public class DeletePreserve extends IntegrateTestCase<Package, Folder> {
 		});
 
 		assertEquals(1, ccCount.get());
+		assertCondition(path + "src", path + "trg", path + "corr");
+	}
+	
+	private final BiConsumer<Package, Folder> dcc_simple_ext_delta = (p, f) -> {
+		// src:
+		EcoreUtil.delete(helperJava.getPackage(p, "cmoflon"), true);
+		// trg:
+		helperDoc.createDoc(helperDoc.getFolder(f, "cmoflon"), "criticalClazz_doc", "criticalbody");
+		EcoreUtil.delete(helperDoc.getDoc(f, "GT_doc"), true);
+	};
+
+	@Test
+	public void dcc_delBesidesCre() {
+		final String path = testpath + "dcc_delBesidesCre/";
+
+		tool.getOptions().integration.pattern(pattern);
+		tool.getOptions().integration.conflictSolver( //
+				c -> CRSHelper.forEachResolve(c, DeletePreserveConflict.class, (s) -> s.crs_revokeDeletion()));
+		tool.applyAndIntegrateDelta(dcc_simple_ext_delta);
+		
 		assertCondition(path + "src", path + "trg", path + "corr");
 	}
 
