@@ -11,11 +11,14 @@
   <genPackages prefix="SimpleDoc" disposableProviderFactory="true" ecorePackage="simpleDoc.ecore#/">
     <genClasses ecoreClass="simpleDoc.ecore#//Doc">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simpleDoc.ecore#//Doc/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simpleDoc.ecore#//Doc/content"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference simpleDoc.ecore#//Doc/folder"/>
     </genClasses>
     <genClasses ecoreClass="simpleDoc.ecore#//Folder">
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference simpleDoc.ecore#//Folder/subFolders"/>
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference simpleDoc.ecore#//Folder/docs"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simpleDoc.ecore#//Folder/name"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference simpleDoc.ecore#//Folder/superFolder"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -154,6 +154,16 @@ public class SimpleJavaPackageImpl extends EPackageImpl implements SimpleJavaPac
 	 * @generated
 	 */
 	@Override
+	public EReference getPackage_SuperPackage() {
+		return (EReference) packageEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getClazz() {
 		return clazzEClass;
 	}
@@ -176,6 +186,16 @@ public class SimpleJavaPackageImpl extends EPackageImpl implements SimpleJavaPac
 	@Override
 	public EAttribute getClazz_Body() {
 		return (EAttribute) clazzEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getClazz_Package() {
+		return (EReference) clazzEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -213,10 +233,12 @@ public class SimpleJavaPackageImpl extends EPackageImpl implements SimpleJavaPac
 		createEReference(packageEClass, PACKAGE__SUB_PACKAGES);
 		createEAttribute(packageEClass, PACKAGE__NAME);
 		createEAttribute(packageEClass, PACKAGE__FULL_QUALIFIER);
+		createEReference(packageEClass, PACKAGE__SUPER_PACKAGE);
 
 		clazzEClass = createEClass(CLAZZ);
 		createEAttribute(clazzEClass, CLAZZ__NAME);
 		createEAttribute(clazzEClass, CLAZZ__BODY);
+		createEReference(clazzEClass, CLAZZ__PACKAGE);
 	}
 
 	/**
@@ -250,25 +272,25 @@ public class SimpleJavaPackageImpl extends EPackageImpl implements SimpleJavaPac
 		// Add supertypes to classes
 
 		// Initialize classes, features, and operations; add parameters
-		initEClass(packageEClass, simpleJava.Package.class, "Package", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPackage_Clazzes(), this.getClazz(), null, "clazzes", null, 0, -1, simpleJava.Package.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPackage_SubPackages(), this.getPackage(), null, "subPackages", null, 0, -1,
-				simpleJava.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPackage_Name(), ecorePackage.getEString(), "name", null, 0, 1, simpleJava.Package.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPackage_FullQualifier(), ecorePackage.getEString(), "fullQualifier", null, 0, 1,
-				simpleJava.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
+		initEClass(packageEClass, simpleJava.Package.class, "Package", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getPackage_Clazzes(), this.getClazz(), this.getClazz_Package(), "clazzes", null, 0, -1, simpleJava.Package.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPackage_SubPackages(), this.getPackage(), this.getPackage_SuperPackage(), "subPackages", null, 0, -1, simpleJava.Package.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPackage_Name(), ecorePackage.getEString(), "name", null, 0, 1, simpleJava.Package.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPackage_FullQualifier(), ecorePackage.getEString(), "fullQualifier", null, 0, 1, simpleJava.Package.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPackage_SuperPackage(), this.getPackage(), this.getPackage_SubPackages(), "superPackage", null, 0, 1, simpleJava.Package.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(clazzEClass, Clazz.class, "Clazz", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getClazz_Name(), ecorePackage.getEString(), "name", null, 0, 1, Clazz.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getClazz_Body(), ecorePackage.getEString(), "body", null, 0, 1, Clazz.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getClazz_Name(), ecorePackage.getEString(), "name", null, 0, 1, Clazz.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				!IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getClazz_Body(), ecorePackage.getEString(), "body", null, 0, 1, Clazz.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				!IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getClazz_Package(), this.getPackage(), this.getPackage_Clazzes(), "package", null, 0, 1, Clazz.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

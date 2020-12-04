@@ -14,8 +14,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import simpleJava.Clazz;
@@ -33,6 +33,7 @@ import simpleJava.SimpleJavaPackage;
  *   <li>{@link simpleJava.impl.PackageImpl#getSubPackages <em>Sub Packages</em>}</li>
  *   <li>{@link simpleJava.impl.PackageImpl#getName <em>Name</em>}</li>
  *   <li>{@link simpleJava.impl.PackageImpl#getFullQualifier <em>Full Qualifier</em>}</li>
+ *   <li>{@link simpleJava.impl.PackageImpl#getSuperPackage <em>Super Package</em>}</li>
  * </ul>
  *
  * @generated
@@ -125,7 +126,8 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements simpleJ
 	@Override
 	public EList<Clazz> getClazzes() {
 		if (clazzes == null) {
-			clazzes = new EObjectContainmentEList<Clazz>(Clazz.class, this, SimpleJavaPackage.PACKAGE__CLAZZES);
+			clazzes = new EObjectContainmentWithInverseEList<Clazz>(Clazz.class, this, SimpleJavaPackage.PACKAGE__CLAZZES,
+					SimpleJavaPackage.CLAZZ__PACKAGE);
 		}
 		return clazzes;
 	}
@@ -138,8 +140,8 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements simpleJ
 	@Override
 	public EList<simpleJava.Package> getSubPackages() {
 		if (subPackages == null) {
-			subPackages = new EObjectContainmentEList<simpleJava.Package>(simpleJava.Package.class, this,
-					SimpleJavaPackage.PACKAGE__SUB_PACKAGES);
+			subPackages = new EObjectContainmentWithInverseEList<simpleJava.Package>(simpleJava.Package.class, this,
+					SimpleJavaPackage.PACKAGE__SUB_PACKAGES, SimpleJavaPackage.PACKAGE__SUPER_PACKAGE);
 		}
 		return subPackages;
 	}
@@ -187,8 +189,72 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements simpleJ
 		String oldFullQualifier = fullQualifier;
 		fullQualifier = newFullQualifier;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SimpleJavaPackage.PACKAGE__FULL_QUALIFIER,
-					oldFullQualifier, fullQualifier));
+			eNotify(new ENotificationImpl(this, Notification.SET, SimpleJavaPackage.PACKAGE__FULL_QUALIFIER, oldFullQualifier, fullQualifier));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public simpleJava.Package getSuperPackage() {
+		if (eContainerFeatureID() != SimpleJavaPackage.PACKAGE__SUPER_PACKAGE)
+			return null;
+		return (simpleJava.Package) eInternalContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSuperPackage(simpleJava.Package newSuperPackage, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject) newSuperPackage, SimpleJavaPackage.PACKAGE__SUPER_PACKAGE, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setSuperPackage(simpleJava.Package newSuperPackage) {
+		if (newSuperPackage != eInternalContainer() || (eContainerFeatureID() != SimpleJavaPackage.PACKAGE__SUPER_PACKAGE && newSuperPackage != null)) {
+			if (EcoreUtil.isAncestor(this, newSuperPackage))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newSuperPackage != null)
+				msgs = ((InternalEObject) newSuperPackage).eInverseAdd(this, SimpleJavaPackage.PACKAGE__SUB_PACKAGES, simpleJava.Package.class, msgs);
+			msgs = basicSetSuperPackage(newSuperPackage, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SimpleJavaPackage.PACKAGE__SUPER_PACKAGE, newSuperPackage, newSuperPackage));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+		case SimpleJavaPackage.PACKAGE__CLAZZES:
+			return ((InternalEList<InternalEObject>) (InternalEList<?>) getClazzes()).basicAdd(otherEnd, msgs);
+		case SimpleJavaPackage.PACKAGE__SUB_PACKAGES:
+			return ((InternalEList<InternalEObject>) (InternalEList<?>) getSubPackages()).basicAdd(otherEnd, msgs);
+		case SimpleJavaPackage.PACKAGE__SUPER_PACKAGE:
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			return basicSetSuperPackage((simpleJava.Package) otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -203,8 +269,24 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements simpleJ
 			return ((InternalEList<?>) getClazzes()).basicRemove(otherEnd, msgs);
 		case SimpleJavaPackage.PACKAGE__SUB_PACKAGES:
 			return ((InternalEList<?>) getSubPackages()).basicRemove(otherEnd, msgs);
+		case SimpleJavaPackage.PACKAGE__SUPER_PACKAGE:
+			return basicSetSuperPackage(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+		case SimpleJavaPackage.PACKAGE__SUPER_PACKAGE:
+			return eInternalContainer().eInverseRemove(this, SimpleJavaPackage.PACKAGE__SUB_PACKAGES, simpleJava.Package.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
 	/**
@@ -223,6 +305,8 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements simpleJ
 			return getName();
 		case SimpleJavaPackage.PACKAGE__FULL_QUALIFIER:
 			return getFullQualifier();
+		case SimpleJavaPackage.PACKAGE__SUPER_PACKAGE:
+			return getSuperPackage();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -250,6 +334,9 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements simpleJ
 		case SimpleJavaPackage.PACKAGE__FULL_QUALIFIER:
 			setFullQualifier((String) newValue);
 			return;
+		case SimpleJavaPackage.PACKAGE__SUPER_PACKAGE:
+			setSuperPackage((simpleJava.Package) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -274,6 +361,9 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements simpleJ
 		case SimpleJavaPackage.PACKAGE__FULL_QUALIFIER:
 			setFullQualifier(FULL_QUALIFIER_EDEFAULT);
 			return;
+		case SimpleJavaPackage.PACKAGE__SUPER_PACKAGE:
+			setSuperPackage((simpleJava.Package) null);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -293,8 +383,9 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements simpleJ
 		case SimpleJavaPackage.PACKAGE__NAME:
 			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		case SimpleJavaPackage.PACKAGE__FULL_QUALIFIER:
-			return FULL_QUALIFIER_EDEFAULT == null ? fullQualifier != null
-					: !FULL_QUALIFIER_EDEFAULT.equals(fullQualifier);
+			return FULL_QUALIFIER_EDEFAULT == null ? fullQualifier != null : !FULL_QUALIFIER_EDEFAULT.equals(fullQualifier);
+		case SimpleJavaPackage.PACKAGE__SUPER_PACKAGE:
+			return getSuperPackage() != null;
 		}
 		return super.eIsSet(featureID);
 	}

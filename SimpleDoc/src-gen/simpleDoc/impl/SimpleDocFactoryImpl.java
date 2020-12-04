@@ -69,6 +69,7 @@ public class SimpleDocFactoryImpl extends EFactoryImpl implements SimpleDocFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Doc createDoc() {
 		DocImpl doc = new DocImpl();
 		return doc;
@@ -79,6 +80,7 @@ public class SimpleDocFactoryImpl extends EFactoryImpl implements SimpleDocFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Folder createFolder() {
 		FolderImpl folder = new FolderImpl();
 		return folder;
@@ -89,6 +91,7 @@ public class SimpleDocFactoryImpl extends EFactoryImpl implements SimpleDocFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SimpleDocPackage getSimpleDocPackage() {
 		return (SimpleDocPackage) getEPackage();
 	}

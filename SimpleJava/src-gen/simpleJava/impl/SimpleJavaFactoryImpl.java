@@ -29,8 +29,7 @@ public class SimpleJavaFactoryImpl extends EFactoryImpl implements SimpleJavaFac
 	 */
 	public static SimpleJavaFactory init() {
 		try {
-			SimpleJavaFactory theSimpleJavaFactory = (SimpleJavaFactory) EPackage.Registry.INSTANCE
-					.getEFactory(SimpleJavaPackage.eNS_URI);
+			SimpleJavaFactory theSimpleJavaFactory = (SimpleJavaFactory) EPackage.Registry.INSTANCE.getEFactory(SimpleJavaPackage.eNS_URI);
 			if (theSimpleJavaFactory != null) {
 				return theSimpleJavaFactory;
 			}

@@ -63,7 +63,7 @@ public class SimpleDocPackageImpl extends EPackageImpl implements SimpleDocPacka
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 * 
+	 *
 	 * <p>This method is used to initialize {@link SimpleDocPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
@@ -78,7 +78,10 @@ public class SimpleDocPackageImpl extends EPackageImpl implements SimpleDocPacka
 			return (SimpleDocPackage) EPackage.Registry.INSTANCE.getEPackage(SimpleDocPackage.eNS_URI);
 
 		// Obtain or create and register package
-		SimpleDocPackageImpl theSimpleDocPackage = (SimpleDocPackageImpl) (EPackage.Registry.INSTANCE.get(eNS_URI) instanceof SimpleDocPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new SimpleDocPackageImpl());
+		Object registeredSimpleDocPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
+		SimpleDocPackageImpl theSimpleDocPackage = registeredSimpleDocPackage instanceof SimpleDocPackageImpl
+				? (SimpleDocPackageImpl) registeredSimpleDocPackage
+				: new SimpleDocPackageImpl();
 
 		isInited = true;
 
@@ -101,6 +104,7 @@ public class SimpleDocPackageImpl extends EPackageImpl implements SimpleDocPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getDoc() {
 		return docEClass;
 	}
@@ -110,6 +114,7 @@ public class SimpleDocPackageImpl extends EPackageImpl implements SimpleDocPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getDoc_Name() {
 		return (EAttribute) docEClass.getEStructuralFeatures().get(0);
 	}
@@ -119,6 +124,7 @@ public class SimpleDocPackageImpl extends EPackageImpl implements SimpleDocPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getDoc_Content() {
 		return (EAttribute) docEClass.getEStructuralFeatures().get(1);
 	}
@@ -128,6 +134,17 @@ public class SimpleDocPackageImpl extends EPackageImpl implements SimpleDocPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public EReference getDoc_Folder() {
+		return (EReference) docEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getFolder() {
 		return folderEClass;
 	}
@@ -137,6 +154,7 @@ public class SimpleDocPackageImpl extends EPackageImpl implements SimpleDocPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getFolder_SubFolders() {
 		return (EReference) folderEClass.getEStructuralFeatures().get(0);
 	}
@@ -146,6 +164,7 @@ public class SimpleDocPackageImpl extends EPackageImpl implements SimpleDocPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getFolder_Docs() {
 		return (EReference) folderEClass.getEStructuralFeatures().get(1);
 	}
@@ -155,6 +174,7 @@ public class SimpleDocPackageImpl extends EPackageImpl implements SimpleDocPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getFolder_Name() {
 		return (EAttribute) folderEClass.getEStructuralFeatures().get(2);
 	}
@@ -164,6 +184,17 @@ public class SimpleDocPackageImpl extends EPackageImpl implements SimpleDocPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public EReference getFolder_SuperFolder() {
+		return (EReference) folderEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public SimpleDocFactory getSimpleDocFactory() {
 		return (SimpleDocFactory) getEFactoryInstance();
 	}
@@ -191,11 +222,13 @@ public class SimpleDocPackageImpl extends EPackageImpl implements SimpleDocPacka
 		docEClass = createEClass(DOC);
 		createEAttribute(docEClass, DOC__NAME);
 		createEAttribute(docEClass, DOC__CONTENT);
+		createEReference(docEClass, DOC__FOLDER);
 
 		folderEClass = createEClass(FOLDER);
 		createEReference(folderEClass, FOLDER__SUB_FOLDERS);
 		createEReference(folderEClass, FOLDER__DOCS);
 		createEAttribute(folderEClass, FOLDER__NAME);
+		createEReference(folderEClass, FOLDER__SUPER_FOLDER);
 	}
 
 	/**
@@ -230,15 +263,22 @@ public class SimpleDocPackageImpl extends EPackageImpl implements SimpleDocPacka
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(docEClass, Doc.class, "Doc", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDoc_Name(), ecorePackage.getEString(), "name", null, 0, 1, Doc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDoc_Content(), ecorePackage.getEString(), "content", null, 0, 1, Doc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDoc_Name(), ecorePackage.getEString(), "name", null, 0, 1, Doc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
+				!IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDoc_Content(), ecorePackage.getEString(), "content", null, 0, 1, Doc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				!IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDoc_Folder(), this.getFolder(), this.getFolder_Docs(), "folder", null, 0, 1, Doc.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(folderEClass, Folder.class, "Folder", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getFolder_SubFolders(), this.getFolder(), null, "subFolders", null, 0, -1, Folder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
-		initEReference(getFolder_Docs(), this.getDoc(), null, "docs", null, 0, -1, Folder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
-		initEAttribute(getFolder_Name(), ecorePackage.getEString(), "name", null, 0, 1, Folder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFolder_SubFolders(), this.getFolder(), this.getFolder_SuperFolder(), "subFolders", null, 0, -1, Folder.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFolder_Docs(), this.getDoc(), this.getDoc_Folder(), "docs", null, 0, -1, Folder.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFolder_Name(), ecorePackage.getEString(), "name", null, 0, 1, Folder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				!IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFolder_SuperFolder(), this.getFolder(), this.getFolder_SubFolders(), "superFolder", null, 0, 1, Folder.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);
