@@ -40,8 +40,6 @@ public class INTEGRATE_App extends INTEGRATE {
 						changeURI(corr, "/instances/corr.xmi");
 						changeURI(protocol, "/instances/protocol.xmi");
 
-						precedence = createResource(options.project.path() + "/instances/epg.xmi");
-
 						EcoreUtil.resolveAll(rs);
 					}
 
