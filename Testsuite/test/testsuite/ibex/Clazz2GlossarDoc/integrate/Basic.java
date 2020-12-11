@@ -102,7 +102,7 @@ public class Basic extends IntegrateTestCase<ClazzContainer, DocumentationContai
 			Method m6 = helperClazz.getMethod("M6");
 			Parameter p10 = helperClazz.getParameter(m6, "P10");
 			m8.getParameters().add(p10);
-			EcoreUtil.delete(m6, true);
+			EcoreUtil.delete(m6);
 			// trg:
 			helperDoc.createGlossarEntryLink(helperDoc.getEntry("M6"), helperDoc.getGlossarEntry("GE12"));
 		});

@@ -104,6 +104,7 @@ public class DeletePreserve extends IntegrateTestCase<Package, Folder> {
 
 	private final BiConsumer<Package, Folder> dcc_chain_delta = (p, f) -> {
 		// src:
+		EcoreUtil.delete(helperJava.getClazz(p, "IPM"));
 		EcoreUtil.delete(helperJava.getPackage(p, "emoflon"));
 		// trg:
 		helperDoc.createDoc(helperDoc.getFolder(f, "ibex"), "criticalClazz_doc", "criticalbody");
