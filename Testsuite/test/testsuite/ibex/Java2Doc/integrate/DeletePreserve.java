@@ -238,14 +238,6 @@ public class DeletePreserve extends IntegrateTestCase<Package, Folder> {
 		assertCondition(path + "src", path + "trg", path + "corr");
 	}
 
-	private final BiConsumer<Package, Folder> dcc_simple_ext_delta = (p, f) -> {
-		// src:
-		EcoreUtil.delete(helperJava.getPackage(p, "cmoflon"));
-		// trg:
-		helperDoc.createDoc(helperDoc.getFolder(f, "cmoflon"), "criticalClazz_doc", "criticalbody");
-		EcoreUtil.delete(helperDoc.getDoc(f, "GT_doc"));
-	};
-
 	@Test
 	public void dcc_delBesidesCre() {
 		final String path = testpath + "dcc_delBesidesCre/";
@@ -253,7 +245,13 @@ public class DeletePreserve extends IntegrateTestCase<Package, Folder> {
 		tool.getOptions().integration.pattern(pattern);
 		tool.getOptions().integration.conflictSolver( //
 				c -> CRSHelper.forEachResolve(c, DeletePreserveConflict.class, s -> s.crs_revokeDeletion()));
-		tool.applyAndIntegrateDelta(dcc_simple_ext_delta);
+		tool.applyAndIntegrateDelta((p, f) -> {
+			// src:
+			EcoreUtil.delete(helperJava.getPackage(p, "cmoflon"));
+			// trg:
+			helperDoc.createDoc(helperDoc.getFolder(f, "cmoflon"), "criticalClazz_doc", "criticalbody");
+			EcoreUtil.delete(helperDoc.getDoc(f, "GT_doc"));
+		});
 
 		assertCondition(path + "src", path + "trg", path + "corr");
 	}
@@ -266,14 +264,6 @@ public class DeletePreserve extends IntegrateTestCase<Package, Folder> {
 		EcoreUtil.delete(p);
 	}
 
-	private final BiConsumer<Package, Folder> dcc_simple_ext_delta_explicit_del = (p, f) -> {
-		// src:
-		explicitDeletePackage(helperJava.getPackage(p, "emoflon"));
-		// trg:
-		helperDoc.createDoc(helperDoc.getFolder(f, "emoflon"), "criticalClazz_doc", "criticalbody");
-		EcoreUtil.delete(helperDoc.getDoc(f, "TGG_doc"));
-	};
-
 	@Test
 	public void dcc_explicitDel() {
 		final String path = testpath + "dcc_explicitDel/";
@@ -281,29 +271,33 @@ public class DeletePreserve extends IntegrateTestCase<Package, Folder> {
 		tool.getOptions().integration.pattern(pattern);
 		tool.getOptions().integration.conflictSolver( //
 				c -> CRSHelper.forEachResolve(c, DeletePreserveConflict.class, s -> s.crs_revokeDeletion()));
-		tool.applyAndIntegrateDelta(dcc_simple_ext_delta_explicit_del);
+		tool.applyAndIntegrateDelta((p, f) -> {
+			// src:
+			explicitDeletePackage(helperJava.getPackage(p, "emoflon"));
+			// trg:
+			helperDoc.createDoc(helperDoc.getFolder(f, "emoflon"), "criticalClazz_doc", "criticalbody");
+			EcoreUtil.delete(helperDoc.getDoc(f, "TGG_doc"));
+		});
 
-//		assertCondition(path + "src", path + "trg", path + "corr");
+		assertCondition(path + "src", path + "trg", path + "corr");
 	}
-	
-	private final BiConsumer<Package, Folder> dcc_simple_ext_delta_implicit_del = (p, f) -> {
-		// src:
-		EcoreUtil.delete(helperJava.getPackage(p, "emoflon"));
-		// trg:
-		helperDoc.createDoc(helperDoc.getFolder(f, "emoflon"), "criticalClazz_doc", "criticalbody");
-		EcoreUtil.delete(helperDoc.getDoc(f, "TGG_doc"));
-	};
 
 	@Test
 	public void dcc_implicitDel() {
-		final String path = testpath + "dcc_delBesidesCre/";
+		final String path = testpath + "dcc_implicitDel/";
 
 		tool.getOptions().integration.pattern(pattern);
 		tool.getOptions().integration.conflictSolver( //
 				c -> CRSHelper.forEachResolve(c, DeletePreserveConflict.class, s -> s.crs_revokeDeletion()));
-		tool.applyAndIntegrateDelta(dcc_simple_ext_delta_implicit_del);
+		tool.applyAndIntegrateDelta((p, f) -> {
+			// src:
+			EcoreUtil.delete(helperJava.getPackage(p, "emoflon"));
+			// trg:
+			helperDoc.createDoc(helperDoc.getFolder(f, "emoflon"), "criticalClazz_doc", "criticalbody");
+			EcoreUtil.delete(helperDoc.getDoc(f, "TGG_doc"));
+		});
 
-//		assertCondition(path + "src", path + "trg", path + "corr");
+		assertCondition(path + "src", path + "trg", path + "corr");
 	}
 
 }
