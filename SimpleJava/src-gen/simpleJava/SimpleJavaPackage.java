@@ -46,7 +46,7 @@ public interface SimpleJavaPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_PREFIX = "simpleJava";
+	String eNS_PREFIX = "SimpleJava";
 
 	/**
 	 * The singleton instance of the package.
@@ -103,13 +103,22 @@ public interface SimpleJavaPackage extends EPackage {
 	int PACKAGE__FULL_QUALIFIER = 3;
 
 	/**
+	 * The feature id for the '<em><b>Super Package</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE__SUPER_PACKAGE = 4;
+
+	/**
 	 * The number of structural features of the '<em>Package</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE_FEATURE_COUNT = 4;
+	int PACKAGE_FEATURE_COUNT = 5;
 
 	/**
 	 * The number of operations of the '<em>Package</em>' class.
@@ -149,13 +158,22 @@ public interface SimpleJavaPackage extends EPackage {
 	int CLAZZ__BODY = 1;
 
 	/**
+	 * The feature id for the '<em><b>Package</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLAZZ__PACKAGE = 2;
+
+	/**
 	 * The number of structural features of the '<em>Clazz</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CLAZZ_FEATURE_COUNT = 2;
+	int CLAZZ_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Clazz</em>' class.
@@ -221,6 +239,17 @@ public interface SimpleJavaPackage extends EPackage {
 	EAttribute getPackage_FullQualifier();
 
 	/**
+	 * Returns the meta object for the container reference '{@link simpleJava.Package#getSuperPackage <em>Super Package</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Super Package</em>'.
+	 * @see simpleJava.Package#getSuperPackage()
+	 * @see #getPackage()
+	 * @generated
+	 */
+	EReference getPackage_SuperPackage();
+
+	/**
 	 * Returns the meta object for class '{@link simpleJava.Clazz <em>Clazz</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -251,6 +280,17 @@ public interface SimpleJavaPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getClazz_Body();
+
+	/**
+	 * Returns the meta object for the container reference '{@link simpleJava.Clazz#getPackage <em>Package</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Package</em>'.
+	 * @see simpleJava.Clazz#getPackage()
+	 * @see #getClazz()
+	 * @generated
+	 */
+	EReference getClazz_Package();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -318,6 +358,14 @@ public interface SimpleJavaPackage extends EPackage {
 		EAttribute PACKAGE__FULL_QUALIFIER = eINSTANCE.getPackage_FullQualifier();
 
 		/**
+		 * The meta object literal for the '<em><b>Super Package</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PACKAGE__SUPER_PACKAGE = eINSTANCE.getPackage_SuperPackage();
+
+		/**
 		 * The meta object literal for the '{@link simpleJava.impl.ClazzImpl <em>Clazz</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -342,6 +390,14 @@ public interface SimpleJavaPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute CLAZZ__BODY = eINSTANCE.getClazz_Body();
+
+		/**
+		 * The meta object literal for the '<em><b>Package</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CLAZZ__PACKAGE = eINSTANCE.getClazz_Package();
 
 	}
 

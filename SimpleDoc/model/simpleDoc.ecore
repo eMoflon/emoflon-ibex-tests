@@ -5,12 +5,16 @@
   <eClassifiers xsi:type="ecore:EClass" name="Doc">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="content" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="folder" eType="#//Folder"
+        eOpposite="#//Folder/docs"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Folder">
     <eStructuralFeatures xsi:type="ecore:EReference" name="subFolders" upperBound="-1"
-        eType="#//Folder" containment="true"/>
+        eType="#//Folder" containment="true" eOpposite="#//Folder/superFolder"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="docs" upperBound="-1" eType="#//Doc"
-        containment="true"/>
+        containment="true" eOpposite="#//Doc/folder"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="superFolder" eType="#//Folder"
+        eOpposite="#//Folder/subFolders"/>
   </eClassifiers>
 </ecore:EPackage>

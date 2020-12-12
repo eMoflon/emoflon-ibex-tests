@@ -8,6 +8,8 @@ import static org.emoflon.ibex.tgg.operational.strategies.integrate.FragmentProv
 import static org.junit.Assert.assertEquals;
 
 import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.BiConsumer;
 
@@ -20,6 +22,7 @@ import org.emoflon.ibex.tgg.operational.strategies.integrate.pattern.Integration
 import org.junit.Test;
 
 import simpleDoc.Folder;
+import simpleJava.Clazz;
 import simpleJava.Package;
 import testsuite.ibex.Java2Doc.integrate.util.IntegIbexJava2Doc;
 import testsuite.ibex.testUtil.IntegrateTestCase;
@@ -58,7 +61,7 @@ public class DeletePreserve extends IntegrateTestCase<Package, Folder> {
 
 	private final BiConsumer<Package, Folder> dcc_simple_delta = (p, f) -> {
 		// src:
-		EcoreUtil.delete(helperJava.getPackage(p, "cmoflon"), true);
+		EcoreUtil.delete(helperJava.getPackage(p, "cmoflon"));
 		// trg:
 		helperDoc.createDoc(helperDoc.getFolder(f, "cmoflon"), "criticalClazz_doc", "criticalbody");
 	};
@@ -69,7 +72,7 @@ public class DeletePreserve extends IntegrateTestCase<Package, Folder> {
 
 		tool.getOptions().integration.pattern(pattern);
 		tool.getOptions().integration.conflictSolver( //
-				c -> CRSHelper.forEachResolve(c, DeletePreserveConflict.class, (s) -> s.crs_revokeAddition()));
+				c -> CRSHelper.forEachResolve(c, DeletePreserveConflict.class, s -> s.crs_revokeAddition()));
 		tool.applyAndIntegrateDelta(dcc_simple_delta);
 
 		assertCondition(path + "src", path + "trg", path + "corr");
@@ -81,7 +84,7 @@ public class DeletePreserve extends IntegrateTestCase<Package, Folder> {
 
 		tool.getOptions().integration.pattern(pattern);
 		tool.getOptions().integration.conflictSolver( //
-				c -> CRSHelper.forEachResolve(c, DeletePreserveConflict.class, (s) -> s.crs_revokeDeletion()));
+				c -> CRSHelper.forEachResolve(c, DeletePreserveConflict.class, s -> s.crs_revokeDeletion()));
 		tool.applyAndIntegrateDelta(dcc_simple_delta);
 
 		assertCondition(path + "src", path + "trg", path + "corr");
@@ -93,7 +96,7 @@ public class DeletePreserve extends IntegrateTestCase<Package, Folder> {
 
 		tool.getOptions().integration.pattern(pattern);
 		tool.getOptions().integration.conflictSolver( //
-				c -> CRSHelper.forEachResolve(c, DeletePreserveConflict.class, (s) -> s.crs_mergeAndPreserve()));
+				c -> CRSHelper.forEachResolve(c, DeletePreserveConflict.class, s -> s.crs_mergeAndPreserve()));
 		tool.applyAndIntegrateDelta(dcc_simple_delta);
 
 		assertCondition(path + "src", path + "trg", path + "corr");
@@ -101,7 +104,8 @@ public class DeletePreserve extends IntegrateTestCase<Package, Folder> {
 
 	private final BiConsumer<Package, Folder> dcc_chain_delta = (p, f) -> {
 		// src:
-		EcoreUtil.delete(helperJava.getPackage(p, "emoflon"), true);
+		EcoreUtil.delete(helperJava.getClazz(p, "IPM"));
+		EcoreUtil.delete(helperJava.getPackage(p, "emoflon"));
 		// trg:
 		helperDoc.createDoc(helperDoc.getFolder(f, "ibex"), "criticalClazz_doc", "criticalbody");
 	};
@@ -112,7 +116,7 @@ public class DeletePreserve extends IntegrateTestCase<Package, Folder> {
 
 		tool.getOptions().integration.pattern(pattern);
 		tool.getOptions().integration.conflictSolver( //
-				c -> CRSHelper.forEachResolve(c, DeletePreserveConflict.class, (s) -> s.crs_revokeAddition()));
+				c -> CRSHelper.forEachResolve(c, DeletePreserveConflict.class, s -> s.crs_revokeAddition()));
 		tool.applyAndIntegrateDelta(dcc_chain_delta);
 
 		assertCondition(path + "src", path + "trg", path + "corr");
@@ -124,7 +128,7 @@ public class DeletePreserve extends IntegrateTestCase<Package, Folder> {
 
 		tool.getOptions().integration.pattern(pattern);
 		tool.getOptions().integration.conflictSolver( //
-				c -> CRSHelper.forEachResolve(c, DeletePreserveConflict.class, (s) -> s.crs_revokeDeletion()));
+				c -> CRSHelper.forEachResolve(c, DeletePreserveConflict.class, s -> s.crs_revokeDeletion()));
 		tool.applyAndIntegrateDelta(dcc_chain_delta);
 
 		assertCondition(path + "src", path + "trg", path + "corr");
@@ -136,7 +140,7 @@ public class DeletePreserve extends IntegrateTestCase<Package, Folder> {
 
 		tool.getOptions().integration.pattern(pattern);
 		tool.getOptions().integration.conflictSolver( //
-				c -> CRSHelper.forEachResolve(c, DeletePreserveConflict.class, (s) -> s.crs_mergeAndPreserve()));
+				c -> CRSHelper.forEachResolve(c, DeletePreserveConflict.class, s -> s.crs_mergeAndPreserve()));
 		tool.applyAndIntegrateDelta(dcc_chain_delta);
 
 		assertCondition(path + "src", path + "trg", path + "corr");
@@ -144,10 +148,10 @@ public class DeletePreserve extends IntegrateTestCase<Package, Folder> {
 
 	private final BiConsumer<Package, Folder> dcc_chainMultiDel_delta = (p, f) -> {
 		// src:
-		EcoreUtil.delete(helperJava.getPackage(p, "ibex"), true);
-		EcoreUtil.delete(helperJava.getClazz(p, "TGG"), true);
-		EcoreUtil.delete(helperJava.getPackage(p, "cmoflon"), true);
-		EcoreUtil.delete(helperJava.getPackage(p, "es"), true);
+		EcoreUtil.delete(helperJava.getPackage(p, "ibex"));
+		EcoreUtil.delete(helperJava.getClazz(p, "TGG"));
+		EcoreUtil.delete(helperJava.getPackage(p, "cmoflon"));
+		EcoreUtil.delete(helperJava.getPackage(p, "es"));
 		// trg:
 		helperDoc.createDoc(helperDoc.getFolder(f, "ibex"), "criticalClazz_doc", "criticalbody");
 	};
@@ -158,19 +162,19 @@ public class DeletePreserve extends IntegrateTestCase<Package, Folder> {
 
 		tool.getOptions().integration.pattern(pattern);
 		tool.getOptions().integration.conflictSolver( //
-				c -> CRSHelper.forEachResolve(c, DeletePreserveConflict.class, (s) -> s.crs_revokeAddition()));
+				c -> CRSHelper.forEachResolve(c, DeletePreserveConflict.class, s -> s.crs_revokeAddition()));
 		tool.applyAndIntegrateDelta(dcc_chainMultiDel_delta);
 
 		assertCondition(path + "src", path + "trg", path + "corr");
 	}
-	
+
 	@Test
 	public void dcc_chainMultiDel1a() {
 		final String path = testpath + "dcc_chainMultiDel1/";
 
 		tool.getOptions().integration.pattern(pattern);
 		tool.getOptions().integration.conflictSolver( //
-				c -> CRSHelper.forEachResolve(c, DeletePreserveConflict.class, (s) -> s.crs_preferSource()));
+				c -> CRSHelper.forEachResolve(c, DeletePreserveConflict.class, s -> s.crs_preferSource()));
 		tool.applyAndIntegrateDelta(dcc_chainMultiDel_delta);
 
 		assertCondition(path + "src", path + "trg", path + "corr");
@@ -182,19 +186,19 @@ public class DeletePreserve extends IntegrateTestCase<Package, Folder> {
 
 		tool.getOptions().integration.pattern(pattern);
 		tool.getOptions().integration.conflictSolver( //
-				c -> CRSHelper.forEachResolve(c, DeletePreserveConflict.class, (s) -> s.crs_revokeDeletion()));
+				c -> CRSHelper.forEachResolve(c, DeletePreserveConflict.class, s -> s.crs_revokeDeletion()));
 		tool.applyAndIntegrateDelta(dcc_chainMultiDel_delta);
 
 		assertCondition(path + "src", path + "trg", path + "corr");
 	}
-	
+
 	@Test
 	public void dcc_chainMultiDel2a() {
 		final String path = testpath + "dcc_chainMultiDel2/";
 
 		tool.getOptions().integration.pattern(pattern);
 		tool.getOptions().integration.conflictSolver( //
-				c -> CRSHelper.forEachResolve(c, DeletePreserveConflict.class, (s) -> s.crs_preferTarget()));
+				c -> CRSHelper.forEachResolve(c, DeletePreserveConflict.class, s -> s.crs_preferTarget()));
 		tool.applyAndIntegrateDelta(dcc_chainMultiDel_delta);
 
 		assertCondition(path + "src", path + "trg", path + "corr");
@@ -206,22 +210,22 @@ public class DeletePreserve extends IntegrateTestCase<Package, Folder> {
 
 		tool.getOptions().integration.pattern(pattern);
 		tool.getOptions().integration.conflictSolver( //
-				c -> CRSHelper.forEachResolve(c, DeletePreserveConflict.class, (s) -> s.crs_mergeAndPreserve()));
+				c -> CRSHelper.forEachResolve(c, DeletePreserveConflict.class, s -> s.crs_mergeAndPreserve()));
 		tool.applyAndIntegrateDelta(dcc_chainMultiDel_delta);
 
 		assertCondition(path + "src", path + "trg", path + "corr");
 	}
-	
+
 	@Test
 	public void dcc_conflHierarchy() {
 		final String path = testpath + "dcc_conflHierarchy/";
-		
+
 		AtomicInteger ccCount = new AtomicInteger(0);
 		tool.getOptions().integration.pattern(pattern);
 		tool.getOptions().integration.conflictSolver( //
 				cc -> {
-					CRSHelper.forEachResolve(cc, DeletePreserveConflict.class, (s) -> s.crs_preferTarget());
-					
+					CRSHelper.forEachResolve(cc, DeletePreserveConflict.class, s -> s.crs_preferTarget());
+
 					ccCount.incrementAndGet();
 					assertEquals(1, cc.getSubContainers().size());
 				});
@@ -231,6 +235,68 @@ public class DeletePreserve extends IntegrateTestCase<Package, Folder> {
 		});
 
 		assertEquals(1, ccCount.get());
+		assertCondition(path + "src", path + "trg", path + "corr");
+	}
+
+	@Test
+	public void dcc_delBesidesCre() {
+		final String path = testpath + "dcc_delBesidesCre/";
+
+		tool.getOptions().integration.pattern(pattern);
+		tool.getOptions().integration.conflictSolver( //
+				c -> CRSHelper.forEachResolve(c, DeletePreserveConflict.class, s -> s.crs_revokeDeletion()));
+		tool.applyAndIntegrateDelta((p, f) -> {
+			// src:
+			EcoreUtil.delete(helperJava.getPackage(p, "cmoflon"));
+			// trg:
+			helperDoc.createDoc(helperDoc.getFolder(f, "cmoflon"), "criticalClazz_doc", "criticalbody");
+			EcoreUtil.delete(helperDoc.getDoc(f, "GT_doc"));
+		});
+
+		assertCondition(path + "src", path + "trg", path + "corr");
+	}
+
+	private void explicitDeletePackage(Package p) {
+		List<Package> packages = new LinkedList<>(p.getSubPackages());
+		packages.forEach(this::explicitDeletePackage);
+		List<Clazz> clazzes = new LinkedList<>(p.getClazzes());
+		clazzes.forEach(EcoreUtil::delete);
+		EcoreUtil.delete(p);
+	}
+
+	@Test
+	public void dcc_explicitDel() {
+		final String path = testpath + "dcc_explicitDel/";
+
+		tool.getOptions().integration.pattern(pattern);
+		tool.getOptions().integration.conflictSolver( //
+				c -> CRSHelper.forEachResolve(c, DeletePreserveConflict.class, s -> s.crs_revokeDeletion()));
+		tool.applyAndIntegrateDelta((p, f) -> {
+			// src:
+			explicitDeletePackage(helperJava.getPackage(p, "emoflon"));
+			// trg:
+			helperDoc.createDoc(helperDoc.getFolder(f, "emoflon"), "criticalClazz_doc", "criticalbody");
+			EcoreUtil.delete(helperDoc.getDoc(f, "TGG_doc"));
+		});
+
+		assertCondition(path + "src", path + "trg", path + "corr");
+	}
+
+	@Test
+	public void dcc_implicitDel() {
+		final String path = testpath + "dcc_implicitDel/";
+
+		tool.getOptions().integration.pattern(pattern);
+		tool.getOptions().integration.conflictSolver( //
+				c -> CRSHelper.forEachResolve(c, DeletePreserveConflict.class, s -> s.crs_revokeDeletion()));
+		tool.applyAndIntegrateDelta((p, f) -> {
+			// src:
+			EcoreUtil.delete(helperJava.getPackage(p, "emoflon"));
+			// trg:
+			helperDoc.createDoc(helperDoc.getFolder(f, "emoflon"), "criticalClazz_doc", "criticalbody");
+			EcoreUtil.delete(helperDoc.getDoc(f, "TGG_doc"));
+		});
+
 		assertCondition(path + "src", path + "trg", path + "corr");
 	}
 

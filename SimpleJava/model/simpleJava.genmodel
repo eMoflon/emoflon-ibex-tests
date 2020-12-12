@@ -14,10 +14,12 @@
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference simpleJava.ecore#//Package/subPackages"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simpleJava.ecore#//Package/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simpleJava.ecore#//Package/fullQualifier"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference simpleJava.ecore#//Package/superPackage"/>
     </genClasses>
     <genClasses ecoreClass="simpleJava.ecore#//Clazz">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simpleJava.ecore#//Clazz/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simpleJava.ecore#//Clazz/body"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference simpleJava.ecore#//Clazz/package"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

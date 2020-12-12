@@ -46,7 +46,7 @@ public interface SimpleDocPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_PREFIX = "simpleDoc";
+	String eNS_PREFIX = "SimpleDoc";
 
 	/**
 	 * The singleton instance of the package.
@@ -85,13 +85,22 @@ public interface SimpleDocPackage extends EPackage {
 	int DOC__CONTENT = 1;
 
 	/**
+	 * The feature id for the '<em><b>Folder</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOC__FOLDER = 2;
+
+	/**
 	 * The number of structural features of the '<em>Doc</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_FEATURE_COUNT = 2;
+	int DOC_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Doc</em>' class.
@@ -140,13 +149,22 @@ public interface SimpleDocPackage extends EPackage {
 	int FOLDER__NAME = 2;
 
 	/**
+	 * The feature id for the '<em><b>Super Folder</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FOLDER__SUPER_FOLDER = 3;
+
+	/**
 	 * The number of structural features of the '<em>Folder</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FOLDER_FEATURE_COUNT = 3;
+	int FOLDER_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Folder</em>' class.
@@ -190,6 +208,17 @@ public interface SimpleDocPackage extends EPackage {
 	EAttribute getDoc_Content();
 
 	/**
+	 * Returns the meta object for the container reference '{@link simpleDoc.Doc#getFolder <em>Folder</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Folder</em>'.
+	 * @see simpleDoc.Doc#getFolder()
+	 * @see #getDoc()
+	 * @generated
+	 */
+	EReference getDoc_Folder();
+
+	/**
 	 * Returns the meta object for class '{@link simpleDoc.Folder <em>Folder</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -231,6 +260,17 @@ public interface SimpleDocPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getFolder_Name();
+
+	/**
+	 * Returns the meta object for the container reference '{@link simpleDoc.Folder#getSuperFolder <em>Super Folder</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Super Folder</em>'.
+	 * @see simpleDoc.Folder#getSuperFolder()
+	 * @see #getFolder()
+	 * @generated
+	 */
+	EReference getFolder_SuperFolder();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -282,6 +322,14 @@ public interface SimpleDocPackage extends EPackage {
 		EAttribute DOC__CONTENT = eINSTANCE.getDoc_Content();
 
 		/**
+		 * The meta object literal for the '<em><b>Folder</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DOC__FOLDER = eINSTANCE.getDoc_Folder();
+
+		/**
 		 * The meta object literal for the '{@link simpleDoc.impl.FolderImpl <em>Folder</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -314,6 +362,14 @@ public interface SimpleDocPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute FOLDER__NAME = eINSTANCE.getFolder_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Super Folder</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FOLDER__SUPER_FOLDER = eINSTANCE.getFolder_SuperFolder();
 
 	}
 
