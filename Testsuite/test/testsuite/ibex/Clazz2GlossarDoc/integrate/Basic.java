@@ -90,7 +90,7 @@ public class Basic extends IntegrateTestCase<ClazzContainer, DocumentationContai
 		attributeConflict(s -> s.crs_preferTarget(), testpath + "attr_trg/");
 	}
 
-	//// DELETE-PROPAGATE CONFLICT ////
+	//// DELETE-PRESERVE CONFLICT ////
 
 	private void deletePropagateConflict(Consumer<DeletePreserveConflict> s, String path) {
 		tool.getOptions().integration.pattern(pattern);
@@ -146,7 +146,7 @@ public class Basic extends IntegrateTestCase<ClazzContainer, DocumentationContai
 		shortcutCC(testpath + "shortcutcc/");
 	}
 
-	//// CONTRADICTORY MOVE ////
+	//// CORRESPONDENCE PRESERVATION ////
 
 	private void contradictoryMove(Consumer<CorrPreservationConflict> s, String path) {
 		tool.getOptions().integration.pattern(pattern);
