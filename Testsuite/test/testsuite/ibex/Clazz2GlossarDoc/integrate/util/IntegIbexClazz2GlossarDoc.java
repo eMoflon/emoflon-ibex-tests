@@ -31,7 +31,7 @@ public class IntegIbexClazz2GlossarDoc extends IntegIbexAdapter<ClazzContainer, 
 			INTEGRATE_App.registrationHelper = UsedPatternMatcher.choose(new IRegistrationHelper[] {
 					new DemoclesRegistrationHelper(), new HiPERegistrationHelper(), new ViatraRegistrationHelper() });
 			integrator = new INTEGRATE_App(projectName,
-					testsuite.ibex.performance.util.PerformanceConstants.workspacePath, "/resources/in/" + inputFolder,
+					testsuite.ibex.performance.util.PerformanceConstants.workspacePath, "/resources/integ/in/" + inputFolder,
 					ilpSolver, false);
 		} catch (IOException e) {
 			e.printStackTrace();

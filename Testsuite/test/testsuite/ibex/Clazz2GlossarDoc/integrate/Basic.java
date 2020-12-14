@@ -53,7 +53,7 @@ public class Basic extends IntegrateTestCase<ClazzContainer, DocumentationContai
 		return projectName;
 	}
 
-	private final String testpath = "expected/basic/";
+	private final String testpath = "integ/expected/basic/";
 
 	private final IntegrationPattern pattern = new IntegrationPattern(Arrays.asList( //
 			APPLY_USER_DELTA //

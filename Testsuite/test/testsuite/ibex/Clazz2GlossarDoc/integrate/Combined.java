@@ -49,7 +49,7 @@ public class Combined extends IntegrateTestCase<ClazzContainer, DocumentationCon
 		return projectName;
 	}
 
-	private final String testpath = "expected/combined/";
+	private final String testpath = "integ/expected/combined/";
 
 	private final IntegrationPattern pattern = new IntegrationPattern(Arrays.asList( //
 			APPLY_USER_DELTA //

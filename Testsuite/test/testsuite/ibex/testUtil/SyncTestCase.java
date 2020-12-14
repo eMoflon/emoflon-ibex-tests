@@ -20,11 +20,12 @@ public abstract class SyncTestCase<S extends EObject, T extends EObject> extends
 		
 		// Initialise all helpers
 		util = new BenchmarxUtil<>(tool);
-		initHelpers();
 		
 		// Initialise the bx tool
 		tool.ilpSolver = this.ilpSolver;
 		tool.initiateSynchronisationDialogue();
+		
+		initHelpers();
 	}
 	
 	protected abstract void initHelpers();

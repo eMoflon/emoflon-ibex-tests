@@ -46,7 +46,7 @@ public class Move extends IntegrateTestCase<ClazzContainer, DocumentationContain
 		return projectName;
 	}
 	
-	private final String testpath = "expected/move/";
+	private final String testpath = "integ/expected/move/";
 
 	private final IntegrationPattern pattern = new IntegrationPattern(Arrays.asList( //
 			APPLY_USER_DELTA //
