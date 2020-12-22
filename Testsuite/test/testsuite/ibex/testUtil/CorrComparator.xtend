@@ -8,7 +8,9 @@ import org.junit.Assert
 abstract class CorrComparator implements Comparator<Collection<EObject>> {
 
 	override assertEquals(Collection<EObject> expected, Collection<EObject> actual) {
-		Assert.assertEquals(expected.stringifyAndSort, actual.stringifyAndSort);
+		val expectedStr = expected.stringifyAndSort()
+		val actualStr = actual.stringifyAndSort()
+		Assert.assertEquals(expectedStr, actualStr);
 	}
 
 	def String stringifyAndSort(Collection<EObject> corrs) {

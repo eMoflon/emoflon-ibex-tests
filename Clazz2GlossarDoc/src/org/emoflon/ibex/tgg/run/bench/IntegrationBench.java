@@ -254,7 +254,7 @@ public class IntegrationBench {
 			toc = System.currentTimeMillis();
 			double resolve = (double) (toc - tic) / 1000;
 			Runtime.getRuntime().gc();
-			long ram = (Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()) / (1024*1024);
+			int ram = (int) ((Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()) / (1024 * 1024));
 			integrate.terminate();
 			return new BenchEntry(model_scale, number_of_changes, elementCounter, init, resolve, ram);
 		} catch (IOException e) {
@@ -349,11 +349,11 @@ public class IntegrationBench {
 	}
 
 	private void delete(Clazz subC) {
-		subC.getSubClazzes().stream().collect(Collectors.toList()).forEach(this::delete);
 		subC.setSuperClazz(null);
 		subC.getFields().clear();
 		subC.getMethods().forEach(m -> m.getParameters().clear());
 		subC.getMethods().clear();
+		subC.getSubClazzes().stream().collect(Collectors.toList()).forEach(this::delete);
 	}
 
 	private void createAttributeConflict(Clazz c) {

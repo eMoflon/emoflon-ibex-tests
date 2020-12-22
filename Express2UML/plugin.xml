@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated Express2UML -->
+      <package
+            uri="platform:/resource/Express2UML/model/Express2UML.ecore"
+            class="Express2UML.Express2UMLPackage"
+            genModel="model/Express2UML.genmodel"/>
+   </extension>
+
+</plugin>

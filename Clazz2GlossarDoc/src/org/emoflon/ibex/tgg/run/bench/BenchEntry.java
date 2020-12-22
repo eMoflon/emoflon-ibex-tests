@@ -7,9 +7,9 @@ public class BenchEntry {
 	public int elts;
 	public double init;
 	public double resolve;
-	public long ram;
+	public int ram;
 
-	public BenchEntry(int n, int c, int elts, double init, double resolve, long ram) {
+	public BenchEntry(int n, int c, int elts, double init, double resolve, int ram) {
 		this.n = n;
 		this.c = c;
 		this.elts = elts;

@@ -1,0 +1,17 @@
+package Express2UML.integrate.example
+
+import Express2UML
+
+specificationOne: solve {
+	var srcElementsCreated = src | created | type Package, Clazz | exists
+	
+	satisfies {
+		srcElementsCreated
+	}
+} with preferSource when {
+	var numElementsToBeCreatedOnTrg = trg | created | count
+	
+	satisfies {
+		numElementsToBeCreatedOnTrg < 10
+	}
+}

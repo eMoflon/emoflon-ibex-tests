@@ -28,7 +28,7 @@ public class IntegIbexJava2Doc extends IntegIbexAdapter<Package, Folder> {
 	public void initiateIntegrationDialogue() {
 		try {
 			INTEGRATE_App.registrationHelper = UsedPatternMatcher.choose(new IRegistrationHelper[] {
-					new DemoclesRegistrationHelper(), new HiPERegistrationHelper(), new ViatraRegistrationHelper() });
+					new HiPERegistrationHelper(), new DemoclesRegistrationHelper(), new ViatraRegistrationHelper() });
 			integrator = new INTEGRATE_App(projectName,
 					testsuite.ibex.performance.util.PerformanceConstants.workspacePath,
 					"/resources/integ/in/" + inputFolder, ilpSolver, false);

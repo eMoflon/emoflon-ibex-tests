@@ -1,0 +1,55 @@
+#using Express2UML.*
+#using AttrCondDefLibrary.*
+
+/* 
+#rule EnumAttribute2Association #with Express2UML
+
+#source {
+	enumSrc:EnumerationType
+	
+	++udr: UserDefinedTypeReference {
+		++ -type -> enumSrc
+	}
+
+	++attr:Attribute {
+		++ -type -> udr
+	}
+
+	e:Entity {
+		++ -attributes -> attr
+	}
+}
+
+#target {
+	enumTrg:Enumeration
+
+	c:Class
+
+	++a:Association {
+		++ -source -> c
+		++ -target -> enumTrg
+	}
+}
+
+#correspondence {
+	e2e: EnumerationType2Enum {
+		#src->enumSrc
+		#trg->enumTrg
+	}
+	
+	e2c: Entity2Class {
+		#src->e
+		#trg->c
+	}
+	
+	++ea2a: EnumAttribute2Association {
+		#src->attr
+		#trg->a
+	}
+}
+
+#attributeConditions {
+	eq_string(attr.name, a.name)
+}
+
+*/

@@ -1,0 +1,74 @@
+#using Express2UML.*
+#using AttrCondDefLibrary.*
+
+#rule IntegerAttribute2Integer #with Express2UML
+
+#source {
+	++ia:IntegerAttribute {
+	}
+
+	e:Entity {
+		++ -attributes -> ia
+	}
+}
+
+#target {
+	++i:Integer
+
+	c:Clazz {
+		++ -attributes -> i
+	}
+}
+
+#correspondence {
+	e2c:Entity2Clazz {
+		#src->e
+		#trg->c
+	}
+
+	++ it2i:IntegerTypeAttribute2Integer {
+		#src->ia
+		#trg->i
+	}
+}
+
+#attributeConditions {
+	eq_string(ia.name, i.name)
+}
+
+#rule StringAttribute2String #with Express2UML
+
+#source {
+	++sa:StringAttribute {
+	}
+
+	e:Entity {
+		++ -attributes -> sa
+	}
+}
+
+#target {
+	++s:String
+
+	c:Clazz {
+		++ -attributes -> s
+	}
+}
+
+#correspondence {
+	e2c:Entity2Clazz {
+		#src->e
+		#trg->c
+	}
+
+	++ st2s:StringTypeAttribute2String {
+		#src->sa
+		#trg->s
+	}
+}
+
+#attributeConditions {
+	eq_string(sa.name, s.name)
+}
+
+

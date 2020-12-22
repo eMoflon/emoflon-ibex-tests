@@ -1,0 +1,37 @@
+#using Express2UML.*
+#using AttrCondDefLibrary.*
+
+#rule EnumerationType2Enum #with Express2UML
+
+#source {
+	++et:EnumerationType
+
+	s:Schema {
+		++ -declarations -> et
+	}
+}
+
+#target {
+	++e:Enumeration
+
+	p:Package {
+		++-enumerations -> e
+	}
+}
+
+#correspondence {
+	s2p:Schema2Package {
+		#src->s
+		#trg->p
+	}
+
+	++et2e:EnumerationType2Enum {
+		#src->et
+		#trg->e
+	}
+}
+
+#attributeConditions {
+	eq_string(et.name, e.name)
+}
+

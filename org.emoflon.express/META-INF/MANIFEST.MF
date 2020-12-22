@@ -1,0 +1,32 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: org.emoflon.express
+Bundle-ManifestVersion: 2
+Bundle-Name: org.emoflon.express
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: org.emoflon.express; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.5.0",
+ org.eclipse.emf.ecore,
+ org.eclipse.xtext.xbase.lib;bundle-version="2.14.0",
+ org.eclipse.xtext.util,
+ org.eclipse.emf.common,
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)",
+ Benchmarx;bundle-version="1.0.0",
+ org.junit;bundle-version="4.12.0",
+ com.ibm.icu;bundle-version="64.2.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: org.emoflon.express,
+ org.emoflon.express.express,
+ org.emoflon.express.express.impl,
+ org.emoflon.express.express.util,
+ org.emoflon.express.generator,
+ org.emoflon.express.parser.antlr,
+ org.emoflon.express.parser.antlr.internal,
+ org.emoflon.express.scoping,
+ org.emoflon.express.serializer,
+ org.emoflon.express.services,
+ org.emoflon.express.validation
+Import-Package: org.apache.log4j

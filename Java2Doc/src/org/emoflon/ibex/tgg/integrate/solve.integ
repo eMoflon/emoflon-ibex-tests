@@ -1,0 +1,13 @@
+package Java2Doc.integrate
+
+import Java2Doc
+
+solvePlz: solve {
+	var classCreated = src | created | type Clazz | exists
+	var folderDeleted = trg | deleted | type Folder | exists
+	
+	satisfies {
+		classCreated and folderDeleted
+	}
+	
+} with preferSource

@@ -1,0 +1,25 @@
+#using Express2UML.*
+#using AttrCondDefLibrary.*
+
+#rule SchemaContainer2UMLContainer #with Express2UML
+
+#source {
+	++sc:SchemaContainer {
+	}
+}
+
+#target {
+	++c: UMLContainer
+}
+
+#correspondence {
+	++sc2uc: SchemaContainer2UMLContainer {
+		#src->sc
+		#trg->c
+	}
+}
+
+#attributeConditions {
+}
+
+

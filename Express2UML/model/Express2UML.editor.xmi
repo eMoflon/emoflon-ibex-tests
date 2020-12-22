@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="ASCII"?>
+<tgg:TripleGraphGrammarFile xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tgg="http://www.moflon.org/ide/tgg/mosl/TGG">
+  <imports name="platform:/resource/org.emoflon.express/model/generated/Express.ecore"/>
+  <imports name="platform:/resource/UML/model/UML.ecore"/>
+  <schema name="Express2UML">
+    <sourceTypes href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#/"/>
+    <targetTypes href="platform:/resource/UML/model/UML.ecore#/"/>
+    <correspondenceTypes name="SchemaContainer2UMLContainer">
+      <source href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//SchemaContainer"/>
+      <target href="platform:/resource/UML/model/UML.ecore#//UMLContainer"/>
+    </correspondenceTypes>
+    <correspondenceTypes name="Schema2Package">
+      <source href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//Schema"/>
+      <target href="platform:/resource/UML/model/UML.ecore#//Package"/>
+    </correspondenceTypes>
+    <correspondenceTypes name="Schema2SubPackage">
+      <source href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//Schema"/>
+      <target href="platform:/resource/UML/model/UML.ecore#//Package"/>
+    </correspondenceTypes>
+    <correspondenceTypes name="Entity2Clazz">
+      <source href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//Entity"/>
+      <target href="platform:/resource/UML/model/UML.ecore#//Clazz"/>
+    </correspondenceTypes>
+    <correspondenceTypes name="Function2SingleMethodClazz">
+      <source href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//Function"/>
+      <target href="platform:/resource/UML/model/UML.ecore#//Clazz"/>
+    </correspondenceTypes>
+    <correspondenceTypes name="IntegerTypeAttribute2Integer">
+      <source href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//IntegerAttribute"/>
+      <target href="platform:/resource/UML/model/UML.ecore#//Integer"/>
+    </correspondenceTypes>
+    <correspondenceTypes name="StringTypeAttribute2String">
+      <source href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//StringAttribute"/>
+      <target href="platform:/resource/UML/model/UML.ecore#//String"/>
+    </correspondenceTypes>
+    <correspondenceTypes name="EnumerationType2Enum">
+      <source href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//EnumerationType"/>
+      <target href="platform:/resource/UML/model/UML.ecore#//Enumeration"/>
+    </correspondenceTypes>
+    <attributeCondDefs name="eq_string">
+      <params paramName="a">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </params>
+      <params paramName="b">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </params>
+      <allowedSyncAdornments>
+        <value>B</value>
+        <value>B</value>
+      </allowedSyncAdornments>
+      <allowedSyncAdornments>
+        <value>B</value>
+        <value>F</value>
+      </allowedSyncAdornments>
+      <allowedSyncAdornments>
+        <value>F</value>
+        <value>B</value>
+      </allowedSyncAdornments>
+      <allowedGenAdornments>
+        <value>B</value>
+        <value>B</value>
+      </allowedGenAdornments>
+      <allowedGenAdornments>
+        <value>B</value>
+        <value>F</value>
+      </allowedGenAdornments>
+      <allowedGenAdornments>
+        <value>F</value>
+        <value>B</value>
+      </allowedGenAdornments>
+      <allowedGenAdornments>
+        <value>F</value>
+        <value>F</value>
+      </allowedGenAdornments>
+    </attributeCondDefs>
+  </schema>
+  <rules name="IntegerAttribute2Integer" schema="//@schema">
+    <sourcePatterns name="ia">
+      <op value="++"/>
+      <type href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//IntegerAttribute"/>
+    </sourcePatterns>
+    <sourcePatterns name="e">
+      <type href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//Entity"/>
+      <linkVariablePatterns target="//@rules.0/@sourcePatterns.0">
+        <op value="++"/>
+        <type href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//Entity/attributes"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <targetPatterns name="i">
+      <op value="++"/>
+      <type href="platform:/resource/UML/model/UML.ecore#//Integer"/>
+    </targetPatterns>
+    <targetPatterns name="c">
+      <type href="platform:/resource/UML/model/UML.ecore#//Clazz"/>
+      <linkVariablePatterns target="//@rules.0/@targetPatterns.0">
+        <op value="++"/>
+        <type href="platform:/resource/UML/model/UML.ecore#//Clazz/attributes"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <correspondencePatterns name="e2c" type="//@schema/@correspondenceTypes.3" source="//@rules.0/@sourcePatterns.1" target="//@rules.0/@targetPatterns.1"/>
+    <correspondencePatterns name="it2i" type="//@schema/@correspondenceTypes.5" source="//@rules.0/@sourcePatterns.0" target="//@rules.0/@targetPatterns.0">
+      <op value="++"/>
+    </correspondencePatterns>
+    <attrConditions name="//@schema/@attributeCondDefs.0">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.0/@sourcePatterns.0">
+        <attribute href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//Attribute/name"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.0/@targetPatterns.0">
+        <attribute href="platform:/resource/UML/model/UML.ecore#//DataType/name"/>
+      </values>
+    </attrConditions>
+  </rules>
+  <rules name="StringAttribute2String" schema="//@schema">
+    <sourcePatterns name="sa">
+      <op value="++"/>
+      <type href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//StringAttribute"/>
+    </sourcePatterns>
+    <sourcePatterns name="e">
+      <type href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//Entity"/>
+      <linkVariablePatterns target="//@rules.1/@sourcePatterns.0">
+        <op value="++"/>
+        <type href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//Entity/attributes"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <targetPatterns name="s">
+      <op value="++"/>
+      <type href="platform:/resource/UML/model/UML.ecore#//String"/>
+    </targetPatterns>
+    <targetPatterns name="c">
+      <type href="platform:/resource/UML/model/UML.ecore#//Clazz"/>
+      <linkVariablePatterns target="//@rules.1/@targetPatterns.0">
+        <op value="++"/>
+        <type href="platform:/resource/UML/model/UML.ecore#//Clazz/attributes"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <correspondencePatterns name="e2c" type="//@schema/@correspondenceTypes.3" source="//@rules.1/@sourcePatterns.1" target="//@rules.1/@targetPatterns.1"/>
+    <correspondencePatterns name="st2s" type="//@schema/@correspondenceTypes.6" source="//@rules.1/@sourcePatterns.0" target="//@rules.1/@targetPatterns.0">
+      <op value="++"/>
+    </correspondencePatterns>
+    <attrConditions name="//@schema/@attributeCondDefs.0">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.1/@sourcePatterns.0">
+        <attribute href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//Attribute/name"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.1/@targetPatterns.0">
+        <attribute href="platform:/resource/UML/model/UML.ecore#//DataType/name"/>
+      </values>
+    </attrConditions>
+  </rules>
+  <rules name="Entity2Clazz" schema="//@schema">
+    <sourcePatterns name="e">
+      <op value="++"/>
+      <type href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//Entity"/>
+    </sourcePatterns>
+    <sourcePatterns name="s">
+      <type href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//Schema"/>
+      <linkVariablePatterns target="//@rules.2/@sourcePatterns.0">
+        <op value="++"/>
+        <type href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//Schema/declarations"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <targetPatterns name="c">
+      <op value="++"/>
+      <type href="platform:/resource/UML/model/UML.ecore#//Clazz"/>
+    </targetPatterns>
+    <targetPatterns name="p">
+      <type href="platform:/resource/UML/model/UML.ecore#//Package"/>
+      <linkVariablePatterns target="//@rules.2/@targetPatterns.0">
+        <op value="++"/>
+        <type href="platform:/resource/UML/model/UML.ecore#//Package/clazzes"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <correspondencePatterns name="s2p" type="//@schema/@correspondenceTypes.1" source="//@rules.2/@sourcePatterns.1" target="//@rules.2/@targetPatterns.1"/>
+    <correspondencePatterns name="e2c" type="//@schema/@correspondenceTypes.3" source="//@rules.2/@sourcePatterns.0" target="//@rules.2/@targetPatterns.0">
+      <op value="++"/>
+    </correspondencePatterns>
+    <attrConditions name="//@schema/@attributeCondDefs.0">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.2/@sourcePatterns.0">
+        <attribute href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//UserDefinedType/name"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.2/@targetPatterns.0">
+        <attribute href="platform:/resource/UML/model/UML.ecore#//Clazz/name"/>
+      </values>
+    </attrConditions>
+  </rules>
+  <rules name="EnumerationType2Enum" schema="//@schema">
+    <sourcePatterns name="et">
+      <op value="++"/>
+      <type href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//EnumerationType"/>
+    </sourcePatterns>
+    <sourcePatterns name="s">
+      <type href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//Schema"/>
+      <linkVariablePatterns target="//@rules.3/@sourcePatterns.0">
+        <op value="++"/>
+        <type href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//Schema/declarations"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <targetPatterns name="e">
+      <op value="++"/>
+      <type href="platform:/resource/UML/model/UML.ecore#//Enumeration"/>
+    </targetPatterns>
+    <targetPatterns name="p">
+      <type href="platform:/resource/UML/model/UML.ecore#//Package"/>
+      <linkVariablePatterns target="//@rules.3/@targetPatterns.0">
+        <op value="++"/>
+        <type href="platform:/resource/UML/model/UML.ecore#//Package/enumerations"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <correspondencePatterns name="s2p" type="//@schema/@correspondenceTypes.1" source="//@rules.3/@sourcePatterns.1" target="//@rules.3/@targetPatterns.1"/>
+    <correspondencePatterns name="et2e" type="//@schema/@correspondenceTypes.7" source="//@rules.3/@sourcePatterns.0" target="//@rules.3/@targetPatterns.0">
+      <op value="++"/>
+    </correspondencePatterns>
+    <attrConditions name="//@schema/@attributeCondDefs.0">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.3/@sourcePatterns.0">
+        <attribute href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//UserDefinedType/name"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.3/@targetPatterns.0">
+        <attribute href="platform:/resource/UML/model/UML.ecore#//Enumeration/name"/>
+      </values>
+    </attrConditions>
+  </rules>
+  <rules name="Function2SingleMethodClazz" schema="//@schema">
+    <sourcePatterns name="f">
+      <op value="++"/>
+      <type href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//Function"/>
+    </sourcePatterns>
+    <sourcePatterns name="s">
+      <type href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//Schema"/>
+      <linkVariablePatterns target="//@rules.4/@sourcePatterns.0">
+        <op value="++"/>
+        <type href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//Schema/declarations"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <targetPatterns name="m">
+      <op value="++"/>
+      <type href="platform:/resource/UML/model/UML.ecore#//Method"/>
+      <attributeAssignments op=":=">
+        <attribute href="platform:/resource/UML/model/UML.ecore#//Method/static_"/>
+        <valueExp xsi:type="tgg:LiteralExpression" value="true"/>
+      </attributeAssignments>
+    </targetPatterns>
+    <targetPatterns name="c">
+      <op value="++"/>
+      <type href="platform:/resource/UML/model/UML.ecore#//Clazz"/>
+      <linkVariablePatterns target="//@rules.4/@targetPatterns.0">
+        <op value="++"/>
+        <type href="platform:/resource/UML/model/UML.ecore#//Clazz/methods"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="p">
+      <type href="platform:/resource/UML/model/UML.ecore#//Package"/>
+      <linkVariablePatterns target="//@rules.4/@targetPatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/UML/model/UML.ecore#//Package/clazzes"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <correspondencePatterns name="s2p" type="//@schema/@correspondenceTypes.1" source="//@rules.4/@sourcePatterns.1" target="//@rules.4/@targetPatterns.2"/>
+    <correspondencePatterns name="f2smc" type="//@schema/@correspondenceTypes.4" source="//@rules.4/@sourcePatterns.0" target="//@rules.4/@targetPatterns.1">
+      <op value="++"/>
+    </correspondencePatterns>
+    <attrConditions name="//@schema/@attributeCondDefs.0">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.4/@sourcePatterns.0">
+        <attribute href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//Function/name"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.4/@targetPatterns.1">
+        <attribute href="platform:/resource/UML/model/UML.ecore#//Clazz/name"/>
+      </values>
+    </attrConditions>
+    <attrConditions name="//@schema/@attributeCondDefs.0">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.4/@targetPatterns.0">
+        <attribute href="platform:/resource/UML/model/UML.ecore#//Method/name"/>
+      </values>
+      <values xsi:type="tgg:LiteralExpression" value="&quot;apply&quot;"/>
+    </attrConditions>
+  </rules>
+  <rules name="Schema2Package" schema="//@schema">
+    <sourcePatterns name="s">
+      <op value="++"/>
+      <type href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//Schema"/>
+    </sourcePatterns>
+    <sourcePatterns name="sc">
+      <type href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//SchemaContainer"/>
+      <linkVariablePatterns target="//@rules.5/@sourcePatterns.0">
+        <op value="++"/>
+        <type href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//SchemaContainer/schemas"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <targetPatterns name="p">
+      <op value="++"/>
+      <type href="platform:/resource/UML/model/UML.ecore#//Package"/>
+    </targetPatterns>
+    <targetPatterns name="uc">
+      <type href="platform:/resource/UML/model/UML.ecore#//UMLContainer"/>
+      <linkVariablePatterns target="//@rules.5/@targetPatterns.0">
+        <op value="++"/>
+        <type href="platform:/resource/UML/model/UML.ecore#//UMLContainer/packages"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <correspondencePatterns name="sc2uc" type="//@schema/@correspondenceTypes.0" source="//@rules.5/@sourcePatterns.1" target="//@rules.5/@targetPatterns.1"/>
+    <correspondencePatterns name="s2p" type="//@schema/@correspondenceTypes.1" source="//@rules.5/@sourcePatterns.0" target="//@rules.5/@targetPatterns.0">
+      <op value="++"/>
+    </correspondencePatterns>
+    <attrConditions name="//@schema/@attributeCondDefs.0">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.5/@sourcePatterns.0">
+        <attribute href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//Schema/name"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.5/@targetPatterns.0">
+        <attribute href="platform:/resource/UML/model/UML.ecore#//Package/name"/>
+      </values>
+    </attrConditions>
+  </rules>
+  <rules name="SchemaContainer2UMLContainer" schema="//@schema">
+    <sourcePatterns name="sc">
+      <op value="++"/>
+      <type href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//SchemaContainer"/>
+    </sourcePatterns>
+    <targetPatterns name="c">
+      <op value="++"/>
+      <type href="platform:/resource/UML/model/UML.ecore#//UMLContainer"/>
+    </targetPatterns>
+    <correspondencePatterns name="sc2uc" type="//@schema/@correspondenceTypes.0" source="//@rules.6/@sourcePatterns.0" target="//@rules.6/@targetPatterns.0">
+      <op value="++"/>
+    </correspondencePatterns>
+  </rules>
+  <rules name="SubEntity2SubClazz" schema="//@schema">
+    <sourcePatterns name="se">
+      <op value="++"/>
+      <type href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//Entity"/>
+      <linkVariablePatterns target="//@rules.7/@sourcePatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//Entity/superType"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="e">
+      <type href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//Entity"/>
+      <linkVariablePatterns target="//@rules.7/@sourcePatterns.0">
+        <op value="++"/>
+        <type href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//Entity/subType"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="s">
+      <type href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//Schema"/>
+      <linkVariablePatterns target="//@rules.7/@sourcePatterns.1">
+        <type href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//Schema/declarations"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.7/@sourcePatterns.0">
+        <op value="++"/>
+        <type href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//Schema/declarations"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <targetPatterns name="sc">
+      <op value="++"/>
+      <type href="platform:/resource/UML/model/UML.ecore#//Clazz"/>
+      <linkVariablePatterns target="//@rules.7/@targetPatterns.1">
+        <op value="++"/>
+        <type href="platform:/resource/UML/model/UML.ecore#//Clazz/superClazz"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="c">
+      <type href="platform:/resource/UML/model/UML.ecore#//Clazz"/>
+      <linkVariablePatterns target="//@rules.7/@targetPatterns.0">
+        <op value="++"/>
+        <type href="platform:/resource/UML/model/UML.ecore#//Clazz/subClazzes"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="p">
+      <type href="platform:/resource/UML/model/UML.ecore#//Package"/>
+      <linkVariablePatterns target="//@rules.7/@targetPatterns.1">
+        <type href="platform:/resource/UML/model/UML.ecore#//Package/clazzes"/>
+      </linkVariablePatterns>
+      <linkVariablePatterns target="//@rules.7/@targetPatterns.0">
+        <op value="++"/>
+        <type href="platform:/resource/UML/model/UML.ecore#//Package/clazzes"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <correspondencePatterns name="s2p" type="//@schema/@correspondenceTypes.1" source="//@rules.7/@sourcePatterns.2" target="//@rules.7/@targetPatterns.2"/>
+    <correspondencePatterns name="e2c" type="//@schema/@correspondenceTypes.3" source="//@rules.7/@sourcePatterns.1" target="//@rules.7/@targetPatterns.1"/>
+    <correspondencePatterns name="se2sc" type="//@schema/@correspondenceTypes.3" source="//@rules.7/@sourcePatterns.0" target="//@rules.7/@targetPatterns.0">
+      <op value="++"/>
+    </correspondencePatterns>
+    <attrConditions name="//@schema/@attributeCondDefs.0">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.7/@sourcePatterns.0">
+        <attribute href="platform:/resource/org.emoflon.express/model/generated/Express.ecore#//UserDefinedType/name"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.7/@targetPatterns.0">
+        <attribute href="platform:/resource/UML/model/UML.ecore#//Clazz/name"/>
+      </values>
+    </attrConditions>
+  </rules>
+  <rules name="ClassAttribute2Association" schema="//@schema"/>
+</tgg:TripleGraphGrammarFile>
