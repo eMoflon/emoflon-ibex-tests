@@ -44,10 +44,11 @@ public class IbexExpress2UML extends IbexAdapter<SchemaContainer, UMLContainer> 
 			synchroniser.backward();*/
 			
 			SchemaContainer container = ExpressHelper.createSchemaContainer();
-			Schema schema = ExpressHelper.createSchema(container, "schema");
+			//Schema schema = ExpressHelper.createSchema(container, "schema");
 			//ExpressHelper.createEnumerationType(schema, "enumerationType");
 			//ExpressHelper.createFunction(schema, "function");
 			//Entity entity = ExpressHelper.createEntity(schema, "entity");
+			//ExpressHelper.createSubEntity(schema, entity, "subEntity");
 			//Entity entity2 = ExpressHelper.createEntity(schema, "entity2");
 			//ExpressHelper.createIntegerAttribute(entity, "integerAttr");
 			//ExpressHelper.createStringAttribute(entity, "stringAttr");

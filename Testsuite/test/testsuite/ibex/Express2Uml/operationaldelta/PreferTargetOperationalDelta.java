@@ -41,7 +41,7 @@ public class PreferTargetOperationalDelta extends IntegrateTestCase<SchemaContai
 			Schema schema = schemaContainer.getSchemas().get(0);
 			EcoreUtil.delete(schema.getDeclarations().get(0));
 			// trg:
-			Package pkg = umlContainer.getPackage();
+			Package pkg = umlContainer.getPackages().get(0);
 			Clazz clazz = pkg.getClazzes().get(0);
 			UMLHelper.createInteger(clazz, "integerAttr");
 		});
@@ -60,7 +60,7 @@ public class PreferTargetOperationalDelta extends IntegrateTestCase<SchemaContai
 			Entity entity = (Entity) schema.getDeclarations().get(0);
 			ExpressHelper.createIntegerAttribute(entity, "integerAttr");
 			// trg:
-			Package pkg = umlContainer.getPackage();
+			Package pkg = umlContainer.getPackages().get(0);
 			Clazz clazz = pkg.getClazzes().get(0);
 			EcoreUtil.delete(clazz);
 		});

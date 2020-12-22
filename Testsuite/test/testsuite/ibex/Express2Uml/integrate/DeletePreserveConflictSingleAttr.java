@@ -5,6 +5,7 @@ import org.emoflon.express.express.Entity;
 import org.emoflon.express.express.Schema;
 import org.emoflon.express.express.SchemaContainer;
 import org.junit.Test;
+import org.moflon.core.utilities.EcoreUtils;
 
 import Express2UML.integrate.deletePreserveSingleAttr.DeletePreserveSingleAttrConflictResolver;
 import testsuite.ibex.Express2Uml.common.ExpressHelper;
@@ -34,14 +35,14 @@ public class DeletePreserveConflictSingleAttr extends IntegrateTestCase<SchemaCo
 	@Test
 	public void createdIntegerTypeAttributeDeletedClazz() {
 		tool.getOptions().integration.conflictSolver(new DeletePreserveSingleAttrConflictResolver());
-
+		
 		tool.applyAndIntegrateDelta((schemaContainer, umlContainer) -> {
 			// src:
 			Schema schema = schemaContainer.getSchemas().get(0);
 			Entity entity = (Entity) schema.getDeclarations().get(0);
 			ExpressHelper.createIntegerAttribute(entity, "integerAttr");
 			// trg:
-			Package pkg = umlContainer.getPackage();
+			Package pkg = umlContainer.getPackages().get(0);
 			EcoreUtil.delete(pkg.getClazzes().get(0));
 		});
 
@@ -58,7 +59,7 @@ public class DeletePreserveConflictSingleAttr extends IntegrateTestCase<SchemaCo
 			Schema schema = schemaContainer.getSchemas().get(0);
 			EcoreUtil.delete(schema.getDeclarations().get(0));
 			// trg:
-			Package pkg = umlContainer.getPackage();
+			Package pkg = umlContainer.getPackages().get(0);
 			UMLHelper.createInteger(pkg.getClazzes().get(0), "integerAttr");
 		});
 

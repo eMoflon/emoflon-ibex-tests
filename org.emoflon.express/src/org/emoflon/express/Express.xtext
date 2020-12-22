@@ -39,9 +39,9 @@ AliasType:
 	'TYPE' name=ID '=' (element=[UserDefinedType]) ';' 'END_TYPE;';
 
 Entity:
-	'ENTITY' name=ID (abstract_?='ABSTRACT')?
-	('SUPERTYPE' 'OF' '(' subTypes+=[Entity] (',' subTypes+=[Entity])* ')')?
-	('SUBTYPE' 'OF' '(' superTypes+=[Entity] ')')? ';'
+	'ENTITY' name=ID';'
+	('SUPERTYPE' 'OF' '(' subType=[Entity]');')?
+	('SUBTYPE' 'OF' '(' superType=[Entity] ');')?
 	(attributes+=Attribute)*
 	'END_ENTITY;';
 

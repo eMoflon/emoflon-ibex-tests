@@ -7,6 +7,7 @@ import org.emoflon.express.express.SchemaContainer;
 import org.junit.Test;
 
 import Express2UML.operationaldelta.mergeAndPreserve.MergeAndPreserveConflictResolver;
+import Express2UML.operationaldelta.mergeAndPreserveMulti.MergeAndPreserveMultiConflictResolver;
 import testsuite.ibex.Express2Uml.common.ExpressHelper;
 import testsuite.ibex.Express2Uml.common.UMLHelper;
 import testsuite.ibex.Express2Uml.integrate.util.IntegIbexSchemaContainer2Package;
@@ -41,7 +42,7 @@ public class MergeAndPreserveOperationalDelta extends IntegrateTestCase<SchemaCo
 			Entity entity = (Entity) schema.getDeclarations().get(0);
 			ExpressHelper.createIntegerAttribute(entity, "integerAttr");
 			// trg:
-			Package pkg = container.getPackage();
+			Package pkg = container.getPackages().get(0);
 			Clazz clazz = pkg.getClazzes().get(0);
 			EcoreUtil.delete(clazz);
 		});
@@ -59,12 +60,30 @@ public class MergeAndPreserveOperationalDelta extends IntegrateTestCase<SchemaCo
 			Schema schema = schemaContainer.getSchemas().get(0);
 			EcoreUtil.delete(schema.getDeclarations().get(0));
 			// trg:
-			Package pkg = container.getPackage();
+			Package pkg = container.getPackages().get(0);
 			Clazz clazz = pkg.getClazzes().get(0);
 			UMLHelper.createInteger(clazz, "integerAttr");
 		});
 
 		final String path = "operationaldelta/expected/merge_and_preserve/";
+		assertCondition(path + "src", path + "trg", path + "corr");
+	}
+	
+	@Test
+	public void mergeAndPreserveWithMultipleDeletionsToBeRevoked() {
+		tool.getOptions().integration.conflictSolver(new MergeAndPreserveMultiConflictResolver());
+
+		tool.applyAndIntegrateDelta((schemaContainer, container) -> {
+			// src:
+			Schema schema = schemaContainer.getSchemas().get(0);
+			Entity entity = (Entity) schema.getDeclarations().get(0);
+			ExpressHelper.createIntegerAttribute(entity, "integerAttr");
+			// trg:
+			Package pkg = container.getPackages().get(0);
+			EcoreUtil.delete(pkg);
+		});
+
+		final String path = "operationaldelta/expected/merge_and_preserve/multi/";
 		assertCondition(path + "src", path + "trg", path + "corr");
 	}
 	

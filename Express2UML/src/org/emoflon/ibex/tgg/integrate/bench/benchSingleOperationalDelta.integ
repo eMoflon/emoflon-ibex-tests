@@ -1,0 +1,40 @@
+package Express2UML.integrate.bench
+
+import Express2UML
+
+chosenSpecification: solve {
+	var schemasDeleted1 = src | deleted | type Schema | exists
+	var clazzesCreated1 = trg | created | type Clazz | count
+	var schemasDeleted2 = src | deleted | type Schema | exists
+	var clazzesCreated2 = trg | created | type Clazz | count
+	var schemasDeleted3 = src | deleted | type Schema | exists
+	var clazzesCreated3 = trg | created | type Clazz | count
+	var schemasDeleted4 = src | deleted | type Schema | exists
+	var clazzesCreated4 = trg | created | type Clazz | count
+	var schemasDeleted5 = src | deleted | type Schema | exists
+	var clazzesCreated5 = trg | created | type Clazz | count
+	
+	satisfies {
+		schemasDeleted1 and clazzesCreated1 > 0 and
+		schemasDeleted2 and clazzesCreated2 > 0 and
+		schemasDeleted3 and clazzesCreated3 > 0 and
+		schemasDeleted4 and clazzesCreated4 > 0 and
+		schemasDeleted5 and clazzesCreated5 > 0
+	}
+	
+} with mergeAndPreserve when {
+	var elementsCreated1 = src | created | count
+	var elementsDeleted1 = trg | deleted | count
+	var elementsCreated2 = src | created | count
+	var elementsDeleted2 = trg | deleted | count
+	var elementsCreated3 = src | created | count
+	var elementsDeleted3 = trg | deleted | count
+	var elementsCreated4 = src | created | count
+	var elementsDeleted4 = trg | deleted | count
+	var elementsCreated5 = src | created | count
+	var elementsDeleted5 = trg | deleted | count
+	
+	satisfies {
+		1 > 0
+	}		
+}

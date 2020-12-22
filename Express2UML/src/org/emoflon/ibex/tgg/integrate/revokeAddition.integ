@@ -1,8 +1,8 @@
 package Express2UML.operationaldelta
 
-import Entity2Clazz
+import Express2UML
 
-revokeAdditionOnSource: solve conflict for all {
+revokeAdditionOnSource: solve {
 	var elementsCreated = src | created | exists
 	satisfies {
 		elementsCreated
@@ -21,7 +21,7 @@ revokeAdditionOnSource: solve conflict for all {
 	}
 }
 
-revokeAdditionOnTarget: solve conflict for all {
+revokeAdditionOnTarget: solve {
 	var elementsCreated = trg | created | exists
 	satisfies {
 		elementsCreated

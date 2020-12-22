@@ -14,7 +14,6 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.emoflon.express.express.Entity;
@@ -49,49 +48,26 @@ public class EntityItemProvider extends UserDefinedTypeItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addAbstract_PropertyDescriptor(object);
-			addSubTypesPropertyDescriptor(object);
-			addSuperTypesPropertyDescriptor(object);
+			addSubTypePropertyDescriptor(object);
+			addSuperTypePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Abstract  feature.
+	 * This adds a property descriptor for the Sub Type feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addAbstract_PropertyDescriptor(Object object) {
+	protected void addSubTypePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Entity_abstract__feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Entity_abstract__feature", "_UI_Entity_type"),
-				 ExpressPackage.Literals.ENTITY__ABSTRACT_,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Sub Types feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addSubTypesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Entity_subTypes_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Entity_subTypes_feature", "_UI_Entity_type"),
-				 ExpressPackage.Literals.ENTITY__SUB_TYPES,
+				 getString("_UI_Entity_subType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Entity_subType_feature", "_UI_Entity_type"),
+				 ExpressPackage.Literals.ENTITY__SUB_TYPE,
 				 true,
 				 false,
 				 true,
@@ -101,19 +77,19 @@ public class EntityItemProvider extends UserDefinedTypeItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Super Types feature.
+	 * This adds a property descriptor for the Super Type feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addSuperTypesPropertyDescriptor(Object object) {
+	protected void addSuperTypePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Entity_superTypes_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Entity_superTypes_feature", "_UI_Entity_type"),
-				 ExpressPackage.Literals.ENTITY__SUPER_TYPES,
+				 getString("_UI_Entity_superType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Entity_superType_feature", "_UI_Entity_type"),
+				 ExpressPackage.Literals.ENTITY__SUPER_TYPE,
 				 true,
 				 false,
 				 true,
@@ -190,9 +166,6 @@ public class EntityItemProvider extends UserDefinedTypeItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Entity.class)) {
-			case ExpressPackage.ENTITY__ABSTRACT_:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
 			case ExpressPackage.ENTITY__ATTRIBUTES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;

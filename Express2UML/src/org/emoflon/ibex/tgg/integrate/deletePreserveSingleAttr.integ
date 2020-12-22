@@ -1,8 +1,8 @@
 package Express2UML.integrate
 
-import Entity2Clazz
+import Express2UML
 
-createdIntegerAttributeDeletedClazz: solve conflict for all {
+createdIntegerAttributeDeletedClazz: solve {
 	var integerAttributeAdded = src | created | type IntegerAttribute | count
 	var classesAreDeleted = trg | deleted | type Clazz | exists
 	
@@ -18,7 +18,7 @@ createdIntegerAttributeDeletedClazz: solve conflict for all {
 	}
 }
 
-deletedEntityCreatedIntegerAttribute: solve conflict for all{
+deletedEntityCreatedIntegerAttribute: solve {
 	var numIntegerAdded = trg | created | type Integer | count
 	var entitiesAreDeleted = src | deleted | type Entity | exists
 	

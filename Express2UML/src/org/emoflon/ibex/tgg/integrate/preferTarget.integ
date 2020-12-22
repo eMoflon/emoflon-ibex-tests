@@ -1,8 +1,8 @@
 package Express2UML.operationaldelta
 
-import Entity2Clazz
+import Express2UML
 
-preferTargetCreate: solve conflict for all {
+preferTargetCreate: solve {
 	var elemCreated = trg | created | exists
 	satisfies {
 		elemCreated
@@ -16,7 +16,7 @@ preferTargetCreate: solve conflict for all {
 	}
 }
 
-preferTargetDelete: solve conflict for all {
+preferTargetDelete: solve {
 	var elemDeleted = trg | deleted | exists
 	satisfies {
 		elemDeleted

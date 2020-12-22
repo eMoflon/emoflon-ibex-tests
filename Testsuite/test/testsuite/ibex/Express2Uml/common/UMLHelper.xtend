@@ -14,14 +14,7 @@ class UMLHelper {
 	def static createPackage(UMLContainer container, String name) {
 		val pkg = UmlFactory.eINSTANCE.createPackage()
 		pkg.name = name
-		container.package = pkg
-		pkg
-	}
-	
-	def static createSubpackage(Package parentPkg, String name) {
-		val pkg = UmlFactory.eINSTANCE.createPackage()
-		pkg.name = name
-		parentPkg.subpackages.add(pkg)
+		container.packages.add(pkg)
 		pkg
 	}
 
@@ -30,6 +23,14 @@ class UMLHelper {
 		clazz.name = name
 		pkg.clazzes.add(clazz)
 		clazz
+	}
+	
+	def static createSubClazz(Package pkg, Clazz clazz, String name) {
+		val subClazz = UmlFactory.eINSTANCE.createClazz()
+		subClazz.name = name
+		subClazz.superClazz = clazz
+		pkg.clazzes.add(subClazz)
+		subClazz
 	}
 
 	def static createMethod(Clazz clazz, String name, boolean isStatic) {

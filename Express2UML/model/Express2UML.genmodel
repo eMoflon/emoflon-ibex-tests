@@ -92,7 +92,18 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Express2UML.ecore#//StringAttribute2String__Marker/CONTEXT__TRG__c"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Express2UML.ecore#//StringAttribute2String__Marker/CREATE__TRG__s"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Express2UML.ecore#//StringAttribute2String__Marker/CONTEXT__CORR__e2c"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Express2UML.ecore#//StringAttribute2String__Marker/CREATE__CORR__it2i"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Express2UML.ecore#//StringAttribute2String__Marker/CREATE__CORR__st2s"/>
+    </genClasses>
+    <genClasses ecoreClass="Express2UML.ecore#//SubEntity2SubClazz__Marker">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Express2UML.ecore#//SubEntity2SubClazz__Marker/CONTEXT__SRC__e"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Express2UML.ecore#//SubEntity2SubClazz__Marker/CONTEXT__SRC__s"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Express2UML.ecore#//SubEntity2SubClazz__Marker/CREATE__SRC__se"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Express2UML.ecore#//SubEntity2SubClazz__Marker/CONTEXT__TRG__c"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Express2UML.ecore#//SubEntity2SubClazz__Marker/CONTEXT__TRG__p"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Express2UML.ecore#//SubEntity2SubClazz__Marker/CREATE__TRG__sc"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Express2UML.ecore#//SubEntity2SubClazz__Marker/CONTEXT__CORR__e2c"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Express2UML.ecore#//SubEntity2SubClazz__Marker/CONTEXT__CORR__s2p"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Express2UML.ecore#//SubEntity2SubClazz__Marker/CREATE__CORR__se2sc"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

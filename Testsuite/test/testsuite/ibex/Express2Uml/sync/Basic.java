@@ -157,4 +157,30 @@ public class Basic extends SyncTestCase<SchemaContainer, UMLContainer> {
 		assertPostcondition("sync/expected/integerattribute2integer/src", "sync/expected/integerattribute2integer/trg");
 	}
 
+	
+	@Test
+	public void SubEntity2SubClazz_FWD() {
+		assertPrecondition("sync/in/src", "sync/in/trg");
+		
+		tool.performAndPropagateSourceEdit(container -> {
+			Schema schema = ExpressHelper.createSchema(container, "schema");
+			Entity entity = ExpressHelper.createEntity(schema, "entity");
+			ExpressHelper.createSubEntity(schema, entity, "subEntity");
+		});
+		
+		assertPostcondition("sync/expected/subentity2subclazz/src", "sync/expected/subentity2subclazz/trg");
+	}
+	
+	@Test
+	public void SubEntity2SubClazz_BWD() {
+		assertPrecondition("sync/in/src", "sync/in/trg");
+		
+		tool.performAndPropagateTargetEdit(container -> {
+			Package pkg = UMLHelper.createPackage(container, "schema");
+			Clazz clazz = UMLHelper.createClazz(pkg, "entity");
+			UMLHelper.createSubClazz(pkg, clazz, "subEntity");
+		});
+		
+		assertPostcondition("sync/expected/subentity2subclazz/src", "sync/expected/subentity2subclazz/trg");
+	}
 }

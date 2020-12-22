@@ -40,12 +40,15 @@ public class PreferSourceOperationalDelta extends IntegrateTestCase<SchemaContai
 		tool.applyAndIntegrateDelta((schemaContainer, umlContainer) -> {
 			// src:
 			Schema schema = schemaContainer.getSchemas().get(0);
-			Entity entity = (Entity) schema.getDeclarations().get(0);
-			EcoreUtil.delete(entity.getAttributes().get(0));
-			ExpressHelper.createIntegerAttribute(entity, "integerAttr");
+			EcoreUtil.delete(schema);
+			//Entity entity = (Entity) schema.getDeclarations().get(0);
+			//entity.getAttributes().get(0).setName("othername");
+			//ExpressHelper.createIntegerAttribute(entity, "intAttr");
 			// trg:
-			Package pkg = umlContainer.getPackage();
-			EcoreUtil.delete(pkg.getClazzes().get(0));
+			Package pkg = umlContainer.getPackages().get(0);
+			Clazz clazz = UMLHelper.createClazz(pkg, "SomeFunction");
+			UMLHelper.createMethod(clazz, "apply", true);
+			//EcoreUtil.delete(pkg.getClazzes().get(0));
 		});
 
 		final String path = "operationaldelta/expected/prefer_source_create/";
@@ -62,7 +65,7 @@ public class PreferSourceOperationalDelta extends IntegrateTestCase<SchemaContai
 			Entity entity = (Entity) schema.getDeclarations().get(0);
 			EcoreUtil.delete(entity);
 			// trg:
-			Package pkg = umlContainer.getPackage();
+			Package pkg = umlContainer.getPackages().get(0);
 			Clazz clazz = pkg.getClazzes().get(0);
 			UMLHelper.createInteger(clazz, "intAttr");
 		});

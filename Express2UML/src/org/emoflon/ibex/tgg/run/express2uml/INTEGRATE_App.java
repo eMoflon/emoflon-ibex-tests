@@ -64,6 +64,38 @@ public class INTEGRATE_App extends INTEGRATE {
 				}));
 	}
 	
+	public INTEGRATE_App(String folder, String name) throws IOException {
+		super(registrationHelper.createIbexOptions()
+				.ilpSolver(SupportedILPSolver.Sat4J)
+				.propagate.usePrecedenceGraph(true)
+				.repair.useShortcutRules(true)
+				.repair.advancedOverlapStrategies(true)
+				.repair.relaxedSCPatternMatching(true)
+				.resourceHandler(new TGGResourceHandler() {
+					@Override
+					public void loadModels() throws IOException {
+						source = createResource(options.project.path() + "/" + folder +"/" + name + "_src.xmi");
+						target = createResource(options.project.path() + "/" + folder +"/" + name + "_trg.xmi");
+						corr = createResource(options.project.path() + "/" + folder +"/" + name + "_corr.xmi");
+						protocol = createResource(options.project.path() + "/" + folder +"/" + name + "_protocol.xmi");
+
+						changeURI(source, "/instances/src.xmi");
+						changeURI(target, "/instances/trg.xmi");
+						changeURI(corr, "/instances/corr.xmi");
+						changeURI(protocol, "/instances/protocol.xmi");
+
+						precedence = createResource(options.project.path() + "/instances/epg.xmi");
+
+						EcoreUtil.resolveAll(rs);
+					}
+
+					private void changeURI(Resource r, String path) {
+						URI uri = URI.createURI(options.project.path() + path);
+						r.setURI(uri.resolve(base));
+					}
+				}));
+	}
+	
 	public INTEGRATE_App() throws IOException {
 		super(registrationHelper.createIbexOptions()
 				.project.name("")

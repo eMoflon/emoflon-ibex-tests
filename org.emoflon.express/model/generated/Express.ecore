@@ -47,11 +47,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="element" eType="#//UserDefinedType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Entity" eSuperTypes="#//UserDefinedType">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="abstract_" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="subTypes" unique="false"
-        upperBound="-1" eType="#//Entity"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="superTypes" unique="false"
-        upperBound="-1" eType="#//Entity"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subType" eType="#//Entity"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="superType" eType="#//Entity"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="attributes" upperBound="-1"
         eType="#//Attribute" containment="true"/>
   </eClassifiers>

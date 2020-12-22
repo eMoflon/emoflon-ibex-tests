@@ -1,8 +1,8 @@
 package Express2UML.integrate
 
-import Entity2Clazz
+import Express2UML
 
-createdIntegerTypeAttributeAndStringTypeAttributeDeletedClazz: solve conflict for all {
+createdIntegerTypeAttributeAndStringTypeAttributeDeletedClazz: solve {
 	var integerAttributeAdded = src | created | type IntegerAttribute | count
 	var stringAttributeAdded = src | created | type StringAttribute | count
 	var classesAreDeleted = trg | deleted | type Clazz | exists

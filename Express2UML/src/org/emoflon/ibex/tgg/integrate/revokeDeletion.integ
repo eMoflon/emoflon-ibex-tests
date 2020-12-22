@@ -1,18 +1,18 @@
 package Express2UML.operationaldelta
 
-import Entity2Clazz
-
-revokeDeletionOnSource: solve conflict for all {
-	var elementsDeleted = src | deleted | exists
+import Express2UML
+ 
+revokeDeletionOnSource: solve {
+	var elementsDeleted = src | deleted | type Entity | exists
 	satisfies {
 		elementsDeleted
-	}
+	}  
 } with revokeDeletion when {
 	var elementsToBeCreatedOnSource = src | created | count
 	var elementsToBeDeletedOnSource = src | deleted | count 
 	var elementsToBeCreatedOnTarget = trg | created | count
 	var elementsToBeDeletedOnTarget = trg | deleted | count 
-	
+	 
 	satisfies {
 		elementsToBeCreatedOnSource == 1 and
 		elementsToBeDeletedOnSource == 0 and 
@@ -21,7 +21,7 @@ revokeDeletionOnSource: solve conflict for all {
 	}
 }
 
-revokeDeletionOnTarget: solve conflict for all {
+revokeDeletionOnTarget: solve {
 	var elementsDeleted = trg | deleted | exists
 	satisfies {
 		elementsDeleted
@@ -39,4 +39,3 @@ revokeDeletionOnTarget: solve conflict for all {
 		elementsToBeDeletedOnTarget == 0
 	}
 }
-

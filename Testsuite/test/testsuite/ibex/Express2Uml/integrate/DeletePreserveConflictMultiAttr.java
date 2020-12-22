@@ -41,7 +41,7 @@ public class DeletePreserveConflictMultiAttr extends IntegrateTestCase<SchemaCon
 			ExpressHelper.createIntegerAttribute(entity, "integerAttr");
 			ExpressHelper.createStringAttribute(entity, "stringAttr");
 			// trg:
-			Package pkg = umlContainer.getPackage();
+			Package pkg = umlContainer.getPackages().get(0);
 			EcoreUtil.delete(pkg.getClazzes().get(0));
 		});
 

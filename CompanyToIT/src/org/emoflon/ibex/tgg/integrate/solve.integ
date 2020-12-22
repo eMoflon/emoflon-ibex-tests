@@ -1,8 +1,8 @@
 package CompanyToIT.integrate
 
-import AdminToRouterRule
+import CompanyToIT
 
-adminDeletedAndLaptopCreated: solve conflict for all {
+adminDeletedAndLaptopCreated: solve {
 	var adminDeleted = src | deleted | type Admin | exists
 	var laptopCreated = trg | created | type Laptop | exists
 	
@@ -12,7 +12,7 @@ adminDeletedAndLaptopCreated: solve conflict for all {
 	 
 } with preferTarget
  
-solveAttributeConflict: solve conflict for all {
+solveAttributeConflict: solve {
  	var adminDeleted = src | deleted | type Admin | exists
  	var laptopsCreated = trg | created | type Laptop | count
  	

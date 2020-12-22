@@ -14,6 +14,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="associations" upperBound="-1"
         eType="#//Association" containment="true" eOpposite="#//Association/source"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="superClazz" eType="#//Clazz"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subClazzes" upperBound="-1"
+        eType="#//Clazz"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Package">
     <eStructuralFeatures xsi:type="ecore:EReference" name="clazzes" upperBound="-1"
@@ -23,12 +26,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="imports" upperBound="-1"
         eType="#//Import" eOpposite="#//Import/importedPkg"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="subpackages" upperBound="-1"
-        eType="#//Package" containment="true" eOpposite="#//Package/parentPackage"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parentPackage" eType="#//Package"
-        eOpposite="#//Package/subpackages"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="container" eType="#//UMLContainer"
-        eOpposite="#//UMLContainer/package"/>
+        eOpposite="#//UMLContainer/packages"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Import">
     <eStructuralFeatures xsi:type="ecore:EReference" name="importedPkg" lowerBound="1"
@@ -76,7 +75,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Real" eSuperTypes="#//DataType"/>
   <eClassifiers xsi:type="ecore:EClass" name="String" eSuperTypes="#//DataType"/>
   <eClassifiers xsi:type="ecore:EClass" name="UMLContainer">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="package" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="packages" upperBound="-1"
         eType="#//Package" containment="true" eOpposite="#//Package/container"/>
   </eClassifiers>
 </ecore:EPackage>

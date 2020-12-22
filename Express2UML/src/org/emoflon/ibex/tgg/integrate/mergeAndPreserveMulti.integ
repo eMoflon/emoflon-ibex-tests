@@ -1,8 +1,8 @@
 package Express2UML.operationaldelta
 
-import Entity2Clazz
+import Express2UML
 
-mergeAndPreserveOnDeletedPackage: solve conflict for all {
+mergeAndPreserveOnDeletedPackage: solve {
 	var packageDeleted = trg | deleted | type Package | exists
 	satisfies {
 		packageDeleted

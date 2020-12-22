@@ -42,7 +42,7 @@ public class DeletePreserveConflictMultiEntity extends IntegrateTestCase<SchemaC
 			Entity entity2 = (Entity) schema.getDeclarations().get(1);
 			ExpressHelper.createStringAttribute(entity2, "stringAttr");
 			// trg:
-			Package pkg = container.getPackage();
+			Package pkg = container.getPackages().get(0);
 			EcoreUtil.delete(pkg.getClazzes().get(1));
 			EcoreUtil.delete(pkg.getClazzes().get(0));
 		});

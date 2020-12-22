@@ -1,11 +1,11 @@
 package Express2UML.operationaldelta
 
-import Entity2Clazz
+import Express2UML
 
-preferSourceCreate: solve conflict for all {
+preferSourceCreate: solve {
 	var elemCreated = src | created | exists
 	satisfies {
-		elemCreated
+		not elemCreated
 	}
 } with preferSource when {
 	var elementsCreatedOnSource = src | created | count
@@ -21,7 +21,7 @@ preferSourceCreate: solve conflict for all {
 	}
 }
 
-preferSourceDelete: solve conflict for all {
+preferSourceDelete: solve {
 	var elemDeleted = src | deleted | exists
 	satisfies {
 		elemDeleted

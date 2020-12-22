@@ -43,7 +43,7 @@ public class RevokeDeletionOperationalDelta extends IntegrateTestCase<SchemaCont
 			Entity entity = (Entity) schema.getDeclarations().get(0);
 			ExpressHelper.createIntegerAttribute(entity, "integerAttr");
 			// trg:
-			Package pkg = container.getPackage();
+			Package pkg = container.getPackages().get(0);
 			EcoreUtil.delete(pkg.getClazzes().get(0));
 		});
 
@@ -60,7 +60,7 @@ public class RevokeDeletionOperationalDelta extends IntegrateTestCase<SchemaCont
 			Schema schema = schemaContainer.getSchemas().get(0);
 			EcoreUtil.delete(schema.getDeclarations().get(0));
 			// trg:
-			Package pkg = container.getPackage();
+			Package pkg = container.getPackages().get(0);
 			Clazz clazz = pkg.getClazzes().get(0);
 			UMLHelper.createInteger(clazz, "integerAttr");
 		}); 

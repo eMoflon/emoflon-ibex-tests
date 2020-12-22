@@ -3,16 +3,9 @@
   <Express2UML:SchemaContainer2UMLContainer__Marker>
     <CREATE__SRC__sc href="src.xmi#/"/>
     <CREATE__TRG__c href="trg.xmi#/"/>
-    <CREATE__CORR__sc2uc href="corr.xmi#/0"/>
+    <CREATE__CORR__sc2uc href="corr.xmi#/"/>
   </Express2UML:SchemaContainer2UMLContainer__Marker>
-  <Express2UML:Schema2Package__Marker>
-    <CREATE__SRC__s href="src.xmi#//@schemas.0"/>
-    <CONTEXT__SRC__sc href="src.xmi#/"/>
-    <CREATE__TRG__p href="trg.xmi#//@package"/>
-    <CONTEXT__TRG__uc href="trg.xmi#/"/>
-    <CREATE__CORR__s2p href="corr.xmi#/1"/>
-    <CONTEXT__CORR__sc2uc href="corr.xmi#/0"/>
-  </Express2UML:Schema2Package__Marker>
+  <Express2UML:Schema2Package__Marker/>
   <Express2UML:Entity2Clazz__Marker/>
   <Express2UML:StringAttribute2String__Marker/>
 </xmi:XMI>

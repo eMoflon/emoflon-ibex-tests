@@ -1,8 +1,8 @@
 package Express2UML.operationaldelta
 
-import Entity2Clazz
+import Express2UML
 
-mergeAndPreserveOnSourceCreatedAndTargetDeleted: solve conflict for all {
+mergeAndPreserveOnSourceCreatedAndTargetDeleted: solve {
 	var elementsCreated = src | created | exists
 	var elementsDeleted = trg | deleted | exists
 	satisfies {
@@ -22,7 +22,7 @@ mergeAndPreserveOnSourceCreatedAndTargetDeleted: solve conflict for all {
 	}
 }
 
-mergeAndPreserveOnSourceDeletedAndTargetCreated: solve conflict for all {
+mergeAndPreserveOnSourceDeletedAndTargetCreated: solve {
 	var elementsDeleted = src | deleted | exists
 	var elementsCreated = trg | created | exists
 	satisfies {

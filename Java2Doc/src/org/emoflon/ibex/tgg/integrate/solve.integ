@@ -1,8 +1,8 @@
 package Java2Doc.integrate
 
-import Class2Doc
+import Java2Doc
 
-solvePlz: solve conflict for all {
+solvePlz: solve {
 	var classCreated = src | created | type Clazz | exists
 	var folderDeleted = trg | deleted | type Folder | exists
 	

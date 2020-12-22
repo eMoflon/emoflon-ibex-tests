@@ -237,16 +237,43 @@
           <xsd:element name="CONTEXT__TRG__c" type="uml:Clazz"/>
           <xsd:element name="CREATE__TRG__s" type="uml:String"/>
           <xsd:element name="CONTEXT__CORR__e2c" type="Express2UML:Entity2Clazz"/>
-          <xsd:element name="CREATE__CORR__it2i" type="Express2UML:StringTypeAttribute2String"/>
+          <xsd:element name="CREATE__CORR__st2s" type="Express2UML:StringTypeAttribute2String"/>
         </xsd:choice>
         <xsd:attribute name="CONTEXT__SRC__e" type="xsd:string"/>
         <xsd:attribute name="CREATE__SRC__sa" type="xsd:string"/>
         <xsd:attribute name="CONTEXT__TRG__c" type="xsd:string"/>
         <xsd:attribute name="CREATE__TRG__s" type="xsd:string"/>
         <xsd:attribute name="CONTEXT__CORR__e2c" type="xsd:string"/>
-        <xsd:attribute name="CREATE__CORR__it2i" type="xsd:string"/>
+        <xsd:attribute name="CREATE__CORR__st2s" type="xsd:string"/>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:element name="StringAttribute2String__Marker" type="Express2UML:StringAttribute2String__Marker"/>
+  <xsd:complexType name="SubEntity2SubClazz__Marker">
+    <xsd:complexContent>
+      <xsd:extension base="org.emoflon.ibex.tgg.runtime:TGGRuleApplication">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="CONTEXT__SRC__e" type="express:Entity"/>
+          <xsd:element name="CONTEXT__SRC__s" type="express:Schema"/>
+          <xsd:element name="CREATE__SRC__se" type="express:Entity"/>
+          <xsd:element name="CONTEXT__TRG__c" type="uml:Clazz"/>
+          <xsd:element name="CONTEXT__TRG__p" type="uml:Package"/>
+          <xsd:element name="CREATE__TRG__sc" type="uml:Clazz"/>
+          <xsd:element name="CONTEXT__CORR__e2c" type="Express2UML:Entity2Clazz"/>
+          <xsd:element name="CONTEXT__CORR__s2p" type="Express2UML:Schema2Package"/>
+          <xsd:element name="CREATE__CORR__se2sc" type="Express2UML:Entity2Clazz"/>
+        </xsd:choice>
+        <xsd:attribute name="CONTEXT__SRC__e" type="xsd:string"/>
+        <xsd:attribute name="CONTEXT__SRC__s" type="xsd:string"/>
+        <xsd:attribute name="CREATE__SRC__se" type="xsd:string"/>
+        <xsd:attribute name="CONTEXT__TRG__c" type="xsd:string"/>
+        <xsd:attribute name="CONTEXT__TRG__p" type="xsd:string"/>
+        <xsd:attribute name="CREATE__TRG__sc" type="xsd:string"/>
+        <xsd:attribute name="CONTEXT__CORR__e2c" type="xsd:string"/>
+        <xsd:attribute name="CONTEXT__CORR__s2p" type="xsd:string"/>
+        <xsd:attribute name="CREATE__CORR__se2sc" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="SubEntity2SubClazz__Marker" type="Express2UML:SubEntity2SubClazz__Marker"/>
 </xsd:schema>

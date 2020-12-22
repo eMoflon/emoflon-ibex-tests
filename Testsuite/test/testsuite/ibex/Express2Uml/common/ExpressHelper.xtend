@@ -22,10 +22,17 @@ class ExpressHelper {
 
 	def static createEntity(Schema schema, String name) {
 		val entity = ExpressFactory.eINSTANCE.createEntity();
-		entity.abstract_ = false
 		entity.name = name;
 		schema.getDeclarations().add(entity);
 		entity
+	}
+	
+	def static createSubEntity(Schema schema, Entity entity, String name) {
+		val subEntity = ExpressFactory.eINSTANCE.createEntity();
+		subEntity.name = name;
+		subEntity.superType = entity
+		schema.getDeclarations().add(subEntity);
+		subEntity
 	}
 	
 	def static createIntegerAttribute(Entity entity, String name) {
