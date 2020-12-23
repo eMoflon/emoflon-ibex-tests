@@ -1,7 +1,7 @@
-#using ExtType2Doc_ShortCut.*
+#using ExtType2Doc_SCDerived.*
 #using AttrCondDefLibrary.*
 
-#rule Package2DocCont #with ExtType2Doc_ShortCut
+#rule Package2DocCont #with ExtType2Doc_SCDerived
 
 #source { 
 	++p:Package
@@ -19,5 +19,5 @@
 }
 
 #attributeConditions {
-	eq_string(p.name, #derived p.fQname)
+	
 }

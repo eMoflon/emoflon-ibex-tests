@@ -1,7 +1,7 @@
-#using ExtType2Doc_ShortCut.*
+#using ExtType2Doc_SCDerived.*
 #using AttrCondDefLibrary.*
 
-#rule ExtendingType2Doc #with ExtType2Doc_ShortCut
+#rule ExtendingType2Doc #with ExtType2Doc_SCDerived
 
 #source { 
 	p:Package {
@@ -45,5 +45,5 @@
 }
 
 #attributeConditions {
-	concat(".", p.fQname, nt.name, nd.name)
+	eq_string(nt.name, nd.name)
 }
