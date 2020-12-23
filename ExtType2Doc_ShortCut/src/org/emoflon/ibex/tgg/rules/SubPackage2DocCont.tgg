@@ -1,0 +1,32 @@
+#using ExtType2Doc_ShortCut.*
+#using AttrCondDefLibrary.*
+
+#rule SubPackage2DocCont #with ExtType2Doc_ShortCut
+
+#source { 
+	p:Package {
+		++-subPackages->sp
+	}
+	
+	++sp:Package
+}
+
+#target {
+	dc:DocContainer
+}
+
+#correspondence {
+	p2dc:Package2DocCont {
+		#src->p
+		#trg->dc
+	}
+	
+	++sp2dc:Package2DocCont {
+		#src->sp
+		#trg->dc
+	}
+}
+
+#attributeConditions {
+	
+}

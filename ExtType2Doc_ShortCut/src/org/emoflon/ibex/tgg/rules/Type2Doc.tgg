@@ -1,0 +1,36 @@
+#using ExtType2Doc_ShortCut.*
+#using AttrCondDefLibrary.*
+
+#rule Type2Doc #with ExtType2Doc_ShortCut
+
+#source { 
+	p:Package {
+		++-types->t
+	}
+	
+	++t:Type
+}
+
+#target {
+	dc:DocContainer {
+		++-docs->d
+	}
+	
+	++d:Doc
+}
+
+#correspondence {
+	p2dc:Package2DocCont {
+		#src->p
+		#trg->dc
+	}
+	
+	++t2d:Type2Doc {
+		#src->t
+		#trg->d
+	}
+}
+
+#attributeConditions {
+	eq_string(t.name, d.name)
+}
