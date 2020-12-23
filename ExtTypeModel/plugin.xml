@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated ExtTypeModel -->
+      <package
+            uri="platform:/resource/ExtTypeModel/model/ExtTypeModel.ecore"
+            class="ExtTypeModel.ExtTypeModelPackage"
+            genModel="model/ExtTypeModel.genmodel"/>
+   </extension>
+
+</plugin>
