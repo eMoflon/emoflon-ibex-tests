@@ -1,0 +1,39 @@
+#import "platform:/resource/ExtDocModel/model/ExtDocModel.ecore"
+#import "platform:/resource/ExtTypeModel/model/ExtTypeModel.ecore"
+
+#schema ExtType2Doc_LookAhead
+	
+#source {
+	ExtTypeModel
+}
+
+#target { 
+	ExtDocModel
+} 
+
+#correspondence {
+	Package2DocCont {
+		#src->Package
+		#trg->DocContainer
+	}
+	Type2Doc {
+		#src->Type
+		#trg->Doc
+	}
+	Method2Entry {
+		#src->Method
+		#trg->Entry
+	}
+	Param2Entry {
+		#src->Parameter
+		#trg->Entry
+	}
+	Field2Entry {
+		#src->Field
+		#trg->Entry
+	}
+}
+
+#attributeConditions {
+	
+}

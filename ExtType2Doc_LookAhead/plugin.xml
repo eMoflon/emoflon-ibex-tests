@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated ExtType2Doc_LookAhead -->
+      <package
+            uri="platform:/resource/ExtType2Doc_LookAhead/model/ExtType2Doc_LookAhead.ecore"
+            class="ExtType2Doc_LookAhead.ExtType2Doc_LookAheadPackage"
+            genModel="model/ExtType2Doc_LookAhead.genmodel"/>
+   </extension>
+
+</plugin>

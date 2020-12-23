@@ -1,0 +1,34 @@
+#using ExtType2Doc_LookAhead.*
+#using AttrCondDefLibrary.*
+
+#rule ImplementingType2Doc #with ExtType2Doc_LookAhead
+
+#source { 
+	it:Type {
+		interface==true
+		++-extendedBy->t
+	}
+	t:Type
+}
+
+#target {
+	id:Doc {
+		++-subDocs->d
+	}
+	d:Doc
+}
+
+#correspondence {
+	it2id:Type2Doc {
+		#src->it
+		#trg->id
+	}
+	t2d:Type2Doc {
+		#src->t
+		#trg->d
+	}
+}
+
+#attributeConditions {
+	
+}
