@@ -45,5 +45,5 @@
 }
 
 #attributeConditions {
-	concat(".", p.fQname, nt.name, nd.name)
+	eq_string(nt.name, nd.name)
 }

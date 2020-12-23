@@ -28,5 +28,5 @@
 }
 
 #attributeConditions {
-	
+	concat(".", p.fQname, sp.name, #derived sp.fQname)
 }
