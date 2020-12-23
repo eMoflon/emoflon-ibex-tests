@@ -1,0 +1,36 @@
+#using ExtType2Doc_ConcSync.*
+#using AttrCondDefLibrary.*
+
+#rule Method2Entry #with ExtType2Doc_ConcSync
+
+#source { 
+	t:Type {
+		++-methods->m
+	}
+	
+	++m:Method
+}
+
+#target {
+	d:Doc {
+		++-entries->e
+	}
+	
+	++e:Entry
+}
+
+#correspondence {
+	t2d:Type2Doc {
+		#src->t
+		#trg->d
+	}
+	
+	++m2e:Method2Entry {
+		#src->m
+		#trg->e
+	}
+}
+
+#attributeConditions {
+	eq_string(m.name, e.name)
+}
