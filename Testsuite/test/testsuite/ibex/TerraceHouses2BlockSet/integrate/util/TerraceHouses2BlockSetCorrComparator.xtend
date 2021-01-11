@@ -2,8 +2,8 @@ package testsuite.ibex.TerraceHouses2BlockSet.integrate.util
 
 import testsuite.ibex.testUtil.CorrComparator
 import org.eclipse.emf.ecore.EObject
-import TerraceHouses2BlockSet.Structure2Construction
 import TerraceHouses2BlockSet.District2Playroom
+import TerraceHouses2BlockSet.Structure2Construction
 
 class TerraceHouses2BlockSetCorrComparator extends CorrComparator {
 	

@@ -5,7 +5,7 @@ import Express2UML
 preferSourceCreate: solve {
 	var elemCreated = src | created | exists
 	satisfies {
-		not elemCreated
+		elemCreated
 	}
 } with preferSource when {
 	var elementsCreatedOnSource = src | created | count
