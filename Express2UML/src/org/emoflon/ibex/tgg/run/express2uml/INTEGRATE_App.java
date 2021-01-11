@@ -2,9 +2,6 @@ package org.emoflon.ibex.tgg.run.express2uml;
 
 import java.io.IOException;
 
-import org.apache.log4j.BasicConfigurator;
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -36,25 +33,17 @@ public class INTEGRATE_App extends INTEGRATE {
 					new TGGResourceHandler() {
 						@Override
 						public void loadModels() throws IOException {
-							source = loadResource(options.project.path() + initPath+"/src.xmi");
-							target = loadResource(options.project.path() + initPath+"/trg.xmi");
-							corr = loadResource(options.project.path() + initPath+"/corr.xmi");
-							protocol = loadResource(options.project.path() + initPath+"/protocol.xmi");
+							source = loadResource(options.project.path() + initPath + "/src.xmi");
+							target = loadResource(options.project.path() + initPath + "/trg.xmi");
+							corr = loadResource(options.project.path() + initPath + "/corr.xmi");
+							protocol = loadResource(options.project.path() + initPath + "/protocol.xmi");
 							
-							changeURI(source, options.project.path() + "/resources/integ/actual/delete_preserve_conflict/src.xmi");
-							changeURI(target, options.project.path() + "/resources/integ/actual/delete_preserve_conflict/trg.xmi");
-							changeURI(corr, options.project.path() + "/resources/integ/actual/delete_preserve_conflict/corr.xmi");
-							changeURI(protocol, options.project.path() + "/resources/integ/actual/delete_preserve_conflict/protocol.xmi");
+							changeURI(source, "/instances/src.xmi");
+							changeURI(target, "/instances/trg.xmi");
+							changeURI(corr, "/instances/corr.xmi");
+							changeURI(protocol, "/instances/protocol.xmi");
 						
 							EcoreUtil.resolveAll(rs);
-						}
-						
-						@Override
-						public void saveModels() throws IOException {
-							source.save(null);
-							target.save(null);
-							corr.save(null);
-							protocol.save(null);
 						}
 						
 						private void changeURI(Resource r, String path) {
@@ -116,22 +105,4 @@ public class INTEGRATE_App extends INTEGRATE {
 				}));
 	}
 
-	public static void main(String[] args) throws IOException {
-		BasicConfigurator.configure();
-		Logger.getRootLogger().setLevel(Level.INFO);
-
-		logger.info("Starting INTEGRATE");
-		long tic = System.currentTimeMillis();
-		INTEGRATE_App integrate = new INTEGRATE_App();
-		long toc = System.currentTimeMillis();
-		logger.info("Completed init for INTEGRATE in: " + (toc - tic) + " ms");
-
-		tic = System.currentTimeMillis();
-		integrate.integrate();
-		toc = System.currentTimeMillis();
-		logger.info("Completed INTEGRATE in: " + (toc - tic) + " ms");
-
-		integrate.saveModels();
-		integrate.terminate();
-	}
 }

@@ -5,7 +5,6 @@ import org.emoflon.express.express.Entity;
 import org.emoflon.express.express.Schema;
 import org.emoflon.express.express.SchemaContainer;
 import org.junit.Test;
-import org.moflon.core.utilities.EcoreUtils;
 
 import Express2UML.integrate.deletePreserveSingleAttr.DeletePreserveSingleAttrConflictResolver;
 import testsuite.ibex.Express2Uml.common.ExpressHelper;

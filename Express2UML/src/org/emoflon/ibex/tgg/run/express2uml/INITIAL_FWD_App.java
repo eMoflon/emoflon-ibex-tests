@@ -2,19 +2,13 @@ package org.emoflon.ibex.tgg.run.express2uml;
 
 import java.io.IOException;
 
+import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
-import org.apache.log4j.BasicConfigurator;
-
 import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 import org.emoflon.ibex.tgg.operational.strategies.modules.TGGResourceHandler;
-
-import org.emoflon.ibex.tgg.run.express2uml.config.*;
-
-import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.sync.INITIAL_FWD;
-import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.emoflon.ibex.tgg.compiler.patterns.PatternSuffixes;
+import org.emoflon.ibex.tgg.run.express2uml.config._DefaultRegistrationHelper;
 
 public class INITIAL_FWD_App extends INITIAL_FWD {
 
