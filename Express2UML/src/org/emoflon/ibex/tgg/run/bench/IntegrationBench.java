@@ -58,7 +58,6 @@ import Express2UML.integrate.bench.bench30.Bench30ConflictResolver;
 import Express2UML.integrate.bench.bench40.Bench40ConflictResolver;
 import Express2UML.integrate.bench.bench50.Bench50ConflictResolver;
 import Express2UML.integrate.bench.benchFirst.BenchFirstConflictResolver;
-import Express2UML.integrate.bench.benchLast.BenchLastConflictResolver;
 import Express2UML.integrate.bench.benchSingleOperationalDelta.BenchSingleOperationalDeltaConflictResolver;
 import uml.Clazz;
 import uml.Integer;
