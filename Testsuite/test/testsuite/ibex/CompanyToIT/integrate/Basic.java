@@ -1,7 +1,5 @@
 package testsuite.ibex.CompanyToIT.integrate;
 
-import javax.management.RuntimeErrorException;
-
 import org.benchmarx.companyLanguage.core.CompanyLanguageHelper;
 import org.benchmarx.itLanguage.core.ITLanguageHelper;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -40,6 +38,7 @@ public class Basic extends IntegrateTestCase<Company, IT> {
 		return projectName;
 	}
 
+	@Ignore
 	@Test
 	public void filterNACViolation() {
 		tool.applyAndIntegrateDelta((c, it) -> {
@@ -57,14 +56,6 @@ public class Basic extends IntegrateTestCase<Company, IT> {
 		tool.applyAndIntegrateDelta((c, it) -> {
 			c.getAdmin().get(0).setCeo(null);
 			c.setName("");
-		});
-	}
-
-	@Test
-	public void attributeConflict() {
-		tool.applyAndIntegrateDelta((c, it) -> {
-			c.setName("CompanyAbc");
-			it.setName("ItCompanyAbc");
 		});
 	}
 
