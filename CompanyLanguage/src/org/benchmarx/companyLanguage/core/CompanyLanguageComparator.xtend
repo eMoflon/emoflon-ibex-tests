@@ -36,25 +36,25 @@ class CompanyLanguageComparator implements Comparator<Company> {
 		Company {
 			name = "«IF checkAttributeValues»«company.name»«ELSE»company«ENDIF»",
 			employees = [
-			«val List<Employee> sortedEmployeeList = new ArrayList<Employee>(company.employee)»
-			«employeeNormalizer.normalize(sortedEmployeeList)»
-			«FOR e : sortedEmployeeList SEPARATOR ", "»
-				«employeeNormalizer.stringify(e)»
-			«ENDFOR»
+				«val List<Employee> sortedEmployeeList = new ArrayList<Employee>(company.employee)»
+				«employeeNormalizer.normalize(sortedEmployeeList)»
+				«FOR e : sortedEmployeeList SEPARATOR ", "»
+					«employeeNormalizer.stringify(e)»
+				«ENDFOR»
 			]
 			CEOs = [
-			«val List<CEO> sortedCEOList = new ArrayList<CEO>(company.ceo)»
-			«ceoNormalizer.normalize(sortedCEOList)»
-			«FOR c : sortedCEOList SEPARATOR ", "»
-				«ceoNormalizer.stringify(c)»
-			«ENDFOR»
+				«val List<CEO> sortedCEOList = new ArrayList<CEO>(company.ceo)»
+				«ceoNormalizer.normalize(sortedCEOList)»
+				«FOR c : sortedCEOList SEPARATOR ", "»
+					«ceoNormalizer.stringify(c)»
+				«ENDFOR»
 			]
 			admins = [
-			«val List<Admin> sortedAdminList = new ArrayList<Admin>(company.admin)»
-			«adminNormalizer.normalize(sortedAdminList)»
-			«FOR a : sortedAdminList SEPARATOR ", "»
-				«adminNormalizer.stringify(a)»
-			«ENDFOR»
+				«val List<Admin> sortedAdminList = new ArrayList<Admin>(company.admin)»
+				«adminNormalizer.normalize(sortedAdminList)»
+				«FOR a : sortedAdminList SEPARATOR ", "»
+					«adminNormalizer.stringify(a)»
+				«ENDFOR»
 			]
 		}
 		'''

@@ -19,11 +19,11 @@ class CeoNormalizer extends Normalizer<CEO> {
 		CEO {
 			name = "«IF checkAttributeValues»«ceo.name»«ELSE»ceo«ENDIF»"
 			employees = [
-									«val List<Employee> sortedEmployeeList = new ArrayList<Employee>(ceo.employee)»
-									«employeeNormalizer.normalize(sortedEmployeeList)»
-									«FOR e : sortedEmployeeList SEPARATOR ", "»
-										«employeeNormalizer.stringify(e)»
-									«ENDFOR»
+				«val List<Employee> sortedEmployeeList = new ArrayList<Employee>(ceo.employee)»
+				«employeeNormalizer.normalize(sortedEmployeeList)»
+				«FOR e : sortedEmployeeList SEPARATOR ", "»
+					«employeeNormalizer.stringify(e)»
+				«ENDFOR»
 			]
 		}
 		'''

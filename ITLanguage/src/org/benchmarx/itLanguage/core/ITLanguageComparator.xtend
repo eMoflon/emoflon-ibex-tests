@@ -33,18 +33,18 @@ class ITLanguageComparator implements Comparator<IT> {
 		IT {
 			name = "«IF checkAttributeValues»«itt.name»«ELSE»it«ENDIF»",
 			routers = [
-			«val List<Router> sortedRouterList = new ArrayList<Router>(itt.router)»
-			«routerNormalizer.normalize(sortedRouterList)»
-			«FOR r : sortedRouterList SEPARATOR ", "»
-				«routerNormalizer.stringify(r)»
-			«ENDFOR»
+				«val List<Router> sortedRouterList = new ArrayList<Router>(itt.router)»
+				«routerNormalizer.normalize(sortedRouterList)»
+				«FOR r : sortedRouterList SEPARATOR ", "»
+					«routerNormalizer.stringify(r)»
+				«ENDFOR»
 			]
 			networks = [
-			«val List<Network> sortedNetworkList = new ArrayList<Network>(itt.network)»
-			«networkNormalizer.normalize(sortedNetworkList)»
-			«FOR c : sortedNetworkList SEPARATOR ", "»
-				«networkNormalizer.stringify(c)»
-			«ENDFOR»
+				«val List<Network> sortedNetworkList = new ArrayList<Network>(itt.network)»
+				«networkNormalizer.normalize(sortedNetworkList)»
+				«FOR c : sortedNetworkList SEPARATOR ", "»
+					«networkNormalizer.stringify(c)»
+				«ENDFOR»
 			]
 		}
 		'''
