@@ -6,10 +6,9 @@ import org.emoflon.express.express.SchemaContainer;
 import org.emoflon.ibex.tgg.run.express2uml.INTEGRATE_App;
 
 import testsuite.ibex.Express2Uml.comparison.Express2UMLCorrespondenceComparator;
-import testsuite.ibex.Express2Uml.comparison.UMLContainerComparator;
 import testsuite.ibex.Express2Uml.comparison.SchemaContainerComparator;
+import testsuite.ibex.Express2Uml.comparison.UMLContainerComparator;
 import testsuite.ibex.testUtil.IntegIbexAdapter;
-import uml.Package;
 import uml.UMLContainer;
 
 public class IntegIbexSchemaContainer2Package extends IntegIbexAdapter<SchemaContainer, UMLContainer> {

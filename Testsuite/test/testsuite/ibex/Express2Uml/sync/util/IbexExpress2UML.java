@@ -2,22 +2,17 @@ package testsuite.ibex.Express2Uml.sync.util;
 
 import java.io.IOException;
 
-import org.emoflon.express.express.Entity;
-import org.emoflon.express.express.Schema;
 import org.emoflon.express.express.SchemaContainer;
 import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
-import org.emoflon.ibex.tgg.run.express2uml.config.DemoclesRegistrationHelper;
 import org.emoflon.ibex.tgg.run.express2uml.SYNC_App;
+import org.emoflon.ibex.tgg.run.express2uml.config.DemoclesRegistrationHelper;
 import org.emoflon.ibex.tgg.run.express2uml.config.HiPERegistrationHelper;
 
 import testsuite.ibex.Express2Uml.common.ExpressHelper;
-import testsuite.ibex.Express2Uml.common.UMLHelper;
-import testsuite.ibex.Express2Uml.comparison.UMLContainerComparator;
 import testsuite.ibex.Express2Uml.comparison.SchemaContainerComparator;
+import testsuite.ibex.Express2Uml.comparison.UMLContainerComparator;
 import testsuite.ibex.testUtil.IbexAdapter;
 import testsuite.ibex.testUtil.UsedPatternMatcher;
-import uml.Clazz;
-import uml.Package;
 import uml.UMLContainer;
 
 public class IbexExpress2UML extends IbexAdapter<SchemaContainer, UMLContainer> {

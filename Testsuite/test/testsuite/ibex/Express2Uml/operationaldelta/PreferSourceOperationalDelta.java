@@ -1,7 +1,6 @@
 package testsuite.ibex.Express2Uml.operationaldelta;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.emoflon.express.express.Declaration;
 import org.emoflon.express.express.Entity;
 import org.emoflon.express.express.Schema;
 import org.emoflon.express.express.SchemaContainer;

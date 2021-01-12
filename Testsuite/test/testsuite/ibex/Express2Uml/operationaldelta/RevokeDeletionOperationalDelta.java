@@ -9,7 +9,6 @@ import org.junit.Test;
 import Express2UML.operationaldelta.revokeDeletion.RevokeDeletionConflictResolver;
 import testsuite.ibex.Express2Uml.common.ExpressHelper;
 import testsuite.ibex.Express2Uml.common.UMLHelper;
-import testsuite.ibex.Express2Uml.comparison.SchemaContainerComparator;
 import testsuite.ibex.Express2Uml.integrate.util.IntegIbexSchemaContainer2Package;
 import testsuite.ibex.testUtil.IntegrateTestCase;
 import uml.Clazz;
