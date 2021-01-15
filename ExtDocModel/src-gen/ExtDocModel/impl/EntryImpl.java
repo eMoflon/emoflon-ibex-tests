@@ -5,6 +5,7 @@ package ExtDocModel.impl;
 import ExtDocModel.Annotation;
 import ExtDocModel.Doc;
 import ExtDocModel.Entry;
+import ExtDocModel.EntryType;
 import ExtDocModel.ExtDocModelPackage;
 import ExtDocModel.GlossaryEntry;
 
@@ -32,9 +33,10 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link ExtDocModel.impl.EntryImpl#getEntry <em>Entry</em>}</li>
+ *   <li>{@link ExtDocModel.impl.EntryImpl#getDoc <em>Doc</em>}</li>
  *   <li>{@link ExtDocModel.impl.EntryImpl#getAnnotation <em>Annotation</em>}</li>
  *   <li>{@link ExtDocModel.impl.EntryImpl#getGlossarEntries <em>Glossar Entries</em>}</li>
+ *   <li>{@link ExtDocModel.impl.EntryImpl#getType <em>Type</em>}</li>
  * </ul>
  *
  * @generated
@@ -61,6 +63,26 @@ public class EntryImpl extends NamedElementImpl implements Entry {
 	protected EList<GlossaryEntry> glossarEntries;
 
 	/**
+	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final EntryType TYPE_EDEFAULT = EntryType.FIELD;
+
+	/**
+	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getType()
+	 * @generated
+	 * @ordered
+	 */
+	protected EntryType type = TYPE_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -85,8 +107,8 @@ public class EntryImpl extends NamedElementImpl implements Entry {
 	 * @generated
 	 */
 	@Override
-	public Doc getEntry() {
-		if (eContainerFeatureID() != ExtDocModelPackage.ENTRY__ENTRY)
+	public Doc getDoc() {
+		if (eContainerFeatureID() != ExtDocModelPackage.ENTRY__DOC)
 			return null;
 		return (Doc) eInternalContainer();
 	}
@@ -96,8 +118,8 @@ public class EntryImpl extends NamedElementImpl implements Entry {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetEntry(Doc newEntry, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject) newEntry, ExtDocModelPackage.ENTRY__ENTRY, msgs);
+	public NotificationChain basicSetDoc(Doc newDoc, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject) newDoc, ExtDocModelPackage.ENTRY__DOC, msgs);
 		return msgs;
 	}
 
@@ -107,20 +129,20 @@ public class EntryImpl extends NamedElementImpl implements Entry {
 	 * @generated
 	 */
 	@Override
-	public void setEntry(Doc newEntry) {
-		if (newEntry != eInternalContainer() || (eContainerFeatureID() != ExtDocModelPackage.ENTRY__ENTRY && newEntry != null)) {
-			if (EcoreUtil.isAncestor(this, newEntry))
+	public void setDoc(Doc newDoc) {
+		if (newDoc != eInternalContainer() || (eContainerFeatureID() != ExtDocModelPackage.ENTRY__DOC && newDoc != null)) {
+			if (EcoreUtil.isAncestor(this, newDoc))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
-			if (newEntry != null)
-				msgs = ((InternalEObject) newEntry).eInverseAdd(this, ExtDocModelPackage.DOC__ENTRIES, Doc.class, msgs);
-			msgs = basicSetEntry(newEntry, msgs);
+			if (newDoc != null)
+				msgs = ((InternalEObject) newDoc).eInverseAdd(this, ExtDocModelPackage.DOC__ENTRIES, Doc.class, msgs);
+			msgs = basicSetDoc(newDoc, msgs);
 			if (msgs != null)
 				msgs.dispatch();
 		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ExtDocModelPackage.ENTRY__ENTRY, newEntry, newEntry));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExtDocModelPackage.ENTRY__DOC, newDoc, newDoc));
 	}
 
 	/**
@@ -191,14 +213,37 @@ public class EntryImpl extends NamedElementImpl implements Entry {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public EntryType getType() {
+		return type;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setType(EntryType newType) {
+		EntryType oldType = type;
+		type = newType == null ? TYPE_EDEFAULT : newType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ExtDocModelPackage.ENTRY__TYPE, oldType, type));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case ExtDocModelPackage.ENTRY__ENTRY:
+		case ExtDocModelPackage.ENTRY__DOC:
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
-			return basicSetEntry((Doc) otherEnd, msgs);
+			return basicSetDoc((Doc) otherEnd, msgs);
 		case ExtDocModelPackage.ENTRY__ANNOTATION:
 			if (annotation != null)
 				msgs = ((InternalEObject) annotation).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ExtDocModelPackage.ENTRY__ANNOTATION, null, msgs);
@@ -217,8 +262,8 @@ public class EntryImpl extends NamedElementImpl implements Entry {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case ExtDocModelPackage.ENTRY__ENTRY:
-			return basicSetEntry(null, msgs);
+		case ExtDocModelPackage.ENTRY__DOC:
+			return basicSetDoc(null, msgs);
 		case ExtDocModelPackage.ENTRY__ANNOTATION:
 			return basicSetAnnotation(null, msgs);
 		case ExtDocModelPackage.ENTRY__GLOSSAR_ENTRIES:
@@ -235,7 +280,7 @@ public class EntryImpl extends NamedElementImpl implements Entry {
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
-		case ExtDocModelPackage.ENTRY__ENTRY:
+		case ExtDocModelPackage.ENTRY__DOC:
 			return eInternalContainer().eInverseRemove(this, ExtDocModelPackage.DOC__ENTRIES, Doc.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
@@ -249,12 +294,14 @@ public class EntryImpl extends NamedElementImpl implements Entry {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case ExtDocModelPackage.ENTRY__ENTRY:
-			return getEntry();
+		case ExtDocModelPackage.ENTRY__DOC:
+			return getDoc();
 		case ExtDocModelPackage.ENTRY__ANNOTATION:
 			return getAnnotation();
 		case ExtDocModelPackage.ENTRY__GLOSSAR_ENTRIES:
 			return getGlossarEntries();
+		case ExtDocModelPackage.ENTRY__TYPE:
+			return getType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -268,8 +315,8 @@ public class EntryImpl extends NamedElementImpl implements Entry {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case ExtDocModelPackage.ENTRY__ENTRY:
-			setEntry((Doc) newValue);
+		case ExtDocModelPackage.ENTRY__DOC:
+			setDoc((Doc) newValue);
 			return;
 		case ExtDocModelPackage.ENTRY__ANNOTATION:
 			setAnnotation((Annotation) newValue);
@@ -277,6 +324,9 @@ public class EntryImpl extends NamedElementImpl implements Entry {
 		case ExtDocModelPackage.ENTRY__GLOSSAR_ENTRIES:
 			getGlossarEntries().clear();
 			getGlossarEntries().addAll((Collection<? extends GlossaryEntry>) newValue);
+			return;
+		case ExtDocModelPackage.ENTRY__TYPE:
+			setType((EntryType) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -290,14 +340,17 @@ public class EntryImpl extends NamedElementImpl implements Entry {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case ExtDocModelPackage.ENTRY__ENTRY:
-			setEntry((Doc) null);
+		case ExtDocModelPackage.ENTRY__DOC:
+			setDoc((Doc) null);
 			return;
 		case ExtDocModelPackage.ENTRY__ANNOTATION:
 			setAnnotation((Annotation) null);
 			return;
 		case ExtDocModelPackage.ENTRY__GLOSSAR_ENTRIES:
 			getGlossarEntries().clear();
+			return;
+		case ExtDocModelPackage.ENTRY__TYPE:
+			setType(TYPE_EDEFAULT);
 			return;
 		}
 		super.eUnset(featureID);
@@ -311,14 +364,33 @@ public class EntryImpl extends NamedElementImpl implements Entry {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case ExtDocModelPackage.ENTRY__ENTRY:
-			return getEntry() != null;
+		case ExtDocModelPackage.ENTRY__DOC:
+			return getDoc() != null;
 		case ExtDocModelPackage.ENTRY__ANNOTATION:
 			return annotation != null;
 		case ExtDocModelPackage.ENTRY__GLOSSAR_ENTRIES:
 			return glossarEntries != null && !glossarEntries.isEmpty();
+		case ExtDocModelPackage.ENTRY__TYPE:
+			return type != TYPE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy())
+			return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (type: ");
+		result.append(type);
+		result.append(')');
+		return result.toString();
 	}
 
 } //EntryImpl

@@ -15,18 +15,19 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="container" eType="#//DocContainer"
         eOpposite="#//DocContainer/docs"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="entries" upperBound="-1"
-        eType="#//Entry" containment="true" eOpposite="#//Entry/entry"/>
+        eType="#//Entry" containment="true" eOpposite="#//Entry/doc"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="subDocs" upperBound="-1"
         eType="#//Doc" eOpposite="#//Doc/superDocs"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="superDocs" upperBound="-1"
         eType="#//Doc" eOpposite="#//Doc/subDocs"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Entry" eSuperTypes="#//NamedElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="entry" eType="#//Doc" eOpposite="#//Doc/entries"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="doc" eType="#//Doc" eOpposite="#//Doc/entries"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="annotation" eType="#//Annotation"
         containment="true" eOpposite="#//Annotation/entry"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="glossarEntries" upperBound="-1"
         eType="#//GlossaryEntry" eOpposite="#//GlossaryEntry/entries"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//EntryType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Annotation">
     <eStructuralFeatures xsi:type="ecore:EReference" name="entry" eType="#//Entry"
@@ -42,5 +43,9 @@
         eOpposite="#//Glossary/entries"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="entries" upperBound="-1"
         eType="#//Entry" eOpposite="#//Entry/glossarEntries"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="EntryType">
+    <eLiterals name="FIELD"/>
+    <eLiterals name="METHOD"/>
   </eClassifiers>
 </ecore:EPackage>

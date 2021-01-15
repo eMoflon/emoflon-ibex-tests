@@ -6,6 +6,7 @@ import ExtDocModel.Annotation;
 import ExtDocModel.Doc;
 import ExtDocModel.DocContainer;
 import ExtDocModel.Entry;
+import ExtDocModel.EntryType;
 import ExtDocModel.ExtDocModelFactory;
 import ExtDocModel.ExtDocModelPackage;
 import ExtDocModel.Glossary;
@@ -14,6 +15,7 @@ import ExtDocModel.NamedElement;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -74,6 +76,13 @@ public class ExtDocModelPackageImpl extends EPackageImpl implements ExtDocModelP
 	 * @generated
 	 */
 	private EClass glossaryEntryEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum entryTypeEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -255,7 +264,7 @@ public class ExtDocModelPackageImpl extends EPackageImpl implements ExtDocModelP
 	 * @generated
 	 */
 	@Override
-	public EReference getEntry_Entry() {
+	public EReference getEntry_Doc() {
 		return (EReference) entryEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -277,6 +286,16 @@ public class ExtDocModelPackageImpl extends EPackageImpl implements ExtDocModelP
 	@Override
 	public EReference getEntry_GlossarEntries() {
 		return (EReference) entryEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getEntry_Type() {
+		return (EAttribute) entryEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -365,6 +384,16 @@ public class ExtDocModelPackageImpl extends EPackageImpl implements ExtDocModelP
 	 * @generated
 	 */
 	@Override
+	public EEnum getEntryType() {
+		return entryTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public ExtDocModelFactory getExtDocModelFactory() {
 		return (ExtDocModelFactory) getEFactoryInstance();
 	}
@@ -403,9 +432,10 @@ public class ExtDocModelPackageImpl extends EPackageImpl implements ExtDocModelP
 		createEReference(docEClass, DOC__SUPER_DOCS);
 
 		entryEClass = createEClass(ENTRY);
-		createEReference(entryEClass, ENTRY__ENTRY);
+		createEReference(entryEClass, ENTRY__DOC);
 		createEReference(entryEClass, ENTRY__ANNOTATION);
 		createEReference(entryEClass, ENTRY__GLOSSAR_ENTRIES);
+		createEAttribute(entryEClass, ENTRY__TYPE);
 
 		annotationEClass = createEClass(ANNOTATION);
 		createEReference(annotationEClass, ANNOTATION__ENTRY);
@@ -417,6 +447,9 @@ public class ExtDocModelPackageImpl extends EPackageImpl implements ExtDocModelP
 		glossaryEntryEClass = createEClass(GLOSSARY_ENTRY);
 		createEReference(glossaryEntryEClass, GLOSSARY_ENTRY__GLOSSAR);
 		createEReference(glossaryEntryEClass, GLOSSARY_ENTRY__ENTRIES);
+
+		// Create enums
+		entryTypeEEnum = createEEnum(ENTRY_TYPE);
 	}
 
 	/**
@@ -466,7 +499,7 @@ public class ExtDocModelPackageImpl extends EPackageImpl implements ExtDocModelP
 		initEClass(docEClass, Doc.class, "Doc", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDoc_Container(), this.getDocContainer(), this.getDocContainer_Docs(), "container", null, 0, 1, Doc.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDoc_Entries(), this.getEntry(), this.getEntry_Entry(), "entries", null, 0, -1, Doc.class, !IS_TRANSIENT, !IS_VOLATILE,
+		initEReference(getDoc_Entries(), this.getEntry(), this.getEntry_Doc(), "entries", null, 0, -1, Doc.class, !IS_TRANSIENT, !IS_VOLATILE,
 				IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDoc_SubDocs(), this.getDoc(), this.getDoc_SuperDocs(), "subDocs", null, 0, -1, Doc.class, !IS_TRANSIENT, !IS_VOLATILE,
 				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -474,12 +507,14 @@ public class ExtDocModelPackageImpl extends EPackageImpl implements ExtDocModelP
 				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(entryEClass, Entry.class, "Entry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getEntry_Entry(), this.getDoc(), this.getDoc_Entries(), "entry", null, 0, 1, Entry.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEntry_Doc(), this.getDoc(), this.getDoc_Entries(), "doc", null, 0, 1, Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				!IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEntry_Annotation(), this.getAnnotation(), this.getAnnotation_Entry(), "annotation", null, 0, 1, Entry.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEntry_GlossarEntries(), this.getGlossaryEntry(), this.getGlossaryEntry_Entries(), "glossarEntries", null, 0, -1, Entry.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEntry_Type(), this.getEntryType(), "type", null, 0, 1, Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
+				!IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(annotationEClass, Annotation.class, "Annotation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAnnotation_Entry(), this.getEntry(), this.getEntry_Annotation(), "entry", null, 0, 1, Annotation.class, !IS_TRANSIENT,
@@ -496,6 +531,11 @@ public class ExtDocModelPackageImpl extends EPackageImpl implements ExtDocModelP
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getGlossaryEntry_Entries(), this.getEntry(), this.getEntry_GlossarEntries(), "entries", null, 0, -1, GlossaryEntry.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		// Initialize enums and add enum literals
+		initEEnum(entryTypeEEnum, EntryType.class, "EntryType");
+		addEEnumLiteral(entryTypeEEnum, EntryType.FIELD);
+		addEEnumLiteral(entryTypeEEnum, EntryType.METHOD);
 
 		// Create resource
 		createResource(eNS_URI);

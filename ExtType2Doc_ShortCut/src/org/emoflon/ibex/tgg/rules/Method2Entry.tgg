@@ -16,7 +16,9 @@
 		++-entries->e
 	}
 	
-	++e:Entry
+	++e:Entry {
+		type:=enum::EntryType::METHOD
+	}
 }
 
 #correspondence {

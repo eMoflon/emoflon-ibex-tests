@@ -13,9 +13,10 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link ExtDocModel.Entry#getEntry <em>Entry</em>}</li>
+ *   <li>{@link ExtDocModel.Entry#getDoc <em>Doc</em>}</li>
  *   <li>{@link ExtDocModel.Entry#getAnnotation <em>Annotation</em>}</li>
  *   <li>{@link ExtDocModel.Entry#getGlossarEntries <em>Glossar Entries</em>}</li>
+ *   <li>{@link ExtDocModel.Entry#getType <em>Type</em>}</li>
  * </ul>
  *
  * @see ExtDocModel.ExtDocModelPackage#getEntry()
@@ -24,28 +25,28 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface Entry extends NamedElement {
 	/**
-	 * Returns the value of the '<em><b>Entry</b></em>' container reference.
+	 * Returns the value of the '<em><b>Doc</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link ExtDocModel.Doc#getEntries <em>Entries</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Entry</em>' container reference.
-	 * @see #setEntry(Doc)
-	 * @see ExtDocModel.ExtDocModelPackage#getEntry_Entry()
+	 * @return the value of the '<em>Doc</em>' container reference.
+	 * @see #setDoc(Doc)
+	 * @see ExtDocModel.ExtDocModelPackage#getEntry_Doc()
 	 * @see ExtDocModel.Doc#getEntries
 	 * @model opposite="entries" transient="false"
 	 * @generated
 	 */
-	Doc getEntry();
+	Doc getDoc();
 
 	/**
-	 * Sets the value of the '{@link ExtDocModel.Entry#getEntry <em>Entry</em>}' container reference.
+	 * Sets the value of the '{@link ExtDocModel.Entry#getDoc <em>Doc</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Entry</em>' container reference.
-	 * @see #getEntry()
+	 * @param value the new value of the '<em>Doc</em>' container reference.
+	 * @see #getDoc()
 	 * @generated
 	 */
-	void setEntry(Doc value);
+	void setDoc(Doc value);
 
 	/**
 	 * Returns the value of the '<em><b>Annotation</b></em>' containment reference.
@@ -84,5 +85,30 @@ public interface Entry extends NamedElement {
 	 * @generated
 	 */
 	EList<GlossaryEntry> getGlossarEntries();
+
+	/**
+	 * Returns the value of the '<em><b>Type</b></em>' attribute.
+	 * The literals are from the enumeration {@link ExtDocModel.EntryType}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Type</em>' attribute.
+	 * @see ExtDocModel.EntryType
+	 * @see #setType(EntryType)
+	 * @see ExtDocModel.ExtDocModelPackage#getEntry_Type()
+	 * @model
+	 * @generated
+	 */
+	EntryType getType();
+
+	/**
+	 * Sets the value of the '{@link ExtDocModel.Entry#getType <em>Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Type</em>' attribute.
+	 * @see ExtDocModel.EntryType
+	 * @see #getType()
+	 * @generated
+	 */
+	void setType(EntryType value);
 
 } // Entry

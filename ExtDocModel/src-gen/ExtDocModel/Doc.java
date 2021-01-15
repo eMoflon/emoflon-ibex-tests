@@ -51,13 +51,13 @@ public interface Doc extends NamedElement {
 	/**
 	 * Returns the value of the '<em><b>Entries</b></em>' containment reference list.
 	 * The list contents are of type {@link ExtDocModel.Entry}.
-	 * It is bidirectional and its opposite is '{@link ExtDocModel.Entry#getEntry <em>Entry</em>}'.
+	 * It is bidirectional and its opposite is '{@link ExtDocModel.Entry#getDoc <em>Doc</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Entries</em>' containment reference list.
 	 * @see ExtDocModel.ExtDocModelPackage#getDoc_Entries()
-	 * @see ExtDocModel.Entry#getEntry
-	 * @model opposite="entry" containment="true"
+	 * @see ExtDocModel.Entry#getDoc
+	 * @model opposite="doc" containment="true"
 	 * @generated
 	 */
 	EList<Entry> getEntries();

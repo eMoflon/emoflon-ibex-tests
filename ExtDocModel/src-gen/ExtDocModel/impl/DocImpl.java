@@ -141,7 +141,7 @@ public class DocImpl extends NamedElementImpl implements Doc {
 	@Override
 	public EList<Entry> getEntries() {
 		if (entries == null) {
-			entries = new EObjectContainmentWithInverseEList<Entry>(Entry.class, this, ExtDocModelPackage.DOC__ENTRIES, ExtDocModelPackage.ENTRY__ENTRY);
+			entries = new EObjectContainmentWithInverseEList<Entry>(Entry.class, this, ExtDocModelPackage.DOC__ENTRIES, ExtDocModelPackage.ENTRY__DOC);
 		}
 		return entries;
 	}

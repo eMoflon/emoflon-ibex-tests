@@ -9,6 +9,10 @@
   <foreignModel>ExtDocModel.ecore</foreignModel>
   <testsDirectory xsi:nil="true"/>
   <genPackages prefix="ExtDocModel" disposableProviderFactory="true" ecorePackage="ExtDocModel.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="ExtDocModel.ecore#//EntryType">
+      <genEnumLiterals ecoreEnumLiteral="ExtDocModel.ecore#//EntryType/FIELD"/>
+      <genEnumLiterals ecoreEnumLiteral="ExtDocModel.ecore#//EntryType/METHOD"/>
+    </genEnums>
     <genClasses image="false" ecoreClass="ExtDocModel.ecore#//NamedElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ExtDocModel.ecore#//NamedElement/name"/>
     </genClasses>
@@ -23,9 +27,10 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ExtDocModel.ecore#//Doc/superDocs"/>
     </genClasses>
     <genClasses ecoreClass="ExtDocModel.ecore#//Entry">
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ExtDocModel.ecore#//Entry/entry"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ExtDocModel.ecore#//Entry/doc"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExtDocModel.ecore#//Entry/annotation"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ExtDocModel.ecore#//Entry/glossarEntries"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ExtDocModel.ecore#//Entry/type"/>
     </genClasses>
     <genClasses ecoreClass="ExtDocModel.ecore#//Annotation">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ExtDocModel.ecore#//Annotation/entry"/>

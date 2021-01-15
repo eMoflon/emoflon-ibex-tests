@@ -4,6 +4,7 @@ package ExtDocModel;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -232,13 +233,13 @@ public interface ExtDocModelPackage extends EPackage {
 	int ENTRY__NAME = NAMED_ELEMENT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Entry</b></em>' container reference.
+	 * The feature id for the '<em><b>Doc</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENTRY__ENTRY = NAMED_ELEMENT_FEATURE_COUNT + 0;
+	int ENTRY__DOC = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Annotation</b></em>' containment reference.
@@ -259,13 +260,22 @@ public interface ExtDocModelPackage extends EPackage {
 	int ENTRY__GLOSSAR_ENTRIES = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENTRY__TYPE = NAMED_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Entry</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENTRY_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 3;
+	int ENTRY_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Entry</em>' class.
@@ -415,6 +425,16 @@ public interface ExtDocModelPackage extends EPackage {
 	int GLOSSARY_ENTRY_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link ExtDocModel.EntryType <em>Entry Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ExtDocModel.EntryType
+	 * @see ExtDocModel.impl.ExtDocModelPackageImpl#getEntryType()
+	 * @generated
+	 */
+	int ENTRY_TYPE = 7;
+
+	/**
 	 * Returns the meta object for class '{@link ExtDocModel.NamedElement <em>Named Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -532,15 +552,15 @@ public interface ExtDocModelPackage extends EPackage {
 	EClass getEntry();
 
 	/**
-	 * Returns the meta object for the container reference '{@link ExtDocModel.Entry#getEntry <em>Entry</em>}'.
+	 * Returns the meta object for the container reference '{@link ExtDocModel.Entry#getDoc <em>Doc</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Entry</em>'.
-	 * @see ExtDocModel.Entry#getEntry()
+	 * @return the meta object for the container reference '<em>Doc</em>'.
+	 * @see ExtDocModel.Entry#getDoc()
 	 * @see #getEntry()
 	 * @generated
 	 */
-	EReference getEntry_Entry();
+	EReference getEntry_Doc();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link ExtDocModel.Entry#getAnnotation <em>Annotation</em>}'.
@@ -563,6 +583,17 @@ public interface ExtDocModelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getEntry_GlossarEntries();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ExtDocModel.Entry#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @see ExtDocModel.Entry#getType()
+	 * @see #getEntry()
+	 * @generated
+	 */
+	EAttribute getEntry_Type();
 
 	/**
 	 * Returns the meta object for class '{@link ExtDocModel.Annotation <em>Annotation</em>}'.
@@ -648,6 +679,16 @@ public interface ExtDocModelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getGlossaryEntry_Entries();
+
+	/**
+	 * Returns the meta object for enum '{@link ExtDocModel.EntryType <em>Entry Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Entry Type</em>'.
+	 * @see ExtDocModel.EntryType
+	 * @generated
+	 */
+	EEnum getEntryType();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -769,12 +810,12 @@ public interface ExtDocModelPackage extends EPackage {
 		EClass ENTRY = eINSTANCE.getEntry();
 
 		/**
-		 * The meta object literal for the '<em><b>Entry</b></em>' container reference feature.
+		 * The meta object literal for the '<em><b>Doc</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ENTRY__ENTRY = eINSTANCE.getEntry_Entry();
+		EReference ENTRY__DOC = eINSTANCE.getEntry_Doc();
 
 		/**
 		 * The meta object literal for the '<em><b>Annotation</b></em>' containment reference feature.
@@ -791,6 +832,14 @@ public interface ExtDocModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ENTRY__GLOSSAR_ENTRIES = eINSTANCE.getEntry_GlossarEntries();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ENTRY__TYPE = eINSTANCE.getEntry_Type();
 
 		/**
 		 * The meta object literal for the '{@link ExtDocModel.impl.AnnotationImpl <em>Annotation</em>}' class.
@@ -861,6 +910,16 @@ public interface ExtDocModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference GLOSSARY_ENTRY__ENTRIES = eINSTANCE.getGlossaryEntry_Entries();
+
+		/**
+		 * The meta object literal for the '{@link ExtDocModel.EntryType <em>Entry Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ExtDocModel.EntryType
+		 * @see ExtDocModel.impl.ExtDocModelPackageImpl#getEntryType()
+		 * @generated
+		 */
+		EEnum ENTRY_TYPE = eINSTANCE.getEntryType();
 
 	}
 

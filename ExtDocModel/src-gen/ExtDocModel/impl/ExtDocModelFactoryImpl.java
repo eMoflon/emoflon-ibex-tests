@@ -5,6 +5,7 @@ package ExtDocModel.impl;
 import ExtDocModel.*;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -78,6 +79,36 @@ public class ExtDocModelFactoryImpl extends EFactoryImpl implements ExtDocModelF
 	 * @generated
 	 */
 	@Override
+	public Object createFromString(EDataType eDataType, String initialValue) {
+		switch (eDataType.getClassifierID()) {
+		case ExtDocModelPackage.ENTRY_TYPE:
+			return createEntryTypeFromString(eDataType, initialValue);
+		default:
+			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String convertToString(EDataType eDataType, Object instanceValue) {
+		switch (eDataType.getClassifierID()) {
+		case ExtDocModelPackage.ENTRY_TYPE:
+			return convertEntryTypeToString(eDataType, instanceValue);
+		default:
+			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public DocContainer createDocContainer() {
 		DocContainerImpl docContainer = new DocContainerImpl();
 		return docContainer;
@@ -136,6 +167,27 @@ public class ExtDocModelFactoryImpl extends EFactoryImpl implements ExtDocModelF
 	public GlossaryEntry createGlossaryEntry() {
 		GlossaryEntryImpl glossaryEntry = new GlossaryEntryImpl();
 		return glossaryEntry;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EntryType createEntryTypeFromString(EDataType eDataType, String initialValue) {
+		EntryType result = EntryType.get(initialValue);
+		if (result == null)
+			throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertEntryTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**
