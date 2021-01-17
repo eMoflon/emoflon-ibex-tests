@@ -504,7 +504,7 @@ public class ExtTypeModelPackageImpl extends EPackageImpl implements ExtTypeMode
 		initEClass(typeEClass, Type.class, "Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getType_Interface(), ecorePackage.getEBoolean(), "interface", null, 0, 1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
 				!IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getType_ExtendedBy(), this.getType(), this.getType_InheritsFrom(), "extendedBy", null, 0, 1, Type.class, !IS_TRANSIENT,
+		initEReference(getType_ExtendedBy(), this.getType(), this.getType_InheritsFrom(), "extendedBy", null, 0, -1, Type.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getType_InheritsFrom(), this.getType(), this.getType_ExtendedBy(), "inheritsFrom", null, 0, -1, Type.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

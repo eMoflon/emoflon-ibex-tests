@@ -195,7 +195,7 @@ public interface ExtTypeModelPackage extends EPackage {
 	int TYPE__INTERFACE = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Extended By</b></em>' reference.
+	 * The feature id for the '<em><b>Extended By</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -556,10 +556,10 @@ public interface ExtTypeModelPackage extends EPackage {
 	EAttribute getType_Interface();
 
 	/**
-	 * Returns the meta object for the reference '{@link ExtTypeModel.Type#getExtendedBy <em>Extended By</em>}'.
+	 * Returns the meta object for the reference list '{@link ExtTypeModel.Type#getExtendedBy <em>Extended By</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Extended By</em>'.
+	 * @return the meta object for the reference list '<em>Extended By</em>'.
 	 * @see ExtTypeModel.Type#getExtendedBy()
 	 * @see #getType()
 	 * @generated
@@ -829,7 +829,7 @@ public interface ExtTypeModelPackage extends EPackage {
 		EAttribute TYPE__INTERFACE = eINSTANCE.getType_Interface();
 
 		/**
-		 * The meta object literal for the '<em><b>Extended By</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Extended By</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

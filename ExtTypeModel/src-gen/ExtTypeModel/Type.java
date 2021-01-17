@@ -49,28 +49,18 @@ public interface Type extends NamedElement {
 	void setInterface(boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Extended By</b></em>' reference.
+	 * Returns the value of the '<em><b>Extended By</b></em>' reference list.
+	 * The list contents are of type {@link ExtTypeModel.Type}.
 	 * It is bidirectional and its opposite is '{@link ExtTypeModel.Type#getInheritsFrom <em>Inherits From</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Extended By</em>' reference.
-	 * @see #setExtendedBy(Type)
+	 * @return the value of the '<em>Extended By</em>' reference list.
 	 * @see ExtTypeModel.ExtTypeModelPackage#getType_ExtendedBy()
 	 * @see ExtTypeModel.Type#getInheritsFrom
 	 * @model opposite="inheritsFrom"
 	 * @generated
 	 */
-	Type getExtendedBy();
-
-	/**
-	 * Sets the value of the '{@link ExtTypeModel.Type#getExtendedBy <em>Extended By</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Extended By</em>' reference.
-	 * @see #getExtendedBy()
-	 * @generated
-	 */
-	void setExtendedBy(Type value);
+	EList<Type> getExtendedBy();
 
 	/**
 	 * Returns the value of the '<em><b>Inherits From</b></em>' reference list.

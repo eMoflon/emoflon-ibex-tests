@@ -16,8 +16,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Type" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="interface" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="extendedBy" eType="#//Type"
-        eOpposite="#//Type/inheritsFrom"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="extendedBy" upperBound="-1"
+        eType="#//Type" eOpposite="#//Type/inheritsFrom"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="inheritsFrom" upperBound="-1"
         eType="#//Type" eOpposite="#//Type/extendedBy"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="methods" upperBound="-1"

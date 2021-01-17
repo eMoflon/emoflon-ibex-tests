@@ -64,14 +64,14 @@ public class TypeImpl extends NamedElementImpl implements Type {
 	protected boolean interface_ = INTERFACE_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getExtendedBy() <em>Extended By</em>}' reference.
+	 * The cached value of the '{@link #getExtendedBy() <em>Extended By</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getExtendedBy()
 	 * @generated
 	 * @ordered
 	 */
-	protected Type extendedBy;
+	protected EList<Type> extendedBy;
 
 	/**
 	 * The cached value of the '{@link #getInheritsFrom() <em>Inherits From</em>}' reference list.
@@ -151,64 +151,12 @@ public class TypeImpl extends NamedElementImpl implements Type {
 	 * @generated
 	 */
 	@Override
-	public Type getExtendedBy() {
-		if (extendedBy != null && extendedBy.eIsProxy()) {
-			InternalEObject oldExtendedBy = (InternalEObject) extendedBy;
-			extendedBy = (Type) eResolveProxy(oldExtendedBy);
-			if (extendedBy != oldExtendedBy) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ExtTypeModelPackage.TYPE__EXTENDED_BY, oldExtendedBy, extendedBy));
-			}
+	public EList<Type> getExtendedBy() {
+		if (extendedBy == null) {
+			extendedBy = new EObjectWithInverseResolvingEList.ManyInverse<Type>(Type.class, this, ExtTypeModelPackage.TYPE__EXTENDED_BY,
+					ExtTypeModelPackage.TYPE__INHERITS_FROM);
 		}
 		return extendedBy;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Type basicGetExtendedBy() {
-		return extendedBy;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetExtendedBy(Type newExtendedBy, NotificationChain msgs) {
-		Type oldExtendedBy = extendedBy;
-		extendedBy = newExtendedBy;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ExtTypeModelPackage.TYPE__EXTENDED_BY, oldExtendedBy,
-					newExtendedBy);
-			if (msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setExtendedBy(Type newExtendedBy) {
-		if (newExtendedBy != extendedBy) {
-			NotificationChain msgs = null;
-			if (extendedBy != null)
-				msgs = ((InternalEObject) extendedBy).eInverseRemove(this, ExtTypeModelPackage.TYPE__INHERITS_FROM, Type.class, msgs);
-			if (newExtendedBy != null)
-				msgs = ((InternalEObject) newExtendedBy).eInverseAdd(this, ExtTypeModelPackage.TYPE__INHERITS_FROM, Type.class, msgs);
-			msgs = basicSetExtendedBy(newExtendedBy, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ExtTypeModelPackage.TYPE__EXTENDED_BY, newExtendedBy, newExtendedBy));
 	}
 
 	/**
@@ -219,7 +167,7 @@ public class TypeImpl extends NamedElementImpl implements Type {
 	@Override
 	public EList<Type> getInheritsFrom() {
 		if (inheritsFrom == null) {
-			inheritsFrom = new EObjectWithInverseResolvingEList<Type>(Type.class, this, ExtTypeModelPackage.TYPE__INHERITS_FROM,
+			inheritsFrom = new EObjectWithInverseResolvingEList.ManyInverse<Type>(Type.class, this, ExtTypeModelPackage.TYPE__INHERITS_FROM,
 					ExtTypeModelPackage.TYPE__EXTENDED_BY);
 		}
 		return inheritsFrom;
@@ -306,9 +254,7 @@ public class TypeImpl extends NamedElementImpl implements Type {
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case ExtTypeModelPackage.TYPE__EXTENDED_BY:
-			if (extendedBy != null)
-				msgs = ((InternalEObject) extendedBy).eInverseRemove(this, ExtTypeModelPackage.TYPE__INHERITS_FROM, Type.class, msgs);
-			return basicSetExtendedBy((Type) otherEnd, msgs);
+			return ((InternalEList<InternalEObject>) (InternalEList<?>) getExtendedBy()).basicAdd(otherEnd, msgs);
 		case ExtTypeModelPackage.TYPE__INHERITS_FROM:
 			return ((InternalEList<InternalEObject>) (InternalEList<?>) getInheritsFrom()).basicAdd(otherEnd, msgs);
 		case ExtTypeModelPackage.TYPE__METHODS:
@@ -332,7 +278,7 @@ public class TypeImpl extends NamedElementImpl implements Type {
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case ExtTypeModelPackage.TYPE__EXTENDED_BY:
-			return basicSetExtendedBy(null, msgs);
+			return ((InternalEList<?>) getExtendedBy()).basicRemove(otherEnd, msgs);
 		case ExtTypeModelPackage.TYPE__INHERITS_FROM:
 			return ((InternalEList<?>) getInheritsFrom()).basicRemove(otherEnd, msgs);
 		case ExtTypeModelPackage.TYPE__METHODS:
@@ -370,9 +316,7 @@ public class TypeImpl extends NamedElementImpl implements Type {
 		case ExtTypeModelPackage.TYPE__INTERFACE:
 			return isInterface();
 		case ExtTypeModelPackage.TYPE__EXTENDED_BY:
-			if (resolve)
-				return getExtendedBy();
-			return basicGetExtendedBy();
+			return getExtendedBy();
 		case ExtTypeModelPackage.TYPE__INHERITS_FROM:
 			return getInheritsFrom();
 		case ExtTypeModelPackage.TYPE__METHODS:
@@ -398,7 +342,8 @@ public class TypeImpl extends NamedElementImpl implements Type {
 			setInterface((Boolean) newValue);
 			return;
 		case ExtTypeModelPackage.TYPE__EXTENDED_BY:
-			setExtendedBy((Type) newValue);
+			getExtendedBy().clear();
+			getExtendedBy().addAll((Collection<? extends Type>) newValue);
 			return;
 		case ExtTypeModelPackage.TYPE__INHERITS_FROM:
 			getInheritsFrom().clear();
@@ -431,7 +376,7 @@ public class TypeImpl extends NamedElementImpl implements Type {
 			setInterface(INTERFACE_EDEFAULT);
 			return;
 		case ExtTypeModelPackage.TYPE__EXTENDED_BY:
-			setExtendedBy((Type) null);
+			getExtendedBy().clear();
 			return;
 		case ExtTypeModelPackage.TYPE__INHERITS_FROM:
 			getInheritsFrom().clear();
@@ -460,7 +405,7 @@ public class TypeImpl extends NamedElementImpl implements Type {
 		case ExtTypeModelPackage.TYPE__INTERFACE:
 			return interface_ != INTERFACE_EDEFAULT;
 		case ExtTypeModelPackage.TYPE__EXTENDED_BY:
-			return extendedBy != null;
+			return extendedBy != null && !extendedBy.isEmpty();
 		case ExtTypeModelPackage.TYPE__INHERITS_FROM:
 			return inheritsFrom != null && !inheritsFrom.isEmpty();
 		case ExtTypeModelPackage.TYPE__METHODS:
