@@ -40,12 +40,14 @@ public interface DocContainer extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Glossary</b></em>' containment reference.
+	 * It is bidirectional and its opposite is '{@link ExtDocModel.Glossary#getContainer <em>Container</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Glossary</em>' containment reference.
 	 * @see #setGlossary(Glossary)
 	 * @see ExtDocModel.ExtDocModelPackage#getDocContainer_Glossary()
-	 * @model containment="true" required="true"
+	 * @see ExtDocModel.Glossary#getContainer
+	 * @model opposite="container" containment="true"
 	 * @generated
 	 */
 	Glossary getGlossary();

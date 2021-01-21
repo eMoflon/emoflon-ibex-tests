@@ -88,7 +88,7 @@ class ExtTypeModelComparator implements Comparator<Package> {
 					«p.stringify»
 				«ENDFOR»
 			}
-			«method.doc.stringify»
+			«IF method.doc !== null»doc = «method.doc.stringify»«ENDIF»
 		}
 		'''
 	}

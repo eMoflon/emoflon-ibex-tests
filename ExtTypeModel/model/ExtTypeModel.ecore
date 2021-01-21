@@ -23,7 +23,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="methods" upperBound="-1"
         eType="#//Method" containment="true" eOpposite="#//Method/type"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="fields" upperBound="-1"
-        eType="#//Field" containment="true" eOpposite="#//Field/method"/>
+        eType="#//Field" containment="true" eOpposite="#//Field/type"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="package" eType="#//Package"
         eOpposite="#//Package/types"/>
   </eClassifiers>
@@ -39,8 +39,7 @@
         eOpposite="#//Method/params"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Field" eSuperTypes="#//NamedElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="method" eType="#//Type"
-        eOpposite="#//Type/fields"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Type" eOpposite="#//Type/fields"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="JavaDoc">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="comment" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

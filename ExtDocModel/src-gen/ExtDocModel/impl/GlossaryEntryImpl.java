@@ -31,7 +31,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link ExtDocModel.impl.GlossaryEntryImpl#getGlossar <em>Glossar</em>}</li>
+ *   <li>{@link ExtDocModel.impl.GlossaryEntryImpl#getGlossary <em>Glossary</em>}</li>
  *   <li>{@link ExtDocModel.impl.GlossaryEntryImpl#getEntries <em>Entries</em>}</li>
  * </ul>
  *
@@ -73,8 +73,8 @@ public class GlossaryEntryImpl extends NamedElementImpl implements GlossaryEntry
 	 * @generated
 	 */
 	@Override
-	public Glossary getGlossar() {
-		if (eContainerFeatureID() != ExtDocModelPackage.GLOSSARY_ENTRY__GLOSSAR)
+	public Glossary getGlossary() {
+		if (eContainerFeatureID() != ExtDocModelPackage.GLOSSARY_ENTRY__GLOSSARY)
 			return null;
 		return (Glossary) eInternalContainer();
 	}
@@ -84,8 +84,8 @@ public class GlossaryEntryImpl extends NamedElementImpl implements GlossaryEntry
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetGlossar(Glossary newGlossar, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject) newGlossar, ExtDocModelPackage.GLOSSARY_ENTRY__GLOSSAR, msgs);
+	public NotificationChain basicSetGlossary(Glossary newGlossary, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject) newGlossary, ExtDocModelPackage.GLOSSARY_ENTRY__GLOSSARY, msgs);
 		return msgs;
 	}
 
@@ -95,20 +95,20 @@ public class GlossaryEntryImpl extends NamedElementImpl implements GlossaryEntry
 	 * @generated
 	 */
 	@Override
-	public void setGlossar(Glossary newGlossar) {
-		if (newGlossar != eInternalContainer() || (eContainerFeatureID() != ExtDocModelPackage.GLOSSARY_ENTRY__GLOSSAR && newGlossar != null)) {
-			if (EcoreUtil.isAncestor(this, newGlossar))
+	public void setGlossary(Glossary newGlossary) {
+		if (newGlossary != eInternalContainer() || (eContainerFeatureID() != ExtDocModelPackage.GLOSSARY_ENTRY__GLOSSARY && newGlossary != null)) {
+			if (EcoreUtil.isAncestor(this, newGlossary))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
-			if (newGlossar != null)
-				msgs = ((InternalEObject) newGlossar).eInverseAdd(this, ExtDocModelPackage.GLOSSARY__ENTRIES, Glossary.class, msgs);
-			msgs = basicSetGlossar(newGlossar, msgs);
+			if (newGlossary != null)
+				msgs = ((InternalEObject) newGlossary).eInverseAdd(this, ExtDocModelPackage.GLOSSARY__ENTRIES, Glossary.class, msgs);
+			msgs = basicSetGlossary(newGlossary, msgs);
 			if (msgs != null)
 				msgs.dispatch();
 		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ExtDocModelPackage.GLOSSARY_ENTRY__GLOSSAR, newGlossar, newGlossar));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExtDocModelPackage.GLOSSARY_ENTRY__GLOSSARY, newGlossary, newGlossary));
 	}
 
 	/**
@@ -120,7 +120,7 @@ public class GlossaryEntryImpl extends NamedElementImpl implements GlossaryEntry
 	public EList<Entry> getEntries() {
 		if (entries == null) {
 			entries = new EObjectWithInverseResolvingEList.ManyInverse<Entry>(Entry.class, this, ExtDocModelPackage.GLOSSARY_ENTRY__ENTRIES,
-					ExtDocModelPackage.ENTRY__GLOSSAR_ENTRIES);
+					ExtDocModelPackage.ENTRY__GLOSSARY_ENTRIES);
 		}
 		return entries;
 	}
@@ -134,10 +134,10 @@ public class GlossaryEntryImpl extends NamedElementImpl implements GlossaryEntry
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case ExtDocModelPackage.GLOSSARY_ENTRY__GLOSSAR:
+		case ExtDocModelPackage.GLOSSARY_ENTRY__GLOSSARY:
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
-			return basicSetGlossar((Glossary) otherEnd, msgs);
+			return basicSetGlossary((Glossary) otherEnd, msgs);
 		case ExtDocModelPackage.GLOSSARY_ENTRY__ENTRIES:
 			return ((InternalEList<InternalEObject>) (InternalEList<?>) getEntries()).basicAdd(otherEnd, msgs);
 		}
@@ -152,8 +152,8 @@ public class GlossaryEntryImpl extends NamedElementImpl implements GlossaryEntry
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case ExtDocModelPackage.GLOSSARY_ENTRY__GLOSSAR:
-			return basicSetGlossar(null, msgs);
+		case ExtDocModelPackage.GLOSSARY_ENTRY__GLOSSARY:
+			return basicSetGlossary(null, msgs);
 		case ExtDocModelPackage.GLOSSARY_ENTRY__ENTRIES:
 			return ((InternalEList<?>) getEntries()).basicRemove(otherEnd, msgs);
 		}
@@ -168,7 +168,7 @@ public class GlossaryEntryImpl extends NamedElementImpl implements GlossaryEntry
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
-		case ExtDocModelPackage.GLOSSARY_ENTRY__GLOSSAR:
+		case ExtDocModelPackage.GLOSSARY_ENTRY__GLOSSARY:
 			return eInternalContainer().eInverseRemove(this, ExtDocModelPackage.GLOSSARY__ENTRIES, Glossary.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
@@ -182,8 +182,8 @@ public class GlossaryEntryImpl extends NamedElementImpl implements GlossaryEntry
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case ExtDocModelPackage.GLOSSARY_ENTRY__GLOSSAR:
-			return getGlossar();
+		case ExtDocModelPackage.GLOSSARY_ENTRY__GLOSSARY:
+			return getGlossary();
 		case ExtDocModelPackage.GLOSSARY_ENTRY__ENTRIES:
 			return getEntries();
 		}
@@ -199,8 +199,8 @@ public class GlossaryEntryImpl extends NamedElementImpl implements GlossaryEntry
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case ExtDocModelPackage.GLOSSARY_ENTRY__GLOSSAR:
-			setGlossar((Glossary) newValue);
+		case ExtDocModelPackage.GLOSSARY_ENTRY__GLOSSARY:
+			setGlossary((Glossary) newValue);
 			return;
 		case ExtDocModelPackage.GLOSSARY_ENTRY__ENTRIES:
 			getEntries().clear();
@@ -218,8 +218,8 @@ public class GlossaryEntryImpl extends NamedElementImpl implements GlossaryEntry
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case ExtDocModelPackage.GLOSSARY_ENTRY__GLOSSAR:
-			setGlossar((Glossary) null);
+		case ExtDocModelPackage.GLOSSARY_ENTRY__GLOSSARY:
+			setGlossary((Glossary) null);
 			return;
 		case ExtDocModelPackage.GLOSSARY_ENTRY__ENTRIES:
 			getEntries().clear();
@@ -236,8 +236,8 @@ public class GlossaryEntryImpl extends NamedElementImpl implements GlossaryEntry
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case ExtDocModelPackage.GLOSSARY_ENTRY__GLOSSAR:
-			return getGlossar() != null;
+		case ExtDocModelPackage.GLOSSARY_ENTRY__GLOSSARY:
+			return getGlossary() != null;
 		case ExtDocModelPackage.GLOSSARY_ENTRY__ENTRIES:
 			return entries != null && !entries.isEmpty();
 		}

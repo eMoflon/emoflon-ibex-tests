@@ -387,13 +387,13 @@ public interface ExtTypeModelPackage extends EPackage {
 	int FIELD__NAME = NAMED_ELEMENT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Method</b></em>' container reference.
+	 * The feature id for the '<em><b>Type</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FIELD__METHOD = NAMED_ELEMENT_FEATURE_COUNT + 0;
+	int FIELD__TYPE = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Field</em>' class.
@@ -685,15 +685,15 @@ public interface ExtTypeModelPackage extends EPackage {
 	EClass getField();
 
 	/**
-	 * Returns the meta object for the container reference '{@link ExtTypeModel.Field#getMethod <em>Method</em>}'.
+	 * Returns the meta object for the container reference '{@link ExtTypeModel.Field#getType <em>Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Method</em>'.
-	 * @see ExtTypeModel.Field#getMethod()
+	 * @return the meta object for the container reference '<em>Type</em>'.
+	 * @see ExtTypeModel.Field#getType()
 	 * @see #getField()
 	 * @generated
 	 */
-	EReference getField_Method();
+	EReference getField_Type();
 
 	/**
 	 * Returns the meta object for class '{@link ExtTypeModel.JavaDoc <em>Java Doc</em>}'.
@@ -931,12 +931,12 @@ public interface ExtTypeModelPackage extends EPackage {
 		EClass FIELD = eINSTANCE.getField();
 
 		/**
-		 * The meta object literal for the '<em><b>Method</b></em>' container reference feature.
+		 * The meta object literal for the '<em><b>Type</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference FIELD__METHOD = eINSTANCE.getField_Method();
+		EReference FIELD__TYPE = eINSTANCE.getField_Type();
 
 		/**
 		 * The meta object literal for the '{@link ExtTypeModel.impl.JavaDocImpl <em>Java Doc</em>}' class.

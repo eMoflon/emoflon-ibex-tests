@@ -354,7 +354,7 @@ public class ExtTypeModelPackageImpl extends EPackageImpl implements ExtTypeMode
 	 * @generated
 	 */
 	@Override
-	public EReference getField_Method() {
+	public EReference getField_Type() {
 		return (EReference) fieldEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -444,7 +444,7 @@ public class ExtTypeModelPackageImpl extends EPackageImpl implements ExtTypeMode
 		createEReference(parameterEClass, PARAMETER__METHOD);
 
 		fieldEClass = createEClass(FIELD);
-		createEReference(fieldEClass, FIELD__METHOD);
+		createEReference(fieldEClass, FIELD__TYPE);
 
 		javaDocEClass = createEClass(JAVA_DOC);
 		createEAttribute(javaDocEClass, JAVA_DOC__COMMENT);
@@ -510,7 +510,7 @@ public class ExtTypeModelPackageImpl extends EPackageImpl implements ExtTypeMode
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getType_Methods(), this.getMethod(), this.getMethod_Type(), "methods", null, 0, -1, Type.class, !IS_TRANSIENT, !IS_VOLATILE,
 				IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getType_Fields(), this.getField(), this.getField_Method(), "fields", null, 0, -1, Type.class, !IS_TRANSIENT, !IS_VOLATILE,
+		initEReference(getType_Fields(), this.getField(), this.getField_Type(), "fields", null, 0, -1, Type.class, !IS_TRANSIENT, !IS_VOLATILE,
 				IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getType_Package(), this.getPackage(), this.getPackage_Types(), "package", null, 0, 1, Type.class, !IS_TRANSIENT, !IS_VOLATILE,
 				IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -528,8 +528,8 @@ public class ExtTypeModelPackageImpl extends EPackageImpl implements ExtTypeMode
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(fieldEClass, Field.class, "Field", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getField_Method(), this.getType(), this.getType_Fields(), "method", null, 0, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getField_Type(), this.getType(), this.getType_Fields(), "type", null, 0, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				!IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(javaDocEClass, JavaDoc.class, "JavaDoc", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getJavaDoc_Comment(), ecorePackage.getEString(), "comment", null, 0, 1, JavaDoc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,

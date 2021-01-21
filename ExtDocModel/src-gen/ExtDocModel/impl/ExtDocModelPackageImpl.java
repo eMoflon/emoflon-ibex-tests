@@ -284,7 +284,7 @@ public class ExtDocModelPackageImpl extends EPackageImpl implements ExtDocModelP
 	 * @generated
 	 */
 	@Override
-	public EReference getEntry_GlossarEntries() {
+	public EReference getEntry_GlossaryEntries() {
 		return (EReference) entryEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -354,6 +354,16 @@ public class ExtDocModelPackageImpl extends EPackageImpl implements ExtDocModelP
 	 * @generated
 	 */
 	@Override
+	public EReference getGlossary_Container() {
+		return (EReference) glossaryEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getGlossaryEntry() {
 		return glossaryEntryEClass;
 	}
@@ -364,7 +374,7 @@ public class ExtDocModelPackageImpl extends EPackageImpl implements ExtDocModelP
 	 * @generated
 	 */
 	@Override
-	public EReference getGlossaryEntry_Glossar() {
+	public EReference getGlossaryEntry_Glossary() {
 		return (EReference) glossaryEntryEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -434,7 +444,7 @@ public class ExtDocModelPackageImpl extends EPackageImpl implements ExtDocModelP
 		entryEClass = createEClass(ENTRY);
 		createEReference(entryEClass, ENTRY__DOC);
 		createEReference(entryEClass, ENTRY__ANNOTATION);
-		createEReference(entryEClass, ENTRY__GLOSSAR_ENTRIES);
+		createEReference(entryEClass, ENTRY__GLOSSARY_ENTRIES);
 		createEAttribute(entryEClass, ENTRY__TYPE);
 
 		annotationEClass = createEClass(ANNOTATION);
@@ -443,9 +453,10 @@ public class ExtDocModelPackageImpl extends EPackageImpl implements ExtDocModelP
 
 		glossaryEClass = createEClass(GLOSSARY);
 		createEReference(glossaryEClass, GLOSSARY__ENTRIES);
+		createEReference(glossaryEClass, GLOSSARY__CONTAINER);
 
 		glossaryEntryEClass = createEClass(GLOSSARY_ENTRY);
-		createEReference(glossaryEntryEClass, GLOSSARY_ENTRY__GLOSSAR);
+		createEReference(glossaryEntryEClass, GLOSSARY_ENTRY__GLOSSARY);
 		createEReference(glossaryEntryEClass, GLOSSARY_ENTRY__ENTRIES);
 
 		// Create enums
@@ -493,8 +504,8 @@ public class ExtDocModelPackageImpl extends EPackageImpl implements ExtDocModelP
 		initEClass(docContainerEClass, DocContainer.class, "DocContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDocContainer_Docs(), this.getDoc(), this.getDoc_Container(), "docs", null, 1, -1, DocContainer.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDocContainer_Glossary(), this.getGlossary(), null, "glossary", null, 1, 1, DocContainer.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDocContainer_Glossary(), this.getGlossary(), this.getGlossary_Container(), "glossary", null, 0, 1, DocContainer.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(docEClass, Doc.class, "Doc", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDoc_Container(), this.getDocContainer(), this.getDocContainer_Docs(), "container", null, 0, 1, Doc.class, !IS_TRANSIENT,
@@ -511,7 +522,7 @@ public class ExtDocModelPackageImpl extends EPackageImpl implements ExtDocModelP
 				!IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEntry_Annotation(), this.getAnnotation(), this.getAnnotation_Entry(), "annotation", null, 0, 1, Entry.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEntry_GlossarEntries(), this.getGlossaryEntry(), this.getGlossaryEntry_Entries(), "glossarEntries", null, 0, -1, Entry.class,
+		initEReference(getEntry_GlossaryEntries(), this.getGlossaryEntry(), this.getGlossaryEntry_Entries(), "glossaryEntries", null, 0, -1, Entry.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEntry_Type(), this.getEntryType(), "type", null, 0, 1, Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
 				!IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -523,13 +534,15 @@ public class ExtDocModelPackageImpl extends EPackageImpl implements ExtDocModelP
 				!IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(glossaryEClass, Glossary.class, "Glossary", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getGlossary_Entries(), this.getGlossaryEntry(), this.getGlossaryEntry_Glossar(), "entries", null, 0, -1, Glossary.class,
+		initEReference(getGlossary_Entries(), this.getGlossaryEntry(), this.getGlossaryEntry_Glossary(), "entries", null, 0, -1, Glossary.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGlossary_Container(), this.getDocContainer(), this.getDocContainer_Glossary(), "container", null, 0, 1, Glossary.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(glossaryEntryEClass, GlossaryEntry.class, "GlossaryEntry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getGlossaryEntry_Glossar(), this.getGlossary(), this.getGlossary_Entries(), "glossar", null, 0, 1, GlossaryEntry.class,
+		initEReference(getGlossaryEntry_Glossary(), this.getGlossary(), this.getGlossary_Entries(), "glossary", null, 0, 1, GlossaryEntry.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getGlossaryEntry_Entries(), this.getEntry(), this.getEntry_GlossarEntries(), "entries", null, 0, -1, GlossaryEntry.class,
+		initEReference(getGlossaryEntry_Entries(), this.getEntry(), this.getEntry_GlossaryEntries(), "entries", null, 0, -1, GlossaryEntry.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals

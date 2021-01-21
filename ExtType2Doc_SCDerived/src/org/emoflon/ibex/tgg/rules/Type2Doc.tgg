@@ -32,5 +32,5 @@
 }
 
 #attributeConditions {
-	concat(".", p.fQname, t.name, d.name)
+	concat(".", p.fQname, t.name, #derived d.name)
 }

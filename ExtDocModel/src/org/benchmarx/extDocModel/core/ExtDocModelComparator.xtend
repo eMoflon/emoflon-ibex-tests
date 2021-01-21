@@ -36,7 +36,7 @@ class ExtDocModelComparator implements Comparator<DocContainer> {
 					«d.stringify»
 				«ENDFOR»
 			}
-			glossary = «container.glossary.stringify»
+			«IF container.glossary !== null »glossary = «container.glossary.stringify»«ENDIF»
 		}
 		'''
 	}
@@ -66,7 +66,7 @@ class ExtDocModelComparator implements Comparator<DocContainer> {
 				name = "«entry.name»"
 				type = "«entry.type»"
 			«ENDIF»
-			annotation = «entry.annotation.stringify»
+			«IF entry.annotation !== null»annotation = «entry.annotation.stringify»«ENDIF»
 		}
 		'''
 	}

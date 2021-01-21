@@ -24,7 +24,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link ExtTypeModel.impl.FieldImpl#getMethod <em>Method</em>}</li>
+ *   <li>{@link ExtTypeModel.impl.FieldImpl#getType <em>Type</em>}</li>
  * </ul>
  *
  * @generated
@@ -55,8 +55,8 @@ public class FieldImpl extends NamedElementImpl implements Field {
 	 * @generated
 	 */
 	@Override
-	public Type getMethod() {
-		if (eContainerFeatureID() != ExtTypeModelPackage.FIELD__METHOD)
+	public Type getType() {
+		if (eContainerFeatureID() != ExtTypeModelPackage.FIELD__TYPE)
 			return null;
 		return (Type) eInternalContainer();
 	}
@@ -66,8 +66,8 @@ public class FieldImpl extends NamedElementImpl implements Field {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetMethod(Type newMethod, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject) newMethod, ExtTypeModelPackage.FIELD__METHOD, msgs);
+	public NotificationChain basicSetType(Type newType, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject) newType, ExtTypeModelPackage.FIELD__TYPE, msgs);
 		return msgs;
 	}
 
@@ -77,20 +77,20 @@ public class FieldImpl extends NamedElementImpl implements Field {
 	 * @generated
 	 */
 	@Override
-	public void setMethod(Type newMethod) {
-		if (newMethod != eInternalContainer() || (eContainerFeatureID() != ExtTypeModelPackage.FIELD__METHOD && newMethod != null)) {
-			if (EcoreUtil.isAncestor(this, newMethod))
+	public void setType(Type newType) {
+		if (newType != eInternalContainer() || (eContainerFeatureID() != ExtTypeModelPackage.FIELD__TYPE && newType != null)) {
+			if (EcoreUtil.isAncestor(this, newType))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
-			if (newMethod != null)
-				msgs = ((InternalEObject) newMethod).eInverseAdd(this, ExtTypeModelPackage.TYPE__FIELDS, Type.class, msgs);
-			msgs = basicSetMethod(newMethod, msgs);
+			if (newType != null)
+				msgs = ((InternalEObject) newType).eInverseAdd(this, ExtTypeModelPackage.TYPE__FIELDS, Type.class, msgs);
+			msgs = basicSetType(newType, msgs);
 			if (msgs != null)
 				msgs.dispatch();
 		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ExtTypeModelPackage.FIELD__METHOD, newMethod, newMethod));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExtTypeModelPackage.FIELD__TYPE, newType, newType));
 	}
 
 	/**
@@ -101,10 +101,10 @@ public class FieldImpl extends NamedElementImpl implements Field {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case ExtTypeModelPackage.FIELD__METHOD:
+		case ExtTypeModelPackage.FIELD__TYPE:
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
-			return basicSetMethod((Type) otherEnd, msgs);
+			return basicSetType((Type) otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -117,8 +117,8 @@ public class FieldImpl extends NamedElementImpl implements Field {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case ExtTypeModelPackage.FIELD__METHOD:
-			return basicSetMethod(null, msgs);
+		case ExtTypeModelPackage.FIELD__TYPE:
+			return basicSetType(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -131,7 +131,7 @@ public class FieldImpl extends NamedElementImpl implements Field {
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
-		case ExtTypeModelPackage.FIELD__METHOD:
+		case ExtTypeModelPackage.FIELD__TYPE:
 			return eInternalContainer().eInverseRemove(this, ExtTypeModelPackage.TYPE__FIELDS, Type.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
@@ -145,8 +145,8 @@ public class FieldImpl extends NamedElementImpl implements Field {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case ExtTypeModelPackage.FIELD__METHOD:
-			return getMethod();
+		case ExtTypeModelPackage.FIELD__TYPE:
+			return getType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -159,8 +159,8 @@ public class FieldImpl extends NamedElementImpl implements Field {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case ExtTypeModelPackage.FIELD__METHOD:
-			setMethod((Type) newValue);
+		case ExtTypeModelPackage.FIELD__TYPE:
+			setType((Type) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -174,8 +174,8 @@ public class FieldImpl extends NamedElementImpl implements Field {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case ExtTypeModelPackage.FIELD__METHOD:
-			setMethod((Type) null);
+		case ExtTypeModelPackage.FIELD__TYPE:
+			setType((Type) null);
 			return;
 		}
 		super.eUnset(featureID);
@@ -189,8 +189,8 @@ public class FieldImpl extends NamedElementImpl implements Field {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case ExtTypeModelPackage.FIELD__METHOD:
-			return getMethod() != null;
+		case ExtTypeModelPackage.FIELD__TYPE:
+			return getType() != null;
 		}
 		return super.eIsSet(featureID);
 	}

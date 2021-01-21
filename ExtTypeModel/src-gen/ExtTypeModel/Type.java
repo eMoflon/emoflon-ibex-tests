@@ -93,13 +93,13 @@ public interface Type extends NamedElement {
 	/**
 	 * Returns the value of the '<em><b>Fields</b></em>' containment reference list.
 	 * The list contents are of type {@link ExtTypeModel.Field}.
-	 * It is bidirectional and its opposite is '{@link ExtTypeModel.Field#getMethod <em>Method</em>}'.
+	 * It is bidirectional and its opposite is '{@link ExtTypeModel.Field#getType <em>Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Fields</em>' containment reference list.
 	 * @see ExtTypeModel.ExtTypeModelPackage#getType_Fields()
-	 * @see ExtTypeModel.Field#getMethod
-	 * @model opposite="method" containment="true"
+	 * @see ExtTypeModel.Field#getType
+	 * @model opposite="type" containment="true"
 	 * @generated
 	 */
 	EList<Field> getFields();

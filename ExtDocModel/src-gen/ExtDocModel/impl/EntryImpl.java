@@ -35,7 +35,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link ExtDocModel.impl.EntryImpl#getDoc <em>Doc</em>}</li>
  *   <li>{@link ExtDocModel.impl.EntryImpl#getAnnotation <em>Annotation</em>}</li>
- *   <li>{@link ExtDocModel.impl.EntryImpl#getGlossarEntries <em>Glossar Entries</em>}</li>
+ *   <li>{@link ExtDocModel.impl.EntryImpl#getGlossaryEntries <em>Glossary Entries</em>}</li>
  *   <li>{@link ExtDocModel.impl.EntryImpl#getType <em>Type</em>}</li>
  * </ul>
  *
@@ -53,14 +53,14 @@ public class EntryImpl extends NamedElementImpl implements Entry {
 	protected Annotation annotation;
 
 	/**
-	 * The cached value of the '{@link #getGlossarEntries() <em>Glossar Entries</em>}' reference list.
+	 * The cached value of the '{@link #getGlossaryEntries() <em>Glossary Entries</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getGlossarEntries()
+	 * @see #getGlossaryEntries()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<GlossaryEntry> glossarEntries;
+	protected EList<GlossaryEntry> glossaryEntries;
 
 	/**
 	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
@@ -200,12 +200,12 @@ public class EntryImpl extends NamedElementImpl implements Entry {
 	 * @generated
 	 */
 	@Override
-	public EList<GlossaryEntry> getGlossarEntries() {
-		if (glossarEntries == null) {
-			glossarEntries = new EObjectWithInverseResolvingEList.ManyInverse<GlossaryEntry>(GlossaryEntry.class, this,
-					ExtDocModelPackage.ENTRY__GLOSSAR_ENTRIES, ExtDocModelPackage.GLOSSARY_ENTRY__ENTRIES);
+	public EList<GlossaryEntry> getGlossaryEntries() {
+		if (glossaryEntries == null) {
+			glossaryEntries = new EObjectWithInverseResolvingEList.ManyInverse<GlossaryEntry>(GlossaryEntry.class, this,
+					ExtDocModelPackage.ENTRY__GLOSSARY_ENTRIES, ExtDocModelPackage.GLOSSARY_ENTRY__ENTRIES);
 		}
-		return glossarEntries;
+		return glossaryEntries;
 	}
 
 	/**
@@ -248,8 +248,8 @@ public class EntryImpl extends NamedElementImpl implements Entry {
 			if (annotation != null)
 				msgs = ((InternalEObject) annotation).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ExtDocModelPackage.ENTRY__ANNOTATION, null, msgs);
 			return basicSetAnnotation((Annotation) otherEnd, msgs);
-		case ExtDocModelPackage.ENTRY__GLOSSAR_ENTRIES:
-			return ((InternalEList<InternalEObject>) (InternalEList<?>) getGlossarEntries()).basicAdd(otherEnd, msgs);
+		case ExtDocModelPackage.ENTRY__GLOSSARY_ENTRIES:
+			return ((InternalEList<InternalEObject>) (InternalEList<?>) getGlossaryEntries()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -266,8 +266,8 @@ public class EntryImpl extends NamedElementImpl implements Entry {
 			return basicSetDoc(null, msgs);
 		case ExtDocModelPackage.ENTRY__ANNOTATION:
 			return basicSetAnnotation(null, msgs);
-		case ExtDocModelPackage.ENTRY__GLOSSAR_ENTRIES:
-			return ((InternalEList<?>) getGlossarEntries()).basicRemove(otherEnd, msgs);
+		case ExtDocModelPackage.ENTRY__GLOSSARY_ENTRIES:
+			return ((InternalEList<?>) getGlossaryEntries()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -298,8 +298,8 @@ public class EntryImpl extends NamedElementImpl implements Entry {
 			return getDoc();
 		case ExtDocModelPackage.ENTRY__ANNOTATION:
 			return getAnnotation();
-		case ExtDocModelPackage.ENTRY__GLOSSAR_ENTRIES:
-			return getGlossarEntries();
+		case ExtDocModelPackage.ENTRY__GLOSSARY_ENTRIES:
+			return getGlossaryEntries();
 		case ExtDocModelPackage.ENTRY__TYPE:
 			return getType();
 		}
@@ -321,9 +321,9 @@ public class EntryImpl extends NamedElementImpl implements Entry {
 		case ExtDocModelPackage.ENTRY__ANNOTATION:
 			setAnnotation((Annotation) newValue);
 			return;
-		case ExtDocModelPackage.ENTRY__GLOSSAR_ENTRIES:
-			getGlossarEntries().clear();
-			getGlossarEntries().addAll((Collection<? extends GlossaryEntry>) newValue);
+		case ExtDocModelPackage.ENTRY__GLOSSARY_ENTRIES:
+			getGlossaryEntries().clear();
+			getGlossaryEntries().addAll((Collection<? extends GlossaryEntry>) newValue);
 			return;
 		case ExtDocModelPackage.ENTRY__TYPE:
 			setType((EntryType) newValue);
@@ -346,8 +346,8 @@ public class EntryImpl extends NamedElementImpl implements Entry {
 		case ExtDocModelPackage.ENTRY__ANNOTATION:
 			setAnnotation((Annotation) null);
 			return;
-		case ExtDocModelPackage.ENTRY__GLOSSAR_ENTRIES:
-			getGlossarEntries().clear();
+		case ExtDocModelPackage.ENTRY__GLOSSARY_ENTRIES:
+			getGlossaryEntries().clear();
 			return;
 		case ExtDocModelPackage.ENTRY__TYPE:
 			setType(TYPE_EDEFAULT);
@@ -368,8 +368,8 @@ public class EntryImpl extends NamedElementImpl implements Entry {
 			return getDoc() != null;
 		case ExtDocModelPackage.ENTRY__ANNOTATION:
 			return annotation != null;
-		case ExtDocModelPackage.ENTRY__GLOSSAR_ENTRIES:
-			return glossarEntries != null && !glossarEntries.isEmpty();
+		case ExtDocModelPackage.ENTRY__GLOSSARY_ENTRIES:
+			return glossaryEntries != null && !glossaryEntries.isEmpty();
 		case ExtDocModelPackage.ENTRY__TYPE:
 			return type != TYPE_EDEFAULT;
 		}

@@ -251,13 +251,13 @@ public interface ExtDocModelPackage extends EPackage {
 	int ENTRY__ANNOTATION = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Glossar Entries</b></em>' reference list.
+	 * The feature id for the '<em><b>Glossary Entries</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENTRY__GLOSSAR_ENTRIES = NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int ENTRY__GLOSSARY_ENTRIES = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -352,13 +352,22 @@ public interface ExtDocModelPackage extends EPackage {
 	int GLOSSARY__ENTRIES = 0;
 
 	/**
+	 * The feature id for the '<em><b>Container</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GLOSSARY__CONTAINER = 1;
+
+	/**
 	 * The number of structural features of the '<em>Glossary</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GLOSSARY_FEATURE_COUNT = 1;
+	int GLOSSARY_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Glossary</em>' class.
@@ -389,13 +398,13 @@ public interface ExtDocModelPackage extends EPackage {
 	int GLOSSARY_ENTRY__NAME = NAMED_ELEMENT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Glossar</b></em>' container reference.
+	 * The feature id for the '<em><b>Glossary</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GLOSSARY_ENTRY__GLOSSAR = NAMED_ELEMENT_FEATURE_COUNT + 0;
+	int GLOSSARY_ENTRY__GLOSSARY = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Entries</b></em>' reference list.
@@ -574,15 +583,15 @@ public interface ExtDocModelPackage extends EPackage {
 	EReference getEntry_Annotation();
 
 	/**
-	 * Returns the meta object for the reference list '{@link ExtDocModel.Entry#getGlossarEntries <em>Glossar Entries</em>}'.
+	 * Returns the meta object for the reference list '{@link ExtDocModel.Entry#getGlossaryEntries <em>Glossary Entries</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Glossar Entries</em>'.
-	 * @see ExtDocModel.Entry#getGlossarEntries()
+	 * @return the meta object for the reference list '<em>Glossary Entries</em>'.
+	 * @see ExtDocModel.Entry#getGlossaryEntries()
 	 * @see #getEntry()
 	 * @generated
 	 */
-	EReference getEntry_GlossarEntries();
+	EReference getEntry_GlossaryEntries();
 
 	/**
 	 * Returns the meta object for the attribute '{@link ExtDocModel.Entry#getType <em>Type</em>}'.
@@ -649,6 +658,17 @@ public interface ExtDocModelPackage extends EPackage {
 	EReference getGlossary_Entries();
 
 	/**
+	 * Returns the meta object for the container reference '{@link ExtDocModel.Glossary#getContainer <em>Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Container</em>'.
+	 * @see ExtDocModel.Glossary#getContainer()
+	 * @see #getGlossary()
+	 * @generated
+	 */
+	EReference getGlossary_Container();
+
+	/**
 	 * Returns the meta object for class '{@link ExtDocModel.GlossaryEntry <em>Glossary Entry</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -659,15 +679,15 @@ public interface ExtDocModelPackage extends EPackage {
 	EClass getGlossaryEntry();
 
 	/**
-	 * Returns the meta object for the container reference '{@link ExtDocModel.GlossaryEntry#getGlossar <em>Glossar</em>}'.
+	 * Returns the meta object for the container reference '{@link ExtDocModel.GlossaryEntry#getGlossary <em>Glossary</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Glossar</em>'.
-	 * @see ExtDocModel.GlossaryEntry#getGlossar()
+	 * @return the meta object for the container reference '<em>Glossary</em>'.
+	 * @see ExtDocModel.GlossaryEntry#getGlossary()
 	 * @see #getGlossaryEntry()
 	 * @generated
 	 */
-	EReference getGlossaryEntry_Glossar();
+	EReference getGlossaryEntry_Glossary();
 
 	/**
 	 * Returns the meta object for the reference list '{@link ExtDocModel.GlossaryEntry#getEntries <em>Entries</em>}'.
@@ -826,12 +846,12 @@ public interface ExtDocModelPackage extends EPackage {
 		EReference ENTRY__ANNOTATION = eINSTANCE.getEntry_Annotation();
 
 		/**
-		 * The meta object literal for the '<em><b>Glossar Entries</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Glossary Entries</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ENTRY__GLOSSAR_ENTRIES = eINSTANCE.getEntry_GlossarEntries();
+		EReference ENTRY__GLOSSARY_ENTRIES = eINSTANCE.getEntry_GlossaryEntries();
 
 		/**
 		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
@@ -886,6 +906,14 @@ public interface ExtDocModelPackage extends EPackage {
 		EReference GLOSSARY__ENTRIES = eINSTANCE.getGlossary_Entries();
 
 		/**
+		 * The meta object literal for the '<em><b>Container</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference GLOSSARY__CONTAINER = eINSTANCE.getGlossary_Container();
+
+		/**
 		 * The meta object literal for the '{@link ExtDocModel.impl.GlossaryEntryImpl <em>Glossary Entry</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -896,12 +924,12 @@ public interface ExtDocModelPackage extends EPackage {
 		EClass GLOSSARY_ENTRY = eINSTANCE.getGlossaryEntry();
 
 		/**
-		 * The meta object literal for the '<em><b>Glossar</b></em>' container reference feature.
+		 * The meta object literal for the '<em><b>Glossary</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference GLOSSARY_ENTRY__GLOSSAR = eINSTANCE.getGlossaryEntry_Glossar();
+		EReference GLOSSARY_ENTRY__GLOSSARY = eINSTANCE.getGlossaryEntry_Glossary();
 
 		/**
 		 * The meta object literal for the '<em><b>Entries</b></em>' reference list feature.

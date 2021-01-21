@@ -129,9 +129,9 @@ public class DocContainerImpl extends MinimalEObjectImpl.Container implements Do
 		if (newGlossary != glossary) {
 			NotificationChain msgs = null;
 			if (glossary != null)
-				msgs = ((InternalEObject) glossary).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ExtDocModelPackage.DOC_CONTAINER__GLOSSARY, null, msgs);
+				msgs = ((InternalEObject) glossary).eInverseRemove(this, ExtDocModelPackage.GLOSSARY__CONTAINER, Glossary.class, msgs);
 			if (newGlossary != null)
-				msgs = ((InternalEObject) newGlossary).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ExtDocModelPackage.DOC_CONTAINER__GLOSSARY, null, msgs);
+				msgs = ((InternalEObject) newGlossary).eInverseAdd(this, ExtDocModelPackage.GLOSSARY__CONTAINER, Glossary.class, msgs);
 			msgs = basicSetGlossary(newGlossary, msgs);
 			if (msgs != null)
 				msgs.dispatch();
@@ -150,6 +150,10 @@ public class DocContainerImpl extends MinimalEObjectImpl.Container implements Do
 		switch (featureID) {
 		case ExtDocModelPackage.DOC_CONTAINER__DOCS:
 			return ((InternalEList<InternalEObject>) (InternalEList<?>) getDocs()).basicAdd(otherEnd, msgs);
+		case ExtDocModelPackage.DOC_CONTAINER__GLOSSARY:
+			if (glossary != null)
+				msgs = ((InternalEObject) glossary).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ExtDocModelPackage.DOC_CONTAINER__GLOSSARY, null, msgs);
+			return basicSetGlossary((Glossary) otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}

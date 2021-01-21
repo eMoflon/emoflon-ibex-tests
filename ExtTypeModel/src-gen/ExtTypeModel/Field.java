@@ -11,7 +11,7 @@ package ExtTypeModel;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link ExtTypeModel.Field#getMethod <em>Method</em>}</li>
+ *   <li>{@link ExtTypeModel.Field#getType <em>Type</em>}</li>
  * </ul>
  *
  * @see ExtTypeModel.ExtTypeModelPackage#getField()
@@ -20,27 +20,27 @@ package ExtTypeModel;
  */
 public interface Field extends NamedElement {
 	/**
-	 * Returns the value of the '<em><b>Method</b></em>' container reference.
+	 * Returns the value of the '<em><b>Type</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link ExtTypeModel.Type#getFields <em>Fields</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Method</em>' container reference.
-	 * @see #setMethod(Type)
-	 * @see ExtTypeModel.ExtTypeModelPackage#getField_Method()
+	 * @return the value of the '<em>Type</em>' container reference.
+	 * @see #setType(Type)
+	 * @see ExtTypeModel.ExtTypeModelPackage#getField_Type()
 	 * @see ExtTypeModel.Type#getFields
 	 * @model opposite="fields" transient="false"
 	 * @generated
 	 */
-	Type getMethod();
+	Type getType();
 
 	/**
-	 * Sets the value of the '{@link ExtTypeModel.Field#getMethod <em>Method</em>}' container reference.
+	 * Sets the value of the '{@link ExtTypeModel.Field#getType <em>Type</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Method</em>' container reference.
-	 * @see #getMethod()
+	 * @param value the new value of the '<em>Type</em>' container reference.
+	 * @see #getType()
 	 * @generated
 	 */
-	void setMethod(Type value);
+	void setType(Type value);
 
 } // Field

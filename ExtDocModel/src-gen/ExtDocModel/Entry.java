@@ -15,7 +15,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link ExtDocModel.Entry#getDoc <em>Doc</em>}</li>
  *   <li>{@link ExtDocModel.Entry#getAnnotation <em>Annotation</em>}</li>
- *   <li>{@link ExtDocModel.Entry#getGlossarEntries <em>Glossar Entries</em>}</li>
+ *   <li>{@link ExtDocModel.Entry#getGlossaryEntries <em>Glossary Entries</em>}</li>
  *   <li>{@link ExtDocModel.Entry#getType <em>Type</em>}</li>
  * </ul>
  *
@@ -73,18 +73,18 @@ public interface Entry extends NamedElement {
 	void setAnnotation(Annotation value);
 
 	/**
-	 * Returns the value of the '<em><b>Glossar Entries</b></em>' reference list.
+	 * Returns the value of the '<em><b>Glossary Entries</b></em>' reference list.
 	 * The list contents are of type {@link ExtDocModel.GlossaryEntry}.
 	 * It is bidirectional and its opposite is '{@link ExtDocModel.GlossaryEntry#getEntries <em>Entries</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Glossar Entries</em>' reference list.
-	 * @see ExtDocModel.ExtDocModelPackage#getEntry_GlossarEntries()
+	 * @return the value of the '<em>Glossary Entries</em>' reference list.
+	 * @see ExtDocModel.ExtDocModelPackage#getEntry_GlossaryEntries()
 	 * @see ExtDocModel.GlossaryEntry#getEntries
 	 * @model opposite="entries"
 	 * @generated
 	 */
-	EList<GlossaryEntry> getGlossarEntries();
+	EList<GlossaryEntry> getGlossaryEntries();
 
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' attribute.

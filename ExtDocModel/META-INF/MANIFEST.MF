@@ -10,7 +10,8 @@ Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: ExtDocModel,
  ExtDocModel.impl,
- ExtDocModel.util
+ ExtDocModel.util,
+ org.benchmarx.extDocModel.core
 Require-Bundle: org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.core.runtime,
  com.google.guava,

@@ -29,4 +29,6 @@ Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: ExtType2Doc_SCDerived,
  ExtType2Doc_SCDerived.impl,
- ExtType2Doc_SCDerived.util
+ ExtType2Doc_SCDerived.util,
+ org.emoflon.ibex.tgg.run.exttype2doc_scderived,
+ org.emoflon.ibex.tgg.run.exttype2doc_scderived.config

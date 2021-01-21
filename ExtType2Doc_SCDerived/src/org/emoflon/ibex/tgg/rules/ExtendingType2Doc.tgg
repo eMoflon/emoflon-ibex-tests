@@ -45,5 +45,5 @@
 }
 
 #attributeConditions {
-	concat(".", p.fQname, nt.name, nd.name)
+	concat(".", p.fQname, nt.name, #derived nd.name)
 }

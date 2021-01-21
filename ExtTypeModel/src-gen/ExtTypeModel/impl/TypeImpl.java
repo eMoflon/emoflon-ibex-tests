@@ -195,7 +195,7 @@ public class TypeImpl extends NamedElementImpl implements Type {
 	@Override
 	public EList<Field> getFields() {
 		if (fields == null) {
-			fields = new EObjectContainmentWithInverseEList<Field>(Field.class, this, ExtTypeModelPackage.TYPE__FIELDS, ExtTypeModelPackage.FIELD__METHOD);
+			fields = new EObjectContainmentWithInverseEList<Field>(Field.class, this, ExtTypeModelPackage.TYPE__FIELDS, ExtTypeModelPackage.FIELD__TYPE);
 		}
 		return fields;
 	}
