@@ -1,0 +1,32 @@
+#using ExtType2Doc_LookAhead.*
+#using AttrCondDefLibrary.*
+
+#rule Param2Entry #with ExtType2Doc_LookAhead
+
+#source { 
+	m:Method {
+		++-params->p
+	}
+	
+	++p:Parameter
+}
+
+#target {
+	e:Entry
+}
+
+#correspondence {
+	m2e:Method2Entry {
+		#src->m
+		#trg->e
+	}
+	
+	++p2e:Param2Entry {
+		#src->p
+		#trg->e
+	}
+}
+
+#attributeConditions {
+	
+}

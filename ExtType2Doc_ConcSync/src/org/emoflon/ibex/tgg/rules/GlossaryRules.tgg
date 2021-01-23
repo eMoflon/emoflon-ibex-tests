@@ -1,0 +1,33 @@
+#using ExtType2Doc_ConcSync.*
+#using AttrCondDefLibrary.*
+
+#rule Glossary #with ExtType2Doc_ConcSync
+
+#target {
+	dc:DocContainer {
+		++-glossary->g
+	}
+	
+	++g:Glossary
+}
+
+
+#rule GlossaryEntry #with ExtType2Doc_ConcSync
+
+#target {
+	g:Glossary {
+		++-entries->ge
+	}
+	
+	++ge:GlossaryEntry
+}
+
+
+#rule GlossaryLink #with ExtType2Doc_ConcSync
+
+#target {
+	e:Entry {
+		++-glossaryEntries->ge
+	}
+	ge:GlossaryEntry
+}

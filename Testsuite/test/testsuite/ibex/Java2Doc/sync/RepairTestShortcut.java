@@ -40,13 +40,13 @@ public class RepairTestShortcut extends SyncTestCase<Package, Folder>{
 	public void testInit()
 	{
 		//------------
-		assertPostcondition("in/Init", "expected/Init");
+		assertPostcondition("in/init", "expected/init");
 	}
 	
 	@Test
 	public void testMoflon_FWD()
 	{
-		assertPrecondition("in/Init", "expected/Init");
+		assertPrecondition("in/init", "expected/init");
 		tool.performAndPropagateSourceEdit(p -> helperJava.createMoflon(p));
 		tool.performAndPropagateTargetEdit(f -> helperDoc.fillContents(f));
 		//------------
@@ -56,7 +56,7 @@ public class RepairTestShortcut extends SyncTestCase<Package, Folder>{
 	@Test
 	public void testMoflon_BWD()
 	{
-		assertPrecondition("in/Init", "expected/Init");
+		assertPrecondition("in/init", "expected/init");
 		tool.performAndPropagateTargetEdit(p -> helperDoc.createMoflon(p));
 		tool.performAndPropagateSourceEdit(p -> helperJava.fillBodies(p));
 		//------------

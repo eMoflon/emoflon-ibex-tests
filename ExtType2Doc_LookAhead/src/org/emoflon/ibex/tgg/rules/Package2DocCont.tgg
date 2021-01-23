@@ -1,0 +1,23 @@
+#using ExtType2Doc_LookAhead.*
+#using AttrCondDefLibrary.*
+
+#rule Package2DocCont #with ExtType2Doc_LookAhead
+
+#source { 
+	++p:Package
+}
+
+#target {
+	++dc:DocContainer
+}
+
+#correspondence {
+	++p2dc:Package2DocCont {
+		#src->p
+		#trg->dc
+	}
+}
+
+#attributeConditions {
+	
+}

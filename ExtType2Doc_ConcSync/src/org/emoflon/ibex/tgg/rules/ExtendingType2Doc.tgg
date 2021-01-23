@@ -1,0 +1,48 @@
+#using ExtType2Doc_ConcSync.*
+#using AttrCondDefLibrary.*
+
+#rule ExtendingType2Doc #with ExtType2Doc_ConcSync
+
+#source { 
+	p:Package {
+		-types->t
+		++-types->nt
+	}
+	t:Type {
+		++-extendedBy->nt
+	}
+	
+	++nt:Type
+}
+
+#target {
+	dc:DocContainer {
+		-docs->d
+		++-docs->nd
+	}
+	d:Doc {
+		++-subDocs->nd
+	}
+	
+	++nd:Doc
+}
+
+#correspondence {
+	p2dc:Package2DocCont {
+		#src->p
+		#trg->dc
+	}
+	t2d:Type2Doc {
+		#src->t
+		#trg->d
+	}
+	
+	++nt2nd:Type2Doc {
+		#src->nt
+		#trg->nd
+	}
+}
+
+#attributeConditions {
+	eq_string(nt.name, nd.name)
+}

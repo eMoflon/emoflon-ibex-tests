@@ -1,0 +1,36 @@
+#using ExtType2Doc_ConcSync.*
+#using AttrCondDefLibrary.*
+
+#rule JDoc2Annotation #with ExtType2Doc_ConcSync
+
+#source { 
+	m:Method {
+		++-doc->j
+	}
+	
+	++j:JavaDoc
+}
+
+#target {
+	e:Entry {
+		++-annotation->a
+	}
+	
+	++a:Annotation
+}
+
+#correspondence {
+	m2e:Method2Entry {
+		#src->m
+		#trg->e
+	}
+	
+	++j2a:JDoc2Annotation {
+		#src->j
+		#trg->a
+	}
+}
+
+#attributeConditions {
+	eq_string(j.comment, a.value)
+}

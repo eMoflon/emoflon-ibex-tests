@@ -1,0 +1,23 @@
+#using ExtType2Doc_SCDerived.*
+#using AttrCondDefLibrary.*
+
+#rule Package2DocCont #with ExtType2Doc_SCDerived
+
+#source { 
+	++p:Package
+}
+
+#target {
+	++dc:DocContainer
+}
+
+#correspondence {
+	++p2dc:Package2DocCont {
+		#src->p
+		#trg->dc
+	}
+}
+
+#attributeConditions {
+	eq_string(p.name, #derived p.fQname)
+}

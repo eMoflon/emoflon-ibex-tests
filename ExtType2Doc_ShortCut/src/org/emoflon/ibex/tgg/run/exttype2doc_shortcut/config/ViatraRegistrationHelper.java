@@ -1,0 +1,32 @@
+package org.emoflon.ibex.tgg.run.exttype2doc_shortcut.config;
+
+import java.io.IOException;
+
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.emoflon.ibex.tgg.operational.csp.constraints.factories.exttype2doc_shortcut.UserDefinedRuntimeTGGAttrConstraintFactory;
+import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
+import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
+import org.emoflon.ibex.tgg.operational.strategies.modules.IbexExecutable;
+import org.emoflon.ibex.tgg.runtime.viatra.ViatraTGGEngine;
+
+public class ViatraRegistrationHelper implements IRegistrationHelper {
+
+	/** Load and register source and target metamodels */
+	public void registerMetamodels(ResourceSet rs, IbexExecutable executable) throws IOException {
+		// Replace to register generated code or handle other URI-related requirements
+		executable.getResourceHandler().loadAndRegisterMetamodel("platform:/resource/ExtDocModel/model/ExtDocModel.ecore");
+		executable.getResourceHandler().loadAndRegisterMetamodel("platform:/resource/ExtTypeModel/model/ExtTypeModel.ecore");
+	}
+
+	/** Create default options **/
+	public IbexOptions createIbexOptions() {
+		IbexOptions options = new IbexOptions();
+		options.blackInterpreter(new ViatraTGGEngine());
+		options.project.name("ExtType2Doc_ShortCut");
+		options.project.path("ExtType2Doc_ShortCut");
+		options.debug.ibexDebug(false);
+		options.csp.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
+		options.registrationHelper(this);
+		return options;
+	}
+}
