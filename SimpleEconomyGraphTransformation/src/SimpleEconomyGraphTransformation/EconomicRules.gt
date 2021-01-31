@@ -1,0 +1,220 @@
+import "platform:/resource/SimpleEconomy/model/SimpleEconomy.ecore"
+import "http://www.eclipse.org/emf/2002/Ecore"
+
+@optimizedDisjoint
+pattern findBuyers{
+	p: Product
+	c: Client
+	#c.budget>=p.price
+}
+pattern notDisjointFindBuyers{
+	p: Product
+	c: Client
+	#c.budget>=p.price
+}
+@optimizedDisjoint
+rule buyProduct{
+	p: Product
+	c: Client{
+		.budget := c.budget-p.price
+		++ -products-> p
+	}
+	#c.budget>=p.price	
+}
+@optimizedDisjoint
+rule buySpecificProduct(givenPrice: EDouble, givenBudget: EDouble){
+	p: Product
+	c: Client{
+		.budget := c.budget-p.price
+		++ -products-> p
+	}
+	#c.budget>=p.price
+	#c.budget == param::givenBudget	
+	#p.price == param::givenPrice	
+}
+@optimizedDisjoint
+rule sellSpecificProduct(givenPrice: EDouble, givenBudget: EDouble){
+	p: Product
+	c: Client{
+		.budget := c.budget+p.price
+		-- -products-> p
+	}
+		#c.budget>=p.price
+		#c.budget == param::givenBudget	
+		#p.price == param::givenPrice
+}
+
+rule notDisjointBuyProduct{
+	p: Product
+	c: Client{
+		.budget := c.budget-p.price
+		++ -products-> p
+	}
+	#c.budget>=p.price	
+}
+
+rule sellProduct{
+	p: Product
+	c: Client{
+		.budget := c.budget+p.price
+		-- -products -> p
+	}
+}
+
+rule notDisjointSellProduct{
+	p: Product
+	c: Client{
+		.budget := c.budget+p.price
+		-- -products -> p
+	}
+}
+@optimizedDisjoint
+rule buyProductAndService{
+	p: Product
+	s: Service
+	c: Client{
+		.budget := c.budget-p.price-s.price
+		++ -products-> p
+	}
+	#c.budget>=p.price+s.price
+}
+
+rule notDisjointBuyProductAndService{
+	p: Product
+	s: Service
+	c: Client{
+		.budget := c.budget-p.price-s.price
+		++ -products-> p
+	}
+	#c.budget>=p.price+s.price
+}
+
+@optimizedDisjoint
+pattern hasMoneyToBuy{
+	p: Product
+	s: Service
+	c: Client
+	#c.budget>=p.price
+	#c.budget>=s.price
+}
+
+pattern notDisjointHasMoneyToBuy{
+	p: Product
+	s: Service
+	c: Client
+	#c.budget>=p.price
+	#c.budget>=s.price
+}
+
+@optimizedDisjoint
+pattern buyServiceDependentOfProduct{
+	p: Product
+	s: Service
+	c: Client
+	#c.budget>=s.price
+	#p.price <= s.price	
+}
+
+pattern notDisjointbuyServiceDependentOfProduct{
+	p: Product
+	s: Service
+	c: Client
+	#c.budget>=s.price
+	#p.price <= s.price	
+}
+@optimizedDisjoint
+pattern buyServiceDependentOfProduct2{
+	p: Product
+	s: Service
+	c: Client
+	#c.budget>=s.price
+	#p.price > p.price	
+}
+
+pattern notDisjointbuyServiceDependentOfProduct2{
+	p: Product
+	s: Service
+	c: Client
+	#c.budget>=s.price
+	#p.price > p.price	
+}
+
+@optimizedDisjoint
+pattern findCheaperProduct{
+	p1: Product
+	p2: Product
+	#p2.price < p1.price
+}
+
+pattern notDisjointFindCheaperProduct{
+	p1: Product
+	p2: Product
+	#p2.price < p1.price
+}
+
+@optimizedDisjoint
+pattern findCheaperProduct2{
+	p1: Product
+	p2: Product
+	p3: Product
+	#p3.price < p2.price
+	#p2.price < p1.price	
+}
+
+pattern notDisjointFindCheaperProduct2{
+	p1: Product
+	p2: Product
+	p3: Product
+	#p3.price < p2.price
+	#p2.price < p1.price
+}
+
+rule changePrice(newPrice: EDouble){
+	p: Product{
+		.price := param::newPrice
+
+	}
+	#p.price != param::newPrice	
+}
+
+rule changeServicePrice(newPrice: EDouble){
+	s: Service{
+		.price := param::newPrice
+	}	
+	#s.price != param::newPrice
+}
+
+rule addProduct(newPrice: EDouble){
+	m: Market{
+		++ -products ->p
+	}
+	++p: Product{
+		.price := param::newPrice
+	}
+}
+rule removeProduct(newPrice: EDouble){
+	m: Market{
+		-- -products ->p
+	}
+	--p: Product
+	#p.price == param::newPrice
+}
+
+@optimizedDisjoint
+rule changeProductValue(newPrice: EDouble){
+	p1: Product{
+		.price := p2.price
+	}
+	p2:Product
+	#p2.price == param::newPrice
+	#p1.price > p2.price
+}
+
+rule notDisjointchangeProductValue(newPrice: EDouble){
+	p1: Product{
+		.price := p2.price
+	}
+	p2:Product
+	#p2.price == param::newPrice
+	#p1.price > p2.price
+}

@@ -1,0 +1,220 @@
+import "platform:/resource/SimpleChemistry/model/SimpleChemistry.ecore"
+
+abstract pattern findConnectedH{
+	h:H {
+		- connections ->a
+	}
+	a:Atom
+}
+
+abstract pattern findConnectedO{
+	o:O {
+		- connections ->a
+	}
+	a:Atom
+}
+
+abstract pattern findConnectedH1{
+	h1:H {
+		- connections ->a
+	}
+	a:Atom
+}
+abstract pattern findConnectedH2{
+	h2:H {
+		- connections ->a
+	}
+	a:Atom
+}
+condition freeH = forbid findConnectedH
+condition freeO = forbid findConnectedO
+condition findFree = freeH && freeO
+condition freeH2 = forbid findConnectedH1 && forbid findConnectedH2
+condition freeOtherH = forbid findConnectedH2
+
+@optimizedDisjoint
+pattern findFreeAtoms{
+	h:H
+	o:O
+}when findFree
+
+pattern notDisjunctfindFreeAtoms{
+	h:H
+	o:O
+}when findFree
+
+@optimizedDisjoint
+rule simpleBind{
+	h:H{
+		++ -connections -> o
+	}
+	o:O{
+		++ -connections -> h
+	}
+}when findFree
+
+rule notDisjunctsimpleBind{
+	h:H{
+		++ -connections -> o
+	}
+	o:O{
+		++ -connections -> h
+	}
+}when findFree
+
+@optimizedDisjoint
+rule createH2{
+	h1:H{
+		++ -connections -> h2
+	}
+	h2:H{
+		++ -connections -> h1
+	}
+}when freeH2
+
+rule notDisjunctcreateH2{
+	h1:H{
+		++ -connections -> h2
+	}
+	h2:H{
+		++ -connections -> h1
+	}
+}when freeH2
+rule destroyH2{
+	h1:H{
+		-- -connections -> h2
+	}
+	h2:H{
+		-- -connections -> h1
+	}
+}
+
+@optimizedDisjoint
+rule completeH20{
+	h1:H{
+		-connections -> o
+	}
+	o:O{
+		-connections -> h1
+		++-connections -> h2
+	}
+	h2:H
+}when freeOtherH
+
+rule notDisjointcompleteH20{
+	h1:H{
+		-connections -> o
+	}
+	o:O{
+		-connections -> h1
+		++-connections -> h2
+	}
+	h2:H
+}when freeOtherH
+
+@optimizedDisjoint
+pattern findTwoH{
+	h1:H
+	h2:H
+}
+
+pattern notDisjunctfindTwoH{
+	h1:H
+	h2:H
+}
+
+@optimizedDisjoint
+pattern findThreeH{
+	h1: H
+	h2: H
+	h3: H
+}
+
+pattern notDisjunctfindThreeH{
+	h1: H
+	h2: H
+	h3: H
+}
+
+@optimizedDisjoint
+pattern findTwoHAndO{
+	h1: H
+	h2: H
+	o1: O
+	o2: O
+}
+
+pattern notDisjunctfindTwoHAndO{
+	h1: H
+	h2: H
+	o1: O
+	o2: O
+}
+rule destroyH3{
+		h1: H{
+		-- -connections ->h2
+		-- -connections ->h3
+	}
+	h2: H{
+		-- -connections ->h1
+		-- -connections ->h3
+	}
+	h3: H{
+		-- -connections ->h2
+		-- -connections ->h1
+	}
+}
+
+@optimizedDisjoint
+rule createH3{
+	h1: H{
+		++ -connections ->h2
+		++ -connections ->h3
+	}
+	h2: H{
+		++ -connections ->h1
+		++ -connections ->h3
+	}
+	h3: H{
+		++ -connections ->h2
+		++ -connections ->h1
+	}
+}when ThreeHUnconnected
+
+rule notDisjunctCreateH3{
+	h1: H{
+		++ -connections ->h2
+		++ -connections ->h3
+	}
+	h2: H{
+		++ -connections ->h1
+		++ -connections ->h3
+	}
+	h3: H{
+		++ -connections ->h2
+		++ -connections ->h1
+	}
+}when ThreeHUnconnected
+
+abstract pattern h1Unconnected{
+	h1: H {
+		-connections -> a
+	}
+	a: Atom
+}
+
+abstract pattern h2Unconnected{
+	h2: H {
+		-connections -> a
+	}
+	a: Atom
+}
+
+abstract pattern h3Unconnected{
+	h3: H {
+		-connections -> a
+	}
+	a: Atom
+}
+
+condition ThreeHUnconnected = forbid h1Unconnected && forbid h2Unconnected && forbid h3Unconnected

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SimpleEconomy:Market
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:SimpleEconomy="platform:/resource/SimpleEconomy/model/SimpleEconomy.ecore">
+  <clients budget="80.0"/>
+  <clients budget="40.0"/>
+  <clients budget="10.0"/>
+  <products
+      price="100.0"/>
+  <products
+      price="50.0"/>
+  <products
+      price="10.0"/>
+  <services
+      price="5.0"/>
+  <services
+      price="25.0"/>
+  <services
+      price="75.0"/>
+</SimpleEconomy:Market>
