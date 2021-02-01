@@ -1,21 +1,21 @@
 import "http://www.eclipse.org/emf/2002/Ecore"
 import "platform:/resource/EconomicsModel/model/EconomicsModel.ecore"
 
-@optimizedDisjoint
+@optimize
 rule updateFirms{
 	m: Market
 	f: Firm{
 		.knownWage := m.wage
 	}
 }
-@optimizedDisjoint
+@optimize
 rule updateGoverment{
 	m: Market
 	g: Goverment{
 		.knownWage := m.wage
 	}
 }
-@optimizedDisjoint
+@optimize
 rule updateMachineFirm(x1: EDouble, x2: EDouble, id: EInt){
 	m: Market
 	f: IndustryFirm{	
@@ -39,7 +39,7 @@ rule innovate(id:EInt){
 	#f.currentInefficiency > (1+f.knownMarkup)*f.knownWage/(f.b*(1+f.x2))+f.knownPayback*f.knownWage/(f.a*(1+f.x1))
 }@(1-exp(f.innovationBudget*(0-f.epsilon)))
 
-@optimizedDisjoint
+@optimize
 rule imitate(id:EInt){
 	f: IndustryFirm{
 		.a := (f.a*(1+f.x1))
@@ -84,7 +84,7 @@ rule removeOldMachines{
 	--m: Machine
 }when oldMachine2
 
-@optimizedDisjoint
+@optimize
 rule buyMachines{
 	f: ConsumerFirm{
 		.currentEfficiency := f2.price + f2.knownPayback*f2.consumerCost
@@ -99,7 +99,7 @@ rule buyMachines{
 	
 }
 
-@optimizedDisjoint
+@optimize
 rule getMachines{
 	f: ConsumerFirm{
 		.machineNumber := f.machineNumber+1
@@ -116,7 +116,7 @@ rule getMachines{
 	}
 }
 
-@optimizedDisjoint
+@optimize
 rule calculateConsumptionWorkers(id: EInt){
 	f: ConsumerFirm{		
 		.neededWorkers := f.productionLevel/(m.a*f.machineNumber)
@@ -132,7 +132,7 @@ rule calculateIndustryWorkers{
 	}	
 }
 
-@optimizedDisjoint
+@optimize
 rule findEmployment{
 	f: Firm{
 		.neededWorkers := f.neededWorkers-1
@@ -148,7 +148,7 @@ rule findEmployment{
 	}
 }
 
-@optimizedDisjoint
+@optimize
 rule giveUnemploymentBenefits{
 	w: Worker{
 		
@@ -158,14 +158,14 @@ rule giveUnemploymentBenefits{
 	g: Goverment		
 }
 
-@optimizedDisjoint
+@optimize
 rule produce{
 	f: ConsumerFirm{
 		.inventory := f.inventory + f.productionLevel
 	}
 }
 
-@optimizedDisjoint
+@optimize
 rule buyProducts{
 	w: Worker{	
 		.budget := w.budget-f.price

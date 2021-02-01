@@ -85,7 +85,8 @@ public abstract class NamedElementImpl extends MinimalEObjectImpl.Container impl
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ExtDocModelPackage.NAMED_ELEMENT__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExtDocModelPackage.NAMED_ELEMENT__NAME, oldName,
+					name));
 	}
 
 	/**

@@ -1,7 +1,7 @@
 import "platform:/resource/SimpleEconomy/model/SimpleEconomy.ecore"
 import "http://www.eclipse.org/emf/2002/Ecore"
 
-@optimizedDisjoint
+@optimize
 pattern findBuyers{
 	p: Product
 	c: Client
@@ -12,7 +12,7 @@ pattern notDisjointFindBuyers{
 	c: Client
 	#c.budget>=p.price
 }
-@optimizedDisjoint
+@optimize
 rule buyProduct{
 	p: Product
 	c: Client{
@@ -21,7 +21,7 @@ rule buyProduct{
 	}
 	#c.budget>=p.price	
 }
-@optimizedDisjoint
+@optimize
 rule buySpecificProduct(givenPrice: EDouble, givenBudget: EDouble){
 	p: Product
 	c: Client{
@@ -32,7 +32,7 @@ rule buySpecificProduct(givenPrice: EDouble, givenBudget: EDouble){
 	#c.budget == param::givenBudget	
 	#p.price == param::givenPrice	
 }
-@optimizedDisjoint
+@optimize
 rule sellSpecificProduct(givenPrice: EDouble, givenBudget: EDouble){
 	p: Product
 	c: Client{
@@ -68,7 +68,7 @@ rule notDisjointSellProduct{
 		-- -products -> p
 	}
 }
-@optimizedDisjoint
+@optimize
 rule buyProductAndService{
 	p: Product
 	s: Service
@@ -89,7 +89,7 @@ rule notDisjointBuyProductAndService{
 	#c.budget>=p.price+s.price
 }
 
-@optimizedDisjoint
+@optimize
 pattern hasMoneyToBuy{
 	p: Product
 	s: Service
@@ -106,7 +106,7 @@ pattern notDisjointHasMoneyToBuy{
 	#c.budget>=s.price
 }
 
-@optimizedDisjoint
+@optimize
 pattern buyServiceDependentOfProduct{
 	p: Product
 	s: Service
@@ -122,7 +122,7 @@ pattern notDisjointbuyServiceDependentOfProduct{
 	#c.budget>=s.price
 	#p.price <= s.price	
 }
-@optimizedDisjoint
+@optimize
 pattern buyServiceDependentOfProduct2{
 	p: Product
 	s: Service
@@ -139,7 +139,7 @@ pattern notDisjointbuyServiceDependentOfProduct2{
 	#p.price > p.price	
 }
 
-@optimizedDisjoint
+@optimize
 pattern findCheaperProduct{
 	p1: Product
 	p2: Product
@@ -152,7 +152,7 @@ pattern notDisjointFindCheaperProduct{
 	#p2.price < p1.price
 }
 
-@optimizedDisjoint
+@optimize
 pattern findCheaperProduct2{
 	p1: Product
 	p2: Product
@@ -200,7 +200,7 @@ rule removeProduct(newPrice: EDouble){
 	#p.price == param::newPrice
 }
 
-@optimizedDisjoint
+@optimize
 rule changeProductValue(newPrice: EDouble){
 	p1: Product{
 		.price := p2.price

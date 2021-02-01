@@ -87,8 +87,8 @@ public class MethodImpl extends NamedElementImpl implements Method {
 	@Override
 	public EList<Parameter> getParams() {
 		if (params == null) {
-			params = new EObjectContainmentWithInverseEList<Parameter>(Parameter.class, this, ExtTypeModelPackage.METHOD__PARAMS,
-					ExtTypeModelPackage.PARAMETER__METHOD);
+			params = new EObjectContainmentWithInverseEList<Parameter>(Parameter.class, this,
+					ExtTypeModelPackage.METHOD__PARAMS, ExtTypeModelPackage.PARAMETER__METHOD);
 		}
 		return params;
 	}
@@ -122,14 +122,16 @@ public class MethodImpl extends NamedElementImpl implements Method {
 	 */
 	@Override
 	public void setType(Type newType) {
-		if (newType != eInternalContainer() || (eContainerFeatureID() != ExtTypeModelPackage.METHOD__TYPE && newType != null)) {
+		if (newType != eInternalContainer()
+				|| (eContainerFeatureID() != ExtTypeModelPackage.METHOD__TYPE && newType != null)) {
 			if (EcoreUtil.isAncestor(this, newType))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newType != null)
-				msgs = ((InternalEObject) newType).eInverseAdd(this, ExtTypeModelPackage.TYPE__METHODS, Type.class, msgs);
+				msgs = ((InternalEObject) newType).eInverseAdd(this, ExtTypeModelPackage.TYPE__METHODS, Type.class,
+						msgs);
 			msgs = basicSetType(newType, msgs);
 			if (msgs != null)
 				msgs.dispatch();
@@ -156,7 +158,8 @@ public class MethodImpl extends NamedElementImpl implements Method {
 		JavaDoc oldDoc = doc;
 		doc = newDoc;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ExtTypeModelPackage.METHOD__DOC, oldDoc, newDoc);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					ExtTypeModelPackage.METHOD__DOC, oldDoc, newDoc);
 			if (msgs == null)
 				msgs = notification;
 			else
@@ -175,9 +178,11 @@ public class MethodImpl extends NamedElementImpl implements Method {
 		if (newDoc != doc) {
 			NotificationChain msgs = null;
 			if (doc != null)
-				msgs = ((InternalEObject) doc).eInverseRemove(this, ExtTypeModelPackage.JAVA_DOC__METHOD, JavaDoc.class, msgs);
+				msgs = ((InternalEObject) doc).eInverseRemove(this, ExtTypeModelPackage.JAVA_DOC__METHOD, JavaDoc.class,
+						msgs);
 			if (newDoc != null)
-				msgs = ((InternalEObject) newDoc).eInverseAdd(this, ExtTypeModelPackage.JAVA_DOC__METHOD, JavaDoc.class, msgs);
+				msgs = ((InternalEObject) newDoc).eInverseAdd(this, ExtTypeModelPackage.JAVA_DOC__METHOD, JavaDoc.class,
+						msgs);
 			msgs = basicSetDoc(newDoc, msgs);
 			if (msgs != null)
 				msgs.dispatch();
@@ -202,7 +207,8 @@ public class MethodImpl extends NamedElementImpl implements Method {
 			return basicSetType((Type) otherEnd, msgs);
 		case ExtTypeModelPackage.METHOD__DOC:
 			if (doc != null)
-				msgs = ((InternalEObject) doc).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ExtTypeModelPackage.METHOD__DOC, null, msgs);
+				msgs = ((InternalEObject) doc).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - ExtTypeModelPackage.METHOD__DOC, null, msgs);
 			return basicSetDoc((JavaDoc) otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);

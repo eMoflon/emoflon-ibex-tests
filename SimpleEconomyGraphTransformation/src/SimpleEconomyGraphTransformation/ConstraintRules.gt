@@ -7,37 +7,37 @@ rule changeBudget(newBudget: EDouble){
 	}
 	#c.budget != param::newBudget
 }
-@optimizedDisjoint
+@optimize
 pattern smallerThan{
 	p: Product
 	c: Client
 	#c.budget < p.price
 }
-@optimizedDisjoint
+@optimize
 pattern smallerOrEqual{
 	p: Product
 	c: Client
 	#c.budget <= p.price
 }
-@optimizedDisjoint
+@optimize
 pattern equal{
 	p: Product
 	c: Client
 	#c.budget == p.price
 }
-@optimizedDisjoint
+@optimize
 pattern unequal{
 	p: Product
 	c: Client
 	#c.budget != p.price
 }
-@optimizedDisjoint
+@optimize
 pattern greater{
 	p: Product
 	c: Client
 	#c.budget > p.price
 }
-@optimizedDisjoint
+@optimize
 pattern greaterOrEqual{
 	p: Product
 	c: Client

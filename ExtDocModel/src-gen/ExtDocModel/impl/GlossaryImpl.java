@@ -76,8 +76,8 @@ public class GlossaryImpl extends MinimalEObjectImpl.Container implements Glossa
 	@Override
 	public EList<GlossaryEntry> getEntries() {
 		if (entries == null) {
-			entries = new EObjectContainmentWithInverseEList<GlossaryEntry>(GlossaryEntry.class, this, ExtDocModelPackage.GLOSSARY__ENTRIES,
-					ExtDocModelPackage.GLOSSARY_ENTRY__GLOSSARY);
+			entries = new EObjectContainmentWithInverseEList<GlossaryEntry>(GlossaryEntry.class, this,
+					ExtDocModelPackage.GLOSSARY__ENTRIES, ExtDocModelPackage.GLOSSARY_ENTRY__GLOSSARY);
 		}
 		return entries;
 	}
@@ -111,19 +111,22 @@ public class GlossaryImpl extends MinimalEObjectImpl.Container implements Glossa
 	 */
 	@Override
 	public void setContainer(DocContainer newContainer) {
-		if (newContainer != eInternalContainer() || (eContainerFeatureID() != ExtDocModelPackage.GLOSSARY__CONTAINER && newContainer != null)) {
+		if (newContainer != eInternalContainer()
+				|| (eContainerFeatureID() != ExtDocModelPackage.GLOSSARY__CONTAINER && newContainer != null)) {
 			if (EcoreUtil.isAncestor(this, newContainer))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newContainer != null)
-				msgs = ((InternalEObject) newContainer).eInverseAdd(this, ExtDocModelPackage.DOC_CONTAINER__GLOSSARY, DocContainer.class, msgs);
+				msgs = ((InternalEObject) newContainer).eInverseAdd(this, ExtDocModelPackage.DOC_CONTAINER__GLOSSARY,
+						DocContainer.class, msgs);
 			msgs = basicSetContainer(newContainer, msgs);
 			if (msgs != null)
 				msgs.dispatch();
 		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ExtDocModelPackage.GLOSSARY__CONTAINER, newContainer, newContainer));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExtDocModelPackage.GLOSSARY__CONTAINER, newContainer,
+					newContainer));
 	}
 
 	/**
@@ -170,7 +173,8 @@ public class GlossaryImpl extends MinimalEObjectImpl.Container implements Glossa
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
 		case ExtDocModelPackage.GLOSSARY__CONTAINER:
-			return eInternalContainer().eInverseRemove(this, ExtDocModelPackage.DOC_CONTAINER__GLOSSARY, DocContainer.class, msgs);
+			return eInternalContainer().eInverseRemove(this, ExtDocModelPackage.DOC_CONTAINER__GLOSSARY,
+					DocContainer.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}

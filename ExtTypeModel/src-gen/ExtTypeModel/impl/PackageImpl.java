@@ -140,19 +140,22 @@ public class PackageImpl extends NamedElementImpl implements ExtTypeModel.Packag
 	 */
 	@Override
 	public void setSuperPackage(ExtTypeModel.Package newSuperPackage) {
-		if (newSuperPackage != eInternalContainer() || (eContainerFeatureID() != ExtTypeModelPackage.PACKAGE__SUPER_PACKAGE && newSuperPackage != null)) {
+		if (newSuperPackage != eInternalContainer()
+				|| (eContainerFeatureID() != ExtTypeModelPackage.PACKAGE__SUPER_PACKAGE && newSuperPackage != null)) {
 			if (EcoreUtil.isAncestor(this, newSuperPackage))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newSuperPackage != null)
-				msgs = ((InternalEObject) newSuperPackage).eInverseAdd(this, ExtTypeModelPackage.PACKAGE__SUB_PACKAGES, ExtTypeModel.Package.class, msgs);
+				msgs = ((InternalEObject) newSuperPackage).eInverseAdd(this, ExtTypeModelPackage.PACKAGE__SUB_PACKAGES,
+						ExtTypeModel.Package.class, msgs);
 			msgs = basicSetSuperPackage(newSuperPackage, msgs);
 			if (msgs != null)
 				msgs.dispatch();
 		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ExtTypeModelPackage.PACKAGE__SUPER_PACKAGE, newSuperPackage, newSuperPackage));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExtTypeModelPackage.PACKAGE__SUPER_PACKAGE,
+					newSuperPackage, newSuperPackage));
 	}
 
 	/**
@@ -163,7 +166,8 @@ public class PackageImpl extends NamedElementImpl implements ExtTypeModel.Packag
 	@Override
 	public EList<Type> getTypes() {
 		if (types == null) {
-			types = new EObjectContainmentWithInverseEList<Type>(Type.class, this, ExtTypeModelPackage.PACKAGE__TYPES, ExtTypeModelPackage.TYPE__PACKAGE);
+			types = new EObjectContainmentWithInverseEList<Type>(Type.class, this, ExtTypeModelPackage.PACKAGE__TYPES,
+					ExtTypeModelPackage.TYPE__PACKAGE);
 		}
 		return types;
 	}
@@ -188,7 +192,8 @@ public class PackageImpl extends NamedElementImpl implements ExtTypeModel.Packag
 		String oldFQname = fQname;
 		fQname = newFQname;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ExtTypeModelPackage.PACKAGE__FQNAME, oldFQname, fQname));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExtTypeModelPackage.PACKAGE__FQNAME, oldFQname,
+					fQname));
 	}
 
 	/**
@@ -239,7 +244,8 @@ public class PackageImpl extends NamedElementImpl implements ExtTypeModel.Packag
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
 		case ExtTypeModelPackage.PACKAGE__SUPER_PACKAGE:
-			return eInternalContainer().eInverseRemove(this, ExtTypeModelPackage.PACKAGE__SUB_PACKAGES, ExtTypeModel.Package.class, msgs);
+			return eInternalContainer().eInverseRemove(this, ExtTypeModelPackage.PACKAGE__SUB_PACKAGES,
+					ExtTypeModel.Package.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}

@@ -28,7 +28,8 @@ public class ExtDocModelFactoryImpl extends EFactoryImpl implements ExtDocModelF
 	 */
 	public static ExtDocModelFactory init() {
 		try {
-			ExtDocModelFactory theExtDocModelFactory = (ExtDocModelFactory) EPackage.Registry.INSTANCE.getEFactory(ExtDocModelPackage.eNS_URI);
+			ExtDocModelFactory theExtDocModelFactory = (ExtDocModelFactory) EPackage.Registry.INSTANCE
+					.getEFactory(ExtDocModelPackage.eNS_URI);
 			if (theExtDocModelFactory != null) {
 				return theExtDocModelFactory;
 			}
@@ -177,7 +178,8 @@ public class ExtDocModelFactoryImpl extends EFactoryImpl implements ExtDocModelF
 	public EntryType createEntryTypeFromString(EDataType eDataType, String initialValue) {
 		EntryType result = EntryType.get(initialValue);
 		if (result == null)
-			throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+			throw new IllegalArgumentException(
+					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
 

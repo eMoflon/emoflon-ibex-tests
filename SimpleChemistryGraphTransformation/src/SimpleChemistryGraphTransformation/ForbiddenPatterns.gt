@@ -28,7 +28,7 @@ rule forbiddenCreateH20{
 	}
 }
 
-@optimizedDisjoint
+@optimize
 pattern notDisjunctPattern{
 	h1: H
 	h2: H

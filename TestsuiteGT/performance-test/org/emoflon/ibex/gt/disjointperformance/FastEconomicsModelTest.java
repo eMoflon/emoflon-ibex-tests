@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 
 import org.apache.commons.math3.distribution.BetaDistribution;
 import org.eclipse.emf.common.util.URI;
+import EconomicsModel.ConsumerFirm;
 import FastEconomy.api.FastEconomyAPI;
 import FastEconomy.api.FastEconomyApp;
 import FastEconomy.api.FastEconomyHiPEApp;

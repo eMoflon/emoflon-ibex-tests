@@ -142,7 +142,8 @@ public class TypeImpl extends NamedElementImpl implements Type {
 		boolean oldInterface = interface_;
 		interface_ = newInterface;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ExtTypeModelPackage.TYPE__INTERFACE, oldInterface, interface_));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExtTypeModelPackage.TYPE__INTERFACE, oldInterface,
+					interface_));
 	}
 
 	/**
@@ -153,8 +154,8 @@ public class TypeImpl extends NamedElementImpl implements Type {
 	@Override
 	public EList<Type> getExtendedBy() {
 		if (extendedBy == null) {
-			extendedBy = new EObjectWithInverseResolvingEList.ManyInverse<Type>(Type.class, this, ExtTypeModelPackage.TYPE__EXTENDED_BY,
-					ExtTypeModelPackage.TYPE__INHERITS_FROM);
+			extendedBy = new EObjectWithInverseResolvingEList.ManyInverse<Type>(Type.class, this,
+					ExtTypeModelPackage.TYPE__EXTENDED_BY, ExtTypeModelPackage.TYPE__INHERITS_FROM);
 		}
 		return extendedBy;
 	}
@@ -167,8 +168,8 @@ public class TypeImpl extends NamedElementImpl implements Type {
 	@Override
 	public EList<Type> getInheritsFrom() {
 		if (inheritsFrom == null) {
-			inheritsFrom = new EObjectWithInverseResolvingEList.ManyInverse<Type>(Type.class, this, ExtTypeModelPackage.TYPE__INHERITS_FROM,
-					ExtTypeModelPackage.TYPE__EXTENDED_BY);
+			inheritsFrom = new EObjectWithInverseResolvingEList.ManyInverse<Type>(Type.class, this,
+					ExtTypeModelPackage.TYPE__INHERITS_FROM, ExtTypeModelPackage.TYPE__EXTENDED_BY);
 		}
 		return inheritsFrom;
 	}
@@ -181,8 +182,8 @@ public class TypeImpl extends NamedElementImpl implements Type {
 	@Override
 	public EList<Method> getMethods() {
 		if (methods == null) {
-			methods = new EObjectContainmentWithInverseEList<Method>(Method.class, this, ExtTypeModelPackage.TYPE__METHODS,
-					ExtTypeModelPackage.METHOD__TYPE);
+			methods = new EObjectContainmentWithInverseEList<Method>(Method.class, this,
+					ExtTypeModelPackage.TYPE__METHODS, ExtTypeModelPackage.METHOD__TYPE);
 		}
 		return methods;
 	}
@@ -195,7 +196,8 @@ public class TypeImpl extends NamedElementImpl implements Type {
 	@Override
 	public EList<Field> getFields() {
 		if (fields == null) {
-			fields = new EObjectContainmentWithInverseEList<Field>(Field.class, this, ExtTypeModelPackage.TYPE__FIELDS, ExtTypeModelPackage.FIELD__TYPE);
+			fields = new EObjectContainmentWithInverseEList<Field>(Field.class, this, ExtTypeModelPackage.TYPE__FIELDS,
+					ExtTypeModelPackage.FIELD__TYPE);
 		}
 		return fields;
 	}
@@ -229,19 +231,22 @@ public class TypeImpl extends NamedElementImpl implements Type {
 	 */
 	@Override
 	public void setPackage(ExtTypeModel.Package newPackage) {
-		if (newPackage != eInternalContainer() || (eContainerFeatureID() != ExtTypeModelPackage.TYPE__PACKAGE && newPackage != null)) {
+		if (newPackage != eInternalContainer()
+				|| (eContainerFeatureID() != ExtTypeModelPackage.TYPE__PACKAGE && newPackage != null)) {
 			if (EcoreUtil.isAncestor(this, newPackage))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newPackage != null)
-				msgs = ((InternalEObject) newPackage).eInverseAdd(this, ExtTypeModelPackage.PACKAGE__TYPES, ExtTypeModel.Package.class, msgs);
+				msgs = ((InternalEObject) newPackage).eInverseAdd(this, ExtTypeModelPackage.PACKAGE__TYPES,
+						ExtTypeModel.Package.class, msgs);
 			msgs = basicSetPackage(newPackage, msgs);
 			if (msgs != null)
 				msgs.dispatch();
 		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ExtTypeModelPackage.TYPE__PACKAGE, newPackage, newPackage));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExtTypeModelPackage.TYPE__PACKAGE, newPackage,
+					newPackage));
 	}
 
 	/**
@@ -300,7 +305,8 @@ public class TypeImpl extends NamedElementImpl implements Type {
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
 		case ExtTypeModelPackage.TYPE__PACKAGE:
-			return eInternalContainer().eInverseRemove(this, ExtTypeModelPackage.PACKAGE__TYPES, ExtTypeModel.Package.class, msgs);
+			return eInternalContainer().eInverseRemove(this, ExtTypeModelPackage.PACKAGE__TYPES,
+					ExtTypeModel.Package.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}

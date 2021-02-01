@@ -73,7 +73,7 @@ rule createWorker{
 	++w: Worker{
 		.budget := U(0,2)
 		.hasWork := false
-		.time := 40.0
+//		.time := 40.0
 	}
 }
 

@@ -93,6 +93,7 @@ pattern testConstraint1{
 
 pattern testConstraint2{
 	device1: Device
+	# device2.currentConnections > 0
 	# device1.maxBandwidth != device2.maxBandwidth/device2.currentConnections+1
 	
 	device2: Device
@@ -116,6 +117,7 @@ pattern notDisjointtestConstraint2{
 	device1: Device
 	device2: Device
 	
+	# device2.currentConnections > 0
 	# device1.maxBandwidth != device2.maxBandwidth/device2.currentConnections+1
 }
 

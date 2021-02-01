@@ -33,7 +33,8 @@ public class ExtTypeModelFactoryImpl extends EFactoryImpl implements ExtTypeMode
 	 */
 	public static ExtTypeModelFactory init() {
 		try {
-			ExtTypeModelFactory theExtTypeModelFactory = (ExtTypeModelFactory) EPackage.Registry.INSTANCE.getEFactory(ExtTypeModelPackage.eNS_URI);
+			ExtTypeModelFactory theExtTypeModelFactory = (ExtTypeModelFactory) EPackage.Registry.INSTANCE
+					.getEFactory(ExtTypeModelPackage.eNS_URI);
 			if (theExtTypeModelFactory != null) {
 				return theExtTypeModelFactory;
 			}

@@ -118,19 +118,22 @@ public class DocImpl extends NamedElementImpl implements Doc {
 	 */
 	@Override
 	public void setContainer(DocContainer newContainer) {
-		if (newContainer != eInternalContainer() || (eContainerFeatureID() != ExtDocModelPackage.DOC__CONTAINER && newContainer != null)) {
+		if (newContainer != eInternalContainer()
+				|| (eContainerFeatureID() != ExtDocModelPackage.DOC__CONTAINER && newContainer != null)) {
 			if (EcoreUtil.isAncestor(this, newContainer))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newContainer != null)
-				msgs = ((InternalEObject) newContainer).eInverseAdd(this, ExtDocModelPackage.DOC_CONTAINER__DOCS, DocContainer.class, msgs);
+				msgs = ((InternalEObject) newContainer).eInverseAdd(this, ExtDocModelPackage.DOC_CONTAINER__DOCS,
+						DocContainer.class, msgs);
 			msgs = basicSetContainer(newContainer, msgs);
 			if (msgs != null)
 				msgs.dispatch();
 		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ExtDocModelPackage.DOC__CONTAINER, newContainer, newContainer));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExtDocModelPackage.DOC__CONTAINER, newContainer,
+					newContainer));
 	}
 
 	/**
@@ -141,7 +144,8 @@ public class DocImpl extends NamedElementImpl implements Doc {
 	@Override
 	public EList<Entry> getEntries() {
 		if (entries == null) {
-			entries = new EObjectContainmentWithInverseEList<Entry>(Entry.class, this, ExtDocModelPackage.DOC__ENTRIES, ExtDocModelPackage.ENTRY__DOC);
+			entries = new EObjectContainmentWithInverseEList<Entry>(Entry.class, this, ExtDocModelPackage.DOC__ENTRIES,
+					ExtDocModelPackage.ENTRY__DOC);
 		}
 		return entries;
 	}
@@ -154,8 +158,8 @@ public class DocImpl extends NamedElementImpl implements Doc {
 	@Override
 	public EList<Doc> getSubDocs() {
 		if (subDocs == null) {
-			subDocs = new EObjectWithInverseResolvingEList.ManyInverse<Doc>(Doc.class, this, ExtDocModelPackage.DOC__SUB_DOCS,
-					ExtDocModelPackage.DOC__SUPER_DOCS);
+			subDocs = new EObjectWithInverseResolvingEList.ManyInverse<Doc>(Doc.class, this,
+					ExtDocModelPackage.DOC__SUB_DOCS, ExtDocModelPackage.DOC__SUPER_DOCS);
 		}
 		return subDocs;
 	}
@@ -168,8 +172,8 @@ public class DocImpl extends NamedElementImpl implements Doc {
 	@Override
 	public EList<Doc> getSuperDocs() {
 		if (superDocs == null) {
-			superDocs = new EObjectWithInverseResolvingEList.ManyInverse<Doc>(Doc.class, this, ExtDocModelPackage.DOC__SUPER_DOCS,
-					ExtDocModelPackage.DOC__SUB_DOCS);
+			superDocs = new EObjectWithInverseResolvingEList.ManyInverse<Doc>(Doc.class, this,
+					ExtDocModelPackage.DOC__SUPER_DOCS, ExtDocModelPackage.DOC__SUB_DOCS);
 		}
 		return superDocs;
 	}
@@ -226,7 +230,8 @@ public class DocImpl extends NamedElementImpl implements Doc {
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
 		case ExtDocModelPackage.DOC__CONTAINER:
-			return eInternalContainer().eInverseRemove(this, ExtDocModelPackage.DOC_CONTAINER__DOCS, DocContainer.class, msgs);
+			return eInternalContainer().eInverseRemove(this, ExtDocModelPackage.DOC_CONTAINER__DOCS, DocContainer.class,
+					msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
