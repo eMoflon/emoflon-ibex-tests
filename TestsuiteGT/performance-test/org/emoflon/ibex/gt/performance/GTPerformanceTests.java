@@ -1,5 +1,8 @@
 package org.emoflon.ibex.gt.performance;
 
+import org.emoflon.ibex.gt.disjointperformance.FastEconomicsModelTest;
+import org.emoflon.ibex.gt.disjointperformance.SlowEconomicsModelTest;
+
 public class GTPerformanceTests {
 
 	public static void main(String[] args) {
@@ -13,5 +16,11 @@ public class GTPerformanceTests {
 		new SheRememberedCaterpillarsPerformanceTest1().run(testsPerSize, modelSizes);
 		new SheRememberedCaterpillarsPerformanceTest2().run(testsPerSize, modelSizes);
 		new SimpleFamiliesPerformanceTest().run(testsPerSize, modelSizes);
+		
+		//for checking the performance of the disjoint pattern module
+		int[] economicsModelSizes = {1,2,3,4,5};
+		
+//		new FastEconomicsModelTest().run(testsPerSize, economicsModelSizes);
+//		new SlowEconomicsModelTest().run(testsPerSize, economicsModelSizes);
 	}
 }

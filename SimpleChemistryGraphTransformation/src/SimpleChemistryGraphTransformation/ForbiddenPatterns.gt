@@ -14,7 +14,7 @@ abstract pattern findTwoUnconnectedH{
 
 condition notConnected = forbid findTwoUnconnectedH
 
-@optimize
+
 rule forbiddenCreateH20{
 	h1: H {
 		++ -connections -> o
@@ -28,6 +28,7 @@ rule forbiddenCreateH20{
 	}
 }
 
+@optimizedDisjoint
 pattern notDisjunctPattern{
 	h1: H
 	h2: H

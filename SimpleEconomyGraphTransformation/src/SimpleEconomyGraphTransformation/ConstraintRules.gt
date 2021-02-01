@@ -3,85 +3,80 @@ import "http://www.eclipse.org/emf/2002/Ecore"
 
 rule changeBudget(newBudget: EDouble){
 	c: Client{
-		.budget != param::newBudget
 		.budget := param::newBudget
 	}
+	#c.budget != param::newBudget
 }
+@optimizedDisjoint
 pattern smallerThan{
 	p: Product
-	c: Client{
-		.budget < p.price
-	}
+	c: Client
+	#c.budget < p.price
 }
+@optimizedDisjoint
 pattern smallerOrEqual{
 	p: Product
-	c: Client{
-		.budget <= p.price
-	}
+	c: Client
+	#c.budget <= p.price
 }
+@optimizedDisjoint
 pattern equal{
 	p: Product
-	c: Client{
-		.budget == p.price
-	}
+	c: Client
+	#c.budget == p.price
 }
+@optimizedDisjoint
 pattern unequal{
 	p: Product
-	c: Client{
-		.budget != p.price
-	}
+	c: Client
+	#c.budget != p.price
 }
+@optimizedDisjoint
 pattern greater{
 	p: Product
-	c: Client{
-		.budget > p.price
-	}
+	c: Client
+	#c.budget > p.price
 }
+@optimizedDisjoint
 pattern greaterOrEqual{
 	p: Product
-	c: Client{
-		.budget >= p.price
-	}
+	c: Client
+	#c.budget >= p.price
 }
-@notDisjoint
+
 pattern notDisjointsmallerThan{
 	p: Product
-	c: Client{
-		.budget < p.price
-	}
+	c: Client
+	#c.budget < p.price
+	
 }
-@notDisjoint
+
 pattern notDisjointsmallerOrEqual{
 	p: Product
-	c: Client{
-		.budget <= p.price
-	}
+	c: Client
+	#c.budget <= p.price
 }
-@notDisjoint
+
 pattern notDisjointequal{
 	p: Product
-	c: Client{
-		.budget == p.price
-	}
+	c: Client
+	#c.budget == p.price
 }
-@notDisjoint
+
 pattern notDisjointunequal{
 	p: Product
-	c: Client{
-		.budget != p.price
-	}
+	c: Client
+	#c.budget != p.price
 }
-@notDisjoint
+
 pattern notDisjointgreater{
 	p: Product
-	c: Client{
-		.budget > p.price
-	}
+	c: Client
+	#c.budget > p.price
 }
-@notDisjoint
+
 pattern notDisjointgreaterOrEqual{
 	p: Product
-	c: Client{
-		.budget >= p.price
-	}
+	c: Client
+	#c.budget >= p.price
 }

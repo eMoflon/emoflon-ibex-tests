@@ -32,17 +32,18 @@ condition findFree = freeH && freeO
 condition freeH2 = forbid findConnectedH1 && forbid findConnectedH2
 condition freeOtherH = forbid findConnectedH2
 
+@optimizedDisjoint
 pattern findFreeAtoms{
 	h:H
 	o:O
 }when findFree
 
-@optimize
 pattern notDisjunctfindFreeAtoms{
 	h:H
 	o:O
 }when findFree
 
+@optimizedDisjoint
 rule simpleBind{
 	h:H{
 		++ -connections -> o
@@ -52,7 +53,6 @@ rule simpleBind{
 	}
 }when findFree
 
-@optimize
 rule notDisjunctsimpleBind{
 	h:H{
 		++ -connections -> o
@@ -62,6 +62,7 @@ rule notDisjunctsimpleBind{
 	}
 }when findFree
 
+@optimizedDisjoint
 rule createH2{
 	h1:H{
 		++ -connections -> h2
@@ -71,7 +72,6 @@ rule createH2{
 	}
 }when freeH2
 
-@optimize
 rule notDisjunctcreateH2{
 	h1:H{
 		++ -connections -> h2
@@ -89,6 +89,7 @@ rule destroyH2{
 	}
 }
 
+@optimizedDisjoint
 rule completeH20{
 	h1:H{
 		-connections -> o
@@ -100,7 +101,6 @@ rule completeH20{
 	h2:H
 }when freeOtherH
 
-@optimize
 rule notDisjointcompleteH20{
 	h1:H{
 		-connections -> o
@@ -112,30 +112,31 @@ rule notDisjointcompleteH20{
 	h2:H
 }when freeOtherH
 
+@optimizedDisjoint
 pattern findTwoH{
 	h1:H
 	h2:H
 }
 
-@optimize
 pattern notDisjunctfindTwoH{
 	h1:H
 	h2:H
 }
 
+@optimizedDisjoint
 pattern findThreeH{
 	h1: H
 	h2: H
 	h3: H
 }
 
-@optimize
 pattern notDisjunctfindThreeH{
 	h1: H
 	h2: H
 	h3: H
 }
 
+@optimizedDisjoint
 pattern findTwoHAndO{
 	h1: H
 	h2: H
@@ -143,7 +144,6 @@ pattern findTwoHAndO{
 	o2: O
 }
 
-@optimize
 pattern notDisjunctfindTwoHAndO{
 	h1: H
 	h2: H
@@ -165,6 +165,7 @@ rule destroyH3{
 	}
 }
 
+@optimizedDisjoint
 rule createH3{
 	h1: H{
 		++ -connections ->h2
@@ -180,7 +181,6 @@ rule createH3{
 	}
 }when ThreeHUnconnected
 
-@optimize
 rule notDisjunctCreateH3{
 	h1: H{
 		++ -connections ->h2

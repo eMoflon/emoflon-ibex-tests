@@ -1,0 +1,114 @@
+import "http://www.eclipse.org/emf/2002/Ecore"
+import "platform:/resource/EconomicsModel/model/EconomicsModel.ecore"
+
+rule createMarket(v: EDouble, initialWage: EDouble, machineMarkup: EDouble, payback: EDouble){
+	++m: Market{
+		.v := param::v
+		.machineMarkup := param::machineMarkup
+		.wage := param::initialWage
+		.payback := param::payback
+	}
+}
+
+rule createIndustryFirm(epsilon: EDouble, id: EInt){
+		m: Market{
+		++ -firms->f
+	}
+	++f: IndustryFirm{
+		.a := 1.0
+		.b := 1.0
+		.consumerCost := 1.0
+		.epsilon := param::epsilon
+		.pastSales := 1.0
+		.imitationBudget := 1.0
+		.innovationBudget := 1.0
+		.currentInefficiency := 10000000000.0
+		.id := param::id
+		.cost := 1.0
+		.price := 1.0
+		.knownMarkup := m.machineMarkup
+		.knownWage:= m.wage
+		.knownPayback := m.payback
+		.productionLevel := 1
+		.neededWorkers := 1
+	}
+}
+
+rule createConsumerFirm(id: EInt) {
+		m: Market{
+		++ -firms->f
+	}
+	++f: ConsumerFirm{
+		.investmentBudget := 1.0
+		.pastSales := U(0.1,0.9)
+		.inventory := 1
+		.currentEfficiency := 10000000000.0
+		.productionBudget := 1.0
+		.salesNumber := 1
+		.stockLevel := 0.1
+		.machineNumber := 1
+		.id := param::id
+		.cost := 1.0
+		.price := 1.0
+		.knownMarkup := m.machineMarkup
+		.knownWage:= m.wage
+		.knownPayback := m.payback
+		.productionLevel := 1
+		.neededWorkers := 1
+		++ -machines -> m2
+		
+	}
+	++m2: Machine{
+		.a := 1.0
+		.age := 0
+		.cost := 1.0
+		.markup := m.machineMarkup
+	}
+}
+
+rule createWorker{
+	m: Market{
+		++ -workers -> w
+	}
+	++w: Worker{
+		.budget := U(0,2)
+		.hasWork := false
+		.time := 40.0
+	}
+}
+
+rule createGoverment{
+	m: Market{
+		++ -goverment -> g
+	}
+	++g: Goverment{
+		.income := 0.0
+		.tax := 0.1
+	}
+}
+
+pattern findAllWorkers{
+	w: Worker
+}
+
+pattern findAllUnemployed{
+	w: Worker
+	#w.hasWork == false	
+}
+
+pattern findAllFirms{
+	f: Firm
+}
+
+pattern findAllConsumerFirms{
+	f: ConsumerFirm
+}
+
+pattern findAllIndustryFirms{
+	f: IndustryFirm
+}
+
+pattern findGoverment{
+	g: Goverment
+}
+

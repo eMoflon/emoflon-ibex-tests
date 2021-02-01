@@ -1,0 +1,21 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: SlowEconomy
+Bundle-ManifestVersion: 2
+Bundle-Name: SlowEconomy
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: SlowEconomy; singleton:=true
+Bundle-ActivationPolicy: lazy
+Import-Package: org.apache.commons.logging,
+ org.apache.log4j
+Bundle-RequiredExecutionEnvironment: JavaSE-13
+Require-Bundle: org.emoflon.ibex.common,
+ org.emoflon.ibex.gt,
+ org.emoflon.ibex.patternmodel,
+ org.emoflon.ibex.gt.democles,
+ org.emoflon.ibex.gt.hipe,
+ org.emoflon.ibex.gt.viatra,
+ EconomicsModel;bundle-version="0.0.1"
+Export-Package: SlowEconomy.api,
+ SlowEconomy.api.matches,
+ SlowEconomy.api.rules

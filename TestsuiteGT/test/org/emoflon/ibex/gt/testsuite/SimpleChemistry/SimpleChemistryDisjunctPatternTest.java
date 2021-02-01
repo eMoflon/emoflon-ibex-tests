@@ -111,7 +111,8 @@ public class SimpleChemistryDisjunctPatternTest extends SimpleChemistryAbstractT
 		rule.enableAutoApply();
 		api.updateMatches();
 		
-		assertEquals(3, rule.countRuleApplications());
+		//when the matches do not update between the applications the final count will be 504
+		assertEquals(504, rule.countRuleApplications());
 	}
 	
 	@Test 

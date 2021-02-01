@@ -20,11 +20,12 @@ public class SimpleEconomyConstraintTest extends SimpleEconomyAbstractTest{
 		//test incremental
 		api.changeBudget(10.0).apply();
 		assertMatchCount((int) api.notDisjointequal().countMatches(), api.equal());
-		assertMatchCount((int) api.notDisjointunequal().countMatches(), api.unequal());		
-		assertMatchCount((int) api.notDisjointgreater().countMatches(), api.greater());
+		assertMatchCount((int) api.notDisjointunequal().countMatches(), api.unequal());	
 		assertMatchCount((int) api.notDisjointgreaterOrEqual().countMatches(), api.greaterOrEqual());
 		assertMatchCount((int) api.notDisjointsmallerThan().countMatches(), api.smallerThan());
-		assertMatchCount((int) api.notDisjointsmallerOrEqual().countMatches(), api.smallerOrEqual());
+		assertMatchCount((int) api.notDisjointsmallerOrEqual().countMatches(), api.smallerOrEqual());		
+		assertMatchCount((int) api.notDisjointgreater().countMatches(), api.greater());
+
 	}
 
 }

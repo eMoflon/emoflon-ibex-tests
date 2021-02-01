@@ -1,0 +1,191 @@
+import "http://www.eclipse.org/emf/2002/Ecore"
+import "platform:/resource/EconomicsModel/model/EconomicsModel.ecore"
+
+
+rule updateFirms{
+	m: Market
+	f: Firm{
+		.knownWage := m.wage
+	}
+}
+
+rule updateGoverment{
+	m: Market
+	g: Goverment{
+		.knownWage := m.wage
+	}
+}
+
+rule updateMachineFirm(x1: EDouble, x2: EDouble, id: EInt){
+	m: Market
+	f: IndustryFirm{	
+		.cost := f.knownWage/f.b
+		.consumerCost := f.knownWage/f.a
+		.price := (1+f.knownMarkup)*f.knownWage/f.b
+		.imitationBudget := (1-f.epsilon)*m.v*f.pastSales
+		.innovationBudget :=  f.epsilon*m.v*f.pastSales
+		.x1 := param::x1
+		.x2 := param::x2
+		}
+	#f.id == param::id
+}
+rule innovate(id:EInt){
+	f: IndustryFirm{
+		.a := (f.a*(1+f.x1))
+		.b := (f.b*(1+f.x2))
+		.currentInefficiency := (1+f.knownMarkup)*f.knownWage/(f.b*(1+f.x2))+f.knownPayback*f.knownWage/(f.a*(1+f.x1))
+	}
+	#f.id == param::id
+	#f.currentInefficiency > (1+f.knownMarkup)*f.knownWage/(f.b*(1+f.x2))+f.knownPayback*f.knownWage/(f.a*(1+f.x1))
+}@(1-exp(f.innovationBudget*(0-f.epsilon)))
+
+
+rule imitate(id:EInt){
+	f: IndustryFirm{
+		.a := (f.a*(1+f.x1))
+		.b := (f.b*(1+f.x2))
+		.currentInefficiency := (1+f2.knownMarkup)*f2.knownWage/f2.b+f2.knownPayback*f2.knownWage/f2.a
+	}
+	#f.id == param::id
+	#f.currentInefficiency > (1+f2.knownMarkup)*f2.knownWage/f2.b+f2.knownPayback*f2.knownWage/f2.a
+	f2: IndustryFirm
+}@(1-exp((0-f.epsilon)*f.imitationBudget))
+
+rule updateConsumerFirm{
+	f: ConsumerFirm{
+		.productionLevel := f.salesNumber+f.stockLevel*f.salesNumber-f.inventory
+		.price := (1+f.knownMarkup)*f.cost
+	}
+}
+rule updateConsumerFirm2{
+	f: ConsumerFirm{
+		.investmentBudget := f.pastSales - (f.salesNumber+f.stockLevel*f.salesNumber-f.inventory)*f.cost-f.neededWorkers*f.knownWage				
+	}
+}
+rule updateConsumerFirm3{
+	f: ConsumerFirm{		
+		.productionLevel := 2
+	}
+	#f.productionLevel == 0
+}
+
+ abstract pattern findOldMachines2{
+ 	m: Machine
+ 	#m.age > 20
+ }
+ 
+condition oldMachine2 = enforce findOldMachines2
+
+rule removeOldMachines{
+	f1: ConsumerFirm{
+		.machineNumber := f1.machineNumber-1
+		-- -machines -> m
+	}
+	--m: Machine
+}when oldMachine2
+
+
+rule buyMachines{
+	f: ConsumerFirm{
+		.currentEfficiency := f2.price + f2.knownPayback*f2.consumerCost
+		.investmentBudget := f.investmentBudget-f2.price
+		++ -clients -> f2
+	}
+	#f.currentEfficiency >= f2.price + f2.knownPayback*f2.consumerCost	
+	#f.investmentBudget >= f2.price	
+	f2: IndustryFirm{
+		.productionLevel := f2.productionLevel+1
+	}
+	
+}
+
+
+rule getMachines{
+	f: ConsumerFirm{
+		.machineNumber := f.machineNumber+1
+		.cost := (f.cost+f2.consumerCost)/(f.machineNumber+1)
+		-- -clients -> f2
+		++ -machines -> m
+	}
+	f2: IndustryFirm
+	++m: Machine{
+		.age := 0
+		.cost := f2.consumerCost
+		.a := f2.a
+		.markup := f2.knownMarkup
+	}
+}
+
+
+rule calculateConsumptionWorkers(id: EInt){
+	f: ConsumerFirm{		
+		.neededWorkers := f.productionLevel/(m.a*f.machineNumber)
+		-machines -> m
+	}	
+	#f.id == param::id
+	m: Machine
+}
+
+rule calculateIndustryWorkers{
+	f: IndustryFirm{
+		.neededWorkers := f.productionLevel/f.b
+	}	
+}
+
+
+rule findEmployment{
+	f: Firm{
+		.neededWorkers := f.neededWorkers-1
+	}
+	#f.neededWorkers>0
+	w: Worker{
+		.hasWork := true
+		.budget	:= (1-g.tax)*g.knownWage
+	}
+	#w.hasWork == false
+	g: Goverment{
+		.income := g.income + g.tax*g.knownWage
+	}
+}
+
+
+rule giveUnemploymentBenefits{
+	w: Worker{
+		
+		.budget := g.knownWage*g.unemploymentBenefit 
+	}
+	#w.hasWork == false
+	g: Goverment		
+}
+
+
+rule produce{
+	f: ConsumerFirm{
+		.inventory := f.inventory + f.productionLevel
+	}
+}
+
+
+rule buyProducts{
+	w: Worker{	
+		.budget := w.budget-f.price
+	}
+	#w.budget> f.price
+	f: ConsumerFirm{	
+		.inventory := f.inventory-1
+		.pastSales := f.pastSales+f.price
+	}
+	#f.inventory > 0
+}
+
+rule updateWages{
+	m: Market{
+		.wage := m.wage*(1.1)
+	}	
+}
+
+rule cleanCurrentState{
+	w: Worker{
+		.hasWork := false
+	}
+}
