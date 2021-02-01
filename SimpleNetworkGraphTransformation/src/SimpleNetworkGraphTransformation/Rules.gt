@@ -90,13 +90,6 @@ pattern testConstraint1{
 	
 	device2: Device
 }
-@notDisjoint
-pattern notDisjointtestConstraint1{
-	device1: Device{
-		.maxBandwidth <= calc(device2.maxBandwidth)
-	}
-	device2: Device
-}
 
 pattern testConstraint2{
 	device1: Device
@@ -109,6 +102,24 @@ pattern testConstraint3{
 	network : Network
 	# network.deviceNumber == count(findDevice)
 }
+
+@optimize
+pattern notDisjointtestConstraint1{
+	device1 : Device
+	device2: Device
+	
+	#device1.maxBandwidth <= device2.maxBandwidth
+}
+
+@optimize
+pattern notDisjointtestConstraint2{
+	device1: Device
+	device2: Device
+	
+	# device1.maxBandwidth != device2.maxBandwidth/device2.currentConnections+1
+}
+
+
 
 rule createNetwork {
 	++ network : Network
