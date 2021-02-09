@@ -177,6 +177,5 @@ public class SimpleNetworkCalculationTest extends SimpleNetworkAbstractTest{
 		assertMatchCount(1, api.findNetworkFalse());
 		assertMatchCount(1, api.findNetworkTrue());
 	}
+
 }
-
-
