@@ -3,14 +3,18 @@ package org.emoflon.ibex.gt.testsuite.SimpleNetwork;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.emoflon.ibex.common.operational.IMatch;
 import org.emoflon.ibex.gt.api.GraphTransformationPattern;
+import org.emoflon.ibex.gt.StateModel.State;
 import org.junit.Test;
 
+import SimpleNetwork.Device;
 import SimpleNetworkGraphTransformation.api.SimpleNetworkGraphTransformationAPI;
 
 public class SimpleNetworkStateTrackingTest extends SimpleNetworkAbstractTest{
@@ -122,6 +126,90 @@ public class SimpleNetworkStateTrackingTest extends SimpleNetworkAbstractTest{
 		api.deactivateModelStatesTracking();
 	}
 	
+	@Test
+	public void checkStateNavigation1() {
+		SimpleNetworkGraphTransformationAPI api = this.init("SimpleNetwork1.xmi");
+		api.trackModelStates();
+		api.updateMatches();
+		
+		LinkedList<TestState> testStates = new LinkedList<>();
+		// Generate three devices
+		testStates.add(new TestState(api));
+		api.generateDevice().apply();
+		
+		testStates.add(new TestState(api));
+		api.generateDevice().apply();
+		
+		testStates.add(new TestState(api));
+		api.generateDevice().apply();
+		
+		// Insert devices into containment hierarchy
+		testStates.add(new TestState(api));
+		api.insertDevicesIntoNetwork().apply();
+		
+		testStates.add(new TestState(api));
+		api.insertDevicesIntoNetwork().apply();
+		
+		testStates.add(new TestState(api));
+		api.insertDevicesIntoNetwork().apply();
+		
+		// Create new State for each possible connection
+		TestState initialTestState = new TestState(api);
+		testStates.add(initialTestState);
+		
+		ArrayList<Device> devices = new ArrayList<>(api.findDevice().findMatches().stream()
+				.map(match -> match.getDevice())
+				.collect(Collectors.toList()));
+		ArrayList<State> modelStates = new ArrayList<>();
+		modelStates.add(api.getCurrentModelState());
+		
+		// Connection 1
+		api.connect().bindFrom(devices.get(0));
+		api.connect().bindTo(devices.get(1));
+		api.connect().apply();
+		api.connect().unbindFrom();
+		api.connect().unbindTo();
+		// Save States
+		State connection1State = api.getCurrentModelState();
+		modelStates.add(connection1State);
+		testStates.add(new TestState(api));
+		api.revertLastApply(true);
+		// Sanity Check
+		initialTestState.checkState();
+		
+		// Connection 2
+		testStates.add(new TestState(api));
+		api.connect().bindFrom(devices.get(0));
+		api.connect().bindTo(devices.get(2));
+		api.connect().apply();
+		api.connect().unbindFrom();
+		api.connect().unbindTo();
+		// Save States
+		State connection2State = api.getCurrentModelState();
+		modelStates.add(connection2State);
+		testStates.add(new TestState(api));
+		api.revertLastApply(true);
+		// Sanity Check
+		initialTestState.checkState();
+				
+		// Connection 3
+		testStates.add(new TestState(api));
+		api.connect().bindFrom(devices.get(1));
+		api.connect().bindTo(devices.get(2));
+		api.connect().apply();
+		api.connect().unbindFrom();
+		api.connect().unbindTo();
+		// Save States
+		State connection3State = api.getCurrentModelState();
+		modelStates.add(connection3State);
+		testStates.add(new TestState(api));
+		api.revertLastApply(true);
+		// Sanity Check
+		initialTestState.checkState();
+		
+		api.deactivateModelStatesTracking();
+	}
+	
 	public static void assertMatchCounts(final HashMap<GraphTransformationPattern<?,?>, Integer> expected) {
 		expected.forEach((p, count) -> {
 			assertEquals(p.getPatternName()+" expected <"+count+"> matches but got <"+p.countMatches()+"> matches instead!", 
@@ -164,4 +252,18 @@ public class SimpleNetworkStateTrackingTest extends SimpleNetworkAbstractTest{
 	}
 }
 
+class TestState {
+	final HashMap<GraphTransformationPattern<?,?>, Integer> matchCounts;
+	final HashMap<GraphTransformationPattern<?,?>, Set<IMatch>> matches;
+	
+	public TestState(final SimpleNetworkGraphTransformationAPI api) {
+		matchCounts = SimpleNetworkStateTrackingTest.currentMatchCounts(api);
+		matches = SimpleNetworkStateTrackingTest.currentMatches(api);
+	}
+	
+	public void checkState() {
+		SimpleNetworkStateTrackingTest.assertMatchCounts(matchCounts);
+		SimpleNetworkStateTrackingTest.assertMatchIdentities(matches);
+	}
+}
 
