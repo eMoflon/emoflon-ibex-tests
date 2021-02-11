@@ -22,7 +22,7 @@ public class SimpleNetworkStateTrackingTest extends SimpleNetworkAbstractTest{
 	@Test
 	public void checkSimpleStateTracking1() {
 		SimpleNetworkGraphTransformationAPI api = this.init("SimpleNetwork1.xmi");
-		api.trackModelStates();
+		api.trackModelStates(false);
 		api.updateMatches();
 		
 		HashMap<GraphTransformationPattern<?,?>, Integer> matchCounts = currentMatchCounts(api);
@@ -40,7 +40,7 @@ public class SimpleNetworkStateTrackingTest extends SimpleNetworkAbstractTest{
 	@Test
 	public void checkSimpleStateTracking2() {
 		SimpleNetworkGraphTransformationAPI api = this.init("SimpleNetwork1.xmi");
-		api.trackModelStates();
+		api.trackModelStates(false);
 		api.updateMatches();
 		
 		HashMap<GraphTransformationPattern<?,?>, Integer> matchCounts = currentMatchCounts(api);
@@ -129,7 +129,7 @@ public class SimpleNetworkStateTrackingTest extends SimpleNetworkAbstractTest{
 	@Test
 	public void checkStateNavigation1() {
 		SimpleNetworkGraphTransformationAPI api = this.init("SimpleNetwork1.xmi");
-		api.trackModelStates();
+		api.trackModelStates(false);
 		api.updateMatches();
 		
 		LinkedList<TestState> testStates = new LinkedList<>();
@@ -225,6 +225,78 @@ public class SimpleNetworkStateTrackingTest extends SimpleNetworkAbstractTest{
 		// Sanity Check
 		api.revertLastApply(true);
 		initialTestState.checkState();
+		
+		api.deactivateModelStatesTracking();
+	}
+	
+	@Test
+	public void checkStateIdentityTracking1() {
+		SimpleNetworkGraphTransformationAPI api = this.init("SimpleNetwork1.xmi");
+		api.trackModelStates(false);
+		api.updateMatches();
+		
+		LinkedList<TestState> testStates = new LinkedList<>();
+		// Generate three devices
+		State initial = api.getCurrentModelState();
+		testStates.add(new TestState("initial", api));
+		
+		api.generateDevice().apply();	
+		State dev1 = api.getCurrentModelState();
+		testStates.add(new TestState("dev1", api));
+		
+		api.generateDevice().apply();
+		State dev2 = api.getCurrentModelState();
+		testStates.add(new TestState("dev2", api));
+		
+		api.generateDevice().apply();
+		State dev3 = api.getCurrentModelState();
+		testStates.add(new TestState("dev3", api));
+		
+		// Insert devices into containment hierarchy
+		api.insertDevicesIntoNetwork().apply();
+		State insert1 = api.getCurrentModelState();
+		testStates.add(new TestState("dev1-connect", api));
+		
+		api.insertDevicesIntoNetwork().apply();
+		State insert2 = api.getCurrentModelState();
+		testStates.add(new TestState("dev2-connect", api));
+		
+		api.insertDevicesIntoNetwork().apply();
+		State insert3 = api.getCurrentModelState();
+		testStates.add(new TestState("dev3-connect", api));
+		
+		// Reset to inital & sanity check
+		api.moveToKnownModelState(initial, true);
+		testStates.getFirst().checkState();
+		
+		// Rebuild and check for duplicates
+		api.generateDevice().apply();
+		assertEquals("Expected model states mismatch!", dev1, api.getCurrentModelState());
+		testStates.get(1).checkState();
+		
+		api.generateDevice().apply();
+		assertEquals("Expected model states mismatch!", dev2, api.getCurrentModelState());
+		testStates.get(2).checkState();
+		
+		api.generateDevice().apply();
+		assertEquals("Expected model states mismatch!", dev3, api.getCurrentModelState());
+		testStates.get(3).checkState();
+		
+		api.insertDevicesIntoNetwork().apply();
+		assertEquals("Expected model states mismatch!", insert1, api.getCurrentModelState());
+		testStates.get(4).checkState();
+		
+		api.insertDevicesIntoNetwork().apply();
+		assertEquals("Expected model states mismatch!", insert2, api.getCurrentModelState());
+		testStates.get(5).checkState();
+		
+		api.insertDevicesIntoNetwork().apply();
+		assertEquals("Expected model states mismatch!", insert3, api.getCurrentModelState());
+		testStates.get(6).checkState();
+		
+		// Reset to inital & sanity check
+		api.moveToKnownModelState(initial, true);
+		testStates.getFirst().checkState();
 		
 		api.deactivateModelStatesTracking();
 	}
