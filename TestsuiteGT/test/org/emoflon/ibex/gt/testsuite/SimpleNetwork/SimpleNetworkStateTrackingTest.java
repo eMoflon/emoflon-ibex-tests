@@ -134,29 +134,27 @@ public class SimpleNetworkStateTrackingTest extends SimpleNetworkAbstractTest{
 		
 		LinkedList<TestState> testStates = new LinkedList<>();
 		// Generate three devices
-		testStates.add(new TestState(api));
-		api.generateDevice().apply();
+		testStates.add(new TestState("initial", api));
 		
-		testStates.add(new TestState(api));
-		api.generateDevice().apply();
+		api.generateDevice().apply();	
+		testStates.add(new TestState("dev1", api));
 		
-		testStates.add(new TestState(api));
 		api.generateDevice().apply();
+		testStates.add(new TestState("dev2", api));
 		
+		api.generateDevice().apply();
+		testStates.add(new TestState("dev3", api));
 		// Insert devices into containment hierarchy
-		testStates.add(new TestState(api));
 		api.insertDevicesIntoNetwork().apply();
+		testStates.add(new TestState("dev1-connect", api));
 		
-		testStates.add(new TestState(api));
 		api.insertDevicesIntoNetwork().apply();
+		testStates.add(new TestState("dev2-connect", api));
 		
-		testStates.add(new TestState(api));
 		api.insertDevicesIntoNetwork().apply();
-		
-		// Create new State for each possible connection
-		TestState initialTestState = new TestState(api);
+		TestState initialTestState = new TestState("dev3-connect_&_2ndInitial", api);
 		testStates.add(initialTestState);
-		
+		// Create new State for each possible connection
 		ArrayList<Device> devices = new ArrayList<>(api.findDevice().findMatches().stream()
 				.map(match -> match.getDevice())
 				.collect(Collectors.toList()));
@@ -172,13 +170,12 @@ public class SimpleNetworkStateTrackingTest extends SimpleNetworkAbstractTest{
 		// Save States
 		State connection1State = api.getCurrentModelState();
 		modelStates.add(connection1State);
-		testStates.add(new TestState(api));
-		api.revertLastApply(true);
+		testStates.add(new TestState("connection1", api));
 		// Sanity Check
+		api.revertLastApply(true);
 		initialTestState.checkState();
 		
 		// Connection 2
-		testStates.add(new TestState(api));
 		api.connect().bindFrom(devices.get(0));
 		api.connect().bindTo(devices.get(2));
 		api.connect().apply();
@@ -187,13 +184,12 @@ public class SimpleNetworkStateTrackingTest extends SimpleNetworkAbstractTest{
 		// Save States
 		State connection2State = api.getCurrentModelState();
 		modelStates.add(connection2State);
-		testStates.add(new TestState(api));
-		api.revertLastApply(true);
+		testStates.add(new TestState("connection2", api));
 		// Sanity Check
+		api.revertLastApply(true);
 		initialTestState.checkState();
 				
 		// Connection 3
-		testStates.add(new TestState(api));
 		api.connect().bindFrom(devices.get(1));
 		api.connect().bindTo(devices.get(2));
 		api.connect().apply();
@@ -202,9 +198,32 @@ public class SimpleNetworkStateTrackingTest extends SimpleNetworkAbstractTest{
 		// Save States
 		State connection3State = api.getCurrentModelState();
 		modelStates.add(connection3State);
-		testStates.add(new TestState(api));
-		api.revertLastApply(true);
+		testStates.add(new TestState("connection3", api));
 		// Sanity Check
+		api.revertLastApply(true);
+		initialTestState.checkState();
+		
+		// Move to Connection 1 and check
+		api.moveToKnownModelState(connection1State, true);
+		testStates.get(testStates.size()-3).checkState();
+		// Sanity Check
+		api.revertLastApply(true);
+		initialTestState.checkState();
+		
+		// Move to Connection 3 and check
+		api.moveToKnownModelState(connection3State, true);
+		testStates.get(testStates.size()-1).checkState();
+		// Sanity Check
+		api.revertLastApply(true);
+		initialTestState.checkState();
+		
+		// Move to Connection 1, then connection 3 and check
+		api.moveToKnownModelState(connection1State, true);
+		testStates.get(testStates.size()-3).checkState();
+		api.moveToKnownModelState(connection3State, true);
+		testStates.get(testStates.size()-1).checkState();
+		// Sanity Check
+		api.revertLastApply(true);
 		initialTestState.checkState();
 		
 		api.deactivateModelStatesTracking();
@@ -253,10 +272,12 @@ public class SimpleNetworkStateTrackingTest extends SimpleNetworkAbstractTest{
 }
 
 class TestState {
+	final String name;
 	final HashMap<GraphTransformationPattern<?,?>, Integer> matchCounts;
 	final HashMap<GraphTransformationPattern<?,?>, Set<IMatch>> matches;
 	
-	public TestState(final SimpleNetworkGraphTransformationAPI api) {
+	public TestState(final String name, final SimpleNetworkGraphTransformationAPI api) {
+		this.name = name;
 		matchCounts = SimpleNetworkStateTrackingTest.currentMatchCounts(api);
 		matches = SimpleNetworkStateTrackingTest.currentMatches(api);
 	}
@@ -264,6 +285,11 @@ class TestState {
 	public void checkState() {
 		SimpleNetworkStateTrackingTest.assertMatchCounts(matchCounts);
 		SimpleNetworkStateTrackingTest.assertMatchIdentities(matches);
+	}
+	
+	@Override
+	public String toString() {
+		return "Teststate: "+name;
 	}
 }
 
