@@ -8,8 +8,12 @@ import org.emoflon.ibex.tgg.operational.strategies.sync.SYNC;
 
 public abstract class SynchronizationBench<BP extends BenchParameters> extends AbstractBench<SYNC, BP> {
 
+	public SynchronizationBench(String projectName) {
+		super(projectName);
+	}
+
 	@Override
-	protected BenchEntry applyDeltaAndRun(SYNC opStrat) throws IOException {
+	protected BenchEntry applyDeltaAndRun(SYNC opStrat, BP parameters, boolean saveTransformedModels) throws IOException {
 		long tic = System.currentTimeMillis();
 		opStrat.run();
 		long toc = System.currentTimeMillis();
@@ -22,7 +26,7 @@ public abstract class SynchronizationBench<BP extends BenchParameters> extends A
 		toc = System.currentTimeMillis();
 		double resolve = (double) (toc - tic) / 1000;
 		
-		if (parameters.saveModels)
+		if (saveTransformedModels)
 			opStrat.saveModels();
 		opStrat.terminate();
 

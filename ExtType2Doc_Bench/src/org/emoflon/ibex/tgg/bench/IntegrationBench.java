@@ -8,13 +8,17 @@ import org.emoflon.ibex.tgg.operational.strategies.integrate.INTEGRATE;
 
 public abstract class IntegrationBench<BP extends BenchParameters> extends AbstractBench<INTEGRATE, BP> {
 
+	public IntegrationBench(String projectName) {
+		super(projectName);
+	}
+
 	@Override
-	protected BenchEntry applyDeltaAndRun(INTEGRATE opStrat) throws IOException {
+	protected BenchEntry applyDeltaAndRun(INTEGRATE opStrat, BP parameters, boolean saveTransformedModels) throws IOException {
 		long tic = System.currentTimeMillis();
 		opStrat.run();
 		long toc = System.currentTimeMillis();
 		double init = (double) (toc - tic) / 1000;
-		
+
 		// TODO apply delta!
 
 		tic = System.currentTimeMillis();
@@ -22,7 +26,7 @@ public abstract class IntegrationBench<BP extends BenchParameters> extends Abstr
 		toc = System.currentTimeMillis();
 		double resolve = (double) (toc - tic) / 1000;
 
-		if (parameters.saveModels)
+		if (saveTransformedModels)
 			opStrat.saveModels();
 		opStrat.terminate();
 
