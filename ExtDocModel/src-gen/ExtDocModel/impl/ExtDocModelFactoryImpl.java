@@ -28,8 +28,7 @@ public class ExtDocModelFactoryImpl extends EFactoryImpl implements ExtDocModelF
 	 */
 	public static ExtDocModelFactory init() {
 		try {
-			ExtDocModelFactory theExtDocModelFactory = (ExtDocModelFactory) EPackage.Registry.INSTANCE
-					.getEFactory(ExtDocModelPackage.eNS_URI);
+			ExtDocModelFactory theExtDocModelFactory = (ExtDocModelFactory) EPackage.Registry.INSTANCE.getEFactory(ExtDocModelPackage.eNS_URI);
 			if (theExtDocModelFactory != null) {
 				return theExtDocModelFactory;
 			}
@@ -57,8 +56,8 @@ public class ExtDocModelFactoryImpl extends EFactoryImpl implements ExtDocModelF
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-		case ExtDocModelPackage.DOC_CONTAINER:
-			return createDocContainer();
+		case ExtDocModelPackage.FOLDER:
+			return createFolder();
 		case ExtDocModelPackage.DOC:
 			return createDoc();
 		case ExtDocModelPackage.ENTRY:
@@ -69,6 +68,8 @@ public class ExtDocModelFactoryImpl extends EFactoryImpl implements ExtDocModelF
 			return createGlossary();
 		case ExtDocModelPackage.GLOSSARY_ENTRY:
 			return createGlossaryEntry();
+		case ExtDocModelPackage.DOC_CONTAINER:
+			return createDocContainer();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -102,6 +103,17 @@ public class ExtDocModelFactoryImpl extends EFactoryImpl implements ExtDocModelF
 		default:
 			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Folder createFolder() {
+		FolderImpl folder = new FolderImpl();
+		return folder;
 	}
 
 	/**
@@ -178,8 +190,7 @@ public class ExtDocModelFactoryImpl extends EFactoryImpl implements ExtDocModelF
 	public EntryType createEntryTypeFromString(EDataType eDataType, String initialValue) {
 		EntryType result = EntryType.get(initialValue);
 		if (result == null)
-			throw new IllegalArgumentException(
-					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+			throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
 

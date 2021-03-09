@@ -9,6 +9,7 @@ import ExtDocModel.Entry;
 import ExtDocModel.EntryType;
 import ExtDocModel.ExtDocModelFactory;
 import ExtDocModel.ExtDocModelPackage;
+import ExtDocModel.Folder;
 import ExtDocModel.Glossary;
 import ExtDocModel.GlossaryEntry;
 import ExtDocModel.NamedElement;
@@ -34,6 +35,13 @@ public class ExtDocModelPackageImpl extends EPackageImpl implements ExtDocModelP
 	 * @generated
 	 */
 	private EClass namedElementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass folderEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -174,6 +182,36 @@ public class ExtDocModelPackageImpl extends EPackageImpl implements ExtDocModelP
 	 * @generated
 	 */
 	@Override
+	public EClass getFolder() {
+		return folderEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getFolder_Docs() {
+		return (EReference) folderEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getFolder_Container() {
+		return (EReference) folderEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getDocContainer() {
 		return docContainerEClass;
 	}
@@ -184,7 +222,7 @@ public class ExtDocModelPackageImpl extends EPackageImpl implements ExtDocModelP
 	 * @generated
 	 */
 	@Override
-	public EReference getDocContainer_Docs() {
+	public EReference getDocContainer_Folders() {
 		return (EReference) docContainerEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -214,7 +252,7 @@ public class ExtDocModelPackageImpl extends EPackageImpl implements ExtDocModelP
 	 * @generated
 	 */
 	@Override
-	public EReference getDoc_Container() {
+	public EReference getDoc_Folder() {
 		return (EReference) docEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -431,12 +469,12 @@ public class ExtDocModelPackageImpl extends EPackageImpl implements ExtDocModelP
 		namedElementEClass = createEClass(NAMED_ELEMENT);
 		createEAttribute(namedElementEClass, NAMED_ELEMENT__NAME);
 
-		docContainerEClass = createEClass(DOC_CONTAINER);
-		createEReference(docContainerEClass, DOC_CONTAINER__DOCS);
-		createEReference(docContainerEClass, DOC_CONTAINER__GLOSSARY);
+		folderEClass = createEClass(FOLDER);
+		createEReference(folderEClass, FOLDER__DOCS);
+		createEReference(folderEClass, FOLDER__CONTAINER);
 
 		docEClass = createEClass(DOC);
-		createEReference(docEClass, DOC__CONTAINER);
+		createEReference(docEClass, DOC__FOLDER);
 		createEReference(docEClass, DOC__ENTRIES);
 		createEReference(docEClass, DOC__SUB_DOCS);
 		createEReference(docEClass, DOC__SUPER_DOCS);
@@ -458,6 +496,10 @@ public class ExtDocModelPackageImpl extends EPackageImpl implements ExtDocModelP
 		glossaryEntryEClass = createEClass(GLOSSARY_ENTRY);
 		createEReference(glossaryEntryEClass, GLOSSARY_ENTRY__GLOSSARY);
 		createEReference(glossaryEntryEClass, GLOSSARY_ENTRY__ENTRIES);
+
+		docContainerEClass = createEClass(DOC_CONTAINER);
+		createEReference(docContainerEClass, DOC_CONTAINER__FOLDERS);
+		createEReference(docContainerEClass, DOC_CONTAINER__GLOSSARY);
 
 		// Create enums
 		entryTypeEEnum = createEEnum(ENTRY_TYPE);
@@ -492,77 +534,65 @@ public class ExtDocModelPackageImpl extends EPackageImpl implements ExtDocModelP
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		folderEClass.getESuperTypes().add(this.getNamedElement());
 		docEClass.getESuperTypes().add(this.getNamedElement());
 		entryEClass.getESuperTypes().add(this.getNamedElement());
 		glossaryEntryEClass.getESuperTypes().add(this.getNamedElement());
 
 		// Initialize classes, features, and operations; add parameters
-		initEClass(namedElementEClass, NamedElement.class, "NamedElement", IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getNamedElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, NamedElement.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(namedElementEClass, NamedElement.class, "NamedElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getNamedElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, NamedElement.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(docContainerEClass, DocContainer.class, "DocContainer", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDocContainer_Docs(), this.getDoc(), this.getDoc_Container(), "docs", null, 1, -1,
-				DocContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDocContainer_Glossary(), this.getGlossary(), this.getGlossary_Container(), "glossary", null,
-				0, 1, DocContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(folderEClass, Folder.class, "Folder", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getFolder_Docs(), this.getDoc(), this.getDoc_Folder(), "docs", null, 1, -1, Folder.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFolder_Container(), this.getDocContainer(), this.getDocContainer_Folders(), "container", null, 0, 1, Folder.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(docEClass, Doc.class, "Doc", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDoc_Container(), this.getDocContainer(), this.getDocContainer_Docs(), "container", null, 0, 1,
-				Doc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDoc_Entries(), this.getEntry(), this.getEntry_Doc(), "entries", null, 0, -1, Doc.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDoc_SubDocs(), this.getDoc(), this.getDoc_SuperDocs(), "subDocs", null, 0, -1, Doc.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDoc_SuperDocs(), this.getDoc(), this.getDoc_SubDocs(), "superDocs", null, 0, -1, Doc.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDoc_Folder(), this.getFolder(), this.getFolder_Docs(), "folder", null, 0, 1, Doc.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDoc_Entries(), this.getEntry(), this.getEntry_Doc(), "entries", null, 0, -1, Doc.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDoc_SubDocs(), this.getDoc(), this.getDoc_SuperDocs(), "subDocs", null, 0, -1, Doc.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDoc_SuperDocs(), this.getDoc(), this.getDoc_SubDocs(), "superDocs", null, 0, -1, Doc.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(entryEClass, Entry.class, "Entry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getEntry_Doc(), this.getDoc(), this.getDoc_Entries(), "doc", null, 0, 1, Entry.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEntry_Annotation(), this.getAnnotation(), this.getAnnotation_Entry(), "annotation", null, 0,
-				1, Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEntry_GlossaryEntries(), this.getGlossaryEntry(), this.getGlossaryEntry_Entries(),
-				"glossaryEntries", null, 0, -1, Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getEntry_Type(), this.getEntryType(), "type", null, 0, 1, Entry.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEntry_Doc(), this.getDoc(), this.getDoc_Entries(), "doc", null, 0, 1, Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				!IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEntry_Annotation(), this.getAnnotation(), this.getAnnotation_Entry(), "annotation", null, 0, 1, Entry.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEntry_GlossaryEntries(), this.getGlossaryEntry(), this.getGlossaryEntry_Entries(), "glossaryEntries", null, 0, -1, Entry.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEntry_Type(), this.getEntryType(), "type", null, 0, 1, Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
+				!IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(annotationEClass, Annotation.class, "Annotation", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAnnotation_Entry(), this.getEntry(), this.getEntry_Annotation(), "entry", null, 0, 1,
-				Annotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAnnotation_Value(), ecorePackage.getEString(), "value", null, 0, 1, Annotation.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(annotationEClass, Annotation.class, "Annotation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getAnnotation_Entry(), this.getEntry(), this.getEntry_Annotation(), "entry", null, 0, 1, Annotation.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAnnotation_Value(), ecorePackage.getEString(), "value", null, 0, 1, Annotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				!IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(glossaryEClass, Glossary.class, "Glossary", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getGlossary_Entries(), this.getGlossaryEntry(), this.getGlossaryEntry_Glossary(), "entries",
-				null, 0, -1, Glossary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getGlossary_Container(), this.getDocContainer(), this.getDocContainer_Glossary(), "container",
-				null, 0, 1, Glossary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(glossaryEClass, Glossary.class, "Glossary", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getGlossary_Entries(), this.getGlossaryEntry(), this.getGlossaryEntry_Glossary(), "entries", null, 0, -1, Glossary.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGlossary_Container(), this.getDocContainer(), this.getDocContainer_Glossary(), "container", null, 0, 1, Glossary.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(glossaryEntryEClass, GlossaryEntry.class, "GlossaryEntry", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getGlossaryEntry_Glossary(), this.getGlossary(), this.getGlossary_Entries(), "glossary", null, 0,
-				1, GlossaryEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getGlossaryEntry_Entries(), this.getEntry(), this.getEntry_GlossaryEntries(), "entries", null, 0,
-				-1, GlossaryEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(glossaryEntryEClass, GlossaryEntry.class, "GlossaryEntry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getGlossaryEntry_Glossary(), this.getGlossary(), this.getGlossary_Entries(), "glossary", null, 0, 1, GlossaryEntry.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGlossaryEntry_Entries(), this.getEntry(), this.getEntry_GlossaryEntries(), "entries", null, 0, -1, GlossaryEntry.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(docContainerEClass, DocContainer.class, "DocContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDocContainer_Folders(), this.getFolder(), this.getFolder_Container(), "folders", null, 0, -1, DocContainer.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDocContainer_Glossary(), this.getGlossary(), this.getGlossary_Container(), "glossary", null, 0, 1, DocContainer.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(entryTypeEEnum, EntryType.class, "EntryType");

@@ -2,13 +2,11 @@
  */
 package ExtDocModel.impl;
 
-import ExtDocModel.Doc;
 import ExtDocModel.DocContainer;
 import ExtDocModel.ExtDocModelPackage;
+import ExtDocModel.Folder;
 import ExtDocModel.Glossary;
-
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -16,7 +14,6 @@ import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
@@ -31,7 +28,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link ExtDocModel.impl.DocContainerImpl#getDocs <em>Docs</em>}</li>
+ *   <li>{@link ExtDocModel.impl.DocContainerImpl#getFolders <em>Folders</em>}</li>
  *   <li>{@link ExtDocModel.impl.DocContainerImpl#getGlossary <em>Glossary</em>}</li>
  * </ul>
  *
@@ -39,14 +36,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class DocContainerImpl extends MinimalEObjectImpl.Container implements DocContainer {
 	/**
-	 * The cached value of the '{@link #getDocs() <em>Docs</em>}' containment reference list.
+	 * The cached value of the '{@link #getFolders() <em>Folders</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDocs()
+	 * @see #getFolders()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Doc> docs;
+	protected EList<Folder> folders;
 
 	/**
 	 * The cached value of the '{@link #getGlossary() <em>Glossary</em>}' containment reference.
@@ -83,12 +80,12 @@ public class DocContainerImpl extends MinimalEObjectImpl.Container implements Do
 	 * @generated
 	 */
 	@Override
-	public EList<Doc> getDocs() {
-		if (docs == null) {
-			docs = new EObjectContainmentWithInverseEList<Doc>(Doc.class, this, ExtDocModelPackage.DOC_CONTAINER__DOCS,
-					ExtDocModelPackage.DOC__CONTAINER);
+	public EList<Folder> getFolders() {
+		if (folders == null) {
+			folders = new EObjectContainmentWithInverseEList<Folder>(Folder.class, this, ExtDocModelPackage.DOC_CONTAINER__FOLDERS,
+					ExtDocModelPackage.FOLDER__CONTAINER);
 		}
-		return docs;
+		return folders;
 	}
 
 	/**
@@ -110,8 +107,8 @@ public class DocContainerImpl extends MinimalEObjectImpl.Container implements Do
 		Glossary oldGlossary = glossary;
 		glossary = newGlossary;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					ExtDocModelPackage.DOC_CONTAINER__GLOSSARY, oldGlossary, newGlossary);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ExtDocModelPackage.DOC_CONTAINER__GLOSSARY, oldGlossary,
+					newGlossary);
 			if (msgs == null)
 				msgs = notification;
 			else
@@ -130,17 +127,14 @@ public class DocContainerImpl extends MinimalEObjectImpl.Container implements Do
 		if (newGlossary != glossary) {
 			NotificationChain msgs = null;
 			if (glossary != null)
-				msgs = ((InternalEObject) glossary).eInverseRemove(this, ExtDocModelPackage.GLOSSARY__CONTAINER,
-						Glossary.class, msgs);
+				msgs = ((InternalEObject) glossary).eInverseRemove(this, ExtDocModelPackage.GLOSSARY__CONTAINER, Glossary.class, msgs);
 			if (newGlossary != null)
-				msgs = ((InternalEObject) newGlossary).eInverseAdd(this, ExtDocModelPackage.GLOSSARY__CONTAINER,
-						Glossary.class, msgs);
+				msgs = ((InternalEObject) newGlossary).eInverseAdd(this, ExtDocModelPackage.GLOSSARY__CONTAINER, Glossary.class, msgs);
 			msgs = basicSetGlossary(newGlossary, msgs);
 			if (msgs != null)
 				msgs.dispatch();
 		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ExtDocModelPackage.DOC_CONTAINER__GLOSSARY,
-					newGlossary, newGlossary));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExtDocModelPackage.DOC_CONTAINER__GLOSSARY, newGlossary, newGlossary));
 	}
 
 	/**
@@ -152,12 +146,11 @@ public class DocContainerImpl extends MinimalEObjectImpl.Container implements Do
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case ExtDocModelPackage.DOC_CONTAINER__DOCS:
-			return ((InternalEList<InternalEObject>) (InternalEList<?>) getDocs()).basicAdd(otherEnd, msgs);
+		case ExtDocModelPackage.DOC_CONTAINER__FOLDERS:
+			return ((InternalEList<InternalEObject>) (InternalEList<?>) getFolders()).basicAdd(otherEnd, msgs);
 		case ExtDocModelPackage.DOC_CONTAINER__GLOSSARY:
 			if (glossary != null)
-				msgs = ((InternalEObject) glossary).eInverseRemove(this,
-						EOPPOSITE_FEATURE_BASE - ExtDocModelPackage.DOC_CONTAINER__GLOSSARY, null, msgs);
+				msgs = ((InternalEObject) glossary).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ExtDocModelPackage.DOC_CONTAINER__GLOSSARY, null, msgs);
 			return basicSetGlossary((Glossary) otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -171,8 +164,8 @@ public class DocContainerImpl extends MinimalEObjectImpl.Container implements Do
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case ExtDocModelPackage.DOC_CONTAINER__DOCS:
-			return ((InternalEList<?>) getDocs()).basicRemove(otherEnd, msgs);
+		case ExtDocModelPackage.DOC_CONTAINER__FOLDERS:
+			return ((InternalEList<?>) getFolders()).basicRemove(otherEnd, msgs);
 		case ExtDocModelPackage.DOC_CONTAINER__GLOSSARY:
 			return basicSetGlossary(null, msgs);
 		}
@@ -187,8 +180,8 @@ public class DocContainerImpl extends MinimalEObjectImpl.Container implements Do
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case ExtDocModelPackage.DOC_CONTAINER__DOCS:
-			return getDocs();
+		case ExtDocModelPackage.DOC_CONTAINER__FOLDERS:
+			return getFolders();
 		case ExtDocModelPackage.DOC_CONTAINER__GLOSSARY:
 			return getGlossary();
 		}
@@ -204,9 +197,9 @@ public class DocContainerImpl extends MinimalEObjectImpl.Container implements Do
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case ExtDocModelPackage.DOC_CONTAINER__DOCS:
-			getDocs().clear();
-			getDocs().addAll((Collection<? extends Doc>) newValue);
+		case ExtDocModelPackage.DOC_CONTAINER__FOLDERS:
+			getFolders().clear();
+			getFolders().addAll((Collection<? extends Folder>) newValue);
 			return;
 		case ExtDocModelPackage.DOC_CONTAINER__GLOSSARY:
 			setGlossary((Glossary) newValue);
@@ -223,8 +216,8 @@ public class DocContainerImpl extends MinimalEObjectImpl.Container implements Do
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case ExtDocModelPackage.DOC_CONTAINER__DOCS:
-			getDocs().clear();
+		case ExtDocModelPackage.DOC_CONTAINER__FOLDERS:
+			getFolders().clear();
 			return;
 		case ExtDocModelPackage.DOC_CONTAINER__GLOSSARY:
 			setGlossary((Glossary) null);
@@ -241,8 +234,8 @@ public class DocContainerImpl extends MinimalEObjectImpl.Container implements Do
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case ExtDocModelPackage.DOC_CONTAINER__DOCS:
-			return docs != null && !docs.isEmpty();
+		case ExtDocModelPackage.DOC_CONTAINER__FOLDERS:
+			return folders != null && !folders.isEmpty();
 		case ExtDocModelPackage.DOC_CONTAINER__GLOSSARY:
 			return glossary != null;
 		}

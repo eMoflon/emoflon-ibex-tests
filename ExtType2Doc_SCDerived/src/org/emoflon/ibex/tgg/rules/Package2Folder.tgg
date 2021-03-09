@@ -1,0 +1,36 @@
+#using ExtType2Doc_SCDerived.*
+#using AttrCondDefLibrary.*
+
+#rule Package2Folder #with ExtType2Doc_SCDerived
+
+#source { 
+	pr:Project {
+		++-rootPackages->p
+	}
+	
+	++p:Package
+}
+
+#target {
+	dc:DocContainer {
+		++-folders->f
+	}
+	
+	++f:Folder
+}
+
+#correspondence {
+	pr2dc:Project2DocContainer {
+		#src->pr
+		#trg->dc
+	}
+	
+	++p2f:Package2Folder {
+		#src->p
+		#trg->f
+	}
+}
+
+#attributeConditions {
+	eq_string(p.name, #derived p.fQname)
+}

@@ -91,8 +91,7 @@ public class JavaDocImpl extends MinimalEObjectImpl.Container implements JavaDoc
 		String oldComment = comment;
 		comment = newComment;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ExtTypeModelPackage.JAVA_DOC__COMMENT, oldComment,
-					comment));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExtTypeModelPackage.JAVA_DOC__COMMENT, oldComment, comment));
 	}
 
 	/**
@@ -124,22 +123,19 @@ public class JavaDocImpl extends MinimalEObjectImpl.Container implements JavaDoc
 	 */
 	@Override
 	public void setMethod(Method newMethod) {
-		if (newMethod != eInternalContainer()
-				|| (eContainerFeatureID() != ExtTypeModelPackage.JAVA_DOC__METHOD && newMethod != null)) {
+		if (newMethod != eInternalContainer() || (eContainerFeatureID() != ExtTypeModelPackage.JAVA_DOC__METHOD && newMethod != null)) {
 			if (EcoreUtil.isAncestor(this, newMethod))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newMethod != null)
-				msgs = ((InternalEObject) newMethod).eInverseAdd(this, ExtTypeModelPackage.METHOD__DOC, Method.class,
-						msgs);
+				msgs = ((InternalEObject) newMethod).eInverseAdd(this, ExtTypeModelPackage.METHOD__DOC, Method.class, msgs);
 			msgs = basicSetMethod(newMethod, msgs);
 			if (msgs != null)
 				msgs.dispatch();
 		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ExtTypeModelPackage.JAVA_DOC__METHOD, newMethod,
-					newMethod));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExtTypeModelPackage.JAVA_DOC__METHOD, newMethod, newMethod));
 	}
 
 	/**

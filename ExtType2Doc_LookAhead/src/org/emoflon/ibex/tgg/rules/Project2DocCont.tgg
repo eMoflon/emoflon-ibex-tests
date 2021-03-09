@@ -1,10 +1,10 @@
-#using ExtType2Doc_ShortCut.*
+#using ExtType2Doc_LookAhead.*
 #using AttrCondDefLibrary.*
 
-#rule Package2DocCont #with ExtType2Doc_ShortCut
+#rule Project2DocCont #with ExtType2Doc_LookAhead
 
 #source { 
-	++p:Package
+	++pr:Project
 }
 
 #target {
@@ -12,8 +12,8 @@
 }
 
 #correspondence {
-	++p2dc:Package2DocCont {
-		#src->p
+	++pr2dc:Project2DocContainer {
+		#src->pr
 		#trg->dc
 	}
 }

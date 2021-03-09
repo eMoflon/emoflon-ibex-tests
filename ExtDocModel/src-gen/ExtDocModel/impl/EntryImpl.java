@@ -130,8 +130,7 @@ public class EntryImpl extends NamedElementImpl implements Entry {
 	 */
 	@Override
 	public void setDoc(Doc newDoc) {
-		if (newDoc != eInternalContainer()
-				|| (eContainerFeatureID() != ExtDocModelPackage.ENTRY__DOC && newDoc != null)) {
+		if (newDoc != eInternalContainer() || (eContainerFeatureID() != ExtDocModelPackage.ENTRY__DOC && newDoc != null)) {
 			if (EcoreUtil.isAncestor(this, newDoc))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
@@ -165,8 +164,8 @@ public class EntryImpl extends NamedElementImpl implements Entry {
 		Annotation oldAnnotation = annotation;
 		annotation = newAnnotation;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					ExtDocModelPackage.ENTRY__ANNOTATION, oldAnnotation, newAnnotation);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ExtDocModelPackage.ENTRY__ANNOTATION, oldAnnotation,
+					newAnnotation);
 			if (msgs == null)
 				msgs = notification;
 			else
@@ -185,17 +184,14 @@ public class EntryImpl extends NamedElementImpl implements Entry {
 		if (newAnnotation != annotation) {
 			NotificationChain msgs = null;
 			if (annotation != null)
-				msgs = ((InternalEObject) annotation).eInverseRemove(this, ExtDocModelPackage.ANNOTATION__ENTRY,
-						Annotation.class, msgs);
+				msgs = ((InternalEObject) annotation).eInverseRemove(this, ExtDocModelPackage.ANNOTATION__ENTRY, Annotation.class, msgs);
 			if (newAnnotation != null)
-				msgs = ((InternalEObject) newAnnotation).eInverseAdd(this, ExtDocModelPackage.ANNOTATION__ENTRY,
-						Annotation.class, msgs);
+				msgs = ((InternalEObject) newAnnotation).eInverseAdd(this, ExtDocModelPackage.ANNOTATION__ENTRY, Annotation.class, msgs);
 			msgs = basicSetAnnotation(newAnnotation, msgs);
 			if (msgs != null)
 				msgs.dispatch();
 		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ExtDocModelPackage.ENTRY__ANNOTATION, newAnnotation,
-					newAnnotation));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExtDocModelPackage.ENTRY__ANNOTATION, newAnnotation, newAnnotation));
 	}
 
 	/**
@@ -250,8 +246,7 @@ public class EntryImpl extends NamedElementImpl implements Entry {
 			return basicSetDoc((Doc) otherEnd, msgs);
 		case ExtDocModelPackage.ENTRY__ANNOTATION:
 			if (annotation != null)
-				msgs = ((InternalEObject) annotation).eInverseRemove(this,
-						EOPPOSITE_FEATURE_BASE - ExtDocModelPackage.ENTRY__ANNOTATION, null, msgs);
+				msgs = ((InternalEObject) annotation).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ExtDocModelPackage.ENTRY__ANNOTATION, null, msgs);
 			return basicSetAnnotation((Annotation) otherEnd, msgs);
 		case ExtDocModelPackage.ENTRY__GLOSSARY_ENTRIES:
 			return ((InternalEList<InternalEObject>) (InternalEList<?>) getGlossaryEntries()).basicAdd(otherEnd, msgs);

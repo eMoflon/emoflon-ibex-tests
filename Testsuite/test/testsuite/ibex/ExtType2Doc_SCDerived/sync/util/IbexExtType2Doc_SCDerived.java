@@ -10,13 +10,13 @@ import org.emoflon.ibex.tgg.run.exttype2doc_scderived.config.DemoclesRegistratio
 import org.emoflon.ibex.tgg.run.exttype2doc_scderived.config.HiPERegistrationHelper;
 import org.emoflon.ibex.tgg.run.exttype2doc_scderived.config.ViatraRegistrationHelper;
 
-import ExtDocModel.DocContainer;
+import ExtDocModel.Folder;
 import ExtTypeModel.ExtTypeModelFactory;
 import ExtTypeModel.Package;
 import testsuite.ibex.testUtil.IbexAdapter;
 import testsuite.ibex.testUtil.UsedPatternMatcher;
 
-public class IbexExtType2Doc_SCDerived extends IbexAdapter<Package, DocContainer> {
+public class IbexExtType2Doc_SCDerived extends IbexAdapter<Package, Folder> {
 
 	public IbexExtType2Doc_SCDerived(String projectName) {
 		super(new ExtTypeModelComparator(true), new ExtDocModelComparator(true), projectName);

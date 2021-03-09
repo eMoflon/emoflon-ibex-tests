@@ -17,6 +17,7 @@
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ExtTypeModel.ecore#//Package/superPackage"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExtTypeModel.ecore#//Package/types"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ExtTypeModel.ecore#//Package/fQname"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ExtTypeModel.ecore#//Package/project"/>
     </genClasses>
     <genClasses ecoreClass="ExtTypeModel.ecore#//Type">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ExtTypeModel.ecore#//Type/interface"/>
@@ -40,6 +41,9 @@
     <genClasses ecoreClass="ExtTypeModel.ecore#//JavaDoc">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ExtTypeModel.ecore#//JavaDoc/comment"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ExtTypeModel.ecore#//JavaDoc/method"/>
+    </genClasses>
+    <genClasses ecoreClass="ExtTypeModel.ecore#//Project">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExtTypeModel.ecore#//Project/rootPackages"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -15,6 +15,7 @@ import ExtDocModel.DocContainer;
 import ExtDocModel.Entry;
 import ExtDocModel.EntryType;
 import ExtDocModel.ExtDocModelFactory;
+import ExtDocModel.Folder;
 import ExtDocModel.Glossary;
 import ExtDocModel.GlossaryEntry;
 import ExtTypeModel.ExtTypeModelFactory;
@@ -23,13 +24,14 @@ import ExtTypeModel.JavaDoc;
 import ExtTypeModel.Method;
 import ExtTypeModel.Package;
 import ExtTypeModel.Parameter;
+import ExtTypeModel.Project;
 import ExtTypeModel.Type;
 
 public abstract class ExtType2Doc_MDGenerator<CF extends EFactory, BP extends BenchParameters>
 		extends ModelAndDeltaGenerator<CF, ExtTypeModelFactory, ExtDocModelFactory, BP> {
 
 	//// SRC ////
-	protected Package sContainer;
+	protected Project sContainer;
 	protected Map<String, Package> name2package;
 	protected Map<String, Type> name2type;
 	protected Map<String, Method> name2method;
@@ -41,6 +43,7 @@ public abstract class ExtType2Doc_MDGenerator<CF extends EFactory, BP extends Be
 
 	//// TRG ////
 	protected DocContainer tContainer;
+	protected Map<String, Folder> name2folder;
 	protected Map<String, Doc> name2doc;
 	protected Map<String, Entry> name2entry;
 	protected Map<String, Annotation> name2annotation;
@@ -73,6 +76,7 @@ public abstract class ExtType2Doc_MDGenerator<CF extends EFactory, BP extends Be
 		src2corr = new HashMap<>();
 
 		tContainer = null;
+		name2folder = new HashMap<>();
 		name2doc = new HashMap<>();
 		name2entry = new HashMap<>();
 		name2annotation = new HashMap<>();
@@ -82,15 +86,14 @@ public abstract class ExtType2Doc_MDGenerator<CF extends EFactory, BP extends Be
 	//// MODEL ////
 
 	@Override
-	protected EObject createCorr(EObject corr, EObject src, EObject trg) {
+	protected <Corr extends EObject> Corr createCorr(Corr corr, EObject src, EObject trg) {
 		super.createCorr(corr, src, trg);
 		src2corr.put(src, corr);
 		return corr;
 	}
 
-	protected void createContainerPackage() {
-		sContainer = sFactory.createPackage();
-		sContainer.setName("root");
+	protected void createProject() {
+		sContainer = sFactory.createProject();
 		source.getContents().add(sContainer);
 		numOfElements++;
 	}
@@ -108,6 +111,15 @@ public abstract class ExtType2Doc_MDGenerator<CF extends EFactory, BP extends Be
 		return g;
 	}
 
+	protected Package createRootPackage(String postfix) {
+		Package p = sFactory.createPackage();
+		p.setName("Package" + postfix);
+		p.setProject(sContainer);
+		name2package.put(p.getName(), p);
+		numOfElements++;
+		return p;
+	}
+
 	protected Package createPackage(String postfix, Package superPackage) {
 		Package p = sFactory.createPackage();
 		p.setName("Package" + postfix);
@@ -115,6 +127,15 @@ public abstract class ExtType2Doc_MDGenerator<CF extends EFactory, BP extends Be
 		name2package.put(p.getName(), p);
 		numOfElements++;
 		return p;
+	}
+
+	protected Folder createFolder(String postfix) {
+		Folder f = tFactory.createFolder();
+		f.setName("Package" + postfix);
+		f.setContainer(tContainer);
+		name2folder.put(f.getName(), f);
+		numOfElements++;
+		return f;
 	}
 
 	protected Type createType(String postfix, boolean isInterface, Package p) {
@@ -127,10 +148,10 @@ public abstract class ExtType2Doc_MDGenerator<CF extends EFactory, BP extends Be
 		return t;
 	}
 
-	protected Doc createDoc(String postfix) {
+	protected Doc createDoc(String postfix, Folder f) {
 		Doc d = tFactory.createDoc();
 		d.setName("Type" + postfix);
-		d.setContainer(tContainer);
+		d.setFolder(f);
 		name2doc.put(d.getName(), d);
 		numOfElements++;
 		return d;

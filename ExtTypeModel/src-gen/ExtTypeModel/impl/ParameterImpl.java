@@ -78,22 +78,19 @@ public class ParameterImpl extends NamedElementImpl implements Parameter {
 	 */
 	@Override
 	public void setMethod(Method newMethod) {
-		if (newMethod != eInternalContainer()
-				|| (eContainerFeatureID() != ExtTypeModelPackage.PARAMETER__METHOD && newMethod != null)) {
+		if (newMethod != eInternalContainer() || (eContainerFeatureID() != ExtTypeModelPackage.PARAMETER__METHOD && newMethod != null)) {
 			if (EcoreUtil.isAncestor(this, newMethod))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newMethod != null)
-				msgs = ((InternalEObject) newMethod).eInverseAdd(this, ExtTypeModelPackage.METHOD__PARAMS, Method.class,
-						msgs);
+				msgs = ((InternalEObject) newMethod).eInverseAdd(this, ExtTypeModelPackage.METHOD__PARAMS, Method.class, msgs);
 			msgs = basicSetMethod(newMethod, msgs);
 			if (msgs != null)
 				msgs.dispatch();
 		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ExtTypeModelPackage.PARAMETER__METHOD, newMethod,
-					newMethod));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExtTypeModelPackage.PARAMETER__METHOD, newMethod, newMethod));
 	}
 
 	/**

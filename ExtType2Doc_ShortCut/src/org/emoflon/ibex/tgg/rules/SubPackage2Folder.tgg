@@ -1,7 +1,7 @@
 #using ExtType2Doc_ShortCut.*
 #using AttrCondDefLibrary.*
 
-#rule SubPackage2DocCont #with ExtType2Doc_ShortCut
+#rule SubPackage2Folder #with ExtType2Doc_ShortCut
 
 #source { 
 	p:Package {
@@ -12,18 +12,18 @@
 }
 
 #target {
-	dc:DocContainer
+	f:Folder
 }
 
 #correspondence {
-	p2dc:Package2DocCont {
+	p2dc:Package2Folder {
 		#src->p
-		#trg->dc
+		#trg->f
 	}
 	
-	++sp2dc:Package2DocCont {
+	++sp2sf:Package2Folder {
 		#src->sp
-		#trg->dc
+		#trg->f
 	}
 }
 

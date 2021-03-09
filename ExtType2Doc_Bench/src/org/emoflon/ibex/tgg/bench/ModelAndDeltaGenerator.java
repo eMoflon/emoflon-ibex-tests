@@ -58,7 +58,7 @@ public abstract class ModelAndDeltaGenerator<CorrFactory extends EFactory, SrcFa
 		return numOfElements;
 	}
 	
-	protected EObject createCorr(EObject corr, EObject src, EObject trg) {
+	protected <Corr extends EObject> Corr createCorr(Corr corr, EObject src, EObject trg) {
 		this.corr.getContents().add(corr);
 		corr.eSet(corr.eClass().getEStructuralFeature("source"), src);
 		corr.eSet(corr.eClass().getEStructuralFeature("target"), trg);

@@ -5,13 +5,13 @@ import org.benchmarx.extTypeModel.core.ExtTypeHelper;
 import org.junit.Test;
 
 import ExtDocModel.Doc;
-import ExtDocModel.DocContainer;
+import ExtDocModel.Folder;
 import ExtTypeModel.Package;
 import ExtTypeModel.Type;
 import testsuite.ibex.ExtType2Doc_SCDerived.sync.util.IbexExtType2Doc_SCDerived;
 import testsuite.ibex.testUtil.SyncTestCase;
 
-public class Derived extends SyncTestCase<Package, DocContainer> {
+public class Derived extends SyncTestCase<Package, Folder> {
 
 	private static final String projectName = "ExtType2Doc_SCDerived";
 

@@ -5,6 +5,7 @@ import ExtDocModel.DocContainer;
 import ExtDocModel.Entry;
 import ExtDocModel.EntryType;
 import ExtDocModel.ExtDocModelFactory;
+import ExtDocModel.Folder;
 import ExtDocModel.Glossary;
 import ExtDocModel.GlossaryEntry;
 
@@ -20,10 +21,17 @@ public class ExtDocHelper {
 	
 	//// CREATORS ////
 	
-	public Doc createDoc(String name) {
+	public Folder createFolder(String name) {
+		Folder f = factory.createFolder();
+		f.setName(name);
+		f.setContainer(docContainer);
+		return f;
+	}
+	
+	public Doc createDoc(Folder f, String name) {
 		Doc d = factory.createDoc();
 		d.setName(name);
-		d.setContainer(docContainer);
+		d.setFolder(f);
 		return d;
 	}
 	
@@ -61,8 +69,25 @@ public class ExtDocHelper {
 	
 	//// GETTERS ////
 	
+	public Folder getFolder(String name) {
+		for (Folder f : docContainer.getFolders()) {
+			if (f.getName().equals(name))
+				return f;
+		}
+		return null;
+	}
+	
 	public Doc getDoc(String name) {
-		for (Doc d : docContainer.getDocs()) {
+		for (Folder f: docContainer.getFolders()) {
+			Doc result = getDoc(f, name);
+			if (result != null)
+				return result;
+		}
+		return null;
+	}
+	
+	public Doc getDoc(Folder f, String name) {
+		for (Doc d : f.getDocs()) {
 			if (d.getName().equals(name))
 				return d;
 		}
@@ -70,10 +95,12 @@ public class ExtDocHelper {
 	}
 	
 	public Entry getEntry(String name) {
-		for (Doc d : docContainer.getDocs()) {
-			Entry result = getEntry(d, name);
-			if (result != null)
-				return result;
+		for (Folder f : docContainer.getFolders()) {
+			for (Doc d : f.getDocs()) {
+				Entry result = getEntry(d, name);
+				if (result != null)
+					return result;
+			}
 		}
 		return null;
 	}

@@ -95,14 +95,23 @@ public interface ExtDocModelPackage extends EPackage {
 	int NAMED_ELEMENT_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link ExtDocModel.impl.DocContainerImpl <em>Doc Container</em>}' class.
+	 * The meta object id for the '{@link ExtDocModel.impl.FolderImpl <em>Folder</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see ExtDocModel.impl.DocContainerImpl
-	 * @see ExtDocModel.impl.ExtDocModelPackageImpl#getDocContainer()
+	 * @see ExtDocModel.impl.FolderImpl
+	 * @see ExtDocModel.impl.ExtDocModelPackageImpl#getFolder()
 	 * @generated
 	 */
-	int DOC_CONTAINER = 1;
+	int FOLDER = 1;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FOLDER__NAME = NAMED_ELEMENT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Docs</b></em>' containment reference list.
@@ -111,34 +120,44 @@ public interface ExtDocModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_CONTAINER__DOCS = 0;
+	int FOLDER__DOCS = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Glossary</b></em>' containment reference.
+	 * The feature id for the '<em><b>Container</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_CONTAINER__GLOSSARY = 1;
+	int FOLDER__CONTAINER = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of structural features of the '<em>Doc Container</em>' class.
+	 * The number of structural features of the '<em>Folder</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_CONTAINER_FEATURE_COUNT = 2;
+	int FOLDER_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The number of operations of the '<em>Doc Container</em>' class.
+	 * The number of operations of the '<em>Folder</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_CONTAINER_OPERATION_COUNT = 0;
+	int FOLDER_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link ExtDocModel.impl.DocContainerImpl <em>Doc Container</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ExtDocModel.impl.DocContainerImpl
+	 * @see ExtDocModel.impl.ExtDocModelPackageImpl#getDocContainer()
+	 * @generated
+	 */
+	int DOC_CONTAINER = 7;
 
 	/**
 	 * The meta object id for the '{@link ExtDocModel.impl.DocImpl <em>Doc</em>}' class.
@@ -160,13 +179,13 @@ public interface ExtDocModelPackage extends EPackage {
 	int DOC__NAME = NAMED_ELEMENT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Container</b></em>' container reference.
+	 * The feature id for the '<em><b>Folder</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOC__CONTAINER = NAMED_ELEMENT_FEATURE_COUNT + 0;
+	int DOC__FOLDER = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Entries</b></em>' containment reference list.
@@ -434,6 +453,42 @@ public interface ExtDocModelPackage extends EPackage {
 	int GLOSSARY_ENTRY_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Folders</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOC_CONTAINER__FOLDERS = 0;
+
+	/**
+	 * The feature id for the '<em><b>Glossary</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOC_CONTAINER__GLOSSARY = 1;
+
+	/**
+	 * The number of structural features of the '<em>Doc Container</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOC_CONTAINER_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Doc Container</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOC_CONTAINER_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link ExtDocModel.EntryType <em>Entry Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -441,7 +496,7 @@ public interface ExtDocModelPackage extends EPackage {
 	 * @see ExtDocModel.impl.ExtDocModelPackageImpl#getEntryType()
 	 * @generated
 	 */
-	int ENTRY_TYPE = 7;
+	int ENTRY_TYPE = 8;
 
 	/**
 	 * Returns the meta object for class '{@link ExtDocModel.NamedElement <em>Named Element</em>}'.
@@ -465,6 +520,38 @@ public interface ExtDocModelPackage extends EPackage {
 	EAttribute getNamedElement_Name();
 
 	/**
+	 * Returns the meta object for class '{@link ExtDocModel.Folder <em>Folder</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Folder</em>'.
+	 * @see ExtDocModel.Folder
+	 * @generated
+	 */
+	EClass getFolder();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link ExtDocModel.Folder#getDocs <em>Docs</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Docs</em>'.
+	 * @see ExtDocModel.Folder#getDocs()
+	 * @see #getFolder()
+	 * @generated
+	 */
+	EReference getFolder_Docs();
+
+	/**
+	 * Returns the meta object for the container reference '{@link ExtDocModel.Folder#getContainer <em>Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Container</em>'.
+	 * @see ExtDocModel.Folder#getContainer()
+	 * @see #getFolder()
+	 * @generated
+	 */
+	EReference getFolder_Container();
+
+	/**
 	 * Returns the meta object for class '{@link ExtDocModel.DocContainer <em>Doc Container</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -475,15 +562,15 @@ public interface ExtDocModelPackage extends EPackage {
 	EClass getDocContainer();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link ExtDocModel.DocContainer#getDocs <em>Docs</em>}'.
+	 * Returns the meta object for the containment reference list '{@link ExtDocModel.DocContainer#getFolders <em>Folders</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Docs</em>'.
-	 * @see ExtDocModel.DocContainer#getDocs()
+	 * @return the meta object for the containment reference list '<em>Folders</em>'.
+	 * @see ExtDocModel.DocContainer#getFolders()
 	 * @see #getDocContainer()
 	 * @generated
 	 */
-	EReference getDocContainer_Docs();
+	EReference getDocContainer_Folders();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link ExtDocModel.DocContainer#getGlossary <em>Glossary</em>}'.
@@ -507,15 +594,15 @@ public interface ExtDocModelPackage extends EPackage {
 	EClass getDoc();
 
 	/**
-	 * Returns the meta object for the container reference '{@link ExtDocModel.Doc#getContainer <em>Container</em>}'.
+	 * Returns the meta object for the container reference '{@link ExtDocModel.Doc#getFolder <em>Folder</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Container</em>'.
-	 * @see ExtDocModel.Doc#getContainer()
+	 * @return the meta object for the container reference '<em>Folder</em>'.
+	 * @see ExtDocModel.Doc#getFolder()
 	 * @see #getDoc()
 	 * @generated
 	 */
-	EReference getDoc_Container();
+	EReference getDoc_Folder();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link ExtDocModel.Doc#getEntries <em>Entries</em>}'.
@@ -752,6 +839,32 @@ public interface ExtDocModelPackage extends EPackage {
 		EAttribute NAMED_ELEMENT__NAME = eINSTANCE.getNamedElement_Name();
 
 		/**
+		 * The meta object literal for the '{@link ExtDocModel.impl.FolderImpl <em>Folder</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ExtDocModel.impl.FolderImpl
+		 * @see ExtDocModel.impl.ExtDocModelPackageImpl#getFolder()
+		 * @generated
+		 */
+		EClass FOLDER = eINSTANCE.getFolder();
+
+		/**
+		 * The meta object literal for the '<em><b>Docs</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FOLDER__DOCS = eINSTANCE.getFolder_Docs();
+
+		/**
+		 * The meta object literal for the '<em><b>Container</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FOLDER__CONTAINER = eINSTANCE.getFolder_Container();
+
+		/**
 		 * The meta object literal for the '{@link ExtDocModel.impl.DocContainerImpl <em>Doc Container</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -762,12 +875,12 @@ public interface ExtDocModelPackage extends EPackage {
 		EClass DOC_CONTAINER = eINSTANCE.getDocContainer();
 
 		/**
-		 * The meta object literal for the '<em><b>Docs</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Folders</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference DOC_CONTAINER__DOCS = eINSTANCE.getDocContainer_Docs();
+		EReference DOC_CONTAINER__FOLDERS = eINSTANCE.getDocContainer_Folders();
 
 		/**
 		 * The meta object literal for the '<em><b>Glossary</b></em>' containment reference feature.
@@ -788,12 +901,12 @@ public interface ExtDocModelPackage extends EPackage {
 		EClass DOC = eINSTANCE.getDoc();
 
 		/**
-		 * The meta object literal for the '<em><b>Container</b></em>' container reference feature.
+		 * The meta object literal for the '<em><b>Folder</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference DOC__CONTAINER = eINSTANCE.getDoc_Container();
+		EReference DOC__FOLDER = eINSTANCE.getDoc_Folder();
 
 		/**
 		 * The meta object literal for the '<em><b>Entries</b></em>' containment reference list feature.

@@ -12,9 +12,13 @@
 } 
 
 #correspondence {
-	Package2DocCont {
-		#src->Package
+	Project2DocContainer {
+		#src->Project
 		#trg->DocContainer
+	}
+	Package2Folder {
+		#src->Package
+		#trg->Folder
 	}
 	Type2Doc {
 		#src->Type

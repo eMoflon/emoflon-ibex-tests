@@ -6,6 +6,7 @@ import org.emoflon.ibex.tgg.bench.exttype2doc.ExtType2Doc_MDGenerator;
 import ExtDocModel.Doc;
 import ExtDocModel.Entry;
 import ExtDocModel.EntryType;
+import ExtDocModel.Folder;
 import ExtDocModel.GlossaryEntry;
 import ExtType2Doc_ConcSync.ExtType2Doc_ConcSyncFactory;
 import ExtType2Doc_ConcSync.ExtendingType2Doc__Marker;
@@ -15,18 +16,24 @@ import ExtType2Doc_ConcSync.GlossaryEntry__Marker;
 import ExtType2Doc_ConcSync.GlossaryLink__Marker;
 import ExtType2Doc_ConcSync.Method2Entry;
 import ExtType2Doc_ConcSync.Method2Entry__Marker;
-import ExtType2Doc_ConcSync.Package2DocCont;
-import ExtType2Doc_ConcSync.Package2DocCont__Marker;
+import ExtType2Doc_ConcSync.Package2Folder;
+import ExtType2Doc_ConcSync.Package2Folder__Marker;
 import ExtType2Doc_ConcSync.Param2Entry;
 import ExtType2Doc_ConcSync.Param2Entry__Marker;
+import ExtType2Doc_ConcSync.Project2DocCont__Marker;
+import ExtType2Doc_ConcSync.Project2DocContainer;
 import ExtType2Doc_ConcSync.Type2Doc;
 import ExtType2Doc_ConcSync.Type2Doc__Marker;
 import ExtTypeModel.Field;
 import ExtTypeModel.Method;
 import ExtTypeModel.Parameter;
 import ExtTypeModel.Type;
+import ExtTypeModel.Package;
 
 public class ExtType2Doc_ConcSync_MDGenerator extends ExtType2Doc_MDGenerator<ExtType2Doc_ConcSyncFactory, ExtType2Doc_ConcSync_Params> {
+	
+	private Package rootPackage;
+	private Folder rootFolder;
 
 	private int glossaryLinkCounter;
 
@@ -52,17 +59,37 @@ public class ExtType2Doc_ConcSync_MDGenerator extends ExtType2Doc_MDGenerator<Ex
 
 	private void createContainers() {
 		// SRC
-		createContainerPackage();
+		createProject();
 		// TRG
 		createDocContainer();
 		createGlossary();
 		// CORR
-		Package2DocCont p2dc = (Package2DocCont) createCorr(cFactory.createPackage2DocCont(), sContainer, tContainer);
+		Project2DocContainer pr2dc = createCorr(cFactory.createProject2DocContainer(), sContainer, tContainer);
 		// MARKER
-		Package2DocCont__Marker marker = cFactory.createPackage2DocCont__Marker();
-		marker.setCREATE__SRC__p(sContainer);
-		marker.setCREATE__CORR__p2dc(p2dc);
+		Project2DocCont__Marker marker = cFactory.createProject2DocCont__Marker();
+		marker.setCREATE__SRC__pr(sContainer);
+		marker.setCREATE__CORR__pr2dc(pr2dc);
 		marker.setCREATE__TRG__dc(tContainer);
+		protocol.getContents().add(marker);
+		
+		createRootPackageAndFolder();
+	}
+	
+	private void createRootPackageAndFolder() {
+		// SRC
+		rootPackage = createRootPackage("");
+		// TRG
+		rootFolder = createFolder("");
+		// CORR
+		Package2Folder p2f = createCorr(cFactory.createPackage2Folder(), rootPackage, rootFolder);
+		// MARKER
+		Package2Folder__Marker marker = cFactory.createPackage2Folder__Marker();
+		marker.setCONTEXT__SRC__pr(sContainer);
+		marker.setCONTEXT__CORR__pr2dc((Project2DocContainer) src2corr.get(sContainer));
+		marker.setCONTEXT__TRG__dc(tContainer);
+		marker.setCREATE__SRC__p(rootPackage);
+		marker.setCREATE__CORR__p2dc(p2f);
+		marker.setCREATE__TRG__f(rootFolder);
 		protocol.getContents().add(marker);
 	}
 
@@ -75,16 +102,16 @@ public class ExtType2Doc_ConcSync_MDGenerator extends ExtType2Doc_MDGenerator<Ex
 		String postfix = SEP + index;
 
 		// SRC
-		Type t = createType(postfix, false, sContainer);
+		Type t = createType(postfix, false, rootPackage);
 		// TRG
-		Doc d = createDoc(postfix);
+		Doc d = createDoc(postfix, rootFolder);
 		// CORR
-		Type2Doc t2d = (Type2Doc) createCorr(cFactory.createType2Doc(), t, d);
+		Type2Doc t2d = createCorr(cFactory.createType2Doc(), t, d);
 		// MARKER
 		Type2Doc__Marker marker = cFactory.createType2Doc__Marker();
-		marker.setCONTEXT__SRC__p(sContainer);
-		marker.setCONTEXT__CORR__p2dc((Package2DocCont) src2corr.get(sContainer));
-		marker.setCONTEXT__TRG__dc(tContainer);
+		marker.setCONTEXT__SRC__p(rootPackage);
+		marker.setCONTEXT__CORR__p2f((Package2Folder) src2corr.get(rootPackage));
+		marker.setCONTEXT__TRG__f(rootFolder);
 		marker.setCREATE__SRC__t(t);
 		marker.setCREATE__CORR__t2d(t2d);
 		marker.setCREATE__TRG__d(d);
@@ -108,18 +135,18 @@ public class ExtType2Doc_ConcSync_MDGenerator extends ExtType2Doc_MDGenerator<Ex
 		String postfix = oldPostfix + SEP + index;
 
 		// SRC
-		Type t = createType(postfix, false, sContainer);
+		Type t = createType(postfix, false, rootPackage);
 		createTypeInheritance(superT, t);
 		// TRG
-		Doc d = createDoc(postfix);
+		Doc d = createDoc(postfix, rootFolder);
 		createDocLink(superD, d);
 		// CORR
-		Type2Doc t2d = (Type2Doc) createCorr(cFactory.createType2Doc(), t, d);
+		Type2Doc t2d = createCorr(cFactory.createType2Doc(), t, d);
 		// MARKER
 		ExtendingType2Doc__Marker marker = cFactory.createExtendingType2Doc__Marker();
-		marker.setCONTEXT__SRC__p(sContainer);
-		marker.setCONTEXT__CORR__p2dc((Package2DocCont) src2corr.get(sContainer));
-		marker.setCONTEXT__TRG__dc(tContainer);
+		marker.setCONTEXT__SRC__p(rootPackage);
+		marker.setCONTEXT__CORR__p2f((Package2Folder) src2corr.get(rootPackage));
+		marker.setCONTEXT__TRG__f(rootFolder);
 		marker.setCONTEXT__SRC__t(superT);
 		marker.setCONTEXT__CORR__t2d((Type2Doc) src2corr.get(superT));
 		marker.setCONTEXT__TRG__d(superD);
