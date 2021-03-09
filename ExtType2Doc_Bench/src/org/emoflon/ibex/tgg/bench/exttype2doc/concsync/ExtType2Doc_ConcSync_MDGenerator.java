@@ -88,7 +88,7 @@ public class ExtType2Doc_ConcSync_MDGenerator extends ExtType2Doc_MDGenerator<Ex
 		marker.setCONTEXT__CORR__pr2dc((Project2DocContainer) src2corr.get(sContainer));
 		marker.setCONTEXT__TRG__dc(tContainer);
 		marker.setCREATE__SRC__p(rootPackage);
-		marker.setCREATE__CORR__p2dc(p2f);
+		marker.setCREATE__CORR__p2f(p2f);
 		marker.setCREATE__TRG__f(rootFolder);
 		protocol.getContents().add(marker);
 	}
@@ -184,7 +184,7 @@ public class ExtType2Doc_ConcSync_MDGenerator extends ExtType2Doc_MDGenerator<Ex
 		// TRG
 		Entry e = createEntry(postfix, EntryType.METHOD, d);
 		// CORR
-		Method2Entry m2e = (Method2Entry) createCorr(cFactory.createMethod2Entry(), m, e);
+		Method2Entry m2e = createCorr(cFactory.createMethod2Entry(), m, e);
 		// MARKER
 		Method2Entry__Marker marker = cFactory.createMethod2Entry__Marker();
 		marker.setCONTEXT__SRC__t(t);
@@ -212,7 +212,7 @@ public class ExtType2Doc_ConcSync_MDGenerator extends ExtType2Doc_MDGenerator<Ex
 		// TRG
 		Entry e = createEntry(postfix, EntryType.FIELD, d);
 		// CORR
-		Field2Entry f2e = (Field2Entry) createCorr(cFactory.createField2Entry(), f, e);
+		Field2Entry f2e = createCorr(cFactory.createField2Entry(), f, e);
 		// MARKER
 		Field2Entry__Marker marker = cFactory.createField2Entry__Marker();
 		marker.setCONTEXT__SRC__t(t);
@@ -237,7 +237,7 @@ public class ExtType2Doc_ConcSync_MDGenerator extends ExtType2Doc_MDGenerator<Ex
 		// SRC
 		Parameter p = createParameter(postfix, m);
 		// CORR
-		Param2Entry p2e = (Param2Entry) createCorr(cFactory.createParam2Entry(), p, e);
+		Param2Entry p2e = createCorr(cFactory.createParam2Entry(), p, e);
 		// MARKER
 		Param2Entry__Marker marker = cFactory.createParam2Entry__Marker();
 		marker.setCONTEXT__SRC__m(m);

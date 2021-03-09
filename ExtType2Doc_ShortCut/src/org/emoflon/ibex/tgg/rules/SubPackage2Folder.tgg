@@ -16,12 +16,12 @@
 }
 
 #correspondence {
-	p2dc:Package2Folder {
+	p2f:Package2Folder {
 		#src->p
 		#trg->f
 	}
 	
-	++sp2sf:Package2Folder {
+	++sp2f:Package2Folder {
 		#src->sp
 		#trg->f
 	}
