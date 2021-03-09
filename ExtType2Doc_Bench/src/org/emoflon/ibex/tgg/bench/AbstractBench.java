@@ -96,7 +96,7 @@ public abstract class AbstractBench<OpStrat extends OperationalStrategy, BenchPa
 
 					changeURI(source, "/instances" + filename_src);
 					changeURI(target, "/instances" + filename_trg);
-					changeURI(corr, "/instances" + filename_trg);
+					changeURI(corr, "/instances" + filename_corr);
 					changeURI(protocol, "/instances" + filename_protocol);
 
 					EcoreUtil.resolveAll(rs);
