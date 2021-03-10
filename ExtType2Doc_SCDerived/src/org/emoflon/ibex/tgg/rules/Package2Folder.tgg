@@ -33,4 +33,5 @@
 
 #attributeConditions {
 	eq_string(p.name, #derived p.fQname)
+	eq_string(p.name, f.name)
 }

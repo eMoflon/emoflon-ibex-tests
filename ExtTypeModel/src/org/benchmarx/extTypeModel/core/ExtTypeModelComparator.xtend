@@ -9,8 +9,9 @@ import ExtTypeModel.Type
 import org.benchmarx.emf.Comparator
 
 import static org.junit.Assert.assertEquals
+import ExtTypeModel.Project
 
-class ExtTypeModelComparator implements Comparator<Package> {
+class ExtTypeModelComparator implements Comparator<Project> {
 	
 	boolean checkAttributeValues;
 	PackageNormalizer packageNormalizer;
@@ -28,8 +29,20 @@ class ExtTypeModelComparator implements Comparator<Package> {
 		this.parameterNormalizer = new ParameterNormalizer;
 	}
 	
-	override assertEquals(Package expected, Package actual) {
+	override assertEquals(Project expected, Project actual) {
 		assertEquals(expected.stringify, actual.stringify);
+	}
+	
+	def String stringify(Project project) {
+		'''
+		Project {
+			packages {
+				«FOR p : packageNormalizer.normalize(project.rootPackages)»
+					«p.stringify»
+				«ENDFOR»
+			}
+		}
+		'''
 	}
 	
 	def String stringify(Package package_) {

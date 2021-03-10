@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="ASCII"?>
-<ExtTypeModel:Package xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ExtTypeModel="platform:/resource/ExtTypeModel/model/ExtTypeModel.ecore" name="P0" fQname="P0">
-  <subPackages name="P1" fQname="P0.P1">
-    <types name="T2" extendedBy="//@subPackages.0/@types.1"/>
-    <types name="T3" inheritsFrom="//@subPackages.0/@types.0"/>
-  </subPackages>
-</ExtTypeModel:Package>
+<ExtTypeModel:Project xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ExtTypeModel="platform:/resource/ExtTypeModel/model/ExtTypeModel.ecore">
+  <rootPackages name="P0" fQname="P0">
+    <subPackages name="P1" fQname="P0.P1">
+      <types name="T2" extendedBy="//@rootPackages.0/@subPackages.0/@types.1"/>
+      <types name="T3" inheritsFrom="//@rootPackages.0/@subPackages.0/@types.0"/>
+    </subPackages>
+  </rootPackages>
+</ExtTypeModel:Project>
