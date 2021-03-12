@@ -21,8 +21,8 @@ public class ExtType2Doc_LookAhead_Bench extends IntegrationBench<ExtType2Doc_Lo
 	}
 
 	@Override
-	protected ModelAndDeltaGenerator<?, ?, ?, ExtType2Doc_LookAhead_Params> initModelAndDeltaGenerator(Resource s, Resource t, Resource c, Resource p,
-			Resource d) {
+	protected ModelAndDeltaGenerator<?, ?, ?, ?, ?, ExtType2Doc_LookAhead_Params> initModelAndDeltaGenerator(Resource s, Resource t, Resource c,
+			Resource p, Resource d) {
 		// TODO Auto-generated method stub
 		return null;
 	}

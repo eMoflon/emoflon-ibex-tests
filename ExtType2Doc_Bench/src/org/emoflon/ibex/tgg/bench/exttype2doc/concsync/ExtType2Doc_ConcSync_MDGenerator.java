@@ -1,8 +1,13 @@
 package org.emoflon.ibex.tgg.bench.exttype2doc.concsync;
 
+import java.util.LinkedList;
+import java.util.List;
+import java.util.function.BiConsumer;
+
 import org.eclipse.emf.ecore.resource.Resource;
 import org.emoflon.ibex.tgg.bench.exttype2doc.ExtType2Doc_MDGenerator;
 
+import ExtDocModel.Annotation;
 import ExtDocModel.Doc;
 import ExtDocModel.Entry;
 import ExtDocModel.EntryType;
@@ -14,6 +19,8 @@ import ExtType2Doc_ConcSync.Field2Entry;
 import ExtType2Doc_ConcSync.Field2Entry__Marker;
 import ExtType2Doc_ConcSync.GlossaryEntry__Marker;
 import ExtType2Doc_ConcSync.GlossaryLink__Marker;
+import ExtType2Doc_ConcSync.JDoc2Annotation;
+import ExtType2Doc_ConcSync.JDoc2Annotation__Marker;
 import ExtType2Doc_ConcSync.Method2Entry;
 import ExtType2Doc_ConcSync.Method2Entry__Marker;
 import ExtType2Doc_ConcSync.Package2Folder;
@@ -25,13 +32,15 @@ import ExtType2Doc_ConcSync.Project2DocContainer;
 import ExtType2Doc_ConcSync.Type2Doc;
 import ExtType2Doc_ConcSync.Type2Doc__Marker;
 import ExtTypeModel.Field;
+import ExtTypeModel.JavaDoc;
 import ExtTypeModel.Method;
+import ExtTypeModel.Package;
 import ExtTypeModel.Parameter;
 import ExtTypeModel.Type;
-import ExtTypeModel.Package;
+import delta.Delta;
 
 public class ExtType2Doc_ConcSync_MDGenerator extends ExtType2Doc_MDGenerator<ExtType2Doc_ConcSyncFactory, ExtType2Doc_ConcSync_Params> {
-	
+
 	private Package rootPackage;
 	private Folder rootFolder;
 
@@ -49,7 +58,7 @@ public class ExtType2Doc_ConcSync_MDGenerator extends ExtType2Doc_MDGenerator<Ex
 	//// MODEL ////
 
 	@Override
-	protected void genModel() {
+	protected void genModels() {
 		glossaryLinkCounter = 0;
 
 		createContainers();
@@ -71,10 +80,10 @@ public class ExtType2Doc_ConcSync_MDGenerator extends ExtType2Doc_MDGenerator<Ex
 		marker.setCREATE__CORR__pr2dc(pr2dc);
 		marker.setCREATE__TRG__dc(tContainer);
 		protocol.getContents().add(marker);
-		
+
 		createRootPackageAndFolder();
 	}
-	
+
 	private void createRootPackageAndFolder() {
 		// SRC
 		rootPackage = createRootPackage("");
@@ -196,6 +205,7 @@ public class ExtType2Doc_ConcSync_MDGenerator extends ExtType2Doc_MDGenerator<Ex
 		protocol.getContents().add(marker);
 
 		createParameters(m, e, postfix);
+		createJavaDocsAndAnnotations(m, e, postfix);
 		createGlossaryLinks(e);
 	}
 
@@ -248,6 +258,31 @@ public class ExtType2Doc_ConcSync_MDGenerator extends ExtType2Doc_MDGenerator<Ex
 		protocol.getContents().add(marker);
 	}
 
+	private void createJavaDocsAndAnnotations(Method m, Entry e, String oldPostfix) {
+		for (int i = 0; i < parameters.num_of_javadocs; i++)
+			createJavaDocAndAnnotation(m, e, oldPostfix, i);
+	}
+
+	private void createJavaDocAndAnnotation(Method m, Entry e, String oldPostfix, int index) {
+		String postfix = oldPostfix + SEP + index;
+
+		// SRC
+		JavaDoc jd = createJavaDoc(postfix, m);
+		// TRG
+		Annotation a = createAnnotation(postfix, e);
+		// CORR
+		JDoc2Annotation jd2a = createCorr(cFactory.createJDoc2Annotation(), jd, a);
+		// MARKER
+		JDoc2Annotation__Marker marker = cFactory.createJDoc2Annotation__Marker();
+		marker.setCONTEXT__SRC__m(m);
+		marker.setCONTEXT__CORR__m2e((Method2Entry) src2corr.get(m));
+		marker.setCONTEXT__TRG__e(e);
+		marker.setCREATE__SRC__j(jd);
+		marker.setCREATE__CORR__j2a(jd2a);
+		marker.setCREATE__TRG__a(a);
+		protocol.getContents().add(marker);
+	}
+
 	private void createGlossaryEntries() {
 		for (int i = 0; i < parameters.num_of_glossar_entries; i++)
 			createGlossaryEntry(i);
@@ -288,8 +323,68 @@ public class ExtType2Doc_ConcSync_MDGenerator extends ExtType2Doc_MDGenerator<Ex
 
 	@Override
 	protected void genDelta() {
-		// TODO Auto-generated method stub
+		List<BiConsumer<Type, Boolean>> deltaFunctions = new LinkedList<>();
+		switch (parameters.scaleOrientation) {
+		case HORIZONTAL:
+			deltaFunctions.add(this::createAttributeConflict);
+			deltaFunctions.add(this::createContradictingMoveConflict);
+			deltaFunctions.add(this::createDeletePreserveConflict_Horizontal);
 
+			if (parameters.num_of_changes > parameters.num_of_root_types)
+				throw new RuntimeException("Too many conflicts for this model");
+			break;
+		case VERTICAL:
+			deltaFunctions.add(this::createDeletePreserveConflict_Vertical);
+
+			if (parameters.num_of_changes > parameters.inheritance_depth)
+				throw new RuntimeException("Too many conflicts for this model");
+			break;
+		default:
+			break;
+		}
+
+		for (int i = 0; i < parameters.num_of_changes; i++) {
+			int deltaIndex = i % deltaFunctions.size();
+			boolean generateConflict = i <= parameters.num_of_conflicts;
+			deltaFunctions.get(deltaIndex).accept(rootPackage.getTypes().get(i), generateConflict);
+		}
+	}
+
+	private void createDeletePreserveConflict_Horizontal(Type t, boolean generateConflict) {
+		Delta delta = createDelta(false, true);
+
+		Doc d = name2doc.get(t.getName());
+		String newRootName = "DELETE_PRESERVE_" + t.getName();
+
+		createAttrDelta(t, sPackage.getNamedElement_Name(), newRootName, delta);
+		createAttrDelta(d, sPackage.getNamedElement_Name(), newRootName, delta);
+
+		Type subT = t.getExtendedBy().get(0);
+		Doc subD = d.getSubDocs().get(0);
+
+		deleteType(subT, delta);
+
+		if (generateConflict) {
+			if (!subD.getSubDocs().isEmpty())
+				subD = subD.getSubDocs().get(0);
+
+			Entry newE = createEntry(t.getName().substring(4) + "_new_method", EntryType.METHOD, null);
+
+			createObject(newE, delta);
+			createLink(subD, newE, tPackage.getDoc_Entries(), delta);
+		}
+	}
+
+	private void createDeletePreserveConflict_Vertical(Type t, boolean generateConflict) {
+		// TODO
+	}
+
+	private void createAttributeConflict(Type t, boolean generateConflict) {
+		// TODO
+	}
+
+	private void createContradictingMoveConflict(Type t, boolean generateConflict) {
+		// TODO
 	}
 
 }

@@ -35,7 +35,7 @@ public class ExtType2Doc_ShortCut_Bench extends SynchronizationBench<ExtType2Doc
 	}
 
 	@Override
-	protected ModelAndDeltaGenerator<?, ?, ?, ExtType2Doc_ShortCut_Params> initModelAndDeltaGenerator(Resource s, Resource t, Resource c, Resource p,
+	protected ModelAndDeltaGenerator<?, ?, ?, ?, ?, ExtType2Doc_ShortCut_Params> initModelAndDeltaGenerator(Resource s, Resource t, Resource c, Resource p,
 			Resource d) {
 		return new ExtType2Doc_ShortCut_MDGenerator(s, t, c, p, d);
 	}

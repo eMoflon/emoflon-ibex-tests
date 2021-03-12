@@ -130,7 +130,7 @@ public class JavaDocImpl extends MinimalEObjectImpl.Container implements JavaDoc
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newMethod != null)
-				msgs = ((InternalEObject) newMethod).eInverseAdd(this, ExtTypeModelPackage.METHOD__DOC, Method.class, msgs);
+				msgs = ((InternalEObject) newMethod).eInverseAdd(this, ExtTypeModelPackage.METHOD__DOCS, Method.class, msgs);
 			msgs = basicSetMethod(newMethod, msgs);
 			if (msgs != null)
 				msgs.dispatch();
@@ -177,7 +177,7 @@ public class JavaDocImpl extends MinimalEObjectImpl.Container implements JavaDoc
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
 		case ExtTypeModelPackage.JAVA_DOC__METHOD:
-			return eInternalContainer().eInverseRemove(this, ExtTypeModelPackage.METHOD__DOC, Method.class, msgs);
+			return eInternalContainer().eInverseRemove(this, ExtTypeModelPackage.METHOD__DOCS, Method.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}

@@ -261,13 +261,13 @@ public interface ExtDocModelPackage extends EPackage {
 	int ENTRY__DOC = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Annotation</b></em>' containment reference.
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENTRY__ANNOTATION = NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int ENTRY__ANNOTATIONS = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Glossary Entries</b></em>' reference list.
@@ -659,15 +659,15 @@ public interface ExtDocModelPackage extends EPackage {
 	EReference getEntry_Doc();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link ExtDocModel.Entry#getAnnotation <em>Annotation</em>}'.
+	 * Returns the meta object for the containment reference list '{@link ExtDocModel.Entry#getAnnotations <em>Annotations</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Annotation</em>'.
-	 * @see ExtDocModel.Entry#getAnnotation()
+	 * @return the meta object for the containment reference list '<em>Annotations</em>'.
+	 * @see ExtDocModel.Entry#getAnnotations()
 	 * @see #getEntry()
 	 * @generated
 	 */
-	EReference getEntry_Annotation();
+	EReference getEntry_Annotations();
 
 	/**
 	 * Returns the meta object for the reference list '{@link ExtDocModel.Entry#getGlossaryEntries <em>Glossary Entries</em>}'.
@@ -951,12 +951,12 @@ public interface ExtDocModelPackage extends EPackage {
 		EReference ENTRY__DOC = eINSTANCE.getEntry_Doc();
 
 		/**
-		 * The meta object literal for the '<em><b>Annotation</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Annotations</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ENTRY__ANNOTATION = eINSTANCE.getEntry_Annotation();
+		EReference ENTRY__ANNOTATIONS = eINSTANCE.getEntry_Annotations();
 
 		/**
 		 * The meta object literal for the '<em><b>Glossary Entries</b></em>' reference list feature.

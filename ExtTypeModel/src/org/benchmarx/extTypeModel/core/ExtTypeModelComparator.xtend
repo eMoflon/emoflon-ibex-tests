@@ -19,6 +19,7 @@ class ExtTypeModelComparator implements Comparator<Project> {
 	MethodNormalizer methodNormalizer;
 	FieldNormalizer fieldNormalizer;
 	ParameterNormalizer parameterNormalizer;
+	JavaDocNormalizer javaDocNormalizer;
 	
 	new(boolean checkAttributeValues) {
 		this.checkAttributeValues = checkAttributeValues;
@@ -27,6 +28,7 @@ class ExtTypeModelComparator implements Comparator<Project> {
 		this.methodNormalizer = new MethodNormalizer;
 		this.fieldNormalizer = new FieldNormalizer;
 		this.parameterNormalizer = new ParameterNormalizer;
+		this.javaDocNormalizer = new JavaDocNormalizer;
 	}
 	
 	override assertEquals(Project expected, Project actual) {
@@ -101,7 +103,11 @@ class ExtTypeModelComparator implements Comparator<Project> {
 					«p.stringify»
 				«ENDFOR»
 			}
-			«IF method.doc !== null»doc = «method.doc.stringify»«ENDIF»
+			docs {
+				«FOR jd : javaDocNormalizer.normalize(method.docs)»
+					«jd.stringify»
+				«ENDFOR»
+			}
 		}
 		'''
 	}

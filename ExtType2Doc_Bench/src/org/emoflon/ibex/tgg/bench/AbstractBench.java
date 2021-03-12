@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
+import org.emoflon.delta.validation.InvalidDeltaException;
 import org.emoflon.ibex.tgg.bench.util.BenchEntry;
 import org.emoflon.ibex.tgg.bench.util.BenchParameters;
 import org.emoflon.ibex.tgg.operational.strategies.OperationalStrategy;
@@ -55,12 +56,12 @@ public abstract class AbstractBench<OpStrat extends OperationalStrategy, BenchPa
 			});
 			initResources(opStrat);
 
-			ModelAndDeltaGenerator<?, ?, ?, BenchParams> mdGenerator = initModelAndDeltaGenerator(source, target, corr, protocol, delta);
+			ModelAndDeltaGenerator<?, ?, ?, ?, ?, BenchParams> mdGenerator = initModelAndDeltaGenerator(source, target, corr, protocol, delta);
 			mdGenerator.gen(parameters);
 			this.numOfElements = mdGenerator.getNumOfElements();
 
 			return applyDeltaAndRun(opStrat, parameters, saveTransformedModels);
-		} catch (IOException e) {
+		} catch (IOException | InvalidDeltaException e) {
 			e.printStackTrace();
 		}
 		return null;
@@ -71,12 +72,12 @@ public abstract class AbstractBench<OpStrat extends OperationalStrategy, BenchPa
 			initResourceSet();
 			initModels(genModelFolder + "/" + parameters.toString());
 
-			ModelAndDeltaGenerator<?, ?, ?, BenchParams> mdGenerator = initModelAndDeltaGenerator(source, target, corr, protocol, delta);
+			ModelAndDeltaGenerator<?, ?, ?, ?, ?, BenchParams> mdGenerator = initModelAndDeltaGenerator(source, target, corr, protocol, delta);
 			mdGenerator.gen(parameters);
 			this.numOfElements = mdGenerator.getNumOfElements();
 
 			// TODO persist numOfElements!
-			
+
 			saveModels();
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -113,7 +114,7 @@ public abstract class AbstractBench<OpStrat extends OperationalStrategy, BenchPa
 			delta = loadResource(genModelFolder + "/" + parameters.toString() + filename_delta);
 
 			return applyDeltaAndRun(opStrat, parameters, saveTransformedModels);
-		} catch (IOException e) {
+		} catch (IOException | InvalidDeltaException e) {
 			e.printStackTrace();
 		}
 		return null;
@@ -121,9 +122,11 @@ public abstract class AbstractBench<OpStrat extends OperationalStrategy, BenchPa
 
 	protected abstract OpStrat initStub(TGGResourceHandler resourceHandler) throws IOException;
 
-	protected abstract ModelAndDeltaGenerator<?, ?, ?, BenchParams> initModelAndDeltaGenerator(Resource s, Resource t, Resource c, Resource p, Resource d);
+	protected abstract ModelAndDeltaGenerator<?, ?, ?, ?, ?, BenchParams> initModelAndDeltaGenerator(Resource s, Resource t, Resource c, Resource p,
+			Resource d);
 
-	protected abstract BenchEntry applyDeltaAndRun(OpStrat opStrat, BenchParams parameters, boolean saveTransformedModels) throws IOException;
+	protected abstract BenchEntry applyDeltaAndRun(OpStrat opStrat, BenchParams parameters, boolean saveTransformedModels)
+			throws IOException, InvalidDeltaException;
 
 	private void initResources(OpStrat opStrat) {
 		source = opStrat.getOptions().resourceHandler().getSourceResource();

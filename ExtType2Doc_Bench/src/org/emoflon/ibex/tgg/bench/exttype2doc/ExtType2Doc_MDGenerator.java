@@ -15,10 +15,12 @@ import ExtDocModel.DocContainer;
 import ExtDocModel.Entry;
 import ExtDocModel.EntryType;
 import ExtDocModel.ExtDocModelFactory;
+import ExtDocModel.ExtDocModelPackage;
 import ExtDocModel.Folder;
 import ExtDocModel.Glossary;
 import ExtDocModel.GlossaryEntry;
 import ExtTypeModel.ExtTypeModelFactory;
+import ExtTypeModel.ExtTypeModelPackage;
 import ExtTypeModel.Field;
 import ExtTypeModel.JavaDoc;
 import ExtTypeModel.Method;
@@ -26,9 +28,10 @@ import ExtTypeModel.Package;
 import ExtTypeModel.Parameter;
 import ExtTypeModel.Project;
 import ExtTypeModel.Type;
+import delta.Delta;
 
 public abstract class ExtType2Doc_MDGenerator<CF extends EFactory, BP extends BenchParameters>
-		extends ModelAndDeltaGenerator<CF, ExtTypeModelFactory, ExtDocModelFactory, BP> {
+		extends ModelAndDeltaGenerator<CF, ExtTypeModelFactory, ExtTypeModelPackage, ExtDocModelFactory, ExtDocModelPackage, BP> {
 
 	//// SRC ////
 	protected Project sContainer;
@@ -235,5 +238,38 @@ public abstract class ExtType2Doc_MDGenerator<CF extends EFactory, BP extends Be
 	}
 
 	//// DELTA ////
+
+	protected void deleteType(Type type, Delta delta) {
+		type.getMethods().forEach(m -> deleteMethod(m, delta));
+		type.getFields().forEach(f -> deleteField(f, delta));
+
+		deleteObject(type, delta);
+		deleteLink(type.getPackage(), type, sPackage.getPackage_Types(), delta);
+		for (Type subT : type.getExtendedBy())
+			deleteLink(type, subT, sPackage.getType_ExtendedBy(), delta);
+	}
+
+	protected void deleteMethod(Method method, Delta delta) {
+		method.getParams().forEach(p -> deleteParameter(p, delta));
+		method.getDocs().forEach(jd -> deleteJavaDoc(jd, delta));
+
+		deleteObject(method, delta);
+		deleteLink(method.getType(), method, sPackage.getType_Methods(), delta);
+	}
+
+	protected void deleteField(Field field, Delta delta) {
+		deleteObject(field, delta);
+		deleteLink(field.getType(), field, sPackage.getType_Fields(), delta);
+	}
+
+	protected void deleteParameter(Parameter parameter, Delta delta) {
+		deleteObject(parameter, delta);
+		deleteLink(parameter.getMethod(), parameter, sPackage.getMethod_Params(), delta);
+	}
+
+	protected void deleteJavaDoc(JavaDoc javaDoc, Delta delta) {
+		deleteObject(javaDoc, delta);
+		deleteLink(javaDoc.getMethod(), javaDoc, sPackage.getMethod_Docs(), delta);
+	}
 
 }

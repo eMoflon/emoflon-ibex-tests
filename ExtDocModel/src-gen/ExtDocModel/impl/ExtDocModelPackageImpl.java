@@ -312,7 +312,7 @@ public class ExtDocModelPackageImpl extends EPackageImpl implements ExtDocModelP
 	 * @generated
 	 */
 	@Override
-	public EReference getEntry_Annotation() {
+	public EReference getEntry_Annotations() {
 		return (EReference) entryEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -481,7 +481,7 @@ public class ExtDocModelPackageImpl extends EPackageImpl implements ExtDocModelP
 
 		entryEClass = createEClass(ENTRY);
 		createEReference(entryEClass, ENTRY__DOC);
-		createEReference(entryEClass, ENTRY__ANNOTATION);
+		createEReference(entryEClass, ENTRY__ANNOTATIONS);
 		createEReference(entryEClass, ENTRY__GLOSSARY_ENTRIES);
 		createEAttribute(entryEClass, ENTRY__TYPE);
 
@@ -563,7 +563,7 @@ public class ExtDocModelPackageImpl extends EPackageImpl implements ExtDocModelP
 		initEClass(entryEClass, Entry.class, "Entry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getEntry_Doc(), this.getDoc(), this.getDoc_Entries(), "doc", null, 0, 1, Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
 				!IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEntry_Annotation(), this.getAnnotation(), this.getAnnotation_Entry(), "annotation", null, 0, 1, Entry.class, !IS_TRANSIENT,
+		initEReference(getEntry_Annotations(), this.getAnnotation(), this.getAnnotation_Entry(), "annotations", null, 0, 2, Entry.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEntry_GlossaryEntries(), this.getGlossaryEntry(), this.getGlossaryEntry_Entries(), "glossaryEntries", null, 0, -1, Entry.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -571,7 +571,7 @@ public class ExtDocModelPackageImpl extends EPackageImpl implements ExtDocModelP
 				!IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(annotationEClass, Annotation.class, "Annotation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAnnotation_Entry(), this.getEntry(), this.getEntry_Annotation(), "entry", null, 0, 1, Annotation.class, !IS_TRANSIENT,
+		initEReference(getAnnotation_Entry(), this.getEntry(), this.getEntry_Annotations(), "entry", null, 0, 1, Annotation.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAnnotation_Value(), ecorePackage.getEString(), "value", null, 0, 1, Annotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
 				!IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -33,8 +33,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="params" upperBound="-1"
         eType="#//Parameter" containment="true" eOpposite="#//Parameter/method"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Type" eOpposite="#//Type/methods"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="doc" eType="#//JavaDoc"
-        containment="true" eOpposite="#//JavaDoc/method"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="docs" lowerBound="1" upperBound="3"
+        eType="#//JavaDoc" containment="true" eOpposite="#//JavaDoc/method"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Parameter" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="method" eType="#//Method"
@@ -46,7 +46,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="JavaDoc">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="comment" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="method" eType="#//Method"
-        eOpposite="#//Method/doc"/>
+        eOpposite="#//Method/docs"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Project">
     <eStructuralFeatures xsi:type="ecore:EReference" name="rootPackages" upperBound="-1"

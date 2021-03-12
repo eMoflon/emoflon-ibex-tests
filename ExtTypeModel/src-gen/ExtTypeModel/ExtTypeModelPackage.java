@@ -304,13 +304,13 @@ public interface ExtTypeModelPackage extends EPackage {
 	int METHOD__TYPE = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Doc</b></em>' containment reference.
+	 * The feature id for the '<em><b>Docs</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int METHOD__DOC = NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int METHOD__DOCS = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Method</em>' class.
@@ -700,15 +700,15 @@ public interface ExtTypeModelPackage extends EPackage {
 	EReference getMethod_Type();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link ExtTypeModel.Method#getDoc <em>Doc</em>}'.
+	 * Returns the meta object for the containment reference list '{@link ExtTypeModel.Method#getDocs <em>Docs</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Doc</em>'.
-	 * @see ExtTypeModel.Method#getDoc()
+	 * @return the meta object for the containment reference list '<em>Docs</em>'.
+	 * @see ExtTypeModel.Method#getDocs()
 	 * @see #getMethod()
 	 * @generated
 	 */
-	EReference getMethod_Doc();
+	EReference getMethod_Docs();
 
 	/**
 	 * Returns the meta object for class '{@link ExtTypeModel.Parameter <em>Parameter</em>}'.
@@ -981,12 +981,12 @@ public interface ExtTypeModelPackage extends EPackage {
 		EReference METHOD__TYPE = eINSTANCE.getMethod_Type();
 
 		/**
-		 * The meta object literal for the '<em><b>Doc</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Docs</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference METHOD__DOC = eINSTANCE.getMethod_Doc();
+		EReference METHOD__DOCS = eINSTANCE.getMethod_Docs();
 
 		/**
 		 * The meta object literal for the '{@link ExtTypeModel.impl.ParameterImpl <em>Parameter</em>}' class.

@@ -18,7 +18,7 @@ public class ExtType2Doc_LookAhead_MDGenerator extends ExtType2Doc_MDGenerator<E
 	}
 
 	@Override
-	protected void genModel() {
+	protected void genModels() {
 		// TODO Auto-generated method stub
 		
 	}

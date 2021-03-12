@@ -2,9 +2,13 @@ package org.emoflon.ibex.tgg.bench;
 
 import java.io.IOException;
 
+import org.emoflon.delta.validation.InvalidDeltaException;
 import org.emoflon.ibex.tgg.bench.util.BenchEntry;
 import org.emoflon.ibex.tgg.bench.util.BenchParameters;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.INTEGRATE;
+
+import delta.Delta;
+import delta.DeltaContainer;
 
 public abstract class IntegrationBench<BP extends BenchParameters> extends AbstractBench<INTEGRATE, BP> {
 
@@ -13,13 +17,15 @@ public abstract class IntegrationBench<BP extends BenchParameters> extends Abstr
 	}
 
 	@Override
-	protected BenchEntry applyDeltaAndRun(INTEGRATE opStrat, BP parameters, boolean saveTransformedModels) throws IOException {
+	protected BenchEntry applyDeltaAndRun(INTEGRATE opStrat, BP parameters, boolean saveTransformedModels) throws IOException, InvalidDeltaException {
 		long tic = System.currentTimeMillis();
 		opStrat.run();
 		long toc = System.currentTimeMillis();
 		double init = (double) (toc - tic) / 1000;
 
-		// TODO apply delta!
+		DeltaContainer deltaContainer = (DeltaContainer) delta.getContents().get(0);
+		for (Delta delta : deltaContainer.getDeltas())
+			delta.apply();
 
 		tic = System.currentTimeMillis();
 		opStrat.integrate();

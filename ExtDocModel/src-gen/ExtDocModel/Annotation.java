@@ -24,14 +24,14 @@ import org.eclipse.emf.ecore.EObject;
 public interface Annotation extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Entry</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link ExtDocModel.Entry#getAnnotation <em>Annotation</em>}'.
+	 * It is bidirectional and its opposite is '{@link ExtDocModel.Entry#getAnnotations <em>Annotations</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Entry</em>' container reference.
 	 * @see #setEntry(Entry)
 	 * @see ExtDocModel.ExtDocModelPackage#getAnnotation_Entry()
-	 * @see ExtDocModel.Entry#getAnnotation
-	 * @model opposite="annotation" transient="false"
+	 * @see ExtDocModel.Entry#getAnnotations
+	 * @model opposite="annotations" transient="false"
 	 * @generated
 	 */
 	Entry getEntry();

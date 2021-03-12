@@ -17,6 +17,7 @@ class ExtDocModelComparator implements Comparator<DocContainer> {
 	FolderNormalizer folderNormalizer;
 	DocNormalizer docNormalizer;
 	EntryNormalizer entryNormalizer;
+	AnnotationNormalizer annotationNormalizer;
 	GlossaryEntryNormalizer glossaryEntryNormalizer;
 	
 	new(boolean checkAttributeValues) {
@@ -24,6 +25,7 @@ class ExtDocModelComparator implements Comparator<DocContainer> {
 		this.folderNormalizer = new FolderNormalizer;
 		this.docNormalizer = new DocNormalizer;
 		this.entryNormalizer = new EntryNormalizer;
+		this.annotationNormalizer = new AnnotationNormalizer;
 		this.glossaryEntryNormalizer = new GlossaryEntryNormalizer;
 	}
 	
@@ -81,7 +83,11 @@ class ExtDocModelComparator implements Comparator<DocContainer> {
 				name = "«entry.name»"
 				type = "«entry.type»"
 			«ENDIF»
-			«IF entry.annotation !== null»annotation = «entry.annotation.stringify»«ENDIF»
+			annotations {
+				«FOR a : annotationNormalizer.normalize(entry.annotations)»
+					«a.stringify»
+				«ENDFOR»
+			}
 		}
 		'''
 	}

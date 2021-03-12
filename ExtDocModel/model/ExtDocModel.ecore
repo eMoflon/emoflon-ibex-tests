@@ -23,15 +23,15 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Entry" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="doc" eType="#//Doc" eOpposite="#//Doc/entries"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="annotation" eType="#//Annotation"
-        containment="true" eOpposite="#//Annotation/entry"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="annotations" upperBound="2"
+        eType="#//Annotation" containment="true" eOpposite="#//Annotation/entry"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="glossaryEntries" upperBound="-1"
         eType="#//GlossaryEntry" eOpposite="#//GlossaryEntry/entries"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//EntryType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Annotation">
     <eStructuralFeatures xsi:type="ecore:EReference" name="entry" eType="#//Entry"
-        eOpposite="#//Entry/annotation"/>
+        eOpposite="#//Entry/annotations"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Glossary">

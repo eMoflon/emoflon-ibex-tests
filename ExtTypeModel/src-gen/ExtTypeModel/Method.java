@@ -15,7 +15,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link ExtTypeModel.Method#getParams <em>Params</em>}</li>
  *   <li>{@link ExtTypeModel.Method#getType <em>Type</em>}</li>
- *   <li>{@link ExtTypeModel.Method#getDoc <em>Doc</em>}</li>
+ *   <li>{@link ExtTypeModel.Method#getDocs <em>Docs</em>}</li>
  * </ul>
  *
  * @see ExtTypeModel.ExtTypeModelPackage#getMethod()
@@ -62,27 +62,17 @@ public interface Method extends NamedElement {
 	void setType(Type value);
 
 	/**
-	 * Returns the value of the '<em><b>Doc</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Docs</b></em>' containment reference list.
+	 * The list contents are of type {@link ExtTypeModel.JavaDoc}.
 	 * It is bidirectional and its opposite is '{@link ExtTypeModel.JavaDoc#getMethod <em>Method</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Doc</em>' containment reference.
-	 * @see #setDoc(JavaDoc)
-	 * @see ExtTypeModel.ExtTypeModelPackage#getMethod_Doc()
+	 * @return the value of the '<em>Docs</em>' containment reference list.
+	 * @see ExtTypeModel.ExtTypeModelPackage#getMethod_Docs()
 	 * @see ExtTypeModel.JavaDoc#getMethod
-	 * @model opposite="method" containment="true"
+	 * @model opposite="method" containment="true" required="true" upper="3"
 	 * @generated
 	 */
-	JavaDoc getDoc();
-
-	/**
-	 * Sets the value of the '{@link ExtTypeModel.Method#getDoc <em>Doc</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Doc</em>' containment reference.
-	 * @see #getDoc()
-	 * @generated
-	 */
-	void setDoc(JavaDoc value);
+	EList<JavaDoc> getDocs();
 
 } // Method

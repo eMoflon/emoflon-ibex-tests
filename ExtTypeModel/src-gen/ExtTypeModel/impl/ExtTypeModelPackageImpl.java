@@ -332,7 +332,7 @@ public class ExtTypeModelPackageImpl extends EPackageImpl implements ExtTypeMode
 	 * @generated
 	 */
 	@Override
-	public EReference getMethod_Doc() {
+	public EReference getMethod_Docs() {
 		return (EReference) methodEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -477,7 +477,7 @@ public class ExtTypeModelPackageImpl extends EPackageImpl implements ExtTypeMode
 		methodEClass = createEClass(METHOD);
 		createEReference(methodEClass, METHOD__PARAMS);
 		createEReference(methodEClass, METHOD__TYPE);
-		createEReference(methodEClass, METHOD__DOC);
+		createEReference(methodEClass, METHOD__DOCS);
 
 		parameterEClass = createEClass(PARAMETER);
 		createEReference(parameterEClass, PARAMETER__METHOD);
@@ -564,7 +564,7 @@ public class ExtTypeModelPackageImpl extends EPackageImpl implements ExtTypeMode
 				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMethod_Type(), this.getType(), this.getType_Methods(), "type", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE,
 				IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMethod_Doc(), this.getJavaDoc(), this.getJavaDoc_Method(), "doc", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE,
+		initEReference(getMethod_Docs(), this.getJavaDoc(), this.getJavaDoc_Method(), "docs", null, 1, 3, Method.class, !IS_TRANSIENT, !IS_VOLATILE,
 				IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(parameterEClass, Parameter.class, "Parameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -578,7 +578,7 @@ public class ExtTypeModelPackageImpl extends EPackageImpl implements ExtTypeMode
 		initEClass(javaDocEClass, JavaDoc.class, "JavaDoc", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getJavaDoc_Comment(), ecorePackage.getEString(), "comment", null, 0, 1, JavaDoc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
 				!IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getJavaDoc_Method(), this.getMethod(), this.getMethod_Doc(), "method", null, 0, 1, JavaDoc.class, !IS_TRANSIENT, !IS_VOLATILE,
+		initEReference(getJavaDoc_Method(), this.getMethod(), this.getMethod_Docs(), "method", null, 0, 1, JavaDoc.class, !IS_TRANSIENT, !IS_VOLATILE,
 				IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(projectEClass, Project.class, "Project", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

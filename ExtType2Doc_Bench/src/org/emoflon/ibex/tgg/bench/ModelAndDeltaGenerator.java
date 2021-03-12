@@ -1,28 +1,47 @@
 package org.emoflon.ibex.tgg.bench;
 
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EFactory;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.emoflon.ibex.tgg.bench.util.BenchParameters;
 
-public abstract class ModelAndDeltaGenerator<CorrFactory extends EFactory, SrcFactory extends EFactory, TrgFactory extends EFactory, BenchParams extends BenchParameters> {
+import delta.AttributeDelta;
+import delta.Delta;
+import delta.DeltaContainer;
+import delta.DeltaFactory;
+import delta.Link;
+import delta.StructuralDelta;
+
+public abstract class ModelAndDeltaGenerator<CorrFactory extends EFactory, //
+		SrcFactory extends EFactory, SrcPackage extends EPackage, //
+		TrgFactory extends EFactory, TrgPackage extends EPackage, //
+		BenchParams extends BenchParameters> {
 
 	public final String SEP = "_";
-	
+
 	protected final Resource source;
 	protected final Resource target;
 	protected final Resource corr;
 	protected final Resource protocol;
-
 	protected final Resource delta;
 
 	protected final SrcFactory sFactory = srcFactoryInstance();
+	@SuppressWarnings("unchecked")
+	protected final SrcPackage sPackage = (SrcPackage) sFactory.getEPackage();
 	protected final TrgFactory tFactory = trgFactoryInstance();
+	@SuppressWarnings("unchecked")
+	protected final TrgPackage tPackage = (TrgPackage) tFactory.getEPackage();
 	protected final CorrFactory cFactory = corrFactoryInstance();
+	protected final DeltaFactory dFactory = DeltaFactory.eINSTANCE;
 
 	protected BenchParams parameters;
 
 	protected int numOfElements;
+
+	protected DeltaContainer dContainer;
 
 	public ModelAndDeltaGenerator(Resource source, Resource target, Resource corr, Resource protocol, Resource delta) {
 		this.numOfElements = 0;
@@ -40,29 +59,83 @@ public abstract class ModelAndDeltaGenerator<CorrFactory extends EFactory, SrcFa
 	protected abstract TrgFactory trgFactoryInstance();
 
 	protected abstract CorrFactory corrFactoryInstance();
-	
+
 	protected abstract void clearAll();
 
-	protected abstract void genModel();
+	protected abstract void genModels();
 
 	protected abstract void genDelta();
 
 	public void gen(BenchParams parameters) {
 		this.parameters = parameters;
 		clearAll();
-		genModel();
+		genModels();
+		createDeltaContainer();
 		genDelta();
 	}
 
 	public int getNumOfElements() {
 		return numOfElements;
 	}
-	
+
 	protected <Corr extends EObject> Corr createCorr(Corr corr, EObject src, EObject trg) {
 		this.corr.getContents().add(corr);
 		corr.eSet(corr.eClass().getEStructuralFeature("source"), src);
 		corr.eSet(corr.eClass().getEStructuralFeature("target"), trg);
 		return corr;
+	}
+
+	//// DELTA ////
+
+	private void createDeltaContainer() {
+		dContainer = dFactory.createDeltaContainer();
+		delta.getContents().add(dContainer);
+	}
+
+	protected Delta createDelta(boolean atomic, boolean structured) {
+		Delta d = dFactory.createDelta();
+		d.setAtomic(atomic);
+		d.setContainer(dContainer);
+		if (structured) {
+			StructuralDelta sd = dFactory.createStructuralDelta();
+			d.setStructuralDelta(sd);
+		}
+		return d;
+	}
+
+	protected AttributeDelta createAttrDelta(EObject obj, EAttribute attr, Object newVal, Delta delta) {
+		AttributeDelta ad = dFactory.createAttributeDelta();
+		ad.setObject(obj);
+		ad.setAttribute(attr);
+		ad.setNewValue(newVal);
+		delta.getAttributeDeltas().add(ad);
+		return ad;
+	}
+
+	protected void createObject(EObject obj, Delta delta) {
+		delta.getStructuralDelta().getCreatedObjects().add(obj);
+	}
+
+	protected void deleteObject(EObject obj, Delta delta) {
+		delta.getStructuralDelta().getDeletedObjects().add(obj);
+	}
+
+	protected Link createLink(EObject src, EObject trg, EReference type, Delta delta) {
+		Link l = dFactory.createLink();
+		l.setSrc(src);
+		l.setTrg(trg);
+		l.setType(type);
+		delta.getStructuralDelta().getCreatedLinks().add(l);
+		return l;
+	}
+
+	protected Link deleteLink(EObject src, EObject trg, EReference type, Delta delta) {
+		Link l = dFactory.createLink();
+		l.setSrc(src);
+		l.setTrg(trg);
+		l.setType(type);
+		delta.getStructuralDelta().getDeletedLinks().add(l);
+		return l;
 	}
 
 }

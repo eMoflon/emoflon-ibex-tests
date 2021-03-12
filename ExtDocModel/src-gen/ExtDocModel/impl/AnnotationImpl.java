@@ -106,7 +106,7 @@ public class AnnotationImpl extends MinimalEObjectImpl.Container implements Anno
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newEntry != null)
-				msgs = ((InternalEObject) newEntry).eInverseAdd(this, ExtDocModelPackage.ENTRY__ANNOTATION, Entry.class, msgs);
+				msgs = ((InternalEObject) newEntry).eInverseAdd(this, ExtDocModelPackage.ENTRY__ANNOTATIONS, Entry.class, msgs);
 			msgs = basicSetEntry(newEntry, msgs);
 			if (msgs != null)
 				msgs.dispatch();
@@ -176,7 +176,7 @@ public class AnnotationImpl extends MinimalEObjectImpl.Container implements Anno
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
 		case ExtDocModelPackage.ANNOTATION__ENTRY:
-			return eInternalContainer().eInverseRemove(this, ExtDocModelPackage.ENTRY__ANNOTATION, Entry.class, msgs);
+			return eInternalContainer().eInverseRemove(this, ExtDocModelPackage.ENTRY__ANNOTATIONS, Entry.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}

@@ -50,7 +50,7 @@ public class ExtType2Doc_ConcSync_Bench extends IntegrationBench<ExtType2Doc_Con
 	}
 
 	@Override
-	protected ModelAndDeltaGenerator<?, ?, ?, ExtType2Doc_ConcSync_Params> initModelAndDeltaGenerator(Resource s, Resource t, Resource c, Resource p,
+	protected ModelAndDeltaGenerator<?, ?, ?, ?, ?, ExtType2Doc_ConcSync_Params> initModelAndDeltaGenerator(Resource s, Resource t, Resource c, Resource p,
 			Resource d) {
 		return new ExtType2Doc_ConcSync_MDGenerator(s, t, c, p, d);
 	}

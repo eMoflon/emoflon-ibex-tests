@@ -42,7 +42,7 @@ public class ExtType2Doc_ShortCut_MDGenerator extends ExtType2Doc_MDGenerator<Ex
 	//// MODEL ////
 
 	@Override
-	protected void genModel() {
+	protected void genModels() {
 		createContainers();
 		createPackageAndFolderHierarchies();
 	}

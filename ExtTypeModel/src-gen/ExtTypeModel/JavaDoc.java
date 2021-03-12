@@ -46,14 +46,14 @@ public interface JavaDoc extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Method</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link ExtTypeModel.Method#getDoc <em>Doc</em>}'.
+	 * It is bidirectional and its opposite is '{@link ExtTypeModel.Method#getDocs <em>Docs</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Method</em>' container reference.
 	 * @see #setMethod(Method)
 	 * @see ExtTypeModel.ExtTypeModelPackage#getJavaDoc_Method()
-	 * @see ExtTypeModel.Method#getDoc
-	 * @model opposite="doc" transient="false"
+	 * @see ExtTypeModel.Method#getDocs
+	 * @model opposite="docs" transient="false"
 	 * @generated
 	 */
 	Method getMethod();
