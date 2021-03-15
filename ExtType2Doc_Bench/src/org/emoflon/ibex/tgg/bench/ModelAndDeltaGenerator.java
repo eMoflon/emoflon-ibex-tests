@@ -28,12 +28,12 @@ public abstract class ModelAndDeltaGenerator<CorrFactory extends EFactory, //
 	protected final Resource protocol;
 	protected final Resource delta;
 
-	protected final SrcFactory sFactory = srcFactoryInstance();
+	protected final SrcPackage sPackage = srcPackageInstance();
 	@SuppressWarnings("unchecked")
-	protected final SrcPackage sPackage = (SrcPackage) sFactory.getEPackage();
-	protected final TrgFactory tFactory = trgFactoryInstance();
+	protected final SrcFactory sFactory = (SrcFactory) sPackage.getEFactoryInstance();
+	protected final TrgPackage tPackage = trgPackageInstance();
 	@SuppressWarnings("unchecked")
-	protected final TrgPackage tPackage = (TrgPackage) tFactory.getEPackage();
+	protected final TrgFactory tFactory = (TrgFactory) tPackage.getEFactoryInstance();
 	protected final CorrFactory cFactory = corrFactoryInstance();
 	protected final DeltaFactory dFactory = DeltaFactory.eINSTANCE;
 
@@ -54,9 +54,9 @@ public abstract class ModelAndDeltaGenerator<CorrFactory extends EFactory, //
 		this.delta = delta;
 	}
 
-	protected abstract SrcFactory srcFactoryInstance();
+	protected abstract SrcPackage srcPackageInstance();
 
-	protected abstract TrgFactory trgFactoryInstance();
+	protected abstract TrgPackage trgPackageInstance();
 
 	protected abstract CorrFactory corrFactoryInstance();
 

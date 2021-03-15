@@ -57,13 +57,13 @@ public abstract class ExtType2Doc_MDGenerator<CF extends EFactory, BP extends Be
 	}
 
 	@Override
-	protected ExtTypeModelFactory srcFactoryInstance() {
-		return ExtTypeModelFactory.eINSTANCE;
+	protected ExtTypeModelPackage srcPackageInstance() {
+		return ExtTypeModelPackage.eINSTANCE;
 	}
 
 	@Override
-	protected ExtDocModelFactory trgFactoryInstance() {
-		return ExtDocModelFactory.eINSTANCE;
+	protected ExtDocModelPackage trgPackageInstance() {
+		return ExtDocModelPackage.eINSTANCE;
 	}
 
 	@Override
