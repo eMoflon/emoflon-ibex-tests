@@ -10,12 +10,22 @@ import org.emoflon.ibex.tgg.bench.ModelAndDeltaGenerator;
 import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.FragmentProvider;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.INTEGRATE;
+import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.AttributeConflict;
+import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.CorrPreservationConflict;
+import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.DeletePreserveConflict;
+import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.resolution.util.CRSHelper;
+import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.resolution.util.ConflictResolver;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.pattern.IntegrationPattern;
 import org.emoflon.ibex.tgg.operational.strategies.modules.TGGResourceHandler;
 import org.emoflon.ibex.tgg.run.exttype2doc_concsync.INTEGRATE_App;
 import org.emoflon.ibex.tgg.util.ilp.ILPFactory.SupportedILPSolver;
 
 public class ExtType2Doc_ConcSync_Bench extends IntegrationBench<ExtType2Doc_ConcSync_Params> {
+	
+	protected int conflict_counter = 0;
+	protected int conflict_solved_attr_counter = 0;
+	protected int conflict_solved_delPres_counter = 0;
+	protected int conflict_solved_move_counter = 0;
 
 	public ExtType2Doc_ConcSync_Bench(String projectName) {
 		super(projectName);
@@ -31,6 +41,22 @@ public class ExtType2Doc_ConcSync_Bench extends IntegrationBench<ExtType2Doc_Con
 			, FragmentProvider.CLEAN_UP //
 	));
 
+	private final ConflictResolver crs = cc -> {
+		conflict_counter++;
+		CRSHelper.forEachResolve(cc, DeletePreserveConflict.class, s -> {
+			s.crs_mergeAndPreserve();
+			conflict_solved_delPres_counter++;
+		});
+		CRSHelper.forEachResolve(cc, CorrPreservationConflict.class, s -> {
+			s.crs_preferSource();
+			conflict_solved_move_counter++;
+		});
+		CRSHelper.forEachResolve(cc, AttributeConflict.class, s -> {
+			s.crs_preferSource();
+			conflict_solved_attr_counter++;
+		});
+	};
+
 	@Override
 	protected INTEGRATE initStub(TGGResourceHandler resourceHandler) throws IOException {
 		Function<IbexOptions, IbexOptions> ibexOptions = options -> {
@@ -43,6 +69,7 @@ public class ExtType2Doc_ConcSync_Bench extends IntegrationBench<ExtType2Doc_Con
 			options.repair.omitUnnecessaryContext(true);
 			options.repair.disableInjectivity(true);
 			options.integration.pattern(pattern);
+			options.integration.conflictSolver(crs);
 			return options;
 		};
 

@@ -380,7 +380,14 @@ public class ExtType2Doc_ConcSync_MDGenerator extends ExtType2Doc_MDGenerator<Ex
 	}
 
 	private void createAttributeConflict(Type t, boolean generateConflict) {
-		// TODO
+		Delta delta = createDelta(false, true);
+
+		Doc d = name2doc.get(t.getName());
+		String newRootName = "ATTR_CONFLICT_" + t.getName();
+
+		createAttrDelta(t, sPackage.getNamedElement_Name(), newRootName + "_a", delta);
+		if (generateConflict)
+			createAttrDelta(d, sPackage.getNamedElement_Name(), newRootName + "_b", delta);
 	}
 
 	private void createContradictingMoveConflict(Type t, boolean generateConflict) {
