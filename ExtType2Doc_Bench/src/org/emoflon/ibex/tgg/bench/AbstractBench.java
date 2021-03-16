@@ -16,6 +16,8 @@ import org.emoflon.ibex.tgg.bench.util.BenchParameters;
 import org.emoflon.ibex.tgg.operational.strategies.OperationalStrategy;
 import org.emoflon.ibex.tgg.operational.strategies.modules.TGGResourceHandler;
 
+import delta.impl.DeltaPackageImpl;
+
 public abstract class AbstractBench<OpStrat extends OperationalStrategy, BenchParams extends BenchParameters> {
 
 	protected final String projectName;
@@ -111,6 +113,7 @@ public abstract class AbstractBench<OpStrat extends OperationalStrategy, BenchPa
 			initResources(opStrat);
 
 			initResourceSet();
+			DeltaPackageImpl.init();
 			delta = loadResource(genModelFolder + "/" + parameters.toString() + filename_delta);
 
 			return applyDeltaAndRun(opStrat, parameters, saveTransformedModels);
