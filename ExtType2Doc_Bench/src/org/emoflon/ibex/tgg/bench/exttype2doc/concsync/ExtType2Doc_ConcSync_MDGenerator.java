@@ -12,6 +12,7 @@ import ExtDocModel.Doc;
 import ExtDocModel.Entry;
 import ExtDocModel.EntryType;
 import ExtDocModel.Folder;
+import ExtDocModel.Glossary;
 import ExtDocModel.GlossaryEntry;
 import ExtType2Doc_ConcSync.ExtType2Doc_ConcSyncFactory;
 import ExtType2Doc_ConcSync.ExtendingType2Doc__Marker;
@@ -19,6 +20,7 @@ import ExtType2Doc_ConcSync.Field2Entry;
 import ExtType2Doc_ConcSync.Field2Entry__Marker;
 import ExtType2Doc_ConcSync.GlossaryEntry__Marker;
 import ExtType2Doc_ConcSync.GlossaryLink__Marker;
+import ExtType2Doc_ConcSync.Glossary__Marker;
 import ExtType2Doc_ConcSync.JDoc2Annotation;
 import ExtType2Doc_ConcSync.JDoc2Annotation__Marker;
 import ExtType2Doc_ConcSync.Method2Entry;
@@ -71,15 +73,22 @@ public class ExtType2Doc_ConcSync_MDGenerator extends ExtType2Doc_MDGenerator<Ex
 		createProject();
 		// TRG
 		createDocContainer();
-		createGlossary();
 		// CORR
 		Project2DocContainer pr2dc = createCorr(cFactory.createProject2DocContainer(), sContainer, tContainer);
 		// MARKER
-		Project2DocCont__Marker marker = cFactory.createProject2DocCont__Marker();
-		marker.setCREATE__SRC__pr(sContainer);
-		marker.setCREATE__CORR__pr2dc(pr2dc);
-		marker.setCREATE__TRG__dc(tContainer);
-		protocol.getContents().add(marker);
+		Project2DocCont__Marker marker0 = cFactory.createProject2DocCont__Marker();
+		marker0.setCREATE__SRC__pr(sContainer);
+		marker0.setCREATE__CORR__pr2dc(pr2dc);
+		marker0.setCREATE__TRG__dc(tContainer);
+		protocol.getContents().add(marker0);
+		
+		// TRG
+		Glossary g = createGlossary();
+		// MARKER
+		Glossary__Marker marker1 = cFactory.createGlossary__Marker();
+		marker1.setCONTEXT__TRG__dc(tContainer);
+		marker1.setCREATE__TRG__g(g);
+		protocol.getContents().add(marker1);
 
 		createRootPackageAndFolder();
 	}

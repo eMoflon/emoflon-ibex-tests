@@ -217,7 +217,7 @@ public abstract class ExtType2Doc_MDGenerator<CF extends EFactory, BP extends Be
 
 	protected Annotation createAnnotation(String postfix, Entry e) {
 		Annotation a = tFactory.createAnnotation();
-		a.setValue("Annotation" + postfix);
+		a.setValue("JavaDoc" + postfix);
 		a.setEntry(e);
 		name2annotation.put(a.getValue(), a);
 		numOfElements++;
