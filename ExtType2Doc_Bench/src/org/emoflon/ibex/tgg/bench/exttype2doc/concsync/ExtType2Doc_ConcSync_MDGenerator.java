@@ -81,7 +81,7 @@ public class ExtType2Doc_ConcSync_MDGenerator extends ExtType2Doc_MDGenerator<Ex
 		marker0.setCREATE__CORR__pr2dc(pr2dc);
 		marker0.setCREATE__TRG__dc(tContainer);
 		protocol.getContents().add(marker0);
-		
+
 		// TRG
 		Glossary g = createGlossary();
 		// MARKER

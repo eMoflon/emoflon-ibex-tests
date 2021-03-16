@@ -7,7 +7,6 @@ import org.emoflon.ibex.tgg.bench.util.BenchEntry;
 import org.emoflon.ibex.tgg.bench.util.BenchParameters;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.INTEGRATE;
 
-import delta.Delta;
 import delta.DeltaContainer;
 
 public abstract class IntegrationBench<BP extends BenchParameters> extends AbstractBench<INTEGRATE, BP> {
@@ -24,8 +23,7 @@ public abstract class IntegrationBench<BP extends BenchParameters> extends Abstr
 		double init = (double) (toc - tic) / 1000;
 
 		DeltaContainer deltaContainer = (DeltaContainer) delta.getContents().get(0);
-		for (Delta delta : deltaContainer.getDeltas())
-			delta.apply();
+		opStrat.applyDelta(deltaContainer);
 
 		tic = System.currentTimeMillis();
 		opStrat.integrate();

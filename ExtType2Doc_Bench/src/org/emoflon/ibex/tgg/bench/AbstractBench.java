@@ -29,7 +29,7 @@ public abstract class AbstractBench<OpStrat extends OperationalStrategy, BenchPa
 	protected final String filename_protocol = "/protocol.xmi";
 	protected final String filename_delta = "/delta.xmi";
 
-	protected final String workspacePath = "";
+	protected final String workspacePath = "../";
 	protected final URI base = URI.createPlatformResourceURI("/", true);
 	protected ResourceSet rs;
 
@@ -72,7 +72,7 @@ public abstract class AbstractBench<OpStrat extends OperationalStrategy, BenchPa
 	public void genAndStore(BenchParams parameters) {
 		try {
 			initResourceSet();
-			initModels(genModelFolder + "/" + parameters.toString());
+			initModels(projectName + "/" + genModelFolder + "/" + parameters.toString());
 
 			ModelAndDeltaGenerator<?, ?, ?, ?, ?, BenchParams> mdGenerator = initModelAndDeltaGenerator(source, target, corr, protocol, delta);
 			mdGenerator.gen(parameters);
@@ -97,6 +97,9 @@ public abstract class AbstractBench<OpStrat extends OperationalStrategy, BenchPa
 					corr = loadResource(workspaceRelativeFolder + filename_corr);
 					protocol = loadResource(workspaceRelativeFolder + filename_protocol);
 
+					DeltaPackageImpl.init();
+					delta = loadResource(workspaceRelativeFolder + filename_delta);
+
 					changeURI(source, "/instances" + filename_src);
 					changeURI(target, "/instances" + filename_trg);
 					changeURI(corr, "/instances" + filename_corr);
@@ -111,10 +114,6 @@ public abstract class AbstractBench<OpStrat extends OperationalStrategy, BenchPa
 				}
 			});
 			initResources(opStrat);
-
-			initResourceSet();
-			DeltaPackageImpl.init();
-			delta = loadResource(genModelFolder + "/" + parameters.toString() + filename_delta);
 
 			return applyDeltaAndRun(opStrat, parameters, saveTransformedModels);
 		} catch (IOException | InvalidDeltaException e) {
@@ -153,13 +152,6 @@ public abstract class AbstractBench<OpStrat extends OperationalStrategy, BenchPa
 	private Resource createResource(String workspaceRelativePath) {
 		URI uri = URI.createURI(workspaceRelativePath);
 		Resource res = rs.createResource(uri.resolve(base), ContentHandler.UNSPECIFIED_CONTENT_TYPE);
-		return res;
-	}
-
-	private Resource loadResource(String workspaceRelativePath) throws IOException {
-		Resource res = createResource(workspaceRelativePath);
-		res.load(null);
-		EcoreUtil.resolveAll(res);
 		return res;
 	}
 
