@@ -400,7 +400,27 @@ public class ExtType2Doc_ConcSync_MDGenerator extends ExtType2Doc_MDGenerator<Ex
 	}
 
 	private void createContradictingMoveConflict(Type t, boolean generateConflict) {
-		// TODO
+		Delta delta = createDelta(false, true);
+
+		Doc d = name2doc.get(t.getName());
+		String newRootName = "MOVE_CONFLICT_" + t.getName();
+
+		createAttrDelta(t, sPackage.getNamedElement_Name(), newRootName, delta);
+		createAttrDelta(d, sPackage.getNamedElement_Name(), newRootName, delta);
+
+		Doc subD1 = d.getSubDocs().get(0);
+		Doc subD2 = d.getSubDocs().get(1);
+
+		deleteLink(d, subD1, tPackage.getDoc_SubDocs(), delta);
+		createLink(subD2, subD1, tPackage.getDoc_SuperDocs(), delta);
+
+		if (generateConflict) {
+			Type subT1 = t.getExtendedBy().get(0);
+			Type subT3 = t.getExtendedBy().get(2);
+
+			deleteLink(t, subT1, sPackage.getType_ExtendedBy(), delta);
+			createLink(subT3, subT1, sPackage.getType_ExtendedBy(), delta);
+		}
 	}
 
 }
