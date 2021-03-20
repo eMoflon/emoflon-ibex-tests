@@ -16,7 +16,7 @@
 }
 
 #target {
-	dc:DocContainer {
+	f:Folder {
 		-docs->d
 		++-docs->nd
 	}
@@ -28,9 +28,9 @@
 }
 
 #correspondence {
-	p2dc:Package2DocCont {
+	p2f:Package2Folder {
 		#src->p
-		#trg->dc
+		#trg->f
 	}
 	t2d:Type2Doc {
 		#src->t

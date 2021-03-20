@@ -7,11 +7,12 @@ import org.junit.Test;
 import ExtDocModel.Doc;
 import ExtDocModel.DocContainer;
 import ExtTypeModel.Package;
+import ExtTypeModel.Project;
 import ExtTypeModel.Type;
 import testsuite.ibex.ExtType2Doc_SCDerived.sync.util.IbexExtType2Doc_SCDerived;
 import testsuite.ibex.testUtil.SyncTestCase;
 
-public class Derived extends SyncTestCase<Package, DocContainer> {
+public class Derived extends SyncTestCase<Project, DocContainer> {
 
 	private static final String projectName = "ExtType2Doc_SCDerived";
 
@@ -40,8 +41,9 @@ public class Derived extends SyncTestCase<Package, DocContainer> {
 
 	@Test
 	public void derivedTypeNames() {
-		tool.performAndPropagateSourceEdit(p -> {
-			Package p1 = helperExtType.createPackage(p, "P1");
+		tool.performAndPropagateSourceEdit(pr -> {
+			Package p0 = helperExtType.createPackage("P0");
+			Package p1 = helperExtType.createPackage(p0, "P1");
 			Type t2 = helperExtType.createType(p1, "T2");
 			Type t3 = helperExtType.createType(p1, "T3");
 			helperExtType.createTypeExtensionLink(t2, t3);

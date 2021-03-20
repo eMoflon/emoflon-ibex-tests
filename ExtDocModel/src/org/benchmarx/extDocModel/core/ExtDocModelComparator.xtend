@@ -4,6 +4,7 @@ import ExtDocModel.Annotation
 import ExtDocModel.Doc
 import ExtDocModel.DocContainer
 import ExtDocModel.Entry
+import ExtDocModel.Folder
 import ExtDocModel.Glossary
 import ExtDocModel.GlossaryEntry
 import org.benchmarx.emf.Comparator
@@ -13,14 +14,18 @@ import static org.junit.Assert.assertEquals
 class ExtDocModelComparator implements Comparator<DocContainer> {
 	
 	boolean checkAttributeValues;
+	FolderNormalizer folderNormalizer;
 	DocNormalizer docNormalizer;
 	EntryNormalizer entryNormalizer;
+	AnnotationNormalizer annotationNormalizer;
 	GlossaryEntryNormalizer glossaryEntryNormalizer;
 	
 	new(boolean checkAttributeValues) {
 		this.checkAttributeValues = checkAttributeValues;
+		this.folderNormalizer = new FolderNormalizer;
 		this.docNormalizer = new DocNormalizer;
 		this.entryNormalizer = new EntryNormalizer;
+		this.annotationNormalizer = new AnnotationNormalizer;
 		this.glossaryEntryNormalizer = new GlossaryEntryNormalizer;
 	}
 	
@@ -31,12 +36,24 @@ class ExtDocModelComparator implements Comparator<DocContainer> {
 	def String stringify(DocContainer container) {
 		'''
 		DocContainer {
-			docs {
-				«FOR d : docNormalizer.normalize(container.docs)»
-					«d.stringify»
+			folders {
+				«FOR f : folderNormalizer.normalize(container.folders)»
+					«f.stringify»
 				«ENDFOR»
 			}
 			«IF container.glossary !== null »glossary = «container.glossary.stringify»«ENDIF»
+		}
+		'''
+	}
+	
+	def String stringify(Folder folder) {
+		'''
+		Folder {
+			docs {
+				«FOR d : docNormalizer.normalize(folder.docs)»
+					«d.stringify»
+				«ENDFOR»
+			}
 		}
 		'''
 	}
@@ -66,7 +83,11 @@ class ExtDocModelComparator implements Comparator<DocContainer> {
 				name = "«entry.name»"
 				type = "«entry.type»"
 			«ENDIF»
-			«IF entry.annotation !== null»annotation = «entry.annotation.stringify»«ENDIF»
+			annotations {
+				«FOR a : annotationNormalizer.normalize(entry.annotations)»
+					«a.stringify»
+				«ENDFOR»
+			}
 		}
 		'''
 	}

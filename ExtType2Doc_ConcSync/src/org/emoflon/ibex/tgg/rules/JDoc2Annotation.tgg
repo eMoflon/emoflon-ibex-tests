@@ -5,7 +5,7 @@
 
 #source { 
 	m:Method {
-		++-doc->j
+		++-docs->j
 	}
 	
 	++j:JavaDoc
@@ -13,7 +13,7 @@
 
 #target {
 	e:Entry {
-		++-annotation->a
+		++-annotations->a
 	}
 	
 	++a:Annotation

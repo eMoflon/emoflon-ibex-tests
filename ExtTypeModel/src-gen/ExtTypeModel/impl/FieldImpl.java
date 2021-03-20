@@ -78,16 +78,14 @@ public class FieldImpl extends NamedElementImpl implements Field {
 	 */
 	@Override
 	public void setType(Type newType) {
-		if (newType != eInternalContainer()
-				|| (eContainerFeatureID() != ExtTypeModelPackage.FIELD__TYPE && newType != null)) {
+		if (newType != eInternalContainer() || (eContainerFeatureID() != ExtTypeModelPackage.FIELD__TYPE && newType != null)) {
 			if (EcoreUtil.isAncestor(this, newType))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newType != null)
-				msgs = ((InternalEObject) newType).eInverseAdd(this, ExtTypeModelPackage.TYPE__FIELDS, Type.class,
-						msgs);
+				msgs = ((InternalEObject) newType).eInverseAdd(this, ExtTypeModelPackage.TYPE__FIELDS, Type.class, msgs);
 			msgs = basicSetType(newType, msgs);
 			if (msgs != null)
 				msgs.dispatch();

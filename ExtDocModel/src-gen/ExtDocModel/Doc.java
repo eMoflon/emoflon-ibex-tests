@@ -13,7 +13,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link ExtDocModel.Doc#getContainer <em>Container</em>}</li>
+ *   <li>{@link ExtDocModel.Doc#getFolder <em>Folder</em>}</li>
  *   <li>{@link ExtDocModel.Doc#getEntries <em>Entries</em>}</li>
  *   <li>{@link ExtDocModel.Doc#getSubDocs <em>Sub Docs</em>}</li>
  *   <li>{@link ExtDocModel.Doc#getSuperDocs <em>Super Docs</em>}</li>
@@ -25,28 +25,28 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface Doc extends NamedElement {
 	/**
-	 * Returns the value of the '<em><b>Container</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link ExtDocModel.DocContainer#getDocs <em>Docs</em>}'.
+	 * Returns the value of the '<em><b>Folder</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link ExtDocModel.Folder#getDocs <em>Docs</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Container</em>' container reference.
-	 * @see #setContainer(DocContainer)
-	 * @see ExtDocModel.ExtDocModelPackage#getDoc_Container()
-	 * @see ExtDocModel.DocContainer#getDocs
+	 * @return the value of the '<em>Folder</em>' container reference.
+	 * @see #setFolder(Folder)
+	 * @see ExtDocModel.ExtDocModelPackage#getDoc_Folder()
+	 * @see ExtDocModel.Folder#getDocs
 	 * @model opposite="docs" transient="false"
 	 * @generated
 	 */
-	DocContainer getContainer();
+	Folder getFolder();
 
 	/**
-	 * Sets the value of the '{@link ExtDocModel.Doc#getContainer <em>Container</em>}' container reference.
+	 * Sets the value of the '{@link ExtDocModel.Doc#getFolder <em>Folder</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Container</em>' container reference.
-	 * @see #getContainer()
+	 * @param value the new value of the '<em>Folder</em>' container reference.
+	 * @see #getFolder()
 	 * @generated
 	 */
-	void setContainer(DocContainer value);
+	void setFolder(Folder value);
 
 	/**
 	 * Returns the value of the '<em><b>Entries</b></em>' containment reference list.

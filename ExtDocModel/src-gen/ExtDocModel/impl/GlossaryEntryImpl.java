@@ -96,22 +96,19 @@ public class GlossaryEntryImpl extends NamedElementImpl implements GlossaryEntry
 	 */
 	@Override
 	public void setGlossary(Glossary newGlossary) {
-		if (newGlossary != eInternalContainer()
-				|| (eContainerFeatureID() != ExtDocModelPackage.GLOSSARY_ENTRY__GLOSSARY && newGlossary != null)) {
+		if (newGlossary != eInternalContainer() || (eContainerFeatureID() != ExtDocModelPackage.GLOSSARY_ENTRY__GLOSSARY && newGlossary != null)) {
 			if (EcoreUtil.isAncestor(this, newGlossary))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newGlossary != null)
-				msgs = ((InternalEObject) newGlossary).eInverseAdd(this, ExtDocModelPackage.GLOSSARY__ENTRIES,
-						Glossary.class, msgs);
+				msgs = ((InternalEObject) newGlossary).eInverseAdd(this, ExtDocModelPackage.GLOSSARY__ENTRIES, Glossary.class, msgs);
 			msgs = basicSetGlossary(newGlossary, msgs);
 			if (msgs != null)
 				msgs.dispatch();
 		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ExtDocModelPackage.GLOSSARY_ENTRY__GLOSSARY,
-					newGlossary, newGlossary));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExtDocModelPackage.GLOSSARY_ENTRY__GLOSSARY, newGlossary, newGlossary));
 	}
 
 	/**
@@ -122,8 +119,8 @@ public class GlossaryEntryImpl extends NamedElementImpl implements GlossaryEntry
 	@Override
 	public EList<Entry> getEntries() {
 		if (entries == null) {
-			entries = new EObjectWithInverseResolvingEList.ManyInverse<Entry>(Entry.class, this,
-					ExtDocModelPackage.GLOSSARY_ENTRY__ENTRIES, ExtDocModelPackage.ENTRY__GLOSSARY_ENTRIES);
+			entries = new EObjectWithInverseResolvingEList.ManyInverse<Entry>(Entry.class, this, ExtDocModelPackage.GLOSSARY_ENTRY__ENTRIES,
+					ExtDocModelPackage.ENTRY__GLOSSARY_ENTRIES);
 		}
 		return entries;
 	}
@@ -172,8 +169,7 @@ public class GlossaryEntryImpl extends NamedElementImpl implements GlossaryEntry
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
 		case ExtDocModelPackage.GLOSSARY_ENTRY__GLOSSARY:
-			return eInternalContainer().eInverseRemove(this, ExtDocModelPackage.GLOSSARY__ENTRIES, Glossary.class,
-					msgs);
+			return eInternalContainer().eInverseRemove(this, ExtDocModelPackage.GLOSSARY__ENTRIES, Glossary.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}

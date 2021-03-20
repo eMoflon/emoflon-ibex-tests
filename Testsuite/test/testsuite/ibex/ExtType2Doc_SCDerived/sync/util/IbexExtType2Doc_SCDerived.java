@@ -12,11 +12,11 @@ import org.emoflon.ibex.tgg.run.exttype2doc_scderived.config.ViatraRegistrationH
 
 import ExtDocModel.DocContainer;
 import ExtTypeModel.ExtTypeModelFactory;
-import ExtTypeModel.Package;
+import ExtTypeModel.Project;
 import testsuite.ibex.testUtil.IbexAdapter;
 import testsuite.ibex.testUtil.UsedPatternMatcher;
 
-public class IbexExtType2Doc_SCDerived extends IbexAdapter<Package, DocContainer> {
+public class IbexExtType2Doc_SCDerived extends IbexAdapter<Project, DocContainer> {
 
 	public IbexExtType2Doc_SCDerived(String projectName) {
 		super(new ExtTypeModelComparator(true), new ExtDocModelComparator(true), projectName);
@@ -29,9 +29,8 @@ public class IbexExtType2Doc_SCDerived extends IbexAdapter<Package, DocContainer
 					new IRegistrationHelper[] { new HiPERegistrationHelper(), new DemoclesRegistrationHelper(), new ViatraRegistrationHelper() });
 			synchroniser = new SYNC_App(projectName, testsuite.ibex.performance.util.PerformanceConstants.workspacePath, ilpSolver, false);
 			
-			Package p = ExtTypeModelFactory.eINSTANCE.createPackage();
-			p.setName("P0");
-			synchroniser.getResourceHandler().getSourceResource().getContents().add(p);
+			Project pr = ExtTypeModelFactory.eINSTANCE.createProject();
+			synchroniser.getResourceHandler().getSourceResource().getContents().add(pr);
 			synchroniser.forward();
 		} catch (IOException e) {
 			e.printStackTrace();

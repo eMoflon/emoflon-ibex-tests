@@ -8,6 +8,7 @@ import ExtTypeModel.JavaDoc;
 import ExtTypeModel.Method;
 import ExtTypeModel.NamedElement;
 import ExtTypeModel.Parameter;
+import ExtTypeModel.Project;
 import ExtTypeModel.Type;
 
 import org.eclipse.emf.common.notify.Adapter;
@@ -105,6 +106,11 @@ public class ExtTypeModelAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseJavaDoc(JavaDoc object) {
 			return createJavaDocAdapter();
+		}
+
+		@Override
+		public Adapter caseProject(Project object) {
+			return createProjectAdapter();
 		}
 
 		@Override
@@ -221,6 +227,20 @@ public class ExtTypeModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createJavaDocAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ExtTypeModel.Project <em>Project</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ExtTypeModel.Project
+	 * @generated
+	 */
+	public Adapter createProjectAdapter() {
 		return null;
 	}
 

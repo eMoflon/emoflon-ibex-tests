@@ -34,7 +34,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link ExtTypeModel.impl.MethodImpl#getParams <em>Params</em>}</li>
  *   <li>{@link ExtTypeModel.impl.MethodImpl#getType <em>Type</em>}</li>
- *   <li>{@link ExtTypeModel.impl.MethodImpl#getDoc <em>Doc</em>}</li>
+ *   <li>{@link ExtTypeModel.impl.MethodImpl#getDocs <em>Docs</em>}</li>
  * </ul>
  *
  * @generated
@@ -51,14 +51,14 @@ public class MethodImpl extends NamedElementImpl implements Method {
 	protected EList<Parameter> params;
 
 	/**
-	 * The cached value of the '{@link #getDoc() <em>Doc</em>}' containment reference.
+	 * The cached value of the '{@link #getDocs() <em>Docs</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDoc()
+	 * @see #getDocs()
 	 * @generated
 	 * @ordered
 	 */
-	protected JavaDoc doc;
+	protected EList<JavaDoc> docs;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -87,8 +87,8 @@ public class MethodImpl extends NamedElementImpl implements Method {
 	@Override
 	public EList<Parameter> getParams() {
 		if (params == null) {
-			params = new EObjectContainmentWithInverseEList<Parameter>(Parameter.class, this,
-					ExtTypeModelPackage.METHOD__PARAMS, ExtTypeModelPackage.PARAMETER__METHOD);
+			params = new EObjectContainmentWithInverseEList<Parameter>(Parameter.class, this, ExtTypeModelPackage.METHOD__PARAMS,
+					ExtTypeModelPackage.PARAMETER__METHOD);
 		}
 		return params;
 	}
@@ -122,16 +122,14 @@ public class MethodImpl extends NamedElementImpl implements Method {
 	 */
 	@Override
 	public void setType(Type newType) {
-		if (newType != eInternalContainer()
-				|| (eContainerFeatureID() != ExtTypeModelPackage.METHOD__TYPE && newType != null)) {
+		if (newType != eInternalContainer() || (eContainerFeatureID() != ExtTypeModelPackage.METHOD__TYPE && newType != null)) {
 			if (EcoreUtil.isAncestor(this, newType))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newType != null)
-				msgs = ((InternalEObject) newType).eInverseAdd(this, ExtTypeModelPackage.TYPE__METHODS, Type.class,
-						msgs);
+				msgs = ((InternalEObject) newType).eInverseAdd(this, ExtTypeModelPackage.TYPE__METHODS, Type.class, msgs);
 			msgs = basicSetType(newType, msgs);
 			if (msgs != null)
 				msgs.dispatch();
@@ -145,49 +143,12 @@ public class MethodImpl extends NamedElementImpl implements Method {
 	 * @generated
 	 */
 	@Override
-	public JavaDoc getDoc() {
-		return doc;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetDoc(JavaDoc newDoc, NotificationChain msgs) {
-		JavaDoc oldDoc = doc;
-		doc = newDoc;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					ExtTypeModelPackage.METHOD__DOC, oldDoc, newDoc);
-			if (msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
+	public EList<JavaDoc> getDocs() {
+		if (docs == null) {
+			docs = new EObjectContainmentWithInverseEList<JavaDoc>(JavaDoc.class, this, ExtTypeModelPackage.METHOD__DOCS,
+					ExtTypeModelPackage.JAVA_DOC__METHOD);
 		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setDoc(JavaDoc newDoc) {
-		if (newDoc != doc) {
-			NotificationChain msgs = null;
-			if (doc != null)
-				msgs = ((InternalEObject) doc).eInverseRemove(this, ExtTypeModelPackage.JAVA_DOC__METHOD, JavaDoc.class,
-						msgs);
-			if (newDoc != null)
-				msgs = ((InternalEObject) newDoc).eInverseAdd(this, ExtTypeModelPackage.JAVA_DOC__METHOD, JavaDoc.class,
-						msgs);
-			msgs = basicSetDoc(newDoc, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ExtTypeModelPackage.METHOD__DOC, newDoc, newDoc));
+		return docs;
 	}
 
 	/**
@@ -205,11 +166,8 @@ public class MethodImpl extends NamedElementImpl implements Method {
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			return basicSetType((Type) otherEnd, msgs);
-		case ExtTypeModelPackage.METHOD__DOC:
-			if (doc != null)
-				msgs = ((InternalEObject) doc).eInverseRemove(this,
-						EOPPOSITE_FEATURE_BASE - ExtTypeModelPackage.METHOD__DOC, null, msgs);
-			return basicSetDoc((JavaDoc) otherEnd, msgs);
+		case ExtTypeModelPackage.METHOD__DOCS:
+			return ((InternalEList<InternalEObject>) (InternalEList<?>) getDocs()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -226,8 +184,8 @@ public class MethodImpl extends NamedElementImpl implements Method {
 			return ((InternalEList<?>) getParams()).basicRemove(otherEnd, msgs);
 		case ExtTypeModelPackage.METHOD__TYPE:
 			return basicSetType(null, msgs);
-		case ExtTypeModelPackage.METHOD__DOC:
-			return basicSetDoc(null, msgs);
+		case ExtTypeModelPackage.METHOD__DOCS:
+			return ((InternalEList<?>) getDocs()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -258,8 +216,8 @@ public class MethodImpl extends NamedElementImpl implements Method {
 			return getParams();
 		case ExtTypeModelPackage.METHOD__TYPE:
 			return getType();
-		case ExtTypeModelPackage.METHOD__DOC:
-			return getDoc();
+		case ExtTypeModelPackage.METHOD__DOCS:
+			return getDocs();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -280,8 +238,9 @@ public class MethodImpl extends NamedElementImpl implements Method {
 		case ExtTypeModelPackage.METHOD__TYPE:
 			setType((Type) newValue);
 			return;
-		case ExtTypeModelPackage.METHOD__DOC:
-			setDoc((JavaDoc) newValue);
+		case ExtTypeModelPackage.METHOD__DOCS:
+			getDocs().clear();
+			getDocs().addAll((Collection<? extends JavaDoc>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -301,8 +260,8 @@ public class MethodImpl extends NamedElementImpl implements Method {
 		case ExtTypeModelPackage.METHOD__TYPE:
 			setType((Type) null);
 			return;
-		case ExtTypeModelPackage.METHOD__DOC:
-			setDoc((JavaDoc) null);
+		case ExtTypeModelPackage.METHOD__DOCS:
+			getDocs().clear();
 			return;
 		}
 		super.eUnset(featureID);
@@ -320,8 +279,8 @@ public class MethodImpl extends NamedElementImpl implements Method {
 			return params != null && !params.isEmpty();
 		case ExtTypeModelPackage.METHOD__TYPE:
 			return getType() != null;
-		case ExtTypeModelPackage.METHOD__DOC:
-			return doc != null;
+		case ExtTypeModelPackage.METHOD__DOCS:
+			return docs != null && !docs.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

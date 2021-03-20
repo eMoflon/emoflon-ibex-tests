@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link ExtDocModel.DocContainer#getDocs <em>Docs</em>}</li>
+ *   <li>{@link ExtDocModel.DocContainer#getFolders <em>Folders</em>}</li>
  *   <li>{@link ExtDocModel.DocContainer#getGlossary <em>Glossary</em>}</li>
  * </ul>
  *
@@ -25,18 +25,18 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface DocContainer extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Docs</b></em>' containment reference list.
-	 * The list contents are of type {@link ExtDocModel.Doc}.
-	 * It is bidirectional and its opposite is '{@link ExtDocModel.Doc#getContainer <em>Container</em>}'.
+	 * Returns the value of the '<em><b>Folders</b></em>' containment reference list.
+	 * The list contents are of type {@link ExtDocModel.Folder}.
+	 * It is bidirectional and its opposite is '{@link ExtDocModel.Folder#getContainer <em>Container</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Docs</em>' containment reference list.
-	 * @see ExtDocModel.ExtDocModelPackage#getDocContainer_Docs()
-	 * @see ExtDocModel.Doc#getContainer
-	 * @model opposite="container" containment="true" required="true"
+	 * @return the value of the '<em>Folders</em>' containment reference list.
+	 * @see ExtDocModel.ExtDocModelPackage#getDocContainer_Folders()
+	 * @see ExtDocModel.Folder#getContainer
+	 * @model opposite="container" containment="true"
 	 * @generated
 	 */
-	EList<Doc> getDocs();
+	EList<Folder> getFolders();
 
 	/**
 	 * Returns the value of the '<em><b>Glossary</b></em>' containment reference.

@@ -1,10 +1,10 @@
 #using ExtType2Doc_SCDerived.*
 #using AttrCondDefLibrary.*
 
-#rule Package2DocCont #with ExtType2Doc_SCDerived
+#rule Project2DocCont #with ExtType2Doc_SCDerived
 
 #source { 
-	++p:Package
+	++pr:Project
 }
 
 #target {
@@ -12,12 +12,12 @@
 }
 
 #correspondence {
-	++p2dc:Package2DocCont {
-		#src->p
+	++pr2dc:Project2DocContainer {
+		#src->pr
 		#trg->dc
 	}
 }
 
 #attributeConditions {
-	eq_string(p.name, #derived p.fQname)
+	
 }

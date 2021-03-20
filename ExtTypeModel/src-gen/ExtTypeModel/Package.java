@@ -17,6 +17,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link ExtTypeModel.Package#getSuperPackage <em>Super Package</em>}</li>
  *   <li>{@link ExtTypeModel.Package#getTypes <em>Types</em>}</li>
  *   <li>{@link ExtTypeModel.Package#getFQname <em>FQname</em>}</li>
+ *   <li>{@link ExtTypeModel.Package#getProject <em>Project</em>}</li>
  * </ul>
  *
  * @see ExtTypeModel.ExtTypeModelPackage#getPackage()
@@ -97,5 +98,29 @@ public interface Package extends NamedElement {
 	 * @generated
 	 */
 	void setFQname(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Project</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link ExtTypeModel.Project#getRootPackages <em>Root Packages</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Project</em>' container reference.
+	 * @see #setProject(Project)
+	 * @see ExtTypeModel.ExtTypeModelPackage#getPackage_Project()
+	 * @see ExtTypeModel.Project#getRootPackages
+	 * @model opposite="rootPackages" transient="false"
+	 * @generated
+	 */
+	Project getProject();
+
+	/**
+	 * Sets the value of the '{@link ExtTypeModel.Package#getProject <em>Project</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Project</em>' container reference.
+	 * @see #getProject()
+	 * @generated
+	 */
+	void setProject(Project value);
 
 } // Package
