@@ -106,12 +106,12 @@ public class Combined extends IntegrateTestCase<ClazzContainer, DocumentationCon
 
 	@Test
 	public void combinedConflicts() {
-		combinedConflicts(container -> assertRightConflict(container), testpath + "combC/");
+		combinedConflicts(container -> assertCorrectConflict(container), testpath + "combC/");
 	}
 	
-	private void assertRightConflict(ConflictContainer container) {
+	private void assertCorrectConflict(ConflictContainer container) {
 		container.getConflicts().forEach(conflict -> assertFalse(conflict instanceof InconsDomainChangesConflict));
-		container.getSubContainers().forEach(c -> assertRightConflict(c));
+		container.getSubContainers().forEach(c -> assertCorrectConflict(c));
 	}
 
 }
