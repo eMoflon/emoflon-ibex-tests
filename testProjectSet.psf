@@ -21,8 +21,10 @@
 <project reference="1.0,https://github.com/eMoflon/benchmarx.git,master,examples/gantttocpm/metamodels/CPM"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,Database"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,Documents"/>
+<project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,EconomicsModel"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,Express2UML"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,ExtDocModel"/>
+<project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,ExtType2Doc_Bench"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,ExtType2Doc_ConcSync"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,ExtType2Doc_LookAhead"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,ExtType2Doc_SCDerived"/>
@@ -32,6 +34,7 @@
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,FamiliesToPersons_V0"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,FamiliesToPersons_V1"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,FamiliesWithSiblings"/>
+<project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,FastEconomy"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,FeatureModelConcise"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,FeatureModelConciseToSafe"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,FeatureModelSafe"/>
@@ -48,7 +51,6 @@
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,MetamodelInheritanceTransformation"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,MocaTree"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,MocaTreeToProcess"/>
-<project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,MoDiscoIbexTGG"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,org.emoflon.express"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,org.emoflon.express.ide"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,org.emoflon.express.ui"/>
@@ -57,8 +59,12 @@
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,ProcessDefinition"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,SheRememberedCaterpillars"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,SheRememberedCaterpillarsGraphTransformation"/>
+<project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,SimpleChemistry"/>
+<project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,SimpleChemistryGraphTransformation"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,SimpleClassInheritance"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,SimpleDoc"/>
+<project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,SimpleEconomy"/>
+<project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,SimpleEconomyGraphTransformation"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,SimpleFamilies"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,SimpleFamiliesGraphTransformation"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,SimpleFamiliesToSimplePersonsGraphTransformation"/>
@@ -67,6 +73,7 @@
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,SimpleNetworkGraphTransformation"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,SimplePersons"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,SimplePersonsGraphTransformation"/>
+<project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,SlowEconomy"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,Strategies"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,TerraceHouses"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,TerraceHouses2BlockSet"/>
@@ -127,6 +134,9 @@
 <item elementID="=MocaTree" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=ExtDocModel" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=ExtTypeModel" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=EconomicsModel" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=SimpleChemistry" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=SimpleEconomy" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 </workingSets>
 <workingSets editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" id="1544812018381_8" label="gt" name="gt">
 <item elementID="=ClassMultipleInheritanceHierarchyGraphTransformation" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
@@ -139,24 +149,32 @@
 <item elementID="=FerrymanProblemGraphTransformation" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=SimpleFamiliesGraphTransformation" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=SimpleFamiliesToSimplePersonsGraphTransformation" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=FastEconomy" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=SimpleChemistryGraphTransformation" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=SimpleEconomyGraphTransformation" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=SlowEconomy" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 </workingSets>
 <workingSets editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" id="1611411207422_13" label="gt-metamodels" name="gt-metamodels">
+<item elementID="=SimpleNetwork" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=EconomicsModel" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=MetamodelInheritance" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=FerrymanProblem" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=MetamodelInheritance2" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=SheRememberedCaterpillars" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=SimplePersons" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=BPMN" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=ClassMultipleInheritanceHierarchy" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=FerrymanProblem" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=MetamodelInheritance" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=MetamodelInheritance2" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=MetamodelInheritance3" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=SheRememberedCaterpillars" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=SimpleFamilies" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=SimplePersons" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=SimpleNetwork" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=Triangles" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=MetamodelInheritance3" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=SimpleFamilies" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=SimpleEconomy" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=SimpleChemistry" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 </workingSets>
 <workingSets editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" id="1544812013290_7" label="testsuites" name="testsuites">
 <item elementID="=Testsuite" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=Benchmarx" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=TestsuiteGT" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=ExtType2Doc_Bench" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 </workingSets>
 <workingSets editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" id="1544812007133_6" label="tgg" name="tgg">
 <item elementID="=Express2UML" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
@@ -174,7 +192,7 @@
 <item elementID="=ClassInhHier2DB" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=Clazz2GlossarDoc" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=TrainToVehicle" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=MoDiscoIbexTGG" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/MoDiscoIbexTGG" type="4"/>
 <item elementID="=VHDLTGGCodeAdapter" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=MocaTreeToProcess" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=FamiliesToPersons_V0" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
@@ -216,4 +234,5 @@
 <item elementID="=VehicleLanguage" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=VHDLModel" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 </workingSets>
+<workingSets editPageId="org.eclipse.jdt.internal.ui.DynamicSourcesWorkingSet" id="1607353551330_0" label="Java Main Sources" name="Java Main Sources"/>
 </psf>
