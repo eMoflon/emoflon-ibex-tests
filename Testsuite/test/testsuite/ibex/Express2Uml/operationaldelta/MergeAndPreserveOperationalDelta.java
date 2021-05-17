@@ -4,6 +4,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.express.express.Entity;
 import org.emoflon.express.express.Schema;
 import org.emoflon.express.express.SchemaContainer;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import Express2UML.operationaldelta.mergeAndPreserve.MergeAndPreserveConflictResolver;
@@ -16,6 +17,7 @@ import uml.Clazz;
 import uml.Package;
 import uml.UMLContainer;
 
+@Ignore
 public class MergeAndPreserveOperationalDelta extends IntegrateTestCase<SchemaContainer, UMLContainer> {
 	private static final String PROJECT_NAME = "Express2UML";
 
