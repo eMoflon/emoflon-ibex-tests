@@ -181,3 +181,13 @@ pattern findNetworkFalse {
 	network : Network
 	# network.flag == false
 }
+
+//rule moveAllDevices {
+//	oldNetwork : Network {
+//		forEach devices->device {
+//			-- -device->oldNetwork
+//		}
+//	}
+//	
+//	newNetwork : Network
+//}
