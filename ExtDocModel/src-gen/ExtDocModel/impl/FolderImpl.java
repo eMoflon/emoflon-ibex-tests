@@ -31,6 +31,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link ExtDocModel.impl.FolderImpl#getDocs <em>Docs</em>}</li>
  *   <li>{@link ExtDocModel.impl.FolderImpl#getContainer <em>Container</em>}</li>
+ *   <li>{@link ExtDocModel.impl.FolderImpl#getSubFolder <em>Sub Folder</em>}</li>
+ *   <li>{@link ExtDocModel.impl.FolderImpl#getSuperFolder <em>Super Folder</em>}</li>
  * </ul>
  *
  * @generated
@@ -45,6 +47,16 @@ public class FolderImpl extends NamedElementImpl implements Folder {
 	 * @ordered
 	 */
 	protected EList<Doc> docs;
+
+	/**
+	 * The cached value of the '{@link #getSubFolder() <em>Sub Folder</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSubFolder()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Folder> subFolder;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -127,6 +139,64 @@ public class FolderImpl extends NamedElementImpl implements Folder {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public EList<Folder> getSubFolder() {
+		if (subFolder == null) {
+			subFolder = new EObjectContainmentWithInverseEList<Folder>(Folder.class, this, ExtDocModelPackage.FOLDER__SUB_FOLDER,
+					ExtDocModelPackage.FOLDER__SUPER_FOLDER);
+		}
+		return subFolder;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Folder getSuperFolder() {
+		if (eContainerFeatureID() != ExtDocModelPackage.FOLDER__SUPER_FOLDER)
+			return null;
+		return (Folder) eInternalContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSuperFolder(Folder newSuperFolder, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject) newSuperFolder, ExtDocModelPackage.FOLDER__SUPER_FOLDER, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setSuperFolder(Folder newSuperFolder) {
+		if (newSuperFolder != eInternalContainer() || (eContainerFeatureID() != ExtDocModelPackage.FOLDER__SUPER_FOLDER && newSuperFolder != null)) {
+			if (EcoreUtil.isAncestor(this, newSuperFolder))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newSuperFolder != null)
+				msgs = ((InternalEObject) newSuperFolder).eInverseAdd(this, ExtDocModelPackage.FOLDER__SUB_FOLDER, Folder.class, msgs);
+			msgs = basicSetSuperFolder(newSuperFolder, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ExtDocModelPackage.FOLDER__SUPER_FOLDER, newSuperFolder, newSuperFolder));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -137,6 +207,12 @@ public class FolderImpl extends NamedElementImpl implements Folder {
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			return basicSetContainer((DocContainer) otherEnd, msgs);
+		case ExtDocModelPackage.FOLDER__SUB_FOLDER:
+			return ((InternalEList<InternalEObject>) (InternalEList<?>) getSubFolder()).basicAdd(otherEnd, msgs);
+		case ExtDocModelPackage.FOLDER__SUPER_FOLDER:
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			return basicSetSuperFolder((Folder) otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -153,6 +229,10 @@ public class FolderImpl extends NamedElementImpl implements Folder {
 			return ((InternalEList<?>) getDocs()).basicRemove(otherEnd, msgs);
 		case ExtDocModelPackage.FOLDER__CONTAINER:
 			return basicSetContainer(null, msgs);
+		case ExtDocModelPackage.FOLDER__SUB_FOLDER:
+			return ((InternalEList<?>) getSubFolder()).basicRemove(otherEnd, msgs);
+		case ExtDocModelPackage.FOLDER__SUPER_FOLDER:
+			return basicSetSuperFolder(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -167,6 +247,8 @@ public class FolderImpl extends NamedElementImpl implements Folder {
 		switch (eContainerFeatureID()) {
 		case ExtDocModelPackage.FOLDER__CONTAINER:
 			return eInternalContainer().eInverseRemove(this, ExtDocModelPackage.DOC_CONTAINER__FOLDERS, DocContainer.class, msgs);
+		case ExtDocModelPackage.FOLDER__SUPER_FOLDER:
+			return eInternalContainer().eInverseRemove(this, ExtDocModelPackage.FOLDER__SUB_FOLDER, Folder.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -183,6 +265,10 @@ public class FolderImpl extends NamedElementImpl implements Folder {
 			return getDocs();
 		case ExtDocModelPackage.FOLDER__CONTAINER:
 			return getContainer();
+		case ExtDocModelPackage.FOLDER__SUB_FOLDER:
+			return getSubFolder();
+		case ExtDocModelPackage.FOLDER__SUPER_FOLDER:
+			return getSuperFolder();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -203,6 +289,13 @@ public class FolderImpl extends NamedElementImpl implements Folder {
 		case ExtDocModelPackage.FOLDER__CONTAINER:
 			setContainer((DocContainer) newValue);
 			return;
+		case ExtDocModelPackage.FOLDER__SUB_FOLDER:
+			getSubFolder().clear();
+			getSubFolder().addAll((Collection<? extends Folder>) newValue);
+			return;
+		case ExtDocModelPackage.FOLDER__SUPER_FOLDER:
+			setSuperFolder((Folder) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -221,6 +314,12 @@ public class FolderImpl extends NamedElementImpl implements Folder {
 		case ExtDocModelPackage.FOLDER__CONTAINER:
 			setContainer((DocContainer) null);
 			return;
+		case ExtDocModelPackage.FOLDER__SUB_FOLDER:
+			getSubFolder().clear();
+			return;
+		case ExtDocModelPackage.FOLDER__SUPER_FOLDER:
+			setSuperFolder((Folder) null);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -237,6 +336,10 @@ public class FolderImpl extends NamedElementImpl implements Folder {
 			return docs != null && !docs.isEmpty();
 		case ExtDocModelPackage.FOLDER__CONTAINER:
 			return getContainer() != null;
+		case ExtDocModelPackage.FOLDER__SUB_FOLDER:
+			return subFolder != null && !subFolder.isEmpty();
+		case ExtDocModelPackage.FOLDER__SUPER_FOLDER:
+			return getSuperFolder() != null;
 		}
 		return super.eIsSet(featureID);
 	}

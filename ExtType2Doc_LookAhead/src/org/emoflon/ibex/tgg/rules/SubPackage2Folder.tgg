@@ -12,7 +12,11 @@
 }
 
 #target {
-	f:Folder
+	f:Folder {
+		++-subFolder->sf
+	}
+	
+	++sf:Folder
 }
 
 #correspondence {
@@ -23,10 +27,10 @@
 	
 	++sp2f:Package2Folder {
 		#src->sp
-		#trg->f
+		#trg->sf
 	}
 }
 
 #attributeConditions {
-	
+	eq_string(sp.name, sf.name)
 }
