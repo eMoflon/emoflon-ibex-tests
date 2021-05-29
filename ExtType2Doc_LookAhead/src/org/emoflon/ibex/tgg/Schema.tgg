@@ -12,10 +12,6 @@
 } 
 
 #correspondence {
-	Project2DocContainer {
-		#src->Project
-		#trg->DocContainer
-	}
 	Package2Folder {
 		#src->Package
 		#trg->Folder

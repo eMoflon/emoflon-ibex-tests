@@ -4,27 +4,14 @@
 #rule Package2Folder #with ExtType2Doc_LookAhead
 
 #source { 
-	pr:Project {
-		++-rootPackages->p
-	}
-	
 	++p:Package
 }
 
 #target {
-	dc:DocContainer {
-		++-folders->f
-	}
-	
 	++f:Folder
 }
 
 #correspondence {
-	pr2dc:Project2DocContainer {
-		#src->pr
-		#trg->dc
-	}
-	
 	++p2f:Package2Folder {
 		#src->p
 		#trg->f
