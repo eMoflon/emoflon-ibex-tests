@@ -184,8 +184,9 @@ pattern findNetworkFalse {
 
 //rule moveAllDevices {
 //	oldNetwork : Network {
-//		forEach devices->device {
-//			-- -device->oldNetwork
+//		forEach devices->dev {
+//			-- oldNetwork-devices->dev
+//			++ newNetwork-devices->dev
 //		}
 //	}
 //	
