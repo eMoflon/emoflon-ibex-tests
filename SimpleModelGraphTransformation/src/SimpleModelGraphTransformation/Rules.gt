@@ -1,0 +1,61 @@
+import "platform:/resource/SimpleModel/model/SimpleModel.ecore"
+import "http://www.eclipse.org/emf/2002/Ecore"
+
+rule createModel{
+	++ model: Model
+}
+
+rule createClass{
+	model:Model{
+		++ -classes->clazz	
+	}
+	++ clazz: Clazz	
+}
+
+rule createReference{
+	model:Model{
+		++ -references->reference
+	}
+    clazz1: Clazz
+    clazz2: Clazz
+    ++ reference: Reference{
+    	++-references->clazz1
+    	++-references->clazz2	
+    }
+}
+
+rule createAttribute(name:EString){
+    clazz: Clazz{
+    	++ -attributes ->attribute
+    }	
+    ++ attribute: Attribute{
+    	.attributeName := param::name
+    }
+}
+
+pattern hasReference{
+
+    reference: Reference	
+}
+
+
+rule removeReference{
+	model:Model{
+		-- -references->reference
+	}
+    --reference: Reference
+}
+rule changeReference{
+	 clazz1: Clazz
+    clazz2: Clazz
+    clazz3: Clazz
+    reference: Reference{
+    	-references->clazz1
+    	++-references->clazz2
+    	---references->clazz3	
+    }
+}
+
+pattern findClass{
+	clazz:Clazz
+}

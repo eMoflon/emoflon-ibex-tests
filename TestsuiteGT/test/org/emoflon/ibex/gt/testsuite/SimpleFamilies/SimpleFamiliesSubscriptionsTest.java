@@ -52,7 +52,7 @@ public class SimpleFamiliesSubscriptionsTest extends SimpleFamiliesAbstractTest 
 
 		// Remove Watson family, add Smith family.
 		FamilyRegister register = (FamilyRegister) api.getModel().getResources().get(0).getContents().get(0);
-		register.getFamilies().remove(1);
+		register.getFamilies().removeIf(f -> f.getName().equals("Watson"));
 		Family family = SimpleFamiliesFactory.eINSTANCE.createFamily();
 		family.setName("Smith");
 		register.getFamilies().add(family);
