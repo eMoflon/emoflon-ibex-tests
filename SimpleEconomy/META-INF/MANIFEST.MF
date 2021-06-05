@@ -8,7 +8,7 @@ Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Automatic-Module-Name: SimpleEconomy
 Require-Bundle: org.eclipse.emf.ecore,
- org.eclipse.emf.ecore.xmi
+ org.eclipse.emf.ecore.xmi,
+ emfcodegenerator
 Export-Package: SimpleEconomy,
- SimpleEconomy.impl,
- SimpleEconomy.util
+ SimpleEconomy.impl

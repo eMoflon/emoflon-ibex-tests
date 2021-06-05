@@ -9,7 +9,6 @@ Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: MocaTree,
  MocaTree.impl,
- MocaTree.util,
  org.benchmarx.mocaTree.core
 Require-Bundle: org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.core.runtime,
@@ -18,7 +17,7 @@ Require-Bundle: org.eclipse.emf.ecore;visibility:=reexport,
  com.google.guava,
  org.eclipse.xtext.xbase.lib,
  org.eclipse.xtend.lib,
- org.eclipse.xtend.lib.macro
+ org.eclipse.xtend.lib.macro,
+ emfcodegenerator
 Bundle-ActivationPolicy: lazy
 Automatic-Module-Name: MocaTree
-

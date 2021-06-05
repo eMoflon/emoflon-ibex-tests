@@ -1,85 +1,193 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
-    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="Clazz2GlossarDoc/gen/" modelPluginID="Clazz2GlossarDoc"
-    modelName="Clazz2GlossarDoc" generateSchema="true" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
-    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
-    usedGenPackages="../../GlossarDocumentation/model/glossarDocumentation.genmodel#//glossarDocumentation ../../SimpleClassInheritance/model/simpleClassInheritance.genmodel#//simpleClassInheritance platform:/plugin/org.emoflon.ibex.tgg.runtime/model/Runtime.genmodel#//runtime"
-    operationReflection="true" importOrganizing="true">
+<?xml version="1.0" encoding="ASCII"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="Clazz2GlossarDoc/gen/" modelPluginID="Clazz2GlossarDoc" modelName="Clazz2GlossarDoc" generateSchema="true" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
   <foreignModel>Clazz2GlossarDoc.ecore</foreignModel>
-  <genPackages prefix="Clazz2GlossarDoc" disposableProviderFactory="true" ecorePackage="Clazz2GlossarDoc.ecore#/">
-    <genClasses ecoreClass="Clazz2GlossarDoc.ecore#//Container2container">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Clazz2GlossarDoc.ecore#//Container2container/source"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Clazz2GlossarDoc.ecore#//Container2container/target"/>
+  <genPackages prefix="Clazz2GlossarDoc" disposableProviderFactory="true">
+    <ecorePackage href="Clazz2GlossarDoc.ecore#/"/>
+    <genClasses>
+      <ecoreClass href="Clazz2GlossarDoc.ecore#//Container2container"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Clazz2GlossarDoc.ecore#//Container2container/source"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Clazz2GlossarDoc.ecore#//Container2container/target"/>
+      </genFeatures>
     </genClasses>
-    <genClasses ecoreClass="Clazz2GlossarDoc.ecore#//Clazz2doc">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Clazz2GlossarDoc.ecore#//Clazz2doc/source"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Clazz2GlossarDoc.ecore#//Clazz2doc/target"/>
+    <genClasses>
+      <ecoreClass href="Clazz2GlossarDoc.ecore#//Clazz2doc"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Clazz2GlossarDoc.ecore#//Clazz2doc/source"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Clazz2GlossarDoc.ecore#//Clazz2doc/target"/>
+      </genFeatures>
     </genClasses>
-    <genClasses ecoreClass="Clazz2GlossarDoc.ecore#//Field2entry">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Clazz2GlossarDoc.ecore#//Field2entry/source"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Clazz2GlossarDoc.ecore#//Field2entry/target"/>
+    <genClasses>
+      <ecoreClass href="Clazz2GlossarDoc.ecore#//Field2entry"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Clazz2GlossarDoc.ecore#//Field2entry/source"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Clazz2GlossarDoc.ecore#//Field2entry/target"/>
+      </genFeatures>
     </genClasses>
-    <genClasses ecoreClass="Clazz2GlossarDoc.ecore#//Method2entry">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Clazz2GlossarDoc.ecore#//Method2entry/source"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Clazz2GlossarDoc.ecore#//Method2entry/target"/>
+    <genClasses>
+      <ecoreClass href="Clazz2GlossarDoc.ecore#//Method2entry"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Clazz2GlossarDoc.ecore#//Method2entry/source"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Clazz2GlossarDoc.ecore#//Method2entry/target"/>
+      </genFeatures>
     </genClasses>
-    <genClasses ecoreClass="Clazz2GlossarDoc.ecore#//Parameter2entry">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Clazz2GlossarDoc.ecore#//Parameter2entry/source"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Clazz2GlossarDoc.ecore#//Parameter2entry/target"/>
+    <genClasses>
+      <ecoreClass href="Clazz2GlossarDoc.ecore#//Parameter2entry"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Clazz2GlossarDoc.ecore#//Parameter2entry/source"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Clazz2GlossarDoc.ecore#//Parameter2entry/target"/>
+      </genFeatures>
     </genClasses>
-    <genClasses ecoreClass="Clazz2GlossarDoc.ecore#//Clazz2DocRule__Marker">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Clazz2GlossarDoc.ecore#//Clazz2DocRule__Marker/CONTEXT__SRC__cCont"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Clazz2GlossarDoc.ecore#//Clazz2DocRule__Marker/CREATE__SRC__clazz"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Clazz2GlossarDoc.ecore#//Clazz2DocRule__Marker/CONTEXT__TRG__dCont"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Clazz2GlossarDoc.ecore#//Clazz2DocRule__Marker/CREATE__TRG__doc"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Clazz2GlossarDoc.ecore#//Clazz2DocRule__Marker/CREATE__CORR__c2d"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Clazz2GlossarDoc.ecore#//Clazz2DocRule__Marker/CONTEXT__CORR__cont2cont"/>
+    <genClasses>
+      <ecoreClass href="Clazz2GlossarDoc.ecore#//Clazz2DocRule__Marker"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Clazz2GlossarDoc.ecore#//Clazz2DocRule__Marker/CONTEXT__SRC__cCont"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Clazz2GlossarDoc.ecore#//Clazz2DocRule__Marker/CREATE__SRC__clazz"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Clazz2GlossarDoc.ecore#//Clazz2DocRule__Marker/CONTEXT__TRG__dCont"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Clazz2GlossarDoc.ecore#//Clazz2DocRule__Marker/CREATE__TRG__doc"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Clazz2GlossarDoc.ecore#//Clazz2DocRule__Marker/CREATE__CORR__c2d"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Clazz2GlossarDoc.ecore#//Clazz2DocRule__Marker/CONTEXT__CORR__cont2cont"/>
+      </genFeatures>
     </genClasses>
-    <genClasses ecoreClass="Clazz2GlossarDoc.ecore#//Container2ContainerRule__Marker">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Clazz2GlossarDoc.ecore#//Container2ContainerRule__Marker/CREATE__SRC__cCont"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Clazz2GlossarDoc.ecore#//Container2ContainerRule__Marker/CREATE__TRG__dCont"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Clazz2GlossarDoc.ecore#//Container2ContainerRule__Marker/CREATE__TRG__glossar"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Clazz2GlossarDoc.ecore#//Container2ContainerRule__Marker/CREATE__CORR__c2d"/>
+    <genClasses>
+      <ecoreClass href="Clazz2GlossarDoc.ecore#//Container2ContainerRule__Marker"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Clazz2GlossarDoc.ecore#//Container2ContainerRule__Marker/CREATE__SRC__cCont"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Clazz2GlossarDoc.ecore#//Container2ContainerRule__Marker/CREATE__TRG__dCont"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Clazz2GlossarDoc.ecore#//Container2ContainerRule__Marker/CREATE__TRG__glossar"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Clazz2GlossarDoc.ecore#//Container2ContainerRule__Marker/CREATE__CORR__c2d"/>
+      </genFeatures>
     </genClasses>
-    <genClasses ecoreClass="Clazz2GlossarDoc.ecore#//Field2EntityRule__Marker">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Clazz2GlossarDoc.ecore#//Field2EntityRule__Marker/CONTEXT__SRC__clazz"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Clazz2GlossarDoc.ecore#//Field2EntityRule__Marker/CREATE__SRC__field"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Clazz2GlossarDoc.ecore#//Field2EntityRule__Marker/CONTEXT__TRG__doc"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Clazz2GlossarDoc.ecore#//Field2EntityRule__Marker/CREATE__TRG__entry"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Clazz2GlossarDoc.ecore#//Field2EntityRule__Marker/CONTEXT__CORR__c2d"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Clazz2GlossarDoc.ecore#//Field2EntityRule__Marker/CREATE__CORR__f2e"/>
+    <genClasses>
+      <ecoreClass href="Clazz2GlossarDoc.ecore#//Field2EntityRule__Marker"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Clazz2GlossarDoc.ecore#//Field2EntityRule__Marker/CONTEXT__SRC__clazz"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Clazz2GlossarDoc.ecore#//Field2EntityRule__Marker/CREATE__SRC__field"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Clazz2GlossarDoc.ecore#//Field2EntityRule__Marker/CONTEXT__TRG__doc"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Clazz2GlossarDoc.ecore#//Field2EntityRule__Marker/CREATE__TRG__entry"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Clazz2GlossarDoc.ecore#//Field2EntityRule__Marker/CONTEXT__CORR__c2d"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Clazz2GlossarDoc.ecore#//Field2EntityRule__Marker/CREATE__CORR__f2e"/>
+      </genFeatures>
     </genClasses>
-    <genClasses ecoreClass="Clazz2GlossarDoc.ecore#//GlossarEntryRule__Marker">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Clazz2GlossarDoc.ecore#//GlossarEntryRule__Marker/CREATE__TRG__entry"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Clazz2GlossarDoc.ecore#//GlossarEntryRule__Marker/CONTEXT__TRG__glossar"/>
+    <genClasses>
+      <ecoreClass href="Clazz2GlossarDoc.ecore#//GlossarEntryRule__Marker"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Clazz2GlossarDoc.ecore#//GlossarEntryRule__Marker/CREATE__TRG__entry"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Clazz2GlossarDoc.ecore#//GlossarEntryRule__Marker/CONTEXT__TRG__glossar"/>
+      </genFeatures>
     </genClasses>
-    <genClasses ecoreClass="Clazz2GlossarDoc.ecore#//GlossarLinkRule__Marker">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Clazz2GlossarDoc.ecore#//GlossarLinkRule__Marker/CONTEXT__TRG__entry"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Clazz2GlossarDoc.ecore#//GlossarLinkRule__Marker/CONTEXT__TRG__gEntry"/>
+    <genClasses>
+      <ecoreClass href="Clazz2GlossarDoc.ecore#//GlossarLinkRule__Marker"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Clazz2GlossarDoc.ecore#//GlossarLinkRule__Marker/CONTEXT__TRG__entry"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Clazz2GlossarDoc.ecore#//GlossarLinkRule__Marker/CONTEXT__TRG__gEntry"/>
+      </genFeatures>
     </genClasses>
-    <genClasses ecoreClass="Clazz2GlossarDoc.ecore#//Method2EntityRule__Marker">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Clazz2GlossarDoc.ecore#//Method2EntityRule__Marker/CONTEXT__SRC__clazz"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Clazz2GlossarDoc.ecore#//Method2EntityRule__Marker/CREATE__SRC__method"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Clazz2GlossarDoc.ecore#//Method2EntityRule__Marker/CONTEXT__TRG__doc"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Clazz2GlossarDoc.ecore#//Method2EntityRule__Marker/CREATE__TRG__entry"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Clazz2GlossarDoc.ecore#//Method2EntityRule__Marker/CONTEXT__CORR__c2d"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Clazz2GlossarDoc.ecore#//Method2EntityRule__Marker/CREATE__CORR__f2e"/>
+    <genClasses>
+      <ecoreClass href="Clazz2GlossarDoc.ecore#//Method2EntityRule__Marker"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Clazz2GlossarDoc.ecore#//Method2EntityRule__Marker/CONTEXT__SRC__clazz"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Clazz2GlossarDoc.ecore#//Method2EntityRule__Marker/CREATE__SRC__method"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Clazz2GlossarDoc.ecore#//Method2EntityRule__Marker/CONTEXT__TRG__doc"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Clazz2GlossarDoc.ecore#//Method2EntityRule__Marker/CREATE__TRG__entry"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Clazz2GlossarDoc.ecore#//Method2EntityRule__Marker/CONTEXT__CORR__c2d"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Clazz2GlossarDoc.ecore#//Method2EntityRule__Marker/CREATE__CORR__f2e"/>
+      </genFeatures>
     </genClasses>
-    <genClasses ecoreClass="Clazz2GlossarDoc.ecore#//ParameterRule__Marker">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Clazz2GlossarDoc.ecore#//ParameterRule__Marker/CONTEXT__SRC__method"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Clazz2GlossarDoc.ecore#//ParameterRule__Marker/CREATE__SRC__param"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Clazz2GlossarDoc.ecore#//ParameterRule__Marker/CONTEXT__TRG__entry"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Clazz2GlossarDoc.ecore#//ParameterRule__Marker/CONTEXT__CORR__m2e"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Clazz2GlossarDoc.ecore#//ParameterRule__Marker/CREATE__CORR__p2e"/>
+    <genClasses>
+      <ecoreClass href="Clazz2GlossarDoc.ecore#//ParameterRule__Marker"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Clazz2GlossarDoc.ecore#//ParameterRule__Marker/CONTEXT__SRC__method"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Clazz2GlossarDoc.ecore#//ParameterRule__Marker/CREATE__SRC__param"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Clazz2GlossarDoc.ecore#//ParameterRule__Marker/CONTEXT__TRG__entry"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Clazz2GlossarDoc.ecore#//ParameterRule__Marker/CONTEXT__CORR__m2e"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Clazz2GlossarDoc.ecore#//ParameterRule__Marker/CREATE__CORR__p2e"/>
+      </genFeatures>
     </genClasses>
-    <genClasses ecoreClass="Clazz2GlossarDoc.ecore#//SubClazz2DocRule__Marker">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Clazz2GlossarDoc.ecore#//SubClazz2DocRule__Marker/CREATE__SRC__subClazz"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Clazz2GlossarDoc.ecore#//SubClazz2DocRule__Marker/CONTEXT__SRC__superClazz"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Clazz2GlossarDoc.ecore#//SubClazz2DocRule__Marker/CONTEXT__TRG__dCont"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Clazz2GlossarDoc.ecore#//SubClazz2DocRule__Marker/CREATE__TRG__subDoc"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Clazz2GlossarDoc.ecore#//SubClazz2DocRule__Marker/CONTEXT__TRG__superDoc"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Clazz2GlossarDoc.ecore#//SubClazz2DocRule__Marker/CREATE__CORR__sub2sub"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Clazz2GlossarDoc.ecore#//SubClazz2DocRule__Marker/CONTEXT__CORR__super2super"/>
+    <genClasses>
+      <ecoreClass href="Clazz2GlossarDoc.ecore#//SubClazz2DocRule__Marker"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Clazz2GlossarDoc.ecore#//SubClazz2DocRule__Marker/CREATE__SRC__subClazz"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Clazz2GlossarDoc.ecore#//SubClazz2DocRule__Marker/CONTEXT__SRC__superClazz"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Clazz2GlossarDoc.ecore#//SubClazz2DocRule__Marker/CONTEXT__TRG__dCont"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Clazz2GlossarDoc.ecore#//SubClazz2DocRule__Marker/CREATE__TRG__subDoc"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Clazz2GlossarDoc.ecore#//SubClazz2DocRule__Marker/CONTEXT__TRG__superDoc"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Clazz2GlossarDoc.ecore#//SubClazz2DocRule__Marker/CREATE__CORR__sub2sub"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="Clazz2GlossarDoc.ecore#//SubClazz2DocRule__Marker/CONTEXT__CORR__super2super"/>
+      </genFeatures>
     </genClasses>
   </genPackages>
+  <usedGenPackages href="../../SimpleClassInheritance/model/simpleClassInheritance.genmodel#//simpleClassInheritance"/>
+  <usedGenPackages href="../../GlossarDocumentation/model/glossarDocumentation.genmodel#//glossarDocumentation"/>
+  <usedGenPackages href="../../../plugin/org.emoflon.ibex.tgg.runtime/model/Runtime.genmodel#//runtime"/>
 </genmodel:GenModel>

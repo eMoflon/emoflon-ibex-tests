@@ -3,9 +3,7 @@ Bundle-SymbolicName: ProcessDefinition;singleton:=true
 Export-Package: ProcessDefinition,
  ProcessDefinition.facade,
  ProcessDefinition.facade.impl,
- ProcessDefinition.facade.util,
  ProcessDefinition.impl,
- ProcessDefinition.util,
  org.benchmarx.processDefinition.core
 Bundle-Name: ProcessDefinition
 Bundle-Version: 1.0
@@ -16,10 +14,10 @@ Require-Bundle: org.eclipse.emf.ecore,
  com.google.guava,
  org.eclipse.xtext.xbase.lib,
  org.eclipse.xtend.lib,
- org.eclipse.xtend.lib.macro
+ org.eclipse.xtend.lib.macro,
+ emfcodegenerator
 Bundle-ManifestVersion: 2
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-Vendor: TU Darmstadt
 Automatic-Module-Name: ProcessDefinition
-

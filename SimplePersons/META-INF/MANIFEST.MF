@@ -1,9 +1,7 @@
 Manifest-Version: 1.0
 Bundle-SymbolicName: SimplePersons;singleton:=true
-Export-Package: 
- SimplePersons,
+Export-Package: SimplePersons,
  SimplePersons.impl,
- SimplePersons.util,
  org.benchmarx.simplepersons.core
 Bundle-Name: Persons
 Bundle-Version: 1.0.0.qualifier
@@ -14,7 +12,8 @@ Require-Bundle: org.eclipse.emf.ecore,
  com.google.guava,
  org.eclipse.xtext.xbase.lib,
  org.eclipse.xtend.lib,
- org.eclipse.xtend.lib.macro
+ org.eclipse.xtend.lib.macro,
+ emfcodegenerator
 Bundle-ManifestVersion: 2
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8

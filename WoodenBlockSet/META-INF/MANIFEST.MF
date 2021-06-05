@@ -3,7 +3,6 @@ Automatic-Module-Name: WoodenBlockSet
 Bundle-SymbolicName: WoodenBlockSet;singleton:=true
 Export-Package: WoodenBlockSet,
  WoodenBlockSet.impl,
- WoodenBlockSet.util,
  org.benchmarx.woodenblockset.core
 Bundle-Name: WoodenBlockSet
 Bundle-Version: 0.0.1.qualifier
@@ -15,7 +14,8 @@ Require-Bundle: org.eclipse.emf.ecore,
  com.google.guava,
  org.eclipse.xtext.xbase.lib,
  org.eclipse.xtend.lib,
- org.eclipse.xtend.lib.macro
+ org.eclipse.xtend.lib.macro,
+ emfcodegenerator
 Bundle-ManifestVersion: 2
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
