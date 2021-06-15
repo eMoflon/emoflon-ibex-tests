@@ -1,13 +1,16 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: uml
+Bundle-Name: %pluginName
 Bundle-SymbolicName: UML;singleton:=true
 Bundle-Version: 0.0.1.qualifier
-Bundle-Vendor: 
+Bundle-ClassPath: .
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Automatic-Module-Name: uml
-Require-Bundle: org.eclipse.emf.ecore,
+Automatic-Module-Name: UML
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.emf.ecore.xmi,
  emfcodegenerator
 Export-Package: uml,
