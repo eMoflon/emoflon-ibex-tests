@@ -1,17 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<?eclipse version="3.0"?>
-
-<!--
--->
-
-<plugin>
-
-   <extension point="org.eclipse.emf.ecore.generated_package">
-      <!-- @generated Triangles -->
-      <package
-            uri="platform:/resource/Triangles/model/Triangles.ecore"
-            class="Triangles.TrianglesPackage"
-            genModel="model/Triangles.genmodel"/>
-   </extension>
-
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?eclipse version="3.0"?><!--
+--><plugin>
+  <extension point="org.eclipse.emf.ecore.generated_package">
+    <package class="Triangles.TrianglesPackage" genModel="model/Triangles.genmodel" uri="platform:/resource/Triangles/model/Triangles.ecore"/>
+  </extension>
 </plugin>

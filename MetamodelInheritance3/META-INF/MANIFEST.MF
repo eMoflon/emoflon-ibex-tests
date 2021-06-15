@@ -9,10 +9,10 @@ Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: MetamodelInheritance3,
- MetamodelInheritance3.impl,
- MetamodelInheritance3.util
+ MetamodelInheritance3.impl
 Require-Bundle: org.eclipse.emf.ecore;visibility:=reexport,
  MetamodelInheritance2;visibility:=reexport,
  MetamodelInheritance;visibility:=reexport,
- org.eclipse.core.runtime
+ org.eclipse.core.runtime,
+ emfcodegenerator
 Bundle-ActivationPolicy: lazy
