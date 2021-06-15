@@ -132,13 +132,31 @@ public interface ExtDocModelPackage extends EPackage {
 	int FOLDER__CONTAINER = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Sub Folder</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FOLDER__SUB_FOLDER = NAMED_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Super Folder</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FOLDER__SUPER_FOLDER = NAMED_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Folder</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FOLDER_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int FOLDER_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Folder</em>' class.
@@ -552,6 +570,28 @@ public interface ExtDocModelPackage extends EPackage {
 	EReference getFolder_Container();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link ExtDocModel.Folder#getSubFolder <em>Sub Folder</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Sub Folder</em>'.
+	 * @see ExtDocModel.Folder#getSubFolder()
+	 * @see #getFolder()
+	 * @generated
+	 */
+	EReference getFolder_SubFolder();
+
+	/**
+	 * Returns the meta object for the container reference '{@link ExtDocModel.Folder#getSuperFolder <em>Super Folder</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Super Folder</em>'.
+	 * @see ExtDocModel.Folder#getSuperFolder()
+	 * @see #getFolder()
+	 * @generated
+	 */
+	EReference getFolder_SuperFolder();
+
+	/**
 	 * Returns the meta object for class '{@link ExtDocModel.DocContainer <em>Doc Container</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -863,6 +903,22 @@ public interface ExtDocModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference FOLDER__CONTAINER = eINSTANCE.getFolder_Container();
+
+		/**
+		 * The meta object literal for the '<em><b>Sub Folder</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FOLDER__SUB_FOLDER = eINSTANCE.getFolder_SubFolder();
+
+		/**
+		 * The meta object literal for the '<em><b>Super Folder</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FOLDER__SUPER_FOLDER = eINSTANCE.getFolder_SuperFolder();
 
 		/**
 		 * The meta object literal for the '{@link ExtDocModel.impl.DocContainerImpl <em>Doc Container</em>}' class.
