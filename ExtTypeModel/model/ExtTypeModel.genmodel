@@ -1,49 +1,91 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
-    modelDirectory="/ExtTypeModel/src-gen" creationIcons="false" editDirectory="/ExtTypeModel.edit/src-gen"
-    editorDirectory="/ExtTypeModel.editor/src-gen" modelPluginID="ExtTypeModel" modelName="ExtTypeModel"
-    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" codeFormatting="true"
-    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
-    operationReflection="true" importOrganizing="true">
+<?xml version="1.0" encoding="ASCII"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="ExtTypeModel/gen/" modelPluginID="ExtTypeModel" modelName="ExtTypeModel" generateSchema="true" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
   <foreignModel>ExtTypeModel.ecore</foreignModel>
-  <testsDirectory xsi:nil="true"/>
-  <genPackages prefix="ExtTypeModel" disposableProviderFactory="true" ecorePackage="ExtTypeModel.ecore#/">
-    <genClasses image="false" ecoreClass="ExtTypeModel.ecore#//NamedElement">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ExtTypeModel.ecore#//NamedElement/name"/>
+  <genPackages prefix="ExtTypeModel" disposableProviderFactory="true">
+    <ecorePackage href="ExtTypeModel.ecore#/"/>
+    <genClasses image="false">
+      <ecoreClass href="ExtTypeModel.ecore#//NamedElement"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="ExtTypeModel.ecore#//NamedElement/name"/>
+      </genFeatures>
     </genClasses>
-    <genClasses ecoreClass="ExtTypeModel.ecore#//Package">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExtTypeModel.ecore#//Package/subPackages"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ExtTypeModel.ecore#//Package/superPackage"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExtTypeModel.ecore#//Package/types"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ExtTypeModel.ecore#//Package/fQname"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ExtTypeModel.ecore#//Package/project"/>
+    <genClasses>
+      <ecoreClass href="ExtTypeModel.ecore#//Package"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="ExtTypeModel.ecore#//Package/subPackages"/>
+      </genFeatures>
+      <genFeatures property="None" notify="false" createChild="false">
+        <ecoreFeature xsi:type="ecore:EReference" href="ExtTypeModel.ecore#//Package/superPackage"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="ExtTypeModel.ecore#//Package/types"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="ExtTypeModel.ecore#//Package/fQname"/>
+      </genFeatures>
+      <genFeatures property="None" notify="false" createChild="false">
+        <ecoreFeature xsi:type="ecore:EReference" href="ExtTypeModel.ecore#//Package/project"/>
+      </genFeatures>
     </genClasses>
-    <genClasses ecoreClass="ExtTypeModel.ecore#//Type">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ExtTypeModel.ecore#//Type/interface"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ExtTypeModel.ecore#//Type/extendedBy"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ExtTypeModel.ecore#//Type/inheritsFrom"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExtTypeModel.ecore#//Type/methods"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExtTypeModel.ecore#//Type/fields"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ExtTypeModel.ecore#//Type/package"/>
+    <genClasses>
+      <ecoreClass href="ExtTypeModel.ecore#//Type"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="ExtTypeModel.ecore#//Type/interface"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="ExtTypeModel.ecore#//Type/extendedBy"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="ExtTypeModel.ecore#//Type/inheritsFrom"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="ExtTypeModel.ecore#//Type/methods"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="ExtTypeModel.ecore#//Type/fields"/>
+      </genFeatures>
+      <genFeatures property="None" notify="false" createChild="false">
+        <ecoreFeature xsi:type="ecore:EReference" href="ExtTypeModel.ecore#//Type/package"/>
+      </genFeatures>
     </genClasses>
-    <genClasses ecoreClass="ExtTypeModel.ecore#//Method">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExtTypeModel.ecore#//Method/params"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ExtTypeModel.ecore#//Method/type"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExtTypeModel.ecore#//Method/docs"/>
+    <genClasses>
+      <ecoreClass href="ExtTypeModel.ecore#//Method"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="ExtTypeModel.ecore#//Method/params"/>
+      </genFeatures>
+      <genFeatures property="None" notify="false" createChild="false">
+        <ecoreFeature xsi:type="ecore:EReference" href="ExtTypeModel.ecore#//Method/type"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="ExtTypeModel.ecore#//Method/docs"/>
+      </genFeatures>
     </genClasses>
-    <genClasses ecoreClass="ExtTypeModel.ecore#//Parameter">
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ExtTypeModel.ecore#//Parameter/method"/>
+    <genClasses>
+      <ecoreClass href="ExtTypeModel.ecore#//Parameter"/>
+      <genFeatures property="None" notify="false" createChild="false">
+        <ecoreFeature xsi:type="ecore:EReference" href="ExtTypeModel.ecore#//Parameter/method"/>
+      </genFeatures>
     </genClasses>
-    <genClasses ecoreClass="ExtTypeModel.ecore#//Field">
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ExtTypeModel.ecore#//Field/type"/>
+    <genClasses>
+      <ecoreClass href="ExtTypeModel.ecore#//Field"/>
+      <genFeatures property="None" notify="false" createChild="false">
+        <ecoreFeature xsi:type="ecore:EReference" href="ExtTypeModel.ecore#//Field/type"/>
+      </genFeatures>
     </genClasses>
-    <genClasses ecoreClass="ExtTypeModel.ecore#//JavaDoc">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ExtTypeModel.ecore#//JavaDoc/comment"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ExtTypeModel.ecore#//JavaDoc/method"/>
+    <genClasses>
+      <ecoreClass href="ExtTypeModel.ecore#//JavaDoc"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="ExtTypeModel.ecore#//JavaDoc/comment"/>
+      </genFeatures>
+      <genFeatures property="None" notify="false" createChild="false">
+        <ecoreFeature xsi:type="ecore:EReference" href="ExtTypeModel.ecore#//JavaDoc/method"/>
+      </genFeatures>
     </genClasses>
-    <genClasses ecoreClass="ExtTypeModel.ecore#//Project">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExtTypeModel.ecore#//Project/rootPackages"/>
+    <genClasses>
+      <ecoreClass href="ExtTypeModel.ecore#//Project"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="ExtTypeModel.ecore#//Project/rootPackages"/>
+      </genFeatures>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

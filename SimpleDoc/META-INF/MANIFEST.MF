@@ -9,8 +9,7 @@ Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: org.benchmarx.simpledoc.core,
  simpleDoc,
- simpleDoc.impl,
- simpleDoc.util
+ simpleDoc.impl
 Require-Bundle: org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.core.runtime,
  org.junit;bundle-version="4.12.0",
@@ -18,7 +17,7 @@ Require-Bundle: org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.xtext.xbase.lib,
  org.eclipse.xtend.lib;bundle-version="2.12.0",
  org.eclipse.xtend.lib.macro;bundle-version="2.12.0",
- com.google.guava
+ com.google.guava,
+ emfcodegenerator
 Bundle-ActivationPolicy: lazy
 Automatic-Module-Name: SimpleDoc
-

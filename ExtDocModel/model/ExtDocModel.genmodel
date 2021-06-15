@@ -1,54 +1,103 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
-    modelDirectory="/ExtDocModel/src-gen" creationIcons="false" editDirectory="/ExtDocModel.edit/src-gen"
-    editorDirectory="/ExtDocModel.editor/src-gen" modelPluginID="ExtDocModel" modelName="ExtDocModel"
-    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" codeFormatting="true"
-    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
-    operationReflection="true" importOrganizing="true">
+<?xml version="1.0" encoding="ASCII"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="ExtDocModel/gen/" modelPluginID="ExtDocModel" modelName="ExtDocModel" generateSchema="true" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
   <foreignModel>ExtDocModel.ecore</foreignModel>
-  <testsDirectory xsi:nil="true"/>
-  <genPackages prefix="ExtDocModel" disposableProviderFactory="true" ecorePackage="ExtDocModel.ecore#/">
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="ExtDocModel.ecore#//EntryType">
-      <genEnumLiterals ecoreEnumLiteral="ExtDocModel.ecore#//EntryType/FIELD"/>
-      <genEnumLiterals ecoreEnumLiteral="ExtDocModel.ecore#//EntryType/METHOD"/>
+  <genPackages prefix="ExtDocModel" disposableProviderFactory="true">
+    <ecorePackage href="ExtDocModel.ecore#/"/>
+    <genEnums typeSafeEnumCompatible="false">
+      <ecoreEnum href="ExtDocModel.ecore#//EntryType"/>
+      <genEnumLiterals>
+        <ecoreEnumLiteral href="ExtDocModel.ecore#//EntryType/FIELD"/>
+      </genEnumLiterals>
+      <genEnumLiterals>
+        <ecoreEnumLiteral href="ExtDocModel.ecore#//EntryType/METHOD"/>
+      </genEnumLiterals>
     </genEnums>
-    <genClasses image="false" ecoreClass="ExtDocModel.ecore#//NamedElement">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ExtDocModel.ecore#//NamedElement/name"/>
+    <genClasses image="false">
+      <ecoreClass href="ExtDocModel.ecore#//NamedElement"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="ExtDocModel.ecore#//NamedElement/name"/>
+      </genFeatures>
     </genClasses>
-    <genClasses ecoreClass="ExtDocModel.ecore#//Folder">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExtDocModel.ecore#//Folder/docs"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ExtDocModel.ecore#//Folder/container"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExtDocModel.ecore#//Folder/subFolder"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ExtDocModel.ecore#//Folder/superFolder"/>
+    <genClasses>
+      <ecoreClass href="ExtDocModel.ecore#//Folder"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="ExtDocModel.ecore#//Folder/docs"/>
+      </genFeatures>
+      <genFeatures property="None" notify="false" createChild="false">
+        <ecoreFeature xsi:type="ecore:EReference" href="ExtDocModel.ecore#//Folder/container"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="ExtDocModel.ecore#//Folder/subFolder"/>
+      </genFeatures>
+      <genFeatures property="None" notify="false" createChild="false">
+        <ecoreFeature xsi:type="ecore:EReference" href="ExtDocModel.ecore#//Folder/superFolder"/>
+      </genFeatures>
     </genClasses>
-    <genClasses ecoreClass="ExtDocModel.ecore#//Doc">
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ExtDocModel.ecore#//Doc/folder"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExtDocModel.ecore#//Doc/entries"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ExtDocModel.ecore#//Doc/subDocs"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ExtDocModel.ecore#//Doc/superDocs"/>
+    <genClasses>
+      <ecoreClass href="ExtDocModel.ecore#//Doc"/>
+      <genFeatures property="None" notify="false" createChild="false">
+        <ecoreFeature xsi:type="ecore:EReference" href="ExtDocModel.ecore#//Doc/folder"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="ExtDocModel.ecore#//Doc/entries"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="ExtDocModel.ecore#//Doc/subDocs"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="ExtDocModel.ecore#//Doc/superDocs"/>
+      </genFeatures>
     </genClasses>
-    <genClasses ecoreClass="ExtDocModel.ecore#//Entry">
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ExtDocModel.ecore#//Entry/doc"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExtDocModel.ecore#//Entry/annotations"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ExtDocModel.ecore#//Entry/glossaryEntries"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ExtDocModel.ecore#//Entry/type"/>
+    <genClasses>
+      <ecoreClass href="ExtDocModel.ecore#//Entry"/>
+      <genFeatures property="None" notify="false" createChild="false">
+        <ecoreFeature xsi:type="ecore:EReference" href="ExtDocModel.ecore#//Entry/doc"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="ExtDocModel.ecore#//Entry/annotations"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="ExtDocModel.ecore#//Entry/glossaryEntries"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="ExtDocModel.ecore#//Entry/type"/>
+      </genFeatures>
     </genClasses>
-    <genClasses ecoreClass="ExtDocModel.ecore#//Annotation">
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ExtDocModel.ecore#//Annotation/entry"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ExtDocModel.ecore#//Annotation/value"/>
+    <genClasses>
+      <ecoreClass href="ExtDocModel.ecore#//Annotation"/>
+      <genFeatures property="None" notify="false" createChild="false">
+        <ecoreFeature xsi:type="ecore:EReference" href="ExtDocModel.ecore#//Annotation/entry"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="ExtDocModel.ecore#//Annotation/value"/>
+      </genFeatures>
     </genClasses>
-    <genClasses ecoreClass="ExtDocModel.ecore#//Glossary">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExtDocModel.ecore#//Glossary/entries"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ExtDocModel.ecore#//Glossary/container"/>
+    <genClasses>
+      <ecoreClass href="ExtDocModel.ecore#//Glossary"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="ExtDocModel.ecore#//Glossary/entries"/>
+      </genFeatures>
+      <genFeatures property="None" notify="false" createChild="false">
+        <ecoreFeature xsi:type="ecore:EReference" href="ExtDocModel.ecore#//Glossary/container"/>
+      </genFeatures>
     </genClasses>
-    <genClasses ecoreClass="ExtDocModel.ecore#//GlossaryEntry">
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ExtDocModel.ecore#//GlossaryEntry/glossary"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ExtDocModel.ecore#//GlossaryEntry/entries"/>
+    <genClasses>
+      <ecoreClass href="ExtDocModel.ecore#//GlossaryEntry"/>
+      <genFeatures property="None" notify="false" createChild="false">
+        <ecoreFeature xsi:type="ecore:EReference" href="ExtDocModel.ecore#//GlossaryEntry/glossary"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="ExtDocModel.ecore#//GlossaryEntry/entries"/>
+      </genFeatures>
     </genClasses>
-    <genClasses ecoreClass="ExtDocModel.ecore#//DocContainer">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExtDocModel.ecore#//DocContainer/folders"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExtDocModel.ecore#//DocContainer/glossary"/>
+    <genClasses>
+      <ecoreClass href="ExtDocModel.ecore#//DocContainer"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="ExtDocModel.ecore#//DocContainer/folders"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="ExtDocModel.ecore#//DocContainer/glossary"/>
+      </genFeatures>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

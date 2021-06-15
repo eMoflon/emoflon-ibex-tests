@@ -13,11 +13,11 @@ Require-Bundle: Benchmarx,
  org.eclipse.xtext.xbase.lib,
  org.eclipse.xtend.lib,
  org.eclipse.xtend.lib.macro,
- org.junit
+ org.junit,
+ emfcodegenerator
 Bundle-ActivationPolicy: lazy
 Automatic-Module-Name: ExtTypeModel
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: ExtTypeModel,
  ExtTypeModel.impl,
- ExtTypeModel.util,
  org.benchmarx.extTypeModel.core

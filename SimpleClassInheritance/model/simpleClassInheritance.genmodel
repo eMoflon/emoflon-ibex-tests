@@ -1,36 +1,58 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
-    modelDirectory="/SimpleClassInheritance/src-gen" creationIcons="false"
-    editDirectory="/SimpleClassInheritance.edit/src-gen" editorDirectory="/SimpleClassInheritance.editor/src-gen"
-    modelPluginID="SimpleClassInheritance" modelName="SimpleClassInheritance" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
-    codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0"
-    copyrightFields="false" operationReflection="true" importOrganizing="true">
+<?xml version="1.0" encoding="ASCII"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="SimpleClassInheritance/gen/" modelPluginID="SimpleClassInheritance" modelName="SimpleClassInheritance" generateSchema="true" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
   <foreignModel>simpleClassInheritance.ecore</foreignModel>
-  <testsDirectory xsi:nil="true"/>
-  <genPackages prefix="SimpleClassInheritance" disposableProviderFactory="true" ecorePackage="simpleClassInheritance.ecore#/">
-    <genClasses ecoreClass="simpleClassInheritance.ecore#//Clazz">
-      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference simpleClassInheritance.ecore#//Clazz/methods"/>
-      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference simpleClassInheritance.ecore#//Clazz/fields"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference simpleClassInheritance.ecore#//Clazz/superClazz"/>
-      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference simpleClassInheritance.ecore#//Clazz/subClazzes"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference simpleClassInheritance.ecore#//Clazz/container"/>
+  <genPackages prefix="SimpleClassInheritance" disposableProviderFactory="true">
+    <ecorePackage href="simpleClassInheritance.ecore#/"/>
+    <genClasses>
+      <ecoreClass href="simpleClassInheritance.ecore#//Clazz"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="simpleClassInheritance.ecore#//Clazz/methods"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="simpleClassInheritance.ecore#//Clazz/fields"/>
+      </genFeatures>
+      <genFeatures property="None" notify="false" createChild="false">
+        <ecoreFeature xsi:type="ecore:EReference" href="simpleClassInheritance.ecore#//Clazz/superClazz"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="simpleClassInheritance.ecore#//Clazz/subClazzes"/>
+      </genFeatures>
+      <genFeatures property="None" notify="false" createChild="false">
+        <ecoreFeature xsi:type="ecore:EReference" href="simpleClassInheritance.ecore#//Clazz/container"/>
+      </genFeatures>
     </genClasses>
-    <genClasses ecoreClass="simpleClassInheritance.ecore#//Field">
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference simpleClassInheritance.ecore#//Field/clazz"/>
+    <genClasses>
+      <ecoreClass href="simpleClassInheritance.ecore#//Field"/>
+      <genFeatures property="None" notify="false" createChild="false">
+        <ecoreFeature xsi:type="ecore:EReference" href="simpleClassInheritance.ecore#//Field/clazz"/>
+      </genFeatures>
     </genClasses>
-    <genClasses ecoreClass="simpleClassInheritance.ecore#//Method">
-      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference simpleClassInheritance.ecore#//Method/parameters"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference simpleClassInheritance.ecore#//Method/clazz"/>
+    <genClasses>
+      <ecoreClass href="simpleClassInheritance.ecore#//Method"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="simpleClassInheritance.ecore#//Method/parameters"/>
+      </genFeatures>
+      <genFeatures property="None" notify="false" createChild="false">
+        <ecoreFeature xsi:type="ecore:EReference" href="simpleClassInheritance.ecore#//Method/clazz"/>
+      </genFeatures>
     </genClasses>
-    <genClasses ecoreClass="simpleClassInheritance.ecore#//Parameter">
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference simpleClassInheritance.ecore#//Parameter/method"/>
+    <genClasses>
+      <ecoreClass href="simpleClassInheritance.ecore#//Parameter"/>
+      <genFeatures property="None" notify="false" createChild="false">
+        <ecoreFeature xsi:type="ecore:EReference" href="simpleClassInheritance.ecore#//Parameter/method"/>
+      </genFeatures>
     </genClasses>
-    <genClasses ecoreClass="simpleClassInheritance.ecore#//ClazzContainer">
-      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference simpleClassInheritance.ecore#//ClazzContainer/clazzes"/>
+    <genClasses>
+      <ecoreClass href="simpleClassInheritance.ecore#//ClazzContainer"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="simpleClassInheritance.ecore#//ClazzContainer/clazzes"/>
+      </genFeatures>
     </genClasses>
-    <genClasses ecoreClass="simpleClassInheritance.ecore#//NamedElement">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simpleClassInheritance.ecore#//NamedElement/name"/>
+    <genClasses image="false">
+      <ecoreClass href="simpleClassInheritance.ecore#//NamedElement"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="simpleClassInheritance.ecore#//NamedElement/name"/>
+      </genFeatures>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
