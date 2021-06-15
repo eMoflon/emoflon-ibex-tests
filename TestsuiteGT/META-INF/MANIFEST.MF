@@ -34,11 +34,7 @@ Require-Bundle: org.eclipse.emf.ecore.xmi,
  FastEconomy,
  EconomicsModel,
  SlowEconomy,
- org.eclipse.emf.ecore,
- SimpleEMFEcoreModel;bundle-version="0.0.1",
- SimpleEMFModelTransformation;bundle-version="1.0.0",
- SimpleModelGraphTransformation;bundle-version="1.0.0",
- SimpleModel;bundle-version="0.0.1"
+ org.eclipse.emf.ecore
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Automatic-Module-Name: TestsuiteGT
