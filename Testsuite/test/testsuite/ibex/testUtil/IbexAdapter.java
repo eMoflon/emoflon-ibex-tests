@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.emoflon.ibex.tgg.operational.strategies.sync.SYNC;
 import org.emoflon.ibex.tgg.util.ilp.ILPFactory.SupportedILPSolver;
+import org.moflon.smartemf.persistence.SmartEMFResourceFactoryImpl;
 
 public abstract class IbexAdapter<S extends EObject, T extends EObject> extends BXToolForEMF<S, T, Decisions>   {
 
@@ -75,17 +76,19 @@ public abstract class IbexAdapter<S extends EObject, T extends EObject> extends 
 	@Override
 	public void saveModels(String name) {
 		ResourceSet set = new ResourceSetImpl();
-		set.getResourceFactoryRegistry().getExtensionToFactoryMap().put(Resource.Factory.Registry.DEFAULT_EXTENSION, new XMIResourceFactoryImpl());
+		set.getResourceFactoryRegistry().getExtensionToFactoryMap()	.put(Resource.Factory.Registry.DEFAULT_EXTENSION, new SmartEMFResourceFactoryImpl());
+		
+//		set.getResourceFactoryRegistry().getExtensionToFactoryMap().put(Resource.Factory.Registry.DEFAULT_EXTENSION, new XMIResourceFactoryImpl());
 		URI srcURI = URI.createFileURI(RESULTPATH + "/" + name + "source.xmi");
 		URI trgURI = URI.createFileURI(RESULTPATH + "/" + name + "target.xmi");
 		Resource resSource = set.createResource(srcURI);
 		Resource resTarget = set.createResource(trgURI);
 		
-		EObject colSource = EcoreUtil.copy(getSourceModel());
-		EObject colTarget = EcoreUtil.copy(getTargetModel());
+//		EObject colSource = EcoreUtil.copy(getSourceModel());
+//		EObject colTarget = EcoreUtil.copy(getTargetModel());
 		
-		resSource.getContents().add(colSource);
-		resTarget.getContents().add(colTarget);
+		resSource.getContents().add(getSourceModel());
+		resTarget.getContents().add(getTargetModel());
 		
 		try {
 			resSource.save(null);
