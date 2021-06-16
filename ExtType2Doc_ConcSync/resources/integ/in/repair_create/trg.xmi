@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="ASCII"?>
+<ExtDocModel:DocContainer
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:ExtDocModel="platform:/resource/ExtDocModel/model/ExtDocModel.ecore">
+  <folders name="P1">
+    <docs name="T2"
+        subDocs="//@folders.0/@docs.1"/>
+    <docs name="T3"
+        superDocs="//@folders.0/@docs.0"/>
+  </folders>
+  <glossary/>
+</ExtDocModel:DocContainer>

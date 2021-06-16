@@ -92,7 +92,7 @@ public class Basic extends IntegrateTestCase<ClazzContainer, DocumentationContai
 
 	//// DELETE-PRESERVE CONFLICT ////
 
-	private void deletePropagateConflict(Consumer<DeletePreserveConflict> s, String path) {
+	private void deletePreserveConflict(Consumer<DeletePreserveConflict> s, String path) {
 		tool.getOptions().integration.pattern(pattern);
 		tool.getOptions().integration.conflictSolver( //
 				c -> CRSHelper.forEachResolve(c, DeletePreserveConflict.class, s));
@@ -112,17 +112,17 @@ public class Basic extends IntegrateTestCase<ClazzContainer, DocumentationContai
 
 	@Test
 	public void deletePreserveConflict_preserveDeletion() {
-		deletePropagateConflict(s -> s.crs_revokeAddition(), testpath + "delprop_predel/");
+		deletePreserveConflict(s -> s.crs_revokeAddition(), testpath + "delprop_predel/");
 	}
 
 	@Test
 	public void deletePreserveConflict_revokeDeletion() {
-		deletePropagateConflict(s -> s.crs_revokeDeletion(), testpath + "delprop_revdel/");
+		deletePreserveConflict(s -> s.crs_revokeDeletion(), testpath + "delprop_revdel/");
 	}
 
 	@Test
 	public void deletePreserveConflict_mergeAndPreserve() {
-		deletePropagateConflict(s -> s.crs_mergeAndPreserve(), testpath + "delprop_mrgpre/");
+		deletePreserveConflict(s -> s.crs_mergeAndPreserve(), testpath + "delprop_mrgpre/");
 	}
 
 	//// SHORTCUT-CC ////
