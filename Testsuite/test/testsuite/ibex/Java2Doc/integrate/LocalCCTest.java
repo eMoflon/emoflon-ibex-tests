@@ -64,7 +64,7 @@ public class LocalCCTest extends IntegrateTestCase<Package, Folder> {
 			helperDoc.createDoc(helperDoc.getFolder(f, "cmoflon"), "ccClazz_doc", "ccBody");
 		});
 
-		assertCondition(fullPath + "src", fullPath + "trg", fullPath + "corr");
+		assertCondition(fullPath);
 	}
 
 	@Test
@@ -79,7 +79,7 @@ public class LocalCCTest extends IntegrateTestCase<Package, Folder> {
 			helperDoc.createDoc(helperDoc.getFolder(f, "es"), "EMFUtil_doc", "EMFUtilBody");
 		});
 
-		assertCondition(fullPathPre + "src", fullPathPre + "trg", fullPathPre + "corr");
+		assertCondition(fullPathPre);
 
 		tool.applyAndIntegrateDelta((p, f) -> {
 			// src:
@@ -89,7 +89,7 @@ public class LocalCCTest extends IntegrateTestCase<Package, Folder> {
 			emfUtil.setName("CommonUtil");
 		});
 
-		assertCondition(fullPath + "src", fullPath + "trg", fullPath + "corr");
+		assertCondition(fullPath);
 	}
 
 }

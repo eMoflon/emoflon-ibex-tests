@@ -78,7 +78,7 @@ public class Multiplicity extends IntegrateTestCase<District, Playroom> {
 		});
 
 		assertTrue(detectedConflict.get());
-		assertCondition(path + "src", path + "trg", path + "corr");
+		assertCondition(path);
 	}
 
 	@Test

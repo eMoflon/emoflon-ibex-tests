@@ -77,7 +77,7 @@ public class RepairCreate extends IntegrateTestCase<Project, DocContainer> {
 		});
 
 		assertFalse(foundConflict.get());
-		assertCondition(path + "src", path + "trg", path + "corr");
+		assertCondition(path);
 	}
 
 	@Test

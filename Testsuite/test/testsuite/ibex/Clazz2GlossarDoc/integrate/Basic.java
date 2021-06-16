@@ -77,7 +77,7 @@ public class Basic extends IntegrateTestCase<ClazzContainer, DocumentationContai
 			helperDoc.getEntry("M8").setName("M8_b");
 		});
 
-		assertCondition(path + "src", path + "trg", path + "corr");
+		assertCondition(path);
 	}
 
 	@Test
@@ -107,7 +107,7 @@ public class Basic extends IntegrateTestCase<ClazzContainer, DocumentationContai
 			helperDoc.createGlossarEntryLink(helperDoc.getEntry("M6"), helperDoc.getGlossarEntry("GE12"));
 		});
 
-		assertCondition(path + "src", path + "trg", path + "corr");
+		assertCondition(path);
 	}
 
 	@Test
@@ -138,7 +138,7 @@ public class Basic extends IntegrateTestCase<ClazzContainer, DocumentationContai
 			helperDoc.getDocumentation("C1").getEntries().add(e7);
 		});
 
-		assertCondition(path + "src", path + "trg", path + "corr");
+		assertCondition(path);
 	}
 
 	@Test
@@ -164,7 +164,7 @@ public class Basic extends IntegrateTestCase<ClazzContainer, DocumentationContai
 			d1.getEntries().add(e7);
 		});
 
-		assertCondition(path + "src", path + "trg", path + "corr");
+		assertCondition(path);
 	}
 
 	@Test
