@@ -20,7 +20,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Building" eSuperTypes="#//Structure"/>
   <eClassifiers xsi:type="ecore:EClass" name="District">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="streetBeginnings" upperBound="-1"
-        eType="#//Structure" containment="true" eOpposite="#//Structure/district"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="streetBeginnings" lowerBound="1"
+        upperBound="-1" eType="#//Structure" containment="true" eOpposite="#//Structure/district"/>
   </eClassifiers>
 </ecore:EPackage>

@@ -6,6 +6,7 @@ import static org.emoflon.ibex.tgg.operational.strategies.integrate.FragmentProv
 import static org.emoflon.ibex.tgg.operational.strategies.integrate.FragmentProvider.RESOLVE_CONFLICTS;
 import static org.emoflon.ibex.tgg.operational.strategies.integrate.FragmentProvider.TRANSLATE;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import java.util.Arrays;
@@ -14,6 +15,7 @@ import java.util.function.Consumer;
 
 import org.benchmarx.terracehouses.core.TerraceHousesHelper;
 import org.benchmarx.woodenblockset.core.WoodenBlockSetHelper;
+import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.DeletePreserveConflict;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.OperationalMultiplicityConflict;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.resolution.util.CRSHelper;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.pattern.IntegrationPattern;
@@ -61,18 +63,18 @@ public class Multiplicity extends IntegrateTestCase<District, Playroom> {
 
 	private void multiplicityConflict(Consumer<OperationalMultiplicityConflict> s, String path) {
 		AtomicBoolean detectedConflict = new AtomicBoolean(false);
-		
+
 		tool.getOptions().integration.pattern(pattern);
 		tool.getOptions().integration.conflictSolver(c -> {
 			detectedConflict.set(true);
 			assertEquals(1, c.getConflicts().stream().filter(cft -> cft instanceof OperationalMultiplicityConflict).count());
 			CRSHelper.forEachResolve(c, OperationalMultiplicityConflict.class, s);
 		});
-		tool.applyAndIntegrateDelta((c, d) -> {
+		tool.applyAndIntegrateDelta((d, p) -> {
 			// src:
-			helperTerraceHouses.createBuilding(helperTerraceHouses.getBuilding(c, "Colorado Apartments"), "Left Building", null);
+			helperTerraceHouses.createBuilding(helperTerraceHouses.getBuilding(d, "Colorado Apartments"), "Left Building", null);
 			// trg:
-			BlockSet set = helperWoodenBlockSet.getConstruction(d, "Colorado Apartments").getBlockSet();
+			BlockSet set = helperWoodenBlockSet.getConstruction(p, "Colorado Apartments").getBlockSet();
 			Construction constr = helperWoodenBlockSet.createConstruction(set, "Right Building");
 			helperWoodenBlockSet.createCuboid(constr, "red");
 		});
@@ -89,6 +91,27 @@ public class Multiplicity extends IntegrateTestCase<District, Playroom> {
 	@Test
 	public void multiplicityConflict_preferTarget() {
 		multiplicityConflict(s -> s.crs_preferTarget(), testpath + "multipl_trg/");
+	}
+
+	@Test
+	public void noMultiplicityConflict() {
+		tool.getOptions().integration.pattern(pattern);
+		tool.getOptions().integration.conflictSolver(cc -> {
+			CRSHelper.forEachResolve(cc, DeletePreserveConflict.class, c -> c.crs_revokeDeletion());
+			CRSHelper.forEachConflict(cc, c -> {
+				assertFalse(c instanceof OperationalMultiplicityConflict);
+			});
+		});
+
+		tool.applyAndIntegrateDelta((d, p) -> {
+			// src:
+			d.getStreetBeginnings().clear();
+			// trg:
+			Construction constr = helperWoodenBlockSet.getConstruction(p, "Colorado Apartments");
+			helperWoodenBlockSet.createCuboid(constr, "yellow");
+		});
+		
+		assertCondition(testpath + "no_multipl/");
 	}
 
 }

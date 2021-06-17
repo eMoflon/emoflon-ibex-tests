@@ -1,0 +1,26 @@
+#using TerraceHouses2BlockSet.*
+#using AttrCondDefLibrary.*
+
+#rule BuildingExtension #with TerraceHouses2BlockSet
+
+#source { 
+	building:Building
+}
+
+#target {
+	constr:Construction {
+		++-components->cuboid
+	}
+	++cuboid:Cuboid
+}
+
+#correspondence {
+	b2c:Structure2Construction {
+		#src->building
+		#trg->constr
+	}
+}
+
+#attributeConditions {
+	
+}
