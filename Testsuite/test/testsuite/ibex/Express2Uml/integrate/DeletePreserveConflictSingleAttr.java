@@ -4,6 +4,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.express.express.Entity;
 import org.emoflon.express.express.Schema;
 import org.emoflon.express.express.SchemaContainer;
+import org.emoflon.ibex.common.emf.EMFManipulationUtils;
 import org.junit.Test;
 
 import Express2UML.integrate.deletePreserveSingleAttr.DeletePreserveSingleAttrConflictResolver;
@@ -42,7 +43,7 @@ public class DeletePreserveConflictSingleAttr extends IntegrateTestCase<SchemaCo
 			ExpressHelper.createIntegerAttribute(entity, "integerAttr");
 			// trg:
 			Package pkg = umlContainer.getPackages().get(0);
-			EcoreUtil.delete(pkg.getClazzes().get(0));
+			EMFManipulationUtils.delete(pkg.getClazzes().get(0));
 		});
 
 		final String path = "integ/expected/delete_preserve_conflict/single_attr/";
@@ -56,7 +57,7 @@ public class DeletePreserveConflictSingleAttr extends IntegrateTestCase<SchemaCo
 		tool.applyAndIntegrateDelta((schemaContainer, umlContainer) -> {
 			// src:
 			Schema schema = schemaContainer.getSchemas().get(0);
-			EcoreUtil.delete(schema.getDeclarations().get(0));
+			EMFManipulationUtils.delete(schema.getDeclarations().get(0));
 			// trg:
 			Package pkg = umlContainer.getPackages().get(0);
 			UMLHelper.createInteger(pkg.getClazzes().get(0), "integerAttr");

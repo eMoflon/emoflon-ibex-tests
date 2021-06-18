@@ -3,6 +3,7 @@ package testsuite.ibex.CompanyToIT.integrate;
 import org.benchmarx.companyLanguage.core.CompanyLanguageHelper;
 import org.benchmarx.itLanguage.core.ITLanguageHelper;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.emoflon.ibex.common.emf.EMFManipulationUtils;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.DeletePreserveConflict;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.resolution.util.CRSHelper;
 import org.junit.Ignore;
@@ -68,7 +69,7 @@ public class Basic extends IntegrateTestCase<Company, IT> {
 			newEmployee.setName("Dominique");
 			c.getEmployee().add(newEmployee);
 
-			EcoreUtil.delete(it.getRouter().get(0));
+			EMFManipulationUtils.delete(it.getRouter().get(0));
 		});
 		
 	}
@@ -79,7 +80,7 @@ public class Basic extends IntegrateTestCase<Company, IT> {
 				c -> CRSHelper.forEachResolve(c, DeletePreserveConflict.class, s -> s.crs_mergeAndPreserve()));
 		tool.applyAndIntegrateDelta((c, it) -> {
 			// src:
-			EcoreUtil.delete(c.getAdmin().get(0));
+			EMFManipulationUtils.delete(c.getAdmin().get(0));
 			// trg:
 			Laptop laptop = ITLanguageFactory.eINSTANCE.createLaptop();
 			laptop.setName("Dominique");
@@ -95,7 +96,7 @@ public class Basic extends IntegrateTestCase<Company, IT> {
 				c -> CRSHelper.forEachResolve(c, DeletePreserveConflict.class, s -> s.crs_mergeAndPreserve()));
 		tool.applyAndIntegrateDelta((c, it) -> {
 			// src:
-			EcoreUtil.delete(c.getAdmin().get(0));
+			EMFManipulationUtils.delete(c.getAdmin().get(0));
 			// trg:
 			it.getNetwork().get(0).getLaptop().get(0).setName("Dominique");
 		});
@@ -108,7 +109,7 @@ public class Basic extends IntegrateTestCase<Company, IT> {
 	public void contradictingChangesConflict() {
 		tool.applyAndIntegrateDelta((c, it) -> {
 			// src:
-			EcoreUtil.delete(c.getAdmin().get(0));
+			EMFManipulationUtils.delete(c.getAdmin().get(0));
 			// trg:
 			Laptop laptop = ITLanguageFactory.eINSTANCE.createLaptop();
 			laptop.setName("Dominique");

@@ -3,6 +3,7 @@ package testsuite.ibex.Express2Uml.operationaldelta;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.express.express.Schema;
 import org.emoflon.express.express.SchemaContainer;
+import org.emoflon.ibex.common.emf.EMFManipulationUtils;
 import org.junit.Ignore;
 import org.junit.Test;
 
@@ -40,7 +41,7 @@ public class DeleteCorrespondencesOperationalDelta extends IntegrateTestCase<Sch
 		tool.applyAndIntegrateDelta((schemaContainer, container) -> {
 			// src:
 			Schema schema = schemaContainer.getSchemas().get(0);
-			EcoreUtil.delete(schema);
+			EMFManipulationUtils.delete(schema);
 			// trg:
 			Package pkg = container.getPackages().get(0);
 			Clazz clazz = pkg.getClazzes().get(0);
@@ -58,7 +59,7 @@ public class DeleteCorrespondencesOperationalDelta extends IntegrateTestCase<Sch
 		tool.applyAndIntegrateDelta((schemaContainer, container) -> {
 			// src:
 			Schema schema = schemaContainer.getSchemas().get(0);
-			EcoreUtil.delete(schema.getDeclarations().get(0));
+			EMFManipulationUtils.delete(schema.getDeclarations().get(0));
 			// trg:
 			Package pkg = container.getPackages().get(0);
 			Clazz clazz = pkg.getClazzes().get(0);

@@ -10,6 +10,7 @@ import static org.emoflon.ibex.tgg.operational.strategies.integrate.FragmentProv
 import java.util.Arrays;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.emoflon.ibex.common.emf.EMFManipulationUtils;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.resolution.util.ConflictResolver;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.pattern.IntegrationPattern;
 import org.glossarDoc.core.GlossarDocumentationHelper;
@@ -73,7 +74,7 @@ public class Combined extends IntegrateTestCase<ClazzContainer, DocumentationCon
 
 			c1.getSubClazzes().add(c2);
 			c1.getMethods().add(m8);
-			EcoreUtil.delete(f7, true);
+			EMFManipulationUtils.delete(f7, true);
 			helperClazz.createParameter(m6, "P15");
 			Clazz c3 = helperClazz.createClazz("C3");
 			c3.getSubClazzes().add(c1);
@@ -88,8 +89,8 @@ public class Combined extends IntegrateTestCase<ClazzContainer, DocumentationCon
 			GlossarEntry ge12 = helperDoc.getGlossarEntry("GE12");
 
 			d2.getEntries().add(e6);
-			EcoreUtil.delete(d1, true);
-			EcoreUtil.delete(e8, true);
+			EMFManipulationUtils.delete(d1, true);
+			EMFManipulationUtils.delete(e8, true);
 			helperDoc.createGlossarEntryLink(e7, ge12);
 			e7.setName("F7_changed");
 		});

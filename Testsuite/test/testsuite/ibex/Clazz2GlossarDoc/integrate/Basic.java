@@ -11,6 +11,7 @@ import java.util.Arrays;
 import java.util.function.Consumer;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.emoflon.ibex.common.emf.EMFManipulationUtils;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.AttributeConflict;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.CorrPreservationConflict;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.DeletePreserveConflict;
@@ -102,7 +103,7 @@ public class Basic extends IntegrateTestCase<ClazzContainer, DocumentationContai
 			Method m6 = helperClazz.getMethod("M6");
 			Parameter p10 = helperClazz.getParameter(m6, "P10");
 			m8.getParameters().add(p10);
-			EcoreUtil.delete(m6);
+			EMFManipulationUtils.delete(m6);
 			// trg:
 			helperDoc.createGlossarEntryLink(helperDoc.getEntry("M6"), helperDoc.getGlossarEntry("GE12"));
 		});
