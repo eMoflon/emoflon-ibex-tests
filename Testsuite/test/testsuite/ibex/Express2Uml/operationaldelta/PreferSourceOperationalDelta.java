@@ -1,9 +1,9 @@
 package testsuite.ibex.Express2Uml.operationaldelta;
 
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.express.express.Entity;
 import org.emoflon.express.express.Schema;
 import org.emoflon.express.express.SchemaContainer;
+import org.emoflon.ibex.common.emf.EMFManipulationUtils;
 import org.junit.Test;
 
 import Express2UML.operationaldelta.preferSource.PreferSourceConflictResolver;
@@ -43,7 +43,7 @@ public class PreferSourceOperationalDelta extends IntegrateTestCase<SchemaContai
 			ExpressHelper.createIntegerAttribute(entity, "integerAttr");
 			// trg:
 			Package pkg = umlContainer.getPackages().get(0);
-			EcoreUtil.delete(pkg.getClazzes().get(0));
+			EMFManipulationUtils.delete(pkg.getClazzes().get(0));
 		});
 
 		final String path = "operationaldelta/expected/prefer_source_create/";
@@ -58,7 +58,7 @@ public class PreferSourceOperationalDelta extends IntegrateTestCase<SchemaContai
 			// src:
 			Schema schema = schemaContainer.getSchemas().get(0);
 			Entity entity = (Entity) schema.getDeclarations().get(0);
-			EcoreUtil.delete(entity);
+			EMFManipulationUtils.delete(entity);
 			// trg:
 			Package pkg = umlContainer.getPackages().get(0);
 			Clazz clazz = pkg.getClazzes().get(0);
