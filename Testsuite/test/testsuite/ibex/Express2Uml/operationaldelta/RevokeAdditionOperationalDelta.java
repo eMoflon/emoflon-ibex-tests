@@ -4,6 +4,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.express.express.Entity;
 import org.emoflon.express.express.Schema;
 import org.emoflon.express.express.SchemaContainer;
+import org.emoflon.ibex.common.emf.EMFManipulationUtils;
 import org.junit.Test;
 
 import Express2UML.operationaldelta.revokeAddition.RevokeAdditionConflictResolver;
@@ -40,11 +41,11 @@ public class RevokeAdditionOperationalDelta extends IntegrateTestCase<SchemaCont
 			// src:
 			Schema schema = schemaContainer.getSchemas().get(0);
 			Entity entity = (Entity) schema.getDeclarations().get(0);
-			EcoreUtil.delete(entity.getAttributes().get(0));
+			EMFManipulationUtils.delete(entity.getAttributes().get(0));
 			ExpressHelper.createIntegerAttribute(entity, "integerAttr");
 			// trg:
 			Package pkg = container.getPackages().get(0);
-			EcoreUtil.delete(pkg.getClazzes().get(0));
+			EMFManipulationUtils.delete(pkg.getClazzes().get(0));
 		});
 
 		final String path = "operationaldelta/expected/revoke_addition_target/";
@@ -58,7 +59,7 @@ public class RevokeAdditionOperationalDelta extends IntegrateTestCase<SchemaCont
 		tool.applyAndIntegrateDelta((schemaContainer, container) -> {
 			// src:
 			Schema schema = schemaContainer.getSchemas().get(0);
-			EcoreUtil.delete(schema.getDeclarations().get(0));
+			EMFManipulationUtils.delete(schema.getDeclarations().get(0));
 			// trg:
 			Package pkg = container.getPackages().get(0);
 			Clazz clazz = pkg.getClazzes().get(0);

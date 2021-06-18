@@ -3,6 +3,7 @@ package org.benchmarx.simplepersons.core;
 import java.util.Optional;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.emoflon.ibex.common.emf.EMFManipulationUtils;
 
 import SimplePersons.Person;
 import SimplePersons.PersonRegister;
@@ -25,6 +26,6 @@ public class SimplePersonsHelper {
 		Optional<Person> toBeDeleted = register.getPersons().stream()
 				.filter(p -> p.getName().equals(name)).findAny();
 		
-		toBeDeleted.ifPresent(p -> EcoreUtil.delete(p));
+		toBeDeleted.ifPresent(p -> EMFManipulationUtils.delete(p));
 	}
 }
