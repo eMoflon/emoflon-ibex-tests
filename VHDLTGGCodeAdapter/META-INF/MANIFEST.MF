@@ -24,7 +24,8 @@ Require-Bundle: org.eclipse.emf.ecore.xmi,
  MocaTree;visibility:=reexport,
  MocaTree,
  VHDLModel,
- org.emoflon.ibex.tgg.runtime.viatra
+ org.emoflon.ibex.tgg.runtime.viatra,
+ emfcodegenerator
 Bundle-ManifestVersion: 2
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
@@ -33,6 +34,5 @@ Bundle-Localization: plugin
 Export-Package: org.emoflon.ibex.tgg.run.vhdltggcodeadapter,
  org.emoflon.ibex.tgg.run.vhdltggcodeadapter.config,
  VHDLTGGCodeAdapter,
- VHDLTGGCodeAdapter.impl,
- VHDLTGGCodeAdapter.util
+ VHDLTGGCodeAdapter.impl
 Automatic-Module-Name: VHDLTGGCodeAdapter

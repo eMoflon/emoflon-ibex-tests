@@ -22,7 +22,8 @@ Require-Bundle: org.eclipse.emf.ecore.xmi,
  org.eclipse.emf.ecore;visibility:=reexport,
  ClassInheritanceHierarchy,
  Database,
- org.emoflon.ibex.tgg.runtime.viatra
+ org.emoflon.ibex.tgg.runtime.viatra,
+ emfcodegenerator
 Bundle-ManifestVersion: 2
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
@@ -31,6 +32,5 @@ Bundle-Localization: plugin
 Export-Package: org.emoflon.ibex.tgg.run.classinhhier2db,
  org.emoflon.ibex.tgg.run.classinhhier2db.config,
  ClassInhHier2DB,
- ClassInhHier2DB.impl,
- ClassInhHier2DB.util
+ ClassInhHier2DB.impl
 Automatic-Module-Name: ClassInhHier2DB

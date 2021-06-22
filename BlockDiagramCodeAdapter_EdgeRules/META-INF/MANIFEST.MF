@@ -20,15 +20,16 @@ Require-Bundle: org.apache.log4j,
  org.eclipse.emf.ecore;visibility:=reexport,
  BlockDiagram,
  MocaTree,
- org.emoflon.ibex.tgg.runtime.viatra
+ org.emoflon.ibex.tgg.runtime.viatra,
+ emfcodegenerator
 Bundle-ManifestVersion: 2
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Export-Package: org.emoflon.ibex.tgg.run.blockdiagramcodeadapter_edgerules,
+Export-Package: org.emoflon.ibex.tgg.run.blockdiagramcodeadapter_edger
+ ules,
  org.emoflon.ibex.tgg.run.blockdiagramcodeadapter_edgerules.config,
  BlockDiagramCodeAdapter_EdgeRules,
- BlockDiagramCodeAdapter_EdgeRules.impl,
- BlockDiagramCodeAdapter_EdgeRules.util
+ BlockDiagramCodeAdapter_EdgeRules.impl
 Automatic-Module-Name: BlockDiagramCodeAdapter_EdgeRules
