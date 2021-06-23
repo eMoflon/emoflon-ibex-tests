@@ -38,7 +38,7 @@ public class GlossarDocumentationHelper {
 
 	public GlossarEntry getGlossarEntry(String value) {
 		for (GlossarEntry ge : dCont.getGlossar().getEntries()) {
-			if (ge.getValue().equals(value))
+			if (value.equals(ge.getValue()))
 				return ge;
 		}
 		return null;
@@ -83,6 +83,10 @@ public class GlossarDocumentationHelper {
 	}
 
 	public void createGlossarEntryLink(Entry e, GlossarEntry ge) {
+		if(e == null)
+			throw new NullPointerException("Entry is null!");
+		if(ge == null)
+			throw new NullPointerException("GlossarEntry is null!");
 		e.getGlossarentries().add(ge);
 	}
 
