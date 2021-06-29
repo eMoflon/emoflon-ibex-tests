@@ -32,12 +32,6 @@ public class SimpleFamiliesSubscriptionsTest extends SimpleFamiliesAbstractTest 
 	public void subscribeAppearingAndDisappearingFamilies() {
 		SimpleFamiliesGraphTransformationAPI api = this.init("SubscribeAppearingAndDisappearingFamilies.xmi",
 				"FamilyRegister.xmi");
-		
-		api.getModel().getResources().forEach(r -> r.eAdapters().add(new EContentAdapter() {
-			public void notifyChanged(Notification notification) {
-				System.err.println(notification);
-			}
-		}));
 
 		// Get the list of family names.
 		List<String> namesOfFamilies = api.findFamily().matchStream() //
@@ -58,17 +52,12 @@ public class SimpleFamiliesSubscriptionsTest extends SimpleFamiliesAbstractTest 
 		api.findFamily().subscribeDisappearing(m -> namesOfRemovedFamilies.add(m.getFamily().getName()));
 		api.findFamily().subscribeDisappearing(m -> namesOfFamilies.remove(m.getFamily().getName()));
 
-		
-		System.out.println("________START_______");
 		// Remove Watson family, add Smith family.
 		FamilyRegister register = (FamilyRegister) api.getModel().getResources().get(0).getContents().get(0);
 		register.getFamilies().removeIf(f -> f.getName().equals("Watson"));
-		System.out.println("________REMOVED_______");
 		Family family = SimpleFamiliesFactory.eINSTANCE.createFamily();
 		family.setName("Smith");
-		System.out.println("________NAME_______");
 		register.getFamilies().add(family);
-		System.out.println("________ADDED_______");
 
 
 		api.updateMatches();
