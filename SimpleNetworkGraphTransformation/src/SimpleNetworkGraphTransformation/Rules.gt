@@ -182,13 +182,16 @@ pattern findNetworkFalse {
 	# network.flag == false
 }
 
-//rule moveAllDevices {
-//	oldNetwork : Network {
-//		forEach devices->dev {
-//			-- oldNetwork-devices->dev
-//			++ newNetwork-devices->dev
-//		}
-//	}
-//	
-//	newNetwork : Network
-//}
+rule moveAllDevices {
+	oldNetwork : Network {
+		forEach devices->dev {
+			-- oldNetwork-devices->dev
+			++ newNetwork-devices->dev
+			newNetwork.deviceNumber := newNetwork.deviceNumber + 1
+			oldNetwork.deviceNumber := oldNetwork.deviceNumber - 1
+			iterator::dev.flag := iterator::dev.flag + 1
+		}
+	}
+	
+	newNetwork : Network
+}
