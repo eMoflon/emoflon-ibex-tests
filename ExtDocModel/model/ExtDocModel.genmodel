@@ -19,6 +19,8 @@
     <genClasses ecoreClass="ExtDocModel.ecore#//Folder">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExtDocModel.ecore#//Folder/docs"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ExtDocModel.ecore#//Folder/container"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExtDocModel.ecore#//Folder/subFolder"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ExtDocModel.ecore#//Folder/superFolder"/>
     </genClasses>
     <genClasses ecoreClass="ExtDocModel.ecore#//Doc">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ExtDocModel.ecore#//Doc/folder"/>

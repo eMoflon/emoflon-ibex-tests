@@ -19,6 +19,7 @@ import uml.UMLContainer;
 
 @Ignore
 public class MergeAndPreserveOperationalDelta extends IntegrateTestCase<SchemaContainer, UMLContainer> {
+
 	private static final String PROJECT_NAME = "Express2UML";
 
 	public MergeAndPreserveOperationalDelta() {
@@ -49,8 +50,7 @@ public class MergeAndPreserveOperationalDelta extends IntegrateTestCase<SchemaCo
 			EcoreUtil.delete(clazz);
 		});
 
-		final String path = "operationaldelta/expected/merge_and_preserve/";
-		assertCondition(path + "src", path + "trg", path + "corr");
+		assertCondition("operationaldelta/expected/merge_and_preserve/");
 	}
 
 	@Test
@@ -67,10 +67,9 @@ public class MergeAndPreserveOperationalDelta extends IntegrateTestCase<SchemaCo
 			UMLHelper.createInteger(clazz, "integerAttr");
 		});
 
-		final String path = "operationaldelta/expected/merge_and_preserve/";
-		assertCondition(path + "src", path + "trg", path + "corr");
+		assertCondition("operationaldelta/expected/merge_and_preserve/");
 	}
-	
+
 	@Test
 	public void mergeAndPreserveWithMultipleDeletionsToBeRevoked() {
 		tool.getOptions().integration.conflictSolver(new MergeAndPreserveMultiConflictResolver());
@@ -85,8 +84,7 @@ public class MergeAndPreserveOperationalDelta extends IntegrateTestCase<SchemaCo
 			EcoreUtil.delete(pkg);
 		});
 
-		final String path = "operationaldelta/expected/merge_and_preserve/multi/";
-		assertCondition(path + "src", path + "trg", path + "corr");
+		assertCondition("operationaldelta/expected/merge_and_preserve/multi/");
 	}
-	
+
 }

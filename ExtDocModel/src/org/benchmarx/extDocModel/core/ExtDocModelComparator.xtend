@@ -49,6 +49,12 @@ class ExtDocModelComparator implements Comparator<DocContainer> {
 	def String stringify(Folder folder) {
 		'''
 		Folder {
+			«IF checkAttributeValues»name = "«folder.name»"«ENDIF»
+			subfolders {
+				«FOR f : folderNormalizer.normalize(folder.subFolder)»
+					«f.stringify»
+				«ENDFOR»
+			}
 			docs {
 				«FOR d : docNormalizer.normalize(folder.docs)»
 					«d.stringify»

@@ -10,6 +10,10 @@
         eType="#//Doc" containment="true" eOpposite="#//Doc/folder"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="container" eType="#//DocContainer"
         eOpposite="#//DocContainer/folders"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subFolder" upperBound="-1"
+        eType="#//Folder" containment="true" eOpposite="#//Folder/superFolder"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="superFolder" eType="#//Folder"
+        eOpposite="#//Folder/subFolder"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Doc" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="folder" eType="#//Folder"

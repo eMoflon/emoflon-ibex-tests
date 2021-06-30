@@ -212,6 +212,26 @@ public class ExtDocModelPackageImpl extends EPackageImpl implements ExtDocModelP
 	 * @generated
 	 */
 	@Override
+	public EReference getFolder_SubFolder() {
+		return (EReference) folderEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getFolder_SuperFolder() {
+		return (EReference) folderEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getDocContainer() {
 		return docContainerEClass;
 	}
@@ -472,6 +492,8 @@ public class ExtDocModelPackageImpl extends EPackageImpl implements ExtDocModelP
 		folderEClass = createEClass(FOLDER);
 		createEReference(folderEClass, FOLDER__DOCS);
 		createEReference(folderEClass, FOLDER__CONTAINER);
+		createEReference(folderEClass, FOLDER__SUB_FOLDER);
+		createEReference(folderEClass, FOLDER__SUPER_FOLDER);
 
 		docEClass = createEClass(DOC);
 		createEReference(docEClass, DOC__FOLDER);
@@ -547,7 +569,11 @@ public class ExtDocModelPackageImpl extends EPackageImpl implements ExtDocModelP
 		initEClass(folderEClass, Folder.class, "Folder", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getFolder_Docs(), this.getDoc(), this.getDoc_Folder(), "docs", null, 1, -1, Folder.class, !IS_TRANSIENT, !IS_VOLATILE,
 				IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getFolder_Container(), this.getDocContainer(), this.getDocContainer_Folders(), "container", null, 0, 1, Folder.class, !IS_TRANSIENT,
+		initEReference(getFolder_Container(), this.getDocContainer(), this.getDocContainer_Folders(), "container", null, 0, 1, Folder.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFolder_SubFolder(), this.getFolder(), this.getFolder_SuperFolder(), "subFolder", null, 0, -1, Folder.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFolder_SuperFolder(), this.getFolder(), this.getFolder_SubFolder(), "superFolder", null, 0, 1, Folder.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(docEClass, Doc.class, "Doc", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -561,20 +587,21 @@ public class ExtDocModelPackageImpl extends EPackageImpl implements ExtDocModelP
 				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(entryEClass, Entry.class, "Entry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getEntry_Doc(), this.getDoc(), this.getDoc_Entries(), "doc", null, 0, 1, Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-				!IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEntry_Annotations(), this.getAnnotation(), this.getAnnotation_Entry(), "annotations", null, 0, 2, Entry.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEntry_GlossaryEntries(), this.getGlossaryEntry(), this.getGlossaryEntry_Entries(), "glossaryEntries", null, 0, -1, Entry.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getEntry_Type(), this.getEntryType(), "type", null, 0, 1, Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
-				!IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEntry_Doc(), this.getDoc(), this.getDoc_Entries(), "doc", null, 0, 1, Entry.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEntry_Annotations(), this.getAnnotation(), this.getAnnotation_Entry(), "annotations", null, 0, 2, Entry.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEntry_GlossaryEntries(), this.getGlossaryEntry(), this.getGlossaryEntry_Entries(), "glossaryEntries", null, 0, -1,
+				Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+		initEAttribute(getEntry_Type(), this.getEntryType(), "type", null, 0, 1, Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				!IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(annotationEClass, Annotation.class, "Annotation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAnnotation_Entry(), this.getEntry(), this.getEntry_Annotations(), "entry", null, 0, 1, Annotation.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAnnotation_Value(), ecorePackage.getEString(), "value", null, 0, 1, Annotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-				!IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAnnotation_Value(), ecorePackage.getEString(), "value", null, 0, 1, Annotation.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(glossaryEClass, Glossary.class, "Glossary", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getGlossary_Entries(), this.getGlossaryEntry(), this.getGlossaryEntry_Glossary(), "entries", null, 0, -1, Glossary.class,
@@ -589,8 +616,8 @@ public class ExtDocModelPackageImpl extends EPackageImpl implements ExtDocModelP
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(docContainerEClass, DocContainer.class, "DocContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDocContainer_Folders(), this.getFolder(), this.getFolder_Container(), "folders", null, 0, -1, DocContainer.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDocContainer_Folders(), this.getFolder(), this.getFolder_Container(), "folders", null, 0, -1, DocContainer.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDocContainer_Glossary(), this.getGlossary(), this.getGlossary_Container(), "glossary", null, 0, 1, DocContainer.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

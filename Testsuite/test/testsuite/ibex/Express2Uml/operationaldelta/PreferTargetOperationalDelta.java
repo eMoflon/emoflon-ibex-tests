@@ -31,7 +31,7 @@ public class PreferTargetOperationalDelta extends IntegrateTestCase<SchemaContai
 	protected String getProjectName() {
 		return PROJECT_NAME;
 	}
-	
+
 	@Test
 	public void preferTargetCreate() {
 		tool.getOptions().integration.conflictSolver(new PreferTargetConflictResolver());
@@ -46,10 +46,9 @@ public class PreferTargetOperationalDelta extends IntegrateTestCase<SchemaContai
 			UMLHelper.createInteger(clazz, "integerAttr");
 		});
 
-		final String path = "operationaldelta/expected/prefer_target_create/";
-		assertCondition(path + "src", path + "trg", path + "corr");
+		assertCondition("operationaldelta/expected/prefer_target_create/");
 	}
-	
+
 	@Test
 	public void preferTargetDelete() {
 		tool.getOptions().integration.conflictSolver(new PreferTargetConflictResolver());
@@ -65,8 +64,7 @@ public class PreferTargetOperationalDelta extends IntegrateTestCase<SchemaContai
 			EcoreUtil.delete(clazz);
 		});
 
-		final String path = "operationaldelta/expected/prefer_target_delete/";
-		assertCondition(path + "src", path + "trg", path + "corr");
+		assertCondition("operationaldelta/expected/prefer_target_delete/");
 	}
 
 }

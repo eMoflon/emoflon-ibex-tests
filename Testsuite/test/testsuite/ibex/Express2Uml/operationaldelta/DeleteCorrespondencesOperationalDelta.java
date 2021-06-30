@@ -47,8 +47,7 @@ public class DeleteCorrespondencesOperationalDelta extends IntegrateTestCase<Sch
 			UMLHelper.createInteger(clazz, "integerAttr");
 		});
 
-		final String path = "operationaldelta/expected/revoke_deletion_target/";
-		assertCondition(path + "src", path + "trg", path + "corr");
+		assertCondition("operationaldelta/expected/revoke_deletion_target/");
 	}
 
 	@Test
@@ -63,10 +62,9 @@ public class DeleteCorrespondencesOperationalDelta extends IntegrateTestCase<Sch
 			Package pkg = container.getPackages().get(0);
 			Clazz clazz = pkg.getClazzes().get(0);
 			UMLHelper.createInteger(clazz, "integerAttr");
-		}); 
+		});
 
-		final String path = "operationaldelta/expected/revoke_deletion_source/";
-		assertCondition(path + "src", path + "trg", path + "corr");
+		assertCondition("operationaldelta/expected/revoke_deletion_source/");
 	}
 
 }

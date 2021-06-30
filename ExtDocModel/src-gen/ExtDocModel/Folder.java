@@ -15,6 +15,8 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link ExtDocModel.Folder#getDocs <em>Docs</em>}</li>
  *   <li>{@link ExtDocModel.Folder#getContainer <em>Container</em>}</li>
+ *   <li>{@link ExtDocModel.Folder#getSubFolder <em>Sub Folder</em>}</li>
+ *   <li>{@link ExtDocModel.Folder#getSuperFolder <em>Super Folder</em>}</li>
  * </ul>
  *
  * @see ExtDocModel.ExtDocModelPackage#getFolder()
@@ -59,5 +61,43 @@ public interface Folder extends NamedElement {
 	 * @generated
 	 */
 	void setContainer(DocContainer value);
+
+	/**
+	 * Returns the value of the '<em><b>Sub Folder</b></em>' containment reference list.
+	 * The list contents are of type {@link ExtDocModel.Folder}.
+	 * It is bidirectional and its opposite is '{@link ExtDocModel.Folder#getSuperFolder <em>Super Folder</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Sub Folder</em>' containment reference list.
+	 * @see ExtDocModel.ExtDocModelPackage#getFolder_SubFolder()
+	 * @see ExtDocModel.Folder#getSuperFolder
+	 * @model opposite="superFolder" containment="true"
+	 * @generated
+	 */
+	EList<Folder> getSubFolder();
+
+	/**
+	 * Returns the value of the '<em><b>Super Folder</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link ExtDocModel.Folder#getSubFolder <em>Sub Folder</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Super Folder</em>' container reference.
+	 * @see #setSuperFolder(Folder)
+	 * @see ExtDocModel.ExtDocModelPackage#getFolder_SuperFolder()
+	 * @see ExtDocModel.Folder#getSubFolder
+	 * @model opposite="subFolder" transient="false"
+	 * @generated
+	 */
+	Folder getSuperFolder();
+
+	/**
+	 * Sets the value of the '{@link ExtDocModel.Folder#getSuperFolder <em>Super Folder</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Super Folder</em>' container reference.
+	 * @see #getSuperFolder()
+	 * @generated
+	 */
+	void setSuperFolder(Folder value);
 
 } // Folder

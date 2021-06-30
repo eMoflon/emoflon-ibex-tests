@@ -150,7 +150,8 @@ public class DocContainerImpl extends MinimalEObjectImpl.Container implements Do
 			return ((InternalEList<InternalEObject>) (InternalEList<?>) getFolders()).basicAdd(otherEnd, msgs);
 		case ExtDocModelPackage.DOC_CONTAINER__GLOSSARY:
 			if (glossary != null)
-				msgs = ((InternalEObject) glossary).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ExtDocModelPackage.DOC_CONTAINER__GLOSSARY, null, msgs);
+				msgs = ((InternalEObject) glossary).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ExtDocModelPackage.DOC_CONTAINER__GLOSSARY, null,
+						msgs);
 			return basicSetGlossary((Glossary) otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
