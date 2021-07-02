@@ -189,9 +189,8 @@ rule moveAllDevices {
 			++ newNetwork-devices->dev
 			newNetwork.deviceNumber := newNetwork.deviceNumber + 1
 			oldNetwork.deviceNumber := oldNetwork.deviceNumber - 1
-			iterator::dev.flag := iterator::dev.flag + 1
-		}
+		}     
 	}
-	
+	# oldNetwork.deviceNumber  == 3
 	newNetwork : Network
 }
