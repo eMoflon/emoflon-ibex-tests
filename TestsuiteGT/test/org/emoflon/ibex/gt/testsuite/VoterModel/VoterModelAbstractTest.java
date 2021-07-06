@@ -2,7 +2,12 @@ package org.emoflon.ibex.gt.testsuite.VoterModel;
 
 import VoterModelGraphTransformation.api.VoterModelGraphTransformationAPI;
 import VoterModelGraphTransformation.api.VoterModelGraphTransformationApp;
+
+import org.emoflon.ibex.common.operational.IContextPatternInterpreter;
+import org.emoflon.ibex.gt.democles.runtime.DemoclesGTEngine;
+import org.emoflon.ibex.gt.hipe.runtime.HiPEGTEngine;
 import org.emoflon.ibex.gt.testsuite.GTAppTestCase;
+import org.emoflon.ibex.gt.viatra.runtime.ViatraGTEngine;
 
 /**
  * Abstract test class for the VoterModel Graph
@@ -10,6 +15,45 @@ import org.emoflon.ibex.gt.testsuite.GTAppTestCase;
  */
 public class VoterModelAbstractTest extends
 		GTAppTestCase<VoterModelGraphTransformationApp, VoterModelGraphTransformationAPI> {
+	
+	protected String patternMatcher = PM_DEFAULT;
+	
+	public void setPatternMatcher(final String patternMatcher) {
+		this.patternMatcher = patternMatcher;
+	}
+	
+	@Override 
+	protected VoterModelGraphTransformationAPI init(final String modelInstanceFileName) {
+		VoterModelGraphTransformationApp app = this.getApp();
+		this.createModel(app, modelInstanceFileName, modelInstanceFileName);
+		return app.initAPI();
+	}
+	
+	@Override
+	protected IContextPatternInterpreter initEngine() {
+		IContextPatternInterpreter engine;
+		try {
+			switch(patternMatcher) {
+			case PM_DEMOCLES: 
+				engine = new DemoclesGTEngine();
+				break;
+			case PM_HIPE: 			
+				engine = new HiPEGTEngine();
+				break;
+			case PM_VIATRA:
+				engine = new ViatraGTEngine();
+				break;
+			default: throw new RuntimeException(patternMatcher + " is not a supported as a pattern matcher!");
+			}
+		}
+		catch (Exception e) {
+			System.err.println("Pattern Matcher is not specified. Defaulting to "+PM_DEFAULT);
+			engine = new HiPEGTEngine();
+		}
+		
+		engine.setDebugPath("./debug/" + this.getTestName());
+		return engine;
+	}
 
 	@Override
 	protected String getTestName() {

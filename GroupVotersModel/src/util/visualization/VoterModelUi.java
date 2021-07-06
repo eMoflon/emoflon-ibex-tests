@@ -18,9 +18,9 @@ import org.graphstream.ui.view.View;
 import org.graphstream.ui.view.Viewer;
 import org.graphstream.ui.view.camera.Camera;
 
-import groupVotersModel.Group;
-import groupVotersModel.GroupVotersContainer;
-import groupVotersModel.Voter;
+import GroupVotersModel.Group;
+import GroupVotersModel.GroupVotersContainer;
+import GroupVotersModel.Voter;
 
 public class VoterModelUi {
 	private GroupVotersContainer container;

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="groupVotersModel" nsURI="platform:/resource/GroupVotersModel/model/groupVotersModel.ecore"
-    nsPrefix="groupVotersModel">
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="GroupVotersModel" nsURI="platform:/resource/GroupVotersModel/model/GroupVotersModel.ecore"
+    nsPrefix="GroupVotersModel">
   <eClassifiers xsi:type="ecore:EClass" name="GroupVotersContainer">
     <eStructuralFeatures xsi:type="ecore:EReference" name="voter" upperBound="-1"
         eType="#//Voter" containment="true"/>

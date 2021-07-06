@@ -1,4 +1,11 @@
-import "platform:/resource/GroupVotersModel/model/groupVotersModel.ecore"
+import "platform:/resource/GroupVotersModel/model/GroupVotersModel.ecore"
+import "http://www.eclipse.org/emf/2002/Ecore"
+
+pattern voterWithID(id : EInt, vote : EInt) {
+	v:Voter
+	#v.id == param::id
+	#v.vote == param::vote
+}
 
 pattern voteTrue() {
 	v:Voter
@@ -48,6 +55,17 @@ pattern disagreeInGroup() {
 	}
 	# v2.vote != v1.vote
 	# v1.id > v2.id
+}
+
+pattern adoptPatternUnordered() {
+	g:Group
+	v1:Voter {
+		-member-> g
+	}
+	v2:Voter {
+		-member-> g
+	}
+	# v2.vote != v1.vote
 }
 
 pattern disagree() {

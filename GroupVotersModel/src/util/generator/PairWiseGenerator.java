@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-import groupVotersModel.Group;
-import groupVotersModel.GroupVotersContainer;
-import groupVotersModel.Voter;
+import GroupVotersModel.Group;
+import GroupVotersModel.GroupVotersContainer;
+import GroupVotersModel.Voter;
 import util.visualization.VoterModelUi;
 
 public class PairWiseGenerator extends GroupVotersModelGenerator{
@@ -79,6 +79,12 @@ public class PairWiseGenerator extends GroupVotersModelGenerator{
 		this.connectRate = rate;
 	}
 	
-	
+	public static void main(String[] args) {
+		PairWiseGenerator gen = new PairWiseGenerator();
+		gen.setFalseRate(0.5);
+		gen.setConnectRate(GroupVotersModelGenerator.calcConnectRate(10, 40));
+		gen.setNumOfVoters(10);
+		gen.generate(System.getProperty("user.dir")+"/VoterModel1.xmi", true, "VoterModel1");
+	}
 
 }

@@ -14,11 +14,11 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.XMIResource;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
-import groupVotersModel.Voter;
+import GroupVotersModel.Voter;
 import util.visualization.VoterModelUi;
-import groupVotersModel.Group;
-import groupVotersModel.GroupVotersContainer;
-import groupVotersModel.GroupVotersModelFactory;
+import GroupVotersModel.Group;
+import GroupVotersModel.GroupVotersContainer;
+import GroupVotersModel.GroupVotersModelFactory;
 
 
 public class GroupVotersModelGenerator {
@@ -103,35 +103,11 @@ public class GroupVotersModelGenerator {
 			} else {
 				voter.setVote(1);
 			}
-//			if (i % falseRate == 0) {
-//				voter.setVote(0);
-//			} else {
-//				voter.setVote(1);
-//			}
 			voters.add(voter);
 		}
 		
 		this.voters = new ArrayList<>(voters);
 	}
-	
-/*	private void genVoters() {
-		voters= new LinkedList<>();
-	int count=0;	
-		for(int i = 0; i<numOfVoters; i++) {
-			Voter voter = factory.createVoter();
-			
-			voter.setVote(true);
-			int n= numOfVoters/2;
-			if (count<numOfVoters/2) {
-				voter.setVote(false);	
-			}else {
-				voter.setVote(true);
-			}
-			count= count+1; 
-			voters.add(voter);
-		}
-	} 
-*/
 	
 	protected void genGroups() {
 		List<Group> groups = new LinkedList<>();
@@ -166,6 +142,11 @@ public class GroupVotersModelGenerator {
 		modelResource.unload();
 		
 		System.out.println("Model saved to: "+uri.path());
+	}
+	
+	public static double calcConnectRate(int numOfVoters, int expectedAvgNumOfGroups) {
+		double numOfUniqueUnorderedPairs = numOfVoters * (numOfVoters - 1) / 2;
+		return expectedAvgNumOfGroups / numOfUniqueUnorderedPairs;
 	}
 
 }
