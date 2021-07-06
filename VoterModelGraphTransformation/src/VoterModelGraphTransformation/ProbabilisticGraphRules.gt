@@ -1,0 +1,107 @@
+import "platform:/resource/GroupVotersModel/model/groupVotersModel.ecore"
+
+/* Variant 2: 
+ * 1. find rates for adopt and rewireToSame such such that we can observe
+ * - graph fragmentation: graph splits up into components of same opinion - should occur with higher rewireToSame rate  
+ * - homogeneity: majority takes over - should occur with higher adopt rates 
+ * 
+ * 2. see what happens with rates as derived by Nick
+ */
+
+//@optimize
+rule adopt1PG() {
+	g:Group
+	v1:Voter {
+		-member-> g
+	}
+	v2:Voter {
+		-member-> g
+		.vote := v1.vote
+	}
+	v3:Voter
+	v4:Voter
+	
+	# v1.vote != v2.vote
+	# v1.vote == v3.vote
+	# v3.vote != v4.vote
+	# v2.vote == v4.vote
+	# v1.vote == 1
+} @ 0.5	 / 2.0
+
+//@optimize
+rule adopt2PG() {
+	g:Group
+	v1:Voter {
+		-member-> g
+		.vote := v2.vote
+	}
+	v2:Voter {
+		-member-> g
+	}
+	v3:Voter
+	v4:Voter
+	
+	# v1.vote != v2.vote
+	# v1.vote == v3.vote
+	# v3.vote != v4.vote
+	# v2.vote == v4.vote
+	# v1.vote == 1
+} @ 0.5 / 2.0
+
+//@optimize
+rule rewireToSame1PG() {
+	container : GroupVotersContainer {
+		-- -group->g1
+		++ -group->g2
+	}
+	-- g1:Group
+	++ g2:Group
+	v1:Voter {
+	--	-member-> g1	
+	++	-member-> g2
+	}
+	v2:Voter {
+	-- -member-> g1
+	}
+	v3:Voter {
+	++ -member-> g2
+	}
+	v4:Voter
+	
+	# v1.vote != v2.vote
+	# v1.vote == v3.vote
+	# v3.vote != v4.vote
+	# v2.vote == v4.vote
+	# v1.vote == 1
+} @ 0.5 / 2.0
+
+//@optimize
+rule rewireToSame2PG() {
+	container : GroupVotersContainer {
+		-- -group->g1
+		++ -group->g2
+	}
+		-- g1:Group
+		++ g2:Group
+	
+	v1:Voter {
+		-- -member-> g1	
+	}
+	
+	v2:Voter {
+		-- -member-> g1
+		++ -member-> g2
+	}
+	
+	v3:Voter 
+	
+	v4:Voter {
+		++ -member-> g2
+	}
+	
+	# v1.vote != v2.vote
+	# v1.vote == v3.vote
+	# v3.vote != v4.vote
+	# v2.vote == v4.vote
+	# v1.vote == 1
+} @ 0.5 / 2.0

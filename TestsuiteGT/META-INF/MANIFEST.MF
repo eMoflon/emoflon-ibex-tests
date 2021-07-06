@@ -33,7 +33,8 @@ Require-Bundle: org.eclipse.emf.ecore.xmi,
  SimpleEconomyGraphTransformation,
  FastEconomy,
  EconomicsModel,
- SlowEconomy
+ SlowEconomy,
+ VoterModelGraphTransformation
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Automatic-Module-Name: TestsuiteGT

@@ -6,7 +6,7 @@ import TrianglesGraphTransformation.api.TrianglesGraphTransformationAPI;
 import TrianglesGraphTransformation.api.TrianglesGraphTransformationApp;
 
 /**
- * Abstract test class for the ClassMultipleInheritanceHierarchy Graph
+ * Abstract test class for the Triangles Graph
  * Transformation API. All tests for this API should inherit from this class.
  */
 public class TrianglesAbstractTest extends
