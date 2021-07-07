@@ -83,6 +83,42 @@ public class VoterModelMultiGraphTest extends VoterModelAbstractTest {
 		api.terminate();
 	}
 	
+	@Test
+	public void rewireRuleMGTerminationTestHiPE() {
+		this.setPatternMatcher(GTAppTestCase.PM_HIPE);
+		VoterModelGraphTransformationAPI api = this.init("VoterModel1.xmi");
+		
+		rewireRuleMGTerminationTest(api);
+		api.terminate();
+	}
+	
+	@Test
+	public void rewireRuleMGTerminationTestDemocles() {
+		this.setPatternMatcher(GTAppTestCase.PM_DEMOCLES);
+		VoterModelGraphTransformationAPI api = this.init("VoterModel1.xmi");
+		
+		rewireRuleMGTerminationTest(api);
+		api.terminate();
+	}
+	
+	@Test
+	public void rewireRulePGTerminationTestHiPE() {
+		this.setPatternMatcher(GTAppTestCase.PM_HIPE);
+		VoterModelGraphTransformationAPI api = this.init("VoterModel1.xmi");
+		
+		rewireRulePGTerminationTest(api);
+		api.terminate();
+	}
+	
+	@Test
+	public void rewireRulePGTerminationTestDemocles() {
+		this.setPatternMatcher(GTAppTestCase.PM_DEMOCLES);
+		VoterModelGraphTransformationAPI api = this.init("VoterModel1.xmi");
+		
+		rewireRulePGTerminationTest(api);
+		api.terminate();
+	}
+	
 	public void adoptRuleMGTest(final VoterModelGraphTransformationAPI api) {
 		// Sanity Checks
 		assertEquals(4, api.voteTrue().countMatches());
@@ -285,6 +321,56 @@ public class VoterModelMultiGraphTest extends VoterModelAbstractTest {
 		assertEquals(315, api.adopt2PG().countMatches());
 		assertEquals(315, api.rewireToSame1PG().countMatches());
 		assertEquals(315, api.rewireToSame2PG().countMatches());
+	}
+	
+	public void rewireRuleMGTerminationTest(final VoterModelGraphTransformationAPI api) {
+		// Sanity Checks
+		assertEquals(4, api.voteTrue().countMatches());
+		assertEquals(6, api.voteFalse().countMatches());
+		assertEquals(14, api.agreeFalse().countMatches());
+		assertEquals(6, api.agreeTrue().countMatches());
+		assertEquals(22, api.disagreeInGroup().countMatches());
+		assertEquals(24, api.disagree().countMatches());
+		assertEquals(0, api.trueNotInGroup().countMatches());
+		assertEquals(0, api.falseNotInGroup().countMatches());
+		assertEquals(44, api.adoptPatternUnordered().countMatches());
+		assertEquals(22, api.adopt1MG().countMatches());
+		assertEquals(22, api.adopt2MG().countMatches());
+		assertEquals(66, api.rewireToSame1MG().countMatches());
+		assertEquals(110, api.rewireToSame2MG().countMatches());
+		
+		long count = Long.MAX_VALUE;
+		while(api.rewireToSame1MG().isApplicable() && count > api.rewireToSame1MG().countMatches()) {
+			count = api.rewireToSame1MG().countMatches();
+			assertApplicable(api.rewireToSame1MG());
+		}
+		
+		assertNotApplicable(api.rewireToSame1MG());
+	}
+	
+	public void rewireRulePGTerminationTest(final VoterModelGraphTransformationAPI api) {
+		// Sanity Checks
+		assertEquals(4, api.voteTrue().countMatches());
+		assertEquals(6, api.voteFalse().countMatches());
+		assertEquals(14, api.agreeFalse().countMatches());
+		assertEquals(6, api.agreeTrue().countMatches());
+		assertEquals(22, api.disagreeInGroup().countMatches());
+		assertEquals(24, api.disagree().countMatches());
+		assertEquals(0, api.trueNotInGroup().countMatches());
+		assertEquals(0, api.falseNotInGroup().countMatches());
+		assertEquals(44, api.adoptPatternUnordered().countMatches());
+		assertEquals(330, api.adopt1PG().countMatches());
+		assertEquals(330, api.adopt2PG().countMatches());
+		assertEquals(330, api.rewireToSame1PG().countMatches());
+		assertEquals(330, api.rewireToSame2PG().countMatches());
+		
+		long count = Long.MAX_VALUE;
+		while(api.rewireToSame1MG().isApplicable() && count > api.rewireToSame1PG().countMatches()) {
+			count = api.rewireToSame1PG().countMatches();
+			assertApplicable(api.rewireToSame1PG());
+		}
+		
+		assertNotApplicable(api.rewireToSame1PG());
 	}
 	
 }
