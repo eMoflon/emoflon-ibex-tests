@@ -1,55 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GroupVotersModel:GroupVotersContainer xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:GroupVotersModel="platform:/resource/GroupVotersModel/model/GroupVotersModel.ecore" xsi:schemaLocation="platform:/resource/GroupVotersModel/model/GroupVotersModel.ecore java://GroupVotersModel.GroupVotersModelPackage">
-  <voter xmi:type="GroupVotersModel:Voter" vote="1" member="//@group.0 //@group.1 //@group.2 //@group.3 //@group.4 //@group.5 //@group.6 //@group.7"/>
-  <voter xmi:type="GroupVotersModel:Voter" vote="1" member="//@group.0 //@group.8 //@group.9 //@group.10 //@group.11 //@group.12 //@group.13 //@group.14 //@group.15" id="1"/>
-  <voter xmi:type="GroupVotersModel:Voter" vote="1" member="//@group.1 //@group.8 //@group.16 //@group.17 //@group.18 //@group.19 //@group.20 //@group.21 //@group.22" id="2"/>
-  <voter xmi:type="GroupVotersModel:Voter" vote="1" member="//@group.2 //@group.9 //@group.16 //@group.23 //@group.24 //@group.25 //@group.26 //@group.27" id="3"/>
-  <voter xmi:type="GroupVotersModel:Voter" member="//@group.3 //@group.10 //@group.17 //@group.23 //@group.28 //@group.29 //@group.30 //@group.31" id="4"/>
-  <voter xmi:type="GroupVotersModel:Voter" member="//@group.4 //@group.11 //@group.18 //@group.24 //@group.28 //@group.32 //@group.33 //@group.34 //@group.35" id="5"/>
-  <voter xmi:type="GroupVotersModel:Voter" member="//@group.5 //@group.12 //@group.19 //@group.29 //@group.32 //@group.36 //@group.37 //@group.38" id="6"/>
-  <voter xmi:type="GroupVotersModel:Voter" member="//@group.6 //@group.13 //@group.20 //@group.25 //@group.33 //@group.36 //@group.39 //@group.40" id="7"/>
-  <voter xmi:type="GroupVotersModel:Voter" member="//@group.7 //@group.14 //@group.21 //@group.26 //@group.30 //@group.34 //@group.37 //@group.39 //@group.41" id="8"/>
-  <voter xmi:type="GroupVotersModel:Voter" member="//@group.15 //@group.22 //@group.27 //@group.31 //@group.35 //@group.38 //@group.40 //@group.41" id="9"/>
-  <group xmi:type="GroupVotersModel:Group"/>
-  <group xmi:type="GroupVotersModel:Group"/>
-  <group xmi:type="GroupVotersModel:Group"/>
-  <group xmi:type="GroupVotersModel:Group"/>
-  <group xmi:type="GroupVotersModel:Group"/>
-  <group xmi:type="GroupVotersModel:Group"/>
-  <group xmi:type="GroupVotersModel:Group"/>
-  <group xmi:type="GroupVotersModel:Group"/>
-  <group xmi:type="GroupVotersModel:Group"/>
-  <group xmi:type="GroupVotersModel:Group"/>
-  <group xmi:type="GroupVotersModel:Group"/>
-  <group xmi:type="GroupVotersModel:Group"/>
-  <group xmi:type="GroupVotersModel:Group"/>
-  <group xmi:type="GroupVotersModel:Group"/>
-  <group xmi:type="GroupVotersModel:Group"/>
-  <group xmi:type="GroupVotersModel:Group"/>
-  <group xmi:type="GroupVotersModel:Group"/>
-  <group xmi:type="GroupVotersModel:Group"/>
-  <group xmi:type="GroupVotersModel:Group"/>
-  <group xmi:type="GroupVotersModel:Group"/>
-  <group xmi:type="GroupVotersModel:Group"/>
-  <group xmi:type="GroupVotersModel:Group"/>
-  <group xmi:type="GroupVotersModel:Group"/>
-  <group xmi:type="GroupVotersModel:Group"/>
-  <group xmi:type="GroupVotersModel:Group"/>
-  <group xmi:type="GroupVotersModel:Group"/>
-  <group xmi:type="GroupVotersModel:Group"/>
-  <group xmi:type="GroupVotersModel:Group"/>
-  <group xmi:type="GroupVotersModel:Group"/>
-  <group xmi:type="GroupVotersModel:Group"/>
-  <group xmi:type="GroupVotersModel:Group"/>
-  <group xmi:type="GroupVotersModel:Group"/>
-  <group xmi:type="GroupVotersModel:Group"/>
-  <group xmi:type="GroupVotersModel:Group"/>
-  <group xmi:type="GroupVotersModel:Group"/>
-  <group xmi:type="GroupVotersModel:Group"/>
-  <group xmi:type="GroupVotersModel:Group"/>
-  <group xmi:type="GroupVotersModel:Group"/>
-  <group xmi:type="GroupVotersModel:Group"/>
-  <group xmi:type="GroupVotersModel:Group"/>
-  <group xmi:type="GroupVotersModel:Group"/>
-  <group xmi:type="GroupVotersModel:Group"/>
+<GroupVotersModel:GroupVotersContainer
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:GroupVotersModel="platform:/resource/GroupVotersModel/model/GroupVotersModel.ecore">
+  <voter vote="1"
+      member="//@group.0 //@group.1 //@group.2 //@group.3 //@group.4 //@group.5 //@group.6 //@group.7"/>
+  <voter vote="1"
+      member="//@group.0 //@group.8 //@group.9 //@group.10 //@group.11 //@group.12 //@group.13 //@group.14 //@group.15"
+      id="1"/>
+  <voter vote="1"
+      member="//@group.1 //@group.8 //@group.16 //@group.17 //@group.18 //@group.19 //@group.20 //@group.21 //@group.22"
+      id="2"/>
+  <voter vote="1"
+      member="//@group.2 //@group.9 //@group.16 //@group.23 //@group.24 //@group.25 //@group.26 //@group.27"
+      id="3"/>
+  <voter member="//@group.3 //@group.10 //@group.17 //@group.23 //@group.28 //@group.29 //@group.30 //@group.31"
+      id="4"/>
+  <voter member="//@group.4 //@group.11 //@group.18 //@group.24 //@group.28 //@group.32 //@group.33 //@group.34 //@group.35"
+      id="5"/>
+  <voter member="//@group.5 //@group.12 //@group.19 //@group.29 //@group.32 //@group.36 //@group.37 //@group.38"
+      id="6"/>
+  <voter member="//@group.6 //@group.13 //@group.20 //@group.25 //@group.33 //@group.36 //@group.39 //@group.40"
+      id="7"/>
+  <voter member="//@group.7 //@group.14 //@group.21 //@group.26 //@group.30 //@group.34 //@group.37 //@group.39 //@group.41"
+      id="8"/>
+  <voter member="//@group.15 //@group.22 //@group.27 //@group.31 //@group.35 //@group.38 //@group.40 //@group.41"
+      id="9"/>
+  <group/>
+  <group id="1"/>
+  <group id="2"/>
+  <group id="3"/>
+  <group id="4"/>
+  <group id="5"/>
+  <group id="6"/>
+  <group id="7"/>
+  <group id="8"/>
+  <group id="9"/>
+  <group id="10"/>
+  <group id="11"/>
+  <group id="12"/>
+  <group id="13"/>
+  <group id="14"/>
+  <group id="15"/>
+  <group id="16"/>
+  <group id="17"/>
+  <group id="18"/>
+  <group id="19"/>
+  <group id="20"/>
+  <group id="21"/>
+  <group id="22"/>
+  <group id="23"/>
+  <group id="24"/>
+  <group id="25"/>
+  <group id="26"/>
+  <group id="27"/>
+  <group id="28"/>
+  <group id="29"/>
+  <group id="30"/>
+  <group id="31"/>
+  <group id="32"/>
+  <group id="33"/>
+  <group id="34"/>
+  <group id="35"/>
+  <group id="36"/>
+  <group id="37"/>
+  <group id="38"/>
+  <group id="39"/>
+  <group id="40"/>
+  <group id="41"/>
 </GroupVotersModel:GroupVotersContainer>

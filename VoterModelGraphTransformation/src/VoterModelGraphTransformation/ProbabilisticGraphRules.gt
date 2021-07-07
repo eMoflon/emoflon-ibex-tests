@@ -21,9 +21,9 @@ rule adopt1PG() {
 	v3:Voter
 	v4:Voter
 	
-	# v1.vote != v2.vote
-	# v1.vote == v3.vote
-	# v3.vote != v4.vote
+	# v1.vote != v2.vote // v2 == 0
+	# v1.vote == v3.vote // v3 == 1
+	# v3.vote != v4.vote // v4 == 0
 	# v2.vote == v4.vote
 	# v1.vote == 1
 } @ 0.5	 / 2.0
@@ -41,9 +41,9 @@ rule adopt2PG() {
 	v3:Voter
 	v4:Voter
 	
-	# v1.vote != v2.vote
-	# v1.vote == v3.vote
-	# v3.vote != v4.vote
+	# v1.vote != v2.vote // v2 == 0
+	# v1.vote == v3.vote // v3 == 1
+	# v3.vote != v4.vote // v4 == 0
 	# v2.vote == v4.vote
 	# v1.vote == 1
 } @ 0.5 / 2.0
@@ -68,9 +68,9 @@ rule rewireToSame1PG() {
 	}
 	v4:Voter
 	
-	# v1.vote != v2.vote
-	# v1.vote == v3.vote
-	# v3.vote != v4.vote
+	# v1.vote != v2.vote // v2 == 0
+	# v1.vote == v3.vote // v3 == 1
+	# v3.vote != v4.vote // v4 == 0
 	# v2.vote == v4.vote
 	# v1.vote == 1
 } @ 0.5 / 2.0
@@ -99,9 +99,9 @@ rule rewireToSame2PG() {
 		++ -member-> g2
 	}
 	
-	# v1.vote != v2.vote
-	# v1.vote == v3.vote
-	# v3.vote != v4.vote
+	# v1.vote != v2.vote // v2 == 0
+	# v1.vote == v3.vote // v3 == 1
+	# v3.vote != v4.vote // v4 == 0
 	# v2.vote == v4.vote
 	# v1.vote == 1
 } @ 0.5 / 2.0

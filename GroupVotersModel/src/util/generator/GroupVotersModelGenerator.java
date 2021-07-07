@@ -113,6 +113,7 @@ public class GroupVotersModelGenerator {
 		List<Group> groups = new LinkedList<>();
 		for(int i = 0; i<numOfGroups; i++) {
 			Group group1 = factory.createGroup();
+			group1.setId(i);
 			groups.add(group1);
 		}
 		this.groups = new ArrayList<>(groups);

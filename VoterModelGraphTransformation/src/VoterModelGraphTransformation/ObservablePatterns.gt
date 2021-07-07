@@ -7,6 +7,11 @@ pattern voterWithID(id : EInt, vote : EInt) {
 	#v.vote == param::vote
 }
 
+pattern groupWithID(id : EInt) {
+	g : Group
+	#g.id == param::id
+}
+
 pattern voteTrue() {
 	v:Voter
 	# v.vote == 1

@@ -1,22 +1,14 @@
 package util.visualization;
 
-import java.awt.Component;
-import java.awt.event.MouseWheelEvent;
-import java.awt.event.MouseWheelListener;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.LinkedList;
 import java.util.Map;
 import java.util.Set;
 
 import org.graphstream.graph.Graph;
 import org.graphstream.graph.Node;
 import org.graphstream.graph.implementations.MultiGraph;
-import org.graphstream.ui.geom.Point2;
-import org.graphstream.ui.geom.Point3;
-import org.graphstream.ui.view.View;
 import org.graphstream.ui.view.Viewer;
-import org.graphstream.ui.view.camera.Camera;
 
 import GroupVotersModel.Group;
 import GroupVotersModel.GroupVotersContainer;
@@ -30,7 +22,6 @@ public class VoterModelUi {
 	private Map<Group, Node> groups2vertices = new HashMap<>();
 	private Map<Group, Set<Voter>> group2voters = new HashMap<>();
 	private int voterCounter = 0;
-	private int groupCounter = 0;
 	
 	public VoterModelUi(final GroupVotersContainer container, final String label) {
 		this.container = container;
@@ -41,27 +32,6 @@ public class VoterModelUi {
 	
 	public void display() {
 		Viewer v = graph.display(true);
-//		final Viewer viewer = graph.display(true);
-//		viewer.enableAutoLayout();
-//		final View view = viewer.getDefaultView();
-//		view.getCamera().setViewPercent(1);
-//		((Component) view).addMouseWheelListener(new MouseWheelListener() {
-//		    @Override
-//		    public void mouseWheelMoved(MouseWheelEvent e) {
-//		        e.consume();
-//		        int i = e.getWheelRotation();
-//		        double factor = Math.pow(1.25, i);
-//		        Camera cam = view.getCamera();
-//		        double zoom = cam.getViewPercent() * factor;
-//		        Point2 pxCenter  = cam.transformGuToPx(cam.getViewCenter().x, cam.getViewCenter().y, 0);
-//		        Point3 guClicked = cam.transformPxToGu(e.getX(), e.getY());
-//		        double newRatioPx2Gu = cam.getMetrics().ratioPx2Gu/factor;
-//		        double x = guClicked.x + (pxCenter.x - e.getX())/newRatioPx2Gu;
-//		        double y = guClicked.y - (pxCenter.y - e.getY())/newRatioPx2Gu;
-//		        cam.setViewCenter(x, y, 0);
-//		        cam.setViewPercent(zoom);
-//		    }
-//		});
 	}
 	
 	private void buildGraphVisualization() {
@@ -89,7 +59,7 @@ public class VoterModelUi {
 		}
 		
 		for(Group g : container.getGroup()) {
-			Node gsNode = graph.addNode("G#"+Integer.toString(groupCounter++));
+			Node gsNode = graph.addNode("G#"+Integer.toString(g.getId()));
 			groups2vertices.put(g, gsNode);
 			if(!group2voters.containsKey(g)) {
 				gsNode.setAttribute("ui.style", "fill-color: rgb(255,255,255); shape: rounded-box; stroke-color: rgb(000,155,155); stroke-width: 4px; stroke-mode: plain; text-size: 12; size: 20px; text-style: bold;");
@@ -131,4 +101,5 @@ public class VoterModelUi {
 			return 0;
 		}
 	}
+	
 }

@@ -65,6 +65,7 @@ public class PairWiseGenerator extends GroupVotersModelGenerator{
 				
 				Voter v2 = voters.get(j);
 				Group g = factory.createGroup();
+				g.setId(i*voters.size()+j);
 				groups.add(g);
 				
 				v1.getMember().add(g);
