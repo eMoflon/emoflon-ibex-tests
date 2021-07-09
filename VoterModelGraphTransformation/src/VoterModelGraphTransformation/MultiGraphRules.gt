@@ -42,7 +42,9 @@ rule rewireToSame1MG() {
 		++ -group->g2
 	}
 	-- g1:Group
-	++ g2:Group
+	++ g2:Group {
+		.id := g1.id+1000
+	}
 	v1:Voter {
 	--	-member-> g1	
 	++	-member-> g2
@@ -64,7 +66,9 @@ rule rewireToSame2MG() {
 		++ -group->g2
 	}
 	-- g1:Group
-	++ g2:Group
+	++ g2:Group {
+		.id := g1.id+1000
+	}
 	v1:Voter {
 	--	-member-> g1
 	}
