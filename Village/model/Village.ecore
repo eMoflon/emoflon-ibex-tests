@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="Village" nsURI="platform:/resource/Village/model/Village.ecore"
+    nsPrefix="Village">
+  <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+    <details key="documentation" value="TODO: Add documentation for Village. Hint: You may copy this element in the Ecore editor to add documentation to EClasses, EOperations, ..."/>
+  </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="Church">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="village" eType="#//City"
+        eOpposite="#//City/churches"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Mall">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="village" eType="#//City"
+        eOpposite="#//City/malls"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="shops" ordered="false"
+        unique="false" upperBound="-1" eType="#//Shop"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="City">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="churches" upperBound="-1"
+        eType="#//Church" containment="true" eOpposite="#//Church/village"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="malls" ordered="false"
+        upperBound="-1" eType="#//Mall" containment="true" eOpposite="#//Mall/village"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="roads" ordered="false"
+        upperBound="-1" eType="#//Road" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="shops" upperBound="-1"
+        eType="#//Shop" containment="true" eOpposite="#//Shop/city"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="companies" upperBound="-1"
+        eType="#//Company" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Road">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Shop">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="city" eType="#//City" eOpposite="#//City/shops"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="goods" upperBound="-1"
+        eType="#//Product" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Company">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="shops" unique="false" upperBound="-1"
+        eType="#//Shop"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="goods" upperBound="-1"
+        eType="#//Product"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Product"/>
+</ecore:EPackage>

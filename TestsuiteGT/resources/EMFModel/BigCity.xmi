@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Village:City
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:Village="platform:/resource/Village/model/Village.ecore">
+  <shops>
+    <goods/>
+    <goods/>
+    <goods/>
+    <goods/>
+  </shops>
+  <companies
+      goods="//@shops.0/@goods.0 //@shops.0/@goods.1 //@shops.0/@goods.2 //@shops.0/@goods.3"/>
+</Village:City>

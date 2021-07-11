@@ -34,7 +34,9 @@ Require-Bundle: org.eclipse.emf.ecore.xmi,
  FastEconomy,
  EconomicsModel,
  SlowEconomy,
- org.eclipse.emf.ecore
+ org.eclipse.emf.ecore,
+ Village,
+ VillageGraphTransformation
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Automatic-Module-Name: TestsuiteGT

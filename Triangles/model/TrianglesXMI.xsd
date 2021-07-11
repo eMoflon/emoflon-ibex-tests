@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema xmlns:Triangles="platform:/resource/Triangles/model/Triangles.ecore" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="platform:/resource/Triangles/model/Triangles.ecore">
+  <xsd:import namespace="http://www.omg.org/XMI" schemaLocation="platform:/plugin/org.eclipse.emf.ecore/model/XMI.xsd"/>
+  <xsd:complexType name="Container">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element name="a" type="Triangles:A_Class"/>
+      <xsd:element name="b" type="Triangles:B_Class"/>
+      <xsd:element name="c" type="Triangles:C_Class"/>
+      <xsd:element name="d" type="Triangles:D_Class"/>
+      <xsd:element name="e" type="Triangles:E_Class"/>
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+  </xsd:complexType>
+  <xsd:element name="Container" type="Triangles:Container"/>
+  <xsd:complexType name="A_Class">
+    <xsd:complexContent>
+      <xsd:extension base="Triangles:AbstractClass">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="b" type="Triangles:B_Class"/>
+          <xsd:element name="c" type="Triangles:C_Class"/>
+        </xsd:choice>
+        <xsd:attribute name="b" type="xsd:string"/>
+        <xsd:attribute name="c" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="A_Class" type="Triangles:A_Class"/>
+  <xsd:complexType name="B_Class">
+    <xsd:complexContent>
+      <xsd:extension base="Triangles:AbstractClass">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="a" type="Triangles:A_Class"/>
+          <xsd:element name="c" type="Triangles:C_Class"/>
+        </xsd:choice>
+        <xsd:attribute name="a" type="xsd:string"/>
+        <xsd:attribute name="c" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="B_Class" type="Triangles:B_Class"/>
+  <xsd:complexType name="C_Class">
+    <xsd:complexContent>
+      <xsd:extension base="Triangles:AbstractClass">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="a" type="Triangles:A_Class"/>
+          <xsd:element name="b" type="Triangles:B_Class"/>
+        </xsd:choice>
+        <xsd:attribute name="a" type="xsd:string"/>
+        <xsd:attribute name="b" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="C_Class" type="Triangles:C_Class"/>
+  <xsd:complexType name="E_Class">
+    <xsd:complexContent>
+      <xsd:extension base="Triangles:AbstractClass">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="b" type="Triangles:B_Class"/>
+        </xsd:choice>
+        <xsd:attribute name="b" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="E_Class" type="Triangles:E_Class"/>
+  <xsd:complexType name="D_Class">
+    <xsd:complexContent>
+      <xsd:extension base="Triangles:AbstractClass">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="a" type="Triangles:A_Class"/>
+        </xsd:choice>
+        <xsd:attribute name="a" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="D_Class" type="Triangles:D_Class"/>
+  <xsd:complexType abstract="true" name="AbstractClass">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="id" type="xsd:int"/>
+    <xsd:attribute name="name" type="xsd:string"/>
+    <xsd:attribute name="flag" type="xsd:boolean"/>
+  </xsd:complexType>
+  <xsd:element name="AbstractClass" type="Triangles:AbstractClass"/>
+</xsd:schema>

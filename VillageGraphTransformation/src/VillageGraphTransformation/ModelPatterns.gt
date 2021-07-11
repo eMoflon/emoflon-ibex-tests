@@ -1,0 +1,26 @@
+import "platform:/resource/Village/model/Village.ecore"
+
+pattern countShopsInCity(){
+	city:City{
+		-shops ->shop
+	}
+	shop:Shop
+}
+
+pattern countShopsInMall(){
+	mall:Mall{
+		-shops ->shop
+	}
+	shop:Shop
+}
+
+pattern countProducts(){
+	product: Product
+}
+
+pattern countProductsByCompany(){
+	company: Company{
+		-goods -> product
+	}
+	product: Product
+}

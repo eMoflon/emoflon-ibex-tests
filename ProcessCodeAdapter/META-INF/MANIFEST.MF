@@ -32,6 +32,7 @@ Bundle-Localization: plugin
 Export-Package: org.emoflon.ibex.tgg.run.processcodeadapter,
  org.emoflon.ibex.tgg.run.processcodeadapter.config,
  ProcessCodeAdapter,
- ProcessCodeAdapter.impl
+ ProcessCodeAdapter.impl,
+ ProcessCodeAdapter.util
 Import-Package: VHDLModel.impl
 Automatic-Module-Name: ProcessCodeAdapter

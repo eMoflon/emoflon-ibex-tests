@@ -1,0 +1,12 @@
+import "platform:/resource/Village/model/Village.ecore"
+
+
+rule changeShopLocation(){
+	city1:City{
+		-- -shops -> shop
+	}
+	city2:City{
+		++ -shops -> shop
+	}
+	shop: Shop
+}

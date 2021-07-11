@@ -1,0 +1,39 @@
+import "platform:/resource/Village/model/Village.ecore"
+
+
+rule createCity(){
+	++city: City
+}
+
+rule createMall(){
+	city: City{
+		++ -malls->mall
+	}
+	++mall: Mall
+}
+
+rule createShop(){
+	city:City{
+		++ -shops->shop
+	}
+	++shop: Shop
+}
+
+pattern shopInMall(){
+	mall:Mall{
+		 -shops->shop
+	}
+	shop: Shop
+}
+
+condition shopNotInMall = forbid shopInMall
+rule openCityShopInMall(){
+	mall:Mall{
+		++ -shops->shop
+	}
+	city:City{
+		-shops -> shop
+		-malls -> mall
+	}
+	shop: Shop
+}when shopNotInMall

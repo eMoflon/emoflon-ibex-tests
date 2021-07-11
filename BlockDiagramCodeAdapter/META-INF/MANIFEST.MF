@@ -33,6 +33,7 @@ Bundle-Localization: plugin
 Export-Package: org.emoflon.ibex.tgg.run.blockdiagramcodeadapter,
  org.emoflon.ibex.tgg.run.blockdiagramcodeadapter.config,
  BlockDiagramCodeAdapter,
- BlockDiagramCodeAdapter.impl
+ BlockDiagramCodeAdapter.impl,
+ BlockDiagramCodeAdapter.util
 Import-Package: BlockLanguage.impl
 Automatic-Module-Name: BlockDiagramCodeAdapter

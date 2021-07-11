@@ -1,0 +1,14 @@
+import "platform:/resource/Village/model/Village.ecore"
+
+
+rule deleteCity(){
+	--city: City
+}
+
+rule deleteMall(){
+	--mall: Mall
+}
+
+rule deleteShop(){
+	--shop: Shop
+}

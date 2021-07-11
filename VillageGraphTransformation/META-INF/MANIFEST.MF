@@ -1,0 +1,21 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: VillageGraphTransformation
+Bundle-ManifestVersion: 2
+Bundle-Name: VillageGraphTransformation
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: VillageGraphTransformation; singleton:=true
+Bundle-ActivationPolicy: lazy
+Import-Package: org.apache.log4j,
+ org.apache.commons.logging
+Bundle-RequiredExecutionEnvironment: JavaSE-16
+Require-Bundle: org.emoflon.ibex.common,
+ org.emoflon.ibex.gt,
+ org.emoflon.ibex.patternmodel,
+ org.emoflon.ibex.gt.democles,
+ org.emoflon.ibex.gt.hipe,
+ org.emoflon.ibex.gt.viatra,
+ Village;bundle-version="0.0.1"
+Export-Package: VillageGraphTransformation.api,
+ VillageGraphTransformation.api.matches,
+ VillageGraphTransformation.api.rules
