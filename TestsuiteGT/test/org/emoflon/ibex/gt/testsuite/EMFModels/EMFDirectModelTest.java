@@ -87,7 +87,7 @@ public class EMFDirectModelTest {
 		assertEquals(1, city.getShops().size());
 		assertEquals(3, shop.getGoods().size());
 		assertEquals(3, company.getGoods().size());
-		
+		//test eOpposite
 		//remove the shop -> the products should be removed too since they are contained within the shop instance
 		city.getShops().clear();
 		assertEquals(0, city.getShops().size());
@@ -166,10 +166,18 @@ public class EMFDirectModelTest {
 		city1.getShops().addAll(shops);
 		assertEquals(3, city1.getShops().size());
 		assertEquals(0, city2.getShops().size());
+		//test eOpposite
+		assertEquals(shop1.getCity(), city1);
+		assertEquals(shop2.getCity(), city1);
+		assertEquals(shop3.getCity(), city1);
 		//change containment reference
 		city2.getShops().add(shop1);
 		assertEquals(1, city2.getShops().size());		
 		assertEquals(2, city1.getShops().size());
+		//eOpposite should have changed for shop1 but not for the others
+		assertEquals(shop1.getCity(), city2);
+		assertEquals(shop2.getCity(), city1);
+		assertEquals(shop3.getCity(), city1);
 
 	}	
 
