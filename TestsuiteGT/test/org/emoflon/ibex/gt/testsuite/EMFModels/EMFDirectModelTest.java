@@ -8,7 +8,12 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.junit.Test;
+import org.moflon.smartemf.runtime.SmartObject;
 
 import Persons.Person;
 import Persons.PersonRegister;
@@ -21,15 +26,19 @@ import Village.Road;
 import Village.Shop;
 import Village.VillageFactory;
 
+import org.emoflon.ibex.common.emf.EMFManipulationUtils;
+
 
 public class EMFDirectModelTest {
 
+	private static String path =  "./resources/EMFModel/EmptyCity.xmi";
 	@Test
 	public void testCityCreation() {
 		//simple creation and removal of nodes and unidirectional and bidirectional edges
 		VillageFactory factory = VillageFactory.eINSTANCE;
 		
 		//create a small city model
+
 		City city = factory.createCity();
 		Mall mall = factory.createMall();
 		city.getMalls().add(mall);
@@ -44,8 +53,11 @@ public class EMFDirectModelTest {
 		shops.add(shop2);
 		city.getShops().addAll(shops);
 		mall.getShops().addAll(shops);
-		//city.getShops().clear();
-		city.getShops().removeAll(shops);
+		//delete all shops
+		for(Shop shop: shops) {
+			if(shop instanceof SmartObject) EMFManipulationUtils.delete(shop, true); 
+			else EcoreUtil.delete(shop, true);
+		}
 		//shops should have no container
 		assertNull(shop1.eContainer());
 		assertNull(shop2.eContainer());
@@ -64,6 +76,7 @@ public class EMFDirectModelTest {
 		//test if the nodes are removed recursively if the container is deleted
 	
 		VillageFactory factory = VillageFactory.eINSTANCE;
+
 
 		City city = factory.createCity();
 
@@ -89,11 +102,13 @@ public class EMFDirectModelTest {
 		assertEquals(3, company.getGoods().size());
 		//test eOpposite
 		//remove the shop -> the products should be removed too since they are contained within the shop instance
-		city.getShops().clear();
+		if(shop instanceof SmartObject) EMFManipulationUtils.delete(shop, true); 
+		else EcoreUtil.delete(shop, true);
 		assertEquals(0, city.getShops().size());
 		//shop is not contained anywhere
 		assertNull(shop.eContainer());
 		assertEquals(0, company.getGoods().size());
+		assertEquals(0, company.getShops().size());
 	}
 	
 	@Test
@@ -101,6 +116,7 @@ public class EMFDirectModelTest {
 		//test if the underlying collections (based on unique, ordered) are working properly
 		
 		VillageFactory factory = VillageFactory.eINSTANCE;
+		
 
 		City city = factory.createCity();
 		Mall mall = factory.createMall();

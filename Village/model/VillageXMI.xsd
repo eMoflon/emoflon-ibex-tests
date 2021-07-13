@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<xsd:schema xmlns:Persons="platform:/resource/Persons/model/Persons.ecore" xmlns:Village="platform:/resource/Village/model/Village.ecore" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="platform:/resource/Village/model/Village.ecore">
+<xsd:schema xmlns:Village="platform:/resource/Village/model/Village.ecore" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="platform:/resource/Village/model/Village.ecore">
   <xsd:annotation>
     <xsd:documentation>TODO: Add documentation for Village. Hint: You may copy this element in the Ecore editor to add documentation to EClasses, EOperations, ...</xsd:documentation>
   </xsd:annotation>
-  <xsd:import namespace="platform:/resource/Persons/model/Persons.ecore" schemaLocation="Persons.xsd"/>
   <xsd:import namespace="http://www.omg.org/XMI" schemaLocation="platform:/plugin/org.eclipse.emf.ecore/model/XMI.xsd"/>
   <xsd:complexType name="Church">
     <xsd:choice maxOccurs="unbounded" minOccurs="0">
@@ -34,12 +33,10 @@
       <xsd:element name="roads" type="Village:Road"/>
       <xsd:element name="shops" type="Village:Shop"/>
       <xsd:element name="companies" type="Village:Company"/>
-      <xsd:element name="citizens" type="Persons:Person"/>
       <xsd:element ref="xmi:Extension"/>
     </xsd:choice>
     <xsd:attribute ref="xmi:id"/>
     <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
-    <xsd:attribute name="citizens" type="xsd:string"/>
   </xsd:complexType>
   <xsd:element name="City" type="Village:City"/>
   <xsd:complexType name="Road">
@@ -54,7 +51,6 @@
   <xsd:complexType name="Shop">
     <xsd:choice maxOccurs="unbounded" minOccurs="0">
       <xsd:element name="city" type="Village:City"/>
-      <xsd:element name="mall" type="Village:Mall"/>
       <xsd:element name="goods" type="Village:Product"/>
       <xsd:element ref="xmi:Extension"/>
     </xsd:choice>
@@ -62,7 +58,6 @@
     <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
     <xsd:attribute name="name" type="xsd:string"/>
     <xsd:attribute name="city" type="xsd:string"/>
-    <xsd:attribute name="mall" type="xsd:string"/>
   </xsd:complexType>
   <xsd:element name="Shop" type="Village:Shop"/>
   <xsd:complexType name="Company">
