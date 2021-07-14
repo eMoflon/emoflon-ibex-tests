@@ -90,7 +90,6 @@ public class RepairTestShortcut extends SyncTestCase<District, Playroom> {
 		assertPrecondition("source/terrace", "target/terrace");
 
 		tool.performAndPropagateTargetEdit(root -> {
-			System.err.println("DELTA");
 			Construction flatRoof = helperBlockSet.getConstruction(root, "Smith's House");
 			helperBlockSet.createTriangularPrism(flatRoof, null);
 		});
