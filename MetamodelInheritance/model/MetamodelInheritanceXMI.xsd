@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema xmlns:metamodel_inheritance="platform:/resource/MetamodelInheritance/model/MetamodelInheritance.ecore" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="platform:/resource/MetamodelInheritance/model/MetamodelInheritance.ecore">
+  <xsd:import namespace="http://www.omg.org/XMI" schemaLocation="platform:/plugin/org.eclipse.emf.ecore/model/XMI.xsd"/>
+  <xsd:complexType name="BaseContainer">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element name="baseA" type="metamodel_inheritance:BaseContaineeA"/>
+      <xsd:element name="baseB" type="metamodel_inheritance:BaseContaineeB"/>
+      <xsd:element name="baseC" type="metamodel_inheritance:BaseContaineeC"/>
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+  </xsd:complexType>
+  <xsd:element name="BaseContainer" type="metamodel_inheritance:BaseContainer"/>
+  <xsd:complexType name="BaseContaineeA">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+  </xsd:complexType>
+  <xsd:element name="BaseContaineeA" type="metamodel_inheritance:BaseContaineeA"/>
+  <xsd:complexType name="BaseContaineeB">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+  </xsd:complexType>
+  <xsd:element name="BaseContaineeB" type="metamodel_inheritance:BaseContaineeB"/>
+  <xsd:complexType name="BaseContaineeC">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+  </xsd:complexType>
+  <xsd:element name="BaseContaineeC" type="metamodel_inheritance:BaseContaineeC"/>
+</xsd:schema>

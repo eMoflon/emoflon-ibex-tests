@@ -40,7 +40,10 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="shops" unique="false" upperBound="-1"
         eType="#//Shop"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="goods" upperBound="-1"
-        eType="#//Product"/>
+        eType="#//Product" eOpposite="#//Product/producedBy"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Product"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Product">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="producedBy" eType="#//Company"
+        eOpposite="#//Company/goods"/>
+  </eClassifiers>
 </ecore:EPackage>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema xmlns:metamodel_inheritance="platform:/resource/MetamodelInheritance/model/MetamodelInheritance.ecore" xmlns:metamodel_inheritance2="platform:/resource/MetamodelInheritance2/model/MetamodelInheritance2.ecore" xmlns:metamodel_inheritance3="platform:/resource/MetamodelInheritance3/model/MetamodelInheritance3.ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="platform:/resource/MetamodelInheritance3/model/MetamodelInheritance3.ecore">
+  <xsd:import namespace="platform:/resource/MetamodelInheritance2/model/MetamodelInheritance2.ecore" schemaLocation="MetamodelInheritance2.xsd"/>
+  <xsd:import namespace="platform:/resource/MetamodelInheritance/model/MetamodelInheritance.ecore" schemaLocation="MetamodelInheritance.xsd"/>
+  <xsd:complexType name="ChildC">
+    <xsd:complexContent>
+      <xsd:extension base="metamodel_inheritance:BaseContaineeC">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="d" type="metamodel_inheritance3:ChildD"/>
+          <xsd:element name="containerReferences" type="metamodel_inheritance:BaseContaineeB"/>
+        </xsd:choice>
+        <xsd:attribute name="d" type="xsd:string"/>
+        <xsd:attribute name="containerReferences" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ChildC" type="metamodel_inheritance3:ChildC"/>
+  <xsd:complexType name="ChildD">
+    <xsd:complexContent>
+      <xsd:extension base="metamodel_inheritance2:ChildContaineeD">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="c" type="metamodel_inheritance3:ChildC"/>
+          <xsd:element name="a" type="metamodel_inheritance:BaseContaineeA"/>
+        </xsd:choice>
+        <xsd:attribute name="c" type="xsd:string"/>
+        <xsd:attribute name="a" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ChildD" type="metamodel_inheritance3:ChildD"/>
+</xsd:schema>

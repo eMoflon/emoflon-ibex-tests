@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema xmlns:metamodel_inheritance="platform:/resource/MetamodelInheritance/model/MetamodelInheritance.ecore" xmlns:metamodel_inheritance2="platform:/resource/MetamodelInheritance2/model/MetamodelInheritance2.ecore" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="platform:/resource/MetamodelInheritance2/model/MetamodelInheritance2.ecore">
+  <xsd:import namespace="http://www.omg.org/XMI" schemaLocation="platform:/plugin/org.eclipse.emf.ecore/model/XMI.xsd"/>
+  <xsd:import namespace="platform:/resource/MetamodelInheritance/model/MetamodelInheritance.ecore" schemaLocation="MetamodelInheritance.xsd"/>
+  <xsd:complexType name="ChildA">
+    <xsd:complexContent>
+      <xsd:extension base="metamodel_inheritance:BaseContaineeA">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="b" type="metamodel_inheritance2:ChildB"/>
+          <xsd:element name="childD" type="metamodel_inheritance2:ChildContaineeD"/>
+          <xsd:element name="c" type="metamodel_inheritance:BaseContaineeC"/>
+        </xsd:choice>
+        <xsd:attribute name="b" type="xsd:string"/>
+        <xsd:attribute name="c" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ChildA" type="metamodel_inheritance2:ChildA"/>
+  <xsd:complexType name="ChildB">
+    <xsd:complexContent>
+      <xsd:extension base="metamodel_inheritance:BaseContaineeB">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="a" type="metamodel_inheritance2:ChildA"/>
+          <xsd:element name="d" type="metamodel_inheritance2:ChildContaineeD"/>
+        </xsd:choice>
+        <xsd:attribute name="a" type="xsd:string"/>
+        <xsd:attribute name="d" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ChildB" type="metamodel_inheritance2:ChildB"/>
+  <xsd:complexType name="ChildContaineeD">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element name="containerReferences" type="metamodel_inheritance:BaseContaineeA"/>
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+  </xsd:complexType>
+  <xsd:element name="ChildContaineeD" type="metamodel_inheritance2:ChildContaineeD"/>
+</xsd:schema>

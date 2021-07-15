@@ -55,15 +55,14 @@ public class EMFDirectModelTest {
 		mall.getShops().addAll(shops);
 		//delete all shops
 		for(Shop shop: shops) {
-			if(shop instanceof SmartObject) EMFManipulationUtils.delete(shop, true); 
-			else EcoreUtil.delete(shop, true);
+			EMFManipulationUtils.delete(shop, true); 
 		}
 		//shops should have no container
 		assertNull(shop1.eContainer());
 		assertNull(shop2.eContainer());
 		//shops were removed from containment -> should be removed from the whole model
 		assertEquals(0, city.getShops().size());
-		//ask why this is not working
+		//non containment, unidirectional references should also be deleted
 		assertEquals(0, mall.getShops().size());
 		//shops belong to no city
 		assertNull(shop1.getCity());
@@ -100,15 +99,23 @@ public class EMFDirectModelTest {
 		assertEquals(1, city.getShops().size());
 		assertEquals(3, shop.getGoods().size());
 		assertEquals(3, company.getGoods().size());
-		//test eOpposite
+		//eOpposite should work
+		assertEquals(company, product1.getProducedBy());
+		assertEquals(company, product2.getProducedBy());
+		assertEquals(company, product3.getProducedBy());
+		
 		//remove the shop -> the products should be removed too since they are contained within the shop instance
-		if(shop instanceof SmartObject) EMFManipulationUtils.delete(shop, true); 
-		else EcoreUtil.delete(shop, true);
+		EMFManipulationUtils.delete(shop, true); 
+		
 		assertEquals(0, city.getShops().size());
 		//shop is not contained anywhere
 		assertNull(shop.eContainer());
+		assertEquals(0, company.getShops().size());		
 		assertEquals(0, company.getGoods().size());
-		assertEquals(0, company.getShops().size());
+		//goods have no eOpposite anymore
+		assertNull(product1.getProducedBy());
+		assertNull(product2.getProducedBy());
+		assertNull(product3.getProducedBy());
 	}
 	
 	@Test
