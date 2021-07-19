@@ -1,8 +1,11 @@
 package org.emoflon.ibex.gt.testsuite.EMFModels;
 
+import static org.junit.Assert.assertNotEquals;
+
 import org.eclipse.xtext.serializer.sequencer.EmitterNodeFinder;
 import org.junit.Test;
 
+import Village.City;
 import VillageGraphTransformation.api.VillageGraphTransformationAPI;
 
 public class EMFGTCreationDeletionModelTest extends EMFGTModelTest{
@@ -41,5 +44,16 @@ public class EMFGTCreationDeletionModelTest extends EMFGTModelTest{
 		//No references by the company anymore
 		assertNoMatch(api.countProductsByCompany());
 		
+	}
+	@Test
+	public void ModelModificationTest() {
+		VillageGraphTransformationAPI api = this.init("BigCity.xmi");
+		
+		City city1 = (City) api.countShopsInCity().findAnyMatch().get().getCity();		
+		//create a second city
+		api.createCity().apply();
+		//change containment
+		api.changeShopLocation().apply();
+		assertNotEquals(city1, api.countShopsInCity().findAnyMatch().get().getCity());
 	}
 }

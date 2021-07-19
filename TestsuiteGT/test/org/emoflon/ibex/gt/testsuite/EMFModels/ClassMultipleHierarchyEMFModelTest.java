@@ -67,6 +67,5 @@ public class ClassMultipleHierarchyEMFModelTest {
 		//containment shouldn't have changed
 		assertEquals(3, childC.getContainerReferences().size());
 		assertEquals(3, childD.getA().size());
-
 	}
 }
