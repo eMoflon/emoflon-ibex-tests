@@ -27,10 +27,6 @@ public class EMFCollectionsTest extends AbstractEMFTest{
 		
 		VillageFactory factory = VillageFactory.eINSTANCE;
 		
-		Resource rs = createResource(path);
-		EMFTestAdapter adapter = createAdapter(rs);
-		adapter.cleanNotifications();
-		
 		City city = factory.createCity();
 		Mall mall = factory.createMall();
 		city.getMalls().add(mall);

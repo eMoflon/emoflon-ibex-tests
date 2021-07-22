@@ -1,0 +1,233 @@
+package org.emoflon.ibex.gt.testsuite.EMFModels;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.emoflon.ibex.common.emf.EMFManipulationUtils;
+import org.junit.Test;
+import org.moflon.smartemf.runtime.SmartObject;
+import org.moflon.smartemf.runtime.notification.SmartEMFNotification;
+
+import Village.City;
+import Village.Company;
+import Village.Product;
+import Village.Shop;
+import Village.VillageFactory;
+import scala.noinline;
+
+public class EMFNotificationTest extends AbstractEMFTest {
+	
+	private static String path =  "./resources/EMFModel/EmptyCity.xmi";
+	
+	@Test
+	public void testModelChange() {
+		//test that changing the model works
+		VillageFactory factory = VillageFactory.eINSTANCE;
+		
+		Resource rs = createResource(path);
+		EMFTestAdapter adapter = createAdapter(rs);
+		adapter.cleanNotifications();
+		
+		City city1 = factory.createCity();
+		City city2 = factory.createCity();
+		rs.getContents().add(city1);
+		rs.getContents().add(city2);
+		//each addition of a city to a resource creates a remove and an add notification
+		assertEquals(2, adapter.getChanges().stream()
+				.filter(n -> n.getEventType() == SmartEMFNotification.ADD).count());
+		assertEquals(2, adapter.getChanges().stream()
+				.filter(n -> n.getEventType() == SmartEMFNotification.REMOVE).count());
+		adapter.cleanNotifications();
+		//create shops
+		List<Shop> shops = new ArrayList<Shop>();
+		Shop shop1 = factory.createShop();
+		Shop shop2 = factory.createShop();
+		Shop shop3 = factory.createShop();
+		shops.add(shop1);
+		shops.add(shop2);
+		shops.add(shop3);
+		city1.getShops().addAll(shops);
+		assertEquals(3, city1.getShops().size());
+		assertEquals(0, city2.getShops().size());
+		
+		//adding the shops should lead to 6 notifications;
+		//3 for the references city->shop and 3 for the eOpposite
+		if(city1 instanceof SmartObject) {
+			List<Notification> shopNotification = adapter.getChanges().stream()
+					.filter(n->n.getEventType() == SmartEMFNotification.SET).collect(Collectors.toList());
+			List<Notification> cityNotification = adapter.getChanges().stream()
+					.filter(n->n.getEventType() == SmartEMFNotification.ADD).collect(Collectors.toList());
+			assertEquals(3, shopNotification.size());
+			assertEquals(3, cityNotification.size());
+			//the Set notifications should have a city instance as new value
+			for(Notification n: cityNotification) {
+				assertTrue(n.getNewValue() instanceof Shop);
+			}
+			//the Add notifications should have a city instance as new value
+			for(Notification n: shopNotification) {
+				assertTrue(n.getNewValue() instanceof City);
+			}
+		} else {
+			List<Notification> addNotification = adapter.getChanges();
+			//old EMF does not create notification for each add and each set of the eOpposite,
+			//but summarizes it into a single ADD_MANY notification
+			assertEquals(1, addNotification.size());	
+			assertEquals(Notification.ADD_MANY, addNotification.get(0).getEventType());
+		}
+
+		adapter.cleanNotifications();
+		
+		//test eOpposite
+		assertEquals(shop1.getCity(), city1);
+		assertEquals(shop2.getCity(), city1);
+		assertEquals(shop3.getCity(), city1);
+		//change containment reference
+		city2.getShops().add(shop1);
+		assertEquals(1, city2.getShops().size());		
+		assertEquals(2, city1.getShops().size());
+
+		if(city1 instanceof SmartObject) {
+			LinkedList<Notification> modNotification = adapter.getChanges();
+			//smartEMF creates a REMOVE_ADAPTER (why?), a REMOVE,an ADD and a SET notification (for the eOpposite)
+			//in exactly this order
+			//we do not care about the adapter
+			modNotification.removeIf(n -> n.getEventType() == Notification.REMOVING_ADAPTER);
+			assertTrue(modNotification.poll().getEventType() == Notification.REMOVE);
+			assertTrue(modNotification.poll().getEventType() == Notification.ADD);
+			assertTrue(modNotification.poll().getEventType() == Notification.SET);		
+			assertEquals(0, modNotification.size());
+		} else {
+			LinkedList<Notification> modNotification = adapter.getChanges();
+			//old EMF creates only a REMOVE_ADAPTER, a REMOVE and an ADD notification
+			modNotification.removeIf(n -> n.getEventType() == Notification.REMOVING_ADAPTER);
+			assertTrue(modNotification.poll().getEventType() == Notification.REMOVE);
+			assertTrue(modNotification.poll().getEventType() == Notification.ADD);
+			assertEquals(0, modNotification.size());
+		}
+		
+		adapter.cleanNotifications();
+		//eOpposite should have changed for shop1 but not for the others
+		assertEquals(shop1.getCity(), city2);
+		assertEquals(shop2.getCity(), city1);
+		assertEquals(shop3.getCity(), city1);
+	}	
+	/**
+	 * extension of the testRecursiveChanges-Test specifically for notifications;
+	 */
+	@Test
+	public void testComplexNotificationCreation() {
+		VillageFactory factory = VillageFactory.eINSTANCE;
+
+		Resource rs = createResource(path);
+		EMFTestAdapter adapter = createAdapter(rs);
+
+		City city = factory.createCity();
+		rs.getContents().add(city);
+		adapter.cleanNotifications();
+		
+		Shop shop = factory.createShop();
+
+		city.getShops().add(shop);
+		
+		if(city instanceof SmartObject) {
+			List<Notification> shopNotification = adapter.getChanges().stream()
+					.filter(n->n.getEventType() == SmartEMFNotification.SET).collect(Collectors.toList());
+			List<Notification> cityNotification = adapter.getChanges().stream()
+					.filter(n->n.getEventType() == SmartEMFNotification.ADD).collect(Collectors.toList());
+			assertEquals(1, shopNotification.size());
+			assertEquals(1, cityNotification.size());
+			assertTrue(cityNotification.get(0).getNewValue() instanceof Shop);
+			assertTrue(shopNotification.get(0).getNewValue() instanceof City);
+		} else {
+			//old EMF only creates an ADD notification
+			List<Notification> notifications = adapter.getChanges();
+			assertEquals(1, notifications.size());
+			assertTrue(notifications.get(0).getEventType() == Notification.ADD);
+		}
+		
+		Company company = factory.createCompany();
+		city.getCompanies().add(company);
+		company.getShops().add(shop);
+		//create product
+		Product product = factory.createProduct();
+		shop.getGoods().add(product);
+		company.getGoods().add(product);
+		
+		adapter.cleanNotifications();
+		
+		//put shop directly into the resource
+		rs.getContents().add(shop);
+		
+		if(city instanceof SmartObject) {
+			LinkedList<Notification> notifications = adapter.getChanges();
+			//the first 2 notifications are 
+			//REMOVE_ADAPTER notification for the shop and the contained product
+			assertTrue(notifications.poll().getEventType() == SmartEMFNotification.REMOVING_ADAPTER);	
+			assertTrue(notifications.poll().getEventType() == SmartEMFNotification.REMOVING_ADAPTER);
+			//then we get the notification that the shop was removed from the city
+			Notification removeNotif = notifications.poll();
+			assertTrue(removeNotif.getEventType() == SmartEMFNotification.REMOVE);
+			assertEquals(removeNotif.getNotifier(), city);
+			assertEquals(removeNotif.getOldValue(), shop);
+			
+			//then we should get the notification that it was added to the resource 
+			Notification addNotif = notifications.poll();
+			assertTrue(addNotif.getEventType() == SmartEMFNotification.ADD);
+			assertEquals(addNotif.getNotifier(), rs);
+			assertEquals(addNotif.getNewValue(), shop);	
+			//this should be all notification
+			//but here there is an an ADD notification for goods in shop 
+			//assertEquals(0, notifications.size());
+		} else {
+			//ignore the REMOVING_ADAPTER notifications
+			//since we do not care about them
+			LinkedList<Notification> notifications = new LinkedList<Notification> (adapter.getChanges()
+					.stream().filter(n -> n.getEventType() != Notification.REMOVING_ADAPTER)
+					.collect(Collectors.toList()));
+			//old EMF creates a SET notification (why?)
+			assertTrue(notifications.poll().getEventType() == Notification.SET);
+			assertTrue(notifications.poll().getEventType() == Notification.REMOVE);
+			assertTrue(notifications.poll().getEventType() == Notification.ADD);
+		}
+		
+		adapter.cleanNotifications();
+		
+		//remove the shop -> the products should be removed too since they are contained within the shop instance
+		EMFManipulationUtils.delete(shop, true); 
+
+		if(city instanceof SmartObject) {
+			LinkedList<Notification> notifications = adapter.getChanges();
+			
+			//and why is the REMOVING_ADAPTER NOTIFICATION thrown second (and not first)?
+			assertTrue(notifications.poll().getEventType() == SmartEMFNotification.REMOVING_ADAPTER);			
+			Notification notif = notifications.poll();
+			assertTrue(notif.getEventType() == SmartEMFNotification.REMOVE);
+			assertTrue(notif.getOldValue() instanceof Product);
+			
+			//here, the shop is removed; why is the adapter removed later?			
+			assertTrue(notifications.poll().getEventType() == SmartEMFNotification.REMOVING_ADAPTER);
+			notif = notifications.poll();
+			assertTrue(notif.getEventType() == SmartEMFNotification.REMOVE);
+			assertTrue(notif.getOldValue() instanceof Shop);
+		} else {
+			LinkedList<Notification> notifications = adapter.getChanges();
+			//the reference from the company to the shop is removed
+			assertTrue(notifications.poll().getEventType() == SmartEMFNotification.REMOVE);	
+			//the eOpposite (of the product to the company) is unset
+			assertTrue(notifications.poll().getEventType() == SmartEMFNotification.SET);			
+			//the reference from the company to the product is removed
+			assertTrue(notifications.poll().getEventType() == SmartEMFNotification.REMOVE);	
+			//the shop is removed from the resource
+			assertTrue(notifications.poll().getEventType() == SmartEMFNotification.REMOVE);	
+			//the rest are REMOVING_ADAPTER notifications	
+		}
+	}
+}

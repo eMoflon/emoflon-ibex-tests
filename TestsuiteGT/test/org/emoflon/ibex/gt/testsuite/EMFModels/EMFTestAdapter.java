@@ -11,7 +11,7 @@ import org.eclipse.emf.ecore.util.EContentAdapter;
 import org.moflon.smartemf.runtime.notification.SmartEMFNotification;
 
 public class EMFTestAdapter extends EContentAdapter {
-	private List<Notification> changedObjects;
+	private LinkedList<Notification> changedObjects;
 	public EMFTestAdapter(Resource rs) {
 		
 		changedObjects = new LinkedList<Notification>();		
@@ -24,13 +24,11 @@ public class EMFTestAdapter extends EContentAdapter {
 	
 	@Override
 	public void notifyChanged(Notification notification) {
-		if(notification instanceof SmartEMFNotification) {
-			super.notifyChanged(notification);
-			changedObjects.add(notification);			
-		}
+		super.notifyChanged(notification);
+		changedObjects.add(notification);			
 	}
 	
-	public final List<Notification> getChanges(){
+	public final LinkedList<Notification> getChanges(){
 		return changedObjects;
 	}
 
