@@ -2,7 +2,9 @@ package testsuite.ibex.Java2Doc.sync;
 
 import org.benchmarx.simpledoc.core.SimpleDocHelper;
 import org.benchmarx.simpledoc.core.SimpleJavaHelper;
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.util.EContentAdapter;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.ibex.common.emf.EMFManipulationUtils;
 import org.junit.Test;
@@ -296,17 +298,32 @@ public class RepairTestShortcut extends SyncTestCase<Package, Folder>{
 		tool.performAndPropagateTargetEdit(f -> helperDoc.createMoflon(f));
 		tool.performAndPropagateSourceEdit(p -> helperJava.fillBodies(p));
 		//------------
+		
+		tool.getResourceSet().eAdapters().add(new EContentAdapter() {
+			@Override
+			public void notifyChanged(Notification notification) {
+				System.out.println(" ---- " + notification);
+				super.notifyChanged(notification);
+			}
+		});
+		
+		System.out.println("_____FIRST EDIT");
 		tool.performIdleTargetEdit(f -> {
 			Folder newRoot = f.getSubFolders().get(0);
 			for(Doc d : newRoot.getDocs()) {
 				if(d.getName().equals(newRoot.getName() + "_doc")) {
+					System.out.println("_____DELETE " + d);
 					EMFManipulationUtils.delete(d);
 					break;
 				}
 			}
+			System.out.println("_____NEW ROOT " + newRoot);
 			f.eResource().getContents().add(newRoot);
 		});
+		System.out.println("_____AFTER PROPAGATE");
+
 		tool.performIdleTargetEdit(f -> {
+			System.out.println("_____DELETE OLD ROOT " + f);
 			EMFManipulationUtils.delete(f);
 		});
 		assertPostcondition("expected/moflon_deleteRoot_BWD", "in/moflon_deleteRoot_BWD");
