@@ -76,7 +76,7 @@ public abstract class IbexAdapter<S extends EObject, T extends EObject> extends 
 	@Override
 	public void saveModels(String name) {
 		ResourceSet set = new ResourceSetImpl();
-		set.getResourceFactoryRegistry().getExtensionToFactoryMap()	.put(Resource.Factory.Registry.DEFAULT_EXTENSION, new SmartEMFResourceFactoryImpl());
+		set.getResourceFactoryRegistry().getExtensionToFactoryMap()	.put(Resource.Factory.Registry.DEFAULT_EXTENSION, new SmartEMFResourceFactoryImpl("./../../../../../"));
 		
 //		set.getResourceFactoryRegistry().getExtensionToFactoryMap().put(Resource.Factory.Registry.DEFAULT_EXTENSION, new XMIResourceFactoryImpl());
 		URI srcURI = URI.createFileURI(RESULTPATH + "/" + name + "source.xmi");
@@ -121,6 +121,6 @@ public abstract class IbexAdapter<S extends EObject, T extends EObject> extends 
 	}
 
 	public ResourceSet getResourceSet() {
-		return synchroniser.getResourceHandler().getResourceSet();
+		return synchroniser.getResourceHandler().getModelResourceSet();
 	}
 }

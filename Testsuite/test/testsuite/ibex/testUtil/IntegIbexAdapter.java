@@ -124,7 +124,7 @@ public abstract class IntegIbexAdapter<S extends EObject, T extends EObject> ext
 	}
 
 	public ResourceSet getResourceSet() {
-		return integrator.getResourceHandler().getResourceSet();
+		return integrator.getResourceHandler().getModelResourceSet();
 	}
 
 	abstract public void initiateIntegrationDialogue();
