@@ -19,7 +19,7 @@ import org.moflon.smartemf.persistence.SmartEMFResourceFactoryImpl;
 
 public abstract class IbexAdapter<S extends EObject, T extends EObject> extends BXToolForEMF<S, T, Decisions>   {
 
-	protected static final String RESULTPATH = "results/ibex";
+	protected static final String RESULTPATH = "./results/ibex";
 	
 	protected String projectName;
 	protected SYNC synchroniser;
