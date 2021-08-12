@@ -1,4 +1,4 @@
-package org.emoflon.ibex.gt.testsuite.EMFModels;
+package org.emoflon.ibex.gt.EMFGTModels;
 
 import static org.junit.Assert.assertNotEquals;
 

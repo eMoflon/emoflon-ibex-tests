@@ -12,5 +12,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="c" upperBound="-1" eType="#//ChildC"
         eOpposite="#//ChildC/d"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="a" upperBound="-1" eType="ecore:EClass ../../MetamodelInheritance/model/MetamodelInheritance.ecore#//BaseContaineeA"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="containmentA" upperBound="-1"
+        eType="ecore:EClass ../../MetamodelInheritance/model/MetamodelInheritance.ecore#//BaseContaineeA"
+        containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

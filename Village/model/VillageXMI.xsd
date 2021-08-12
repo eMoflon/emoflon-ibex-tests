@@ -74,10 +74,21 @@
   <xsd:element name="Company" type="Village:Company"/>
   <xsd:complexType name="Product">
     <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element name="producedBy" type="Village:Company"/>
       <xsd:element ref="xmi:Extension"/>
     </xsd:choice>
     <xsd:attribute ref="xmi:id"/>
     <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="producedBy" type="xsd:string"/>
   </xsd:complexType>
   <xsd:element name="Product" type="Village:Product"/>
+  <xsd:complexType name="Person">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="name" type="xsd:string"/>
+  </xsd:complexType>
+  <xsd:element name="Person" type="Village:Person"/>
 </xsd:schema>

@@ -46,4 +46,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="producedBy" eType="#//Company"
         eOpposite="#//Company/goods"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Person">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
 </ecore:EPackage>

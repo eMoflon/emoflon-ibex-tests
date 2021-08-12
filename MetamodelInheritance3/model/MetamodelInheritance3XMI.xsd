@@ -21,6 +21,7 @@
         <xsd:choice maxOccurs="unbounded" minOccurs="0">
           <xsd:element name="c" type="metamodel_inheritance3:ChildC"/>
           <xsd:element name="a" type="metamodel_inheritance:BaseContaineeA"/>
+          <xsd:element name="containmentA" type="metamodel_inheritance:BaseContaineeA"/>
         </xsd:choice>
         <xsd:attribute name="c" type="xsd:string"/>
         <xsd:attribute name="a" type="xsd:string"/>
