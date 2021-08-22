@@ -1,8 +1,11 @@
 package org.emoflon.ibex.gt.testsuite.EMFModels;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.util.LinkedList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -54,34 +57,50 @@ public class EMFNotificationMultipleHierarchyTest extends AbstractEMFTest{
 		//change container for the subgraph with multiple hierarchies
 		base2.getBaseA().add(childA);
 		if(base instanceof SmartObject) {
-			LinkedList<Notification> notifications = adapter.getChanges();
+			List<Notification> notifications = adapter.getChanges();
 			
-			Notification n = notifications.poll();
+			List<Notification> removeNotifs = notifications.stream()
+					.filter(n -> n.getEventType() ==  SmartEMFNotification.REMOVE).collect(Collectors.toList());
+			assertEquals(1, removeNotifs.size());
+			Notification notif = removeNotifs.get(0);
+			
 			//the first notification is a remove notification
-			assertEquals(n.getEventType(), SmartEMFNotification.REMOVE);
-			assertEquals(n.getNotifier(), base);
+			assertEquals(notif.getEventType(), SmartEMFNotification.REMOVE);
+			assertEquals(base, notif.getNotifier());
 			//then there are 2 removing adapters
 			//one for childA and one for childDS
-			assertEquals(notifications.poll().getEventType(), SmartEMFNotification.REMOVING_ADAPTER);
-			assertEquals(notifications.poll().getEventType(), SmartEMFNotification.REMOVING_ADAPTER);
+			assertEquals(2, adapter.getChanges().stream()
+					.filter(n -> n.getEventType() == SmartEMFNotification.REMOVING_ADAPTER).count());
+			
 			//then there is an ADD notification
-			n = notifications.poll();
-			assertEquals(n.getEventType(), SmartEMFNotification.ADD);
-			assertEquals(n.getNotifier(), base2);		
+			List<Notification> addNotifs = notifications.stream()
+					.filter(n -> n.getEventType() ==  SmartEMFNotification.ADD).collect(Collectors.toList());
+			assertEquals(1, addNotifs.size());
+			notif = addNotifs.get(0);
+			assertEquals(SmartEMFNotification.ADD, notif.getEventType());
+			assertEquals(base2, notif.getNotifier());	
+			//assert that the add is after the remove notification
+			int removeIndex = notifications.indexOf(removeNotifs.get(0));
+			int addIndex = notifications.indexOf(addNotifs.get(0));
+			assertTrue(removeIndex<addIndex);
 		}else {
 			//in normal EMF, first the removing adapters are generated and then the remove/add notifications
 			LinkedList<Notification> notifications = adapter.getChanges();
 
-			assertEquals(notifications.poll().getEventType(), SmartEMFNotification.REMOVING_ADAPTER);
-			assertEquals(notifications.poll().getEventType(), SmartEMFNotification.REMOVING_ADAPTER);
+			assertEquals(2, notifications.stream()
+					.filter(n -> n.getEventType() == SmartEMFNotification.REMOVING_ADAPTER).count());
+
+			List<Notification> removeNotifs = notifications.stream()
+					.filter(n -> n.getEventType() ==  SmartEMFNotification.REMOVE).collect(Collectors.toList());
+			assertEquals(1, removeNotifs.size());
+			Notification notif = removeNotifs.get(0);
+			assertEquals(notif.getNotifier(), base);
 			
-			Notification n = notifications.poll();
-			
-			assertEquals(n.getEventType(), SmartEMFNotification.REMOVE);
-			assertEquals(n.getNotifier(), base);
-			n = notifications.poll();
-			assertEquals(n.getEventType(), SmartEMFNotification.ADD);
-			assertEquals(n.getNotifier(), base2);	
+			List<Notification> addNotifs = notifications.stream()
+					.filter(n -> n.getEventType() ==  SmartEMFNotification.ADD).collect(Collectors.toList());
+			assertEquals(1, addNotifs.size());
+			notif = addNotifs.get(0);
+			assertEquals(notif.getNotifier(), base2);				
 		}
 		
 		adapter.cleanNotifications();
@@ -89,12 +108,15 @@ public class EMFNotificationMultipleHierarchyTest extends AbstractEMFTest{
 		//now create a circulary containment dependency
 		childD.getContainmentA().add(childA);
 		if(base instanceof SmartObject) {
-			//the objects shouldnt be in the model anymore (since they contain each other)
+			//the objects shouldn't be in the model anymore (since they contain each other)
 			LinkedList<Notification> notifications = adapter.getChanges();
-			Notification n = notifications.poll();
+			
 			//first is a remove notification (a is removed from base)
-			assertEquals(n.getEventType(), SmartEMFNotification.REMOVE);
-			assertEquals(n.getNotifier(), base2);
+			List<Notification> removeNotifs = notifications.stream()
+					.filter(n -> n.getEventType() ==  SmartEMFNotification.REMOVE).collect(Collectors.toList());
+			assertEquals(1, removeNotifs.size());
+			Notification notif = removeNotifs.get(0);
+			assertEquals(notif.getNotifier(), base2);
 			
 			//then two REMOVE_ADAPTER notifications
 			assertEquals(2, adapter.getChanges().stream()
@@ -104,11 +126,10 @@ public class EMFNotificationMultipleHierarchyTest extends AbstractEMFTest{
 			assertEquals(1, adapter.getChanges().stream()
 					.filter(not -> not.getNotifier().equals(childA)).count());
 		} else {
-			//again, normal EMF creates first the remove adapters and then the remove notifications
-			
+			//again, normal EMF creates first the remove adapters and then the remove notifications		
 			LinkedList<Notification> notifications = adapter.getChanges();
 
-			//then two REMOVE_ADAPTER notifications
+			//the two REMOVE_ADAPTER notifications
 			assertEquals(2, adapter.getChanges().stream()
 					.filter(not -> not.getEventType() == SmartEMFNotification.REMOVING_ADAPTER).count());	
 			assertEquals(1, adapter.getChanges().stream()
@@ -116,12 +137,12 @@ public class EMFNotificationMultipleHierarchyTest extends AbstractEMFTest{
 			assertEquals(1, adapter.getChanges().stream()
 					.filter(not -> not.getNotifier().equals(childA)).count());
 			
-			Notification n = notifications.poll();
-			n = notifications.poll();
-			n = notifications.poll();
-			//first is a remove notification (a is removed from base)
-			assertEquals(n.getEventType(), SmartEMFNotification.REMOVE);
-			assertEquals(n.getNotifier(), base2);
+			List<Notification> removeNotifs = notifications.stream()
+					.filter(n -> n.getEventType() ==  SmartEMFNotification.REMOVE).collect(Collectors.toList());
+			assertEquals(1, removeNotifs.size());
+			Notification notif = removeNotifs.get(0);
+			assertEquals(notif.getNotifier(), base2);
+			assertEquals(notif.getNotifier(), base2);
 			
 		}
 		

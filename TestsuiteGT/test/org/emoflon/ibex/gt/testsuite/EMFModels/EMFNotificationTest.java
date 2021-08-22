@@ -9,6 +9,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import javax.management.modelmbean.ModelMBeanNotificationBroadcaster;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -100,20 +102,34 @@ public class EMFNotificationTest extends AbstractEMFTest {
 			//smartEMF creates a REMOVE_ADAPTER, a REMOVE,an ADD and a SET notification (for the eOpposite)
 			//in exactly this order
 			//we do not care about the adapter (but we want to know that it has exactly one)
-			assertEquals(1, adapter.getChanges().stream()
+			assertEquals(1, modNotification.stream()
 					.filter(n -> n.getEventType() == SmartEMFNotification.REMOVING_ADAPTER).count());
 			modNotification.removeIf(n -> n.getEventType() == Notification.REMOVING_ADAPTER);
-			assertTrue(modNotification.poll().getEventType() == Notification.REMOVE);
-			assertTrue(modNotification.poll().getEventType() == Notification.ADD);
-			assertTrue(modNotification.poll().getEventType() == Notification.SET);		
-			assertEquals(0, modNotification.size());
+			List<Notification> removeNotif = modNotification.stream()
+					.filter(n -> n.getEventType() == SmartEMFNotification.REMOVE).collect(Collectors.toList());
+			List<Notification> addNotif = modNotification.stream()
+					.filter(n -> n.getEventType() == SmartEMFNotification.ADD).collect(Collectors.toList());			
+			//there should only be one add and remove notification
+			assertEquals(1, removeNotif.size());
+			assertEquals(1, addNotif.size());
+			int removeIndex = modNotification.indexOf(removeNotif.get(0));
+			int addIndex = modNotification.indexOf(addNotif.get(0));
+			//the remove notification should be before the add notification			
+			assertTrue(removeIndex<addIndex);
+			//there is one set notification	
+			assertEquals(1, modNotification.stream()
+					.filter(n -> n.getEventType() == SmartEMFNotification.SET).count());
+			//ignoring the removing adapter, there are exactly 3 notifications
+			assertEquals(3, modNotification.size());
 		} else {
 			LinkedList<Notification> modNotification = adapter.getChanges();
 			//old EMF creates only a REMOVE_ADAPTER, a REMOVE and an ADD notification
 			modNotification.removeIf(n -> n.getEventType() == Notification.REMOVING_ADAPTER);
-			assertTrue(modNotification.poll().getEventType() == Notification.REMOVE);
-			assertTrue(modNotification.poll().getEventType() == Notification.ADD);
-			assertEquals(0, modNotification.size());
+			assertEquals(1, modNotification.stream()
+					.filter(n -> n.getEventType() == SmartEMFNotification.REMOVE).count());
+			assertEquals(1, modNotification.stream()
+					.filter(n -> n.getEventType() == SmartEMFNotification.ADD).count());
+			assertEquals(2, modNotification.size());
 		}
 		
 		adapter.cleanNotifications();
@@ -179,25 +195,33 @@ public class EMFNotificationTest extends AbstractEMFTest {
 			notifications.removeIf(n -> n.getEventType() == Notification.REMOVING_ADAPTER);
 
 			//then we get the notification that the shop was removed from the city
-			Notification removeNotif = notifications.poll();
-			assertTrue(removeNotif.getEventType() == SmartEMFNotification.REMOVE);
-			assertEquals(removeNotif.getNotifier(), city);
-			assertEquals(removeNotif.getOldValue(), shop);
+			List<Notification> removeNotif = notifications.stream()
+					.filter(n -> n.getEventType() == SmartEMFNotification.REMOVE).collect(Collectors.toList());
+			List<Notification> addNotif = notifications.stream()
+					.filter(n -> n.getEventType() == SmartEMFNotification.ADD).collect(Collectors.toList());			
+			
+			//there should only be one add and remove notification
+			assertEquals(1, removeNotif.size());
+			assertEquals(1, addNotif.size());
+			int removeIndex = notifications.indexOf(removeNotif.get(0));
+			int addIndex = notifications.indexOf(addNotif.get(0));
+			assertTrue(removeIndex<addIndex);
+			
+			Notification notif = removeNotif.get(0);
+			assertTrue(notif.getEventType() == SmartEMFNotification.REMOVE);
+			assertEquals(notif.getNotifier(), city);
+			assertEquals(notif.getOldValue(), shop);
 			
 			//then we should get the notification that it was added to the resource 
-			Notification addNotif = notifications.poll();
-			assertTrue(addNotif.getEventType() == SmartEMFNotification.ADD);
-			assertEquals(addNotif.getNotifier(), rs);
-			assertEquals(addNotif.getNewValue(), shop);	
+			notif = addNotif.get(0);
+			assertTrue(notif.getEventType() == SmartEMFNotification.ADD);
+			assertEquals(notif.getNotifier(), rs);
+			assertEquals(notif.getNewValue(), shop);
+			
 			//this should be all notification
-
-			assertEquals(0, notifications.size());
+			assertEquals(2, notifications.size());
 		} else {
 			//ignore the REMOVING_ADAPTER notifications
-			//since we do not care about them
-			LinkedList<Notification> notifications = new LinkedList<Notification> (adapter.getChanges()
-					.stream().filter(n -> n.getEventType() != Notification.REMOVING_ADAPTER)
-					.collect(Collectors.toList()));
 			//old EMF creates a SET notification (that unsets the city from the shop)
 			List<Notification> shopNotification = adapter.getChanges().stream()
 					.filter(n->n.getEventType() == SmartEMFNotification.SET).collect(Collectors.toList());
@@ -228,7 +252,7 @@ public class EMFNotificationTest extends AbstractEMFTest {
 			
 			Notification notif = notifications.poll();
 			
-			//here is a REMOVE_MANY motification (and not a simple REMOVE notification).		
+			//here is a REMOVE_MANY notification (and not a simple REMOVE notification).		
 			assertTrue(notif.getEventType() == SmartEMFNotification.REMOVE_MANY);
 			assertTrue(((List) notif.getOldValue()).get(0) instanceof Product);
 			
@@ -239,11 +263,12 @@ public class EMFNotificationTest extends AbstractEMFTest {
 		} else {
 			LinkedList<Notification> notifications = adapter.getChanges();
 			//the reference from the company to the shop is removed
-			assertTrue(notifications.poll().getEventType() == SmartEMFNotification.REMOVE);	
 			//then, the reference from the company to the product is removed
-			assertTrue(notifications.poll().getEventType() == SmartEMFNotification.REMOVE);	
 			//the shop is removed from the resource
-			assertTrue(notifications.poll().getEventType() == SmartEMFNotification.REMOVE);	
+			assertEquals(3, adapter.getChanges().stream()
+					.filter(n -> n.getEventType() == SmartEMFNotification.REMOVE).count());
+			notifications.removeIf(n -> n.getEventType() == SmartEMFNotification.REMOVE);
+			
 			//the rest are REMOVING_ADAPTER notifications
 			for(Notification n: notifications) {
 				assertTrue(n.getEventType() == SmartEMFNotification.REMOVING_ADAPTER);	
