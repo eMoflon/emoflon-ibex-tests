@@ -65,20 +65,22 @@ public class EMFNotificationMultipleHierarchyTest extends AbstractEMFTest{
 			Notification notif = removeNotifs.get(0);
 			
 			//the first notification is a remove notification
-			assertEquals(notif.getEventType(), SmartEMFNotification.REMOVE);
 			assertEquals(base, notif.getNotifier());
+			
 			//then there are 2 removing adapters
 			//one for childA and one for childDS
-			assertEquals(2, adapter.getChanges().stream()
-					.filter(n -> n.getEventType() == SmartEMFNotification.REMOVING_ADAPTER).count());
+			//we do not need to care about the removing adapter notifications
+			//assertEquals(2, adapter.getChanges().stream()
+			//		.filter(n -> n.getEventType() == SmartEMFNotification.REMOVING_ADAPTER).count());
 			
 			//then there is an ADD notification
 			List<Notification> addNotifs = notifications.stream()
 					.filter(n -> n.getEventType() ==  SmartEMFNotification.ADD).collect(Collectors.toList());
 			assertEquals(1, addNotifs.size());
 			notif = addNotifs.get(0);
-			assertEquals(SmartEMFNotification.ADD, notif.getEventType());
+			
 			assertEquals(base2, notif.getNotifier());	
+			
 			//assert that the add is after the remove notification
 			int removeIndex = notifications.indexOf(removeNotifs.get(0));
 			int addIndex = notifications.indexOf(addNotifs.get(0));
@@ -86,9 +88,10 @@ public class EMFNotificationMultipleHierarchyTest extends AbstractEMFTest{
 		}else {
 			//in normal EMF, first the removing adapters are generated and then the remove/add notifications
 			LinkedList<Notification> notifications = adapter.getChanges();
-
-			assertEquals(2, notifications.stream()
-					.filter(n -> n.getEventType() == SmartEMFNotification.REMOVING_ADAPTER).count());
+			
+			//we dont need to care about the removing adapter notifications
+			//assertEquals(2, notifications.stream()
+			//		.filter(n -> n.getEventType() == SmartEMFNotification.REMOVING_ADAPTER).count());
 
 			List<Notification> removeNotifs = notifications.stream()
 					.filter(n -> n.getEventType() ==  SmartEMFNotification.REMOVE).collect(Collectors.toList());
