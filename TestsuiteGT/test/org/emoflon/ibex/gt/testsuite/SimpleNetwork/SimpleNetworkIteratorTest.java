@@ -145,6 +145,47 @@ public class SimpleNetworkIteratorTest extends SimpleNetworkAbstractTest2{
 		api.terminate();
 	}
 	
+	@Test
+	public void checkTypedIteration() {
+		SimpleNetworkGraphTransformation2API api = this.init("SimpleNetwork1.xmi");
+		// Skip if the engine is democles -> it does not work with some of these patterns -> See GT Rule file
+		if(engine == GTAppTestCase.PM_DEMOCLES) {
+			api.terminate();
+			return;
+		}
+		
+		//check model
+		Network oldNetwork = api.findNetwork().findAnyMatch().get().getNetwork();
+		assertEquals(3, oldNetwork.getDeviceNumber());
+		
+		//generate 3 devices and insert
+		api.generateComputer().apply();
+		api.generateComputer().apply();
+		api.generateServer().apply();
+		assertEquals(0, oldNetwork.getDeviceNumber());
+		
+		assertApplicable(api.insertDevicesIntoNetwork());
+		assertApplicable(api.insertDevicesIntoNetwork());
+		assertApplicable(api.insertDevicesIntoNetwork());
+		assertNotApplicable(api.insertDevicesIntoNetwork());
+		oldNetwork.setDeviceNumber(3);
+		
+		// create new network and swap containment
+		Network newNetwork = api.createNetwork().apply().get().getNetwork();
+		assertApplicable(api.moveAllComputers());
+		assertEquals(2, newNetwork.getDeviceNumber());
+		assertEquals(2, api.findDevice().bindNetwork(newNetwork).countMatches());
+		assertEquals(1, oldNetwork.getDeviceNumber());
+		assertEquals(1, api.findDevice().bindNetwork(oldNetwork).countMatches());
+		
+		assertApplicable(api.moveAllServers());
+		assertEquals(3, newNetwork.getDeviceNumber());
+		assertEquals(3, api.findDevice().bindNetwork(newNetwork).countMatches());
+		assertEquals(0, oldNetwork.getDeviceNumber());
+		assertEquals(0, api.findDevice().bindNetwork(oldNetwork).countMatches());
+		
+		api.terminate();
+	}
 }
 
 
