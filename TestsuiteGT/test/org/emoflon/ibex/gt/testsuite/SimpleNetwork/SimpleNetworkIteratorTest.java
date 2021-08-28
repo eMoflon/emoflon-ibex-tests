@@ -2,19 +2,23 @@ package org.emoflon.ibex.gt.testsuite.SimpleNetwork;
 
 import static org.junit.Assert.assertEquals;
 
+import org.emoflon.ibex.gt.testsuite.GTAppTestCase;
 import org.junit.Test;
 
 import SimpleNetwork.Network;
-import SimpleNetworkGraphTransformation.api.SimpleNetworkGraphTransformationAPI;
-import SimpleNetworkGraphTransformation.api.matches.ConnectMatch;
-import SimpleNetworkGraphTransformation.api.matches.GenerateDeviceMatch;
-import SimpleNetworkGraphTransformation.api.matches.TestFunctionsMatch;
+import SimpleNetworkGraphTransformation2.api.SimpleNetworkGraphTransformation2API;
 
-public class SimpleNetworkIteratorTest extends SimpleNetworkAbstractTest{
+public class SimpleNetworkIteratorTest extends SimpleNetworkAbstractTest2{
 	
 	@Test
 	public void checkIteration() {
-		SimpleNetworkGraphTransformationAPI api = this.init("SimpleNetwork1.xmi");	
+		SimpleNetworkGraphTransformation2API api = this.init("SimpleNetwork1.xmi");
+		// Skip if the engine is democles -> it does not work with some of these patterns -> See GT Rule file
+		if(engine == GTAppTestCase.PM_DEMOCLES) {
+			api.terminate();
+			return;
+		}
+		
 		//check model
 		Network oldNetwork = api.findNetwork().findAnyMatch().get().getNetwork();
 		assertEquals(3, oldNetwork.getDeviceNumber());
@@ -38,11 +42,19 @@ public class SimpleNetworkIteratorTest extends SimpleNetworkAbstractTest{
 		assertEquals(3, api.findDevice().bindNetwork(newNetwork).countMatches());
 		assertEquals(0, oldNetwork.getDeviceNumber());
 		assertEquals(0, api.findDevice().bindNetwork(oldNetwork).countMatches());
+		
+		api.terminate();
 	}
 	
 	@Test
 	public void checkIteration2() {
-		SimpleNetworkGraphTransformationAPI api = this.init("SimpleNetwork1.xmi");	
+		SimpleNetworkGraphTransformation2API api = this.init("SimpleNetwork1.xmi");
+		// Skip if the engine is democles -> it does not work with some of these patterns -> See GT Rule file
+		if(engine == GTAppTestCase.PM_DEMOCLES) {
+			api.terminate();
+			return;
+		}
+		
 		//check model
 		Network oldNetwork = api.findNetwork().findAnyMatch().get().getNetwork();
 		assertEquals(3, oldNetwork.getDeviceNumber());
@@ -66,11 +78,19 @@ public class SimpleNetworkIteratorTest extends SimpleNetworkAbstractTest{
 		assertEquals(3, api.findDevice().bindNetwork(newNetwork).countMatches());
 		assertEquals(0, oldNetwork.getDeviceNumber());
 		assertEquals(0, api.findDevice().bindNetwork(oldNetwork).countMatches());
+		
+		api.terminate();
 	}
 	
 	@Test
 	public void checkIteration3() {
-		SimpleNetworkGraphTransformationAPI api = this.init("SimpleNetwork1.xmi");	
+		SimpleNetworkGraphTransformation2API api = this.init("SimpleNetwork1.xmi");	
+		// Skip if the engine is democles -> it does not work with some of these patterns -> See GT Rule file
+		if(engine == GTAppTestCase.PM_DEMOCLES) {
+			api.terminate();
+			return;
+		}
+		
 		//check model
 		Network oldNetwork = api.findNetwork().findAnyMatch().get().getNetwork();
 		oldNetwork.setDeviceNumber(4);
@@ -121,6 +141,8 @@ public class SimpleNetworkIteratorTest extends SimpleNetworkAbstractTest{
 			assertApplicable(api.simpleConnect());
 		}
 		assertNotApplicable(api.simpleConnect());
+		
+		api.terminate();
 	}
 	
 }

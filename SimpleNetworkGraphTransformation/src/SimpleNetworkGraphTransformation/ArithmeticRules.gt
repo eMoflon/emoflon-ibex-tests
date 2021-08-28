@@ -121,8 +121,6 @@ pattern notDisjointtestConstraint2{
 	# device1.maxBandwidth != device2.maxBandwidth/device2.currentConnections+1
 }
 
-
-
 rule createNetwork {
 	++ network : Network
 }
@@ -189,92 +187,3 @@ pattern findNetworkFalse {
 	network : Network
 	# network.flag == false
 }
-
-rule moveAllDevices {
-	oldNetwork : Network {
-		forEach devices->dev {
-			-- oldNetwork-devices->dev
-			++ newNetwork-devices->dev
-			newNetwork.deviceNumber := newNetwork.deviceNumber + 1
-			oldNetwork.deviceNumber := oldNetwork.deviceNumber - 1
-		}     
-	}
-	# oldNetwork.deviceNumber  == 3
-	newNetwork : Network
-}
-
-rule moveAllDevices2 {
-	oldNetwork : Network {
-		forEach devices->dev {
-			-- oldNetwork-devices->dev
-			++ network-devices->dev
-			network.deviceNumber := network.deviceNumber + 1
-			oldNetwork.deviceNumber := oldNetwork.deviceNumber - 1
-		}     
-	}
-	
-	network : Network
-}when deviceNotInNetwork
-
-rule simpleConnect{
-	network: Network{
-		++ -connections -> newConnection
-	}
-	
-	from: Device
-	
-	to: Device
-	
-	++ newConnection: Connection{
-		++ -devices ->from
-		++ -devices ->to
-	}
-} when notConnected
-
-pattern findConnected() {
-	from: Device
-	
-	to: Device
-	
-	connection: Connection {
-		-devices -> from
-		-devices -> to
-	}
-}
-
-condition notConnected = forbid findConnected
-
-rule moveAllConnections {
-	oldNetwork : Network {
-		forEach connections->con {
-			-- oldNetwork-connections->con
-			++ network-connections->con
-		}     
-	}
-	network : Network
-} when noConnection
-
-condition noConnection = forbid findConnection
-
-rule isolateDevice {
-	device : Device {
-		forEach connections-> con {
-			-- device-connections->con
-		}
-	}
-	
-	connection : Connection {
-		-devices->device
-	}
-}
-
-rule removeDanglingConnection {
-	network : Network {
-		-- -connections->connection
-	}
-	-- connection : Connection
-} when notConnected
-
-pattern findIsolated() {
-	from: Device
-} when notConnected
