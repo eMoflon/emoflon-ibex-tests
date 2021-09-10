@@ -28,6 +28,32 @@ rule moveAllDevices2 {
 	network : Network
 } when deviceNotInNetwork
 
+rule moveAllComputers {
+	oldNetwork : Network {
+		forEach devices->dev <Computer> {
+			-- oldNetwork-devices->dev
+			++ network-devices->dev
+			network.deviceNumber := network.deviceNumber + 1
+			oldNetwork.deviceNumber := oldNetwork.deviceNumber - 1
+			iterator::dev.CPU_Cores := 4
+		}     
+	}
+	network : Network
+} when computerNotInNetwork
+
+rule moveAllServers {
+	oldNetwork : Network {
+		forEach devices->dev <Server> {
+			-- oldNetwork-devices->dev
+			++ network-devices->dev
+			network.deviceNumber := network.deviceNumber + 1
+			oldNetwork.deviceNumber := oldNetwork.deviceNumber - 1
+			iterator::dev.CPU_Sockets := 4
+		}     
+	}
+	network : Network
+} when serverNotInNetwork
+
 rule simpleConnect{
 	network: Network{
 		++ -connections -> newConnection

@@ -30,4 +30,10 @@
         upperBound="2" eType="#//Device" eOpposite="#//Device/connections"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="flag" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Computer" eSuperTypes="#//Device">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="CPU_Cores" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Server" eSuperTypes="#//Device">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="CPU_Sockets" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
 </ecore:EPackage>
