@@ -1,6 +1,5 @@
 package testsuite.ibex.Java2Doc.integrate;
 
-import static org.emoflon.ibex.tgg.operational.strategies.integrate.FragmentProvider.APPLY_USER_DELTA;
 import static org.emoflon.ibex.tgg.operational.strategies.integrate.FragmentProvider.CLEAN_UP;
 import static org.emoflon.ibex.tgg.operational.strategies.integrate.FragmentProvider.RESOLVE_BROKEN_MATCHES;
 import static org.emoflon.ibex.tgg.operational.strategies.integrate.FragmentProvider.RESOLVE_CONFLICTS;
@@ -15,7 +14,6 @@ import java.util.function.Consumer;
 
 import org.benchmarx.simpledoc.core.SimpleDocHelper;
 import org.benchmarx.simpledoc.core.SimpleJavaHelper;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.ibex.common.emf.EMFManipulationUtils;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.DeletePreserveConflict;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.resolution.util.CRSHelper;
@@ -51,8 +49,7 @@ public class DeletePreserve extends IntegrateTestCase<Package, Folder> {
 	}
 
 	private final IntegrationPattern pattern = new IntegrationPattern(Arrays.asList( //
-			APPLY_USER_DELTA //
-			, RESOLVE_CONFLICTS //
+			RESOLVE_CONFLICTS //
 			, RESOLVE_BROKEN_MATCHES //
 			, TRANSLATE //
 			, CLEAN_UP //

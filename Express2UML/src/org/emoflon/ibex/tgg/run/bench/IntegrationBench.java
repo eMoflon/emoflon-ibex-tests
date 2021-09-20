@@ -1,6 +1,5 @@
 package org.emoflon.ibex.tgg.run.bench;
 
-import static org.emoflon.ibex.tgg.operational.strategies.integrate.FragmentProvider.APPLY_USER_DELTA;
 import static org.emoflon.ibex.tgg.operational.strategies.integrate.FragmentProvider.CLEAN_UP;
 import static org.emoflon.ibex.tgg.operational.strategies.integrate.FragmentProvider.RESOLVE_BROKEN_MATCHES;
 import static org.emoflon.ibex.tgg.operational.strategies.integrate.FragmentProvider.RESOLVE_CONFLICTS;
@@ -52,13 +51,7 @@ import Express2UML.SchemaContainer2UMLContainer__Marker;
 import Express2UML.StringAttribute2String__Marker;
 import Express2UML.StringTypeAttribute2String;
 import Express2UML.SubEntity2SubClazz__Marker;
-import Express2UML.integrate.bench.bench10.Bench10ConflictResolver;
-import Express2UML.integrate.bench.bench20.Bench20ConflictResolver;
-import Express2UML.integrate.bench.bench30.Bench30ConflictResolver;
-import Express2UML.integrate.bench.bench40.Bench40ConflictResolver;
-import Express2UML.integrate.bench.bench50.Bench50ConflictResolver;
 import Express2UML.integrate.bench.benchFirst.BenchFirstConflictResolver;
-import Express2UML.integrate.bench.benchSingleOperationalDelta.BenchSingleOperationalDeltaConflictResolver;
 import uml.Clazz;
 import uml.Integer;
 import uml.Method;
@@ -103,7 +96,7 @@ public class IntegrationBench {
 	private boolean horizontal;
 	private long integrateTime;
 
-	private final List<IntegrationFragment> patternFragments = Arrays.asList(APPLY_USER_DELTA, //
+	private final List<IntegrationFragment> patternFragments = Arrays.asList( //
 			RESOLVE_CONFLICTS, //
 			TRANSLATE, //
 			RESOLVE_BROKEN_MATCHES, //

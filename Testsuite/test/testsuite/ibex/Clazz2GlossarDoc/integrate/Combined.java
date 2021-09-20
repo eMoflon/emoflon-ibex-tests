@@ -1,6 +1,5 @@
 package testsuite.ibex.Clazz2GlossarDoc.integrate;
 
-import static org.emoflon.ibex.tgg.operational.strategies.integrate.FragmentProvider.APPLY_USER_DELTA;
 import static org.emoflon.ibex.tgg.operational.strategies.integrate.FragmentProvider.CLEAN_UP;
 import static org.emoflon.ibex.tgg.operational.strategies.integrate.FragmentProvider.REPAIR;
 import static org.emoflon.ibex.tgg.operational.strategies.integrate.FragmentProvider.RESOLVE_BROKEN_MATCHES;
@@ -9,7 +8,6 @@ import static org.emoflon.ibex.tgg.operational.strategies.integrate.FragmentProv
 
 import java.util.Arrays;
 
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.ibex.common.emf.EMFManipulationUtils;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.resolution.util.ConflictResolver;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.pattern.IntegrationPattern;
@@ -53,8 +51,7 @@ public class Combined extends IntegrateTestCase<ClazzContainer, DocumentationCon
 	private final String testpath = "integ/expected/combined/";
 
 	private final IntegrationPattern pattern = new IntegrationPattern(Arrays.asList( //
-			APPLY_USER_DELTA //
-			, REPAIR //
+			REPAIR //
 			, RESOLVE_CONFLICTS //
 			, RESOLVE_BROKEN_MATCHES //
 			, TRANSLATE //
