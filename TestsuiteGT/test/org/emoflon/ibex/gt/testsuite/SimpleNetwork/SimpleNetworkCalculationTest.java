@@ -189,6 +189,5 @@ public class SimpleNetworkCalculationTest extends SimpleNetworkAbstractTest{
 		
 		api.terminate();
 	}
+
 }
-
-
