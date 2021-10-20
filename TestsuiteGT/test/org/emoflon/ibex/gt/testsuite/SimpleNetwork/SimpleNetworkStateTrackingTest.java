@@ -12,6 +12,7 @@ import java.util.stream.Collectors;
 import org.emoflon.ibex.common.operational.IMatch;
 import org.emoflon.ibex.gt.api.GraphTransformationPattern;
 import org.emoflon.ibex.gt.StateModel.State;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import SimpleNetwork.Device;
@@ -229,6 +230,7 @@ public class SimpleNetworkStateTrackingTest extends SimpleNetworkAbstractTest{
 		api.deactivateModelStatesTracking();
 	}
 	
+	@Ignore
 	@Test
 	public void checkStateIdentityTracking1() {
 		SimpleNetworkGraphTransformationAPI api = this.init("SimpleNetwork1.xmi");
