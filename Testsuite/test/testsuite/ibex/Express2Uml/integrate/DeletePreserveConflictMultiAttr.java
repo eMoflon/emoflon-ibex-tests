@@ -45,8 +45,7 @@ public class DeletePreserveConflictMultiAttr extends IntegrateTestCase<SchemaCon
 			EcoreUtil.delete(pkg.getClazzes().get(0));
 		});
 
-		final String path = "integ/expected/delete_preserve_conflict/multi_attr/";
-		assertCondition(path + "src", path + "trg", path + "corr");
+		assertCondition("integ/expected/delete_preserve_conflict/multi_attr/");
 	}
 
 }

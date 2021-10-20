@@ -149,13 +149,22 @@ public interface ExtTypeModelPackage extends EPackage {
 	int PACKAGE__FQNAME = NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Project</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE__PROJECT = NAMED_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Package</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 4;
+	int PACKAGE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of operations of the '<em>Package</em>' class.
@@ -295,13 +304,13 @@ public interface ExtTypeModelPackage extends EPackage {
 	int METHOD__TYPE = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Doc</b></em>' containment reference.
+	 * The feature id for the '<em><b>Docs</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int METHOD__DOC = NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int METHOD__DOCS = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Method</em>' class.
@@ -460,6 +469,43 @@ public interface ExtTypeModelPackage extends EPackage {
 	int JAVA_DOC_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link ExtTypeModel.impl.ProjectImpl <em>Project</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ExtTypeModel.impl.ProjectImpl
+	 * @see ExtTypeModel.impl.ExtTypeModelPackageImpl#getProject()
+	 * @generated
+	 */
+	int PROJECT = 7;
+
+	/**
+	 * The feature id for the '<em><b>Root Packages</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROJECT__ROOT_PACKAGES = 0;
+
+	/**
+	 * The number of structural features of the '<em>Project</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROJECT_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Project</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROJECT_OPERATION_COUNT = 0;
+
+	/**
 	 * Returns the meta object for class '{@link ExtTypeModel.NamedElement <em>Named Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -533,6 +579,17 @@ public interface ExtTypeModelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getPackage_FQname();
+
+	/**
+	 * Returns the meta object for the container reference '{@link ExtTypeModel.Package#getProject <em>Project</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Project</em>'.
+	 * @see ExtTypeModel.Package#getProject()
+	 * @see #getPackage()
+	 * @generated
+	 */
+	EReference getPackage_Project();
 
 	/**
 	 * Returns the meta object for class '{@link ExtTypeModel.Type <em>Type</em>}'.
@@ -643,15 +700,15 @@ public interface ExtTypeModelPackage extends EPackage {
 	EReference getMethod_Type();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link ExtTypeModel.Method#getDoc <em>Doc</em>}'.
+	 * Returns the meta object for the containment reference list '{@link ExtTypeModel.Method#getDocs <em>Docs</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Doc</em>'.
-	 * @see ExtTypeModel.Method#getDoc()
+	 * @return the meta object for the containment reference list '<em>Docs</em>'.
+	 * @see ExtTypeModel.Method#getDocs()
 	 * @see #getMethod()
 	 * @generated
 	 */
-	EReference getMethod_Doc();
+	EReference getMethod_Docs();
 
 	/**
 	 * Returns the meta object for class '{@link ExtTypeModel.Parameter <em>Parameter</em>}'.
@@ -726,6 +783,27 @@ public interface ExtTypeModelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getJavaDoc_Method();
+
+	/**
+	 * Returns the meta object for class '{@link ExtTypeModel.Project <em>Project</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Project</em>'.
+	 * @see ExtTypeModel.Project
+	 * @generated
+	 */
+	EClass getProject();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link ExtTypeModel.Project#getRootPackages <em>Root Packages</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Root Packages</em>'.
+	 * @see ExtTypeModel.Project#getRootPackages()
+	 * @see #getProject()
+	 * @generated
+	 */
+	EReference getProject_RootPackages();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -809,6 +887,14 @@ public interface ExtTypeModelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute PACKAGE__FQNAME = eINSTANCE.getPackage_FQname();
+
+		/**
+		 * The meta object literal for the '<em><b>Project</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PACKAGE__PROJECT = eINSTANCE.getPackage_Project();
 
 		/**
 		 * The meta object literal for the '{@link ExtTypeModel.impl.TypeImpl <em>Type</em>}' class.
@@ -895,12 +981,12 @@ public interface ExtTypeModelPackage extends EPackage {
 		EReference METHOD__TYPE = eINSTANCE.getMethod_Type();
 
 		/**
-		 * The meta object literal for the '<em><b>Doc</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Docs</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference METHOD__DOC = eINSTANCE.getMethod_Doc();
+		EReference METHOD__DOCS = eINSTANCE.getMethod_Docs();
 
 		/**
 		 * The meta object literal for the '{@link ExtTypeModel.impl.ParameterImpl <em>Parameter</em>}' class.
@@ -963,6 +1049,24 @@ public interface ExtTypeModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference JAVA_DOC__METHOD = eINSTANCE.getJavaDoc_Method();
+
+		/**
+		 * The meta object literal for the '{@link ExtTypeModel.impl.ProjectImpl <em>Project</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ExtTypeModel.impl.ProjectImpl
+		 * @see ExtTypeModel.impl.ExtTypeModelPackageImpl#getProject()
+		 * @generated
+		 */
+		EClass PROJECT = eINSTANCE.getProject();
+
+		/**
+		 * The meta object literal for the '<em><b>Root Packages</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROJECT__ROOT_PACKAGES = eINSTANCE.getProject_RootPackages();
 
 	}
 

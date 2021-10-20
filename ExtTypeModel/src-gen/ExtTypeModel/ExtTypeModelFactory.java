@@ -76,6 +76,15 @@ public interface ExtTypeModelFactory extends EFactory {
 	JavaDoc createJavaDoc();
 
 	/**
+	 * Returns a new object of class '<em>Project</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Project</em>'.
+	 * @generated
+	 */
+	Project createProject();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

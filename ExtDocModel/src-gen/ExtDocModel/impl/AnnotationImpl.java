@@ -99,22 +99,19 @@ public class AnnotationImpl extends MinimalEObjectImpl.Container implements Anno
 	 */
 	@Override
 	public void setEntry(Entry newEntry) {
-		if (newEntry != eInternalContainer()
-				|| (eContainerFeatureID() != ExtDocModelPackage.ANNOTATION__ENTRY && newEntry != null)) {
+		if (newEntry != eInternalContainer() || (eContainerFeatureID() != ExtDocModelPackage.ANNOTATION__ENTRY && newEntry != null)) {
 			if (EcoreUtil.isAncestor(this, newEntry))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newEntry != null)
-				msgs = ((InternalEObject) newEntry).eInverseAdd(this, ExtDocModelPackage.ENTRY__ANNOTATION, Entry.class,
-						msgs);
+				msgs = ((InternalEObject) newEntry).eInverseAdd(this, ExtDocModelPackage.ENTRY__ANNOTATIONS, Entry.class, msgs);
 			msgs = basicSetEntry(newEntry, msgs);
 			if (msgs != null)
 				msgs.dispatch();
 		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ExtDocModelPackage.ANNOTATION__ENTRY, newEntry,
-					newEntry));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExtDocModelPackage.ANNOTATION__ENTRY, newEntry, newEntry));
 	}
 
 	/**
@@ -137,8 +134,7 @@ public class AnnotationImpl extends MinimalEObjectImpl.Container implements Anno
 		String oldValue = value;
 		value = newValue;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ExtDocModelPackage.ANNOTATION__VALUE, oldValue,
-					value));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExtDocModelPackage.ANNOTATION__VALUE, oldValue, value));
 	}
 
 	/**
@@ -180,7 +176,7 @@ public class AnnotationImpl extends MinimalEObjectImpl.Container implements Anno
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
 		case ExtDocModelPackage.ANNOTATION__ENTRY:
-			return eInternalContainer().eInverseRemove(this, ExtDocModelPackage.ENTRY__ANNOTATION, Entry.class, msgs);
+			return eInternalContainer().eInverseRemove(this, ExtDocModelPackage.ENTRY__ANNOTATIONS, Entry.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}

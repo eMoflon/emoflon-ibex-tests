@@ -8,6 +8,7 @@ import ExtTypeModel.Field;
 import ExtTypeModel.JavaDoc;
 import ExtTypeModel.Method;
 import ExtTypeModel.Parameter;
+import ExtTypeModel.Project;
 import ExtTypeModel.Type;
 
 import org.eclipse.emf.ecore.EClass;
@@ -33,8 +34,7 @@ public class ExtTypeModelFactoryImpl extends EFactoryImpl implements ExtTypeMode
 	 */
 	public static ExtTypeModelFactory init() {
 		try {
-			ExtTypeModelFactory theExtTypeModelFactory = (ExtTypeModelFactory) EPackage.Registry.INSTANCE
-					.getEFactory(ExtTypeModelPackage.eNS_URI);
+			ExtTypeModelFactory theExtTypeModelFactory = (ExtTypeModelFactory) EPackage.Registry.INSTANCE.getEFactory(ExtTypeModelPackage.eNS_URI);
 			if (theExtTypeModelFactory != null) {
 				return theExtTypeModelFactory;
 			}
@@ -74,6 +74,8 @@ public class ExtTypeModelFactoryImpl extends EFactoryImpl implements ExtTypeMode
 			return createField();
 		case ExtTypeModelPackage.JAVA_DOC:
 			return createJavaDoc();
+		case ExtTypeModelPackage.PROJECT:
+			return createProject();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -143,6 +145,17 @@ public class ExtTypeModelFactoryImpl extends EFactoryImpl implements ExtTypeMode
 	public JavaDoc createJavaDoc() {
 		JavaDocImpl javaDoc = new JavaDocImpl();
 		return javaDoc;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Project createProject() {
+		ProjectImpl project = new ProjectImpl();
+		return project;
 	}
 
 	/**

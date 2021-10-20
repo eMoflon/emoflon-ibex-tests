@@ -34,6 +34,7 @@ public class SimpleNetworkCalculationTest extends SimpleNetworkAbstractTest{
 		assertNoMatch(api.generateDevice());
 		assertMatchCount(0, api.generateDevice());
 		
+		api.terminate();
 	}
 	
 	@Test
@@ -52,6 +53,7 @@ public class SimpleNetworkCalculationTest extends SimpleNetworkAbstractTest{
 		api.connect().apply();
 		assertNoMatch(api.connect());
 		
+		api.terminate();
 	}
 	
 	@Test
@@ -67,7 +69,7 @@ public class SimpleNetworkCalculationTest extends SimpleNetworkAbstractTest{
 		assertEquals(Math.round(Math.tan(10.0)), match.getDevice2().getFlag());
 		assertEquals(Math.exp(-4.0), match.getDevice2().getOtherValue(), 0.00000001);
 
-		
+		api.terminate();
 	}
 	@Test
 	public void checkConstraints() {
@@ -77,7 +79,9 @@ public class SimpleNetworkCalculationTest extends SimpleNetworkAbstractTest{
 		assertMatchCount(3, api.testConstraint1());
 		assertNoMatch(api.testConstraint2());	
 		assertMatchCount(3, api.notDisjointtestConstraint1());
-		assertNoMatch(api.notDisjointtestConstraint2());	
+		assertNoMatch(api.notDisjointtestConstraint2());
+		
+		api.terminate();
 	}
 	
 	@Test(expected = IllegalArgumentException.class)
@@ -103,6 +107,8 @@ public class SimpleNetworkCalculationTest extends SimpleNetworkAbstractTest{
 		//test that divide by zero throws a exception
 		SimpleNetworkGraphTransformationAPI api = this.init("SimpleNetwork2.xmi");
 		api.testException4().apply();
+		
+		api.terminate();
 	}
 	
 	@Test
@@ -136,6 +142,8 @@ public class SimpleNetworkCalculationTest extends SimpleNetworkAbstractTest{
 		assertMatchCount(2, api.testConstraint3());
 		assertEquals(3, network1.getDeviceNumber());
 		assertEquals(0, network2.getDeviceNumber());
+		
+		api.terminate();
 	}
 	
 	@Test
@@ -161,6 +169,8 @@ public class SimpleNetworkCalculationTest extends SimpleNetworkAbstractTest{
 		assertMatchCount(0, api.findDevice().bindNetwork(network2));
 		assertMatchCount(1, api.findNetworkWithMoreThan2Devices());
 		assertMatchCount(1, api.findNetworkWithLessThan2Devices());
+		
+		api.terminate();
 	}
 	
 	@Test
@@ -176,6 +186,8 @@ public class SimpleNetworkCalculationTest extends SimpleNetworkAbstractTest{
 		
 		assertMatchCount(1, api.findNetworkFalse());
 		assertMatchCount(1, api.findNetworkTrue());
+		
+		api.terminate();
 	}
 
 }

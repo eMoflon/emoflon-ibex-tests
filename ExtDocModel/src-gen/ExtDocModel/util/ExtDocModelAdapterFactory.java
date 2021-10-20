@@ -72,8 +72,8 @@ public class ExtDocModelAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseDocContainer(DocContainer object) {
-			return createDocContainerAdapter();
+		public Adapter caseFolder(Folder object) {
+			return createFolderAdapter();
 		}
 
 		@Override
@@ -99,6 +99,11 @@ public class ExtDocModelAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseGlossaryEntry(GlossaryEntry object) {
 			return createGlossaryEntryAdapter();
+		}
+
+		@Override
+		public Adapter caseDocContainer(DocContainer object) {
+			return createDocContainerAdapter();
 		}
 
 		@Override
@@ -131,6 +136,20 @@ public class ExtDocModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createNamedElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ExtDocModel.Folder <em>Folder</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ExtDocModel.Folder
+	 * @generated
+	 */
+	public Adapter createFolderAdapter() {
 		return null;
 	}
 

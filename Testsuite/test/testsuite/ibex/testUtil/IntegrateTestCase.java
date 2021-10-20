@@ -23,7 +23,7 @@ public abstract class IntegrateTestCase<S extends EObject, T extends EObject> ex
 		// Initialise the bx tool
 		tool.ilpSolver = this.ilpSolver;
 		tool.initiateIntegrationDialogue();
-		
+
 		// Initialise all helpers
 		initHelpers();
 	}
@@ -38,11 +38,14 @@ public abstract class IntegrateTestCase<S extends EObject, T extends EObject> ex
 	protected abstract String getProjectName();
 
 	@SuppressWarnings("unchecked")
-	protected void assertCondition(String src, String trg, String corr) {
+	protected void assertCondition(String folderPathToExpectedModels) {
 		try {
-			Resource rSrc = tool.getOptions().resourceHandler().loadResource(resourcePath + src + ".xmi");
-			Resource rTrg = tool.getOptions().resourceHandler().loadResource(resourcePath + trg + ".xmi");
-			Resource rCorr = tool.getOptions().resourceHandler().loadResource(resourcePath + corr + ".xmi");
+			Resource rSrc = tool.getOptions().resourceHandler()
+					.loadResource(resourcePath + folderPathToExpectedModels + "src.xmi");
+			Resource rTrg = tool.getOptions().resourceHandler()
+					.loadResource(resourcePath + folderPathToExpectedModels + "trg.xmi");
+			Resource rCorr = tool.getOptions().resourceHandler()
+					.loadResource(resourcePath + folderPathToExpectedModels + "corr.xmi");
 			EcoreUtil.resolveAll(tool.getResourceSet());
 
 			tool.assertPostcondition((S) rSrc.getContents().get(0), (T) rTrg.getContents().get(0));

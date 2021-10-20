@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -34,7 +35,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link ExtDocModel.impl.EntryImpl#getDoc <em>Doc</em>}</li>
- *   <li>{@link ExtDocModel.impl.EntryImpl#getAnnotation <em>Annotation</em>}</li>
+ *   <li>{@link ExtDocModel.impl.EntryImpl#getAnnotations <em>Annotations</em>}</li>
  *   <li>{@link ExtDocModel.impl.EntryImpl#getGlossaryEntries <em>Glossary Entries</em>}</li>
  *   <li>{@link ExtDocModel.impl.EntryImpl#getType <em>Type</em>}</li>
  * </ul>
@@ -43,14 +44,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class EntryImpl extends NamedElementImpl implements Entry {
 	/**
-	 * The cached value of the '{@link #getAnnotation() <em>Annotation</em>}' containment reference.
+	 * The cached value of the '{@link #getAnnotations() <em>Annotations</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getAnnotation()
+	 * @see #getAnnotations()
 	 * @generated
 	 * @ordered
 	 */
-	protected Annotation annotation;
+	protected EList<Annotation> annotations;
 
 	/**
 	 * The cached value of the '{@link #getGlossaryEntries() <em>Glossary Entries</em>}' reference list.
@@ -130,8 +131,7 @@ public class EntryImpl extends NamedElementImpl implements Entry {
 	 */
 	@Override
 	public void setDoc(Doc newDoc) {
-		if (newDoc != eInternalContainer()
-				|| (eContainerFeatureID() != ExtDocModelPackage.ENTRY__DOC && newDoc != null)) {
+		if (newDoc != eInternalContainer() || (eContainerFeatureID() != ExtDocModelPackage.ENTRY__DOC && newDoc != null)) {
 			if (EcoreUtil.isAncestor(this, newDoc))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
@@ -152,50 +152,12 @@ public class EntryImpl extends NamedElementImpl implements Entry {
 	 * @generated
 	 */
 	@Override
-	public Annotation getAnnotation() {
-		return annotation;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetAnnotation(Annotation newAnnotation, NotificationChain msgs) {
-		Annotation oldAnnotation = annotation;
-		annotation = newAnnotation;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					ExtDocModelPackage.ENTRY__ANNOTATION, oldAnnotation, newAnnotation);
-			if (msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
+	public EList<Annotation> getAnnotations() {
+		if (annotations == null) {
+			annotations = new EObjectContainmentWithInverseEList<Annotation>(Annotation.class, this, ExtDocModelPackage.ENTRY__ANNOTATIONS,
+					ExtDocModelPackage.ANNOTATION__ENTRY);
 		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setAnnotation(Annotation newAnnotation) {
-		if (newAnnotation != annotation) {
-			NotificationChain msgs = null;
-			if (annotation != null)
-				msgs = ((InternalEObject) annotation).eInverseRemove(this, ExtDocModelPackage.ANNOTATION__ENTRY,
-						Annotation.class, msgs);
-			if (newAnnotation != null)
-				msgs = ((InternalEObject) newAnnotation).eInverseAdd(this, ExtDocModelPackage.ANNOTATION__ENTRY,
-						Annotation.class, msgs);
-			msgs = basicSetAnnotation(newAnnotation, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ExtDocModelPackage.ENTRY__ANNOTATION, newAnnotation,
-					newAnnotation));
+		return annotations;
 	}
 
 	/**
@@ -248,11 +210,8 @@ public class EntryImpl extends NamedElementImpl implements Entry {
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			return basicSetDoc((Doc) otherEnd, msgs);
-		case ExtDocModelPackage.ENTRY__ANNOTATION:
-			if (annotation != null)
-				msgs = ((InternalEObject) annotation).eInverseRemove(this,
-						EOPPOSITE_FEATURE_BASE - ExtDocModelPackage.ENTRY__ANNOTATION, null, msgs);
-			return basicSetAnnotation((Annotation) otherEnd, msgs);
+		case ExtDocModelPackage.ENTRY__ANNOTATIONS:
+			return ((InternalEList<InternalEObject>) (InternalEList<?>) getAnnotations()).basicAdd(otherEnd, msgs);
 		case ExtDocModelPackage.ENTRY__GLOSSARY_ENTRIES:
 			return ((InternalEList<InternalEObject>) (InternalEList<?>) getGlossaryEntries()).basicAdd(otherEnd, msgs);
 		}
@@ -269,8 +228,8 @@ public class EntryImpl extends NamedElementImpl implements Entry {
 		switch (featureID) {
 		case ExtDocModelPackage.ENTRY__DOC:
 			return basicSetDoc(null, msgs);
-		case ExtDocModelPackage.ENTRY__ANNOTATION:
-			return basicSetAnnotation(null, msgs);
+		case ExtDocModelPackage.ENTRY__ANNOTATIONS:
+			return ((InternalEList<?>) getAnnotations()).basicRemove(otherEnd, msgs);
 		case ExtDocModelPackage.ENTRY__GLOSSARY_ENTRIES:
 			return ((InternalEList<?>) getGlossaryEntries()).basicRemove(otherEnd, msgs);
 		}
@@ -301,8 +260,8 @@ public class EntryImpl extends NamedElementImpl implements Entry {
 		switch (featureID) {
 		case ExtDocModelPackage.ENTRY__DOC:
 			return getDoc();
-		case ExtDocModelPackage.ENTRY__ANNOTATION:
-			return getAnnotation();
+		case ExtDocModelPackage.ENTRY__ANNOTATIONS:
+			return getAnnotations();
 		case ExtDocModelPackage.ENTRY__GLOSSARY_ENTRIES:
 			return getGlossaryEntries();
 		case ExtDocModelPackage.ENTRY__TYPE:
@@ -323,8 +282,9 @@ public class EntryImpl extends NamedElementImpl implements Entry {
 		case ExtDocModelPackage.ENTRY__DOC:
 			setDoc((Doc) newValue);
 			return;
-		case ExtDocModelPackage.ENTRY__ANNOTATION:
-			setAnnotation((Annotation) newValue);
+		case ExtDocModelPackage.ENTRY__ANNOTATIONS:
+			getAnnotations().clear();
+			getAnnotations().addAll((Collection<? extends Annotation>) newValue);
 			return;
 		case ExtDocModelPackage.ENTRY__GLOSSARY_ENTRIES:
 			getGlossaryEntries().clear();
@@ -348,8 +308,8 @@ public class EntryImpl extends NamedElementImpl implements Entry {
 		case ExtDocModelPackage.ENTRY__DOC:
 			setDoc((Doc) null);
 			return;
-		case ExtDocModelPackage.ENTRY__ANNOTATION:
-			setAnnotation((Annotation) null);
+		case ExtDocModelPackage.ENTRY__ANNOTATIONS:
+			getAnnotations().clear();
 			return;
 		case ExtDocModelPackage.ENTRY__GLOSSARY_ENTRIES:
 			getGlossaryEntries().clear();
@@ -371,8 +331,8 @@ public class EntryImpl extends NamedElementImpl implements Entry {
 		switch (featureID) {
 		case ExtDocModelPackage.ENTRY__DOC:
 			return getDoc() != null;
-		case ExtDocModelPackage.ENTRY__ANNOTATION:
-			return annotation != null;
+		case ExtDocModelPackage.ENTRY__ANNOTATIONS:
+			return annotations != null && !annotations.isEmpty();
 		case ExtDocModelPackage.ENTRY__GLOSSARY_ENTRIES:
 			return glossaryEntries != null && !glossaryEntries.isEmpty();
 		case ExtDocModelPackage.ENTRY__TYPE:

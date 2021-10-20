@@ -28,6 +28,10 @@ import org.emoflon.ibex.gt.viatra.runtime.ViatraGTEngine;
  *            the API to test
  */
 public abstract class GTAppTestCase<App extends GraphTransformationApp<API>, API extends GraphTransformationAPI> {
+	final public static String PM_DEMOCLES = "Democles";
+	final public static String PM_VIATRA = "Viatra";
+	final public static String PM_HIPE = "HiPE";
+	final public static String PM_DEFAULT = PM_HIPE;
 	/**
 	 * Relative path to the directory with the projects with the graph
 	 * transformation rules.
@@ -70,24 +74,23 @@ public abstract class GTAppTestCase<App extends GraphTransformationApp<API>, API
 		String patternMatcher;
 		IContextPatternInterpreter engine;
 		try {
-			
 			patternMatcher = System.getenv("patternMatcher");
 			switch(patternMatcher) {
-			case "Democles": 
+			case PM_DEMOCLES: 
 				engine = new DemoclesGTEngine();
 				break;
-			case "HiPE": 			
+			case PM_HIPE: 			
 				engine = new HiPEGTEngine();
 				break;
-			case "Viatra":
+			case PM_VIATRA:
 				engine = new ViatraGTEngine();
 				break;
 			default: throw new RuntimeException(patternMatcher + " is not a supported as a pattern matcher!");
 			}
 		}
 		catch (Exception e) {
-			System.err.println("Pattern Matcher is not specified. Defaulting to Democles");
-			engine = new DemoclesGTEngine();
+			System.err.println("Pattern Matcher is not specified. Defaulting to "+PM_DEFAULT);
+			engine = new HiPEGTEngine();
 		}
 		
 		engine.setDebugPath("./debug/" + this.getTestName());

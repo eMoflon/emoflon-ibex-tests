@@ -22,6 +22,15 @@ public interface ExtDocModelFactory extends EFactory {
 	ExtDocModelFactory eINSTANCE = ExtDocModel.impl.ExtDocModelFactoryImpl.init();
 
 	/**
+	 * Returns a new object of class '<em>Folder</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Folder</em>'.
+	 * @generated
+	 */
+	Folder createFolder();
+
+	/**
 	 * Returns a new object of class '<em>Doc Container</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

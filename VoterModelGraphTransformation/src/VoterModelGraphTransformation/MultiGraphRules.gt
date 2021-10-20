@@ -1,0 +1,87 @@
+import "platform:/resource/GroupVotersModel/model/GroupVotersModel.ecore"
+
+/*
+	Adopt is the same in all variants, rewire has three versions 
+		
+	- multigraph - parallel links allowed : rewireToSameMulti 
+	
+	- restricted simple - prevent rewire from creating parallel link : rewireToSameRestricted 
+	
+	- idempotent simple - use rewireToSameRestricted (not yet linked with chosen new agent) or rewireToSameIdempotent (already linked to chosen new agent)
+*/
+
+rule adopt1MG() {
+	g:Group
+	v1:Voter {
+		-member-> g
+	}
+	v2:Voter {
+		-member-> g
+		.vote := 1
+	}
+	# v1.vote == 1
+	# v2.vote == 0
+} @ 0.999 / 2.0
+
+rule adopt2MG() {
+	g:Group
+	v1:Voter {
+		-member-> g
+		.vote := 0
+	}
+	v2:Voter {
+		-member-> g
+	}
+	# v1.vote == 1
+	# v2.vote == 0
+} @ 0.999 / 2.0
+
+rule rewireToSame1MG() {
+	container : GroupVotersContainer {
+		-- -group->g1
+		++ -group->g2
+	}
+	-- g1:Group
+	++ g2:Group {
+		.id := g1.id+1000
+	}
+	v1:Voter {
+	--	-member-> g1	
+	++	-member-> g2
+	}
+	v2:Voter {
+	-- -member-> g1
+	}
+	v3:Voter {
+	++ -member-> g2
+	}
+	# v1.vote == 1
+	# v2.vote == 0
+	# v3.vote == 1
+} @ 0.001 / 2.0
+
+rule rewireToSame2MG() {
+	container : GroupVotersContainer {
+		-- -group->g1
+		++ -group->g2
+	}
+	-- g1:Group
+	++ g2:Group {
+		.id := g1.id+1000
+	}
+	v1:Voter {
+	--	-member-> g1
+	}
+	v2:Voter {
+	-- -member-> g1
+	++	-member-> g2
+	}
+	v3:Voter {
+	++ -member-> g2
+	}
+	# v1.vote == 1
+	# v2.vote == 0
+	# v3.vote == 0
+} @ 0.001 / 2.0
+
+

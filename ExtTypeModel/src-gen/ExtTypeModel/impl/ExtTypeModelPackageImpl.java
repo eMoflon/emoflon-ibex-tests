@@ -9,6 +9,7 @@ import ExtTypeModel.JavaDoc;
 import ExtTypeModel.Method;
 import ExtTypeModel.NamedElement;
 import ExtTypeModel.Parameter;
+import ExtTypeModel.Project;
 import ExtTypeModel.Type;
 
 import org.eclipse.emf.ecore.EAttribute;
@@ -73,6 +74,13 @@ public class ExtTypeModelPackageImpl extends EPackageImpl implements ExtTypeMode
 	 * @generated
 	 */
 	private EClass javaDocEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass projectEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -214,6 +222,16 @@ public class ExtTypeModelPackageImpl extends EPackageImpl implements ExtTypeMode
 	 * @generated
 	 */
 	@Override
+	public EReference getPackage_Project() {
+		return (EReference) packageEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getType() {
 		return typeEClass;
 	}
@@ -314,7 +332,7 @@ public class ExtTypeModelPackageImpl extends EPackageImpl implements ExtTypeMode
 	 * @generated
 	 */
 	@Override
-	public EReference getMethod_Doc() {
+	public EReference getMethod_Docs() {
 		return (EReference) methodEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -394,6 +412,26 @@ public class ExtTypeModelPackageImpl extends EPackageImpl implements ExtTypeMode
 	 * @generated
 	 */
 	@Override
+	public EClass getProject() {
+		return projectEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getProject_RootPackages() {
+		return (EReference) projectEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public ExtTypeModelFactory getExtTypeModelFactory() {
 		return (ExtTypeModelFactory) getEFactoryInstance();
 	}
@@ -426,6 +464,7 @@ public class ExtTypeModelPackageImpl extends EPackageImpl implements ExtTypeMode
 		createEReference(packageEClass, PACKAGE__SUPER_PACKAGE);
 		createEReference(packageEClass, PACKAGE__TYPES);
 		createEAttribute(packageEClass, PACKAGE__FQNAME);
+		createEReference(packageEClass, PACKAGE__PROJECT);
 
 		typeEClass = createEClass(TYPE);
 		createEAttribute(typeEClass, TYPE__INTERFACE);
@@ -438,7 +477,7 @@ public class ExtTypeModelPackageImpl extends EPackageImpl implements ExtTypeMode
 		methodEClass = createEClass(METHOD);
 		createEReference(methodEClass, METHOD__PARAMS);
 		createEReference(methodEClass, METHOD__TYPE);
-		createEReference(methodEClass, METHOD__DOC);
+		createEReference(methodEClass, METHOD__DOCS);
 
 		parameterEClass = createEClass(PARAMETER);
 		createEReference(parameterEClass, PARAMETER__METHOD);
@@ -449,6 +488,9 @@ public class ExtTypeModelPackageImpl extends EPackageImpl implements ExtTypeMode
 		javaDocEClass = createEClass(JAVA_DOC);
 		createEAttribute(javaDocEClass, JAVA_DOC__COMMENT);
 		createEReference(javaDocEClass, JAVA_DOC__METHOD);
+
+		projectEClass = createEClass(PROJECT);
+		createEReference(projectEClass, PROJECT__ROOT_PACKAGES);
 	}
 
 	/**
@@ -487,72 +529,61 @@ public class ExtTypeModelPackageImpl extends EPackageImpl implements ExtTypeMode
 		fieldEClass.getESuperTypes().add(this.getNamedElement());
 
 		// Initialize classes, features, and operations; add parameters
-		initEClass(namedElementEClass, NamedElement.class, "NamedElement", IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getNamedElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, NamedElement.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(namedElementEClass, NamedElement.class, "NamedElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getNamedElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, NamedElement.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(packageEClass, ExtTypeModel.Package.class, "Package", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPackage_SubPackages(), this.getPackage(), this.getPackage_SuperPackage(), "subPackages", null,
-				0, -1, ExtTypeModel.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPackage_SuperPackage(), this.getPackage(), this.getPackage_SubPackages(), "superPackage",
-				null, 0, 1, ExtTypeModel.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPackage_Types(), this.getType(), this.getType_Package(), "types", null, 0, -1,
-				ExtTypeModel.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPackage_FQname(), ecorePackage.getEString(), "fQname", null, 0, 1, ExtTypeModel.Package.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(packageEClass, ExtTypeModel.Package.class, "Package", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getPackage_SubPackages(), this.getPackage(), this.getPackage_SuperPackage(), "subPackages", null, 0, -1, ExtTypeModel.Package.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPackage_SuperPackage(), this.getPackage(), this.getPackage_SubPackages(), "superPackage", null, 0, 1, ExtTypeModel.Package.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPackage_Types(), this.getType(), this.getType_Package(), "types", null, 0, -1, ExtTypeModel.Package.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPackage_FQname(), ecorePackage.getEString(), "fQname", null, 0, 1, ExtTypeModel.Package.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPackage_Project(), this.getProject(), this.getProject_RootPackages(), "project", null, 0, 1, ExtTypeModel.Package.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(typeEClass, Type.class, "Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getType_Interface(), ecorePackage.getEBoolean(), "interface", null, 0, 1, Type.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getType_ExtendedBy(), this.getType(), this.getType_InheritsFrom(), "extendedBy", null, 0, -1,
-				Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getType_InheritsFrom(), this.getType(), this.getType_ExtendedBy(), "inheritsFrom", null, 0, -1,
-				Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getType_Methods(), this.getMethod(), this.getMethod_Type(), "methods", null, 0, -1, Type.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getType_Fields(), this.getField(), this.getField_Type(), "fields", null, 0, -1, Type.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getType_Package(), this.getPackage(), this.getPackage_Types(), "package", null, 0, 1, Type.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getType_Interface(), ecorePackage.getEBoolean(), "interface", null, 0, 1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				!IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getType_ExtendedBy(), this.getType(), this.getType_InheritsFrom(), "extendedBy", null, 0, -1, Type.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getType_InheritsFrom(), this.getType(), this.getType_ExtendedBy(), "inheritsFrom", null, 0, -1, Type.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getType_Methods(), this.getMethod(), this.getMethod_Type(), "methods", null, 0, -1, Type.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getType_Fields(), this.getField(), this.getField_Type(), "fields", null, 0, -1, Type.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getType_Package(), this.getPackage(), this.getPackage_Types(), "package", null, 0, 1, Type.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(methodEClass, Method.class, "Method", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getMethod_Params(), this.getParameter(), this.getParameter_Method(), "params", null, 0, -1,
-				Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMethod_Type(), this.getType(), this.getType_Methods(), "type", null, 0, 1, Method.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMethod_Doc(), this.getJavaDoc(), this.getJavaDoc_Method(), "doc", null, 0, 1, Method.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMethod_Params(), this.getParameter(), this.getParameter_Method(), "params", null, 0, -1, Method.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMethod_Type(), this.getType(), this.getType_Methods(), "type", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMethod_Docs(), this.getJavaDoc(), this.getJavaDoc_Method(), "docs", null, 1, 3, Method.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(parameterEClass, Parameter.class, "Parameter", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getParameter_Method(), this.getMethod(), this.getMethod_Params(), "method", null, 0, 1,
-				Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(parameterEClass, Parameter.class, "Parameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getParameter_Method(), this.getMethod(), this.getMethod_Params(), "method", null, 0, 1, Parameter.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(fieldEClass, Field.class, "Field", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getField_Type(), this.getType(), this.getType_Fields(), "type", null, 0, 1, Field.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getField_Type(), this.getType(), this.getType_Fields(), "type", null, 0, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				!IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(javaDocEClass, JavaDoc.class, "JavaDoc", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getJavaDoc_Comment(), ecorePackage.getEString(), "comment", null, 0, 1, JavaDoc.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getJavaDoc_Method(), this.getMethod(), this.getMethod_Doc(), "method", null, 0, 1, JavaDoc.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getJavaDoc_Comment(), ecorePackage.getEString(), "comment", null, 0, 1, JavaDoc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				!IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getJavaDoc_Method(), this.getMethod(), this.getMethod_Docs(), "method", null, 0, 1, JavaDoc.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(projectEClass, Project.class, "Project", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getProject_RootPackages(), this.getPackage(), this.getPackage_Project(), "rootPackages", null, 0, -1, Project.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

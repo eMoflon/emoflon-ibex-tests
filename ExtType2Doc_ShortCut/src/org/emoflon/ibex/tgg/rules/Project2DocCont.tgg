@@ -1,0 +1,23 @@
+#using ExtType2Doc_ShortCut.*
+#using AttrCondDefLibrary.*
+
+#rule Project2DocCont #with ExtType2Doc_ShortCut
+
+#source { 
+	++pr:Project
+}
+
+#target {
+	++dc:DocContainer
+}
+
+#correspondence {
+	++pr2dc:Project2DocContainer {
+		#src->pr
+		#trg->dc
+	}
+}
+
+#attributeConditions {
+	
+}

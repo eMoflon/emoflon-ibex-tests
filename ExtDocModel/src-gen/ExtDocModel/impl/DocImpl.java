@@ -3,10 +3,10 @@
 package ExtDocModel.impl;
 
 import ExtDocModel.Doc;
-import ExtDocModel.DocContainer;
 import ExtDocModel.Entry;
 import ExtDocModel.ExtDocModelPackage;
 
+import ExtDocModel.Folder;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -32,7 +32,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link ExtDocModel.impl.DocImpl#getContainer <em>Container</em>}</li>
+ *   <li>{@link ExtDocModel.impl.DocImpl#getFolder <em>Folder</em>}</li>
  *   <li>{@link ExtDocModel.impl.DocImpl#getEntries <em>Entries</em>}</li>
  *   <li>{@link ExtDocModel.impl.DocImpl#getSubDocs <em>Sub Docs</em>}</li>
  *   <li>{@link ExtDocModel.impl.DocImpl#getSuperDocs <em>Super Docs</em>}</li>
@@ -95,10 +95,10 @@ public class DocImpl extends NamedElementImpl implements Doc {
 	 * @generated
 	 */
 	@Override
-	public DocContainer getContainer() {
-		if (eContainerFeatureID() != ExtDocModelPackage.DOC__CONTAINER)
+	public Folder getFolder() {
+		if (eContainerFeatureID() != ExtDocModelPackage.DOC__FOLDER)
 			return null;
-		return (DocContainer) eInternalContainer();
+		return (Folder) eInternalContainer();
 	}
 
 	/**
@@ -106,8 +106,8 @@ public class DocImpl extends NamedElementImpl implements Doc {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetContainer(DocContainer newContainer, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject) newContainer, ExtDocModelPackage.DOC__CONTAINER, msgs);
+	public NotificationChain basicSetFolder(Folder newFolder, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject) newFolder, ExtDocModelPackage.DOC__FOLDER, msgs);
 		return msgs;
 	}
 
@@ -117,23 +117,20 @@ public class DocImpl extends NamedElementImpl implements Doc {
 	 * @generated
 	 */
 	@Override
-	public void setContainer(DocContainer newContainer) {
-		if (newContainer != eInternalContainer()
-				|| (eContainerFeatureID() != ExtDocModelPackage.DOC__CONTAINER && newContainer != null)) {
-			if (EcoreUtil.isAncestor(this, newContainer))
+	public void setFolder(Folder newFolder) {
+		if (newFolder != eInternalContainer() || (eContainerFeatureID() != ExtDocModelPackage.DOC__FOLDER && newFolder != null)) {
+			if (EcoreUtil.isAncestor(this, newFolder))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
-			if (newContainer != null)
-				msgs = ((InternalEObject) newContainer).eInverseAdd(this, ExtDocModelPackage.DOC_CONTAINER__DOCS,
-						DocContainer.class, msgs);
-			msgs = basicSetContainer(newContainer, msgs);
+			if (newFolder != null)
+				msgs = ((InternalEObject) newFolder).eInverseAdd(this, ExtDocModelPackage.FOLDER__DOCS, Folder.class, msgs);
+			msgs = basicSetFolder(newFolder, msgs);
 			if (msgs != null)
 				msgs.dispatch();
 		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ExtDocModelPackage.DOC__CONTAINER, newContainer,
-					newContainer));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExtDocModelPackage.DOC__FOLDER, newFolder, newFolder));
 	}
 
 	/**
@@ -158,8 +155,8 @@ public class DocImpl extends NamedElementImpl implements Doc {
 	@Override
 	public EList<Doc> getSubDocs() {
 		if (subDocs == null) {
-			subDocs = new EObjectWithInverseResolvingEList.ManyInverse<Doc>(Doc.class, this,
-					ExtDocModelPackage.DOC__SUB_DOCS, ExtDocModelPackage.DOC__SUPER_DOCS);
+			subDocs = new EObjectWithInverseResolvingEList.ManyInverse<Doc>(Doc.class, this, ExtDocModelPackage.DOC__SUB_DOCS,
+					ExtDocModelPackage.DOC__SUPER_DOCS);
 		}
 		return subDocs;
 	}
@@ -172,8 +169,8 @@ public class DocImpl extends NamedElementImpl implements Doc {
 	@Override
 	public EList<Doc> getSuperDocs() {
 		if (superDocs == null) {
-			superDocs = new EObjectWithInverseResolvingEList.ManyInverse<Doc>(Doc.class, this,
-					ExtDocModelPackage.DOC__SUPER_DOCS, ExtDocModelPackage.DOC__SUB_DOCS);
+			superDocs = new EObjectWithInverseResolvingEList.ManyInverse<Doc>(Doc.class, this, ExtDocModelPackage.DOC__SUPER_DOCS,
+					ExtDocModelPackage.DOC__SUB_DOCS);
 		}
 		return superDocs;
 	}
@@ -187,10 +184,10 @@ public class DocImpl extends NamedElementImpl implements Doc {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case ExtDocModelPackage.DOC__CONTAINER:
+		case ExtDocModelPackage.DOC__FOLDER:
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
-			return basicSetContainer((DocContainer) otherEnd, msgs);
+			return basicSetFolder((Folder) otherEnd, msgs);
 		case ExtDocModelPackage.DOC__ENTRIES:
 			return ((InternalEList<InternalEObject>) (InternalEList<?>) getEntries()).basicAdd(otherEnd, msgs);
 		case ExtDocModelPackage.DOC__SUB_DOCS:
@@ -209,8 +206,8 @@ public class DocImpl extends NamedElementImpl implements Doc {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case ExtDocModelPackage.DOC__CONTAINER:
-			return basicSetContainer(null, msgs);
+		case ExtDocModelPackage.DOC__FOLDER:
+			return basicSetFolder(null, msgs);
 		case ExtDocModelPackage.DOC__ENTRIES:
 			return ((InternalEList<?>) getEntries()).basicRemove(otherEnd, msgs);
 		case ExtDocModelPackage.DOC__SUB_DOCS:
@@ -229,9 +226,8 @@ public class DocImpl extends NamedElementImpl implements Doc {
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
-		case ExtDocModelPackage.DOC__CONTAINER:
-			return eInternalContainer().eInverseRemove(this, ExtDocModelPackage.DOC_CONTAINER__DOCS, DocContainer.class,
-					msgs);
+		case ExtDocModelPackage.DOC__FOLDER:
+			return eInternalContainer().eInverseRemove(this, ExtDocModelPackage.FOLDER__DOCS, Folder.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -244,8 +240,8 @@ public class DocImpl extends NamedElementImpl implements Doc {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case ExtDocModelPackage.DOC__CONTAINER:
-			return getContainer();
+		case ExtDocModelPackage.DOC__FOLDER:
+			return getFolder();
 		case ExtDocModelPackage.DOC__ENTRIES:
 			return getEntries();
 		case ExtDocModelPackage.DOC__SUB_DOCS:
@@ -265,8 +261,8 @@ public class DocImpl extends NamedElementImpl implements Doc {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case ExtDocModelPackage.DOC__CONTAINER:
-			setContainer((DocContainer) newValue);
+		case ExtDocModelPackage.DOC__FOLDER:
+			setFolder((Folder) newValue);
 			return;
 		case ExtDocModelPackage.DOC__ENTRIES:
 			getEntries().clear();
@@ -292,8 +288,8 @@ public class DocImpl extends NamedElementImpl implements Doc {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case ExtDocModelPackage.DOC__CONTAINER:
-			setContainer((DocContainer) null);
+		case ExtDocModelPackage.DOC__FOLDER:
+			setFolder((Folder) null);
 			return;
 		case ExtDocModelPackage.DOC__ENTRIES:
 			getEntries().clear();
@@ -316,8 +312,8 @@ public class DocImpl extends NamedElementImpl implements Doc {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case ExtDocModelPackage.DOC__CONTAINER:
-			return getContainer() != null;
+		case ExtDocModelPackage.DOC__FOLDER:
+			return getFolder() != null;
 		case ExtDocModelPackage.DOC__ENTRIES:
 			return entries != null && !entries.isEmpty();
 		case ExtDocModelPackage.DOC__SUB_DOCS:

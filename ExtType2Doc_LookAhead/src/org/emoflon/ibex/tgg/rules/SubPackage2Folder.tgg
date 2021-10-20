@@ -1,0 +1,36 @@
+#using ExtType2Doc_LookAhead.*
+#using AttrCondDefLibrary.*
+
+#rule SubPackage2Folder #with ExtType2Doc_LookAhead
+
+#source { 
+	p:Package {
+		++-subPackages->sp
+	}
+	
+	++sp:Package
+}
+
+#target {
+	f:Folder {
+		++-subFolder->sf
+	}
+	
+	++sf:Folder
+}
+
+#correspondence {
+	p2f:Package2Folder {
+		#src->p
+		#trg->f
+	}
+	
+	++sp2f:Package2Folder {
+		#src->sp
+		#trg->sf
+	}
+}
+
+#attributeConditions {
+	eq_string(sp.name, sf.name)
+}

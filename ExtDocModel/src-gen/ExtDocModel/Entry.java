@@ -14,7 +14,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link ExtDocModel.Entry#getDoc <em>Doc</em>}</li>
- *   <li>{@link ExtDocModel.Entry#getAnnotation <em>Annotation</em>}</li>
+ *   <li>{@link ExtDocModel.Entry#getAnnotations <em>Annotations</em>}</li>
  *   <li>{@link ExtDocModel.Entry#getGlossaryEntries <em>Glossary Entries</em>}</li>
  *   <li>{@link ExtDocModel.Entry#getType <em>Type</em>}</li>
  * </ul>
@@ -49,28 +49,18 @@ public interface Entry extends NamedElement {
 	void setDoc(Doc value);
 
 	/**
-	 * Returns the value of the '<em><b>Annotation</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Annotations</b></em>' containment reference list.
+	 * The list contents are of type {@link ExtDocModel.Annotation}.
 	 * It is bidirectional and its opposite is '{@link ExtDocModel.Annotation#getEntry <em>Entry</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Annotation</em>' containment reference.
-	 * @see #setAnnotation(Annotation)
-	 * @see ExtDocModel.ExtDocModelPackage#getEntry_Annotation()
+	 * @return the value of the '<em>Annotations</em>' containment reference list.
+	 * @see ExtDocModel.ExtDocModelPackage#getEntry_Annotations()
 	 * @see ExtDocModel.Annotation#getEntry
-	 * @model opposite="entry" containment="true"
+	 * @model opposite="entry" containment="true" upper="2"
 	 * @generated
 	 */
-	Annotation getAnnotation();
-
-	/**
-	 * Sets the value of the '{@link ExtDocModel.Entry#getAnnotation <em>Annotation</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Annotation</em>' containment reference.
-	 * @see #getAnnotation()
-	 * @generated
-	 */
-	void setAnnotation(Annotation value);
+	EList<Annotation> getAnnotations();
 
 	/**
 	 * Returns the value of the '<em><b>Glossary Entries</b></em>' reference list.

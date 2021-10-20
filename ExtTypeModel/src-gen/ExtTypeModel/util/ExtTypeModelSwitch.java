@@ -8,6 +8,7 @@ import ExtTypeModel.JavaDoc;
 import ExtTypeModel.Method;
 import ExtTypeModel.NamedElement;
 import ExtTypeModel.Parameter;
+import ExtTypeModel.Project;
 import ExtTypeModel.Type;
 
 import org.eclipse.emf.ecore.EObject;
@@ -131,6 +132,13 @@ public class ExtTypeModelSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
+		case ExtTypeModelPackage.PROJECT: {
+			Project project = (Project) theEObject;
+			T result = caseProject(project);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		default:
 			return defaultCase(theEObject);
 		}
@@ -238,6 +246,21 @@ public class ExtTypeModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseJavaDoc(JavaDoc object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Project</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Project</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseProject(Project object) {
 		return null;
 	}
 

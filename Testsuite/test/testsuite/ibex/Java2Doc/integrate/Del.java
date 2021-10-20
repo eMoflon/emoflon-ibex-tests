@@ -35,21 +35,21 @@ public class Del extends IntegrateTestCase<Package, Folder> {
 	@Test
 	public void del_simple() {
 		final String path = "integ/expected/del/del_single/";
-		
+
 		tool.applyAndIntegrateDelta((p, f) -> {
 			// src:
 			EcoreUtil.delete(helperJava.getClazz(p, "GT"), true);
 			// trg:
 			EcoreUtil.delete(helperDoc.getDoc(f, "GT_doc"), true);
 		});
-		
-		assertCondition(path + "src", path + "trg", path + "corr");
+
+		assertCondition(path);
 	}
 
 	@Test
 	public void del_multiple() {
 		final String path = "integ/expected/del/del_multiple/";
-		
+
 		tool.applyAndIntegrateDelta((p, f) -> {
 			// src:
 			EcoreUtil.delete(helperJava.getPackage(p, "es"), true);
@@ -57,19 +57,19 @@ public class Del extends IntegrateTestCase<Package, Folder> {
 			EcoreUtil.delete(helperDoc.getFolder(f, "es"), true);
 		});
 
-		assertCondition(path + "src", path + "trg", path + "corr");
+		assertCondition(path);
 	}
-	
+
 	@Test
 	public void del_incompl() {
 		final String path = "integ/expected/del/del_incompl/";
-		
+
 		tool.applyAndIntegrateDelta((p, f) -> {
 			// trg:
 			EcoreUtil.delete(helperDoc.getDoc(f, "es_doc"), true);
 		});
-		
-		assertCondition(path + "src", path + "trg", path + "corr");
+
+		assertCondition(path);
 	}
 
 }
