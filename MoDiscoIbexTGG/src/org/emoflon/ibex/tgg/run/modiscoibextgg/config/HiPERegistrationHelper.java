@@ -17,8 +17,8 @@ import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 
 import MoDiscoIbexTGG.MoDiscoIbexTGGPackage;
 import MoDiscoIbexTGG.impl.MoDiscoIbexTGGPackageImpl;
-import java.impl.JavaPackageImpl;
-import <<TRG_Package>>.impl.<<TRG_Package>>PackageImpl;
+import Java.impl.JavaPackageImpl;
+import UML2.impl.UML2PackageImpl;
 
 public class HiPERegistrationHelper implements IRegistrationHelper {
 	
@@ -37,13 +37,13 @@ public class HiPERegistrationHelper implements IRegistrationHelper {
 		setWorkspaceRootDirectory(rs);
 		
 		// Load and register source and target metamodels
-		EPackage <<src_project>>Pack = null;
-		EPackage <<trg_project>>Pack = null;
+		EPackage javaPack = null;
+		EPackage uml2Pack = null;
 		EPackage modiscoibextggPack = null;
 		
 		if(executable instanceof FWD_OPT) {
-			Resource res = executable.getResourceHandler().loadResource("platform:/resource/<<TRG_Project>>/model/<<TRG_Project>>.ecore");
-			<<trg_project>>Pack = (EPackage) res.getContents().get(0);
+			Resource res = executable.getResourceHandler().loadResource("platform:/resource/UML2/model/UML2.ecore");
+			uml2Pack = (EPackage) res.getContents().get(0);
 			rs.getResources().remove(res);
 			
 			res = executable.getResourceHandler().loadResource("platform:/resource/MoDiscoIbexTGG/model/MoDiscoIbexTGG.ecore");
@@ -52,8 +52,8 @@ public class HiPERegistrationHelper implements IRegistrationHelper {
 		}
 				
 		if(executable instanceof BWD_OPT) {
-			Resource res = executable.getResourceHandler().loadResource("platform:/resource/<<SRC_Project>>/model/<<SRC_Project>>.ecore");
-			<<src_project>>Pack = (EPackage) res.getContents().get(0);
+			Resource res = executable.getResourceHandler().loadResource("platform:/resource/Java/model/Java.ecore");
+			javaPack = (EPackage) res.getContents().get(0);
 			rs.getResources().remove(res);
 			
 			res = executable.getResourceHandler().loadResource("platform:/resource/MoDiscoIbexTGG/model/MoDiscoIbexTGG.ecore");
@@ -61,11 +61,11 @@ public class HiPERegistrationHelper implements IRegistrationHelper {
 			rs.getResources().remove(res);
 		}
 
-		if(<<src_project>>Pack == null)
-			<<src_project>>Pack = <<SRC_Package>>PackageImpl.init();
+		if(javaPack == null)
+			javaPack = JavaPackageImpl.init();
 				
-		if(<<trg_project>>Pack == null)
-			<<trg_project>>Pack = <<TRG_Package>>PackageImpl.init();
+		if(uml2Pack == null)
+			uml2Pack = UML2PackageImpl.init();
 		
 		if(modiscoibextggPack == null) {
 			modiscoibextggPack = MoDiscoIbexTGGPackageImpl.init();
@@ -73,11 +73,11 @@ public class HiPERegistrationHelper implements IRegistrationHelper {
 			rs.getPackageRegistry().put("platform:/plugin/MoDiscoIbexTGG/model/MoDiscoIbexTGG.ecore", MoDiscoIbexTGGPackage.eINSTANCE);
 		}
 			
-		rs.getPackageRegistry().put("platform:/resource/<<SRC_Project>>/model/<<SRC_Project>>.ecore", <<src_project>>Pack);
-	    rs.getPackageRegistry().put("platform:/plugin/<<SRC_Project>>/model/<<SRC_Project>>.ecore", <<src_project>>Pack);	
+		rs.getPackageRegistry().put("platform:/resource/Java/model/Java.ecore", javaPack);
+	    rs.getPackageRegistry().put("platform:/plugin/Java/model/Java.ecore", javaPack);	
 			
-		rs.getPackageRegistry().put("platform:/resource/<<TRG_Project>>/model/<<TRG_Project>>.ecore", <<trg_project>>Pack);
-		rs.getPackageRegistry().put("platform:/plugin/<<TRG_Project>>/model/<<TRG_Project>>.ecore", <<trg_project>>Pack);
+		rs.getPackageRegistry().put("platform:/resource/UML2/model/UML2.ecore", uml2Pack);
+		rs.getPackageRegistry().put("platform:/plugin/UML2/model/UML2.ecore", uml2Pack);
 	}
 
 	/** Create default options **/

@@ -1,26 +1,26 @@
 // Add imports here
-#import "platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore"
-#import "platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore"
+#import "platform:/resource/Java/model/Java.ecore"
+#import "platform:/resource/UML2/model/UML2.ecore"
 
 #schema MoDiscoIbexTGG
 
 #source {
-	java
+	Java
 }
 
 #target {
-	uml
+	UML2
 }
 
 #correspondence {
 	JavaPackage2UmlPackage {
-		#src->java.Package
-		#trg->uml.Package
+		#src->Java.Package
+		#trg->UML2.Package
 	}
 	
 	JavaModel2UMLPackage {
-		#src->java.Model
-		#trg->uml.Package
+		#src->Java.Model
+		#trg->UML2.Package
 	}
 	
 	JavaType2UMLType {

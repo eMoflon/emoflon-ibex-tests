@@ -12,7 +12,6 @@ Require-Bundle: org.apache.log4j,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.emoflon.ibex.tgg.runtime;visibility:=reexport,
  org.emoflon.ibex.tgg.runtime.democles,
- org.eclipse.uml2.uml,
  org.moflon.core.utilities;bundle-version="3.0.0",
  org.sat4j.core;bundle-version="2.3.5",
  org.sat4j.pb;bundle-version="2.3.5",
@@ -20,20 +19,17 @@ Require-Bundle: org.apache.log4j,
  org.emoflon.ibex.tgg.runtime.hipe;bundle-version="1.0.0",
  org.emoflon.ibex.tgg.runtime.hipe,
  org.emoflon.ibex.tgg.ui.debug.adapter;bundle-version="1.0.0",
- org.emoflon.ibex.tgg.runtime.viatra
+ org.emoflon.ibex.tgg.runtime.viatra,
+ emfcodegenerator,
+ Java;bundle-version="0.0.1",
+ UML2;bundle-version="0.0.1"
 Bundle-ManifestVersion: 2
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Export-Package: org.emoflon.ibex.tgg.run.modiscoibextgg,
- org.emoflon.ibex.tgg.run.modiscoibextgg.config,
- MoDiscoIbexTGG,
- MoDiscoIbexTGG.impl,
- MoDiscoIbexTGG.util,
- ecore,
- ecore.impl,
- ecore.util,
- types,
- types.impl
 Automatic-Module-Name: MoDiscoIbexTGG
+Export-Package: MoDiscoIbexTGG,
+ MoDiscoIbexTGG.impl,
+ org.emoflon.ibex.tgg.run.modiscoibextgg,
+ org.emoflon.ibex.tgg.run.modiscoibextgg.config
