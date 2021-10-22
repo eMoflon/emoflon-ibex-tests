@@ -1,8 +1,7 @@
 package org.emoflon.ibex.tgg.run.bench.util;
 
-import org.emoflon.express.express.Entity;
-
 import Express2UML.Entity2Clazz;
+import ExpressModel.Entity;
 import uml.Clazz;
 
 public class InheritanceContainer {

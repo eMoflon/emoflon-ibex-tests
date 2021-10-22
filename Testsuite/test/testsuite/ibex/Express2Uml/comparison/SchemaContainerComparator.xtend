@@ -1,10 +1,10 @@
 package testsuite.ibex.Express2Uml.comparison
 
-import org.emoflon.express.express.Schema
 import org.benchmarx.emf.Comparator
 
 import static org.junit.Assert.*
-import org.emoflon.express.express.SchemaContainer
+import ExpressModel.SchemaContainer
+import ExpressModel.Schema
 
 class SchemaContainerComparator implements Comparator<SchemaContainer> {
 	

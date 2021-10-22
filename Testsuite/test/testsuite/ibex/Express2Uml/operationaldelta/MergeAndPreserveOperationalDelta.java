@@ -1,15 +1,15 @@
 package testsuite.ibex.Express2Uml.operationaldelta;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.emoflon.express.express.Entity;
-import org.emoflon.express.express.Schema;
-import org.emoflon.express.express.SchemaContainer;
 import org.emoflon.ibex.common.emf.EMFManipulationUtils;
 import org.junit.Ignore;
 import org.junit.Test;
 
 import Express2UML.operationaldelta.mergeAndPreserve.MergeAndPreserveConflictResolver;
 import Express2UML.operationaldelta.mergeAndPreserveMulti.MergeAndPreserveMultiConflictResolver;
+import ExpressModel.Entity;
+import ExpressModel.Schema;
+import ExpressModel.SchemaContainer;
 import testsuite.ibex.Express2Uml.common.ExpressHelper;
 import testsuite.ibex.Express2Uml.common.UMLHelper;
 import testsuite.ibex.Express2Uml.integrate.util.IntegIbexSchemaContainer2Package;

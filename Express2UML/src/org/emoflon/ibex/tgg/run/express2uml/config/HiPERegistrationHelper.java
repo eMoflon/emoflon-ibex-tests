@@ -17,11 +17,11 @@ import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 
 import Express2UML.Express2UMLPackage;
 import Express2UML.impl.Express2UMLPackageImpl;
-import org.emoflon.express.express.impl.ExpressPackageImpl;
+import ExpressModel.impl.ExpressModelPackageImpl;
 import uml.impl.UmlPackageImpl;
 
 public class HiPERegistrationHelper implements IRegistrationHelper {
-
+	
 	/** Create default options **/
 	public final void setWorkspaceRootDirectory(ResourceSet resourceSet) throws IOException {
 		final String root = "../";
@@ -37,7 +37,7 @@ public class HiPERegistrationHelper implements IRegistrationHelper {
 		setWorkspaceRootDirectory(rs);
 		
 		// Load and register source and target metamodels
-		EPackage expressPack = null;
+		EPackage expressmodelPack = null;
 		EPackage umlPack = null;
 		EPackage express2umlPack = null;
 		
@@ -52,8 +52,8 @@ public class HiPERegistrationHelper implements IRegistrationHelper {
 		}
 				
 		if(executable instanceof BWD_OPT) {
-			Resource res = executable.getResourceHandler().loadResource("platform:/resource/org.emoflon.express/model/generated/Express.ecore");
-			expressPack = (EPackage) res.getContents().get(0);
+			Resource res = executable.getResourceHandler().loadResource("platform:/resource/ExpressModel/model/ExpressModel.ecore");
+			expressmodelPack = (EPackage) res.getContents().get(0);
 			rs.getResources().remove(res);
 			
 			res = executable.getResourceHandler().loadResource("platform:/resource/Express2UML/model/Express2UML.ecore");
@@ -61,8 +61,8 @@ public class HiPERegistrationHelper implements IRegistrationHelper {
 			rs.getResources().remove(res);
 		}
 
-		if(expressPack == null)
-			expressPack = ExpressPackageImpl.init();
+		if(expressmodelPack == null)
+			expressmodelPack = ExpressModelPackageImpl.init();
 				
 		if(umlPack == null)
 			umlPack = UmlPackageImpl.init();
@@ -73,8 +73,8 @@ public class HiPERegistrationHelper implements IRegistrationHelper {
 			rs.getPackageRegistry().put("platform:/plugin/Express2UML/model/Express2UML.ecore", Express2UMLPackage.eINSTANCE);
 		}
 			
-		rs.getPackageRegistry().put("platform:/resource/org.emoflon.express/model/generated/Express.ecore", expressPack);
-	    rs.getPackageRegistry().put("platform:/plugin/org.emoflon.express/model/generated/Express.ecore", expressPack);	
+		rs.getPackageRegistry().put("platform:/resource/ExpressModel/model/ExpressModel.ecore", expressmodelPack);
+	    rs.getPackageRegistry().put("platform:/plugin/ExpressModel/model/ExpressModel.ecore", expressmodelPack);	
 			
 		rs.getPackageRegistry().put("platform:/resource/UML/model/UML.ecore", umlPack);
 		rs.getPackageRegistry().put("platform:/plugin/UML/model/UML.ecore", umlPack);
