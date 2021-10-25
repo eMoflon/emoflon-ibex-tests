@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="ASCII"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:MoDiscoIbexTGG="platform:/resource/MoDiscoIbexTGG/model/MoDiscoIbexTGG.ecore" xmlns:java="platform:/resource/MoDiscoIbexTGG/metamodels/java.ecore" xmlns:uml="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore">
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:MoDiscoIbexTGG="platform:/resource/MoDiscoIbexTGG/model/MoDiscoIbexTGG.ecore" xmlns:java="platform:/resource/Java/model/Java.ecore" xmlns:uml="platform:/resource/UML2/model/UML2.ecore">
   <MoDiscoIbexTGG:JavaPackage2UmlPackage>
     <source href="src.xmi#/1/@ownedElements.0"/>
     <target href="trg.xmi#/1/@packagedElement.4"/>
   </MoDiscoIbexTGG:JavaPackage2UmlPackage>
   <MoDiscoIbexTGG:JavaType2UMLType>
     <source xsi:type="java:ClassDeclaration" href="src.xmi#/1/@ownedElements.0/@ownedElements.0"/>
-    <target xsi:type="uml:Class" href="trg.xmi#/1/@packagedElement.4/@packagedElement.0"/>
+    <target xsi:type="uml:Clazz" href="trg.xmi#/1/@packagedElement.4/@packagedElement.0"/>
   </MoDiscoIbexTGG:JavaType2UMLType>
   <MoDiscoIbexTGG:JavaPackage2UmlPackage>
     <source href="src.xmi#/0"/>
@@ -38,7 +38,7 @@
   </MoDiscoIbexTGG:MethodDec2Operation>
   <MoDiscoIbexTGG:JavaType2UMLType>
     <source xsi:type="java:ClassDeclaration" href="src.xmi#/0/@ownedElements.3"/>
-    <target xsi:type="uml:Class" href="trg.xmi#/0/@packagedElement.3"/>
+    <target xsi:type="uml:Clazz" href="trg.xmi#/0/@packagedElement.3"/>
   </MoDiscoIbexTGG:JavaType2UMLType>
   <MoDiscoIbexTGG:JavaType2UMLType>
     <source xsi:type="java:InterfaceDeclaration" href="src.xmi#/1/@ownedElements.0/@ownedElements.1"/>
@@ -62,7 +62,7 @@
   </MoDiscoIbexTGG:MethodDec2Operation>
   <MoDiscoIbexTGG:JavaType2UMLType>
     <source xsi:type="java:ClassDeclaration" href="src.xmi#/0/@ownedElements.4"/>
-    <target xsi:type="uml:Class" href="trg.xmi#/0/@packagedElement.4"/>
+    <target xsi:type="uml:Clazz" href="trg.xmi#/0/@packagedElement.4"/>
   </MoDiscoIbexTGG:JavaType2UMLType>
   <MoDiscoIbexTGG:JavaModel2UMLPackage>
     <source href="src.xmi#/1"/>
@@ -94,7 +94,7 @@
   </MoDiscoIbexTGG:JavaType2UMLType>
   <MoDiscoIbexTGG:JavaType2UMLType>
     <source xsi:type="java:ClassDeclaration" href="src.xmi#/0/@ownedElements.5"/>
-    <target xsi:type="uml:Class" href="trg.xmi#/0/@packagedElement.5"/>
+    <target xsi:type="uml:Clazz" href="trg.xmi#/0/@packagedElement.5"/>
   </MoDiscoIbexTGG:JavaType2UMLType>
   <MoDiscoIbexTGG:MethodDec2Operation>
     <source href="src.xmi#/0/@ownedElements.5/@bodyDeclarations.0"/>
@@ -150,7 +150,7 @@
   </MoDiscoIbexTGG:JavaType2UMLType>
   <MoDiscoIbexTGG:JavaType2UMLType>
     <source xsi:type="java:ClassDeclaration" href="src.xmi#/1/@ownedElements.0/@ownedElements.6"/>
-    <target xsi:type="uml:Class" href="trg.xmi#/1/@packagedElement.4/@packagedElement.6"/>
+    <target xsi:type="uml:Clazz" href="trg.xmi#/1/@packagedElement.4/@packagedElement.6"/>
   </MoDiscoIbexTGG:JavaType2UMLType>
   <MoDiscoIbexTGG:VariableDec2Parameter>
     <source xsi:type="java:SingleVariableDeclaration" href="src.xmi#/0/@ownedElements.1/@bodyDeclarations.0/@parameters.1"/>
@@ -190,7 +190,7 @@
   </MoDiscoIbexTGG:FieldDec2Property>
   <MoDiscoIbexTGG:JavaType2UMLType>
     <source xsi:type="java:ClassDeclaration" href="src.xmi#/1/@ownedElements.0/@ownedElements.7"/>
-    <target xsi:type="uml:Class" href="trg.xmi#/1/@packagedElement.4/@packagedElement.7"/>
+    <target xsi:type="uml:Clazz" href="trg.xmi#/1/@packagedElement.4/@packagedElement.7"/>
   </MoDiscoIbexTGG:JavaType2UMLType>
   <MoDiscoIbexTGG:VariableDec2Parameter>
     <source xsi:type="java:SingleVariableDeclaration" href="src.xmi#/0/@ownedElements.0/@bodyDeclarations.0/@parameters.3"/>

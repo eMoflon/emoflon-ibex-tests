@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ASCII"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uml="platform:/resource/MoDiscoIbexTGG/metamodels/UML.ecore">
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uml="platform:/resource/UML2/model/UML2.ecore">
   <uml:Package name="mus">
     <packagedElement xsi:type="uml:Interface" name="dictumst">
       <ownedOperation name="condimentum">
@@ -23,11 +23,11 @@
         <ownedParameter name="enim"/>
       </ownedOperation>
     </packagedElement>
-    <packagedElement xsi:type="uml:Class" name="enim">
+    <packagedElement xsi:type="uml:Clazz" name="enim">
       <ownedAttribute name="venenatis"/>
     </packagedElement>
-    <packagedElement xsi:type="uml:Class" name="sociis"/>
-    <packagedElement xsi:type="uml:Class" name="est">
+    <packagedElement xsi:type="uml:Clazz" name="sociis"/>
+    <packagedElement xsi:type="uml:Clazz" name="est">
       <ownedAttribute name="vivamus"/>
       <ownedOperation name="odio"/>
     </packagedElement>
@@ -40,7 +40,7 @@
     <packagedElement xsi:type="uml:PrimitiveType" name="ligula"/>
     <packagedElement xsi:type="uml:PrimitiveType" name="inceptos"/>
     <packagedElement xsi:type="uml:Package" name="luctus">
-      <packagedElement xsi:type="uml:Class" name="accumsan">
+      <packagedElement xsi:type="uml:Clazz" name="accumsan">
         <ownedAttribute name="tempor"/>
         <ownedAttribute name="ultricies"/>
         <ownedAttribute name="aptent"/>
@@ -48,7 +48,7 @@
         <ownedOperation name="dapibus"/>
       </packagedElement>
       <packagedElement xsi:type="uml:Interface" name="parturient"/>
-      <packagedElement xsi:type="uml:Class" name="volutpat">
+      <packagedElement xsi:type="uml:Clazz" name="volutpat">
         <ownedAttribute name="pellentesque"/>
         <ownedAttribute name="duis"/>
         <ownedOperation name="est"/>
@@ -60,10 +60,10 @@
       </packagedElement>
       <packagedElement xsi:type="uml:Enumeration" name="elementum"/>
       <packagedElement xsi:type="uml:Enumeration" name="arcu"/>
-      <packagedElement xsi:type="uml:Class" name="felis">
+      <packagedElement xsi:type="uml:Clazz" name="felis">
         <ownedAttribute name="mollis"/>
       </packagedElement>
-      <packagedElement xsi:type="uml:Class" name="facilisi">
+      <packagedElement xsi:type="uml:Clazz" name="facilisi">
         <ownedOperation name="purus"/>
       </packagedElement>
     </packagedElement>
