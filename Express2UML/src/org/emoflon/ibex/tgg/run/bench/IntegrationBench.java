@@ -168,7 +168,7 @@ public class IntegrationBench {
 			toc = System.currentTimeMillis();
 			System.out.println("	Completed in: " + (toc - tic) + " ms");
 			System.out.println("    Time spent in ConflictResolver: " + integrateTime + " ms");
-			System.out.println("No conflicts: " + integrate.getConflicts().isEmpty());
+			System.out.println("No conflicts: " + integrate.conflictHandler().getConflicts().isEmpty());
 			System.out.println("Conflicts detected: " + conflictCounter);
 			System.out.println("Conflicts resolved: " + numConflictsResolved);
 			System.out.println("DelPres_Conf: " + conflictSolvedDeletePreserveConflictsCounter);

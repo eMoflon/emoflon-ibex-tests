@@ -51,7 +51,7 @@ public class TestTggWeights extends CCTestCase {
 	}
 
 	private int getDefaultCCWeigth(final String ruleName) {
-		IGreenPatternFactory greenFactory = this.checker.getGreenFactory(ruleName);
+		IGreenPatternFactory greenFactory = this.checker.getGreenFactories().get(ruleName);
 		return greenFactory.getGreenSrcNodesInRule().size()
 				+ greenFactory.getGreenTrgNodesInRule().size()
 				+ greenFactory.getGreenSrcEdgesInRule().size()
