@@ -13,7 +13,7 @@
 }
 
 #correspondence {
-	++ train2vcl :trainToVehicle {
+	++ train2vcl :Train2Vehicle {
 		#src->train
 		#trg->vehicle
 	}

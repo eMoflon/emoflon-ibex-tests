@@ -31,12 +31,12 @@ train:TrainLanguage.Train {
 }
 
 #correspondence {
-	train2vcl :trainToVehicle {
+	train2vcl :Train2Vehicle {
 		#src->train
 		#trg->vehicle
 	}
 
-	++ loc2vclSec :locomotiveToVehicleSection {
+	++ loc2vclSec :Locomotive2VehicleSection {
 		#src->loc
 		#trg->vclSec
 	}
@@ -75,12 +75,12 @@ train:TrainLanguage.Train {
 }
 
 #correspondence {
-	train2vcl :trainToVehicle {
+	train2vcl :Train2Vehicle {
 		#src->train
 		#trg->vehicle
 	}
 
-	++ loc2vclSec :locomotiveToVehicleSection {
+	++ loc2vclSec :Locomotive2VehicleSection {
 		#src->loc
 		#trg->vclSec
 	}
