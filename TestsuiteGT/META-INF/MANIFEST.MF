@@ -36,7 +36,9 @@ Require-Bundle: org.eclipse.emf.ecore.xmi,
  SlowEconomy,
  VoterModelGraphTransformation,
  GroupVotersModel,
- SimpleNetworkGraphTransformation2;bundle-version="1.0.0"
+ SimpleNetworkGraphTransformation2;bundle-version="1.0.0",
+ HospitalExample,
+ HospitalTransformation
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Automatic-Module-Name: TestsuiteGT
