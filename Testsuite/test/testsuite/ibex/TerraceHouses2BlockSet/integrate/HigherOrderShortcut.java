@@ -12,14 +12,14 @@ import WoodenBlockSet.Playroom;
 import testsuite.ibex.TerraceHouses2BlockSet.integrate.util.IntegIbexTerraceHouses2BlockSet;
 import testsuite.ibex.testUtil.IntegrateTestCase;
 
-public class ConcatenatedShortcut extends IntegrateTestCase<District, Playroom> {
+public class HigherOrderShortcut extends IntegrateTestCase<District, Playroom> {
 
 	public final static String projectName = "TerraceHouses2BlockSet";
 
 	private TerraceHousesHelper helperTerrace;
 	private WoodenBlockSetHelper helperBlockSet;
 
-	public ConcatenatedShortcut() {
+	public HigherOrderShortcut() {
 		super(new IntegIbexTerraceHouses2BlockSet(projectName, "concat_shortcut"));
 	}
 
