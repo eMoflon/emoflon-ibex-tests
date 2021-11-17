@@ -1,7 +1,6 @@
 Manifest-Version: 1.0
 Bundle-SymbolicName: SimplePersons;singleton:=true
-Export-Package: 
- SimplePersons,
+Export-Package: SimplePersons,
  SimplePersons.impl,
  SimplePersons.util,
  org.benchmarx.simplepersons.core
@@ -17,6 +16,6 @@ Require-Bundle: org.eclipse.emf.ecore,
  org.eclipse.xtend.lib.macro
 Bundle-ManifestVersion: 2
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-15
 Bundle-Vendor: TU Darmstadt
 Automatic-Module-Name: SimplePersons

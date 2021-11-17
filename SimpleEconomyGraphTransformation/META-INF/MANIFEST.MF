@@ -6,9 +6,8 @@ Bundle-Vendor: My Company
 Bundle-Version: 1.0.0.qualifier
 Bundle-SymbolicName: SimpleEconomyGraphTransformation; singleton:=true
 Bundle-ActivationPolicy: lazy
-Import-Package: org.apache.log4j,
- org.apache.commons.logging
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: org.apache.log4j,org.apache.commons.logging
+Bundle-RequiredExecutionEnvironment: JavaSE-15
 Require-Bundle: org.emoflon.ibex.common;bundle-version="1.0.0",
  org.emoflon.ibex.gt;bundle-version="1.0.0",
  org.emoflon.ibex.gt.democles;bundle-version="1.0.0",

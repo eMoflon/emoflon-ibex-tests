@@ -6,7 +6,7 @@ Bundle-Version: 0.1.0.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-15
 Export-Package: MocaTree,
  MocaTree.impl,
  MocaTree.util,
@@ -21,4 +21,3 @@ Require-Bundle: org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.xtend.lib.macro
 Bundle-ActivationPolicy: lazy
 Automatic-Module-Name: MocaTree
-
