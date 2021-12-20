@@ -3,13 +3,14 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Testsuite_1
 Bundle-SymbolicName: Testsuite
 Bundle-Version: 1.0.0.qualifier
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-16
 Require-Bundle: org.apache.log4j,
  org.eclipse.emf.ecore.xmi,
  org.emoflon.ibex.common,
  org.emoflon.ibex.tgg.language,
  org.emoflon.ibex.tgg.runtime.democles,
  Benchmarx;bundle-version="1.0.0",
+ org.emoflon.express;bundle-version="1.0.0",
  org.junit;bundle-version="4.12.0",
  BlockCodeAdapter;bundle-version="1.0.0",
  BlockDiagramCodeAdapter;bundle-version="1.0.0",
@@ -64,6 +65,6 @@ Require-Bundle: org.apache.log4j,
  Express2UML;bundle-version="0.0.1",
  ExtDocModel,
  ExtTypeModel,
- ExtType2Doc_SCDerived;bundle-version="0.0.1",
- MoDiscoIbexTGG;bundle-version="1.0.0"
+ ExtType2Doc_SCDerived,
+ ExtType2Doc_ConcSync
 Automatic-Module-Name: Testsuite

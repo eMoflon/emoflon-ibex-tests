@@ -48,7 +48,6 @@ public class DeletePreserveConflictMultiEntity extends IntegrateTestCase<SchemaC
 			EMFManipulationUtils.delete(pkg.getClazzes().get(0));
 		});
 
-		final String path = "integ/expected/delete_preserve_conflict/multi_entity/";
-		assertCondition(path + "src", path + "trg", path + "corr");
+		assertCondition("integ/expected/delete_preserve_conflict/multi_entity/");
 	}
 }

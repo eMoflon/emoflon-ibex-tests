@@ -27,7 +27,7 @@ Require-Bundle: org.apache.log4j,
  emfcodegenerator
 Bundle-ManifestVersion: 2
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-16
 Export-Package: ExtType2Doc_LookAhead,
  ExtType2Doc_LookAhead.impl,
  org.emoflon.ibex.tgg.run.exttype2doc_lookahead

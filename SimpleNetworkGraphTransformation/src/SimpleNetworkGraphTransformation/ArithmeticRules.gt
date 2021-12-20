@@ -26,7 +26,7 @@ rule connect{
 		.bandwidth := exp(-(to.currentConnections))
 		.flag := (3+to.currentConnections)%4
 		++ -devices ->from
-		++ -devices ->from
+		++ -devices ->to
 	}
 }
 
@@ -104,7 +104,7 @@ pattern testConstraint3{
 	# network.deviceNumber == count(findDevice)
 }
 
-@optimize
+//@optimize
 pattern notDisjointtestConstraint1{
 	device1 : Device
 	device2: Device
@@ -112,7 +112,7 @@ pattern notDisjointtestConstraint1{
 	#device1.maxBandwidth <= device2.maxBandwidth
 }
 
-@optimize
+//@optimize
 pattern notDisjointtestConstraint2{
 	device1: Device
 	device2: Device
@@ -120,8 +120,6 @@ pattern notDisjointtestConstraint2{
 	# device2.currentConnections > 0
 	# device1.maxBandwidth != device2.maxBandwidth/device2.currentConnections+1
 }
-
-
 
 rule createNetwork {
 	++ network : Network
@@ -170,6 +168,14 @@ pattern findDevice{
 	}
 	
 	device : Device
+}
+
+pattern findConnection{
+	network : Network {
+		-connections->connection
+	}
+	
+	connection : Connection
 }
 
 pattern findNetworkTrue {

@@ -35,7 +35,7 @@ public class DeletePreserveConflictSingleAttr extends IntegrateTestCase<SchemaCo
 	@Test
 	public void createdIntegerTypeAttributeDeletedClazz() {
 		tool.getOptions().integration.conflictSolver(new DeletePreserveSingleAttrConflictResolver());
-		
+
 		tool.applyAndIntegrateDelta((schemaContainer, umlContainer) -> {
 			// src:
 			Schema schema = schemaContainer.getSchemas().get(0);
@@ -46,8 +46,7 @@ public class DeletePreserveConflictSingleAttr extends IntegrateTestCase<SchemaCo
 			EMFManipulationUtils.delete(pkg.getClazzes().get(0));
 		});
 
-		final String path = "integ/expected/delete_preserve_conflict/single_attr/";
-		assertCondition(path + "src", path + "trg", path + "corr");
+		assertCondition("integ/expected/delete_preserve_conflict/single_attr/");
 	}
 
 	@Test
@@ -63,7 +62,6 @@ public class DeletePreserveConflictSingleAttr extends IntegrateTestCase<SchemaCo
 			UMLHelper.createInteger(pkg.getClazzes().get(0), "integerAttr");
 		});
 
-		final String path = "integ/expected/delete_preserve_conflict/single_attr/";
-		assertCondition(path + "src", path + "trg", path + "corr");
+		assertCondition("integ/expected/delete_preserve_conflict/single_attr/");
 	}
 }

@@ -71,7 +71,7 @@ public class Basic extends IntegrateTestCase<Company, IT> {
 
 			EMFManipulationUtils.delete(it.getRouter().get(0));
 		});
-		
+
 	}
 
 	@Test
@@ -86,10 +86,10 @@ public class Basic extends IntegrateTestCase<Company, IT> {
 			laptop.setName("Dominique");
 			it.getNetwork().get(0).getLaptop().add(laptop);
 		});
-		String prefix = "/integ/basic/expected/delete_preserve_edge_conflict/";
-		assertCondition(prefix + "src", prefix + "trg", prefix + "corr");
+
+		assertCondition("/integ/basic/expected/delete_preserve_edge_conflict/");
 	}
-	
+
 	@Test
 	public void delPreserveAttributeConflict() {
 		tool.getOptions().integration.conflictSolver( //
@@ -101,8 +101,7 @@ public class Basic extends IntegrateTestCase<Company, IT> {
 			it.getNetwork().get(0).getLaptop().get(0).setName("Dominique");
 		});
 
-		String prefix = "/integ/basic/expected/delete_preserve_attribute_conflict/";
-		assertCondition(prefix + "src", prefix + "trg", prefix + "corr");
+		assertCondition("/integ/basic/expected/delete_preserve_attribute_conflict/");
 	}
 
 	@Test

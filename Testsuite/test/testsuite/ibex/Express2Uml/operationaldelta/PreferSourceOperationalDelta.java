@@ -46,10 +46,9 @@ public class PreferSourceOperationalDelta extends IntegrateTestCase<SchemaContai
 			EMFManipulationUtils.delete(pkg.getClazzes().get(0));
 		});
 
-		final String path = "operationaldelta/expected/prefer_source_create/";
-		assertCondition(path + "src", path + "trg", path + "corr");
+		assertCondition("operationaldelta/expected/prefer_source_create/");
 	}
-	
+
 	@Test
 	public void preferSourceDelete() {
 		tool.getOptions().integration.conflictSolver(new PreferSourceConflictResolver());
@@ -65,8 +64,7 @@ public class PreferSourceOperationalDelta extends IntegrateTestCase<SchemaContai
 			UMLHelper.createInteger(clazz, "intAttr");
 		});
 
-		final String path = "operationaldelta/expected/prefer_source_delete/";
-		assertCondition(path + "src", path + "trg", path + "corr");
+		assertCondition("operationaldelta/expected/prefer_source_delete/");
 	}
 
 }

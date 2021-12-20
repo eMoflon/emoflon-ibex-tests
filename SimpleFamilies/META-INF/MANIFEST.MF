@@ -2,23 +2,20 @@ Manifest-Version: 1.0
 Bundle-SymbolicName: SimpleFamilies;singleton:=true
 Export-Package: SimpleFamilies,
  SimpleFamilies.impl,
+ SimpleFamilies.util,
  org.benchmarx.simplefamilies.core
-Bundle-Name: %pluginName
+Bundle-Name: FamiliesModel
 Bundle-Version: 1.0.0.qualifier
-Bundle-ClassPath: .
-Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.emf.ecore;visibility:=reexport,
+Require-Bundle: org.eclipse.emf.ecore,
  org.eclipse.emf.ecore.xmi,
  com.google.guava,
  org.eclipse.xtext.xbase.lib,
  org.eclipse.xtend.lib,
  org.eclipse.xtend.lib.macro,
  org.junit,
- Benchmarx;bundle-version="1.0.0",
- emfcodegenerator
+ Benchmarx;bundle-version="1.0.0"
 Bundle-ManifestVersion: 2
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Bundle-Vendor: %providerName
-Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: JavaSE-16
+Bundle-Vendor: TU Darmstadt
 Automatic-Module-Name: SimpleFamilies

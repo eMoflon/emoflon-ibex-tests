@@ -8,7 +8,7 @@ Bundle-Localization: plugin
 Bundle-SymbolicName: Express2UML;singleton:=true
 Automatic-Module-Name: Express2UML
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-16
 Export-Package: Express2UML,
  Express2UML.impl,
  Express2UML.integrate.deletePreserveMultiAttr,

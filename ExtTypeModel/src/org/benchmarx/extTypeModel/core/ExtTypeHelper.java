@@ -102,4 +102,26 @@ public class ExtTypeHelper {
 		return null;
 	}
 
+	public Type getType(String name) {
+		for (Package p : project.getRootPackages()) {
+			Type result = getType(p, name);
+			if (result != null)
+				return result;
+		}
+		return null;
+	}
+
+	public Type getType(Package p, String name) {
+		for (Type t : p.getTypes()) {
+			if (t.getName().equals(name))
+				return t;
+		}
+		for (Package subP : p.getSubPackages()) {
+			Type result = getType(subP, name);
+			if (result != null)
+				return result;
+		}
+		return null;
+	}
+
 }

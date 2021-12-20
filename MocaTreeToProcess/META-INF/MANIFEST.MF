@@ -21,20 +21,18 @@ Require-Bundle: org.apache.log4j,
  org.eclipse.emf.ecore;visibility:=reexport,
  MocaTree,
  ProcessDefinition,
- org.emoflon.ibex.tgg.runtime.viatra,
- emfcodegenerator
+ org.emoflon.ibex.tgg.runtime.viatra
 Bundle-ManifestVersion: 2
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-16
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Import-Package: Families.impl,
- MocaTree.impl,
- Persons.impl,
- ProcessDefinition.impl
-Export-Package: org.emoflon.ibex.tgg.run.mocatreetoprocess,
+Import-Package: Families.impl,MocaTree.impl,Persons.impl,ProcessDefini
+ tion.impl
+Export-Package: org.emoflon.ibex.tgg.operational.csp.constraints.factories.mocatreetoprocess,
+ org.emoflon.ibex.tgg.run.mocatreetoprocess,
  org.emoflon.ibex.tgg.run.mocatreetoprocess.config,
- org.emoflon.ibex.tgg.operational.csp.constraints.factories.mocatreetoprocess,
  MocaTreeToProcess,
- MocaTreeToProcess.impl
+ MocaTreeToProcess.impl,
+ MocaTreeToProcess.util
 Automatic-Module-Name: MocaTreeToProcess

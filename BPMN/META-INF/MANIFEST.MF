@@ -1,17 +1,14 @@
 Manifest-Version: 1.0
 Bundle-SymbolicName: BPMN;singleton:=true
-Export-Package: bpmn2,
+Export-Package: bpmn2.util,
+ bpmn2,
  bpmn2.impl
-Bundle-Name: %pluginName
+Bundle-Name: BPMN
 Bundle-Version: 1.0.0.qualifier
-Bundle-ClassPath: .
-Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.emf.ecore;visibility:=reexport,
- org.eclipse.emf.ecore.xmi;visibility:=reexport,
- emfcodegenerator
+Require-Bundle: org.eclipse.emf.ecore,
+ org.eclipse.emf.ecore.xmi
 Bundle-ManifestVersion: 2
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Bundle-Vendor: %providerName
-Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: JavaSE-16
+Bundle-Vendor: eMoflon::IBeX Developers
 Automatic-Module-Name: BPMN

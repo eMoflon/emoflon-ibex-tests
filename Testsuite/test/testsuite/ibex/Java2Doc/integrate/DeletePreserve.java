@@ -71,7 +71,7 @@ public class DeletePreserve extends IntegrateTestCase<Package, Folder> {
 			helperDoc.createDoc(helperDoc.getFolder(f, "cmoflon"), "criticalClazz_doc", "criticalbody");
 		});
 
-		assertCondition(fullPath + "src", fullPath + "trg", fullPath + "corr");
+		assertCondition(fullPath);
 	}
 
 	@Test
@@ -105,7 +105,7 @@ public class DeletePreserve extends IntegrateTestCase<Package, Folder> {
 			helperDoc.createDoc(helperDoc.getFolder(f, "ibex"), "criticalClazz_doc", "criticalbody");
 		});
 
-		assertCondition(fullPath + "src", fullPath + "trg", fullPath + "corr");
+		assertCondition(fullPath);
 	}
 
 	@Test
@@ -141,7 +141,7 @@ public class DeletePreserve extends IntegrateTestCase<Package, Folder> {
 			helperDoc.createDoc(helperDoc.getFolder(f, "ibex"), "criticalClazz_doc", "criticalbody");
 		});
 
-		assertCondition(fullPath + "src", fullPath + "trg", fullPath + "corr");
+		assertCondition(fullPath);
 	}
 
 	@Test
@@ -194,9 +194,9 @@ public class DeletePreserve extends IntegrateTestCase<Package, Folder> {
 		});
 
 		assertEquals(1, ccCount.get());
-		assertCondition(path + "src", path + "trg", path + "corr");
+		assertCondition(path);
 	}
-	
+
 	//// OTHER ////
 
 	@Test
@@ -214,7 +214,7 @@ public class DeletePreserve extends IntegrateTestCase<Package, Folder> {
 			EMFManipulationUtils.delete(helperDoc.getDoc(f, "GT_doc"));
 		});
 
-		assertCondition(path + "src", path + "trg", path + "corr");
+		assertCondition(path);
 	}
 
 	private void explicitDeletePackage(Package p) {
@@ -240,7 +240,7 @@ public class DeletePreserve extends IntegrateTestCase<Package, Folder> {
 			EMFManipulationUtils.delete(helperDoc.getDoc(f, "TGG_doc"));
 		});
 
-		assertCondition(path + "src", path + "trg", path + "corr");
+		assertCondition(path);
 	}
 
 	@Test
@@ -258,7 +258,7 @@ public class DeletePreserve extends IntegrateTestCase<Package, Folder> {
 			EMFManipulationUtils.delete(helperDoc.getDoc(f, "TGG_doc"));
 		});
 
-		assertCondition(path + "src", path + "trg", path + "corr");
+		assertCondition(path);
 	}
 
 }

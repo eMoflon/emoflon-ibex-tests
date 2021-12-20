@@ -46,8 +46,7 @@ public class RevokeDeletionOperationalDelta extends IntegrateTestCase<SchemaCont
 			EMFManipulationUtils.delete(pkg.getClazzes().get(0));
 		});
 
-		final String path = "operationaldelta/expected/revoke_deletion_target/";
-		assertCondition(path + "src", path + "trg", path + "corr");
+		assertCondition("operationaldelta/expected/revoke_deletion_target/");
 	}
 
 	@Test
@@ -62,10 +61,9 @@ public class RevokeDeletionOperationalDelta extends IntegrateTestCase<SchemaCont
 			Package pkg = container.getPackages().get(0);
 			Clazz clazz = pkg.getClazzes().get(0);
 			UMLHelper.createInteger(clazz, "integerAttr");
-		}); 
+		});
 
-		final String path = "operationaldelta/expected/revoke_deletion_source/";
-		assertCondition(path + "src", path + "trg", path + "corr");
+		assertCondition("operationaldelta/expected/revoke_deletion_source/");
 	}
 
 }
