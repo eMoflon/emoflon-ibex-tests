@@ -27,8 +27,7 @@ Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-16
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Export-Package: org.emoflon.ibex.tgg.run.blockdiagramcodeadapter_edger
- ules,
+Export-Package: org.emoflon.ibex.tgg.run.blockdiagramcodeadapter_edgerules,
  org.emoflon.ibex.tgg.run.blockdiagramcodeadapter_edgerules.config,
  BlockDiagramCodeAdapter_EdgeRules,
  BlockDiagramCodeAdapter_EdgeRules.impl

@@ -8,7 +8,8 @@ Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-16
 Automatic-Module-Name: HospitalExample
 Require-Bundle: org.eclipse.emf.ecore,
- org.eclipse.emf.ecore.xmi
+ org.eclipse.emf.ecore.xmi,
+ emfcodegenerator
 Export-Package: HospitalExample,
  HospitalExample.util,
  HospitalExample.impl
