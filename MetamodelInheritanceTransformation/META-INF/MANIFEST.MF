@@ -1,7 +1,6 @@
 Manifest-Version: 1.0
 Automatic-Module-Name: MetamodelInheritanceTransformation
-Bundle-SymbolicName: MetamodelInheritanceTransformation; singleton:=tr
- ue
+Bundle-SymbolicName: MetamodelInheritanceTransformation; singleton:=true
 Export-Package: MetamodelInheritanceTransformation.api,
  MetamodelInheritanceTransformation.api.matches,
  MetamodelInheritanceTransformation.api.rules
@@ -20,4 +19,5 @@ Bundle-ManifestVersion: 2
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-16
 Bundle-Vendor: My Company
-Import-Package: org.apache.log4j,org.apache.commons.logging
+Import-Package: org.apache.log4j,
+ org.apache.commons.logging

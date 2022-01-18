@@ -1,7 +1,6 @@
 Manifest-Version: 1.0
 Automatic-Module-Name: SheRememberedCaterpillarsGraphTransformation
-Bundle-SymbolicName: SheRememberedCaterpillarsGraphTransformation; sin
- gleton:=true
+Bundle-SymbolicName: SheRememberedCaterpillarsGraphTransformation; singleton:=true
 Require-Bundle: org.emoflon.ibex.common,
  org.emoflon.ibex.gt,
  org.emoflon.ibex.gt.democles,
@@ -13,7 +12,8 @@ Bundle-ManifestVersion: 2
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-16
 Bundle-Vendor: eMoflon::IBeX Developers
-Import-Package: org.apache.log4j,org.apache.commons.logging
+Import-Package: org.apache.log4j,
+ org.apache.commons.logging
 Export-Package: SheRememberedCaterpillarsGraphTransformation.api,
  SheRememberedCaterpillarsGraphTransformation.api.matches,
  SheRememberedCaterpillarsGraphTransformation.api.rules
