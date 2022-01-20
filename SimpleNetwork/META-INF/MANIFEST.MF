@@ -1,15 +1,17 @@
 Manifest-Version: 1.0
 Automatic-Module-Name: SimpleNetwork
 Bundle-SymbolicName: SimpleNetwork;singleton:=true
-Export-Package: SimpleNetwork.util,
- SimpleNetwork,
+Export-Package: SimpleNetwork,
  SimpleNetwork.impl
-Bundle-Name: SimpleNetwork
+Bundle-Name: %pluginName
 Bundle-Version: 0.0.1.qualifier
-Require-Bundle: org.eclipse.emf.ecore,
+Bundle-ClassPath: .
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.emf.ecore.xmi,
- emfcodegenerator
+ org.emoflon.smartemf;bundle-version="1.0.0"
 Bundle-ManifestVersion: 2
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-16
-Bundle-Vendor: 
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin

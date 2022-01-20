@@ -25,7 +25,7 @@ Require-Bundle: org.apache.log4j,
  TrainToVehicle;visibility:=reexport,
  org.emoflon.ibex.tgg.ui.debug.adapter;bundle-version="1.0.0",
  org.emoflon.ibex.tgg.runtime.viatra,
- emfcodegenerator
+ org.emoflon.smartemf
 Bundle-ManifestVersion: 2
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-16

@@ -10,11 +10,10 @@ Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-16
 Export-Package: util.generator,
  util.visualization,
- GroupVotersModel.util,
  GroupVotersModel.impl,
  GroupVotersModel
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.emf.ecore.xmi,
- emfcodegenerator
+ org.emoflon.smartemf;bundle-version="1.0.0"
 Bundle-ActivationPolicy: lazy

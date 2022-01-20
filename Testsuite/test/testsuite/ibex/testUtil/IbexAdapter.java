@@ -11,11 +11,9 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.emoflon.ibex.tgg.operational.strategies.sync.SYNC;
 import org.emoflon.ibex.tgg.util.ilp.ILPFactory.SupportedILPSolver;
-import org.moflon.smartemf.persistence.SmartEMFResourceFactoryImpl;
+import org.emoflon.smartemf.persistence.SmartEMFResourceFactoryImpl;
 
 public abstract class IbexAdapter<S extends EObject, T extends EObject> extends BXToolForEMF<S, T, Decisions>   {
 

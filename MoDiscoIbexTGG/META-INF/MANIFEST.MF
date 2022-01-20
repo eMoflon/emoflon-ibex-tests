@@ -20,10 +20,10 @@ Require-Bundle: org.apache.log4j,
  org.emoflon.ibex.tgg.runtime.hipe,
  org.emoflon.ibex.tgg.ui.debug.adapter;bundle-version="1.0.0",
  org.emoflon.ibex.tgg.runtime.viatra,
- emfcodegenerator,
  Java;bundle-version="0.0.1";visibility:=reexport,
  Types;visibility:=reexport,
- UML2;bundle-version="0.0.1";visibility:=reexport
+ UML2;bundle-version="0.0.1";visibility:=reexport,
+ org.emoflon.smartemf
 Bundle-ManifestVersion: 2
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-16

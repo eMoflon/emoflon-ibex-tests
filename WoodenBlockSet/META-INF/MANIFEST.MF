@@ -3,11 +3,12 @@ Automatic-Module-Name: WoodenBlockSet
 Bundle-SymbolicName: WoodenBlockSet;singleton:=true
 Export-Package: WoodenBlockSet,
  WoodenBlockSet.impl,
- WoodenBlockSet.util,
  org.benchmarx.woodenblockset.core
-Bundle-Name: WoodenBlockSet
+Bundle-Name: %pluginName
 Bundle-Version: 0.0.1.qualifier
-Require-Bundle: org.eclipse.emf.ecore,
+Bundle-ClassPath: .
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.emf.ecore.xmi,
  Benchmarx;bundle-version="1.0.0",
  org.eclipse.emf.compare,
@@ -16,8 +17,9 @@ Require-Bundle: org.eclipse.emf.ecore,
  org.eclipse.xtext.xbase.lib,
  org.eclipse.xtend.lib,
  org.eclipse.xtend.lib.macro,
- emfcodegenerator
+ org.emoflon.smartemf;bundle-version="1.0.0"
 Bundle-ManifestVersion: 2
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-16
-Bundle-Vendor: 
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin

@@ -3,13 +3,13 @@ Bundle-SymbolicName: ProcessDefinition;singleton:=true
 Export-Package: ProcessDefinition,
  ProcessDefinition.facade,
  ProcessDefinition.facade.impl,
- ProcessDefinition.facade.util,
  ProcessDefinition.impl,
- ProcessDefinition.util,
  org.benchmarx.processDefinition.core
-Bundle-Name: ProcessDefinition
+Bundle-Name: %pluginName
 Bundle-Version: 1.0
-Require-Bundle: org.eclipse.emf.ecore,
+Bundle-ClassPath: .
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.emf.ecore.xmi,
  Benchmarx;bundle-version="1.0.0",
  org.junit;bundle-version="4.12.0",
@@ -17,9 +17,10 @@ Require-Bundle: org.eclipse.emf.ecore,
  org.eclipse.xtext.xbase.lib,
  org.eclipse.xtend.lib,
  org.eclipse.xtend.lib.macro,
- emfcodegenerator
+ org.emoflon.smartemf;bundle-version="1.0.0"
 Bundle-ManifestVersion: 2
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-16
-Bundle-Vendor: TU Darmstadt
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
 Automatic-Module-Name: ProcessDefinition
