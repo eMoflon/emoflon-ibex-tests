@@ -9,7 +9,6 @@ Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-16
 Export-Package: classMultipleInheritanceHierarchy,
  classMultipleInheritanceHierarchy.impl,
- classMultipleInheritanceHierarchy.util,
  org.benchmarx.classMultipleInheritanceHierarchy.core
 Require-Bundle: org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.emf.ecore.xmi,
@@ -18,7 +17,8 @@ Require-Bundle: org.eclipse.emf.ecore;visibility:=reexport,
  org.junit;bundle-version="4.12.0",
  com.google.guava,
  org.eclipse.xtext.xbase.lib;bundle-version="2.12.0",
- org.eclipse.xtend.lib;bundle-version="2.12.0"
+ org.eclipse.xtend.lib;bundle-version="2.12.0",
+ org.emoflon.smartemf;bundle-version="1.0.0"
 Bundle-ActivationPolicy: lazy
 Import-Package: org.eclipse.emf.ecore.xmi.impl
 Automatic-Module-Name: ClassMultipleInheritanceHierarchy

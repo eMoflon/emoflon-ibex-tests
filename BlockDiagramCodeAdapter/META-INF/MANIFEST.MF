@@ -23,7 +23,8 @@ Require-Bundle: org.eclipse.emf.ecore.xmi,
  org.emoflon.ibex.tgg.runtime.hipe,
  BlockDiagram,
  MocaTree,
- org.emoflon.ibex.tgg.runtime.viatra
+ org.emoflon.ibex.tgg.runtime.viatra,
+ org.emoflon.smartemf
 Bundle-ManifestVersion: 2
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-16
@@ -32,7 +33,6 @@ Bundle-Localization: plugin
 Export-Package: org.emoflon.ibex.tgg.run.blockdiagramcodeadapter,
  org.emoflon.ibex.tgg.run.blockdiagramcodeadapter.config,
  BlockDiagramCodeAdapter,
- BlockDiagramCodeAdapter.impl,
- BlockDiagramCodeAdapter.util
+ BlockDiagramCodeAdapter.impl
 Import-Package: BlockLanguage.impl
 Automatic-Module-Name: BlockDiagramCodeAdapter

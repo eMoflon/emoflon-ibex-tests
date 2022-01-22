@@ -1,6 +1,5 @@
 package testsuite.ibex.TerraceHouses2BlockSet.integrate;
 
-import static org.emoflon.ibex.tgg.operational.strategies.integrate.FragmentProvider.APPLY_USER_DELTA;
 import static org.emoflon.ibex.tgg.operational.strategies.integrate.FragmentProvider.CLEAN_UP;
 import static org.emoflon.ibex.tgg.operational.strategies.integrate.FragmentProvider.RESOLVE_BROKEN_MATCHES;
 import static org.emoflon.ibex.tgg.operational.strategies.integrate.FragmentProvider.RESOLVE_CONFLICTS;
@@ -51,9 +50,8 @@ public class Multiplicity extends IntegrateTestCase<District, Playroom> {
 	private final String testpath = "integrate/expected/multipl/";
 
 	private final IntegrationPattern pattern = new IntegrationPattern(Arrays.asList( //
-			APPLY_USER_DELTA //
-//			, REPAIR //
-			, RESOLVE_CONFLICTS //
+//			REPAIR //
+			RESOLVE_CONFLICTS //
 			, RESOLVE_BROKEN_MATCHES //
 			, TRANSLATE //
 			, CLEAN_UP //

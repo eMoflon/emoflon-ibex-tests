@@ -1,10 +1,10 @@
-#import "platform:/resource/org.emoflon.express/model/generated/Express.ecore"
+#import "platform:/resource/ExpressModel/model/ExpressModel.ecore"
 #import "platform:/resource/UML/model/UML.ecore"
 
 #schema Express2UML
 	
 #source {
-	express
+	ExpressModel
 }
 
 #target { 

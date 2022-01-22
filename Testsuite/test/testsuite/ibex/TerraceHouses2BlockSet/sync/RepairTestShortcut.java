@@ -43,18 +43,14 @@ public class RepairTestShortcut extends SyncTestCase<District, Playroom> {
 
 	private void buildTerrace() {
 		tool.performAndPropagateSourceEdit(d -> helperTerrace.createFirstBuilding(d, "Colorado Apartments", null));
-		tool.performAndPropagateTargetEdit(
-				p -> helperBlockSet.getConstruction(p, "Colorado Apartments").setConstructor("Henry"));
-		tool.performAndPropagateSourceEdit(
-				d -> helperTerrace.buildTerrace(helperTerrace.getBuilding(d, "Colorado Apartments")));
+		tool.performAndPropagateTargetEdit(p -> helperBlockSet.getConstruction(p, "Colorado Apartments").setConstructor("Henry"));
+		tool.performAndPropagateSourceEdit(d -> helperTerrace.buildTerrace(helperTerrace.getBuilding(d, "Colorado Apartments")));
 		tool.performAndPropagateTargetEdit(helperBlockSet::setColors);
 	}
 
 	private void buildSecond() {
-		tool.performAndPropagateSourceEdit(
-				d -> helperTerrace.createFirstBuilding(d, "Kaufmann Industries", "Am Waldfeld 19"));
-		tool.performAndPropagateTargetEdit(
-				p -> helperBlockSet.getConstruction(p, "Kaufmann Industries").setConstructor("Pete"));
+		tool.performAndPropagateSourceEdit(d -> helperTerrace.createFirstBuilding(d, "Kaufmann Industries", "Am Waldfeld 19"));
+		tool.performAndPropagateTargetEdit(p -> helperBlockSet.getConstruction(p, "Kaufmann Industries").setConstructor("Pete"));
 		tool.performAndPropagateTargetEdit(helperBlockSet::setColors);
 	}
 
@@ -90,7 +86,6 @@ public class RepairTestShortcut extends SyncTestCase<District, Playroom> {
 		assertPrecondition("source/terrace", "target/terrace");
 
 		tool.performAndPropagateTargetEdit(root -> {
-			System.err.println("DELTA");
 			Construction flatRoof = helperBlockSet.getConstruction(root, "Smith's House");
 			helperBlockSet.createTriangularPrism(flatRoof, null);
 		});

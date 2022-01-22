@@ -3,9 +3,8 @@ package org.emoflon.ibex.tgg.run.bench.util;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.emoflon.express.express.Entity;
-import org.emoflon.express.express.Schema;
-
+import ExpressModel.Entity;
+import ExpressModel.Schema;
 import uml.Clazz;
 import uml.Package;
 

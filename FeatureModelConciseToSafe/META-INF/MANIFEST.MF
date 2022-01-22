@@ -20,7 +20,8 @@ Require-Bundle: org.apache.log4j,
  org.eclipse.emf.ecore;visibility:=reexport,
  FeatureModelConcise,
  FeatureModelSafe,
- org.emoflon.ibex.tgg.runtime.viatra
+ org.emoflon.ibex.tgg.runtime.viatra,
+ org.emoflon.smartemf
 Bundle-ManifestVersion: 2
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-16
@@ -29,6 +30,5 @@ Bundle-Localization: plugin
 Export-Package: org.emoflon.ibex.tgg.run.featuremodelconcisetosafe,
  org.emoflon.ibex.tgg.run.featuremodelconcisetosafe.config,
  FeatureModelConciseToSafe,
- FeatureModelConciseToSafe.impl,
- FeatureModelConciseToSafe.util
+ FeatureModelConciseToSafe.impl
 Automatic-Module-Name: FeatureModelConciseToSafe

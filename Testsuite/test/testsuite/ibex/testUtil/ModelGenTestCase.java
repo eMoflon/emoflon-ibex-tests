@@ -34,7 +34,7 @@ public abstract class ModelGenTestCase<S, T> extends TestCase {
 
 	@SuppressWarnings("unchecked")
 	protected void assertPostconditionOnSrc(String src) {
-		Resource srcExp = EMFUtil.loadExpectedResource(getResourcePath()+"/"+src, generator.getResourceHandler().getResourceSet());
+		Resource srcExp = EMFUtil.loadExpectedResource(getResourcePath()+"/"+src, generator.getResourceHandler().getModelResourceSet());
 		
 		Assert.assertNotEquals("Resource is empty", 0, srcExp.getContents().size());
 		
@@ -47,7 +47,7 @@ public abstract class ModelGenTestCase<S, T> extends TestCase {
 
 	@SuppressWarnings("unchecked")
 	protected void assertPostconditionOnTrg(String trg) {
-		Resource trgExp = EMFUtil.loadExpectedResource(getResourcePath()+"/"+trg, generator.getResourceHandler().getResourceSet());
+		Resource trgExp = EMFUtil.loadExpectedResource(getResourcePath()+"/"+trg, generator.getResourceHandler().getModelResourceSet());
 		
 		Assert.assertNotEquals("Resource is empty", 0, trgExp.getContents().size());
 		

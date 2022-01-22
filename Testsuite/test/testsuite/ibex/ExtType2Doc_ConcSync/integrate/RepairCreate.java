@@ -14,6 +14,7 @@ import java.util.function.Consumer;
 import org.benchmarx.extDocModel.core.ExtDocHelper;
 import org.benchmarx.extTypeModel.core.ExtTypeHelper;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.DeletePreserveConflict;
+import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.OperationalMultiplicityConflict;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.resolution.util.CRSHelper;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.pattern.IntegrationPattern;
 import org.junit.Test;
@@ -63,7 +64,10 @@ public class RepairCreate extends IntegrateTestCase<Project, DocContainer> {
 
 		AtomicBoolean foundConflict = new AtomicBoolean(false);
 		tool.getOptions().integration.conflictSolver(cc -> {
-			CRSHelper.forEachConflict(cc, c -> foundConflict.set(true));
+			CRSHelper.forEachConflict(cc, c -> {
+				if (!(c instanceof OperationalMultiplicityConflict))
+					foundConflict.set(true);
+			});
 		});
 
 		tool.applyAndIntegrateDelta((p, dc) -> {

@@ -22,7 +22,8 @@ Require-Bundle: org.eclipse.emf.ecore.xmi,
  MocaTree,
  BlockLanguage,
  org.emoflon.ibex.tgg.runtime.hipe,
- org.emoflon.ibex.tgg.runtime.viatra
+ org.emoflon.ibex.tgg.runtime.viatra,
+ org.emoflon.smartemf
 Bundle-ManifestVersion: 2
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-16
@@ -31,6 +32,5 @@ Bundle-Localization: plugin
 Export-Package: org.emoflon.ibex.tgg.run.blockcodeadapter,
  org.emoflon.ibex.tgg.run.blockcodeadapter.config,
  BlockCodeAdapter,
- BlockCodeAdapter.impl,
- BlockCodeAdapter.util
+ BlockCodeAdapter.impl
 Automatic-Module-Name: BlockCodeAdapter

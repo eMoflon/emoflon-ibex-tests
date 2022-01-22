@@ -15,6 +15,14 @@ class GlossarEntryNormaliser implements Comparator<GlossarEntry> {
 	}
 	
 	override compare(GlossarEntry f1, GlossarEntry f2) {
-		return f1.value.compareTo(f2.value)
+		if(f1.value === null && f2.value === null){
+			return 0
+		}else if(f1.value === null && f2.value !== null) {
+			return -1
+		}else if(f1.value !== null && f2.value === null) {
+			return 1
+		} else {
+			return f1.value.compareTo(f2.value)
+		}
 	}
 }

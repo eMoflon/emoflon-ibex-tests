@@ -22,7 +22,8 @@ Require-Bundle: org.eclipse.emf.ecore.xmi,
  org.eclipse.emf.ecore;visibility:=reexport,
  SimpleFamilies,
  SimplePersons,
- org.emoflon.ibex.tgg.runtime.viatra
+ org.emoflon.ibex.tgg.runtime.viatra,
+ org.emoflon.smartemf
 Bundle-ManifestVersion: 2
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-16
@@ -31,6 +32,5 @@ Bundle-Localization: plugin
 Export-Package: org.emoflon.ibex.tgg.run.familiestopersons_v1,
  org.emoflon.ibex.tgg.run.familiestopersons_v1.config,
  FamiliesToPersons_V1,
- FamiliesToPersons_V1.impl,
- FamiliesToPersons_V1.util
+ FamiliesToPersons_V1.impl
 Automatic-Module-Name: FamiliesToPersons_V1

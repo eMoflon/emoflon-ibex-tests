@@ -1,17 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<?eclipse version="3.0"?>
-
-<!--
--->
-
-<plugin>
-
-   <extension point="org.eclipse.emf.ecore.generated_package">
-      <!-- @generated simpleDoc -->
-      <package
-            uri="platform:/resource/SimpleDoc/model/simpleDoc.ecore"
-            class="simpleDoc.SimpleDocPackage"
-            genModel="model/simpleDoc.genmodel"/>
-   </extension>
-
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?eclipse version="3.0"?><!--
+--><plugin>
+  <extension point="org.eclipse.emf.ecore.generated_package">
+    <package class="simpleDoc.SimpleDocPackage" genModel="model/simpleDoc.genmodel" uri="platform:/resource/SimpleDoc/model/simpleDoc.ecore"/>
+  </extension>
 </plugin>

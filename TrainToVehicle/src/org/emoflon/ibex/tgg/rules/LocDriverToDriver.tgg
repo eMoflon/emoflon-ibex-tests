@@ -25,12 +25,12 @@ train:TrainLanguage.Train {
 }
 
 #correspondence {
-	train2vcl :trainToVehicle {
+	train2vcl :Train2Vehicle {
 		#src->train
 		#trg->vehicle
 	}
 
-	++ locDvr2dvr :locDriverToDriver {
+	++ locDvr2dvr :LocDriver2Driver {
 		#src->locDriver
 		#trg->driver
 	}

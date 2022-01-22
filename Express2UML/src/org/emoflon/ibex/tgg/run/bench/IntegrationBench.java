@@ -1,6 +1,5 @@
 package org.emoflon.ibex.tgg.run.bench;
 
-import static org.emoflon.ibex.tgg.operational.strategies.integrate.FragmentProvider.APPLY_USER_DELTA;
 import static org.emoflon.ibex.tgg.operational.strategies.integrate.FragmentProvider.CLEAN_UP;
 import static org.emoflon.ibex.tgg.operational.strategies.integrate.FragmentProvider.RESOLVE_BROKEN_MATCHES;
 import static org.emoflon.ibex.tgg.operational.strategies.integrate.FragmentProvider.RESOLVE_CONFLICTS;
@@ -21,13 +20,6 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
-import org.emoflon.express.express.Entity;
-import org.emoflon.express.express.ExpressFactory;
-import org.emoflon.express.express.Function;
-import org.emoflon.express.express.IntegerAttribute;
-import org.emoflon.express.express.Schema;
-import org.emoflon.express.express.SchemaContainer;
-import org.emoflon.express.express.StringAttribute;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.INTEGRATE;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.Conflict;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.resolution.util.ConflictResolver;
@@ -52,13 +44,14 @@ import Express2UML.SchemaContainer2UMLContainer__Marker;
 import Express2UML.StringAttribute2String__Marker;
 import Express2UML.StringTypeAttribute2String;
 import Express2UML.SubEntity2SubClazz__Marker;
-import Express2UML.integrate.bench.bench10.Bench10ConflictResolver;
-import Express2UML.integrate.bench.bench20.Bench20ConflictResolver;
-import Express2UML.integrate.bench.bench30.Bench30ConflictResolver;
-import Express2UML.integrate.bench.bench40.Bench40ConflictResolver;
-import Express2UML.integrate.bench.bench50.Bench50ConflictResolver;
 import Express2UML.integrate.bench.benchFirst.BenchFirstConflictResolver;
-import Express2UML.integrate.bench.benchSingleOperationalDelta.BenchSingleOperationalDeltaConflictResolver;
+import ExpressModel.Entity;
+import ExpressModel.ExpressModelFactory;
+import ExpressModel.Function;
+import ExpressModel.IntegerAttribute;
+import ExpressModel.Schema;
+import ExpressModel.SchemaContainer;
+import ExpressModel.StringAttribute;
 import uml.Clazz;
 import uml.Integer;
 import uml.Method;
@@ -68,7 +61,7 @@ import uml.UmlFactory;
 
 public class IntegrationBench {
 
-	private final ExpressFactory eFactory = ExpressFactory.eINSTANCE;
+	private final ExpressModelFactory eFactory = ExpressModelFactory.eINSTANCE;
 	private final UmlFactory uFactory = UmlFactory.eINSTANCE;
 	private final Express2UMLFactory corrFactory = Express2UMLFactory.eINSTANCE;
 
@@ -103,7 +96,7 @@ public class IntegrationBench {
 	private boolean horizontal;
 	private long integrateTime;
 
-	private final List<IntegrationFragment> patternFragments = Arrays.asList(APPLY_USER_DELTA, //
+	private final List<IntegrationFragment> patternFragments = Arrays.asList( //
 			RESOLVE_CONFLICTS, //
 			TRANSLATE, //
 			RESOLVE_BROKEN_MATCHES, //
@@ -175,7 +168,7 @@ public class IntegrationBench {
 			toc = System.currentTimeMillis();
 			System.out.println("	Completed in: " + (toc - tic) + " ms");
 			System.out.println("    Time spent in ConflictResolver: " + integrateTime + " ms");
-			System.out.println("No conflicts: " + integrate.getConflicts().isEmpty());
+			System.out.println("No conflicts: " + integrate.conflictHandler().getConflicts().isEmpty());
 			System.out.println("Conflicts detected: " + conflictCounter);
 			System.out.println("Conflicts resolved: " + numConflictsResolved);
 			System.out.println("DelPres_Conf: " + conflictSolvedDeletePreserveConflictsCounter);

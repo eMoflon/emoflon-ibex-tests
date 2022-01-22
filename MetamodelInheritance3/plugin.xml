@@ -1,17 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<?eclipse version="3.0"?>
-
-<!--
--->
-
-<plugin>
-
-   <extension point="org.eclipse.emf.ecore.generated_package">
-      <!-- @generated MetamodelInheritance3 -->
-      <package
-            uri="platform:/resource/MetamodelInheritance3/model/MetamodelInheritance3.ecore"
-            class="MetamodelInheritance3.MetamodelInheritance3Package"
-            genModel="model/MetamodelInheritance3.genmodel"/>
-   </extension>
-
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?eclipse version="3.0"?><!--
+--><plugin>
+  <extension point="org.eclipse.emf.ecore.generated_package">
+    <package class="MetamodelInheritance3.MetamodelInheritance3Package" genModel="model/MetamodelInheritance3.genmodel" uri="platform:/resource/MetamodelInheritance3/model/MetamodelInheritance3.ecore"/>
+  </extension>
 </plugin>

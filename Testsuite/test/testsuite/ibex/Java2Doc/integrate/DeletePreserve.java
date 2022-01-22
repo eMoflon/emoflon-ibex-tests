@@ -1,6 +1,5 @@
 package testsuite.ibex.Java2Doc.integrate;
 
-import static org.emoflon.ibex.tgg.operational.strategies.integrate.FragmentProvider.APPLY_USER_DELTA;
 import static org.emoflon.ibex.tgg.operational.strategies.integrate.FragmentProvider.CLEAN_UP;
 import static org.emoflon.ibex.tgg.operational.strategies.integrate.FragmentProvider.RESOLVE_BROKEN_MATCHES;
 import static org.emoflon.ibex.tgg.operational.strategies.integrate.FragmentProvider.RESOLVE_CONFLICTS;
@@ -15,7 +14,7 @@ import java.util.function.Consumer;
 
 import org.benchmarx.simpledoc.core.SimpleDocHelper;
 import org.benchmarx.simpledoc.core.SimpleJavaHelper;
-import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.emoflon.ibex.common.emf.EMFManipulationUtils;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.DeletePreserveConflict;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.resolution.util.CRSHelper;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.pattern.IntegrationPattern;
@@ -50,8 +49,7 @@ public class DeletePreserve extends IntegrateTestCase<Package, Folder> {
 	}
 
 	private final IntegrationPattern pattern = new IntegrationPattern(Arrays.asList( //
-			APPLY_USER_DELTA //
-			, RESOLVE_CONFLICTS //
+			RESOLVE_CONFLICTS //
 			, RESOLVE_BROKEN_MATCHES //
 			, TRANSLATE //
 			, CLEAN_UP //
@@ -68,7 +66,7 @@ public class DeletePreserve extends IntegrateTestCase<Package, Folder> {
 				c -> CRSHelper.forEachResolve(c, DeletePreserveConflict.class, s));
 		tool.applyAndIntegrateDelta((p, f) -> {
 			// src:
-			EcoreUtil.delete(helperJava.getPackage(p, "cmoflon"));
+			EMFManipulationUtils.delete(helperJava.getPackage(p, "cmoflon"));
 			// trg:
 			helperDoc.createDoc(helperDoc.getFolder(f, "cmoflon"), "criticalClazz_doc", "criticalbody");
 		});
@@ -101,8 +99,8 @@ public class DeletePreserve extends IntegrateTestCase<Package, Folder> {
 				c -> CRSHelper.forEachResolve(c, DeletePreserveConflict.class, s));
 		tool.applyAndIntegrateDelta((p, f) -> {
 			// src:
-			EcoreUtil.delete(helperJava.getClazz(p, "IPM"));
-			EcoreUtil.delete(helperJava.getPackage(p, "emoflon"));
+			EMFManipulationUtils.delete(helperJava.getClazz(p, "IPM"));
+			EMFManipulationUtils.delete(helperJava.getPackage(p, "emoflon"));
 			// trg:
 			helperDoc.createDoc(helperDoc.getFolder(f, "ibex"), "criticalClazz_doc", "criticalbody");
 		});
@@ -135,10 +133,10 @@ public class DeletePreserve extends IntegrateTestCase<Package, Folder> {
 				c -> CRSHelper.forEachResolve(c, DeletePreserveConflict.class, s));
 		tool.applyAndIntegrateDelta((p, f) -> {
 			// src:
-			EcoreUtil.delete(helperJava.getPackage(p, "ibex"));
-			EcoreUtil.delete(helperJava.getClazz(p, "TGG"));
-			EcoreUtil.delete(helperJava.getPackage(p, "cmoflon"));
-			EcoreUtil.delete(helperJava.getPackage(p, "es"));
+			EMFManipulationUtils.delete(helperJava.getPackage(p, "ibex"));
+			EMFManipulationUtils.delete(helperJava.getClazz(p, "TGG"));
+			EMFManipulationUtils.delete(helperJava.getPackage(p, "cmoflon"));
+			EMFManipulationUtils.delete(helperJava.getPackage(p, "es"));
 			// trg:
 			helperDoc.createDoc(helperDoc.getFolder(f, "ibex"), "criticalClazz_doc", "criticalbody");
 		});
@@ -186,10 +184,10 @@ public class DeletePreserve extends IntegrateTestCase<Package, Folder> {
 				});
 		tool.applyAndIntegrateDelta((p, f) -> {
 			// src:
-			EcoreUtil.delete(helperJava.getPackage(p, "ibex"));
-			EcoreUtil.delete(helperJava.getClazz(p, "TGG"));
-			EcoreUtil.delete(helperJava.getPackage(p, "cmoflon"));
-			EcoreUtil.delete(helperJava.getPackage(p, "es"));
+			EMFManipulationUtils.delete(helperJava.getPackage(p, "ibex"));
+			EMFManipulationUtils.delete(helperJava.getClazz(p, "TGG"));
+			EMFManipulationUtils.delete(helperJava.getPackage(p, "cmoflon"));
+			EMFManipulationUtils.delete(helperJava.getPackage(p, "es"));
 			// trg:
 			helperDoc.createDoc(helperDoc.getFolder(f, "ibex"), "criticalClazz_doc", "criticalbody");
 			helperDoc.createDoc(helperDoc.getFolder(f, "es"), "conflictingClazz_doc", "conflictingbody");
@@ -210,10 +208,10 @@ public class DeletePreserve extends IntegrateTestCase<Package, Folder> {
 				c -> CRSHelper.forEachResolve(c, DeletePreserveConflict.class, s -> s.crs_revokeDeletion()));
 		tool.applyAndIntegrateDelta((p, f) -> {
 			// src:
-			EcoreUtil.delete(helperJava.getPackage(p, "cmoflon"));
+			EMFManipulationUtils.delete(helperJava.getPackage(p, "cmoflon"));
 			// trg:
 			helperDoc.createDoc(helperDoc.getFolder(f, "cmoflon"), "criticalClazz_doc", "criticalbody");
-			EcoreUtil.delete(helperDoc.getDoc(f, "GT_doc"));
+			EMFManipulationUtils.delete(helperDoc.getDoc(f, "GT_doc"));
 		});
 
 		assertCondition(path);
@@ -223,8 +221,8 @@ public class DeletePreserve extends IntegrateTestCase<Package, Folder> {
 		List<Package> packages = new LinkedList<>(p.getSubPackages());
 		packages.forEach(this::explicitDeletePackage);
 		List<Clazz> clazzes = new LinkedList<>(p.getClazzes());
-		clazzes.forEach(EcoreUtil::delete);
-		EcoreUtil.delete(p);
+		clazzes.forEach(EMFManipulationUtils::delete);
+		EMFManipulationUtils.delete(p);
 	}
 
 	@Test
@@ -239,7 +237,7 @@ public class DeletePreserve extends IntegrateTestCase<Package, Folder> {
 			explicitDeletePackage(helperJava.getPackage(p, "emoflon"));
 			// trg:
 			helperDoc.createDoc(helperDoc.getFolder(f, "emoflon"), "criticalClazz_doc", "criticalbody");
-			EcoreUtil.delete(helperDoc.getDoc(f, "TGG_doc"));
+			EMFManipulationUtils.delete(helperDoc.getDoc(f, "TGG_doc"));
 		});
 
 		assertCondition(path);
@@ -254,10 +252,10 @@ public class DeletePreserve extends IntegrateTestCase<Package, Folder> {
 				c -> CRSHelper.forEachResolve(c, DeletePreserveConflict.class, s -> s.crs_revokeDeletion()));
 		tool.applyAndIntegrateDelta((p, f) -> {
 			// src:
-			EcoreUtil.delete(helperJava.getPackage(p, "emoflon"));
+			EMFManipulationUtils.delete(helperJava.getPackage(p, "emoflon"));
 			// trg:
 			helperDoc.createDoc(helperDoc.getFolder(f, "emoflon"), "criticalClazz_doc", "criticalbody");
-			EcoreUtil.delete(helperDoc.getDoc(f, "TGG_doc"));
+			EMFManipulationUtils.delete(helperDoc.getDoc(f, "TGG_doc"));
 		});
 
 		assertCondition(path);

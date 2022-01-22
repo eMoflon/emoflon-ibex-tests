@@ -28,12 +28,12 @@ loc:TrainLanguage.Locomotive {
 }
 
 #correspondence {
-	loc2VclSec :locomotiveToVehicleSection {
+	loc2VclSec :Locomotive2VehicleSection {
 		#src->loc
 		#trg->leadingVclSec
 	}
 
-	++ wagon2VclSec :wagonToVehicleSection {
+	++ wagon2VclSec :Wagon2VehicleSection {
 		#src->wagon
 		#trg->followingVclSec
 	}
@@ -65,12 +65,12 @@ loc:TrainLanguage.Locomotive {
 }
 
 #correspondence {
-	leadingWgn2VclSec :wagonToVehicleSection {
+	leadingWgn2VclSec :Wagon2VehicleSection {
 		#src->leadingWagon
 		#trg->leadingVclSec
 	}
 
-	++ followingWgn2VclSec :wagonToVehicleSection {
+	++ followingWgn2VclSec :Wagon2VehicleSection {
 		#src->followingWagon
 		#trg->followingVclSec
 	}

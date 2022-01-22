@@ -1,10 +1,10 @@
 package testsuite.ibex.Express2Uml.sync;
 
-import org.emoflon.express.express.Entity;
-import org.emoflon.express.express.Schema;
-import org.emoflon.express.express.SchemaContainer;
 import org.junit.Test;
 
+import ExpressModel.Entity;
+import ExpressModel.Schema;
+import ExpressModel.SchemaContainer;
 import testsuite.ibex.Express2Uml.common.ExpressHelper;
 import testsuite.ibex.Express2Uml.common.UMLHelper;
 import testsuite.ibex.Express2Uml.sync.util.IbexExpress2UML;

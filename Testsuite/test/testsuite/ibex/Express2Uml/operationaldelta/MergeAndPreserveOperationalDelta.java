@@ -1,14 +1,15 @@
 package testsuite.ibex.Express2Uml.operationaldelta;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.emoflon.express.express.Entity;
-import org.emoflon.express.express.Schema;
-import org.emoflon.express.express.SchemaContainer;
+import org.emoflon.ibex.common.emf.EMFManipulationUtils;
 import org.junit.Ignore;
 import org.junit.Test;
 
 import Express2UML.operationaldelta.mergeAndPreserve.MergeAndPreserveConflictResolver;
 import Express2UML.operationaldelta.mergeAndPreserveMulti.MergeAndPreserveMultiConflictResolver;
+import ExpressModel.Entity;
+import ExpressModel.Schema;
+import ExpressModel.SchemaContainer;
 import testsuite.ibex.Express2Uml.common.ExpressHelper;
 import testsuite.ibex.Express2Uml.common.UMLHelper;
 import testsuite.ibex.Express2Uml.integrate.util.IntegIbexSchemaContainer2Package;
@@ -47,7 +48,7 @@ public class MergeAndPreserveOperationalDelta extends IntegrateTestCase<SchemaCo
 			// trg:
 			Package pkg = container.getPackages().get(0);
 			Clazz clazz = pkg.getClazzes().get(0);
-			EcoreUtil.delete(clazz);
+			EMFManipulationUtils.delete(clazz);
 		});
 
 		assertCondition("operationaldelta/expected/merge_and_preserve/");
@@ -60,7 +61,7 @@ public class MergeAndPreserveOperationalDelta extends IntegrateTestCase<SchemaCo
 		tool.applyAndIntegrateDelta((schemaContainer, container) -> {
 			// src:
 			Schema schema = schemaContainer.getSchemas().get(0);
-			EcoreUtil.delete(schema.getDeclarations().get(0));
+			EMFManipulationUtils.delete(schema.getDeclarations().get(0));
 			// trg:
 			Package pkg = container.getPackages().get(0);
 			Clazz clazz = pkg.getClazzes().get(0);
@@ -81,7 +82,7 @@ public class MergeAndPreserveOperationalDelta extends IntegrateTestCase<SchemaCo
 			ExpressHelper.createIntegerAttribute(entity, "integerAttr");
 			// trg:
 			Package pkg = container.getPackages().get(0);
-			EcoreUtil.delete(pkg);
+			EMFManipulationUtils.delete(pkg);
 		});
 
 		assertCondition("operationaldelta/expected/merge_and_preserve/multi/");

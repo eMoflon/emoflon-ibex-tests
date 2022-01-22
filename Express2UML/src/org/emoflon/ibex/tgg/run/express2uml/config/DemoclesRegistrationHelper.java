@@ -14,7 +14,7 @@ public class DemoclesRegistrationHelper implements IRegistrationHelper {
 	/** Load and register source and target metamodels */
 	public void registerMetamodels(ResourceSet rs, IbexExecutable executable) throws IOException {
 		// Replace to register generated code or handle other URI-related requirements
-		executable.getResourceHandler().loadAndRegisterMetamodel("platform:/resource/org.emoflon.express/model/generated/Express.ecore");
+		executable.getResourceHandler().loadAndRegisterMetamodel("platform:/resource/ExpressModel/model/ExpressModel.ecore");
 		executable.getResourceHandler().loadAndRegisterMetamodel("platform:/resource/UML/model/UML.ecore");
 	}
 

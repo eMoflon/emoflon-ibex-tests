@@ -25,12 +25,12 @@ Require-Bundle: org.apache.log4j,
  org.eclipse.emf.ecore;visibility:=reexport,
  SimpleClassInheritance,
  GlossarDocumentation,
- org.emoflon.ibex.tgg.runtime.viatra
+ org.emoflon.ibex.tgg.runtime.viatra,
+ org.emoflon.smartemf
 Bundle-ManifestVersion: 2
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-16
 Export-Package: Clazz2GlossarDoc,
  Clazz2GlossarDoc.impl,
- Clazz2GlossarDoc.util,
  org.emoflon.ibex.tgg.run.clazz2glossardoc,
  org.emoflon.ibex.tgg.run.clazz2glossardoc.config

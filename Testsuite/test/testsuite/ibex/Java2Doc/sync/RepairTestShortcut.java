@@ -2,8 +2,11 @@ package testsuite.ibex.Java2Doc.sync;
 
 import org.benchmarx.simpledoc.core.SimpleDocHelper;
 import org.benchmarx.simpledoc.core.SimpleJavaHelper;
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.util.EContentAdapter;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.emoflon.ibex.common.emf.EMFManipulationUtils;
 import org.junit.Test;
 
 import simpleDoc.Doc;
@@ -111,7 +114,7 @@ public class RepairTestShortcut extends SyncTestCase<Package, Folder>{
 			Package ibex = helperJava.getPackage(p, "ibex");
 			
 			es.getSubPackages().add(ibex);
-			EcoreUtil.delete(emoflon, true);
+			EMFManipulationUtils.delete(emoflon, true);
 		});
 		assertPostcondition("in/moflon_deleteMidSub_FWD", "expected/moflon_deleteMidSub_FWD");
 	}
@@ -127,7 +130,7 @@ public class RepairTestShortcut extends SyncTestCase<Package, Folder>{
 			Folder ibex = helperDoc.getFolder(f, "ibex");
 			
 			es.getSubFolders().add(ibex);
-			EcoreUtil.delete(emoflon, true);
+			EMFManipulationUtils.delete(emoflon, true);
 		});
 		assertPostcondition("expected/moflon_deleteMidSub_BWD", "in/moflon_deleteMidSub_BWD");
 	}
@@ -142,7 +145,7 @@ public class RepairTestShortcut extends SyncTestCase<Package, Folder>{
 			Package cmoflon = helperJava.getPackage(p, "cmoflon");
 			Package emoflon = helperJava.getPackage(p, "emoflon");
 			
-			EcoreUtil.delete(emoflon, true);
+			EMFManipulationUtils.delete(emoflon, true);
 			p.getSubPackages().add(cmoflon);
 		});
 		assertPostcondition("in/moflon_deleteAndMoveSubs_FWD", "expected/moflon_deleteAndMoveSubs_FWD");
@@ -158,7 +161,7 @@ public class RepairTestShortcut extends SyncTestCase<Package, Folder>{
 			Folder cmoflon = helperDoc.getFolder(f, "cmoflon");
 			Folder emoflon = helperDoc.getFolder(f, "emoflon");
 			
-			EcoreUtil.delete(emoflon, true);
+			EMFManipulationUtils.delete(emoflon, true);
 			f.getSubFolders().add(cmoflon);
 		});
 		assertPostcondition("expected/moflon_deleteAndMoveSubs_BWD", "in/moflon_deleteAndMoveSubs_BWD");
@@ -284,7 +287,7 @@ public class RepairTestShortcut extends SyncTestCase<Package, Folder>{
 			res.getContents().add(newRoot);
 		});
 		tool.performIdleSourceEdit(p -> {
-			EcoreUtil.delete(p);
+			EMFManipulationUtils.delete(p);
 		});
 		assertPostcondition("in/moflon_deleteRoot_FWD", "expected/moflon_deleteRoot_FWD");
 	}
@@ -299,14 +302,15 @@ public class RepairTestShortcut extends SyncTestCase<Package, Folder>{
 			Folder newRoot = f.getSubFolders().get(0);
 			for(Doc d : newRoot.getDocs()) {
 				if(d.getName().equals(newRoot.getName() + "_doc")) {
-					EcoreUtil.delete(d);
+					EMFManipulationUtils.delete(d);
 					break;
 				}
 			}
 			f.eResource().getContents().add(newRoot);
 		});
+
 		tool.performIdleTargetEdit(f -> {
-			EcoreUtil.delete(f);
+			EMFManipulationUtils.delete(f);
 		});
 		assertPostcondition("expected/moflon_deleteRoot_BWD", "in/moflon_deleteRoot_BWD");
 	}
@@ -322,7 +326,7 @@ public class RepairTestShortcut extends SyncTestCase<Package, Folder>{
 			Resource res = p.eResource();
 			res.getContents().add(newRoot);
 			
-			EcoreUtil.delete(p);
+			EMFManipulationUtils.delete(p);
 		});
 		assertPostcondition("in/moflon_deleteRoot_FWD", "expected/moflon_deleteRoot_FWD");
 	}
@@ -337,13 +341,13 @@ public class RepairTestShortcut extends SyncTestCase<Package, Folder>{
 			Folder newRoot = f.getSubFolders().get(0);
 			for(Doc d : newRoot.getDocs()) {
 				if(d.getName().equals(newRoot.getName() + "_doc")) {
-					EcoreUtil.delete(d);
+					EMFManipulationUtils.delete(d);
 					break;
 				}
 			}
 			f.eResource().getContents().add(newRoot);
 			
-			EcoreUtil.delete(f);
+			EMFManipulationUtils.delete(f);
 		});
 		assertPostcondition("expected/moflon_deleteRoot_BWD", "in/moflon_deleteRoot_BWD");
 	}

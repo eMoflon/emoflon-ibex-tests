@@ -109,11 +109,11 @@ public abstract class IntegIbexAdapter<S extends EObject, T extends EObject> ext
 		Resource resSource = set.createResource(srcURI);
 		Resource resTarget = set.createResource(trgURI);
 
-		EObject colSource = EcoreUtil.copy(getSourceModel());
-		EObject colTarget = EcoreUtil.copy(getTargetModel());
+//		EObject colSource = EcoreUtil.copy(getSourceModel());
+//		EObject colTarget = EcoreUtil.copy(getTargetModel());
 
-		resSource.getContents().add(colSource);
-		resTarget.getContents().add(colTarget);
+		resSource.getContents().add(getSourceModel());
+		resTarget.getContents().add(getTargetModel());
 
 		try {
 			resSource.save(null);
@@ -124,7 +124,7 @@ public abstract class IntegIbexAdapter<S extends EObject, T extends EObject> ext
 	}
 
 	public ResourceSet getResourceSet() {
-		return integrator.getResourceHandler().getResourceSet();
+		return integrator.getResourceHandler().getModelResourceSet();
 	}
 
 	abstract public void initiateIntegrationDialogue();

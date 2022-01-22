@@ -1,6 +1,5 @@
 package org.emoflon.ibex.tgg.run.bench;
 
-import static org.emoflon.ibex.tgg.operational.strategies.integrate.FragmentProvider.APPLY_USER_DELTA;
 import static org.emoflon.ibex.tgg.operational.strategies.integrate.FragmentProvider.CLEAN_UP;
 import static org.emoflon.ibex.tgg.operational.strategies.integrate.FragmentProvider.REPAIR;
 import static org.emoflon.ibex.tgg.operational.strategies.integrate.FragmentProvider.RESOLVE_BROKEN_MATCHES;
@@ -116,7 +115,6 @@ public class IntegrationBench {
 	private boolean horizontal;
 
 	private final IntegrationPattern pattern = new IntegrationPattern(Arrays.asList( //
-			APPLY_USER_DELTA, //
 			REPAIR, //
 //			CHECK_LOCAL_CONSISTENCY, //
 			RESOLVE_CONFLICTS, //
@@ -196,7 +194,7 @@ public class IntegrationBench {
 			integrate.integrate();
 			toc = System.currentTimeMillis();
 			System.out.println("	Completed in: " + (toc - tic) + " ms");
-			System.out.println("No conflicts: " + integrate.getConflicts().isEmpty());
+			System.out.println("No conflicts: " + integrate.conflictHandler().getConflicts().isEmpty());
 			System.out.println("Conflicts detected: " + conflict_counter);
 			System.out.println("Attr_Conf: " + conflict_solved_attr_counter);
 			System.out.println("DelPres_Conf: " + conflict_solved_delPres_counter);

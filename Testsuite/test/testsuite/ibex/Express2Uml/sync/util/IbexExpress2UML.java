@@ -2,12 +2,12 @@ package testsuite.ibex.Express2Uml.sync.util;
 
 import java.io.IOException;
 
-import org.emoflon.express.express.SchemaContainer;
 import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 import org.emoflon.ibex.tgg.run.express2uml.SYNC_App;
 import org.emoflon.ibex.tgg.run.express2uml.config.DemoclesRegistrationHelper;
 import org.emoflon.ibex.tgg.run.express2uml.config.HiPERegistrationHelper;
 
+import ExpressModel.SchemaContainer;
 import testsuite.ibex.Express2Uml.common.ExpressHelper;
 import testsuite.ibex.Express2Uml.comparison.SchemaContainerComparator;
 import testsuite.ibex.Express2Uml.comparison.UMLContainerComparator;

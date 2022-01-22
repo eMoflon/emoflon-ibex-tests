@@ -1,12 +1,13 @@
 package testsuite.ibex.Express2Uml.integrate;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.emoflon.express.express.Entity;
-import org.emoflon.express.express.Schema;
-import org.emoflon.express.express.SchemaContainer;
+import org.emoflon.ibex.common.emf.EMFManipulationUtils;
 import org.junit.Test;
 
 import Express2UML.integrate.deletePreserveMultiEntity.DeletePreserveMultiEntityConflictResolver;
+import ExpressModel.Entity;
+import ExpressModel.Schema;
+import ExpressModel.SchemaContainer;
 import testsuite.ibex.Express2Uml.common.ExpressHelper;
 import testsuite.ibex.Express2Uml.integrate.util.IntegIbexSchemaContainer2Package;
 import testsuite.ibex.testUtil.IntegrateTestCase;
@@ -43,8 +44,8 @@ public class DeletePreserveConflictMultiEntity extends IntegrateTestCase<SchemaC
 			ExpressHelper.createStringAttribute(entity2, "stringAttr");
 			// trg:
 			Package pkg = container.getPackages().get(0);
-			EcoreUtil.delete(pkg.getClazzes().get(1));
-			EcoreUtil.delete(pkg.getClazzes().get(0));
+			EMFManipulationUtils.delete(pkg.getClazzes().get(1));
+			EMFManipulationUtils.delete(pkg.getClazzes().get(0));
 		});
 
 		assertCondition("integ/expected/delete_preserve_conflict/multi_entity/");

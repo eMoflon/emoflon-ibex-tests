@@ -3,6 +3,7 @@ package testsuite.ibex.Java2Doc.integrate;
 import org.benchmarx.simpledoc.core.SimpleDocHelper;
 import org.benchmarx.simpledoc.core.SimpleJavaHelper;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.emoflon.ibex.common.emf.EMFManipulationUtils;
 import org.junit.Test;
 
 import simpleDoc.Folder;
@@ -38,9 +39,9 @@ public class Del extends IntegrateTestCase<Package, Folder> {
 
 		tool.applyAndIntegrateDelta((p, f) -> {
 			// src:
-			EcoreUtil.delete(helperJava.getClazz(p, "GT"), true);
+			EMFManipulationUtils.delete(helperJava.getClazz(p, "GT"), true);
 			// trg:
-			EcoreUtil.delete(helperDoc.getDoc(f, "GT_doc"), true);
+			EMFManipulationUtils.delete(helperDoc.getDoc(f, "GT_doc"), true);
 		});
 
 		assertCondition(path);
@@ -52,9 +53,9 @@ public class Del extends IntegrateTestCase<Package, Folder> {
 
 		tool.applyAndIntegrateDelta((p, f) -> {
 			// src:
-			EcoreUtil.delete(helperJava.getPackage(p, "es"), true);
+			EMFManipulationUtils.delete(helperJava.getPackage(p, "es"), true);
 			// trg:
-			EcoreUtil.delete(helperDoc.getFolder(f, "es"), true);
+			EMFManipulationUtils.delete(helperDoc.getFolder(f, "es"), true);
 		});
 
 		assertCondition(path);
@@ -66,7 +67,7 @@ public class Del extends IntegrateTestCase<Package, Folder> {
 
 		tool.applyAndIntegrateDelta((p, f) -> {
 			// trg:
-			EcoreUtil.delete(helperDoc.getDoc(f, "es_doc"), true);
+			EMFManipulationUtils.delete(helperDoc.getDoc(f, "es_doc"), true);
 		});
 
 		assertCondition(path);

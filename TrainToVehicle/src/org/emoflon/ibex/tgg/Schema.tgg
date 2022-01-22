@@ -12,22 +12,22 @@
 } 
 
 #correspondence {
-	trainToVehicle {
+	Train2Vehicle {
 		#src->Train
 		#trg->Vehicle
 	}
 	
-	locDriverToDriver {
+	LocDriver2Driver {
 		#src->LocDriver
 		#trg->Driver
 	}
 	
-	locomotiveToVehicleSection {
+	Locomotive2VehicleSection {
 		#src->Locomotive
 		#trg->VehicleSection
 	}
 	
-	wagonToVehicleSection {
+	Wagon2VehicleSection {
 		#src->Wagon
 		#trg->VehicleSection
 	}
