@@ -8,7 +8,6 @@ import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 import org.emoflon.ibex.tgg.run.blockcodeadapter.SYNC_App;
 import org.emoflon.ibex.tgg.run.blockcodeadapter.config.DemoclesRegistrationHelper;
 import org.emoflon.ibex.tgg.run.blockcodeadapter.config.HiPERegistrationHelper;
-import org.emoflon.ibex.tgg.run.blockcodeadapter.config.ViatraRegistrationHelper;
 
 import BlockLanguage.BlockLanguageFactory;
 import BlockLanguage.Specification;
@@ -32,7 +31,7 @@ public class IbexBlockCodeAdapter extends IbexAdapter<File, Specification>   {
 	@Override
 	public void initiateSynchronisationDialogue() {
 		try {
-			SYNC_App.registrationHelper = UsedPatternMatcher.choose(new IRegistrationHelper[]{new DemoclesRegistrationHelper(), new HiPERegistrationHelper(), new ViatraRegistrationHelper()});
+			SYNC_App.registrationHelper = UsedPatternMatcher.choose(new IRegistrationHelper[]{new DemoclesRegistrationHelper(), new HiPERegistrationHelper()});
 			synchroniser = new SYNC_App(projectName, testsuite.ibex.performance.util.PerformanceConstants.workspacePath, ilpSolver, false);
 			
 			Specification s = BlockLanguageFactory.eINSTANCE.createSpecification();
