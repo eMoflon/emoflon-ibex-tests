@@ -6,7 +6,6 @@ import java.util.function.Supplier;
 
 import GroupVotersModel.Group;
 import GroupVotersModel.Voter;
-import org.emoflon.ibex.gt.testsuite.GTAppTestCase;
 import org.junit.Test;
 
 import VoterModelGraphTransformation.api.VoterModelGraphTransformationAPI;
@@ -14,8 +13,7 @@ import VoterModelGraphTransformation.api.VoterModelGraphTransformationAPI;
 public class VoterModelMultiGraphTest extends VoterModelAbstractTest {
 	
 	@Test
-	public void adoptRuleMGTestHiPE() {
-		this.setPatternMatcher(GTAppTestCase.PM_HIPE);
+	public void adoptRuleMGTest() {
 		VoterModelGraphTransformationAPI api = this.init("VoterModel1.xmi");
 		
 		adoptRuleMGTest(api);
@@ -23,17 +21,7 @@ public class VoterModelMultiGraphTest extends VoterModelAbstractTest {
 	}
 	
 	@Test
-	public void adoptRuleMGTestDemocles() {
-		this.setPatternMatcher(GTAppTestCase.PM_DEMOCLES);
-		VoterModelGraphTransformationAPI api = this.init("VoterModel1.xmi");
-		
-		adoptRuleMGTest(api);
-		api.terminate();
-	}
-	
-	@Test
-	public void adoptRulePGTestHiPE() {
-		this.setPatternMatcher(GTAppTestCase.PM_HIPE);
+	public void adoptRulePGTest() {
 		VoterModelGraphTransformationAPI api = this.init("VoterModel1.xmi");
 		
 		adoptRulePGTest(api);
@@ -41,17 +29,7 @@ public class VoterModelMultiGraphTest extends VoterModelAbstractTest {
 	}
 	
 	@Test
-	public void adoptRulePGTestDemocles() {
-		this.setPatternMatcher(GTAppTestCase.PM_DEMOCLES);
-		VoterModelGraphTransformationAPI api = this.init("VoterModel1.xmi");
-		
-		adoptRulePGTest(api);
-		api.terminate();
-	}
-	
-	@Test
-	public void rewireRuleMGTestHiPE() {
-		this.setPatternMatcher(GTAppTestCase.PM_HIPE);
+	public void rewireRuleMGTest() {
 		VoterModelGraphTransformationAPI api = this.init("VoterModel1.xmi");
 		
 		rewireRuleMGTest(api);
@@ -59,17 +37,7 @@ public class VoterModelMultiGraphTest extends VoterModelAbstractTest {
 	}
 	
 	@Test
-	public void rewireRuleMGTestDemocles() {
-		this.setPatternMatcher(GTAppTestCase.PM_DEMOCLES);
-		VoterModelGraphTransformationAPI api = this.init("VoterModel1.xmi");
-		
-		rewireRuleMGTest(api);
-		api.terminate();
-	}
-	
-	@Test
-	public void rewireRulePGTestHiPE() {
-		this.setPatternMatcher(GTAppTestCase.PM_HIPE);
+	public void rewireRulePGTest() {
 		VoterModelGraphTransformationAPI api = this.init("VoterModel1.xmi");
 		
 		rewireRulePGTest(api);
@@ -77,17 +45,7 @@ public class VoterModelMultiGraphTest extends VoterModelAbstractTest {
 	}
 	
 	@Test
-	public void rewireRulePGTestDemocles() {
-		this.setPatternMatcher(GTAppTestCase.PM_DEMOCLES);
-		VoterModelGraphTransformationAPI api = this.init("VoterModel1.xmi");
-		
-		rewireRulePGTest(api);
-		api.terminate();
-	}
-	
-	@Test
-	public void rewireRule1MGTerminationTestHiPE() {
-		this.setPatternMatcher(GTAppTestCase.PM_HIPE);
+	public void rewireRule1MGTerminationTest() {
 		VoterModelGraphTransformationAPI api = this.init("VoterModel1.xmi");
 
 		rewireRule1MGTerminationTest(api);	
@@ -95,8 +53,7 @@ public class VoterModelMultiGraphTest extends VoterModelAbstractTest {
 	}
 	
 	@Test
-	public void rewireRule2MGTerminationTestHiPE() {
-		this.setPatternMatcher(GTAppTestCase.PM_HIPE);
+	public void rewireRule2MGTerminationTest() {
 		VoterModelGraphTransformationAPI api = this.init("VoterModel1.xmi");
 
 		rewireRule2MGTerminationTest(api);
@@ -104,26 +61,7 @@ public class VoterModelMultiGraphTest extends VoterModelAbstractTest {
 	}
 	
 	@Test
-	public void rewireRule1MGTerminationTestDemocles() {
-		this.setPatternMatcher(GTAppTestCase.PM_DEMOCLES);
-		VoterModelGraphTransformationAPI api = this.init("VoterModel1.xmi");
-
-		rewireRule1MGTerminationTest(api);	
-		api.terminate();
-	}
-	
-	@Test
-	public void rewireRule2MGTerminationTestDemocles() {
-		this.setPatternMatcher(GTAppTestCase.PM_DEMOCLES);
-		VoterModelGraphTransformationAPI api = this.init("VoterModel1.xmi");
-
-		rewireRule2MGTerminationTest(api);
-		api.terminate();
-	}
-	
-	@Test
-	public void rewireRule1PGTerminationTestHiPE() {
-		this.setPatternMatcher(GTAppTestCase.PM_HIPE);
+	public void rewireRule1PGTerminationTest() {
 		VoterModelGraphTransformationAPI api = this.init("VoterModel1.xmi");
 
 		rewireRule1PGTerminationTest(api);
@@ -131,8 +69,7 @@ public class VoterModelMultiGraphTest extends VoterModelAbstractTest {
 	}
 	
 	@Test
-	public void rewireRule2PGTerminationTestHiPE() {
-		this.setPatternMatcher(GTAppTestCase.PM_HIPE);
+	public void rewireRule2PGTerminationTest() {
 		VoterModelGraphTransformationAPI api = this.init("VoterModel1.xmi");
 		
 		rewireRule2PGTerminationTest(api);
@@ -140,26 +77,7 @@ public class VoterModelMultiGraphTest extends VoterModelAbstractTest {
 	}
 	
 	@Test
-	public void rewireRule1PGTerminationTestDemocles() {
-		this.setPatternMatcher(GTAppTestCase.PM_DEMOCLES);
-		VoterModelGraphTransformationAPI api = this.init("VoterModel1.xmi");
-
-		rewireRule1PGTerminationTest(api);
-		api.terminate();
-	}
-
-	@Test
-	public void rewireRule2PGTerminationTestDemocles() {
-		this.setPatternMatcher(GTAppTestCase.PM_DEMOCLES);
-		VoterModelGraphTransformationAPI api = this.init("VoterModel1.xmi");
-		
-		rewireRule2PGTerminationTest(api);
-		api.terminate();
-	}
-	
-	@Test
-	public void adopt1MGTerminationTestHiPE() {
-		this.setPatternMatcher(GTAppTestCase.PM_HIPE);
+	public void adopt1MGTerminationTest() {
 		VoterModelGraphTransformationAPI api = this.init("VoterModel1.xmi");
 		
 		adopt1MGTerminationTest(api);
@@ -167,8 +85,7 @@ public class VoterModelMultiGraphTest extends VoterModelAbstractTest {
 	}
 	
 	@Test
-	public void adopt1PGTerminationTestHiPE() {
-		this.setPatternMatcher(GTAppTestCase.PM_HIPE);
+	public void adopt1PGTerminationTest() {
 		VoterModelGraphTransformationAPI api = this.init("VoterModel1.xmi");
 		
 		adopt1PGTerminationTest(api);
@@ -176,26 +93,7 @@ public class VoterModelMultiGraphTest extends VoterModelAbstractTest {
 	}
 	
 	@Test
-	public void adopt1MGTerminationTestDemocles() {
-		this.setPatternMatcher(GTAppTestCase.PM_DEMOCLES);
-		VoterModelGraphTransformationAPI api = this.init("VoterModel1.xmi");
-		
-		adopt1MGTerminationTest(api);
-		api.terminate();
-	}
-	
-	@Test
-	public void adopt1PGTerminationTestDemocles() {
-		this.setPatternMatcher(GTAppTestCase.PM_DEMOCLES);
-		VoterModelGraphTransformationAPI api = this.init("VoterModel1.xmi");
-		
-		adopt1PGTerminationTest(api);
-		api.terminate();
-	}
-	
-	@Test
-	public void adopt2MGTerminationTestHiPE() {
-		this.setPatternMatcher(GTAppTestCase.PM_HIPE);
+	public void adopt2MGTerminationTest() {
 		VoterModelGraphTransformationAPI api = this.init("VoterModel1.xmi");
 		
 		adopt2MGTerminationTest(api);
@@ -203,8 +101,7 @@ public class VoterModelMultiGraphTest extends VoterModelAbstractTest {
 	}
 	
 	@Test
-	public void adopt2PGTerminationTestHiPE() {
-		this.setPatternMatcher(GTAppTestCase.PM_HIPE);
+	public void adopt2PGTerminationTest() {
 		VoterModelGraphTransformationAPI api = this.init("VoterModel1.xmi");
 		
 		adopt2PGTerminationTest(api);
@@ -212,26 +109,7 @@ public class VoterModelMultiGraphTest extends VoterModelAbstractTest {
 	}
 	
 	@Test
-	public void adopt2MGTerminationTestDemocles() {
-		this.setPatternMatcher(GTAppTestCase.PM_DEMOCLES);
-		VoterModelGraphTransformationAPI api = this.init("VoterModel1.xmi");
-		
-		adopt2MGTerminationTest(api);
-		api.terminate();
-	}
-	
-	@Test
-	public void adopt2PGTerminationTestDemocles() {
-		this.setPatternMatcher(GTAppTestCase.PM_DEMOCLES);
-		VoterModelGraphTransformationAPI api = this.init("VoterModel1.xmi");
-		
-		adopt2PGTerminationTest(api);
-		api.terminate();
-	}
-	
-	@Test
-	public void rewireAlternatingMGTerminationTestHiPE() {
-		this.setPatternMatcher(GTAppTestCase.PM_HIPE);
+	public void rewireAlternatingMGTerminationTest() {
 		VoterModelGraphTransformationAPI api = this.init("VoterModel1.xmi");
 		
 		rewireAlternatingMGTerminationTest(api);
@@ -239,28 +117,9 @@ public class VoterModelMultiGraphTest extends VoterModelAbstractTest {
 	}
 	
 	@Test
-	public void rewireAlternatingPGTerminationTestHiPE() {
-		this.setPatternMatcher(GTAppTestCase.PM_HIPE);
+	public void rewireAlternatingPGTerminationTest() {
 		VoterModelGraphTransformationAPI api = this.init("VoterModel1.xmi");
 
-		rewireAlternatingPGTerminationTest(api);
-		api.terminate();
-	}
-	
-	@Test
-	public void rewireAlternatingMGTerminationTestDemocles() {
-		this.setPatternMatcher(GTAppTestCase.PM_DEMOCLES);
-		VoterModelGraphTransformationAPI api = this.init("VoterModel1.xmi");
-		
-		rewireAlternatingMGTerminationTest(api);
-		api.terminate();
-	}
-	
-	@Test
-	public void rewireAlternatingPGTerminationTestDemocles() {
-		this.setPatternMatcher(GTAppTestCase.PM_DEMOCLES);
-		VoterModelGraphTransformationAPI api = this.init("VoterModel1.xmi");
-		
 		rewireAlternatingPGTerminationTest(api);
 		api.terminate();
 	}
