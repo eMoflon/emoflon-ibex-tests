@@ -1,13 +1,12 @@
 package org.emoflon.ibex.gt.testsuite.VoterModel;
 
-import VoterModelGraphTransformation.api.VoterModelGraphTransformationAPI;
-import VoterModelGraphTransformation.api.VoterModelGraphTransformationApp;
-
 import org.emoflon.ibex.common.operational.IContextPatternInterpreter;
 import org.emoflon.ibex.gt.democles.runtime.DemoclesGTEngine;
 import org.emoflon.ibex.gt.hipe.runtime.HiPEGTEngine;
 import org.emoflon.ibex.gt.testsuite.GTAppTestCase;
-import org.emoflon.ibex.gt.viatra.runtime.ViatraGTEngine;
+
+import VoterModelGraphTransformation.api.VoterModelGraphTransformationAPI;
+import VoterModelGraphTransformation.api.VoterModelGraphTransformationApp;
 
 /**
  * Abstract test class for the VoterModel Graph
@@ -39,9 +38,6 @@ public class VoterModelAbstractTest extends
 				break;
 			case PM_HIPE: 			
 				engine = new HiPEGTEngine();
-				break;
-			case PM_VIATRA:
-				engine = new ViatraGTEngine();
 				break;
 			default: throw new RuntimeException(patternMatcher + " is not a supported as a pattern matcher!");
 			}

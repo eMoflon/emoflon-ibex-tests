@@ -8,7 +8,6 @@ import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 import org.emoflon.ibex.tgg.run.familiestopersons_v1.SYNC_App;
 import org.emoflon.ibex.tgg.run.familiestopersons_v1.config.DemoclesRegistrationHelper;
 import org.emoflon.ibex.tgg.run.familiestopersons_v1.config.HiPERegistrationHelper;
-import org.emoflon.ibex.tgg.run.familiestopersons_v1.config.ViatraRegistrationHelper;
 
 import SimpleFamilies.FamilyRegister;
 import SimpleFamilies.SimpleFamiliesFactory;
@@ -32,7 +31,7 @@ public class IbexSimpleFamiliesToPersons extends IbexAdapter<FamilyRegister, Per
 	@Override
 	public void initiateSynchronisationDialogue() {
 		try {
-			SYNC_App.registrationHelper = UsedPatternMatcher.choose(new IRegistrationHelper[]{new DemoclesRegistrationHelper(), new HiPERegistrationHelper(), new ViatraRegistrationHelper()});
+			SYNC_App.registrationHelper = UsedPatternMatcher.choose(new IRegistrationHelper[]{new DemoclesRegistrationHelper(), new HiPERegistrationHelper()});
 			synchroniser = new SYNC_App(projectName, testsuite.ibex.performance.util.PerformanceConstants.workspacePath, ilpSolver, false);
 			
 			FamilyRegister reg = SimpleFamiliesFactory.eINSTANCE.createFamilyRegister();
