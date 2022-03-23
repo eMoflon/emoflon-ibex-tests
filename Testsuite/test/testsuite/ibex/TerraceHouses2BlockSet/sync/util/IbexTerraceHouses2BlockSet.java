@@ -15,7 +15,6 @@ import org.emoflon.ibex.tgg.operational.repair.shortcut.updatepolicy.IShortcutRu
 import org.emoflon.ibex.tgg.run.terracehouses2blockset.SYNC_App;
 import org.emoflon.ibex.tgg.run.terracehouses2blockset.config.DemoclesRegistrationHelper;
 import org.emoflon.ibex.tgg.run.terracehouses2blockset.config.HiPERegistrationHelper;
-import org.emoflon.ibex.tgg.run.terracehouses2blockset.config.ViatraRegistrationHelper;
 
 import TerraceHouses.District;
 import TerraceHouses.TerraceHousesFactory;
@@ -48,7 +47,7 @@ public class IbexTerraceHouses2BlockSet extends IbexAdapter<District, Playroom> 
 	public void initiateSynchronisationDialogue() {
 		try {
 			SYNC_App.registrationHelper = UsedPatternMatcher.choose(
-					new IRegistrationHelper[] { new DemoclesRegistrationHelper(), new HiPERegistrationHelper(), new ViatraRegistrationHelper() });
+					new IRegistrationHelper[] { new DemoclesRegistrationHelper(), new HiPERegistrationHelper()});
 			synchroniser = new SYNC_App(projectName, workspacePath, ilpSolver, false);
 			synchroniser.getOptions().repair.shortcutRuleUpdatePolicy(updatepolicy);
 

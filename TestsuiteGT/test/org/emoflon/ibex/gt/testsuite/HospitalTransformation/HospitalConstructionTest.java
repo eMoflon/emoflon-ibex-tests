@@ -48,21 +48,21 @@ public class HospitalConstructionTest extends HospitalTransformationAbstractTest
 			assertApplicable(api.patient(HospitalRules.firstNames[HospitalRules.firstNames.length%patientID]+" "+HospitalRules.lastNames[HospitalRules.lastNames.length%patientID], patientID++, Carelevel.PENDING));
 		}
 	
-		while(api.findPatientInReception().hasMatches()) {
-			assertApplicable(api.assignPatientToRoom());
-		}
-		
-		// Check result:
-		assertEquals(1, api.findHospital().countMatches());
-		assertEquals(1, api.findReception().countMatches());
-		assertEquals(4, api.findDepartment().countMatches());
-		assertEquals(16, api.findRoom().countMatches());
-		assertEquals(4, api.findDoctor().countMatches());
-		assertEquals(4, api.findDocWithPatient().countMatches());
-		assertEquals(16, api.findNurse().countMatches());
-		assertEquals(16, api.findNurseInRoom().countMatches());
-		assertEquals(16, api.findPatient().countMatches());
-		assertEquals(0, api.findPatientInReception().countMatches());
-		assertEquals(16, api.findPatientInRoom().countMatches());
+//		while(api.findPatientInReception().hasMatches()) {
+//			assertApplicable(api.assignPatientToRoom());
+//		}
+//		
+//		// Check result:
+//		assertEquals(1, api.findHospital().countMatches());
+//		assertEquals(1, api.findReception().countMatches());
+//		assertEquals(4, api.findDepartment().countMatches());
+//		assertEquals(16, api.findRoom().countMatches());
+//		assertEquals(4, api.findDoctor().countMatches());
+//		assertEquals(4, api.findDocWithPatient().countMatches());
+//		assertEquals(16, api.findNurse().countMatches());
+//		assertEquals(16, api.findNurseInRoom().countMatches());
+//		assertEquals(16, api.findPatient().countMatches());
+//		assertEquals(0, api.findPatientInReception().countMatches());
+//		assertEquals(16, api.findPatientInRoom().countMatches());
 	}
 }

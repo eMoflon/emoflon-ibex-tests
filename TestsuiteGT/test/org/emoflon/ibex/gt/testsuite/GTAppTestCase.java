@@ -19,7 +19,7 @@ import org.emoflon.ibex.gt.api.GraphTransformationPattern;
 import org.emoflon.ibex.gt.api.GraphTransformationRule;
 import org.emoflon.ibex.gt.democles.runtime.DemoclesGTEngine;
 import org.emoflon.ibex.gt.hipe.runtime.HiPEGTEngine;
-import org.emoflon.ibex.gt.viatra.runtime.ViatraGTEngine;
+//import org.emoflon.ibex.gt.viatra.runtime.ViatraGTEngine;
 
 /**
  * An abstract test case for Graph Transformation.
@@ -82,9 +82,9 @@ public abstract class GTAppTestCase<App extends GraphTransformationApp<API>, API
 			case PM_HIPE: 			
 				engine = new HiPEGTEngine();
 				break;
-			case PM_VIATRA:
-				engine = new ViatraGTEngine();
-				break;
+//			case PM_VIATRA:
+//				engine = new ViatraGTEngine();
+//				break;
 			default: throw new RuntimeException(patternMatcher + " is not a supported as a pattern matcher!");
 			}
 		}

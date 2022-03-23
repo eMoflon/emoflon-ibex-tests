@@ -8,7 +8,6 @@ import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 import org.emoflon.ibex.tgg.run.exttype2doc_concsync.INTEGRATE_App;
 import org.emoflon.ibex.tgg.run.exttype2doc_concsync.config.DemoclesRegistrationHelper;
 import org.emoflon.ibex.tgg.run.exttype2doc_concsync.config.HiPERegistrationHelper;
-import org.emoflon.ibex.tgg.run.exttype2doc_concsync.config.ViatraRegistrationHelper;
 
 import ExtDocModel.DocContainer;
 import ExtTypeModel.Project;
@@ -29,7 +28,7 @@ public class IntegIbexExtType2Doc_ConcSync extends IntegIbexAdapter<Project, Doc
 	public void initiateIntegrationDialogue() {
 		try {
 			INTEGRATE_App.registrationHelper = UsedPatternMatcher.choose(new IRegistrationHelper[] {
-					new HiPERegistrationHelper(), new DemoclesRegistrationHelper(), new ViatraRegistrationHelper() });
+					new HiPERegistrationHelper(), new DemoclesRegistrationHelper()});
 			integrator = new INTEGRATE_App(projectName,
 					testsuite.ibex.performance.util.PerformanceConstants.workspacePath,
 					"/resources/integ/in/" + inputFolder, ilpSolver, false);

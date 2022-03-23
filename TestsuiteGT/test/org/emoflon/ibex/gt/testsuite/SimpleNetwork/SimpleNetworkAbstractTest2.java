@@ -4,7 +4,7 @@ import org.emoflon.ibex.common.operational.IContextPatternInterpreter;
 import org.emoflon.ibex.gt.democles.runtime.DemoclesGTEngine;
 import org.emoflon.ibex.gt.hipe.runtime.HiPEGTEngine;
 import org.emoflon.ibex.gt.testsuite.GTAppTestCase;
-import org.emoflon.ibex.gt.viatra.runtime.ViatraGTEngine;
+//import org.emoflon.ibex.gt.viatra.runtime.ViatraGTEngine;
 
 import SimpleNetworkGraphTransformation2.api.SimpleNetworkGraphTransformation2API;
 import SimpleNetworkGraphTransformation2.api.SimpleNetworkGraphTransformation2App;
@@ -23,8 +23,8 @@ public class SimpleNetworkAbstractTest2 extends GTAppTestCase<SimpleNetworkGraph
 			IContextPatternInterpreter interpreter = initEngine();
 			if(interpreter instanceof DemoclesGTEngine) {
 				engine = GTAppTestCase.PM_DEMOCLES;
-			} else if(interpreter instanceof ViatraGTEngine) {
-				engine = GTAppTestCase.PM_VIATRA;
+//			} else if(interpreter instanceof ViatraGTEngine) {
+//				engine = GTAppTestCase.PM_VIATRA;
 			} else if(interpreter instanceof HiPEGTEngine) {
 				engine = GTAppTestCase.PM_HIPE;
 			}
