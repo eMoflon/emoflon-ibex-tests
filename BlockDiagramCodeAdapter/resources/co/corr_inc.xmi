@@ -1,23 +1,43 @@
-<?xml version="1.0" encoding="ASCII"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:BlockDiagramCodeAdapter="platform:/resource/BlockDiagramCodeAdapter/model/BlockDiagramCodeAdapter.ecore">
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmlns:xmi="http://www.omg.org/XMI" xmlns:BlockDiagram="platform:/resource/BlockDiagram/model/BlockDiagram.ecore" xmlns:BlockDiagramCodeAdapter="platform:/resource/BlockDiagramCodeAdapter/model/BlockDiagramCodeAdapter.ecore" xmlns:MocaTree="platform:/resource/MocaTree/model/MocaTree.ecore" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmi:version="2.0">
   <BlockDiagramCodeAdapter:SystemToNode>
-    <source href="src.xmi#/0"/>
-    <target href="trg.xmi#/0/@rootNode"/>
+    <source xsi:type="BlockDiagram:BlockSystem" href="platform:/resource/BlockDiagramCodeAdapter/resources/co/src.xmi#/0" />
+    <target xsi:type="MocaTree:Node" href="platform:/resource/BlockDiagramCodeAdapter/resources/co/trg.xmi#/0/@rootNode" />
   </BlockDiagramCodeAdapter:SystemToNode>
   <BlockDiagramCodeAdapter:SystemToNode>
-    <source href="src.xmi#/1"/>
-    <target href="trg.xmi#/0/@rootNode"/>
+    <target xsi:type="MocaTree:Node" href="platform:/resource/BlockDiagramCodeAdapter/resources/co/trg.xmi#/0/@rootNode" />
+    <source xsi:type="BlockDiagram:BlockSystem" href="platform:/resource/BlockDiagramCodeAdapter/resources/co/src.xmi#/1" />
   </BlockDiagramCodeAdapter:SystemToNode>
   <BlockDiagramCodeAdapter:SystemToNode>
-    <source href="src.xmi#/2"/>
-    <target href="trg.xmi#/2/@rootNode"/>
+    <source xsi:type="BlockDiagram:BlockSystem" href="platform:/resource/BlockDiagramCodeAdapter/resources/co/src.xmi#/2" />
+    <target xsi:type="MocaTree:Node" href="platform:/resource/BlockDiagramCodeAdapter/resources/co/trg.xmi#/2/@rootNode" />
   </BlockDiagramCodeAdapter:SystemToNode>
   <BlockDiagramCodeAdapter:SystemToNode>
-    <source href="src.xmi#/3"/>
-    <target href="trg.xmi#/3/@rootNode"/>
+    <target xsi:type="MocaTree:Node" href="platform:/resource/BlockDiagramCodeAdapter/resources/co/trg.xmi#/3/@rootNode" />
+    <source xsi:type="BlockDiagram:BlockSystem" href="platform:/resource/BlockDiagramCodeAdapter/resources/co/src.xmi#/3" />
   </BlockDiagramCodeAdapter:SystemToNode>
   <BlockDiagramCodeAdapter:SystemToNode>
-    <source href="src.xmi#/4"/>
-    <target href="trg.xmi#/4/@rootNode"/>
+    <source xsi:type="BlockDiagram:BlockSystem" href="platform:/resource/BlockDiagramCodeAdapter/resources/co/src.xmi#/4" />
+    <target xsi:type="MocaTree:Node" href="platform:/resource/BlockDiagramCodeAdapter/resources/co/trg.xmi#/4/@rootNode" />
+  </BlockDiagramCodeAdapter:SystemToNode>
+  <BlockDiagramCodeAdapter:SystemToNode>
+    <target xsi:type="MocaTree:Node" href="platform:/resource/BlockDiagramCodeAdapter/resources/co/trg.xmi#/1/@rootNode" />
+    <source xsi:type="BlockDiagram:BlockSystem" href="platform:/resource/BlockDiagramCodeAdapter/resources/co/src.xmi#/1" />
+  </BlockDiagramCodeAdapter:SystemToNode>
+  <BlockDiagramCodeAdapter:SystemToNode>
+    <source xsi:type="BlockDiagram:BlockSystem" href="platform:/resource/BlockDiagramCodeAdapter/resources/co/src.xmi#/0" />
+    <target xsi:type="MocaTree:Node" href="platform:/resource/BlockDiagramCodeAdapter/resources/co/trg.xmi#/0/@rootNode" />
+  </BlockDiagramCodeAdapter:SystemToNode>
+  <BlockDiagramCodeAdapter:SystemToNode>
+    <source xsi:type="BlockDiagram:BlockSystem" href="platform:/resource/BlockDiagramCodeAdapter/resources/co/src.xmi#/4" />
+    <target xsi:type="MocaTree:Node" href="platform:/resource/BlockDiagramCodeAdapter/resources/co/trg.xmi#/4/@rootNode" />
+  </BlockDiagramCodeAdapter:SystemToNode>
+  <BlockDiagramCodeAdapter:SystemToNode>
+    <target xsi:type="MocaTree:Node" href="platform:/resource/BlockDiagramCodeAdapter/resources/co/trg.xmi#/3/@rootNode" />
+    <source xsi:type="BlockDiagram:BlockSystem" href="platform:/resource/BlockDiagramCodeAdapter/resources/co/src.xmi#/3" />
+  </BlockDiagramCodeAdapter:SystemToNode>
+  <BlockDiagramCodeAdapter:SystemToNode>
+    <source xsi:type="BlockDiagram:BlockSystem" href="platform:/resource/BlockDiagramCodeAdapter/resources/co/src.xmi#/2" />
+    <target xsi:type="MocaTree:Node" href="platform:/resource/BlockDiagramCodeAdapter/resources/co/trg.xmi#/2/@rootNode" />
   </BlockDiagramCodeAdapter:SystemToNode>
 </xmi:XMI>

@@ -9,8 +9,8 @@ import org.emoflon.ibex.tgg.run.blockcodeadapter.FWD_OPT_App;
 import org.emoflon.ibex.tgg.run.blockcodeadapter.config.DemoclesRegistrationHelper;
 import org.emoflon.ibex.tgg.run.blockcodeadapter.config.HiPERegistrationHelper;
 import org.emoflon.ibex.tgg.run.blockcodeadapter.config.ViatraRegistrationHelper;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import testsuite.ibex.testUtil.COTestCase;
 import testsuite.ibex.testUtil.UsedPatternMatcher;
@@ -38,7 +38,7 @@ public class TestBlockCodeAdapter extends COTestCase{
 		runFWD_OPT();
 		createGenerator("/resources/co/src", "/resources/co/trg-tmp", "/resources/co/corr-tmp", "/resources/co/prot-tmp");
 		runCO();
-		Assert.assertTrue(checker.modelsAreConsistent());
+		Assertions.assertTrue(checker.modelsAreConsistent());
 	}
 	
 	@Test
@@ -47,20 +47,20 @@ public class TestBlockCodeAdapter extends COTestCase{
 		runBWD_OPT();
 		createGenerator("/resources/co/src-tmp", "/resources/co/trg", "/resources/co/corr-tmp", "/resources/co/prot-tmp");
 		runCO();
-		Assert.assertTrue(checker.modelsAreConsistent());
+		Assertions.assertTrue(checker.modelsAreConsistent());
 	}
 	
 	@Test
 	public void testSimplePositive() throws IOException {
 		createGenerator("/resources/co/src", "/resources/co/trg", "/resources/co/corr", "/resources/co/protocol");
 		runCO();
-		Assert.assertTrue(checker.modelsAreConsistent());
+		Assertions.assertTrue(checker.modelsAreConsistent());
 	}
 	
 	@Test
 	public void testMissingLink() throws IOException {
 		createGenerator("/resources/co/src", "/resources/co/trg", "/resources/co/corr_inc", "/resources/co/protocol");
 		runCO();
-		Assert.assertFalse(checker.modelsAreConsistent());
+		Assertions.assertFalse(checker.modelsAreConsistent());
 	}
 }

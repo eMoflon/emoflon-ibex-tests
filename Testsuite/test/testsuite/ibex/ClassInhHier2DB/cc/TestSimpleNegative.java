@@ -7,8 +7,8 @@ import org.emoflon.ibex.tgg.run.classinhhier2db.CC_App;
 import org.emoflon.ibex.tgg.run.classinhhier2db.config.DemoclesRegistrationHelper;
 import org.emoflon.ibex.tgg.run.classinhhier2db.config.HiPERegistrationHelper;
 import org.emoflon.ibex.tgg.run.classinhhier2db.config.ViatraRegistrationHelper;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import testsuite.ibex.testUtil.CCTestCase;
 import testsuite.ibex.testUtil.UsedPatternMatcher;
@@ -23,28 +23,28 @@ public class TestSimpleNegative extends CCTestCase {
 	public void testPackageToTable() throws IOException {
 		createGenerator("in/PackageToDatabase_FWD", "expected/ClassToTable_FWD");
 		runCC();
-		Assert.assertTrue(!checker.modelsAreConsistent());
+		Assertions.assertTrue(!checker.modelsAreConsistent());
 	}
 	
 	@Test
 	public void testClassToColumn() throws IOException {
 		createGenerator("in/ClassToTable_FWD", "expected/AttributeToColumn_FWD");
 		runCC();
-		Assert.assertTrue(!checker.modelsAreConsistent());
+		Assertions.assertTrue(!checker.modelsAreConsistent());
 	}
 	
 	@Test
 	public void testAttributeToTable() throws IOException {
 		createGenerator("in/AttributeToColumn_FWD", "expected/SubClassToTable_FWD");
 		runCC();
-		Assert.assertTrue(!checker.modelsAreConsistent());
+		Assertions.assertTrue(!checker.modelsAreConsistent());
 	}
 	
 	@Test
 	public void testLargeExample() throws IOException {
 		createGenerator("in/LargeExample_FWD", "expected/AttributeToColumn2_FWD");
 		runCC();
-		Assert.assertTrue(!checker.modelsAreConsistent());
+		Assertions.assertTrue(!checker.modelsAreConsistent());
 	}
 	
 }

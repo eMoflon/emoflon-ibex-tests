@@ -11,7 +11,6 @@ Require-Bundle: org.apache.log4j,
  org.emoflon.ibex.tgg.runtime.democles,
  Benchmarx;bundle-version="1.0.0",
  org.emoflon.express;bundle-version="1.0.0",
- org.junit;bundle-version="4.12.0",
  BlockCodeAdapter;bundle-version="1.0.0",
  BlockDiagramCodeAdapter;bundle-version="1.0.0",
  ClassInhHier2DB;bundle-version="1.0.0",
@@ -67,5 +66,8 @@ Require-Bundle: org.apache.log4j,
  ExtTypeModel,
  ExtType2Doc_SCDerived,
  ExtType2Doc_ConcSync,
- MoDiscoIbexTGG
+ MoDiscoIbexTGG,
+ org.junit.jupiter.api,
+ org.junit.platform.commons,
+ org.junit
 Automatic-Module-Name: Testsuite

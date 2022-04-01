@@ -1,11 +1,11 @@
 package org.emoflon.ibex.gt.testsuite.SimpleFamiliesToSimplePersons;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.*
 
 import org.emoflon.ibex.gt.democles.runtime.DemoclesGTEngine;
 import org.emoflon.ibex.gt.testsuite.GTAppTestCase;
 import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import SimpleFamilies.Family;
 import SimpleFamilies.FamilyMember;

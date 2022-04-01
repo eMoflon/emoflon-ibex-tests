@@ -1,8 +1,8 @@
 package org.emoflon.ibex.gt.testsuite.SimpleNetwork;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.*
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import SimpleNetwork.Network;
 import SimpleNetworkGraphTransformation.api.SimpleNetworkGraphTransformationAPI;

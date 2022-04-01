@@ -12,8 +12,8 @@ import org.emoflon.ibex.common.emf.EMFManipulationUtils;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.resolution.util.ConflictResolver;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.pattern.IntegrationPattern;
 import org.glossarDoc.core.GlossarDocumentationHelper;
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 import org.simpleClass.core.SimpleClassInheritanceHelper;
 
 import glossarDocumentation.Document;
@@ -97,7 +97,7 @@ public class Combined extends IntegrateTestCase<ClazzContainer, DocumentationCon
 	}
 
 	// FIXME Non-deterministic bug which causes dangling references
-	@Ignore
+	@Disabled
 	@Test
 	public void combinedConflicts() {
 		combinedConflicts(c -> {}, testpath + "combC/");

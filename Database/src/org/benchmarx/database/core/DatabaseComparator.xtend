@@ -4,7 +4,7 @@ import org.benchmarx.emf.Comparator
 import java.util.List
 import java.util.ArrayList
 
-import static org.junit.Assert.*
+import static org.junit.jupiter.api.Assertions.*
 import Database.DB
 import Database.Table
 

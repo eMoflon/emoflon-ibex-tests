@@ -5,10 +5,10 @@ import java.io.IOException;
 import org.benchmarx.terracehouses.core.TerraceHousesComparator;
 import org.benchmarx.woodenblockset.core.BlockSetComparator;
 import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
+import org.emoflon.ibex.tgg.run.terracehouses2blockset.INTEGRATE_App;
 import org.emoflon.ibex.tgg.run.terracehouses2blockset.config.DemoclesRegistrationHelper;
 import org.emoflon.ibex.tgg.run.terracehouses2blockset.config.HiPERegistrationHelper;
 import org.emoflon.ibex.tgg.run.terracehouses2blockset.config.ViatraRegistrationHelper;
-import org.emoflon.ibex.tgg.run.terracehouses2blockset.INTEGRATE_App;
 
 import TerraceHouses.District;
 import WoodenBlockSet.Playroom;

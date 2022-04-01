@@ -14,10 +14,10 @@ import org.emoflon.ibex.tgg.run.companytoit.config.DemoclesRegistrationHelper;
 import org.emoflon.ibex.tgg.run.companytoit.config.HiPERegistrationHelper;
 import org.emoflon.ibex.tgg.run.companytoit.config.ViatraRegistrationHelper;
 import org.emoflon.ibex.tgg.weights.Weights;
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import CompanyLanguage.CEO;
 import CompanyLanguage.Company;
@@ -39,12 +39,12 @@ public class TestTggWeights extends CCTestCase {
 		this.checker.setUserDefinedWeightCalculationStrategy(new Weights(this.checker));
 	}
 
-	@Before
+	@BeforeEach
 	public void setUp() throws IOException {
 		this.createGenerator("co/src_weightTest", "co/trg_weightTest");
 	}
 
-	@After
+	@AfterEach
 	public void tearDown() throws IOException {
 		this.checker.terminate();
 		this.checker = null;
@@ -72,10 +72,10 @@ public class TestTggWeights extends CCTestCase {
 		m.put("it", it);
 
 		double weight = this.checker.getWeightForMatch(m, "CompanyToITRule");
-		Assert.assertEquals(company.getName().length(), weight, 0.001);
+		Assertions.assertEquals(company.getName().length(), weight, 0.001);
 
 		double defaultCCWeight = this.checker.getDefaultWeightForMatch(m, "CompanyToITRule");
-		Assert.assertEquals(this.getDefaultCCWeigth("CompanyToITRule"), defaultCCWeight, 0.001);
+		Assertions.assertEquals(this.getDefaultCCWeigth("CompanyToITRule"), defaultCCWeight, 0.001);
 
 	}
 
@@ -92,7 +92,7 @@ public class TestTggWeights extends CCTestCase {
 		m.put("ceo", ceo);
 		m.put("it", it);
 		double weight = this.checker.getWeightForMatch(m, "NotExistingRule");
-		Assert.assertEquals(26, weight, 0.001);
+		Assertions.assertEquals(26, weight, 0.001);
 	}
 
 	@Test
@@ -112,10 +112,10 @@ public class TestTggWeights extends CCTestCase {
 		m.put("router", router);
 
 		double weight = this.checker.getWeightForMatch(m, "AdminToRouterRule");
-		Assert.assertEquals(company.getName().length() * router.getName().length(), weight, 0.001);
+		Assertions.assertEquals(company.getName().length() * router.getName().length(), weight, 0.001);
 
 		double defaultCCWeight = this.checker.getDefaultWeightForMatch(m, "AdminToRouterRule");
-		Assert.assertEquals(this.getDefaultCCWeigth("AdminToRouterRule"), defaultCCWeight, 0.001);
+		Assertions.assertEquals(this.getDefaultCCWeigth("AdminToRouterRule"), defaultCCWeight, 0.001);
 	}
 
 	@Test
@@ -134,14 +134,14 @@ public class TestTggWeights extends CCTestCase {
 		m.put("computer", laptop);
 
 		double weight = this.checker.getWeightForMatch(m, "EmployeeToLaptopRule");
-		Assert.assertEquals(800 *2, weight, 0.001);
+		Assertions.assertEquals(800 *2, weight, 0.001);
 
 		m.put("employee", employeeShortName);
 		weight = this.checker.getWeightForMatch(m, "EmployeeToLaptopRule");
-		Assert.assertEquals(800, weight, 0.001);
+		Assertions.assertEquals(800, weight, 0.001);
 
 		double defaultCCWeight = this.checker.getDefaultWeightForMatch(m, "EmployeeToLaptopRule");
-		Assert.assertEquals(this.getDefaultCCWeigth("EmployeeToLaptopRule"), defaultCCWeight, 0.001);
+		Assertions.assertEquals(this.getDefaultCCWeigth("EmployeeToLaptopRule"), defaultCCWeight, 0.001);
 	}
 
 	@Test
@@ -160,42 +160,42 @@ public class TestTggWeights extends CCTestCase {
 		m.put("computer", pc);
 
 		double weight = this.checker.getWeightForMatch(m, "EmployeeToPCRule");
-		Assert.assertEquals(500, weight, 0.001);
+		Assertions.assertEquals(500, weight, 0.001);
 
 		m.put("employee", employeeShortName);
 		weight = this.checker.getWeightForMatch(m, "EmployeeToPCRule");
-		Assert.assertEquals(500 * 2, weight, 0.001);
+		Assertions.assertEquals(500 * 2, weight, 0.001);
 
 		double defaultCCWeight = this.checker.getDefaultWeightForMatch(m, "EmployeeToPCRule");
-		Assert.assertEquals(this.getDefaultCCWeigth("EmployeeToPCRule"), defaultCCWeight, 0.001);
+		Assertions.assertEquals(this.getDefaultCCWeigth("EmployeeToPCRule"), defaultCCWeight, 0.001);
 	}
 
 	@Test
 	public void testCorrGeneration() throws IOException {
 		this.runCC();
-		Assert.assertFalse(this.checker.modelsAreConsistent());
+		Assertions.assertFalse(this.checker.modelsAreConsistent());
 		System.out.println(this.checker.generateConsistencyReport());
 		//the source model should be completely generated
-		Assert.assertTrue(this.checker.getInconsistentSrcEdges().isEmpty());
-		Assert.assertTrue(this.checker.getInconsistentSrcNodes().isEmpty());
+		Assertions.assertTrue(this.checker.getInconsistentSrcEdges().isEmpty());
+		Assertions.assertTrue(this.checker.getInconsistentSrcNodes().isEmpty());
 
 		//The employee with short name should choose PC, long name laptop
 		//so laptop(abc) and (PC(...)) should be inconsistent
 		Collection<EObject> inconsistentTrgNodes = this.checker.getInconsistentTrgNodes();
-		Assert.assertTrue(inconsistentTrgNodes.size() == 2);
-		Assert.assertEquals(1, inconsistentTrgNodes.stream().filter(o -> o instanceof Laptop).count());
-		Assert.assertEquals(1, inconsistentTrgNodes.stream().filter(o -> o instanceof PC).count());
+		Assertions.assertTrue(inconsistentTrgNodes.size() == 2);
+		Assertions.assertEquals(1, inconsistentTrgNodes.stream().filter(o -> o instanceof Laptop).count());
+		Assertions.assertEquals(1, inconsistentTrgNodes.stream().filter(o -> o instanceof PC).count());
 		Laptop inconsistentLaptop = (Laptop) inconsistentTrgNodes.stream().filter(o -> o instanceof Laptop).findFirst().get();
 		PC inconsistentPC = (PC) inconsistentTrgNodes.stream().filter(o -> o instanceof PC).findFirst().get();
-		Assert.assertEquals("abc", inconsistentLaptop.getName());
-		Assert.assertEquals("abcdefghijklmnopqrstuvwxyz", inconsistentPC.getName());
+		Assertions.assertEquals("abc", inconsistentLaptop.getName());
+		Assertions.assertEquals("abcdefghijklmnopqrstuvwxyz", inconsistentPC.getName());
 
 		//The two edges pointing from the network to the inconsistent PC/laptop should be inconsistent
 		Collection<EMFEdge> inconsistentTrgEdges = this.checker.getInconsistentTrgEdges();
-		Assert.assertTrue(inconsistentTrgEdges.size() == 2);
-		Assert.assertTrue(inconsistentTrgEdges.stream().anyMatch(e -> e.getTarget() == inconsistentLaptop));
-		Assert.assertTrue(inconsistentTrgEdges.stream().anyMatch(e -> e.getTarget() == inconsistentPC));
-		Assert.assertTrue(inconsistentTrgEdges.stream().anyMatch(e -> e.getSource() == inconsistentLaptop.eContainer()));
-		Assert.assertTrue(inconsistentTrgEdges.stream().anyMatch(e -> e.getSource() == inconsistentPC.eContainer()));
+		Assertions.assertTrue(inconsistentTrgEdges.size() == 2);
+		Assertions.assertTrue(inconsistentTrgEdges.stream().anyMatch(e -> e.getTarget() == inconsistentLaptop));
+		Assertions.assertTrue(inconsistentTrgEdges.stream().anyMatch(e -> e.getTarget() == inconsistentPC));
+		Assertions.assertTrue(inconsistentTrgEdges.stream().anyMatch(e -> e.getSource() == inconsistentLaptop.eContainer()));
+		Assertions.assertTrue(inconsistentTrgEdges.stream().anyMatch(e -> e.getSource() == inconsistentPC.eContainer()));
 	}
 }

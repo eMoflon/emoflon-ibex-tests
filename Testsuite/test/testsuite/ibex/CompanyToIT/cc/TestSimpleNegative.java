@@ -7,8 +7,8 @@ import org.emoflon.ibex.tgg.run.companytoit.CC_App;
 import org.emoflon.ibex.tgg.run.companytoit.config.DemoclesRegistrationHelper;
 import org.emoflon.ibex.tgg.run.companytoit.config.HiPERegistrationHelper;
 import org.emoflon.ibex.tgg.run.companytoit.config.ViatraRegistrationHelper;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import testsuite.ibex.testUtil.CCTestCase;
 import testsuite.ibex.testUtil.UsedPatternMatcher;
@@ -24,13 +24,13 @@ public class TestSimpleNegative extends CCTestCase {
 	public void testCompanyToRouter() throws IOException {
 		createGenerator("in/Company_FWD", "expected/Admin_FWD");
 		runCC();
-		Assert.assertTrue(!checker.modelsAreConsistent());
+		Assertions.assertTrue(!checker.modelsAreConsistent());
 	}
 	
 	@Test
 	public void testAdminToLaptop() throws IOException {
 		createGenerator("in/Admin_FWD", "expected/Employee_Laptop_FWD");
 		runCC();
-		Assert.assertTrue(!checker.modelsAreConsistent());
+		Assertions.assertTrue(!checker.modelsAreConsistent());
 	}
 }

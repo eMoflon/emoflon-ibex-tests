@@ -1,7 +1,7 @@
 package org.emoflon.ibex.gt.testsuite.SimpleNetwork;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.*
+import static org.junit.jupiter.api.Assertions.*
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -13,7 +13,7 @@ import org.emoflon.ibex.common.operational.IMatch;
 import org.emoflon.ibex.gt.api.GraphTransformationPattern;
 import org.emoflon.ibex.gt.StateModel.State;
 import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import SimpleNetwork.Device;
 import SimpleNetworkGraphTransformation.api.SimpleNetworkGraphTransformationAPI;
@@ -230,7 +230,7 @@ public class SimpleNetworkStateTrackingTest extends SimpleNetworkAbstractTest{
 		api.deactivateModelStatesTracking();
 	}
 	
-	@Ignore
+	@Disabled
 	@Test
 	public void checkStateIdentityTracking1() {
 		SimpleNetworkGraphTransformationAPI api = this.init("SimpleNetwork1.xmi");

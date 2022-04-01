@@ -2,7 +2,7 @@ package org.emoflon.ibex.gt.testsuite.SimpleFamiliesToSimplePersons2;
 
 import org.eclipse.emf.common.util.URI;
 import org.emoflon.ibex.gt.testsuite.GTAppTestCase;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import SimpleFamilies.Family;
 import SimpleFamilies.FamilyMember;

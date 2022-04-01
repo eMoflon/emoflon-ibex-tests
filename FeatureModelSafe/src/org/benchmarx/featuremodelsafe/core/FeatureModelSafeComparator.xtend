@@ -2,7 +2,7 @@ package org.benchmarx.featuremodelsafe.core
 
 import FeatureModelSafe.Model
 import org.benchmarx.emf.Comparator
-import static org.junit.Assert.*
+import static org.junit.jupiter.api.Assertions.*
 import FeatureModelSafe.Feature
 import FeatureModelSafe.XorGroup
 import FeatureModelSafe.OrGroup

@@ -2,12 +2,11 @@ package testsuite.ibex.CompanyToIT.integrate;
 
 import org.benchmarx.companyLanguage.core.CompanyLanguageHelper;
 import org.benchmarx.itLanguage.core.ITLanguageHelper;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.ibex.common.emf.EMFManipulationUtils;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.DeletePreserveConflict;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.resolution.util.CRSHelper;
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import CompanyLanguage.CEO;
 import CompanyLanguage.Company;
@@ -41,7 +40,7 @@ public class Basic extends IntegrateTestCase<Company, IT> {
 		return projectName;
 	}
 
-	@Ignore
+	@Disabled
 	@Test
 	public void filterNACViolation() {
 		tool.applyAndIntegrateDelta((c, it) -> {
@@ -53,7 +52,7 @@ public class Basic extends IntegrateTestCase<Company, IT> {
 		});
 	}
 
-	@Ignore
+	@Disabled
 	@Test
 	public void modelChanges() {
 		tool.applyAndIntegrateDelta((c, it) -> {

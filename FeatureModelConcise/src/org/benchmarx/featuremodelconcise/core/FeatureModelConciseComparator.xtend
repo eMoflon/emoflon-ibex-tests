@@ -6,7 +6,7 @@ import FeatureModelConcise.OrGroup
 import FeatureModelConcise.XorGroup
 import org.benchmarx.emf.Comparator
 
-import static org.junit.Assert.*
+import static org.junit.jupiter.api.Assertions.*
 
 class FeatureModelConciseComparator implements Comparator<Model> {
 	

@@ -1,7 +1,7 @@
 package testsuite.ibex.BenchmarxFamiliesToPersons.sync;
 
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import testsuite.ibex.BenchmarxFamiliesToPersons.FamiliesToPersonsTestCase;
 
@@ -76,7 +76,7 @@ public class IncrementalForward extends FamiliesToPersonsTestCase {
 	 * <b>Expect</b>: Change the name of the affected Persons in the Person Register
 	 * <b>Features</b>: fwd, attribute, fixed, structural, corr-based
 	 */
-	@Ignore ("Not sure why this fails.")
+	@Disabled ("Not sure why this fails.")
 	@Test
 	public void testIncrementalRename() {
 		tool.performAndPropagateSourceEdit(util
@@ -108,7 +108,7 @@ public class IncrementalForward extends FamiliesToPersonsTestCase {
 	 * <b>Features</b>: fwd, del+add, fixed, structural
 	 */
 	
-	@Ignore ("Fails due to least change problems.")
+	@Disabled ("Fails due to least change problems.")
 	@Test
 	public void testIncrementalMove() {
 		tool.performAndPropagateSourceEdit(util
@@ -173,7 +173,7 @@ public class IncrementalForward extends FamiliesToPersonsTestCase {
 	 * should be retained.
 	 * <b>Features</b>: fwd, structural, add+del, fixed 
 	 */
-	@Ignore ("Fails due to least change problems.")
+	@Disabled ("Fails due to least change problems.")
 	@Test
 	public void testIncrementalMoveRoleChange() {
 		tool.performAndPropagateSourceEdit(util

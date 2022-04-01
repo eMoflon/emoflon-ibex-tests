@@ -17,7 +17,7 @@ Require-Bundle: org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.xtext.xbase.lib,
  org.eclipse.xtend.lib,
  org.eclipse.xtend.lib.macro,
- org.junit,
  Benchmarx;bundle-version="1.0.0",
- org.emoflon.smartemf;bundle-version="1.0.0"
+ org.emoflon.smartemf;bundle-version="1.0.0",
+ org.junit.jupiter.api;bundle-version="5.8.1"
 Bundle-ActivationPolicy: lazy

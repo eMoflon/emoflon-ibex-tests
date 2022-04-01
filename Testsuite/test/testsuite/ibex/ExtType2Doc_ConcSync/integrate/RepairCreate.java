@@ -5,7 +5,6 @@ import static org.emoflon.ibex.tgg.operational.strategies.integrate.FragmentProv
 import static org.emoflon.ibex.tgg.operational.strategies.integrate.FragmentProvider.RESOLVE_BROKEN_MATCHES;
 import static org.emoflon.ibex.tgg.operational.strategies.integrate.FragmentProvider.RESOLVE_CONFLICTS;
 import static org.emoflon.ibex.tgg.operational.strategies.integrate.FragmentProvider.TRANSLATE;
-import static org.junit.Assert.assertFalse;
 
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -17,7 +16,8 @@ import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.DeletePre
 import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.OperationalMultiplicityConflict;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.resolution.util.CRSHelper;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.pattern.IntegrationPattern;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import ExtDocModel.Doc;
 import ExtDocModel.DocContainer;
@@ -80,7 +80,7 @@ public class RepairCreate extends IntegrateTestCase<Project, DocContainer> {
 			helperDoc.createEntry(d3, "new_method", EntryType.METHOD);
 		});
 
-		assertFalse(foundConflict.get());
+		Assertions.assertFalse(foundConflict.get());
 		assertCondition(path);
 	}
 

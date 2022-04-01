@@ -3,7 +3,7 @@ package org.benchmarx.processDefinition.core
 import java.util.ArrayList
 import org.benchmarx.emf.Comparator
 
-import static org.junit.Assert.*
+import static org.junit.jupiter.api.Assertions.*
 import java.util.List
 import ProcessDefinition.SystemModule
 import ProcessDefinition.Module

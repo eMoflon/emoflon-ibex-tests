@@ -7,8 +7,8 @@ import org.emoflon.ibex.tgg.run.processcodeadapter.CC_App;
 import org.emoflon.ibex.tgg.run.processcodeadapter.config.DemoclesRegistrationHelper;
 import org.emoflon.ibex.tgg.run.processcodeadapter.config.HiPERegistrationHelper;
 import org.emoflon.ibex.tgg.run.processcodeadapter.config.ViatraRegistrationHelper;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import testsuite.ibex.testUtil.CCTestCase;
 import testsuite.ibex.testUtil.UsedPatternMatcher;
@@ -23,28 +23,28 @@ public class TestSimpleNegative extends CCTestCase {
 	public void testSystemModuleToModules() throws IOException {
 		createGenerator("in/SystemModule_FWD", "expected/Modules_FWD");
 		runCC();
-		Assert.assertTrue(!checker.modelsAreConsistent());
+		Assertions.assertTrue(!checker.modelsAreConsistent());
 	}
 	
 	@Test
 	public void testModulesToTasks() throws IOException {
 		createGenerator("in/Modules_FWD", "expected/Tasks_FWD");
 		runCC();
-		Assert.assertTrue(!checker.modelsAreConsistent());
+		Assertions.assertTrue(!checker.modelsAreConsistent());
 	}
 	
 	@Test
 	public void testInvocationToSameOtherModule() throws IOException {
 		createGenerator("in/InvocationSameModule_FWD", "expected/InvocationOtherModule_FWD");
 		runCC();
-		Assert.assertTrue(!checker.modelsAreConsistent());
+		Assertions.assertTrue(!checker.modelsAreConsistent());
 	}
 	
 	@Test
 	public void testInvocationToSameRecursive() throws IOException {
 		createGenerator("in/InvocationSameModule_FWD", "expected/InvocationRecursive_FWD");
 		runCC();
-		Assert.assertTrue(!checker.modelsAreConsistent());
+		Assertions.assertTrue(!checker.modelsAreConsistent());
 	}
 	
 }

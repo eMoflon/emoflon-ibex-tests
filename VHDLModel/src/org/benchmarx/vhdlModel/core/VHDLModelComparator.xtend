@@ -4,7 +4,7 @@ import org.benchmarx.emf.Comparator
 import VHDLModel.VHDLSpecification
 import java.util.List
 import java.util.ArrayList
-import static org.junit.Assert.*
+import static org.junit.jupiter.api.Assertions.*
 import VHDLModel.Block
 
 class VHDLModelComparator implements Comparator<VHDLSpecification> {

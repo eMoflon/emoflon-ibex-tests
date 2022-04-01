@@ -1,7 +1,7 @@
 package testsuite.ibex.BenchmarxFamiliesToPersons.sync;
 
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import testsuite.ibex.BenchmarxFamiliesToPersons.FamiliesToPersonsTestCase;
 import testsuite.ibex.testUtil.Decisions;
@@ -101,7 +101,7 @@ public class IncrementalBackward extends FamiliesToPersonsTestCase {
 	 * assertPostcondition statements.<br/>
 	 * <b>Features</b>: bwd, del
 	 */
-	@Ignore("Least change problem, we delete empty families unnecessarily")
+	@Disabled("Least change problem, we delete empty families unnecessarily")
 	@Test
 	public void testIncrementalDeletions1() {
 		util.configure()
@@ -129,7 +129,7 @@ public class IncrementalBackward extends FamiliesToPersonsTestCase {
 	 * <b>Expect</b> : Model states as described in the postcondition.<br/>
 	 * <b>Features</b>: bwd, attribute, structural, corr-based, runtime, operational
 	 */
-	@Ignore("Fails because we do not support operational deltas plus our repair strategy does no support repair behavior like that.")
+	@Disabled("Fails because we do not support operational deltas plus our repair strategy does no support repair behavior like that.")
 	@Test
 	public void testIncrementalRenamingDynamic() {
 		util.configure()
@@ -218,7 +218,7 @@ public class IncrementalBackward extends FamiliesToPersonsTestCase {
 	 * <b>Features</b>: bwd, add, operational, runtime
 	 */
 	
-	@Ignore ("We do not support operational deltas (ordered) yet")
+	@Disabled ("We do not support operational deltas (ordered) yet")
 	@Test
 	public void testIncrementalOperational() {
 		util.configure()

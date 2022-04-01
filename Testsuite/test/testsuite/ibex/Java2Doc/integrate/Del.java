@@ -2,9 +2,8 @@ package testsuite.ibex.Java2Doc.integrate;
 
 import org.benchmarx.simpledoc.core.SimpleDocHelper;
 import org.benchmarx.simpledoc.core.SimpleJavaHelper;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.ibex.common.emf.EMFManipulationUtils;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import simpleDoc.Folder;
 import simpleJava.Package;

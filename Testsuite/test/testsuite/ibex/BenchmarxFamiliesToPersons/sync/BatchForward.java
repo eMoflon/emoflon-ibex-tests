@@ -1,6 +1,6 @@
 package testsuite.ibex.BenchmarxFamiliesToPersons.sync;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import testsuite.ibex.BenchmarxFamiliesToPersons.FamiliesToPersonsTestCase;
 

@@ -1,11 +1,11 @@
 package org.emoflon.ibex.gt.testsuite.ClassMultipleInheritanceHierarchy;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.*
 
 import java.util.HashSet;
 import java.util.Set;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import ClassMultipleInheritanceHierarchyGraphTransformation.api.ClassMultipleInheritanceHierarchyGraphTransformationAPI;
 import classMultipleInheritanceHierarchy.Clazz;

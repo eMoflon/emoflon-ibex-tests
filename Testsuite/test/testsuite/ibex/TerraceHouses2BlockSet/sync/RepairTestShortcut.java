@@ -1,10 +1,11 @@
 package testsuite.ibex.TerraceHouses2BlockSet.sync;
 
-import static org.junit.Assume.assumeFalse;
-
 import org.benchmarx.terracehouses.core.TerraceHousesHelper;
 import org.benchmarx.woodenblockset.core.WoodenBlockSetHelper;
-import org.junit.Test;
+import org.junit.Assert;
+import org.junit.Assume;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import TerraceHouses.Building;
 import TerraceHouses.District;
@@ -94,7 +95,7 @@ public class RepairTestShortcut extends SyncTestCase<District, Playroom> {
 
 	@Test
 	public void insertHouse_FWD() {
-		assumeFalse(DONT_USE_DEMOCLES, PatternMatcher.Democles.equals(UsedPatternMatcher.usedPatternMatcher));
+		Assume.assumeFalse(DONT_USE_DEMOCLES, PatternMatcher.Democles.equals(UsedPatternMatcher.usedPatternMatcher));
 
 		buildTerrace();
 		assertPrecondition("source/terrace", "target/terrace");
@@ -110,7 +111,7 @@ public class RepairTestShortcut extends SyncTestCase<District, Playroom> {
 
 	@Test
 	public void removeMiddleHouse_FWD() {
-		assumeFalse(DONT_USE_DEMOCLES, PatternMatcher.Democles.equals(UsedPatternMatcher.usedPatternMatcher));
+		Assume.assumeFalse(DONT_USE_DEMOCLES, PatternMatcher.Democles.equals(UsedPatternMatcher.usedPatternMatcher));
 
 		buildTerrace();
 		assertPrecondition("source/terrace", "target/terrace");

@@ -1,9 +1,9 @@
 package org.emoflon.ibex.gt.testsuite.SimplePersons;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.*
 
 import org.emoflon.ibex.gt.testsuite.GTAppTestCase;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import SimplePersonsGraphTransformation.api.SimplePersonsGraphTransformationAPI;
 import SimplePersonsGraphTransformation.api.SimplePersonsGraphTransformationApp;

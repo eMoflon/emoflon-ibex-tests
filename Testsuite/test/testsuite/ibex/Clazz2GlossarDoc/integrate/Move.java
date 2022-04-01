@@ -13,7 +13,7 @@ import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.CorrPrese
 import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.resolution.util.CRSHelper;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.pattern.IntegrationPattern;
 import org.glossarDoc.core.GlossarDocumentationHelper;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.simpleClass.core.SimpleClassInheritanceHelper;
 
 import glossarDocumentation.Document;

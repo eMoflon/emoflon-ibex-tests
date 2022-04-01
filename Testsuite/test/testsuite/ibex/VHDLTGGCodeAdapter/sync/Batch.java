@@ -2,8 +2,8 @@ package testsuite.ibex.VHDLTGGCodeAdapter.sync;
 
 import org.benchmarx.mocaTree.core.MocaTreeHelperForVHDLTGGCode;
 import org.benchmarx.vhdlModel.core.VHDLModelHelper;
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import MocaTree.File;
 import VHDLModel.VHDLSpecification;
@@ -35,7 +35,7 @@ public class Batch extends SyncTestCase<File, VHDLSpecification> {
 	/**
 	 * <b>Features</b>: bwd
 	 */
-	@Ignore("Takes too long")
+	@Disabled("Takes too long")
 	@Test
 	public void testFile2VHDLSpec_BWD()
 	{
@@ -48,7 +48,7 @@ public class Batch extends SyncTestCase<File, VHDLSpecification> {
 	/**
 	 * <b>Features</b>: fwd
 	 */
-	@Ignore("Takes too long")
+	@Disabled("Takes too long")
 	@Test
 	public void testEntity2CompositeBlock_FWD()
 	{
@@ -65,7 +65,7 @@ public class Batch extends SyncTestCase<File, VHDLSpecification> {
 	/**
 	 * <b>Features</b>: bwd
 	 */
-	@Ignore("Takes too long")
+	@Disabled("Takes too long")
 	@Test
 	public void testEntity2CompositeBlock_BWD()
 	{
@@ -79,7 +79,7 @@ public class Batch extends SyncTestCase<File, VHDLSpecification> {
 	/**
 	 * <b>Features</b>: bwd
 	 */
-	@Ignore("Appears to be non-deterministic")
+	@Disabled("Appears to be non-deterministic")
 	@Test
 	public void testNotGate_BWD()
 	{

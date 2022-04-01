@@ -1,7 +1,7 @@
 package org.benchmarx.mocaTree.core
 
 import org.benchmarx.emf.Comparator
-import static org.junit.Assert.*
+import static org.junit.jupiter.api.Assertions.*
 import MocaTree.Folder
 
 class MocaTreeFolderComparator implements Comparator<Folder> {

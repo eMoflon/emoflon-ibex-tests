@@ -7,8 +7,8 @@ import org.emoflon.ibex.tgg.run.blockcodeadapter.CC_App;
 import org.emoflon.ibex.tgg.run.blockcodeadapter.config.DemoclesRegistrationHelper;
 import org.emoflon.ibex.tgg.run.blockcodeadapter.config.HiPERegistrationHelper;
 import org.emoflon.ibex.tgg.run.blockcodeadapter.config.ViatraRegistrationHelper;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import testsuite.ibex.testUtil.CCTestCase;
 import testsuite.ibex.testUtil.UsedPatternMatcher;
@@ -23,28 +23,28 @@ public class TestSimpleNegative extends CCTestCase {
 	public void testSpecBlock() throws IOException {
 		createGenerator("in/Spec_FWD", "expected/Block_FWD");
 		runCC();
-		Assert.assertFalse(checker.modelsAreConsistent());
+		Assertions.assertFalse(checker.modelsAreConsistent());
 	}
 	
 	@Test
 	public void testBlockPort() throws IOException {
 		createGenerator("in/Block_FWD", "expected/Port_FWD");
 		runCC();
-		Assert.assertFalse(checker.modelsAreConsistent());
+		Assertions.assertFalse(checker.modelsAreConsistent());
 	}
 	
 	@Test
 	public void testPortWire() throws IOException {
 		createGenerator("in/Port_FWD", "expected/Wire_FWD");
 		runCC();
-		Assert.assertFalse(checker.modelsAreConsistent());
+		Assertions.assertFalse(checker.modelsAreConsistent());
 	}
 	
 	@Test
 	public void testWireClosedNotClosed() throws IOException {
 		createGenerator("in/Wire_FWD", "expected/WireCloseLoop_FWD");
 		runCC();
-		Assert.assertFalse(checker.modelsAreConsistent());
+		Assertions.assertFalse(checker.modelsAreConsistent());
 	}
 	
 }

@@ -2,7 +2,7 @@ package testsuite.ibex.FamiliesToPersons_V1.sync;
 
 import org.benchmarx.simplefamilies.core.SimpleFamiliesHelper;
 import org.benchmarx.simplepersons.core.SimplePersonsHelper;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import SimpleFamilies.FamilyRegister;
 import SimplePersons.PersonRegister;

@@ -9,9 +9,9 @@ import org.emoflon.ibex.tgg.run.companytoit.CO_App;
 import org.emoflon.ibex.tgg.run.companytoit.config.DemoclesRegistrationHelper;
 import org.emoflon.ibex.tgg.run.companytoit.config.HiPERegistrationHelper;
 import org.emoflon.ibex.tgg.run.companytoit.config.ViatraRegistrationHelper;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import CompanyLanguage.impl.CompanyLanguagePackageImpl;
 import ITLanguage.impl.ITLanguagePackageImpl;
@@ -146,22 +146,22 @@ public class TestSYNC extends CompleteSyncTestCase {
 	}
 	
 	@Test
-	@Ignore
+	@Disabled
 	public void testFWD() throws IOException {
 		createForward("/resources/large_scale/src", "/resources/large_scale/trg-tmp", "/resources/large_scale/corr-tmp", "/resources/large_scale/prot-tmp");
 		runForward();
 		createGenerator("/resources/large_scale/src", "/resources/large_scale/trg-tmp", "/resources/large_scale/corr-tmp", "/resources/large_scale/prot-tmp");
 		runGenerator();
-		Assert.assertTrue(checker.modelsAreConsistent());
+		Assertions.assertTrue(checker.modelsAreConsistent());
 	}
 	
 	@Test
-	@Ignore
+	@Disabled
 	public void testBWD() throws IOException {
 		createBackward("/resources/large_scale/src-tmp", "/resources/large_scale/trg", "/resources/large_scale/corr-tmp", "/resources/large_scale/prot-tmp");
 		runBackward();
 		createGenerator("/resources/large_scale/src-tmp", "/resources/large_scale/trg", "/resources/large_scale/corr-tmp", "/resources/large_scale/prot-tmp");
 		runGenerator();
-		Assert.assertTrue(checker.modelsAreConsistent());
+		Assertions.assertTrue(checker.modelsAreConsistent());
 	}
 }

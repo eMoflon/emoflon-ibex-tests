@@ -8,8 +8,8 @@ import org.emoflon.ibex.tgg.run.familiestopersons_v1.LocalCC_App;
 import org.emoflon.ibex.tgg.run.familiestopersons_v1.config.DemoclesRegistrationHelper;
 import org.emoflon.ibex.tgg.run.familiestopersons_v1.config.HiPERegistrationHelper;
 import org.emoflon.ibex.tgg.run.familiestopersons_v1.config.ViatraRegistrationHelper;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import SimpleFamilies.Family;
 import SimpleFamilies.FamilyMember;
@@ -38,14 +38,14 @@ public class LocalCCTest extends CCTestCase {
 	public void testCreateSingleRegisters_CC() throws IOException {
 		createGenerator("singleFamilyReg", "singlePersonReg");
 		runCC();
-		Assert.assertTrue(checker.modelsAreConsistent());
+		Assertions.assertTrue(checker.modelsAreConsistent());
 	}
 	
 	@Test
 	public void testCreateOneFather_CC() throws IOException {
 		createGenerator("singleFamilyWithFather", "PersonRegisterWithMalePerson");
 		runCC();
-		Assert.assertTrue(checker.modelsAreConsistent());
+		Assertions.assertTrue(checker.modelsAreConsistent());
 	}
 	
 	@Test
@@ -68,7 +68,7 @@ public class LocalCCTest extends CCTestCase {
 		perReg.getPersons().add(newPerson);
 		
 		runCC();
-		Assert.assertTrue(checker.modelsAreConsistent());
+		Assertions.assertTrue(checker.modelsAreConsistent());
 	}
 	
 	@Test
@@ -103,7 +103,7 @@ public class LocalCCTest extends CCTestCase {
 		perReg.getPersons().add(newFemale3);
 		
 		runCC();
-		Assert.assertTrue(checker.modelsAreConsistent());
+		Assertions.assertTrue(checker.modelsAreConsistent());
 	}
 	
 	@Test
@@ -130,6 +130,6 @@ public class LocalCCTest extends CCTestCase {
 		perReg.getPersons().add(newFemale3);
 		
 		runCC();
-		Assert.assertTrue(checker.modelsAreConsistent());
+		Assertions.assertTrue(checker.modelsAreConsistent());
 	}
 }

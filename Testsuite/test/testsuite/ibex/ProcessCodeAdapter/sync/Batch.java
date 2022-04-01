@@ -2,7 +2,7 @@ package testsuite.ibex.ProcessCodeAdapter.sync;
 
 import org.benchmarx.mocaTree.core.MocaTreeHelperForProcessCode;
 import org.benchmarx.processDefinition.core.ProcessDefinitionHelper;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import MocaTree.Folder;
 import ProcessDefinition.SystemModule;

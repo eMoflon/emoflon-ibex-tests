@@ -2,7 +2,7 @@ package testsuite.ibex.ExtType2Doc_SCDerived.sync;
 
 import org.benchmarx.extDocModel.core.ExtDocHelper;
 import org.benchmarx.extTypeModel.core.ExtTypeHelper;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import ExtDocModel.Doc;
 import ExtDocModel.DocContainer;

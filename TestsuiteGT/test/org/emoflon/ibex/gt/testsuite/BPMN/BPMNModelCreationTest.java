@@ -1,8 +1,8 @@
 package org.emoflon.ibex.gt.testsuite.BPMN;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.*
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import BPMNGraphTransformation.api.BPMNGraphTransformationAPI;
 import bpmn2.Task;

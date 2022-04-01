@@ -1,6 +1,6 @@
 package testsuite.ibex.FeatureModelConciseToSafe.sync;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import FeatureModelConcise.FeatureModelConciseFactory;
 import FeatureModelConcise.Model;

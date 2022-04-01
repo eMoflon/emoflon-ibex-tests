@@ -3,14 +3,14 @@ package testsuite.ibex.testUtil
 import java.util.Collection
 import org.benchmarx.emf.Comparator
 import org.eclipse.emf.ecore.EObject
-import org.junit.Assert
+import org.junit.jupiter.api.Assertions
 
 abstract class CorrComparator implements Comparator<Collection<EObject>> {
 
 	override assertEquals(Collection<EObject> expected, Collection<EObject> actual) {
 		val expectedStr = expected.stringifyAndSort()
 		val actualStr = actual.stringifyAndSort()
-		Assert.assertEquals(expectedStr, actualStr);
+		Assertions.assertEquals(expectedStr, actualStr);
 	}
 
 	def String stringifyAndSort(Collection<EObject> corrs) {

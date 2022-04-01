@@ -2,7 +2,7 @@ package testsuite.ibex.ClassInhHier2DB.sync;
 
 import org.benchmarx.classInheritanceHierarchy.core.ClassInheritanceHierarchyHelper;
 import org.benchmarx.database.core.DatabaseHelper;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import ClassInheritanceHierarchy.ClassInheritanceHierarchyFactory;
 import ClassInheritanceHierarchy.ClassPackage;

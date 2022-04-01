@@ -5,8 +5,8 @@ import java.io.IOException;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 
 public abstract class IntegrateTestCase<S extends EObject, T extends EObject> extends TestCase {
 
@@ -18,7 +18,7 @@ public abstract class IntegrateTestCase<S extends EObject, T extends EObject> ex
 		this.tool = tool;
 	}
 
-	@Before
+	@BeforeEach
 	public void initialise() {
 		// Initialise the bx tool
 		tool.ilpSolver = this.ilpSolver;
@@ -28,7 +28,7 @@ public abstract class IntegrateTestCase<S extends EObject, T extends EObject> ex
 		initHelpers();
 	}
 
-	@After
+	@AfterEach
 	public void terminate() {
 		tool.terminateIntegrationDialogue();
 	}

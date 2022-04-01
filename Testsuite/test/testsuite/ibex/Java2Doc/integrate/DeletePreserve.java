@@ -4,7 +4,6 @@ import static org.emoflon.ibex.tgg.operational.strategies.integrate.FragmentProv
 import static org.emoflon.ibex.tgg.operational.strategies.integrate.FragmentProvider.RESOLVE_BROKEN_MATCHES;
 import static org.emoflon.ibex.tgg.operational.strategies.integrate.FragmentProvider.RESOLVE_CONFLICTS;
 import static org.emoflon.ibex.tgg.operational.strategies.integrate.FragmentProvider.TRANSLATE;
-import static org.junit.Assert.assertEquals;
 
 import java.util.Arrays;
 import java.util.LinkedList;
@@ -18,7 +17,8 @@ import org.emoflon.ibex.common.emf.EMFManipulationUtils;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.DeletePreserveConflict;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.resolution.util.CRSHelper;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.pattern.IntegrationPattern;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import simpleDoc.Folder;
 import simpleJava.Clazz;
@@ -180,7 +180,7 @@ public class DeletePreserve extends IntegrateTestCase<Package, Folder> {
 					CRSHelper.forEachResolve(cc, DeletePreserveConflict.class, s -> s.crs_preferTarget());
 
 					ccCount.incrementAndGet();
-					assertEquals(1, cc.getSubContainers().size());
+					Assertions.assertEquals(1, cc.getSubContainers().size());
 				});
 		tool.applyAndIntegrateDelta((p, f) -> {
 			// src:
@@ -193,7 +193,7 @@ public class DeletePreserve extends IntegrateTestCase<Package, Folder> {
 			helperDoc.createDoc(helperDoc.getFolder(f, "es"), "conflictingClazz_doc", "conflictingbody");
 		});
 
-		assertEquals(1, ccCount.get());
+		Assertions.assertEquals(1, ccCount.get());
 		assertCondition(path);
 	}
 

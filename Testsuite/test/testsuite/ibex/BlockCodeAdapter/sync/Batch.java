@@ -2,7 +2,7 @@ package testsuite.ibex.BlockCodeAdapter.sync;
 
 import org.benchmarx.blockLanguage.core.BlockLanguageHelper;
 import org.benchmarx.mocaTree.core.MocaTreeHelperForBlockCode;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import BlockLanguage.Specification;
 import MocaTree.File;

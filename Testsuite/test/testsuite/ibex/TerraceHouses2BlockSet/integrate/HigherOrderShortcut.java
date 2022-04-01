@@ -3,7 +3,7 @@ package testsuite.ibex.TerraceHouses2BlockSet.integrate;
 import org.benchmarx.terracehouses.core.TerraceHousesHelper;
 import org.benchmarx.woodenblockset.core.WoodenBlockSetHelper;
 import org.emoflon.ibex.common.emf.EMFManipulationUtils;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import TerraceHouses.Building;
 import TerraceHouses.District;

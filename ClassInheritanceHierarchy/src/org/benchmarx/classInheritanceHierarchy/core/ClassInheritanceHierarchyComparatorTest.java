@@ -7,8 +7,9 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
-import org.benchmarx.classInheritanceHierarchy.core.ClassInheritanceHierarchyComparator;
-import org.junit.*;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import ClassInheritanceHierarchy.ClassInheritanceHierarchyPackage;
 import ClassInheritanceHierarchy.ClassPackage;
@@ -17,14 +18,14 @@ public class ClassInheritanceHierarchyComparatorTest {
 	private ClassInheritanceHierarchyComparator comp;
 	private static ResourceSet rs;
 	
-	@BeforeClass
+	@BeforeAll
 	public static void init() {
 		rs = new ResourceSetImpl();
 		rs.getResourceFactoryRegistry().getExtensionToFactoryMap().put("*", new XMIResourceFactoryImpl());
 		rs.getPackageRegistry().put(ClassInheritanceHierarchyPackage.eNS_URI, ClassInheritanceHierarchyPackage.eINSTANCE);
 	}
 	
-	@Before
+	@BeforeEach
 	public void createComparator() {
 		comp = new ClassInheritanceHierarchyComparator(true);
 	}

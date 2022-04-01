@@ -9,9 +9,9 @@ import org.emoflon.ibex.tgg.run.processcodeadapter.FWD_OPT_App;
 import org.emoflon.ibex.tgg.run.processcodeadapter.config.DemoclesRegistrationHelper;
 import org.emoflon.ibex.tgg.run.processcodeadapter.config.HiPERegistrationHelper;
 import org.emoflon.ibex.tgg.run.processcodeadapter.config.ViatraRegistrationHelper;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import testsuite.ibex.testUtil.COTestCase;
 import testsuite.ibex.testUtil.UsedPatternMatcher;
@@ -33,38 +33,38 @@ public class TestProcessCodeAdapter extends COTestCase{
 		backward = new BWD_OPT_App("ProcessCodeAdapter", testsuite.ibex.performance.util.PerformanceConstants.workspacePath, false, srcInstance, trgInstance, corrInstance, protInstance, this.ilpSolver);
 	}
 
-	@Ignore("Feature-ID for the inverse EMFEdge of allModules (outgoing from SystemModule) is 0")
+	@Disabled("Feature-ID for the inverse EMFEdge of allModules (outgoing from SystemModule) is 0")
 	@Test
 	public void testFWD_OPT() throws IOException {
 		createTransformation("/resources/co/src", "/resources/co/trg-tmp", "/resources/co/corr-tmp", "/resources/co/prot-tmp");
 		runFWD_OPT();
 		createGenerator("/resources/co/src", "/resources/co/trg-tmp", "/resources/co/corr-tmp", "/resources/co/prot-tmp");
 		runCO();
-		Assert.assertTrue(checker.modelsAreConsistent());
+		Assertions.assertTrue(checker.modelsAreConsistent());
 	}
 	
 
-	@Ignore("NPE, perhaps for same reason as FWD_OPT?")
+	@Disabled("NPE, perhaps for same reason as FWD_OPT?")
 	@Test
 	public void testBWD_OPT() throws IOException {
 		createBackward("/resources/co/src-tmp", "/resources/co/trg", "/resources/co/corr-tmp", "/resources/co/prot-tmp");
 		runBWD_OPT();
 		createGenerator("/resources/co/src-tmp", "/resources/co/trg", "/resources/co/corr-tmp", "/resources/co/prot-tmp");
 		runCO();
-		Assert.assertTrue(checker.modelsAreConsistent());
+		Assertions.assertTrue(checker.modelsAreConsistent());
 	}
 	
 	@Test
 	public void testSimplePositive() throws IOException {
 		createGenerator("/resources/co/src", "/resources/co/trg", "/resources/co/corr", "/resources/co/protocol");
 		runCO();
-		Assert.assertTrue(checker.modelsAreConsistent());
+		Assertions.assertTrue(checker.modelsAreConsistent());
 	}
 	
 	@Test
 	public void testWrongLinks() throws IOException {
 		createGenerator("/resources/co/src", "/resources/co/trg", "/resources/co/corr_inc", "/resources/co/protocol");
 		runCO();
-		Assert.assertTrue(!checker.modelsAreConsistent());
+		Assertions.assertTrue(!checker.modelsAreConsistent());
 	}
 }

@@ -2,7 +2,7 @@ package testsuite.ibex.BlockDiagramCodeAdapter.sync;
 
 import org.benchmarx.blockDiagram.core.BlockDiagramHelper;
 import org.benchmarx.mocaTree.core.MocaTreeHelperForBlockDiagramCode;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import BlockDiagram.BlockSystem;
 import MocaTree.File;

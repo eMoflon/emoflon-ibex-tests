@@ -1,7 +1,7 @@
 package org.benchmarx.blockLanguage.core
 
 import org.benchmarx.emf.Comparator
-import static org.junit.Assert.*
+import static org.junit.jupiter.api.Assertions.*
 import java.util.List
 import java.util.ArrayList
 import BlockLanguage.Specification

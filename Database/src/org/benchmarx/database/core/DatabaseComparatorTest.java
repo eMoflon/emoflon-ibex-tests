@@ -8,7 +8,7 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.benchmarx.database.core.DatabaseComparator;
-import org.junit.*;
+import org.junit.jupiter.api.*;
 
 import Database.DB;
 import Database.DatabasePackage;
@@ -17,14 +17,14 @@ public class DatabaseComparatorTest {
 	private DatabaseComparator comp;
 	private static ResourceSet rs;
 	
-	@BeforeClass
+	@BeforeAll
 	public static void init() {
 		rs = new ResourceSetImpl();
 		rs.getResourceFactoryRegistry().getExtensionToFactoryMap().put("*", new XMIResourceFactoryImpl());
 		rs.getPackageRegistry().put(DatabasePackage.eNS_URI, DatabasePackage.eINSTANCE);
 	}
 	
-	@Before
+	@BeforeEach
 	public void createComparator() {
 		comp = new DatabaseComparator(true);
 	}

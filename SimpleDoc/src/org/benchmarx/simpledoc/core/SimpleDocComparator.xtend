@@ -4,7 +4,7 @@ import org.benchmarx.emf.Comparator
 import simpleDoc.Doc
 import simpleDoc.Folder
 
-import static org.junit.Assert.*
+import static org.junit.jupiter.api.Assertions.*
 
 class SimpleDocComparator implements Comparator<Folder> {
 	

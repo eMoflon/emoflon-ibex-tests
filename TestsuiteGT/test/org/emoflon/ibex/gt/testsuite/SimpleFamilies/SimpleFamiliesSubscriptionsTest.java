@@ -1,8 +1,8 @@
 package org.emoflon.ibex.gt.testsuite.SimpleFamilies;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.*
+import static org.junit.jupiter.api.Assertions.*
+import static org.junit.jupiter.api.Assertions.*
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.util.EContentAdapter;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import SimpleFamilies.Family;
 import SimpleFamilies.FamilyRegister;

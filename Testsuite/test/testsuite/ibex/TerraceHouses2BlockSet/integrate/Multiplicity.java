@@ -4,8 +4,6 @@ import static org.emoflon.ibex.tgg.operational.strategies.integrate.FragmentProv
 import static org.emoflon.ibex.tgg.operational.strategies.integrate.FragmentProvider.RESOLVE_BROKEN_MATCHES;
 import static org.emoflon.ibex.tgg.operational.strategies.integrate.FragmentProvider.RESOLVE_CONFLICTS;
 import static org.emoflon.ibex.tgg.operational.strategies.integrate.FragmentProvider.TRANSLATE;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -16,7 +14,8 @@ import org.benchmarx.woodenblockset.core.WoodenBlockSetHelper;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.OperationalMultiplicityConflict;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.resolution.util.CRSHelper;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.pattern.IntegrationPattern;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import TerraceHouses.District;
 import WoodenBlockSet.BlockSet;
@@ -63,7 +62,7 @@ public class Multiplicity extends IntegrateTestCase<District, Playroom> {
 		tool.getOptions().integration.pattern(pattern);
 		tool.getOptions().integration.conflictSolver(c -> {
 			detectedConflict.set(true);
-			assertEquals(1, c.getConflicts().stream().filter(cft -> cft instanceof OperationalMultiplicityConflict).count());
+			Assertions.assertEquals(1, c.getConflicts().stream().filter(cft -> cft instanceof OperationalMultiplicityConflict).count());
 			CRSHelper.forEachResolve(c, OperationalMultiplicityConflict.class, s);
 		});
 		tool.applyAndIntegrateDelta((c, d) -> {
@@ -75,7 +74,7 @@ public class Multiplicity extends IntegrateTestCase<District, Playroom> {
 			helperWoodenBlockSet.createCuboid(constr, "red");
 		});
 
-		assertTrue(detectedConflict.get());
+		Assertions.assertTrue(detectedConflict.get());
 		assertCondition(path);
 	}
 

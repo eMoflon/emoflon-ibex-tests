@@ -4,7 +4,7 @@ import org.benchmarx.emf.Comparator
 import simpleJava.Clazz
 import simpleJava.Package
 
-import static org.junit.Assert.*
+import static org.junit.jupiter.api.Assertions.*
 
 class SimpleJavaComparator implements Comparator<Package> {
 	

@@ -2,8 +2,8 @@ package testsuite.ibex.FamiliesToPersons_V1.sync;
 
 import org.benchmarx.simplefamilies.core.SimpleFamiliesHelper;
 import org.benchmarx.simplepersons.core.SimplePersonsHelper;
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import SimpleFamilies.FamilyRegister;
 import SimplePersons.PersonRegister;
@@ -63,7 +63,7 @@ public class AlignmentBased extends SyncTestCase<FamilyRegister, PersonRegister>
 		assertPostcondition("singleFamilyWithDaughters", "singlePersonRegisterWithFemalePersons");
 	}
 	
-	@Ignore
+	@Disabled
 	@Test
 	public void testMotherNAC(){
 		// This female can only be propagated as a mother because a daughter requires an existing family

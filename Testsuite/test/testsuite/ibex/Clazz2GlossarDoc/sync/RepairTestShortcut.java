@@ -1,7 +1,7 @@
 package testsuite.ibex.Clazz2GlossarDoc.sync;
 
 import org.glossarDoc.core.GlossarDocumentationHelper;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.simpleClass.core.SimpleClassInheritanceHelper;
 
 import glossarDocumentation.DocumentationContainer;

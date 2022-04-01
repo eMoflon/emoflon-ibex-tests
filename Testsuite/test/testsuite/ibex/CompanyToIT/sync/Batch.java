@@ -5,7 +5,7 @@ import java.util.Set;
 import org.benchmarx.companyLanguage.core.CompanyLanguageHelper;
 import org.benchmarx.itLanguage.core.ITLanguageHelper;
 import org.emoflon.ibex.tgg.operational.matches.ITGGMatch;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import CompanyLanguage.Company;
 import CompanyLanguage.Employee;

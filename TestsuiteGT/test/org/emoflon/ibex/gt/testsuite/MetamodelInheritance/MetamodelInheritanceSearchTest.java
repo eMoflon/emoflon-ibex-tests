@@ -1,6 +1,6 @@
 package org.emoflon.ibex.gt.testsuite.MetamodelInheritance;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import MetamodelInheritanceTransformation.api.MetamodelInheritanceTransformationAPI;
 

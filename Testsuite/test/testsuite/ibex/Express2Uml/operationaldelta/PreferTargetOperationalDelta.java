@@ -1,7 +1,7 @@
 package testsuite.ibex.Express2Uml.operationaldelta;
 
 import org.emoflon.ibex.common.emf.EMFManipulationUtils;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import Express2UML.operationaldelta.preferTarget.PreferTargetConflictResolver;
 import ExpressModel.Entity;

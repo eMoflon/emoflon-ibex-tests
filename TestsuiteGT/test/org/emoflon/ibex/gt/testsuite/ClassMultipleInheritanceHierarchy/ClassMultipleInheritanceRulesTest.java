@@ -1,8 +1,8 @@
 package org.emoflon.ibex.gt.testsuite.ClassMultipleInheritanceHierarchy;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.*
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import ClassMultipleInheritanceHierarchyGraphTransformation.api.ClassMultipleInheritanceHierarchyGraphTransformationAPI;
 import ClassMultipleInheritanceHierarchyGraphTransformation.api.rules.FindClassInPackagePattern;

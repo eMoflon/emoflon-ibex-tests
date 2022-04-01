@@ -4,7 +4,7 @@ import CompanyLanguage.Company
 import java.util.ArrayList
 import org.benchmarx.emf.Comparator
 
-import static org.junit.Assert.*
+import static org.junit.jupiter.api.Assertions.*
 import CompanyLanguage.Employee
 import java.util.List
 import CompanyLanguage.CEO

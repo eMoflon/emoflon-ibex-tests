@@ -6,7 +6,7 @@ import TerraceHouses.House
 import TerraceHouses.Structure
 import org.benchmarx.emf.Comparator
 
-import static org.junit.Assert.assertEquals
+import static org.junit.jupiter.api.Assertions.*
 
 class TerraceHousesComparator implements Comparator<District> {
 

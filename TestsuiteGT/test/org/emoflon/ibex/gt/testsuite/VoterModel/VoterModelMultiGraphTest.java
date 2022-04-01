@@ -1,12 +1,12 @@
 package org.emoflon.ibex.gt.testsuite.VoterModel;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.*
 
 import java.util.function.Supplier;
 
 import GroupVotersModel.Group;
 import GroupVotersModel.Voter;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import VoterModelGraphTransformation.api.VoterModelGraphTransformationAPI;
 

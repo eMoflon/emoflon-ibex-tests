@@ -2,12 +2,9 @@ package testsuite.ibex.Java2Doc.sync;
 
 import org.benchmarx.simpledoc.core.SimpleDocHelper;
 import org.benchmarx.simpledoc.core.SimpleJavaHelper;
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.util.EContentAdapter;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.ibex.common.emf.EMFManipulationUtils;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import simpleDoc.Doc;
 import simpleDoc.Folder;

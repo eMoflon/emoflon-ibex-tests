@@ -1,6 +1,6 @@
 package testsuite.ibex.Express2Uml.sync;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import ExpressModel.Entity;
 import ExpressModel.Schema;

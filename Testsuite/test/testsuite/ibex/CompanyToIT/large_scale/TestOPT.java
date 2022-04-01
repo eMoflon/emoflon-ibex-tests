@@ -9,9 +9,9 @@ import org.emoflon.ibex.tgg.run.companytoit.FWD_OPT_App;
 import org.emoflon.ibex.tgg.run.companytoit.config.DemoclesRegistrationHelper;
 import org.emoflon.ibex.tgg.run.companytoit.config.HiPERegistrationHelper;
 import org.emoflon.ibex.tgg.run.companytoit.config.ViatraRegistrationHelper;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import testsuite.ibex.testUtil.COTestCase;
 import testsuite.ibex.testUtil.UsedPatternMatcher;
@@ -34,30 +34,30 @@ public class TestOPT extends COTestCase {
 	}
 	
 	@Test
-	@Ignore
+	@Disabled
 	public void testFWD_OPT() throws IOException {
 		createTransformation("/resources/large_scale/src", "/resources/large_scale/trg-tmp", "/resources/large_scale/corr-tmp", "/resources/large_scale/prot-tmp");
 		runFWD_OPT();
 		createGenerator("/resources/large_scale/src", "/resources/large_scale/trg-tmp", "/resources/large_scale/corr-tmp", "/resources/large_scale/prot-tmp");
 		runCO();
-		Assert.assertTrue(checker.modelsAreConsistent());
+		Assertions.assertTrue(checker.modelsAreConsistent());
 	}
 	
 	@Test
-	@Ignore
+	@Disabled
 	public void testBWD_OPT() throws IOException {
 		createBackward("/resources/large_scale/src-tmp", "/resources/large_scale/trg", "/resources/large_scale/corr-tmp", "/resources/large_scale/prot-tmp");
 		runBWD_OPT();
 		createGenerator("/resources/large_scale/src-tmp", "/resources/large_scale/trg", "/resources/large_scale/corr-tmp", "/resources/large_scale/prot-tmp");
 		runCO();
-		Assert.assertTrue(checker.modelsAreConsistent());
+		Assertions.assertTrue(checker.modelsAreConsistent());
 	}
 	
 	@Test
-	@Ignore
+	@Disabled
 	public void testCO() throws IOException {
 		createGenerator("/resources/large_scale/src", "/resources/large_scale/trg", "/resources/large_scale/corr", "/resources/large_scale/protocol");
 		runCO();
-		Assert.assertTrue(checker.modelsAreConsistent());
+		Assertions.assertTrue(checker.modelsAreConsistent());
 	}
 }

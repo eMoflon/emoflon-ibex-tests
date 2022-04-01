@@ -10,7 +10,7 @@ import WoodenBlockSet.TriangularPrism
 import java.util.stream.Collectors
 import org.benchmarx.emf.Comparator
 
-import static org.junit.Assert.assertEquals
+import static org.junit.jupiter.api.Assertions.*
 
 class BlockSetComparator implements Comparator<Playroom> {
 	

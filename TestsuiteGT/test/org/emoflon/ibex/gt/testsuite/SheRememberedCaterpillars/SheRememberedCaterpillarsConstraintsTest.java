@@ -1,9 +1,9 @@
 package org.emoflon.ibex.gt.testsuite.SheRememberedCaterpillars;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.*
 
 import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import SheRememberedCaterpillars.COLOR;
 import SheRememberedCaterpillars.ExitPlatform;

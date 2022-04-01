@@ -1,6 +1,6 @@
 package testsuite.ibex.IBeXTGGGanttToCPM.sync.batch.fwd;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import testsuite.ibex.IBeXTGGGanttToCPM.sync.GanttToCPMTestCase;
 

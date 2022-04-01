@@ -9,7 +9,7 @@ import ExtDocModel.Glossary
 import ExtDocModel.GlossaryEntry
 import org.benchmarx.emf.Comparator
 
-import static org.junit.Assert.assertEquals
+import static org.junit.jupiter.api.Assertions.*
 
 class ExtDocModelComparator implements Comparator<DocContainer> {
 	

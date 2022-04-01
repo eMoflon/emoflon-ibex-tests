@@ -1,12 +1,12 @@
 package org.emoflon.ibex.gt.testsuite.SimpleChemistry;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.*
+import static org.junit.jupiter.api.Assertions.*
 
 import SimpleChemistry.H;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import SimpleChemistryGraphTransformation.api.SimpleChemistryGraphTransformationAPI;
 import SimpleChemistryGraphTransformation.api.matches.CreateH3Match;

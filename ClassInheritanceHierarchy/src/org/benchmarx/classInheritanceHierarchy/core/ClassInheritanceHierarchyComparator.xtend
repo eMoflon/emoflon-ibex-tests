@@ -6,7 +6,7 @@ import ClassInheritanceHierarchy.Clazz
 import java.util.List
 import java.util.ArrayList
 
-import static org.junit.Assert.*
+import static org.junit.jupiter.api.Assertions.*
 
 class ClassInheritanceHierarchyComparator implements Comparator<ClassPackage> {
 	/** 

@@ -4,9 +4,9 @@ import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.emoflon.ibex.tgg.util.ilp.ILPFactory.SupportedILPSolver;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Rule;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.rules.TestName;
 
 import testsuite.ibex.testUtil.UsedPatternMatcher.PatternMatcher;
@@ -19,7 +19,7 @@ public abstract class TestCase {
 	@Rule
 	public TestName name = new TestName();
 	
-	@Before
+	@BeforeEach
 	public void initIbexOptions() {
 		System.err.println("Executing test: "+this.getClass().getCanonicalName() +"."+name.getMethodName());
 		try {
@@ -39,7 +39,7 @@ public abstract class TestCase {
 		}
 	}
 	
-	@BeforeClass
+	@BeforeAll
 	public static void init() {
 		BasicConfigurator.configure();
 		Logger.getRootLogger().setLevel(Level.WARN);

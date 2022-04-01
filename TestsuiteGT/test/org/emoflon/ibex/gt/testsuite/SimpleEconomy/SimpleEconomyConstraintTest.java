@@ -1,6 +1,6 @@
 package org.emoflon.ibex.gt.testsuite.SimpleEconomy;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import SimpleEconomyGraphTransformation.api.SimpleEconomyGraphTransformationAPI;
 

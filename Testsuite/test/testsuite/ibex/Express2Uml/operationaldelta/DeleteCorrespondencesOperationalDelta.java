@@ -1,9 +1,8 @@
 package testsuite.ibex.Express2Uml.operationaldelta;
 
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.ibex.common.emf.EMFManipulationUtils;
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import Express2UML.operationaldelta.deleteCorrespondences.DeleteCorrespondencesConflictResolver;
 import Express2UML.operationaldelta.revokeDeletion.RevokeDeletionConflictResolver;
@@ -33,7 +32,7 @@ public class DeleteCorrespondencesOperationalDelta extends IntegrateTestCase<Sch
 		return PROJECT_NAME;
 	}
 
-	@Ignore
+	@Disabled
 	@Test
 	public void deleteCorrespondencesDeleteOnSrc() {
 		tool.getOptions().integration.conflictSolver(new DeleteCorrespondencesConflictResolver());

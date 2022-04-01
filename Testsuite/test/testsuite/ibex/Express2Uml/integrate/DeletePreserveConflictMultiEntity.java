@@ -1,8 +1,7 @@
 package testsuite.ibex.Express2Uml.integrate;
 
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.ibex.common.emf.EMFManipulationUtils;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import Express2UML.integrate.deletePreserveMultiEntity.DeletePreserveMultiEntityConflictResolver;
 import ExpressModel.Entity;

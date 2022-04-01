@@ -2,8 +2,8 @@ package testsuite.ibex.testUtil;
 
 import org.benchmarx.util.BenchmarxUtil;
 import org.eclipse.emf.ecore.EObject;
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 
 public abstract class SyncTestCase<S extends EObject, T extends EObject> extends TestCase {
 	private final String resourcePath = "../../" + getProjectName() + "/resources/";
@@ -15,7 +15,7 @@ public abstract class SyncTestCase<S extends EObject, T extends EObject> extends
 		this.tool = tool;
 	}
 	
-	@Before
+	@BeforeEach
 	public void initialise() {
 		
 		// Initialise all helpers
@@ -32,7 +32,7 @@ public abstract class SyncTestCase<S extends EObject, T extends EObject> extends
 	
 	protected abstract String getProjectName();
 
-	@After
+	@AfterEach
 	public void terminate(){
 		tool.terminateSynchronisationDialogue();
 	}
