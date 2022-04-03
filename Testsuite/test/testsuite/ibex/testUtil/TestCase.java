@@ -4,10 +4,9 @@ import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.emoflon.ibex.tgg.util.ilp.ILPFactory.SupportedILPSolver;
-import org.junit.Rule;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.rules.TestName;
+import org.junit.jupiter.api.TestInfo;
 
 import testsuite.ibex.testUtil.UsedPatternMatcher.PatternMatcher;
 
@@ -15,13 +14,17 @@ public abstract class TestCase {
 	
 	protected SupportedILPSolver ilpSolver;
 	protected PatternMatcher patternMatcher;
-	
-	@Rule
-	public TestName name = new TestName();
+
+    protected String displayName;
+
+    @BeforeEach
+  	public void setUp(TestInfo testInfo) {
+    	displayName = testInfo.getDisplayName();
+  	}
 	
 	@BeforeEach
 	public void initIbexOptions() {
-		System.err.println("Executing test: "+this.getClass().getCanonicalName() +"."+name.getMethodName());
+		System.err.println("Executing test: "+this.getClass().getCanonicalName() +"."+displayName);
 		try {
 			ilpSolver = SupportedILPSolver.valueOf(System.getenv("ilpSolver"));
 		}

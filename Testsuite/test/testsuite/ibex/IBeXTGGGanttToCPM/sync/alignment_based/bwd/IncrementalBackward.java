@@ -120,7 +120,7 @@ public class IncrementalBackward extends GanttToCPMTestCase {
 	 * <b>Features:</b>: fwd, fixed
 	 */
 	@Test
-	public void testHipporcraticness() {
+	public void testHippocraticness() {
 		tool.performAndPropagateTargetEdit(util
 				.execute(helperCPM::createCPM2GanttTestCases)
 				.andThen(helperCPM::addCPM2GanttHelpers)
