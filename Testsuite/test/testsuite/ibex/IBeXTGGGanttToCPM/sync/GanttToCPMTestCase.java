@@ -4,6 +4,7 @@ import org.benchmarx.cpm.core.CPMBuilder;
 import org.benchmarx.cpm.core.CPMHelper;
 import org.benchmarx.gantt.core.GanttHelper;
 import org.benchmarx.util.BenchmarxUtil;
+import org.junit.jupiter.api.AfterEach;
 
 import cpm.CPMNetwork;
 import cpm.CpmPackage;
@@ -38,6 +39,7 @@ public abstract class GanttToCPMTestCase extends SyncTestCase<GanttDiagram, CPMN
 	}
 	
 	@Override
+	@AfterEach
 	public void terminate() {
 		super.terminate();
 		CPMBuilder.reset();
