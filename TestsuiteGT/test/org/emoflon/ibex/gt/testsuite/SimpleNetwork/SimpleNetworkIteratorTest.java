@@ -1,6 +1,6 @@
 package org.emoflon.ibex.gt.testsuite.SimpleNetwork;
 
-import static org.junit.jupiter.api.Assertions.*
+import static org.junit.jupiter.api.Assertions.*;
 
 import org.emoflon.ibex.gt.testsuite.GTAppTestCase;
 import org.junit.jupiter.api.Test;

@@ -1,7 +1,6 @@
 package org.emoflon.ibex.gt.testsuite.SimpleChemistry;
 
-import static org.junit.jupiter.api.Assertions.*
-import static org.junit.jupiter.api.Assertions.*
+import static org.junit.jupiter.api.Assertions.*;
 
 import SimpleChemistry.H;
 import java.util.concurrent.atomic.AtomicInteger;

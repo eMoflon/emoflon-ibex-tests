@@ -1,7 +1,6 @@
 package org.emoflon.ibex.gt.testsuite.SimpleNetwork;
 
-import static org.junit.jupiter.api.Assertions.*
-import static org.junit.jupiter.api.Assertions.*
+import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -12,7 +11,7 @@ import java.util.stream.Collectors;
 import org.emoflon.ibex.common.operational.IMatch;
 import org.emoflon.ibex.gt.api.GraphTransformationPattern;
 import org.emoflon.ibex.gt.StateModel.State;
-import org.junit.Ignore;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import SimpleNetwork.Device;
@@ -273,27 +272,27 @@ public class SimpleNetworkStateTrackingTest extends SimpleNetworkAbstractTest{
 		
 		// Rebuild and check for duplicates
 		api.generateDevice().apply();
-		assertEquals("Expected model states mismatch!", dev1, api.getCurrentModelState());
+		assertEquals(dev1, api.getCurrentModelState(), "Expected model states mismatch!");
 		testStates.get(1).checkState();
 		
 		api.generateDevice().apply();
-		assertEquals("Expected model states mismatch!", dev2, api.getCurrentModelState());
+		assertEquals(dev2, api.getCurrentModelState(), "Expected model states mismatch!");
 		testStates.get(2).checkState();
 		
 		api.generateDevice().apply();
-		assertEquals("Expected model states mismatch!", dev3, api.getCurrentModelState());
+		assertEquals(dev3, api.getCurrentModelState(), "Expected model states mismatch!");
 		testStates.get(3).checkState();
 		
 		api.insertDevicesIntoNetwork().apply();
-		assertEquals("Expected model states mismatch!", insert1, api.getCurrentModelState());
+		assertEquals(insert1, api.getCurrentModelState(), "Expected model states mismatch!");
 		testStates.get(4).checkState();
 		
 		api.insertDevicesIntoNetwork().apply();
-		assertEquals("Expected model states mismatch!", insert2, api.getCurrentModelState());
+		assertEquals(insert2, api.getCurrentModelState(), "Expected model states mismatch!");
 		testStates.get(5).checkState();
 		
 		api.insertDevicesIntoNetwork().apply();
-		assertEquals("Expected model states mismatch!", insert3, api.getCurrentModelState());
+		assertEquals(insert3, api.getCurrentModelState(), "Expected model states mismatch!");
 		testStates.get(6).checkState();
 		
 		// Reset to inital & sanity check
@@ -305,8 +304,7 @@ public class SimpleNetworkStateTrackingTest extends SimpleNetworkAbstractTest{
 	
 	public static void assertMatchCounts(final HashMap<GraphTransformationPattern<?,?>, Integer> expected) {
 		expected.forEach((p, count) -> {
-			assertEquals(p.getPatternName()+" expected <"+count+"> matches but got <"+p.countMatches()+"> matches instead!", 
-					count.intValue(), (int)p.countMatches());
+			assertEquals(count.intValue(), (int)p.countMatches(), p.getPatternName()+" expected <"+count+"> matches but got <"+p.countMatches()+"> matches instead!");
 		});
 	}
 	
@@ -316,8 +314,7 @@ public class SimpleNetworkStateTrackingTest extends SimpleNetworkAbstractTest{
 					.map(match -> match.toIMatch())
 					.collect(Collectors.toSet());
 			m.forEach(expectedMatch -> {
-				assertTrue(p.getPatternName()+" expecteds match:  "+expectedMatch+"\n-> which it is missing in the current state of the model.", 
-						currentMatches.contains(expectedMatch));
+				assertTrue(currentMatches.contains(expectedMatch), p.getPatternName()+" expecteds match:  "+expectedMatch+"\n-> which it is missing in the current state of the model.");
 			});
 		});
 	}

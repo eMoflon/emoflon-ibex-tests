@@ -1,7 +1,6 @@
 package org.emoflon.ibex.gt.testsuite.FerrymanProblem;
 
-import static org.junit.jupiter.api.Assertions.*
-import static org.junit.jupiter.api.Assertions.*
+import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 

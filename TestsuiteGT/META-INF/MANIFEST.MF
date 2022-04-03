@@ -8,7 +8,6 @@ Require-Bundle: org.eclipse.emf.ecore.xmi,
  org.emoflon.ibex.common,
  org.emoflon.ibex.gt,
  org.emoflon.ibex.gt.democles,
- org.junit,
  BPMN,
  BPMN-GraphTransformation,
  ClassMultipleInheritanceHierarchy,
@@ -38,7 +37,8 @@ Require-Bundle: org.eclipse.emf.ecore.xmi,
  GroupVotersModel,
  SimpleNetworkGraphTransformation2;bundle-version="1.0.0",
  HospitalExample,
- HospitalTransformation
+ HospitalTransformation,
+ org.junit.jupiter.api;bundle-version="5.8.1"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-16
 Automatic-Module-Name: TestsuiteGT

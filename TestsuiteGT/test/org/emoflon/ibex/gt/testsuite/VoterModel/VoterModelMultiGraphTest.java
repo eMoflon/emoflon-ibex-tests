@@ -1,6 +1,6 @@
 package org.emoflon.ibex.gt.testsuite.VoterModel;
 
-import static org.junit.jupiter.api.Assertions.*
+import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.function.Supplier;
 

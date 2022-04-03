@@ -1,6 +1,6 @@
 package org.emoflon.ibex.gt.testsuite.ClassMultipleInheritanceHierarchy;
 
-import static org.junit.jupiter.api.Assertions.*
+import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.HashSet;
 import java.util.Set;

@@ -1,6 +1,6 @@
 package org.emoflon.ibex.gt.testsuite.SimpleNetwork;
 
-import static org.junit.jupiter.api.Assertions.*
+import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
@@ -84,31 +84,41 @@ public class SimpleNetworkCalculationTest extends SimpleNetworkAbstractTest{
 		api.terminate();
 	}
 	
-	@Test(expected = IllegalArgumentException.class)
+	@Test
 	public void checkExceptions1() {
 		//test that log() only accepts values>0
-		SimpleNetworkGraphTransformationAPI api = this.init("SimpleNetwork2.xmi");
-		api.testException1().apply();
+		assertThrows(IllegalArgumentException.class, () -> {
+			SimpleNetworkGraphTransformationAPI api = this.init("SimpleNetwork2.xmi");
+			api.testException1().apply();
+		});
 	}
-	@Test(expected = IllegalArgumentException.class)
+	@Test
 	public void checkExceptions2() {
 		//test that ln() only accepts values>0
+		assertThrows(IllegalArgumentException.class, () -> {
+			
 		SimpleNetworkGraphTransformationAPI api = this.init("SimpleNetwork2.xmi");
 		api.testException2().apply();
+		});
 	}
-	@Test(expected = IllegalArgumentException.class)
+	@Test
 	public void checkExceptions3() {
 		//test that sqrt() only accepts values>=0
+		assertThrows(IllegalArgumentException.class, () -> {
+			
 		SimpleNetworkGraphTransformationAPI api = this.init("SimpleNetwork2.xmi");
 		api.testException3().apply();
+		});
 	}
-	@Test(expected = IllegalArgumentException.class)
+	@Test
 	public void checkExceptions4() {
 		//test that divide by zero throws a exception
-		SimpleNetworkGraphTransformationAPI api = this.init("SimpleNetwork2.xmi");
-		api.testException4().apply();
-		
-		api.terminate();
+		assertThrows(IllegalArgumentException.class, () -> {
+			SimpleNetworkGraphTransformationAPI api = this.init("SimpleNetwork2.xmi");
+			api.testException4().apply();
+			
+			api.terminate();
+		});
 	}
 	
 	@Test

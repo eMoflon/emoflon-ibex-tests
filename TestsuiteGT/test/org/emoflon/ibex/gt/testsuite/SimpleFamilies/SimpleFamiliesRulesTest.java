@@ -1,8 +1,6 @@
 package org.emoflon.ibex.gt.testsuite.SimpleFamilies;
 
-import static org.junit.jupiter.api.Assertions.*
-import static org.junit.jupiter.api.Assertions.*
-import static org.junit.jupiter.api.Assertions.*
+import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.HashMap;
 import java.util.List;

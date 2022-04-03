@@ -1,8 +1,6 @@
 package org.emoflon.ibex.gt.testsuite.SheRememberedCaterpillars;
 
-import static org.junit.jupiter.api.Assertions.*
-import static org.junit.jupiter.api.Assertions.*
-import static org.junit.jupiter.api.Assertions.*
+import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.function.Consumer;
 
