@@ -34,7 +34,7 @@ public class HigherOrderShortcut extends IntegrateTestCase<District, Playroom> {
 		return projectName;
 	}
 
-	private final String testpath = "integrate/expected/multipl/";
+	private final String testpath = "integrate/expected/hoshortcut/";
 
 	@Test
 	public void insertRootBuilding_FWD() {
@@ -45,6 +45,8 @@ public class HigherOrderShortcut extends IntegrateTestCase<District, Playroom> {
 			newFirstBuilding.setNext(firstBuilding);
 			d.getStreetBeginnings().remove(firstBuilding);
 		});
+
+		assertCondition(testpath + "hoshortcut_insert/");
 	}
 
 	@Test
@@ -57,6 +59,8 @@ public class HigherOrderShortcut extends IntegrateTestCase<District, Playroom> {
 			firstBuilding.setNext(null);
 			EMFManipulationUtils.delete(firstBuilding);
 		});
+
+		assertCondition(testpath + "hoshortcut_remove/");
 	}
 
 }
