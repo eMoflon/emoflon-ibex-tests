@@ -8,7 +8,6 @@ import org.emoflon.ibex.tgg.run.companytoit.CO_App;
 import org.emoflon.ibex.tgg.run.companytoit.FWD_OPT_App;
 import org.emoflon.ibex.tgg.run.companytoit.config.DemoclesRegistrationHelper;
 import org.emoflon.ibex.tgg.run.companytoit.config.HiPERegistrationHelper;
-import org.emoflon.ibex.tgg.run.companytoit.config.ViatraRegistrationHelper;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -19,17 +18,17 @@ import testsuite.ibex.testUtil.UsedPatternMatcher;
 public class TestOPT extends COTestCase {
 
 	public void createGenerator(String srcInstance, String trgInstance, String corrInstance, String protInstance) throws IOException {
-		CO_App.registrationHelper = UsedPatternMatcher.choose(new IRegistrationHelper[]{new DemoclesRegistrationHelper(), new HiPERegistrationHelper(), new ViatraRegistrationHelper()});
+		CO_App.registrationHelper = UsedPatternMatcher.choose(new IRegistrationHelper[]{new DemoclesRegistrationHelper(), new HiPERegistrationHelper()});
 		checker = new CO_App("CompanyToIT", testsuite.ibex.performance.util.PerformanceConstants.workspacePath, false, srcInstance, trgInstance, corrInstance, protInstance, ilpSolver);
 	}
 	
 	public void createTransformation(String srcInstance, String trgInstance, String corrInstance, String protInstance) throws IOException {
-		FWD_OPT_App.registrationHelper = UsedPatternMatcher.choose(new IRegistrationHelper[]{new DemoclesRegistrationHelper(), new HiPERegistrationHelper(), new ViatraRegistrationHelper()});
+		FWD_OPT_App.registrationHelper = UsedPatternMatcher.choose(new IRegistrationHelper[]{new DemoclesRegistrationHelper(), new HiPERegistrationHelper()});
 		forward = new FWD_OPT_App("CompanyToIT", testsuite.ibex.performance.util.PerformanceConstants.workspacePath, false, srcInstance, trgInstance, corrInstance, protInstance, ilpSolver);
 	}
 	
 	public void createBackward(String srcInstance, String trgInstance, String corrInstance, String protInstance) throws IOException {
-		BWD_OPT_App.registrationHelper = UsedPatternMatcher.choose(new IRegistrationHelper[]{new DemoclesRegistrationHelper(), new HiPERegistrationHelper(), new ViatraRegistrationHelper()});
+		BWD_OPT_App.registrationHelper = UsedPatternMatcher.choose(new IRegistrationHelper[]{new DemoclesRegistrationHelper(), new HiPERegistrationHelper()});
 		backward = new BWD_OPT_App("CompanyToIT", testsuite.ibex.performance.util.PerformanceConstants.workspacePath, false, srcInstance, trgInstance, corrInstance, protInstance, ilpSolver);
 	}
 	

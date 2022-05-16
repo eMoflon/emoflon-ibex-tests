@@ -8,7 +8,6 @@ import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 import org.emoflon.ibex.tgg.run.classinhhier2db.SYNC_App;
 import org.emoflon.ibex.tgg.run.classinhhier2db.config.DemoclesRegistrationHelper;
 import org.emoflon.ibex.tgg.run.classinhhier2db.config.HiPERegistrationHelper;
-import org.emoflon.ibex.tgg.run.classinhhier2db.config.ViatraRegistrationHelper;
 
 import ClassInheritanceHierarchy.ClassInheritanceHierarchyFactory;
 import ClassInheritanceHierarchy.ClassPackage;
@@ -25,7 +24,7 @@ public class IbexClassInhHier2DB extends IbexAdapter<ClassPackage, DB>   {
 	@Override
 	public void initiateSynchronisationDialogue() {
 		try {
-			SYNC_App.registrationHelper = UsedPatternMatcher.choose(new IRegistrationHelper[]{new DemoclesRegistrationHelper(), new HiPERegistrationHelper(), new ViatraRegistrationHelper()});
+			SYNC_App.registrationHelper = UsedPatternMatcher.choose(new IRegistrationHelper[]{new DemoclesRegistrationHelper(), new HiPERegistrationHelper()});
 			synchroniser = new SYNC_App("ClassInhHier2DB", testsuite.ibex.performance.util.PerformanceConstants.workspacePath, ilpSolver, false);
 			
 			ClassPackage pkg = ClassInheritanceHierarchyFactory.eINSTANCE.createClassPackage();

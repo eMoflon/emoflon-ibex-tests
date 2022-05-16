@@ -12,7 +12,6 @@ import org.emoflon.ibex.tgg.operational.patterns.IGreenPatternFactory;
 import org.emoflon.ibex.tgg.run.companytoit.CC_App;
 import org.emoflon.ibex.tgg.run.companytoit.config.DemoclesRegistrationHelper;
 import org.emoflon.ibex.tgg.run.companytoit.config.HiPERegistrationHelper;
-import org.emoflon.ibex.tgg.run.companytoit.config.ViatraRegistrationHelper;
 import org.emoflon.ibex.tgg.weights.Weights;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
@@ -34,7 +33,7 @@ import testsuite.ibex.testUtil.UsedPatternMatcher;
 public class TestTggWeights extends CCTestCase {
 
 	private void createGenerator(final String srcInstance, final String trgInstance) throws IOException {
-		CC_App.registrationHelper = UsedPatternMatcher.choose(new IRegistrationHelper[]{new DemoclesRegistrationHelper(), new HiPERegistrationHelper(), new ViatraRegistrationHelper()});
+		CC_App.registrationHelper = UsedPatternMatcher.choose(new IRegistrationHelper[]{new DemoclesRegistrationHelper(), new HiPERegistrationHelper()});
 		this.checker = new CC_App("CompanyToIT", testsuite.ibex.performance.util.PerformanceConstants.workspacePath, false, srcInstance, trgInstance, this.ilpSolver);
 		this.checker.setUserDefinedWeightCalculationStrategy(new Weights(this.checker));
 	}

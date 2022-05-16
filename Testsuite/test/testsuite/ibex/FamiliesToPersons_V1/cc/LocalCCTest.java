@@ -7,7 +7,6 @@ import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 import org.emoflon.ibex.tgg.run.familiestopersons_v1.LocalCC_App;
 import org.emoflon.ibex.tgg.run.familiestopersons_v1.config.DemoclesRegistrationHelper;
 import org.emoflon.ibex.tgg.run.familiestopersons_v1.config.HiPERegistrationHelper;
-import org.emoflon.ibex.tgg.run.familiestopersons_v1.config.ViatraRegistrationHelper;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -25,12 +24,12 @@ import testsuite.ibex.testUtil.UsedPatternMatcher;
 public class LocalCCTest extends CCTestCase {
 
 	public void createGenerator(String srcInstance, String trgInstance, String corrInstance, String protocolInstance) throws IOException {
-		LocalCC_App.registrationHelper = UsedPatternMatcher.choose(new IRegistrationHelper[]{new DemoclesRegistrationHelper(), new HiPERegistrationHelper(), new ViatraRegistrationHelper()});
+		LocalCC_App.registrationHelper = UsedPatternMatcher.choose(new IRegistrationHelper[]{new DemoclesRegistrationHelper(), new HiPERegistrationHelper()});
 		checker = new LocalCC_App("FamiliesToPersons_V1", testsuite.ibex.performance.util.PerformanceConstants.workspacePath, false, srcInstance, trgInstance, corrInstance, protocolInstance, ilpSolver);
 	}
 	
 	public void createGenerator(String srcInstance, String trgInstance) throws IOException {
-		LocalCC_App.registrationHelper = UsedPatternMatcher.choose(new IRegistrationHelper[]{new DemoclesRegistrationHelper(), new HiPERegistrationHelper(), new ViatraRegistrationHelper()});
+		LocalCC_App.registrationHelper = UsedPatternMatcher.choose(new IRegistrationHelper[]{new DemoclesRegistrationHelper(), new HiPERegistrationHelper()});
 		checker = new LocalCC_App("FamiliesToPersons_V1", testsuite.ibex.performance.util.PerformanceConstants.workspacePath, false, srcInstance, trgInstance, ilpSolver);
 	}
 

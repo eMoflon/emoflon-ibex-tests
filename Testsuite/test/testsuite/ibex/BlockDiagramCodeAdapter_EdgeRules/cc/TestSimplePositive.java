@@ -6,7 +6,6 @@ import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 import org.emoflon.ibex.tgg.run.blockdiagramcodeadapter_edgerules.CC_App;
 import org.emoflon.ibex.tgg.run.blockdiagramcodeadapter_edgerules.config.DemoclesRegistrationHelper;
 import org.emoflon.ibex.tgg.run.blockdiagramcodeadapter_edgerules.config.HiPERegistrationHelper;
-import org.emoflon.ibex.tgg.run.blockdiagramcodeadapter_edgerules.config.ViatraRegistrationHelper;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -19,7 +18,7 @@ public class TestSimplePositive  extends CCTestCase {
 	
 	
 	public void createGenerator(String srcInstance, String trgInstance) throws IOException {
-		CC_App.registrationHelper = UsedPatternMatcher.choose(new IRegistrationHelper[]{new DemoclesRegistrationHelper(), new HiPERegistrationHelper(), new ViatraRegistrationHelper()});
+		CC_App.registrationHelper = UsedPatternMatcher.choose(new IRegistrationHelper[]{new DemoclesRegistrationHelper(), new HiPERegistrationHelper()});
 		checker = new CC_App("BlockDiagramCodeAdapter_EdgeRules", testsuite.ibex.performance.util.PerformanceConstants.workspacePath, false, srcInstance, trgInstance, this.ilpSolver);
 	}
 	

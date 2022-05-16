@@ -6,7 +6,6 @@ import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 import org.emoflon.ibex.tgg.run.familiestopersons_v1.CC_App;
 import org.emoflon.ibex.tgg.run.familiestopersons_v1.config.DemoclesRegistrationHelper;
 import org.emoflon.ibex.tgg.run.familiestopersons_v1.config.HiPERegistrationHelper;
-import org.emoflon.ibex.tgg.run.familiestopersons_v1.config.ViatraRegistrationHelper;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -16,7 +15,7 @@ import testsuite.ibex.testUtil.UsedPatternMatcher;
 public class TestSimple extends CCTestCase {
 
 	public void createGenerator(String srcInstance, String trgInstance) throws IOException {
-		CC_App.registrationHelper = UsedPatternMatcher.choose(new IRegistrationHelper[]{new DemoclesRegistrationHelper(), new HiPERegistrationHelper(), new ViatraRegistrationHelper()});
+		CC_App.registrationHelper = UsedPatternMatcher.choose(new IRegistrationHelper[]{new DemoclesRegistrationHelper(), new HiPERegistrationHelper()});
 		checker = new CC_App("FamiliesToPersons_V1", testsuite.ibex.performance.util.PerformanceConstants.workspacePath, false, srcInstance, trgInstance, ilpSolver);
 	}
 
