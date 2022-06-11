@@ -38,6 +38,8 @@ public class HigherOrderShortcut extends IntegrateTestCase<District, Playroom> {
 
 	@Test
 	public void insertRootBuilding_FWD() {
+		tool.getOptions().repair.usePGbasedSCruleCreation(true);
+
 		tool.applyAndIntegrateDelta((d, p) -> {
 			Building firstBuilding = helperTerrace.getBuilding(d, "Colorado Apartments");
 			Building newFirstBuilding = helperTerrace.createFirstBuilding(d, "New Root Building", "45267 Oldtown");
@@ -51,6 +53,8 @@ public class HigherOrderShortcut extends IntegrateTestCase<District, Playroom> {
 
 	@Test
 	public void removeRootBuilding_FWD() {
+		tool.getOptions().repair.usePGbasedSCruleCreation(true);
+
 		tool.applyAndIntegrateDelta((d, p) -> {
 			Building firstBuilding = helperTerrace.getBuilding(d, "Colorado Apartments");
 			Structure secondBuilding = firstBuilding.getNext();
