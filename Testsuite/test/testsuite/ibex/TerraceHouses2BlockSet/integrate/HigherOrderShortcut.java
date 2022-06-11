@@ -34,10 +34,12 @@ public class HigherOrderShortcut extends IntegrateTestCase<District, Playroom> {
 		return projectName;
 	}
 
-	private final String testpath = "integrate/expected/multipl/";
+	private final String testpath = "integrate/expected/hoshortcut/";
 
 	@Test
 	public void insertRootBuilding_FWD() {
+		tool.getOptions().repair.usePGbasedSCruleCreation(true);
+
 		tool.applyAndIntegrateDelta((d, p) -> {
 			Building firstBuilding = helperTerrace.getBuilding(d, "Colorado Apartments");
 			Building newFirstBuilding = helperTerrace.createFirstBuilding(d, "New Root Building", "45267 Oldtown");
@@ -45,10 +47,14 @@ public class HigherOrderShortcut extends IntegrateTestCase<District, Playroom> {
 			newFirstBuilding.setNext(firstBuilding);
 			d.getStreetBeginnings().remove(firstBuilding);
 		});
+
+		assertCondition(testpath + "hoshortcut_insert/");
 	}
 
 	@Test
 	public void removeRootBuilding_FWD() {
+		tool.getOptions().repair.usePGbasedSCruleCreation(true);
+
 		tool.applyAndIntegrateDelta((d, p) -> {
 			Building firstBuilding = helperTerrace.getBuilding(d, "Colorado Apartments");
 			Structure secondBuilding = firstBuilding.getNext();
@@ -57,6 +63,8 @@ public class HigherOrderShortcut extends IntegrateTestCase<District, Playroom> {
 			firstBuilding.setNext(null);
 			EMFManipulationUtils.delete(firstBuilding);
 		});
+
+		assertCondition(testpath + "hoshortcut_remove/");
 	}
 
 }

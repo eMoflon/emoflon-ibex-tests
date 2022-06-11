@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WoodenBlockSet:Playroom xmlns:WoodenBlockSet="platform:/resource/WoodenBlockSet/model/WoodenBlockSet.ecore" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmi:version="2.0">
+  <blocksets playroom="/">
+    <constructions blockSet="//@blocksets.0" constructor="Henry" name="Apartment House">
+      <components xsi:type="WoodenBlockSet:Cuboid" construction="//@blocksets.0/@constructions.0" color="red" />
+    </constructions>
+    <constructions blockSet="//@blocksets.0" constructor="Henry" name="Smith's House">
+      <components xsi:type="WoodenBlockSet:Cube" construction="//@blocksets.0/@constructions.1" color="green" />
+    </constructions>
+    <constructions blockSet="//@blocksets.0" constructor="Henry" name="Wilson's House">
+      <components xsi:type="WoodenBlockSet:Cube" construction="//@blocksets.0/@constructions.2" color="green" />
+      <components xsi:type="WoodenBlockSet:TriangularPrism" construction="//@blocksets.0/@constructions.2" color="blue" />
+    </constructions>
+  </blocksets>
+</WoodenBlockSet:Playroom>

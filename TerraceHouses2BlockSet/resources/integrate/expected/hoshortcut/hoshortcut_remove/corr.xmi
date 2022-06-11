@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmlns:xmi="http://www.omg.org/XMI" xmlns:TerraceHouses="platform:/resource/TerraceHouses/model/TerraceHouses.ecore" xmlns:TerraceHouses2BlockSet="platform:/resource/TerraceHouses2BlockSet/model/TerraceHouses2BlockSet.ecore" xmlns:WoodenBlockSet="platform:/resource/WoodenBlockSet/model/WoodenBlockSet.ecore" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmi:version="2.0">
+  <TerraceHouses2BlockSet:District2Playroom>
+    <target xsi:type="WoodenBlockSet:Playroom" href="platform:/resource/TerraceHouses2BlockSet/instances/trg.xmi#/" />
+    <source xsi:type="TerraceHouses:District" href="platform:/resource/TerraceHouses2BlockSet/instances/src.xmi#/" />
+  </TerraceHouses2BlockSet:District2Playroom>
+  <TerraceHouses2BlockSet:Structure2Construction>
+    <source xsi:type="TerraceHouses:Building" href="platform:/resource/TerraceHouses2BlockSet/instances/src.xmi#//@streetBeginnings.0" />
+    <target xsi:type="WoodenBlockSet:Construction" href="platform:/resource/TerraceHouses2BlockSet/instances/trg.xmi#//@blocksets.0/@constructions.0" />
+  </TerraceHouses2BlockSet:Structure2Construction>
+  <TerraceHouses2BlockSet:Structure2Construction>
+    <source xsi:type="TerraceHouses:House" href="platform:/resource/TerraceHouses2BlockSet/instances/src.xmi#//@streetBeginnings.0/@next" />
+    <target xsi:type="WoodenBlockSet:Construction" href="platform:/resource/TerraceHouses2BlockSet/instances/trg.xmi#//@blocksets.0/@constructions.1" />
+  </TerraceHouses2BlockSet:Structure2Construction>
+  <TerraceHouses2BlockSet:Structure2Construction>
+    <source xsi:type="TerraceHouses:House" href="platform:/resource/TerraceHouses2BlockSet/instances/src.xmi#//@streetBeginnings.0/@next/@next" />
+    <target xsi:type="WoodenBlockSet:Construction" href="platform:/resource/TerraceHouses2BlockSet/instances/trg.xmi#//@blocksets.0/@constructions.2" />
+  </TerraceHouses2BlockSet:Structure2Construction>
+</xmi:XMI>
