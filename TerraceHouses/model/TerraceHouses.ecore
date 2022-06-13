@@ -17,10 +17,17 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="House" eSuperTypes="#//Structure">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="pitchedRoof" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="skywayEntry" lowerBound="1"
+        eType="#//Skyway" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prefab" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Building" eSuperTypes="#//Structure"/>
   <eClassifiers xsi:type="ecore:EClass" name="District">
     <eStructuralFeatures xsi:type="ecore:EReference" name="streetBeginnings" upperBound="-1"
         eType="#//Structure" containment="true" eOpposite="#//Structure/district"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Skyway">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="exit" lowerBound="1" eType="#//House"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>

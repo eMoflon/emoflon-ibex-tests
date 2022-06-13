@@ -10,6 +10,10 @@
         eType="#//Construction" containment="true" eOpposite="#//Construction/blockSet"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="playroom" eType="#//Playroom"
         eOpposite="#//Playroom/blocksets"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="connectors" upperBound="-1"
+        eType="#//Printed3DShape" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="units" upperBound="-1"
+        eType="#//Printed3DShape"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Construction">
     <eStructuralFeatures xsi:type="ecore:EReference" name="components" lowerBound="1"
@@ -18,6 +22,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="blockSet" eType="#//BlockSet"
         eOpposite="#//BlockSet/constructions"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="connections" upperBound="-1"
+        eType="#//Printed3DShape"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Shape3D" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="color" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -30,5 +36,10 @@
   <eClassifiers xsi:type="ecore:EClass" name="Playroom">
     <eStructuralFeatures xsi:type="ecore:EReference" name="blocksets" upperBound="-1"
         eType="#//BlockSet" containment="true" eOpposite="#//BlockSet/playroom"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Printed3DShape" eSuperTypes="#//Shape3D">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="connections" upperBound="-1"
+        eType="#//Printed3DShape"/>
   </eClassifiers>
 </ecore:EPackage>
