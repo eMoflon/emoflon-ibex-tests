@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <psf version="2.0">
 <provider id="org.eclipse.egit.core.GitProvider">
+<project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,Algorithms"/>
 <project reference="1.0,https://github.com/eMoflon/benchmarx.git,master,core/Benchmarx"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,BenchmarxFamiliesToPersons"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,BlockCodeAdapter"/>
@@ -16,6 +17,7 @@
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,CompanyToIT"/>
 <project reference="1.0,https://github.com/eMoflon/benchmarx.git,master,examples/gantttocpm/metamodels/CPM"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,Database"/>
+<project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,Documents"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,Express2UML"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,ExpressModel"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,ExtDocModel"/>
@@ -27,6 +29,7 @@
 <project reference="1.0,https://github.com/eMoflon/benchmarx.git,master,examples/familiestopersons/metamodels/Families"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,FamiliesToPersons_V0"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,FamiliesToPersons_V1"/>
+<project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,FamiliesWithSiblings"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,FeatureModelConcise"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,FeatureModelConciseToSafe"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,FeatureModelSafe"/>
@@ -50,6 +53,7 @@
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,SimpleFamilies"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,SimpleJava"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,SimplePersons"/>
+<project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,Strategies"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,TerraceHouses"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,TerraceHouses2BlockSet"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,Testsuite"/>
@@ -129,5 +133,9 @@
 <item elementID="=BlockDiagram" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=MocaTree" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=ExpressModel" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=Algorithms" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=Documents" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=FamiliesWithSiblings" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=Strategies" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 </workingSets>
 </psf>
