@@ -4,7 +4,7 @@
 #rule Prefab2Printed3D #with TerraceHouses2BlockSet
 
 #source { 
-	house:House {
+	struct:Structure {
 		++-next->nextHouse
 	}
 	++nextHouse:House {
@@ -23,7 +23,7 @@
 
 #correspondence {
 	b2c:Structure2Construction {
-		#src->house
+		#src->struct
 		#trg->constr
 	}
 	++nh2p:House2Printed3DShape {

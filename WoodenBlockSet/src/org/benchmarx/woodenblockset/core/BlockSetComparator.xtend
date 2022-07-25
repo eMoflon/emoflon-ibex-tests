@@ -51,11 +51,6 @@ class BlockSetComparator implements Comparator<Playroom> {
 					«c.stringify»
 				«ENDFOR»
 			}
-			connectors {
-				«FOR c : printed3DShapeNormalizer.normalize(blockSet.connectors)»
-					«c.stringify»
-				«ENDFOR»
-			}
 			units {
 				«FOR c : printed3DShapeNormalizer.normalize(blockSet.units)»
 					«c.stringify»

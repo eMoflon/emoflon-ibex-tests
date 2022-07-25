@@ -17,6 +17,10 @@
 }
 
 #target {
+	bs:BlockSet {
+		-constructions->constr
+		++-units->printedBridge
+	}
 	hingedCube:Printed3DShape {
 		++-connections->printedBridge
 	}

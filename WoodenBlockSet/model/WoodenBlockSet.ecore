@@ -10,10 +10,8 @@
         eType="#//Construction" containment="true" eOpposite="#//Construction/blockSet"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="playroom" eType="#//Playroom"
         eOpposite="#//Playroom/blocksets"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="connectors" upperBound="-1"
-        eType="#//Printed3DShape" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="units" upperBound="-1"
-        eType="#//Printed3DShape"/>
+        eType="#//Printed3DShape" containment="true" eOpposite="#//Printed3DShape/blockset"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Construction">
     <eStructuralFeatures xsi:type="ecore:EReference" name="components" lowerBound="1"
@@ -41,5 +39,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="connections" upperBound="-1"
         eType="#//Printed3DShape"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="blockset" eType="#//BlockSet"
+        eOpposite="#//BlockSet/units"/>
   </eClassifiers>
 </ecore:EPackage>
