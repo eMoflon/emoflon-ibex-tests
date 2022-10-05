@@ -4,7 +4,6 @@ import org.benchmarx.terracehouses.core.TerraceHousesHelper;
 import org.benchmarx.woodenblockset.core.WoodenBlockSetHelper;
 import org.junit.jupiter.api.Test;
 
-import TerraceHouses.Building;
 import TerraceHouses.District;
 import TerraceHouses.House;
 import TerraceHouses.Skyway;
@@ -51,7 +50,7 @@ public class HigherOrderShortcutDiamand extends IntegrateTestCase<District, Play
 			skyway.setExit(prefab);
 		});
 
-//		assertCondition(testpath + "hoshortcut_switchattr/");
+		assertCondition(testpath + "hoshortcut_switchattr/");
 	}
 
 }
