@@ -34,7 +34,7 @@ abstract rule addTask(name: EString) {
  */
 rule addTaskBefore
 refines addTask {
-	[+] to: Task {
+	[=] to: Task {
 		[+] -incoming -> newFlow
 	}
 
@@ -44,48 +44,47 @@ refines addTask {
 	}
 };
 
-//TODO:
+/**
+ * Inserts a task between two other tasks.
+ */
+rule addTaskBetween
+refines addTask {
+	[=] flow: SequenceFlow
+	
+	[=] frm : Task {
+		[=] -outgoing->flow
+	}
+	
+	[=] to: Task {
+		[-] -incoming -> flow
+		[+] -incoming -> newFlow
+	}
 
-///**
-// * Inserts a task between two other tasks.
-// */
-//rule addTaskBetween
-//refines addTask {
-//	[#] src : Task {
-//		-outgoing -> flow
-//	}
-//	
-//	@
-//	[#] to: Task {
-//		-- -incoming -> flow
-//		++ -incoming -> newFlow
-//	}
-//
-//	flow: SequenceFlow
-//
-//	++ newTask: Task {
-//		++ -outgoing -> newFlow
-//		++ -incoming -> flow
-//	}
-//}
-//
-///**
-// * Inserts a task after another task.
-// */
-//rule addTaskAfter
-//refines addTask {
-//	from: Task {
-//		++ -outgoing -> newFlow
-//	}
-//
-//	++ newTask: Task {
-//		++ -incoming -> newFlow
-//	}
-//}
-//
-///**
-// * Removes a task.
-// */
-//rule removeTask {
-//	-- task: Task
-//}
+	@refines+ addTask.newTask
+	[+] newTask: Task {
+		[+] -outgoing -> newFlow
+		[+] -incoming -> flow
+	}
+};
+
+/**
+ * Inserts a task after another task.
+ */
+rule addTaskAfter
+refines addTask {
+	[=] frm : Task {
+		[+] -outgoing->newFlow
+	}
+
+	@refines+ addTask.newTask
+	[+] newTask: Task {
+		[+] -outgoing -> newFlow
+	}
+};
+
+/**
+ * Removes a task.
+ */
+rule removeTask {
+	[-] task: Task
+};
