@@ -15,7 +15,7 @@ pattern findTask {
 pattern findTaskByName(name: EString) {
 	[=] task: Task
 	// TODO: allow parameterized constraints!
-	//[#] task.name == param::name
+	[#] task.name == parameter.name; 
 };
 
 /**
