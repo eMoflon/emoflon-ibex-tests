@@ -6,7 +6,7 @@ import "platform:/resource/BPMN/model/BPMN.ecore"
  * Finds a task.
  */
 pattern findTask {
-	[=] task: Task
+	[=] task: Task 
 };
 
 /**
