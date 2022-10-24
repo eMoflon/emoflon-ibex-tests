@@ -42,6 +42,7 @@ refines addTask {
 	[+] newTask: Task {
 		[+] -outgoing -> newFlow
 	}
+	
 };
 
 /**

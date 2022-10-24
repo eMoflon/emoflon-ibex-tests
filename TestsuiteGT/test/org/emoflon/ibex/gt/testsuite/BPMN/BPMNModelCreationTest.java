@@ -5,15 +5,17 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 import BPMNGraphTransformation.api.BPMNGraphTransformationAPI;
+import bpmn.gt.api.GtHiPEGtAPI;
 import bpmn2.Task;
 
 public class BPMNModelCreationTest extends BPMNAbstractTest {
 
 	@Test
 	public void insertTaskBetweenExistingTasks() {
-		BPMNGraphTransformationAPI api = this.init("BPMN-insertTaskBetween.xmi", "BPMN-ex1.xmi");
+		GtHiPEGtAPI api = this.init("BPMN-insertTaskBetween.xmi", "BPMN-ex1.xmi");
 
 		assertMatchCount(2, api.findTask());
+//		api.addTaskBetween().s
 		assertApplicable(api.addTaskBetween("Step between 1+2"));
 		assertMatchCount(3, api.findTask());
 
@@ -22,7 +24,7 @@ public class BPMNModelCreationTest extends BPMNAbstractTest {
 
 	@Test
 	public void insertAtEnds() {
-		BPMNGraphTransformationAPI api = this.init("BPMN-insertAtEnd.xmi", "BPMN-ex1.xmi");
+		GtHiPEGtAPI api = this.init("BPMN-insertAtEnd.xmi", "BPMN-ex1.xmi");
 
 		assertMatchCount(2, api.findTask());
 		Task task1 = api.findTaskByName("Task 1").findAnyMatch().get().getTask();

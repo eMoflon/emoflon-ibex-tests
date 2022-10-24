@@ -15,7 +15,13 @@ import org.emoflon.ibex.gt.api.GraphTransformationApp;
 import org.emoflon.ibex.gt.api.GraphTransformationMatch;
 import org.emoflon.ibex.gt.api.GraphTransformationPattern;
 import org.emoflon.ibex.gt.api.GraphTransformationRule;
+import org.emoflon.ibex.gt.api.IBeXGtAPI;
 import org.emoflon.ibex.gt.democles.runtime.DemoclesGTEngine;
+import org.emoflon.ibex.gt.engine.IBeXGTCoMatch;
+import org.emoflon.ibex.gt.engine.IBeXGTCoPattern;
+import org.emoflon.ibex.gt.engine.IBeXGTMatch;
+import org.emoflon.ibex.gt.engine.IBeXGTPattern;
+import org.emoflon.ibex.gt.engine.IBeXGTRule;
 import org.emoflon.ibex.gt.hipe.runtime.HiPEGTEngine;
 
 /**
@@ -24,11 +30,7 @@ import org.emoflon.ibex.gt.hipe.runtime.HiPEGTEngine;
  * @param <API>
  *            the API to test
  */
-public abstract class GTAppTestCase<App extends GraphTransformationApp<API>, API extends GraphTransformationAPI> {
-	final public static String PM_DEMOCLES = "Democles";
-	final public static String PM_VIATRA = "Viatra";
-	final public static String PM_HIPE = "HiPE";
-	final public static String PM_DEFAULT = PM_HIPE;
+public abstract class GTAppTestCase<API extends IBeXGtAPI<?,?,?>> {
 	/**
 	 * Relative path to the directory with the projects with the graph
 	 * transformation rules.
@@ -60,36 +62,7 @@ public abstract class GTAppTestCase<App extends GraphTransformationApp<API>, API
 	 * 
 	 * @return the application.
 	 */
-	protected abstract App getApp();
-
-	/**
-	 * Initializes the engine.
-	 * 
-	 * @return the engine
-	 */
-	protected IContextPatternInterpreter initEngine() {
-		String patternMatcher;
-		IContextPatternInterpreter engine;
-		try {
-			patternMatcher = System.getenv("patternMatcher");
-			switch(patternMatcher) {
-			case PM_DEMOCLES: 
-				engine = new DemoclesGTEngine();
-				break;
-			case PM_HIPE: 			
-				engine = new HiPEGTEngine();
-				break;
-			default: throw new RuntimeException(patternMatcher + " is not a supported as a pattern matcher!");
-			}
-		}
-		catch (Exception e) {
-			System.err.println("Pattern Matcher is not specified. Defaulting to "+PM_DEFAULT);
-			engine = new HiPEGTEngine();
-		}
-		
-		engine.setDebugPath("./debug/" + this.getTestName());
-		return engine;
-	}
+	protected abstract API getApi();
 
 	/**
 	 * Initializes the resource set with the given name.
@@ -105,9 +78,15 @@ public abstract class GTAppTestCase<App extends GraphTransformationApp<API>, API
 	 *            the name of the resource file to copy
 	 * @return a resource set containing the model file
 	 */
-	protected void createModel(final App app, final String modelInstanceFileName, final String resourceFileName) {
+	protected void createModel(final API api, final String modelInstanceFileName, final String resourceFileName) {
 		URI instanceURI = URI.createFileURI(instancesPath + this.getTestName() + "/" + modelInstanceFileName);
-		Resource instanceResource = app.createModel(instanceURI);
+		Resource instanceResource = null;
+		try {
+			instanceResource = api.createModel(instanceURI);
+		} catch (Exception e1) {
+			e1.printStackTrace();
+			return;
+		}
 
 		// If a file with the given name exists in the resource folder, copy its
 		// contents to the instance file.
@@ -123,8 +102,8 @@ public abstract class GTAppTestCase<App extends GraphTransformationApp<API>, API
 
 		// Save the resource.
 		try {
-			app.saveResourceSet();
-		} catch (IOException e) {
+			api.saveModel();
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
@@ -137,9 +116,10 @@ public abstract class GTAppTestCase<App extends GraphTransformationApp<API>, API
 	 * @return the API
 	 */
 	protected API init(final String modelInstanceFileName) {
-		App app = this.getApp();
-		this.createModel(app, modelInstanceFileName, modelInstanceFileName);
-		return app.initAPI();
+		API api = this.getApi();
+		this.createModel(api, modelInstanceFileName, modelInstanceFileName);
+		api.initializeEngine();
+		return api;
 	}
 
 	/**
@@ -152,9 +132,10 @@ public abstract class GTAppTestCase<App extends GraphTransformationApp<API>, API
 	 * @return the API
 	 */
 	protected API init(final String modelInstanceFileName, final String resourceFileName) {
-		App app = this.getApp();
-		this.createModel(app, modelInstanceFileName, resourceFileName);
-		return app.initAPI();
+		API api = this.getApi();
+		this.createModel(api, modelInstanceFileName, modelInstanceFileName);
+		api.initializeEngine();
+		return api;
 	}
 
 	/**
@@ -169,12 +150,12 @@ public abstract class GTAppTestCase<App extends GraphTransformationApp<API>, API
 	 * @return the API
 	 */
 	protected API init(final int defaultResourceIndex, final String testName, final String... resourcesFileName) {
-		App app = this.getApp();
+		API api = this.getApi();
 		for (final String file : resourcesFileName) {
-			this.createModel(app, testName + "-" + file, file);
+			this.createModel(api, testName + "-" + file, file);
 		}
-		app.setDefaultResource(app.getModel().getResources().get(defaultResourceIndex));
-		return app.initAPI();
+		api.initializeEngine();
+		return api;
 	}
 
 	/**
@@ -202,9 +183,8 @@ public abstract class GTAppTestCase<App extends GraphTransformationApp<API>, API
 	 * @param pattern
 	 *            the pattern
 	 */
-	public static void assertNoMatch(final GraphTransformationPattern<?, ?> pattern) {
-		assertEquals(0, pattern.countMatches());
-		assertFalse(pattern.findAnyMatch().isPresent());
+	public static void assertNoMatch(final IBeXGTPattern<?, ?> pattern) {
+		assertEquals(0, pattern.countMatches(true));
 	}
 
 	/**
@@ -214,9 +194,9 @@ public abstract class GTAppTestCase<App extends GraphTransformationApp<API>, API
 	 *            the pattern
 	 * @return the match
 	 */
-	public static <M extends GraphTransformationMatch<M, P>, P extends GraphTransformationPattern<M, P>> M assertAnyMatchExists(
+	public static <M extends IBeXGTMatch<M, P>, P extends IBeXGTPattern<P, M>> M assertAnyMatchExists(
 			final P pattern) {
-		Optional<M> match = (Optional<M>) pattern.findAnyMatch();
+		Optional<M> match = (Optional<M>) pattern.findAnyMatch(true);
 		assertTrue(match.isPresent());
 		assertEquals(pattern, match.get().getPattern());
 		return match.get();
@@ -230,8 +210,8 @@ public abstract class GTAppTestCase<App extends GraphTransformationApp<API>, API
 	 * @param pattern
 	 *            the pattern
 	 */
-	public static void assertMatchCount(final int expectedMatchCount, final GraphTransformationPattern<?, ?> pattern) {
-		assertEquals(expectedMatchCount, pattern.countMatches());
+	public static void assertMatchCount(final int expectedMatchCount, final IBeXGTPattern<?, ?> pattern) {
+		assertEquals(expectedMatchCount, pattern.countMatches(true));
 	}
 
 	/**
@@ -240,23 +220,10 @@ public abstract class GTAppTestCase<App extends GraphTransformationApp<API>, API
 	 * @param rule
 	 *            the rule
 	 */
-	public static <M extends GraphTransformationMatch<M, R>, R extends GraphTransformationRule<M, R>> void assertNotApplicable(
-			final R rule) {
-		assertFalse(rule.apply().isPresent());
-	}
-
-	/**
-	 * Asserts that a co-match exists after rule application and returns the
-	 * co-match.
-	 * 
-	 * @param applyResult
-	 *            the result of the apply call
-	 * @return the match
-	 */
-	public static <M> M assertApplicable(final Optional<M> applyResult) {
-		Optional<M> match = (Optional<M>) applyResult;
-		assertTrue(match.isPresent());
-		return match.get();
+	public static <R extends IBeXGTRule<R, P, M, CP, CM>, P extends IBeXGTPattern<P, M>, M extends IBeXGTMatch<M, P>, 
+	CP extends IBeXGTCoPattern<CP, CM, R, P, M>, CM extends IBeXGTCoMatch<CM, CP, R, P, M>> 
+	void assertNotApplicable(final R rule) {
+		assertFalse(rule.hasMatches(true));
 	}
 
 	/**
@@ -267,9 +234,10 @@ public abstract class GTAppTestCase<App extends GraphTransformationApp<API>, API
 	 *            rule
 	 * @return the match
 	 */
-	public static <M extends GraphTransformationMatch<M, R>, R extends GraphTransformationRule<M, R>> M assertApplicable(
+	public static <R extends IBeXGTRule<R, P, M, CP, CM>, P extends IBeXGTPattern<P, M>, M extends IBeXGTMatch<M, P>, 
+	CP extends IBeXGTCoPattern<CP, CM, R, P, M>, CM extends IBeXGTCoMatch<CM, CP, R, P, M>> CM assertApplicableAndApply(
 			final R rule) {
-		assertTrue(rule.isApplicable());
-		return assertApplicable(rule.apply());
+		assertTrue(rule.isApplicable(true));
+		return rule.applyAny();
 	}
 }
