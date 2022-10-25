@@ -2,8 +2,6 @@ package org.emoflon.ibex.gt.testsuite.BPMN;
 
 import org.emoflon.ibex.gt.testsuite.GTAppTestCase;
 
-import BPMNGraphTransformation.api.BPMNGraphTransformationAPI;
-import BPMNGraphTransformation.api.BPMNGraphTransformationApp;
 import bpmn.gt.api.GtHiPEGtAPI;
 
 /**

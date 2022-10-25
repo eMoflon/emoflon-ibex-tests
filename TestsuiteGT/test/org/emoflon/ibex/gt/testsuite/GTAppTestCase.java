@@ -9,20 +9,14 @@ import java.util.Optional;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.emoflon.ibex.common.operational.IContextPatternInterpreter;
-import org.emoflon.ibex.gt.api.GraphTransformationAPI;
-import org.emoflon.ibex.gt.api.GraphTransformationApp;
-import org.emoflon.ibex.gt.api.GraphTransformationMatch;
-import org.emoflon.ibex.gt.api.GraphTransformationPattern;
-import org.emoflon.ibex.gt.api.GraphTransformationRule;
 import org.emoflon.ibex.gt.api.IBeXGtAPI;
-import org.emoflon.ibex.gt.democles.runtime.DemoclesGTEngine;
 import org.emoflon.ibex.gt.engine.IBeXGTCoMatch;
 import org.emoflon.ibex.gt.engine.IBeXGTCoPattern;
 import org.emoflon.ibex.gt.engine.IBeXGTMatch;
 import org.emoflon.ibex.gt.engine.IBeXGTPattern;
 import org.emoflon.ibex.gt.engine.IBeXGTRule;
-import org.emoflon.ibex.gt.hipe.runtime.HiPEGTEngine;
+
+import hipe.generic.actor.junction.util.HiPEConfig;
 
 /**
  * An abstract test case for Graph Transformation.
@@ -32,22 +26,16 @@ import org.emoflon.ibex.gt.hipe.runtime.HiPEGTEngine;
  */
 public abstract class GTAppTestCase<API extends IBeXGtAPI<?,?,?>> {
 	/**
-	 * Relative path to the directory with the projects with the graph
-	 * transformation rules.
-	 */
-	protected static String workspacePath = "../";
-
-	/**
 	 * Relative path to the instances directory. Files from this directory are
 	 * changed during the transformations.
 	 */
-	protected static String instancesPath = "./instances/";
+	protected static String instancesPath = System.getProperty("user.dir") + "/instances/";
 
 	/**
 	 * Relative path to the resources directory. Files from this directory are just
 	 * loaded, but never changed during transformation.
 	 */
-	protected static String resourcePath = "./resources/";
+	protected static String resourcePath = System.getProperty("user.dir") + "/resources/";
 
 	/**
 	 * Returns the name of the test which is used as a name of the subdirectory
@@ -95,14 +83,18 @@ public abstract class GTAppTestCase<API extends IBeXGtAPI<?,?,?>> {
 			File file = new File(path);
 			if (file.exists()) {
 				URI resourceURI = URI.createFileURI(path);
-				Resource res = new ResourceSetImpl().getResource(resourceURI, true);
-				instanceResource.getContents().addAll(res.getContents());
+				try {
+					api.addModel(resourceURI);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 		}
 
 		// Save the resource.
 		try {
-			api.saveModel();
+			api.saveModel(instanceResource);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -133,7 +125,7 @@ public abstract class GTAppTestCase<API extends IBeXGtAPI<?,?,?>> {
 	 */
 	protected API init(final String modelInstanceFileName, final String resourceFileName) {
 		API api = this.getApi();
-		this.createModel(api, modelInstanceFileName, modelInstanceFileName);
+		this.createModel(api, modelInstanceFileName, resourceFileName);
 		api.initializeEngine();
 		return api;
 	}
@@ -165,15 +157,15 @@ public abstract class GTAppTestCase<API extends IBeXGtAPI<?,?,?>> {
 	 *            the resource set
 	 */
 	protected void saveAndTerminate(final API api) {
-		api.getModel().getResources().forEach(resource -> {
-			if ((!resource.getURI().toString().endsWith("trash.xmi")) || resource.getContents().size() > 0) {
-				try {
-					resource.save(null);
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
-		});
+//		api.getModel().getResources().forEach(resource -> {
+//			if ((!resource.getURI().toString().endsWith("trash.xmi")) || resource.getContents().size() > 0) {
+//				try {
+//					resource.save(null);
+//				} catch (IOException e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
 		api.terminate();
 	}
 
@@ -212,6 +204,7 @@ public abstract class GTAppTestCase<API extends IBeXGtAPI<?,?,?>> {
 	 */
 	public static void assertMatchCount(final int expectedMatchCount, final IBeXGTPattern<?, ?> pattern) {
 		assertEquals(expectedMatchCount, pattern.countMatches(true));
+		
 	}
 
 	/**
