@@ -79,7 +79,7 @@ refines addTask {
 
 	@refines+ addTask.newTask
 	[+] newTask: Task {
-		[+] -outgoing -> newFlow
+		[+] -incoming -> newFlow
 	}
 };
 

@@ -11,7 +11,7 @@ public class BPMNModelCreationTest extends BPMNAbstractTest {
 
 	@Test
 	public void insertTaskBetweenExistingTasks() {
-		GtHiPEGtAPI api = this.init("BPMN-insertTaskBetween.xmi", "BPMN-ex1.xmi");
+		GtHiPEGtAPI api = this.init("BPMN-ex1.xmi");
 		assertMatchCount(2, api.findTask());
 		api.addTaskBetween().setParameters("Step between 1+2");
 		assertApplicableAndApply(api.addTaskBetween());
@@ -22,7 +22,7 @@ public class BPMNModelCreationTest extends BPMNAbstractTest {
 
 	@Test
 	public void insertAtEnds() {
-		GtHiPEGtAPI api = this.init("BPMN-insertAtEnd.xmi", "BPMN-ex1.xmi");
+		GtHiPEGtAPI api = this.init("BPMN-ex1.xmi");
 
 		assertMatchCount(2, api.findTask());
 		api.findTaskByName().setParameters("Task 1");

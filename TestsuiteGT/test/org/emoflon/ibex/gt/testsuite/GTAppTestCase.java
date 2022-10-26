@@ -55,50 +55,54 @@ public abstract class GTAppTestCase<API extends IBeXGtAPI<?,?,?>> {
 	/**
 	 * Initializes the resource set with the given name.
 	 * 
-	 * The resource is created in the instances directory. The content of the
-	 * resource file is copied to the newly created file (optional).
+	 * The resource is loaded from the resources directory.
 	 * 
 	 * @param app
 	 *            the app
-	 * @param modelInstanceFileName
-	 *            the name of the model file
 	 * @param resourceFileName
-	 *            the name of the resource file to copy
-	 * @return a resource set containing the model file
+	 *            the name of the resource file 
 	 */
-	protected void createModel(final API api, final String modelInstanceFileName, final String resourceFileName) {
-		URI instanceURI = URI.createFileURI(instancesPath + this.getTestName() + "/" + modelInstanceFileName);
-		Resource instanceResource = null;
-		try {
-			instanceResource = api.createModel(instanceURI);
-		} catch (Exception e1) {
-			e1.printStackTrace();
-			return;
-		}
-
+	protected void loadModel(final API api, final String resourceFileName) {
 		// If a file with the given name exists in the resource folder, copy its
 		// contents to the instance file.
-		if (null != resourceFileName) {
-			String path = resourcePath + this.getTestName() + "/" + resourceFileName;
-			File file = new File(path);
-			if (file.exists()) {
-				URI resourceURI = URI.createFileURI(path);
-				try {
-					api.addModel(resourceURI);
-				} catch (Exception e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+		String path = resourcePath + this.getTestName() + "/" + resourceFileName;
+		File file = new File(path);
+		if (file.exists()) {
+			URI resourceURI = URI.createFileURI(path);
+			try {
+				api.addModel(resourceURI);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
 		}
 
-		// Save the resource.
+	}
+	
+	/**
+	 * Initializes the resource set with the given name.
+	 * 
+	 * The resource is created in the instances directory.
+	 * 
+	 * @param app
+	 *            the app
+	 * @param resourceFileName
+	 *            the name of the resource file 
+	 */
+	protected void createModel(final API api, final String resourceFileName) {
+		// If a file with the given name exists in the resource folder, copy its
+		// contents to the instance file.
+		String path = resourcePath + this.getTestName() + "/" + resourceFileName;
+		URI resourceURI = URI.createFileURI(path);
 		try {
-			api.saveModel(instanceResource);
+			api.createModel(resourceURI);
 		} catch (Exception e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+
 	}
+
 
 	/**
 	 * Initializes an API with the model on the given path.
@@ -107,9 +111,9 @@ public abstract class GTAppTestCase<API extends IBeXGtAPI<?,?,?>> {
 	 *            the name of the model file
 	 * @return the API
 	 */
-	protected API init(final String modelInstanceFileName) {
+	protected API initEmpty(final String modelInstanceFileName) {
 		API api = this.getApi();
-		this.createModel(api, modelInstanceFileName, modelInstanceFileName);
+		this.createModel(api, modelInstanceFileName);
 		api.initializeEngine();
 		return api;
 	}
@@ -123,32 +127,32 @@ public abstract class GTAppTestCase<API extends IBeXGtAPI<?,?,?>> {
 	 *            the name of the resource file to copy
 	 * @return the API
 	 */
-	protected API init(final String modelInstanceFileName, final String resourceFileName) {
+	protected API init(final String resourceFileName) {
 		API api = this.getApi();
-		this.createModel(api, modelInstanceFileName, resourceFileName);
+		this.loadModel(api, resourceFileName);
 		api.initializeEngine();
 		return api;
 	}
 
-	/**
-	 * Initializes an API with the model files on the given path.
-	 * 
-	 * @param defaultResourceIndex
-	 *            the index of the default resource
-	 * @param testName
-	 *            the name of the test
-	 * @param resourcesFileName
-	 *            the names of the resource files to copy
-	 * @return the API
-	 */
-	protected API init(final int defaultResourceIndex, final String testName, final String... resourcesFileName) {
-		API api = this.getApi();
-		for (final String file : resourcesFileName) {
-			this.createModel(api, testName + "-" + file, file);
-		}
-		api.initializeEngine();
-		return api;
-	}
+//	/**
+//	 * Initializes an API with the model files on the given path.
+//	 * 
+//	 * @param defaultResourceIndex
+//	 *            the index of the default resource
+//	 * @param testName
+//	 *            the name of the test
+//	 * @param resourcesFileName
+//	 *            the names of the resource files to copy
+//	 * @return the API
+//	 */
+//	protected API init(final int defaultResourceIndex, final String testName, final String... resourcesFileName) {
+//		API api = this.getApi();
+//		for (final String file : resourcesFileName) {
+//			this.createModel(api, testName + "-" + file, file);
+//		}
+//		api.initializeEngine();
+//		return api;
+//	}
 
 	/**
 	 * Saves the model.

@@ -1,0 +1,11 @@
+package classmultipleinheritance.gt
+import "http://www.eclipse.org/emf/2002/Ecore"
+import "platform:/resource/ClassMultipleInheritanceHierarchy/model/ClassMultipleInheritanceHierarchy.ecore"
+
+/**
+ * Deletes a package.
+ */
+rule deletePackage {
+	[-] pkg: ClassPackage
+	//forbid(findClassInPackage, 
+};
