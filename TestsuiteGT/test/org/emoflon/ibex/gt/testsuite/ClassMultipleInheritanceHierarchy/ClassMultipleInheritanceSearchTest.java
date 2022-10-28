@@ -7,8 +7,8 @@ import java.util.Set;
 
 import org.junit.jupiter.api.Test;
 
-import ClassMultipleInheritanceHierarchyGraphTransformation.api.ClassMultipleInheritanceHierarchyGraphTransformationAPI;
 import classMultipleInheritanceHierarchy.Clazz;
+import classmultipleinheritance.gt.api.GtHiPEGtAPI;
 
 /**
  * Tests for pattern matching with the ClassMultipleInheritanceHierarchy Graph
@@ -18,7 +18,7 @@ public class ClassMultipleInheritanceSearchTest extends ClassMultipleInheritance
 
 	@Test
 	public void findPackageAndClasses() {
-		ClassMultipleInheritanceHierarchyGraphTransformationAPI api = this.init("ClassDiagram1.xmi");
+		GtHiPEGtAPI api = this.init("ClassDiagram1.xmi");
 
 		assertMatchCount(1, api.findPackage());
 		assertMatchCount(6, api.findClass());
@@ -26,29 +26,40 @@ public class ClassMultipleInheritanceSearchTest extends ClassMultipleInheritance
 
 	@Test
 	public void findSubClasses() {
-		ClassMultipleInheritanceHierarchyGraphTransformationAPI api = this.init("ClassDiagram1.xmi");
+		GtHiPEGtAPI api = this.init("ClassDiagram1.xmi");
 
-		Clazz testA = assertAnyMatchExists(api.findClassByName("TestA")).getClazz();
-		assertMatchCount(0, api.findSuperClass().bindClazz(testA));
-		assertMatchCount(2, api.findSubClass().bindClazz(testA));
+		api.findClassByName().setParameters("TestA");
+		Clazz testA = assertAnyMatchExists(api.findClassByName()).clazz();
+		
+		api.findSuperClass().bindClazz(testA);
+		assertMatchCount(0, api.findSuperClass());
+		
+		api.findSubClass().bindClazz(testA);
+		assertMatchCount(2, api.findSubClass());
 
-		Clazz subAB = assertAnyMatchExists(api.findClassByQualifiedName("TestPackage", "SubAB")).getClazz();
-		assertMatchCount(2, api.findSuperClass().bindClazz(subAB));
-		assertMatchCount(0, api.findSubClass().bindClazz(subAB));
+		api.findClassByQualifiedName().setParameters("TestPackage", "SubAB");
+		Clazz subAB = assertAnyMatchExists(api.findClassByQualifiedName()).clazz();
+		
+		api.findSuperClass().bindClazz(subAB);
+		api.findSubClass().bindClazz(subAB);
+		assertMatchCount(2, api.findSuperClass());
+		assertMatchCount(0, api.findSubClass());
 	}
 
 	@Test
 	public void notifyIfTwoClassesOfTheSameName() {
-		ClassMultipleInheritanceHierarchyGraphTransformationAPI api = this.init("Constraints1.xmi",
-				"ClassDiagram1.xmi");
+		GtHiPEGtAPI api = this.init("ClassDiagram1.xmi");
 
 		Set<Clazz> classes = new HashSet<Clazz>();
 		api.findTwoClassesOfSameName().subscribeAppearing(m -> {
-			classes.add(m.getClazz1());
-			classes.add(m.getClazz2());
+			classes.add(m.clazz1());
+			classes.add(m.clazz2());
 		});
 
-		assertApplicable(api.createClass("TestA"));
+		api.createClass().setParameters("TestA");
+		assertApplicableAndApply(api.createClass());
+		
+		api.updateMatches();
 		assertEquals(2, classes.size());
 
 		saveAndTerminate(api);

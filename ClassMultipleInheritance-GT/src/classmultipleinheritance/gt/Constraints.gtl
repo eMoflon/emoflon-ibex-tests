@@ -1,0 +1,19 @@
+package classmultipleinheritance.gt
+import "http://www.eclipse.org/emf/2002/Ecore"
+import "platform:/resource/ClassMultipleInheritanceHierarchy/model/ClassMultipleInheritanceHierarchy.ecore"
+
+/**
+ * Finds two classes of the same name in the same package.
+ */
+pattern findTwoClassesOfSameName {
+	[=] pkg: ClassPackage {
+		[=] -classes -> clazz1
+		[=] -classes -> clazz2
+	}
+
+	[=] clazz1: Clazz
+
+	[=] clazz2: Clazz
+	
+	[#] clazz2.name == clazz1.name; 
+};

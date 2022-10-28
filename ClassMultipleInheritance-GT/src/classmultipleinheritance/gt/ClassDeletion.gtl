@@ -7,5 +7,24 @@ import "platform:/resource/ClassMultipleInheritanceHierarchy/model/ClassMultiple
  */
 rule deletePackage {
 	[-] pkg: ClassPackage
-	//forbid(findClassInPackage, 
+	forbid(findClassInPackage)[pkg = pkg]
+};
+
+/**
+ * Deletes the package with the given name.
+ */
+rule deletePackageByName(name: EString) {
+	[-] pkg: ClassPackage
+	[#] pkg.name == parameter.name;       
+};
+
+/** 
+ * Deletes a class.
+ */
+rule deleteClass {
+	[-] clazz: Clazz
+
+	[=] pkg: ClassPackage {
+		[-] -classes -> clazz
+	}
 };
