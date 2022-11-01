@@ -1,53 +1,55 @@
+package ferryman.gt
+import "http://www.eclipse.org/emf/2002/Ecore"
 import "platform:/resource/FerrymanProblem/model/FerrymanProblem.ecore"
 
 /**
  * Finds any bank.
  */
 pattern findBank {
-	bank: Bank
-}
+	[=] bank: Bank
+};
 
 /**
  * Finds the left bank.
  */
 pattern findLeftBank
 refines findBank {
-	model: Model {
-		-leftBank -> bank
+	[=] model: Model {
+		[=] -leftBank -> bank
 	}
-}
+};
 
 /**
  * Finds the right bank.
  */
 pattern findRightBank
 refines findBank {
-	model: Model {
-		-rightBank -> bank
+	[=] model: Model {
+		[=] -rightBank -> bank
 	}
-}
+};
 
 /**
  * Finds a subject on its bank.
  */
 pattern findSubjectOnBank
 refines findBank {
-	subject: Subject {
-		-isAt -> bank
+	[=] subject: Subject {
+		[=] -isAt -> bank
 	}
-}
+};
 
 /**
  * Finds a subject on the left bank.
  */
 pattern findSubjectOnLeftBank
-refines findSubjectOnBank, findLeftBank
+refines findSubjectOnBank, findLeftBank {};
 
 /**
  * Finds a subject on the right bank.
  */
 pattern findSubjectOnRightBank
-refines findSubjectOnBank, findRightBank
+refines findSubjectOnBank, findRightBank {};
 
 /**
  * Checks whether all things are at the right bank.
@@ -55,45 +57,45 @@ refines findSubjectOnBank, findRightBank
  */
 pattern checkAllThingsAtRightBank
 refines findRightBank {
-	wolf: Wolf {
-		-isAt -> bank
+	[=] wolf: Wolf {
+		[=] -isAt -> bank
 	}
 
-	goat: Goat {
-		-isAt -> bank
+	[=] goat: Goat {
+		[=] -isAt -> bank
 	}
 
-	cabbage: Cabbage {
-		-isAt -> bank
+	[=] cabbage: Cabbage {
+		[=] -isAt -> bank
 	}
-}
+};
 
 /**
  * Finds the cabbage.
  */
 pattern findCabbage
 refines findBank {
-	cabbage: Cabbage {
-		-isAt -> bank
+	[=] cabbage: Cabbage {
+		[=] -isAt -> bank
 	}
-}
+};
 
 /**
  * Finds the goat
  */
 pattern findGoat
 refines findBank {
-	goat: Goat {
-		-isAt -> bank
+	[=] goat: Goat {
+		[=] -isAt -> bank
 	}
-}
+};
 
 /**
  * Finds the wolf.
  */
 pattern findWolf
 refines findBank {
-	wolf: Wolf {
-		-isAt -> bank
+	[=] wolf: Wolf {
+		[=] -isAt -> bank
 	}
-}
+};

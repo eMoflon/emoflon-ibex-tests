@@ -15,7 +15,7 @@ rule deletePackage {
  */
 rule deletePackageByName(name: EString) {
 	[-] pkg: ClassPackage
-	[#] pkg.name == parameter.name;       
+	[#] pkg.name == parameter.name;        
 };
 
 /** 
