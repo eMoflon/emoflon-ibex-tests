@@ -99,12 +99,12 @@ rule department(dID: EInt, maxRoomCount: EInt) { // creates a department with th
 };
 
 rule room(cap: EInt, carelvl: Carelevel) { //rule room which handles the Inputs, Capacity: cap and Carelevel: carelevel
-	[=] hospital: Hospital {
-		[=] -department -> department
-	}
-
 	[=] department: Department {
 		[+]  -rooms -> room // Adds a branch from department to room
+	}
+	
+	[=] hospital: Hospital {
+		[=] -department -> department
 	}
 
 	[+] room: Room { // Adds a node named room of they type Room
