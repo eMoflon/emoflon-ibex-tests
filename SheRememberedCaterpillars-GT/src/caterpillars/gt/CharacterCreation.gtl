@@ -1,0 +1,80 @@
+package caterpillars.gt
+import "platform:/resource/SheRememberedCaterpillars/model/SheRememberedCaterpillars.ecore"
+
+/**
+ * Create a character.
+ */
+abstract rule createCharacter {
+	[=] game: Game {
+		[+] -characters -> character
+	}
+
+	[+] character: Character {
+		[+] -standsOn -> platform
+	}
+
+	[=] platform: Platform
+};
+
+/**
+ * Creates a character of the given color.
+ */
+rule createCharacterOfColor(color: COLOR)
+refines createCharacter {
+	@refines+ createCharacter.character
+	[+] character: Character {
+		.color := parameter.color;
+	}
+};
+
+pattern characterOnPlatform {
+	[=] platform: Platform {
+		[=] -charactersStandingOn -> character
+	}
+	
+	[=] character: Character
+};
+
+/**
+ * Creates another character, but not on an exit platform.
+ */
+rule createCharacterOfColorOnEmptyPlatform
+refines createCharacterOfColor{
+	forbid(characterOnPlatform)[platform=platform]
+};
+//when noOtherCharacterOnPlatform
+
+//condition noOtherCharacterOnPlatform = forbid otherCharacterOnPlatform
+
+/**
+ * Creates a blue character.
+ */
+rule createBlueCharacter
+refines createCharacter {
+	@refines+ createCharacter.character
+	[+] character: Character {
+		.color := enums.BLUE;
+	}
+};
+
+/**
+ * Creates a red character.
+ */
+rule createRedCharacter
+refines createCharacter {
+	@refines+ createCharacter.character
+	[+] character: Character {
+		.color := enums.RED;
+	}
+};
+
+/**
+ * Creates a purple character.
+ */
+rule createPurpleCharacter
+refines createCharacter {
+	@refines+ createCharacter.character
+	[+] character: Character {
+		.color := enums.BLUE;
+	}
+};
