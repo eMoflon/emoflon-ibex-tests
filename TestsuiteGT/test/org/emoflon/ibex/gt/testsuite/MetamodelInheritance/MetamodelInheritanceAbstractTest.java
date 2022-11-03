@@ -2,15 +2,14 @@ package org.emoflon.ibex.gt.testsuite.MetamodelInheritance;
 
 import org.emoflon.ibex.gt.testsuite.GTAppTestCase;
 
-import MetamodelInheritanceTransformation.api.MetamodelInheritanceTransformationAPI;
-import MetamodelInheritanceTransformation.api.MetamodelInheritanceTransformationApp;
+import metamodelinheritance.gt.api.GtHiPEGtAPI;
 
 /**
  * Abstract test class for the ClassMultipleInheritanceHierarchy Graph
  * Transformation API. All tests for this API should inherit from this class.
  */
 public class MetamodelInheritanceAbstractTest extends
-		GTAppTestCase<MetamodelInheritanceTransformationApp, MetamodelInheritanceTransformationAPI> {
+		GTAppTestCase<GtHiPEGtAPI> {
 
 	@Override
 	protected String getTestName() {
@@ -18,7 +17,7 @@ public class MetamodelInheritanceAbstractTest extends
 	}
 
 	@Override
-	protected MetamodelInheritanceTransformationApp getApp() {
-		return new MetamodelInheritanceTransformationApp(initEngine(), workspacePath);
+	protected GtHiPEGtAPI getApi() {
+		return new GtHiPEGtAPI();
 	}
 }
