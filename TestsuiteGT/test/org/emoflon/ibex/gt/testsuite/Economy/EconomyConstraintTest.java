@@ -1,14 +1,16 @@
-package org.emoflon.ibex.gt.testsuite.SimpleEconomy;
+package org.emoflon.ibex.gt.testsuite.Economy;
 
 import org.junit.jupiter.api.Test;
 
-import SimpleEconomyGraphTransformation.api.SimpleEconomyGraphTransformationAPI;
+import economy.gt.api.GtGtAPI;
 
-public class SimpleEconomyConstraintTest extends SimpleEconomyAbstractTest{
+public class EconomyConstraintTest extends EconomyAbstractTest{
 	
 	@Test
 	public void testConstraints() {
-		SimpleEconomyGraphTransformationAPI api = this.init("ConstraintMarket.xmi");
+		GtGtAPI<?> api = this.init("ConstraintMarket.xmi");
+		api.getGTEngine().setAlwaysUpdateAfter(true);
+		api.getGTEngine().setAlwaysUpdatePrior(true);
 		
  		assertMatchCount((int) api.notDisjointequal().countMatches(), api.equal());
 		assertMatchCount((int) api.notDisjointunequal().countMatches(), api.unequal());		
@@ -18,14 +20,15 @@ public class SimpleEconomyConstraintTest extends SimpleEconomyAbstractTest{
 		assertMatchCount((int) api.notDisjointsmallerOrEqual().countMatches(), api.smallerOrEqual());
 		
 		//test incremental
-		api.changeBudget(10.0).apply();
+		api.changeBudget(10.0).applyAny(true);
 		assertMatchCount((int) api.notDisjointequal().countMatches(), api.equal());
 		assertMatchCount((int) api.notDisjointunequal().countMatches(), api.unequal());	
 		assertMatchCount((int) api.notDisjointgreaterOrEqual().countMatches(), api.greaterOrEqual());
 		assertMatchCount((int) api.notDisjointsmallerThan().countMatches(), api.smallerThan());
 		assertMatchCount((int) api.notDisjointsmallerOrEqual().countMatches(), api.smallerOrEqual());		
 		assertMatchCount((int) api.notDisjointgreater().countMatches(), api.greater());
-
+		
+		api.terminate();
 	}
 
 }

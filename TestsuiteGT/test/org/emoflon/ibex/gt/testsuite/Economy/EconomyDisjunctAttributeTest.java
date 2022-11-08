@@ -1,48 +1,54 @@
-package org.emoflon.ibex.gt.testsuite.SimpleEconomy;
+package org.emoflon.ibex.gt.testsuite.Economy;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
+import economy.gt.api.GtGtAPI;
 
-import SimpleEconomyGraphTransformation.api.SimpleEconomyGraphTransformationAPI;
 
-public class SimpleEconomyDisjunctAttributeTest extends SimpleEconomyAbstractTest{
+public class EconomyDisjunctAttributeTest extends EconomyAbstractTest{
 
 	@Test
 	public void testSimpleAttributeCondition() {
-		SimpleEconomyGraphTransformationAPI api = this.init("SimpleMarket.xmi");
+		GtGtAPI<?> api = this.init("SimpleMarket.xmi");
+		api.getGTEngine().setAlwaysUpdateAfter(true);
+		api.getGTEngine().setAlwaysUpdatePrior(true);
 		
 		assertMatchCount((int) api.notDisjointFindBuyers().countMatches(), api.findBuyers());
 		assertMatchCount((int) api.notDisjointBuyProduct().countMatches(), api.buyProduct());
-		assertApplicable(api.buyProduct());
-		api.buyProduct().apply();
+		assertApplicableAndApply(api.buyProduct());
+		api.buyProduct().applyAny();
 		
 		//test incremental
 		assertMatchCount((int) api.notDisjointBuyProduct().countMatches(), api.buyProduct());
-		assertApplicable(api.buyProduct());
-		api.buyProduct().apply();
+		assertApplicableAndApply(api.buyProduct());
+		api.buyProduct().applyAny();
 		assertMatchCount((int) api.notDisjointBuyProduct().countMatches(), api.buyProduct());
-		assertApplicable(api.buyProduct());
-		api.sellProduct().apply();
+		assertApplicableAndApply(api.buyProduct());
+		api.sellProduct().applyAny();
 		assertMatchCount((int) api.notDisjointBuyProduct().countMatches(), api.buyProduct());
-		assertApplicable(api.buyProduct());
-		api.sellProduct().apply();
+		assertApplicableAndApply(api.buyProduct());
+		api.sellProduct().applyAny();
+		
+		api.terminate();
 	}
 	
 	@Test
 	public void testMultipleAttributeConditionBetweenTwoPatterns() {
-		SimpleEconomyGraphTransformationAPI api = this.init("SimpleMarket.xmi");
+		GtGtAPI<?> api = this.init("SimpleMarket.xmi");
+		api.getGTEngine().setAlwaysUpdateAfter(true);
+		api.getGTEngine().setAlwaysUpdatePrior(true);
 		
 		assertMatchCount((int) api.notDisjointBuyProductAndService().countMatches(), api.buyProductAndService());
 		assertMatchCount((int) api.notDisjointHasMoneyToBuy().countMatches(), api.hasMoneyToBuy());
-		assertApplicable(api.buyProduct());
+		assertApplicableAndApply(api.buyProduct());
 		api.changeBudget(10.0);
 		//test stream functions
 		assertEquals(api.notDisjointHasMoneyToBuy().countMatches(), api.hasMoneyToBuy().matchStream().count());
 		assertEquals(api.notDisjointBuyProductAndService().countMatches(), api.buyProductAndService().matchStream().count());
 		
 		assertMatchCount((int) api.notDisjointHasMoneyToBuy().countMatches(), api.hasMoneyToBuy());
-		assertApplicable(api.buyProduct());
+		assertApplicableAndApply(api.buyProduct());
 		api.changeBudget(20.0);
 		assertMatchCount((int) api.notDisjointHasMoneyToBuy().countMatches(), api.hasMoneyToBuy());
 		assertMatchCount((int) api.notDisjointBuyProductAndService().countMatches(), api.buyProductAndService());
@@ -61,7 +67,7 @@ public class SimpleEconomyDisjunctAttributeTest extends SimpleEconomyAbstractTes
 		api.buySpecificProduct(10, 20);
 		assertMatchCount((int) api.notDisjointHasMoneyToBuy().countMatches(), api.hasMoneyToBuy());
 		assertMatchCount((int) api.notDisjointBuyProductAndService().countMatches(), api.buyProductAndService());		
-		assertApplicable(api.sellProduct());
+		assertApplicableAndApply(api.sellProduct());
 		api.sellSpecificProduct(10, 10);
 		assertMatchCount((int) api.notDisjointHasMoneyToBuy().countMatches(), api.hasMoneyToBuy());
 		assertMatchCount((int) api.notDisjointBuyProductAndService().countMatches(), api.buyProductAndService());
@@ -69,12 +75,15 @@ public class SimpleEconomyDisjunctAttributeTest extends SimpleEconomyAbstractTes
 		//test stream functions
 		assertEquals(api.notDisjointHasMoneyToBuy().countMatches(), api.hasMoneyToBuy().matchStream().count());
 		assertEquals(api.notDisjointBuyProductAndService().countMatches(), api.buyProductAndService().matchStream().count());
-
+		
+		api.terminate();
 	}
 	
 	@Test
 	public void testMultipleAttributeConditions() {
-		SimpleEconomyGraphTransformationAPI api = this.init("SimpleMarket.xmi");
+		GtGtAPI<?> api = this.init("SimpleMarket.xmi");
+		api.getGTEngine().setAlwaysUpdateAfter(true);
+		api.getGTEngine().setAlwaysUpdatePrior(true);
 		
 		assertMatchCount((int) api.notDisjointbuyServiceDependentOfProduct().countMatches(), api.buyServiceDependentOfProduct());
 		//here are cyclic dependencies between source and target pattern
@@ -99,12 +108,16 @@ public class SimpleEconomyDisjunctAttributeTest extends SimpleEconomyAbstractTes
 		assertMatchCount((int) api.notDisjointbuyServiceDependentOfProduct().countMatches(), api.buyServiceDependentOfProduct());
 		assertMatchCount((int) api.notDisjointbuyServiceDependentOfProduct2().countMatches(), api.buyServiceDependentOfProduct2());		
 		assertEquals((int) api.notDisjointbuyServiceDependentOfProduct().countMatches(), api.buyServiceDependentOfProduct().matchStream().count());
-		assertEquals((int) api.notDisjointbuyServiceDependentOfProduct2().countMatches(), api.buyServiceDependentOfProduct2().matchStream().count());		
+		assertEquals((int) api.notDisjointbuyServiceDependentOfProduct2().countMatches(), api.buyServiceDependentOfProduct2().matchStream().count());
+		
+		api.terminate();
 	}
 	
 	@Test 
 	public void testInjectivityConstraints(){
-		SimpleEconomyGraphTransformationAPI api = this.init("SimpleMarket.xmi");
+		GtGtAPI<?> api = this.init("SimpleMarket.xmi");
+		api.getGTEngine().setAlwaysUpdateAfter(true);
+		api.getGTEngine().setAlwaysUpdatePrior(true);
 		
 		//test two injectivity constraints
 		assertMatchCount((int) api.notDisjointFindCheaperProduct().countMatches(), api.findCheaperProduct());
@@ -135,16 +148,19 @@ public class SimpleEconomyDisjunctAttributeTest extends SimpleEconomyAbstractTes
 	
 	@Test 
 	public void testInjectivityConstraints2() {
-		SimpleEconomyGraphTransformationAPI api = this.init("SimpleMarket.xmi");
+		GtGtAPI<?> api = this.init("SimpleMarket.xmi");
+		api.getGTEngine().setAlwaysUpdateAfter(true);
+		api.getGTEngine().setAlwaysUpdatePrior(true);
 		
 		assertMatchCount((int) api.notDisjointchangeProductValue(100.0).countMatches(), api.changeProductValue(100.0));
 		assertMatchCount((int) api.notDisjointFindCheaperProduct().countMatches(), api.findCheaperProduct());
 		assertMatchCount((int) api.notDisjointFindCheaperProduct2().countMatches(), api.findCheaperProduct2());
-		api.changeProductValue(100.0).apply();
+		api.changeProductValue(100.0).applyAny();
 		assertMatchCount((int) api.notDisjointchangeProductValue(50.0).countMatches(), api.changeProductValue(50.0));
 		assertMatchCount((int) api.notDisjointFindCheaperProduct().countMatches(), api.findCheaperProduct());
 		assertMatchCount((int) api.notDisjointFindCheaperProduct2().countMatches(), api.findCheaperProduct2());
-		api.changeProductValue(50.0).apply();
-
+		api.changeProductValue(50.0).applyAny();
+		
+		api.terminate();
 	}
 }
