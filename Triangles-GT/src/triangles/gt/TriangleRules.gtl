@@ -238,6 +238,6 @@ rule deleteEB refines simpleTriangle2{
 		[-]  -b->b
 	}
 	
-	forbid(bToEReference)[b=b, e1=e1]
+	enforce(bToEReference)[b=b, e1=e1]
 };
 

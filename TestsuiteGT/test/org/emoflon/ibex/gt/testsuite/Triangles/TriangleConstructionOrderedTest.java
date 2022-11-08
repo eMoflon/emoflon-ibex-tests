@@ -2,7 +2,7 @@ package org.emoflon.ibex.gt.testsuite.Triangles;
 
 import org.junit.jupiter.api.Test;
 
-import TrianglesGraphTransformation.api.TrianglesGraphTransformationAPI;
+import triangles.gt.api.GtHiPEGtAPI;
 
 /**
  * Tests for pattern matching with the ClassMultipleInheritanceHierarchy Graph
@@ -12,24 +12,24 @@ public class TriangleConstructionOrderedTest extends TrianglesAbstractTest {
 
 	@Test
 	public void buildManualTriangles() {
-		TrianglesGraphTransformationAPI api = this.init("triangles1.xmi");
+		GtHiPEGtAPI api = this.init("triangles1.xmi");
 		
 		assertMatchCount(0, api.simpleTriangle1());
 		assertMatchCount(0, api.simpleTriangle2());
 		assertMatchCount(0, api.simpleTriangle3());
 		assertMatchCount(0, api.simpleTriangle4());
 		
-		assertApplicable(api.connectA2BOrdered());
-		assertApplicable(api.connectB2COrdered());
-		assertApplicable(api.connectA2COrdered());
+		assertApplicableAndApply(api.connectA2BOrdered());
+		assertApplicableAndApply(api.connectB2COrdered());
+		assertApplicableAndApply(api.connectA2COrdered());
 		
-		assertApplicable(api.connectA2COrdered());
-		assertApplicable(api.connectB2COrdered());
-		assertApplicable(api.connectA2BOrdered());
+		assertApplicableAndApply(api.connectA2COrdered());
+		assertApplicableAndApply(api.connectB2COrdered());
+		assertApplicableAndApply(api.connectA2BOrdered());
 		
-		assertApplicable(api.connectA2BOrdered());
-		assertApplicable(api.connectB2COrdered());
-		assertApplicable(api.connectA2COrdered());
+		assertApplicableAndApply(api.connectA2BOrdered());
+		assertApplicableAndApply(api.connectB2COrdered());
+		assertApplicableAndApply(api.connectA2COrdered());
 		
 		assertMatchCount(4, api.simpleTriangle1());
 		assertMatchCount(4, api.simpleTriangle2());
