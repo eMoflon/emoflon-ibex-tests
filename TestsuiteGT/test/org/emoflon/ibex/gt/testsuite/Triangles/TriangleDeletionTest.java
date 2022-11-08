@@ -2,7 +2,7 @@ package org.emoflon.ibex.gt.testsuite.Triangles;
 
 import org.junit.jupiter.api.Test;
 
-import triangles.gt.api.GtHiPEGtAPI;
+import triangles.gt.api.GtGtAPI;
 
 /**
  * Tests for pattern matching with the ClassMultipleInheritanceHierarchy Graph
@@ -12,7 +12,7 @@ public class TriangleDeletionTest extends TrianglesAbstractTest {
 
 	@Test
 	public void deleteTriangleSides() {
-		GtHiPEGtAPI api = this.init("triangles2.xmi");
+		GtGtAPI<?> api = this.init("triangles2.xmi");
 		
 		assertMatchCount(1, api.simpleTriangle1());
 		assertMatchCount(1, api.simpleTriangle2());
@@ -76,11 +76,12 @@ public class TriangleDeletionTest extends TrianglesAbstractTest {
 		assertMatchCount(1, api.invocationTriangle1());
 		assertMatchCount(1, api.invocationTriangle2());
 		
+		api.terminate();
 	}
 	
 	@Test
 	public void deleteTriangleInvocations() {
-		GtHiPEGtAPI api = this.init("triangles2.xmi");
+		GtGtAPI<?> api = this.init("triangles2.xmi");
 		
 		assertMatchCount(1, api.simpleTriangle1());
 		assertMatchCount(1, api.simpleTriangle2());
@@ -125,6 +126,6 @@ public class TriangleDeletionTest extends TrianglesAbstractTest {
 		assertMatchCount(1, api.invocationTriangle1());
 		assertMatchCount(1, api.invocationTriangle2());
 		
-		
+		api.terminate();
 	}
 }	

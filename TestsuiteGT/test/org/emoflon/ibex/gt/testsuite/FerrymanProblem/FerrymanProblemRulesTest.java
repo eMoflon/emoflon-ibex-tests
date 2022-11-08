@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import FerrymanProblem.Cabbage;
 import FerrymanProblem.Goat;
 import FerrymanProblem.Wolf;
-import ferryman.gt.api.GtHiPEGtAPI;
+import ferryman.gt.api.GtGtAPI;
 import ferryman.gt.api.match.EatCoMatch;
 
 /**
@@ -18,7 +18,7 @@ public class FerrymanProblemRulesTest extends FerrymanProblemAbstractTest {
 
 	@Test
 	public void wolfEatsGoat() {
-		GtHiPEGtAPI api = this.init("WolfEatsGoat.xmi");
+		GtGtAPI<?> api = this.init("WolfEatsGoat.xmi");
 
 		assertMatchCount(2, api.findSubjectOnLeftBank());
 		assertMatchCount(2, api.findSubjectOnRightBank());
@@ -31,12 +31,12 @@ public class FerrymanProblemRulesTest extends FerrymanProblemAbstractTest {
 		assertMatchCount(1, api.findSubjectOnLeftBank());
 		assertMatchCount(2, api.findSubjectOnRightBank());
 
-		saveAndTerminate(api);
+		terminate(api);
 	}
 
 	@Test
 	public void move() {
-		GtHiPEGtAPI api = this.init("Start.xmi");
+		GtGtAPI<?> api = this.init("Start.xmi");
 
 		assertMatchCount(4, api.findSubjectOnLeftBank());
 		assertMatchCount(0, api.findSubjectOnRightBank());
@@ -45,12 +45,12 @@ public class FerrymanProblemRulesTest extends FerrymanProblemAbstractTest {
 		assertMatchCount(2, api.findSubjectOnLeftBank());
 		assertMatchCount(2, api.findSubjectOnRightBank());
 
-		saveAndTerminate(api);
+		terminate(api);
 	}
 
 	@Test
 	public void moveAllSuccess() {
-		GtHiPEGtAPI api = this.init("Start.xmi");
+		GtGtAPI<?> api = this.init("Start.xmi");
 
 		assertMatchCount(4, api.findSubjectOnLeftBank());
 		assertMatchCount(0, api.findSubjectOnRightBank());
@@ -78,12 +78,12 @@ public class FerrymanProblemRulesTest extends FerrymanProblemAbstractTest {
 		assertMatchCount(4, api.findSubjectOnRightBank());
 		assertEquals(0, api.eat().countRuleApplications());
 
-		saveAndTerminate(api);
+		terminate(api);
 	}
 
 	@Test
 	public void moveAllFail() {
-		GtHiPEGtAPI api = this.init("Start.xmi");
+		GtGtAPI<?> api = this.init("Start.xmi");
 
 		assertMatchCount(4, api.findSubjectOnLeftBank());
 		assertMatchCount(0, api.findSubjectOnRightBank());
@@ -109,7 +109,7 @@ public class FerrymanProblemRulesTest extends FerrymanProblemAbstractTest {
 		assertMatchCount(1, api.findSubjectOnRightBank());
 		assertEquals(2, api.eat().countRuleApplications());
 
-		saveAndTerminate(api);
+		terminate(api);
 	}
 
 }

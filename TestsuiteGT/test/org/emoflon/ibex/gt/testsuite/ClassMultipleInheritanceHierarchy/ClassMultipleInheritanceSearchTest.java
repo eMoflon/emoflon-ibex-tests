@@ -8,7 +8,7 @@ import java.util.Set;
 import org.junit.jupiter.api.Test;
 
 import classMultipleInheritanceHierarchy.Clazz;
-import classmultipleinheritance.gt.api.GtHiPEGtAPI;
+import classmultipleinheritance.gt.api.GtGtAPI;
 
 /**
  * Tests for pattern matching with the ClassMultipleInheritanceHierarchy Graph
@@ -18,7 +18,7 @@ public class ClassMultipleInheritanceSearchTest extends ClassMultipleInheritance
 
 	@Test
 	public void findPackageAndClasses() {
-		GtHiPEGtAPI api = this.init("ClassDiagram1.xmi");
+		GtGtAPI<?> api = this.init("ClassDiagram1.xmi");
 
 		assertMatchCount(1, api.findPackage());
 		assertMatchCount(6, api.findClass());
@@ -26,7 +26,7 @@ public class ClassMultipleInheritanceSearchTest extends ClassMultipleInheritance
 
 	@Test
 	public void findSubClasses() {
-		GtHiPEGtAPI api = this.init("ClassDiagram1.xmi");
+		GtGtAPI<?> api = this.init("ClassDiagram1.xmi");
 
 		api.findClassByName().setParameters("TestA");
 		Clazz testA = assertAnyMatchExists(api.findClassByName()).clazz();
@@ -44,11 +44,13 @@ public class ClassMultipleInheritanceSearchTest extends ClassMultipleInheritance
 		api.findSubClass().bindClazz(subAB);
 		assertMatchCount(2, api.findSuperClass());
 		assertMatchCount(0, api.findSubClass());
+		
+		terminate(api);
 	}
 
 	@Test
 	public void notifyIfTwoClassesOfTheSameName() {
-		GtHiPEGtAPI api = this.init("ClassDiagram1.xmi");
+		GtGtAPI<?> api = this.init("ClassDiagram1.xmi");
 
 		Set<Clazz> classes = new HashSet<Clazz>();
 		api.findTwoClassesOfSameName().subscribeAppearing(m -> {
@@ -62,6 +64,6 @@ public class ClassMultipleInheritanceSearchTest extends ClassMultipleInheritance
 		api.updateMatches();
 		assertEquals(2, classes.size());
 
-		saveAndTerminate(api);
+		terminate(api);
 	}
 }

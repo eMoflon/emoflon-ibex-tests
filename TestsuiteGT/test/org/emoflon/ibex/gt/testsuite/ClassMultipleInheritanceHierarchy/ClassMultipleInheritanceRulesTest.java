@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import classMultipleInheritanceHierarchy.ClassPackage;
 import classMultipleInheritanceHierarchy.Clazz;
-import classmultipleinheritance.gt.api.GtHiPEGtAPI;
+import classmultipleinheritance.gt.api.GtGtAPI;
 import classmultipleinheritance.gt.api.pattern.FindClassInPackagePattern;
 
 /**
@@ -17,7 +17,7 @@ public class ClassMultipleInheritanceRulesTest extends ClassMultipleInheritanceH
 
 	@Test
 	public void createPackage() {
-		GtHiPEGtAPI api = this.init("ClassDiagram1.xmi");
+		GtGtAPI<?> api = this.init("ClassDiagram1.xmi");
 
 		api.createPackage().setParameters("SecondPackage");
 		api.updateMatches();
@@ -42,12 +42,12 @@ public class ClassMultipleInheritanceRulesTest extends ClassMultipleInheritanceH
 		assertMatchCount(2, findPackages);
 		assertTrue(b.getSuperClass().contains(a));
 
-		saveAndTerminate(api);
+		terminate(api);
 	}
 
 	@Test
 	public void addSuperClass() {
-		GtHiPEGtAPI api = this.init("ClassDiagram1.xmi");
+		GtGtAPI<?> api = this.init("ClassDiagram1.xmi");
 		api.findClassByName().setParameters("TestA");
 		Clazz a = assertAnyMatchExists(api.findClassByName()).clazz();
 		api.findClassByName().setParameters("TestC");
@@ -60,12 +60,12 @@ public class ClassMultipleInheritanceRulesTest extends ClassMultipleInheritanceH
 		api.findSubClass().bindClazz(a);
 		assertMatchCount(3, api.findSubClass());
 
-		saveAndTerminate(api);
+		terminate(api);
 	}
 
 	@Test
 	public void renameClass() {
-		GtHiPEGtAPI api = this.init("ClassDiagram1.xmi");
+		GtGtAPI<?> api = this.init("ClassDiagram1.xmi");
 
 		api.renameClass().setParameters("TestA", "TestNew");
 		assertApplicableAndApply(api.renameClass());
@@ -76,12 +76,12 @@ public class ClassMultipleInheritanceRulesTest extends ClassMultipleInheritanceH
 		api.findClassByName().setParameters("TestNew");
 		assertMatchCount(1, api.findClassByName());
 
-		saveAndTerminate(api);
+		terminate(api);
 	}
 
 	@Test
 	public void deletePackage() {
-		GtHiPEGtAPI api = this.init("ClassDiagram1.xmi");
+		GtGtAPI<?> api = this.init("ClassDiagram1.xmi");
 
 		assertMatchCount(1, api.findPackage());
 		assertNotApplicable(api.deletePackage());
@@ -92,6 +92,6 @@ public class ClassMultipleInheritanceRulesTest extends ClassMultipleInheritanceH
 		
 		assertMatchCount(0, api.findPackage());
 
-		saveAndTerminate(api);
+		terminate(api);
 	}
 }

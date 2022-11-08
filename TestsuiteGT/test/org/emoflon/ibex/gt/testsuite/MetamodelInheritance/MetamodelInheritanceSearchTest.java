@@ -2,7 +2,7 @@ package org.emoflon.ibex.gt.testsuite.MetamodelInheritance;
 
 import org.junit.jupiter.api.Test;
 
-import metamodelinheritance.gt.api.GtHiPEGtAPI;
+import metamodelinheritance.gt.api.GtGtAPI;
 
 
 /**
@@ -13,22 +13,28 @@ public class MetamodelInheritanceSearchTest extends MetamodelInheritanceAbstract
 
 	@Test
 	public void findNodes() {
-		GtHiPEGtAPI api = this.init("test1.xmi");
+		GtGtAPI<?> api = this.init("test1.xmi");
 
 		assertMatchCount(2, api.childC());
 		assertMatchCount(2, api.childD());
+		
+		api.terminate();
 	}
 	
 	@Test
 	public void findEdgeCD() {
-		GtHiPEGtAPI api = this.init("test1.xmi");
+		GtGtAPI<?> api = this.init("test1.xmi");
 		assertMatchCount(1, api.findCD());
+		
+		api.terminate();
 	}
 	
 	@Test
 	public void findEdgeCDInvocation() {
-		GtHiPEGtAPI api = this.init("test1.xmi");
+		GtGtAPI<?> api = this.init("test1.xmi");
 		assertMatchCount(1, api.findCDInvocation());
+		
+		api.terminate();
 	}
 
 

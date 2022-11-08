@@ -2,7 +2,7 @@ package org.emoflon.ibex.gt.testsuite.Triangles;
 
 import org.junit.jupiter.api.Test;
 
-import triangles.gt.api.GtHiPEGtAPI;
+import triangles.gt.api.GtGtAPI;
 
 /**
  * Tests for pattern matching with the ClassMultipleInheritanceHierarchy Graph
@@ -12,7 +12,7 @@ public class TriangleConstructionTest extends TrianglesAbstractTest {
 
 	@Test
 	public void buildManualTriangles() {
-		GtHiPEGtAPI api = this.init("triangles1.xmi");
+		GtGtAPI<?> api = this.init("triangles1.xmi");
 		
 		assertMatchCount(0, api.simpleTriangle1());
 		assertMatchCount(0, api.simpleTriangle2());
@@ -47,11 +47,12 @@ public class TriangleConstructionTest extends TrianglesAbstractTest {
 		assertMatchCount(4, api.simpleTriangle3());
 		assertMatchCount(4, api.simpleTriangle4());
 		
+		api.terminate();
 	}
 	
 	@Test
 	public void buildIncrementalTriangles() {
-		GtHiPEGtAPI api = this.init("triangles1.xmi");
+		GtGtAPI<?> api = this.init("triangles1.xmi");
 		
 		assertMatchCount(0, api.simpleTriangle1());
 		assertMatchCount(0, api.simpleTriangle2());
@@ -86,11 +87,12 @@ public class TriangleConstructionTest extends TrianglesAbstractTest {
 		assertMatchCount(4, api.simpleTriangle3());
 		assertMatchCount(4, api.simpleTriangle4());
 		
+		api.terminate();
 	}
 	
 	@Test
 	public void buildFullTriangles() {
-		GtHiPEGtAPI api = this.init("triangles1.xmi");
+		GtGtAPI<?> api = this.init("triangles1.xmi");
 		
 		assertMatchCount(0, api.simpleTriangle1());
 		assertMatchCount(0, api.simpleTriangle2());
@@ -111,6 +113,7 @@ public class TriangleConstructionTest extends TrianglesAbstractTest {
 		assertMatchCount(2, api.simpleTriangle3());
 		assertMatchCount(2, api.simpleTriangle4());
 		
+		api.terminate();
 	}
 
 }

@@ -3,26 +3,26 @@ package org.emoflon.ibex.gt.testsuite.BPMN;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
-import bpmn.gt.api.GtHiPEGtAPI;
+
+import bpmn.gt.api.GtGtAPI;
 import bpmn2.Task;
-import hipe.generic.actor.junction.util.HiPEConfig;
 
 public class BPMNModelCreationTest extends BPMNAbstractTest {
 
 	@Test
 	public void insertTaskBetweenExistingTasks() {
-		GtHiPEGtAPI api = this.init("BPMN-ex1.xmi");
+		GtGtAPI<?> api = this.init("BPMN-ex1.xmi");
 		assertMatchCount(2, api.findTask());
 		api.addTaskBetween().setParameters("Step between 1+2");
 		assertApplicableAndApply(api.addTaskBetween());
 		assertMatchCount(3, api.findTask());
 
-		saveAndTerminate(api);
+		terminate(api);
 	}
 
 	@Test
 	public void insertAtEnds() {
-		GtHiPEGtAPI api = this.init("BPMN-ex1.xmi");
+		GtGtAPI<?> api = this.init("BPMN-ex1.xmi");
 
 		assertMatchCount(2, api.findTask());
 		api.findTaskByName().setParameters("Task 1");
@@ -45,6 +45,6 @@ public class BPMNModelCreationTest extends BPMNAbstractTest {
 		Task task3 = api.findTaskByName().findAnyMatch(true).get().task();
 		assertEquals(task3, task2.getOutgoing().get(0).getTargetRef());
 
-		saveAndTerminate(api);
+		terminate(api);
 	}
 }

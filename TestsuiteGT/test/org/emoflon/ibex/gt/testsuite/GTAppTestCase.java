@@ -25,6 +25,10 @@ import hipe.generic.actor.junction.util.HiPEConfig;
  *            the API to test
  */
 public abstract class GTAppTestCase<API extends IBeXGtAPI<?,?,?>> {
+	final public static String PM_DEMOCLES = "Democles";
+	final public static String PM_VIATRA = "Viatra";
+	final public static String PM_HIPE = "HiPE";
+	final public static String PM_DEFAULT = PM_HIPE;
 	/**
 	 * Relative path to the instances directory. Files from this directory are
 	 * changed during the transformations.
@@ -36,6 +40,8 @@ public abstract class GTAppTestCase<API extends IBeXGtAPI<?,?,?>> {
 	 * loaded, but never changed during transformation.
 	 */
 	protected static String resourcePath = System.getProperty("user.dir") + "/resources/";
+	
+	protected String patternMatcher = (System.getenv("patternMatcher") == null) ? PM_DEFAULT : System.getenv("patternMatcher") ;
 
 	/**
 	 * Returns the name of the test which is used as a name of the subdirectory
@@ -51,6 +57,13 @@ public abstract class GTAppTestCase<API extends IBeXGtAPI<?,?,?>> {
 	 * @return the application.
 	 */
 	protected abstract API getApi();
+	
+	/**
+	 * Returns a GT application instance.
+	 * 
+	 * @return the application.
+	 */
+	protected abstract API getApi(String patternMatcher);
 
 	/**
 	 * Initializes the resource set with the given name.
@@ -160,16 +173,20 @@ public abstract class GTAppTestCase<API extends IBeXGtAPI<?,?,?>> {
 	 * @param resourceSet
 	 *            the resource set
 	 */
-	protected void saveAndTerminate(final API api) {
-//		api.getModel().getResources().forEach(resource -> {
-//			if ((!resource.getURI().toString().endsWith("trash.xmi")) || resource.getContents().size() > 0) {
-//				try {
-//					resource.save(null);
-//				} catch (IOException e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		});
+	protected void terminate(final API api) {
+		api.terminate();
+	}
+	
+	protected void saveAndTerminate(final API api, final String resourceFileName, final String instanceFileName) {
+		String srcPath = resourcePath + this.getTestName() + "/" + resourceFileName;
+		String trgPath = instancesPath + this.getTestName() + "/" + instanceFileName;
+		URI srcURI = URI.createFileURI(srcPath);
+		URI trgURI = URI.createFileURI(trgPath);
+		try {
+			api.saveModelTo(srcURI, trgURI);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		api.terminate();
 	}
 
