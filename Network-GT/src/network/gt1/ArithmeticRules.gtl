@@ -1,0 +1,196 @@
+package network.gt1
+import "http://www.eclipse.org/emf/2002/Ecore"
+import "platform:/resource/SimpleNetwork/model/SimpleNetwork.ecore"
+
+rule connect{
+	[=] network: Network{
+		[+] -connections -> connection
+	}
+	
+	[=] src: Device{ 
+		.maxBandwidth := src.maxBandwidth -3.0;
+		.currentConnections := src.currentConnections+1;
+		// TODO:!
+//		.otherValue := -(src.maxBandwidth);
+		[+] -connections -> connection
+	}
+	[#] src.maxBandwidth >=3.0;
+	
+	[=] to: Device{
+		.maxBandwidth := to.maxBandwidth -3;
+		.currentConnections := to.currentConnections+1;
+		// TODO:!
+//		.otherValue := -(3+to.currentConnections);
+		[+] -connections -> connection
+	}
+	[#] to.maxBandwidth >= 3.0;
+	
+	[+] connection: Connection{
+		// TODO:!
+//		.bandwidth := exp(-(to.currentConnections));
+//		.flag := (3+to.currentConnections)%4;
+		[+] -devices ->src
+		[+] -devices ->to
+	}
+};
+
+rule generateDevice{
+	[=] network: Network{
+		.deviceNumber := network.deviceNumber -1;
+		// TODO:!
+//		.maxBandwidth := network.maxBandwidth - network.maxBandwidth/network.deviceNumber;
+	}
+	[#] network.deviceNumber > 0;
+	
+	[+] device: Device{
+		// TODO:!
+//		.maxBandwidth := network.maxBandwidth/network.deviceNumber;
+//		.flag := network.maxBandwidth%6;
+//		.maxConnections := ln(network.maxBandwidth);
+	}
+};
+
+rule testFunctions{
+	[=] device1: Device{
+		.flag := sqrt(device1.maxBandwidth);
+		.otherValue := abs(-(device1.maxBandwidth));
+		// TODO:!
+		//		.maxBandwidth := 10 log device1.maxConnections;
+	}
+	[#] device1.maxBandwidth > 0.0;
+	
+	[=] device2: Device{
+		.flag := tan(device2.maxBandwidth);
+		.otherValue := e pow -(device2.maxConnections);
+	}
+	[#] device2.maxBandwidth > 0.0;
+};
+
+rule testException1{
+	[=] network:Network
+	[+] device: Device{
+		.otherValue := e log network.deviceNumber;
+	}
+};
+
+rule testException2{
+	[=] network:Network
+	[+] device: Device{
+		.otherValue := 10 log network.deviceNumber;
+	}
+};
+
+rule testException3{
+	[=] network:Network
+	[+] device: Device{
+		.otherValue := sqrt(-(network.maxBandwidth));
+	}
+};
+
+rule testException4{
+	[=] network:Network
+	[+] device: Device{
+		.otherValue := 100.0/network.deviceNumber;
+	}
+};
+
+pattern testConstraint1{
+	[=] device1: Device
+	[#] device1.maxBandwidth <= device2.maxBandwidth;
+	
+	[=] device2: Device
+};
+
+pattern testConstraint2{
+	[=] device1: Device
+	[#] device2.currentConnections > 0;
+	[#] device1.maxBandwidth != device2.maxBandwidth/device2.currentConnections+1;
+	
+	[=] device2: Device
+};
+
+pattern testConstraint3{
+	[=] network : Network
+	[#] network.deviceNumber == count(findDevice)[network=network];
+};
+
+pattern notDisjointtestConstraint1{
+	[=] device1 : Device
+	[=] device2: Device
+	
+	[#]device1.maxBandwidth <= device2.maxBandwidth;
+};
+
+pattern notDisjointtestConstraint2{
+	[=] device1: Device
+	[=] device2: Device
+	
+	[#] device2.currentConnections > 0;
+	[#] device1.maxBandwidth != device2.maxBandwidth/device2.currentConnections+1;
+};
+
+rule createNetwork {
+	[+] network : Network
+};
+
+pattern findNetwork{
+	[=] network : Network
+};
+
+pattern findNetworkWithMoreThan2Devices{
+	[=] network : Network
+	[#] network.deviceNumber == max(network.deviceNumber, 2);
+};
+
+pattern findNetworkWithLessThan2Devices{
+	[=] network : Network
+	[#] network.deviceNumber == min(network.deviceNumber, 2);
+};
+
+rule setNumberOfDevices(num : EInt){
+	[=] network : Network {
+		.deviceNumber := parameter.num;
+	}
+	
+};
+
+rule findAndsetNumberOfDevices{
+	[=] network : Network {
+		.deviceNumber := count(findDevice)[network=network];
+	} 
+};
+
+rule insertDevicesIntoNetwork {
+	[=] network : Network {
+		[+] -devices->device
+	}
+	  
+	[=] device : Device
+	forbid(findDevice)[network=network, device=device]
+};
+
+pattern findDevice{
+	[=] network : Network {
+		[=] -devices->device
+	}
+	
+	[=] device : Device
+};
+
+pattern findConnection{
+	[=] network : Network {
+		[=] -connections->connection
+	}
+	
+	[=] connection : Connection
+};
+
+pattern findNetworkTrue {
+	[=] network : Network
+	[#] network.flag == true;
+};
+
+pattern findNetworkFalse {
+	[=] network : Network
+	[#] network.flag == false;
+};

@@ -15,8 +15,8 @@ Require-Bundle: org.eclipse.emf.ecore.xmi,
  SimplePersons,
  org.emoflon.ibex.gt.hipe,
  SimpleNetwork;bundle-version="0.0.1",
+ SimpleEconomy;bundle-version="0.0.1",
  SimpleChemistry;bundle-version="0.0.1",
- EconomicsModel,
  GroupVotersModel,
  HospitalExample,
  junit-jupiter-api;bundle-version="5.8.1",
@@ -29,7 +29,8 @@ Require-Bundle: org.eclipse.emf.ecore.xmi,
  Triangles-GT;bundle-version="1.0.0",
  VoterModel-GT;bundle-version="1.0.0",
  Chemistry-GT;bundle-version="1.0.0",
- Economy-GT
+ Economy-GT,
+ Network-GT;bundle-version="1.0.0"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-17
 Automatic-Module-Name: TestsuiteGT
