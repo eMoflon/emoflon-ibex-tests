@@ -1,0 +1,227 @@
+package families.gt
+import "platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore"
+
+/**
+ * Finds a family with the father named as his son (one of his sons).
+ */
+pattern findFatherAndSonWithSameName {
+	[=] family: Family {
+		[=] -father -> father
+		[=] -sons -> son
+	}
+
+	[=] father: FamilyMember
+
+	[=] son: FamilyMember
+	[#] son.name == father.name;
+};
+
+/**
+ * Finds a child.
+ */
+abstract pattern findChild {
+	[=] family: Family
+
+	[=] child: FamilyMember
+};
+
+/**
+ * Finds any daughters.
+ */
+pattern findDaughterInFamily
+refines findChild {
+	@refines= findChild.family
+	[=] family: Family {
+		[=] -daughters -> child
+	}
+};
+
+/**
+ * Finds any sons.
+ */
+pattern findSonInFamily
+refines findChild {
+	@refines= findChild.family
+	[=] family: Family {
+		[=] -sons -> child
+	}
+};
+
+pattern daughterHasNoParent refines findChild{
+	enforce(findDaughterInFamily)[family=family, child=child]
+	forbid(findMother)[family=family]
+	forbid(findFather)[family=family]
+};
+
+pattern sonHasNoParent refines findChild{
+	enforce(findSonInFamily)[family=family, child=child]
+	forbid(findMother)[family=family]
+	forbid(findFather)[family=family]
+};
+
+pattern support4 refines findChild {
+//	-> !daughterHasNoParent && !sonHasNoParent
+	forbid(daughterHasNoParent)[family=family, child=child]
+	forbid(sonHasNoParent)[family=family, child=child]
+};
+
+/**
+ * Finds a child who has no parents in its family.
+ */
+pattern findOrphan
+refines findChild {
+//	-> daughterHasNoParent || sonHasNoParent
+	forbid(support4)[family=family, child=child]
+};
+
+pattern childIsDaughterWithSingleFather refines findChild {
+	enforce(findFather)[family=family]
+	forbid(findMother)[family=family]
+	enforce(findDaughter)[family=family, child=member]
+};
+
+pattern childIsSonWithSingleFather refines findChild {
+	enforce(findFather)[family=family]
+	forbid(findMother)[family=family]
+	enforce(findSon)[family=family, child=member]
+};
+
+pattern childIsDaughterWithSingleMother refines findChild {
+	forbid(findFather)[family=family]
+	enforce(findMother)[family=family]
+	enforce(findDaughter)[family=family, child=member]
+};
+
+pattern childIsSonWithSingleMother refines findChild {
+	forbid(findFather)[family=family]
+	enforce(findMother)[family=family]
+	enforce(findSon)[family=family, child=member]
+};
+
+pattern support5 refines findChild {
+	//-> 	!childIsDaughterWithSingleFather
+	//  	&& !childIsDaughterWithSingleMother
+	//  	&& !childIsSonWithSingleFather
+	//  	&& !childIsSonWithSingleMother
+	forbid(childIsDaughterWithSingleFather)[family=family, child=child]
+	forbid(childIsSonWithSingleFather)[family=family, child=child]
+	forbid(childIsDaughterWithSingleMother)[family=family, child=child]
+	forbid(childIsSonWithSingleMother)[family=family, child=child]
+};
+
+/**
+ * Finds a child with just one parent in its family.
+ */
+pattern findHalfOrphan
+refines findChild {
+	//-> 	childIsDaughterWithSingleFather
+	//  	|| childIsDaughterWithSingleMother
+	//  	|| childIsSonWithSingleFather
+	//  	|| childIsSonWithSingleMother
+	forbid(support5)[family=family, child=child]
+};
+
+pattern daughterHasTwoParents refines findChild {
+	enforce(findFather)[family=family]
+	enforce(findMother)[family=family]
+	enforce(findDaughter)[family=family, child=member]
+};
+
+pattern sonHasTwoParents refines findChild {
+	enforce(findFather)[family=family]
+	enforce(findMother)[family=family]
+	enforce(findSon)[family=family, child=member]
+};
+
+pattern support6 refines findChild {
+	//-> 	!daughterHasTwoParents && !sonHasTwoParents
+	forbid(daughterHasTwoParents)[family=family, child=child]
+	forbid(sonHasTwoParents)[family=family, child=child]
+};
+
+/**
+ * Finds a child who have both a father and a mother in its family.
+ */
+pattern findChildrenWithTwoParents
+refines findChild {
+	// -> daughterHasTwoParents || sonHasTwoParents
+	forbid(support6)[family=family, child=child]
+};
+
+/**
+ * Finds a parent.
+ */
+abstract pattern findParent {
+	[=] family: Family
+	[=] parent: FamilyMember
+};
+
+pattern fatherIsSingleFatherOfDaughter refines findParent {
+	enforce(findFather)[family=family, parent=member]
+	forbid(findMother)[family=family]
+	enforce(findDaughter)[family=family]
+};
+
+pattern fatherIsSingleFatherOfSon refines findParent {
+	enforce(findFather)[family=family, parent=member]
+	forbid(findMother)[family=family]
+	enforce(findSon)[family=family]
+};
+
+pattern support7 refines findParent {
+	//-> 	!fatherIsSingleFatherOfDaughter && !fatherIsSingleFatherOfSon
+	forbid(fatherIsSingleFatherOfDaughter)[family=family, parent=parent]
+	forbid(fatherIsSingleFatherOfSon)[family=family, parent=parent]
+};
+
+/**
+ * Finds a single father.
+ */
+pattern findSingleFather
+refines findParent {
+//	-> fatherIsSingleFatherOfDaughter || fatherIsSingleFatherOfSon
+	forbid(support7)[family=family, parent=parent]
+};
+
+pattern motherIsSingleMotherOfDaughter refines findParent {
+	forbid(findFather)[family=family, parent=member]
+	enforce(findMother)[family=family]
+	enforce(findDaughter)[family=family]
+};
+
+pattern motherIsSingleMotherOfSon refines findParent {
+	forbid(findFather)[family=family, parent=member]
+	enforce(findMother)[family=family]
+	enforce(findSon)[family=family]
+};
+
+pattern support8 refines findParent {
+	//-> 	!motherIsSingleMotherOfDaughter && !motherIsSingleMotherOfSon
+	forbid(motherIsSingleMotherOfDaughter)[family=family, parent=parent]
+	forbid(motherIsSingleMotherOfSon)[family=family, parent=parent]
+};
+
+/**
+ * Finds a single mother.
+ */
+pattern findSingleMother
+refines findParent {
+	//	-> motherIsSingleMotherOfDaughter || motherIsSingleMotherOfSon
+	forbid(support8)[family=family, parent=parent]
+};
+
+pattern support9 refines findParent {
+	//-> 	!findSingleMother && !findSingleFather
+	forbid(findSingleMother)[family=family, parent=parent]
+	forbid(findSingleFather)[family=family, parent=parent]
+};
+
+/**
+ * Finds a single parent (father or mother).
+ */
+pattern findSingleParent
+refines findParent {
+	//-> 	findSingleMother || findSingleFather
+	forbid(support9)[family=family, parent=parent]
+};
+

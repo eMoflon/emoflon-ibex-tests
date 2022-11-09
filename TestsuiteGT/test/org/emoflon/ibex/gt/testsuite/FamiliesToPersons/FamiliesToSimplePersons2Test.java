@@ -1,4 +1,4 @@
-package org.emoflon.ibex.gt.testsuite.SimpleFamiliesToSimplePersons2;
+package org.emoflon.ibex.gt.testsuite.FamiliesToPersons;
 
 import org.eclipse.emf.common.util.URI;
 import org.emoflon.ibex.gt.testsuite.GTAppTestCase;
@@ -19,7 +19,7 @@ import SimplePersonsGraphTransformation.api.SimplePersonsGraphTransformationApp;
 /**
  * Tests for the SimpleFamilies and SimplePersons Graph Transformation API.
  */
-public class SimpleFamiliesToSimplePersons2Test
+public class FamiliesToSimplePersons2Test
 		extends GTAppTestCase<SimplePersonsGraphTransformationApp, SimplePersonsGraphTransformationAPI> {
 	SimplePersonsGraphTransformationAPI personsAPI;
 	SimpleFamiliesGraphTransformationAPI familiesAPI;

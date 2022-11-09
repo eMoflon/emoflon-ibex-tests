@@ -1,4 +1,4 @@
-package org.emoflon.ibex.gt.testsuite.SimpleFamilies;
+package org.emoflon.ibex.gt.testsuite.Families;
 
 import org.emoflon.ibex.gt.testsuite.GTAppTestCase;
 
@@ -9,7 +9,7 @@ import SimpleFamiliesGraphTransformation.api.SimpleFamiliesGraphTransformationAp
  * Abstract test class for the SimpleFamilies Graph Transformation API. All
  * tests for this API should inherit from this class.
  */
-public abstract class SimpleFamiliesAbstractTest
+public abstract class FamiliesAbstractTest
 		extends GTAppTestCase<SimpleFamiliesGraphTransformationApp, SimpleFamiliesGraphTransformationAPI> {
 
 	@Override

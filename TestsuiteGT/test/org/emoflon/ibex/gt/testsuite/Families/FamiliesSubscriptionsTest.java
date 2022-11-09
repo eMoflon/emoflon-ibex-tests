@@ -1,4 +1,4 @@
-package org.emoflon.ibex.gt.testsuite.SimpleFamilies;
+package org.emoflon.ibex.gt.testsuite.Families;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -22,7 +22,7 @@ import SimpleFamiliesGraphTransformation.api.rules.FindFamilyPattern;
 /**
  * Tests for rule applications with the SimpleFamilies Graph Transformation API.
  */
-public class SimpleFamiliesSubscriptionsTest extends SimpleFamiliesAbstractTest {
+public class FamiliesSubscriptionsTest extends FamiliesAbstractTest {
 	private boolean familyDeleted = false;
 	private boolean familyDeleted2 = false;
 

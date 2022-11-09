@@ -1,4 +1,4 @@
-package org.emoflon.ibex.gt.testsuite.SimpleFamilies;
+package org.emoflon.ibex.gt.testsuite.Families;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -17,7 +17,7 @@ import SimpleFamiliesGraphTransformation.api.SimpleFamiliesGraphTransformationAP
  * Tests for simple constraints and notifications in the SimpleFamilies Graph
  * Transformation API
  */
-public class SimpleFamiliesConstraintsTest extends SimpleFamiliesAbstractTest {
+public class FamiliesConstraintsTest extends FamiliesAbstractTest {
 
 	@Test
 	public void constraints() {

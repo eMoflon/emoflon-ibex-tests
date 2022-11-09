@@ -95,6 +95,34 @@ public abstract class GTAppTestCase<API extends IBeXGtAPI<?,?,?>> {
 	/**
 	 * Initializes the resource set with the given name.
 	 * 
+	 * The resource is loaded from the resources directory.
+	 * 
+	 * @param app
+	 *            the app
+	 * @param resourceFileName
+	 *            the name of the resource file 
+	 */
+	protected void loadModels(final API api, final String ... resourceFileNames) {
+		// If a file with the given name exists in the resource folder, copy its
+		// contents to the instance file.
+		for(String resourceFileName : resourceFileNames) {
+			String path = resourcePath + this.getTestName() + "/" + resourceFileName;
+			File file = new File(path);
+			if (file.exists()) {
+				URI resourceURI = URI.createFileURI(path);
+				try {
+					api.addModel(resourceURI);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+	
+	/**
+	 * Initializes the resource set with the given name.
+	 * 
 	 * The resource is created in the instances directory.
 	 * 
 	 * @param app
@@ -143,6 +171,22 @@ public abstract class GTAppTestCase<API extends IBeXGtAPI<?,?,?>> {
 	protected API init(final String resourceFileName) {
 		API api = this.getApi();
 		this.loadModel(api, resourceFileName);
+		api.initializeEngine();
+		return api;
+	}
+	
+	/**
+	 * Initializes an API with the model on the given path.
+	 * 
+	 * @param modelInstanceFileName
+	 *            the name of the model file
+	 * @param resourceFileName
+	 *            the name of the resource file to copy
+	 * @return the API
+	 */
+	protected API init(final String ... resourceFileNames) {
+		API api = this.getApi();
+		this.loadModels(api, resourceFileNames);
 		api.initializeEngine();
 		return api;
 	}
