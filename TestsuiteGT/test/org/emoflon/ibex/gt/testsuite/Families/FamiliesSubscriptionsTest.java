@@ -8,16 +8,14 @@ import java.util.List;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.ecore.util.EContentAdapter;
 import org.junit.jupiter.api.Test;
 
 import SimpleFamilies.Family;
 import SimpleFamilies.FamilyRegister;
 import SimpleFamilies.SimpleFamiliesFactory;
-import SimpleFamiliesGraphTransformation.api.SimpleFamiliesGraphTransformationAPI;
-import SimpleFamiliesGraphTransformation.api.matches.FindFamilyMatch;
-import SimpleFamiliesGraphTransformation.api.rules.FindFamilyPattern;
+import families.gt.api.GtGtAPI;
+import families.gt.api.match.FindFamilyMatch;
+import families.gt.api.pattern.FindFamilyPattern;
 
 /**
  * Tests for rule applications with the SimpleFamilies Graph Transformation API.
@@ -28,27 +26,27 @@ public class FamiliesSubscriptionsTest extends FamiliesAbstractTest {
 
 	@Test
 	public void subscribeAppearingAndDisappearingFamilies() {
-		SimpleFamiliesGraphTransformationAPI api = this.init("SubscribeAppearingAndDisappearingFamilies.xmi",
-				"FamilyRegister.xmi");
-
+		GtGtAPI<?> api = this.init("FamilyRegister.xmi");
+		api.getGTEngine().setAlwaysUpdateAfter(true);
+		api.getGTEngine().setAlwaysUpdatePrior(true);
 		// Get the list of family names.
 		List<String> namesOfFamilies = api.findFamily().matchStream() //
-				.map(m -> m.getFamily().getName()) //
+				.map(m -> m.family().getName()) //
 				.collect(Collectors.toList());
 
 		// Register subscriptions.
 		api.findFamily().matchStream() //
-				.filter(m -> m.getFamily().getName().equals("Watson")) //
+				.filter(m -> m.family().getName().equals("Watson")) //
 				.findAny() //
 				.ifPresent(m -> api.findFamily().subscribeMatchDisappears(m, x -> this.familyDeleted = true));
 
 		List<String> namesOfNewFamilies = new ArrayList<String>();
-		api.findFamily().subscribeAppearing(m -> namesOfNewFamilies.add(m.getFamily().getName()));
-		api.findFamily().subscribeAppearing(m -> namesOfFamilies.add(m.getFamily().getName()));
+		api.findFamily().subscribeAppearing(m -> namesOfNewFamilies.add(m.family().getName()));
+		api.findFamily().subscribeAppearing(m -> namesOfFamilies.add(m.family().getName()));
 
 		List<String> namesOfRemovedFamilies = new ArrayList<String>();
-		api.findFamily().subscribeDisappearing(m -> namesOfRemovedFamilies.add(m.getFamily().getName()));
-		api.findFamily().subscribeDisappearing(m -> namesOfFamilies.remove(m.getFamily().getName()));
+		api.findFamily().subscribeDisappearing(m -> namesOfRemovedFamilies.add(m.family().getName()));
+		api.findFamily().subscribeDisappearing(m -> namesOfFamilies.remove(m.family().getName()));
 
 		// Remove Watson family, add Smith family.
 		FamilyRegister register = (FamilyRegister) api.getModel().getResources().get(0).getContents().get(0);
@@ -63,44 +61,54 @@ public class FamiliesSubscriptionsTest extends FamiliesAbstractTest {
 		assertEquals(Arrays.asList("Watson"), namesOfRemovedFamilies);
 		assertEquals(Arrays.asList("Simpson", "Smith"), namesOfFamilies);
 		assertTrue(this.familyDeleted);
+		
+		terminate(api);
 	}
 
 	@Test
 	public void unsubscribeDisappearingFamilies() {
-		SimpleFamiliesGraphTransformationAPI api = this.init("UnsubscribeDisappearingFamilies.xmi",
-				"FamilyRegister2.xmi");
-
+		GtGtAPI<?> api = this.init("FamilyRegister2.xmi");
+		api.getGTEngine().setAlwaysUpdateAfter(true);
+		api.getGTEngine().setAlwaysUpdatePrior(true);
+		
 		// Delete two families and receive notifications.
 		List<String> namesOfRemovedFamilies = new ArrayList<String>();
 		FindFamilyPattern familyPattern = api.findFamily();
-		Consumer<FindFamilyMatch> familyDisappearedAction = m -> namesOfRemovedFamilies.add(m.getFamily().getName());
+		Consumer<FindFamilyMatch> familyDisappearedAction = m -> namesOfRemovedFamilies.add(m.family().getName());
 		familyPattern.subscribeDisappearing(familyDisappearedAction);
-		assertEquals(2, api.deleteFamily().apply(2).size());
+		for(int i = 0; i<2; i++) {
+			api.deleteFamily().applyAny();
+		}
+		assertEquals(2, api.deleteFamily().countRuleApplications());
 		assertEquals(2, namesOfRemovedFamilies.size());
 
 		// Delete two more families, but do not receive notifications anymore.
 		familyPattern.unsubscribeDisappearing(familyDisappearedAction);
-		assertEquals(2, api.deleteFamily().apply(2).size());
+		for(int i = 0; i<2; i++) {
+			api.deleteFamily().applyAny();
+		}
+		assertEquals(4, api.deleteFamily().countRuleApplications());
 		assertEquals(2, namesOfRemovedFamilies.size());
 
-		saveAndTerminate(api);
+		terminate(api);
 	}
 
 	@Test
 	public void unsubscribeFamilyMatchDisappears() {
-		SimpleFamiliesGraphTransformationAPI api = this.init("UnsubscribeFamilyMatchDisappears.xmi",
-				"FamilyRegister.xmi");
-
+		GtGtAPI<?> api = this.init("FamilyRegister.xmi");
+		api.getGTEngine().setAlwaysUpdateAfter(true);
+		api.getGTEngine().setAlwaysUpdatePrior(true);
+		
 		FindFamilyPattern familyPattern = api.findFamily();
 		Consumer<FindFamilyMatch> familyDisappearedAction = m -> familyDeleted2 = true;
 		FindFamilyMatch match = api.findFamily().matchStream() //
-				.filter(m -> m.getFamily().getName().equals("Watson")).findAny().get();
+				.filter(m -> m.family().getName().equals("Watson")).findAny().get();
 		familyPattern.subscribeMatchDisappears(match, familyDisappearedAction);
 		familyPattern.unsubscribeMatchDisappears(match, familyDisappearedAction);
 
-		assertApplicable(api.deleteFamily().bind(match));
+		assertApplicableAndApply(api.deleteFamily().bindFamily(match.family()));
 		assertFalse(familyDeleted2);
 
-		saveAndTerminate(api);
+		terminate(api);
 	}
 }

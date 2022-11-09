@@ -3,7 +3,14 @@ import "platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore"
 import "platform:/resource/SimplePersons/model/SimplePersons.ecore"
 
 from "platform:/resource/FamiliesAndPersons-GT/src/persons/gt/Register.gtl" import findRegister
-from "platform:/resource/FamiliesAndPersons-GT/src/persons/gt/Person.gtl" import * 
+from "platform:/resource/FamiliesAndPersons-GT/src/persons/gt/Register.gtl" import createRegister
+from "platform:/resource/FamiliesAndPersons-GT/src/persons/gt/Person.gtl" import *
+from "platform:/resource/FamiliesAndPersons-GT/src/families/gt/Register.gtl" import findFamilyRegister
+from "platform:/resource/FamiliesAndPersons-GT/src/families/gt/Family.gtl" import findFamily
+from "platform:/resource/FamiliesAndPersons-GT/src/families/gt/Member.gtl" import findFather
+from "platform:/resource/FamiliesAndPersons-GT/src/families/gt/Member.gtl" import findSon
+from "platform:/resource/FamiliesAndPersons-GT/src/families/gt/Member.gtl" import findMother
+from "platform:/resource/FamiliesAndPersons-GT/src/families/gt/Member.gtl" import findDaughter
 /**
  * Creates a family register for a person register.
  */

@@ -13,6 +13,10 @@ import SimplePersons.Person;
 import SimplePersons.PersonRegister;
 import families2persons.gt.api.GtGtAPI;
 import families2persons.gt.api.GtHiPEGtAPI;
+import families2persons.gt.api.match.CreateRegisterCoMatch;
+import families2persons.gt.api.match.FindFamilyMatch;
+import families2persons.gt.api.match.FindFamilyRegisterMatch;
+import families2persons.gt.api.pattern.FindFamilyPattern;
 import families2persons.gt.api.rule.DaughterToFemaleRule;
 import families2persons.gt.api.rule.FatherToMaleRule;
 import families2persons.gt.api.rule.MotherToFemaleRule;
@@ -96,7 +100,7 @@ public class FamiliesToSimplePersonsTest extends
 	public void simpleFamiliesToPersons2() {
 		GtGtAPI<?> api = this.init("PersonRegisters.xmi", "FamilyRegisters.xmi");
 
-//		transformRegisters();
+		transformRegisters(api);
 
 		assertMatchCount(2, api.findRegister());
 		assertMatchCount(4, api.findFemale());
@@ -106,36 +110,33 @@ public class FamiliesToSimplePersonsTest extends
 		api.terminate();
 	}
 
-//	private void transformRegisters() {
-//		for (FindRegisterMatch familyRegisterMatch : familiesAPI.findRegister().findMatches()) {
-//			personsAPI.createRegister().apply().ifPresent(personRegisterMatch -> {
-//				transformFamilies(familyRegisterMatch.getRegister(), personRegisterMatch.getRegister());
-//			});
-//		}
-//	}
-//
-//	private void transformFamilies(FamilyRegister familyRegister, PersonRegister personRegister) {
-//		FindFamilyPattern familyPattern = familiesAPI.findFamily().bindRegister(familyRegister);
-//		for (FindFamilyMatch familyMatch : familyPattern.findMatches()) {
-//			Family family = familyMatch.getFamily();
-//			familiesAPI.findFather().bindFamily(family)
-//					.forEachMatch(fatherMatch -> createMale(family, fatherMatch.getMember(), personRegister));
-//			familiesAPI.findSon().bindFamily(family)
-//					.forEachMatch(sonMatch -> createMale(family, sonMatch.getMember(), personRegister));
-//			familiesAPI.findMother().bindFamily(family)
-//					.forEachMatch(motherMatch -> createFemale(family, motherMatch.getMember(), personRegister));
-//			familiesAPI.findDaughter().bindFamily(family)
-//					.forEachMatch(daughterMatch -> createFemale(family, daughterMatch.getMember(), personRegister));
-//		}
-//	}
-//
-//	private void createMale(final Family family, final FamilyMember member, final PersonRegister personRegister) {
-//		personsAPI.createMale(this.getFullName(family, member)).bindRegister(personRegister).apply();
-//	}
-//
-//	private void createFemale(final Family family, final FamilyMember member, final PersonRegister personRegister) {
-//		personsAPI.createFemale(this.getFullName(family, member)).bindRegister(personRegister).apply();
-//	}
+	private void transformRegisters(GtGtAPI<?> api) {
+		for (FindFamilyRegisterMatch familyRegisterMatch : api.findFamilyRegister().getMatches()) {
+			CreateRegisterCoMatch m = api.createRegister().applyAny();
+			if(m != null) {
+				transformFamilies(api, familyRegisterMatch.register(), m.register());
+			}
+		}
+	}
+
+	private void transformFamilies(GtGtAPI<?> api, FamilyRegister familyRegister, PersonRegister personRegister) {
+		FindFamilyPattern familyPattern = api.findFamily().bindRegister(familyRegister);
+		for (FindFamilyMatch familyMatch : familyPattern.getMatches()) {
+			Family family = familyMatch.family();
+			api.findFather().bindFamily(family).getMatches().forEach(fatherMatch -> createMale(api, family, fatherMatch.member(), personRegister));
+			api.findSon().bindFamily(family).getMatches().forEach(sonMatch -> createMale(api, family, sonMatch.member(), personRegister));
+			api.findMother().bindFamily(family).getMatches().forEach(motherMatch -> createFemale(api, family, motherMatch.member(), personRegister));
+			api.findDaughter().bindFamily(family).getMatches().forEach(daughterMatch -> createFemale(api, family, daughterMatch.member(), personRegister));
+		}
+	}
+
+	private void createMale(GtGtAPI<?> api, final Family family, final FamilyMember member, final PersonRegister personRegister) {
+		api.createMale(this.getFullName(family, member)).bindRegister(personRegister).applyAny();
+	}
+
+	private void createFemale(GtGtAPI<?> api, final Family family, final FamilyMember member, final PersonRegister personRegister) {
+		api.createFemale(this.getFullName(family, member)).bindRegister(personRegister).applyAny();
+	}
 
 	private String getFullName(final Family family, final FamilyMember member) {
 		return family.getName() + ", " + member.getName();

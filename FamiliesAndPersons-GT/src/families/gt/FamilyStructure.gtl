@@ -184,14 +184,14 @@ refines findParent {
 };
 
 pattern motherIsSingleMotherOfDaughter refines findParent {
-	forbid(findFather)[family=family, parent=member]
-	enforce(findMother)[family=family]
+	forbid(findFather)[family=family]
+	enforce(findMother)[family=family, parent=member]
 	enforce(findDaughter)[family=family]
 };
 
 pattern motherIsSingleMotherOfSon refines findParent {
-	forbid(findFather)[family=family, parent=member]
-	enforce(findMother)[family=family]
+	forbid(findFather)[family=family]
+	enforce(findMother)[family=family, parent=member]
 	enforce(findSon)[family=family]
 };
 

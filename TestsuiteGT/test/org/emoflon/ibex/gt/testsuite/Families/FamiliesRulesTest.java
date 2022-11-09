@@ -13,9 +13,11 @@ import org.junit.jupiter.api.Test;
 import SimpleFamilies.Family;
 import SimpleFamilies.FamilyMember;
 import SimpleFamilies.FamilyRegister;
-import SimpleFamiliesGraphTransformation.api.SimpleFamiliesGraphTransformationAPI;
-import SimpleFamiliesGraphTransformation.api.matches.DeleteFamilyMatch;
-import SimpleFamiliesGraphTransformation.api.matches.FindFamilyMatch;
+import families.gt.api.GtGtAPI;
+import families.gt.api.match.CreateFamilyCoMatch;
+import families.gt.api.match.CreateFamilyRegisterCoMatch;
+import families.gt.api.match.DeleteFamilyCoMatch;
+import families.gt.api.match.FindFamilyMatch;
 
 /**
  * Tests for rule applications with the SimpleFamilies Graph Transformation API.
@@ -24,189 +26,228 @@ public class FamiliesRulesTest extends FamiliesAbstractTest {
 
 	@Test
 	public void createAndDeleteRegister() {
-		SimpleFamiliesGraphTransformationAPI api = this.init("CreateAndDeleteRegister.xmi");
+		GtGtAPI<?> api = this.initEmpty("CreateAndDeleteRegister.xmi");
+		api.getGTEngine().setAlwaysUpdateAfter(true);
+		api.getGTEngine().setAlwaysUpdatePrior(true);
+		
+		assertNoMatch(api.findFamilyRegister());
+		assertMatchCount(1, api.createFamilyRegister()); // create rule is applicable
+		assertApplicableAndApply(api.createFamilyRegister());
+		assertMatchCount(1, api.findFamilyRegister());
 
-		assertNoMatch(api.findRegister());
-		assertMatchCount(1, api.createRegister()); // create rule is applicable
-		assertApplicable(api.createRegister());
-		assertMatchCount(1, api.findRegister());
+		assertApplicableAndApply(api.deleteFamilyRegister());
+		assertNoMatch(api.findFamilyRegister());
 
-		assertApplicable(api.deleteRegister());
-		assertNoMatch(api.findRegister());
-
-		saveAndTerminate(api);
+		terminate(api);
 	}
 
 	@Test
 	public void createFamily() {
-		SimpleFamiliesGraphTransformationAPI api = this.init("CreateFamily.xmi", "FamilyRegister.xmi");
-
+		GtGtAPI<?> api = this.init("FamilyRegister.xmi");
+		api.getGTEngine().setAlwaysUpdateAfter(true);
+		api.getGTEngine().setAlwaysUpdatePrior(true);
+		
 		assertMatchCount(2, api.findFamily());
-		assertApplicable(api.createFamily("Smith"));
+		assertApplicableAndApply(api.createFamily("Smith"));
 		assertMatchCount(3, api.findFamily());
 
-		saveAndTerminate(api);
+		terminate(api);
 	}
 
 	@Test
 	public void createMillerFamily() {
-		SimpleFamiliesGraphTransformationAPI api = this.init("CreateMillerFamily.xmi", "FamilyRegister.xmi");
-
+		GtGtAPI<?> api = this.init("FamilyRegister.xmi");
+		api.getGTEngine().setAlwaysUpdateAfter(true);
+		api.getGTEngine().setAlwaysUpdatePrior(true);
+		
 		assertMatchCount(2, api.findFamily());
-		api.createMillerFamily().apply();
+		api.createMillerFamily().applyAny();
 		assertMatchCount(3, api.findFamily());
 
-		saveAndTerminate(api);
+		terminate(api);
 	}
 
 	@Test
 	public void create20Families() {
-		SimpleFamiliesGraphTransformationAPI api = this.init("Create20Families.xmi", "FamilyRegister.xmi");
-
+		GtGtAPI<?> api = this.init("FamilyRegister.xmi");
+		api.getGTEngine().setAlwaysUpdateAfter(true);
+		api.getGTEngine().setAlwaysUpdatePrior(true);
+		
+		//TODO: Check this with null values. HiPE and GT constraint checks are not null safe!
 		assertMatchCount(2, api.findFamily());
-		assertEquals(20, api.createUnnamedFamily().apply(20).size());
+		for(int i=0; i<20; i++) {
+			api.createFamily().setParameters("NULL").applyAny();
+		}
+		assertEquals(20, api.createFamily().setParameters("NULL").countRuleApplications());
 		assertMatchCount(22, api.findFamily());
 
 		Supplier<FindFamilyMatch> findNullFamily = () -> api.findFamily().matchStream()
-				.filter(m -> m.getFamily().getName() == null).findAny().orElse(null);
-		assertEquals(20, api.deleteFamily().bindAndApply(findNullFamily).size());
+				.filter(m -> m.family().getName().equals("NULL")).findAny().orElse(null);
+		while(findNullFamily.get() != null && api.deleteFamily().bindFamily(findNullFamily.get().family()).bindRegister(findNullFamily.get().register()).hasMatches())
+			api.deleteFamily().applyAny();
+		
+		assertEquals(20, api.deleteFamily().countRuleApplications());
 		assertMatchCount(2, api.findFamily());
 
-		saveAndTerminate(api);
+		terminate(api);
 	}
 
 	@Test
 	public void deleteWatsonFamilyWithFamilyBinding() {
-		SimpleFamiliesGraphTransformationAPI api = this.init("DeleteWatsonFamilyWithFamilyBinding.xmi",
+		GtGtAPI<?> api = this.init(
 				"FamilyRegister.xmi");
-
+		api.getGTEngine().setAlwaysUpdateAfter(true);
+		api.getGTEngine().setAlwaysUpdatePrior(true);
+		
 		Family watsonFamily = api.findFamily().matchStream() //
-				.filter(m -> m.getFamily().getName().equals("Watson")) //
-				.map(m -> m.getFamily()) //
+				.filter(m -> m.family().getName().equals("Watson")) //
+				.map(m -> m.family()) //
 				.findAny().get();
-		DeleteFamilyMatch m = assertApplicable(api.deleteFamily().bindFamily(watsonFamily));
+		DeleteFamilyCoMatch m = assertApplicableAndApply(api.deleteFamily().bindFamily(watsonFamily));
 		assertMatchCount(1, api.findFamily());
-		assertEquals("Watson", m.getFamily().getName());
+		assertEquals("Watson", m.typedMatch.family().getName());
 
-		saveAndTerminate(api);
+		terminate(api);
 	}
 
 	@Test
 	public void deleteWatsonFamilyWithMatchBinding() {
-		SimpleFamiliesGraphTransformationAPI api = this.init("DeleteWatsonFamilyWithMatchBinding.xmi",
-				"FamilyRegister.xmi");
-
+		GtGtAPI<?> api = this.init("FamilyRegister.xmi");
+		api.getGTEngine().setAlwaysUpdateAfter(true);
+		api.getGTEngine().setAlwaysUpdatePrior(true);
+		
 		FindFamilyMatch watsonMatch = api.findFamily().matchStream()
-				.filter(m -> m.getFamily().getName().equals("Watson")) //
+				.filter(m -> m.family().getName().equals("Watson")) //
 				.findAny().get();
-		DeleteFamilyMatch m = assertApplicable(api.deleteFamily().bindAndApply(watsonMatch));
+		DeleteFamilyCoMatch m = assertApplicableAndApply(api.deleteFamily().bindFamily(watsonMatch.family()));
 		assertMatchCount(1, api.findFamily());
-		assertEquals("Watson", m.getFamily().getName());
+		assertEquals("Watson", m.typedMatch.family().getName());
 
-		saveAndTerminate(api);
+		terminate(api);
 	}
 
 	@Test
 	public void deleteAnyFamilyForDifferentPushoutApproachesOnRuleLevel() {
-		SimpleFamiliesGraphTransformationAPI api = this.init("DeleteAnyFamily.xmi", "FamilyRegister.xmi");
-
+		GtGtAPI<?> api = this.init("FamilyRegister.xmi");
+		api.getGTEngine().setAlwaysUpdateAfter(true);
+		api.getGTEngine().setAlwaysUpdatePrior(true);
+		
 		assertMatchCount(2, api.findFamily());
-		// DPO: Families have members, so they cannot be deleted.
-		assertNotApplicable(api.deleteFamily().setDPO());
-		assertMatchCount(2, api.findFamily());
+		//TODO: Removed the configuration option for the push-out approach, since no one was using anything other than SPO.
+//		// DPO: Families have members, so they cannot be deleted.
+//		assertNotApplicable(api.deleteFamily().setDPO());
+//		assertMatchCount(2, api.findFamily());
 
 		// SPO: Deletion is possible, references to members deleted as well.
-		assertApplicable(api.deleteFamily().setSPO());
+		assertApplicableAndApply(api.deleteFamily());
 		assertMatchCount(1, api.findFamily());
 
-		saveAndTerminate(api);
+		terminate(api);
 	}
 
 	@Test
 	public void deleteAnyFamilyForDifferentPushoutApproachesOnAPI() {
-		SimpleFamiliesGraphTransformationAPI api = this.init("DeleteAnyFamily2.xmi", "FamilyRegister.xmi");
-
+		GtGtAPI<?> api = this.init("FamilyRegister.xmi");
+		api.getGTEngine().setAlwaysUpdateAfter(true);
+		api.getGTEngine().setAlwaysUpdatePrior(true);
+		
 		assertMatchCount(2, api.findFamily());
-		// DPO: Families have members, so they cannot be deleted.
-		api.setDPO();
-		assertNotApplicable(api.deleteFamily());
+		//TODO: Removed the configuration option for the push-out approach, since no one was using anything other than SPO.
+//		// DPO: Families have members, so they cannot be deleted.
+//		api.setDPO();
+//		assertNotApplicable(api.deleteFamily());
 		assertMatchCount(2, api.findFamily());
 
 		// SPO: Deletion is possible, references to members deleted as well.
-		api.setSPO();
-		assertApplicable(api.deleteFamily());
+//		api.setSPO();
+		assertApplicableAndApply(api.deleteFamily());
 		assertMatchCount(1, api.findFamily());
 
-		saveAndTerminate(api);
+		terminate(api);
 	}
 
 	@Test
 	public void deleteRegisterForDifferentPushoutApproachesOnRuleLevel() {
-		SimpleFamiliesGraphTransformationAPI api = this.init("DeleteRegister.xmi", "FamilyRegister.xmi");
-
-		assertMatchCount(1, api.findRegister());
+		GtGtAPI<?> api = this.init("FamilyRegister.xmi");
+		api.getGTEngine().setAlwaysUpdateAfter(true);
+		api.getGTEngine().setAlwaysUpdatePrior(true);
+		
+		assertMatchCount(1, api.findFamilyRegister());
+		//TODO: Removed the configuration option for the push-out approach, since no one was using anything other than SPO.
 		// DPO: Register has families, so the register cannot be deleted.
-		assertNotApplicable(api.deleteRegister().setDPO());
-		assertMatchCount(1, api.findRegister());
+//		assertNotApplicable(api.deleteFamilyRegister().setDPO());
+		assertMatchCount(1, api.findFamilyRegister());
 
 		// SPO: Deletion is possible, deleted families as well.
-		assertApplicable(api.deleteRegister().setSPO());
-		assertMatchCount(0, api.findRegister());
+		assertApplicableAndApply(api.deleteFamilyRegister());
+		assertMatchCount(0, api.findFamilyRegister());
 
-		saveAndTerminate(api);
+		terminate(api);
 	}
 
 	@Test
 	public void renameFamily() {
-		SimpleFamiliesGraphTransformationAPI api = this.init("RenameFamily.xmi", "FamilyRegister.xmi");
-
-		assertApplicable(api.renameFamily("Watson", "Watson-Smith"));
+		GtGtAPI<?> api = this.init("FamilyRegister.xmi");
+		api.getGTEngine().setAlwaysUpdateAfter(true);
+		api.getGTEngine().setAlwaysUpdatePrior(true);
+		
+		assertApplicableAndApply(api.renameFamily("Watson", "Watson-Smith"));
 
 		List<String> familyNames = api.findFamily().matchStream() //
-				.map(m -> m.getFamily().getName()) //
+				.map(m -> m.family().getName()) //
 				.collect(Collectors.toList());
 
 		assertTrue(familyNames.size() == 2);
 		assertTrue(familyNames.contains("Simpson"));
 		assertTrue(familyNames.contains("Watson-Smith"));
-		saveAndTerminate(api);
+		
+		terminate(api);
 	}
 
 	@Test
 	public void createFamiliesWithMembers() {
-		SimpleFamiliesGraphTransformationAPI api = this.init("FamiliesWithMembers.xmi");
-
+		GtGtAPI<?> api = this.initEmpty("FamiliesWithMembers.xmi");
+		api.getGTEngine().setAlwaysUpdateAfter(true);
+		api.getGTEngine().setAlwaysUpdatePrior(true);
+		
 		Map<String, FamilyRegister> familyNameToRegister = new HashMap<String, FamilyRegister>();
 		api.findFamily().subscribeAppearing(m -> {
-			familyNameToRegister.put(m.getFamily().getName(), m.getRegister());
+			familyNameToRegister.put(m.family().getName(), m.register());
 		});
 
-		api.createRegister().apply().ifPresent(r -> {
-			api.createFamily("Simpson").bind(r).apply().ifPresent(f -> {
-				api.addFather("Homer").bind(f).apply();
-				api.addMother("Marge").bind(f).apply();
-				api.addDaughter("Lisa").bind(f).apply();
-				api.addDaughter("Maggie").bind(f).apply();
-				api.addSon("Bart").bind(f).apply();
-			});
-		});
-		api.createRegister().apply().ifPresent(r -> {
-			api.createFamily("Watson").bind(r).apply().ifPresent(f -> {
-				api.addFather("John").bind(f).apply();
-				api.addMother("Mary").bind(f).apply();
-			});
-			api.createFamily("Holmes").bind(r).apply().ifPresent(f -> {
-				api.addSon("Sherlock").bind(f).apply();
-				api.addSon("Mycroft").bind(f).apply();
-			});
-		});
+		CreateFamilyRegisterCoMatch m1 = api.createFamilyRegister().applyAny();
+		if(m1 != null) {
+			CreateFamilyCoMatch m2 = api.createFamily("Simpson").bindRegister(m1.register()).applyAny();
+			if(m2 != null) {
+				api.addFather("Homer").bindFamily(m2.family()).applyAny();
+				api.addMother("Marge").bindFamily(m2.family()).applyAny();
+				api.addDaughter("Lisa").bindFamily(m2.family()).applyAny();
+				api.addDaughter("Maggie").bindFamily(m2.family()).applyAny();
+				api.addSon("Bart").bindFamily(m2.family()).applyAny();
+			}
+		}
+		
+		CreateFamilyRegisterCoMatch m3 = api.createFamilyRegister().applyAny();
+		if(m3 != null) {
+			CreateFamilyCoMatch m4 = api.createFamily("Watson").bindRegister(m3.register()).applyAny();
+			if(m4 != null) {
+				api.addFather("John").bindFamily(m4.family()).applyAny();
+				api.addMother("Mary").bindFamily(m4.family()).applyAny();
+			}
+			
+			CreateFamilyCoMatch m5 = api.createFamily("Holmes").bindRegister(m3.register()).applyAny();
+			if(m5 != null) {
+				api.addSon("Sherlock").bindFamily(m5.family()).applyAny();
+				api.addSon("Mycroft").bindFamily(m5.family()).applyAny();
+			}
+		}
 
-		assertMatchCount(2, api.findRegister());
+		assertMatchCount(2, api.findFamilyRegister());
 		assertEquals(3, familyNameToRegister.size());
 		assertEquals(familyNameToRegister.get("Watson"), familyNameToRegister.get("Holmes"));
 		assertNotEquals(familyNameToRegister.get("Simpson"), familyNameToRegister.get("Watson"));
 
-		Family simpsonFamily = api.findFamilyByName("Simpson").findAnyMatch().get().getFamily();
+		Family simpsonFamily = api.findFamilyByName("Simpson").findAnyMatch().get().family();
 		assertMatchCount(1, api.findFather().bindFamily(simpsonFamily));
 		assertMatchCount(1, api.findMother().bindFamily(simpsonFamily));
 		assertMatchCount(2, api.findDaughter().bindFamily(simpsonFamily));
@@ -215,41 +256,45 @@ public class FamiliesRulesTest extends FamiliesAbstractTest {
 		assertMatchCount(1, api.findMemberByFirstName("Sherlock"));
 		assertMatchCount(1, api.findMemberByFirstName("John"));
 
-		saveAndTerminate(api);
+		terminate(api);
 	}
 
 	@Test
 	public void wedding() {
-		SimpleFamiliesGraphTransformationAPI api = this.init("Wedding.xmi", "TwoFamilies.xmi");
-
-		FamilyMember jason = api.findMemberByFirstName("Jason").findAnyMatch().get().getMember();
-		FamilyMember sarah = api.findMemberByFirstName("Sarah").findAnyMatch().get().getMember();
+		GtGtAPI<?> api = this.init("TwoFamilies.xmi");
+		api.getGTEngine().setAlwaysUpdateAfter(true);
+		api.getGTEngine().setAlwaysUpdatePrior(true);
+		
+		FamilyMember jason = api.findMemberByFirstName("Jason").findAnyMatch().get().member();
+		FamilyMember sarah = api.findMemberByFirstName("Sarah").findAnyMatch().get().member();
 
 		assertMatchCount(1, api.findFamilyByName("Jackson"));
-		assertApplicable(api.marry("Jackson").bindBride(sarah).bindGroom(jason));
+		assertApplicableAndApply(api.marry("Jackson").bindBride(sarah).bindGroom(jason));
 		assertMatchCount(2, api.findFamilyByName("Jackson"));
 
 		assertMatchCount(0, api.findDaughter());
 		assertMatchCount(0, api.findSon());
-		assertApplicable(api.daughterBorn("Rachel").bindMother(sarah));
-		assertApplicable(api.sonBorn("Daniel").bindMother(sarah).apply());
+		assertApplicableAndApply(api.daughterBorn("Rachel").bindMother(sarah));
+		assertApplicableAndApply(api.sonBorn("Daniel").bindMother(sarah));
 		assertMatchCount(1, api.findDaughter());
 		assertMatchCount(1, api.findSon());
 		assertMatchCount(1, api.findMemberByFirstName("Daniel"));
 		assertMatchCount(1, api.findMemberByFirstName("Rachel"));
 
-		saveAndTerminate(api);
+		terminate(api);
 	}
 
 	@Test
 	public void sonBornNamedAsFather() {
-		SimpleFamiliesGraphTransformationAPI api = this.init("SonBornNamedAsFather.xmi", "TwoFamilies.xmi");
-
+		GtGtAPI<?> api = this.init("TwoFamilies.xmi");
+		api.getGTEngine().setAlwaysUpdateAfter(true);
+		api.getGTEngine().setAlwaysUpdatePrior(true);
+		
 		assertMatchCount(0, api.findFatherAndSonWithSameName());
-		FamilyMember sarah = api.findMemberByFirstName("Sally").findAnyMatch().get().getMember();
-		assertApplicable(api.sonBornNamedAsFather().bindMother(sarah));
+		FamilyMember sarah = api.findMemberByFirstName("Sally").findAnyMatch().get().member();
+		assertApplicableAndApply(api.sonBornNamedAsFather().bindMother(sarah));
 		assertMatchCount(1, api.findFatherAndSonWithSameName());
 
-		saveAndTerminate(api);
+		terminate(api);
 	}
 }
