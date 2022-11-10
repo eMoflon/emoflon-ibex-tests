@@ -2,11 +2,17 @@ package org.emoflon.ibex.gt.testsuite.SheRememberedCaterpillars;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.function.BiConsumer;
+import java.util.function.Consumer;
+
 import org.junit.jupiter.api.Test;
 
 import SheRememberedCaterpillars.COLOR;
 import SheRememberedCaterpillars.Character;
 import caterpillars.gt.api.GtGtAPI;
+import caterpillars.gt.api.match.CreateBlueCharacterCoMatch;
+import caterpillars.gt.api.match.CreateBlueCharacterMatch;
+import caterpillars.gt.api.rule.CreateBlueCharacterRule;
 import caterpillars.gt.api.rule.CreateCharacterOfColorOnEmptyPlatformRule;
 import caterpillars.gt.api.rule.TransformBlueAndRedToPurpleCharacterRule;
 
@@ -49,26 +55,24 @@ public class SheRememberedCaterpillarsRulesTest extends SheRememberedCaterpillar
 
 	@Test
 	public void createCharactersSubscriptions() {
-		GtGtAPI<?> api = this.initEmpty("EmptyGame.xmi");
+		GtGtAPI<?> api = this.init("EmptyGame.xmi");
+		
+		CreateBlueCharacterRule pattern = api.createBlueCharacter();
+		BiConsumer<CreateBlueCharacterMatch, CreateBlueCharacterCoMatch> action = pattern.subscribeApplications((m, cm) -> cm.character().setColor(COLOR.RED));
+		assertApplicableAndApply(pattern);
+		assertCharacterColorCount(api, 0, 1, 0); // rule application changes color directly after application to red
 
-		//TODO: Implement rule subscribers
-//		CreateBlueCharacterRule pattern = api.createBlueCharacter();
-//		Consumer<CreateBlueCharacterMatch> action = m -> m.character().setColor(COLOR.RED);
-//		pattern.subscribeRuleApplications(action);
-//		assertApplicable(pattern);
-//		assertCharacterColorCount(api, 0, 1, 0); // rule application changes color directly after application to red
-//
-//		pattern.unsubscribeRuleApplications(action);
-//		assertApplicable(pattern);
-//		assertCharacterColorCount(api, 1, 1, 0); // now the created character remains blue!
-//
-//		pattern.subscribeRuleApplications(action);
-//		assertApplicable(pattern);
-//		assertCharacterColorCount(api, 1, 2, 0); // changed to red again
-//
-//		pattern.unsubscribeRuleApplications();
-//		assertApplicable(pattern);
-//		assertCharacterColorCount(api, 2, 2, 0); // now the created character remains blue again!
+		pattern.unsubscribeApplications(action);
+		assertApplicableAndApply(pattern);
+		assertCharacterColorCount(api, 1, 1, 0); // now the created character remains blue!
+
+		pattern.subscribeApplications(action);
+		assertApplicableAndApply(pattern);
+		assertCharacterColorCount(api, 1, 2, 0); // changed to red again
+
+		pattern.unsubscribeApplications();
+		assertApplicableAndApply(pattern);
+		assertCharacterColorCount(api, 2, 2, 0); // now the created character remains blue again!
 
 		terminate(api);
 	}

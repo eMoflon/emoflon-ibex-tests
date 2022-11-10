@@ -57,39 +57,32 @@ public class FamiliesToSimplePersonsTest extends
 		api.getGTEngine().setAlwaysUpdateAfter(true);
 		api.getGTEngine().setAlwaysUpdatePrior(true);
 		
+		api.familyRegisterToPersonRegister().applyAny();
 //		TODO: Reimplement when subscriptions have returned -> so.. never
-//		MotherToFemaleRule motherRule = api.motherToFemale();
-//		motherRule.enableAutoApply();
-//		motherRule.subscribeRuleApplications(m -> this.setName(m.getPerson(), m.getFamily(), m.getMember()));
-//
-//		DaughterToFemaleRule daughterRule = api.daughterToFemale();
-//		daughterRule.enableAutoApply();
-//		daughterRule.subscribeRuleApplications(m -> this.setName(m.getPerson(), m.getFamily(), m.getMember()));
-//
-//		FatherToMaleRule fatherRule = api.fatherToMale();
-//		fatherRule.enableAutoApply();
-//		fatherRule.subscribeRuleApplications(m -> this.setName(m.getPerson(), m.getFamily(), m.getMember()));
-//
-//		SonToMaleRule sonRule = api.sonToMale();
-//		sonRule.enableAutoApply();
-//		sonRule.subscribeRuleApplications(m -> this.setName(m.getPerson(), m.getFamily(), m.getMember()));
+		MotherToFemaleRule motherRule = api.motherToFemale();
+		motherRule.subscribeApplications((m, cm) -> this.setName(cm.person(), m.family(), m.member()));
+		motherRule.applyAsLongAsPossible(10);
 
-		api.updateMatches();
+		DaughterToFemaleRule daughterRule = api.daughterToFemale();
+		daughterRule.subscribeApplications((m, cm) -> this.setName(cm.person(), m.family(), m.member()));
+		daughterRule.applyAsLongAsPossible(10);
 
-//		saveAndTerminate(api);
+		FatherToMaleRule fatherRule = api.fatherToMale();
+		fatherRule.subscribeApplications((m, cm) -> this.setName(cm.person(), m.family(), m.member()));
+		fatherRule.applyAsLongAsPossible(10);
 
-//		assertEquals(2, motherRule.countRuleApplications());
-//		assertEquals(2, daughterRule.countRuleApplications());
-//		assertEquals(2, fatherRule.countRuleApplications());
-//		assertEquals(1, sonRule.countRuleApplications());
-//		
-//		SimplePersonsGraphTransformationApp personsApp = new SimplePersonsGraphTransformationApp(this.initEngine(), workspacePath);
-//		personsApp.setModel(api.getModel());
-//		personsApp.registerMetaModels();
-//		SimplePersonsGraphTransformationAPI personsAPI = personsApp.initAPI();
-//		assertMatchCount(1, personsAPI.findRegister());
-//		assertMatchCount(3, personsAPI.findMale());
-//		assertMatchCount(4, personsAPI.findFemale());
+		SonToMaleRule sonRule = api.sonToMale();
+		sonRule.subscribeApplications((m, cm) -> this.setName(cm.person(), m.family(), m.member()));
+		sonRule.applyAsLongAsPossible(10);
+
+		assertEquals(2, motherRule.countRuleApplications());
+		assertEquals(2, daughterRule.countRuleApplications());
+		assertEquals(2, fatherRule.countRuleApplications());
+		assertEquals(1, sonRule.countRuleApplications());
+
+		assertMatchCount(1, api.findRegister());
+		assertMatchCount(3, api.findMale());
+		assertMatchCount(4, api.findFemale());
 	}
 	
 	/**

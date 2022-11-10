@@ -18,7 +18,19 @@ rule familyRegisterToPersonRegister {
 	[=] familyRegister: FamilyRegister
 
 	[+] personRegister: PersonRegister
-}; 
+};
+
+pattern memeberIsPerson {
+	[=] family : Family
+	[=] member: FamilyMember
+	
+	[=] personRegister: PersonRegister {
+		[=] -persons -> person
+	}
+	
+	[=] person: Person
+	[#] person.name == family.name + ", " + member.name;
+};
 
 /**
  * Creates a person for a member.
@@ -30,7 +42,9 @@ abstract rule memberToPerson {
 		[+] -persons -> person
 	}
 
-	[+] person: Person
+	[+] person: Person {
+		.name := "";
+	}
 };
 
 /**
@@ -50,6 +64,8 @@ refines memberToFemale {
 	[=] family: Family {
 		[=] -mother -> member
 	}
+	
+	forbid(memeberIsPerson)[family=family, member=member]
 };
 
 /**
@@ -60,6 +76,8 @@ refines memberToFemale {
 	[=] family: Family {
 		[=] -daughters -> member
 	}
+	
+	forbid(memeberIsPerson)[family=family, member=member]
 };
 
 /**
@@ -79,6 +97,8 @@ refines memberToMale {
 	[=] family: Family {
 		[=] -father -> member
 	}
+	
+	forbid(memeberIsPerson)[family=family, member=member]
 };
 
 /**
@@ -89,5 +109,7 @@ refines memberToMale {
 	[=] family: Family {
 		[=] -sons -> member
 	}
+	
+	forbid(memeberIsPerson)[family=family, member=member]
 };
 
