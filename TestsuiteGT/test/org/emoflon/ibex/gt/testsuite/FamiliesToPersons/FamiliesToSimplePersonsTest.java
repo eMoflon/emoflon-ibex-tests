@@ -99,7 +99,9 @@ public class FamiliesToSimplePersonsTest extends
 	@Test
 	public void simpleFamiliesToPersons2() {
 		GtGtAPI<?> api = this.init("PersonRegisters.xmi", "FamilyRegisters.xmi");
-
+		api.getGTEngine().setAlwaysUpdateAfter(true);
+		api.getGTEngine().setAlwaysUpdatePrior(true);
+		
 		transformRegisters(api);
 
 		assertMatchCount(2, api.findRegister());
