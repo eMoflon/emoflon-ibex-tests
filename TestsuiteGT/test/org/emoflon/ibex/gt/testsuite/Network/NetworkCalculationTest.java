@@ -4,15 +4,19 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.function.BiConsumer;
 
 import org.junit.jupiter.api.Test;
 
 import SimpleNetwork.Network;
 import network.gt1.api.Gt1GtAPI;
 import network.gt1.api.match.ConnectCoMatch;
+import network.gt1.api.match.ConnectMatch;
 import network.gt1.api.match.FindNetworkMatch;
 import network.gt1.api.match.GenerateDeviceCoMatch;
+import network.gt1.api.match.GenerateDeviceMatch;
 import network.gt1.api.match.TestFunctionsCoMatch;
+import network.gt1.api.match.TestFunctionsMatch;
 
 public class NetworkCalculationTest extends NetworkAbstractTest{
 	
@@ -21,18 +25,29 @@ public class NetworkCalculationTest extends NetworkAbstractTest{
 		Gt1GtAPI<?> api = this.init("SimpleNetwork1.xmi");
 		api.getGTEngine().setAlwaysUpdateAfter(true);
 		api.getGTEngine().setAlwaysUpdatePrior(true);
-		
+		BiConsumer<GenerateDeviceMatch, GenerateDeviceCoMatch> doCalculations = (match, coMatch) -> {
+			api.generatedCalculate1()
+			.bindDevice(coMatch.device())
+			.bindNetwork(match.network())
+			.applyAny();
+			api.generatedCalculate2()
+			.bindDevice(coMatch.device())
+			.bindNetwork(match.network())
+			.applyAny();
+			api.generatedCalculate3()
+			.bindDevice(coMatch.device())
+			.bindNetwork(match.network())
+			.applyAny();
+		};
+		api.generateDevice().subscribeApplications(doCalculations);
 		assertMatchCount(1, api.generateDevice());
-		
 		//check general calculation
 		GenerateDeviceCoMatch match = api.generateDevice().applyAny();
-		//TODO: check these operations with different test cases
-//		assertEquals(100.0/3.0, match.device().getMaxBandwidth(),  0.00000001);
-//		assertEquals(100.0-100.0/3.0, match.network().getMaxBandwidth(),  0.0000001);
+		assertEquals(100.0/4.0, match.device().getMaxBandwidth(),  0.00000001);
+		assertEquals(100.0-100.0/2.0, match.network().getMaxBandwidth(),  0.0000001);
 		assertEquals(2, match.network().getDeviceNumber());
-		//TODO: check these operations with different test cases
-//		assertEquals(Math.round(100%6), match.device().getFlag());
-//		assertEquals(Math.round(Math.log(100.0)), match.device().getMaxConnections());
+		assertEquals(Math.floor(50%6), match.device().getFlag());
+		assertEquals(Math.floor(Math.log(50.0)), match.device().getMaxConnections());
 		//generate 3 devices => no devices can be created anymore
 		api.generateDevice().applyAny();
 		api.generateDevice().applyAny();
@@ -50,15 +65,21 @@ public class NetworkCalculationTest extends NetworkAbstractTest{
 		api.getGTEngine().setAlwaysUpdateAfter(true);
 		api.getGTEngine().setAlwaysUpdatePrior(true);
 		
+		BiConsumer<ConnectMatch, ConnectCoMatch> doCalculations = (match, coMatch) -> {
+			api.connectedCalculate()
+			.bindConnection(coMatch.connection())
+			.bindNetwork(match.network())
+			.bindSrc(match.src())
+			.bindTo(match.to())
+			.applyAny();
+		};
+		
+		api.connect().subscribeApplications(doCalculations);
 		ConnectCoMatch match = api.connect().applyAny();
-		
 		//check if negative parameter is calculated properly
-		//TODO: check these operations with different test cases
-//		assertEquals(-3.0, match.to().getOtherValue(),  0.000000001);
-//		assertEquals(-10.0, match.src().getOtherValue(),  0.000000001);
-		
-		//TODO: check these operations with different test cases
-//		assertEquals(match.connection().getFlag(), 3);
+		assertEquals(-4.0, match.to().getOtherValue(),  0.000000001);
+		assertEquals(-7.0, match.src().getOtherValue(),  0.000000001);
+		assertEquals(match.connection().getFlag(), 0);
 		
 		api.connect().applyAny();
 		api.connect().applyAny();
@@ -73,12 +94,19 @@ public class NetworkCalculationTest extends NetworkAbstractTest{
 		api.getGTEngine().setAlwaysUpdateAfter(true);
 		api.getGTEngine().setAlwaysUpdatePrior(true);
 		
+		BiConsumer<TestFunctionsMatch,TestFunctionsCoMatch> doCalculations = (match, coMatch) -> {
+			api.testFunctionsCalculate()
+			.bindDevice1(match.device1())
+			.bindDevice2(match.device2())
+			.applyAny();
+		};
+		
+		api.testFunctions().subscribeApplications(doCalculations);
 		TestFunctionsCoMatch match = api.testFunctions().applyAny();
 		//check if the arithmetic functions are calculated and rounded properly 
-		assertEquals(Math.floor(Math.sqrt(10.0)), match.device1().getFlag());
-		assertEquals(Math.abs(-10.0), match.device1().getOtherValue(), 0.00000001);
-		//TODO: check these operations with different test cases
-//		assertEquals(Math.log10(4.0), match.device1().getMaxBandwidth(), 0.0000000001);
+		assertEquals(Math.floor(Math.sqrt(Math.log10(4))), match.device1().getFlag());
+		assertEquals(Math.abs(-Math.log10(4)), match.device1().getOtherValue(), 0.00000001);
+		assertEquals(Math.log10(4.0), match.device1().getMaxBandwidth(), 0.0000000001);
 		
 		assertEquals(Math.floor(Math.tan(10.0)), match.device2().getFlag());
 		assertEquals(Math.exp(-4.0), match.device2().getOtherValue(), 0.00000001);
@@ -99,50 +127,6 @@ public class NetworkCalculationTest extends NetworkAbstractTest{
 		
 		api.terminate();
 	}
-
-// TODO: In principle, checking for undefined or faulty arithmetic operations (e.g. div by zero) is a good idea. 
-//		But throwing exceptions during runtime might be a little annoying for users.
-	
-//	@Test
-//	public void checkExceptions1() {
-//		//test that log() only accepts values>0
-//		assertThrows(IllegalArgumentException.class, () -> {
-//			Gt1GtAPI<?> api = this.init("SimpleNetwork2.xmi");
-//			api.getGTEngine().setAlwaysUpdateAfter(true);
-//			api.getGTEngine().setAlwaysUpdatePrior(true);
-//			api.testException1().applyAny();
-//		});
-//	}
-//	@Test
-//	public void checkExceptions2() {
-//		//test that ln() only accepts values>0
-//		assertThrows(IllegalArgumentException.class, () -> {
-//		Gt1GtAPI<?> api = this.init("SimpleNetwork2.xmi");
-//		api.getGTEngine().setAlwaysUpdateAfter(true);
-//		api.getGTEngine().setAlwaysUpdatePrior(true);
-//		api.testException2().applyAny();
-//		});
-//	}
-//	@Test
-//	public void checkExceptions3() {
-//		//test that sqrt() only accepts values>=0
-//		assertThrows(IllegalArgumentException.class, () -> {
-//		Gt1GtAPI<?> api = this.init("SimpleNetwork2.xmi");
-//		api.getGTEngine().setAlwaysUpdateAfter(true);
-//		api.getGTEngine().setAlwaysUpdatePrior(true);
-//		api.testException3().applyAny();
-//		});
-//	}
-//	@Test
-//	public void checkExceptions4() {
-//		//test that divide by zero throws a exception
-//		assertThrows(IllegalArgumentException.class, () -> {
-//			Gt1GtAPI<?> api = this.init("SimpleNetwork2.xmi");
-//			api.getGTEngine().setAlwaysUpdateAfter(true);
-//			api.getGTEngine().setAlwaysUpdatePrior(true);
-//			api.testException4().applyAny();
-//		});
-//	}
 	
 	@Test
 	public void checkCount() {
