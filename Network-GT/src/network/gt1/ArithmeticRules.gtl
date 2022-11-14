@@ -204,3 +204,18 @@ pattern findNetworkFalse {
 	[=] network : Network
 	[#] network.flag == false;
 };
+
+pattern watchDog1 {
+	[=] network : Network
+	watch(network.deviceNumber)
+};
+
+pattern watchDog2 refines watchDog1 {
+	@refines= watchDog1.network
+	[=] network : Network {
+		[=] - devices -> device
+	}
+	[=] device : Device
+	watch(device.maxBandwidth)
+
+};

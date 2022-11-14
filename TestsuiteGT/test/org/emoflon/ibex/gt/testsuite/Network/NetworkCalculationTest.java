@@ -4,10 +4,13 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
 import java.util.function.BiConsumer;
+import java.util.stream.Collectors;
 
 import org.junit.jupiter.api.Test;
 
+import SimpleNetwork.Device;
 import SimpleNetwork.Network;
 import network.gt1.api.Gt1GtAPI;
 import network.gt1.api.match.ConnectCoMatch;
@@ -214,5 +217,41 @@ public class NetworkCalculationTest extends NetworkAbstractTest{
 		
 		api.terminate();
 	}
-
+	
+	@Test
+	public void checkWatchDogs1() {
+		Gt1GtAPI<?> api = this.init("SimpleNetwork4.xmi");
+		assertEquals(0, api.watchDog1().getMatchesWithAttributeChanges().size());
+		
+		assertMatchCount(1, api.findNetwork());
+		Network network = api.findNetwork().getMatches(true).iterator().next().network();
+		assertMatchCount(3, api.findDevice());
+		assertMatchCount(1, api.watchDog1());
+		assertMatchCount(3, api.watchDog2());
+		
+		assertEquals(0, api.watchDog1().getMatchesWithAttributeChanges().size());
+		assertEquals(0, api.watchDog2().getMatchesWithAttributeChanges().size());
+		
+		ConnectCoMatch coMatch = assertApplicableAndApply(api.connect());
+		
+		assertEquals(0, api.watchDog1().getMatchesWithAttributeChanges().size());
+		assertEquals(2, api.watchDog2().getMatchesWithAttributeChanges().size());
+		
+		network.setDeviceNumber(-10);
+		
+		assertEquals(1, api.watchDog1().getMatchesWithAttributeChanges().size());
+		assertEquals(3, api.watchDog2().getMatchesWithAttributeChanges().size());
+		
+		Set<Device> devices = api.watchDog2().getMatchesWithAttributeChanges().stream()
+				.filter(m -> api.watchDog2().getAttributeChanges(m, m.device()).isPresent())
+				.map(m -> m.device()).collect(Collectors.toSet());
+		assertEquals(2, devices.size());
+		assertTrue(devices.contains(coMatch.src()));
+		assertTrue(devices.contains(coMatch.to()));
+		
+		api.updateMatches();
+		
+		assertEquals(0, api.watchDog1().getMatchesWithAttributeChanges().size());
+		assertEquals(0, api.watchDog2().getMatchesWithAttributeChanges().size());
+	}
 }
