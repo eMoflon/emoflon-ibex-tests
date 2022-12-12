@@ -6,7 +6,7 @@ import java.util.Random;
 import org.eclipse.emf.common.util.URI;
 
 import HospitalExample.Carelevel;
-import hospital.gt.api.GtHiPEGtAPI;
+import hospital.gt.api.GtHiPEGtApi;
 
 public class HospitalRules {
 	public static String firstNames[] = {"James","Alisha", "Alex", "Jeffrey", "Eliza", "Martin", 
@@ -17,11 +17,11 @@ public class HospitalRules {
 			"Clark", "Hall", "Nguyen", "More", "Taylor", "Campbell", "Reed", "Murphy", "Rivera" };
 	
 	private Random rnd;
-	public GtHiPEGtAPI api;
+	public GtHiPEGtApi api;
 
 	public HospitalRules(final long rndSeed) { // Method to initalize a random seed and a new model 
 		rnd = new Random(rndSeed);
-		api = new GtHiPEGtAPI();
+		api = new GtHiPEGtApi();
 		try {
 			api.addModel(URI.createURI("hospital.xmi"));
 		} catch (Exception e) {

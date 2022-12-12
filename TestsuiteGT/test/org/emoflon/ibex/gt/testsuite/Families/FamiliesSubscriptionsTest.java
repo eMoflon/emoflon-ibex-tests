@@ -13,12 +13,12 @@ import org.junit.jupiter.api.Test;
 import SimpleFamilies.Family;
 import SimpleFamilies.FamilyRegister;
 import SimpleFamilies.SimpleFamiliesFactory;
-import families.gt.api.GtGtAPI;
+import families.gt.api.GtGtApi;
 import families.gt.api.match.FindFamilyMatch;
 import families.gt.api.pattern.FindFamilyPattern;
 
 /**
- * Tests for rule applications with the SimpleFamilies Graph Transformation API.
+ * Tests for rule applications with the SimpleFamilies Graph Transformation Api.
  */
 public class FamiliesSubscriptionsTest extends FamiliesAbstractTest {
 	private boolean familyDeleted = false;
@@ -26,7 +26,7 @@ public class FamiliesSubscriptionsTest extends FamiliesAbstractTest {
 
 	@Test
 	public void subscribeAppearingAndDisappearingFamilies() {
-		GtGtAPI<?> api = this.init("FamilyRegister.xmi");
+		GtGtApi<?> api = this.init("FamilyRegister.xmi");
 		api.getGTEngine().setAlwaysUpdateAfter(true);
 		api.getGTEngine().setAlwaysUpdatePrior(true);
 		// Get the list of family names.
@@ -67,7 +67,7 @@ public class FamiliesSubscriptionsTest extends FamiliesAbstractTest {
 
 	@Test
 	public void unsubscribeDisappearingFamilies() {
-		GtGtAPI<?> api = this.init("FamilyRegister2.xmi");
+		GtGtApi<?> api = this.init("FamilyRegister2.xmi");
 		api.getGTEngine().setAlwaysUpdateAfter(true);
 		api.getGTEngine().setAlwaysUpdatePrior(true);
 		
@@ -95,7 +95,7 @@ public class FamiliesSubscriptionsTest extends FamiliesAbstractTest {
 
 	@Test
 	public void unsubscribeFamilyMatchDisappears() {
-		GtGtAPI<?> api = this.init("FamilyRegister.xmi");
+		GtGtApi<?> api = this.init("FamilyRegister.xmi");
 		api.getGTEngine().setAlwaysUpdateAfter(true);
 		api.getGTEngine().setAlwaysUpdatePrior(true);
 		

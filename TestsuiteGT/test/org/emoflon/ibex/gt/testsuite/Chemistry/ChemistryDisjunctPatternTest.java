@@ -2,7 +2,7 @@ package org.emoflon.ibex.gt.testsuite.Chemistry;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import chemistry.gt.api.GtGtAPI;
+import chemistry.gt.api.GtGtApi;
 import chemistry.gt.api.match.CreateH3Match;
 import chemistry.gt.api.rule.CreateH3Rule;
 
@@ -16,7 +16,7 @@ public class ChemistryDisjunctPatternTest extends ChemistryAbstractTest{
 	
 	@Test
 	public void testMatchesWithoutConstraints() {
-		GtGtAPI<?> api = this.init("H2O.xmi");
+		GtGtApi<?> api = this.init("H2O.xmi");
 		api.getGTEngine().setAlwaysUpdateAfter(true);
 		api.getGTEngine().setAlwaysUpdatePrior(true);
 		
@@ -33,7 +33,7 @@ public class ChemistryDisjunctPatternTest extends ChemistryAbstractTest{
 	
 	@Test
 	public void testInjectivityConstraint() {
-		GtGtAPI<?> api = this.init("H2O.xmi");
+		GtGtApi<?> api = this.init("H2O.xmi");
 		api.getGTEngine().setAlwaysUpdateAfter(true);
 		api.getGTEngine().setAlwaysUpdatePrior(true);
 		
@@ -54,7 +54,7 @@ public class ChemistryDisjunctPatternTest extends ChemistryAbstractTest{
 	
 	@Test
 	public void testIncremental2(){
-		GtGtAPI<?> api = this.init("HO.xmi");
+		GtGtApi<?> api = this.init("HO.xmi");
 		api.getGTEngine().setAlwaysUpdateAfter(true);
 		api.getGTEngine().setAlwaysUpdatePrior(true);
 		
@@ -68,7 +68,7 @@ public class ChemistryDisjunctPatternTest extends ChemistryAbstractTest{
 	
 	@Test
 	public void testinjectivityIncremental() {
-		GtGtAPI<?> api = this.init("H2.xmi");	
+		GtGtApi<?> api = this.init("H2.xmi");	
 		api.getGTEngine().setAlwaysUpdateAfter(true);
 		api.getGTEngine().setAlwaysUpdatePrior(true);
 		
@@ -96,7 +96,7 @@ public class ChemistryDisjunctPatternTest extends ChemistryAbstractTest{
 	
 	@Test
 	public void testIncrementalWith3Subpatterns() {
-		GtGtAPI<?> api = this.init("H3.xmi");	
+		GtGtApi<?> api = this.init("H3.xmi");	
 		api.getGTEngine().setAlwaysUpdateAfter(true);
 		api.getGTEngine().setAlwaysUpdatePrior(true);
 		
@@ -124,7 +124,7 @@ public class ChemistryDisjunctPatternTest extends ChemistryAbstractTest{
 	
 	@Test
 	public void testSubscription() {
-		GtGtAPI<?> api = this.init("H3.xmi");
+		GtGtApi<?> api = this.init("H3.xmi");
 		api.getGTEngine().setAlwaysUpdateAfter(true);
 		api.getGTEngine().setAlwaysUpdatePrior(true);
 		
@@ -139,7 +139,7 @@ public class ChemistryDisjunctPatternTest extends ChemistryAbstractTest{
 	
 	@Test 
 	public void testRandomMatches() {
-		GtGtAPI<?> api = this.init("H3.xmi");
+		GtGtApi<?> api = this.init("H3.xmi");
 		api.getGTEngine().setAlwaysUpdateAfter(true);
 		api.getGTEngine().setAlwaysUpdatePrior(true);
 		

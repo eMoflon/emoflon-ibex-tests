@@ -6,18 +6,18 @@ import org.junit.jupiter.api.Test;
 
 import FerrymanProblem.Goat;
 import FerrymanProblem.Wolf;
-import ferryman.gt.api.GtGtAPI;
+import ferryman.gt.api.GtGtApi;
 import ferryman.gt.api.match.CanEatMatch;
 
 /**
  * Tests for simple constraints with the FerrymanProblem Graph Transformation
- * API.
+ * Api.
  */
 public class FerrymanProblemConstraintsTest extends FerrymanProblemAbstractTest {
 
 	@Test
 	public void constraints() {
-		GtGtAPI<?> api = this.init("Start.xmi");
+		GtGtApi<?> api = this.init("Start.xmi");
 
 		assertNoMatch(api.canEat());
 		assertNoMatch(api.checkAllThingsAtRightBank());
@@ -28,7 +28,7 @@ public class FerrymanProblemConstraintsTest extends FerrymanProblemAbstractTest 
 
 	@Test
 	public void canWolfEatGoat() {
-		GtGtAPI<?> api = this.init("WolfEatsGoat.xmi");
+		GtGtApi<?> api = this.init("WolfEatsGoat.xmi");
 
 		assertMatchCount(2, api.findSubjectOnLeftBank());
 		assertMatchCount(2, api.findSubjectOnRightBank());

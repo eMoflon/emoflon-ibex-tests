@@ -7,18 +7,18 @@ import org.junit.jupiter.api.Test;
 import FerrymanProblem.Cabbage;
 import FerrymanProblem.Goat;
 import FerrymanProblem.Wolf;
-import ferryman.gt.api.GtGtAPI;
+import ferryman.gt.api.GtGtApi;
 import ferryman.gt.api.match.EatCoMatch;
 
 /**
  * Tests for rule applications with the FerrymanProblem Graph Transformation
- * API.
+ * Api.
  */
 public class FerrymanProblemRulesTest extends FerrymanProblemAbstractTest {
 
 	@Test
 	public void wolfEatsGoat() {
-		GtGtAPI<?> api = this.init("WolfEatsGoat.xmi");
+		GtGtApi<?> api = this.init("WolfEatsGoat.xmi");
 
 		assertMatchCount(2, api.findSubjectOnLeftBank());
 		assertMatchCount(2, api.findSubjectOnRightBank());
@@ -36,7 +36,7 @@ public class FerrymanProblemRulesTest extends FerrymanProblemAbstractTest {
 
 	@Test
 	public void move() {
-		GtGtAPI<?> api = this.init("Start.xmi");
+		GtGtApi<?> api = this.init("Start.xmi");
 
 		assertMatchCount(4, api.findSubjectOnLeftBank());
 		assertMatchCount(0, api.findSubjectOnRightBank());
@@ -50,7 +50,7 @@ public class FerrymanProblemRulesTest extends FerrymanProblemAbstractTest {
 
 	@Test
 	public void moveAllSuccess() {
-		GtGtAPI<?> api = this.init("Start.xmi");
+		GtGtApi<?> api = this.init("Start.xmi");
 
 		assertMatchCount(4, api.findSubjectOnLeftBank());
 		assertMatchCount(0, api.findSubjectOnRightBank());
@@ -83,7 +83,7 @@ public class FerrymanProblemRulesTest extends FerrymanProblemAbstractTest {
 
 	@Test
 	public void moveAllFail() {
-		GtGtAPI<?> api = this.init("Start.xmi");
+		GtGtApi<?> api = this.init("Start.xmi");
 
 		assertMatchCount(4, api.findSubjectOnLeftBank());
 		assertMatchCount(0, api.findSubjectOnRightBank());

@@ -8,17 +8,17 @@ import java.util.Set;
 import org.junit.jupiter.api.Test;
 
 import classMultipleInheritanceHierarchy.Clazz;
-import classmultipleinheritance.gt.api.GtGtAPI;
+import classmultipleinheritance.gt.api.GtGtApi;
 
 /**
  * Tests for pattern matching with the ClassMultipleInheritanceHierarchy Graph
- * Transformation API.
+ * Transformation Api.
  */
 public class ClassMultipleInheritanceSearchTest extends ClassMultipleInheritanceHierarchyAbstractTest {
 
 	@Test
 	public void findPackageAndClasses() {
-		GtGtAPI<?> api = this.init("ClassDiagram1.xmi");
+		GtGtApi<?> api = this.init("ClassDiagram1.xmi");
 
 		assertMatchCount(1, api.findPackage());
 		assertMatchCount(6, api.findClass());
@@ -26,7 +26,7 @@ public class ClassMultipleInheritanceSearchTest extends ClassMultipleInheritance
 
 	@Test
 	public void findSubClasses() {
-		GtGtAPI<?> api = this.init("ClassDiagram1.xmi");
+		GtGtApi<?> api = this.init("ClassDiagram1.xmi");
 
 		api.findClassByName().setParameters("TestA");
 		Clazz testA = assertAnyMatchExists(api.findClassByName()).clazz();
@@ -50,7 +50,7 @@ public class ClassMultipleInheritanceSearchTest extends ClassMultipleInheritance
 
 	@Test
 	public void notifyIfTwoClassesOfTheSameName() {
-		GtGtAPI<?> api = this.init("ClassDiagram1.xmi");
+		GtGtApi<?> api = this.init("ClassDiagram1.xmi");
 
 		Set<Clazz> classes = new HashSet<Clazz>();
 		api.findTwoClassesOfSameName().subscribeAppearing(m -> {

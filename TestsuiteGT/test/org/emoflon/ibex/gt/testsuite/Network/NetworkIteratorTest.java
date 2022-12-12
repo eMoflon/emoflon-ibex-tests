@@ -6,13 +6,13 @@ import org.emoflon.ibex.gt.testsuite.GTAppTestCase;
 import org.junit.jupiter.api.Test;
 
 import SimpleNetwork.Network;
-import network.gt2.api.Gt2GtAPI;
+import network.gt2.api.Gt2GtApi;
 
 public class NetworkIteratorTest extends NetworkAbstractTest2{
 	
 	@Test
 	public void checkIteration() {
-		Gt2GtAPI<?> api = this.init("SimpleNetwork1.xmi");
+		Gt2GtApi<?> api = this.init("SimpleNetwork1.xmi");
 		// Skip if the engine is democles -> it does not work with some of these patterns -> See GT Rule file
 		if(engine == GTAppTestCase.PM_DEMOCLES) {
 			api.terminate();
@@ -51,7 +51,7 @@ public class NetworkIteratorTest extends NetworkAbstractTest2{
 	
 	@Test
 	public void checkIteration2() {
-		Gt2GtAPI<?> api = this.init("SimpleNetwork1.xmi");
+		Gt2GtApi<?> api = this.init("SimpleNetwork1.xmi");
 		// Skip if the engine is democles -> it does not work with some of these patterns -> See GT Rule file
 		if(engine == GTAppTestCase.PM_DEMOCLES) {
 			api.terminate();
@@ -90,7 +90,7 @@ public class NetworkIteratorTest extends NetworkAbstractTest2{
 	
 	@Test
 	public void checkIteration3() {
-		Gt2GtAPI<?> api = this.init("SimpleNetwork1.xmi");	
+		Gt2GtApi<?> api = this.init("SimpleNetwork1.xmi");	
 		// Skip if the engine is democles -> it does not work with some of these patterns -> See GT Rule file
 		if(engine == GTAppTestCase.PM_DEMOCLES) {
 			api.terminate();
@@ -156,7 +156,7 @@ public class NetworkIteratorTest extends NetworkAbstractTest2{
 	
 	@Test
 	public void checkTypedIteration() {
-		Gt2GtAPI<?> api = this.init("SimpleNetwork1.xmi");
+		Gt2GtApi<?> api = this.init("SimpleNetwork1.xmi");
 		// Skip if the engine is democles -> it does not work with some of these patterns -> See GT Rule file
 		if(engine == GTAppTestCase.PM_DEMOCLES) {
 			api.terminate();

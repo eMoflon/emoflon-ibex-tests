@@ -3,14 +3,14 @@ package org.emoflon.ibex.gt.testsuite.Economy;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
-import economy.gt.api.GtGtAPI;
+import economy.gt.api.GtGtApi;
 
 
 public class EconomyDisjunctAttributeTest extends EconomyAbstractTest{
 
 	@Test
 	public void testSimpleAttributeCondition() {
-		GtGtAPI<?> api = this.init("SimpleMarket.xmi");
+		GtGtApi<?> api = this.init("SimpleMarket.xmi");
 		api.getGTEngine().setAlwaysUpdateAfter(true);
 		api.getGTEngine().setAlwaysUpdatePrior(true);
 		
@@ -35,7 +35,7 @@ public class EconomyDisjunctAttributeTest extends EconomyAbstractTest{
 	
 	@Test
 	public void testMultipleAttributeConditionBetweenTwoPatterns() {
-		GtGtAPI<?> api = this.init("SimpleMarket.xmi");
+		GtGtApi<?> api = this.init("SimpleMarket.xmi");
 		api.getGTEngine().setAlwaysUpdateAfter(true);
 		api.getGTEngine().setAlwaysUpdatePrior(true);
 		
@@ -81,7 +81,7 @@ public class EconomyDisjunctAttributeTest extends EconomyAbstractTest{
 	
 	@Test
 	public void testMultipleAttributeConditions() {
-		GtGtAPI<?> api = this.init("SimpleMarket.xmi");
+		GtGtApi<?> api = this.init("SimpleMarket.xmi");
 		api.getGTEngine().setAlwaysUpdateAfter(true);
 		api.getGTEngine().setAlwaysUpdatePrior(true);
 		
@@ -115,7 +115,7 @@ public class EconomyDisjunctAttributeTest extends EconomyAbstractTest{
 	
 	@Test 
 	public void testInjectivityConstraints(){
-		GtGtAPI<?> api = this.init("SimpleMarket.xmi");
+		GtGtApi<?> api = this.init("SimpleMarket.xmi");
 		api.getGTEngine().setAlwaysUpdateAfter(true);
 		api.getGTEngine().setAlwaysUpdatePrior(true);
 		
@@ -148,7 +148,7 @@ public class EconomyDisjunctAttributeTest extends EconomyAbstractTest{
 	
 	@Test 
 	public void testInjectivityConstraints2() {
-		GtGtAPI<?> api = this.init("SimpleMarket.xmi");
+		GtGtApi<?> api = this.init("SimpleMarket.xmi");
 		api.getGTEngine().setAlwaysUpdateAfter(true);
 		api.getGTEngine().setAlwaysUpdatePrior(true);
 		

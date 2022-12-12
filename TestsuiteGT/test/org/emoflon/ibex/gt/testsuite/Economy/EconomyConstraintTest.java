@@ -2,13 +2,13 @@ package org.emoflon.ibex.gt.testsuite.Economy;
 
 import org.junit.jupiter.api.Test;
 
-import economy.gt.api.GtGtAPI;
+import economy.gt.api.GtGtApi;
 
 public class EconomyConstraintTest extends EconomyAbstractTest{
 	
 	@Test
 	public void testConstraints() {
-		GtGtAPI<?> api = this.init("ConstraintMarket.xmi");
+		GtGtApi<?> api = this.init("ConstraintMarket.xmi");
 		api.getGTEngine().setAlwaysUpdateAfter(true);
 		api.getGTEngine().setAlwaysUpdatePrior(true);
 		

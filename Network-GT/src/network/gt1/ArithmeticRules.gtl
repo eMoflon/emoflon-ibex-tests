@@ -219,3 +219,28 @@ pattern watchDog2 refines watchDog1 {
 	watch(device.maxBandwidth)
 
 };
+
+pattern pairOfDevices {
+	[=] d1 : Device
+	[=] d2 : Device
+	watch(d1.flag)
+};
+
+@config(disable-injectivity-constraints)
+pattern pairOfDevicesNoIC {
+	[=] d1 : Device
+	[=] d2 : Device
+};
+
+@config(disable-injectivity-constraints)
+pattern pairOfDevicesManualIC refines pairOfDevices {
+	[#] d1 != d2;
+	watch(d2.flag)
+};
+
+rule removeDevice {
+	[=] network : Network {
+		[-] -devices->device
+	}
+	[-] device : Device
+};

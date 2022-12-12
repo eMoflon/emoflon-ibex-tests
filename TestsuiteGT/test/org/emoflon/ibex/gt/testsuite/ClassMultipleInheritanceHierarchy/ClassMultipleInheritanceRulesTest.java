@@ -6,18 +6,18 @@ import org.junit.jupiter.api.Test;
 
 import classMultipleInheritanceHierarchy.ClassPackage;
 import classMultipleInheritanceHierarchy.Clazz;
-import classmultipleinheritance.gt.api.GtGtAPI;
+import classmultipleinheritance.gt.api.GtGtApi;
 import classmultipleinheritance.gt.api.pattern.FindClassInPackagePattern;
 
 /**
  * Tests for creation rules with the ClassMultipleInheritanceHierarchy Graph
- * Transformation API.
+ * Transformation Api.
  */
 public class ClassMultipleInheritanceRulesTest extends ClassMultipleInheritanceHierarchyAbstractTest {
 
 	@Test
 	public void createPackage() {
-		GtGtAPI<?> api = this.init("ClassDiagram1.xmi");
+		GtGtApi<?> api = this.init("ClassDiagram1.xmi");
 
 		api.createPackage().setParameters("SecondPackage");
 		api.updateMatches();
@@ -47,7 +47,7 @@ public class ClassMultipleInheritanceRulesTest extends ClassMultipleInheritanceH
 
 	@Test
 	public void addSuperClass() {
-		GtGtAPI<?> api = this.init("ClassDiagram1.xmi");
+		GtGtApi<?> api = this.init("ClassDiagram1.xmi");
 		api.findClassByName().setParameters("TestA");
 		Clazz a = assertAnyMatchExists(api.findClassByName()).clazz();
 		api.findClassByName().setParameters("TestC");
@@ -65,7 +65,7 @@ public class ClassMultipleInheritanceRulesTest extends ClassMultipleInheritanceH
 
 	@Test
 	public void renameClass() {
-		GtGtAPI<?> api = this.init("ClassDiagram1.xmi");
+		GtGtApi<?> api = this.init("ClassDiagram1.xmi");
 
 		api.renameClass().setParameters("TestA", "TestNew");
 		assertApplicableAndApply(api.renameClass());
@@ -81,7 +81,7 @@ public class ClassMultipleInheritanceRulesTest extends ClassMultipleInheritanceH
 
 	@Test
 	public void deletePackage() {
-		GtGtAPI<?> api = this.init("ClassDiagram1.xmi");
+		GtGtApi<?> api = this.init("ClassDiagram1.xmi");
 
 		assertMatchCount(1, api.findPackage());
 		assertNotApplicable(api.deletePackage());

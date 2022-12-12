@@ -6,7 +6,7 @@ import java.util.function.Supplier;
 
 import GroupVotersModel.Group;
 import GroupVotersModel.Voter;
-import votermodel.gt.api.GtGtAPI;
+import votermodel.gt.api.GtGtApi;
 
 import org.junit.jupiter.api.Test;
 
@@ -14,7 +14,7 @@ public class VoterModelMultiGraphTest extends VoterModelAbstractTest {
 	
 	@Test
 	public void adoptRuleMGTest() {
-		GtGtAPI<?>api = this.init("VoterModel1.xmi");
+		GtGtApi<?>api = this.init("VoterModel1.xmi");
 		
 		adoptRuleMGTest(api);
 		api.terminate();
@@ -22,7 +22,7 @@ public class VoterModelMultiGraphTest extends VoterModelAbstractTest {
 	
 	@Test
 	public void adoptRulePGTest() {
-		GtGtAPI<?>api = this.init("VoterModel1.xmi");
+		GtGtApi<?>api = this.init("VoterModel1.xmi");
 		
 		adoptRulePGTest(api);
 		api.terminate();
@@ -30,7 +30,7 @@ public class VoterModelMultiGraphTest extends VoterModelAbstractTest {
 	
 	@Test
 	public void rewireRuleMGTest() {
-		GtGtAPI<?>api = this.init("VoterModel1.xmi");
+		GtGtApi<?>api = this.init("VoterModel1.xmi");
 		
 		rewireRuleMGTest(api);
 		api.terminate();
@@ -38,7 +38,7 @@ public class VoterModelMultiGraphTest extends VoterModelAbstractTest {
 	
 	@Test
 	public void rewireRulePGTest() {
-		GtGtAPI<?>api = this.init("VoterModel1.xmi");
+		GtGtApi<?>api = this.init("VoterModel1.xmi");
 		
 		rewireRulePGTest(api);
 		api.terminate();
@@ -46,7 +46,7 @@ public class VoterModelMultiGraphTest extends VoterModelAbstractTest {
 	
 	@Test
 	public void rewireRule1MGTerminationTest() {
-		GtGtAPI<?>api = this.init("VoterModel1.xmi");
+		GtGtApi<?>api = this.init("VoterModel1.xmi");
 
 		rewireRule1MGTerminationTest(api);	
 		api.terminate();
@@ -54,7 +54,7 @@ public class VoterModelMultiGraphTest extends VoterModelAbstractTest {
 	
 	@Test
 	public void rewireRule2MGTerminationTest() {
-		GtGtAPI<?>api = this.init("VoterModel1.xmi");
+		GtGtApi<?>api = this.init("VoterModel1.xmi");
 
 		rewireRule2MGTerminationTest(api);
 		api.terminate();
@@ -62,7 +62,7 @@ public class VoterModelMultiGraphTest extends VoterModelAbstractTest {
 	
 	@Test
 	public void rewireRule1PGTerminationTest() {
-		GtGtAPI<?>api = this.init("VoterModel1.xmi");
+		GtGtApi<?>api = this.init("VoterModel1.xmi");
 
 		rewireRule1PGTerminationTest(api);
 		api.terminate();
@@ -70,7 +70,7 @@ public class VoterModelMultiGraphTest extends VoterModelAbstractTest {
 	
 	@Test
 	public void rewireRule2PGTerminationTest() {
-		GtGtAPI<?>api = this.init("VoterModel1.xmi");
+		GtGtApi<?>api = this.init("VoterModel1.xmi");
 		
 		rewireRule2PGTerminationTest(api);
 		api.terminate();
@@ -78,7 +78,7 @@ public class VoterModelMultiGraphTest extends VoterModelAbstractTest {
 	
 	@Test
 	public void adopt1MGTerminationTest() {
-		GtGtAPI<?>api = this.init("VoterModel1.xmi");
+		GtGtApi<?>api = this.init("VoterModel1.xmi");
 		
 		adopt1MGTerminationTest(api);
 		api.terminate();
@@ -86,7 +86,7 @@ public class VoterModelMultiGraphTest extends VoterModelAbstractTest {
 	
 	@Test
 	public void adopt1PGTerminationTest() {
-		GtGtAPI<?>api = this.init("VoterModel1.xmi");
+		GtGtApi<?>api = this.init("VoterModel1.xmi");
 		
 		adopt1PGTerminationTest(api);
 		api.terminate();
@@ -94,7 +94,7 @@ public class VoterModelMultiGraphTest extends VoterModelAbstractTest {
 	
 	@Test
 	public void adopt2MGTerminationTest() {
-		GtGtAPI<?>api = this.init("VoterModel1.xmi");
+		GtGtApi<?>api = this.init("VoterModel1.xmi");
 		
 		adopt2MGTerminationTest(api);
 		api.terminate();
@@ -102,7 +102,7 @@ public class VoterModelMultiGraphTest extends VoterModelAbstractTest {
 	
 	@Test
 	public void adopt2PGTerminationTest() {
-		GtGtAPI<?>api = this.init("VoterModel1.xmi");
+		GtGtApi<?>api = this.init("VoterModel1.xmi");
 		
 		adopt2PGTerminationTest(api);
 		api.terminate();
@@ -110,7 +110,7 @@ public class VoterModelMultiGraphTest extends VoterModelAbstractTest {
 	
 	@Test
 	public void rewireAlternatingMGTerminationTest() {
-		GtGtAPI<?>api = this.init("VoterModel1.xmi");
+		GtGtApi<?>api = this.init("VoterModel1.xmi");
 		
 		rewireAlternatingMGTerminationTest(api);
 		api.terminate();
@@ -118,13 +118,13 @@ public class VoterModelMultiGraphTest extends VoterModelAbstractTest {
 	
 	@Test
 	public void rewireAlternatingPGTerminationTest() {
-		GtGtAPI<?>api = this.init("VoterModel1.xmi");
+		GtGtApi<?>api = this.init("VoterModel1.xmi");
 
 		rewireAlternatingPGTerminationTest(api);
 		api.terminate();
 	}
 	
-	public void adoptRuleMGTest(final GtGtAPI<?>api) {
+	public void adoptRuleMGTest(final GtGtApi<?>api) {
 		api.getGTEngine().setAlwaysUpdateAfter(true);
 		api.getGTEngine().setAlwaysUpdatePrior(true);
 		sanityCheck(api);
@@ -160,7 +160,7 @@ public class VoterModelMultiGraphTest extends VoterModelAbstractTest {
 		automaticCheck(api);
 	}
 	
-	public void adoptRulePGTest(final GtGtAPI<?>api) {
+	public void adoptRulePGTest(final GtGtApi<?>api) {
 		api.getGTEngine().setAlwaysUpdateAfter(true);
 		api.getGTEngine().setAlwaysUpdatePrior(true);
 		sanityCheck(api);
@@ -204,7 +204,7 @@ public class VoterModelMultiGraphTest extends VoterModelAbstractTest {
 		automaticCheck(api);
 	}
 	
-	public void rewireRuleMGTest(final GtGtAPI<?>api) {
+	public void rewireRuleMGTest(final GtGtApi<?>api) {
 		api.getGTEngine().setAlwaysUpdateAfter(true);
 		api.getGTEngine().setAlwaysUpdatePrior(true);
 		sanityCheck(api);
@@ -244,7 +244,7 @@ public class VoterModelMultiGraphTest extends VoterModelAbstractTest {
 		automaticCheck(api);
 	}
 	
-	public void rewireRulePGTest(final GtGtAPI<?>api) {
+	public void rewireRulePGTest(final GtGtApi<?>api) {
 		api.getGTEngine().setAlwaysUpdateAfter(true);
 		api.getGTEngine().setAlwaysUpdatePrior(true);
 		sanityCheck(api);
@@ -288,7 +288,7 @@ public class VoterModelMultiGraphTest extends VoterModelAbstractTest {
 		automaticCheck(api);
 	}
 	
-	public void rewireRule1MGTerminationTest(final GtGtAPI<?>api) {
+	public void rewireRule1MGTerminationTest(final GtGtApi<?>api) {
 		api.getGTEngine().setAlwaysUpdateAfter(true);
 		api.getGTEngine().setAlwaysUpdatePrior(true);
 		sanityCheck(api);
@@ -303,7 +303,7 @@ public class VoterModelMultiGraphTest extends VoterModelAbstractTest {
 		assertNotApplicable(api.rewireToSame1MG());
 	}
 	
-	public void rewireRule2MGTerminationTest(final GtGtAPI<?>api) {
+	public void rewireRule2MGTerminationTest(final GtGtApi<?>api) {
 		api.getGTEngine().setAlwaysUpdateAfter(true);
 		api.getGTEngine().setAlwaysUpdatePrior(true);
 		sanityCheck(api);
@@ -318,7 +318,7 @@ public class VoterModelMultiGraphTest extends VoterModelAbstractTest {
 		assertNotApplicable(api.rewireToSame2MG());
 	}
 	
-	public void rewireRule1PGTerminationTest(final GtGtAPI<?>api) {
+	public void rewireRule1PGTerminationTest(final GtGtApi<?>api) {
 		api.getGTEngine().setAlwaysUpdateAfter(true);
 		api.getGTEngine().setAlwaysUpdatePrior(true);
 		sanityCheck(api);
@@ -333,7 +333,7 @@ public class VoterModelMultiGraphTest extends VoterModelAbstractTest {
 		assertNotApplicable(api.rewireToSame1PG());
 	}
 	
-	public void rewireRule2PGTerminationTest(final GtGtAPI<?>api) {
+	public void rewireRule2PGTerminationTest(final GtGtApi<?>api) {
 		api.getGTEngine().setAlwaysUpdateAfter(true);
 		api.getGTEngine().setAlwaysUpdatePrior(true);
 		sanityCheck(api);
@@ -348,7 +348,7 @@ public class VoterModelMultiGraphTest extends VoterModelAbstractTest {
 		assertNotApplicable(api.rewireToSame2PG());
 	}
 	
-	public void adopt1MGTerminationTest(final GtGtAPI<?>api) {
+	public void adopt1MGTerminationTest(final GtGtApi<?>api) {
 		api.getGTEngine().setAlwaysUpdateAfter(true);
 		api.getGTEngine().setAlwaysUpdatePrior(true);
 		sanityCheck(api);
@@ -364,7 +364,7 @@ public class VoterModelMultiGraphTest extends VoterModelAbstractTest {
 		assertNotApplicable(api.adopt2MG());
 	}
 	
-	public void adopt2MGTerminationTest(final GtGtAPI<?>api) {
+	public void adopt2MGTerminationTest(final GtGtApi<?>api) {
 		api.getGTEngine().setAlwaysUpdateAfter(true);
 		api.getGTEngine().setAlwaysUpdatePrior(true);
 		sanityCheck(api);
@@ -380,7 +380,7 @@ public class VoterModelMultiGraphTest extends VoterModelAbstractTest {
 		assertNotApplicable(api.adopt2MG());
 	}
 	
-	public void adopt1PGTerminationTest(final GtGtAPI<?>api) {
+	public void adopt1PGTerminationTest(final GtGtApi<?>api) {
 		api.getGTEngine().setAlwaysUpdateAfter(true);
 		api.getGTEngine().setAlwaysUpdatePrior(true);
 		sanityCheck(api);
@@ -396,7 +396,7 @@ public class VoterModelMultiGraphTest extends VoterModelAbstractTest {
 		assertNotApplicable(api.adopt2PG());
 	}
 	
-	public void adopt2PGTerminationTest(final GtGtAPI<?>api) {
+	public void adopt2PGTerminationTest(final GtGtApi<?>api) {
 		api.getGTEngine().setAlwaysUpdateAfter(true);
 		api.getGTEngine().setAlwaysUpdatePrior(true);
 		sanityCheck(api);
@@ -414,7 +414,7 @@ public class VoterModelMultiGraphTest extends VoterModelAbstractTest {
 	
 	
 	
-	public void rewireAlternatingMGTerminationTest(final GtGtAPI<?>api) {
+	public void rewireAlternatingMGTerminationTest(final GtGtApi<?>api) {
 		api.getGTEngine().setAlwaysUpdateAfter(true);
 		api.getGTEngine().setAlwaysUpdatePrior(true);
 		sanityCheck(api);
@@ -442,7 +442,7 @@ public class VoterModelMultiGraphTest extends VoterModelAbstractTest {
 		assertNotApplicable(api.rewireToSame2MG());
 	}
 	
-	public void rewireAlternatingPGTerminationTest(final GtGtAPI<?>api) {
+	public void rewireAlternatingPGTerminationTest(final GtGtApi<?>api) {
 		api.getGTEngine().setAlwaysUpdateAfter(true);
 		api.getGTEngine().setAlwaysUpdatePrior(true);
 		sanityCheck(api);
@@ -469,7 +469,7 @@ public class VoterModelMultiGraphTest extends VoterModelAbstractTest {
 		assertNotApplicable(api.rewireToSame2PG());
 	}
 	
-	private void sanityCheck(final GtGtAPI<?>api) {
+	private void sanityCheck(final GtGtApi<?>api) {
 		api.getGTEngine().setAlwaysUpdateAfter(true);
 		api.getGTEngine().setAlwaysUpdatePrior(true);
 		// Sanity Checks
@@ -494,7 +494,7 @@ public class VoterModelMultiGraphTest extends VoterModelAbstractTest {
 		assertEquals(330, api.rewireToSame2PG().countMatches());	
 	}
 	
-	private void automaticCheck(final GtGtAPI<?>api) {
+	private void automaticCheck(final GtGtApi<?>api) {
 		api.getGTEngine().setAlwaysUpdateAfter(true);
 		api.getGTEngine().setAlwaysUpdatePrior(true);
 		

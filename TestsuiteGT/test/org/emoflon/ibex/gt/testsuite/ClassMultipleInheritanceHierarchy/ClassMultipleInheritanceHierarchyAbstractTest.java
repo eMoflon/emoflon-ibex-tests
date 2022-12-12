@@ -1,14 +1,14 @@
 package org.emoflon.ibex.gt.testsuite.ClassMultipleInheritanceHierarchy;
 
-import classmultipleinheritance.gt.api.GtGtAPI;
-import classmultipleinheritance.gt.api.GtHiPEGtAPI;
+import classmultipleinheritance.gt.api.GtGtApi;
+import classmultipleinheritance.gt.api.GtHiPEGtApi;
 import org.emoflon.ibex.gt.testsuite.GTAppTestCase;
 
 /**
  * Abstract test class for the ClassMultipleInheritanceHierarchy Graph
- * Transformation API. All tests for this API should inherit from this class.
+ * Transformation Api. All tests for this Api should inherit from this class.
  */
-public class ClassMultipleInheritanceHierarchyAbstractTest extends GTAppTestCase<GtGtAPI<?>> {
+public class ClassMultipleInheritanceHierarchyAbstractTest extends GTAppTestCase<GtGtApi<?>> {
 
 	@Override
 	protected String getTestName() {
@@ -16,17 +16,17 @@ public class ClassMultipleInheritanceHierarchyAbstractTest extends GTAppTestCase
 	}
 
 	@Override
-	protected GtGtAPI<?> getApi() {
+	protected GtGtApi<?> getApi() {
 		return getApi(patternMatcher);
 	}
 	
 	@Override
-	protected GtGtAPI<?> getApi(String patternMatcher) {
+	protected GtGtApi<?> getApi(String patternMatcher) {
 		return switch(patternMatcher) {
-			case PM_HIPE -> {yield new GtHiPEGtAPI();}
+			case PM_HIPE -> {yield new GtHiPEGtApi();}
 			case PM_VIATRA ->{throw new IllegalArgumentException("Unknown or unimplemented pattern matcher type: " + PM_VIATRA);}
 			case PM_DEMOCLES -> {throw new IllegalArgumentException("Unknown or unimplemented pattern matcher type: " + PM_DEMOCLES);}
-			default -> {yield new GtHiPEGtAPI();}
+			default -> {yield new GtHiPEGtApi();}
 		};
 	}
 }

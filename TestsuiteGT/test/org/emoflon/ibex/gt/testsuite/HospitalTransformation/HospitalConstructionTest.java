@@ -5,13 +5,13 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 import HospitalExample.Carelevel;
-import hospital.gt.api.GtGtAPI;
+import hospital.gt.api.GtGtApi;
 import hospital.util.HospitalRules;
 public class HospitalConstructionTest extends HospitalTransformationAbstractTest {
 
 	@Test
 	public void constructHospital1() {
-		GtGtAPI<?> api = this.initEmpty("HospitalConstruction.xmi");
+		GtGtApi<?> api = this.initEmpty("HospitalConstruction.xmi");
 		
 		// Check axiomatic rule (rules with green(++) elements only) with NACs
 		assertMatchCount(1, api.hospital());
@@ -23,7 +23,7 @@ public class HospitalConstructionTest extends HospitalTransformationAbstractTest
 	
 	@Test
 	public void constructHospital2() {
-		GtGtAPI<?> api = this.initEmpty("HospitalConstruction.xmi");
+		GtGtApi<?> api = this.initEmpty("HospitalConstruction.xmi");
 		
 		assertApplicableAndApply(api.hospital());
 		assertApplicableAndApply(api.reception());

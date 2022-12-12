@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 
 import SheRememberedCaterpillars.COLOR;
 import SheRememberedCaterpillars.Character;
-import caterpillars.gt.api.GtGtAPI;
+import caterpillars.gt.api.GtGtApi;
 import caterpillars.gt.api.match.CreateBlueCharacterCoMatch;
 import caterpillars.gt.api.match.CreateBlueCharacterMatch;
 import caterpillars.gt.api.rule.CreateBlueCharacterRule;
@@ -18,13 +18,13 @@ import caterpillars.gt.api.rule.TransformBlueAndRedToPurpleCharacterRule;
 
 /**
  * Tests for simple constraints with the SheRememberedCaterpillars Graph
- * Transformation API.
+ * Transformation Api.
  */
 public class SheRememberedCaterpillarsRulesTest extends SheRememberedCaterpillarsAbstractTest {
 
 	@Test
 	public void move() {
-		GtGtAPI<?> api = this.init("Instance1.xmi");
+		GtGtApi<?> api = this.init("Instance1.xmi");
 
 		Character blueCharacter = api.findCharacterNotOnExit().findAnyMatch(true).get().character();
 		assertApplicableAndApply(api.moveCharacterAcrossBridge().bindCharacter(blueCharacter));
@@ -36,7 +36,7 @@ public class SheRememberedCaterpillarsRulesTest extends SheRememberedCaterpillar
 
 	@Test
 	public void createCharacters() {
-		GtGtAPI<?> api = this.init("EmptyGame.xmi");
+		GtGtApi<?> api = this.init("EmptyGame.xmi");
 		assertCharacterColorCount(api, 0, 0, 0);
 		assertApplicableAndApply(api.createBlueCharacter());
 		assertApplicableAndApply(api.createRedCharacter());
@@ -48,14 +48,14 @@ public class SheRememberedCaterpillarsRulesTest extends SheRememberedCaterpillar
 
 	@Test
 	public void createGameDefaultResource() {
-		GtGtAPI<?> api = this.initEmpty("EmptyGame.xmi");
+		GtGtApi<?> api = this.initEmpty("EmptyGame.xmi");
 		assertApplicableAndApply(api.createGame());
 		assertEquals(1, api.getModel().getResources().get(0).getContents().size());
 	}
 
 	@Test
 	public void createCharactersSubscriptions() {
-		GtGtAPI<?> api = this.init("EmptyGame.xmi");
+		GtGtApi<?> api = this.init("EmptyGame.xmi");
 		
 		CreateBlueCharacterRule pattern = api.createBlueCharacter();
 		BiConsumer<CreateBlueCharacterMatch, CreateBlueCharacterCoMatch> action = pattern.subscribeApplications((m, cm) -> cm.character().setColor(COLOR.RED));
@@ -79,7 +79,7 @@ public class SheRememberedCaterpillarsRulesTest extends SheRememberedCaterpillar
 
 	@Test
 	public void createCharactersOnEmptyPlatformsOnly() {
-		GtGtAPI<?> api = this.init("EmptyGame.xmi");
+		GtGtApi<?> api = this.init("EmptyGame.xmi");
 		assertApplicableAndApply(api.createCharacterOfColorOnEmptyPlatform(COLOR.BLUE));
 		assertApplicableAndApply(api.createCharacterOfColorOnEmptyPlatform(COLOR.RED));
 		// There are only two platforms -> is no empty platform for a third character.
@@ -91,7 +91,7 @@ public class SheRememberedCaterpillarsRulesTest extends SheRememberedCaterpillar
 
 	@Test
 	public void createCharactersOnEmptyPlatformsOnly2() {
-		GtGtAPI<?> api = this.init("EmptyGame.xmi");
+		GtGtApi<?> api = this.init("EmptyGame.xmi");
 
 		CreateCharacterOfColorOnEmptyPlatformRule rule = api.createCharacterOfColorOnEmptyPlatform(COLOR.BLUE);
 		// Due to the NAC only 2 applications are possible.
@@ -108,7 +108,7 @@ public class SheRememberedCaterpillarsRulesTest extends SheRememberedCaterpillar
 
 	@Test
 	public void transformCharacters() {
-		GtGtAPI<?> api = this.init("Instance2.xmi");
+		GtGtApi<?> api = this.init("Instance2.xmi");
 		assertCharacterColorCount(api, 1, 1, 0);
 
 		assertApplicableAndApply(api.transformBlueAndRedToPurpleCharacter());
@@ -122,7 +122,7 @@ public class SheRememberedCaterpillarsRulesTest extends SheRememberedCaterpillar
 
 	@Test
 	public void transformCharactersAuto() {
-		GtGtAPI<?> api = this.init("Instance2.xmi");
+		GtGtApi<?> api = this.init("Instance2.xmi");
 
 		TransformBlueAndRedToPurpleCharacterRule ToPurple = api.transformBlueAndRedToPurpleCharacter();
 		while(ToPurple.hasMatches(true))

@@ -9,7 +9,7 @@ import SheRememberedCaterpillars.ExitPlatform;
 import SheRememberedCaterpillars.Game;
 import SheRememberedCaterpillars.SheRememberedCaterpillarsFactory;
 import SheRememberedCaterpillars.SimplePlatform;
-import caterpillars.gt.api.GtGtAPI;
+import caterpillars.gt.api.GtGtApi;
 import caterpillars.gt.api.match.FindStandalonePlatformMatch;
 import caterpillars.gt.api.match.FindTwoCharactersOnAnExitPlatformMatch;
 import caterpillars.gt.api.pattern.FindPlatformWithExactlyOneNeighborPattern;
@@ -18,13 +18,13 @@ import caterpillars.gt.api.pattern.FindPlatformWithTwoNeighborsPattern;
 
 /**
  * Tests for rule applications with the SheRememberedCaterpillars Graph
- * Transformation API.
+ * Transformation Api.
  */
 public class SheRememberedCaterpillarsConstraintsTest extends SheRememberedCaterpillarsAbstractTest {
 
 	@Test
 	public void findCharacters() {
-		GtGtAPI<?> api = this.init("Instance1.xmi");
+		GtGtApi<?> api = this.init("Instance1.xmi");
 
 		assertMatchCount(2, api.findCharacter());
 		assertAnyMatchExists(api.findCharacterNotOnExit());
@@ -35,7 +35,7 @@ public class SheRememberedCaterpillarsConstraintsTest extends SheRememberedCater
 
 	@Test
 	public void findCharactersOfColor() {
-		GtGtAPI<?> api = this.init("Instance1.xmi");
+		GtGtApi<?> api = this.init("Instance1.xmi");
 
 		assertMatchCount(1, api.findCharacterOfColor(COLOR.BLUE));
 		assertMatchCount(1, api.findCharacterOfColor(COLOR.RED));
@@ -46,7 +46,7 @@ public class SheRememberedCaterpillarsConstraintsTest extends SheRememberedCater
 
 	@Test
 	public void noIllegalSituation() {
-		GtGtAPI<?> api = this.initEmpty("SheRememberedCaterpillars.xmi");
+		GtGtApi<?> api = this.initEmpty("SheRememberedCaterpillars.xmi");
 
 		assertNoMatch(api.findTwoCharactersOnAnExitPlatform());
 		
@@ -55,7 +55,7 @@ public class SheRememberedCaterpillarsConstraintsTest extends SheRememberedCater
 
 	@Test
 	public void illegalSituation() {
-		GtGtAPI<?> api = this.init("TwoCharactersAtSameExit.xmi");
+		GtGtApi<?> api = this.init("TwoCharactersAtSameExit.xmi");
 
 		assertAnyMatchExists(api.findTwoCharactersOnAnExitPlatform());
 		assertMatchCount(2, api.findTwoCharactersOnAnExitPlatform());
@@ -67,7 +67,7 @@ public class SheRememberedCaterpillarsConstraintsTest extends SheRememberedCater
 
 	@Test
 	public void findEmptyExit() {
-		GtGtAPI<?> api = this.init("Instance1.xmi");
+		GtGtApi<?> api = this.init("Instance1.xmi");
 
 		assertMatchCount(1, api.findEmptyExit());
 	
@@ -76,7 +76,7 @@ public class SheRememberedCaterpillarsConstraintsTest extends SheRememberedCater
 
 	@Test
 	public void findStandalonePlatform() {
-		GtGtAPI<?> api = this.init("Instance3.xmi");
+		GtGtApi<?> api = this.init("Instance3.xmi");
 
 		assertMatchCount(1, api.findStandalonePlatform());
 		FindStandalonePlatformMatch m = assertAnyMatchExists(api.findStandalonePlatform());
@@ -88,7 +88,7 @@ public class SheRememberedCaterpillarsConstraintsTest extends SheRememberedCater
 
 	@Test
 	public void findPlatformWithNeighbors() {
-		GtGtAPI<?> api = this.init("Instance3.xmi");
+		GtGtApi<?> api = this.init("Instance3.xmi");
 
 		assertMatchCount(1, api.findPlatformWithExactlyOneNeighbor());
 		assertMatchCount(2, api.findPlatformWithNeighbor());
@@ -99,7 +99,7 @@ public class SheRememberedCaterpillarsConstraintsTest extends SheRememberedCater
 	
 	@Test
 	public void findPlatformWithNeighbors_inc_create() {
-		GtGtAPI<?> api = this.init("Instance3.xmi");
+		GtGtApi<?> api = this.init("Instance3.xmi");
 		api.getGTEngine().setAlwaysUpdateAfter(true);
 		api.getGTEngine().setAlwaysUpdatePrior(true);
 
@@ -126,7 +126,7 @@ public class SheRememberedCaterpillarsConstraintsTest extends SheRememberedCater
 	
 	@Test
 	public void findPlatformWithNeighbors_inc_del() {
-		GtGtAPI<?> api = this.init("Instance3.xmi");
+		GtGtApi<?> api = this.init("Instance3.xmi");
 		api.getGTEngine().setAlwaysUpdateAfter(true);
 		api.getGTEngine().setAlwaysUpdatePrior(true);
 
@@ -154,7 +154,7 @@ public class SheRememberedCaterpillarsConstraintsTest extends SheRememberedCater
 
 	@Test
 	public void findPlatformWithConnections() {
-		GtGtAPI<?> api = this.init("Instance3.xmi");
+		GtGtApi<?> api = this.init("Instance3.xmi");
 
 		assertMatchCount(2, api.findPlatformWithConnection());
 		assertMatchCount(0, api.findPlatformWithTwoConnections());
@@ -164,7 +164,7 @@ public class SheRememberedCaterpillarsConstraintsTest extends SheRememberedCater
 
 	@Test
 	public void findPlatformWithTwoWays() {
-		GtGtAPI<?> api = this.init("Instance3.xmi");
+		GtGtApi<?> api = this.init("Instance3.xmi");
 
 		assertMatchCount(1, api.findPlatformWithTwoWays());
 	
@@ -173,7 +173,7 @@ public class SheRememberedCaterpillarsConstraintsTest extends SheRememberedCater
 
 	@Test
 	public void findDeadEnd() {
-		GtGtAPI<?> api = this.init("Instance3.xmi");
+		GtGtApi<?> api = this.init("Instance3.xmi");
 
 		assertMatchCount(2, api.findDeadEnd());
 	
@@ -182,7 +182,7 @@ public class SheRememberedCaterpillarsConstraintsTest extends SheRememberedCater
 
 	@Test
 	public void noPlatformWithSelfNeighborship() {
-		GtGtAPI<?> api = this.init("Instance1.xmi");
+		GtGtApi<?> api = this.init("Instance1.xmi");
 
 		api.findPlatformSelfNeighbor().getMatches(true).forEach(m -> {
 			System.out.println(m);
@@ -195,7 +195,7 @@ public class SheRememberedCaterpillarsConstraintsTest extends SheRememberedCater
 	
 	@Test
 	public void findPlatformWithSelfNeighborship() {
-		GtGtAPI<?> api = this.init("Instance1.xmi");
+		GtGtApi<?> api = this.init("Instance1.xmi");
 
 		api.findPlatformSelfNeighbor().getMatches(true).forEach(m -> {
 			System.out.println(m);

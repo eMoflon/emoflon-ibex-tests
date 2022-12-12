@@ -11,8 +11,8 @@ import SimpleFamilies.FamilyMember;
 import SimpleFamilies.FamilyRegister;
 import SimplePersons.Person;
 import SimplePersons.PersonRegister;
-import families2persons.gt.api.GtGtAPI;
-import families2persons.gt.api.GtHiPEGtAPI;
+import families2persons.gt.api.GtGtApi;
+import families2persons.gt.api.GtHiPEGtApi;
 import families2persons.gt.api.match.CreateRegisterCoMatch;
 import families2persons.gt.api.match.FindFamilyMatch;
 import families2persons.gt.api.match.FindFamilyRegisterMatch;
@@ -23,10 +23,10 @@ import families2persons.gt.api.rule.MotherToFemaleRule;
 import families2persons.gt.api.rule.SonToMaleRule;
 
 /**
- * Tests for the SimpleFamiliesToSimplePersons Graph Transformation API.
+ * Tests for the SimpleFamiliesToSimplePersons Graph Transformation Api.
  */
 public class FamiliesToSimplePersonsTest extends
-		GTAppTestCase<GtGtAPI<?>> {
+		GTAppTestCase<GtGtApi<?>> {
 
 	@Override
 	protected String getTestName() {
@@ -34,17 +34,17 @@ public class FamiliesToSimplePersonsTest extends
 	}
 
 	@Override
-	protected GtGtAPI<?> getApi() {
+	protected GtGtApi<?> getApi() {
 		return getApi(patternMatcher);
 	}
 	
 	@Override
-	protected GtGtAPI<?> getApi(String patternMatcher) {
+	protected GtGtApi<?> getApi(String patternMatcher) {
 		return switch(patternMatcher) {
-			case PM_HIPE -> {yield new GtHiPEGtAPI();}
+			case PM_HIPE -> {yield new GtHiPEGtApi();}
 			case PM_VIATRA ->{throw new IllegalArgumentException("Unknown or unimplemented pattern matcher type: " + PM_VIATRA);}
 			case PM_DEMOCLES -> {throw new IllegalArgumentException("Unknown or unimplemented pattern matcher type: " + PM_DEMOCLES);}
-			default -> {yield new GtHiPEGtAPI();}
+			default -> {yield new GtHiPEGtApi();}
 		};
 	}
 
@@ -53,7 +53,7 @@ public class FamiliesToSimplePersonsTest extends
 	 */
 	@Test
 	public void simpleFamiliesToPersons() {
-		GtGtAPI<?> api = this.init("FamilyRegister.xmi");
+		GtGtApi<?> api = this.init("FamilyRegister.xmi");
 		api.getGTEngine().setAlwaysUpdateAfter(true);
 		api.getGTEngine().setAlwaysUpdatePrior(true);
 		
@@ -86,12 +86,12 @@ public class FamiliesToSimplePersonsTest extends
 	}
 	
 	/**
-	 * Read objects from the FamilyRegister via the SimpleFamilies API and create
-	 * objects in the PersonRegister via the SimplePersons API.
+	 * Read objects from the FamilyRegister via the SimpleFamilies Api and create
+	 * objects in the PersonRegister via the SimplePersons Api.
 	 */
 	@Test
 	public void simpleFamiliesToPersons2() {
-		GtGtAPI<?> api = this.init("PersonRegisters.xmi", "FamilyRegisters.xmi");
+		GtGtApi<?> api = this.init("PersonRegisters.xmi", "FamilyRegisters.xmi");
 		api.getGTEngine().setAlwaysUpdateAfter(true);
 		api.getGTEngine().setAlwaysUpdatePrior(true);
 		
@@ -105,7 +105,7 @@ public class FamiliesToSimplePersonsTest extends
 		api.terminate();
 	}
 
-	private void transformRegisters(GtGtAPI<?> api) {
+	private void transformRegisters(GtGtApi<?> api) {
 		for (FindFamilyRegisterMatch familyRegisterMatch : api.findFamilyRegister().getMatches()) {
 			CreateRegisterCoMatch m = api.createRegister().applyAny();
 			if(m != null) {
@@ -114,7 +114,7 @@ public class FamiliesToSimplePersonsTest extends
 		}
 	}
 
-	private void transformFamilies(GtGtAPI<?> api, FamilyRegister familyRegister, PersonRegister personRegister) {
+	private void transformFamilies(GtGtApi<?> api, FamilyRegister familyRegister, PersonRegister personRegister) {
 		FindFamilyPattern familyPattern = api.findFamily().bindRegister(familyRegister);
 		for (FindFamilyMatch familyMatch : familyPattern.getMatches()) {
 			Family family = familyMatch.family();
@@ -125,11 +125,11 @@ public class FamiliesToSimplePersonsTest extends
 		}
 	}
 
-	private void createMale(GtGtAPI<?> api, final Family family, final FamilyMember member, final PersonRegister personRegister) {
+	private void createMale(GtGtApi<?> api, final Family family, final FamilyMember member, final PersonRegister personRegister) {
 		api.createMale(this.getFullName(family, member)).bindRegister(personRegister).applyAny();
 	}
 
-	private void createFemale(GtGtAPI<?> api, final Family family, final FamilyMember member, final PersonRegister personRegister) {
+	private void createFemale(GtGtApi<?> api, final Family family, final FamilyMember member, final PersonRegister personRegister) {
 		api.createFemale(this.getFullName(family, member)).bindRegister(personRegister).applyAny();
 	}
 

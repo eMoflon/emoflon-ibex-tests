@@ -2,10 +2,10 @@ package org.emoflon.ibex.gt.testsuite.Network;
 
 import org.emoflon.ibex.gt.testsuite.GTAppTestCase;
 
-import network.gt2.api.Gt2GtAPI;
-import network.gt2.api.Gt2HiPEGtAPI;
+import network.gt2.api.Gt2GtApi;
+import network.gt2.api.Gt2HiPEGtApi;
 	
-public class NetworkAbstractTest2 extends GTAppTestCase<Gt2GtAPI<?>>{
+public class NetworkAbstractTest2 extends GTAppTestCase<Gt2GtApi<?>>{
 		
 		protected String engine = GTAppTestCase.PM_DEFAULT;
 		
@@ -15,17 +15,17 @@ public class NetworkAbstractTest2 extends GTAppTestCase<Gt2GtAPI<?>>{
 		}
 
 		@Override
-		protected Gt2GtAPI<?> getApi() {
+		protected Gt2GtApi<?> getApi() {
 			return getApi(patternMatcher);
 		}
 		
 		@Override
-		protected Gt2GtAPI<?> getApi(String patternMatcher) {
+		protected Gt2GtApi<?> getApi(String patternMatcher) {
 			return switch(patternMatcher) {
-				case PM_HIPE -> {yield new Gt2HiPEGtAPI();}
+				case PM_HIPE -> {yield new Gt2HiPEGtApi();}
 				case PM_VIATRA ->{throw new IllegalArgumentException("Unknown or unimplemented pattern matcher type: " + PM_VIATRA);}
 				case PM_DEMOCLES -> {throw new IllegalArgumentException("Unknown or unimplemented pattern matcher type: " + PM_DEMOCLES);}
-				default -> {yield new Gt2HiPEGtAPI();}
+				default -> {yield new Gt2HiPEGtApi();}
 			};
 		}
 }

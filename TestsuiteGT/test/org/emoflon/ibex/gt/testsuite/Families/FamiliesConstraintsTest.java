@@ -12,18 +12,18 @@ import java.util.stream.Collectors;
 import org.junit.jupiter.api.Test;
 
 import SimpleFamilies.Family;
-import families.gt.api.GtGtAPI;
+import families.gt.api.GtGtApi;
 import families.gt.api.match.FindThreeFamiliesOfTheSameNameMatch;
 
 /**
  * Tests for simple constraints and notifications in the SimpleFamilies Graph
- * Transformation API
+ * Transformation Api
  */
 public class FamiliesConstraintsTest extends FamiliesAbstractTest {
 
 	@Test
 	public void constraints() {
-		GtGtAPI<?> api = this.init("FamilyRegister.xmi");
+		GtGtApi<?> api = this.init("FamilyRegister.xmi");
 		api.getGTEngine().setAlwaysUpdateAfter(true);
 		api.getGTEngine().setAlwaysUpdatePrior(true);
 
@@ -47,7 +47,7 @@ public class FamiliesConstraintsTest extends FamiliesAbstractTest {
 
 	@Test
 	public void countFamilyByName() {
-		GtGtAPI<?> api = this.init("FamilyRegister.xmi");
+		GtGtApi<?> api = this.init("FamilyRegister.xmi");
 		api.getGTEngine().setAlwaysUpdateAfter(true);
 		api.getGTEngine().setAlwaysUpdatePrior(true);
 
@@ -69,7 +69,7 @@ public class FamiliesConstraintsTest extends FamiliesAbstractTest {
 
 	@Test
 	public void countFamilyByName2() {
-		GtGtAPI<?> api = this.init("FamilyRegister2.xmi");
+		GtGtApi<?> api = this.init("FamilyRegister2.xmi");
 		api.getGTEngine().setAlwaysUpdateAfter(true);
 		api.getGTEngine().setAlwaysUpdatePrior(true);
 
@@ -85,7 +85,7 @@ public class FamiliesConstraintsTest extends FamiliesAbstractTest {
 
 	@Test
 	public void parameterizedAttributeConstraintsForEquality() {
-		GtGtAPI<?> api = this.init("FamilyRegister.xmi");
+		GtGtApi<?> api = this.init("FamilyRegister.xmi");
 		api.getGTEngine().setAlwaysUpdateAfter(true);
 		api.getGTEngine().setAlwaysUpdatePrior(true);
 
@@ -102,7 +102,7 @@ public class FamiliesConstraintsTest extends FamiliesAbstractTest {
 
 	@Test
 	public void parameterizedAttributeConstraintsForGreater() {
-		GtGtAPI<?> api = this.init("FamilyRegister.xmi");
+		GtGtApi<?> api = this.init("FamilyRegister.xmi");
 		api.getGTEngine().setAlwaysUpdateAfter(true);
 		api.getGTEngine().setAlwaysUpdatePrior(true);
 
@@ -119,7 +119,7 @@ public class FamiliesConstraintsTest extends FamiliesAbstractTest {
 
 	@Test
 	public void parameterizedAttributeConstraintsForSmaller() {
-		GtGtAPI<?> api = this.init("FamilyRegister.xmi");
+		GtGtApi<?> api = this.init("FamilyRegister.xmi");
 		api.getGTEngine().setAlwaysUpdateAfter(true);
 		api.getGTEngine().setAlwaysUpdatePrior(true);
 		
@@ -136,7 +136,7 @@ public class FamiliesConstraintsTest extends FamiliesAbstractTest {
 
 	@Test
 	public void findMembersTestPositiveApplicationConditions() {
-		GtGtAPI<?> api = this.init("FamilyRegister.xmi");
+		GtGtApi<?> api = this.init("FamilyRegister.xmi");
 		api.getGTEngine().setAlwaysUpdateAfter(true);
 		api.getGTEngine().setAlwaysUpdatePrior(true);
 		
@@ -150,7 +150,7 @@ public class FamiliesConstraintsTest extends FamiliesAbstractTest {
 
 	@Test
 	public void findMembersTestNegativeApplicationCondition() {
-		GtGtAPI<?> api = this.init("FamilyRegister.xmi");
+		GtGtApi<?> api = this.init("FamilyRegister.xmi");
 		api.getGTEngine().setAlwaysUpdateAfter(true);
 		api.getGTEngine().setAlwaysUpdatePrior(true);
 		
@@ -161,7 +161,7 @@ public class FamiliesConstraintsTest extends FamiliesAbstractTest {
 
 	@Test
 	public void findMembersTestAndCondition() {
-		GtGtAPI<?> api = this.init("FamilyRegister.xmi");
+		GtGtApi<?> api = this.init("FamilyRegister.xmi");
 		api.getGTEngine().setAlwaysUpdateAfter(true);
 		api.getGTEngine().setAlwaysUpdatePrior(true);
 		
@@ -173,7 +173,7 @@ public class FamiliesConstraintsTest extends FamiliesAbstractTest {
 
 	@Test
 	public void findMembersTestAlternatives() {
-		GtGtAPI<?> api = this.init("FamilyRegister.xmi");
+		GtGtApi<?> api = this.init("FamilyRegister.xmi");
 		api.getGTEngine().setAlwaysUpdateAfter(true);
 		api.getGTEngine().setAlwaysUpdatePrior(true);
 		
@@ -185,7 +185,7 @@ public class FamiliesConstraintsTest extends FamiliesAbstractTest {
 
 	@Test
 	public void findMembersTestAlternativesWithAttribute() {
-		GtGtAPI<?> api = this.init("FamilyRegister.xmi");
+		GtGtApi<?> api = this.init("FamilyRegister.xmi");
 		api.getGTEngine().setAlwaysUpdateAfter(true);
 		api.getGTEngine().setAlwaysUpdatePrior(true);
 		// Needs the removal of duplicates (match for Bart found by both alternatives!).
@@ -196,7 +196,7 @@ public class FamiliesConstraintsTest extends FamiliesAbstractTest {
 
 	@Test
 	public void findHalfOrphans() {
-		GtGtAPI<?> api = this.init("FamilyRegister2.xmi");
+		GtGtApi<?> api = this.init("FamilyRegister2.xmi");
 		api.getGTEngine().setAlwaysUpdateAfter(true);
 		api.getGTEngine().setAlwaysUpdatePrior(true);
 		
@@ -213,7 +213,7 @@ public class FamiliesConstraintsTest extends FamiliesAbstractTest {
 
 	@Test
 	public void findOrphans() {
-		GtGtAPI<?> api = this.init("FamilyRegister2.xmi");
+		GtGtApi<?> api = this.init("FamilyRegister2.xmi");
 		api.getGTEngine().setAlwaysUpdateAfter(true);
 		api.getGTEngine().setAlwaysUpdatePrior(true);
 		
@@ -227,7 +227,7 @@ public class FamiliesConstraintsTest extends FamiliesAbstractTest {
 
 	@Test
 	public void findChildrenWithTwoParents() {
-		GtGtAPI<?> api = this.init("FamilyRegister2.xmi");
+		GtGtApi<?> api = this.init("FamilyRegister2.xmi");
 		api.getGTEngine().setAlwaysUpdateAfter(true);
 		api.getGTEngine().setAlwaysUpdatePrior(true);
 		
@@ -238,7 +238,7 @@ public class FamiliesConstraintsTest extends FamiliesAbstractTest {
 
 	@Test
 	public void findSingleParent() {
-		GtGtAPI<?> api = this.init("FamilyRegister2.xmi");
+		GtGtApi<?> api = this.init("FamilyRegister2.xmi");
 		api.getGTEngine().setAlwaysUpdateAfter(true);
 		api.getGTEngine().setAlwaysUpdatePrior(true);
 		
@@ -251,7 +251,7 @@ public class FamiliesConstraintsTest extends FamiliesAbstractTest {
 
 	@Test
 	public void findThreeFamiliesWithTheSameName() {
-		GtGtAPI<?> api = this.init("FamilyRegister3.xmi");
+		GtGtApi<?> api = this.init("FamilyRegister3.xmi");
 		api.getGTEngine().setAlwaysUpdateAfter(true);
 		api.getGTEngine().setAlwaysUpdatePrior(true);
 		

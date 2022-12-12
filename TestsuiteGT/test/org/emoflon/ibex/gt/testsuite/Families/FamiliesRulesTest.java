@@ -13,20 +13,20 @@ import org.junit.jupiter.api.Test;
 import SimpleFamilies.Family;
 import SimpleFamilies.FamilyMember;
 import SimpleFamilies.FamilyRegister;
-import families.gt.api.GtGtAPI;
+import families.gt.api.GtGtApi;
 import families.gt.api.match.CreateFamilyCoMatch;
 import families.gt.api.match.CreateFamilyRegisterCoMatch;
 import families.gt.api.match.DeleteFamilyCoMatch;
 import families.gt.api.match.FindFamilyMatch;
 
 /**
- * Tests for rule applications with the SimpleFamilies Graph Transformation API.
+ * Tests for rule applications with the SimpleFamilies Graph Transformation Api.
  */
 public class FamiliesRulesTest extends FamiliesAbstractTest {
 
 	@Test
 	public void createAndDeleteRegister() {
-		GtGtAPI<?> api = this.initEmpty("CreateAndDeleteRegister.xmi");
+		GtGtApi<?> api = this.initEmpty("CreateAndDeleteRegister.xmi");
 		api.getGTEngine().setAlwaysUpdateAfter(true);
 		api.getGTEngine().setAlwaysUpdatePrior(true);
 		
@@ -43,7 +43,7 @@ public class FamiliesRulesTest extends FamiliesAbstractTest {
 
 	@Test
 	public void createFamily() {
-		GtGtAPI<?> api = this.init("FamilyRegister.xmi");
+		GtGtApi<?> api = this.init("FamilyRegister.xmi");
 		api.getGTEngine().setAlwaysUpdateAfter(true);
 		api.getGTEngine().setAlwaysUpdatePrior(true);
 		
@@ -56,7 +56,7 @@ public class FamiliesRulesTest extends FamiliesAbstractTest {
 
 	@Test
 	public void createMillerFamily() {
-		GtGtAPI<?> api = this.init("FamilyRegister.xmi");
+		GtGtApi<?> api = this.init("FamilyRegister.xmi");
 		api.getGTEngine().setAlwaysUpdateAfter(true);
 		api.getGTEngine().setAlwaysUpdatePrior(true);
 		
@@ -69,7 +69,7 @@ public class FamiliesRulesTest extends FamiliesAbstractTest {
 
 	@Test
 	public void create20Families() {
-		GtGtAPI<?> api = this.init("FamilyRegister.xmi");
+		GtGtApi<?> api = this.init("FamilyRegister.xmi");
 		api.getGTEngine().setAlwaysUpdateAfter(true);
 		api.getGTEngine().setAlwaysUpdatePrior(true);
 		
@@ -94,7 +94,7 @@ public class FamiliesRulesTest extends FamiliesAbstractTest {
 
 	@Test
 	public void deleteWatsonFamilyWithFamilyBinding() {
-		GtGtAPI<?> api = this.init(
+		GtGtApi<?> api = this.init(
 				"FamilyRegister.xmi");
 		api.getGTEngine().setAlwaysUpdateAfter(true);
 		api.getGTEngine().setAlwaysUpdatePrior(true);
@@ -112,7 +112,7 @@ public class FamiliesRulesTest extends FamiliesAbstractTest {
 
 	@Test
 	public void deleteWatsonFamilyWithMatchBinding() {
-		GtGtAPI<?> api = this.init("FamilyRegister.xmi");
+		GtGtApi<?> api = this.init("FamilyRegister.xmi");
 		api.getGTEngine().setAlwaysUpdateAfter(true);
 		api.getGTEngine().setAlwaysUpdatePrior(true);
 		
@@ -128,7 +128,7 @@ public class FamiliesRulesTest extends FamiliesAbstractTest {
 
 	@Test
 	public void deleteAnyFamilyForDifferentPushoutApproachesOnRuleLevel() {
-		GtGtAPI<?> api = this.init("FamilyRegister.xmi");
+		GtGtApi<?> api = this.init("FamilyRegister.xmi");
 		api.getGTEngine().setAlwaysUpdateAfter(true);
 		api.getGTEngine().setAlwaysUpdatePrior(true);
 		
@@ -146,8 +146,8 @@ public class FamiliesRulesTest extends FamiliesAbstractTest {
 	}
 
 	@Test
-	public void deleteAnyFamilyForDifferentPushoutApproachesOnAPI() {
-		GtGtAPI<?> api = this.init("FamilyRegister.xmi");
+	public void deleteAnyFamilyForDifferentPushoutApproachesOnApi() {
+		GtGtApi<?> api = this.init("FamilyRegister.xmi");
 		api.getGTEngine().setAlwaysUpdateAfter(true);
 		api.getGTEngine().setAlwaysUpdatePrior(true);
 		
@@ -168,7 +168,7 @@ public class FamiliesRulesTest extends FamiliesAbstractTest {
 
 	@Test
 	public void deleteRegisterForDifferentPushoutApproachesOnRuleLevel() {
-		GtGtAPI<?> api = this.init("FamilyRegister.xmi");
+		GtGtApi<?> api = this.init("FamilyRegister.xmi");
 		api.getGTEngine().setAlwaysUpdateAfter(true);
 		api.getGTEngine().setAlwaysUpdatePrior(true);
 		
@@ -187,7 +187,7 @@ public class FamiliesRulesTest extends FamiliesAbstractTest {
 
 	@Test
 	public void renameFamily() {
-		GtGtAPI<?> api = this.init("FamilyRegister.xmi");
+		GtGtApi<?> api = this.init("FamilyRegister.xmi");
 		api.getGTEngine().setAlwaysUpdateAfter(true);
 		api.getGTEngine().setAlwaysUpdatePrior(true);
 		
@@ -206,7 +206,7 @@ public class FamiliesRulesTest extends FamiliesAbstractTest {
 
 	@Test
 	public void createFamiliesWithMembers() {
-		GtGtAPI<?> api = this.initEmpty("FamiliesWithMembers.xmi");
+		GtGtApi<?> api = this.initEmpty("FamiliesWithMembers.xmi");
 		api.getGTEngine().setAlwaysUpdateAfter(true);
 		api.getGTEngine().setAlwaysUpdatePrior(true);
 		
@@ -261,7 +261,7 @@ public class FamiliesRulesTest extends FamiliesAbstractTest {
 
 	@Test
 	public void wedding() {
-		GtGtAPI<?> api = this.init("TwoFamilies.xmi");
+		GtGtApi<?> api = this.init("TwoFamilies.xmi");
 		api.getGTEngine().setAlwaysUpdateAfter(true);
 		api.getGTEngine().setAlwaysUpdatePrior(true);
 		
@@ -286,7 +286,7 @@ public class FamiliesRulesTest extends FamiliesAbstractTest {
 
 	@Test
 	public void sonBornNamedAsFather() {
-		GtGtAPI<?> api = this.init("TwoFamilies.xmi");
+		GtGtApi<?> api = this.init("TwoFamilies.xmi");
 		api.getGTEngine().setAlwaysUpdateAfter(true);
 		api.getGTEngine().setAlwaysUpdatePrior(true);
 		

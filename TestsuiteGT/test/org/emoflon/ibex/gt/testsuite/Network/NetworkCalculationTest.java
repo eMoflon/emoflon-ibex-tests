@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
 
 import SimpleNetwork.Device;
 import SimpleNetwork.Network;
-import network.gt1.api.Gt1GtAPI;
+import network.gt1.api.Gt1GtApi;
 import network.gt1.api.match.ConnectCoMatch;
 import network.gt1.api.match.ConnectMatch;
 import network.gt1.api.match.FindNetworkMatch;
@@ -25,7 +25,7 @@ public class NetworkCalculationTest extends NetworkAbstractTest{
 	
 	@Test
 	public void checkSimpleCalculation() {
-		Gt1GtAPI<?> api = this.init("SimpleNetwork1.xmi");
+		Gt1GtApi<?> api = this.init("SimpleNetwork1.xmi");
 		api.getGTEngine().setAlwaysUpdateAfter(true);
 		api.getGTEngine().setAlwaysUpdatePrior(true);
 		BiConsumer<GenerateDeviceMatch, GenerateDeviceCoMatch> doCalculations = (match, coMatch) -> {
@@ -64,7 +64,7 @@ public class NetworkCalculationTest extends NetworkAbstractTest{
 	
 	@Test
 	public void checkConnect(){
-		Gt1GtAPI<?> api = this.init("SimpleNetwork4.xmi");
+		Gt1GtApi<?> api = this.init("SimpleNetwork4.xmi");
 		api.getGTEngine().setAlwaysUpdateAfter(true);
 		api.getGTEngine().setAlwaysUpdatePrior(true);
 		
@@ -93,7 +93,7 @@ public class NetworkCalculationTest extends NetworkAbstractTest{
 	
 	@Test
 	public void testFunctions() {
-		Gt1GtAPI<?> api = this.init("SimpleNetwork4.xmi");
+		Gt1GtApi<?> api = this.init("SimpleNetwork4.xmi");
 		api.getGTEngine().setAlwaysUpdateAfter(true);
 		api.getGTEngine().setAlwaysUpdatePrior(true);
 		
@@ -118,7 +118,7 @@ public class NetworkCalculationTest extends NetworkAbstractTest{
 	}
 	@Test
 	public void checkConstraints() {
-		Gt1GtAPI<?> api = this.init("SimpleNetwork3.xmi");
+		Gt1GtApi<?> api = this.init("SimpleNetwork3.xmi");
 		api.getGTEngine().setAlwaysUpdateAfter(true);
 		api.getGTEngine().setAlwaysUpdatePrior(true);
 	
@@ -133,7 +133,7 @@ public class NetworkCalculationTest extends NetworkAbstractTest{
 	
 	@Test
 	public void checkCount() {
-		Gt1GtAPI<?> api = this.init("SimpleNetwork1.xmi");
+		Gt1GtApi<?> api = this.init("SimpleNetwork1.xmi");
 		api.getGTEngine().setAlwaysUpdateAfter(true);
 		api.getGTEngine().setAlwaysUpdatePrior(true);
 		Network network1 = api.findNetwork().findAnyMatch().get().network();
@@ -170,7 +170,7 @@ public class NetworkCalculationTest extends NetworkAbstractTest{
 	
 	@Test
 	public void checkMinMax() {
-		Gt1GtAPI<?> api = this.init("SimpleNetwork1.xmi");
+		Gt1GtApi<?> api = this.init("SimpleNetwork1.xmi");
 		api.getGTEngine().setAlwaysUpdateAfter(true);
 		api.getGTEngine().setAlwaysUpdatePrior(true);
 		
@@ -200,7 +200,7 @@ public class NetworkCalculationTest extends NetworkAbstractTest{
 	
 	@Test
 	public void booleanLiterals() {
-		Gt1GtAPI<?> api = this.init("SimpleNetwork1.xmi");
+		Gt1GtApi<?> api = this.init("SimpleNetwork1.xmi");
 		api.getGTEngine().setAlwaysUpdateAfter(true);
 		api.getGTEngine().setAlwaysUpdatePrior(true);
 		
@@ -220,7 +220,7 @@ public class NetworkCalculationTest extends NetworkAbstractTest{
 	
 	@Test
 	public void checkWatchDogs1() {
-		Gt1GtAPI<?> api = this.init("SimpleNetwork4.xmi");
+		Gt1GtApi<?> api = this.init("SimpleNetwork4.xmi");
 		assertEquals(0, api.watchDog1().getMatchesWithAttributeChanges().size());
 		
 		assertMatchCount(1, api.findNetwork());
@@ -253,5 +253,27 @@ public class NetworkCalculationTest extends NetworkAbstractTest{
 		
 		assertEquals(0, api.watchDog1().getMatchesWithAttributeChanges().size());
 		assertEquals(0, api.watchDog2().getMatchesWithAttributeChanges().size());
+		
+		api.terminate();
+	}
+	
+	@Test
+	public void checkNodeConstraints() {
+		Gt1GtApi<?> api = this.init("SimpleNetwork4.xmi");
+		assertMatchCount(1, api.findNetwork());
+		assertMatchCount(3, api.findDevice());
+		assertMatchCount(6, api.pairOfDevices());
+		assertMatchCount(9, api.pairOfDevicesNoIC());
+		assertMatchCount(6, api.pairOfDevicesManualIC());
+		
+		assertApplicableAndApply(api.removeDevice());
+		
+		assertMatchCount(1, api.findNetwork());
+		assertMatchCount(2, api.findDevice());
+		assertMatchCount(2, api.pairOfDevices());
+		assertMatchCount(4, api.pairOfDevicesNoIC());
+		assertMatchCount(2, api.pairOfDevicesManualIC());
+		
+		api.terminate();
 	}
 }

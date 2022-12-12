@@ -2,10 +2,10 @@ package org.emoflon.ibex.gt.testsuite.Chemistry;
 
 import org.emoflon.ibex.gt.testsuite.GTAppTestCase;
 
-import chemistry.gt.api.GtGtAPI;
-import chemistry.gt.api.GtHiPEGtAPI;
+import chemistry.gt.api.GtGtApi;
+import chemistry.gt.api.GtHiPEGtApi;
 
-public class ChemistryAbstractTest extends GTAppTestCase<GtGtAPI<?>>  {
+public class ChemistryAbstractTest extends GTAppTestCase<GtGtApi<?>>  {
 
 	@Override
 	protected String getTestName() {
@@ -13,17 +13,17 @@ public class ChemistryAbstractTest extends GTAppTestCase<GtGtAPI<?>>  {
 	}
 
 	@Override
-	protected GtGtAPI<?> getApi() {
+	protected GtGtApi<?> getApi() {
 		return getApi(patternMatcher);
 	}
 	
 	@Override
-	protected GtGtAPI<?> getApi(String patternMatcher) {
+	protected GtGtApi<?> getApi(String patternMatcher) {
 		return switch(patternMatcher) {
-			case PM_HIPE -> {yield new GtHiPEGtAPI();}
+			case PM_HIPE -> {yield new GtHiPEGtApi();}
 			case PM_VIATRA ->{throw new IllegalArgumentException("Unknown or unimplemented pattern matcher type: " + PM_VIATRA);}
 			case PM_DEMOCLES -> {throw new IllegalArgumentException("Unknown or unimplemented pattern matcher type: " + PM_DEMOCLES);}
-			default -> {yield new GtHiPEGtAPI();}
+			default -> {yield new GtHiPEGtApi();}
 		};
 	}
 }

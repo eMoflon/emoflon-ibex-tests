@@ -5,14 +5,14 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.emoflon.ibex.gt.testsuite.GTAppTestCase;
 import org.junit.jupiter.api.Test;
 
-import persons.gt.api.GtGtAPI;
-import persons.gt.api.GtHiPEGtAPI;
+import persons.gt.api.GtGtApi;
+import persons.gt.api.GtHiPEGtApi;
 
 /**
- * Tests for the SimplePersons Graph Transformation API.
+ * Tests for the SimplePersons Graph Transformation Api.
  */
 public class PersonsTest
-		extends GTAppTestCase<GtGtAPI<?>> {
+		extends GTAppTestCase<GtGtApi<?>> {
 
 	@Override
 	public String getTestName() {
@@ -20,23 +20,23 @@ public class PersonsTest
 	}
 
 	@Override
-	protected GtGtAPI<?> getApi() {
+	protected GtGtApi<?> getApi() {
 		return getApi(patternMatcher);
 	}
 	
 	@Override
-	protected GtGtAPI<?> getApi(String patternMatcher) {
+	protected GtGtApi<?> getApi(String patternMatcher) {
 		return switch(patternMatcher) {
-			case PM_HIPE -> {yield new GtHiPEGtAPI();}
+			case PM_HIPE -> {yield new GtHiPEGtApi();}
 			case PM_VIATRA ->{throw new IllegalArgumentException("Unknown or unimplemented pattern matcher type: " + PM_VIATRA);}
 			case PM_DEMOCLES -> {throw new IllegalArgumentException("Unknown or unimplemented pattern matcher type: " + PM_DEMOCLES);}
-			default -> {yield new GtHiPEGtAPI();}
+			default -> {yield new GtHiPEGtApi();}
 		};
 	}
 
 	@Test
 	public void countPersons() {
-		GtGtAPI<?> api = this.init("PersonRegister.xmi");
+		GtGtApi<?> api = this.init("PersonRegister.xmi");
 
 		assertMatchCount(5, api.findFemale());
 		assertMatchCount(5, api.findMale());
@@ -48,7 +48,7 @@ public class PersonsTest
 
 	@Test
 	public void findFirstAndLastPersonInAlphabeticalOrder() {
-		GtGtAPI<?> api = this.init("PersonRegister.xmi");
+		GtGtApi<?> api = this.init("PersonRegister.xmi");
 		api.getGTEngine().setAlwaysUpdateAfter(true);
 		api.getGTEngine().setAlwaysUpdatePrior(true);
 		
