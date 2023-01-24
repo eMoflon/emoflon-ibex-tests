@@ -1,0 +1,27 @@
+#import "platform:/resource/Village/model/Village.ecore"
+#import "platform:/resource/ConstructionPlan/model/ConstructionPlan.ecore"
+
+#schema Village2ConstrPlan
+	
+#source {
+	Village
+}
+
+#target { 
+	ConstructionPlan
+} 
+
+#correspondence {
+	VillageSquare2PlanCollection {
+		#src->VillageSquare
+		#trg->PlanCollection
+	}
+	House2Constr {
+		#src->House
+		#trg->Construction
+	}
+}
+
+#attributeConditions {
+	
+}

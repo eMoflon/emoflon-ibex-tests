@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema xmlns:Village="platform:/resource/Village/model/Village.ecore" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="platform:/resource/Village/model/Village.ecore">
+  <xsd:annotation>
+    <xsd:documentation>TODO: Add documentation for Village. Hint: You may copy this element in the Ecore editor to add documentation to EClasses, EOperations, ...</xsd:documentation>
+  </xsd:annotation>
+  <xsd:import namespace="http://www.omg.org/XMI" schemaLocation="platform:/plugin/org.eclipse.emf.ecore/model/XMI.xsd"/>
+  <xsd:simpleType name="HouseType">
+    <xsd:restriction base="xsd:NCName">
+      <xsd:enumeration value="CORNER"/>
+      <xsd:enumeration value="CUBE"/>
+      <xsd:enumeration value="VILLA"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="VillageSquare">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element name="streetCorner" type="Village:House"/>
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+  </xsd:complexType>
+  <xsd:element name="VillageSquare" type="Village:VillageSquare"/>
+  <xsd:complexType name="House">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element name="nextHouse" type="Village:House"/>
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="name" type="xsd:string"/>
+    <xsd:attribute name="type" type="Village:HouseType"/>
+    <xsd:attribute name="address" type="xsd:string"/>
+  </xsd:complexType>
+  <xsd:element name="House" type="Village:House"/>
+</xsd:schema>

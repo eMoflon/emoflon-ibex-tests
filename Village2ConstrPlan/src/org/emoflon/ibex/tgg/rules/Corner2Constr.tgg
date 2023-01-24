@@ -1,0 +1,41 @@
+#using Village2ConstrPlan.*
+#using AttrCondDefLibrary.*
+
+#rule Corner2Constr #with Village2ConstrPlan
+
+#source { 
+	vs: VillageSquare {
+		++-streetCorner->h
+	}
+	++h: House {
+		type:=enum::HouseType::CORNER
+	}
+}
+
+#target {
+	pc: PlanCollection {
+		++-plans->p
+	}
+	++p: Plan {
+		++-constructions->cst
+	}
+	++cst: Construction {
+		++-firstStep->bt
+	}
+	++bt: Basement 
+}
+
+#correspondence {
+	vs2pc: VillageSquare2PlanCollection {
+		#src->vs
+		#trg->pc
+	}
+	++h2cst: House2Constr {
+		#src->h
+		#trg->cst
+	}
+}
+
+#attributeConditions {
+	eq_string(h.name, cst.name)
+}
