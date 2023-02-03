@@ -6,7 +6,8 @@ Bundle-SymbolicName: Village2ConstrPlan;singleton:=true
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-16
 Export-Package: Village2ConstrPlan,
- Village2ConstrPlan.impl
+ Village2ConstrPlan.impl,
+ org.emoflon.ibex.tgg.run.village2constrplan
 Require-Bundle: org.emoflon.smartemf,
  org.emoflon.ibex.tgg.runtime.hipe,
  org.emoflon.ibex.tgg.runtime.democles,

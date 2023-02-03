@@ -1,6 +1,7 @@
 package org.emoflon.ibex.tgg.run.village2constrplan;
 
 import java.io.IOException;
+import java.util.function.Function;
 
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
@@ -10,12 +11,17 @@ import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 import org.emoflon.ibex.tgg.operational.strategies.modules.TGGResourceHandler;
 
 import org.emoflon.ibex.tgg.run.village2constrplan.config.*;
+import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
 import org.emoflon.ibex.tgg.operational.strategies.integrate.INTEGRATE;
 
 public class INTEGRATE_App extends INTEGRATE {
 
 	// eMoflon supports other pattern matching engines. Replace _DefaultRegistrationHelper with one of the other registrationHelpers from the *.config-package to choose between them. Default: Democles 
 	public static IRegistrationHelper registrationHelper = new _DefaultRegistrationHelper();
+	
+	public INTEGRATE_App(Function<IbexOptions, IbexOptions> options) throws IOException {
+		super(options.apply(registrationHelper.createIbexOptions()));
+	}
 
 	public INTEGRATE_App() throws IOException {
 		super(registrationHelper.createIbexOptions().resourceHandler(new TGGResourceHandler() {
