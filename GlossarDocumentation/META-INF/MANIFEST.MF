@@ -7,7 +7,7 @@ Bundle-Version: 0.1.0.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-16
+Bundle-RequiredExecutionEnvironment: JavaSE-17
 Export-Package: glossarDocumentation,
  glossarDocumentation.impl,
  org.glossarDoc.core
@@ -19,5 +19,6 @@ Require-Bundle: org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.xtend.lib.macro,
  Benchmarx;bundle-version="1.0.0",
  org.emoflon.smartemf;bundle-version="1.0.0",
- org.junit.jupiter.api;bundle-version="5.8.1"
+ junit-jupiter-api;bundle-version="5.8.1"
 Bundle-ActivationPolicy: lazy
+
