@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:TerraceHouses="platform:/resource/TerraceHouses/model/TerraceHouses.ecore" xmlns:TerraceHouses2BlockSet="platform:/resource/TerraceHouses2BlockSet/model/TerraceHouses2BlockSet.ecore">
+  <TerraceHouses2BlockSet:District2Playroom>
+    <source href="src.xmi#/"/>
+    <target href="trg.xmi#/"/>
+  </TerraceHouses2BlockSet:District2Playroom>
+  <TerraceHouses2BlockSet:Structure2Construction>
+    <source xsi:type="TerraceHouses:Building" href="src.xmi#//@streetBeginnings.0"/>
+    <target href="trg.xmi#//@blocksets.0/@constructions.0"/>
+  </TerraceHouses2BlockSet:Structure2Construction>
+  <TerraceHouses2BlockSet:Structure2Construction>
+    <source xsi:type="TerraceHouses:Building" href="src.xmi#//@streetBeginnings.1"/>
+    <target href="trg.xmi#//@blocksets.1/@constructions.0"/>
+  </TerraceHouses2BlockSet:Structure2Construction>
+  <TerraceHouses2BlockSet:Structure2Construction>
+    <source xsi:type="TerraceHouses:House" href="src.xmi#//@streetBeginnings.1/@next"/>
+    <target href="trg.xmi#//@blocksets.1/@constructions.1"/>
+  </TerraceHouses2BlockSet:Structure2Construction>
+  <TerraceHouses2BlockSet:House2Printed3DShape>
+    <source href="src.xmi#//@streetBeginnings.0/@next"/>
+    <target href="trg.xmi#//@blocksets.0/@units.0"/>
+  </TerraceHouses2BlockSet:House2Printed3DShape>
+  <TerraceHouses2BlockSet:Skyway2Printed3DShape>
+    <source href="src.xmi#//@streetBeginnings.0/@next/@skywayEntry"/>
+    <target href="trg.xmi#//@blocksets.1/@units.0"/>
+  </TerraceHouses2BlockSet:Skyway2Printed3DShape>
+</xmi:XMI>

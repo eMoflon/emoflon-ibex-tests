@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmlns:xmi="http://www.omg.org/XMI" xmlns:TerraceHouses="platform:/resource/TerraceHouses/model/TerraceHouses.ecore" xmlns:TerraceHouses2BlockSet="platform:/resource/TerraceHouses2BlockSet/model/TerraceHouses2BlockSet.ecore" xmlns:WoodenBlockSet="platform:/resource/WoodenBlockSet/model/WoodenBlockSet.ecore" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmi:version="2.0">
+  <TerraceHouses2BlockSet:District2Playroom__Marker>
+    <CREATE__TRG__p xsi:type="WoodenBlockSet:Playroom" href="trg.xmi#/" />
+    <CREATE__CORR__d2p href="corr.xmi#/0" />
+    <CREATE__SRC__d xsi:type="TerraceHouses:District" href="src.xmi#/" />
+  </TerraceHouses2BlockSet:District2Playroom__Marker>
+  <TerraceHouses2BlockSet:FirstBuilding2Construction__Marker>
+    <CREATE__SRC__building xsi:type="TerraceHouses:Building" href="src.xmi#//@streetBeginnings.0" />
+    <CREATE__TRG__cuboid xsi:type="WoodenBlockSet:Cuboid" href="trg.xmi#//@blocksets.0/@constructions.0/@components.0" />
+    <CREATE__CORR__b2c href="corr.xmi#/1" />
+    <CONTEXT__TRG__p xsi:type="WoodenBlockSet:Playroom" href="trg.xmi#/" />
+    <CONTEXT__CORR__d2p href="corr.xmi#/0" />
+    <CREATE__TRG__constr xsi:type="WoodenBlockSet:Construction" href="trg.xmi#//@blocksets.0/@constructions.0" />
+    <CREATE__TRG__set xsi:type="WoodenBlockSet:BlockSet" href="trg.xmi#//@blocksets.0" />
+    <CONTEXT__SRC__d xsi:type="TerraceHouses:District" href="src.xmi#/" />
+  </TerraceHouses2BlockSet:FirstBuilding2Construction__Marker>
+  <TerraceHouses2BlockSet:FirstBuilding2Construction__Marker>
+    <CREATE__TRG__cuboid xsi:type="WoodenBlockSet:Cuboid" href="trg.xmi#//@blocksets.1/@constructions.0/@components.0" />
+    <CREATE__CORR__b2c href="corr.xmi#/2" />
+    <CREATE__TRG__constr xsi:type="WoodenBlockSet:Construction" href="trg.xmi#//@blocksets.1/@constructions.0" />
+    <CONTEXT__TRG__p xsi:type="WoodenBlockSet:Playroom" href="trg.xmi#/" />
+    <CONTEXT__CORR__d2p href="corr.xmi#/0" />
+    <CREATE__TRG__set xsi:type="WoodenBlockSet:BlockSet" href="trg.xmi#//@blocksets.1" />
+    <CONTEXT__SRC__d xsi:type="TerraceHouses:District" href="src.xmi#/" />
+    <CREATE__SRC__building xsi:type="TerraceHouses:Building" href="src.xmi#//@streetBeginnings.1" />
+  </TerraceHouses2BlockSet:FirstBuilding2Construction__Marker>
+  <TerraceHouses2BlockSet:FlatRoof2Construction__Marker>
+    <CONTEXT__SRC__struct xsi:type="TerraceHouses:Building" href="src.xmi#//@streetBeginnings.0" />
+    <CREATE__CORR__nb2nc href="corr.xmi#/4" />
+    <CONTEXT__CORR__b2c href="corr.xmi#/1" />
+    <CREATE__SRC__nextHouse xsi:type="TerraceHouses:House" href="src.xmi#//@streetBeginnings.0/@next" />
+    <CREATE__TRG__nextConstr xsi:type="WoodenBlockSet:Construction" href="trg.xmi#//@blocksets.0/@constructions.1" />
+    <CONTEXT__TRG__constr xsi:type="WoodenBlockSet:Construction" href="trg.xmi#//@blocksets.0/@constructions.0" />
+    <CONTEXT__TRG__set xsi:type="WoodenBlockSet:BlockSet" href="trg.xmi#//@blocksets.0" />
+    <CREATE__TRG__cube xsi:type="WoodenBlockSet:Cube" href="trg.xmi#//@blocksets.0/@constructions.1/@components.0" />
+  </TerraceHouses2BlockSet:FlatRoof2Construction__Marker>
+  <TerraceHouses2BlockSet:Prefab2Printed3D__Marker>
+    <CONTEXT__CORR__b2c href="corr.xmi#/2" />
+    <CREATE__TRG__printed xsi:type="WoodenBlockSet:Printed3DShape" href="trg.xmi#//@blocksets.1/@units.0" />
+    <CREATE__SRC__nextHouse xsi:type="TerraceHouses:House" href="src.xmi#//@streetBeginnings.1/@next" />
+    <CONTEXT__TRG__constr xsi:type="WoodenBlockSet:Construction" href="trg.xmi#//@blocksets.1/@constructions.0" />
+    <CREATE__CORR__nh2p href="corr.xmi#/5" />
+    <CONTEXT__TRG__set xsi:type="WoodenBlockSet:BlockSet" href="trg.xmi#//@blocksets.1" />
+    <CONTEXT__SRC__struct xsi:type="TerraceHouses:Building" href="src.xmi#//@streetBeginnings.1" />
+  </TerraceHouses2BlockSet:Prefab2Printed3D__Marker>
+  <TerraceHouses2BlockSet:Bridge2Printed3D__Marker>
+    <CONTEXT__CORR__ex2c href="corr.xmi#/4" />
+    <CONTEXT__TRG__hingedCube xsi:type="WoodenBlockSet:Printed3DShape" href="trg.xmi#//@blocksets.1/@units.0" />
+    <CONTEXT__SRC__entry xsi:type="TerraceHouses:House" href="src.xmi#//@streetBeginnings.1/@next" />
+    <CREATE__CORR__b2pb href="corr.xmi#/3" />
+    <CONTEXT__SRC__exit xsi:type="TerraceHouses:House" href="src.xmi#//@streetBeginnings.0/@next" />
+    <CONTEXT__CORR__en2hc href="corr.xmi#/5" />
+    <CREATE__TRG__printedBridge xsi:type="WoodenBlockSet:Printed3DShape" href="trg.xmi#//@blocksets.0/@units.0" />
+    <CONTEXT__TRG__constr xsi:type="WoodenBlockSet:Construction" href="trg.xmi#//@blocksets.0/@constructions.1" />
+    <CONTEXT__TRG__bs xsi:type="WoodenBlockSet:BlockSet" href="trg.xmi#//@blocksets.0" />
+    <CREATE__SRC__bridge xsi:type="TerraceHouses:Skyway" href="src.xmi#//@streetBeginnings.1/@next/@skywayEntry" />
+  </TerraceHouses2BlockSet:Bridge2Printed3D__Marker>
+</xmi:XMI>
