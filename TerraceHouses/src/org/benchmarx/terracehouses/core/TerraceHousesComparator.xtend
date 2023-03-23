@@ -7,6 +7,7 @@ import TerraceHouses.Structure
 import org.benchmarx.emf.Comparator
 
 import static org.junit.jupiter.api.Assertions.*
+import TerraceHouses.Skyway
 
 class TerraceHousesComparator implements Comparator<District> {
 
@@ -45,8 +46,8 @@ class TerraceHousesComparator implements Comparator<District> {
 		'''
 		Building {
 			«IF checkAttributeValues»
-				«building.name»
-				«building.address»
+				name: «building.name»
+				address: «building.address»
 			«ENDIF»
 			«IF building.next !== null »«building.next.stringify»«ENDIF»
 		}
@@ -57,11 +58,24 @@ class TerraceHousesComparator implements Comparator<District> {
 		'''
 		House {
 			«IF checkAttributeValues»
-				«house.name»
-				«house.address»
-				«house.pitchedRoof»
+				name: «house.name»
+				address: «house.address»
+				pitchedRoof: «house.pitchedRoof»
+				prefab: «house.prefab»
 			«ENDIF»
-			«house.next.stringify»
+			«IF house.skywayEntry !== null»«house.skywayEntry.stringify»«ENDIF»
+			«IF house.next !== null »«house.next.stringify»«ENDIF»
+		}
+		'''
+	}
+	
+	def String stringify(Skyway skyway) {
+		'''
+		Skyway {
+			«IF checkAttributeValues»
+				name: «skyway.name»
+			«ENDIF»
+			exit: «skyway.exit.name»
 		}
 		'''
 	}

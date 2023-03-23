@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WoodenBlockSet:Playroom xmlns:WoodenBlockSet="platform:/resource/WoodenBlockSet/model/WoodenBlockSet.ecore" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmi:version="2.0">
+  <blocksets playroom="/">
+    <constructions blockSet="//@blocksets.0" constructor="Henry" name="Colorado Apartments">
+      <components xsi:type="WoodenBlockSet:Cuboid" construction="//@blocksets.0/@constructions.0" />
+    </constructions>
+    <units blockset="//@blocksets.0" name="Apartment House" connections="//@blocksets.1/@units.0" />
+  </blocksets>
+  <blocksets playroom="/">
+    <constructions blockSet="//@blocksets.1" constructor="Gerlinde" name="Hotel im Kornspeicher">
+      <components xsi:type="WoodenBlockSet:Cuboid" construction="//@blocksets.1/@constructions.0" />
+    </constructions>
+    <constructions blockSet="//@blocksets.1" constructor="Gerlinde" name="Fitnessstudio" connections="//@blocksets.1/@units.0">
+      <components xsi:type="WoodenBlockSet:Cube" construction="//@blocksets.1/@constructions.1" />
+    </constructions>
+    <units blockset="//@blocksets.1" color="Rainbow" name="Fancy Bridge" />
+  </blocksets>
+</WoodenBlockSet:Playroom>

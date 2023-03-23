@@ -1,0 +1,50 @@
+#using TerraceHouses2BlockSet.*
+#using AttrCondDefLibrary.*
+
+#rule Bridge2Printed3D #with TerraceHouses2BlockSet
+
+#source { 
+	entry:House {
+		prefab==true
+		++-skywayEntry->bridge
+	}
+	exit:House {
+		prefab==false
+	}
+	++bridge:Skyway {
+		++-exit->exit
+	}
+}
+
+#target {
+	bs:BlockSet {
+		-constructions->constr
+		++-units->printedBridge
+	}
+	hingedCube:Printed3DShape {
+		++-connections->printedBridge
+	}
+	constr:Construction {
+		++-connections->printedBridge
+	}
+	++printedBridge:Printed3DShape
+}
+
+#correspondence {
+	en2hc:House2Printed3DShape {
+		#src->entry
+		#trg->hingedCube
+	}
+	ex2c:Structure2Construction {
+		#src->exit
+		#trg->constr
+	}
+	++b2pb:Skyway2Printed3DShape {
+		#src->bridge
+		#trg->printedBridge
+	}
+}
+
+#attributeConditions {
+	eq_string(bridge.name, printedBridge.name)
+}

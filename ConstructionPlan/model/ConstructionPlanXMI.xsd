@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema xmlns:ConstructionPlan="platform:/resource/ConstructionPlan/model/ConstructionPlan.ecore" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="platform:/resource/ConstructionPlan/model/ConstructionPlan.ecore">
+  <xsd:annotation>
+    <xsd:documentation>TODO: Add documentation for ConstructionPlan. Hint: You may copy this element in the Ecore editor to add documentation to EClasses, EOperations, ...</xsd:documentation>
+  </xsd:annotation>
+  <xsd:import namespace="http://www.omg.org/XMI" schemaLocation="platform:/plugin/org.eclipse.emf.ecore/model/XMI.xsd"/>
+  <xsd:complexType name="PlanCollection">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element name="plans" type="ConstructionPlan:Plan"/>
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+  </xsd:complexType>
+  <xsd:element name="PlanCollection" type="ConstructionPlan:PlanCollection"/>
+  <xsd:complexType name="Plan">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element name="constructions" type="ConstructionPlan:Construction"/>
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="name" type="xsd:string"/>
+  </xsd:complexType>
+  <xsd:element name="Plan" type="ConstructionPlan:Plan"/>
+  <xsd:complexType name="Construction">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element name="firstStep" type="ConstructionPlan:Component"/>
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="name" type="xsd:string"/>
+  </xsd:complexType>
+  <xsd:element name="Construction" type="ConstructionPlan:Construction"/>
+  <xsd:complexType abstract="true" name="Component">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element name="nextStep" type="ConstructionPlan:Component"/>
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="description" type="xsd:string"/>
+  </xsd:complexType>
+  <xsd:element name="Component" type="ConstructionPlan:Component"/>
+  <xsd:complexType name="Cellar">
+    <xsd:complexContent>
+      <xsd:extension base="ConstructionPlan:Component"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="Cellar" type="ConstructionPlan:Cellar"/>
+  <xsd:complexType name="Basement">
+    <xsd:complexContent>
+      <xsd:extension base="ConstructionPlan:Component"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="Basement" type="ConstructionPlan:Basement"/>
+  <xsd:complexType name="SaddleRoof">
+    <xsd:complexContent>
+      <xsd:extension base="ConstructionPlan:Component"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="SaddleRoof" type="ConstructionPlan:SaddleRoof"/>
+</xsd:schema>

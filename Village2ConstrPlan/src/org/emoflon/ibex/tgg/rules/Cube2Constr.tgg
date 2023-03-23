@@ -1,0 +1,43 @@
+#using Village2ConstrPlan.*
+#using AttrCondDefLibrary.*
+
+#rule Cube2Constr #with Village2ConstrPlan
+
+#source { 
+	h: House {
+		++-nextHouse->nh
+	}
+	++nh: House {
+		type:=enum::HouseType::CUBE
+	}
+}
+
+#target {
+	p: Plan {
+		-constructions->cst
+		++-constructions->ncst
+	}
+	cst: Construction
+	++ncst: Construction {
+		++-firstStep->cl
+	}
+	++cl: Cellar {
+		++-nextStep->bt
+	}
+	++bt: Basement
+}
+
+#correspondence {
+	h2cst: House2Constr {
+		#src->h
+		#trg->cst
+	}
+	++nh2ncst: House2Constr {
+		#src->nh
+		#trg->ncst
+	}
+}
+
+#attributeConditions {
+	eq_string(nh.name, ncst.name)
+}

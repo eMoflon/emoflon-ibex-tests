@@ -6,7 +6,7 @@ Bundle-Version: 0.1.0.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-16
+Bundle-RequiredExecutionEnvironment: JavaSE-17
 Export-Package: org.benchmarx.simpledoc.core,
  simpleJava,
  simpleJava.impl
@@ -20,3 +20,4 @@ Require-Bundle: org.eclipse.emf.ecore;visibility:=reexport,
  junit-jupiter-api;bundle-version="5.8.1"
 Bundle-ActivationPolicy: lazy
 Automatic-Module-Name: SimpleJava
+

@@ -7,6 +7,7 @@ import WoodenBlockSet.Construction;
 import WoodenBlockSet.Cube;
 import WoodenBlockSet.Cuboid;
 import WoodenBlockSet.Playroom;
+import WoodenBlockSet.Printed3DShape;
 import WoodenBlockSet.Shape3D;
 import WoodenBlockSet.TriangularPrism;
 import WoodenBlockSet.WoodenBlockSetFactory;
@@ -28,7 +29,7 @@ public class WoodenBlockSetHelper {
 			});
 		});
 	}
-	
+
 	public Construction getConstruction(Playroom root, String name) {
 		for (BlockSet set : root.getBlocksets()) {
 			for (Construction constr : set.getConstructions()) {
@@ -38,22 +39,22 @@ public class WoodenBlockSetHelper {
 		}
 		return null;
 	}
-	
+
 	public Construction createConstruction(BlockSet blockSet, String name) {
 		Construction constr = WoodenBlockSetFactory.eINSTANCE.createConstruction();
 		constr.setName(name);
 		blockSet.getConstructions().add(constr);
 		return constr;
 	}
-	
+
 	public Shape3D createCube(Construction constr, String color) {
 		return createShape3D(constr, WoodenBlockSetPackage.eINSTANCE.getCube(), color);
 	}
-	
+
 	public Cuboid createCuboid(Construction constr, String color) {
 		return (Cuboid) createShape3D(constr, WoodenBlockSetPackage.eINSTANCE.getCuboid(), color);
 	}
-	
+
 	public TriangularPrism createTriangularPrism(Construction constr, String color) {
 		return (TriangularPrism) createShape3D(constr, WoodenBlockSetPackage.eINSTANCE.getTriangularPrism(), color);
 	}
@@ -63,6 +64,32 @@ public class WoodenBlockSetHelper {
 		shape.setColor(color);
 		constr.getComponents().add(shape);
 		return shape;
+	}
+
+	public Printed3DShape createPrinted3DShape(Construction constr, String name, String color) {
+		Printed3DShape shape = WoodenBlockSetFactory.eINSTANCE.createPrinted3DShape();
+		shape.setName(name);
+		shape.setColor(color);
+		constr.getComponents().add(shape);
+		return shape;
+	}
+
+	public Printed3DShape createPrinted3DShape(BlockSet blockset, String name, String color) {
+		Printed3DShape shape = WoodenBlockSetFactory.eINSTANCE.createPrinted3DShape();
+		shape.setName(name);
+		shape.setColor(color);
+		blockset.getUnits().add(shape);
+		return shape;
+	}
+
+	public Printed3DShape getPrinted3dShape(Playroom root, String name) {
+		for (BlockSet set : root.getBlocksets()) {
+			for (Printed3DShape shape : set.getUnits()) {
+				if (name.equals(shape.getName()))
+					return shape;
+			}
+		}
+		return null;
 	}
 
 }

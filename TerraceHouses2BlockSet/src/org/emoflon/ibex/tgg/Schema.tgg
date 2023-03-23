@@ -21,4 +21,14 @@
 		#src->Structure
 		#trg->Construction
 	}
+	
+	Skyway2Printed3DShape {
+		#src->Skyway
+		#trg->Printed3DShape
+	}
+	
+	House2Printed3DShape {
+		#src->House
+		#trg->Printed3DShape
+	}
 }
