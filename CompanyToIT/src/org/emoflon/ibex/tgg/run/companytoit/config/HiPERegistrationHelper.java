@@ -7,13 +7,13 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.emoflon.ibex.tgg.operational.csp.constraints.factories.companytoit.UserDefinedRuntimeTGGAttrConstraintFactory;
-import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
-import org.emoflon.ibex.tgg.operational.strategies.modules.IbexExecutable;
-import org.emoflon.ibex.tgg.operational.strategies.opt.BWD_OPT;
-import org.emoflon.ibex.tgg.operational.strategies.opt.FWD_OPT;
+import org.emoflon.ibex.tgg.operational.csp.constraints.custom.companytoit.*;
+import org.emoflon.ibex.tgg.runtime.config.IRegistrationHelper;
+import org.emoflon.ibex.tgg.runtime.config.options.IbexOptions;
 import org.emoflon.ibex.tgg.runtime.hipe.HiPETGGEngine;
-import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
+import org.emoflon.ibex.tgg.runtime.strategies.modules.IbexExecutable;
+import org.emoflon.ibex.tgg.runtime.strategies.opt.BWD_OPT;
+import org.emoflon.ibex.tgg.runtime.strategies.opt.FWD_OPT;
 
 import CompanyToIT.CompanyToITPackage;
 import CompanyToIT.impl.CompanyToITPackageImpl;
@@ -87,7 +87,8 @@ public class HiPERegistrationHelper implements IRegistrationHelper {
 		options.project.name("CompanyToIT");
 		options.project.path("CompanyToIT");
 		options.debug.ibexDebug(false);
-		options.csp.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
+		for(var factory : new RuntimeTGGAttrConstraintFactoryContainer().getFactories())
+			options.csp.constraintProvider().registerFactory(factory);					
 		options.registrationHelper(this);
 		return options;
 	}

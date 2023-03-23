@@ -1,0 +1,25 @@
+rule CompanyToITRule {
+
+	source {
+		[+] ceo : CL.CEO
+		[+] company : CL.Company {
+			[+] -ceo->ceo
+		}
+	}
+	
+	target {
+		[+] it : IT.IT
+	}
+	
+	correspondence {
+		[+] c2i : Company2IT {
+			src->company
+			trg->it
+		}
+	}
+	
+	attributeConditions {
+		DefaultAttributeConditionLibrary.eq_string(company.name, it.name)
+	}
+
+}
