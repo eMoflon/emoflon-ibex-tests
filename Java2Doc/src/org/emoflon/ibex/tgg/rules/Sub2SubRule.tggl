@@ -1,0 +1,37 @@
+rule Sub2SubRule {
+	source { 
+		[=] p : J.Package {
+			[+] -subPackages->subP
+		}
+		[+] subP : J.Package
+	}
+	
+	target {
+		[=] f : D.Folder {
+			[+] -subFolders->subF
+		}
+		[+] subF : D.Folder {
+			[+] -docs->doc
+		}
+		[+] doc : D.Doc
+	}
+	
+	correspondence {
+		[=] p2f : Package2Folder {
+			src->p
+			trg->f
+		}
+		
+		[+] sp2sf : Package2Folder {
+			src->subP
+			trg->subF
+		}
+	}
+	
+	attributeConditions {
+		DefaultAttributeConditionLibrary.eq_string(subP.name, subF.name)
+		DefaultAttributeConditionLibrary.concat("_", subP.name, "doc", doc.name)
+	}
+}
+
+
