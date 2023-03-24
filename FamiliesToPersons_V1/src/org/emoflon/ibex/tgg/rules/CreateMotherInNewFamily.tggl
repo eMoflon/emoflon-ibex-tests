@@ -1,0 +1,41 @@
+rule CreateMotherInNewFamily {
+	
+	source { 
+		[=] reg:Fam.FamilyRegister {
+			[+] -families->family
+		}	
+		
+		[+] family:Fam.Family {
+			.name:="Test";
+			[+] -mother->m
+		}
+		
+		[+] m:Fam.FamilyMember
+	}
+	
+	target {
+		[=] preg:Per.PersonRegister {
+			[+] -persons->p
+		}
+		
+		[+] p:Per.Female
+	}
+	
+	correspondence {
+		[=] reg2reg:RegisterToRegister{
+			src->reg
+			trg->preg
+		}
+		
+		[+] m2p:FamilyMemberToPerson {
+			src->m
+			trg->p
+		}
+	}
+	
+	attributeConditions {
+		 DefaultAttributeConditionLibrary.eq_string(p.name, m.name)
+	}
+
+}
+
