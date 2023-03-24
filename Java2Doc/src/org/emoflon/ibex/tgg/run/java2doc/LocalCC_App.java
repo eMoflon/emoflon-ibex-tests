@@ -5,9 +5,9 @@ import java.io.IOException;
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
-import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
-import org.emoflon.ibex.tgg.operational.strategies.opt.LocalCC;
 import org.emoflon.ibex.tgg.run.java2doc.config._DefaultRegistrationHelper;
+import org.emoflon.ibex.tgg.runtime.config.IRegistrationHelper;
+import org.emoflon.ibex.tgg.runtime.strategies.opt.LocalCC;
 
 
 public class LocalCC_App extends LocalCC {
