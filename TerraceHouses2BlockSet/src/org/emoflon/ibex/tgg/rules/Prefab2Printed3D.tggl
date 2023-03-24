@@ -1,0 +1,38 @@
+rule Prefab2Printed3D {
+	
+	source { 
+		[=] struct:TH.Structure {
+			[+] -next->nextHouse
+		}
+		[+] nextHouse:TH.House {
+			.prefab:=true;
+		}
+	}
+	
+	target {
+		[=] set:WB.BlockSet {
+			[=] -constructions->constr
+			[+] -units->printed
+		}
+		[=] constr:WB.Construction
+		[+] printed:WB.Printed3DShape
+	}
+	
+	correspondence {
+		[=] b2c:Structure2Construction {
+			src->struct
+			trg->constr
+		}
+		[+] nh2p:House2Printed3DShape {
+			src->nextHouse
+			trg->printed
+		}
+	}
+	
+	attributeConditions {
+		DefaultAttributeConditionLibrary.eq_string(nextHouse.name, printed.name)
+	}
+	
+}
+
+

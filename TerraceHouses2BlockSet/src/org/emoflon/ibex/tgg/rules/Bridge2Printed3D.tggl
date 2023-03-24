@@ -1,0 +1,50 @@
+rule Bridge2Printed3D {
+
+	source { 
+		[=] entry:TH.House {
+			.prefab:=true;
+			[+] -skywayEntry->bridge
+		}
+		[=] exit:TH.House {
+			.prefab:=false;
+		}
+		[+] bridge:TH.Skyway {
+			[+] -exit->exit
+		}
+	}
+	
+	target {
+		[=] bs:WB.BlockSet {
+			[=] -constructions->constr
+			[+] -units->printedBridge
+		}
+		[=] hingedCube:WB.Printed3DShape {
+			[+] -connections->printedBridge
+		}
+		[=] constr:WB.Construction {
+			[+] -connections->printedBridge
+		}
+		[+] printedBridge:WB.Printed3DShape
+	}
+	
+	correspondence {
+		[=] en2hc:House2Printed3DShape {
+			src->entry
+			trg->hingedCube
+		}
+		[=] ex2c:Structure2Construction {
+			src->exit
+			trg->constr
+		}
+		[+] b2pb:Skyway2Printed3DShape {
+			src->bridge
+			trg->printedBridge
+		}
+	}
+	
+	attributeConditions {
+		DefaultAttributeConditionLibrary.eq_string(bridge.name, printedBridge.name)
+	}
+
+}
+
