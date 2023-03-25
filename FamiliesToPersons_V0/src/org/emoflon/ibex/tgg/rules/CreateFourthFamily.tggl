@@ -1,0 +1,39 @@
+rule CreateFourthFamily {
+	
+	source { 
+		[=] fr:Fam.FamilyRegister {
+		 	[=] -families->f1
+		 	[=] -families->f2
+		 	[=] -families->f3
+		 	[+] -families->f4
+		}
+		
+		[=] f1:Fam.Family {
+			.name:="Test";
+		}
+		
+		[=] f2:Fam.Family {
+			.name:="Test";
+		}
+		
+		[=] f3:Fam.Family {
+			.name:="Test";
+		}
+		
+		[+] f4:Fam.Family {
+			.name:="Test";
+		}
+	}
+	
+	target {
+		[=] pr:Per.PersonRegister
+	}
+	
+	correspondence {
+		[=] fr2pr:RegisterToRegister {
+			src->fr
+			trg->pr
+		}
+	}
+	
+}

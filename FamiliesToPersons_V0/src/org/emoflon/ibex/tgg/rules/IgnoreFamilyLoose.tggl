@@ -1,0 +1,13 @@
+rule IgnoreFamilyLoose {
+	
+	source { 
+		[=] fr:Fam.FamilyRegister {
+		 	[+] -families->f
+		}
+		
+		[+] f:Fam.Family {
+			.name:="Test";
+		}
+	}
+
+}

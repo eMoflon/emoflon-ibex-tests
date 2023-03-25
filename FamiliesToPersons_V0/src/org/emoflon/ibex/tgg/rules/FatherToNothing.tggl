@@ -1,0 +1,28 @@
+rule FatherToNothing {
+	
+	source { 
+		[=] fr:Fam.FamilyRegister {
+			[=] -families->f
+		}
+		
+		[=] f:Fam.Family {
+			[+] -father->father
+		}
+		
+		[+] father:Fam.FamilyMember {
+			.name:="father";
+		}
+	}
+	
+	target {
+		[=] pr:Per.PersonRegister
+	}
+	
+	correspondence {
+		[=] roots:RegisterToRegister {
+			src->fr
+			trg->pr
+		}
+	}
+
+}

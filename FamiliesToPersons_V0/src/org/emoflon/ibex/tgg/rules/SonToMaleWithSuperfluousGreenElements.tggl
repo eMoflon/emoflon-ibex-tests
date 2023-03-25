@@ -1,0 +1,23 @@
+rule SonToMaleWithSuperfluousGreenElements refines FamilyMemberToPerson {
+	
+	source { 
+		@refines+ FamilyMemberToPerson.f
+		[+] f:Fam.Family {
+			[+] -sons->fm
+		}
+		
+		@refines+ FamilyMemberToPerson.fm
+		[+] fm:Fam.FamilyMember {
+			.name:="son";
+		}
+	}
+	
+	target {
+		@refines+ FamilyMemberToPerson.p
+		[+] p:Per.Male {
+			.name:="son";
+		}
+	}
+
+}
+

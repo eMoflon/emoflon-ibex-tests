@@ -1,0 +1,14 @@
+rule CreateFourthAndFifthFamily refines CreateFourthFamily {
+	
+	source { 
+		@refines= CreateFourthFamily.fr
+		[=] fr:Fam.FamilyRegister {
+		 	[+] -families->f5
+		}
+		
+		[+] f5:Fam.Family {
+			.name:="Test";
+		}
+	}
+	
+}
