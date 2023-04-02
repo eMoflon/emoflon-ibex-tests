@@ -10,7 +10,7 @@ import java.util.Arrays;
 
 import org.benchmarx.simpledoc.core.SimpleDocHelper;
 import org.benchmarx.simpledoc.core.SimpleJavaHelper;
-import org.emoflon.ibex.tgg.operational.strategies.integrate.pattern.IntegrationPattern;
+import org.emoflon.ibex.tgg.runtime.strategies.integrate.pattern.IntegrationPattern;
 import org.junit.jupiter.api.Test;
 
 import simpleDoc.Folder;

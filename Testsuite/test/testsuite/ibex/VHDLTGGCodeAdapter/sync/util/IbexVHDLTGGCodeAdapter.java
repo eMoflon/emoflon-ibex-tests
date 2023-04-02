@@ -4,10 +4,8 @@ import java.io.IOException;
 
 import org.benchmarx.mocaTree.core.MocaTreeFileComparator;
 import org.benchmarx.vhdlModel.core.VHDLModelComparator;
-import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
-import org.emoflon.ibex.tgg.run.vhdltggcodeadapter.SYNC_App;
 import org.emoflon.ibex.tgg.run.vhdltggcodeadapter.config.DemoclesRegistrationHelper;
-import org.emoflon.ibex.tgg.run.vhdltggcodeadapter.config.HiPERegistrationHelper;
+import org.emoflon.ibex.tgg.runtime.config.IRegistrationHelper;
 
 import MocaTree.File;
 import VHDLModel.VHDLModelFactory;

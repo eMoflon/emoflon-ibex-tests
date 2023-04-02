@@ -4,10 +4,8 @@ import java.io.IOException;
 
 import org.benchmarx.extDocModel.core.ExtDocModelComparator;
 import org.benchmarx.extTypeModel.core.ExtTypeModelComparator;
-import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
-import org.emoflon.ibex.tgg.run.exttype2doc_concsync.INTEGRATE_App;
 import org.emoflon.ibex.tgg.run.exttype2doc_concsync.config.DemoclesRegistrationHelper;
-import org.emoflon.ibex.tgg.run.exttype2doc_concsync.config.HiPERegistrationHelper;
+import org.emoflon.ibex.tgg.runtime.config.IRegistrationHelper;
 
 import ExtDocModel.DocContainer;
 import ExtTypeModel.Project;

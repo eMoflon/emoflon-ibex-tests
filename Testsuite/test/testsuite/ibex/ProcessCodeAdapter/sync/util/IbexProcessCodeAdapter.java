@@ -4,10 +4,8 @@ import java.io.IOException;
 
 import org.benchmarx.mocaTree.core.MocaTreeFolderComparator;
 import org.benchmarx.processDefinition.core.ProcessDefinitionComparator;
-import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
-import org.emoflon.ibex.tgg.run.processcodeadapter.SYNC_App;
 import org.emoflon.ibex.tgg.run.processcodeadapter.config.DemoclesRegistrationHelper;
-import org.emoflon.ibex.tgg.run.processcodeadapter.config.HiPERegistrationHelper;
+import org.emoflon.ibex.tgg.runtime.config.IRegistrationHelper;
 
 import MocaTree.Folder;
 import MocaTree.MocaTreeFactory;

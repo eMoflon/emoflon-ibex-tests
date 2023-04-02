@@ -4,10 +4,8 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Collection;
 
-import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
-import org.emoflon.ibex.tgg.run.blockcodeadapter.CC_App;
 import org.emoflon.ibex.tgg.run.blockcodeadapter.config.DemoclesRegistrationHelper;
-import org.emoflon.ibex.tgg.run.blockcodeadapter.config.HiPERegistrationHelper;
+import org.emoflon.ibex.tgg.runtime.config.IRegistrationHelper;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.runners.Parameterized.Parameters;

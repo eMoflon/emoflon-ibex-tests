@@ -9,8 +9,8 @@ import static org.emoflon.ibex.tgg.operational.strategies.integrate.FragmentProv
 import java.util.Arrays;
 
 import org.emoflon.ibex.common.emf.EMFManipulationUtils;
-import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.resolution.util.ConflictResolver;
-import org.emoflon.ibex.tgg.operational.strategies.integrate.pattern.IntegrationPattern;
+import org.emoflon.ibex.tgg.runtime.strategies.integrate.conflicts.resolution.util.ConflictResolver;
+import org.emoflon.ibex.tgg.runtime.strategies.integrate.pattern.IntegrationPattern;
 import org.glossarDoc.core.GlossarDocumentationHelper;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;

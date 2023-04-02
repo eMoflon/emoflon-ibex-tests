@@ -2,9 +2,7 @@ package testsuite.ibex.TerraceHouses2BlockSet.sync;
 
 import org.benchmarx.terracehouses.core.TerraceHousesHelper;
 import org.benchmarx.woodenblockset.core.WoodenBlockSetHelper;
-import org.junit.Assert;
 import org.junit.Assume;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import TerraceHouses.Building;

@@ -5,8 +5,8 @@ import java.io.IOException;
 import org.benchmarx.emf.Comparator;
 import org.benchmarx.util.EMFUtil;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGEN;
-import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGENStopCriterion;
+import org.emoflon.ibex.tgg.runtime.strategies.gen.MODELGEN;
+import org.emoflon.ibex.tgg.runtime.strategies.gen.MODELGENStopCriterion;
 import org.junit.jupiter.api.Assertions;
 
 public abstract class ModelGenTestCase<S, T> extends TestCase {

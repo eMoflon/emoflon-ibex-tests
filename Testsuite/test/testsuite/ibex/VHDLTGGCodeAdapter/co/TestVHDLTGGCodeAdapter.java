@@ -2,12 +2,8 @@ package testsuite.ibex.VHDLTGGCodeAdapter.co;
 
 import java.io.IOException;
 
-import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
-import org.emoflon.ibex.tgg.run.vhdltggcodeadapter.BWD_OPT_App;
-import org.emoflon.ibex.tgg.run.vhdltggcodeadapter.CO_App;
-import org.emoflon.ibex.tgg.run.vhdltggcodeadapter.FWD_OPT_App;
 import org.emoflon.ibex.tgg.run.vhdltggcodeadapter.config.DemoclesRegistrationHelper;
-import org.emoflon.ibex.tgg.run.vhdltggcodeadapter.config.HiPERegistrationHelper;
+import org.emoflon.ibex.tgg.runtime.config.IRegistrationHelper;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;

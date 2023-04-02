@@ -1,6 +1,6 @@
 package testsuite.ibex.testUtil;
 
-import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
+import org.emoflon.ibex.tgg.runtime.config.IRegistrationHelper;
 
 public class UsedPatternMatcher {
 

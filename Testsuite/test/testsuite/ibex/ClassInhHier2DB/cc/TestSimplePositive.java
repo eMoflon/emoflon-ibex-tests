@@ -2,10 +2,8 @@ package testsuite.ibex.ClassInhHier2DB.cc;
 
 import java.io.IOException;
 
-import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
-import org.emoflon.ibex.tgg.run.classinhhier2db.CC_App;
 import org.emoflon.ibex.tgg.run.classinhhier2db.config.DemoclesRegistrationHelper;
-import org.emoflon.ibex.tgg.run.classinhhier2db.config.HiPERegistrationHelper;
+import org.emoflon.ibex.tgg.runtime.config.IRegistrationHelper;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

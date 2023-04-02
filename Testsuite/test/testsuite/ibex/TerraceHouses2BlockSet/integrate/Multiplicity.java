@@ -11,9 +11,9 @@ import java.util.function.Consumer;
 
 import org.benchmarx.terracehouses.core.TerraceHousesHelper;
 import org.benchmarx.woodenblockset.core.WoodenBlockSetHelper;
-import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.OperationalMultiplicityConflict;
-import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.resolution.util.CRSHelper;
-import org.emoflon.ibex.tgg.operational.strategies.integrate.pattern.IntegrationPattern;
+import org.emoflon.ibex.tgg.runtime.strategies.integrate.conflicts.OperationalMultiplicityConflict;
+import org.emoflon.ibex.tgg.runtime.strategies.integrate.conflicts.resolution.util.CRSHelper;
+import org.emoflon.ibex.tgg.runtime.strategies.integrate.pattern.IntegrationPattern;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

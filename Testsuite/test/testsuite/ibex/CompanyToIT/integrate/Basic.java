@@ -3,8 +3,8 @@ package testsuite.ibex.CompanyToIT.integrate;
 import org.benchmarx.companyLanguage.core.CompanyLanguageHelper;
 import org.benchmarx.itLanguage.core.ITLanguageHelper;
 import org.emoflon.ibex.common.emf.EMFManipulationUtils;
-import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.DeletePreserveConflict;
-import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.resolution.util.CRSHelper;
+import org.emoflon.ibex.tgg.runtime.strategies.integrate.conflicts.DeletePreserveConflict;
+import org.emoflon.ibex.tgg.runtime.strategies.integrate.conflicts.resolution.util.CRSHelper;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 

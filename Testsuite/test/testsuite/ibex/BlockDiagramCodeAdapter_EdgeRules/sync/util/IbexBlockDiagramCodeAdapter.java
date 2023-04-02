@@ -4,10 +4,8 @@ import java.io.IOException;
 
 import org.benchmarx.blockDiagram.core.BlockDiagramComparator;
 import org.benchmarx.mocaTree.core.MocaTreeFileComparator;
-import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
-import org.emoflon.ibex.tgg.run.blockdiagramcodeadapter_edgerules.SYNC_App;
 import org.emoflon.ibex.tgg.run.blockdiagramcodeadapter_edgerules.config.DemoclesRegistrationHelper;
-import org.emoflon.ibex.tgg.run.blockdiagramcodeadapter_edgerules.config.HiPERegistrationHelper;
+import org.emoflon.ibex.tgg.runtime.config.IRegistrationHelper;
 
 import BlockDiagram.BlockDiagramFactory;
 import BlockDiagram.BlockSystem;

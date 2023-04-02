@@ -9,12 +9,9 @@ import java.util.List;
 
 import org.benchmarx.terracehouses.core.TerraceHousesComparator;
 import org.benchmarx.woodenblockset.core.BlockSetComparator;
-import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
-import org.emoflon.ibex.tgg.operational.repair.shortcut.rule.OperationalShortcutRule;
-import org.emoflon.ibex.tgg.operational.repair.shortcut.updatepolicy.IShortcutRuleUpdatePolicy;
-import org.emoflon.ibex.tgg.run.terracehouses2blockset.SYNC_App;
 import org.emoflon.ibex.tgg.run.terracehouses2blockset.config.DemoclesRegistrationHelper;
-import org.emoflon.ibex.tgg.run.terracehouses2blockset.config.HiPERegistrationHelper;
+import org.emoflon.ibex.tgg.runtime.config.IRegistrationHelper;
+import org.emoflon.ibex.tgg.runtime.repair.shortcut.updatepolicy.IShortcutRuleUpdatePolicy;
 
 import TerraceHouses.District;
 import TerraceHouses.TerraceHousesFactory;

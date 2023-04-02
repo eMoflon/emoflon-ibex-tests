@@ -5,10 +5,8 @@ import java.io.IOException;
 import org.benchmarx.Configurator;
 import org.benchmarx.families.core.FamiliesComparator;
 import org.benchmarx.persons.core.PersonsComparator;
-import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
-import org.emoflon.ibex.tgg.run.benchmarxfamiliestopersons.SYNC_App;
 import org.emoflon.ibex.tgg.run.benchmarxfamiliestopersons.config.DemoclesRegistrationHelper;
-import org.emoflon.ibex.tgg.run.benchmarxfamiliestopersons.config.HiPERegistrationHelper;
+import org.emoflon.ibex.tgg.runtime.config.IRegistrationHelper;
 
 import Families.FamiliesFactory;
 import Families.FamilyRegister;

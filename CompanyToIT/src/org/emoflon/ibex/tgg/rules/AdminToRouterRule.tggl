@@ -8,9 +8,9 @@ rule AdminToRouterRule {
 		[=] ceo : CL.CEO
 		[+] admin : CL.Admin {
 			[+] -ceo->ceo
-		}
+		} 
 	}
-	
+	 
 	target {
 		[+] router : IT.Router {
 			[+] -network->network
@@ -29,14 +29,14 @@ rule AdminToRouterRule {
 		}
 		[=] c2i : Company2IT {
 			src->company
-			trg->it
+			trg->it 
 		}
-	}
-	
+	} 
+	 
 	attributeConditions {
 		DefaultAttributeConditionLibrary.eq_string(admin.name, router.name)
 		DefaultAttributeConditionLibrary.eq_string(it.name, network.name)
-	}
+	}  
 	
 }
 

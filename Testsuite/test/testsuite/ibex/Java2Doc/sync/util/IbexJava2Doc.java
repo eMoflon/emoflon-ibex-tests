@@ -4,10 +4,10 @@ import java.io.IOException;
 
 import org.benchmarx.simpledoc.core.SimpleDocComparator;
 import org.benchmarx.simpledoc.core.SimpleJavaComparator;
-import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 import org.emoflon.ibex.tgg.run.java2doc.SYNC_App;
 import org.emoflon.ibex.tgg.run.java2doc.config.DemoclesRegistrationHelper;
 import org.emoflon.ibex.tgg.run.java2doc.config.HiPERegistrationHelper;
+import org.emoflon.ibex.tgg.runtime.config.IRegistrationHelper;
 
 import simpleDoc.Folder;
 import simpleJava.Package;

@@ -2,10 +2,8 @@ package testsuite.ibex.Clazz2GlossarDoc.sync.util;
 
 import java.io.IOException;
 
-import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
-import org.emoflon.ibex.tgg.run.clazz2glossardoc.SYNC_App;
 import org.emoflon.ibex.tgg.run.clazz2glossardoc.config.DemoclesRegistrationHelper;
-import org.emoflon.ibex.tgg.run.clazz2glossardoc.config.HiPERegistrationHelper;
+import org.emoflon.ibex.tgg.runtime.config.IRegistrationHelper;
 import org.glossarDoc.core.GlossarDocumentationComparator;
 import org.simpleClass.core.ClazzInheritanceComparator;
 

@@ -4,10 +4,8 @@ import java.io.IOException;
 
 import org.benchmarx.simplefamilies.core.FamiliesComparator;
 import org.benchmarx.simplepersons.core.PersonsComparator;
-import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
-import org.emoflon.ibex.tgg.run.familiestopersons_v1.SYNC_App;
 import org.emoflon.ibex.tgg.run.familiestopersons_v1.config.DemoclesRegistrationHelper;
-import org.emoflon.ibex.tgg.run.familiestopersons_v1.config.HiPERegistrationHelper;
+import org.emoflon.ibex.tgg.runtime.config.IRegistrationHelper;
 
 import SimpleFamilies.FamilyRegister;
 import SimpleFamilies.SimpleFamiliesFactory;

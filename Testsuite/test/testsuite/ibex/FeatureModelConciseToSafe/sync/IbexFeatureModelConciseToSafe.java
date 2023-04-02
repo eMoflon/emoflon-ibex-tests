@@ -4,10 +4,8 @@ import java.io.IOException;
 
 import org.benchmarx.featuremodelconcise.core.FeatureModelConciseComparator;
 import org.benchmarx.featuremodelsafe.core.FeatureModelSafeComparator;
-import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
-import org.emoflon.ibex.tgg.run.featuremodelconcisetosafe.SYNC_App;
 import org.emoflon.ibex.tgg.run.featuremodelconcisetosafe.config.DemoclesRegistrationHelper;
-import org.emoflon.ibex.tgg.run.featuremodelconcisetosafe.config.HiPERegistrationHelper;
+import org.emoflon.ibex.tgg.runtime.config.IRegistrationHelper;
 
 import FeatureModelConcise.Feature;
 import FeatureModelConcise.FeatureModelConciseFactory;

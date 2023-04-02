@@ -4,13 +4,13 @@ import "platform:/resource/ITLanguage/model/ITLanguage.ecore" using ITLanguage a
 schema CompanyToIT {
 	
 	source {
-		CompanyLanguage
+		CompanyLanguage 
 	}
 	
 	target {
 		ITLanguage
-	}
-	
+	} 
+	 
 	correspondence {
 		Admin2Router {
 			src->CompanyLanguage.Admin

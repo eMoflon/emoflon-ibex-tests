@@ -2,12 +2,8 @@ package testsuite.ibex.BlockDiagramCodeAdapter.co;
 
 import java.io.IOException;
 
-import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
-import org.emoflon.ibex.tgg.run.blockdiagramcodeadapter.BWD_OPT_App;
-import org.emoflon.ibex.tgg.run.blockdiagramcodeadapter.CO_App;
-import org.emoflon.ibex.tgg.run.blockdiagramcodeadapter.FWD_OPT_App;
 import org.emoflon.ibex.tgg.run.blockdiagramcodeadapter.config.DemoclesRegistrationHelper;
-import org.emoflon.ibex.tgg.run.blockdiagramcodeadapter.config.HiPERegistrationHelper;
+import org.emoflon.ibex.tgg.runtime.config.IRegistrationHelper;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;

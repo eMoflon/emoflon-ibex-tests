@@ -2,10 +2,8 @@ package testsuite.ibex.BlockDiagramCodeAdapter_EdgeRules.cc;
 
 import java.io.IOException;
 
-import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
-import org.emoflon.ibex.tgg.run.blockdiagramcodeadapter_edgerules.CC_App;
 import org.emoflon.ibex.tgg.run.blockdiagramcodeadapter_edgerules.config.DemoclesRegistrationHelper;
-import org.emoflon.ibex.tgg.run.blockdiagramcodeadapter_edgerules.config.HiPERegistrationHelper;
+import org.emoflon.ibex.tgg.runtime.config.IRegistrationHelper;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

@@ -2,12 +2,8 @@ package testsuite.ibex.ProcessCodeAdapter.co;
 
 import java.io.IOException;
 
-import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
-import org.emoflon.ibex.tgg.run.processcodeadapter.BWD_OPT_App;
-import org.emoflon.ibex.tgg.run.processcodeadapter.CO_App;
-import org.emoflon.ibex.tgg.run.processcodeadapter.FWD_OPT_App;
 import org.emoflon.ibex.tgg.run.processcodeadapter.config.DemoclesRegistrationHelper;
-import org.emoflon.ibex.tgg.run.processcodeadapter.config.HiPERegistrationHelper;
+import org.emoflon.ibex.tgg.runtime.config.IRegistrationHelper;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;

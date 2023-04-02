@@ -4,10 +4,9 @@ import java.io.IOException;
 
 import org.benchmarx.companyLanguage.core.CompanyLanguageComparator;
 import org.benchmarx.itLanguage.core.ITLanguageComparator;
-import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 import org.emoflon.ibex.tgg.run.companytoit.INTEGRATE_App;
-import org.emoflon.ibex.tgg.run.companytoit.config.DemoclesRegistrationHelper;
 import org.emoflon.ibex.tgg.run.companytoit.config.HiPERegistrationHelper;
+import org.emoflon.ibex.tgg.runtime.config.IRegistrationHelper;
 
 import CompanyLanguage.Company;
 import ITLanguage.IT;
@@ -25,7 +24,7 @@ public class IntegIbexCompanyToIT extends IntegIbexAdapter<Company, IT> {
 	public void initiateIntegrationDialogue() {
 		try {
 			INTEGRATE_App.registrationHelper = UsedPatternMatcher.choose(new IRegistrationHelper[] {
-					new DemoclesRegistrationHelper(), new HiPERegistrationHelper() });
+					 new HiPERegistrationHelper() });
 			integrator = new INTEGRATE_App(projectName,
 					testsuite.ibex.performance.util.PerformanceConstants.workspacePath, "/resources/integ/basic/in",
 					ilpSolver, false);

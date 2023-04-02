@@ -4,10 +4,8 @@ import java.io.IOException;
 
 import org.benchmarx.classInheritanceHierarchy.core.ClassInheritanceHierarchyComparator;
 import org.benchmarx.database.core.DatabaseComparator;
-import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
-import org.emoflon.ibex.tgg.run.classinhhier2db.SYNC_App;
 import org.emoflon.ibex.tgg.run.classinhhier2db.config.DemoclesRegistrationHelper;
-import org.emoflon.ibex.tgg.run.classinhhier2db.config.HiPERegistrationHelper;
+import org.emoflon.ibex.tgg.runtime.config.IRegistrationHelper;
 
 import ClassInheritanceHierarchy.ClassInheritanceHierarchyFactory;
 import ClassInheritanceHierarchy.ClassPackage;
