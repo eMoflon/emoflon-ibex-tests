@@ -1,0 +1,21 @@
+rule Container2ContainerRule {
+	
+	source { 
+		[+] cCont : C.ClazzContainer
+	}
+	
+	target {
+		[+] dCont : D.DocumentationContainer {
+			[+] -glossar->glossar
+		}
+		[+] glossar : D.Glossar
+	}
+	
+	correspondence {
+		[+] c2d : Container2container{
+			src->cCont
+			trg->dCont
+		}
+	}
+	
+}

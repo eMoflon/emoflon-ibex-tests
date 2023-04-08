@@ -5,10 +5,10 @@ import java.io.IOException;
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
-import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
-import org.emoflon.ibex.tgg.operational.strategies.modules.TGGResourceHandler;
-import org.emoflon.ibex.tgg.operational.strategies.opt.BWD_OPT;
 import org.emoflon.ibex.tgg.run.clazz2glossardoc.config._DefaultRegistrationHelper;
+import org.emoflon.ibex.tgg.runtime.config.IRegistrationHelper;
+import org.emoflon.ibex.tgg.runtime.strategies.modules.TGGResourceHandler;
+import org.emoflon.ibex.tgg.runtime.strategies.opt.BWD_OPT;
 
 public class BWD_OPT_App extends BWD_OPT {
 

@@ -1,10 +1,10 @@
 package org.emoflon.ibex.tgg.run.bench;
 
-import static org.emoflon.ibex.tgg.operational.strategies.integrate.FragmentProvider.CLEAN_UP;
-import static org.emoflon.ibex.tgg.operational.strategies.integrate.FragmentProvider.REPAIR;
-import static org.emoflon.ibex.tgg.operational.strategies.integrate.FragmentProvider.RESOLVE_BROKEN_MATCHES;
-import static org.emoflon.ibex.tgg.operational.strategies.integrate.FragmentProvider.RESOLVE_CONFLICTS;
-import static org.emoflon.ibex.tgg.operational.strategies.integrate.FragmentProvider.TRANSLATE;
+import static org.emoflon.ibex.tgg.runtime.strategies.integrate.FragmentProvider.CLEAN_UP;
+import static org.emoflon.ibex.tgg.runtime.strategies.integrate.FragmentProvider.REPAIR;
+import static org.emoflon.ibex.tgg.runtime.strategies.integrate.FragmentProvider.RESOLVE_BROKEN_MATCHES;
+import static org.emoflon.ibex.tgg.runtime.strategies.integrate.FragmentProvider.RESOLVE_CONFLICTS;
+import static org.emoflon.ibex.tgg.runtime.strategies.integrate.FragmentProvider.TRANSLATE;
 
 import java.io.File;
 import java.io.IOException;
@@ -25,28 +25,28 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
-import org.emoflon.ibex.tgg.operational.strategies.integrate.INTEGRATE;
-import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.AttributeConflict;
-import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.CorrPreservationConflict;
-import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.DeletePreserveConflict;
-import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.resolution.util.CRSHelper;
-import org.emoflon.ibex.tgg.operational.strategies.integrate.pattern.IntegrationPattern;
 import org.emoflon.ibex.tgg.run.clazz2glossardoc.INTEGRATE_App;
+import org.emoflon.ibex.tgg.runtime.strategies.integrate.INTEGRATE;
+import org.emoflon.ibex.tgg.runtime.strategies.integrate.conflicts.AttributeConflict;
+import org.emoflon.ibex.tgg.runtime.strategies.integrate.conflicts.CorrPreservationConflict;
+import org.emoflon.ibex.tgg.runtime.strategies.integrate.conflicts.DeletePreserveConflict;
+import org.emoflon.ibex.tgg.runtime.strategies.integrate.conflicts.resolution.util.CRSHelper;
+import org.emoflon.ibex.tgg.runtime.strategies.integrate.pattern.IntegrationPattern;
 
-import Clazz2GlossarDoc.Clazz2DocRule__Marker;
 import Clazz2GlossarDoc.Clazz2GlossarDocFactory;
 import Clazz2GlossarDoc.Clazz2doc;
-import Clazz2GlossarDoc.Container2ContainerRule__Marker;
 import Clazz2GlossarDoc.Container2container;
-import Clazz2GlossarDoc.Field2EntityRule__Marker;
 import Clazz2GlossarDoc.Field2entry;
-import Clazz2GlossarDoc.GlossarEntryRule__Marker;
-import Clazz2GlossarDoc.GlossarLinkRule__Marker;
-import Clazz2GlossarDoc.Method2EntityRule__Marker;
 import Clazz2GlossarDoc.Method2entry;
 import Clazz2GlossarDoc.Parameter2entry;
-import Clazz2GlossarDoc.ParameterRule__Marker;
-import Clazz2GlossarDoc.SubClazz2DocRule__Marker;
+import Clazz2GlossarDoc.ProtocolNode_Clazz2DocRule;
+import Clazz2GlossarDoc.ProtocolNode_Container2ContainerRule;
+import Clazz2GlossarDoc.ProtocolNode_Field2EntityRule;
+import Clazz2GlossarDoc.ProtocolNode_GlossarEntryRule;
+import Clazz2GlossarDoc.ProtocolNode_GlossarLinkRule;
+import Clazz2GlossarDoc.ProtocolNode_Method2EntityRule;
+import Clazz2GlossarDoc.ProtocolNode_ParameterRule;
+import Clazz2GlossarDoc.ProtocolNode_SubClazz2DocRule;
 import glossarDocumentation.Document;
 import glossarDocumentation.DocumentationContainer;
 import glossarDocumentation.Entry;
@@ -404,11 +404,11 @@ public class IntegrationBench {
 		c2c.setTarget(dContainer);
 		src2corr.put(cContainer, c2c);
 
-		Container2ContainerRule__Marker marker = corrFactory.createContainer2ContainerRule__Marker();
-		marker.setCREATE__SRC__cCont(cContainer);
-		marker.setCREATE__CORR__c2d(c2c);
-		marker.setCREATE__TRG__dCont(dContainer);
-		marker.setCREATE__TRG__glossar(glossar);
+		ProtocolNode_Container2ContainerRule marker = corrFactory.createProtocolNode_Container2ContainerRule();
+		marker.setCREATE__SOURCE__cCont(cContainer);
+		marker.setCREATE__CORRESPONDENCE__c2d(c2c);
+		marker.setCREATE__TARGET__dCont(dContainer);
+		marker.setCREATE__TARGET__glossar(glossar);
 		protocol.getContents().add(marker);
 	}
 
@@ -437,13 +437,13 @@ public class IntegrationBench {
 			c2d.setTarget(dRoot);
 			src2corr.put(cRoot, c2d);
 
-			Clazz2DocRule__Marker marker = corrFactory.createClazz2DocRule__Marker();
-			marker.setCONTEXT__SRC__cCont(cContainer);
-			marker.setCONTEXT__CORR__cont2cont((Container2container) src2corr.get(cContainer));
-			marker.setCONTEXT__TRG__dCont(dContainer);
-			marker.setCREATE__SRC__clazz(cRoot);
-			marker.setCREATE__CORR__c2d(c2d);
-			marker.setCREATE__TRG__doc(dRoot);
+			ProtocolNode_Clazz2DocRule marker = corrFactory.createProtocolNode_Clazz2DocRule();
+			marker.setCONTEXT__SOURCE__cCont(cContainer);
+			marker.setCONTEXT__CORRESPONDENCE__cont2cont((Container2container) src2corr.get(cContainer));
+			marker.setCONTEXT__TARGET__dCont(dContainer);
+			marker.setCREATE__SOURCE__clazz(cRoot);
+			marker.setCREATE__CORRESPONDENCE__c2d(c2d);
+			marker.setCREATE__TARGET__doc(dRoot);
 			protocol.getContents().add(marker);
 
 			createMethods(cRoot, dRoot, newPrefix);
@@ -488,14 +488,14 @@ public class IntegrationBench {
 			c2d.setTarget(dSub);
 			src2corr.put(cSub, c2d);
 
-			SubClazz2DocRule__Marker marker = corrFactory.createSubClazz2DocRule__Marker();
-			marker.setCONTEXT__SRC__superClazz(cParent);
-			marker.setCONTEXT__CORR__super2super((Clazz2doc) src2corr.get(cParent));
-			marker.setCONTEXT__TRG__dCont(dContainer);
-			marker.setCONTEXT__TRG__superDoc(dParent);
-			marker.setCREATE__SRC__subClazz(cSub);
-			marker.setCREATE__CORR__sub2sub(c2d);
-			marker.setCREATE__TRG__subDoc(dSub);
+			ProtocolNode_SubClazz2DocRule marker = corrFactory.createProtocolNode_SubClazz2DocRule();
+			marker.setCONTEXT__SOURCE__superClazz(cParent);
+			marker.setCONTEXT__CORRESPONDENCE__super2super((Clazz2doc) src2corr.get(cParent));
+			marker.setCONTEXT__TARGET__dCont(dContainer);
+			marker.setCONTEXT__TARGET__superDoc(dParent);
+			marker.setCREATE__SOURCE__subClazz(cSub);
+			marker.setCREATE__CORRESPONDENCE__sub2sub(c2d);
+			marker.setCREATE__TARGET__subDoc(dSub);
 			protocol.getContents().add(marker);
 
 			createMethods(cSub, dSub, newPrefix);
@@ -537,14 +537,14 @@ public class IntegrationBench {
 				c2d.setTarget(dSub);
 				src2corr.put(cSub, c2d);
 
-				SubClazz2DocRule__Marker marker = corrFactory.createSubClazz2DocRule__Marker();
-				marker.setCONTEXT__SRC__superClazz(cParent);
-				marker.setCONTEXT__CORR__super2super((Clazz2doc) src2corr.get(cParent));
-				marker.setCONTEXT__TRG__dCont(dContainer);
-				marker.setCONTEXT__TRG__superDoc(dParent);
-				marker.setCREATE__SRC__subClazz(cSub);
-				marker.setCREATE__CORR__sub2sub(c2d);
-				marker.setCREATE__TRG__subDoc(dSub);
+				ProtocolNode_SubClazz2DocRule marker = corrFactory.createProtocolNode_SubClazz2DocRule();
+				marker.setCONTEXT__SOURCE__superClazz(cParent);
+				marker.setCONTEXT__CORRESPONDENCE__super2super((Clazz2doc) src2corr.get(cParent));
+				marker.setCONTEXT__TARGET__dCont(dContainer);
+				marker.setCONTEXT__TARGET__superDoc(dParent);
+				marker.setCREATE__SOURCE__subClazz(cSub);
+				marker.setCREATE__CORRESPONDENCE__sub2sub(c2d);
+				marker.setCREATE__TARGET__subDoc(dSub);
 				protocol.getContents().add(marker);
 
 				createMethods(cSub, dSub, newPrefix);
@@ -583,13 +583,13 @@ public class IntegrationBench {
 			m2e.setTarget(e);
 			src2corr.put(m, m2e);
 
-			Method2EntityRule__Marker marker = corrFactory.createMethod2EntityRule__Marker();
-			marker.setCONTEXT__SRC__clazz(c);
-			marker.setCONTEXT__CORR__c2d((Clazz2doc) src2corr.get(c));
-			marker.setCONTEXT__TRG__doc(d);
-			marker.setCREATE__SRC__method(m);
-			marker.setCREATE__CORR__f2e(m2e);
-			marker.setCREATE__TRG__entry(e);
+			ProtocolNode_Method2EntityRule marker = corrFactory.createProtocolNode_Method2EntityRule();
+			marker.setCONTEXT__SOURCE__clazz(c);
+			marker.setCONTEXT__CORRESPONDENCE__c2d((Clazz2doc) src2corr.get(c));
+			marker.setCONTEXT__TARGET__doc(d);
+			marker.setCREATE__SOURCE__method(m);
+			marker.setCREATE__CORRESPONDENCE__f2e(m2e);
+			marker.setCREATE__TARGET__entry(e);
 			protocol.getContents().add(marker);
 
 			createGlossarLinks(e);
@@ -617,12 +617,12 @@ public class IntegrationBench {
 			p2e.setTarget(e);
 			src2corr.put(p, p2e);
 
-			ParameterRule__Marker marker = corrFactory.createParameterRule__Marker();
-			marker.setCONTEXT__SRC__method(m);
-			marker.setCONTEXT__CORR__m2e((Method2entry) src2corr.get(m));
-			marker.setCONTEXT__TRG__entry(e);
-			marker.setCREATE__SRC__param(p);
-			marker.setCREATE__CORR__p2e(p2e);
+			ProtocolNode_ParameterRule marker = corrFactory.createProtocolNode_ParameterRule();
+			marker.setCONTEXT__SOURCE__method(m);
+			marker.setCONTEXT__CORRESPONDENCE__m2e((Method2entry) src2corr.get(m));
+			marker.setCONTEXT__TARGET__entry(e);
+			marker.setCREATE__SOURCE__param(p);
+			marker.setCREATE__CORRESPONDENCE__p2e(p2e);
 			protocol.getContents().add(marker);
 		}
 	}
@@ -650,13 +650,13 @@ public class IntegrationBench {
 			f2e.setTarget(e);
 			src2corr.put(f, f2e);
 
-			Field2EntityRule__Marker marker = corrFactory.createField2EntityRule__Marker();
-			marker.setCONTEXT__SRC__clazz(c);
-			marker.setCONTEXT__CORR__c2d((Clazz2doc) src2corr.get(c));
-			marker.setCONTEXT__TRG__doc(d);
-			marker.setCREATE__SRC__field(f);
-			marker.setCREATE__CORR__f2e(f2e);
-			marker.setCREATE__TRG__entry(e);
+			ProtocolNode_Field2EntityRule marker = corrFactory.createProtocolNode_Field2EntityRule();
+			marker.setCONTEXT__SOURCE__clazz(c);
+			marker.setCONTEXT__CORRESPONDENCE__c2d((Clazz2doc) src2corr.get(c));
+			marker.setCONTEXT__TARGET__doc(d);
+			marker.setCREATE__SOURCE__field(f);
+			marker.setCREATE__CORRESPONDENCE__f2e(f2e);
+			marker.setCREATE__TARGET__entry(e);
 			protocol.getContents().add(marker);
 
 			createGlossarLinks(e);
@@ -672,9 +672,9 @@ public class IntegrationBench {
 
 			elementCounter++;
 
-			GlossarEntryRule__Marker marker = corrFactory.createGlossarEntryRule__Marker();
-			marker.setCONTEXT__TRG__glossar(glossar);
-			marker.setCREATE__TRG__entry(ge);
+			ProtocolNode_GlossarEntryRule marker = corrFactory.createProtocolNode_GlossarEntryRule();
+			marker.setCONTEXT__TARGET__glossar(glossar);
+			marker.setCREATE__TARGET__entry(ge);
 			protocol.getContents().add(marker);
 		}
 	}
@@ -685,9 +685,9 @@ public class IntegrationBench {
 			e.getGlossarentries().add(ge);
 			entry2glossarEntryCounter++;
 
-			GlossarLinkRule__Marker marker = corrFactory.createGlossarLinkRule__Marker();
-			marker.setCONTEXT__TRG__entry(e);
-			marker.setCONTEXT__TRG__gEntry(ge);
+			ProtocolNode_GlossarLinkRule marker = corrFactory.createProtocolNode_GlossarLinkRule();
+			marker.setCONTEXT__TARGET__entry(e);
+			marker.setCONTEXT__TARGET__gEntry(ge);
 			protocol.getContents().add(marker);
 		}
 	}

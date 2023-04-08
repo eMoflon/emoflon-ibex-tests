@@ -12,20 +12,22 @@ Require-Bundle: org.apache.log4j,
  org.sat4j.pb,
  org.eclipse.emf.ecore.xmi,
  org.emoflon.ibex.common,
- org.emoflon.ibex.tgg.language,
  org.emoflon.ibex.tgg.runtime;visibility:=reexport,
  GlossarDocumentation;visibility:=reexport,
  SimpleClassInheritance;visibility:=reexport,
  org.emoflon.ibex.tgg.ui.debug,
  org.emoflon.ibex.tgg.ui.debug.adapter,
  org.eclipse.xtend.lib,
- org.emoflon.ibex.tgg.runtime.democles,
  org.emoflon.ibex.tgg.runtime.hipe,
  org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  SimpleClassInheritance,
  GlossarDocumentation,
- org.emoflon.smartemf
+ org.emoflon.smartemf,
+ org.emoflon.ibex.tgg.runtimemodel;bundle-version="0.1.0",
+ org.emoflon.ibex.tgg.tggmodel;bundle-version="0.1.0",
+ org.emoflon.ibex.tgg.analysis;bundle-version="1.0.0",
+ org.emoflon.ibex.tgg.util;bundle-version="1.0.0"
 Bundle-ManifestVersion: 2
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-17
@@ -33,3 +35,4 @@ Export-Package: Clazz2GlossarDoc,
  Clazz2GlossarDoc.impl,
  org.emoflon.ibex.tgg.run.clazz2glossardoc,
  org.emoflon.ibex.tgg.run.clazz2glossardoc.config
+
