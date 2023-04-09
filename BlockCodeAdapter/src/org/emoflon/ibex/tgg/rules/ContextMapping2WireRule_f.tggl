@@ -1,0 +1,28 @@
+abstract rule ContextMapping2WireRule_f {	
+	source { 
+		[=] toPortNode:MocaTree.Node {
+			[=] - parentNode->toBlockNode
+		}
+		[=] fromBlockNode:MocaTree.Node {
+			[=] - parentNode->blocks
+		}
+		[=] blocks:MocaTree.Node
+		[=] toBlockNode:MocaTree.Node {
+			[=] - parentNode->blocks
+		}
+		
+		[#] blocks.name == "BLOCKS";
+	}
+	
+	target {
+		[=] spec:BlockLanguage.Specification {
+			[=] - blocks->fromBlock
+			[=] - blocks->toBlock
+		}
+		[=] fromPort:BlockLanguage.Port
+		[=] toBlock:BlockLanguage.Block
+		[=] fromBlock:BlockLanguage.Block {
+			[=] - ports->fromPort
+		}
+	}
+}

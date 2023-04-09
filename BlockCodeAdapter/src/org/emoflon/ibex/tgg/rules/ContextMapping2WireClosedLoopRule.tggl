@@ -1,0 +1,15 @@
+abstract rule ContextMapping2WireClosedLoopRule {	
+	source {
+		[=] toPortNode:MocaTree.Node {
+			[=] - parentNode->fromBlockNode
+		}
+		[=] fromBlockNode:MocaTree.Node 
+	}
+	
+	target { 
+		[=] toBlock:BlockLanguage.Block {
+			[=] -ports->fromPort
+		}
+		[=] fromPort:BlockLanguage.Port
+	}
+}

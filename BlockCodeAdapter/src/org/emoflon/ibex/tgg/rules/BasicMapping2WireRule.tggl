@@ -1,0 +1,80 @@
+abstract rule BasicMapping2WireRule {
+
+	source {
+		[=] fromBlockNode : MocaTree.Node {
+			[=] -parentNode->blocks
+		}
+		[=] mappingNode:MocaTree.Node {
+			[=] -parentNode->specNode
+		}
+		
+		
+		[=] toPortNode:MocaTree.Node
+		[=] specNode:MocaTree.Node {
+		}
+		[=] blocks:MocaTree.Node {
+			[=] -parentNode->specNode
+		}
+		[=]fromPortNode:MocaTree.Node {
+			[=]-parentNode->fromBlockNode
+		}
+		[+]to:MocaTree.Node {
+			[+] -parentNode->from1
+		}
+		[+] from1:MocaTree.Node {
+			[+] -parentNode->mappingNode
+		}
+		
+		[#] mappingNode.name == "MAPPINGS";
+		[#] specNode.name == "SPEC";
+		[#] blocks.name == "BLOCKS";
+	}
+	
+	target {
+		[+] wire:BlockLanguage.Wire {
+			[+] -port->toPort
+		}
+		[=] toPort:BlockLanguage.Port
+		[=] fromPort:BlockLanguage.Port {
+			[+] -wire->wire
+		}
+		[=] toBlock:BlockLanguage.Block {
+			[=] -ports->toPort
+		}
+		[=] spec:BlockLanguage.Specification {
+			[=] -blocks->toBlock
+		}
+	}
+	
+	correspondence {
+		[=] n2p2 :NodeToPort {
+			src->toPortNode
+			trg->toPort
+		}
+		[=] n2s :NodeToSpecification {
+			src->specNode
+			trg->spec
+		}
+		[+] n2w2 :NodeToWire {
+			src->to
+			trg->wire
+		}
+		[+] n2w1 :NodeToWire {
+			src->from1
+			trg->wire
+		}
+		[=] n2p1 :NodeToPort {
+			src->fromPortNode
+			trg->fromPort
+		}
+	}
+	
+	attributeConditions {
+		DefaultAttributeConditionLibrary.stringToInt(to.name, toPort.id)
+		DefaultAttributeConditionLibrary.eq_string(fromPortNode.name, from1.name)
+		DefaultAttributeConditionLibrary.eq_string(toPortNode.name, to.name)
+		DefaultAttributeConditionLibrary.stringToInt(from1.name, fromPort.id)
+	}
+	
+}
+
