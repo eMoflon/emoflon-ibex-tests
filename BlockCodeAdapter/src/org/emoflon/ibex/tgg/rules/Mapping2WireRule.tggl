@@ -6,7 +6,7 @@ rule Mapping2WireRule refines BasicMapping2WireRule, ContextMapping2WireRule_f {
 		}
 		@refines= BasicMapping2WireRule.fromBlockNode, ContextMapping2WireRule_f.fromBlockNode
 		[=] fromBlockNode:MocaTree.Node {
-			[=] - parentNode->blocks
+			[=] - parentNode->blocks 
 		}
 		@refines= BasicMapping2WireRule.blocks, ContextMapping2WireRule_f.blocks
 		[=] blocks:MocaTree.Node
