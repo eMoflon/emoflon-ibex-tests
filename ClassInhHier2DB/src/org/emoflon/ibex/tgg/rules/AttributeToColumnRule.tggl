@@ -1,0 +1,34 @@
+rule AttributeToColumnRule {
+	
+	source {
+		[=] clazz:CH.Clazz {
+			[+] - attributes->attribute
+		}
+		[+] attribute:CH.Attribute
+	}
+	
+	target {
+		[+] column:DB.Column
+		[=] table:DB.Table {
+			[+] - columns->column
+		}
+	}
+	
+	correspondence {
+		[=] clazzToTable:ClazzToTable {
+			src->clazz
+			trg->table
+		}
+		[+] attributeToColumn:AttributeToColumn {
+			src->attribute
+			trg->column
+		}
+	}
+	
+	attributeConditions {
+		DefaultAttributeConditionLibrary.eq_string(attribute.name, column.name)
+	}
+	
+}
+
+
