@@ -1,0 +1,49 @@
+rule FileToTaskRule {
+	
+	source {
+		[=] folder:M.Folder {
+			[+] - file->file
+		}
+		[+]invocationNode:M.Node {
+			.name := "INVOCATIONS";
+			[+] - parentNode->taskNode
+		}
+		[+] taskNode:M.Node {
+			.name := "TASK";
+			[+] - file->file
+		}
+		[+] file:M.File
+		[+] importNode:M.Node {
+			.name := "IMPORTS";
+			[+] - parentNode->taskNode
+		}
+	}
+	
+	target {
+		[=] system:P.SystemModule {
+			[=] - allModules->module
+		}
+		[=] module:P.Module
+		[+] task:P.Task {
+			[+] - module->module
+			[+] - systemModule->system
+		}
+	}
+	
+	correspondence {
+		[=] folderToModule :FolderToModule {
+			src->folder
+			trg->module
+		}
+		[+] fileToTask :FileToTask {
+			src->file
+			trg->task
+		}
+	}
+	
+	attributeConditions {
+		DefaultAttributeConditionLibrary.addPrefix(task.id, ".proc", file.name)
+	}
+
+}
+

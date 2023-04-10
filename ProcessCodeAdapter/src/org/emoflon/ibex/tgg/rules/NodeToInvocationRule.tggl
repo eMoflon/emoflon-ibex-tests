@@ -1,0 +1,24 @@
+rule NodeToInvocationRule refines AbstractOtherInvokedTaskRule, AbstractNodeToInvocationRule {
+	
+	source {
+		@refines+ AbstractNodeToInvocationRule.invocationNode, AbstractOtherInvokedTaskRule.invocationNode
+		[+] invocationNode:M.Node
+		@refines= AbstractNodeToInvocationRule.folder, AbstractOtherInvokedTaskRule.folder
+		[=] folder:M.Folder
+	}
+	
+	target {
+		@refines+ AbstractNodeToInvocationRule.invocation, AbstractOtherInvokedTaskRule.invocation
+		[+] invocation:P.Invocation
+		@refines= AbstractNodeToInvocationRule.system, AbstractOtherInvokedTaskRule.system
+		[=] system:P.SystemModule
+	}
+	
+	correspondence {
+		[+] invocationNodeToInvocation :NodeToInvocation {
+			src->invocationNode
+			trg->invocation
+		}
+	}
+
+}

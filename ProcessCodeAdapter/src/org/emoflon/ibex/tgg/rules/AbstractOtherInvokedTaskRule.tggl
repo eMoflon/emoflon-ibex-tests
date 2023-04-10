@@ -1,0 +1,32 @@
+abstract rule AbstractOtherInvokedTaskRule {
+	
+	source {
+		[=] otherFile:M.File
+		[=] folder:M.Folder {
+			[=] - file->otherFile
+		}
+		[+] invocationNode:M.Node
+	}
+	
+	target {
+		[=] system:P.SystemModule
+		[=] invokedTask:P.Task {
+			[+] - invocation->invocation
+			[=] - systemModule->system
+		}
+		[+] invocation:P.Invocation
+	}
+	
+	correspondence {
+		[=] fileToTask2 :FileToTask {
+			src->otherFile
+			trg->invokedTask
+		}
+	}
+	
+	attributeConditions {
+		DefaultAttributeConditionLibrary.addPrefix(invocationNode.name, ".proc", otherFile.name)
+	}
+
+}
+

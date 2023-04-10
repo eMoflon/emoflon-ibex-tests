@@ -1,0 +1,55 @@
+rule NodeToImportRule refines AbstractNodeToImportRule {
+	
+	source {
+		@refines+ AbstractNodeToImportRule.invocationNode
+		[+] invocationNode:M.Node {
+			[+] - parentNode->invocationsNode
+		}
+		[=] otherFolder:M.Folder
+		[=] rootFolder:M.Folder {
+			[=] - subFolder->otherFolder
+			[=] - subFolder->folder
+		}
+		@refines= AbstractNodeToImportRule.invocationsNode
+		[=] invocationsNode:M.Node {
+			.name := "IMPORTS";
+		}
+		@refines= AbstractNodeToImportRule.folder
+		[=] folder:M.Folder
+	}
+	
+	target {
+		[+] invocation:P.Import
+		[=] module:P.Module
+		[=] importedModule:P.Module {
+			[+] - import->invocation
+		}
+		@refines= AbstractNodeToImportRule.task
+		[=] task:P.Task {
+			[=] - module->module
+			[+] - imports->invocation
+		}
+		@refines= AbstractNodeToImportRule.system
+		[=] system:P.SystemModule {
+			[=] - allModules->module
+			[=] - allModules->importedModule
+		}
+	}
+	
+	correspondence {
+		[+] nodeToImport :NodeToImport {
+			src->invocationNode
+			trg->invocation
+		}
+		[=] fileToImportedModule :FolderToModule {
+			src->otherFolder
+			trg->importedModule
+		}
+	}
+	
+	attributeConditions {
+		DefaultAttributeConditionLibrary.eq_string(invocationNode.name, otherFolder.name)
+	}
+
+}
+
