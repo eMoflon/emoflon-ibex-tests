@@ -1,0 +1,57 @@
+rule Entity2CompositeBlock {
+	
+	source {
+		[+] entity:M.Node {
+			.index := 1;
+			.name := "ENTITY";
+			[+] - parentNode->vhdl
+		}
+		[+] gateName:M.Node {
+			.index := 0;
+			[+] - parentNode->gate
+		}
+		[+] gate:M.Node {
+			.index := 0;
+			.name := "GATE";
+			[+] - parentNode->vhdl
+		}
+		[=] file:M.File
+		[=] vhdl:M.Node {
+			.name := "VHDL";
+			[=] - file->file
+		}
+		[+] entityName:M.Node {
+			[+] - parentNode->entity
+		}
+	}
+	
+	target {
+		[+] composite:V.CompositeBlock
+		[=] spec:V.VHDLSpecification {
+			[+] - blocks->composite
+		}
+	}
+	
+	correspondence {
+		[+] gate2composite :NodeToCompositeBlock {
+			src->gate
+			trg->composite
+		}
+		[=] file2spec :FileToVHDLSpecification {
+			src->file
+			trg->spec
+		}
+		[+] entity2composite :NodeToCompositeBlock {
+			src->entity
+			trg->composite
+		}
+	}
+	
+	attributeConditions {
+		DefaultAttributeConditionLibrary.eq_string(gateName.name, entityName.name)
+		DefaultAttributeConditionLibrary.eq_string(entityName.name, composite.name)
+		DefaultAttributeConditionLibrary.eq_string(gateName.name, composite.name)
+	}
+
+}
+

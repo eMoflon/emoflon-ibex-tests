@@ -1,0 +1,55 @@
+rule Mapping2NotGate refines AbstractMappingRule {
+	
+	source {
+		@refines+ AbstractMappingRule.expressionNode
+		[+] expressionNode:M.Node {
+			.name := "not";
+		}
+		@refines= AbstractMappingRule.entityNode
+		[=] entityNode:M.Node {
+			.name := "ENTITY";
+		}
+		[+] port:M.Node {
+			[+] - parentNode->expressionNode
+		}
+	}
+	
+	target {
+		@refines+ AbstractMappingRule.expression
+		[+] expression:V.NotGate {
+			[+] - inputport->in
+			[+] - outputport->out
+			[+] - inputs->in
+		}
+		@refines+ AbstractMappingRule.out
+		[+] out:V.OutputPort {
+			.name := "NOT.out";
+			[+] - block->expression
+		}
+		@refines= AbstractMappingRule.leftExtern
+		[=] leftExtern:V.InputPort
+		[+] in:V.InputPort {
+			.name := "NOT.in";
+			[+] - src -> leftExtern
+			[+] - block -> expression
+		}
+		@refines= AbstractMappingRule.compositeBlock
+		[=] compositeBlock:V.CompositeBlock
+	}
+	
+	correspondence {
+		[=] compositeBlockToEntityNode :NodeToCompositeBlock {
+			src->entityNode
+			trg->compositeBlock
+		}
+		[+] notNode2Gate :NodeToBlock {
+			src->expressionNode
+			trg->expression
+		}
+	}
+	
+	attributeConditions {
+		DefaultAttributeConditionLibrary.eq_string(leftExtern.name, port.name)
+	}
+
+}

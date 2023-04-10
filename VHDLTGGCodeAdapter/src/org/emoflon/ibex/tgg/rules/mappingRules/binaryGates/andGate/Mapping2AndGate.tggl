@@ -1,0 +1,44 @@
+rule Mapping2AndGate refines AbstractBinaryMappingRule as AbsBinMapping {
+	
+	source {
+		@refines+ AbstractBinaryMappingRule.expressionNode
+		[+] expressionNode:M.Node {
+			.name := "and";
+		}
+	}
+	
+	target {
+		@refines+ AbstractBinaryMappingRule.rightPort
+		[+] rightPort:V.InputPort {
+			.name := "AND.in2";
+			[+] - block->expression
+		}
+		@refines+ AbstractBinaryMappingRule.leftPort
+		[+] leftPort:V.InputPort {
+			.name := "AND.in1";
+			[+] - block->expression
+		}
+		@refines+ AbstractMappingRule.expression
+		[+] expression:V.AndGate {
+			[+] - inputs->rightPort
+			[+] - inputport1->leftPort
+			[+] - inputport2->rightPort
+			[+] - inputs->leftPort
+			[+] - outputport->out
+		}
+		@refines+ AbstractMappingRule.out
+		[+] out:V.OutputPort {
+			.name := "AND.out";
+			[+] - block->expression
+		}
+	}
+	
+	correspondence {
+		[+] andNode2Gate :NodeToBlock {
+			src->expressionNode
+			trg->expression
+		}
+	}
+
+}
+

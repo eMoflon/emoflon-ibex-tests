@@ -1,0 +1,26 @@
+rule File2VHDLSpec {
+	
+	source {
+		[+] file:M.File
+		[+] vhdl:M.Node {
+			.name := "VHDL";
+			[+] - file->file
+		}
+	}
+	
+	target {
+		[+] spec:V.VHDLSpecification
+	}
+	
+	correspondence {
+		[+] file2spec :FileToVHDLSpecification {
+			src->file
+			trg->spec
+		}
+	}
+	
+	attributeConditions {
+		DefaultAttributeConditionLibrary.addPrefix(spec.name, ".vhdl", file.name)
+	}
+
+}

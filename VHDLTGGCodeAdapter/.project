@@ -16,6 +16,11 @@
 			</arguments>
 		</buildCommand>
 		<buildCommand>
+			<name>org.moflon.emf.build.MoflonEmfBuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+		<buildCommand>
 			<name>org.eclipse.jdt.core.javabuilder</name>
 			<arguments>
 			</arguments>
@@ -32,9 +37,10 @@
 		</buildCommand>
 	</buildSpec>
 	<natures>
-		<nature>org.emoflon.ibex.tgg.editor.ide.nature</nature>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.eclipse.pde.PluginNature</nature>
 		<nature>org.eclipse.xtext.ui.shared.xtextNature</nature>
+		<nature>org.emoflon.ibex.tgg.tggl.ui.nature</nature>
+		<nature>org.moflon.emf.build.MoflonEmfNature</nature>
 	</natures>
 </projectDescription>

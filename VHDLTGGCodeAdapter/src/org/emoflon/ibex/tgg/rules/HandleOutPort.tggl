@@ -1,0 +1,26 @@
+rule HandleOutPort refines Handle {
+	
+	source {
+		@refines+ Handle.portNode
+		[+] portNode:M.Node {
+			.name := "PORT";
+		}
+		@refines+ Handle.typeNode
+		[+] typeNode:M.Node {
+			.name := "out";
+		}
+	}
+	
+	target {
+		@refines+ Handle.port
+		[+] port:V.OutputPort
+	}
+	
+	correspondence {
+		[+] node2outport :NodeToOutputPort {
+			src->portNode
+			trg->port
+		}
+	}
+
+}

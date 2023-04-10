@@ -1,0 +1,37 @@
+import "platform:/resource/MocaTree/model/MocaTree.ecore" using MocaTree as M
+import "platform:/resource/VHDLModel/model/VHDLModel.ecore" using VHDLModel as V
+
+schema VHDLTGGCodeAdapter {
+	
+	source {
+		MocaTree
+	}
+	
+	target {
+		VHDLModel
+	}
+	
+	correspondence {
+		NodeToInputPort {
+			src->MocaTree.Node
+			trg->VHDLModel.InputPort
+		}
+		NodeToBlock {
+			src->MocaTree.Node
+			trg->VHDLModel.Block
+		}
+		NodeToCompositeBlock {
+			src->MocaTree.Node
+			trg->VHDLModel.CompositeBlock
+		}
+		FileToVHDLSpecification {
+			src->MocaTree.File
+			trg->VHDLModel.VHDLSpecification
+		}
+		NodeToOutputPort {
+			src->MocaTree.Node
+			trg->VHDLModel.OutputPort
+		}
+	}
+	
+}

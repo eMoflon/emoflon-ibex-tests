@@ -1,0 +1,39 @@
+abstract rule Handle {
+	
+	source {
+		[+] typeNode:M.Node {
+			[+] - parentNode->portNode
+		}
+		[=] entity:M.Node {
+			.name := "ENTITY";
+		}
+		[+] portNode:M.Node {
+			.name := "PORT";
+			[+] - parentNode->entity
+		}
+		[+] portName:M.Node {
+			[+] - parentNode->portNode
+		}
+	}
+	
+	target {
+		[+] port:V.Port {
+			[+] - block->composite
+		}
+		[=] composite:V.CompositeBlock {
+			[+] - ports->port
+		}
+	}
+	
+	correspondence {
+		[=] entity2composite :NodeToCompositeBlock {
+			src->entity
+			trg->composite
+		}
+	}
+	
+	attributeConditions {
+		DefaultAttributeConditionLibrary.eq_string(portName.name, port.name)
+	}
+
+}

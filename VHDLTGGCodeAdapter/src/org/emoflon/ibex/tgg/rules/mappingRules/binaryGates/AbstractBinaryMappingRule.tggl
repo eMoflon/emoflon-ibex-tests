@@ -1,0 +1,62 @@
+abstract rule AbstractBinaryMappingRule refines AbstractMappingRule as AbsMapping {
+	
+	source {
+		@refines+ AbsMapping.expressionNode
+		[+] expressionNode:M.Node
+		[+] left:M.Node {
+			.index := 0;
+			[+] - parentNode -> expressionNode
+		}
+		[+] right:M.Node {
+			.index := 1;
+			[+] - parentNode -> expressionNode
+		}
+		[=] inNode2:M.Node {
+			.name := "in";
+			[=] - parentNode -> inputPortNode2
+		}
+		[=] inputPortNode2:M.Node {
+			.name := "PORT";
+			[=] - parentNode->entityNode
+		}
+		@refines= AbsMapping.entityNode
+		[=] entityNode:M.Node {
+			.name := "ENTITY";
+		}
+	}
+	
+	target {
+		[+] leftPort:V.InputPort {
+			[+] - src -> leftExtern
+		}
+		@refines= AbsMapping.compositeBlock
+		[=] compositeBlock:V.CompositeBlock {
+			[=] - inputs -> rightExtern
+			[=] - inputs -> leftExtern
+		}
+		[+] rightPort:V.InputPort {
+			[+] - src -> rightExtern
+		}
+		[=] rightExtern:V.InputPort
+		@refines= AbsMapping.leftExtern
+		[=] leftExtern:V.InputPort
+	}
+	
+	correspondence {
+		[=] node2composite :NodeToCompositeBlock {
+			src->entityNode
+			trg->compositeBlock
+		}
+		[=] node2inputPort2 :NodeToInputPort {
+			src->inputPortNode2
+			trg->rightExtern
+		}
+	}
+	
+	attributeConditions {
+		DefaultAttributeConditionLibrary.eq_string(leftExtern.name, left.name)
+		DefaultAttributeConditionLibrary.eq_string(rightExtern.name, right.name)
+	}
+
+}
+
