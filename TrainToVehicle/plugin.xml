@@ -1,17 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<?eclipse version="3.0"?>
-
-<!--
--->
-
-<plugin>
-
-   <extension point="org.eclipse.emf.ecore.generated_package">
-      <!-- @generated TrainToVehicle -->
-      <package
-            uri="platform:/resource/TrainToVehicle/model/TrainToVehicle.ecore"
-            class="TrainToVehicle.TrainToVehiclePackage"
-            genModel="model/TrainToVehicle.genmodel"/>
-   </extension>
-
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?eclipse version="3.0"?><!--
+--><plugin>
+  <extension point="org.eclipse.emf.ecore.generated_package">
+    <package class="TrainToVehicle.TrainToVehiclePackage" genModel="model/TrainToVehicle.genmodel" uri="platform:/resource/TrainToVehicle/model/TrainToVehicle.ecore"/>
+  </extension>
 </plugin>
