@@ -6,9 +6,7 @@ Bundle-ClassPath: .
 Require-Bundle: org.apache.log4j,
  org.eclipse.emf.ecore.xmi,
  org.emoflon.ibex.common,
- org.emoflon.ibex.tgg.language,
  org.emoflon.ibex.tgg.runtime;visibility:=reexport,
- org.emoflon.ibex.tgg.runtime.democles,
  org.moflon.core.utilities;bundle-version="3.0.0",
  org.sat4j.core,
  org.sat4j.pb,
@@ -21,17 +19,23 @@ Require-Bundle: org.apache.log4j,
  org.eclipse.emf.ecore;visibility:=reexport,
  MocaTree,
  ProcessDefinition,
- org.emoflon.smartemf
+ org.emoflon.smartemf,
+ org.emoflon.ibex.tgg.tggmodel;bundle-version="0.1.0",
+ org.emoflon.ibex.tgg.runtimemodel;bundle-version="0.1.0",
+ org.emoflon.ibex.tgg.analysis;bundle-version="1.0.0",
+ org.emoflon.ibex.tgg.util;bundle-version="1.0.0"
 Bundle-ManifestVersion: 2
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-17
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Import-Package: Families.impl,MocaTree.impl,Persons.impl,ProcessDefini
- tion.impl
-Export-Package: org.emoflon.ibex.tgg.operational.csp.constraints.factories.mocatreetoprocess,
- org.emoflon.ibex.tgg.run.mocatreetoprocess,
+Import-Package: Families.impl,
+ MocaTree.impl,
+ Persons.impl,
+ ProcessDefinition.impl
+Export-Package: org.emoflon.ibex.tgg.run.mocatreetoprocess,
  org.emoflon.ibex.tgg.run.mocatreetoprocess.config,
  MocaTreeToProcess,
  MocaTreeToProcess.impl
 Automatic-Module-Name: MocaTreeToProcess
+

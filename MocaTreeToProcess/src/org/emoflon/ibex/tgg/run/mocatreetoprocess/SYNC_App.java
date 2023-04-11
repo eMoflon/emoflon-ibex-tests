@@ -3,9 +3,9 @@ package org.emoflon.ibex.tgg.run.mocatreetoprocess;
 import java.io.IOException;
 
 import org.apache.log4j.BasicConfigurator;
-import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
-import org.emoflon.ibex.tgg.operational.strategies.sync.SYNC;
 import org.emoflon.ibex.tgg.run.mocatreetoprocess.config._DefaultRegistrationHelper;
+import org.emoflon.ibex.tgg.runtime.config.IRegistrationHelper;
+import org.emoflon.ibex.tgg.runtime.strategies.sync.SYNC;
 
 public class SYNC_App extends SYNC {
 	public static IRegistrationHelper registrationHelper = new _DefaultRegistrationHelper();

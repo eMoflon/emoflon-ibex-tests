@@ -1,0 +1,31 @@
+import "platform:/resource/MocaTree/model/MocaTree.ecore" using MocaTree as M
+import "platform:/resource/ProcessDefinition/model/ProcessDefinition.ecore" using ProcessDefinition as P
+
+schema MocaTreeToProcess {
+	
+	source {
+		MocaTree
+	}
+	
+	target { 
+		ProcessDefinition
+	} 
+	
+	correspondence {
+		FolderToSystemModuleCorr{
+			src->M.Folder
+			trg->P.SystemModule
+		}
+		
+		FilesToModuleCorr{
+			src->M.File
+			trg->P.Module
+		}
+		
+		FilesToTaskCorr{
+			src->M.File
+			trg->P.Task
+		}
+	}
+
+}
