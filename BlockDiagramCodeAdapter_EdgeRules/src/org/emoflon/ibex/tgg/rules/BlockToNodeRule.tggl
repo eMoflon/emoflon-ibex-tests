@@ -1,0 +1,37 @@
+rule BlockToNodeRule {
+	source {
+		[=] system:BlockDiagram.BlockSystem {
+			[+] - blocks->block
+		}
+		[+] block:BlockDiagram.Block
+	}
+	
+	target {
+		[+] blockNode:MocaTree.Node {
+			.name := "Block";
+			[+] - attribute->id
+			[+] - parentNode->systemNode
+		}
+		[=] systemNode:MocaTree.Node
+		[+] id:MocaTree.Attribute {
+			.name := "id";
+		}
+	}
+	
+	correspondence {
+		[+] blockToNode :BlockToNode {
+			src->block
+			trg->blockNode
+		}
+		[=] systemToNode :SystemToNode {
+			src->system
+			trg->systemNode
+		}
+	}
+	
+	attributeConditions {
+		DefaultAttributeConditionLibrary.eq_string(block.id, id.value)
+	}
+	
+}
+

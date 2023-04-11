@@ -3,9 +3,9 @@ package org.emoflon.ibex.tgg.run.blockdiagramcodeadapter_edgerules;
 import java.io.IOException;
 
 import org.apache.log4j.BasicConfigurator;
-import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
-import org.emoflon.ibex.tgg.operational.strategies.opt.BWD_OPT;
 import org.emoflon.ibex.tgg.run.blockdiagramcodeadapter_edgerules.config._DefaultRegistrationHelper;
+import org.emoflon.ibex.tgg.runtime.config.IRegistrationHelper;
+import org.emoflon.ibex.tgg.runtime.strategies.opt.BWD_OPT;
 
 public class BWD_OPT_App extends BWD_OPT {
 

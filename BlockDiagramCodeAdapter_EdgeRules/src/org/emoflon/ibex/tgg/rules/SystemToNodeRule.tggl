@@ -1,0 +1,24 @@
+rule SystemToNodeRule {
+	source {
+		[+] system:BlockDiagram.BlockSystem
+	}
+	
+	target {
+		[+] node:MocaTree.Node {
+			.name := "System";
+			[+]  - file->file
+		}
+		[+] file:MocaTree.File
+	}
+	
+	correspondence {
+		[+] systemToNode :SystemToNode {
+			src->system
+			trg->node
+		}
+	}
+	
+	attributeConditions {
+		DefaultAttributeConditionLibrary.eq_string(system.name, file.name)
+	}
+}

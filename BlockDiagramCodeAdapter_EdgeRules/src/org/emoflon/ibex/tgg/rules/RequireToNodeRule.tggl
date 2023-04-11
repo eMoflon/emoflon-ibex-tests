@@ -1,0 +1,27 @@
+rule RequireToNodeRule {	
+	source {
+		[+] require:BlockDiagram.Require
+	}
+	
+	target {
+		[+] id:MocaTree.Attribute {
+			.name := "id";
+		}
+		[+] requireNode:MocaTree.Node {
+			.name := "REQUIRE";
+			[+] - attribute->id
+		}
+	}
+	
+	correspondence {
+		[+] requireToNode :RequireToNode {
+			src->require
+			trg->requireNode
+		}
+	}
+	
+	attributeConditions {
+		DefaultAttributeConditionLibrary.eq_string (require.id, id.value)
+	}
+}
+

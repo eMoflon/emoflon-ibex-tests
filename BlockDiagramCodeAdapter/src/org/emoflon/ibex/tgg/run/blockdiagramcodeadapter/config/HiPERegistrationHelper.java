@@ -7,17 +7,17 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.emoflon.ibex.tgg.operational.csp.constraints.factories.blockdiagramcodeadapter.UserDefinedRuntimeTGGAttrConstraintFactory;
-import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
-import org.emoflon.ibex.tgg.operational.strategies.modules.IbexExecutable;
-import org.emoflon.ibex.tgg.operational.strategies.opt.BWD_OPT;
-import org.emoflon.ibex.tgg.operational.strategies.opt.FWD_OPT;
+import org.emoflon.ibex.tgg.operational.csp.constraints.custom.blockdiagramcodeadapter.RuntimeTGGAttrConstraintFactoryContainer;
+import org.emoflon.ibex.tgg.runtime.config.IRegistrationHelper;
+import org.emoflon.ibex.tgg.runtime.config.options.IbexOptions;
 import org.emoflon.ibex.tgg.runtime.hipe.HiPETGGEngine;
-import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
+import org.emoflon.ibex.tgg.runtime.strategies.modules.IbexExecutable;
+import org.emoflon.ibex.tgg.runtime.strategies.opt.BWD_OPT;
+import org.emoflon.ibex.tgg.runtime.strategies.opt.FWD_OPT;
 
+import BlockDiagram.impl.BlockDiagramPackageImpl;
 import BlockDiagramCodeAdapter.BlockDiagramCodeAdapterPackage;
 import BlockDiagramCodeAdapter.impl.BlockDiagramCodeAdapterPackageImpl;
-import BlockDiagram.impl.BlockDiagramPackageImpl;
 import MocaTree.impl.MocaTreePackageImpl;
 
 public class HiPERegistrationHelper implements IRegistrationHelper {
@@ -87,7 +87,8 @@ public class HiPERegistrationHelper implements IRegistrationHelper {
 		options.project.name("BlockDiagramCodeAdapter");
 		options.project.path("BlockDiagramCodeAdapter");
 		options.debug.ibexDebug(false);
-		options.csp.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
+		for(var factory : new RuntimeTGGAttrConstraintFactoryContainer().getFactories())
+			options.csp.constraintProvider().registerFactory(factory);		
 		options.registrationHelper(this);
 		return options;
 	}

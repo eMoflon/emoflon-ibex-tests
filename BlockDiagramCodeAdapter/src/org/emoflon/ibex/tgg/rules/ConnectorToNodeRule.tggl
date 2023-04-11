@@ -1,0 +1,66 @@
+rule ConnectorToNodeRule {
+	source {
+		[+] connector:BlockDiagram.Connector
+		[=] providerBlock:BlockDiagram.Block
+		[=] provide:BlockDiagram.Provide {
+			[+] - connector->connector
+			[=] - block->providerBlock
+		}
+		[=] require:BlockDiagram.Require {
+			[+] - connector->connector
+		}
+	}
+	
+	target {
+		[=] systemNode:MocaTree.Node {
+		}
+		[#] systemNode.name == "System";
+		[=] providerBlockNode:MocaTree.Node {
+			[=] -parentNode->systemNode
+		}
+		[=] requireNode:MocaTree.Node {
+			[=] -parentNode->requireBlockNode
+		}
+		[=] requireBlockNode:MocaTree.Node {
+			[=] -parentNode->systemNode
+		}
+		[+] connectorNode:MocaTree.Node {
+			.name := "CONNECTOR";
+			[+] -attribute->referencedPort
+			[+] -attribute->referencedBlock
+			[+] -parentNode->requireNode
+		}
+		[=] provideNode:MocaTree.Node {
+			[=] -parentNode->providerBlockNode
+		}
+		[+] referencedBlock:MocaTree.Attribute {
+			.name := "block";
+			.index := 1;
+		}
+		[+] referencedPort:MocaTree.Attribute {
+			.name := "port";
+			.index := 0;
+		}
+	}
+	
+	correspondence {
+		[=] provideToNode :ProvideToNode {
+			src->provide
+			trg->provideNode 
+		}
+		[=] requireToNode :RequireToNode {
+			src->require
+			trg->requireNode
+		}
+		[+] connectorToNode :ConnectorToNode {
+			src->connector
+			trg->connectorNode
+		}
+	}
+	
+	attributeConditions {
+		DefaultAttributeConditionLibrary.eq_string(provide.id, referencedPort.value)
+		DefaultAttributeConditionLibrary.eq_string(providerBlock.id, referencedBlock.value)
+	}
+	
+}

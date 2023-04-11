@@ -1,0 +1,110 @@
+rule ConnectorToNodeRule  {
+	source {
+		[=] providerBlock:BlockDiagram.Block {
+			[=] - ports->provide
+		}
+		[=] requireBlock:BlockDiagram.Block {
+			[=] - ports->require
+		}
+		[=] provide:BlockDiagram.Provide{
+			[+] - connector->connector
+		}
+		[=] system:BlockDiagram.BlockSystem {
+			[=] - blocks->providerBlock
+			[=] - blocks->requireBlock
+			
+		}
+		[+] connector:BlockDiagram.Connector
+		[=] require:BlockDiagram.Require {
+			[+] - connector->connector
+		}
+	}
+	
+	target {
+		[=]providerIdAttr:MocaTree.Attribute {
+		}
+		[#] providerIdAttr.name == "id";
+		
+		[=] requireNode:MocaTree.Node {
+			[=] - parentNode->requireBlockNode
+		}
+		[#] requireNode.name == "REQUIRE";
+		
+		[=] providerBlockNode:MocaTree.Node {
+			[=] - attribute->providerBlockIdAttr
+			[=] - parentNode->systemNode
+		}
+		[#] providerBlockNode.name == "Block";
+		
+		[=] systemNode:MocaTree.Node
+		[=] requireBlockNode:MocaTree.Node {
+			[=]- parentNode->systemNode
+		}
+		[#] requireBlockNode.name == "Block";
+		
+		[=] provideNode:MocaTree.Node {
+			[=] - parentNode->providerBlockNode
+			[=] - attribute->providerIdAttr
+		}
+		[#] provideNode.name == "PROVIDE";
+		
+		[+] referencedBlock:MocaTree.Attribute {
+			.name := "block";
+			.index := 1;
+		}
+		
+		[+] referencedPort:MocaTree.Attribute {
+			.name := "port";
+			.index := 0;
+		}
+		
+		[+] connectorNode:MocaTree.Node {
+			.name := "CONNECTOR";
+			[+] - attribute->referencedBlock
+			[+] - parentNode->requireNode
+			[+] - attribute->referencedPort
+		}
+		
+		[=] providerBlockIdAttr:MocaTree.Attribute {
+		}
+		[#] providerBlockIdAttr.name == "id";
+	}
+	
+	correspondence {
+		[=]systemNodeToSystem :SystemToNode {
+			src->system
+			trg->systemNode
+		}
+		[+] requirementToNodeSrc :RequirementToNodeSrc {
+			src->require
+			trg->connectorNode
+		}
+		[=] requireBlockNodeToRequireBlock :BlockToNode {
+			src->requireBlock
+			trg->requireBlockNode
+		}
+		[+] requirementToNodeTrg :RequirementToNodeTrg {
+			src->provide
+			trg->connectorNode
+		}
+		[=] providerBlockToProviderBlockNode :BlockToNode {
+			src->providerBlock
+			trg->providerBlockNode
+		}
+		[=] requireToNode :RequireToNode {
+			src->require
+			trg->requireNode
+		}
+		[=] provideToProvideNode :ProvideToNode {
+			src->provide
+			trg->provideNode
+		}
+	}
+	
+	attributeConditions {
+		DefaultAttributeConditionLibrary.eq_string (referencedBlock.value, providerBlockIdAttr.value)
+		DefaultAttributeConditionLibrary.eq_string (referencedPort.value, providerIdAttr.value)
+	}
+	
+}
+
