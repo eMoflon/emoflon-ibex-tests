@@ -22,7 +22,7 @@ rule NodeToImportRule refines AbstractNodeToImportRule {
 		[+] invocation:P.Import
 		[=] module:P.Module
 		[=] importedModule:P.Module {
-			[+] - ^import->invocation
+			[+] - import->invocation
 		}
 		@refines= AbstractNodeToImportRule.task
 		[=] task:P.Task {

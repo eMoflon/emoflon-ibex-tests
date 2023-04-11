@@ -10,8 +10,6 @@ Require-Bundle: org.apache.log4j,
  org.eclipse.emf.ecore.xmi,
  org.emoflon.ibex.common,
  org.emoflon.ibex.tgg.runtime;visibility:=reexport,
- org.emoflon.ibex.tgg.ui.debug;bundle-version="1.0.0",
- org.emoflon.ibex.tgg.ui.debug.adapter;bundle-version="1.0.0",
  org.emoflon.ibex.tgg.runtime.hipe,
  org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
@@ -26,7 +24,7 @@ Require-Bundle: org.apache.log4j,
  org.emoflon.ibex.tgg.util;bundle-version="1.0.0"
 Bundle-ManifestVersion: 2
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-17
+Bundle-RequiredExecutionEnvironment: JavaSE-16
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Export-Package: org.emoflon.ibex.tgg.run.ibextgggantt2cpm,
@@ -34,4 +32,3 @@ Export-Package: org.emoflon.ibex.tgg.run.ibextgggantt2cpm,
  IBeXTGGGantt2CPM,
  IBeXTGGGantt2CPM.impl
 Automatic-Module-Name: IBeXTGGGantt2CPM
-

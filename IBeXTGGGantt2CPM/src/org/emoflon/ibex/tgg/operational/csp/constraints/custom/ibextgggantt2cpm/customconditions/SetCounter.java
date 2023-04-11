@@ -3,15 +3,15 @@ package org.emoflon.ibex.tgg.operational.csp.constraints.custom.ibextgggantt2cpm
 import org.emoflon.ibex.tgg.runtime.csp.RuntimeTGGAttributeConstraint;
 import org.emoflon.ibex.tgg.runtime.csp.RuntimeTGGAttributeConstraintVariable;
 
-public class UserDefined_setCounter extends RuntimeTGGAttributeConstraint {
-	
+public class SetCounter extends RuntimeTGGAttributeConstraint
+{
 	private static int nextNumber = 1;
 
-	/**
-	 * Constraint setCounter(v0)
-	 * 
-	 * @see TGGLanguage.csp.impl.ConstraintImpl#solve()
-	 */
+   /**
+    * Constraint setCounter(v0)
+    * 
+    * @see TGGLanguage.csp.impl.ConstraintImpl#solve()
+    */
 	@Override
 	public void solve() {
 		if (variables.size() != 1)
@@ -33,3 +33,4 @@ public class UserDefined_setCounter extends RuntimeTGGAttributeConstraint {
 		}
 	}
 }
+

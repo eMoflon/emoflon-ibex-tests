@@ -10,11 +10,9 @@ Require-Bundle: org.apache.log4j,
  org.moflon.core.utilities;bundle-version="3.0.0",
  org.sat4j.core,
  org.sat4j.pb,
- org.emoflon.ibex.tgg.ui.debug,
  org.emoflon.ibex.tgg.runtime.hipe,
  MocaTree;visibility:=reexport,
  ProcessDefinition;visibility:=reexport,
- org.emoflon.ibex.tgg.ui.debug.adapter;bundle-version="1.0.0",
  org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  MocaTree,
@@ -26,16 +24,13 @@ Require-Bundle: org.apache.log4j,
  org.emoflon.ibex.tgg.util;bundle-version="1.0.0"
 Bundle-ManifestVersion: 2
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-17
+Bundle-RequiredExecutionEnvironment: JavaSE-16
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Import-Package: Families.impl,
- MocaTree.impl,
- Persons.impl,
- ProcessDefinition.impl
+Import-Package: Families.impl,MocaTree.impl,Persons.impl,ProcessDefini
+ tion.impl
 Export-Package: org.emoflon.ibex.tgg.run.mocatreetoprocess,
  org.emoflon.ibex.tgg.run.mocatreetoprocess.config,
  MocaTreeToProcess,
  MocaTreeToProcess.impl
 Automatic-Module-Name: MocaTreeToProcess
-

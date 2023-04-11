@@ -3,14 +3,14 @@ package org.emoflon.ibex.tgg.operational.csp.constraints.custom.ibextgggantt2cpm
 import org.emoflon.ibex.tgg.runtime.csp.RuntimeTGGAttributeConstraint;
 import org.emoflon.ibex.tgg.runtime.csp.RuntimeTGGAttributeConstraintVariable;
 
-public class UserDefined_notADependencyViaNamingConvention extends RuntimeTGGAttributeConstraint {
+public class NotADependencyViaNamingConvention extends RuntimeTGGAttributeConstraint
+{
 
-	/**
-	 * Constraint notADependencyViaNamingConvention(v0)
-	 * 
-	 * @see TGGLanguage.csp.impl.ConstraintImpl#solve()
-	 */
-	@Override
+   /**
+    * Constraint notADependencyViaNamingConvention(v0)
+    * 
+    * @see TGGLanguage.csp.impl.ConstraintImpl#solve()
+    */
 	public void solve() {
 		if (variables.size() != 1)
 			throw new RuntimeException("The CSP -NOTADEPENDENCYVIANAMINGCONVENTION- needs exactly 1 variables");
@@ -28,3 +28,4 @@ public class UserDefined_notADependencyViaNamingConvention extends RuntimeTGGAtt
 		}
 	}
 }
+
