@@ -1,0 +1,57 @@
+rule SubEntity2SubClazz {
+	
+	source {
+		[+] se:Express.Entity {
+			[+] -superType -> et
+		}
+	
+		[=] et:Express.Entity {
+			[+] -subType -> se
+		}
+	
+		[=] s:Express.Schema {
+			[=] -declarations -> et
+			[+] -declarations -> se
+		}
+	}
+	
+	target {
+		[+] sc:UML.Clazz {
+			[+] -superClazz -> c
+		}
+	
+		[=] c:UML.Clazz {
+			[+]-subClazzes -> sc
+		}
+	
+		[=] p:UML.Package {
+			[=] -clazzes -> c
+			[+] -clazzes -> sc
+		}
+	}
+	
+	correspondence {
+		[=] s2p:Schema2Package {
+			src->s
+			trg->p
+		}
+	
+		[=] e2c:Entity2Clazz{
+			src->et
+			trg->c
+		}
+	
+		[+] se2sc:Entity2Clazz {
+			src->se
+			trg->sc
+		}
+	}
+	
+	attributeConditions {
+		DefaultAttributeConditionLibrary.eq_string(se.name, sc.name)
+	}
+
+}
+
+
+
