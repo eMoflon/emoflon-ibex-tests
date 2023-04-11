@@ -1,7 +1,7 @@
-package org.emoflon.ibex.tgg.operational.csp.constraints.custom.ibextgggantt2cpm;
+package org.emoflon.ibex.tgg.operational.csp.constraints.custom.ibextgggantt2cpm.customconditions;
 
-import org.emoflon.ibex.tgg.operational.csp.RuntimeTGGAttributeConstraint;
-import org.emoflon.ibex.tgg.operational.csp.RuntimeTGGAttributeConstraintVariable;
+import org.emoflon.ibex.tgg.runtime.csp.RuntimeTGGAttributeConstraint;
+import org.emoflon.ibex.tgg.runtime.csp.RuntimeTGGAttributeConstraintVariable;
 
 public class UserDefined_notADependencyViaNamingConvention extends RuntimeTGGAttributeConstraint {
 
@@ -24,8 +24,7 @@ public class UserDefined_notADependencyViaNamingConvention extends RuntimeTGGAtt
 			setSatisfied(!name.contains("->"));
 			break;
 		default:
-			throw new UnsupportedOperationException(
-					"This case in the constraint has not been implemented yet: " + bindingStates);
+			throw new UnsupportedOperationException("This case in the constraint has not been implemented yet: " + bindingStates);
 		}
 	}
 }
