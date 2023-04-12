@@ -1,0 +1,29 @@
+rule ImplementingType2Doc {
+	
+	source { 
+		[=] it:T.Type {
+			.interface:=true;
+			[+] -extendedBy->t
+		}
+		[=] t:T.Type
+	}
+	
+	target {
+		[=] id:D.Doc {
+			[+] -subDocs->d
+		}
+		[=] d:D.Doc
+	}
+	
+	correspondence {
+		[=] it2id:Type2Doc {
+			src->it
+			trg->id
+		}
+		[=] t2d:Type2Doc {
+			src->t
+			trg->d
+		}
+	}
+	
+}

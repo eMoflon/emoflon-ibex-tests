@@ -1,0 +1,23 @@
+rule Package2Folder {
+	
+	source { 
+		[+] p:T.Package
+	}
+	
+	target {
+		[+] f:D.Folder
+	}
+	
+	correspondence {
+		[+] p2f:Package2Folder {
+			src->p
+			trg->f
+		}
+	}
+	
+	attributeConditions {
+		DefaultAttributeConditionLibrary.eq_string(p.name, f.name)
+	}
+
+}
+
