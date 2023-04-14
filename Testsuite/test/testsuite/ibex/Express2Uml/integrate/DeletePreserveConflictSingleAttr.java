@@ -1,10 +1,12 @@
 package testsuite.ibex.Express2Uml.integrate;
 
-import org.emoflon.express.express.SchemaContainer;
 import org.emoflon.ibex.common.emf.EMFManipulationUtils;
 import org.junit.jupiter.api.Test;
 
 import Express2UML.integrate.deletePreserveSingleAttr.DeletePreserveSingleAttrConflictResolver;
+import ExpressModel.Entity;
+import ExpressModel.Schema;
+import ExpressModel.SchemaContainer;
 import testsuite.ibex.Express2Uml.common.ExpressHelper;
 import testsuite.ibex.Express2Uml.common.UMLHelper;
 import testsuite.ibex.Express2Uml.integrate.util.IntegIbexSchemaContainer2Package;

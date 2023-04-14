@@ -3,9 +3,9 @@ package testsuite.ibex.CompanyToIT.large_scale;
 import java.io.IOException;
 
 import org.emoflon.ibex.tgg.run.companytoit.CO_App;
-import org.emoflon.ibex.tgg.run.companytoit.config.DemoclesRegistrationHelper;
 import org.emoflon.ibex.tgg.run.companytoit.config.HiPERegistrationHelper;
 import org.emoflon.ibex.tgg.runtime.config.IRegistrationHelper;
+import org.emoflon.ibex.tgg.runtime.strategies.modules.TGGResourceHandler;
 import org.emoflon.ibex.tgg.runtime.strategies.sync.SYNC;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
@@ -17,7 +17,7 @@ import testsuite.ibex.testUtil.CompleteSyncTestCase;
 import testsuite.ibex.testUtil.UsedPatternMatcher;
 
 public class TestSYNC extends CompleteSyncTestCase {
-	private static IRegistrationHelper registrationHelper = UsedPatternMatcher.choose(new IRegistrationHelper[]{new DemoclesRegistrationHelper(), new HiPERegistrationHelper()});
+	private static IRegistrationHelper registrationHelper = UsedPatternMatcher.choose(new IRegistrationHelper[]{new HiPERegistrationHelper()});
 
 	static String fwdSrcPath;
 	static String fwdTrgPath;

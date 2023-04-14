@@ -2,7 +2,8 @@ package testsuite.ibex.Clazz2GlossarDoc.integrate.util;
 
 import java.io.IOException;
 
-import org.emoflon.ibex.tgg.run.clazz2glossardoc.config.DemoclesRegistrationHelper;
+import org.emoflon.ibex.tgg.run.clazz2glossardoc.INTEGRATE_App;
+import org.emoflon.ibex.tgg.run.clazz2glossardoc.config.HiPERegistrationHelper;
 import org.emoflon.ibex.tgg.runtime.config.IRegistrationHelper;
 import org.glossarDoc.core.GlossarDocumentationComparator;
 import org.simpleClass.core.ClazzInheritanceComparator;
@@ -26,7 +27,7 @@ public class IntegIbexClazz2GlossarDoc extends IntegIbexAdapter<ClazzContainer, 
 	public void initiateIntegrationDialogue() {
 		try {
 			INTEGRATE_App.registrationHelper = UsedPatternMatcher.choose(new IRegistrationHelper[] {
-					new DemoclesRegistrationHelper(), new HiPERegistrationHelper()});
+					 new HiPERegistrationHelper()});
 			integrator = new INTEGRATE_App(projectName,
 					testsuite.ibex.performance.util.PerformanceConstants.workspacePath, "/resources/integ/in/" + inputFolder,
 					ilpSolver, false);

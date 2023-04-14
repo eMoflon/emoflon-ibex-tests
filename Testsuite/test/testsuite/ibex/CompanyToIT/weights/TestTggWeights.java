@@ -5,7 +5,6 @@ import java.util.Collection;
 
 import org.eclipse.emf.ecore.EObject;
 import org.emoflon.ibex.common.emf.EMFEdge;
-import org.emoflon.ibex.tgg.operational.patterns.IGreenPatternFactory;
 import org.emoflon.ibex.tgg.run.companytoit.CC_App;
 import org.emoflon.ibex.tgg.run.companytoit.config.HiPERegistrationHelper;
 import org.emoflon.ibex.tgg.runtime.config.IRegistrationHelper;
@@ -49,11 +48,9 @@ public class TestTggWeights extends CCTestCase {
 	}
 
 	private int getDefaultCCWeigth(final String ruleName) {
-		IGreenPatternFactory greenFactory = this.checker.getGreenFactories().get(ruleName);
-		return greenFactory.getGreenSrcNodesInRule().size()
-				+ greenFactory.getGreenTrgNodesInRule().size()
-				+ greenFactory.getGreenSrcEdgesInRule().size()
-				+ greenFactory.getGreenTrgEdgesInRule().size();
+		var rule = this.checker.getOptions().tgg.ruleHandler().getRule(ruleName);
+		return rule.getCreateSourceAndTarget().getNodes().size() 
+				+ rule.getCreateSourceAndTarget().getEdges().size();
 	}
 
 	@Test

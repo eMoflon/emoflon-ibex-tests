@@ -3,7 +3,7 @@ package testsuite.ibex.CompanyToIT.cc;
 import java.io.IOException;
 
 import org.emoflon.ibex.tgg.run.companytoit.CC_App;
-import org.emoflon.ibex.tgg.run.companytoit.config.DemoclesRegistrationHelper;
+import org.emoflon.ibex.tgg.run.companytoit.config.HiPERegistrationHelper;
 import org.emoflon.ibex.tgg.run.companytoit.config.HiPERegistrationHelper;
 import org.emoflon.ibex.tgg.runtime.config.IRegistrationHelper;
 import org.junit.jupiter.api.Assertions;
@@ -14,7 +14,7 @@ import testsuite.ibex.testUtil.UsedPatternMatcher;
 
 public class TestSimplePositive extends CCTestCase {
 	public void createGenerator(String srcInstance, String trgInstance) throws IOException {
-		CC_App.registrationHelper = UsedPatternMatcher.choose(new IRegistrationHelper[]{new DemoclesRegistrationHelper(), new HiPERegistrationHelper()});
+		CC_App.registrationHelper = UsedPatternMatcher.choose(new IRegistrationHelper[]{ new HiPERegistrationHelper()});
 		checker = new CC_App("CompanyToIT", testsuite.ibex.performance.util.PerformanceConstants.workspacePath, false, srcInstance, trgInstance, this.ilpSolver);
 	}
 	

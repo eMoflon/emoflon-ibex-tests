@@ -9,14 +9,16 @@ import java.util.List;
 
 import org.benchmarx.terracehouses.core.TerraceHousesComparator;
 import org.benchmarx.woodenblockset.core.BlockSetComparator;
-import org.emoflon.ibex.tgg.run.terracehouses2blockset.config.DemoclesRegistrationHelper;
+import org.emoflon.ibex.tgg.run.terracehouses2blockset.SYNC_App;
+import org.emoflon.ibex.tgg.run.terracehouses2blockset.config.HiPERegistrationHelper;
 import org.emoflon.ibex.tgg.runtime.config.IRegistrationHelper;
+import org.emoflon.ibex.tgg.runtime.repair.shortcut.rule.OperationalShortcutRule;
 import org.emoflon.ibex.tgg.runtime.repair.shortcut.updatepolicy.IShortcutRuleUpdatePolicy;
+import org.emoflon.ibex.tgg.tggmodel.IBeXTGGModel.TGGRule;
 
 import TerraceHouses.District;
 import TerraceHouses.TerraceHousesFactory;
 import WoodenBlockSet.Playroom;
-import language.TGGRule;
 import testsuite.ibex.testUtil.IbexAdapter;
 import testsuite.ibex.testUtil.UsedPatternMatcher;
 
@@ -44,7 +46,7 @@ public class IbexTerraceHouses2BlockSet extends IbexAdapter<District, Playroom> 
 	public void initiateSynchronisationDialogue() {
 		try {
 			SYNC_App.registrationHelper = UsedPatternMatcher.choose(
-					new IRegistrationHelper[] { new DemoclesRegistrationHelper(), new HiPERegistrationHelper() });
+					new IRegistrationHelper[] {  new HiPERegistrationHelper() });
 			synchroniser = new SYNC_App(projectName, workspacePath, ilpSolver, false);
 			synchroniser.getOptions().repair.shortcutRuleUpdatePolicy(updatepolicy);
 

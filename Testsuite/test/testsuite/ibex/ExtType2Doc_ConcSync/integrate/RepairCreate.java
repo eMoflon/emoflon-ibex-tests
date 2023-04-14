@@ -1,10 +1,10 @@
 package testsuite.ibex.ExtType2Doc_ConcSync.integrate;
 
-import static org.emoflon.ibex.tgg.operational.strategies.integrate.FragmentProvider.CLEAN_UP;
-import static org.emoflon.ibex.tgg.operational.strategies.integrate.FragmentProvider.REPAIR;
-import static org.emoflon.ibex.tgg.operational.strategies.integrate.FragmentProvider.RESOLVE_BROKEN_MATCHES;
-import static org.emoflon.ibex.tgg.operational.strategies.integrate.FragmentProvider.RESOLVE_CONFLICTS;
-import static org.emoflon.ibex.tgg.operational.strategies.integrate.FragmentProvider.TRANSLATE;
+import static org.emoflon.ibex.tgg.runtime.strategies.integrate.FragmentProvider.CLEAN_UP;
+import static org.emoflon.ibex.tgg.runtime.strategies.integrate.FragmentProvider.REPAIR;
+import static org.emoflon.ibex.tgg.runtime.strategies.integrate.FragmentProvider.RESOLVE_BROKEN_MATCHES;
+import static org.emoflon.ibex.tgg.runtime.strategies.integrate.FragmentProvider.RESOLVE_CONFLICTS;
+import static org.emoflon.ibex.tgg.runtime.strategies.integrate.FragmentProvider.TRANSLATE;
 
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicBoolean;

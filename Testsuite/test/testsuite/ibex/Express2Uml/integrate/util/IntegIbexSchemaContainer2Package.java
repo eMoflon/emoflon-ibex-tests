@@ -2,8 +2,9 @@ package testsuite.ibex.Express2Uml.integrate.util;
 
 import java.io.IOException;
 
-import org.emoflon.express.express.SchemaContainer;
+import org.emoflon.ibex.tgg.run.express2uml.INTEGRATE_App;
 
+import ExpressModel.SchemaContainer;
 import testsuite.ibex.Express2Uml.comparison.Express2UMLCorrespondenceComparator;
 import testsuite.ibex.Express2Uml.comparison.SchemaContainerComparator;
 import testsuite.ibex.Express2Uml.comparison.UMLContainerComparator;
