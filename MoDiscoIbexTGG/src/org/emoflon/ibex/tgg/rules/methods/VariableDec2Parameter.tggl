@@ -1,48 +1,46 @@
-#using MoDiscoIbexTGG.*
-#using AttrCondDefLibrary.*
-
-#rule VariableDec2Parameter #with MoDiscoIbexTGG
-
-#source { 
-	method : MethodDeclaration {
-		++ -parameters->variableDec
+rule VariableDec2Parameter {
+	source { 
+		[=] method : Java.MethodDeclaration {
+			[+] -parameters->variableDec
+		}
+		
+		[+] variableDec : Java.SingleVariableDeclaration{
+	
+		}
+		
+	
+		
+	
+		
 	}
 	
-	++ variableDec : SingleVariableDeclaration{
-
+	target {
+		[=] operation : UML2.Operation {
+			[+] -ownedParameter->param
+		}
+		[+] param : UML2.Parameter{
+	
+		}
+	
 	}
 	
-
-	
-
-	
-}
-
-#target {
-	operation : Operation {
-		++ -ownedParameter->param
-	}
-	++ param : Parameter{
-
-	}
-
-}
-
-#correspondence {	
-	md2o : MethodDec2Operation {
-		#src->method
-		#trg->operation
+	correspondence {	
+		[=] md2o : MethodDec2Operation {
+			src->method
+			trg->operation
+		}
+		
+		
+		[+] vd2p : VariableDec2Parameter {
+			src->variableDec
+			trg->param
+		}
+		
+		
 	}
 	
-	
-	++ vd2p : VariableDec2Parameter {
-		#src->variableDec
-		#trg->param
+	attributeConditions {
+		DefaultAttributeConditionLibrary.eq_string(variableDec.name, param.name)
 	}
 	
-	
-}
-
-#attributeConditions {
-	eq_string(variableDec.name, param.name)
 }

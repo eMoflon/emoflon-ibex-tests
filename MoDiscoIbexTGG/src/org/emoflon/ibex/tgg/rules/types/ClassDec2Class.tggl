@@ -1,35 +1,33 @@
-#using MoDiscoIbexTGG.*
-#using AttrCondDefLibrary.*
-
-#rule ClassDec2Class #with MoDiscoIbexTGG
-
-#source { 
-	jPackage : Package {
-		++ -ownedElements->classDec
+rule ClassDec2Class {
+	source { 
+		[=] jPackage : Java.Package {
+			[+] -ownedElements->classDec
+		}
+		
+		[+] classDec : Java.ClassDeclaration
 	}
 	
-	++ classDec : ClassDeclaration
-}
-
-#target {
-	umlPackage : Package {
-		++ -packagedElement->umlClass
+	target {
+		[=] umlPackage : UML2.Package {
+			[+] -packagedElement->umlClass
+		}
+		
+		[+] umlClass : UML2.Clazz
 	}
 	
-	++ umlClass : Clazz
+	correspondence {
+		[=] jp2up : JavaPackage2UmlPackage {
+			src->jPackage
+			trg->umlPackage
+		}
+		[+] cd2c : JavaType2UMLType {
+			src->classDec
+			trg->umlClass
+		}
+	}
+	
+	attributeConditions {
+		DefaultAttributeConditionLibrary.eq_string(classDec.name, umlClass.name)
+	}
 }
 
-#correspondence {
-	jp2up : JavaPackage2UmlPackage {
-		#src->jPackage
-		#trg->umlPackage
-	}
-	++ cd2c : JavaType2UMLType {
-		#src->classDec
-		#trg->umlClass
-	}
-}
-
-#attributeConditions {
-	eq_string(classDec.name, umlClass.name)
-}

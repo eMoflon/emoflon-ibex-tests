@@ -1,99 +1,105 @@
-#using MoDiscoIbexTGG.*
-#using AttrCondDefLibrary.*
-
-#abstract #rule PrimitiveType2PrimitiveType #with MoDiscoIbexTGG
-
-#source { 
-	jm : Model{
-		++-orphanTypes->jpt
+abstract rule PrimitiveType2PrimitiveType {
+	source { 
+		[=] jm : Java.Model{
+			[+] -orphanTypes->jpt
+		}
+		
+		[+] jpt : Java.PrimitiveType
 	}
 	
-	++jpt : PrimitiveType
-}
-
-#target {
-	up : Package{
-		++-packagedElement->umpt
+	target {
+		[=] up : UML2.Package{
+			[+] -packagedElement->umpt
+		}
+		
+		[+] umpt : UML2.PrimitiveType
 	}
 	
-	++ umpt : PrimitiveType
-}
-
-#correspondence {
-	jm2up:JavaModel2UMLPackage{
-		#src->jm
-		#trg->up
+	correspondence {
+		[=] jm2up:JavaModel2UMLPackage{
+			src->jm
+			trg->up
+		}
+		[+] jpt2upt2:JavaType2UMLType{
+			src->jpt
+			trg->umpt
+		}
 	}
-	++jpt2upt2:JavaType2UMLType{
-		#src->jpt
-		#trg->umpt
+	
+	attributeConditions {
+		DefaultAttributeConditionLibrary.eq_string(jpt.name, umpt.name)
 	}
 }
 
-#attributeConditions {
-	eq_string(jpt.name, umpt.name)
+
+
+rule PrimitiveTypeBoolean refines PrimitiveType2PrimitiveType {
+	source { 
+		@refines+ PrimitiveType2PrimitiveType.jpt
+		[+] jpt : Java.PrimitiveTypeBoolean
+	}
 }
 
 
-#rule PrimitiveTypeBoolean #extends PrimitiveType2PrimitiveType #with MoDiscoIbexTGG
-
-#source { 
-
-	++jpt : PrimitiveTypeBoolean
+rule PrimitiveTypeByte refines PrimitiveType2PrimitiveType {
+	source { 
+		@refines+ PrimitiveType2PrimitiveType.jpt
+		[+] jpt : Java.PrimitiveTypeByte
+	}
 }
 
-#rule PrimitiveTypeByte #extends PrimitiveType2PrimitiveType #with MoDiscoIbexTGG
 
-#source { 
-
-	++jpt : PrimitiveTypeByte
+rule PrimitiveTypeChar refines PrimitiveType2PrimitiveType {
+	source { 
+		@refines+ PrimitiveType2PrimitiveType.jpt
+		[+] jpt : Java.PrimitiveTypeChar
+	}
 }
 
-#rule PrimitiveTypeChar #extends PrimitiveType2PrimitiveType #with MoDiscoIbexTGG
-
-#source { 
-
-	++jpt : PrimitiveTypeChar
+rule PrimitiveTypeDouble refines PrimitiveType2PrimitiveType {
+	source { 
+		@refines+ PrimitiveType2PrimitiveType.jpt
+		[+] jpt : Java.PrimitiveTypeDouble
+	}
 }
 
-#rule PrimitiveTypeDouble #extends PrimitiveType2PrimitiveType #with MoDiscoIbexTGG
 
-#source { 
-
-	++jpt : PrimitiveTypeDouble
+rule PrimitiveTypeShort refines PrimitiveType2PrimitiveType {
+	source { 
+		@refines+ PrimitiveType2PrimitiveType.jpt
+		[+] jpt : Java.PrimitiveTypeShort
+	}
 }
 
-#rule PrimitiveTypeShort #extends PrimitiveType2PrimitiveType #with MoDiscoIbexTGG
 
-#source { 
-
-	++jpt : PrimitiveTypeShort
+rule PrimitiveTypeFloat refines PrimitiveType2PrimitiveType {
+	source { 
+		@refines+ PrimitiveType2PrimitiveType.jpt
+		[+] jpt : Java.PrimitiveTypeFloat
+	}
 }
 
-#rule PrimitiveTypeFloat #extends PrimitiveType2PrimitiveType #with MoDiscoIbexTGG
 
-#source { 
-
-	++jpt : PrimitiveTypeFloat
+rule PrimitiveTypeInt refines PrimitiveType2PrimitiveType {
+	source { 
+		@refines+ PrimitiveType2PrimitiveType.jpt
+		[+] jpt : Java.PrimitiveTypeInt
+	}
 }
 
-#rule PrimitiveTypeInt #extends PrimitiveType2PrimitiveType #with MoDiscoIbexTGG
 
-#source { 
-
-	++jpt : PrimitiveTypeInt
+rule PrimitiveTypeLong refines PrimitiveType2PrimitiveType {
+	source { 
+		@refines+ PrimitiveType2PrimitiveType.jpt
+		[+] jpt : Java.PrimitiveTypeLong
+	}
 }
 
-#rule PrimitiveTypeLong #extends PrimitiveType2PrimitiveType #with MoDiscoIbexTGG
 
-#source { 
-
-	++jpt : PrimitiveTypeLong
+rule PrimitiveTypeVoid refines PrimitiveType2PrimitiveType {
+	source { 
+		@refines+ PrimitiveType2PrimitiveType.jpt
+		[+] jpt : Java.PrimitiveTypeVoid
+	}
 }
 
-#rule PrimitiveTypeVoid #extends PrimitiveType2PrimitiveType #with MoDiscoIbexTGG
-
-#source { 
-
-	++jpt : PrimitiveTypeVoid
-}

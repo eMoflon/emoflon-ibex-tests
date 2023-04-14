@@ -1,61 +1,66 @@
-#using MoDiscoIbexTGG.*
-#using AttrCondDefLibrary.*
-
-#rule MethodDec2Operation4Class #extends MethodDec2Operation4_Abstract #with MoDiscoIbexTGG
-
-#source { 
-
-	classDec : ClassDeclaration {
+rule MethodDec2Operation4Class refines MethodDec2Operation4_Abstract {
+	source { 
+	
+		@refines= MethodDec2Operation4_Abstract.classDec
+		[=] classDec : Java.ClassDeclaration {
+		}
+		
+	
 	}
 	
-
-}
-
-#target {
-	umlClass : Clazz {
-		++ -ownedOperation->operation
+	target {
+		[=] umlClass : UML2.Clazz {
+			[+] -ownedOperation->operation
+		}
+		
+		@refines+ MethodDec2Operation4_Abstract.operation
+		[+] operation : UML2.Operation{
+	
+		}
+	
 	}
 	
-	++ operation : Operation{
-
-	}
-
-}
-
-#correspondence {
-	cd2c : JavaType2UMLType {
-		#src->classDec
-		#trg->umlClass
-	}
-
-}
-
-
-#rule MethodDec2Operation4Enum #extends MethodDec2Operation4_Abstract #with MoDiscoIbexTGG
-
-#source { 
-
-	classDec : EnumDeclaration {
+	correspondence {
+		[=] cd2c : JavaType2UMLType {
+			src->classDec
+			trg->umlClass
+		}
+	
 	}
 	
-
 }
 
-#target {
-	umlClass : Enumeration {
-		++ -ownedOperation->operation
+
+
+rule MethodDec2Operation4Enum refines MethodDec2Operation4_Abstract {
+	
+	source { 
+	
+		@refines= MethodDec2Operation4_Abstract.classDec
+		[=] classDec : Java.EnumDeclaration {
+		}
+		
+	
 	}
 	
-	++ operation : Operation{
-
+	target {
+		[=] umlClass : UML2.Enumeration {
+			[+] -ownedOperation->operation
+		}
+		
+		@refines+ MethodDec2Operation4_Abstract.operation
+		[+] operation : UML2.Operation{
+	
+		}
+	
 	}
-
+	
+	correspondence {
+		[=] cd2c : JavaType2UMLType {
+			src->classDec
+			trg->umlClass
+		}
+	
+	}
 }
 
-#correspondence {
-	cd2c : JavaType2UMLType {
-		#src->classDec
-		#trg->umlClass
-	}
-
-}

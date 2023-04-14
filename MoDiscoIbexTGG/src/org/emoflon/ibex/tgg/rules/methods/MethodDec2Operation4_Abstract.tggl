@@ -1,34 +1,33 @@
-#using MoDiscoIbexTGG.*
-#using AttrCondDefLibrary.*
-
-#abstract #rule MethodDec2Operation4_Abstract #with MoDiscoIbexTGG
-
-#source { 
-
-	classDec : AbstractTypeDeclaration {
-		++ -bodyDeclarations->method
-	}
+abstract rule MethodDec2Operation4_Abstract {
 	
-	++ method : MethodDeclaration{
+	source { 
+	
+		[=] classDec : Java.AbstractTypeDeclaration {
+			[+] -bodyDeclarations->method
+		}
 		
+		[+] method : Java.MethodDeclaration{
+			
+		}
 	}
-}
-
-#target {
-
-	++ operation : Operation{
-	}
-
-}
-
-#correspondence {
 	
-	++ md2o : MethodDec2Operation {
-		#src->method
-		#trg->operation
+	target {
+	
+		[+] operation : UML2.Operation{
+		}
+	
+	}
+	
+	correspondence {
+		
+		[+] md2o : MethodDec2Operation {
+			src->method
+			trg->operation
+		}
+	}
+	
+	attributeConditions {
+		DefaultAttributeConditionLibrary.eq_string(method.name, operation.name)
 	}
 }
 
-#attributeConditions {
-	eq_string(method.name, operation.name)
-}

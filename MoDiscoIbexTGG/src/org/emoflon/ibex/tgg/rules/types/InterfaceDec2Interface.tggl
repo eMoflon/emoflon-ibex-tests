@@ -1,35 +1,34 @@
-#using MoDiscoIbexTGG.*
-#using AttrCondDefLibrary.*
-
-#rule InterfaceDec2Interface #with MoDiscoIbexTGG
-
-#source { 
-	jPackage : Package {
-		++ -ownedElements->interfaceDec
+rule InterfaceDec2Interface {
+	source { 
+		[=] jPackage : Java.Package {
+			[+] -ownedElements->interfaceDec
+		}
+		
+		[+] interfaceDec : Java.InterfaceDeclaration
 	}
 	
-	++ interfaceDec : InterfaceDeclaration
-}
-
-#target {
-	umlPackage : Package {
-		++ -packagedElement->umlInterface
+	target {
+		[=] umlPackage : UML2.Package {
+			[+] -packagedElement->umlInterface
+		}
+		
+		[+] umlInterface : UML2.Interface
 	}
 	
-	++ umlInterface : Interface
+	correspondence {
+		[=] jp2up : JavaPackage2UmlPackage {
+			src->jPackage
+			trg->umlPackage
+		}
+		[+] cd2c : JavaType2UMLType {
+			src->interfaceDec
+			trg->umlInterface
+		}
+	}
+	
+	attributeConditions {
+		DefaultAttributeConditionLibrary.eq_string(interfaceDec.name, umlInterface.name)
+	}
+	
 }
 
-#correspondence {
-	jp2up : JavaPackage2UmlPackage {
-		#src->jPackage
-		#trg->umlPackage
-	}
-	++ cd2c : JavaType2UMLType {
-		#src->interfaceDec
-		#trg->umlInterface
-	}
-}
-
-#attributeConditions {
-	eq_string(interfaceDec.name, umlInterface.name)
-}
