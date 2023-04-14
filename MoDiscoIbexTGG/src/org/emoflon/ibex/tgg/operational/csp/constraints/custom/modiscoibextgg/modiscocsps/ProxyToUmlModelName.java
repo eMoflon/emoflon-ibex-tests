@@ -1,9 +1,9 @@
-package org.emoflon.ibex.tgg.operational.csp.constraints.custom.modiscoibextgg;
+package org.emoflon.ibex.tgg.operational.csp.constraints.custom.modiscoibextgg.modiscocsps;
 
-import org.emoflon.ibex.tgg.operational.csp.RuntimeTGGAttributeConstraint;
-import org.emoflon.ibex.tgg.operational.csp.RuntimeTGGAttributeConstraintVariable;
+import org.emoflon.ibex.tgg.runtime.csp.RuntimeTGGAttributeConstraint;
+import org.emoflon.ibex.tgg.runtime.csp.RuntimeTGGAttributeConstraintVariable;
 
-public class UserDefined_proxyToUmlModelName extends RuntimeTGGAttributeConstraint
+public class ProxyToUmlModelName extends RuntimeTGGAttributeConstraint
 {
 
    /**

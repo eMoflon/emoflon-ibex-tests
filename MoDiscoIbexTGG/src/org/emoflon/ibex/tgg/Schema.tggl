@@ -1,0 +1,84 @@
+// Add imports here
+import "platform:/resource/Java/model/Java.ecore"
+import "platform:/resource/UML2/model/UML2.ecore"
+
+schema MoDiscoIbexTGG {
+	source {
+		Java
+	}
+	
+	target {
+		UML2
+	}
+	
+	correspondence {
+		JavaPackage2UmlPackage {
+			src->Java.Package
+			trg->UML2.Package
+		}
+		
+		JavaModel2UMLPackage {
+			src->Java.Model
+			trg->UML2.Package
+		}
+		
+		JavaType2UMLType {
+			src->Java.Type
+			trg->UML2.Type
+		}
+		
+		MethodDec2Operation {
+			src->Java.MethodDeclaration
+			trg->UML2.Operation
+		}
+		
+		VariableDec2Parameter {
+			src->Java.VariableDeclaration
+			trg->UML2.Parameter
+		}
+		
+		TypeAccess2Generalization {
+			src->Java.TypeAccess
+			trg->UML2.Generalization
+		}
+		
+		TypeAccess2InterfaceRealization{
+			src->Java.TypeAccess
+			trg->UML2.InterfaceRealization
+		}
+		
+		FieldDec2Property{
+			src->Java.FieldDeclaration
+			trg->UML2.Property 
+		}
+	}
+}
+
+library ModiscoCSPs {
+	isInParameter(parameter:ParameterDirectionKind){
+		sync {
+			[F],[B]
+		} 
+		gen {
+			[F],[B]
+		} 
+	}
+
+	isReturn(parameter:ParameterDirectionKind){
+		sync {
+			[F],[B]
+		}
+		gen {
+			[F],[B]
+		}
+	}
+	
+	proxyToUmlModelName(proxy:EBoolean, umlModelName:EString) {
+		sync {
+			[B B], [F B]
+		}
+		gen {
+			[F B]
+		}
+	}
+}
