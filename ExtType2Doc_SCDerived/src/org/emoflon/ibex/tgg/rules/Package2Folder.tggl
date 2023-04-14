@@ -1,37 +1,35 @@
-#using ExtType2Doc_SCDerived.*
-#using AttrCondDefLibrary.*
-
-#rule Package2Folder #with ExtType2Doc_SCDerived
-
-#source { 
-	pr:Project {
-		++-rootPackages->p
+rule Package2Folder {	
+	source { 
+		[=] pr:ExtTypeModel.Project {
+			[+]-rootPackages->p
+		}
+		
+		[+] p:ExtTypeModel.Package
 	}
 	
-	++p:Package
-}
-
-#target {
-	dc:DocContainer {
-		++-folders->f
+	target {
+		[=] dc:ExtDocModel.DocContainer {
+			[+] -folders->f
+		}
+		
+		[+] f:ExtDocModel.Folder
 	}
 	
-	++f:Folder
-}
-
-#correspondence {
-	pr2dc:Project2DocContainer {
-		#src->pr
-		#trg->dc
+	correspondence {
+		[=] pr2dc:Project2DocContainer {
+			src->pr
+			trg->dc
+		}
+		
+		[+] p2f:Package2Folder {
+			src->p
+			trg->f
+		}
 	}
 	
-	++p2f:Package2Folder {
-		#src->p
-		#trg->f
+	attributeConditions {
+		DefaultAttributeConditionLibrary.eq_string(p.name, f.name)
+		DefaultAttributeConditionLibrary.eq_string(p.name, derived p.fQname)
 	}
 }
 
-#attributeConditions {
-	eq_string(p.name, #derived p.fQname)
-	eq_string(p.name, f.name)
-}

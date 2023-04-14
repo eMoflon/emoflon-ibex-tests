@@ -14,7 +14,7 @@ rule File2VHDLSpec {
 	
 	correspondence {
 		[+] file2spec :FileToVHDLSpecification {
-			src->file
+			src->file 
 			trg->spec
 		}
 	}

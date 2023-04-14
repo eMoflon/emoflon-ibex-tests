@@ -1,32 +1,31 @@
-#using ExtType2Doc_SCDerived.*
-#using AttrCondDefLibrary.*
-
-#rule SubPackage2Folder #with ExtType2Doc_SCDerived
-
-#source { 
-	p:Package {
-		++-subPackages->sp
+rule SubPackage2Folder {
+	
+	source { 
+		[=] p:ExtTypeModel.Package {
+			[+] -subPackages->sp
+		}
+		
+		[+] sp:ExtTypeModel.Package
 	}
 	
-	++sp:Package
-}
-
-#target {
-	f:Folder
-}
-
-#correspondence {
-	p2f:Package2Folder {
-		#src->p
-		#trg->f
+	target {
+		[=] f:ExtDocModel.Folder
 	}
 	
-	++sp2f:Package2Folder {
-		#src->sp
-		#trg->f
+	correspondence {
+		[=] p2f:Package2Folder {
+			src->p
+			trg->f
+		}
+		
+		[+] sp2f:Package2Folder {
+			src->sp
+			trg->f
+		}
+	}
+	
+	attributeConditions {
+		DefaultAttributeConditionLibrary.concat(".", p.fQname, sp.name, derived sp.fQname)
 	}
 }
 
-#attributeConditions {
-	concat(".", p.fQname, sp.name, #derived sp.fQname)
-}

@@ -1,32 +1,30 @@
-#using ExtType2Doc_SCDerived.*
-#using AttrCondDefLibrary.*
-
-#rule Param2Entry #with ExtType2Doc_SCDerived
-
-#source { 
-	m:Method {
-		++-params->p
+rule Param2Entry {
+	source { 
+		[=] m:ExtTypeModel.Method {
+			[+]-params->p
+		}
+		
+		[+] p:ExtTypeModel.Parameter
 	}
 	
-	++p:Parameter
-}
-
-#target {
-	e:Entry
-}
-
-#correspondence {
-	m2e:Method2Entry {
-		#src->m
-		#trg->e
+	target {
+		[=] entry:ExtDocModel.Entry
 	}
 	
-	++p2e:Param2Entry {
-		#src->p
-		#trg->e
+	correspondence {
+		[=] m2e:Method2Entry {
+			src->m
+			trg->entry
+		}
+		
+		[+] p2e:Param2Entry {
+			src->p
+			trg->entry
+		}
+	}
+	
+	attributeConditions {
+		
 	}
 }
 
-#attributeConditions {
-	
-}

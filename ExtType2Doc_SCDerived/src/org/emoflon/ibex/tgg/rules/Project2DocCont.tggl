@@ -1,23 +1,22 @@
-#using ExtType2Doc_SCDerived.*
-#using AttrCondDefLibrary.*
-
-#rule Project2DocCont #with ExtType2Doc_SCDerived
-
-#source { 
-	++pr:Project
-}
-
-#target {
-	++dc:DocContainer
-}
-
-#correspondence {
-	++pr2dc:Project2DocContainer {
-		#src->pr
-		#trg->dc
+rule Project2DocCont {
+	source { 
+		[+] pr:ExtTypeModel.Project
 	}
-}
-
-#attributeConditions {
+	
+	target {
+		[+] dc:ExtDocModel.DocContainer
+	}
+	
+	correspondence {
+		[+] pr2dc:Project2DocContainer {
+			src->pr
+			trg->dc
+		}
+	}
+	
+	attributeConditions {
+		
+	}
 	
 }
+

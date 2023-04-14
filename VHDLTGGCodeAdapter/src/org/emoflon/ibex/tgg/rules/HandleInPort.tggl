@@ -11,7 +11,7 @@ rule HandleInPort refines Handle {
 		}
 	}
 	
-	target {
+	target { 
 		@refines+ Handle.port
 		[+] port:V.InputPort
 		@refines= Handle.composite

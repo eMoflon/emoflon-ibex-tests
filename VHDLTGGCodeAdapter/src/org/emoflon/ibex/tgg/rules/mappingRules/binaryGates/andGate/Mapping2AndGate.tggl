@@ -18,7 +18,7 @@ rule Mapping2AndGate refines AbstractBinaryMappingRule as AbsBinMapping {
 			.name := "AND.in1";
 			[+] - block->expression
 		}
-		@refines+ AbstractMappingRule.expression
+		@refines+ AbsBinMapping.expression
 		[+] expression:V.AndGate {
 			[+] - inputs->rightPort
 			[+] - inputport1->leftPort
@@ -26,7 +26,7 @@ rule Mapping2AndGate refines AbstractBinaryMappingRule as AbsBinMapping {
 			[+] - inputs->leftPort
 			[+] - outputport->out
 		}
-		@refines+ AbstractMappingRule.out
+		@refines+ AbsBinMapping.out
 		[+] out:V.OutputPort {
 			.name := "AND.out";
 			[+] - block->expression

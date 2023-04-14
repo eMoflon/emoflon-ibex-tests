@@ -18,12 +18,12 @@ rule Mapping2OrGate refines AbstractBinaryMappingRule as AbsBinMapping {
 			.name := "OR.in2";
 			[+] - block->expression
 		}
-		@refines+ AbstractMappingRule.out
+		@refines+ AbstractBinaryMappingRule.out
 		[+] out:V.OutputPort {
 			.name := "OR.out";
 			[+] - block->expression
 		}
-		@refines+ AbstractMappingRule.expression
+		@refines+ AbstractBinaryMappingRule.expression
 		[+] expression:V.OrGate {
 			[+] - inputport1->leftPort
 			[+] - outputport->out
