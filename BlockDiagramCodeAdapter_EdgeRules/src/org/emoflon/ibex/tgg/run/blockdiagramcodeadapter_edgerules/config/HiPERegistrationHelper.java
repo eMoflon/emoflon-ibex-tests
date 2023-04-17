@@ -87,8 +87,8 @@ public class HiPERegistrationHelper implements IRegistrationHelper {
 		options.project.name("BlockDiagramCodeAdapter_EdgeRules");
 		options.project.path("BlockDiagramCodeAdapter_EdgeRules");
 		options.debug.ibexDebug(false);
-		for(var factory : new RuntimeTGGAttrConstraintFactoryContainer().getFactories())
-			options.csp.constraintProvider().registerFactory(factory);		
+		options.csp.registerConstraintFactories(new RuntimeTGGAttrConstraintFactoryContainer().getFactories());
+
 		options.registrationHelper(this);
 		return options;
 	}

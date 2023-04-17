@@ -87,8 +87,8 @@ public class HiPERegistrationHelper implements IRegistrationHelper {
 		options.project.name("Express2UML");
 		options.project.path("Express2UML");
 		options.debug.ibexDebug(false);
-		for(var factory : new RuntimeTGGAttrConstraintFactoryContainer().getFactories())
-			options.csp.constraintProvider().registerFactory(factory);
+		options.csp.registerConstraintFactories(new RuntimeTGGAttrConstraintFactoryContainer().getFactories());
+			
 		options.registrationHelper(this);
 		return options;
 	}

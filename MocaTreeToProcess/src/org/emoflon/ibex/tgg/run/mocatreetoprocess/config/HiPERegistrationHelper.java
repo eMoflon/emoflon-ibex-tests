@@ -87,8 +87,8 @@ public class HiPERegistrationHelper implements IRegistrationHelper {
 		options.project.name("MocaTreeToProcess");
 		options.project.path("MocaTreeToProcess");
 		options.debug.ibexDebug(false);
-		for(var factory : new RuntimeTGGAttrConstraintFactoryContainer().getFactories())
-			options.csp.constraintProvider().registerFactory(factory);
+		options.csp.registerConstraintFactories(new RuntimeTGGAttrConstraintFactoryContainer().getFactories());
+			
 		options.registrationHelper(this);
 		return options;
 	}
