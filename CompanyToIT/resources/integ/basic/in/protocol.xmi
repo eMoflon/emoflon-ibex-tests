@@ -1,45 +1,45 @@
 <?xml version="1.0" encoding="ASCII"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:CompanyToIT="platform:/resource/CompanyToIT/model/CompanyToIT.ecore">
   <CompanyToIT:CompanyToITRule__Marker>
-    <CREATE__SRC__ceo href="src.xmi#//@ceo.0"/>
-    <CREATE__SRC__company href="src.xmi#/"/>
-    <CREATE__TRG__it href="trg.xmi#/"/>
-    <CREATE__CORR__c2i href="corr.xmi#/0"/>
+    <CREATE__SOURCE__ceo href="src.xmi#//@ceo.0"/>
+    <CREATE__SOURCE__company href="src.xmi#/"/>
+    <CREATE__TARGET__it href="trg.xmi#/"/>
+    <CREATE__CORRESPONDENCE__c2i href="corr.xmi#/0"/>
   </CompanyToIT:CompanyToITRule__Marker>
   <CompanyToIT:AdminToRouterRule__Marker>
-    <CREATE__SRC__admin href="src.xmi#//@admin.0"/>
-    <CONTEXT__SRC__ceo href="src.xmi#//@ceo.0"/>
-    <CONTEXT__SRC__company href="src.xmi#/"/>
-    <CONTEXT__TRG__it href="trg.xmi#/"/>
-    <CREATE__TRG__network href="trg.xmi#//@network.0"/>
-    <CREATE__TRG__router href="trg.xmi#//@router.0"/>
-    <CREATE__CORR__a2r href="corr.xmi#/1"/>
-    <CONTEXT__CORR__c2i href="corr.xmi#/0"/>
+    <CREATE__SOURCE__admin href="src.xmi#//@admin.0"/>
+    <CONTEXT__SOURCE__ceo href="src.xmi#//@ceo.0"/>
+    <CONTEXT__SOURCE__company href="src.xmi#/"/>
+    <CONTEXT__TARGET__it href="trg.xmi#/"/>
+    <CREATE__TARGET__network href="trg.xmi#//@network.0"/>
+    <CREATE__TARGET__router href="trg.xmi#//@router.0"/>
+    <CREATE__CORRESPONDENCE__a2r href="corr.xmi#/1"/>
+    <CONTEXT__CORRESPONDENCE__c2i href="corr.xmi#/0"/>
   </CompanyToIT:AdminToRouterRule__Marker>
   <CompanyToIT:EmployeeToLaptopRule__Marker>
-    <CONTEXT__SRC__admin href="src.xmi#//@admin.0"/>
-    <CONTEXT__SRC__ceo href="src.xmi#//@ceo.0"/>
-    <CONTEXT__SRC__company href="src.xmi#/"/>
-    <CREATE__SRC__employee href="src.xmi#//@employee.0"/>
-    <CREATE__TRG__computer href="trg.xmi#//@network.0/@laptop.0"/>
-    <CONTEXT__TRG__it href="trg.xmi#/"/>
-    <CONTEXT__TRG__network href="trg.xmi#//@network.0"/>
-    <CONTEXT__TRG__router href="trg.xmi#//@router.0"/>
-    <CONTEXT__CORR__a2r href="corr.xmi#/1"/>
-    <CONTEXT__CORR__c2i href="corr.xmi#/0"/>
-    <CREATE__CORR__e2p href="corr.xmi#/2"/>
+    <CONTEXT__SOURCE__admin href="src.xmi#//@admin.0"/>
+    <CONTEXT__SOURCE__ceo href="src.xmi#//@ceo.0"/>
+    <CONTEXT__SOURCE__company href="src.xmi#/"/>
+    <CREATE__SOURCE__employee href="src.xmi#//@employee.0"/>
+    <CREATE__TARGET__computer href="trg.xmi#//@network.0/@laptop.0"/>
+    <CONTEXT__TARGET__it href="trg.xmi#/"/>
+    <CONTEXT__TARGET__network href="trg.xmi#//@network.0"/>
+    <CONTEXT__TARGET__router href="trg.xmi#//@router.0"/>
+    <CONTEXT__CORRESPONDENCE__a2r href="corr.xmi#/1"/>
+    <CONTEXT__CORRESPONDENCE__c2i href="corr.xmi#/0"/>
+    <CREATE__CORRESPONDENCE__e2p href="corr.xmi#/2"/>
   </CompanyToIT:EmployeeToLaptopRule__Marker>
   <CompanyToIT:EmployeeToLaptopRule__Marker>
-    <CONTEXT__SRC__admin href="src.xmi#//@admin.0"/>
-    <CONTEXT__SRC__ceo href="src.xmi#//@ceo.0"/>
-    <CONTEXT__SRC__company href="src.xmi#/"/>
-    <CREATE__SRC__employee href="src.xmi#//@employee.1"/>
-    <CREATE__TRG__computer href="trg.xmi#//@network.0/@laptop.1"/>
-    <CONTEXT__TRG__it href="trg.xmi#/"/>
-    <CONTEXT__TRG__network href="trg.xmi#//@network.0"/>
-    <CONTEXT__TRG__router href="trg.xmi#//@router.0"/>
-    <CONTEXT__CORR__a2r href="corr.xmi#/1"/>
-    <CONTEXT__CORR__c2i href="corr.xmi#/0"/>
-    <CREATE__CORR__e2p href="corr.xmi#/3"/>
+    <CONTEXT__SOURCE__admin href="src.xmi#//@admin.0"/>
+    <CONTEXT__SOURCE__ceo href="src.xmi#//@ceo.0"/>
+    <CONTEXT__SOURCE__company href="src.xmi#/"/>
+    <CREATE__SOURCE__employee href="src.xmi#//@employee.1"/>
+    <CREATE__TARGET__computer href="trg.xmi#//@network.0/@laptop.1"/>
+    <CONTEXT__TARGET__it href="trg.xmi#/"/>
+    <CONTEXT__TARGET__network href="trg.xmi#//@network.0"/>
+    <CONTEXT__TARGET__router href="trg.xmi#//@router.0"/>
+    <CONTEXT__CORRESPONDENCE__a2r href="corr.xmi#/1"/>
+    <CONTEXT__CORRESPONDENCE__c2i href="corr.xmi#/0"/>
+    <CREATE__CORRESPONDENCE__e2p href="corr.xmi#/3"/>
   </CompanyToIT:EmployeeToLaptopRule__Marker>
 </xmi:XMI>
