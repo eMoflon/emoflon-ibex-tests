@@ -42,8 +42,11 @@ public class RepairTestShortcut extends SyncTestCase<District, Playroom> {
 
 	private void buildTerrace() {
 		tool.performAndPropagateSourceEdit(d -> helperTerrace.createFirstBuilding(d, "Colorado Apartments", null));
+		System.out.println("First");
 		tool.performAndPropagateTargetEdit(p -> helperBlockSet.getConstruction(p, "Colorado Apartments").setConstructor("Henry"));
+		System.out.println("Second");
 		tool.performAndPropagateSourceEdit(d -> helperTerrace.buildTerrace(helperTerrace.getBuilding(d, "Colorado Apartments")));
+		System.out.println("Third");
 		tool.performAndPropagateTargetEdit(helperBlockSet::setColors);
 	}
 
