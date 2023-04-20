@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="ASCII"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:CompanyToIT="platform:/resource/CompanyToIT/model/CompanyToIT.ecore">
-  <CompanyToIT:CompanyToITRule__Marker>
+  <CompanyToIT:ProtocolNode_CompanyToITRule>
     <CREATE__SOURCE__ceo href="src.xmi#//@ceo.0"/>
     <CREATE__SOURCE__company href="src.xmi#/"/>
     <CREATE__TARGET__it href="trg.xmi#/"/>
     <CREATE__CORRESPONDENCE__c2i href="corr.xmi#/0"/>
-  </CompanyToIT:CompanyToITRule__Marker>
-  <CompanyToIT:AdminToRouterRule__Marker>
+  </CompanyToIT:ProtocolNode_CompanyToITRule>
+  <CompanyToIT:ProtocolNode_AdminToRouterRule>
     <CREATE__SOURCE__admin href="src.xmi#//@admin.0"/>
     <CONTEXT__SOURCE__ceo href="src.xmi#//@ceo.0"/>
     <CONTEXT__SOURCE__company href="src.xmi#/"/>
@@ -15,8 +15,8 @@
     <CREATE__TARGET__router href="trg.xmi#//@router.0"/>
     <CREATE__CORRESPONDENCE__a2r href="corr.xmi#/1"/>
     <CONTEXT__CORRESPONDENCE__c2i href="corr.xmi#/0"/>
-  </CompanyToIT:AdminToRouterRule__Marker>
-  <CompanyToIT:EmployeeToLaptopRule__Marker>
+  </CompanyToIT:ProtocolNode_AdminToRouterRule>
+  <CompanyToIT:ProtocolNode_EmployeeToLaptopRule>
     <CONTEXT__SOURCE__admin href="src.xmi#//@admin.0"/>
     <CONTEXT__SOURCE__ceo href="src.xmi#//@ceo.0"/>
     <CONTEXT__SOURCE__company href="src.xmi#/"/>
@@ -28,8 +28,8 @@
     <CONTEXT__CORRESPONDENCE__a2r href="corr.xmi#/1"/>
     <CONTEXT__CORRESPONDENCE__c2i href="corr.xmi#/0"/>
     <CREATE__CORRESPONDENCE__e2p href="corr.xmi#/2"/>
-  </CompanyToIT:EmployeeToLaptopRule__Marker>
-  <CompanyToIT:EmployeeToLaptopRule__Marker>
+  </CompanyToIT:ProtocolNode_EmployeeToLaptopRule>
+  <CompanyToIT:ProtocolNode_EmployeeToLaptopRule>
     <CONTEXT__SOURCE__admin href="src.xmi#//@admin.0"/>
     <CONTEXT__SOURCE__ceo href="src.xmi#//@ceo.0"/>
     <CONTEXT__SOURCE__company href="src.xmi#/"/>
@@ -41,5 +41,5 @@
     <CONTEXT__CORRESPONDENCE__a2r href="corr.xmi#/1"/>
     <CONTEXT__CORRESPONDENCE__c2i href="corr.xmi#/0"/>
     <CREATE__CORRESPONDENCE__e2p href="corr.xmi#/3"/>
-  </CompanyToIT:EmployeeToLaptopRule__Marker>
+  </CompanyToIT:ProtocolNode_EmployeeToLaptopRule>
 </xmi:XMI>
