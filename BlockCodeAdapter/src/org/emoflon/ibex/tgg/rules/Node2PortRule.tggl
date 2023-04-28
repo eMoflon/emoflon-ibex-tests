@@ -1,7 +1,7 @@
 rule Node2PortRule {	
 	source {
 		[=] blocksNode:MocaTree.Node 
-		[=] portNode:MocaTree.Node {
+		[+] portNode:MocaTree.Node {
 			[+] - parentNode->blockNode
 		}
 		[=] blockNode:MocaTree.Node {
