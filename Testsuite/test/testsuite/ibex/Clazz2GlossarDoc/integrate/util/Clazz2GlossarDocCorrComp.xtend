@@ -7,8 +7,6 @@ import Clazz2GlossarDoc.Method2entry
 import Clazz2GlossarDoc.Parameter2entry
 import org.eclipse.emf.ecore.EObject
 import testsuite.ibex.testUtil.CorrComparator
-import simpleClassInheritance.NamedElement
-import glossarDocumentation.Entry
 
 class Clazz2GlossarDocCorrComp extends CorrComparator {
 	
@@ -35,8 +33,8 @@ class Clazz2GlossarDocCorrComp extends CorrComparator {
 	def stringify(Clazz2doc corr) {
 		'''
 		Clazz2doc {
-			SRC {"«(corr.source as NamedElement).name»"}
-			TRG {"«(corr.target as NamedElement).name»"}
+			SRC {"«corr.source.name»"}
+			TRG {"«corr.target.name»"}
 		}
 		'''
 	}
@@ -44,8 +42,8 @@ class Clazz2GlossarDocCorrComp extends CorrComparator {
 	def stringify(Field2entry corr) {
 		'''
 		Field2entry {
-			SRC {"«(corr.source as NamedElement).name»"}
-			TRG {"«(corr.target as NamedElement).name»", type: «(corr.target as Entry).type»}
+			SRC {"«corr.source.name»"}
+			TRG {"«corr.target.name»", type: «corr.target.type»}
 		}
 		'''
 	}
@@ -53,8 +51,8 @@ class Clazz2GlossarDocCorrComp extends CorrComparator {
 	def stringify(Method2entry corr) {
 		'''
 		Method2entry {
-			SRC {"«(corr.source as NamedElement).name»"}
-			TRG {"«(corr.target as NamedElement).name»", type: «(corr.target as Entry).type»}
+			SRC {"«corr.source.name»"}
+			TRG {"«corr.target.name»", type: «corr.target.type»}
 		}
 		'''
 	}
@@ -62,8 +60,8 @@ class Clazz2GlossarDocCorrComp extends CorrComparator {
 	def stringify(Parameter2entry corr) {
 		'''
 		Parameter2entry {
-			SRC {"«(corr.source as NamedElement).name»"}
-			TRG {"«(corr.target as NamedElement).name»", type: «(corr.target as Entry).type»}
+			SRC {"«corr.source.name»"}
+			TRG {"«corr.target.name»", type: «corr.target.type»}
 		}
 		'''
 	}
