@@ -1,0 +1,22 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: GenericNodes-GT
+Bundle-ManifestVersion: 2
+Bundle-Name: GenericNodes-GT
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: GenericNodes-GT; singleton:=true
+Bundle-ActivationPolicy: lazy
+Import-Package: org.apache.log4j,
+ org.apache.commons.logging
+Bundle-RequiredExecutionEnvironment: JavaSE-16
+Require-Bundle: org.emoflon.ibex.common,
+ org.emoflon.ibex.gt,
+ org.emoflon.ibex.gt.gtmodel,
+ org.emoflon.ibex.gt.hipe,
+ GenericNodes;bundle-version="0.0.1"
+Export-Package: genericnodesgt.example.api,
+ genericnodesgt.example.api.match,
+ genericnodesgt.example.api.pattern,
+ genericnodes.gt.api,
+ genericnodes.gt.api.match,
+ genericnodes.gt.api.pattern
