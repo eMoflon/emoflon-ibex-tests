@@ -29,3 +29,10 @@ pattern findD {
 pattern findAllNodes {
 	[=] n : NamedElement
 };
+
+pattern findDuplicateNames {
+	[=] na : NamedElement
+	[=] nb : NamedElement
+	
+	[#] na.name == nb.name;
+};
