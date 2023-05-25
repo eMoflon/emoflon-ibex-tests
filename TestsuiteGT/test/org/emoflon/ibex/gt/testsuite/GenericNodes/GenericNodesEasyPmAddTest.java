@@ -1,28 +1,11 @@
 package org.emoflon.ibex.gt.testsuite.GenericNodes;
 
-import static org.junit.jupiter.api.Assertions.assertNull;
-
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import GenericNodes.GenericNodesFactory;
 import GenericNodes.Root;
-import genericnodes.gt.api.GtGtApi;
 
-public class GenericNodesEasyPmTest extends GenericNodesAbstractTest {
-
-	GtGtApi<?> api;
-
-	@AfterEach
-	public void tearDown() {
-		terminate(api);
-	}
-
-	@BeforeEach
-	public void preCheck() {
-		assertNull(api);
-	}
+public class GenericNodesEasyPmAddTest extends GenericNodesAbstractTest {
 
 	/*
 	 * Actual tests.
@@ -128,20 +111,6 @@ public class GenericNodesEasyPmTest extends GenericNodesAbstractTest {
 
 		// Checks
 		assertMatchCounts(1, 7, 23, 42, 73, api);
-	}
-
-	/*
-	 * Utility methods.
-	 */
-
-	private void assertMatchCounts(final int root, final int a, final int b, final int c, final int d,
-			final GtGtApi<?> api) {
-		assertMatchCount(root, api.findRoot());
-		assertMatchCount(a + b + c + d, api.findAllNodes());
-		assertMatchCount(a, api.findA());
-		assertMatchCount(b, api.findB());
-		assertMatchCount(c, api.findC());
-		assertMatchCount(d, api.findD());
 	}
 
 }

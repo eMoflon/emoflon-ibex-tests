@@ -1,9 +1,5 @@
 package org.emoflon.ibex.gt.testsuite.GenericNodes;
 
-import static org.junit.jupiter.api.Assertions.assertNull;
-
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import GenericNodes.A;
@@ -12,19 +8,7 @@ import GenericNodes.GenericNodesFactory;
 import GenericNodes.Root;
 import genericnodes.gt.api.GtGtApi;
 
-public class GenericNodesDuplicateNamesPmTest extends GenericNodesAbstractTest {
-
-	GtGtApi<?> api;
-
-	@AfterEach
-	public void tearDown() {
-		terminate(api);
-	}
-
-	@BeforeEach
-	public void preCheck() {
-		assertNull(api);
-	}
+public class GenericNodesDuplicateNamesPmAddTest extends GenericNodesAbstractTest {
 
 	/*
 	 * Actual tests.
