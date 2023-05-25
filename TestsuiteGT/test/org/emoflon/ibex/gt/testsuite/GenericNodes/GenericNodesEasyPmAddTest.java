@@ -93,7 +93,7 @@ public class GenericNodesEasyPmAddTest extends GenericNodesAbstractTest {
 		// setup
 		api = this.init("GenericNodes-root-only.xmi");
 		final Root root = (Root) api.getModel().getResources().get(0).getContents().get(0);
-		
+
 		for (int a = 1; a <= 7; a++) {
 			root.getNodes().add(GenericNodesFactory.eINSTANCE.createA());
 		}

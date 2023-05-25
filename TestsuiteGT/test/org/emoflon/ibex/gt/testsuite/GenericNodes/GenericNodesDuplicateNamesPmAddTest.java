@@ -41,7 +41,7 @@ public class GenericNodesDuplicateNamesPmAddTest extends GenericNodesAbstractTes
 		// Checks
 		assertMatchCounts(1, 2, api);
 	}
-	
+
 	@Test
 	public void testEmptyDuplicatePatternMatchesOnce() {
 		// setup
@@ -54,7 +54,7 @@ public class GenericNodesDuplicateNamesPmAddTest extends GenericNodesAbstractTes
 		b.setName(name);
 		root.getNodes().add(a);
 		root.getNodes().add(b);
-		
+
 		// Other nodes with empty names
 		root.getNodes().add(GenericNodesFactory.eINSTANCE.createB());
 		root.getNodes().add(GenericNodesFactory.eINSTANCE.createB());
@@ -64,7 +64,7 @@ public class GenericNodesDuplicateNamesPmAddTest extends GenericNodesAbstractTes
 		// Checks
 		assertMatchCounts(1, 2, api);
 	}
-	
+
 	@Test
 	public void testOtherDuplicatePatternMatchesOnce() {
 		// setup
@@ -94,8 +94,7 @@ public class GenericNodesDuplicateNamesPmAddTest extends GenericNodesAbstractTes
 	 * Utility methods.
 	 */
 
-	private void assertMatchCounts(final int root, final int duplicates,
-			final GtGtApi<?> api) {
+	private void assertMatchCounts(final int root, final int duplicates, final GtGtApi<?> api) {
 		assertMatchCount(root, api.findRoot());
 		assertMatchCount(duplicates, api.findDuplicateNames());
 	}

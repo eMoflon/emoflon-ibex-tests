@@ -37,4 +37,5 @@ Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-17
 Automatic-Module-Name: TestsuiteGT
 Import-Package: GenericNodes,
- genericnodes.gt.api
+ genericnodes.gt.api,
+ genericnodes.gt.api.match
