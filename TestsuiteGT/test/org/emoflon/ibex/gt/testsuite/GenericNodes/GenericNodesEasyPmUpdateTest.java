@@ -3,8 +3,10 @@ package org.emoflon.ibex.gt.testsuite.GenericNodes;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import GenericNodes.A;
@@ -24,7 +26,7 @@ public class GenericNodesEasyPmUpdateTest extends GenericNodesAbstractTest {
 	@Test
 	public void testAllAtomicPatternMatchesOnce() {
 		// setup
-		api = this.init("GenericNodes-root-only.xmi");
+		initAndSanityCheck();
 		final Root root = (Root) api.getModel().getResources().get(0).getContents().get(0);
 		root.getNodes().add(genDummyNode(NodeType.A, nodeName));
 		root.getNodes().add(genDummyNode(NodeType.B, nodeName));
@@ -88,7 +90,7 @@ public class GenericNodesEasyPmUpdateTest extends GenericNodesAbstractTest {
 	@Test
 	public void testAAtomicPatternMatchesOnce() {
 		// setup
-		api = this.init("GenericNodes-root-only.xmi");
+		initAndSanityCheck();
 		final Root root = (Root) api.getModel().getResources().get(0).getContents().get(0);
 		root.getNodes().add(genDummyNode(NodeType.A, nodeName));
 
@@ -137,7 +139,7 @@ public class GenericNodesEasyPmUpdateTest extends GenericNodesAbstractTest {
 	@Test
 	public void testBAtomicPatternMatchesOnce() {
 		// setup
-		api = this.init("GenericNodes-root-only.xmi");
+		initAndSanityCheck();
 		final Root root = (Root) api.getModel().getResources().get(0).getContents().get(0);
 		root.getNodes().add(genDummyNode(NodeType.B, nodeName));
 
@@ -186,7 +188,7 @@ public class GenericNodesEasyPmUpdateTest extends GenericNodesAbstractTest {
 	@Test
 	public void testCAtomicPatternMatchesOnce() {
 		// setup
-		api = this.init("GenericNodes-root-only.xmi");
+		initAndSanityCheck();
 		final Root root = (Root) api.getModel().getResources().get(0).getContents().get(0);
 		root.getNodes().add(genDummyNode(NodeType.C, nodeName));
 
@@ -235,7 +237,7 @@ public class GenericNodesEasyPmUpdateTest extends GenericNodesAbstractTest {
 	@Test
 	public void testDAtomicPatternMatchesOnce() {
 		// setup
-		api = this.init("GenericNodes-root-only.xmi");
+		initAndSanityCheck();
 		final Root root = (Root) api.getModel().getResources().get(0).getContents().get(0);
 		root.getNodes().add(genDummyNode(NodeType.D, nodeName));
 
@@ -284,7 +286,7 @@ public class GenericNodesEasyPmUpdateTest extends GenericNodesAbstractTest {
 	@Test
 	public void testMultipleAtomicPatternMatches() {
 		// setup
-		api = this.init("GenericNodes-root-only.xmi");
+		initAndSanityCheck();
 		final Root root = (Root) api.getModel().getResources().get(0).getContents().get(0);
 
 		for (int a = 1; a <= 7; a++) {
@@ -369,7 +371,7 @@ public class GenericNodesEasyPmUpdateTest extends GenericNodesAbstractTest {
 	@Test
 	public void testMultipleAtomicPatternMatchesRemovedIndividually() {
 		// setup
-		api = this.init("GenericNodes-root-only.xmi");
+		initAndSanityCheck();
 		final Root root = (Root) api.getModel().getResources().get(0).getContents().get(0);
 
 		for (int a = 1; a <= 7; a++) {
@@ -538,6 +540,62 @@ public class GenericNodesEasyPmUpdateTest extends GenericNodesAbstractTest {
 		api.findD().getMatches().forEach(m -> {
 			assertNotNull(m.d().getName());
 			assertEquals("new-name", m.d().getName());
+		});
+	}
+
+	/**
+	 * This method should trigger a SmartEMF exception that may occur if model
+	 * elements are changed/removed after the initial loading process of the model
+	 * and before the first matches are accessed. The main test method has to be
+	 * re-run quite some times to actual trigger the bug reliably.
+	 * 
+	 * Example trace: [ERROR] [05/25/2023 17:01:04.473]
+	 * [HiPE-Engine-akka.actor.default-dispatcher-15]
+	 * [akka://HiPE-Engine/user/NotificationActor] Index 77 out of bounds for length
+	 * 77 java.lang.ArrayIndexOutOfBoundsException: Index 77 out of bounds for
+	 * length 77 at
+	 * java.base/java.util.LinkedHashMap.keysToArray(LinkedHashMap.java:545) at
+	 * java.base/java.util.HashSet.toArray(HashSet.java:368) at
+	 * org.emoflon.smartemf.runtime.collections.SmartCollection.toArray(SmartCollection.java:76)
+	 */
+	@Disabled
+	@Test
+	public void triggerSmartEmfExceptionRunner() {
+		for (int i = 0; i < 100; i++) {
+			System.out.println("Run #" + i);
+			assertNull(api);
+			updateNodesAfterGeneration();
+			terminate(api);
+			api = null;
+		}
+
+	}
+
+	private void updateNodesAfterGeneration() {
+		// setup
+		api = this.init("GenericNodes-root-only.xmi");
+		// initAndSanityCheck();
+		// ^ left out on purpose!
+		final Root root = (Root) api.getModel().getResources().get(0).getContents().get(0);
+
+		for (int a = 1; a <= 7; a++) {
+			root.getNodes().add(genDummyNode(NodeType.A, nodeName));
+		}
+		for (int b = 1; b <= 23; b++) {
+			root.getNodes().add(genDummyNode(NodeType.B, nodeName));
+		}
+		for (int c = 1; c <= 42; c++) {
+			root.getNodes().add(genDummyNode(NodeType.C, nodeName));
+		}
+		for (int d = 1; d <= 73; d++) {
+			root.getNodes().add(genDummyNode(NodeType.D, nodeName));
+		}
+
+		api.updateMatches();
+
+		// Change names
+		root.getNodes().forEach(n -> {
+			n.setName("new-name");
 		});
 	}
 

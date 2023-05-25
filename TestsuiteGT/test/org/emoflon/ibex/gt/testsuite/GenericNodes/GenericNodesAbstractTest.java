@@ -49,12 +49,27 @@ public abstract class GenericNodesAbstractTest extends GTAppTestCase<GtGtApi<?>>
 
 	@AfterEach
 	public void tearDown() {
-		terminate(api);
+		if (api != null) {
+			terminate(api);
+		}
 	}
 
 	@BeforeEach
 	public void preCheck() {
 		assertNull(api);
+	}
+
+	/**
+	 * This method loads the initial XMI model and does a small sanity check
+	 * afterwards. Its purpose is to prevent IndexOutOfBoundsException(s) in
+	 * SmartEMF.
+	 */
+	protected void initAndSanityCheck() {
+		// Setup
+		api = this.init("GenericNodes-root-only.xmi");
+
+		// Checks
+		assertMatchCounts(1, 0, 0, 0, 0, api);
 	}
 
 	/*

@@ -17,7 +17,7 @@ public class GenericNodesDuplicateNamesPmAddTest extends GenericNodesAbstractTes
 	@Test
 	public void testDuplicatePatternMatchesEmpty() {
 		// Setup
-		api = this.init("GenericNodes-root-only.xmi");
+		initAndSanityCheck();
 
 		// Checks
 		assertMatchCounts(1, 0, api);
@@ -26,7 +26,7 @@ public class GenericNodesDuplicateNamesPmAddTest extends GenericNodesAbstractTes
 	@Test
 	public void testOnlyDuplicatePatternMatchesOnce() {
 		// setup
-		api = this.init("GenericNodes-root-only.xmi");
+		initAndSanityCheck();
 		final Root root = (Root) api.getModel().getResources().get(0).getContents().get(0);
 		final String name = "genNode";
 		final A a = GenericNodesFactory.eINSTANCE.createA();
@@ -45,7 +45,7 @@ public class GenericNodesDuplicateNamesPmAddTest extends GenericNodesAbstractTes
 	@Test
 	public void testEmptyDuplicatePatternMatchesOnce() {
 		// setup
-		api = this.init("GenericNodes-root-only.xmi");
+		initAndSanityCheck();
 		final Root root = (Root) api.getModel().getResources().get(0).getContents().get(0);
 		final String name = "genNode";
 		final A a = GenericNodesFactory.eINSTANCE.createA();
@@ -68,7 +68,7 @@ public class GenericNodesDuplicateNamesPmAddTest extends GenericNodesAbstractTes
 	@Test
 	public void testOtherDuplicatePatternMatchesOnce() {
 		// setup
-		api = this.init("GenericNodes-root-only.xmi");
+		initAndSanityCheck();
 		final Root root = (Root) api.getModel().getResources().get(0).getContents().get(0);
 		final String name = "genNode";
 		final A a = GenericNodesFactory.eINSTANCE.createA();
