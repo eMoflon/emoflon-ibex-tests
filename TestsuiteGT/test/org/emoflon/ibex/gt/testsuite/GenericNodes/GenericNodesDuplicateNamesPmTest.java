@@ -92,9 +92,11 @@ public class GenericNodesDuplicateNamesPmTest extends GenericNodesAbstractTest {
 		final B b = GenericNodesFactory.eINSTANCE.createB();
 		b.setName(name);
 		final A a2 = GenericNodesFactory.eINSTANCE.createA();
-		a.setName(name + "-2");
+		a2.setName(name + "-2");
 		final B b2 = GenericNodesFactory.eINSTANCE.createB();
-		b.setName(name + "-2");
+		b2.setName(name + "-2");
+		root.getNodes().add(a);
+		root.getNodes().add(b);
 		root.getNodes().add(a2);
 		root.getNodes().add(b2);
 
