@@ -24,7 +24,7 @@ public class GenericNodesEasyPmAddTest extends GenericNodesAbstractTest {
 	public void testAllAtomicPatternMatchesOnce() {
 		// setup
 		initAndSanityCheck();
-		final Root root = (Root) api.getModel().getResources().get(0).getContents().get(0);
+		final Root root = getRoot();
 		root.getNodes().add(GenericNodesFactory.eINSTANCE.createA());
 		root.getNodes().add(GenericNodesFactory.eINSTANCE.createB());
 		root.getNodes().add(GenericNodesFactory.eINSTANCE.createC());
@@ -40,7 +40,7 @@ public class GenericNodesEasyPmAddTest extends GenericNodesAbstractTest {
 	public void testAAtomicPatternMatchesOnce() {
 		// setup
 		initAndSanityCheck();
-		final Root root = (Root) api.getModel().getResources().get(0).getContents().get(0);
+		final Root root = getRoot();
 		root.getNodes().add(GenericNodesFactory.eINSTANCE.createA());
 
 		api.updateMatches();
@@ -53,7 +53,7 @@ public class GenericNodesEasyPmAddTest extends GenericNodesAbstractTest {
 	public void testBAtomicPatternMatchesOnce() {
 		// setup
 		initAndSanityCheck();
-		final Root root = (Root) api.getModel().getResources().get(0).getContents().get(0);
+		final Root root = getRoot();
 		root.getNodes().add(GenericNodesFactory.eINSTANCE.createB());
 
 		api.updateMatches();
@@ -66,7 +66,7 @@ public class GenericNodesEasyPmAddTest extends GenericNodesAbstractTest {
 	public void testCAtomicPatternMatchesOnce() {
 		// setup
 		initAndSanityCheck();
-		final Root root = (Root) api.getModel().getResources().get(0).getContents().get(0);
+		final Root root = getRoot();
 		root.getNodes().add(GenericNodesFactory.eINSTANCE.createC());
 
 		api.updateMatches();
@@ -79,7 +79,7 @@ public class GenericNodesEasyPmAddTest extends GenericNodesAbstractTest {
 	public void testDAtomicPatternMatchesOnce() {
 		// setup
 		initAndSanityCheck();
-		final Root root = (Root) api.getModel().getResources().get(0).getContents().get(0);
+		final Root root = getRoot();
 		root.getNodes().add(GenericNodesFactory.eINSTANCE.createD());
 
 		api.updateMatches();
@@ -92,7 +92,7 @@ public class GenericNodesEasyPmAddTest extends GenericNodesAbstractTest {
 	public void testMultipleAtomicPatternMatches() {
 		// setup
 		initAndSanityCheck();
-		final Root root = (Root) api.getModel().getResources().get(0).getContents().get(0);
+		final Root root = getRoot();
 
 		for (int a = 1; a <= 7; a++) {
 			root.getNodes().add(GenericNodesFactory.eINSTANCE.createA());

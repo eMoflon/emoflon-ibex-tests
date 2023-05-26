@@ -27,7 +27,7 @@ public class GenericNodesEasyPmUpdateTest extends GenericNodesAbstractTest {
 	public void testAllAtomicPatternMatchesOnce() {
 		// setup
 		initAndSanityCheck();
-		final Root root = (Root) api.getModel().getResources().get(0).getContents().get(0);
+		final Root root = getRoot();
 		root.getNodes().add(genDummyNode(NodeType.A, nodeName));
 		root.getNodes().add(genDummyNode(NodeType.B, nodeName));
 		root.getNodes().add(genDummyNode(NodeType.C, nodeName));
@@ -91,7 +91,7 @@ public class GenericNodesEasyPmUpdateTest extends GenericNodesAbstractTest {
 	public void testAAtomicPatternMatchesOnce() {
 		// setup
 		initAndSanityCheck();
-		final Root root = (Root) api.getModel().getResources().get(0).getContents().get(0);
+		final Root root = getRoot();
 		root.getNodes().add(genDummyNode(NodeType.A, nodeName));
 
 		api.updateMatches();
@@ -140,7 +140,7 @@ public class GenericNodesEasyPmUpdateTest extends GenericNodesAbstractTest {
 	public void testBAtomicPatternMatchesOnce() {
 		// setup
 		initAndSanityCheck();
-		final Root root = (Root) api.getModel().getResources().get(0).getContents().get(0);
+		final Root root = getRoot();
 		root.getNodes().add(genDummyNode(NodeType.B, nodeName));
 
 		api.updateMatches();
@@ -189,7 +189,7 @@ public class GenericNodesEasyPmUpdateTest extends GenericNodesAbstractTest {
 	public void testCAtomicPatternMatchesOnce() {
 		// setup
 		initAndSanityCheck();
-		final Root root = (Root) api.getModel().getResources().get(0).getContents().get(0);
+		final Root root = getRoot();
 		root.getNodes().add(genDummyNode(NodeType.C, nodeName));
 
 		api.updateMatches();
@@ -238,7 +238,7 @@ public class GenericNodesEasyPmUpdateTest extends GenericNodesAbstractTest {
 	public void testDAtomicPatternMatchesOnce() {
 		// setup
 		initAndSanityCheck();
-		final Root root = (Root) api.getModel().getResources().get(0).getContents().get(0);
+		final Root root = getRoot();
 		root.getNodes().add(genDummyNode(NodeType.D, nodeName));
 
 		api.updateMatches();
@@ -287,7 +287,7 @@ public class GenericNodesEasyPmUpdateTest extends GenericNodesAbstractTest {
 	public void testMultipleAtomicPatternMatches() {
 		// setup
 		initAndSanityCheck();
-		final Root root = (Root) api.getModel().getResources().get(0).getContents().get(0);
+		final Root root = getRoot();
 
 		for (int a = 1; a <= 7; a++) {
 			root.getNodes().add(genDummyNode(NodeType.A, nodeName));
@@ -372,7 +372,7 @@ public class GenericNodesEasyPmUpdateTest extends GenericNodesAbstractTest {
 	public void testMultipleAtomicPatternMatchesRemovedIndividually() {
 		// setup
 		initAndSanityCheck();
-		final Root root = (Root) api.getModel().getResources().get(0).getContents().get(0);
+		final Root root = getRoot();
 
 		for (int a = 1; a <= 7; a++) {
 			root.getNodes().add(genDummyNode(NodeType.A, nodeName));
@@ -576,7 +576,7 @@ public class GenericNodesEasyPmUpdateTest extends GenericNodesAbstractTest {
 		api = this.init("GenericNodes-root-only.xmi");
 		// initAndSanityCheck();
 		// ^ left out on purpose!
-		final Root root = (Root) api.getModel().getResources().get(0).getContents().get(0);
+		final Root root = getRoot();
 
 		for (int a = 1; a <= 7; a++) {
 			root.getNodes().add(genDummyNode(NodeType.A, nodeName));

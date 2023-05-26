@@ -36,3 +36,16 @@ pattern findDuplicateNames {
 	
 	[#] na.name == nb.name;
 };
+
+pattern findName(dName: EString) {
+	[=] n : NamedElement
+	
+	[#] n.name == parameter.dName;
+};
+
+pattern findNeighbourPair {
+	[=] na : NamedElement {
+		[=] -neighbours -> nb
+	}
+	[=] nb : NamedElement
+};

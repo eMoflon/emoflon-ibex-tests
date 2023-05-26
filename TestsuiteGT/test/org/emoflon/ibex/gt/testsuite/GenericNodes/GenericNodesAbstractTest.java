@@ -12,6 +12,7 @@ import GenericNodes.C;
 import GenericNodes.D;
 import GenericNodes.GenericNodesFactory;
 import GenericNodes.NamedElement;
+import GenericNodes.Root;
 import genericnodes.gt.api.GtGtApi;
 import genericnodes.gt.api.GtHiPEGtApi;
 
@@ -112,6 +113,10 @@ public abstract class GenericNodesAbstractTest extends GTAppTestCase<GtGtApi<?>>
 			throw new UnsupportedOperationException();
 		}
 		};
+	}
+
+	protected Root getRoot() {
+		return (Root) api.getModel().getResources().get(0).getContents().get(0);
 	}
 
 	protected enum NodeType {
