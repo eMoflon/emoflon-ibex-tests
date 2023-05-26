@@ -49,3 +49,7 @@ pattern findNeighbourPair {
 	}
 	[=] nb : NamedElement
 };
+
+pattern findNeighbourPairNonEqualName refines findNeighbourPair {
+	[#] na.name != nb.name;
+};
