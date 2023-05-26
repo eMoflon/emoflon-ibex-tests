@@ -79,6 +79,10 @@ public class GenericNodesEasyPmFindNameTest extends GenericNodesAbstractTest {
 		// Checks
 		assertFindNameMatchCounts(3, "d", api);
 	}
+	
+	/*
+	 * Utility methods.
+	 */
 
 	protected void assertFindNameMatchCounts(final int findNames, final String searchName, final GtGtApi<?> api) {
 		assertMatchCount(findNames, api.findName(searchName));
