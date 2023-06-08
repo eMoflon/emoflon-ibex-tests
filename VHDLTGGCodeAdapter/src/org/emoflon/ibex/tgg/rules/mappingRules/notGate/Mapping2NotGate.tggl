@@ -24,7 +24,6 @@ rule Mapping2NotGate refines AbstractMappingRule {
 		@refines+ AbstractMappingRule.out
 		[+] out:V.OutputPort {
 			.name := "NOT.out";
-			[+] - block->expression
 		}
 		@refines= AbstractMappingRule.leftExtern
 		[=] leftExtern:V.InputPort
