@@ -15,6 +15,7 @@ import org.emoflon.ibex.tgg.runtime.strategies.integrate.conflicts.OperationalMu
 import org.emoflon.ibex.tgg.runtime.strategies.integrate.conflicts.resolution.util.CRSHelper;
 import org.emoflon.ibex.tgg.runtime.strategies.integrate.pattern.IntegrationPattern;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import TerraceHouses.District;
@@ -24,6 +25,10 @@ import WoodenBlockSet.Playroom;
 import testsuite.ibex.TerraceHouses2BlockSet.integrate.util.IntegIbexTerraceHouses2BlockSet;
 import testsuite.ibex.testUtil.IntegrateTestCase;
 
+/*
+ * This test was disabled because a NPE in HiPE occurs in Eclipse 2023-09. Don't ask me why.
+ */
+@Disabled
 public class Multiplicity extends IntegrateTestCase<District, Playroom> {
 
 	public final static String projectName = "TerraceHouses2BlockSet";
