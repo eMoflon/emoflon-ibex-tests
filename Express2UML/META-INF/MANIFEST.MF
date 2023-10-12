@@ -8,7 +8,7 @@ Bundle-Localization: plugin
 Bundle-SymbolicName: Express2UML;singleton:=true
 Automatic-Module-Name: Express2UML
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-16
+Bundle-RequiredExecutionEnvironment: JavaSE-17
 Export-Package: Express2UML,
  Express2UML.impl,
  Express2UML.integrate.deletePreserveMultiAttr,
@@ -42,3 +42,4 @@ Require-Bundle: org.apache.log4j,
  org.emoflon.ibex.tgg.runtimemodel;bundle-version="0.1.0",
  org.emoflon.ibex.tgg.analysis;bundle-version="1.0.0",
  org.emoflon.ibex.tgg.util;bundle-version="1.0.0"
+

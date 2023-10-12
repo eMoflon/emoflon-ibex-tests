@@ -6,7 +6,7 @@ Bundle-Version: 0.1.0.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-16
+Bundle-RequiredExecutionEnvironment: JavaSE-17
 Export-Package: classMultipleInheritanceHierarchy,
  classMultipleInheritanceHierarchy.impl,
  org.benchmarx.classMultipleInheritanceHierarchy.core
@@ -23,3 +23,4 @@ Require-Bundle: org.eclipse.emf.ecore;visibility:=reexport,
 Bundle-ActivationPolicy: lazy
 Import-Package: org.eclipse.emf.ecore.xmi.impl
 Automatic-Module-Name: ClassMultipleInheritanceHierarchy
+

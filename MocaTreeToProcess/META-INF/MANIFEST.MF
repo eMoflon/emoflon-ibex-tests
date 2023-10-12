@@ -24,13 +24,16 @@ Require-Bundle: org.apache.log4j,
  org.emoflon.ibex.tgg.util;bundle-version="1.0.0"
 Bundle-ManifestVersion: 2
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-16
+Bundle-RequiredExecutionEnvironment: JavaSE-17
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Import-Package: Families.impl,MocaTree.impl,Persons.impl,ProcessDefini
- tion.impl
+Import-Package: Families.impl,
+ MocaTree.impl,
+ Persons.impl,
+ ProcessDefinition.impl
 Export-Package: org.emoflon.ibex.tgg.run.mocatreetoprocess,
  org.emoflon.ibex.tgg.run.mocatreetoprocess.config,
  MocaTreeToProcess,
  MocaTreeToProcess.impl
 Automatic-Module-Name: MocaTreeToProcess
+
