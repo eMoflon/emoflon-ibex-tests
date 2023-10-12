@@ -4,10 +4,10 @@ Bundle-ManifestVersion: 2
 Bundle-Name: SimpleNetworkGraphTransformation2
 Bundle-Vendor: My Company
 Bundle-Version: 1.0.0.qualifier
-Bundle-SymbolicName: SimpleNetworkGraphTransformation2; singleton:=tru
- e
+Bundle-SymbolicName: SimpleNetworkGraphTransformation2; singleton:=true
 Bundle-ActivationPolicy: lazy
-Import-Package: org.apache.log4j,org.apache.commons.logging
+Import-Package: org.apache.log4j,
+ org.apache.commons.logging
 Bundle-RequiredExecutionEnvironment: JavaSE-17
 Require-Bundle: org.emoflon.ibex.common,
  org.emoflon.ibex.gt,
@@ -18,3 +18,4 @@ Require-Bundle: org.emoflon.ibex.common,
 Export-Package: SimpleNetworkGraphTransformation2.api,
  SimpleNetworkGraphTransformation2.api.matches,
  SimpleNetworkGraphTransformation2.api.rules
+

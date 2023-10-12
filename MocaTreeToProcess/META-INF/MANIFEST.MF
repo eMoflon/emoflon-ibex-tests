@@ -27,11 +27,14 @@ Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-17
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Import-Package: Families.impl,MocaTree.impl,Persons.impl,ProcessDefini
- tion.impl
+Import-Package: Families.impl,
+ MocaTree.impl,
+ Persons.impl,
+ ProcessDefinition.impl
 Export-Package: org.emoflon.ibex.tgg.operational.csp.constraints.factories.mocatreetoprocess,
  org.emoflon.ibex.tgg.run.mocatreetoprocess,
  org.emoflon.ibex.tgg.run.mocatreetoprocess.config,
  MocaTreeToProcess,
  MocaTreeToProcess.impl
 Automatic-Module-Name: MocaTreeToProcess
+

@@ -6,7 +6,8 @@ Bundle-Vendor: My Company
 Bundle-Version: 1.0.0.qualifier
 Bundle-SymbolicName: SlowEconomy; singleton:=true
 Bundle-ActivationPolicy: lazy
-Import-Package: org.apache.commons.logging,org.apache.log4j
+Import-Package: org.apache.commons.logging,
+ org.apache.log4j
 Bundle-RequiredExecutionEnvironment: JavaSE-17
 Require-Bundle: org.emoflon.ibex.common,
  org.emoflon.ibex.gt,
@@ -17,3 +18,4 @@ Require-Bundle: org.emoflon.ibex.common,
 Export-Package: SlowEconomy.api,
  SlowEconomy.api.matches,
  SlowEconomy.api.rules
+
