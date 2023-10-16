@@ -112,8 +112,8 @@ rule room(cap: EInt, carelvl: Carelevel) { //rule room which handles the Inputs,
 		.level:=parameter.carelvl; // initalisation the parameter carelvl
 	}
 	
-	[#]department.maxRoomCount > 
-		count(findRoomInDepartment)[department=department]; // attribute condition for the maximum number of rooms which can be assigned to a department
+//	[#]department.maxRoomCount > 
+//		count(findRoomInDepartment)[department=department]; // attribute condition for the maximum number of rooms which can be assigned to a department
 };
 
 abstract rule staff(name: EString, staffID: EInt) { //creates the Abstract rule Staff which hands over the StaffID to the rules Nurse and Doctor
@@ -184,13 +184,13 @@ rule assignPatientToRoom { // Rule to assign a patient to a room and a doctor if
 	[=] room: Room {
 		[+] - lies -> patient  // Adds an edge from department to room
 	}
-	[#] room.capacity > count(findPatientInRoom)[room=room];
+//	[#] room.capacity > count(findPatientInRoom)[room=room];
 
 	[=] doctor: Doctor {
 		[+] - caresfor -> patient // Adds an edge from doctor to patient
 	}
 
-	[#] doctor.patientCapacity>count(findOccupiedDoc)[doctor=doctor];
+//	[#] doctor.patientCapacity>count(findOccupiedDoc)[doctor=doctor];
 	
 	[=] hospital: Hospital {
 		[=] -reception -> reception

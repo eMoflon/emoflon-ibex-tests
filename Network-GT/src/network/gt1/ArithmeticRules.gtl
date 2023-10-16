@@ -121,7 +121,7 @@ pattern testConstraint2 {
 
 pattern testConstraint3{
 	[=] network : Network
-	[#] network.deviceNumber == count(findDevice)[network=network];
+//	[#] network.deviceNumber == count(findDevice)[network=network];
 };
 
 pattern notDisjointtestConstraint1{
@@ -166,7 +166,7 @@ rule setNumberOfDevices(num : EInt){
 
 rule findAndsetNumberOfDevices{
 	[=] network : Network {
-		.deviceNumber := count(findDevice)[network=network];
+//		.deviceNumber := count(findDevice)[network=network];
 	} 
 };
 
