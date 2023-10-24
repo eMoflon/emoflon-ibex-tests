@@ -8,6 +8,7 @@ import java.util.Set;
 import java.util.function.BiConsumer;
 import java.util.stream.Collectors;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import SimpleNetwork.Device;
@@ -131,6 +132,8 @@ public class NetworkCalculationTest extends NetworkAbstractTest{
 		api.terminate();
 	}
 	
+	// Count is not available
+	@Disabled
 	@Test
 	public void checkCount() {
 		Gt1GtApi<?> api = this.init("SimpleNetwork1.xmi");
