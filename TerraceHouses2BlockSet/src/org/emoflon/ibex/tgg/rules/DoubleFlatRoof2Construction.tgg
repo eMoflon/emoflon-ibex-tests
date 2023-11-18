@@ -1,0 +1,54 @@
+#using TerraceHouses2BlockSet.*
+#using AttrCondDefLibrary.*
+
+#rule DoubleFlatRoof2Construction #with TerraceHouses2BlockSet
+
+#source {
+	struct:Structure {
+		++-next->nextHouseI
+	}
+	++nextHouseI:House {
+		pitchedRoof:=false
+		prefab:=false
+		++-next->nextHouseII
+	}
+	++nextHouseII:House {
+		pitchedRoof:=false
+		prefab:=false
+	}
+}
+
+#target {
+	set:BlockSet {
+		-constructions->constr
+		++-constructions->nextConstr
+	}
+	constr:Construction
+	++nextConstr:Construction {
+		constructor:=constr.constructor
+		++-components->cube1
+		++-components->cube2
+	}
+	++cube1:Cube
+	++cube2:Cube
+}
+
+#correspondence {
+	b2c:Structure2Construction {
+		#src->struct
+		#trg->constr
+	}
+	++nb2ncI:Structure2Construction {
+		#src->nextHouseI
+		#trg->nextConstr
+	}
+	++nb2ncII:Structure2Construction {
+		#src->nextHouseII
+		#trg->nextConstr
+	}
+}
+
+#attributeConditions {
+	concat(" ", nextConstr.name, "I", nextHouseI.name)
+	concat(" ", nextConstr.name, "II", nextHouseII.name)
+}
