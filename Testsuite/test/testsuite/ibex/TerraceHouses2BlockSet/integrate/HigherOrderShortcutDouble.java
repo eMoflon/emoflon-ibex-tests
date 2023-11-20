@@ -8,7 +8,6 @@ import TerraceHouses.District;
 import TerraceHouses.House;
 import WoodenBlockSet.Playroom;
 import testsuite.ibex.TerraceHouses2BlockSet.integrate.util.IntegIbexTerraceHouses2BlockSet;
-import testsuite.ibex.testUtil.IntegIbexAdapter;
 import testsuite.ibex.testUtil.IntegrateTestCase;
 
 public class HigherOrderShortcutDouble extends IntegrateTestCase<District, Playroom> {
