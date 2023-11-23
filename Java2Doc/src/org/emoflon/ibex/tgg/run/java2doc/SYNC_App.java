@@ -19,7 +19,7 @@ public class SYNC_App extends SYNC {
 				.project.name(projectName).project
 				.workspacePath(workspacePath)
 				.debug.ibexDebug(debug)
-				.ilpSolver(SupportedILPSolver.Sat4J) // Gurobi gets no satisfying result
+				.ilpSolver(ilpSolver)
 				.propagate.usePrecedenceGraph(true)
 				.repair.useShortcutRules(true)
 				.repair.relaxedSCPatternMatching(true)

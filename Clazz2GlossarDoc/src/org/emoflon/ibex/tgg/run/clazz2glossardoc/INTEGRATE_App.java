@@ -19,7 +19,7 @@ public class INTEGRATE_App extends INTEGRATE {
 		super(registrationHelper.createIbexOptions()
 				.project.name(projectName)
 				.project.workspacePath(workspacePath)
-				.ilpSolver(SupportedILPSolver.Sat4J)
+				.ilpSolver(ilpSolver)
 				.debug.ibexDebug(debug)
 				.propagate.usePrecedenceGraph(true)
 				.repair.useShortcutRules(true)

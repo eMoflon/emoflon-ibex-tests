@@ -26,7 +26,7 @@ public class INTEGRATE_App extends INTEGRATE {
 				.project.name(projectName).project
 				.workspacePath(workspacePath)
 				.debug.ibexDebug(debug)
-				.ilpSolver(SupportedILPSolver.Sat4J) // Gurobi gets no satisfying result
+				.ilpSolver(ilpSolver)
 				.propagate.usePrecedenceGraph(true)
 				.repair.useShortcutRules(true)
 				.repair.advancedOverlapStrategies(false)

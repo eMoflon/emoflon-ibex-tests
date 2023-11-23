@@ -27,7 +27,7 @@ public class IbexExpress2UML extends IbexAdapter<SchemaContainer, UMLContainer> 
 			SYNC_App.registrationHelper = UsedPatternMatcher.choose(
 					new IRegistrationHelper[] { new DemoclesRegistrationHelper(), new HiPERegistrationHelper() });
 			synchroniser = new SYNC_App(projectName, testsuite.ibex.performance.util.PerformanceConstants.workspacePath,
-					false);
+					ilpSolver, false);
 			
 			/*UMLContainer container = UMLHelper.createUMLContainer();
 			Package parentPackage = UMLHelper.createPackage(container, "parent");

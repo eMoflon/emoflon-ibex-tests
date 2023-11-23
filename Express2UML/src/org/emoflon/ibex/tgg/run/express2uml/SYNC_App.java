@@ -18,13 +18,13 @@ public class SYNC_App extends SYNC {
 	// *.config-package to choose between them. Default: Democles
 	public static IRegistrationHelper registrationHelper = new HiPERegistrationHelper();
 
-	public SYNC_App(String projectName, String workspacePath, boolean debug)
+	public SYNC_App(String projectName, String workspacePath, SupportedILPSolver ilpSolver, boolean debug)
 			throws IOException {
 		super(registrationHelper.createIbexOptions()
 				.project.name(projectName)
 				.project.workspacePath(workspacePath)
 				.debug.ibexDebug(debug)
-				.ilpSolver(SupportedILPSolver.Sat4J)
+				.ilpSolver(ilpSolver)
 				.propagate.usePrecedenceGraph(true)
 				.repair.useShortcutRules(false)
 				.repair.relaxedSCPatternMatching(false)

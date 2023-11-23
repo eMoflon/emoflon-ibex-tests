@@ -23,7 +23,7 @@ public class INTEGRATE_App extends INTEGRATE {
 		super(registrationHelper.createIbexOptions()
 				.project.name(projectName)
 				.project.workspacePath(workspacePath)
-				.ilpSolver(SupportedILPSolver.Sat4J)
+				.ilpSolver(ilpSolver)
 				.debug.ibexDebug(debug)
 				.propagate.usePrecedenceGraph(true)
 				.repair.useShortcutRules(true)
@@ -55,7 +55,6 @@ public class INTEGRATE_App extends INTEGRATE {
 	
 	public INTEGRATE_App(String folder, String name) throws IOException {
 		super(registrationHelper.createIbexOptions()
-				.ilpSolver(SupportedILPSolver.Sat4J)
 				.propagate.usePrecedenceGraph(true)
 				.repair.useShortcutRules(true)
 				.repair.advancedOverlapStrategies(true)
@@ -87,7 +86,6 @@ public class INTEGRATE_App extends INTEGRATE {
 		super(registrationHelper.createIbexOptions()
 				.project.name("")
 				.project.workspacePath("")
-				.ilpSolver(SupportedILPSolver.Sat4J)
 				.debug.ibexDebug(false)
 				.propagate.usePrecedenceGraph(true)
 				.repair.useShortcutRules(true)
