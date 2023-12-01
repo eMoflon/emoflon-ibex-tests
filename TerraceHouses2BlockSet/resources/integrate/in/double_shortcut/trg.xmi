@@ -1,23 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<WoodenBlockSet:Playroom xmlns:WoodenBlockSet="platform:/resource/WoodenBlockSet/model/WoodenBlockSet.ecore" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmi:version="2.0">
-  <blocksets playroom="/">
-    <constructions blockSet="//@blocksets.0" name="Apartment House">
-      <components xsi:type="WoodenBlockSet:Cuboid" construction="//@blocksets.0/@constructions.0" />
+<WoodenBlockSet:Playroom
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:WoodenBlockSet="platform:/resource/WoodenBlockSet/model/WoodenBlockSet.ecore">
+  <blocksets>
+    <constructions
+        name="Apartment House">
+      <components
+          xsi:type="WoodenBlockSet:Cuboid"/>
     </constructions>
-    <constructions blockSet="//@blocksets.0" name="Smith's House">
-      <components xsi:type="WoodenBlockSet:Cube" construction="//@blocksets.0/@constructions.1" />
+    <constructions
+        name="Smith's House">
+      <components
+          xsi:type="WoodenBlockSet:Cube"/>
     </constructions>
-    <constructions blockSet="//@blocksets.0" name="Big House I">
-      <components xsi:type="WoodenBlockSet:Cube" construction="//@blocksets.0/@constructions.2" />
-      <components xsi:type="WoodenBlockSet:TriangularPrism" construction="//@blocksets.0/@constructions.2" />
+    <constructions
+        name="Big House I">
+      <components
+          xsi:type="WoodenBlockSet:Cube"/>
+      <components
+          xsi:type="WoodenBlockSet:TriangularPrism"/>
     </constructions>
-    <constructions blockSet="//@blocksets.0" name="Big House II">
-      <components xsi:type="WoodenBlockSet:Cube" construction="//@blocksets.0/@constructions.3" />
-      <components xsi:type="WoodenBlockSet:TriangularPrism" construction="//@blocksets.0/@constructions.3" />
+    <constructions
+        name="Big House II">
+      <components
+          xsi:type="WoodenBlockSet:Cube"/>
+      <components
+          xsi:type="WoodenBlockSet:TriangularPrism"/>
     </constructions>
-    <constructions blockSet="//@blocksets.0" name="Pete's House">
-      <components xsi:type="WoodenBlockSet:Cube" construction="//@blocksets.0/@constructions.4" />
-      <components xsi:type="WoodenBlockSet:TriangularPrism" construction="//@blocksets.0/@constructions.4" />
+    <constructions
+        name="Pete's House">
+      <components
+          xsi:type="WoodenBlockSet:Cube"
+          color="Pink"/>
+      <components
+          xsi:type="WoodenBlockSet:TriangularPrism"
+          color="Pink"/>
     </constructions>
   </blocksets>
 </WoodenBlockSet:Playroom>

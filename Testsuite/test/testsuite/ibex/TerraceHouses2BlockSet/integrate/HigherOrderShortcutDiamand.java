@@ -38,12 +38,13 @@ public class HigherOrderShortcutDiamand extends IntegrateTestCase<District, Play
 	@Test
 	public void switchAttributes_FWD() {
 		tool.getOptions().repair.usePGbasedSCruleCreation(true);
-		
+		tool.getOptions().repair.useExperimentalCorrConstraints(true);
+
 		tool.applyAndIntegrateDelta((d, p) -> {
 			House prefab = helperTerrace.getHouse(d, "Apartment House");
 			House noPrefab = helperTerrace.getHouse(d, "Fitnessstudio");
 			Skyway skyway = prefab.getSkywayEntry();
-			
+
 			prefab.setPrefab(false);
 			noPrefab.setPrefab(true);
 			noPrefab.setSkywayEntry(skyway);

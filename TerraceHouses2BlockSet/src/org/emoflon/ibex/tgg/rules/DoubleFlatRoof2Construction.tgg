@@ -49,6 +49,7 @@
 }
 
 #attributeConditions {
-	concat(" ", nextConstr.name, "I", nextHouseI.name)
-	concat(" ", nextConstr.name, "II", nextHouseII.name)
+	// Shortcut framework does not support this:
+//	concat(" ", nextConstr.name, "I", nextHouseI.name)
+//	concat(" ", nextConstr.name, "II", nextHouseII.name)
 }
