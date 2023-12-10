@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TerraceHouses:District
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:TerraceHouses="platform:/resource/TerraceHouses/model/TerraceHouses.ecore">
+  <streetBeginnings
+      xsi:type="TerraceHouses:Building"
+      address="5338 Colorado Ave NW"
+      name="Apartment House">
+    <next xsi:type="TerraceHouses:House"
+        address="5404 Colorado Ave NW"
+        name="Smith's House">
+      <next
+          xsi:type="TerraceHouses:House"
+          address="Fancy Address 1"
+          name="Big House I"
+          pitchedRoof="true">
+        <next
+            xsi:type="TerraceHouses:House"
+            address="Fancy Address 2"
+            name="Big House II"
+            pitchedRoof="true">
+          <next
+              xsi:type="TerraceHouses:House"
+              address="Not that fancy Address 42"
+              name="Pete's House"
+              pitchedRoof="true">
+            <next
+                xsi:type="TerraceHouses:House"
+                address="Expensive Street 12"
+                name="Herbert's Residence"
+                pitchedRoof="true"/>
+          </next>
+        </next>
+      </next>
+    </next>
+  </streetBeginnings>
+</TerraceHouses:District>
