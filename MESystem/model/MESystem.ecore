@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="ASCII"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="mESystem" nsURI="platform:/resource/MESystem/model/MESystem.ecore"
+    nsPrefix="mESystem">
+  <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+    <details key="documentation" value="TODO: Add documentation for MESystem. Hint: You may copy this element in the Ecore editor to add documentation to EClasses, EOperations, ..."/>
+  </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="MESystem">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="core" lowerBound="1" upperBound="4"
+        eType="#//Core" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Drive" eSuperTypes="#//Device">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="storageCells" upperBound="-1"
+        eType="#//StorageCell" containment="true" eOpposite="#//StorageCell/drive"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Core">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cable" upperBound="4" eType="#//Cable"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Cable" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bus" upperBound="32" eType="#//Bus"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="interfaces" upperBound="32"
+        eType="#//Interface" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="color" lowerBound="1" eType="#//COLOR"
+        defaultValueLiteral="WHITE"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numOfConnections" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxConnections" lowerBound="8"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="8"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Interface"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Bus">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="device" eType="#//Device"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Device"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="COLOR">
+    <eLiterals name="RED"/>
+    <eLiterals name="GREEN" value="1"/>
+    <eLiterals name="BLUE" value="2"/>
+    <eLiterals name="YELLOW" value="3"/>
+    <eLiterals name="ORANGE" value="4"/>
+    <eLiterals name="PINK" value="5"/>
+    <eLiterals name="LIGHTGREEN" value="6"/>
+    <eLiterals name="LIGHTBLUE" value="7"/>
+    <eLiterals name="BLACK" value="8"/>
+    <eLiterals name="WHITE" value="9"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SmartCable" eSuperTypes="#//Cable"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DenseCable" eSuperTypes="#//Cable"/>
+  <eClassifiers xsi:type="ecore:EClass" name="MEInterface" eSuperTypes="#//Interface">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="recipe" upperBound="4"
+        eType="#//Recipe" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Terminal" eSuperTypes="#//Interface"/>
+  <eClassifiers xsi:type="ecore:EClass" name="StorageCell" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
+        eType="#//ItemInStorage" containment="true" eOpposite="#//ItemInStorage/storage"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="drive" lowerBound="1" eType="#//Drive"
+        eOpposite="#//Drive/storageCells"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numOfItems" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="0"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StorageCell1K" eSuperTypes="#//StorageCell"/>
+  <eClassifiers xsi:type="ecore:EClass" name="StorageCell4K" eSuperTypes="#//StorageCell"/>
+  <eClassifiers xsi:type="ecore:EClass" name="StorageCell16K" eSuperTypes="#//StorageCell"/>
+  <eClassifiers xsi:type="ecore:EClass" name="StorageCell64K" eSuperTypes="#//StorageCell"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ItemInStorage">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="storage" lowerBound="1"
+        eType="#//StorageCell" eOpposite="#//StorageCell/items"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Recipe">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="item" upperBound="9" eType="#//Item"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numOfItems" lowerBound="1"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="0"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Item">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+</ecore:EPackage>
