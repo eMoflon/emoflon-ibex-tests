@@ -96,8 +96,6 @@ public class RepairTestShortcut extends SyncTestCase<District, Playroom> {
 
 	@Test
 	public void insertHouse_FWD() {
-		Assume.assumeFalse(DONT_USE_DEMOCLES, PatternMatcher.Democles.equals(UsedPatternMatcher.usedPatternMatcher));
-
 		buildTerrace();
 		assertPrecondition("source/terrace", "target/terrace");
 
@@ -112,8 +110,6 @@ public class RepairTestShortcut extends SyncTestCase<District, Playroom> {
 
 	@Test
 	public void removeMiddleHouse_FWD() {
-		Assume.assumeFalse(DONT_USE_DEMOCLES, PatternMatcher.Democles.equals(UsedPatternMatcher.usedPatternMatcher));
-
 		buildTerrace();
 		assertPrecondition("source/terrace", "target/terrace");
 

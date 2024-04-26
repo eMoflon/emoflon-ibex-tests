@@ -25,8 +25,6 @@ import hipe.generic.actor.junction.util.HiPEConfig;
  *            the API to test
  */
 public abstract class GTAppTestCase<API extends IBeXGtAPI<?,?,?>> {
-	final public static String PM_DEMOCLES = "Democles";
-	final public static String PM_VIATRA = "Viatra";
 	final public static String PM_HIPE = "HiPE";
 	final public static String PM_DEFAULT = PM_HIPE;
 	/**
