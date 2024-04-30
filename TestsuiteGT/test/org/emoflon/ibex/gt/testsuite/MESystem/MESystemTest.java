@@ -684,13 +684,23 @@ public class MESystemTest extends MESystemAbstractTest {
 		assertApplicableAndApply(api.denseCable());
 		
 		assertApplicableAndApply(api.bus());
+		assertApplicableAndApply(api.bus());
+		assertApplicableAndApply(api.bus());
 		
+		assertApplicableAndApply(api.drive());
+		assertApplicableAndApply(api.drive());
 		assertApplicableAndApply(api.drive());
 		assertApplicableAndApply(api.storageCell16K());
 		assertApplicableAndApply(api.storageCell1K());
-		
 		assertApplicableAndApply(api.storageCell4K());
-		
+		assertApplicableAndApply(api.storageCell64K());
+		assertApplicableAndApply(api.storageCell16K());
+		assertApplicableAndApply(api.storageCell1K());
+		assertApplicableAndApply(api.storageCell4K());
+		assertApplicableAndApply(api.storageCell64K());
+		assertApplicableAndApply(api.storageCell16K());
+		assertApplicableAndApply(api.storageCell1K());
+		assertApplicableAndApply(api.storageCell4K());
 		assertApplicableAndApply(api.storageCell64K());
 		assertApplicableAndApply(api.itemInStorage("wood"));
 		
@@ -698,11 +708,11 @@ public class MESystemTest extends MESystemAbstractTest {
 			assertApplicableAndApply(api.itemInStorage("wood"));
 		}
 		
-		//find 10 storageCells of each Type
-		assertMatchCount(1, api.find1KStorageCell());
-		assertMatchCount(1, api.find16KStorageCell());
-		assertMatchCount(1, api.find4KStorageCell());
-		assertMatchCount(1, api.find64KStorageCell());
+		//find 1 storageCells of each Type
+		assertMatchCount(3, api.find1KStorageCell());
+		assertMatchCount(3, api.find16KStorageCell());
+		assertMatchCount(3, api.find4KStorageCell());
+		assertMatchCount(3, api.find64KStorageCell());
 		
 		//only 1 Type of each per drive
 		assertNotApplicable(api.storageCell1K());

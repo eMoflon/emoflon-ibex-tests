@@ -29,6 +29,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxConnections" lowerBound="8"
         upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
         defaultValueLiteral="8"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ID" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        changeable="false" defaultValueLiteral="0"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Interface"/>
   <eClassifiers xsi:type="ecore:EClass" name="Bus">

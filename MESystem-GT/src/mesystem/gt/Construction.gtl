@@ -85,7 +85,7 @@ pattern findDenseCableOnCore {
 	[=] cable: DenseCable
 };
 
-abstract rule cable(color: COLOR) { 
+abstract rule cable(color: COLOR, id: EInt) { 
 	[=] core: Core {
 		[+]  -cable -> cable 
 	}
@@ -97,6 +97,7 @@ abstract rule cable(color: COLOR) {
 	[+] cable: Cable {
 		.color:=parameter.color; 
 		.numOfConnections:=0; 
+		.ID:=parameter.id;
 	}
 	
 	forbid(find5CableOnCore)[core = core]
@@ -617,8 +618,13 @@ pattern find1ItemInStorage{
 	[=] item1: ItemInStorage
 };
 
-rule deleteItem(item: EString){
-	
+rule deleteItem(item: EString) {
+    [-] item: ItemInStorage {
+    }
+    [=] storageCell: StorageCell {
+        [-] -items -> item
+    }
+    [#] item.name == parameter.item;
 };
 
 rule releasePatient(name:EString){
@@ -632,12 +638,140 @@ rule releasePatient(name:EString){
 };
 
 
+rule deleteCore {
+    [-] core: Core {
+    }
+    [=] system: MESystem {
+        [-] -core -> core
+    }
+};
+
+rule deleteSmartCable{
+    [-] cable: SmartCable {
+    }
+    [=] core: Core {
+        [-] -cable -> cable
+    }
+};
 
 
+rule deleteDenseCable{
+    [-] cable: DenseCable {
+    }
+    [=] core: Core {
+        [-] -cable -> cable
+    }
+};
 
 
+rule deleteBus {
+    [-] bus: Bus {
+    }
+    [=] cable: Cable {
+        [-] -bus -> bus
+    }
+};
 
 
+rule deleteTerminal {
+    [-] terminal: Terminal {
+    }
+    [=] cable: Cable {
+        [-] -interfaces -> terminal
+    }
+};
+
+
+rule deleteStorageCell {
+    [-] storageCell: StorageCell {
+    }
+    [=] drive: Drive {
+        [-] -storageCells -> storageCell
+    }
+};
+
+
+rule deleteItemInStorage(item: EString) {
+    [-] item: ItemInStorage {
+    }
+    [=] storageCell: StorageCell {
+        [-] -items -> item
+    }
+    [#] item.name == parameter.item;
+};
+
+rule findRecipeByName(name: EString) {
+	[=] recipe: Recipe {
+	}
+	[#] recipe.name == parameter.name;
+};
+
+rule changeRecipeName(name: EString, newName: EString) {
+	[=] recipe: Recipe {
+		.name := parameter.newName;
+	}
+	[#] recipe.name == parameter.name;
+};
+
+rule findItemByName(name: EString) {
+	[=] item: Item {
+	}
+	[#] item.name == parameter.name;
+};
+
+rule findItemInStorageByName(name: EString) {
+	[=] itemInStorage: ItemInStorage {
+	}
+	[#] itemInStorage.name == parameter.name;
+};
+
+rule changeRecipeNumOfItems(name: EString, newNumOfItems: EInt) {
+	[=] recipe: Recipe {
+		.numOfItems := parameter.newNumOfItems;
+	}
+	[#] recipe.name == parameter.name;
+};
+
+rule changeCableNumOfConnections(cableId: EInt, newNumOfConnections: EInt) {
+    [=] cable: Cable {
+        .numOfConnections := parameter.newNumOfConnections;
+    }
+    [#] cable.ID == parameter.cableId;
+};
+
+rule changeCableMaxConnections(cableId: EInt, newMaxConnections: EInt) {
+    [=] cable: Cable {
+        .maxConnections := parameter.newMaxConnections;
+    }
+    [#] cable.ID == parameter.cableId;
+};
+
+rule changeCableColor(cableId: EInt, newColor: COLOR) {
+    [=] cable: Cable {
+        .color := parameter.newColor;
+    }
+    [#] cable.ID == parameter.cableId;
+};
+
+rule changeItemName(name: EString, newName: EString) {
+    [=] item: Item {
+        .name := parameter.newName;
+    }
+    [#] item.name == parameter.name;
+};
+
+rule changeItemInStorageName(name: EString, newName: EString) {
+    [=] itemInStorage: ItemInStorage {
+        .name := parameter.newName;
+    }
+    [#] itemInStorage.name == parameter.name;
+};
+
+rule findCableById(cableId: EInt) {
+    [=] cable: Cable {
+    }
+    [#] cable.ID == parameter.cableId;
+};
 
 
 
