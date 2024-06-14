@@ -31,7 +31,7 @@ public class InternalExpressParser extends AbstractInternalContentAssistParser {
     public static final int T__37=37;
     public static final int T__16=16;
     public static final int T__38=38;
-    public static final int T__17=17;
+    public static final int T__17=21;
     public static final int T__39=39;
     public static final int T__18=18;
     public static final int T__11=11;
@@ -2826,7 +2826,7 @@ public class InternalExpressParser extends AbstractInternalContentAssistParser {
                 int alt6=2;
                 int LA6_0 = input.LA(1);
 
-                if ( (LA6_0==17||LA6_0==23||LA6_0==30||LA6_0==34) ) {
+                if ( (LA6_0==21||LA6_0==23||LA6_0==30||LA6_0==34) ) {
                     alt6=1;
                 }
 
