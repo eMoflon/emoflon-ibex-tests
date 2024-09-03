@@ -714,9 +714,13 @@ rule changeRecipeName(name: EString, newName: EString) {
 };
 
 rule findItemByName(name: EString) {
-	[=] item: Item {
+	[=] recipe: Recipe {
+		[=] -item -> items
 	}
-	[#] item.name == parameter.name;
+
+	[=] items: Item {
+	}
+	[#] items.name == parameter.name;
 };
 
 rule findItemInStorageByName(name: EString) {

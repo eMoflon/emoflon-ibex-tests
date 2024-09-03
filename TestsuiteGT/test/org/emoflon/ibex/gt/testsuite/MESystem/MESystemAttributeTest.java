@@ -14,6 +14,7 @@ import org.junit.jupiter.api.Test;
 public class MESystemAttributeTest extends MESystemAbstractTest {
 
 	@Test
+	//Change multiple attribute values manually and check if they are still found
     public void testAttributeChanges() {
         GtGtApi<?> api = this.initEmpty("AttributeChange.xmi");
 
@@ -28,6 +29,10 @@ public class MESystemAttributeTest extends MESystemAbstractTest {
         assertApplicableAndApply(api.item("Flour"));
         assertApplicableAndApply(api.itemInStorage("Sugar"));
 
+        assertEquals(1, api.findItemByName("Flour").countMatches());
+        assertEquals(1, api.findItemInStorageByName("Sugar").countMatches());
+
+        assertEquals(1, api.findRecipeByName("Bread").countMatches());
 
         assertApplicableAndApply(api.changeRecipeName("Bread", "Pastry"));
         assertApplicableAndApply(api.changeRecipeNumOfItems("Pastry", 10));
