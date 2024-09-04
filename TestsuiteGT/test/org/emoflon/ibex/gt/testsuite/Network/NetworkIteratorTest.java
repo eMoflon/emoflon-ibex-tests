@@ -13,11 +13,6 @@ public class NetworkIteratorTest extends NetworkAbstractTest2{
 	@Test
 	public void checkIteration() {
 		Gt2GtApi<?> api = this.init("SimpleNetwork1.xmi");
-		// Skip if the engine is democles -> it does not work with some of these patterns -> See GT Rule file
-		if(engine == GTAppTestCase.PM_DEMOCLES) {
-			api.terminate();
-			return;
-		}
 		
 		api.getGTEngine().setAlwaysUpdateAfter(true);
 		api.getGTEngine().setAlwaysUpdatePrior(true);
@@ -52,11 +47,6 @@ public class NetworkIteratorTest extends NetworkAbstractTest2{
 	@Test
 	public void checkIteration2() {
 		Gt2GtApi<?> api = this.init("SimpleNetwork1.xmi");
-		// Skip if the engine is democles -> it does not work with some of these patterns -> See GT Rule file
-		if(engine == GTAppTestCase.PM_DEMOCLES) {
-			api.terminate();
-			return;
-		}
 		
 		api.getGTEngine().setAlwaysUpdateAfter(true);
 		api.getGTEngine().setAlwaysUpdatePrior(true);
@@ -91,11 +81,6 @@ public class NetworkIteratorTest extends NetworkAbstractTest2{
 	@Test
 	public void checkIteration3() {
 		Gt2GtApi<?> api = this.init("SimpleNetwork1.xmi");	
-		// Skip if the engine is democles -> it does not work with some of these patterns -> See GT Rule file
-		if(engine == GTAppTestCase.PM_DEMOCLES) {
-			api.terminate();
-			return;
-		}
 		
 		api.getGTEngine().setAlwaysUpdateAfter(true);
 		api.getGTEngine().setAlwaysUpdatePrior(true);
@@ -157,11 +142,6 @@ public class NetworkIteratorTest extends NetworkAbstractTest2{
 	@Test
 	public void checkTypedIteration() {
 		Gt2GtApi<?> api = this.init("SimpleNetwork1.xmi");
-		// Skip if the engine is democles -> it does not work with some of these patterns -> See GT Rule file
-		if(engine == GTAppTestCase.PM_DEMOCLES) {
-			api.terminate();
-			return;
-		}
 		
 		api.getGTEngine().setAlwaysUpdateAfter(true);
 		api.getGTEngine().setAlwaysUpdatePrior(true);
