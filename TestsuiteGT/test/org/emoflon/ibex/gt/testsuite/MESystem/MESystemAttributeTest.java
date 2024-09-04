@@ -16,6 +16,7 @@ public class MESystemAttributeTest extends MESystemAbstractTest {
 	@Test
     public void testAttributeChanges() {
         GtGtApi<?> api = this.initEmpty("AttributeChange.xmi");
+        api.getGTEngine().setAlwaysUpdatePrior(true);
 
         assertApplicableAndApply(api.mesystem());
         assertApplicableAndApply(api.core());
@@ -27,6 +28,8 @@ public class MESystemAttributeTest extends MESystemAbstractTest {
         assertApplicableAndApply(api.recipe("Bread", 5));
         assertApplicableAndApply(api.item("Flour"));
         assertApplicableAndApply(api.itemInStorage("Sugar"));
+        
+        assertEquals(1, api.findItemByName("Flour").countMatches());
 
 
         assertApplicableAndApply(api.changeRecipeName("Bread", "Pastry"));
