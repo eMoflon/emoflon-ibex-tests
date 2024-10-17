@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SimplePersons:PersonRegister
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:SimplePersons="platform:/resource/SimplePersons/model/SimplePersons.ecore">
+  <persons xsi:type="SimplePersons:Female"
+      name="Adams, Adriana"/>
+  <persons xsi:type="SimplePersons:Male"
+      name="Adams, Alexander"/>
+  <persons xsi:type="SimplePersons:Female"
+      name="Jackson, James"/>
+  <persons xsi:type="SimplePersons:Male"
+      name="Jackson, Jason"/>
+  <persons xsi:type="SimplePersons:Male"
+      name="Miller, Martin"/>
+  <persons xsi:type="SimplePersons:Male"
+      name="Owen, Oliver"/>
+  <persons xsi:type="SimplePersons:Female"
+      name="Owen, Olivia"/>
+  <persons xsi:type="SimplePersons:Male"
+      name="Smith, Samuel"/>
+  <persons xsi:type="SimplePersons:Female"
+      name="Smith, Sally"/>
+  <persons xsi:type="SimplePersons:Female"
+      name="Smith, Sarah"/>
+</SimplePersons:PersonRegister>

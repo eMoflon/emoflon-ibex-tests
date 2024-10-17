@@ -1,0 +1,134 @@
+package network.gt2
+import "http://www.eclipse.org/emf/2002/Ecore"
+import "platform:/resource/SimpleNetwork/model/SimpleNetwork.ecore"
+
+rule moveAllDevices {
+	[=] oldNetwork : Network {
+		forEach (devices->dev) {
+			[-] oldNetwork-devices->dev
+			[+] newNetwork-devices->dev
+			newNetwork.deviceNumber := newNetwork.deviceNumber + 1;
+			oldNetwork.deviceNumber := oldNetwork.deviceNumber - 1;
+		}     
+	}
+	[#] oldNetwork.deviceNumber  == 3;
+	[=] newNetwork : Network
+};
+
+// Bug: This pattern in combination with the NAC does not work with Democles
+rule moveAllDevices2 {
+	[=] oldNetwork : Network {
+		forEach (devices->dev) {
+			[-] oldNetwork-devices->dev
+			[+] network-devices->dev
+			network.deviceNumber := network.deviceNumber + 1;
+			oldNetwork.deviceNumber := oldNetwork.deviceNumber - 1;
+		}
+	}
+	
+	[=] network : Network
+	forbid(findDevice)[network=network]
+};
+
+rule moveAllComputers {
+	[=] oldNetwork : Network {
+		forEach(devices->dev as Computer)  {
+			[-] oldNetwork-devices->dev
+			[+] network-devices->dev
+			network.deviceNumber := network.deviceNumber + 1;
+			oldNetwork.deviceNumber := oldNetwork.deviceNumber - 1;
+			iterator.CPU_Cores := 4;
+		}     
+	}
+	[=] network : Network
+	forbid(findComputer)[network=network]
+};
+
+rule moveAllServers {
+	[=] oldNetwork : Network {
+		forEach(devices->dev as Server) {
+			[-] oldNetwork-devices->dev
+			[+] network-devices->dev
+			network.deviceNumber := network.deviceNumber + 1;
+			oldNetwork.deviceNumber := oldNetwork.deviceNumber - 1;
+			iterator.CPU_Sockets := 4;
+		}     
+	}
+	[=] network : Network
+	forbid(findServer)[network=network]
+};
+
+rule simpleConnect{
+	[=] network: Network{
+		[+] -connections -> newConnection
+	}
+	
+	[=] src: Device
+	
+	[=] trg: Device
+	
+	[+] newConnection: Connection{
+		[+] -devices ->src
+		[+] -devices ->trg
+	}
+	
+	forbid(findConnected)[src=src, trg=trg]
+};
+
+pattern findConnected {
+	[=] src: Device
+	
+	[=] trg: Device
+	
+	[=] connection: Connection {
+		[=] -devices -> src
+		[=] -devices -> trg
+	}
+};
+
+// Bug: This pattern in combination with the NAC does not work with Democles
+rule moveAllConnections {
+	[=] oldNetwork : Network {
+		forEach(connections -> con) {
+			[-] oldNetwork-connections->con
+			[+] network-connections->con
+		}     
+	}
+	[=] network : Network
+	
+	forbid(findConnection)[network=network]
+};
+
+pattern findConnection{
+	[=] network : Network {
+		[=] -connections->connection
+	}
+	
+	[=] connection : Connection
+};
+
+rule isolateDevice {
+	[=] device : Device {
+		forEach(connections -> con) {
+			[-] device-connections->con
+		}
+	}
+	
+	[=] connection : Connection {
+		[=] -devices->device
+	}
+};
+
+rule removeDanglingConnection {
+	[=] network : Network {
+		[-] -connections->connection
+	}
+	[-] connection : Connection
+	forbid(findConnected)[connection=connection]
+};
+
+pattern findIsolated {
+	[=] src: Device
+	forbid(findConnected)[src=src]
+};
+

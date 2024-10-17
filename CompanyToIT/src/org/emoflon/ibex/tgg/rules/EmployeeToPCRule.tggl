@@ -1,0 +1,51 @@
+rule EmployeeToPCRule {
+	
+	source {
+		[=] admin : CL.Admin {
+			[=] -ceo->ceo
+		}
+		[=] company : CL.Company {
+			[=] -admin->admin
+			[+] -employee->employee
+			[=] -ceo->ceo
+		}
+		[=] ceo : CL.CEO {
+			[+] -employee->employee
+		}
+		[+] employee : CL.Employee
+	}
+	
+	target {
+		[=] network : IT.Network {
+			[+] -pc->computer
+		}
+		[=] it : IT.IT {
+			[=] -router->router
+			[=] -network->network
+		}
+		[+] computer: IT.PC
+		[=] router : IT.Router {
+			[=] -network->network
+		}
+	}
+	
+	correspondence {
+		[+] e2p : Employee2PC {
+			src->employee
+			trg->computer
+		}
+		[=] a2r : Admin2Router {
+			src->admin 
+			trg->router
+		}
+		[=] c2i : Company2IT {
+			src->company
+			trg->it
+		}
+	}
+	
+	attributeConditions {
+		DefaultAttributeConditionLibrary.eq_string(employee.name, computer.name)
+	}
+
+}

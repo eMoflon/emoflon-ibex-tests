@@ -4,10 +4,10 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.benchmarx.Configurator;
-import org.emoflon.ibex.tgg.compiler.patterns.PatternSuffixes;
-import org.emoflon.ibex.tgg.operational.matches.ITGGMatch;
-import org.emoflon.ibex.tgg.operational.matches.ImmutableMatchContainer;
-import org.emoflon.ibex.tgg.operational.updatepolicy.UpdatePolicy;
+import org.emoflon.ibex.tgg.patterns.PatternSuffixes;
+import org.emoflon.ibex.tgg.runtime.matches.ITGGMatch;
+import org.emoflon.ibex.tgg.runtime.matches.container.ImmutableMatchContainer;
+import org.emoflon.ibex.tgg.runtime.updatepolicy.UpdatePolicy;
 
 import testsuite.ibex.testUtil.Decisions;
 

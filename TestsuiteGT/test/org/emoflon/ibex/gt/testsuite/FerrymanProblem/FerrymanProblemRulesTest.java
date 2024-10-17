@@ -7,120 +7,109 @@ import org.junit.jupiter.api.Test;
 import FerrymanProblem.Cabbage;
 import FerrymanProblem.Goat;
 import FerrymanProblem.Wolf;
-import FerrymanProblemGraphTransformation.api.FerrymanProblemGraphTransformationAPI;
-import FerrymanProblemGraphTransformation.api.matches.EatMatch;
-import FerrymanProblemGraphTransformation.api.rules.EatRule;
+import ferryman.gt.api.GtGtApi;
+import ferryman.gt.api.match.EatCoMatch;
 
 /**
  * Tests for rule applications with the FerrymanProblem Graph Transformation
- * API.
+ * Api.
  */
 public class FerrymanProblemRulesTest extends FerrymanProblemAbstractTest {
 
 	@Test
 	public void wolfEatsGoat() {
-		FerrymanProblemGraphTransformationAPI api = this.init("WolfEatsGoat.xmi");
+		GtGtApi<?> api = this.init("WolfEatsGoat.xmi");
 
 		assertMatchCount(2, api.findSubjectOnLeftBank());
 		assertMatchCount(2, api.findSubjectOnRightBank());
 
-		EatMatch match = assertApplicable(api.eat());
-		assertTrue(match.getEater() instanceof Wolf);
-		assertTrue(match.getEaten() instanceof Goat);
+		EatCoMatch match = assertApplicableAndApply(api.eat());
+		assertTrue(match.eater() instanceof Wolf);
+		assertTrue(match.typedMatch.eaten() instanceof Goat);
 
 		// Test whether the goat was killed.
 		assertMatchCount(1, api.findSubjectOnLeftBank());
 		assertMatchCount(2, api.findSubjectOnRightBank());
 
-		saveAndTerminate(api);
+		terminate(api);
 	}
 
 	@Test
 	public void move() {
-		FerrymanProblemGraphTransformationAPI api = this.init("Move.xmi", "Start.xmi");
+		GtGtApi<?> api = this.init("Start.xmi");
 
 		assertMatchCount(4, api.findSubjectOnLeftBank());
 		assertMatchCount(0, api.findSubjectOnRightBank());
 
-		assertApplicable(api.moveThing());
+		assertApplicableAndApply(api.moveThing());
 		assertMatchCount(2, api.findSubjectOnLeftBank());
 		assertMatchCount(2, api.findSubjectOnRightBank());
 
-		saveAndTerminate(api);
+		terminate(api);
 	}
 
 	@Test
 	public void moveAllSuccess() {
-		FerrymanProblemGraphTransformationAPI api = this.init("MoveAllSuccess.xmi", "Start.xmi");
+		GtGtApi<?> api = this.init("Start.xmi");
 
 		assertMatchCount(4, api.findSubjectOnLeftBank());
 		assertMatchCount(0, api.findSubjectOnRightBank());
 
-		// Apply eat as soon as possible.
-		EatRule autoEat = api.eat();
-		autoEat.enableAutoApply();
+		Cabbage cabbage = api.findCabbage().findAnyMatch(true).get().cabbage();
+		Goat goat = api.findGoat().findAnyMatch(false).get().goat();
+		Wolf wolf = api.findWolf().findAnyMatch(false).get().wolf();
 
-		Cabbage cabbage = api.findCabbage().findAnyMatch().get().getCabbage();
-		Goat goat = api.findGoat().findAnyMatch().get().getGoat();
-		Wolf wolf = api.findWolf().findAnyMatch().get().getWolf();
-
-		assertApplicable(api.moveThing().bindThing(goat));
-		assertApplicable(api.move());
-		assertApplicable(api.moveThing().bindThing(cabbage));
-		assertApplicable(api.moveThing().bindThing(goat));
-		assertApplicable(api.moveThing().bindThing(wolf));
-		assertApplicable(api.move());
-		assertApplicable(api.moveThing().bindThing(goat));
+		assertApplicableAndApply(api.moveThing().bindThing(goat));
+		api.eat().applyAny(true);
+		assertApplicableAndApply(api.move());
+		api.eat().applyAny(true);
+		assertApplicableAndApply(api.moveThing().bindThing(cabbage));
+		api.eat().applyAny(true);
+		assertApplicableAndApply(api.moveThing().bindThing(goat));
+		api.eat().applyAny(true);
+		assertApplicableAndApply(api.moveThing().bindThing(wolf));
+		api.eat().applyAny(true);
+		assertApplicableAndApply(api.move());
+		api.eat().applyAny(true);
+		assertApplicableAndApply(api.moveThing().bindThing(goat));
+		api.eat().applyAny(true);
 
 		assertMatchCount(0, api.findSubjectOnLeftBank());
 		assertMatchCount(4, api.findSubjectOnRightBank());
-		assertEquals(0, autoEat.countRuleApplications());
+		assertEquals(0, api.eat().countRuleApplications());
 
-		saveAndTerminate(api);
+		terminate(api);
 	}
 
 	@Test
 	public void moveAllFail() {
-		FerrymanProblemGraphTransformationAPI api = this.init("MoveAllFail.xmi", "Start.xmi");
+		GtGtApi<?> api = this.init("Start.xmi");
 
 		assertMatchCount(4, api.findSubjectOnLeftBank());
 		assertMatchCount(0, api.findSubjectOnRightBank());
 
-		// Apply eat as soon as possible.
-		EatRule autoEat = api.eat();
-		autoEat.enableAutoApply();
+		Wolf wolf = api.findWolf().findAnyMatch(true).get().wolf();
+		assertApplicableAndApply(api.moveThing().bindThing(wolf));
+		api.eat().applyAny(true);
 
-		Wolf wolf = api.findWolf().findAnyMatch().get().getWolf();
-		assertApplicable(api.moveThing().bindThing(wolf));
-
-		// Goat eats the cabbage due to automatic rule application.
+		// Goat eats the cabbage due to rule application.
 		assertNoMatch(api.findCabbage());
+		api.eat().applyAny(true);
 
-		assertApplicable(api.moveThing().bindThing(wolf));
-		assertApplicable(api.move());
+		assertApplicableAndApply(api.moveThing().bindThing(wolf));
+		api.eat().applyAny(true);
+		assertApplicableAndApply(api.move());
+		api.eat().applyAny(true);
 
-		// Wolf eats the goat due to automatic rule application.
+		// Wolf eats the goat due to rule application.
 		assertNoMatch(api.findGoat());
+		api.eat().applyAny(true);
 
 		assertMatchCount(1, api.findSubjectOnLeftBank());
 		assertMatchCount(1, api.findSubjectOnRightBank());
-		assertEquals(2, autoEat.countRuleApplications());
+		assertEquals(2, api.eat().countRuleApplications());
 
-		saveAndTerminate(api);
+		terminate(api);
 	}
 
-	@Test
-	public void killGoatPushoutApproaches() {
-		FerrymanProblemGraphTransformationAPI api = this.init("KillGoatSPO.xmi", "Start.xmi");
-
-		assertMatchCount(1, api.findGoat());
-		assertNotApplicable(api.killGoat().setDPO());
-		assertMatchCount(1, api.findGoat());
-		
-		api.killGoat().setSPO();
-		assertApplicable(api.killGoat());
-		assertNoMatch(api.findGoat());
-
-		saveAndTerminate(api);
-	}
 }

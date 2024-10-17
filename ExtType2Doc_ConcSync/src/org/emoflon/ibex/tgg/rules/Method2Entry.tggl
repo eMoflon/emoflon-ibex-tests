@@ -1,0 +1,38 @@
+rule Method2Entry {
+	
+	source { 
+		[=] t:T.Type {
+			[+] -methods->m
+		}
+		
+		[+] m:T.Method
+	}
+	
+	target {
+		[=] d:D.Doc {
+			[+] -entries->et
+		}
+		
+		[+] et:D.Entry {
+			.type:=enums.METHOD;
+		}
+	}
+	
+	correspondence {
+		[=] t2d:Type2Doc {
+			src->t
+			trg->d
+		}
+		
+		[+] m2e:Method2Entry {
+			src->m
+			trg->et
+		}
+	}
+	
+	attributeConditions {
+		DefaultAttributeConditionLibrary.eq_string(m.name, et.name)
+	}
+
+}
+

@@ -1,0 +1,36 @@
+rule SubPackage2Folder {
+	
+	source { 
+		[=] p:T.Package {
+			[+] -subPackages->sp
+		}
+		
+		[+] sp:T.Package
+	}
+	
+	target {
+		[=] f:D.Folder {
+			[+] -subFolder->sf
+		}
+		
+		[+] sf:D.Folder
+	}
+	
+	correspondence {
+		[=] p2f:Package2Folder {
+			src->p
+			trg->f
+		}
+		
+		[+] sp2f:Package2Folder {
+			src->sp
+			trg->sf
+		}
+	}
+	
+	attributeConditions {
+		DefaultAttributeConditionLibrary.eq_string(sp.name, sf.name)
+	}
+
+}
+

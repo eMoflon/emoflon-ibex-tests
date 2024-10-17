@@ -1,0 +1,14 @@
+rule IgnoreTwoFamilies refines IgnoreFamily {
+	
+	source { 
+		@refines= IgnoreFamily.fr
+		[=] fr:Fam.FamilyRegister {
+		 	[+] -families->f2
+		}
+		
+		[+] f2:Fam.Family {
+			.name:="Test";
+		}
+	}
+
+}

@@ -1,0 +1,22 @@
+rule MotherToFemale refines ExistingFamilyToPerson {
+	
+	source {
+		@refines= ExistingFamilyToPerson.f
+		[=] f:Fam.Family {
+			[+] -mother->fm
+		}
+		
+		@refines+ ExistingFamilyToPerson.fm
+		[+] fm:Fam.FamilyMember {
+			.name:="mother";
+		}
+	}
+	
+	target {
+		@refines+ ExistingFamilyToPerson.p
+		[+] p:Per.Female {
+			.name:="mother";
+		}
+	}
+
+}

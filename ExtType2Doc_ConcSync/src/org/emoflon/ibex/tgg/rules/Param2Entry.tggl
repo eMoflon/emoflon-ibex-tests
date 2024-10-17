@@ -1,0 +1,27 @@
+rule Param2Entry {
+	
+	source { 
+		[=] m:T.Method {
+			[+] -params->p
+		}
+		
+		[+] p:T.Parameter
+	}
+	
+	target {
+		[=] et:D.Entry
+	}
+	
+	correspondence {
+		[=] m2e:Method2Entry {
+			src->m
+			trg->et
+		}
+		
+		[+] p2e:Param2Entry {
+			src->p
+			trg->et
+		}
+	}
+
+}

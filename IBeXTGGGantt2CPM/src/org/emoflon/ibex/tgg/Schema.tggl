@@ -1,0 +1,51 @@
+import "platform:/resource/Gantt/model/Gantt.ecore" using gantt as G
+import "platform:/resource/CPM/model/CPM.ecore" using cpm as C
+
+schema IBeXTGGGantt2CPM {
+	
+	source {
+		gantt	
+	}
+	
+	target { 
+		cpm	
+	} 
+	
+	correspondence {
+		DiagramToNetwork {
+			src->G.GanttDiagram
+			trg->C.CPMNetwork
+		}
+		
+		ActivityToActivity {
+			src->G.Activity
+			trg->C.Activity
+		}
+		
+		DependencyToActivity {
+			src->G.Dependency
+			trg->C.Activity
+		}
+	}
+
+}
+
+library CustomConditions {
+	notADependencyViaNamingConvention(name:EString) {
+		sync {
+			[B]
+		}
+		gen {
+			[B]	
+		}
+	}
+	
+	setCounter(number:EInt) {
+		sync {
+			[B], [F]
+		}
+		gen {
+			[B], [F]
+		}
+	}
+}

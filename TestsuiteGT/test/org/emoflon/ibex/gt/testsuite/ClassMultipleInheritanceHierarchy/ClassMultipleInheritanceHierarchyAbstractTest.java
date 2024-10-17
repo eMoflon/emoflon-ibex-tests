@@ -1,16 +1,14 @@
 package org.emoflon.ibex.gt.testsuite.ClassMultipleInheritanceHierarchy;
 
+import classmultipleinheritance.gt.api.GtGtApi;
+import classmultipleinheritance.gt.api.GtHiPEGtApi;
 import org.emoflon.ibex.gt.testsuite.GTAppTestCase;
-
-import ClassMultipleInheritanceHierarchyGraphTransformation.api.ClassMultipleInheritanceHierarchyGraphTransformationAPI;
-import ClassMultipleInheritanceHierarchyGraphTransformation.api.ClassMultipleInheritanceHierarchyGraphTransformationApp;
 
 /**
  * Abstract test class for the ClassMultipleInheritanceHierarchy Graph
- * Transformation API. All tests for this API should inherit from this class.
+ * Transformation Api. All tests for this Api should inherit from this class.
  */
-public class ClassMultipleInheritanceHierarchyAbstractTest extends
-		GTAppTestCase<ClassMultipleInheritanceHierarchyGraphTransformationApp, ClassMultipleInheritanceHierarchyGraphTransformationAPI> {
+public class ClassMultipleInheritanceHierarchyAbstractTest extends GTAppTestCase<GtGtApi<?>> {
 
 	@Override
 	protected String getTestName() {
@@ -18,7 +16,15 @@ public class ClassMultipleInheritanceHierarchyAbstractTest extends
 	}
 
 	@Override
-	protected ClassMultipleInheritanceHierarchyGraphTransformationApp getApp() {
-		return new ClassMultipleInheritanceHierarchyGraphTransformationApp(initEngine(), workspacePath);
+	protected GtGtApi<?> getApi() {
+		return getApi(patternMatcher);
+	}
+	
+	@Override
+	protected GtGtApi<?> getApi(String patternMatcher) {
+		return switch(patternMatcher) {
+			case PM_HIPE -> {yield new GtHiPEGtApi();}
+			default -> {yield new GtHiPEGtApi();}
+		};
 	}
 }

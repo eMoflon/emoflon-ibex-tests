@@ -1,0 +1,16 @@
+rule ProvideToNodeRule refines AbstractProvideToNodeRule, AbstractPortToNodeRule {
+	source {
+		@refines+AbstractPortToNodeRule.port, AbstractProvideToNodeRule.port
+		[+] port : BlockDiagram.Provide
+	}
+	
+	target {
+		@refines+AbstractPortToNodeRule.portNode, AbstractProvideToNodeRule.portNode
+		[+] portNode : MocaTree.Node
+	}
+	
+	correspondence {
+		@refines+AbstractPortToNodeRule.portToNode, AbstractProvideToNodeRule.portToNode
+		[+] portToNode : ProvideToNode
+	}
+}  

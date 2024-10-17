@@ -1,0 +1,20 @@
+abstract rule AbstractRequireToNodeRule {
+	
+	source {
+		[+] port:BlockDiagram.Require
+	}
+	
+	target {
+		[+] portNode:MocaTree.Node {
+			.name := "REQUIRE";
+		}
+	}
+	
+	correspondence {
+		[+] portToNode :RequireToNode {
+			src->port
+			trg->portNode 
+		}
+	}
+}
+

@@ -1,0 +1,28 @@
+rule PortEdgeRule {	
+	source {
+		[=] port:BlockDiagram.Port
+		[=] block:BlockDiagram.Block {
+			[+] -ports->port
+		}
+	}
+	
+	target {
+		[=] portNode:MocaTree.Node {
+			[+] - parentNode->node
+		}
+		[=] node:MocaTree.Node
+		[#] node.name == "Block";
+	}
+	
+	correspondence {
+		[=] portToNode :PortToNode {
+			src->port
+			trg->portNode
+		}
+		[=] blockToNode :BlockToNode {
+			src->block
+			trg->node
+		}
+	}
+}
+

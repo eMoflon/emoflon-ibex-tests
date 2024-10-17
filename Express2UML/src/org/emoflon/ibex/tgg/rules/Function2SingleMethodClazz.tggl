@@ -1,0 +1,42 @@
+rule Function2SingleMethodClazz {
+	
+	source {
+		[+] f:Express.Function
+	
+		[=] s:Express.Schema {
+			[+] -declarations -> f
+		}
+	}
+	
+	target {
+		[+] m:UML.Method {
+			.static_ := true;
+		}
+	
+		[+] c:UML.Clazz {
+			[+] -methods -> m
+		}
+	
+		[=] p:UML.Package {
+			[+] -clazzes -> c
+		}
+	}
+	
+	correspondence {
+		[=] s2p:Schema2Package {
+			src->s
+			trg->p
+		}
+	
+		[+] f2smc:Function2SingleMethodClazz {
+			src->f
+			trg->c
+		}
+	}
+	
+	attributeConditions {
+		DefaultAttributeConditionLibrary.eq_string(f.name, c.name)
+		DefaultAttributeConditionLibrary.eq_string(m.name, "apply")
+	}
+
+}

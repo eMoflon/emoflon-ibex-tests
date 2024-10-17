@@ -1,0 +1,39 @@
+rule SubClazz2DocRule {
+	
+	source {
+		[=] superClazz : C.Clazz {
+			[+] -subClazzes-> subClazz
+		}
+		[+] subClazz : C.Clazz 
+	}
+	
+	target {
+		[=] dCont : D.DocumentationContainer {
+			[=] -documents->superDoc
+			[+] -documents-> subDoc
+		}
+		[=] superDoc : D.Document {
+			[+] -hyperRefs-> subDoc
+		}
+		[+] subDoc : D.Document
+	}
+	
+	correspondence {
+		[=] super2super : Clazz2doc {
+			src->superClazz
+			trg->superDoc
+		}
+		
+		[+] sub2sub : Clazz2doc {
+			src->subClazz
+			trg->subDoc
+		}
+	}
+	
+	attributeConditions {
+		DefaultAttributeConditionLibrary.eq_string(subClazz.name, subDoc.name)
+	}
+
+}
+
+

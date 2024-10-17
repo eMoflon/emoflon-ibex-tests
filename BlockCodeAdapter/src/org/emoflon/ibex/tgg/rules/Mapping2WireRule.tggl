@@ -1,0 +1,36 @@
+rule Mapping2WireRule refines BasicMapping2WireRule, ContextMapping2WireRule_f {
+	source {
+		@refines= BasicMapping2WireRule.toPortNode, ContextMapping2WireRule_f.toPortNode
+	 	[=] toPortNode:MocaTree.Node
+	 	
+		@refines= BasicMapping2WireRule.fromBlockNode, ContextMapping2WireRule_f.fromBlockNode
+		[=] fromBlockNode:MocaTree.Node
+
+		@refines= BasicMapping2WireRule.blocks, ContextMapping2WireRule_f.blocks
+		[=] blocks:MocaTree.Node
+		
+		@refines= ContextMapping2WireRule_f.toBlockNode
+		[=] toBlockNode:MocaTree.Node
+		
+		[#] blocks.name == "BLOCKS";
+	}
+	
+	target { 
+		@refines= BasicMapping2WireRule.spec, ContextMapping2WireRule_f.spec
+		[=] spec:BlockLanguage.Specification {
+			[=] - blocks->fromBlock
+			[=] - blocks->toBlock
+		}
+		@refines= BasicMapping2WireRule.fromPort, ContextMapping2WireRule_f.fromPort
+		[=] fromPort:BlockLanguage.Port
+		
+		@refines= BasicMapping2WireRule.toBlock, ContextMapping2WireRule_f.toBlock
+		[=] toBlock:BlockLanguage.Block
+		
+		@refines= ContextMapping2WireRule_f.fromBlock
+		[=] fromBlock:BlockLanguage.Block {
+			[=] - ports->fromPort
+		}
+	}
+}
+//extends BasicMapping2WireRule, ContextMapping2WireRule_f with BlockCodeAdapter

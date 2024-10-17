@@ -1,0 +1,27 @@
+package ferryman.gt
+import "platform:/resource/FerrymanProblem/model/FerrymanProblem.ecore"
+
+/**
+ * Moves the ferryman to another bank.
+ */
+rule move {
+	[=] bankBefore: Bank
+
+	[=] bankAfter: Bank
+
+	[=] ferryMan: FerryMan {
+		[-]  -isAt -> bankBefore
+		[+]  -isAt -> bankAfter
+	}
+};
+
+/**
+ * Moves the ferryman and a thing to another bank.
+ */
+rule moveThing
+refines move {
+	[=] thing: Thing {
+		[-] -isAt -> bankBefore
+		[+] -isAt -> bankAfter
+	}
+};

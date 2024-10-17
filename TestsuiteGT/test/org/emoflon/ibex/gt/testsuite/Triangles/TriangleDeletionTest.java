@@ -2,17 +2,17 @@ package org.emoflon.ibex.gt.testsuite.Triangles;
 
 import org.junit.jupiter.api.Test;
 
-import TrianglesGraphTransformation.api.TrianglesGraphTransformationAPI;
+import triangles.gt.api.GtGtApi;
 
 /**
  * Tests for pattern matching with the ClassMultipleInheritanceHierarchy Graph
- * Transformation API.
+ * Transformation Api.
  */
 public class TriangleDeletionTest extends TrianglesAbstractTest {
 
 	@Test
 	public void deleteTriangleSides() {
-		TrianglesGraphTransformationAPI api = this.init("triangles2.xmi");
+		GtGtApi<?> api = this.init("triangles2.xmi");
 		
 		assertMatchCount(1, api.simpleTriangle1());
 		assertMatchCount(1, api.simpleTriangle2());
@@ -21,7 +21,7 @@ public class TriangleDeletionTest extends TrianglesAbstractTest {
 		assertMatchCount(1, api.invocationTriangle1());
 		assertMatchCount(1, api.invocationTriangle2());
 		
-		assertApplicable(api.deleteAB());
+		assertApplicableAndApply(api.deleteAB());
 		
 		assertMatchCount(0, api.simpleTriangle1());
 		assertMatchCount(0, api.simpleTriangle2());
@@ -30,7 +30,7 @@ public class TriangleDeletionTest extends TrianglesAbstractTest {
 		assertMatchCount(0, api.invocationTriangle1());
 		assertMatchCount(0, api.invocationTriangle2());
 		
-		assertApplicable(api.connectA2B());
+		assertApplicableAndApply(api.connectA2B());
 		
 		assertMatchCount(1, api.simpleTriangle1());
 		assertMatchCount(1, api.simpleTriangle2());
@@ -40,7 +40,7 @@ public class TriangleDeletionTest extends TrianglesAbstractTest {
 		assertMatchCount(1, api.invocationTriangle2());
 		
 		
-		assertApplicable(api.deleteAC());
+		assertApplicableAndApply(api.deleteAC());
 		
 		assertMatchCount(0, api.simpleTriangle1());
 		assertMatchCount(0, api.simpleTriangle2());
@@ -49,7 +49,7 @@ public class TriangleDeletionTest extends TrianglesAbstractTest {
 		assertMatchCount(0, api.invocationTriangle1());
 		assertMatchCount(0, api.invocationTriangle2());
 		
-		assertApplicable(api.connectA2C());
+		assertApplicableAndApply(api.connectA2C());
 		
 		assertMatchCount(1, api.simpleTriangle1());
 		assertMatchCount(1, api.simpleTriangle2());
@@ -58,7 +58,7 @@ public class TriangleDeletionTest extends TrianglesAbstractTest {
 		assertMatchCount(1, api.invocationTriangle1());
 		assertMatchCount(1, api.invocationTriangle2());
 		
-		assertApplicable(api.deleteBC());
+		assertApplicableAndApply(api.deleteBC());
 		
 		assertMatchCount(0, api.simpleTriangle1());
 		assertMatchCount(0, api.simpleTriangle2());
@@ -67,7 +67,7 @@ public class TriangleDeletionTest extends TrianglesAbstractTest {
 		assertMatchCount(0, api.invocationTriangle1());
 		assertMatchCount(0, api.invocationTriangle2());
 		
-		assertApplicable(api.connectB2C());
+		assertApplicableAndApply(api.connectB2C());
 		
 		assertMatchCount(1, api.simpleTriangle1());
 		assertMatchCount(1, api.simpleTriangle2());
@@ -76,11 +76,12 @@ public class TriangleDeletionTest extends TrianglesAbstractTest {
 		assertMatchCount(1, api.invocationTriangle1());
 		assertMatchCount(1, api.invocationTriangle2());
 		
+		api.terminate();
 	}
 	
 	@Test
 	public void deleteTriangleInvocations() {
-		TrianglesGraphTransformationAPI api = this.init("triangles2.xmi");
+		GtGtApi<?> api = this.init("triangles2.xmi");
 		
 		assertMatchCount(1, api.simpleTriangle1());
 		assertMatchCount(1, api.simpleTriangle2());
@@ -89,7 +90,7 @@ public class TriangleDeletionTest extends TrianglesAbstractTest {
 		assertMatchCount(1, api.invocationTriangle1());
 		assertMatchCount(1, api.invocationTriangle2());
 		
-		assertApplicable(api.deleteDA());
+		assertApplicableAndApply(api.deleteDA());
 		
 		assertMatchCount(1, api.simpleTriangle1());
 		assertMatchCount(1, api.simpleTriangle2());
@@ -98,7 +99,7 @@ public class TriangleDeletionTest extends TrianglesAbstractTest {
 		assertMatchCount(0, api.invocationTriangle1());
 		assertMatchCount(1, api.invocationTriangle2());
 		
-		assertApplicable(api.connectDA());
+		assertApplicableAndApply(api.connectDA());
 		
 		assertMatchCount(1, api.simpleTriangle1());
 		assertMatchCount(1, api.simpleTriangle2());
@@ -107,7 +108,7 @@ public class TriangleDeletionTest extends TrianglesAbstractTest {
 		assertMatchCount(1, api.invocationTriangle1());
 		assertMatchCount(1, api.invocationTriangle2());
 		
-		assertApplicable(api.deleteEB());
+		assertApplicableAndApply(api.deleteEB());
 		
 		assertMatchCount(1, api.simpleTriangle1());
 		assertMatchCount(1, api.simpleTriangle2());
@@ -116,7 +117,7 @@ public class TriangleDeletionTest extends TrianglesAbstractTest {
 		assertMatchCount(1, api.invocationTriangle1());
 		assertMatchCount(0, api.invocationTriangle2());
 		
-		assertApplicable(api.connectEB());
+		assertApplicableAndApply(api.connectEB());
 		
 		assertMatchCount(1, api.simpleTriangle1());
 		assertMatchCount(1, api.simpleTriangle2());
@@ -125,6 +126,6 @@ public class TriangleDeletionTest extends TrianglesAbstractTest {
 		assertMatchCount(1, api.invocationTriangle1());
 		assertMatchCount(1, api.invocationTriangle2());
 		
-		
+		api.terminate();
 	}
 }	

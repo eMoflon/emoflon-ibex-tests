@@ -4,10 +4,9 @@ import java.io.IOException;
 
 import org.benchmarx.blockDiagram.core.BlockDiagramComparator;
 import org.benchmarx.mocaTree.core.MocaTreeFileComparator;
-import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 import org.emoflon.ibex.tgg.run.blockdiagramcodeadapter.SYNC_App;
-import org.emoflon.ibex.tgg.run.blockdiagramcodeadapter.config.DemoclesRegistrationHelper;
 import org.emoflon.ibex.tgg.run.blockdiagramcodeadapter.config.HiPERegistrationHelper;
+import org.emoflon.ibex.tgg.runtime.config.IRegistrationHelper;
 
 import BlockDiagram.BlockDiagramFactory;
 import BlockDiagram.BlockSystem;
@@ -31,7 +30,7 @@ public class IbexBlockDiagramCodeAdapter extends IbexAdapter<BlockSystem, File> 
 	@Override
 	public void initiateSynchronisationDialogue() {
 		try {
-			SYNC_App.registrationHelper = UsedPatternMatcher.choose(new IRegistrationHelper[]{new DemoclesRegistrationHelper(), new HiPERegistrationHelper()});
+			SYNC_App.registrationHelper = UsedPatternMatcher.choose(new IRegistrationHelper[]{ new HiPERegistrationHelper()});
 			synchroniser = new SYNC_App("BlockDiagramCodeAdapter", testsuite.ibex.performance.util.PerformanceConstants.workspacePath, ilpSolver, false);
 			
 			BlockSystem bs = BlockDiagramFactory.eINSTANCE.createBlockSystem();

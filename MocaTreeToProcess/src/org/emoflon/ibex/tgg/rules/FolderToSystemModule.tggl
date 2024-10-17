@@ -1,0 +1,18 @@
+rule FolderToSystemModule {
+	
+	source { 
+		[+] folder : M.Folder
+	}
+	
+	target {
+		[+] sysmod : P.SystemModule
+	}
+	
+	correspondence {
+		[+] folder2sysmod : FolderToSystemModuleCorr {
+			src->folder
+			trg->sysmod
+		}
+	}
+	
+}

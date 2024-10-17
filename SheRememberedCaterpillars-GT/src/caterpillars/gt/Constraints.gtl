@@ -1,0 +1,177 @@
+package caterpillars.gt
+import "platform:/resource/SheRememberedCaterpillars/model/SheRememberedCaterpillars.ecore"
+
+/**
+ * Finds a simple platform.
+ */
+abstract pattern findSimplePlatform {
+	[=] platform: SimplePlatform
+};
+
+pattern platformHasNoConnections refines findSimplePlatform {
+	forbid(findPlatformWithConnection)[platform=platform]
+};
+
+pattern platformHasAtLeastOneConnection refines findSimplePlatform {
+	enforce(findPlatformWithConnection)[platform=platform]
+};
+
+pattern platformHasAtLeastTwoConnections refines findSimplePlatform {
+	enforce(findPlatformWithTwoConnections)[platform=platform]
+};
+
+pattern platformHasAtMostOneConnection refines findSimplePlatform {
+	forbid(findPlatformWithTwoConnections)[platform=platform]
+};
+
+pattern platformHasNoNeighbors refines findSimplePlatform {
+	forbid(findPlatformWithNeighbor)[platform=platform]
+};
+
+pattern platformHasAtLeastOneNeighbor refines findSimplePlatform {
+	enforce(findPlatformWithNeighbor)[platform=platform]
+};
+
+pattern platformHasAtMostOneNeighbor refines findSimplePlatform {
+	forbid(findPlatformWithTwoNeighbors)[platform=platform]
+};
+
+pattern platformHasAtLeastTwoNeighbors refines findSimplePlatform {
+	enforce(findPlatformWithTwoNeighbors)[platform=platform]
+};
+
+pattern platformHasOnlyOneNeighborAndNoConnections refines findSimplePlatform {
+	// -> platformHasExactlyOneNeighbor && platformHasNoConnections
+	enforce(platformHasExactlyOneNeighbor)[platform=platform]
+	enforce(platformHasNoConnections)[platform=platform]
+};
+
+pattern platformHasOnlyOneConnectionAndNoNeighbors refines findSimplePlatform {
+	// -> platformHasExactlyOneConnection && platformHasNoNeighbors
+	enforce(platformHasExactlyOneConnection)[platform=platform]
+	enforce(platformHasNoNeighbors)[platform=platform]
+};
+
+pattern platformHasExactlyOneNeighbor refines findSimplePlatform {
+	// ->  platformHasAtLeastOneNeighbor && platformHasAtMostOneNeighbor
+	enforce(platformHasAtLeastOneNeighbor)[platform=platform]
+//	forbid(findPlatformWithTwoNeighbors)[platform=platform]
+	enforce(platformHasAtMostOneNeighbor)[platform=platform]
+};
+
+pattern platformHasExactlyOneConnection refines findSimplePlatform {
+	// -> platformHasAtLeastOneConnection && platformHasAtMostOneConnection
+	enforce(platformHasAtLeastOneConnection)[platform=platform]
+	enforce(platformHasAtMostOneConnection)[platform=platform]
+};
+
+pattern platformHasNeighborAndConnection refines findSimplePlatform {
+	// -> platformHasExactlyOneNeighbor && platformHasExactlyOneConnection
+	enforce(platformHasExactlyOneNeighbor)[platform=platform]
+	enforce(platformHasExactlyOneConnection)[platform=platform]
+};
+
+pattern findStandalonePlatform
+refines findSimplePlatform {
+	forbid(findPlatformWithNeighbor)[platform=platform]
+	forbid(findPlatformWithConnection)[platform=platform]
+};
+
+pattern support1 refines findSimplePlatform {
+	forbid(platformHasOnlyOneNeighborAndNoConnections)[platform=platform]
+	forbid(platformHasOnlyOneConnectionAndNoNeighbors)[platform=platform]
+};
+
+/**
+ * Finds a simple platform which has just one connection to another platform.
+ */
+pattern findDeadEnd
+refines findSimplePlatform {
+	// -> platformHasOnlyOneNeighborAndNoConnections || platformHasOnlyOneConnectionAndNoNeighbors
+	forbid(support1)[platform=platform]  
+}; 
+
+pattern support2 refines findSimplePlatform {
+	forbid(platformHasAtLeastTwoNeighbors)[platform=platform]
+	forbid(platformHasAtLeastTwoConnections)[platform=platform]
+	forbid(platformHasNeighborAndConnection)[platform=platform]	
+};
+
+/**
+ * Finds a simple platform which has at least two ways to another platform.
+ */
+pattern findPlatformWithTwoWays
+refines findSimplePlatform {
+	// -> platformHasAtLeastTwoNeighbors || platformHasAtLeastTwoConnections || platformHasNeighborAndConnection
+	forbid(support2)[platform=platform]
+};
+
+/**
+ * Finds a simple platform which has (at least) one neighbor.
+ */
+pattern findPlatformWithNeighbor
+refines findSimplePlatform {
+	@refines= findSimplePlatform.platform
+	[=] platform: SimplePlatform {
+		[=] -neighbors -> neighbor
+	}
+
+	[=] local neighbor: Platform
+};
+
+/**
+ * Finds a simple platform which has (at least) two neighbors.
+ */
+pattern findPlatformWithTwoNeighbors
+refines findPlatformWithNeighbor {
+	@refines= findPlatformWithNeighbor.platform
+	[=] platform: SimplePlatform {
+		[=] -neighbors -> neighbor2
+	}
+
+	[=] local neighbor2: Platform
+};
+
+/**
+ * Finds a simple platform with just one neighbor.
+ */
+pattern findPlatformWithExactlyOneNeighbor
+refines findSimplePlatform {
+	enforce(platformHasExactlyOneNeighbor)[platform=platform]
+};
+//when platformHasExactlyOneNeighbor
+
+/**
+ * Finds a simple platform which is connected with (at least) one platform connector.
+ */
+pattern findPlatformWithConnection
+refines findSimplePlatform {
+	@refines= findSimplePlatform.platform
+	[=] platform: SimplePlatform {
+		[=] -connectedBy -> connector
+	}
+
+	[=] local connector: PlatformConnector
+};
+
+/**
+ * Finds a simple platform which is connected with (at least) two platform connectors.
+ */
+pattern findPlatformWithTwoConnections
+refines findPlatformWithConnection {
+	@refines= findPlatformWithConnection.platform
+	[=] platform: SimplePlatform {
+		[=] -connectedBy -> connector2
+	}
+
+	[=] local connector2: PlatformConnector
+};
+
+/**
+ * Finds a platform which is a neighbor of itself.
+ */
+pattern findPlatformSelfNeighbor {
+	[=] platform: Platform {
+		[=] -neighbors -> platform
+	}
+};

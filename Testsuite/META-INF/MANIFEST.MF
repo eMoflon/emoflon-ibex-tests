@@ -7,8 +7,6 @@ Bundle-RequiredExecutionEnvironment: JavaSE-21
 Require-Bundle: org.apache.log4j,
  org.eclipse.emf.ecore.xmi,
  org.emoflon.ibex.common,
- org.emoflon.ibex.tgg.language,
- org.emoflon.ibex.tgg.runtime.democles,
  Benchmarx;bundle-version="1.0.0",
  org.emoflon.express;bundle-version="1.0.0",
  BlockCodeAdapter;bundle-version="1.0.0",
@@ -69,5 +67,9 @@ Require-Bundle: org.apache.log4j,
  MoDiscoIbexTGG,
  junit-jupiter-api,
  junit-platform-commons,
- org.junit
+ org.junit,
+ org.emoflon.ibex.tgg.runtimemodel;bundle-version="0.1.0",
+ org.emoflon.ibex.tgg.util;bundle-version="1.0.0",
+ org.emoflon.ibex.tgg.analysis;bundle-version="1.0.0",
+ org.emoflon.ibex.tgg.tggmodel;bundle-version="0.1.0"
 Automatic-Module-Name: Testsuite

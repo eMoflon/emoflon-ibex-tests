@@ -1,0 +1,14 @@
+rule GlossarEntryRule {
+	
+	source {
+		
+	}
+	
+	target {
+		[=] glossar : D.Glossar {
+			[+] -entries -> entry
+		}
+		[+] entry : D.GlossarEntry
+	}
+	
+}

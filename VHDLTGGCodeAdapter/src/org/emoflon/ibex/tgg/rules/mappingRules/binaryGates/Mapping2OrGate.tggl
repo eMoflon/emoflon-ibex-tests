@@ -1,0 +1,42 @@
+rule Mapping2OrGate refines AbstractBinaryMappingRule as AbsBinMapping {
+	
+	source {
+		@refines+ AbstractBinaryMappingRule.expressionNode
+		[+] expressionNode:M.Node {
+			.name := "or";
+		}
+	}
+	
+	target {
+		@refines+ AbstractBinaryMappingRule.leftPort
+		[+] leftPort:V.InputPort {
+			.name := "OR.in1";
+			[+] - block->expression
+		}
+		@refines+ AbstractBinaryMappingRule.rightPort
+		[+] rightPort:V.InputPort {
+			.name := "OR.in2";
+			[+] - block->expression
+		}
+		@refines+ AbstractBinaryMappingRule.out
+		[+] out:V.OutputPort {
+			.name := "OR.out";
+		}
+		@refines+ AbstractBinaryMappingRule.expression
+		[+] expression:V.OrGate {
+			[+] - inputport1->leftPort
+			[+] - outputport->out
+			[+] - inputs->rightPort
+			[+] - inputport2->rightPort
+			[+] - inputs->leftPort
+		}
+	}
+	
+	correspondence {
+		[+] orNode2Gate :NodeToBlock {
+			src->expressionNode
+			trg->expression
+		}
+	}
+
+}

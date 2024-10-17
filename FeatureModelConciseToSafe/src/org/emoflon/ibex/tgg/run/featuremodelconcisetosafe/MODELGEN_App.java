@@ -3,10 +3,10 @@ package org.emoflon.ibex.tgg.run.featuremodelconcisetosafe;
 import java.io.IOException;
 
 import org.apache.log4j.BasicConfigurator;
-import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
-import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGEN;
-import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGENStopCriterion;
 import org.emoflon.ibex.tgg.run.featuremodelconcisetosafe.config._DefaultRegistrationHelper;
+import org.emoflon.ibex.tgg.runtime.config.IRegistrationHelper;
+import org.emoflon.ibex.tgg.runtime.strategies.gen.MODELGEN;
+import org.emoflon.ibex.tgg.runtime.strategies.gen.MODELGENStopCriterion;
 
 
 public class MODELGEN_App extends MODELGEN {

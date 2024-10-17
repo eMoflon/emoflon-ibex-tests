@@ -1,0 +1,33 @@
+abstract rule ExistingFamilyToPerson{
+	
+	source { 
+		[=] fr:Fam.FamilyRegister {
+			[=] -families->f
+		}
+		
+		[=] f:Fam.Family
+		
+		[+] fm:Fam.FamilyMember
+	}
+	
+	target {
+		[=] pr:Per.PersonRegister {
+			[+] -persons->p
+		}
+		
+		[+] p:Per.Person
+	}
+	
+	correspondence {
+		[=] roots:RegisterToRegister {
+			src->fr
+			trg->pr
+		}
+		
+		[+] memberToPerson:FamilyMemberToPerson {
+			src->fm
+			trg->p
+		}
+	}
+	
+}

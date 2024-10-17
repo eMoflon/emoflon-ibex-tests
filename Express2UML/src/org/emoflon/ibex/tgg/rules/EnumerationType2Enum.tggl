@@ -1,0 +1,38 @@
+rule EnumerationType2Enum {
+	
+	source {
+		[+] et:Express.EnumerationType
+	
+		[=] s:Express.Schema {
+			[+] -declarations -> et
+		}
+	}
+	
+	target {
+		[+] en:UML.Enumeration
+	
+		[=] p:UML.Package {
+			[+] -enumerations -> en
+		}
+	}
+	
+	correspondence {
+		[=] s2p:Schema2Package {
+			src->s
+			trg->p
+		}
+	
+		[+]et2e:EnumerationType2Enum {
+			src->et
+			trg->en
+		}
+	}
+	
+	attributeConditions {
+		DefaultAttributeConditionLibrary.eq_string(et.name, en.name)
+	}
+
+}
+
+
+

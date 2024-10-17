@@ -1,0 +1,41 @@
+import "platform:/resource/SimpleClassInheritance/model/simpleClassInheritance.ecore" using simpleClassInheritance as C
+import "platform:/resource/GlossarDocumentation/model/glossarDocumentation.ecore" using glossarDocumentation as D
+
+schema Clazz2GlossarDoc {
+	
+	source {
+		simpleClassInheritance
+	}
+	
+	target { 
+		glossarDocumentation
+	} 
+	
+	correspondence {
+		Container2container {
+			src->C.ClazzContainer
+			trg->D.DocumentationContainer
+		}
+		
+		Clazz2doc {
+			src->C.Clazz
+			trg->D.Document
+		}
+		
+		Field2entry {
+			src->C.Field
+			trg->D.Entry
+		}
+		
+		Method2entry {
+			src->C.Method
+			trg->D.Entry
+		}
+		
+		Parameter2entry {
+			src->C.Parameter
+			trg->D.Entry
+		}
+	}
+	
+}

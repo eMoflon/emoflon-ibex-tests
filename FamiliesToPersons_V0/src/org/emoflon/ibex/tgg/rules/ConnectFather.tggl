@@ -1,0 +1,39 @@
+rule ConnectFather {
+	
+	source { 
+		[=] fr:Fam.FamilyRegister {
+			[=] -families->f
+		}
+		
+		[=] f:Fam.Family {
+			[+] -father->fm
+		}
+		
+		[=] fm:Fam.FamilyMember {
+			.name:="father";
+		}
+	}
+	
+	target {
+		[=] pr:Per.PersonRegister {
+			[+] -persons->p
+		}
+		
+		[+] p:Per.Male {
+			.name:="father";
+		}
+	}
+	
+	correspondence {
+		[=] roots:RegisterToRegister {
+			src->fr
+			trg->pr
+		}
+		
+		[+] memberToPerson:FamilyMemberToPerson {
+			src->fm
+			trg->p
+		}
+	}
+	
+}

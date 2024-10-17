@@ -1,0 +1,45 @@
+rule NodeToInvocationDifferentModuleRule refines AbstractNodeToInvocationRule {
+	
+	source {
+		[=] rootFolder:M.Folder {
+			[=] - subFolder->otherFolder
+			[=] - subFolder->folder
+		}
+		@refines+ AbstractNodeToInvocationRule.invocationNode
+		[+] invocationNode:M.Node
+		[=] otherFolder:M.Folder {
+			[=] - file->otherFile
+		}
+		@refines= AbstractNodeToInvocationRule.folder
+		[=] folder:M.Folder
+		[=] otherFile:M.File
+	}
+	
+	target {
+		[=] invokedTask:P.Task {
+			[+] - invocation->invocation
+			[=] - systemModule->system
+		}
+		@refines+ AbstractNodeToInvocationRule.invocation
+		[+] invocation:P.Invocation
+		@refines= AbstractNodeToInvocationRule.system
+		[=] system:P.SystemModule
+	}
+	
+	correspondence {
+		[+] invocationNodeToInvocation :NodeToInvocation {
+			src->invocationNode
+			trg->invocation
+		}
+		[=] file2Task2 :FileToTask {
+			src->otherFile
+			trg->invokedTask
+		}
+	}
+	
+	attributeConditions {
+		DefaultAttributeConditionLibrary.addPrefix(invocationNode.name, ".proc", otherFile.name)
+	}
+
+}
+

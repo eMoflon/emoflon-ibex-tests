@@ -1,0 +1,26 @@
+import "platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore" using SimpleFamilies as Fam
+import "platform:/resource/SimplePersons/model/SimplePersons.ecore" using SimplePersons as Per
+
+schema FamiliesToPersons_V0 {
+	
+	source {
+		SimpleFamilies
+	}
+	
+	target {
+		SimplePersons
+	}
+	
+	correspondence {
+		RegisterToRegister {
+			src->Fam.FamilyRegister
+			trg->Per.PersonRegister
+		}
+		
+		FamilyMemberToPerson {
+			src->Fam.FamilyMember
+			trg->Per.Person
+		}
+	}
+	
+}

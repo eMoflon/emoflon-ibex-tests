@@ -1,0 +1,101 @@
+package votermodel.gt
+import "platform:/resource/GroupVotersModel/model/GroupVotersModel.ecore"
+import "http://www.eclipse.org/emf/2002/Ecore"
+
+pattern voterWithID(id : EInt, vote : EInt) {
+	[=] v:Voter
+	[#] v.id == parameter.id;
+	[#]v.vote == parameter.vote;
+};
+
+pattern groupWithID(id : EInt) {
+	[=] g : Group
+	[#]g.id == parameter.id;
+};
+
+pattern voteTrue {
+	[=] v:Voter
+	[#] v.vote == 1;
+};
+
+pattern voteFalse {
+	[=] v:Voter
+	[#] v.vote == 0;
+};
+
+pattern agreeTrue {
+	[=] g:Group
+	[=] v1:Voter 
+	{
+		[=] -member-> g
+	}
+	[=] v2:Voter 
+	{
+		[=] -member-> g
+	}	
+	[#] v2.vote == 1;
+	[#] v1.vote == 1;
+	[#] v1.id > v2.id;
+};
+
+pattern agreeFalse {
+	[=] g:Group
+	[=] v1:Voter {
+		[=] -member-> g
+	}
+	[=] v2:Voter {
+		[=] -member-> g
+	}
+	[#] v2.vote == 0;
+	[#] v1.vote == 0;
+	[#] v1.id > v2.id;
+};
+
+pattern disagreeInGroup {
+	[=] g:Group
+	[=] v1:Voter {
+		[=] -member-> g
+	}
+	[=] v2:Voter {
+		[=] -member-> g
+	}
+	[#] v2.vote != v1.vote;
+	[#] v1.id > v2.id;
+};
+
+pattern adoptPatternUnordered {
+	[=] g:Group
+	[=] v1:Voter {
+		[=] -member-> g
+	}
+	[=] v2:Voter {
+		[=] -member-> g
+	}
+	[#] v2.vote != v1.vote;
+};
+
+pattern disagree {
+	[=] v1:Voter
+	[=] v2:Voter
+	[#] v2.vote != v1.vote;
+	[#] v1.id > v2.id;
+};
+
+pattern trueNotInGroup {
+	[=] v1:Voter
+	[#] v1.vote == 1;
+	forbid(voterInGroup)[v1=v]
+};
+
+pattern falseNotInGroup {
+	[=] v1:Voter
+	[#] v1.vote == 0;
+	forbid(voterInGroup)[v1=v]
+};
+
+pattern voterInGroup {
+	[=] g : Group
+	[=] v : Voter {
+		[=] - member->g
+	}
+};

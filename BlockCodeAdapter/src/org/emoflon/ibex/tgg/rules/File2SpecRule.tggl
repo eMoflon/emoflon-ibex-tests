@@ -1,0 +1,38 @@
+rule File2SpecRule {	
+	source {
+		[+] blocks:MocaTree.Node {
+			[+] - parentNode->specNode
+			.name := "BLOCKS";
+		}
+		
+		[+] mappingNode:MocaTree.Node {
+			[+] -parentNode->specNode
+			.name := "MAPPINGS";
+		}
+		[+] specNode:MocaTree.Node {
+			[+] - file->file
+			.name := "SPEC";
+		}
+		[+] file:MocaTree.File 
+	}
+	
+	target {
+		[+]spec:BlockLanguage.Specification
+	}
+	
+	correspondence {
+		[+] n2s :NodeToSpecification {
+			src->specNode
+			trg->spec
+		}
+		[+] f2s :FileToSpecification {
+			src->file
+			trg->spec
+		}
+	}
+	
+	attributeConditions {
+		DefaultAttributeConditionLibrary.addPrefix(spec.name, ".blocks", file.name)
+	}
+}
+

@@ -1,0 +1,36 @@
+rule Field2Entry {
+	source { 
+		[=] t:ExtTypeModel.Type {
+			[+] -fields->f
+		}
+		
+		[+] f:ExtTypeModel.Field
+	}
+	
+	target {
+		[=] d:ExtDocModel.Doc {
+			[+] -entries->entry
+		}
+		
+		[+] entry:ExtDocModel.Entry {
+			.type:=enums.FIELD;
+		}
+	}
+	
+	correspondence {
+		[=] t2d:Type2Doc {
+			src->t
+			trg->d
+		}
+		
+		[+] f2e:Field2Entry {
+			src->f
+			trg->entry
+		}
+	}
+	
+	attributeConditions {
+		DefaultAttributeConditionLibrary.eq_string(f.name, entry.name)
+	}
+}
+

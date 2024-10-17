@@ -1,0 +1,24 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: Network-GT
+Bundle-ManifestVersion: 2
+Bundle-Name: Network-GT
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: Network-GT; singleton:=true
+Bundle-ActivationPolicy: lazy
+Import-Package: org.apache.log4j,
+ org.apache.commons.logging
+Bundle-RequiredExecutionEnvironment: JavaSE-21
+Require-Bundle: org.emoflon.ibex.common,
+ org.emoflon.ibex.gt,
+ org.emoflon.ibex.gt.gtmodel,
+ org.emoflon.ibex.gt.hipe,
+ SimpleNetwork
+Export-Package: network.gt1.api,
+ network.gt1.api.match,
+ network.gt1.api.pattern,
+ network.gt1.api.rule,
+ network.gt2.api,
+ network.gt2.api.match,
+ network.gt2.api.pattern,
+ network.gt2.api.rule

@@ -1,0 +1,34 @@
+rule Type2Doc {
+	source { 
+		[=] p:ExtTypeModel.Package {
+			[+] -types->t
+		}
+		
+		[+] t:ExtTypeModel.Type
+	}
+	
+	target {
+		[=] f:ExtDocModel.Folder {
+			[+] -docs->d
+		}
+		
+		[+] d:ExtDocModel.Doc
+	}
+	
+	correspondence {
+		[=] p2dc:Package2Folder {
+			src->p
+			trg->f
+		}
+		
+		[+] t2d:Type2Doc {
+			src->t
+			trg->d
+		}
+	}
+	
+	attributeConditions {
+		DefaultAttributeConditionLibrary.concat(".", p.fQname, t.name, derived d.name)
+	}
+}
+

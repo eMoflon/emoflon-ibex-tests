@@ -1,0 +1,20 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: Chemistry-GT
+Bundle-ManifestVersion: 2
+Bundle-Name: Chemistry-GT
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: Chemistry-GT; singleton:=true
+Bundle-ActivationPolicy: lazy
+Import-Package: org.apache.log4j,
+ org.apache.commons.logging
+Bundle-RequiredExecutionEnvironment: JavaSE-21
+Require-Bundle: org.emoflon.ibex.common,
+ org.emoflon.ibex.gt,
+ org.emoflon.ibex.gt.gtmodel,
+ org.emoflon.ibex.gt.hipe,
+ SimpleChemistry
+Export-Package: chemistry.gt.api,
+ chemistry.gt.api.match,
+ chemistry.gt.api.pattern,
+ chemistry.gt.api.rule

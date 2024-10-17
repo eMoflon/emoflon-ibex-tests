@@ -1,0 +1,23 @@
+rule RootToSystemRule {
+	
+	source {
+		[+] rootFolder:M.Folder
+	}
+	
+	target {
+		[+] system:P.SystemModule
+	}
+	
+	correspondence {
+		[+] rootFolderToSystem :FolderToSystem {
+			src->rootFolder
+			trg->system
+		}
+	}
+	
+	attributeConditions {
+		DefaultAttributeConditionLibrary.eq_string(rootFolder.name, system.name)
+	}
+
+}
+

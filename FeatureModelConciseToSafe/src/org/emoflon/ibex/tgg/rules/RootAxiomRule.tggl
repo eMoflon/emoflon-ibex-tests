@@ -1,0 +1,37 @@
+rule RootAxiomRule {
+	
+	source { 
+		[+] conciseModel:FeatureModelConcise.Model {
+			[+] -root->conciseRoot
+		}
+		
+		[+] conciseRoot:FeatureModelConcise.Feature
+	}
+	
+	target {
+		[+] safeModel:FeatureModelSafe.Model	{
+			[+] -root->safeRoot
+		}
+		
+		[+] safeRoot:FeatureModelSafe.Feature
+	}
+	
+	correspondence {
+		[+] m2m:Model2Model {
+			src->conciseModel
+			trg->safeModel
+		}
+		
+		[+] r2r:Feature2Feature {
+			src->conciseRoot
+			trg->safeRoot
+		}
+	}
+	
+	attributeConditions {
+		DefaultAttributeConditionLibrary.eq_string(conciseModel.name, safeModel.name)
+		DefaultAttributeConditionLibrary.eq_string(conciseRoot.name, safeRoot.name)
+	}
+
+}
+

@@ -1,0 +1,40 @@
+import "platform:/resource/ExtDocModel/model/ExtDocModel.ecore"
+import "platform:/resource/ExtTypeModel/model/ExtTypeModel.ecore"
+
+schema ExtType2Doc_SCDerived {
+	source {
+		ExtTypeModel
+	}
+	
+	target { 
+		ExtDocModel
+	} 
+	
+	correspondence {
+		Project2DocContainer {
+			src->ExtTypeModel.Project
+			trg->ExtDocModel.DocContainer
+		}
+		Package2Folder {
+			src->ExtTypeModel.Package
+			trg->ExtDocModel.Folder
+		}
+		Type2Doc {
+			src->ExtTypeModel.Type
+			trg->ExtDocModel.Doc
+		}
+		Method2Entry {
+			src->ExtTypeModel.Method
+			trg->ExtDocModel.Entry
+		}
+		Param2Entry {
+			src->ExtTypeModel.Parameter
+			trg->ExtDocModel.Entry
+		}
+		Field2Entry {
+			src->ExtTypeModel.Field
+			trg->ExtDocModel.Entry
+		}
+	}
+}
+	

@@ -1,7 +1,7 @@
 package org.emoflon.ibex.tgg.weights;
 
-import org.emoflon.ibex.common.operational.IMatch;
-import org.emoflon.ibex.tgg.operational.strategies.opt.OPT;
+import org.emoflon.ibex.common.engine.IMatch;
+import org.emoflon.ibex.tgg.runtime.strategies.opt.OPT;
 
 import CompanyLanguage.Admin;
 import CompanyLanguage.CEO;

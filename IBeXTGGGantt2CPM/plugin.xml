@@ -1,17 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<?eclipse version="3.0"?>
-
-<!--
--->
-
-<plugin>
-
-   <extension point="org.eclipse.emf.ecore.generated_package">
-      <!-- @generated IBeXTGGGantt2CPM -->
-      <package
-            uri="platform:/resource/IBeXTGGGantt2CPM/model/IBeXTGGGantt2CPM.ecore"
-            class="IBeXTGGGantt2CPM.IBeXTGGGantt2CPMPackage"
-            genModel="model/IBeXTGGGantt2CPM.genmodel"/>
-   </extension>
-
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?eclipse version="3.0"?><!--
+--><plugin>
+  <extension point="org.eclipse.emf.ecore.generated_package">
+    <package class="IBeXTGGGantt2CPM.IBeXTGGGantt2CPMPackage" genModel="model/IBeXTGGGantt2CPM.genmodel" uri="platform:/resource/IBeXTGGGantt2CPM/model/IBeXTGGGantt2CPM.ecore"/>
+  </extension>
 </plugin>
