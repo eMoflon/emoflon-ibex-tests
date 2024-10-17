@@ -534,17 +534,17 @@ public class MESystemTest extends MESystemAbstractTest {
 		assertApplicableAndApply(api.meinterface());
 		assertApplicableAndApply(api.terminal());
 		
-		assertApplicableAndApply(api.recipe("wood", 4));
-		assertApplicableAndApply(api.recipe("chair", 6));
-		assertApplicableAndApply(api.recipe("table", 4));
-		assertApplicableAndApply(api.recipe("tree", 7));
-		assertApplicableAndApply(api.recipe("hello", 8));
+		assertApplicableAndApply(api.recipe("wood", 4, 0));
+		assertApplicableAndApply(api.recipe("chair", 6, 0));
+		assertApplicableAndApply(api.recipe("table", 4, 0));
+		assertApplicableAndApply(api.recipe("tree", 7, 0));
+		assertApplicableAndApply(api.recipe("hello", 8, 0));
 		
 		//find recipe
 		assertMatchCount(5, api.findRecipe());
 		
 		//only 1 Type of each per drive
-		assertNotApplicable(api.recipe("stick", 4));
+		assertNotApplicable(api.recipe("stick", 4, 0));
 		
 		terminate(api);
 	}
