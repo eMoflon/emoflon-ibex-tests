@@ -21,8 +21,6 @@ public class ChemistryAbstractTest extends GTAppTestCase<GtGtApi<?>>  {
 	protected GtGtApi<?> getApi(String patternMatcher) {
 		return switch(patternMatcher) {
 			case PM_HIPE -> {yield new GtHiPEGtApi();}
-			case PM_VIATRA ->{throw new IllegalArgumentException("Unknown or unimplemented pattern matcher type: " + PM_VIATRA);}
-			case PM_DEMOCLES -> {throw new IllegalArgumentException("Unknown or unimplemented pattern matcher type: " + PM_DEMOCLES);}
 			default -> {yield new GtHiPEGtApi();}
 		};
 	}

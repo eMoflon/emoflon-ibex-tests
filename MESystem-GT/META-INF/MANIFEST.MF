@@ -8,16 +8,13 @@ Bundle-SymbolicName: MESystem-GT; singleton:=true
 Bundle-ActivationPolicy: lazy
 Import-Package: org.apache.log4j,
  org.apache.commons.logging
-Bundle-RequiredExecutionEnvironment: JavaSE-17
+Bundle-RequiredExecutionEnvironment: JavaSE-21
 Require-Bundle: org.emoflon.ibex.common,
  org.emoflon.ibex.gt,
  org.emoflon.ibex.gt.gtmodel,
  org.emoflon.ibex.gt.hipe,
  MESystem;bundle-version="0.0.1"
-Export-Package: mesystemgt.example.api,
- mesystemgt.example.api.match,
- mesystemgt.example.api.pattern,
- mesystem.gt.api,
+Export-Package: mesystem.gt.api,
  mesystem.gt.api.match,
  mesystem.gt.api.pattern,
  mesystem.gt.api.rule

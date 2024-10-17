@@ -26,7 +26,7 @@ Require-Bundle: org.apache.log4j,
  org.emoflon.ibex.tgg.util;bundle-version="1.0.0"
 Bundle-ManifestVersion: 2
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-17
+Bundle-RequiredExecutionEnvironment: JavaSE-21
 Export-Package: ExtType2Doc_LookAhead,
  ExtType2Doc_LookAhead.impl,
  org.emoflon.ibex.tgg.run.exttype2doc_lookahead

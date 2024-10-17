@@ -21,8 +21,6 @@ public class NetworkAbstractTest extends GTAppTestCase<Gt1GtApi<?>>{
 		protected Gt1GtApi<?> getApi(String patternMatcher) {
 			return switch(patternMatcher) {
 				case PM_HIPE -> {yield new Gt1HiPEGtApi();}
-				case PM_VIATRA ->{throw new IllegalArgumentException("Unknown or unimplemented pattern matcher type: " + PM_VIATRA);}
-				case PM_DEMOCLES -> {throw new IllegalArgumentException("Unknown or unimplemented pattern matcher type: " + PM_DEMOCLES);}
 				default -> {yield new Gt1HiPEGtApi();}
 			};
 		}

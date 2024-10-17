@@ -1,320 +1,267 @@
 package org.emoflon.ibex.gt.testsuite.MESystem;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-import mESystem.COLOR;
-import mesystem.gt.api.GtGtApi;
 import org.junit.jupiter.api.Test;
 
+import mesystem.gt.api.GtGtApi;
+
 public class MESystemDeletionTest extends MESystemAbstractTest {
-	
+
 	@Test
-    public void deleteStorageCellTest() {
+	public void deleteStorageCellTest() {
 		GtGtApi<?> api = this.initEmpty("StorageCellDeletion.xmi");
-        
-        assertApplicableAndApply(api.mesystem());
-        assertApplicableAndApply(api.core());
-        assertApplicableAndApply(api.denseCable());
-        assertApplicableAndApply(api.bus());
-        assertApplicableAndApply(api.drive());
-        
-        assertApplicableAndApply(api.storageCell16K());
-        
-        for (int i = 0; i < 5; i++) { 
-            assertApplicableAndApply(api.itemInStorage("Item" + i));
-        }
 
-        //StorageCells exist
-        assertMatchCount(1, api.findStorageCell());
-        
-        assertApplicableAndApply(api.deleteStorageCell());
+		assertApplicableAndApply(api.mesystem());
+		assertApplicableAndApply(api.core());
+		assertApplicableAndApply(api.denseCable());
+		assertApplicableAndApply(api.bus());
+		assertApplicableAndApply(api.drive());
 
-        //StorageCell has been deleted
-        assertMatchCount(0, api.findStorageCell());
-        terminate(api);
-    }
-	
-	/*@Test
-    public void deleteStorageCellsTest() {
-        GtGtApi<?> api = this.initEmpty("StorageCellsDeletion.xmi");
+		assertApplicableAndApply(api.storageCell16K());
 
-        assertApplicableAndApply(api.mesystem());
-        
-        for (int i = 0; i < 4; i++) { 
-            assertApplicableAndApply(api.core());
-            assertApplicableAndApply(api.denseCable());
-            assertApplicableAndApply(api.bus());
-            assertApplicableAndApply(api.drive());
-            assertApplicableAndApply(api.storageCell16K());
-        }
+		for (int i = 0; i < 5; i++) {
+			assertApplicableAndApply(api.itemInStorage("Item" + i));
+		}
 
-        for (int i = 0; i < 4; i++) {
-            for (int j = 0; j < 100; j++) {  
-                assertApplicableAndApply(api.itemInStorage("Item_" + i + "_" + j));
-            }
-        }
+		// StorageCells exist
+		assertMatchCount(1, api.findStorageCell());
 
-        for (int i = 0; i < 3; i++) {
-            assertApplicableAndApply(api.deleteStorageCell());
-        }
+		assertApplicableAndApply(api.deleteStorageCell());
 
-        assertMatchCount(1, api.findStorageCell());
+		// StorageCell has been deleted
+		assertMatchCount(0, api.findStorageCell());
+		terminate(api);
+	}
 
-        for (int i = 0; i < 3; i++) {
-            assertApplicableAndApply(api.storageCell16K());
-        }
-
-        assertMatchCount(4, api.findStorageCell());
-        
-        terminate(api);
-    }*/
+	/*
+	 * @Test public void deleteStorageCellsTest() { GtGtApi<?> api =
+	 * this.initEmpty("StorageCellsDeletion.xmi");
+	 * 
+	 * assertApplicableAndApply(api.mesystem());
+	 * 
+	 * for (int i = 0; i < 4; i++) { assertApplicableAndApply(api.core());
+	 * assertApplicableAndApply(api.denseCable());
+	 * assertApplicableAndApply(api.bus()); assertApplicableAndApply(api.drive());
+	 * assertApplicableAndApply(api.storageCell16K()); }
+	 * 
+	 * for (int i = 0; i < 4; i++) { for (int j = 0; j < 100; j++) {
+	 * assertApplicableAndApply(api.itemInStorage("Item_" + i + "_" + j)); } }
+	 * 
+	 * for (int i = 0; i < 3; i++) {
+	 * assertApplicableAndApply(api.deleteStorageCell()); }
+	 * 
+	 * assertMatchCount(1, api.findStorageCell());
+	 * 
+	 * for (int i = 0; i < 3; i++) { assertApplicableAndApply(api.storageCell16K());
+	 * }
+	 * 
+	 * assertMatchCount(4, api.findStorageCell());
+	 * 
+	 * terminate(api); }
+	 */
 
 	@Test
-    public void deleteCoreTest() {
-        GtGtApi<?> api = this.initEmpty("CoreDeletion.xmi");
-        
-        assertApplicableAndApply(api.mesystem());
-        assertApplicableAndApply(api.core());
+	public void deleteCoreTest() {
+		GtGtApi<?> api = this.initEmpty("CoreDeletion.xmi");
 
-        assertApplicableAndApply(api.deleteCore());
+		assertApplicableAndApply(api.mesystem());
+		assertApplicableAndApply(api.core());
 
-        assertMatchCount(0, api.findCore());
-        
-        terminate(api);
-    }
+		assertApplicableAndApply(api.deleteCore());
 
-	/*@Test
-    public void deleteCoresTest() {
-        GtGtApi<?> api = this.initEmpty("CoresDeletion.xmi");
+		assertMatchCount(0, api.findCore());
 
-        for (int i = 0; i < 4; i++) { 
-            assertApplicableAndApply(api.mesystem());
-            assertApplicableAndApply(api.core());
-            assertApplicableAndApply(api.denseCable());
-            assertApplicableAndApply(api.smartCable()); 
-            assertApplicableAndApply(api.bus());
-            assertApplicableAndApply(api.terminal());
-        }
+		terminate(api);
+	}
 
-        // failed to create more cores
-        assertNotApplicable(api.core());
+	/*
+	 * @Test public void deleteCoresTest() { GtGtApi<?> api =
+	 * this.initEmpty("CoresDeletion.xmi");
+	 * 
+	 * for (int i = 0; i < 4; i++) { assertApplicableAndApply(api.mesystem());
+	 * assertApplicableAndApply(api.core());
+	 * assertApplicableAndApply(api.denseCable());
+	 * assertApplicableAndApply(api.smartCable());
+	 * assertApplicableAndApply(api.bus());
+	 * assertApplicableAndApply(api.terminal()); }
+	 * 
+	 * // failed to create more cores assertNotApplicable(api.core());
+	 * 
+	 * // delete for (int i = 0; i < 3; i++) {
+	 * assertApplicableAndApply(api.deleteCore()); }
+	 * 
+	 * assertMatchCount(1, api.findCore());
+	 * 
+	 * for (int i = 0; i < 3; i++) { assertApplicableAndApply(api.core()); }
+	 * 
+	 * assertNotApplicable(api.core());
+	 * 
+	 * assertMatchCount(4, api.findCore());
+	 * 
+	 * terminate(api); }
+	 */
 
-        // delete
-        for (int i = 0; i < 3; i++) {
-            assertApplicableAndApply(api.deleteCore());
-        }
+	@Test
+	public void deleteSmartCableTest() {
+		GtGtApi<?> api = this.initEmpty("SmartCableDeletion.xmi");
 
-        assertMatchCount(1, api.findCore());
+		assertApplicableAndApply(api.mesystem());
+		assertApplicableAndApply(api.core());
+		assertApplicableAndApply(api.smartCable());
 
-        for (int i = 0; i < 3; i++) {
-            assertApplicableAndApply(api.core());
-        }
+		assertApplicableAndApply(api.deleteSmartCable());
 
-        assertNotApplicable(api.core());
+		assertMatchCount(0, api.findSmartCableOnCore());
 
-        assertMatchCount(4, api.findCore());
-        
-        terminate(api);
-    }*/
-	
-    @Test
-    public void deleteSmartCableTest() {
-        GtGtApi<?> api = this.initEmpty("SmartCableDeletion.xmi");
-        
-        assertApplicableAndApply(api.mesystem());
-        assertApplicableAndApply(api.core());
-        assertApplicableAndApply(api.smartCable());
+		terminate(api);
+	}
 
-        assertApplicableAndApply(api.deleteSmartCable());
+	@Test
+	public void deleteDenseCableTest() {
+		GtGtApi<?> api = this.initEmpty("DenseCableDeletion.xmi");
 
-        assertMatchCount(0, api.findSmartCableOnCore());
-        
-        terminate(api);
-    }
-    
-    
+		assertApplicableAndApply(api.mesystem());
+		assertApplicableAndApply(api.core());
+		assertApplicableAndApply(api.denseCable());
 
+		assertApplicableAndApply(api.deleteDenseCable());
 
-    @Test
-    public void deleteDenseCableTest() {
-        GtGtApi<?> api = this.initEmpty("DenseCableDeletion.xmi");
-        
-        assertApplicableAndApply(api.mesystem());
-        assertApplicableAndApply(api.core());
-        assertApplicableAndApply(api.denseCable());
+		assertMatchCount(0, api.findDenseCableOnCore());
 
-        assertApplicableAndApply(api.deleteDenseCable());
+		terminate(api);
+	}
 
-        assertMatchCount(0, api.findDenseCableOnCore());
-        
-        terminate(api);
-    }
-    
-    
+	@Test
+	public void deleteBusTest() {
+		GtGtApi<?> api = this.initEmpty("BusDeletion.xmi");
 
-    
-    @Test
-    public void deleteBusTest() {
-        GtGtApi<?> api = this.initEmpty("BusDeletion.xmi");
-        
-        assertApplicableAndApply(api.mesystem());
-        assertApplicableAndApply(api.core());
-        assertApplicableAndApply(api.denseCable());
-        assertApplicableAndApply(api.bus());
-        
-        assertApplicableAndApply(api.deleteBus());
+		assertApplicableAndApply(api.mesystem());
+		assertApplicableAndApply(api.core());
+		assertApplicableAndApply(api.denseCable());
+		assertApplicableAndApply(api.bus());
 
-        assertMatchCount(0, api.findBusOnCable());
-        
-        terminate(api);
-    }
-    
-    /*@Test
-    public void deleteBussesTest() {
-        GtGtApi<?> api = this.initEmpty("BussesDeletion.xmi");
-        
-        assertApplicableAndApply(api.mesystem());
-        for (int i = 0; i < 4; i++) {           
-            assertApplicableAndApply(api.core());
-            for (int j = 0; j < 4; j++) {
-                assertApplicableAndApply(api.denseCable());
-            }
-        }
+		assertApplicableAndApply(api.deleteBus());
 
-        for (int i = 0; i < 256; i++) {
-            assertApplicableAndApply(api.bus()); 
-        }
+		assertMatchCount(0, api.findBusOnCable());
 
-        assertNotApplicable(api.bus());
+		terminate(api);
+	}
 
-        for (int i = 0; i < 32; i++) {
-            assertApplicableAndApply(api.deleteBus());
-        }
+	/*
+	 * @Test public void deleteBussesTest() { GtGtApi<?> api =
+	 * this.initEmpty("BussesDeletion.xmi");
+	 * 
+	 * assertApplicableAndApply(api.mesystem()); for (int i = 0; i < 4; i++) {
+	 * assertApplicableAndApply(api.core()); for (int j = 0; j < 4; j++) {
+	 * assertApplicableAndApply(api.denseCable()); } }
+	 * 
+	 * for (int i = 0; i < 256; i++) { assertApplicableAndApply(api.bus()); }
+	 * 
+	 * assertNotApplicable(api.bus());
+	 * 
+	 * for (int i = 0; i < 32; i++) { assertApplicableAndApply(api.deleteBus()); }
+	 * 
+	 * assertMatchCount(224, api.findBusOnCable());
+	 * 
+	 * for (int i = 0; i < 32; i++) { assertApplicableAndApply(api.bus()); }
+	 * 
+	 * assertNotApplicable(api.bus());
+	 * 
+	 * assertMatchCount(256, api.findBusOnCable());
+	 * 
+	 * terminate(api); }
+	 */
 
-        assertMatchCount(224, api.findBusOnCable());
+	@Test
+	public void deleteTerminalTest() {
+		GtGtApi<?> api = this.initEmpty("TerminalDeletion.xmi");
 
-        for (int i = 0; i < 32; i++) {
-            assertApplicableAndApply(api.bus());
-        }
+		assertApplicableAndApply(api.mesystem());
+		assertApplicableAndApply(api.core());
+		assertApplicableAndApply(api.denseCable());
+		assertApplicableAndApply(api.terminal());
 
-        assertNotApplicable(api.bus());
+		assertApplicableAndApply(api.deleteTerminal());
 
-        assertMatchCount(256, api.findBusOnCable());
+		assertMatchCount(0, api.findTerminalOnCable());
 
-        terminate(api);
-    }*/
+		terminate(api);
+	}
 
-    @Test
-    public void deleteTerminalTest() {
-        GtGtApi<?> api = this.initEmpty("TerminalDeletion.xmi");
-        
-        assertApplicableAndApply(api.mesystem());
-        assertApplicableAndApply(api.core());
-        assertApplicableAndApply(api.denseCable());
-        assertApplicableAndApply(api.terminal());
-        
-        assertApplicableAndApply(api.deleteTerminal());
+	/*
+	 * @Test public void deleteTerminalsTest() { GtGtApi<?> api =
+	 * this.initEmpty("TerminalsDeletion.xmi");
+	 * 
+	 * assertApplicableAndApply(api.mesystem());
+	 * 
+	 * for (int i = 0; i < 4; i++) { assertApplicableAndApply(api.core());
+	 * 
+	 * for (int j = 0; j < 4; j++) { assertApplicableAndApply(api.denseCable()); for
+	 * (int k = 0; k < 32; k++) { assertApplicableAndApply(api.terminal()); } } }
+	 * 
+	 * assertNotApplicable(api.terminal());
+	 * 
+	 * for (int i = 0; i < 32; i++) {
+	 * assertApplicableAndApply(api.deleteTerminal()); }
+	 * 
+	 * assertMatchCount(224, api.findTerminalOnCable());
+	 * 
+	 * for (int i = 0; i < 32; i++) { assertApplicableAndApply(api.terminal()); }
+	 * 
+	 * assertNotApplicable(api.terminal());
+	 * 
+	 * assertMatchCount(256, api.findTerminalOnCable());
+	 * 
+	 * terminate(api); }
+	 */
 
-        assertMatchCount(0, api.findTerminalOnCable());
-        
-        terminate(api);
-    }
-    
-    /*@Test
-    public void deleteTerminalsTest() {
-        GtGtApi<?> api = this.initEmpty("TerminalsDeletion.xmi");
+	@Test
+	public void deleteItemInStorageTest() {
+		GtGtApi<?> api = this.initEmpty("ItemInStorageDeletion.xmi");
 
-        assertApplicableAndApply(api.mesystem());
+		assertApplicableAndApply(api.mesystem());
+		assertApplicableAndApply(api.core());
+		assertApplicableAndApply(api.denseCable());
+		assertApplicableAndApply(api.bus());
+		assertApplicableAndApply(api.drive());
+		assertApplicableAndApply(api.storageCell16K());
+		assertApplicableAndApply(api.itemInStorage("ChocolateCake"));
 
-        for (int i = 0; i < 4; i++) {
-            assertApplicableAndApply(api.core());
+		assertApplicableAndApply(api.deleteItemInStorage("ChocolateCake"));
 
-            for (int j = 0; j < 4; j++) {
-                assertApplicableAndApply(api.denseCable());
-                for (int k = 0; k < 32; k++) {
-                    assertApplicableAndApply(api.terminal());
-                }
-            }
-        }
+		assertMatchCount(0, api.find1ItemInStorage());
 
-        assertNotApplicable(api.terminal());
+		terminate(api);
+	}
 
-        for (int i = 0; i < 32; i++) {
-            assertApplicableAndApply(api.deleteTerminal());
-        }
+	/*
+	 * @Test public void deleteItemsInStorageTest() { GtGtApi<?> api =
+	 * this.initEmpty("ItemsInStorageDeletion.xmi");
+	 * 
+	 * assertApplicableAndApply(api.mesystem());
+	 * assertApplicableAndApply(api.core());
+	 * assertApplicableAndApply(api.denseCable());
+	 * assertApplicableAndApply(api.bus()); assertApplicableAndApply(api.drive());
+	 * assertApplicableAndApply(api.storageCell16K());
+	 * 
+	 * for (int i = 0; i < 100; i++) {
+	 * assertApplicableAndApply(api.itemInStorage("Item" + i)); }
+	 * 
+	 * assertNotApplicable(api.itemInStorage("Item101"));
+	 * 
+	 * for (int i = 0; i < 10; i++) {
+	 * assertApplicableAndApply(api.deleteItemInStorage("Item" + i)); }
+	 * 
+	 * assertMatchCount(90, api.find1ItemInStorage());
+	 * 
+	 * // Re-add ItemInStorage entities to the StorageCell for (int i = 0; i < 10;
+	 * i++) { assertApplicableAndApply(api.itemInStorage("NewItem" + i)); }
+	 * 
+	 * assertNotApplicable(api.itemInStorage("Item101"));
+	 * 
+	 * // Final cleanup check for the number of ItemInStorage entities in the
+	 * StorageCell assertMatchCount(100, api.find1ItemInStorage());
+	 * 
+	 * terminate(api); }
+	 */
 
-        assertMatchCount(224, api.findTerminalOnCable());
-
-        for (int i = 0; i < 32; i++) {
-            assertApplicableAndApply(api.terminal());
-        }
-
-        assertNotApplicable(api.terminal());
-
-        assertMatchCount(256, api.findTerminalOnCable());
-
-        terminate(api);
-    }*/
-
-
-    @Test
-    public void deleteItemInStorageTest() {
-        GtGtApi<?> api = this.initEmpty("ItemInStorageDeletion.xmi");
-        
-        assertApplicableAndApply(api.mesystem());
-        assertApplicableAndApply(api.core());
-        assertApplicableAndApply(api.denseCable());
-        assertApplicableAndApply(api.bus());
-        assertApplicableAndApply(api.drive());
-        assertApplicableAndApply(api.storageCell16K());
-        assertApplicableAndApply(api.itemInStorage("ChocolateCake"));
-        
-        assertApplicableAndApply(api.deleteItemInStorage("ChocolateCake"));
-
-        assertMatchCount(0, api.find1ItemInStorage());
-        
-        terminate(api);
-    }
-    
-    /*@Test
-    public void deleteItemsInStorageTest() {
-        GtGtApi<?> api = this.initEmpty("ItemsInStorageDeletion.xmi");
-
-        assertApplicableAndApply(api.mesystem());
-        assertApplicableAndApply(api.core());
-        assertApplicableAndApply(api.denseCable());
-        assertApplicableAndApply(api.bus());
-        assertApplicableAndApply(api.drive());
-        assertApplicableAndApply(api.storageCell16K());
-
-        for (int i = 0; i < 100; i++) {
-            assertApplicableAndApply(api.itemInStorage("Item" + i));
-        }
-
-        assertNotApplicable(api.itemInStorage("Item101"));
-
-        for (int i = 0; i < 10; i++) {  
-            assertApplicableAndApply(api.deleteItemInStorage("Item" + i));
-        }
-
-        assertMatchCount(90, api.find1ItemInStorage());
-
-        // Re-add ItemInStorage entities to the StorageCell
-        for (int i = 0; i < 10; i++) {
-            assertApplicableAndApply(api.itemInStorage("NewItem" + i));
-        }
-
-        assertNotApplicable(api.itemInStorage("Item101"));
-
-        // Final cleanup check for the number of ItemInStorage entities in the StorageCell
-        assertMatchCount(100, api.find1ItemInStorage());
-
-        terminate(api);
-    }*/
-
-    
-    
-
-    
-	
 }
