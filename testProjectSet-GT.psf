@@ -14,6 +14,8 @@
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,GroupVotersModel"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,Hospital-GT"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,HospitalExample"/>
+<project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,MESystem"/>
+<project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,MESystem-GT"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,MetamodelInheritance"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,MetamodelInheritance-GT"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,MetamodelInheritance2"/>
@@ -31,9 +33,20 @@
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,Triangles-GT"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,VoterModel-GT"/>
 </provider>
-<workingSets editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" id="1544812013290_7" label="testsuites" name="testsuites">
-<item elementID="=TestsuiteGT" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=Benchmarx" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<workingSets editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" id="1544812018381_8" label="gt" name="gt">
+<item elementID="=BPMN-GT" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=Chemistry-GT" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=ClassMultipleInheritance-GT" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=Economy-GT" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=FamiliesAndPersons-GT" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=Ferryman-GT" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=Hospital-GT" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=MetamodelInheritance-GT" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=Network-GT" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=SheRememberedCaterpillars-GT" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=Triangles-GT" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=VoterModel-GT" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=MESystem-GT" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 </workingSets>
 <workingSets editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" id="1611411207422_13" label="gt-metamodels" name="gt-metamodels">
 <item elementID="=SimpleNetwork" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
@@ -51,19 +64,10 @@
 <item elementID="=SimpleChemistry" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=GroupVotersModel" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=HospitalExample" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=MESystem" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 </workingSets>
-<workingSets editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" id="1544812018381_8" label="gt" name="gt">
-<item elementID="=BPMN-GT" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=Chemistry-GT" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=ClassMultipleInheritance-GT" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=Economy-GT" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=FamiliesAndPersons-GT" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=Ferryman-GT" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=Hospital-GT" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=MetamodelInheritance-GT" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=Network-GT" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=SheRememberedCaterpillars-GT" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=Triangles-GT" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=VoterModel-GT" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<workingSets editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" id="1544812013290_7" label="testsuites" name="testsuites">
+<item elementID="=TestsuiteGT" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=Benchmarx" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 </workingSets>
 </psf>
