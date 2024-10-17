@@ -1,0 +1,944 @@
+package mesystem.gt
+import "http://www.eclipse.org/emf/2002/Ecore"
+import "platform:/resource/MESystem/model/MESystem.ecore"
+
+pattern findMESystem {
+	[=] system: MESystem
+};
+
+rule mesystem {
+	[+] system: MESystem
+	
+	forbid(findMESystem)[]
+};
+
+pattern findAllCores{
+	[=] anySystem:MESystem {
+		[=] -core->anyCore
+	}
+	[=] anyCore: Core
+};
+
+
+pattern findCore { 
+	[=] system: MESystem {
+		[=] - core -> core
+	}
+	[=] core: Core
+}; 
+
+pattern findRecipe { 
+	[=] interfaces: MEInterface {
+		[=] -recipe -> rec
+	}
+	[=] rec: Recipe
+}; 
+
+rule core(name : EString, power : EInt) {
+	[=] system: MESystem {
+		[+] -core -> core
+	}
+ 
+	[+] core: Core {
+		.name := parameter.name;
+		.powerOutput := parameter.power;
+	}
+	
+	
+	forbid(find5Cores)[system=system]
+	//[#] 4 > count(findCore)[system=system];
+};
+
+pattern find5Cores {
+	[=] system: MESystem {
+		[=] -core -> core1
+		[=] -core -> core2
+		[=] -core -> core3
+		[=] -core -> core4
+		[=] -core -> core5
+	}
+	[=] core1 : Core
+	[=] core2 : Core
+	[=] core3 : Core
+	[=] core4 : Core
+	[=] core5 : Core
+};
+
+pattern findCableOnCore {
+	[=] core: Core {
+		[=] -cable -> cable
+	}
+
+	[=] cable: Cable
+};
+
+pattern findSmartCableOnCore {
+	[=] core: Core {
+		[=] -cable -> cable
+	}
+
+	[=] cable: SmartCable
+};
+
+pattern findDenseCableOnCore {
+	[=] core: Core {
+		[=] -cable -> cable
+	}
+
+	[=] cable: DenseCable
+};
+
+abstract rule cable(color: COLOR, id: EInt) { 
+	[=] core: Core {
+		[+]  -cable -> cable 
+	}
+	
+	[=] system: MESystem {
+		[=] -core -> core
+	}
+
+	[+] cable: Cable {
+		.color:=parameter.color; 
+		.numOfConnections:=0; 
+		.ID:=parameter.id;
+	}
+	
+	forbid(find5CableOnCore)[core = core]
+	//[#]4 > count(findCableOnCore)[core=core]; 
+};
+
+pattern find5CableOnCore {
+	[=] core: Core {
+		[=] -cable -> cable1
+		[=] -cable -> cable2
+		[=] -cable -> cable3
+		[=] -cable -> cable4
+		[=] -cable -> cable5
+	}
+	[=] local cable1 : Cable
+	[=] local cable2 : Cable
+	[=] local cable3 : Cable
+	[=] local cable4 : Cable
+	[=] local cable5 : Cable
+};
+
+rule smartCable(name: EString, status : EString) refines cable {
+	@refines+ cable.cable
+	[+] cable: SmartCable {
+		.maxConnections:=8;
+		.status := parameter.status;
+		.name := parameter.name;
+	}	
+	//forbid(find5CableOnCore)[core = core]
+	forbid(findDenseCableOnCore)[core=core]
+};
+
+rule denseCable(name: EString, thickness: EInt) refines cable {
+	@refines+ cable.cable
+	[+] cable: DenseCable {
+		.maxConnections:=32;
+		.name := parameter.name;
+		.thickness := parameter.thickness;
+	}	
+	forbid(findSmartCableOnCore)[core=core]
+};
+
+pattern findBusOnCable {
+	[=] cable: Cable {
+		[=] -bus -> bus
+	}
+
+	[=] bus: Bus
+	
+	//enforce(findInterfaceOnCable)[cable=cable]
+};
+
+pattern findInterfaceOnCable {
+	[=] cable: Cable {
+		[=] -interfaces -> interfaces
+	}
+
+	[=] interfaces: Interface
+};
+
+pattern findMEInterfaceOnCable {
+	[=] cable: Cable {
+		[=] -interfaces -> interfaces
+	}
+
+	[=] interfaces: MEInterface
+};
+
+pattern findTerminalOnCable {
+	[=] cable: Cable {
+		[=] -interfaces -> interfaces
+	}
+
+	[=] interfaces: Terminal
+};
+
+rule bus(name : EString, speed: EInt) { 
+	[=] cable: Cable {
+		[+]  -bus -> bus 
+	}
+	
+	[=] core: Core {
+		[+]  -cable -> cable 
+	}
+	
+	[=] system: MESystem {
+		[=] -core -> core
+	}
+
+	[+] bus: Bus {
+		.name := parameter.name;
+		.speed := parameter.speed;
+	}
+	
+	forbid(find5BusOnCable)[cable=cable]
+	//[#]cable.maxConnections > (count(findBusOnCable)[cable=cable] + count(findInterfaceOnCable)[cable=cable]); 
+};
+
+pattern find5BusOnCable {
+	[=] cable: Cable {
+		[=] -bus -> bus1
+		[=] -bus -> bus2
+		[=] -bus -> bus3
+		[=] -bus -> bus4
+		[=] -bus -> bus5
+	}
+	[=] bus1 : Bus
+	[=] bus2 : Bus
+	[=] bus3 : Bus
+	[=] bus4 : Bus
+	[=] bus5 : Bus
+};
+
+pattern find5InterfaceOnCable {
+	[=] cable: Cable {
+		[=] -interfaces -> interfaces1
+		[=] -interfaces -> interfaces2
+		[=] -interfaces -> interfaces3
+		[=] -interfaces -> interfaces4
+		[=] -interfaces -> interfaces5
+	}
+	[=] local interfaces1 : Interface
+	[=] interfaces2 : Interface
+	[=] interfaces3 : Interface
+	[=] local interfaces4 : Interface
+	[=] interfaces5 : Interface
+};
+
+
+
+abstract rule interfaces { 
+	[=] cable: Cable {
+		[+]  -interfaces -> interfaces 
+	}
+	
+	[=] core: Core {
+		[+]  -cable -> cable 
+	}
+	
+	[=] system: MESystem {
+		[=] -core -> core
+	}
+
+	[+] interfaces: Interface {
+	}
+	
+	forbid(find5InterfaceOnCable)[cable=cable]
+	//[#]cable.maxConnections > (count(findBusOnCable)[cable=cable] + count(findInterfaceOnCable)[cable=cable]); 
+};
+
+rule terminal(name : EString) refines interfaces{
+	@refines+ interfaces.interfaces
+	[+] interfaces : Terminal{
+		.name := parameter.name;
+	}
+	forbid(findMEInterfaceOnCable)[cable=cable]
+};
+
+abstract rule device { 
+	[=] cable: Cable {
+		[+]  -bus -> bus 
+	}
+	
+	[=] core: Core {
+		[+]  -cable -> cable 
+	}
+	
+	[=] system: MESystem {
+		[=] -core -> core
+	}
+
+	[=] bus: Bus {
+		[+] -device -> device
+	}
+	
+	[+] device : Device
+	
+	forbid(findDeviceOnBus)[bus=bus]
+};
+
+pattern findDeviceOnBus{
+	[=] device2: Device
+	[=] bus : Bus {
+		[=] -device -> device2
+	}
+};
+
+rule drive refines device {
+	@refines+ device.device
+	[+] device: Drive {
+	}	
+	forbid(findDrive)[bus=bus]
+};
+
+pattern findDrive {
+	[=] bus: Bus {
+		[=] -device -> drive
+	}
+
+	[=] drive: Drive
+};
+
+
+abstract rule storageCell{ 
+	[=] cable: Cable {
+		[+]  -bus -> bus 
+	}
+	
+	[=] core: Core {
+		[+]  -cable -> cable 
+	}
+	
+	[=] system: MESystem {
+		[=] -core -> core
+	}
+
+	[=] bus: Bus {
+		[=] -device -> device
+	}
+	
+	[=] device : Drive{
+		[+] -storageCells -> storageCell
+	}
+	
+	[+] storageCell : StorageCell{
+		.numOfItems:=0;
+	}
+	
+	forbid(findDeviceOnBus)[bus=bus]
+	enforce(findStorageCell)[device=drive]
+	forbid(find5StorageCells)[device=drive]
+};
+
+pattern find5StorageCells {
+	[=] drive: Drive {
+		[=] -storageCells -> storageCells1
+		[=] -storageCells -> storageCells2
+		[=] -storageCells -> storageCells3
+		[=] -storageCells -> storageCells4
+		[=] -storageCells -> storageCells5
+	}
+	[=] storageCells1 : StorageCell
+	[=] local storageCells2 : StorageCell
+	[=] local storageCells3 : StorageCell
+	[=] local storageCells4 : StorageCell
+	[=] local storageCells5 : StorageCell
+};
+
+pattern findStorageCell {
+	[=] drive: Drive {
+		[=] -storageCells -> sc
+	}
+
+	[=] sc: StorageCell
+};
+
+pattern find1KStorageCell {
+	[=] drive: Drive {
+		[=] -storageCells -> sc
+	}
+
+	[=] sc: StorageCell1K
+};
+
+pattern find4KStorageCell {
+	[=] drive: Drive {
+		[=] -storageCells -> sc
+	}
+
+	[=] sc: StorageCell4K
+};
+
+pattern find16KStorageCell {
+	[=] drive: Drive {
+		[=] -storageCells -> sc
+	}
+
+	[=] sc: StorageCell16K
+};
+
+pattern find64KStorageCell {
+	[=] drive: Drive {
+		[=] -storageCells -> sc
+	}
+
+	[=] sc: StorageCell64K
+};
+
+rule storageCell1K(name : EString, size : EInt) refines storageCell{
+	@refines+ storageCell.storageCell
+	[+] storageCell : StorageCell1K{
+		.name := parameter.name;
+		.size := parameter.size;
+	}
+	forbid(find1KStorageCell)[device=drive]
+};
+
+rule storageCell4K(name : EString, size : EInt) refines storageCell{
+	@refines+ storageCell.storageCell
+	[+] storageCell : StorageCell4K{
+		.name := parameter.name;
+		.size := parameter.size;
+	}
+	forbid(find4KStorageCell)[device=drive]
+};
+
+rule storageCell16K(name : EString, size : EInt) refines storageCell{
+	@refines+ storageCell.storageCell
+	[+] storageCell : StorageCell16K{
+		.name := parameter.name;
+		.size := parameter.size;
+	}
+	forbid(find16KStorageCell)[device=drive]
+};
+
+rule storageCell64K(name : EString, size : EInt) refines storageCell{
+	@refines+ storageCell.storageCell
+	[+] storageCell : StorageCell64K{
+		.name := parameter.name;
+		.size := parameter.size;
+	}
+	forbid(find64KStorageCell)[device=drive]
+};
+
+rule itemInStorage(name:EString) { 
+	[=] cable: Cable {
+		[+]  -bus -> bus 
+	}
+	
+	[=] core: Core {
+		[+]  -cable -> cable 
+	}
+	
+	[=] system: MESystem {
+		[=] -core -> core
+	}
+
+	[=] bus: Bus {
+		[=] -device -> device
+	}
+	
+	[=] device : Drive{
+		[=] -storageCells -> storageCell
+	}
+	
+	[=] storageCell : StorageCell{
+		.numOfItems:= (storageCell.numOfItems + 1);
+		[+] -items -> items
+	}
+	
+	[+] items : ItemInStorage{
+		.name := parameter.name;
+	}
+	
+	forbid(find10Items)[storageCell = storagecell]
+	//[#]storageCell.maxItems > count(storageCell.numOfItems + parameter.amount);
+};
+
+pattern find10Items {
+	[=] storagecell: StorageCell {
+		[=] -items -> item1
+		[=] -items -> item2
+		[=] -items -> item3
+		[=] -items -> item4
+		[=] -items -> item5
+		[=] -items -> item6
+		[=] -items -> item7
+		[=] -items -> item8
+		[=] -items -> item9
+		[=] -items -> item10
+	}
+	[=] item1 : ItemInStorage
+	[=] local item2 : ItemInStorage
+	[=] local item3 : ItemInStorage
+	[=] item4 : ItemInStorage
+	[=] local item5 : ItemInStorage
+	[=] local item6 : ItemInStorage
+	[=] item7 : ItemInStorage
+	[=] local item8 : ItemInStorage
+	[=] local item9 : ItemInStorage
+	[=] local item10 : ItemInStorage
+};
+
+rule meinterface(name : EString) refines interfaces{
+	@refines+ interfaces.interfaces
+	[+] interfaces : MEInterface{
+		.name := parameter.name;
+	}
+	forbid(findTerminalOnCable)[cable=cable]
+};
+
+rule recipe(name:EString, num:EInt, numOfSteps:EInt) { 
+    [=] cable: Cable {
+        [+] -interfaces -> interfaces 
+    }
+    
+    [=] core: Core {
+        [+] -cable -> cable 
+    }
+    
+    [=] system: MESystem {
+        [=] -core -> core
+    }
+
+    [=] interfaces: MEInterface {
+        [+] -recipe -> recipe
+    }
+    
+    [+] recipe : Recipe {
+        .name := parameter.name;
+        .numOfItems := parameter.num;
+        .numOfSteps := parameter.numOfSteps;
+    }
+    
+    forbid(find5RecipeOnTerminal)[interfaces=interfaces]
+    enforce(findDrive)[]
+    enforce(findStorageCell)[]
+};
+
+
+
+pattern find5RecipeOnTerminal {
+	[=] interfaces: MEInterface {
+		[=] -recipe -> recipe1
+		[=] -recipe -> recipe2
+		[=] -recipe -> recipe3
+		[=] -recipe -> recipe4
+		[=] -recipe -> recipe5
+	}
+	[=] recipe1 : Recipe
+	[=] recipe2 : Recipe
+	[=] recipe3 : Recipe
+	[=] recipe4 : Recipe
+	[=] recipe5 : Recipe
+};
+
+rule item(name:EString) { 
+	[=] cable: Cable {
+		[+]  -interfaces -> interfaces 
+	}
+	
+	[=] core: Core {
+		[+]  -cable -> cable 
+	}
+	
+	[=] system: MESystem {
+		[=] -core -> core
+	}
+
+	[=] interfaces: MEInterface {
+		[=] -recipe -> recipe
+	}
+	
+	[=] recipe : Recipe{
+		[+] -item -> item
+	}
+	
+	[+] item : Item{
+		.name:=parameter.name;
+	} 
+	
+	forbid(find9ItemsInRecipe)[recipe=recipe]
+	//[#]9 > count(findItemInRecipe)[recipe=recipe];
+};
+
+pattern find9ItemsInRecipe {
+	[=] recipe: Recipe {
+		[=] -item -> item1
+		[=] -item -> item2
+		[=] -item -> item3
+		[=] -item -> item4
+		[=] -item -> item5
+		[=] -item -> item6
+		[=] -item -> item7
+		[=] -item -> item8
+		[=] -item -> item9
+	}
+	[=] item1 : Item
+	[=] item2 : Item
+	[=] item3 : Item
+	[=] item4 : Item
+	[=] item5 : Item
+	[=] item6 : Item
+	[=] item7 : Item
+	[=] item8 : Item
+	[=] item9 : Item
+};
+
+pattern findItemInRecipe {
+	[=] recipe: Recipe {
+		[=] -item -> items
+	}
+
+	[=] items: Item
+};
+
+rule craftRecipe(name:EString){
+	[=] cable: Cable {
+		[+]  -bus -> bus 
+	}
+	
+	[=] core: Core {
+		[+]  -cable -> cable 
+	}
+	
+	[=] system: MESystem {
+		[=] -core -> core
+	}
+
+	[=] bus: Bus {
+		[=] -device -> device
+	}
+	
+	[=] device : Drive{
+		[=] -storageCells -> storageCell
+	}
+	
+	[=] storageCell : StorageCell{
+		.numOfItems:= (storageCell.numOfItems + 1);
+		[+] -items -> items
+	}
+	
+	[+] items : ItemInStorage{
+		.name := parameter.name;
+	}
+	
+	//enforce(find1ItemInStorage)[items=item1]
+};
+
+pattern find1ItemInStorage{
+	[=] storageCell: StorageCell{
+		[=] -items -> item1
+	}
+	
+	[=] item1: ItemInStorage
+};
+
+rule deleteItem(item: EString) {
+    [-] item: ItemInStorage {
+    }
+    [=] storageCell: StorageCell {
+        [-] -items -> item
+    }
+    [#] item.name == parameter.item;
+};
+
+rule releasePatient(name:EString){
+	[-] item: ItemInStorage{
+	}
+	[=] storageCell: StorageCell{
+		[-] -items -> item
+	}
+	enforce(find1ItemInStorage)[storageCell=storageCell]
+	[#]item.name==parameter.name;
+};
+
+
+rule deleteCore {
+    [-] core: Core {
+    }
+    [=] system: MESystem {
+        [-] -core -> core
+    }
+};
+
+rule deleteSmartCable{
+    [-] cable: SmartCable {
+    }
+    [=] core: Core {
+        [-] -cable -> cable
+    }
+};
+
+
+rule deleteDenseCable{
+    [-] cable: DenseCable {
+    }
+    [=] core: Core {
+        [-] -cable -> cable
+    }
+};
+
+
+rule deleteBus {
+    [-] bus: Bus {
+    }
+    [=] cable: Cable {
+        [-] -bus -> bus
+    }
+};
+
+
+rule deleteTerminal {
+    [-] terminal: Terminal {
+    }
+    [=] cable: Cable {
+        [-] -interfaces -> terminal
+    }
+};
+
+
+rule deleteStorageCell {
+    [-] storageCell: StorageCell {
+    }
+    [=] drive: Drive {
+        [-] -storageCells -> storageCell
+    }
+};
+
+
+rule deleteItemInStorage(item: EString) {
+    [-] item: ItemInStorage {
+    }
+    [=] storageCell: StorageCell {
+        [-] -items -> item
+    }
+    [#] item.name == parameter.item;
+};
+
+rule findRecipeByName(name: EString) {
+	[=] recipe: Recipe {
+	}
+	[#] recipe.name == parameter.name;
+};
+
+rule changeRecipeName(name: EString, newName: EString) {
+	[=] recipe: Recipe {
+		.name := parameter.newName;
+	}
+	[#] recipe.name == parameter.name;
+};
+
+rule findMEInterfaceByName(name: EString) {
+	[=] meinterface: MEInterface { }
+	[#] meinterface.name == parameter.name;
+};
+
+rule changeItemWeight(name: EString, newWeight: EInt) {
+    [=] item: Item {
+        .weight := parameter.newWeight;
+    }
+    [#] item.name == parameter.name;
+};
+
+rule findItemByWeight(weight: EInt) {
+	[=] item: Item { }
+	[#] item.weight == parameter.weight;
+};
+
+rule changeTerminalType(name: EString, newType: EString) {
+    [=] terminal: Terminal {
+        .type := parameter.newType;
+    }
+    [#] terminal.name == parameter.name;
+};
+
+rule findTerminalByType(type: EString) {
+	[=] terminal: Terminal { }
+	[#] terminal.type == parameter.type;
+};
+
+rule findRecipeByNumOfSteps(numOfSteps: EInt) {
+	[=] recipe: Recipe { }
+	[#] recipe.numOfSteps == parameter.numOfSteps;
+};
+
+rule findRecipeByNumOfItems(numOfItems: EInt) {
+	[=] recipe: Recipe { }
+	[#] recipe.numOfItems == parameter.numOfItems;
+};
+
+rule changeRecipeNumOfItems(name: EString, newNumOfItems: EInt) {
+	[=] recipe: Recipe {
+		.numOfItems := parameter.newNumOfItems;
+	}
+	[#] recipe.name == parameter.name;
+};
+
+rule changeCableNumOfConnections(cableId: EInt, newNumOfConnections: EInt) {
+    [=] cable: Cable {
+        .numOfConnections := parameter.newNumOfConnections;
+    }
+    [#] cable.ID == parameter.cableId;
+};
+
+rule changeCableMaxConnections(cableId: EInt, newMaxConnections: EInt) {
+    [=] cable: Cable {
+        .maxConnections := parameter.newMaxConnections;
+    }
+    [#] cable.ID == parameter.cableId;
+};
+
+rule changeCableColor(cableId: EInt, newColor: COLOR) {
+    [=] cable: Cable {
+        .color := parameter.newColor;
+    }
+    [#] cable.ID == parameter.cableId;
+};
+
+rule findCableById(cableId: EInt) {
+    [=] cable: Cable {
+    }
+    [#] cable.ID == parameter.cableId;
+};
+
+rule changeRecipeNumOfSteps(name: EString, newNumOfSteps: EInt) {
+    [=] recipe: Recipe {
+        .numOfSteps := parameter.newNumOfSteps;
+    }
+    [#] recipe.name == parameter.name;
+};
+rule findSmartCableByStatus(status: EString) {
+    [=] smartCable: SmartCable { }
+    [#] smartCable.status == parameter.status;
+};
+
+rule findSmartCableByColor(color: COLOR) {
+    [=] smartCable: SmartCable { }
+    [#] smartCable.color == parameter.color;
+};
+rule changeSmartCableStatus(name: EString, newStatus: EString) {
+    [=] smartCable: SmartCable {
+        .status := parameter.newStatus;
+    }
+    [#] smartCable.name == parameter.name;
+};
+
+rule changeSmartCableColor(name: EString, newColor: COLOR) {
+    [=] smartCable: SmartCable {
+        .color := parameter.newColor;
+    }
+    [#] smartCable.name == parameter.name;
+};
+rule findSmartCableNumOfConnections(numOfConnections: EInt) {
+    [=] smartCable: SmartCable { }
+    [#] smartCable.numOfConnections == parameter.numOfConnections;
+};
+rule changeSmartCableNumOfConnections(name: EString, newNumOfConnections: EInt) {
+    [=] smartCable: SmartCable {
+        .numOfConnections := parameter.newNumOfConnections;
+    }
+    [#] smartCable.name == parameter.name;
+};
+rule findDenseCableByThickness(thickness: EInt) {
+    [=] denseCable: DenseCable { }
+    [#] denseCable.thickness == parameter.thickness;
+};
+rule changeDenseCableThickness(name: EString, newThickness: EInt) {
+    [=] denseCable: DenseCable {
+        .thickness := parameter.newThickness;
+    }
+    [#] denseCable.name == parameter.name;
+};
+rule findDenseCableMaxConnections(maxConnections: EInt) {
+    [=] denseCable: DenseCable { }
+    [#] denseCable.maxConnections == parameter.maxConnections;
+};
+rule changeDenseCableMaxConnections(name: EString, newMaxConnections: EInt) {
+    [=] denseCable: DenseCable {
+        .maxConnections := parameter.newMaxConnections;
+    }
+    [#] denseCable.name == parameter.name;
+};
+rule changeStorageCellSize(name: EString, newSize: EInt) {
+    [=] storageCell: StorageCell {
+        .size := parameter.newSize;
+    }
+    [#] storageCell.name == parameter.name;
+};
+rule findStorageCellBySize(size: EInt) {
+    [=] storageCell: StorageCell { }
+    [#] storageCell.size == parameter.size;
+};
+rule findBusBySpeed(speed: EInt) {
+    [=] bus: Bus { }
+    [#] bus.speed == parameter.speed;
+};
+rule changeBusSpeed(name: EString, newSpeed: EInt) {
+    [=] bus: Bus {
+        .speed := parameter.newSpeed;
+    }
+    [#] bus.name == parameter.name;
+};
+rule changeCorePowerOutput(name: EString, newPowerOutput: EInt) {
+    [=] core: Core {
+        .powerOutput := parameter.newPowerOutput;
+    }
+    [#] core.name == parameter.name;
+};
+rule findCoreByPowerOutput(powerOutput: EInt) {
+    [=] core: Core { }
+    [#] core.powerOutput == parameter.powerOutput;
+};
+rule changeMEInterfaceName(name: EString, newName: EString) {
+    [=] meinterface: MEInterface {
+        .name := parameter.newName;
+    }
+    [#] meinterface.name == parameter.name;
+};
+rule findItemByName(name: EString) {
+    [=] item: Item { }
+    [#] item.name == parameter.name;
+};
+rule changeItemName(name: EString, newName: EString) {
+    [=] item: Item {
+        .name := parameter.newName;
+    }
+    [#] item.name == parameter.name;
+};
+rule findItemInStorageByName(name: EString) {
+    [=] itemInStorage: ItemInStorage { }
+    [#] itemInStorage.name == parameter.name;
+};
+rule changeItemInStorageName(name: EString, newName: EString) {
+    [=] itemInStorage: ItemInStorage {
+        .name := parameter.newName;
+    }
+    [#] itemInStorage.name == parameter.name;
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

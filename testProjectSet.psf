@@ -49,6 +49,8 @@
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,ITLanguage"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,Java"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,Java2Doc"/>
+<project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,MESystem"/>
+<project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,MESystem-GT"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,MetamodelInheritance"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,MetamodelInheritance-GT"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,MetamodelInheritance2"/>
@@ -154,6 +156,7 @@
 <item elementID="=SheRememberedCaterpillars-GT" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=Triangles-GT" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=VoterModel-GT" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=MESystem-GT" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 </workingSets>
 <workingSets editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" id="1611411207422_13" label="gt-metamodels" name="gt-metamodels">
 <item elementID="=SimpleNetwork" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
@@ -171,6 +174,7 @@
 <item elementID="=SimpleChemistry" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=GroupVotersModel" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=HospitalExample" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=MESystem" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 </workingSets>
 <workingSets editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" id="1544812013290_7" label="testsuites" name="testsuites">
 <item elementID="=TestsuiteGT" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
