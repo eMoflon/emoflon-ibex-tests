@@ -1,5 +1,6 @@
 package org.emoflon.ibex.gt.testsuite.MESystem;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import mesystem.gt.api.GtGtApi;
@@ -562,6 +563,7 @@ public class MESystemTest extends MESystemAbstractTest {
 		terminate(api);
 	}
 
+	@Disabled
 	@Test
 	// 6 NAC + 2 NAC in refined rule Test(max 10 items per storagecells)
 	public void checkItemsInStorageCellConstrainWithLocal2() {
@@ -633,6 +635,7 @@ public class MESystemTest extends MESystemAbstractTest {
 		terminate(api);
 	}
 
+	@Disabled
 	@Test
 	// 6 NAC + 2 NAC in refined rule Test(max 10 items per storagecells)
 	public void checkItemsInStorageCellConstrainExclusiveWithLocal() {

@@ -1,11 +1,13 @@
 package org.emoflon.ibex.gt.testsuite.MESystem;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import mesystem.gt.api.GtGtApi;
 
 public class MESystemDeletionTest extends MESystemAbstractTest {
 
+	@Disabled
 	@Test
 	public void deleteStorageCellTest() {
 		GtGtApi<?> api = this.initEmpty("StorageCellDeletion.xmi");

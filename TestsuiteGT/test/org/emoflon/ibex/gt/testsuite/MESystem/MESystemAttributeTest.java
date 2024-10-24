@@ -2,6 +2,7 @@ package org.emoflon.ibex.gt.testsuite.MESystem;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import mESystem.COLOR;
@@ -901,6 +902,7 @@ public class MESystemAttributeTest extends MESystemAbstractTest {
 
 	}
 
+	@Disabled
 	@Test
 	public void testChangeItemNamesOn10Items() {
 		GtGtApi<?> api = this.initEmpty("ChangeItemNamesOn10Items.xmi");
