@@ -19,7 +19,7 @@ public class InternalExpressLexer extends Lexer {
     public static final int T__37=37;
     public static final int T__16=16;
     public static final int T__38=38;
-    public static final int T__17=21;
+    public static final int T__17=17;
     public static final int T__39=39;
     public static final int T__18=18;
     public static final int T__11=11;
