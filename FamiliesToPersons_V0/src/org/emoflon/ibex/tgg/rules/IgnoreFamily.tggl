@@ -1,0 +1,25 @@
+rule IgnoreFamily {
+	
+	source { 
+		[=] fr:Fam.FamilyRegister {
+		 	[+] -families->f
+		}
+		
+		[+] f:Fam.Family {
+			.name:="Test";
+		}
+	}
+	
+	target {
+		[=] pr:Per.PersonRegister
+	}
+	
+	correspondence {
+		[=] fr2pr:RegisterToRegister
+		{
+			src->fr
+			trg->pr
+		}
+	}
+
+}

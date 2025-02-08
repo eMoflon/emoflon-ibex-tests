@@ -1,0 +1,51 @@
+rule Glossary {
+	
+	source {
+		
+	}
+	
+	target {
+		[=] dc:D.DocContainer {
+			[+] -glossary->g
+		}
+		
+		[+] g:D.Glossary
+	}
+
+}
+
+
+
+rule GlossaryEntry {
+	
+	source {
+		
+	}
+	
+	target {
+		[=] g:D.Glossary {
+			[+] -entries->ge
+		}
+		
+		[+] ge:D.GlossaryEntry
+	}
+	
+}
+
+
+
+rule GlossaryLink {
+	
+	source {
+		
+	}
+	
+	target {
+		[=] et:D.Entry {
+			[+] -glossaryEntries->ge
+		}
+		[=] ge:D.GlossaryEntry
+	}
+
+}
+

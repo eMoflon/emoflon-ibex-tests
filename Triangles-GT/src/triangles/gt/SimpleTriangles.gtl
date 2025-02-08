@@ -1,0 +1,99 @@
+package triangles.gt
+import "platform:/resource/Triangles/model/Triangles.ecore"
+
+pattern simpleTriangle1 { 
+	[=] a: A_Class {
+		[=] -c->c
+		[=] -b->b
+	}
+	
+	[=] b: B_Class{ 
+		[=] -c->c
+	}
+	
+	[=] c: C_Class {
+		
+	}
+};
+
+pattern simpleTriangle2 {
+	[=] a: A_Class {
+		[=] -c->c
+		[=] -b->b
+	}
+	
+	[=] b: B_Class{ 
+		
+	}
+	
+	[=] c: C_Class {
+		[=] -b->b
+	}
+};
+
+pattern simpleTriangle3 {
+	[=] a: A_Class {
+		[=] -b->b
+	}
+	
+	[=] b: B_Class{ 
+		[=] -c->c
+	}
+	
+	[=] c: C_Class {
+		[=] -a->a
+	}
+};
+
+pattern simpleTriangle4 {
+	[=] a: A_Class {
+		[=] -c->c
+	}
+	
+	[=] b: B_Class{ 
+		[=] -a->a
+	}
+	
+	[=] c: C_Class {
+		[=] -b->b
+	}
+};
+
+//condition findTriangle1 = enforce simpleTriangle1
+//condition findBToEReference = enforce bToEReference
+//condition forbidBToEReference = forbid bToEReference
+//condition forbidDToAReference = forbid dToAReference
+
+pattern invocationTriangle1 {
+	[=] d : D_Class {
+		[=] -a->a
+	}
+	
+	[=] a : A_Class
+	
+	enforce(simpleTriangle1)[a=a]
+};
+//when findTriangle1
+
+pattern bToEReference {
+	[=] b : B_Class 
+	
+	[=] e1 : E_Class {
+		[=] -b->b
+	}
+};
+
+pattern dToAReference {
+	[=] a : A_Class {
+		
+	}
+	
+	[=] d : D_Class {
+		[=] -a->a
+	}
+};
+
+pattern invocationTriangle2 refines simpleTriangle2 {
+	enforce(bToEReference)[b=b]
+};
+//when findBToEReference

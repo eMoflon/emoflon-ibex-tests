@@ -1,0 +1,66 @@
+rule MethodDec2Operation4Class refines MethodDec2Operation4_Abstract {
+	source { 
+	
+		@refines= MethodDec2Operation4_Abstract.classDec
+		[=] classDec : Java.ClassDeclaration {
+		}
+		
+	
+	}
+	
+	target {
+		[=] umlClass : UML2.Clazz {
+			[+] -ownedOperation->operation
+		}
+		
+		@refines+ MethodDec2Operation4_Abstract.operation
+		[+] operation : UML2.Operation{
+	
+		}
+	
+	}
+	
+	correspondence {
+		[=] cd2c : JavaType2UMLType {
+			src->classDec
+			trg->umlClass
+		}
+	
+	}
+	
+}
+
+
+
+rule MethodDec2Operation4Enum refines MethodDec2Operation4_Abstract {
+	
+	source { 
+	
+		@refines= MethodDec2Operation4_Abstract.classDec
+		[=] classDec : Java.EnumDeclaration {
+		}
+		
+	
+	}
+	
+	target {
+		[=] umlClass : UML2.Enumeration {
+			[+] -ownedOperation->operation
+		}
+		
+		@refines+ MethodDec2Operation4_Abstract.operation
+		[+] operation : UML2.Operation{
+	
+		}
+	
+	}
+	
+	correspondence {
+		[=] cd2c : JavaType2UMLType {
+			src->classDec
+			trg->umlClass
+		}
+	
+	}
+}
+

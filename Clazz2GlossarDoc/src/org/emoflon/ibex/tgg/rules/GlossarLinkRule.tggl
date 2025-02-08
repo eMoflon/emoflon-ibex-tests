@@ -1,0 +1,14 @@
+rule GlossarLinkRule {
+	
+	source {
+		
+	}
+	
+	target {
+		[=] entry : D.Entry {
+			[+] -glossarentries -> gEntry
+		}
+		[=] gEntry : D.GlossarEntry
+	}
+
+}

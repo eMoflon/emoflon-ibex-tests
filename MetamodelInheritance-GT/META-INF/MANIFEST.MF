@@ -1,0 +1,21 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: MetamodelInheritance-GT
+Bundle-ManifestVersion: 2
+Bundle-Name: MetamodelInheritance-GT
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: MetamodelInheritance-GT; singleton:=true
+Bundle-ActivationPolicy: lazy
+Import-Package: org.apache.log4j,
+ org.apache.commons.logging
+Bundle-RequiredExecutionEnvironment: JavaSE-21
+Require-Bundle: org.emoflon.ibex.common,
+ org.emoflon.ibex.gt,
+ org.emoflon.ibex.gt.gtmodel,
+ org.emoflon.ibex.gt.hipe,
+ MetamodelInheritance,
+ MetamodelInheritance2,
+ MetamodelInheritance3
+Export-Package: metamodelinheritance.gt.api,
+ metamodelinheritance.gt.api.match,
+ metamodelinheritance.gt.api.pattern

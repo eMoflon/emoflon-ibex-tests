@@ -1,0 +1,36 @@
+import "platform:/resource/TerraceHouses/model/TerraceHouses.ecore" using TerraceHouses as TH
+import "platform:/resource/WoodenBlockSet/model/WoodenBlockSet.ecore" using WoodenBlockSet as WB
+
+schema TerraceHouses2BlockSet {
+	source {
+		TerraceHouses
+	}
+	
+	target { 
+		WoodenBlockSet
+	} 
+	
+	correspondence {
+		District2Playroom {
+			src->TH.District
+			trg->WB.Playroom
+		}
+		
+		Structure2Construction {
+			src->TH.Structure
+			trg->WB.Construction
+		}
+		
+		Skyway2Printed3DShape {
+			src->TH.Skyway
+			trg->WB.Printed3DShape
+		}
+		
+		House2Printed3DShape {
+			src->TH.House
+			trg->WB.Printed3DShape
+		}
+	}
+}
+	
+

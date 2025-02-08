@@ -1,0 +1,47 @@
+
+rule FieldDec2Property {
+	source { 
+		[=] jOwnerType : Java.ClassDeclaration{
+			[+] -bodyDeclarations->jField
+		}
+		
+		[+] jField : Java.FieldDeclaration{
+			[+] -fragments->vdf
+		}
+		
+	
+		
+		[+] vdf : Java.VariableDeclarationFragment{
+			
+		}
+	
+	}
+	
+	target {
+		[=] uOwnerType : UML2.Clazz{
+			[+] -ownedAttribute->property
+		}
+		
+		[+] property : UML2.Property{
+	
+		}
+		
+	}
+	
+	correspondence {
+		[=] jo2uo : JavaType2UMLType{
+			src->jOwnerType
+			trg->uOwnerType
+		}
+			
+		[+] f2p : FieldDec2Property{
+			src->jField
+			trg->property
+		}
+	}
+	
+	attributeConditions {
+		DefaultAttributeConditionLibrary.eq_string(vdf.name, property.name)
+	}
+	
+}

@@ -1,0 +1,30 @@
+package classmultipleinheritance.gt
+import "http://www.eclipse.org/emf/2002/Ecore"
+import "platform:/resource/ClassMultipleInheritanceHierarchy/model/ClassMultipleInheritanceHierarchy.ecore"
+
+/**
+ * Deletes a package.
+ */
+rule deletePackage {
+	[-] pkg: ClassPackage
+	forbid(findClassInPackage)[pkg = pkg]
+};
+
+/**
+ * Deletes the package with the given name.
+ */
+rule deletePackageByName(name: EString) {
+	[-] pkg: ClassPackage
+	[#] pkg.name == parameter.name;        
+};
+
+/** 
+ * Deletes a class.
+ */
+rule deleteClass {
+	[-] clazz: Clazz
+
+	[=] pkg: ClassPackage {
+		[-] -classes -> clazz
+	}
+};

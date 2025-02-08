@@ -1,0 +1,246 @@
+package network.gt1
+import "http://www.eclipse.org/emf/2002/Ecore"
+import "platform:/resource/SimpleNetwork/model/SimpleNetwork.ecore"
+
+rule connect{
+	[=] network: Network{
+		[+] -connections -> connection
+	}
+	
+	[=] src: Device{ 
+		.maxBandwidth := src.maxBandwidth -3.0;
+		.currentConnections := src.currentConnections+1;
+		[+] -connections -> connection
+	}
+	[#] src.maxBandwidth >=3.0;
+	
+	[=] to: Device{
+		.maxBandwidth := to.maxBandwidth -3;
+		.currentConnections := to.currentConnections+1;
+		[+] -connections -> connection
+	}
+	[#] to.maxBandwidth >= 3.0;
+	
+	[+] connection: Connection{
+		[+] -devices ->src
+		[+] -devices ->to
+	}
+};
+
+rule connectedCalculate{
+	[=] network: Network{
+		[=] -connections -> connection
+	}
+	
+	[=] src: Device{
+		[=] -connections -> connection
+		.otherValue := -(src.maxBandwidth);
+	}
+	
+	[=] to: Device{
+		[=] -connections -> connection
+		.otherValue := -(3+to.currentConnections);
+	}
+	
+	[=] connection: Connection{
+		[=] -devices ->src
+		[=] -devices ->to
+		.bandwidth := e pow (-(to.currentConnections));
+		.flag := (3+to.currentConnections)%4;
+	}
+};
+
+rule generateDevice{
+	[=] network: Network {
+		.deviceNumber := network.deviceNumber -1;
+	}
+	[#] network.deviceNumber > 0;
+	
+	[+] device: Device
+};
+
+rule generatedCalculate1{
+	[=] network: Network {
+		.maxBandwidth := network.maxBandwidth - network.maxBandwidth/network.deviceNumber;
+	}
+	[=] device: Device
+};
+
+rule generatedCalculate2{
+	[=] network: Network
+	[=] device: Device {
+		.maxBandwidth := network.maxBandwidth/network.deviceNumber;
+		.flag := network.maxBandwidth%6;
+	}
+};
+
+rule generatedCalculate3{
+	[=] network: Network
+	[=] device: Device {
+		.maxConnections := (network.maxBandwidth) log e;
+	}
+};
+
+rule testFunctions{
+	[=] device1: Device {
+		.maxBandwidth := device1.maxConnections log 10;
+	}
+	[#] device1.maxBandwidth > 0.0;
+	
+	[=] device2: Device {
+		.flag := tan(device2.maxBandwidth);
+		.otherValue := e pow -(device2.maxConnections);
+	}
+	[#] device2.maxBandwidth > 0.0;
+};
+
+
+rule testFunctionsCalculate {
+	[=] device1: Device {
+		.flag := sqrt(device1.maxBandwidth);
+		.otherValue := abs(-(device1.maxBandwidth));
+	}
+	
+	[=] device2: Device
+};
+
+pattern testConstraint1 {
+	[=] device1: Device
+	[#] device1.maxBandwidth <= device2.maxBandwidth;
+	
+	[=] device2: Device
+};
+
+pattern testConstraint2 {
+	[=] device1: Device
+	[#] device2.currentConnections > 0;
+	[#] device1.maxBandwidth != device2.maxBandwidth/device2.currentConnections+1;
+	
+	[=] device2: Device
+};
+
+pattern testConstraint3{
+	[=] network : Network
+//	[#] network.deviceNumber == count(findDevice)[network=network];
+};
+
+pattern notDisjointtestConstraint1{
+	[=] device1 : Device
+	[=] device2: Device
+	
+	[#]device1.maxBandwidth <= device2.maxBandwidth;
+};
+
+pattern notDisjointtestConstraint2{
+	[=] device1: Device
+	[=] device2: Device
+	
+	[#] device2.currentConnections > 0;
+	[#] device1.maxBandwidth != device2.maxBandwidth/device2.currentConnections+1;
+};
+
+rule createNetwork {
+	[+] network : Network
+};
+
+pattern findNetwork{
+	[=] network : Network
+};
+
+pattern findNetworkWithMoreThan2Devices{
+	[=] network : Network
+	[#] network.deviceNumber == max(network.deviceNumber, 2);
+};
+
+pattern findNetworkWithLessThan2Devices{
+	[=] network : Network
+	[#] network.deviceNumber == min(network.deviceNumber, 2);
+};
+
+rule setNumberOfDevices(num : EInt){
+	[=] network : Network {
+		.deviceNumber := parameter.num;
+	}
+	
+};
+
+rule findAndsetNumberOfDevices{
+	[=] network : Network {
+//		.deviceNumber := count(findDevice)[network=network];
+	} 
+};
+
+rule insertDevicesIntoNetwork {
+	[=] network : Network {
+		[+] -devices->device
+	}
+	  
+	[=] device : Device
+	forbid(findDevice)[network=network, device=device]
+};
+
+pattern findDevice{
+	[=] network : Network {
+		[=] -devices->device
+	}
+	
+	[=] device : Device
+};
+
+pattern findConnection{
+	[=] network : Network {
+		[=] -connections->connection
+	}
+	
+	[=] connection : Connection
+};
+
+pattern findNetworkTrue {
+	[=] network : Network
+	[#] network.flag == true;
+};
+
+pattern findNetworkFalse {
+	[=] network : Network
+	[#] network.flag == false;
+};
+
+pattern watchDog1 {
+	[=] network : Network
+	watch(network.deviceNumber)
+};
+
+pattern watchDog2 refines watchDog1 {
+	@refines= watchDog1.network
+	[=] network : Network {
+		[=] - devices -> device
+	}
+	[=] device : Device
+	watch(device.maxBandwidth)
+
+};
+
+pattern pairOfDevices {
+	[=] d1 : Device
+	[=] d2 : Device
+	watch(d1.flag)
+};
+
+@config(disable-injectivity-constraints)
+pattern pairOfDevicesNoIC {
+	[=] d1 : Device
+	[=] d2 : Device
+};
+
+@config(disable-injectivity-constraints)
+pattern pairOfDevicesManualIC refines pairOfDevices {
+	[#] d1 != d2;
+	watch(d2.flag)
+};
+
+rule removeDevice {
+	[=] network : Network {
+		[-] -devices->device
+	}
+	[-] device : Device
+};

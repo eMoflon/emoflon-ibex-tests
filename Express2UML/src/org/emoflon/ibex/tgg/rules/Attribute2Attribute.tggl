@@ -1,0 +1,75 @@
+rule IntegerAttribute2Integer {
+	
+	source {
+		[+] ia:Express.IntegerAttribute {
+		}
+	
+		[=] et:Express.Entity {
+			[+] -attributes -> ia
+		}
+	}
+	
+	target {
+		[+] i:UML.Integer
+	
+		[=] c:UML.Clazz {
+			[+] -attributes -> i
+		}
+	}
+	
+	correspondence {
+		[=] e2c:Entity2Clazz {
+			src->et
+			trg->c
+		}
+	
+		[+] it2i:IntegerTypeAttribute2Integer {
+			src->ia
+			trg->i
+		}
+	}
+	
+	attributeConditions {
+		DefaultAttributeConditionLibrary.eq_string(ia.name, i.name)
+	}
+
+}
+
+
+
+rule StringAttribute2String {
+	
+	source {
+		[+] sa:Express.StringAttribute {
+		}
+	
+		[=] et:Express.Entity {
+			[+] -attributes -> sa
+		}
+	}
+	
+	target {
+		[+] s:UML.String
+	
+		[=] c:UML.Clazz {
+			[+] -attributes -> s
+		}
+	}
+	
+	correspondence {
+		[=] e2c:Entity2Clazz {
+			src->et
+			trg->c
+		}
+	
+		[+] st2s:StringTypeAttribute2String {
+			src->sa
+			trg->s
+		}
+	}
+	
+	attributeConditions {
+		DefaultAttributeConditionLibrary.eq_string(sa.name, s.name)
+	}
+
+}

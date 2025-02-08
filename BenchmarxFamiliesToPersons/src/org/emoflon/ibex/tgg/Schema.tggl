@@ -1,0 +1,25 @@
+import "platform:/resource/Families/model/Families.ecore" using Families as Fam
+import "platform:/resource/Persons/model/Persons.ecore" using Persons as Per
+
+schema BenchmarxFamiliesToPersons {
+	
+	source {
+		Families
+	}
+	
+	target { 
+		Persons
+	} 
+	
+	correspondence {
+		FamiliesToPersonsCorr{
+			src->Fam.FamilyRegister
+			trg->Per.PersonRegister
+		}
+		FamilyMemberToPerson{
+			src->Fam.FamilyMember
+			trg->Per.Person
+		}
+	}
+
+}

@@ -4,76 +4,94 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import ClassMultipleInheritanceHierarchyGraphTransformation.api.ClassMultipleInheritanceHierarchyGraphTransformationAPI;
-import ClassMultipleInheritanceHierarchyGraphTransformation.api.rules.FindClassInPackagePattern;
 import classMultipleInheritanceHierarchy.ClassPackage;
 import classMultipleInheritanceHierarchy.Clazz;
+import classmultipleinheritance.gt.api.GtGtApi;
+import classmultipleinheritance.gt.api.pattern.FindClassInPackagePattern;
 
 /**
  * Tests for creation rules with the ClassMultipleInheritanceHierarchy Graph
- * Transformation API.
+ * Transformation Api.
  */
 public class ClassMultipleInheritanceRulesTest extends ClassMultipleInheritanceHierarchyAbstractTest {
 
 	@Test
 	public void createPackage() {
-		ClassMultipleInheritanceHierarchyGraphTransformationAPI api = this.init("ModifiedDiagram1.xmi",
-				"ClassDiagram1.xmi");
+		GtGtApi<?> api = this.init("ClassDiagram1.xmi");
 
-		ClassPackage p = assertApplicable(api.createPackage("SecondPackage")).getPkg();
+		api.createPackage().setParameters("SecondPackage");
+		api.updateMatches();
+		ClassPackage p = assertApplicableAndApply(api.createPackage()).pkg();
 		assertMatchCount(2, api.findPackage());
 
-		FindClassInPackagePattern findPackages = api.findClassInPackage().bindPkg(p);
+		FindClassInPackagePattern findPackages = api.findClassInPackage();
+		findPackages.bindPkg(p);
 
 		assertMatchCount(0, findPackages);
-		Clazz a = assertApplicable(api.createClass("SecondA").bindPkg(p)).getClazz();
+		api.createClass().setParameters("SecondA");
+		api.createClass().bindPkg(p);
+		Clazz a = assertApplicableAndApply(api.createClass()).clazz();
 		assertMatchCount(1, findPackages);
 
-		Clazz b = assertApplicable(api.createClassAsSubClass("SecondB") //
-				.bindPkg(p).bindSuperClass(a)).getClazz();
+		api.createClassAsSubClass().setParameters("SecondB");
+		api.createClassAsSubClass().bindPkg(p);
+		api.createClassAsSubClass().bindSuperClass(a);
+		
+		
+		Clazz b = assertApplicableAndApply(api.createClassAsSubClass()).clazz();
 		assertMatchCount(2, findPackages);
 		assertTrue(b.getSuperClass().contains(a));
 
-		saveAndTerminate(api);
+		terminate(api);
 	}
 
 	@Test
 	public void addSuperClass() {
-		ClassMultipleInheritanceHierarchyGraphTransformationAPI api = this.init("ModifiedDiagram2.xmi",
-				"ClassDiagram1.xmi");
+		GtGtApi<?> api = this.init("ClassDiagram1.xmi");
+		api.findClassByName().setParameters("TestA");
+		Clazz a = assertAnyMatchExists(api.findClassByName()).clazz();
+		api.findClassByName().setParameters("TestC");
+		Clazz c = assertAnyMatchExists(api.findClassByName()).clazz();
 
-		Clazz a = assertAnyMatchExists(api.findClassByName("TestA")).getClazz();
-		Clazz c = assertAnyMatchExists(api.findClassByName("TestC")).getClazz();
+		api.addSuperClass().bindClazz(c);
+		api.addSuperClass().bindSuperClass(a);
+		assertApplicableAndApply(api.addSuperClass());
+		
+		api.findSubClass().bindClazz(a);
+		assertMatchCount(3, api.findSubClass());
 
-		assertApplicable(api.addSuperClass().bindClazz(c).bindSuperClass(a));
-		assertMatchCount(3, api.findSubClass().bindClazz(a));
-
-		saveAndTerminate(api);
+		terminate(api);
 	}
 
 	@Test
 	public void renameClass() {
-		ClassMultipleInheritanceHierarchyGraphTransformationAPI api = this.init("ModifiedDiagram3.xmi",
-				"ClassDiagram1.xmi");
+		GtGtApi<?> api = this.init("ClassDiagram1.xmi");
 
-		assertApplicable(api.renameClass("TestA", "TestNew"));
-		assertNoMatch(api.findClassByName("TestA"));
-		assertMatchCount(1, api.findClassByName("TestNew"));
+		api.renameClass().setParameters("TestA", "TestNew");
+		assertApplicableAndApply(api.renameClass());
+		
+		api.findClassByName().setParameters("TestA");
+		assertNoMatch(api.findClassByName());
+		
+		api.findClassByName().setParameters("TestNew");
+		assertMatchCount(1, api.findClassByName());
 
-		saveAndTerminate(api);
+		terminate(api);
 	}
 
 	@Test
 	public void deletePackage() {
-		ClassMultipleInheritanceHierarchyGraphTransformationAPI api = this.init("ModifiedDiagram4.xmi",
-				"ClassDiagram1.xmi");
+		GtGtApi<?> api = this.init("ClassDiagram1.xmi");
 
 		assertMatchCount(1, api.findPackage());
 		assertNotApplicable(api.deletePackage());
 		assertMatchCount(1, api.findPackage());
-		assertApplicable(api.deletePackageByName("TestPackage"));
+		
+		api.deletePackageByName().setParameters("TestPackage");
+		assertApplicableAndApply(api.deletePackageByName());
+		
 		assertMatchCount(0, api.findPackage());
 
-		saveAndTerminate(api);
+		terminate(api);
 	}
 }

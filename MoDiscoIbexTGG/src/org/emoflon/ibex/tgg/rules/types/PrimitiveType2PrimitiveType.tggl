@@ -1,0 +1,105 @@
+abstract rule PrimitiveType2PrimitiveType {
+	source { 
+		[=] jm : Java.Model{
+			[+] -orphanTypes->jpt
+		}
+		
+		[+] jpt : Java.PrimitiveType
+	}
+	
+	target {
+		[=] up : UML2.Package{
+			[+] -packagedElement->umpt
+		}
+		
+		[+] umpt : UML2.PrimitiveType
+	}
+	
+	correspondence {
+		[=] jm2up:JavaModel2UMLPackage{
+			src->jm
+			trg->up
+		}
+		[+] jpt2upt2:JavaType2UMLType{
+			src->jpt
+			trg->umpt
+		}
+	}
+	
+	attributeConditions {
+		DefaultAttributeConditionLibrary.eq_string(jpt.name, umpt.name)
+	}
+}
+
+
+
+rule PrimitiveTypeBoolean refines PrimitiveType2PrimitiveType {
+	source { 
+		@refines+ PrimitiveType2PrimitiveType.jpt
+		[+] jpt : Java.PrimitiveTypeBoolean
+	}
+}
+
+
+rule PrimitiveTypeByte refines PrimitiveType2PrimitiveType {
+	source { 
+		@refines+ PrimitiveType2PrimitiveType.jpt
+		[+] jpt : Java.PrimitiveTypeByte
+	}
+}
+
+
+rule PrimitiveTypeChar refines PrimitiveType2PrimitiveType {
+	source { 
+		@refines+ PrimitiveType2PrimitiveType.jpt
+		[+] jpt : Java.PrimitiveTypeChar
+	}
+}
+
+rule PrimitiveTypeDouble refines PrimitiveType2PrimitiveType {
+	source { 
+		@refines+ PrimitiveType2PrimitiveType.jpt
+		[+] jpt : Java.PrimitiveTypeDouble
+	}
+}
+
+
+rule PrimitiveTypeShort refines PrimitiveType2PrimitiveType {
+	source { 
+		@refines+ PrimitiveType2PrimitiveType.jpt
+		[+] jpt : Java.PrimitiveTypeShort
+	}
+}
+
+
+rule PrimitiveTypeFloat refines PrimitiveType2PrimitiveType {
+	source { 
+		@refines+ PrimitiveType2PrimitiveType.jpt
+		[+] jpt : Java.PrimitiveTypeFloat
+	}
+}
+
+
+rule PrimitiveTypeInt refines PrimitiveType2PrimitiveType {
+	source { 
+		@refines+ PrimitiveType2PrimitiveType.jpt
+		[+] jpt : Java.PrimitiveTypeInt
+	}
+}
+
+
+rule PrimitiveTypeLong refines PrimitiveType2PrimitiveType {
+	source { 
+		@refines+ PrimitiveType2PrimitiveType.jpt
+		[+] jpt : Java.PrimitiveTypeLong
+	}
+}
+
+
+rule PrimitiveTypeVoid refines PrimitiveType2PrimitiveType {
+	source { 
+		@refines+ PrimitiveType2PrimitiveType.jpt
+		[+] jpt : Java.PrimitiveTypeVoid
+	}
+}
+

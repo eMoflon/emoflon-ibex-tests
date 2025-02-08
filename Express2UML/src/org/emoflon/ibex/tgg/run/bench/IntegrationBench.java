@@ -1,9 +1,9 @@
 package org.emoflon.ibex.tgg.run.bench;
 
-import static org.emoflon.ibex.tgg.operational.strategies.integrate.FragmentProvider.CLEAN_UP;
-import static org.emoflon.ibex.tgg.operational.strategies.integrate.FragmentProvider.RESOLVE_BROKEN_MATCHES;
-import static org.emoflon.ibex.tgg.operational.strategies.integrate.FragmentProvider.RESOLVE_CONFLICTS;
-import static org.emoflon.ibex.tgg.operational.strategies.integrate.FragmentProvider.TRANSLATE;
+import static org.emoflon.ibex.tgg.runtime.strategies.integrate.FragmentProvider.CLEAN_UP;
+import static org.emoflon.ibex.tgg.runtime.strategies.integrate.FragmentProvider.RESOLVE_BROKEN_MATCHES;
+import static org.emoflon.ibex.tgg.runtime.strategies.integrate.FragmentProvider.RESOLVE_CONFLICTS;
+import static org.emoflon.ibex.tgg.runtime.strategies.integrate.FragmentProvider.TRANSLATE;
 
 import java.io.File;
 import java.io.IOException;
@@ -20,30 +20,30 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
-import org.emoflon.ibex.tgg.operational.strategies.integrate.INTEGRATE;
-import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.Conflict;
-import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.resolution.util.ConflictResolver;
-import org.emoflon.ibex.tgg.operational.strategies.integrate.pattern.IntegrationFragment;
-import org.emoflon.ibex.tgg.operational.strategies.integrate.pattern.IntegrationPattern;
 import org.emoflon.ibex.tgg.run.bench.util.Express2UMLRegistry;
 import org.emoflon.ibex.tgg.run.bench.util.InheritanceContainer;
 import org.emoflon.ibex.tgg.run.bench.util.UMLHelper;
 import org.emoflon.ibex.tgg.run.express2uml.INTEGRATE_App;
+import org.emoflon.ibex.tgg.runtime.strategies.integrate.INTEGRATE;
+import org.emoflon.ibex.tgg.runtime.strategies.integrate.conflicts.Conflict;
+import org.emoflon.ibex.tgg.runtime.strategies.integrate.conflicts.resolution.util.ConflictResolver;
+import org.emoflon.ibex.tgg.runtime.strategies.integrate.pattern.IntegrationFragment;
+import org.emoflon.ibex.tgg.runtime.strategies.integrate.pattern.IntegrationPattern;
 
 import Express2UML.Entity2Clazz;
-import Express2UML.Entity2Clazz__Marker;
 import Express2UML.Express2UMLFactory;
 import Express2UML.Function2SingleMethodClazz;
-import Express2UML.Function2SingleMethodClazz__Marker;
-import Express2UML.IntegerAttribute2Integer__Marker;
 import Express2UML.IntegerTypeAttribute2Integer;
+import Express2UML.ProtocolNode_Entity2Clazz;
+import Express2UML.ProtocolNode_Function2SingleMethodClazz;
+import Express2UML.ProtocolNode_IntegerAttribute2Integer;
+import Express2UML.ProtocolNode_Schema2Package;
+import Express2UML.ProtocolNode_SchemaContainer2UMLContainer;
+import Express2UML.ProtocolNode_StringAttribute2String;
+import Express2UML.ProtocolNode_SubEntity2SubClazz;
 import Express2UML.Schema2Package;
-import Express2UML.Schema2Package__Marker;
 import Express2UML.SchemaContainer2UMLContainer;
-import Express2UML.SchemaContainer2UMLContainer__Marker;
-import Express2UML.StringAttribute2String__Marker;
 import Express2UML.StringTypeAttribute2String;
-import Express2UML.SubEntity2SubClazz__Marker;
 import Express2UML.integrate.bench.benchFirst.BenchFirstConflictResolver;
 import ExpressModel.Entity;
 import ExpressModel.ExpressModelFactory;
@@ -256,10 +256,10 @@ public class IntegrationBench {
 		sc2uc.setTarget(umlContainer);
 		this.correspondences.add(sc2uc);
 
-		SchemaContainer2UMLContainer__Marker marker = corrFactory.createSchemaContainer2UMLContainer__Marker();
-		marker.setCREATE__SRC__sc(schemaContainer);
-		marker.setCREATE__CORR__sc2uc(sc2uc);
-		marker.setCREATE__TRG__c(umlContainer);
+		ProtocolNode_SchemaContainer2UMLContainer marker = corrFactory.createProtocolNode_SchemaContainer2UMLContainer();
+		marker.setCREATE__SOURCE__sc(schemaContainer);
+		marker.setCREATE__CORRESPONDENCE__sc2uc(sc2uc);
+		marker.setCREATE__TARGET__c(umlContainer);
 		this.markers.add(marker);
 
 		for (int index = 0; index < numSchemasAndPackages; index++) {
@@ -290,13 +290,13 @@ public class IntegrationBench {
 		s2p.setTarget(pkg);
 		this.correspondences.add(s2p);
 
-		Schema2Package__Marker marker = corrFactory.createSchema2Package__Marker();
-		marker.setCONTEXT__SRC__sc(schemaContainer);
-		marker.setCONTEXT__TRG__uc(umlContainer);
-		marker.setCONTEXT__CORR__sc2uc(sc2uc);
-		marker.setCREATE__SRC__s(schema);
-		marker.setCREATE__TRG__p(pkg);
-		marker.setCREATE__CORR__s2p(s2p);
+		ProtocolNode_Schema2Package marker = corrFactory.createProtocolNode_Schema2Package();
+		marker.setCONTEXT__SOURCE__sc(schemaContainer);
+		marker.setCONTEXT__TARGET__uc(umlContainer);
+		marker.setCONTEXT__CORRESPONDENCE__sc2uc(sc2uc);
+		marker.setCREATE__SOURCE__s(schema);
+		marker.setCREATE__TARGET__p(pkg);
+		marker.setCREATE__CORRESPONDENCE__s2p(s2p);
 		this.markers.add(marker);
 
 		registry.addSchema(schema);
@@ -343,25 +343,25 @@ public class IntegrationBench {
 			parentClazz.getSubClazzes().add(clazz);
 			clazz.setSuperClazz(parentClazz);
 
-			SubEntity2SubClazz__Marker marker = corrFactory.createSubEntity2SubClazz__Marker();
-			marker.setCONTEXT__CORR__s2p(s2p);
-			marker.setCONTEXT__SRC__s(schema);
-			marker.setCONTEXT__TRG__p(pkg);
-			marker.setCONTEXT__CORR__e2c(container.getCorrespondence());
-			marker.setCONTEXT__SRC__e(parentEntity);
-			marker.setCONTEXT__TRG__c(parentClazz);
-			marker.setCREATE__CORR__se2sc(e2c);
-			marker.setCREATE__SRC__se(entity);
-			marker.setCREATE__TRG__sc(clazz);
+			ProtocolNode_SubEntity2SubClazz marker = corrFactory.createProtocolNode_SubEntity2SubClazz();
+			marker.setCONTEXT__CORRESPONDENCE__s2p(s2p);
+			marker.setCONTEXT__SOURCE__s(schema);
+			marker.setCONTEXT__TARGET__p(pkg);
+			marker.setCONTEXT__CORRESPONDENCE__e2c(container.getCorrespondence());
+			marker.setCONTEXT__SOURCE__et(parentEntity);
+			marker.setCONTEXT__TARGET__c(parentClazz);
+			marker.setCREATE__CORRESPONDENCE__se2sc(e2c);
+			marker.setCREATE__SOURCE__se(entity);
+			marker.setCREATE__TARGET__sc(clazz);
 			this.markers.add(marker);
 		} else {
-			Entity2Clazz__Marker marker = corrFactory.createEntity2Clazz__Marker();
-			marker.setCONTEXT__CORR__s2p(s2p);
-			marker.setCONTEXT__SRC__s(schema);
-			marker.setCONTEXT__TRG__p(pkg);
-			marker.setCREATE__CORR__e2c(e2c);
-			marker.setCREATE__SRC__e(entity);
-			marker.setCREATE__TRG__c(clazz);
+			ProtocolNode_Entity2Clazz marker = corrFactory.createProtocolNode_Entity2Clazz();
+			marker.setCONTEXT__CORRESPONDENCE__s2p(s2p);
+			marker.setCONTEXT__SOURCE__s(schema);
+			marker.setCONTEXT__TARGET__p(pkg);
+			marker.setCREATE__CORRESPONDENCE__e2c(e2c);
+			marker.setCREATE__SOURCE__et(entity);
+			marker.setCREATE__TARGET__c(clazz);
 			this.markers.add(marker);
 		}
 
@@ -392,13 +392,13 @@ public class IntegrationBench {
 		ia2i.setTarget(integer);
 		this.correspondences.add(ia2i);
 
-		IntegerAttribute2Integer__Marker marker = corrFactory.createIntegerAttribute2Integer__Marker();
-		marker.setCONTEXT__CORR__e2c(e2c);
-		marker.setCONTEXT__SRC__e(entity);
-		marker.setCONTEXT__TRG__c(clazz);
-		marker.setCREATE__CORR__it2i(ia2i);
-		marker.setCREATE__SRC__ia(integerAttribute);
-		marker.setCREATE__TRG__i(integer);
+		ProtocolNode_IntegerAttribute2Integer marker = corrFactory.createProtocolNode_IntegerAttribute2Integer();
+		marker.setCONTEXT__CORRESPONDENCE__e2c(e2c);
+		marker.setCONTEXT__SOURCE__et(entity);
+		marker.setCONTEXT__TARGET__c(clazz);
+		marker.setCREATE__CORRESPONDENCE__it2i(ia2i);
+		marker.setCREATE__SOURCE__ia(integerAttribute);
+		marker.setCREATE__TARGET__i(integer);
 		this.markers.add(marker);
 	}
 
@@ -418,13 +418,13 @@ public class IntegrationBench {
 		sa2s.setTarget(string);
 		this.correspondences.add(sa2s);
 
-		StringAttribute2String__Marker marker = corrFactory.createStringAttribute2String__Marker();
-		marker.setCONTEXT__CORR__e2c(e2c);
-		marker.setCONTEXT__SRC__e(entity);
-		marker.setCONTEXT__TRG__c(clazz);
-		marker.setCREATE__CORR__st2s(sa2s);
-		marker.setCREATE__SRC__sa(stringAttribute);
-		marker.setCREATE__TRG__s(string);
+		ProtocolNode_StringAttribute2String marker = corrFactory.createProtocolNode_StringAttribute2String();
+		marker.setCONTEXT__CORRESPONDENCE__e2c(e2c);
+		marker.setCONTEXT__SOURCE__et(entity);
+		marker.setCONTEXT__TARGET__c(clazz);
+		marker.setCREATE__CORRESPONDENCE__st2s(sa2s);
+		marker.setCREATE__SOURCE__sa(stringAttribute);
+		marker.setCREATE__TARGET__s(string);
 		this.markers.add(marker);
 	}
 
@@ -448,14 +448,14 @@ public class IntegrationBench {
 		f2smc.setTarget(clazz);
 		this.correspondences.add(f2smc);
 
-		Function2SingleMethodClazz__Marker marker = corrFactory.createFunction2SingleMethodClazz__Marker();
-		marker.setCONTEXT__CORR__s2p(s2p);
-		marker.setCONTEXT__SRC__s(schema);
-		marker.setCONTEXT__TRG__p(pkg);
-		marker.setCREATE__CORR__f2smc(f2smc);
-		marker.setCREATE__SRC__f(function);
-		marker.setCREATE__TRG__c(clazz);
-		marker.setCREATE__TRG__m(method);
+		ProtocolNode_Function2SingleMethodClazz marker = corrFactory.createProtocolNode_Function2SingleMethodClazz();
+		marker.setCONTEXT__CORRESPONDENCE__s2p(s2p);
+		marker.setCONTEXT__SOURCE__s(schema);
+		marker.setCONTEXT__TARGET__p(pkg);
+		marker.setCREATE__CORRESPONDENCE__f2smc(f2smc);
+		marker.setCREATE__SOURCE__f(function);
+		marker.setCREATE__TARGET__c(clazz);
+		marker.setCREATE__TARGET__m(method);
 		this.markers.add(marker);
 	}
 

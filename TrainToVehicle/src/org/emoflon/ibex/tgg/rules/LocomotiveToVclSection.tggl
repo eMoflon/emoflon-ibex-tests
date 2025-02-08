@@ -1,0 +1,94 @@
+rule LocomotiveToVclSection_electric {
+	
+	source { 
+		[=] train:TrainLanguage.Train {
+			[+] - locomotive -> loc
+		}
+	
+		[+] loc:TrainLanguage.Locomotive {
+			.needsExternPowerSupply := true;
+		}
+	}
+	
+	target {
+		[=] vehicle:VehicleLanguage.Vehicle {
+			[+] - engine -> engine
+			[+] - sections -> vclSec
+		}
+	
+		[+] engine:VehicleLanguage.Engine {
+			.type := enums.ELECTRIC;
+		}
+	
+		[+] vclSec:VehicleLanguage.VehicleSection {
+			.description := "locomotive";
+		}
+	}
+	
+	correspondence {
+		[=] train2vcl:Train2Vehicle {
+			src->train
+			trg->vehicle
+		}
+	
+		[+] loc2vclSec:Locomotive2VehicleSection {
+			src->loc
+			trg->vclSec
+		}
+	}
+	
+	attributeConditions {
+		DefaultAttributeConditionLibrary.eq_int(loc.ps, engine.ps)
+	}
+
+}
+
+
+
+rule LocomotiveToVclSection_combustion {
+	
+	source {
+		[=] train:TrainLanguage.Train {
+			[+] - locomotive -> loc
+		}
+	
+		[+] loc:TrainLanguage.Locomotive {
+			.needsExternPowerSupply := false;
+		}
+	}
+	
+	target {
+		[=] vehicle:VehicleLanguage.Vehicle {
+			[+] - sections -> vclSec
+			[+] - engine -> engine
+		}
+	
+		[+] engine:VehicleLanguage.Engine {
+			.type := enums.COMBUSTION;
+		}
+	
+		[+] vclSec:VehicleLanguage.VehicleSection {
+			.description := "locomotive";
+		}
+	}
+	
+	correspondence {
+		[=] train2vcl:Train2Vehicle {
+			src->train
+			trg->vehicle
+		}
+	
+		[+] loc2vclSec:Locomotive2VehicleSection {
+			src->loc
+			trg->vclSec
+		}
+	}
+	
+	attributeConditions {
+		DefaultAttributeConditionLibrary.eq_int(loc.ps, engine.ps)
+	}
+
+}
+
+
+

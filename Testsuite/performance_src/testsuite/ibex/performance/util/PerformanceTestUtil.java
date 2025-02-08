@@ -17,10 +17,14 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.emoflon.ibex.tgg.operational.strategies.OperationalStrategy;
-import org.emoflon.ibex.tgg.operational.strategies.gen.MODELGENStopCriterion;
-import org.emoflon.ibex.tgg.operational.strategies.opt.BWD_OPT;
-import org.emoflon.ibex.tgg.operational.strategies.opt.FWD_OPT;
+import org.emoflon.ibex.common.coremodel.IBeXCoreModel.IBeXEdge;
+import org.emoflon.ibex.tgg.runtime.strategies.OperationalStrategy;
+import org.emoflon.ibex.tgg.runtime.strategies.gen.MODELGENStopCriterion;
+import org.emoflon.ibex.tgg.runtime.strategies.opt.BWD_OPT;
+import org.emoflon.ibex.tgg.runtime.strategies.opt.FWD_OPT;
+import org.emoflon.ibex.tgg.tggmodel.IBeXTGGModel.TGGEdge;
+import org.emoflon.ibex.tgg.tggmodel.IBeXTGGModel.TGGModel;
+import org.emoflon.ibex.tgg.tggmodel.IBeXTGGModel.TGGRule;
 
 import Algorithms.impl.AlgorithmsPackageImpl;
 import BlockDiagram.impl.BlockDiagramPackageImpl;
@@ -42,9 +46,6 @@ import SimplePersons.impl.SimplePersonsPackageImpl;
 import Strategies.impl.StrategiesPackageImpl;
 import VHDLModel.impl.VHDLModelPackageImpl;
 import classMultipleInheritanceHierarchy.impl.ClassMultipleInheritanceHierarchyPackageImpl;
-import language.TGG;
-import language.TGGRule;
-import language.TGGRuleEdge;
 
 public class PerformanceTestUtil {
 
@@ -315,8 +316,8 @@ public class PerformanceTestUtil {
 	 * axiom is applied. Needs to be extended for every new test project, or more
 	 * specifically for every new axiom.
 	 */
-	public Function<TGG, MODELGENStopCriterion> createStopCriterion(String tggName, int size) {
-		return (TGG tgg) -> {
+	public Function<TGGModel, MODELGENStopCriterion> createStopCriterion(String tggName, int size) {
+		return (TGGModel tgg) -> {
 			MODELGENStopCriterion stop = new MODELGENStopCriterion(tgg);
 			stop.setMaxElementCount(size);
 
@@ -399,18 +400,18 @@ public class PerformanceTestUtil {
 	/**
 	 * Calculates the average number of elements per rule in a TGG
 	 */
-	public double getAverageRuleSize(TGG flattenedTGG) {
-		double numberOfRules = flattenedTGG.getRules().size();
+	public double getAverageRuleSize(TGGModel flattenedTGG) {
+		double numberOfRules = flattenedTGG.getRuleSet().getRules().size();
 
-		return flattenedTGG.getRules().stream().map(this::getRuleSize).reduce((size1, size2) -> size1 + size2).get()
+		return flattenedTGG.getRuleSet().getRules().stream().map(this::getRuleSize).reduce((size1, size2) -> size1 + size2).get()
 				/ numberOfRules;
 	}
 
 	/**
 	 * Calculates the max number of elements of a rule in a TGG
 	 */
-	public double getMaxRuleSize(TGG flattenedTGG) {
-		return flattenedTGG.getRules().stream().map(this::getRuleSize).reduce((size1, size2) -> Math.max(size1, size2))
+	public double getMaxRuleSize(TGGModel flattenedTGG) {
+		return flattenedTGG.getRuleSet().getRules().stream().map(this::getRuleSize).reduce((size1, size2) -> Math.max(size1, size2))
 				.get();
 	}
 
@@ -419,9 +420,9 @@ public class PerformanceTestUtil {
 	 */
 	private int getRuleSize(TGGRule rule) {
 		int size = rule.getNodes().size();
-		HashSet<TGGRuleEdge> checkedEdges = new HashSet<>();
+		HashSet<IBeXEdge> checkedEdges = new HashSet<>();
 
-		for (TGGRuleEdge e1 : rule.getEdges()) {
+		for (IBeXEdge e1 : rule.getEdges()) {
 			if (e1.getType().getEOpposite() == null || !checkedEdges.stream().anyMatch(e2 -> oppositeEdges(e1, e2))) {
 				checkedEdges.add(e1);
 				size++;
@@ -434,9 +435,9 @@ public class PerformanceTestUtil {
 	/**
 	 * Checks whether two edges are EOpposites of each other.
 	 */
-	private boolean oppositeEdges(TGGRuleEdge e1, TGGRuleEdge e2) {
-		return e1.getType().getEOpposite().equals(e2.getType()) && e1.getSrcNode().equals(e2.getTrgNode())
-				&& e1.getTrgNode().equals(e2.getSrcNode());
+	private boolean oppositeEdges(IBeXEdge e1, IBeXEdge e2) {
+		return e1.getType().getEOpposite().equals(e2.getType()) && e1.getSource().equals(e2.getTarget())
+				&& e1.getTarget().equals(e2.getSource());
 	}
 
 	/**

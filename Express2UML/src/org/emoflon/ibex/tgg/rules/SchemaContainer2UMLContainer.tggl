@@ -1,0 +1,18 @@
+rule SchemaContainer2UMLContainer {
+	
+	source {
+		[+] sc:Express.SchemaContainer
+	}
+	
+	target {
+		[+] c:UML.UMLContainer
+	}
+	
+	correspondence {
+		[+] sc2uc:SchemaContainer2UMLContainer {
+			src->sc
+			trg->c
+		}
+	}
+
+}

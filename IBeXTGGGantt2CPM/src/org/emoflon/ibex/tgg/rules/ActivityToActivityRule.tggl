@@ -1,0 +1,52 @@
+rule ActivityToActivityRule {
+	
+	source { 
+		[=] diagram:G.GanttDiagram	
+		
+		[+] ganttAct:G.Activity {
+			[+]-diagram->diagram
+		}
+	}
+	
+	target {
+		[=] network:C.CPMNetwork
+		
+		[+] cpmAct:C.Activity {
+			[+] -network->network
+			[+] -sourceEvent->srcEvent
+			[+] -targetEvent->trgEvent
+		}
+		
+		[+] srcEvent:C.Event {
+			[+] -network->network	
+		}
+		
+		[+] trgEvent:C.Event {
+			[+] -network->network
+		}
+	}
+	
+	correspondence {
+		[=] d2n:DiagramToNetwork {
+			src->diagram
+			trg->network
+		}
+		
+		[+] a2a:ActivityToActivity {
+			src->ganttAct
+			trg->cpmAct
+		}
+	}
+	
+	attributeConditions {
+		DefaultAttributeConditionLibrary.eq_int(cpmAct.duration, ganttAct.duration)
+		DefaultAttributeConditionLibrary.eq_string(cpmAct.name, ganttAct.name)
+		CustomConditions.notADependencyViaNamingConvention(cpmAct.name)
+		CustomConditions.setCounter(srcEvent.number)
+		CustomConditions.setCounter(trgEvent.number)
+	}
+
+}
+
+
+ 

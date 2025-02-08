@@ -1,0 +1,49 @@
+package classmultipleinheritance.gt
+import "http://www.eclipse.org/emf/2002/Ecore"
+import "platform:/resource/ClassMultipleInheritanceHierarchy/model/ClassMultipleInheritanceHierarchy.ecore"
+
+/**
+ * Adds a package to the model.
+ */
+rule createPackage(name: EString) {
+	[+] pkg: ClassPackage {
+		.name := parameter.name;
+	}
+};
+
+/**
+ * Adds a class to the package.
+ */
+rule createClass(name: EString) {
+	[=] pkg: ClassPackage {
+		[+] -classes -> clazz
+	}
+
+	[+] clazz: Clazz {
+		.name := parameter.name;
+	}
+};
+
+/**
+ * Adds a class to the package as a subclass of another class.
+ */
+rule createClassAsSubClass
+refines createClass {
+	[=] superClass: Clazz
+
+	@refines+ createClass.clazz
+	[+] clazz: Clazz {
+		[+] -superClass -> superClass
+	}
+};
+
+/**
+ * Adds a super class to an existing class.
+ */
+rule addSuperClass {
+	[=] superClass: Clazz
+
+	[=] clazz: Clazz {
+		[+] -superClass -> superClass
+	}
+};

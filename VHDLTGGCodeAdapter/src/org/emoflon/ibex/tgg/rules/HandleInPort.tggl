@@ -1,0 +1,32 @@
+rule HandleInPort refines Handle {
+	
+	source {
+		@refines+ Handle.typeNode
+		[+] typeNode:M.Node {
+			.name := "in";
+		}
+		@refines+ Handle.portNode
+		[+] portNode:M.Node {
+			.name := "PORT";
+		}
+	}
+	
+	target { 
+		@refines+ Handle.port
+		[+] port:V.InputPort
+		@refines= Handle.composite
+		[=] composite:V.CompositeBlock {
+			[+] - ports->port
+			[+] - inputs->port
+		}
+	}
+	
+	correspondence {
+		[+] portNodeToPort :NodeToInputPort {
+			src->portNode
+			trg->port
+		}
+	}
+
+}
+

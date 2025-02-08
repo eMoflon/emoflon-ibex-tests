@@ -1,0 +1,36 @@
+rule JDoc2Annotation {
+	
+	source { 
+		[=] m:T.Method {
+			[+] -docs->j
+		}
+		
+		[+] j:T.JavaDoc
+	}
+	
+	target {
+		[=] et:D.Entry {
+			[+] -annotations->a
+		}
+		
+		[+] a:D.Annotation
+	}
+	
+	correspondence {
+		[=] m2e:Method2Entry {
+			src->m
+			trg->et
+		}
+		
+		[+] j2a:JDoc2Annotation {
+			src->j
+			trg->a
+		}
+	}
+	
+	attributeConditions {
+		DefaultAttributeConditionLibrary.eq_string(j.comment, a.value)
+	}
+
+}
+

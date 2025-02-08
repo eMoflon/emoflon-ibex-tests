@@ -1,0 +1,34 @@
+rule Class2Doc {
+	
+	source { 
+		[=] p : J.Package {
+			[+] -clazzes->c
+		}
+		[+] c : J.Clazz
+	}
+	
+	target {
+		[=] f : D.Folder {
+			[+] -docs->doc
+		}
+		[+] doc : D.Doc
+	}
+	
+	correspondence {
+		[=] p2f : Package2Folder {
+			src->p
+			trg->f
+		}
+		
+		[+] c2d : Class2Doc {
+			src->c
+			trg->doc
+		}
+	}
+	
+	attributeConditions {
+		DefaultAttributeConditionLibrary.concat("_", c.name, "doc", doc.name)
+	}
+
+}
+

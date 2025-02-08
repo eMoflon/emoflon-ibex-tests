@@ -1,0 +1,27 @@
+rule StartStartRule refines DepToActRule {
+	
+	source { 
+		@refines+ DepToActRule.dep
+		[+] dep:G.Dependency {
+			.dependencyType := enums.StartStart;
+		}
+	}
+	
+	target {
+		@refines= DepToActRule.cpmPred
+		[=] cpmPred:C.Activity {
+			[=] -sourceEvent->src
+		}
+		@refines= DepToActRule.cpmSucc
+		[=] cpmSucc:C.Activity {
+			[=] -sourceEvent->trg
+		}
+		
+		@refines= DepToActRule.src
+		[=] src:C.Event
+		@refines= DepToActRule.trg
+		[=] trg:C.Event	
+	}
+
+}
+

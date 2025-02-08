@@ -1,0 +1,79 @@
+abstract rule AbstractMappingRule {
+	
+	source {
+		[=] vhdlNode:M.Node {
+			.name := "VHDL";
+		}
+		[=] outputPortNodeName:M.Node {
+			[=] - parentNode->outputPortNode
+		}
+		[+] mapping:M.Node {
+			[+] - parentNode->gateNode
+		}
+		[=] outputPortNode:M.Node {
+			.name := "PORT";
+			[=] - parentNode->entityNode
+		}
+		[=] outNode:M.Node {
+			.name := "out";
+			[=] - parentNode->outputPortNode
+		}
+		[=] entityNode:M.Node {
+			.name := "ENTITY";
+			[=] - parentNode->vhdlNode
+		}
+		[=] inputPortNode1:M.Node {
+			.name := "PORT";
+			[=] - parentNode->entityNode
+		}
+		[+] expressionNode:M.Node {
+			[+] - parentNode->mapping
+		}
+		[=] gateNode:M.Node {
+			.name := "GATE";
+			[=] - parentNode->vhdlNode
+		}
+		[=] inNode:M.Node {
+			.name := "in";
+			[=] - parentNode->inputPortNode1
+		}
+	}
+	
+	target {
+		[+] out:V.OutputPort {
+			[+] - block->expression
+		}
+		[=] outExternal:V.OutputPort {
+			[+] - src -> out
+		}
+	
+		[=] leftExtern:V.InputPort
+		[=] compositeBlock:V.CompositeBlock {
+			[=] - inputs->leftExtern
+			[+] - blocks->expression
+			[=] - ports->outExternal
+		}
+		[+] expression:V.Block
+	}
+	
+	correspondence {
+		[=] node2OutputPort :NodeToOutputPort {
+			src->outputPortNode
+			trg->outExternal
+		}
+		[=] gate2composite :NodeToCompositeBlock {
+			src->gateNode
+			trg->compositeBlock
+		}
+		[=] node2InputPort1 :NodeToInputPort {
+			src->inputPortNode1
+			trg->leftExtern
+		}
+	}
+	
+	attributeConditions {
+		DefaultAttributeConditionLibrary.eq_string(outputPortNodeName.name, mapping.name)
+	}
+
+}
+

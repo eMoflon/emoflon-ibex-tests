@@ -1,0 +1,22 @@
+rule Project2DocCont {
+	source { 
+		[+] pr:ExtTypeModel.Project
+	}
+	
+	target {
+		[+] dc:ExtDocModel.DocContainer
+	}
+	
+	correspondence {
+		[+] pr2dc:Project2DocContainer {
+			src->pr
+			trg->dc
+		}
+	}
+	
+	attributeConditions {
+		
+	}
+	
+}
+

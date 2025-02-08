@@ -1,0 +1,36 @@
+import "platform:/resource/TrainLanguage/model/TrainLanguage.ecore" using TrainLanguage as T
+import "platform:/resource/VehicleLanguage/model/VehicleLanguage.ecore" using VehicleLanguage as V
+
+schema TrainToVehicle {
+	
+	source {
+		TrainLanguage
+	}
+	
+	target { 
+		VehicleLanguage
+	} 
+	
+	correspondence {
+		Train2Vehicle {
+			src->T.Train
+			trg->V.Vehicle
+		}
+		
+		LocDriver2Driver {
+			src->T.LocDriver
+			trg->V.Driver
+		}
+		
+		Locomotive2VehicleSection {
+			src->T.Locomotive
+			trg->V.VehicleSection
+		}
+		
+		Wagon2VehicleSection {
+			src->T.Wagon
+			trg->V.VehicleSection
+		}
+	}
+
+}

@@ -1,0 +1,49 @@
+rule ReplaceFatherWithSon {
+	
+	source { 
+		[=] fr:Fam.FamilyRegister {
+			[=] -families->f
+			[=] -families->f2
+		}
+		
+		[=] f:Fam.Family {
+			[=] -father->fm
+			[+] -sons->son
+			
+		}
+		[=] f2:Fam.Family {
+			[+] -father->fm
+		}
+		
+		[=] fm:Fam.FamilyMember {
+			.name:="father";
+		}
+		
+		[+] son:Fam.FamilyMember {
+			.name:="son";
+		}
+	}
+	
+	target {
+		[=] pr:Per.PersonRegister {
+			[=] -persons->p
+		}
+		
+		[=] p:Per.Male {
+			.name:="father";
+		}
+	}
+	
+	correspondence {
+		[=] roots:RegisterToRegister {
+			src->fr
+			trg->pr
+		}
+		
+		[=] memberToPerson:FamilyMemberToPerson {
+			src->fm
+			trg->p
+		}
+	}
+
+}

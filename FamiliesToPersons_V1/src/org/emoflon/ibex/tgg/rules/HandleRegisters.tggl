@@ -1,0 +1,19 @@
+rule HandleRegisters {
+	
+	source { 
+		[+] fr:Fam.FamilyRegister
+	}
+	
+	target {
+		[+] pr:Per.PersonRegister
+	} 
+	
+	correspondence {
+		[+] roots:RegisterToRegister {
+			src->fr
+			trg->pr
+		}
+	}
+
+}
+

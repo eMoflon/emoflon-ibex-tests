@@ -1,0 +1,16 @@
+rule RequireToNodeRule refines AbstractRequireToNodeRule, AbstractPortToNodeRule {
+	source {
+		@refines+ AbstractPortToNodeRule.port, AbstractRequireToNodeRule.port
+		[+] port : BlockDiagram.Require
+	}
+	
+	target {
+		@refines+ AbstractPortToNodeRule.portNode, AbstractRequireToNodeRule.portNode
+		[+] portNode : MocaTree.Node
+	}
+	
+	correspondence {
+		@refines+AbstractPortToNodeRule.portToNode, AbstractRequireToNodeRule.portToNode
+		[+] portToNode : RequireToNode
+	}
+}

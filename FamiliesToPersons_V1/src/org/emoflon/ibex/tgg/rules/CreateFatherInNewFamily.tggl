@@ -1,0 +1,40 @@
+rule CreateFatherInNewFamily {
+	
+	source { 
+		[=] reg:Fam.FamilyRegister {
+			[+]  -families->family
+		}	
+		
+		[+] family:Fam.Family {
+			.name:="Test";
+			[+] -father->f
+		}
+		
+		[+] f:Fam.FamilyMember {
+			.name:="father";
+		}
+	}
+	
+	target {
+		[=] preg:Per.PersonRegister {
+			[+] -persons->p
+		}
+		
+		[+] p:Per.Male {
+			.name:="father";
+		}
+	}
+	
+	correspondence {
+		[=] reg2reg:RegisterToRegister{
+			src->reg
+			trg->preg
+		}
+		
+		[+] m2p:FamilyMemberToPerson {
+			src->f
+			trg->p
+		}
+	}
+	
+}

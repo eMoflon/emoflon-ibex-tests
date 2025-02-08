@@ -1,0 +1,58 @@
+import "platform:/resource/ExpressModel/model/ExpressModel.ecore" using ExpressModel as Express
+import "platform:/resource/UML/model/UML.ecore" using uml as UML
+
+schema Express2UML {
+	
+	source {
+		ExpressModel
+	}
+	
+	target { 
+		uml
+	} 
+	
+	correspondence {
+		SchemaContainer2UMLContainer {
+			src->Express.SchemaContainer
+			trg->UML.UMLContainer
+		}
+		
+		Schema2Package {
+			src->Express.Schema
+			trg->UML.Package
+		}
+		
+		Schema2SubPackage {
+			src->Express.Schema
+			trg->UML.Package
+		}
+		
+		Entity2Clazz {
+			src->Express.Entity
+			trg->UML.Clazz
+		}
+		
+		Function2SingleMethodClazz {
+			src->Express.Function
+			trg->UML.Clazz
+		}
+		
+		IntegerTypeAttribute2Integer {
+			src->Express.IntegerAttribute
+			trg->UML.Integer
+		}
+		
+		StringTypeAttribute2String {
+			src->Express.StringAttribute
+			trg->UML.String
+		}
+		 
+		EnumerationType2Enum {
+			src->Express.EnumerationType
+			trg->UML.Enumeration
+		}
+	}
+
+}
+	
+

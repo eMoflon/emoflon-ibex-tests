@@ -1,0 +1,33 @@
+rule SubFolderToModuleRule {
+	
+	source {
+		[=] rootFolder:M.Folder {
+			[+] - subFolder->subFolder
+		}
+		[+] subFolder:M.Folder
+	}
+	
+	target {
+		[+] module:P.Module
+		[=] system:P.SystemModule {
+			[+] - allModules->module
+		}
+	}
+	
+	correspondence {
+		[+] subFolderToSubTask :FolderToModule {
+			src->subFolder
+			trg->module
+		}
+		[=] folderToSystem :FolderToSystem {
+			src->rootFolder
+			trg->system
+		}
+	}
+	
+	attributeConditions {
+		DefaultAttributeConditionLibrary.eq_string(subFolder.name, module.description)
+	}
+	
+}
+

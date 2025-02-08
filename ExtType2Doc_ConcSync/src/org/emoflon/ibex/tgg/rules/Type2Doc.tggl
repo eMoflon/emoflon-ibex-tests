@@ -1,0 +1,35 @@
+rule Type2Doc {
+	
+	source { 
+		[=] p:T.Package {
+			[+] -types->t
+		}
+		
+		[+] t:T.Type
+	}
+	
+	target {
+		[=] f:D.Folder {
+			[+] -docs->d
+		}
+		
+		[+] d:D.Doc
+	}
+	
+	correspondence {
+		[=] p2f:Package2Folder {
+			src->p
+			trg->f
+		}
+		
+		[+] t2d:Type2Doc {
+			src->t
+			trg->d
+		}
+	}
+	
+	attributeConditions {
+		DefaultAttributeConditionLibrary.eq_string(t.name, d.name)
+	}
+
+}

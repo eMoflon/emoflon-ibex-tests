@@ -2,10 +2,9 @@ package testsuite.ibex.testUtil;
 
 import java.io.IOException;
 
-import org.emoflon.ibex.tgg.operational.strategies.opt.BWD_OPT;
-import org.emoflon.ibex.tgg.operational.strategies.opt.CO;
-import org.emoflon.ibex.tgg.operational.strategies.opt.FWD_OPT;
-import org.junit.ClassRule;
+import org.emoflon.ibex.tgg.runtime.strategies.opt.BWD_OPT;
+import org.emoflon.ibex.tgg.runtime.strategies.opt.CO;
+import org.emoflon.ibex.tgg.runtime.strategies.opt.FWD_OPT;
 import org.junit.jupiter.api.extension.ExtendWith;
 
 @ExtendWith(AssumingNotHiPE.class)

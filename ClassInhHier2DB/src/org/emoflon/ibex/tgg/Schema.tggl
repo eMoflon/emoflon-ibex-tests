@@ -1,0 +1,29 @@
+import "platform:/resource/ClassInheritanceHierarchy/model/ClassInheritanceHierarchy.ecore" using ClassInheritanceHierarchy as CH
+import "platform:/resource/Database/model/Database.ecore" using Database as DB
+
+schema ClassInhHier2DB {
+	
+	source {
+		ClassInheritanceHierarchy
+	}
+	
+	target {
+		Database
+	}
+	
+	correspondence {
+		PackageToDatabase {
+			src->CH.ClassPackage
+			trg->DB.DB
+		}
+		ClazzToTable {
+			src->CH.Clazz
+			trg->DB.Table
+		}
+		AttributeToColumn {
+			src->CH.Attribute
+			trg->DB.Column
+		}
+	}
+
+}

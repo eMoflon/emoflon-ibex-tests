@@ -1,0 +1,11 @@
+rule HandleRegistersLoose {
+	
+	source { 
+		[+] fr:Fam.FamilyRegister
+	}
+	
+	target {
+		[+] pr:Per.PersonRegister
+	}
+
+}

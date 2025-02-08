@@ -1,0 +1,83 @@
+abstract rule SubFeatureRule {
+	
+	source { 
+		[=] conciseParent:FeatureModelConcise.Feature {
+			[=] -groups->conciseGroup
+			[+] -subfeatures->conciseChild
+		}
+		
+		[=] conciseGroup:FeatureModelConcise.Group {
+			[+] -members->conciseChild
+		}
+		
+		[+] conciseChild:FeatureModelConcise.Feature
+	}
+	
+	target {
+		[=] safeParent:FeatureModelSafe.Feature {
+			[=] -groups->safeGroup
+		}
+		
+		[=] safeGroup:FeatureModelSafe.Group {
+			[+] -members->safeChild
+		}
+		
+		[+] safeChild:FeatureModelSafe.Feature
+	}
+	
+	correspondence {
+		[=] p2p:Feature2Feature {
+			src->conciseParent
+			trg->safeParent
+		}
+		
+		[+] c2c:Feature2Feature {
+			src->conciseChild
+			trg->safeChild
+		}
+		
+		[=] g2g:Group2Group {
+			src->conciseGroup
+			trg->safeGroup
+		}
+	}
+	
+	attributeConditions {
+		DefaultAttributeConditionLibrary.eq_string(conciseChild.name, safeChild.name)
+	}
+
+}
+
+
+
+rule XOrRule refines SubFeatureRule {
+	
+	source { 
+		@refines= SubFeatureRule.conciseGroup
+		[=] conciseGroup:FeatureModelConcise.XorGroup 
+	}
+	
+	target {
+		@refines= SubFeatureRule.safeGroup
+		[=] safeGroup:FeatureModelSafe.XorGroup
+	}
+
+}
+
+
+
+rule OrRule refines SubFeatureRule {
+	
+	source { 
+		@refines= SubFeatureRule.conciseGroup
+		[=] conciseGroup:FeatureModelConcise.OrGroup
+	}
+	
+	target {
+		@refines= SubFeatureRule.safeGroup
+		[=] safeGroup:FeatureModelSafe.OrGroup
+	}
+
+}
+
+

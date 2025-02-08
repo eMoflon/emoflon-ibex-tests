@@ -6,33 +6,37 @@ import org.junit.jupiter.api.Test;
 
 import FerrymanProblem.Goat;
 import FerrymanProblem.Wolf;
-import FerrymanProblemGraphTransformation.api.FerrymanProblemGraphTransformationAPI;
-import FerrymanProblemGraphTransformation.api.matches.CanEatMatch;
+import ferryman.gt.api.GtGtApi;
+import ferryman.gt.api.match.CanEatMatch;
 
 /**
  * Tests for simple constraints with the FerrymanProblem Graph Transformation
- * API.
+ * Api.
  */
 public class FerrymanProblemConstraintsTest extends FerrymanProblemAbstractTest {
 
 	@Test
 	public void constraints() {
-		FerrymanProblemGraphTransformationAPI api = this.init("Start.xmi");
+		GtGtApi<?> api = this.init("Start.xmi");
 
 		assertNoMatch(api.canEat());
 		assertNoMatch(api.checkAllThingsAtRightBank());
 		assertNoMatch(api.findSubjectOnRightBank());
+		
+		api.terminate();
 	}
 
 	@Test
 	public void canWolfEatGoat() {
-		FerrymanProblemGraphTransformationAPI api = this.init("WolfCanEatGoat.xmi", "WolfEatsGoat.xmi");
+		GtGtApi<?> api = this.init("WolfEatsGoat.xmi");
 
 		assertMatchCount(2, api.findSubjectOnLeftBank());
 		assertMatchCount(2, api.findSubjectOnRightBank());
 
 		CanEatMatch match = assertAnyMatchExists(api.canEat());
-		assertTrue(match.getEater() instanceof Wolf);
-		assertTrue(match.getEaten() instanceof Goat);
+		assertTrue(match.eater() instanceof Wolf);
+		assertTrue(match.eaten() instanceof Goat);
+		
+		api.terminate();
 	}
 }

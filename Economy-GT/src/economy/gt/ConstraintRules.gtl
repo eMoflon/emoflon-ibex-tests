@@ -1,0 +1,83 @@
+package economy.gt
+import "platform:/resource/SimpleEconomy/model/SimpleEconomy.ecore"
+import "http://www.eclipse.org/emf/2002/Ecore"
+
+rule changeBudget(newBudget: EDouble){
+	[=] c: Client{
+		.budget := parameter.newBudget;
+	}
+	[#] c.budget != parameter.newBudget;
+};
+
+pattern smallerThan{
+	[=] p: Product
+	[=] c: Client
+	[#] c.budget < p.price;
+};
+
+pattern smallerOrEqual{
+	[=] p: Product
+	[=] c: Client
+	[#] c.budget <= p.price;
+};
+
+pattern equal{
+	[=] p: Product
+	[=] c: Client
+	[#] c.budget == p.price;
+};
+
+pattern unequal{
+	[=] p: Product
+	[=] c: Client
+	[#] c.budget != p.price;
+};
+
+pattern greater{
+	[=] p: Product
+	[=] c: Client
+	[#] c.budget > p.price;
+};
+
+pattern greaterOrEqual{
+	[=] p: Product
+	[=] c: Client
+	[#] c.budget >= p.price;
+};
+
+pattern notDisjointsmallerThan{
+	[=] p: Product
+	[=] c: Client
+	[#] c.budget < p.price;
+	
+};
+
+pattern notDisjointsmallerOrEqual{
+	[=] p: Product
+	[=] c: Client
+	[#] c.budget <= p.price;
+};
+
+pattern notDisjointequal{
+	[=] p: Product
+	[=] c: Client
+	[#] c.budget == p.price;
+};
+
+pattern notDisjointunequal{
+	[=] p: Product
+	[=] c: Client
+	[#] c.budget != p.price;
+};
+
+pattern notDisjointgreater{
+	[=] p: Product
+	[=] c: Client
+	[#] c.budget > p.price;
+};
+
+pattern notDisjointgreaterOrEqual{
+	[=] p: Product
+	[=] c: Client
+	[#] c.budget >= p.price;
+};

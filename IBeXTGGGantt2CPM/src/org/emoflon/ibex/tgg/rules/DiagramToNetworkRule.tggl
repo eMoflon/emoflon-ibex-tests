@@ -1,0 +1,23 @@
+rule DiagramToNetworkRule {
+	
+	source { 
+		[+] diagram : G.GanttDiagram
+	}
+	
+	target {
+		[+] network : C.CPMNetwork
+	}
+	
+	correspondence {
+		[+] d2n : DiagramToNetwork {
+			src->diagram
+			trg->network
+		}
+	}
+	
+	attributeConditions {
+		DefaultAttributeConditionLibrary.eq_string(diagram.name, network.name)
+	}
+
+}
+

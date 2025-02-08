@@ -1,0 +1,40 @@
+rule CreateDaughterInExistingFamily {
+	
+	source {
+		[=] freg:Fam.FamilyRegister {
+			[=] -families->f
+		}
+		
+		[=] f:Fam.Family {
+			[+] -daughters->m
+		}
+		
+		[+] m:Fam.FamilyMember
+	}
+	
+	target {
+		[=] preg:Per.PersonRegister {
+			[+] -persons->p
+		} 
+		
+		[+] p:Per.Female
+	}
+	
+	correspondence {
+		[=] r2r:RegisterToRegister {
+			src->freg
+			trg->preg
+		}
+		
+		[+] p2m:FamilyMemberToPerson {
+			src->m
+			trg->p
+		}
+	}
+	
+	attributeConditions {
+		DefaultAttributeConditionLibrary.eq_string(m.name, p.name)
+	}
+	
+}
+

@@ -1,0 +1,39 @@
+rule Entity2Clazz {
+	
+	source {
+		[+] et:Express.Entity {
+		}
+	
+		[=] s:Express.Schema {
+			[+] -declarations -> et
+		}
+	}
+	
+	target {
+		[+] c:UML.Clazz
+	
+		[=] p:UML.Package {
+			[+] -clazzes -> c
+		}
+	}
+	
+	correspondence {
+		[=] s2p:Schema2Package {
+			src->s
+			trg->p
+		}
+	
+		[+] e2c:Entity2Clazz {
+			src->et
+			trg->c
+		}
+	}
+	
+	attributeConditions {
+		DefaultAttributeConditionLibrary.eq_string(et.name, c.name)
+	}
+
+}
+
+
+

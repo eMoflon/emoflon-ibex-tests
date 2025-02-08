@@ -1,0 +1,32 @@
+rule NodeToInvocationRecursiveRule refines AbstractNodeToInvocationRule {
+	
+	source {
+		@refines+ AbstractNodeToInvocationRule.invocationNode
+		[+] invocationNode:M.Node
+		@refines= AbstractNodeToInvocationRule.file
+		[=] file:M.File
+	}
+	
+	target {
+		@refines= AbstractNodeToInvocationRule.task
+		[=] task:P.Task {
+			[+] - invocation->invocation
+			[+] - invocations->invocation
+		}
+		@refines+ AbstractNodeToInvocationRule.invocation
+		[+] invocation:P.Invocation
+	}
+	
+	correspondence {
+		[+] invocationNodeToInvocation :NodeToInvocation {
+			src->invocationNode
+			trg->invocation
+		}
+	}
+	
+	attributeConditions {
+		DefaultAttributeConditionLibrary.addPrefix(invocationNode.name, ".proc", file.name)
+	}
+
+}
+

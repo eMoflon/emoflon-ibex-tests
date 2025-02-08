@@ -1,0 +1,18 @@
+rule Project2DocCont {
+	
+	source { 
+		[+] pr:T.Project
+	}
+	
+	target {
+		[+] dc:D.DocContainer
+	}
+	
+	correspondence {
+		[+] pr2dc:Project2DocContainer {
+			src->pr
+			trg->dc
+		}
+	}
+
+}

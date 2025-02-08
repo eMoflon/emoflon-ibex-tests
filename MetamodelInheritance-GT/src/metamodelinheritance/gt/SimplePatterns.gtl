@@ -1,0 +1,39 @@
+package metamodelinheritance.gt
+import "platform:/resource/MetamodelInheritance/model/MetamodelInheritance.ecore"
+import "platform:/resource/MetamodelInheritance2/model/MetamodelInheritance2.ecore"
+import "platform:/resource/MetamodelInheritance3/model/MetamodelInheritance3.ecore"
+
+
+pattern childC {
+	[=] c : ChildC
+};
+
+pattern childD {
+	[=] d : ChildD
+};
+
+pattern findCD {
+	
+	[=] c : ChildC {
+		[=] -d->d
+	}
+	
+	[=] d : ChildD {
+		[=] -c->c
+	}
+	
+};
+
+pattern findCDInvocation {
+	
+	[=] c : ChildC {
+		[=] -d->d
+	}
+	
+	[=] d : ChildD {
+		[=] -c->c
+	}
+	
+	enforce(childC)[c=c]
+	enforce(childD)[d=d]
+};
