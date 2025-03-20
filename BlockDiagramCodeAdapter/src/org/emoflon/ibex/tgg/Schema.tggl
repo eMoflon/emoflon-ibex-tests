@@ -1,0 +1,37 @@
+import "platform:/resource/BlockDiagram/model/BlockDiagram.ecore"
+import "platform:/resource/MocaTree/model/MocaTree.ecore"
+
+schema BlockDiagramCodeAdapter {	
+	source {
+		BlockDiagram
+	}
+	
+	target { 
+		MocaTree
+	}
+	 
+	correspondence {
+		PortToNode {
+			src->BlockDiagram.Port
+			trg->MocaTree.Node
+		}
+		BlockToNode {
+			src->BlockDiagram.Block
+			trg->MocaTree.Node
+		}
+		SystemToNode {
+			src->BlockDiagram.BlockSystem
+			trg->MocaTree.Node
+		}
+		
+		RequireToNode extends PortToNode
+		ConnectorToNode {
+			src->BlockDiagram.Connector
+			trg->MocaTree.Node
+		}
+		ProvideToNode extends PortToNode
+	}
+	
+	
+}
+

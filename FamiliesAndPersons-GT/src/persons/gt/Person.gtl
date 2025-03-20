@@ -1,0 +1,90 @@
+package persons.gt
+import "http://www.eclipse.org/emf/2002/Ecore"
+import "platform:/resource/SimplePersons/model/SimplePersons.ecore"
+
+/**
+ * Create a person.
+ */
+abstract rule createPerson(name: EString) {
+	[+] person: Person {
+		.name := parameter.name;
+	}
+
+	[=] register: PersonRegister {
+		[+] -persons -> person
+	}
+};
+
+/**
+ * Creates a female.
+ */
+rule createFemale
+refines createPerson {
+	@refines+ createPerson.person
+	[+] person: Female
+};
+
+/**
+ * Creates a person.
+ */
+rule createMale
+refines createPerson {
+	@refines+ createPerson.person
+	[+] person: Male
+};
+
+/**
+ * Finds a person.
+ */
+pattern findPerson {
+	[=] person: Person
+};
+
+/**
+ * Finds a male.
+ */
+pattern findMale
+refines findPerson {
+	@refines= findPerson.person
+	[=] person: Male
+};
+
+/**
+ * Finds a female.
+ */
+pattern findFemale
+refines findPerson {
+	@refines= findPerson.person
+	[=] person: Female
+};
+
+/**
+ * Finds the first person when ordering the persons in the register alphabetically.
+ */
+pattern findFirstPerson
+refines findPerson {
+	forbid(anotherPersonWithSmallerName)[person=person]
+};
+
+pattern anotherPersonWithSmallerName
+refines findPerson {
+	[=] anotherPerson: Person
+	[#] anotherPerson.name < person.name;
+};
+
+/**
+ * Finds the last person when ordering the persons in the register alphabetically.
+ */
+pattern findLastPerson
+refines findPerson {
+	forbid(anotherPersonWithGreaterName)[person=person]
+};
+
+pattern anotherPersonWithGreaterName
+refines findPerson {
+	@refines= findPerson.person
+	[=] person: Person 
+	[#] anotherPerson.name > person.name;
+	
+	[=] anotherPerson: Person
+};

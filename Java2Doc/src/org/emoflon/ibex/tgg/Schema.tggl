@@ -1,0 +1,26 @@
+import "platform:/resource/SimpleJava/model/simpleJava.ecore" using simpleJava as J
+import "platform:/resource/SimpleDoc/model/simpleDoc.ecore" using simpleDoc as D
+
+schema Java2Doc {
+	
+	source {
+		simpleJava
+	}
+	
+	target { 
+		simpleDoc
+	}
+	
+	correspondence {
+		Package2Folder {
+			src->J.Package
+			trg->D.Folder
+		}
+		
+		Class2Doc {
+			src->J.Clazz
+			trg->D.Doc
+		}
+	}
+	
+}

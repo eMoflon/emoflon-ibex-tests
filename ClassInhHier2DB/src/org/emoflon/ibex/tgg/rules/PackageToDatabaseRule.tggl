@@ -1,0 +1,22 @@
+rule PackageToDatabaseRule {
+	
+	source {
+		[+] classpackage:CH.ClassPackage
+	}
+	 
+	target {
+		[+] db:DB.DB
+	}
+	
+	correspondence {
+		[+] packageToDatabase:PackageToDatabase {
+			src->classpackage
+			trg->db
+		}
+	}
+	
+	attributeConditions {
+		DefaultAttributeConditionLibrary.eq_string(classpackage.name, db.title)
+	}
+	
+}

@@ -1,0 +1,42 @@
+rule AdminToRouterRule {
+	
+	source {
+		[=] company : CL.Company {
+			[=] -ceo->ceo
+			[+] -admin->admin
+		}
+		[=] ceo : CL.CEO
+		[+] admin : CL.Admin {
+			[+] -ceo->ceo
+		} 
+	}
+	 
+	target {
+		[+] router : IT.Router {
+			[+] -network->network
+		}
+		[=] it : IT.IT {
+			[+] -network->network
+			[+] -router->router
+		}
+		[+] network : IT.Network
+	}
+	
+	correspondence {
+		[+] a2r : Admin2Router {
+			src->admin
+			trg->router
+		}
+		[=] c2i : Company2IT {
+			src->company
+			trg->it 
+		}
+	} 
+	 
+	attributeConditions {
+		DefaultAttributeConditionLibrary.eq_string(admin.name, router.name)
+		DefaultAttributeConditionLibrary.eq_string(it.name, network.name)
+	}  
+	
+}
+

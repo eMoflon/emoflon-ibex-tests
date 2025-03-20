@@ -1,0 +1,9 @@
+rule CreateFather {
+	
+	source { 
+		[+] father:Fam.FamilyMember {
+			.name:="father";
+		}
+	}
+	
+}

@@ -1,0 +1,31 @@
+rule SubClassToTable {
+	
+	source {
+		[+] subClazz:CH.Clazz {
+			[+] - superClass->clazz
+			[+] - package->classpackage
+		}
+		[=] classpackage:CH.ClassPackage
+		[=] clazz:CH.Clazz {
+			[=] - package->classpackage
+		} 
+	}
+	
+	target {
+		[=] table:DB.Table
+	}
+	
+	correspondence {
+		[=] clazzToTable:ClazzToTable {
+			src->clazz
+			trg->table
+		}
+		[+] subClazzToTable:ClazzToTable {
+			src->subClazz
+			trg->table
+		}
+	}
+	
+}
+
+

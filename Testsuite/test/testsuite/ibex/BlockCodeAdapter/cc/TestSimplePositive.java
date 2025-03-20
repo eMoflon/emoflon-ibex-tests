@@ -4,10 +4,9 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Collection;
 
-import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 import org.emoflon.ibex.tgg.run.blockcodeadapter.CC_App;
-import org.emoflon.ibex.tgg.run.blockcodeadapter.config.DemoclesRegistrationHelper;
 import org.emoflon.ibex.tgg.run.blockcodeadapter.config.HiPERegistrationHelper;
+import org.emoflon.ibex.tgg.runtime.config.IRegistrationHelper;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.runners.Parameterized.Parameters;
@@ -17,7 +16,7 @@ import testsuite.ibex.testUtil.UsedPatternMatcher;
 
 public class TestSimplePositive extends CCTestCase {
 	public void createGenerator(String srcInstance, String trgInstance) throws IOException {
-		CC_App.registrationHelper = UsedPatternMatcher.choose(new IRegistrationHelper[]{new DemoclesRegistrationHelper(), new HiPERegistrationHelper()});
+		CC_App.registrationHelper = UsedPatternMatcher.choose(new IRegistrationHelper[]{ new HiPERegistrationHelper()});
 		checker = new CC_App("BlockCodeAdapter", testsuite.ibex.performance.util.PerformanceConstants.workspacePath, false, srcInstance, trgInstance, this.ilpSolver);
 	}
 	

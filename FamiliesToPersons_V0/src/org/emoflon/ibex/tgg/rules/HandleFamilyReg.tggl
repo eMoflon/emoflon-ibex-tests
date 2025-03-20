@@ -1,0 +1,8 @@
+rule HandleFamilyReg {
+	
+	source { 
+		[+] fr:Fam.FamilyRegister
+	}
+
+}
+

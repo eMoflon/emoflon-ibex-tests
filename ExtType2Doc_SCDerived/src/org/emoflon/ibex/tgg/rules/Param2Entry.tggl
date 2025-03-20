@@ -1,0 +1,30 @@
+rule Param2Entry {
+	source { 
+		[=] m:ExtTypeModel.Method {
+			[+]-params->p
+		}
+		
+		[+] p:ExtTypeModel.Parameter
+	}
+	
+	target {
+		[=] entry:ExtDocModel.Entry
+	}
+	
+	correspondence {
+		[=] m2e:Method2Entry {
+			src->m
+			trg->entry
+		}
+		
+		[+] p2e:Param2Entry {
+			src->p
+			trg->entry
+		}
+	}
+	
+	attributeConditions {
+		
+	}
+}
+

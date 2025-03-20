@@ -2,68 +2,68 @@
 <xmi:XMI xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:Express2UML="platform:/resource/Express2UML/model/Express2UML.ecore">
-  <Express2UML:SchemaContainer2UMLContainer__Marker>
-    <CREATE__SRC__sc
+  <Express2UML:ProtocolNode_SchemaContainer2UMLContainer>
+    <CREATE__SOURCE__sc
         href="src.xmi#/"/>
-    <CREATE__TRG__c
+    <CREATE__TARGET__c
         href="trg.xmi#/"/>
-    <CREATE__CORR__sc2uc
+    <CREATE__CORRESPONDENCE__sc2uc
         href="corr.xmi#/0"/>
-  </Express2UML:SchemaContainer2UMLContainer__Marker>
-  <Express2UML:Schema2Package__Marker>
-    <CREATE__SRC__s
+  </Express2UML:ProtocolNode_SchemaContainer2UMLContainer>
+  <Express2UML:ProtocolNode_Schema2Package>
+    <CREATE__SOURCE__s
         href="src.xmi#//@schemas.0"/>
-    <CONTEXT__SRC__sc
+    <CONTEXT__SOURCE__sc
         href="src.xmi#/"/>
-    <CREATE__TRG__p
+    <CREATE__TARGET__p
         href="trg.xmi#//@packages.0"/>
-    <CONTEXT__TRG__uc
+    <CONTEXT__TARGET__uc
         href="trg.xmi#/"/>
-    <CREATE__CORR__s2p
+    <CREATE__CORRESPONDENCE__s2p
         href="corr.xmi#/1"/>
-    <CONTEXT__CORR__sc2uc
+    <CONTEXT__CORRESPONDENCE__sc2uc
         href="corr.xmi#/0"/>
-  </Express2UML:Schema2Package__Marker>
-  <Express2UML:Entity2Clazz__Marker>
-    <CREATE__SRC__e
+  </Express2UML:ProtocolNode_Schema2Package>
+  <Express2UML:ProtocolNode_Entity2Clazz>
+    <CREATE__SOURCE__et
         href="src.xmi#//@schemas.0/@declarations.0"/>
-    <CONTEXT__SRC__s
+    <CONTEXT__SOURCE__s
         href="src.xmi#//@schemas.0"/>
-    <CREATE__TRG__c
+    <CREATE__TARGET__c
         href="trg.xmi#//@packages.0/@clazzes.0"/>
-    <CONTEXT__TRG__p
+    <CONTEXT__TARGET__p
         href="trg.xmi#//@packages.0"/>
-    <CREATE__CORR__e2c
+    <CREATE__CORRESPONDENCE__e2c
         href="corr.xmi#/2"/>
-    <CONTEXT__CORR__s2p
+    <CONTEXT__CORRESPONDENCE__s2p
         href="corr.xmi#/1"/>
-  </Express2UML:Entity2Clazz__Marker>
-  <Express2UML:StringAttribute2String__Marker>
-    <CONTEXT__SRC__e
+  </Express2UML:ProtocolNode_Entity2Clazz>
+  <Express2UML:ProtocolNode_StringAttribute2String>
+    <CONTEXT__SOURCE__et
         href="src.xmi#//@schemas.0/@declarations.0"/>
-    <CREATE__SRC__sa
+    <CREATE__SOURCE__sa
         href="src.xmi#//@schemas.0/@declarations.0/@attributes.1"/>
-    <CONTEXT__TRG__c
+    <CONTEXT__TARGET__c
         href="trg.xmi#//@packages.0/@clazzes.0"/>
-    <CREATE__TRG__s
+    <CREATE__TARGET__s
         href="trg.xmi#//@packages.0/@clazzes.0/@attributes.0"/>
-    <CONTEXT__CORR__e2c
+    <CONTEXT__CORRESPONDENCE__e2c
         href="corr.xmi#/2"/>
-    <CREATE__CORR__st2s
+    <CREATE__CORRESPONDENCE__st2s
         href="corr.xmi#/3"/>
-  </Express2UML:StringAttribute2String__Marker>
-  <Express2UML:IntegerAttribute2Integer__Marker>
-    <CONTEXT__SRC__e
+  </Express2UML:ProtocolNode_StringAttribute2String>
+  <Express2UML:ProtocolNode_IntegerAttribute2Integer>
+    <CONTEXT__SOURCE__et
         href="src.xmi#//@schemas.0/@declarations.0"/>
-    <CREATE__SRC__ia
+    <CREATE__SOURCE__ia
         href="src.xmi#//@schemas.0/@declarations.0/@attributes.0"/>
-    <CONTEXT__TRG__c
+    <CONTEXT__TARGET__c
         href="trg.xmi#//@packages.0/@clazzes.0"/>
-    <CREATE__TRG__i
+    <CREATE__TARGET__i
         href="trg.xmi#//@packages.0/@clazzes.0/@attributes.1"/>
-    <CONTEXT__CORR__e2c
+    <CONTEXT__CORRESPONDENCE__e2c
         href="corr.xmi#/2"/>
-    <CREATE__CORR__it2i
+    <CREATE__CORRESPONDENCE__it2i
         href="corr.xmi#/4"/>
-  </Express2UML:IntegerAttribute2Integer__Marker>
+  </Express2UML:ProtocolNode_IntegerAttribute2Integer>
 </xmi:XMI>

@@ -6,21 +6,21 @@ Bundle-ClassPath: .
 Require-Bundle: org.apache.log4j,
  org.eclipse.emf.ecore.xmi,
  org.emoflon.ibex.common,
- org.emoflon.ibex.tgg.runtime.democles,
  Families;bundle-version="1.0.0";visibility:=reexport,
  org.emoflon.ibex.tgg.runtime;visibility:=reexport,
  Persons;bundle-version="1.0.0";visibility:=reexport,
  org.sat4j.core;bundle-version="2.3.5",
  org.sat4j.pb;bundle-version="2.3.5",
- org.emoflon.ibex.tgg.ui.debug,
- org.emoflon.ibex.tgg.ui.debug.adapter;bundle-version="1.0.0",
- org.emoflon.ibex.tgg.language;bundle-version="1.0.0",
  org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  Families,
  Persons,
  org.emoflon.ibex.tgg.runtime.hipe,
- org.emoflon.smartemf
+ org.emoflon.smartemf,
+ org.emoflon.ibex.tgg.tggmodel;bundle-version="0.1.0",
+ org.emoflon.ibex.tgg.runtimemodel;bundle-version="0.1.0",
+ org.emoflon.ibex.tgg.analysis;bundle-version="1.0.0",
+ org.emoflon.ibex.tgg.util;bundle-version="1.0.0"
 Bundle-ManifestVersion: 2
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-21

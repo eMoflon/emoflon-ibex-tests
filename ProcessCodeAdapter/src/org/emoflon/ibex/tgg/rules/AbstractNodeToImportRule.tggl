@@ -1,0 +1,31 @@
+abstract rule AbstractNodeToImportRule {
+	
+	source {
+		[=] taskNode:M.Node {
+			[=] - file->file
+		}
+		[=] invocationsNode:M.Node {
+			[=] - parentNode->taskNode
+		}
+		[=] file:M.File
+		[=] folder:M.Folder {
+			[=] - file->file
+		} 
+		[+] invocationNode:M.Node {
+			[+] - parentNode->invocationsNode
+		}
+	}
+	
+	target {
+		[=] system:P.SystemModule
+		[=] task:P.Task
+	}
+	
+	correspondence {
+		[=] fileToTask :FileToTask {
+			src->file
+			trg->task
+		}
+	}
+
+}

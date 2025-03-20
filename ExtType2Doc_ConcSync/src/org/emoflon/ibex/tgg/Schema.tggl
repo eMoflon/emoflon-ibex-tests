@@ -1,0 +1,45 @@
+import "platform:/resource/ExtDocModel/model/ExtDocModel.ecore" using ExtDocModel as D
+import "platform:/resource/ExtTypeModel/model/ExtTypeModel.ecore" using ExtTypeModel as T
+
+schema ExtType2Doc_ConcSync {
+	
+	source {
+		ExtTypeModel
+	}
+	
+	target { 
+		ExtDocModel
+	} 
+	
+	correspondence {
+		Project2DocContainer {
+			src->T.Project
+			trg->D.DocContainer
+		}
+		Package2Folder {
+			src->T.Package
+			trg->D.Folder
+		}
+		Type2Doc {
+			src->T.Type
+			trg->D.Doc
+		}
+		Method2Entry {
+			src->T.Method
+			trg->D.Entry
+		}
+		Param2Entry {
+			src->T.Parameter
+			trg->D.Entry
+		}
+		Field2Entry {
+			src->T.Field
+			trg->D.Entry
+		}
+		JDoc2Annotation {
+			src->T.JavaDoc
+			trg->D.Annotation
+		}
+	}
+
+}

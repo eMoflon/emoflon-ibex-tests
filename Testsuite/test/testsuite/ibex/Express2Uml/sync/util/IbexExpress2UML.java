@@ -2,10 +2,9 @@ package testsuite.ibex.Express2Uml.sync.util;
 
 import java.io.IOException;
 
-import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
 import org.emoflon.ibex.tgg.run.express2uml.SYNC_App;
-import org.emoflon.ibex.tgg.run.express2uml.config.DemoclesRegistrationHelper;
 import org.emoflon.ibex.tgg.run.express2uml.config.HiPERegistrationHelper;
+import org.emoflon.ibex.tgg.runtime.config.IRegistrationHelper;
 
 import ExpressModel.SchemaContainer;
 import testsuite.ibex.Express2Uml.common.ExpressHelper;
@@ -25,7 +24,7 @@ public class IbexExpress2UML extends IbexAdapter<SchemaContainer, UMLContainer> 
 	public void initiateSynchronisationDialogue() {
 		try {
 			SYNC_App.registrationHelper = UsedPatternMatcher.choose(
-					new IRegistrationHelper[] { new DemoclesRegistrationHelper(), new HiPERegistrationHelper() });
+					new IRegistrationHelper[] { new HiPERegistrationHelper() });
 			synchroniser = new SYNC_App(projectName, testsuite.ibex.performance.util.PerformanceConstants.workspacePath,
 					false);
 			

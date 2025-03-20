@@ -1,9 +1,9 @@
 package testsuite.ibex.Java2Doc.integrate;
 
-import static org.emoflon.ibex.tgg.operational.strategies.integrate.FragmentProvider.CLEAN_UP;
-import static org.emoflon.ibex.tgg.operational.strategies.integrate.FragmentProvider.RESOLVE_BROKEN_MATCHES;
-import static org.emoflon.ibex.tgg.operational.strategies.integrate.FragmentProvider.RESOLVE_CONFLICTS;
-import static org.emoflon.ibex.tgg.operational.strategies.integrate.FragmentProvider.TRANSLATE;
+import static org.emoflon.ibex.tgg.runtime.strategies.integrate.FragmentProvider.CLEAN_UP;
+import static org.emoflon.ibex.tgg.runtime.strategies.integrate.FragmentProvider.RESOLVE_BROKEN_MATCHES;
+import static org.emoflon.ibex.tgg.runtime.strategies.integrate.FragmentProvider.RESOLVE_CONFLICTS;
+import static org.emoflon.ibex.tgg.runtime.strategies.integrate.FragmentProvider.TRANSLATE;
 
 import java.util.Arrays;
 import java.util.LinkedList;
@@ -14,9 +14,9 @@ import java.util.function.Consumer;
 import org.benchmarx.simpledoc.core.SimpleDocHelper;
 import org.benchmarx.simpledoc.core.SimpleJavaHelper;
 import org.emoflon.ibex.common.emf.EMFManipulationUtils;
-import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.DeletePreserveConflict;
-import org.emoflon.ibex.tgg.operational.strategies.integrate.conflicts.resolution.util.CRSHelper;
-import org.emoflon.ibex.tgg.operational.strategies.integrate.pattern.IntegrationPattern;
+import org.emoflon.ibex.tgg.runtime.strategies.integrate.conflicts.DeletePreserveConflict;
+import org.emoflon.ibex.tgg.runtime.strategies.integrate.conflicts.resolution.util.CRSHelper;
+import org.emoflon.ibex.tgg.runtime.strategies.integrate.pattern.IntegrationPattern;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

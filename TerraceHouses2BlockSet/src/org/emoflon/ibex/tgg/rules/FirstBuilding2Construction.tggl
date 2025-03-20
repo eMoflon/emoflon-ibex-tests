@@ -1,0 +1,40 @@
+rule FirstBuilding2Construction {
+	
+	source {
+		[=] d:TH.District {
+			[+] -streetBeginnings->building
+		}
+		[+] building:TH.Building
+	}
+	
+	target {
+		[=] p:WB.Playroom {
+			[+] -blocksets->set
+		}
+		[+] set:WB.BlockSet {
+			[+] -constructions->constr
+		}
+		[+] constr:WB.Construction {
+			[+] -components->cuboid
+		}
+		[+] cuboid:WB.Cuboid
+	}
+	
+	correspondence {
+		[=] d2p:District2Playroom {
+			src->d
+			trg->p
+		}
+		[+] b2c:Structure2Construction {
+			src->building
+			trg->constr
+		}
+	}
+	
+	attributeConditions {
+		DefaultAttributeConditionLibrary.eq_string(building.name, constr.name)
+	}
+	
+}
+
+

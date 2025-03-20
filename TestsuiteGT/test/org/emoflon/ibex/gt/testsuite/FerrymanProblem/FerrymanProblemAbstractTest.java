@@ -1,16 +1,16 @@
 package org.emoflon.ibex.gt.testsuite.FerrymanProblem;
 
+import ferryman.gt.api.GtGtApi;
+import ferryman.gt.api.GtHiPEGtApi;
 import org.emoflon.ibex.gt.testsuite.GTAppTestCase;
 
-import FerrymanProblemGraphTransformation.api.FerrymanProblemGraphTransformationAPI;
-import FerrymanProblemGraphTransformation.api.FerrymanProblemGraphTransformationApp;
 
 /**
- * Abstract test class for the FerrymanProblem Graph Transformation API. All
- * tests for this API should inherit from this class.
+ * Abstract test class for the FerrymanProblem Graph Transformation Api. All
+ * tests for this Api should inherit from this class.
  */
 public abstract class FerrymanProblemAbstractTest
-		extends GTAppTestCase<FerrymanProblemGraphTransformationApp, FerrymanProblemGraphTransformationAPI> {
+		extends GTAppTestCase<GtGtApi<?>> {
 
 	@Override
 	public String getTestName() {
@@ -18,7 +18,15 @@ public abstract class FerrymanProblemAbstractTest
 	}
 
 	@Override
-	protected FerrymanProblemGraphTransformationApp getApp() {
-		return new FerrymanProblemGraphTransformationApp(initEngine(), workspacePath);
+	protected GtGtApi<?> getApi() {
+		return getApi(patternMatcher);
+	}
+	
+	@Override
+	protected GtGtApi<?> getApi(String patternMatcher) {
+		return switch(patternMatcher) {
+			case PM_HIPE -> {yield new GtHiPEGtApi();}
+			default -> {yield new GtHiPEGtApi();}
+		};
 	}
 }

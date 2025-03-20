@@ -1,0 +1,33 @@
+import "platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore" using CompanyLanguage as CL
+import "platform:/resource/ITLanguage/model/ITLanguage.ecore" using ITLanguage as IT
+
+schema CompanyToIT {
+	
+	source {
+		CompanyLanguage 
+	}
+	
+	target {
+		ITLanguage
+	} 
+	 
+	correspondence {
+		Admin2Router {
+			src->CompanyLanguage.Admin
+			trg->ITLanguage.Router
+		}
+		Employee2PC {
+			src->CompanyLanguage.Employee
+			trg->ITLanguage.PC
+		}
+		Employee2Laptop {
+			src->CompanyLanguage.Employee
+			trg->ITLanguage.Laptop
+		}
+		Company2IT {
+			src->CompanyLanguage.Company
+			trg->ITLanguage.IT
+		}
+	}
+	
+}

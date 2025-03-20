@@ -7,18 +7,18 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.emoflon.ibex.tgg.operational.csp.constraints.factories.java2doc.UserDefinedRuntimeTGGAttrConstraintFactory;
-import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
-import org.emoflon.ibex.tgg.operational.strategies.modules.IbexExecutable;
-import org.emoflon.ibex.tgg.operational.strategies.opt.BWD_OPT;
-import org.emoflon.ibex.tgg.operational.strategies.opt.FWD_OPT;
+import org.emoflon.ibex.tgg.operational.csp.constraints.custom.java2doc.RuntimeTGGAttrConstraintFactoryContainer;
+import org.emoflon.ibex.tgg.runtime.config.IRegistrationHelper;
+import org.emoflon.ibex.tgg.runtime.config.options.IbexOptions;
 import org.emoflon.ibex.tgg.runtime.hipe.HiPETGGEngine;
-import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
+import org.emoflon.ibex.tgg.runtime.strategies.modules.IbexExecutable;
+import org.emoflon.ibex.tgg.runtime.strategies.opt.BWD_OPT;
+import org.emoflon.ibex.tgg.runtime.strategies.opt.FWD_OPT;
 
 import Java2Doc.Java2DocPackage;
 import Java2Doc.impl.Java2DocPackageImpl;
-import simpleJava.impl.SimpleJavaPackageImpl;
 import simpleDoc.impl.SimpleDocPackageImpl;
+import simpleJava.impl.SimpleJavaPackageImpl;
 
 public class HiPERegistrationHelper implements IRegistrationHelper {
 	
@@ -87,7 +87,8 @@ public class HiPERegistrationHelper implements IRegistrationHelper {
 		options.project.name("Java2Doc");
 		options.project.path("Java2Doc");
 		options.debug.ibexDebug(false);
-		options.csp.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
+		options.csp.registerConstraintFactories(new RuntimeTGGAttrConstraintFactoryContainer().getFactories());
+			
 		options.registrationHelper(this);
 		return options;
 	}

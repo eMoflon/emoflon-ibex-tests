@@ -1,0 +1,217 @@
+package families.gt
+import "http://www.eclipse.org/emf/2002/Ecore"
+import "platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore"
+
+/**
+ * Adds a member with the given first name.
+ */
+abstract rule addMember(name: EString) {
+	[+] member: FamilyMember {
+		.name := parameter.name;
+	}
+};
+
+/**
+ * Adds a daughter with the given first name to an existing family.
+ */
+rule addDaughter
+refines addMember {
+	[=] family: Family {
+		[+] -daughters -> member
+	}
+};
+
+/**
+ * Adds a father with the given first name to an existing family.
+ */
+rule addFather
+refines addMember {
+	[=] family: Family {
+		[+] -father -> member
+	}
+};
+
+/**
+ * Adds a mother with the given first name to an existing family.
+ */
+rule addMother
+refines addMember {
+	[=] family: Family {
+		[+] -mother -> member
+	}
+};
+
+/**
+ * Adds a son with the given first name to an existing family.
+ */
+rule addSon
+refines addMember {
+	[=] family: Family {
+		[+] -sons -> member
+	}
+};
+
+/**
+ * Finds a family member.
+ */
+abstract pattern findMember {
+	[=] member: FamilyMember
+};
+
+/**
+ * Finds a daughter.
+ */
+pattern findDaughter
+refines findMember {
+	[=] family: Family {
+		[=] -daughters -> member
+	}
+};
+
+/**
+ * Finds a father.
+ */
+pattern findFather
+refines findMember {
+	[=] family: Family {
+		[=] -father -> member
+	}
+};
+
+/**
+ * Finds a mother.
+ */
+pattern findMother
+refines findMember {
+	[=] family: Family {
+		[=] -mother -> member
+	}
+};
+
+/**
+ * Finds a son.
+ */
+pattern findSon
+refines findMember {
+	[=] family: Family {
+		[=] -sons -> member
+	}
+};
+
+/**
+ * Finds a family member by his/her first name.
+ */
+pattern findMemberByFirstName(firstName: EString) {
+	[=] member: FamilyMember
+	[#] member.name == parameter.firstName;
+};
+
+// ******** Find members by gender ***********
+
+pattern support1 refines findMember {
+//	!memberIsDaughterInFamily && !memberIsMotherInFamily
+	forbid(findDaughter)[member=member]
+	forbid(findMother)[member=member]
+};
+
+/**
+ * Finds a female (mother or daughter) in a family.
+ */
+pattern findFemaleMember
+refines findMember {
+	// -> memberIsDaughterInFamily || memberIsMotherInFamily
+	forbid(support1)[member=member]
+};
+
+pattern support2 refines findMember {
+//	!memberIsFatherInFamily && !memberIsSonInFamily
+	forbid(findSon)[member=member]
+	forbid(findFather)[member=member]
+};
+
+/**
+ * Finds a male (father or son) in a family.
+ */
+pattern findMaleMember
+refines findMember {
+//	-> memberIsFatherInFamily || memberIsSonInFamily
+	forbid(support2)[member=member]
+};
+
+// ******** Find members by role ***********
+
+/**
+ * Finds a daughter in a family.
+ */
+pattern findDaughterWithCondition
+refines findMember {
+	enforce(findDaughter)[member=member]
+};
+
+/**
+ * Finds a father in a family.
+ */
+pattern findFatherWithCondition
+refines findMember {
+	enforce(findFather)[member=member]
+};
+
+/**
+ * Finds a mother in a family.
+ */
+pattern findMotherWithCondition
+refines findMember {
+	enforce(findMother)[member=member]
+};
+
+/**
+ * Finds a son in a family.
+ */
+pattern findSonWithCondition
+refines findMember {
+	enforce(findSon)[member=member]
+};
+
+/**
+ * Finds a family member who is not a son.
+ */
+pattern findMemberExceptSonWithCondition
+refines findMember {
+	forbid(findSon)[member=member]
+};
+
+/**
+ * Finds a son in the Simpson family.
+ */
+pattern findSonInSimpsonFamily
+refines findMember {
+	[=] family: Family
+	enforce(findSon)[member=member]
+	enforce(findSimpsonFamily)[family=family]
+};
+
+pattern support3 refines findMember {
+	[=] family: Family
+//	!memberIsSonInSimpsonFamily && !memberIsNamedBart
+	forbid(findSonInSimpsonFamily)[family=family, member=member]
+	forbid(findMemberNamedBart)[member=member]
+};
+/**
+ * Finds a son who is member of the Simpson family or named Bart.
+ */
+pattern findSonInSimpsonFamilyOrNamedBart
+refines findMember {
+	[=] family: Family {
+		[=] -sons -> member
+	}
+//	-> memberIsSonInSimpsonFamily || memberIsNamedBart
+	forbid(support3)[family=family, member=member]
+};
+
+/**
+ * Finds a family member named Bart.
+ */
+pattern findMemberNamedBart {
+	[=] member: FamilyMember
+	[#] member.name == "Bart";
+};

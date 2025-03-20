@@ -6,6 +6,13 @@ import CompanyToIT.Admin2Router
 import CompanyToIT.Company2IT
 import CompanyToIT.Employee2Laptop
 import CompanyToIT.Employee2PC
+import CompanyLanguage.Company
+import ITLanguage.IT
+import CompanyLanguage.Admin
+import ITLanguage.Router
+import ITLanguage.Laptop
+import CompanyLanguage.Employee
+import ITLanguage.PC
 
 class CompanyToITCorrComp extends CorrComparator {
 	
@@ -21,37 +28,45 @@ class CompanyToITCorrComp extends CorrComparator {
 	}
 	
 	def stringify(Company2IT corr) {
+		var source = corr.source as Company
+		var target = corr.target as IT
 		'''
 		Company2IT {
-			SRC {"«corr.source.name»"}
-			TRG {"«corr.target.name»"}
+			SRC {"«source.name»"}
+			TRG {"«target.name»"}
 		}
 		'''
 	}
 	
 	def stringify(Admin2Router corr) {
+		var source = corr.source as Admin
+		var target = corr.target as Router
 		'''
 		Admin2Router {
-			SRC {"«corr.source.name»"}
-			TRG {"«corr.target.name»"}
+			SRC {"«source.name»"}
+			TRG {"«target.name»"}
 		}
 		'''
 	}
 	
 	def stringify(Employee2Laptop corr) {
+		var source = corr.source as Employee
+		var target = corr.target as Laptop
 		'''
 		Employee2Laptop {
-			SRC {"«corr.source.name»"}
-			TRG {"«corr.target.name»"}
+			SRC {"«source.name»"}
+			TRG {"«target.name»"}
 		}
 		'''
 	}
 	
 	def stringify(Employee2PC corr) {
+		var source = corr.source as Employee
+		var target = corr.target as PC
 		'''
 		Employee2PC {
-			SRC {"«corr.source.name»"}
-			TRG {"«corr.target.name»"}
+			SRC {"«source.name»"}
+			TRG {"«target.name»"}
 		}
 		'''
 	}

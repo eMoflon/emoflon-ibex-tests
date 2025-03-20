@@ -1,0 +1,115 @@
+package families2persons.gt
+import "platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore"
+import "platform:/resource/SimplePersons/model/SimplePersons.ecore"
+
+from "platform:/resource/FamiliesAndPersons-GT/src/persons/gt/Register.gtl" import findRegister
+from "platform:/resource/FamiliesAndPersons-GT/src/persons/gt/Register.gtl" import createRegister
+from "platform:/resource/FamiliesAndPersons-GT/src/persons/gt/Person.gtl" import *
+from "platform:/resource/FamiliesAndPersons-GT/src/families/gt/Register.gtl" import findFamilyRegister
+from "platform:/resource/FamiliesAndPersons-GT/src/families/gt/Family.gtl" import findFamily
+from "platform:/resource/FamiliesAndPersons-GT/src/families/gt/Member.gtl" import findFather
+from "platform:/resource/FamiliesAndPersons-GT/src/families/gt/Member.gtl" import findSon
+from "platform:/resource/FamiliesAndPersons-GT/src/families/gt/Member.gtl" import findMother
+from "platform:/resource/FamiliesAndPersons-GT/src/families/gt/Member.gtl" import findDaughter
+/**
+ * Creates a family register for a person register.
+ */
+rule familyRegisterToPersonRegister {
+	[=] familyRegister: FamilyRegister
+
+	[+] personRegister: PersonRegister
+};
+
+pattern memeberIsPerson {
+	[=] family : Family
+	[=] member: FamilyMember
+	
+	[=] personRegister: PersonRegister {
+		[=] -persons -> person
+	}
+	
+	[=] person: Person
+	[#] person.name == family.name + ", " + member.name;
+};
+
+/**
+ * Creates a person for a member.
+ */
+abstract rule memberToPerson {
+	[=] member: FamilyMember
+
+	[=] personRegister: PersonRegister {
+		[+] -persons -> person
+	}
+
+	[+] person: Person {
+		.name := "";
+	}
+};
+
+/**
+ * Creates a female for a member.
+ */
+abstract rule memberToFemale
+refines memberToPerson {
+	@refines+ memberToPerson.person
+	[+] person: Female
+};
+
+/**
+ * Creates a female for a mother.
+ */
+rule motherToFemale
+refines memberToFemale {
+	[=] family: Family {
+		[=] -mother -> member
+	}
+	
+	forbid(memeberIsPerson)[family=family, member=member]
+};
+
+/**
+ * Creates a female for a daughter.
+ */
+rule daughterToFemale
+refines memberToFemale {
+	[=] family: Family {
+		[=] -daughters -> member
+	}
+	
+	forbid(memeberIsPerson)[family=family, member=member]
+};
+
+/**
+ * Creates a male for a member.
+ */
+abstract rule memberToMale
+refines memberToPerson {
+	@refines+ memberToPerson.person
+	[+] person: Male
+};
+
+/**
+ * Creates a male for a father.
+ */
+rule fatherToMale
+refines memberToMale {
+	[=] family: Family {
+		[=] -father -> member
+	}
+	
+	forbid(memeberIsPerson)[family=family, member=member]
+};
+
+/**
+ * Creates a male for a son.
+ */
+rule sonToMale
+refines memberToMale {
+	[=] family: Family {
+		[=] -sons -> member
+	}
+	
+	forbid(memeberIsPerson)[family=family, member=member]
+};
+

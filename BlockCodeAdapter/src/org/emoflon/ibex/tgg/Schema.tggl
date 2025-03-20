@@ -1,0 +1,37 @@
+import "platform:/resource/MocaTree/model/MocaTree.ecore" 
+import "platform:/resource/BlockLanguage/model/BlockLanguage.ecore"
+
+schema BlockCodeAdapter {
+	
+source {
+	MocaTree 
+}
+
+target {
+	BlockLanguage
+}
+
+correspondence {
+	NodeToSpecification {
+		src->MocaTree.Node
+		trg->BlockLanguage.Specification
+	}
+	NodeToBlock {
+		src->MocaTree.Node
+		trg->BlockLanguage.Block
+	}
+	NodeToWire {
+		src->MocaTree.Node
+		trg->BlockLanguage.Wire
+	}
+	NodeToPort {
+		src->MocaTree.Node
+		trg->BlockLanguage.Port
+	}
+	FileToSpecification {
+		src->MocaTree.File
+		trg->BlockLanguage.Specification
+	}
+}
+}
+

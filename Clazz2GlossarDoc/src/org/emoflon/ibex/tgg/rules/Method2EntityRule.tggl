@@ -1,0 +1,37 @@
+rule Method2EntityRule {
+	
+	source { 
+		[=] clazz : C.Clazz {
+			[+] -methods-> method
+		}
+		[+] method : C.Method
+	}
+	
+	target {
+		[=] doc : D.Document {
+			[+] -entries->entry
+		}
+		[+] entry : D.Entry {
+			.type := enums.METHOD;
+		}
+	}
+	
+	correspondence {
+		[=] c2d : Clazz2doc {
+			src->clazz
+			trg->doc
+		}
+		
+		[+] f2e : Method2entry {
+			src->method
+			trg->entry
+		}
+	}
+	
+	attributeConditions {
+		DefaultAttributeConditionLibrary.eq_string(method.name, entry.name)
+	}
+
+}
+
+

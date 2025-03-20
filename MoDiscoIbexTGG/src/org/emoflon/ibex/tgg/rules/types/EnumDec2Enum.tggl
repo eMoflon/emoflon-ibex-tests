@@ -1,0 +1,33 @@
+rule EnumDec2Enum {
+	source { 
+		[=] jPackage : Java.Package {
+			[+] -ownedElements->enumDec
+		}
+		
+		[+] enumDec : Java.EnumDeclaration
+	}
+	
+	target {
+		[=] umlPackage : UML2.Package {
+			[+] -packagedElement->umlEnum
+		}
+		
+		[+] umlEnum : UML2.Enumeration
+	}
+	
+	correspondence {
+		[=] jp2up : JavaPackage2UmlPackage {
+			src->jPackage
+			trg->umlPackage
+		}
+		[+] cd2c : JavaType2UMLType {
+			src->enumDec
+			trg->umlEnum
+		}
+	}
+	
+	attributeConditions {
+		DefaultAttributeConditionLibrary.eq_string(enumDec.name, umlEnum.name)
+	}
+}
+

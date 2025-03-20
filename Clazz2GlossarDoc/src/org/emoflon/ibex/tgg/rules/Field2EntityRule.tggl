@@ -1,0 +1,36 @@
+rule Field2EntityRule {
+	
+	source { 
+		[=] clazz : C.Clazz {
+			[+] -fields-> field
+		}
+		[+] field : C.Field
+	}
+	
+	target {
+		[=] doc : D.Document {
+			[+] -entries->entry
+		}
+		[+] entry : D.Entry {
+			.type := enums.FIELD;
+		}
+	}
+	
+	correspondence {
+		[=] c2d : Clazz2doc {
+			src->clazz
+			trg->doc
+		}
+		
+		[+] f2e : Field2entry {
+			src->field
+			trg->entry
+		}
+	}
+	
+	attributeConditions {
+		DefaultAttributeConditionLibrary.eq_string(field.name, entry.name)
+	}
+
+}
+

@@ -2,8 +2,8 @@ package testsuite.ibex.testUtil;
 
 import java.io.IOException;
 
-import org.emoflon.ibex.tgg.operational.strategies.opt.CO;
-import org.emoflon.ibex.tgg.operational.strategies.sync.SYNC;
+import org.emoflon.ibex.tgg.runtime.strategies.opt.CO;
+import org.emoflon.ibex.tgg.runtime.strategies.sync.SYNC;
 
 /**
  * Test case for transforming a src/trg model from scratch by the FWD and BWD operationalizations

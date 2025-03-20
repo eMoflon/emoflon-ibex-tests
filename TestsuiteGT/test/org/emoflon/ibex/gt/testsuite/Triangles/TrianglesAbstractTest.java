@@ -2,15 +2,15 @@ package org.emoflon.ibex.gt.testsuite.Triangles;
 
 import org.emoflon.ibex.gt.testsuite.GTAppTestCase;
 
-import TrianglesGraphTransformation.api.TrianglesGraphTransformationAPI;
-import TrianglesGraphTransformation.api.TrianglesGraphTransformationApp;
+import triangles.gt.api.GtGtApi;
+import triangles.gt.api.GtHiPEGtApi;
 
 /**
  * Abstract test class for the Triangles Graph
- * Transformation API. All tests for this API should inherit from this class.
+ * Transformation Api. All tests for this Api should inherit from this class.
  */
 public class TrianglesAbstractTest extends
-		GTAppTestCase<TrianglesGraphTransformationApp, TrianglesGraphTransformationAPI> {
+		GTAppTestCase<GtGtApi<?>> {
 
 	@Override
 	protected String getTestName() {
@@ -18,7 +18,15 @@ public class TrianglesAbstractTest extends
 	}
 
 	@Override
-	protected TrianglesGraphTransformationApp getApp() {
-		return new TrianglesGraphTransformationApp(initEngine(), workspacePath);
+	protected GtGtApi<?> getApi() {
+		return getApi(patternMatcher);
+	}
+	
+	@Override
+	protected GtGtApi<?> getApi(String patternMatcher) {
+		return switch(patternMatcher) {
+			case PM_HIPE -> {yield new GtHiPEGtApi();}
+			default -> {yield new GtHiPEGtApi();}
+		};
 	}
 }

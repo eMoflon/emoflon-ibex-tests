@@ -1,0 +1,21 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: BPMN-GT
+Bundle-ManifestVersion: 2
+Bundle-Name: BPMN-GT
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: BPMN-GT; singleton:=true
+Bundle-ActivationPolicy: lazy
+Import-Package: org.apache.log4j,
+ org.apache.commons.logging
+Bundle-RequiredExecutionEnvironment: JavaSE-21
+Require-Bundle: org.emoflon.ibex.common,
+ org.emoflon.ibex.gt,
+ org.emoflon.ibex.gt.gtmodel,
+ org.eclipse.emf.ecore,
+ org.emoflon.ibex.gt.hipe,
+ BPMN
+Export-Package: bpmn.gt.api,
+ bpmn.gt.api.match,
+ bpmn.gt.api.pattern,
+ bpmn.gt.api.rule

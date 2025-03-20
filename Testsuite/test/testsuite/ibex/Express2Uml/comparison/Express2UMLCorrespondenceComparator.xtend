@@ -8,6 +8,13 @@ import Express2UML.SchemaContainer2UMLContainer
 import Express2UML.StringTypeAttribute2String
 import org.eclipse.emf.ecore.EObject
 import testsuite.ibex.testUtil.CorrComparator
+import ExpressModel.Schema
+import uml.Package
+import ExpressModel.Entity
+import uml.Clazz
+import ExpressModel.Function
+import ExpressModel.IntegerAttribute
+import ExpressModel.StringAttribute
 
 class Express2UMLCorrespondenceComparator extends CorrComparator {
 	
@@ -34,8 +41,8 @@ class Express2UMLCorrespondenceComparator extends CorrComparator {
 	private def String stringify(Schema2Package corr) {
 		'''
 		Schema2Package {
-			SRC {"«corr.source.name»"}
-			TRG {"«corr.target.name»"}
+			SRC {"«(corr.source as Schema).name»"}
+			TRG {"«(corr.target as Package).name»"}
 		}
 		'''
 	}
@@ -43,8 +50,8 @@ class Express2UMLCorrespondenceComparator extends CorrComparator {
 	private def String stringify(Entity2Clazz corr) {
 		'''
 		Entity2Clazz {
-			SRC {"«corr.source.name»"}
-			TRG {"«corr.target.name»"}
+			SRC {"«(corr.source as Entity).name»"}
+			TRG {"«(corr.target as Clazz).name»"}
 		}
 		'''
 	}
@@ -52,9 +59,9 @@ class Express2UMLCorrespondenceComparator extends CorrComparator {
 	private def String stringify(Function2SingleMethodClazz corr) {
 		'''
 		Function2SingleMethodClazz {
-			SRC {"«corr.source.name»"}
-			TRG {"«corr.target.name»"}
-			METHOD {«corr.target.methods.get(0).name»}
+			SRC {"«(corr.source as Function).name»"}
+			TRG {"«(corr.target as Clazz).name»"}
+			METHOD {«(corr.target as Clazz).methods.get(0).name»}
 		}
 		'''
 	}
@@ -62,8 +69,8 @@ class Express2UMLCorrespondenceComparator extends CorrComparator {
 	private def String stringify(IntegerTypeAttribute2Integer corr) {
 		'''
 		IntegerTypeAttribute2Integer {
-			SRC {"«corr.source.name»"}
-			TRG {"«corr.target.name»"}
+			SRC {"«(corr.source as IntegerAttribute).name»"}
+			TRG {"«(corr.target as uml.Integer).name»"}
 		}
 		'''
 	}
@@ -71,8 +78,8 @@ class Express2UMLCorrespondenceComparator extends CorrComparator {
 	private def String stringify(StringTypeAttribute2String corr) {
 		'''
 		StringTypeAttribute2String {
-			SRC {"«corr.source.name»"}
-			TRG {"«corr.target.name»"}
+			SRC {"«(corr.source as StringAttribute).name»"}
+			TRG {"«(corr.target as uml.String).name»"}
 		}
 		'''
 	}

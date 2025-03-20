@@ -1,0 +1,34 @@
+rule Clazz2DocRule {
+	
+	source { 
+		[=] cCont : C.ClazzContainer {
+			[+] -clazzes->clazz
+		}
+		[+] clazz : C.Clazz 
+	}
+	
+	target {
+		[=] dCont : D.DocumentationContainer {
+			[+] -documents->doc
+		}
+		[+] doc : D.Document
+	}
+	
+	correspondence {
+		[=] cont2cont : Container2container {
+			src->cCont
+			trg->dCont
+		}
+		
+		[+] c2d : Clazz2doc {
+			src->clazz
+			trg->doc
+		}
+	}
+	
+	attributeConditions {
+		DefaultAttributeConditionLibrary.eq_string(clazz.name, doc.name)
+	}
+
+}
+

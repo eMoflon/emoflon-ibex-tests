@@ -1,0 +1,34 @@
+abstract rule AbstractPortToNodeRule {
+	source {
+		[=] block:BlockDiagram.Block
+		[+] port:BlockDiagram.Port {
+			[+] - block->block
+		}
+	}
+	
+	target { 
+		[+] portNode:MocaTree.Node {
+			[+] - parentNode->node
+			[+] - attribute->id
+		}
+		[=] node:MocaTree.Node
+		[+] id:MocaTree.Attribute {
+			.name := "id";
+		}
+	}
+	
+	correspondence {
+		[=] blockToNode :BlockToNode {
+			src->block
+			trg->node
+		}
+		[+] portToNode :PortToNode {
+			src->port
+			trg->portNode
+		}
+	}
+	
+	attributeConditions {
+		DefaultAttributeConditionLibrary.eq_string(port.id, id.value)
+	}
+}

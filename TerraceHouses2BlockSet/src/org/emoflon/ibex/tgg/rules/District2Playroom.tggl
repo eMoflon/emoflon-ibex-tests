@@ -1,0 +1,23 @@
+rule District2Playroom {
+	
+	source { 
+		[+] d:TH.District
+	}
+	
+	target {
+		[+] p:WB.Playroom
+	}
+	
+	correspondence {
+		[+] d2p:District2Playroom {
+			src->d
+			trg->p
+		}
+	}
+	
+	attributeConditions {
+		
+	}
+
+}
+

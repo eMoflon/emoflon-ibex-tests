@@ -1,0 +1,35 @@
+rule Node2PortRule {	
+	source {
+		[=] blocksNode:MocaTree.Node 
+		[+] portNode:MocaTree.Node {
+			[+] - parentNode->blockNode
+		}
+		[=] blockNode:MocaTree.Node {
+			[=] - parentNode->blocksNode
+		}
+		[#] blocksNode.name == "BLOCKS";
+	}
+	
+	target {
+		[+] port:BlockLanguage.Port
+		[=] block:BlockLanguage.Block {
+			[+] - ports->port
+		}
+	}
+	
+	correspondence {
+		[=] n2b :NodeToBlock {
+			src->blockNode
+			trg->block
+		}
+		[+] n2p :NodeToPort {
+			src->portNode
+			trg->port
+		}
+	}
+	
+	attributeConditions {
+		DefaultAttributeConditionLibrary.stringToInt(portNode.name, port.id)
+	}
+}
+

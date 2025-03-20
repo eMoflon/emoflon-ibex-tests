@@ -1,0 +1,48 @@
+rule ExtendingType2Doc {
+	source { 
+		[=] p:ExtTypeModel.Package {
+			[=] -types->t
+			[+] -types->nt
+		}
+		[=] t:ExtTypeModel.Type {
+			[+] -extendedBy->nt
+		}
+		[#] t.interface==false;
+		
+		[+] nt:ExtTypeModel.Type
+	}
+	
+	target {
+		[=] f:ExtDocModel.Folder {
+			[=] -docs->d
+			[+] -docs->nd
+		}
+		[=] d:ExtDocModel.Doc {
+			[+] -subDocs->nd
+		}
+		
+		[+] nd:ExtDocModel.Doc
+	}
+	
+	correspondence {
+		[=] p2f:Package2Folder {
+			src->p
+			trg->f
+		}
+		[=] t2d:Type2Doc {
+			src->t
+			trg->d
+		}
+		
+		[+] nt2nd:Type2Doc {
+			src->nt
+			trg->nd
+		}
+	}
+	
+	attributeConditions {
+		DefaultAttributeConditionLibrary.concat(".", p.fQname, nt.name, derived nd.name)
+	}
+	
+}
+

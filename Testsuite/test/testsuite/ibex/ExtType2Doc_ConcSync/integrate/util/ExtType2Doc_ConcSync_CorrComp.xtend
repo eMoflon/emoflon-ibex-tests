@@ -9,6 +9,15 @@ import ExtType2Doc_ConcSync.Project2DocContainer
 import ExtType2Doc_ConcSync.Type2Doc
 import org.eclipse.emf.ecore.EObject
 import testsuite.ibex.testUtil.CorrComparator
+import ExtTypeModel.Type
+import ExtDocModel.Folder
+import ExtDocModel.Doc
+import ExtTypeModel.Method
+import ExtDocModel.Entry
+import ExtTypeModel.Parameter
+import ExtTypeModel.Field
+import ExtTypeModel.JavaDoc
+import ExtDocModel.Annotation
 
 class ExtType2Doc_ConcSync_CorrComp extends CorrComparator {
 	
@@ -41,8 +50,8 @@ class ExtType2Doc_ConcSync_CorrComp extends CorrComparator {
 	def stringify(Package2Folder corr) {
 		'''
 		Package2Folder {
-			SRC {"«corr.source.name»", fQName: «corr.source.FQname»}
-			TRG {"«corr.target.name»"}
+			SRC {"«(corr.source as ExtTypeModel.Package).name»", fQName: «(corr.source as ExtTypeModel.Package).FQname»}
+			TRG {"«(corr.target as Folder).name»"}
 		}
 		'''
 	}
@@ -50,8 +59,8 @@ class ExtType2Doc_ConcSync_CorrComp extends CorrComparator {
 	def stringify(Type2Doc corr) {
 		'''
 		Type2Doc {
-			SRC {"«corr.source.name»", interface: «corr.source.interface»}
-			TRG {"«corr.target.name»"}
+			SRC {"«(corr.source as Type).name»", interface: «(corr.source as Type).interface»}
+			TRG {"«(corr.target as Doc).name»"}
 		}
 		'''
 	}
@@ -59,8 +68,8 @@ class ExtType2Doc_ConcSync_CorrComp extends CorrComparator {
 	def stringify(Method2Entry corr) {
 		'''
 		Method2Entry {
-			SRC {"«corr.source.name»"}
-			TRG {"«corr.target.name»", type: «corr.target.type»}
+			SRC {"«(corr.source as Method).name»"}
+			TRG {"«(corr.target as Entry).name»", type: «(corr.target as Entry).type»}
 		}
 		'''
 	}
@@ -68,8 +77,8 @@ class ExtType2Doc_ConcSync_CorrComp extends CorrComparator {
 	def stringify(Param2Entry corr) {
 		'''
 		Param2Entry {
-			SRC {"«corr.source.name»"}
-			TRG {"«corr.target.name»"}
+			SRC {"«(corr.source as Parameter).name»"}
+			TRG {"«(corr.target as Entry).name»"}
 		}
 		'''
 	}
@@ -77,8 +86,8 @@ class ExtType2Doc_ConcSync_CorrComp extends CorrComparator {
 	def stringify(Field2Entry corr) {
 		'''
 		Field2Entry {
-			SRC {"«corr.source.name»"}
-			TRG {"«corr.target.name»", type: «corr.target.type»}
+			SRC {"«(corr.source as Field).name»"}
+			TRG {"«(corr.target as Entry).name»", type: «(corr.target as Entry).type»}
 		}
 		'''
 	}
@@ -86,8 +95,8 @@ class ExtType2Doc_ConcSync_CorrComp extends CorrComparator {
 	def stringify(JDoc2Annotation corr) {
 		'''
 		JDoc2Annotation {
-			SRC {"«corr.source.comment»"}
-			TRG {"«corr.target.value»"}
+			SRC {"«(corr.source as JavaDoc).comment»"}
+			TRG {"«(corr.target as Annotation).value»"}
 		}
 		'''
 	}

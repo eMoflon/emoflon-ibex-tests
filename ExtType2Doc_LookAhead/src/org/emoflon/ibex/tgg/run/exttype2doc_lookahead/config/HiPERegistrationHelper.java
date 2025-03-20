@@ -7,18 +7,18 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.emoflon.ibex.tgg.operational.csp.constraints.factories.exttype2doc_lookahead.UserDefinedRuntimeTGGAttrConstraintFactory;
-import org.emoflon.ibex.tgg.operational.defaults.IbexOptions;
-import org.emoflon.ibex.tgg.operational.strategies.modules.IbexExecutable;
-import org.emoflon.ibex.tgg.operational.strategies.opt.BWD_OPT;
-import org.emoflon.ibex.tgg.operational.strategies.opt.FWD_OPT;
+import org.emoflon.ibex.tgg.operational.csp.constraints.custom.exttype2doc_lookahead.RuntimeTGGAttrConstraintFactoryContainer;
+import org.emoflon.ibex.tgg.runtime.config.IRegistrationHelper;
+import org.emoflon.ibex.tgg.runtime.config.options.IbexOptions;
 import org.emoflon.ibex.tgg.runtime.hipe.HiPETGGEngine;
-import org.emoflon.ibex.tgg.compiler.defaults.IRegistrationHelper;
+import org.emoflon.ibex.tgg.runtime.strategies.modules.IbexExecutable;
+import org.emoflon.ibex.tgg.runtime.strategies.opt.BWD_OPT;
+import org.emoflon.ibex.tgg.runtime.strategies.opt.FWD_OPT;
 
+import ExtDocModel.impl.ExtDocModelPackageImpl;
 import ExtType2Doc_LookAhead.ExtType2Doc_LookAheadPackage;
 import ExtType2Doc_LookAhead.impl.ExtType2Doc_LookAheadPackageImpl;
 import ExtTypeModel.impl.ExtTypeModelPackageImpl;
-import ExtDocModel.impl.ExtDocModelPackageImpl;
 
 public class HiPERegistrationHelper implements IRegistrationHelper {
 	
@@ -87,7 +87,8 @@ public class HiPERegistrationHelper implements IRegistrationHelper {
 		options.project.name("ExtType2Doc_LookAhead");
 		options.project.path("ExtType2Doc_LookAhead");
 		options.debug.ibexDebug(false);
-		options.csp.userDefinedConstraints(new UserDefinedRuntimeTGGAttrConstraintFactory());
+		options.csp.registerConstraintFactories(new RuntimeTGGAttrConstraintFactoryContainer().getFactories());
+			
 		options.registrationHelper(this);
 		return options;
 	}

@@ -1,0 +1,54 @@
+package caterpillars.gt
+import "platform:/resource/SheRememberedCaterpillars/model/SheRememberedCaterpillars.ecore"
+
+/**
+ * Finds a character on its platform.
+ */
+pattern findCharacter {
+	[=] character: Character {
+		[=] -standsOn -> platform
+	}
+
+	[=] platform: Platform
+};
+
+/**
+ * Finds a character with the given color on its platform.
+ */
+pattern findCharacterOfColor(color: COLOR)
+refines findCharacter {
+	@refines= findCharacter.character
+	[=] character: Character
+	[#] character.color == parameter.color;
+};
+
+/*
+ * Checks whether characters are on exit.
+ */
+pattern findCharacterOnExit {
+	[=] character: Character {
+		[=] -standsOn -> exit
+	}
+
+	[=] exit: ExitPlatform
+};
+
+/*
+ * Finds a character who is not on an exit platform. 
+ */
+pattern findCharacterNotOnExit {
+	[=] character: Character {
+		[=] -standsOn -> platform
+	}
+
+	[=] platform: SimplePlatform
+};
+
+/**
+ * Finds an empty exit platform.
+ */
+pattern findEmptyExit {
+	[=] exit: ExitPlatform
+	
+	forbid(findCharacterOnExit)[exit=exit]	
+};

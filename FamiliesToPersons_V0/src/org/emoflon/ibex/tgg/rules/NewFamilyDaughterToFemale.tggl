@@ -1,0 +1,22 @@
+rule NewFamilyDaughterToFemale refines FamilyMemberToPerson {
+	
+	source { 
+		@refines+ FamilyMemberToPerson.f
+		[+] f:Fam.Family {
+			[+] -daughters->fm
+		}
+		
+		@refines+ FamilyMemberToPerson.fm
+		[+] fm:Fam.FamilyMember {
+			.name:="daughter";
+		}
+	}
+	
+	target {	
+		@refines+ FamilyMemberToPerson.p
+		[+] p:Per.Female {
+			.name:="daughter";
+		}
+	}
+
+}

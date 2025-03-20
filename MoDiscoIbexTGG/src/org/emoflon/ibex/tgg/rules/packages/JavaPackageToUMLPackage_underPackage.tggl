@@ -1,0 +1,109 @@
+rule JavaModelToUMLModel {
+	source { 
+		[+] jp : Java.Model
+	}
+	
+	target {
+	
+		[+] up : UML2.Model
+	}
+	
+	correspondence {
+	
+		[+] jp2up : JavaModel2UMLPackage{
+			src->jp
+			trg->up
+		}
+	}
+	
+	attributeConditions {
+		DefaultAttributeConditionLibrary.eq_string(up.name,jp.name)
+	}
+}
+
+
+rule JavaPackageToUMLPackage {
+	source { 
+		[+] jp : Java.Package
+	}
+	
+	target {
+	
+		[+] up : UML2.Package
+	}
+	
+	correspondence {
+	
+		[+] jp2up : JavaPackage2UmlPackage{
+			src->jp
+			trg->up
+		}
+	}
+	
+	attributeConditions {
+		DefaultAttributeConditionLibrary.eq_string(up.name,jp.name)
+	}
+}
+
+
+
+rule JavaPackageToUMLPackage_EdgeRule {
+	source { 
+		[=] jpp : Java.Package{
+			[+] -ownedPackages->jp
+		}
+	    [=] jp : Java.Package
+	}
+	
+	target {
+		
+		[=] upp : UML2.Package{
+			[+] -packagedElement->up
+		}
+		[=] up : UML2.Package
+	}
+	
+	correspondence {
+	
+		[=] jp2up : JavaPackage2UmlPackage{
+			src->jp
+			trg->up
+		}
+		[=] jpp2upp : JavaPackage2UmlPackage{
+			src->jpp
+			trg->upp
+		}
+	}
+}
+
+
+rule JavaModelToUMLModel_EdgeRule {
+	source { 
+		[=] jpp : Java.Model{
+			[+] -ownedElements->jp
+		}
+	    [=] jp : Java.Package
+	}
+	
+	target {
+		
+		[=] upp : UML2.Model{
+			[+] -packagedElement->up
+		}
+		[=] up : UML2.Package
+	}
+	
+	correspondence {
+	
+		[=] jp2up : JavaPackage2UmlPackage{
+			src->jp
+			trg->up
+		}
+		[=] jpp2upp : JavaModel2UMLPackage{
+			src->jpp
+			trg->upp
+		}
+	}
+}
+
+

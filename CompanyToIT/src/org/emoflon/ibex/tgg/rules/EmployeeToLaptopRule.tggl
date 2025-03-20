@@ -1,0 +1,51 @@
+rule EmployeeToLaptopRule {
+	
+	source {
+		[=] ceo : CL.CEO {
+			[+] -employee->employee
+		}
+		[=] company : CL.Company {
+			[=] -ceo->ceo
+			[=] -admin->admin
+			[+] -employee->employee
+		}
+		[=] admin : CL.Admin {
+			[=] -ceo->ceo
+		}
+		[+] employee : CL.Employee
+	}
+	
+	target {
+		[+] computer : IT.Laptop
+		[=] it : IT.IT {
+			[=] -network->network
+			[=] -router->router
+		}
+		[=] network : IT.Network {
+			[+] -laptop->computer
+		}
+		[=] router : IT.Router {
+			[=] -network->network
+		}
+	}
+	
+	correspondence {
+		[=] c2i : Company2IT {
+			src->company
+			trg->it
+		}
+		[=] a2r : Admin2Router {
+			src->admin
+			trg->router
+		}
+		[+] e2p : Employee2Laptop {
+			src->employee
+			trg->computer
+		}
+	}
+	
+	attributeConditions {
+		DefaultAttributeConditionLibrary.eq_string(employee.name, computer.name)
+	}
+	
+}

@@ -1,0 +1,31 @@
+rule SubPackage2Folder {
+	
+	source { 
+		[=] p:ExtTypeModel.Package {
+			[+] -subPackages->sp
+		}
+		
+		[+] sp:ExtTypeModel.Package
+	}
+	
+	target {
+		[=] f:ExtDocModel.Folder
+	}
+	
+	correspondence {
+		[=] p2f:Package2Folder {
+			src->p
+			trg->f
+		}
+		
+		[+] sp2f:Package2Folder {
+			src->sp
+			trg->f
+		}
+	}
+	
+	attributeConditions {
+		DefaultAttributeConditionLibrary.concat(".", p.fQname, sp.name, derived sp.fQname)
+	}
+}
+

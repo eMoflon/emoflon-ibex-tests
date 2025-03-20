@@ -1,0 +1,36 @@
+rule Schema2Package {
+	
+	source {
+		[+] s:Express.Schema
+	
+		[=] sc:Express.SchemaContainer {
+			[+] -schemas -> s
+		}
+	}
+	
+	target {
+		[+] p:UML.Package
+	
+		[=] uc:UML.UMLContainer {
+			[+] - packages -> p
+		}
+	}
+	
+	correspondence {
+		[=] sc2uc: SchemaContainer2UMLContainer{
+			src->sc
+			trg->uc
+		}
+		
+		[+] s2p:Schema2Package {
+			src->s
+			trg->p
+		}
+	}
+	
+	attributeConditions {
+		DefaultAttributeConditionLibrary.eq_string(s.name, p.name)
+	}
+
+}
+

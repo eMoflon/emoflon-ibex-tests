@@ -1,0 +1,38 @@
+rule FilesToModule {
+	
+	source { 
+		[=] folder : M.Folder
+		[+] foo : M.File {
+			[+] -folder->folder
+		}
+		[+] baa : M.File {
+			[+] -folder->folder
+		}
+		
+	}
+	
+	target {
+		[=] sysmod : P.SystemModule 
+		[+] foobaa : P.Module {
+			[+] -systemModule->sysmod
+		}
+	}
+	
+	correspondence {
+		[=] folder2sysmod : FolderToSystemModuleCorr {
+			src->folder
+			trg->sysmod
+		}
+			
+		[+] foo2foobaa : FilesToModuleCorr {
+			src->foo
+			trg->foobaa
+		}
+		
+		[+] baa2foobaa : FilesToModuleCorr {
+			src->baa
+			trg->foobaa
+		}
+	}
+
+}

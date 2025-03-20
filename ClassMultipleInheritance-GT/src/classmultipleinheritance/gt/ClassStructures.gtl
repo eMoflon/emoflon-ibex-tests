@@ -1,0 +1,80 @@
+package classmultipleinheritance.gt
+import "http://www.eclipse.org/emf/2002/Ecore"
+import "platform:/resource/ClassMultipleInheritanceHierarchy/model/ClassMultipleInheritanceHierarchy.ecore"
+
+/**
+ * Finds a package.
+ */
+pattern findPackage {
+	[=] pkg: ClassPackage
+};
+
+/**
+ * Finds a class.
+ */
+pattern findClass {
+	[=] clazz: Clazz
+};
+
+/**
+ * Finds a class in a package.
+ */
+pattern findClassInPackage
+refines findClass {
+	[=] pkg: ClassPackage {
+		[=] -classes -> clazz
+	}
+};
+
+/**
+ * Finds a class by its name.
+ */
+pattern findClassByName(name: EString)
+refines findClass {
+	
+	@refines= findClass.clazz
+	[=] clazz: Clazz
+	
+	[#] clazz.name == parameter.name;
+};
+
+/**
+ * Finds a class by its name and package name.
+ */
+pattern findClassByQualifiedName(packageName: EString, className: EString)
+refines findClass {
+	[=] pkg: ClassPackage {
+		[=] -classes -> clazz
+	}
+	[#] pkg.name == parameter.packageName;
+
+	@refines= findClass.clazz
+	[=] clazz : Clazz
+	[#] clazz.name == parameter.className;
+};
+
+/**
+ * Finds a super class.
+ */
+pattern findSuperClass
+refines findClass {
+	[=] superClass: Clazz
+
+	@refines= findClass.clazz
+	[=] clazz: Clazz {
+		[=] -superClass -> superClass
+	}
+};
+
+/**
+ * Finds a sub class.
+ */
+pattern findSubClass
+refines findClass {
+	@refines= findClass.clazz
+	[=] clazz: Clazz
+
+	[=] subClass: Clazz {
+		[=] -superClass -> clazz
+	}
+};

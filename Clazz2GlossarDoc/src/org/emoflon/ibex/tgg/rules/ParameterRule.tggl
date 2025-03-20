@@ -1,0 +1,27 @@
+rule ParameterRule {
+	
+	source { 
+		[=] method : C.Method {
+			[+] -parameters-> param
+		}
+		
+		[+] param : C.Parameter
+	}
+	
+	target {
+		[=] entry : D.Entry
+	}
+	
+	correspondence {
+		[=] m2e : Method2entry {
+			src->method
+			trg->entry
+		}
+		
+		[+] p2e : Parameter2entry {
+			src->param
+			trg->entry
+		}
+	}
+
+}

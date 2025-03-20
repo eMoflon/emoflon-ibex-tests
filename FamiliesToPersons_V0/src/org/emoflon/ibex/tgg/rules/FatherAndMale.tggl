@@ -1,0 +1,27 @@
+rule FatherAndMale {
+	
+	source { 
+		[=] fr:Fam.FamilyRegister {
+			[=] -families->f
+		}
+		
+		[=] f:Fam.Family {
+			[+] -father->father
+		}
+		
+		[+] father:Fam.FamilyMember {
+			.name:="father";
+		}
+	}
+	
+	target {
+		[=] pr:Per.PersonRegister {
+			[+] -persons->p
+		}
+		
+		[+] p:Per.Male {
+			.name:="father";
+		}
+	}
+
+}

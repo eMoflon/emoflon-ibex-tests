@@ -1,0 +1,46 @@
+rule VariableDec2Parameter {
+	source { 
+		[=] method : Java.MethodDeclaration {
+			[+] -parameters->variableDec
+		}
+		
+		[+] variableDec : Java.SingleVariableDeclaration{
+	
+		}
+		
+	
+		
+	
+		
+	}
+	
+	target {
+		[=] operation : UML2.Operation {
+			[+] -ownedParameter->param
+		}
+		[+] param : UML2.Parameter{
+	
+		}
+	
+	}
+	
+	correspondence {	
+		[=] md2o : MethodDec2Operation {
+			src->method
+			trg->operation
+		}
+		
+		
+		[+] vd2p : VariableDec2Parameter {
+			src->variableDec
+			trg->param
+		}
+		
+		
+	}
+	
+	attributeConditions {
+		DefaultAttributeConditionLibrary.eq_string(variableDec.name, param.name)
+	}
+	
+}

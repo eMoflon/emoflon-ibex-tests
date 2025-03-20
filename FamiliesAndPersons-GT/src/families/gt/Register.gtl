@@ -1,0 +1,106 @@
+package families.gt
+import "platform:/resource/SimpleFamilies/model/SimpleFamilies.ecore"
+
+/**
+ * Creates a new register.
+ */
+rule createFamilyRegister {
+	[+] register: FamilyRegister
+};
+
+/**
+ * Deletes the register.
+ */
+rule deleteFamilyRegister {
+	[-] register: FamilyRegister
+};
+
+/**
+ * Finds a register.
+ */
+pattern findFamilyRegister {
+	[=] register: FamilyRegister
+};
+
+/**
+ * Two family members start a new family.
+ */
+rule marry(familyName: EString) {
+	[=] bride: FamilyMember
+
+	[=] brideFamily: Family {
+		[-] -daughters -> bride
+	}
+
+	[=] groom: FamilyMember
+
+	[=] groomFamily: Family {
+		[-] -sons -> groom
+	}
+
+	[=] register: FamilyRegister {
+		[+] -families -> newFamily
+	}
+
+	[+] newFamily: Family {
+		.name := parameter.familyName;
+		[+] -father -> groom
+		[+] -mother -> bride
+	}
+};
+
+/**
+ * Adds a daughter to the mother's family.
+ */
+abstract rule childBorn(firstName: EString) {
+	[=] mother: FamilyMember
+
+	[=] family: Family {
+		[=] -mother -> mother
+	}
+
+	[+] child: FamilyMember {
+		.name := parameter.firstName;
+	}
+};
+
+/**
+ * Adds a daughter to the mother's family.
+ */
+rule daughterBorn
+refines childBorn {
+	@refines= childBorn.family
+	[=] family: Family {
+		[+] -daughters -> child
+	}
+};
+
+/**
+ * Adds a son to the mother's family.
+ */
+rule sonBorn
+refines childBorn {
+	@refines= childBorn.family
+	[=] family: Family {
+		[+] -sons -> child
+	}
+};
+
+/**
+ * Adds a son to the mother's family who is named as his father.
+ */
+rule sonBornNamedAsFather {
+	[=] father: FamilyMember
+
+	[=] mother: FamilyMember
+
+	[=] family: Family {
+		[=] -father -> father
+		[=] -mother -> mother
+		[+] -sons -> child
+	}
+
+	[+] child: FamilyMember {
+		.name := father.name;
+	}
+};

@@ -1,0 +1,39 @@
+rule MethodDec2Operation4Interface refines MethodDec2Operation4_Abstract {
+	
+	source { 
+	
+		@refines= MethodDec2Operation4_Abstract.classDec
+		[=] classDec : Java.InterfaceDeclaration {
+	
+		}
+	
+	}
+	
+	target {
+		[=] umlClass : UML2.Interface {
+			[+] -ownedOperation->operation
+		}
+		
+	
+		@refines+ MethodDec2Operation4_Abstract.operation
+		[+] operation : UML2.Operation{
+	
+		}
+		
+	
+	}
+	
+	correspondence {
+		[=] cd2c : JavaType2UMLType {
+			src->classDec
+			trg->umlClass
+		}
+	
+	}
+	
+		
+	
+}
+
+
+

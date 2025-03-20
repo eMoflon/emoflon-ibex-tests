@@ -4,6 +4,9 @@ import Java2Doc.Class2Doc
 import Java2Doc.Package2Folder
 import org.eclipse.emf.ecore.EObject
 import testsuite.ibex.testUtil.CorrComparator
+import simpleDoc.Folder
+import simpleJava.Clazz
+import simpleDoc.Doc
 
 class Java2DocCorrComp extends CorrComparator {
 
@@ -17,8 +20,8 @@ class Java2DocCorrComp extends CorrComparator {
 	def stringify(Package2Folder corr) {
 		'''
 		Package2Folder {
-			SRC {"«corr.source.name»", fullQualifier: «corr.source.fullQualifier»}
-			TRG {"«corr.target.name»"}
+			SRC {"«(corr.source as simpleJava.Package).name»", fullQualifier: «(corr.source as simpleJava.Package).fullQualifier»}
+			TRG {"«(corr.target as Folder).name»"}
 		}
 		'''
 	}
@@ -26,8 +29,8 @@ class Java2DocCorrComp extends CorrComparator {
 	def stringify(Class2Doc corr) {
 		'''
 		Class2Doc {
-			SRC {"«corr.source.name»", body: «corr.source.body»}
-			TRG {"«corr.target.name»"}
+			SRC {"«(corr.source as Clazz).name»", body: «(corr.source as Clazz).body»}
+			TRG {"«(corr.target as Doc).name»"}
 		}
 		'''
 	}

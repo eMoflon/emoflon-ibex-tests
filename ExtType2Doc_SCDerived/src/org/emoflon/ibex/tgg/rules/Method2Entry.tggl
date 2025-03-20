@@ -1,0 +1,36 @@
+rule Method2Entry {	
+	source { 
+		[=] t:ExtTypeModel.Type {
+			[+] -methods->m
+		}
+		
+		[+] m:ExtTypeModel.Method
+	}
+	
+	target {
+		[=] d:ExtDocModel.Doc {
+			[+] -entries->entry
+		}
+		
+		[+] entry:ExtDocModel.Entry {
+			.type:=enums.METHOD;
+		}
+	}
+	
+	correspondence {
+		[=] t2d:Type2Doc {
+			src->t
+			trg->d
+		}
+		
+		[+] m2e:Method2Entry {
+			src->m
+			trg->entry
+		}
+	}
+	
+	attributeConditions {
+		DefaultAttributeConditionLibrary.eq_string(m.name, entry.name)
+	}
+}
+

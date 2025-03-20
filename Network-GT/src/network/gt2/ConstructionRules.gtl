@@ -1,0 +1,63 @@
+package network.gt2
+import "http://www.eclipse.org/emf/2002/Ecore"
+import "platform:/resource/SimpleNetwork/model/SimpleNetwork.ecore"
+
+rule createNetwork {
+	[+] network : Network
+};
+
+rule generateDevice{
+	[=] network: Network{
+		.deviceNumber := network.deviceNumber -1;
+//		.maxBandwidth := network.maxBandwidth - network.maxBandwidth/network.deviceNumber;
+	}
+	[#] network.deviceNumber > 0;
+	
+	[+] device: Device{
+//		.maxBandwidth := network.maxBandwidth/network.deviceNumber;
+		.flag := network.maxBandwidth%6;
+//		.maxConnections := ln(network.maxBandwidth);
+	}
+};
+
+rule generateComputer refines generateDevice{
+	@refines+ generateDevice.device
+	[+] device: Computer
+};
+
+rule generateServer refines generateDevice{
+	@refines+ generateDevice.device
+	[+] device: Server
+};
+
+rule insertDevicesIntoNetwork {
+	[=] network : Network {
+		[+] -devices->device
+	}
+	  
+	[=] device : Device
+	
+	forbid(findDevice)[network=network, device=device]
+};
+
+pattern findNetwork{
+	[=] network : Network
+};
+
+pattern findDevice{
+	[=] network : Network {
+		[=] -devices->device
+	}
+	
+	[=] device : Device
+};
+
+pattern findComputer refines findDevice{
+	@refines= findDevice.device
+	[=] device : Computer
+};
+
+pattern findServer refines findDevice{
+	@refines= findDevice.device
+	[=] device : Server
+};

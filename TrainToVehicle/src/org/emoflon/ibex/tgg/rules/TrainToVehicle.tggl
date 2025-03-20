@@ -1,0 +1,18 @@
+rule TrainToVehicle {
+	
+	source { 
+		[+] train:TrainLanguage.Train
+	}
+	
+	target {
+		[+] vehicle:VehicleLanguage.Vehicle
+	}
+	
+	correspondence {
+		[+] train2vcl:Train2Vehicle {
+			src->train
+			trg->vehicle
+		}
+	}
+
+}

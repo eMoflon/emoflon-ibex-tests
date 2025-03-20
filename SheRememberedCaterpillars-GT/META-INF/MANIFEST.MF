@@ -1,0 +1,20 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: SheRememberedCaterpillars-GT
+Bundle-ManifestVersion: 2
+Bundle-Name: SheRememberedCaterpillars-GT
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: SheRememberedCaterpillars-GT; singleton:=true
+Bundle-ActivationPolicy: lazy
+Import-Package: org.apache.log4j,
+ org.apache.commons.logging
+Bundle-RequiredExecutionEnvironment: JavaSE-21
+Require-Bundle: org.emoflon.ibex.common,
+ org.emoflon.ibex.gt,
+ org.emoflon.ibex.gt.gtmodel,
+ org.emoflon.ibex.gt.hipe,
+ SheRememberedCaterpillars
+Export-Package: caterpillars.gt.api,
+ caterpillars.gt.api.match,
+ caterpillars.gt.api.pattern,
+ caterpillars.gt.api.rule
