@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<TerraceHouses:District xmlns:TerraceHouses="platform:/resource/TerraceHouses/model/TerraceHouses.ecore" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmi:version="2.0">
-  <streetBeginnings xsi:type="TerraceHouses:Building" district="/" address="5338 Colorado Ave NW" name="Apartment House">
-    <next xsi:type="TerraceHouses:House" previous="//@streetBeginnings.0" address="5404 Colorado Ave NW" name="Smith's House" pitchedRoof="false">
-      <next xsi:type="TerraceHouses:House" previous="//@streetBeginnings.0/@next" address="5406 Colorado Ave NW" name="Wilson's House" pitchedRoof="true" />
-    </next>
-  </streetBeginnings>
-</TerraceHouses:District>

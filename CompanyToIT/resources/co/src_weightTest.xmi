@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="ASCII"?>
-<CompanyLanguage:Company xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:CompanyLanguage="platform:/resource/CompanyLanguage/model/CompanyLanguage.ecore" name="company1">
-  <employee name="abc"/>
-  <employee name="abcdefghijklmnopqrstuvwxyz"/>
-  <ceo employee="//@employee.0 //@employee.1" name="ceo1"/>
-  <admin ceo="//@ceo.0" name="admin1"/>
-</CompanyLanguage:Company>

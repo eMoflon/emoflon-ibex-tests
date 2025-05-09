@@ -1,4 +1,0 @@
-#using BlockCodeAdapter.*
-#using AttrCondDefLibrary.*
-
-#rule Mapping2WireClosedLoopRule #extends BasicMapping2WireRule, ContextMapping2WireClosedLoopRule #with BlockCodeAdapter
