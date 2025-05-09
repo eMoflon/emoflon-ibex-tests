@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Random;
 
 import SimpleFamiliesGraphTransformation.api.SimpleFamiliesGraphTransformationAPI;
-import SimpleFamiliesGraphTransformation.api.SimpleFamiliesGraphTransformationDemoclesApp;
+import SimpleFamiliesGraphTransformation.api.SimpleFamiliesGraphTransformationHiPEApp;
 
 /**
  * Performance test for the following steps
@@ -23,8 +23,7 @@ public class SimpleFamiliesPerformanceTest extends GTPerformanceTest {
 
 	@Override
 	public void run(int modelSize) {
-		SimpleFamiliesGraphTransformationDemoclesApp app = new SimpleFamiliesGraphTransformationDemoclesApp(
-				WORKSPACE_PATH);
+		SimpleFamiliesGraphTransformationHiPEApp app = new SimpleFamiliesGraphTransformationHiPEApp(WORKSPACE_PATH);
 
 		// Initialization.
 		long initStart = System.nanoTime();

@@ -6,7 +6,7 @@ import java.util.List;
 
 import SheRememberedCaterpillars.SimplePlatform;
 import SheRememberedCaterpillarsGraphTransformation.api.SheRememberedCaterpillarsGraphTransformationAPI;
-import SheRememberedCaterpillarsGraphTransformation.api.SheRememberedCaterpillarsGraphTransformationDemoclesApp;
+import SheRememberedCaterpillarsGraphTransformation.api.SheRememberedCaterpillarsGraphTransformationHiPEApp;
 
 /**
  * Performance test for the following steps
@@ -34,7 +34,7 @@ public class SheRememberedCaterpillarsPerformanceTest1 extends GTPerformanceTest
 
 	@Override
 	public void run(int modelSize) {
-		SheRememberedCaterpillarsGraphTransformationDemoclesApp app = new SheRememberedCaterpillarsGraphTransformationDemoclesApp(
+		SheRememberedCaterpillarsGraphTransformationHiPEApp app = new SheRememberedCaterpillarsGraphTransformationHiPEApp(
 				WORKSPACE_PATH);
 
 		// Initialization.

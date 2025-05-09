@@ -6,7 +6,7 @@ import java.util.List;
 import org.eclipse.emf.common.util.URI;
 
 import SheRememberedCaterpillarsGraphTransformation.api.SheRememberedCaterpillarsGraphTransformationAPI;
-import SheRememberedCaterpillarsGraphTransformation.api.SheRememberedCaterpillarsGraphTransformationDemoclesApp;
+import SheRememberedCaterpillarsGraphTransformation.api.SheRememberedCaterpillarsGraphTransformationHiPEApp;
 
 /**
  * Performance test for the following steps
@@ -30,7 +30,7 @@ public class SheRememberedCaterpillarsPerformanceTest2 extends GTPerformanceTest
 	@Override
 	protected void prepare(int[] modelSizes) {
 		for (int modelSize : modelSizes) {
-			SheRememberedCaterpillarsGraphTransformationDemoclesApp app = new SheRememberedCaterpillarsGraphTransformationDemoclesApp(
+			SheRememberedCaterpillarsGraphTransformationHiPEApp app = new SheRememberedCaterpillarsGraphTransformationHiPEApp(
 					WORKSPACE_PATH);
 			app.createModel(createURI(modelSize));
 			SheRememberedCaterpillarsGraphTransformationAPI api = app.initAPI();
@@ -52,7 +52,7 @@ public class SheRememberedCaterpillarsPerformanceTest2 extends GTPerformanceTest
 
 	@Override
 	public void run(int modelSize) {
-		SheRememberedCaterpillarsGraphTransformationDemoclesApp app = new SheRememberedCaterpillarsGraphTransformationDemoclesApp(
+		SheRememberedCaterpillarsGraphTransformationHiPEApp app = new SheRememberedCaterpillarsGraphTransformationHiPEApp(
 				WORKSPACE_PATH);
 
 		// Initialization.

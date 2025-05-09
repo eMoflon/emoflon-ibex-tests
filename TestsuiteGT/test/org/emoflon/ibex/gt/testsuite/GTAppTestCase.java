@@ -1,6 +1,8 @@
 package org.emoflon.ibex.gt.testsuite;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.File;
 import java.io.IOException;
@@ -15,14 +17,12 @@ import org.emoflon.ibex.gt.api.GraphTransformationApp;
 import org.emoflon.ibex.gt.api.GraphTransformationMatch;
 import org.emoflon.ibex.gt.api.GraphTransformationPattern;
 import org.emoflon.ibex.gt.api.GraphTransformationRule;
-import org.emoflon.ibex.gt.democles.runtime.DemoclesGTEngine;
 import org.emoflon.ibex.gt.hipe.runtime.HiPEGTEngine;
 
 /**
  * An abstract test case for Graph Transformation.
  *
- * @param <API>
- *            the API to test
+ * @param <API> the API to test
  */
 public abstract class GTAppTestCase<App extends GraphTransformationApp<API>, API extends GraphTransformationAPI> {
 	final public static String PM_DEMOCLES = "Democles";
@@ -72,21 +72,18 @@ public abstract class GTAppTestCase<App extends GraphTransformationApp<API>, API
 		IContextPatternInterpreter engine;
 		try {
 			patternMatcher = System.getenv("patternMatcher");
-			switch(patternMatcher) {
-			case PM_DEMOCLES: 
-				engine = new DemoclesGTEngine();
-				break;
-			case PM_HIPE: 			
+			switch (patternMatcher) {
+			case PM_HIPE:
 				engine = new HiPEGTEngine();
 				break;
-			default: throw new RuntimeException(patternMatcher + " is not a supported as a pattern matcher!");
+			default:
+				throw new RuntimeException(patternMatcher + " is not a supported as a pattern matcher!");
 			}
-		}
-		catch (Exception e) {
-			System.err.println("Pattern Matcher is not specified. Defaulting to "+PM_DEFAULT);
+		} catch (Exception e) {
+			System.err.println("Pattern Matcher is not specified. Defaulting to " + PM_DEFAULT);
 			engine = new HiPEGTEngine();
 		}
-		
+
 		engine.setDebugPath("./debug/" + this.getTestName());
 		return engine;
 	}
@@ -97,12 +94,9 @@ public abstract class GTAppTestCase<App extends GraphTransformationApp<API>, API
 	 * The resource is created in the instances directory. The content of the
 	 * resource file is copied to the newly created file (optional).
 	 * 
-	 * @param app
-	 *            the app
-	 * @param modelInstanceFileName
-	 *            the name of the model file
-	 * @param resourceFileName
-	 *            the name of the resource file to copy
+	 * @param app                   the app
+	 * @param modelInstanceFileName the name of the model file
+	 * @param resourceFileName      the name of the resource file to copy
 	 * @return a resource set containing the model file
 	 */
 	protected void createModel(final App app, final String modelInstanceFileName, final String resourceFileName) {
@@ -132,8 +126,7 @@ public abstract class GTAppTestCase<App extends GraphTransformationApp<API>, API
 	/**
 	 * Initializes an API with the model on the given path.
 	 * 
-	 * @param modelInstanceFileName
-	 *            the name of the model file
+	 * @param modelInstanceFileName the name of the model file
 	 * @return the API
 	 */
 	protected API init(final String modelInstanceFileName) {
@@ -145,10 +138,8 @@ public abstract class GTAppTestCase<App extends GraphTransformationApp<API>, API
 	/**
 	 * Initializes an API with the model on the given path.
 	 * 
-	 * @param modelInstanceFileName
-	 *            the name of the model file
-	 * @param resourceFileName
-	 *            the name of the resource file to copy
+	 * @param modelInstanceFileName the name of the model file
+	 * @param resourceFileName      the name of the resource file to copy
 	 * @return the API
 	 */
 	protected API init(final String modelInstanceFileName, final String resourceFileName) {
@@ -160,12 +151,9 @@ public abstract class GTAppTestCase<App extends GraphTransformationApp<API>, API
 	/**
 	 * Initializes an API with the model files on the given path.
 	 * 
-	 * @param defaultResourceIndex
-	 *            the index of the default resource
-	 * @param testName
-	 *            the name of the test
-	 * @param resourcesFileName
-	 *            the names of the resource files to copy
+	 * @param defaultResourceIndex the index of the default resource
+	 * @param testName             the name of the test
+	 * @param resourcesFileName    the names of the resource files to copy
 	 * @return the API
 	 */
 	protected API init(final int defaultResourceIndex, final String testName, final String... resourcesFileName) {
@@ -180,8 +168,7 @@ public abstract class GTAppTestCase<App extends GraphTransformationApp<API>, API
 	/**
 	 * Saves the model.
 	 * 
-	 * @param resourceSet
-	 *            the resource set
+	 * @param resourceSet the resource set
 	 */
 	protected void saveAndTerminate(final API api) {
 		api.getModel().getResources().forEach(resource -> {
@@ -199,8 +186,7 @@ public abstract class GTAppTestCase<App extends GraphTransformationApp<API>, API
 	/**
 	 * Asserts that there are no matches for the pattern.
 	 * 
-	 * @param pattern
-	 *            the pattern
+	 * @param pattern the pattern
 	 */
 	public static void assertNoMatch(final GraphTransformationPattern<?, ?> pattern) {
 		assertEquals(0, pattern.countMatches());
@@ -210,8 +196,7 @@ public abstract class GTAppTestCase<App extends GraphTransformationApp<API>, API
 	/**
 	 * Asserts that any match for the pattern exists and returns the match.
 	 * 
-	 * @param pattern
-	 *            the pattern
+	 * @param pattern the pattern
 	 * @return the match
 	 */
 	public static <M extends GraphTransformationMatch<M, P>, P extends GraphTransformationPattern<M, P>> M assertAnyMatchExists(
@@ -225,10 +210,8 @@ public abstract class GTAppTestCase<App extends GraphTransformationApp<API>, API
 	/**
 	 * Asserts that the pattern has the expected number of matches.
 	 * 
-	 * @param expectedMatchCount
-	 *            the expected number of matches
-	 * @param pattern
-	 *            the pattern
+	 * @param expectedMatchCount the expected number of matches
+	 * @param pattern            the pattern
 	 */
 	public static void assertMatchCount(final int expectedMatchCount, final GraphTransformationPattern<?, ?> pattern) {
 		assertEquals(expectedMatchCount, pattern.countMatches());
@@ -237,8 +220,7 @@ public abstract class GTAppTestCase<App extends GraphTransformationApp<API>, API
 	/**
 	 * Asserts that no co-match exists after rule application.
 	 * 
-	 * @param rule
-	 *            the rule
+	 * @param rule the rule
 	 */
 	public static <M extends GraphTransformationMatch<M, R>, R extends GraphTransformationRule<M, R>> void assertNotApplicable(
 			final R rule) {
@@ -249,8 +231,7 @@ public abstract class GTAppTestCase<App extends GraphTransformationApp<API>, API
 	 * Asserts that a co-match exists after rule application and returns the
 	 * co-match.
 	 * 
-	 * @param applyResult
-	 *            the result of the apply call
+	 * @param applyResult the result of the apply call
 	 * @return the match
 	 */
 	public static <M> M assertApplicable(final Optional<M> applyResult) {
@@ -263,8 +244,7 @@ public abstract class GTAppTestCase<App extends GraphTransformationApp<API>, API
 	 * Asserts that a match exists before rule application, a co-match after rule
 	 * application exists as well and returns the co-match.
 	 * 
-	 * @param the
-	 *            rule
+	 * @param the rule
 	 * @return the match
 	 */
 	public static <M extends GraphTransformationMatch<M, R>, R extends GraphTransformationRule<M, R>> M assertApplicable(
