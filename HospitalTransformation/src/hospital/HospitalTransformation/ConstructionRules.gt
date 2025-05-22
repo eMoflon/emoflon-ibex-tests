@@ -47,7 +47,8 @@ rule room(cap: EInt, carelvl: Carelevel) { //rule room which handles the Inputs,
 		.capacity:=param::cap // initalisation the parameter capacity
 		.level:=param::carelvl // initalisation the parameter carelvl
 	}
-	#department.maxRoomCount>count(findRoomInDepartment) // attribute condition for the maximum number of rooms which can be assigned to a department
+//	#department.maxRoomCount>count(findRoomInDepartment) // attribute condition for the maximum number of rooms which can be assigned to a department
+	// The count operator was removed from eMoflon::IBeX-GT
 }
 
 pattern findRoomInDepartment() { // Pattern to find a room in a department
@@ -155,13 +156,15 @@ rule assignPatientToRoom() { // Rule to assign a patient to a room and a doctor 
 	room: Room {
 		++ -lies -> patient  // Adds an edge from department to room
 	}
-	#room.capacity>count(findPatientInRoom)
+//	#room.capacity>count(findPatientInRoom)
+	// The count operator was removed from eMoflon::IBeX-GT
 
 	doctor: Doctor {
 		++-caresfor->patient // Adds an edge from doctor to patient
 	}
 
-	#doctor.patientCapacity>count(findOccupiedDoc)
+//	#doctor.patientCapacity>count(findOccupiedDoc)
+	// The count operator was removed from eMoflon::IBeX-GT
 	
 	hospital: Hospital {
 		-reception -> reception

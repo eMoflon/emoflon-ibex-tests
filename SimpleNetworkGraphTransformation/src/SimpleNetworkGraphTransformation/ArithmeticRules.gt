@@ -101,7 +101,8 @@ pattern testConstraint2{
 
 pattern testConstraint3{
 	network : Network
-	# network.deviceNumber == count(findDevice)
+//	# network.deviceNumber == count(findDevice)
+	// The count operator was removed from eMoflon::IBeX-GT
 }
 
 //@optimize
@@ -148,7 +149,9 @@ rule setNumberOfDevices(num : EInt){
 
 rule findAndsetNumberOfDevices(){
 	network : Network {
-		.deviceNumber := count(findDevice)
+//		.deviceNumber := count(findDevice)
+		// The count operator was removed from eMoflon::IBeX-GT
+		.deviceNumber := 0
 	} 
 }
 

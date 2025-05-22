@@ -2,6 +2,7 @@ package org.emoflon.ibex.gt.testsuite.SimpleNetwork;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import SimpleNetwork.Network;
@@ -121,6 +122,7 @@ public class SimpleNetworkCalculationTest extends SimpleNetworkAbstractTest{
 		});
 	}
 	
+	@Disabled("The count operator was removed from eMoflon::IBeX-GT")
 	@Test
 	public void checkCount() {
 		SimpleNetworkGraphTransformationAPI api = this.init("SimpleNetwork1.xmi");
