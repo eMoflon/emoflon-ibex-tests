@@ -37,7 +37,8 @@ Require-Bundle: org.eclipse.emf.ecore.xmi,
  SimpleNetworkGraphTransformation2;bundle-version="1.0.0",
  HospitalExample,
  HospitalTransformation,
- junit-jupiter-api;bundle-version="5.8.1"
+ junit-jupiter-api;bundle-version="5.8.1",
+ SmartEmfIdMetamodel;bundle-version="0.0.1"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-21
 Automatic-Module-Name: TestsuiteGT
