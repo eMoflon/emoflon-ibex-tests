@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema xmlns:URIFragment="platform:/resource/URIFragment/model/URIFragments.ecore" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="platform:/resource/URIFragment/model/URIFragments.ecore">
+  <xsd:import namespace="http://www.omg.org/XMI" schemaLocation="platform:/plugin/org.eclipse.emf.ecore/model/XMI.xsd"/>
+  <xsd:complexType name="Tree">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element name="branches" type="URIFragment:Branch"/>
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="id" type="xsd:int"/>
+  </xsd:complexType>
+  <xsd:element name="Tree" type="URIFragment:Tree"/>
+  <xsd:complexType name="Branch">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element name="tree" type="URIFragment:Tree"/>
+      <xsd:element name="leaves" type="URIFragment:Leaf"/>
+      <xsd:element name="subBranches" type="URIFragment:Branch"/>
+      <xsd:element name="parent" type="URIFragment:Branch"/>
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="tree" type="xsd:string"/>
+    <xsd:attribute name="parent" type="xsd:string"/>
+  </xsd:complexType>
+  <xsd:element name="Branch" type="URIFragment:Branch"/>
+  <xsd:complexType name="Leaf">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element name="branch" type="URIFragment:Branch"/>
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="color" type="xsd:string"/>
+    <xsd:attribute name="branch" type="xsd:string"/>
+  </xsd:complexType>
+  <xsd:element name="Leaf" type="URIFragment:Leaf"/>
+</xsd:schema>
