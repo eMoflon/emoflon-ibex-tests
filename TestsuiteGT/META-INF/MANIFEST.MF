@@ -38,7 +38,8 @@ Require-Bundle: org.eclipse.emf.ecore.xmi,
  HospitalExample,
  HospitalTransformation,
  junit-jupiter-api;bundle-version="5.8.1",
- SmartEmfIdMetamodel;bundle-version="0.0.1"
+ SmartEmfIdMetamodel;bundle-version="0.0.1",
+ URIFragmentSmartEMF
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-21
 Automatic-Module-Name: TestsuiteGT

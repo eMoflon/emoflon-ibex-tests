@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<URIFragment:Tree
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:URIFragment="platform:/resource/URIFragmentSmartEMF/model/URIFragmentSmartEMF.ecore"
+    name="T1">
+  <branches
+      name="B1">
+    <leaves
+        name="L1"/>
+    <subBranches
+        name="B2">
+      <leaves
+          name="L2"/>
+      <leaves
+          name="L3"/>
+      <apples
+          name="A1"
+          appleID="A1"/>
+    </subBranches>
+    <subBranches
+        name="B3">
+      <leaves
+          name="L4"/>
+      <subBranches
+          name="B4">
+        <apples
+            name="A2"
+            appleID="A2"/>
+      </subBranches>
+    </subBranches>
+  </branches>
+  <branches
+      name="B5">
+    <leaves
+        name="L5"/>
+    <leaves
+        name="L6"/>
+    <leaves
+        name="L7"/>
+  </branches>
+</URIFragment:Tree>

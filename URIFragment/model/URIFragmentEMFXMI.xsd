@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema xmlns:URIFragmentEMF="platform:/resource/URIFragment/model/URIFragmentEMF.ecore" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="platform:/resource/URIFragment/model/URIFragmentEMF.ecore">
+  <xsd:import namespace="http://www.omg.org/XMI" schemaLocation="platform:/plugin/org.eclipse.emf.ecore/model/XMI.xsd"/>
+  <xsd:complexType name="Tree">
+    <xsd:complexContent>
+      <xsd:extension base="URIFragmentEMF:NamedNode">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="branches" type="URIFragmentEMF:Branch"/>
+        </xsd:choice>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="Tree" type="URIFragmentEMF:Tree"/>
+  <xsd:complexType name="Branch">
+    <xsd:complexContent>
+      <xsd:extension base="URIFragmentEMF:NamedNode">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="tree" type="URIFragmentEMF:Tree"/>
+          <xsd:element name="leaves" type="URIFragmentEMF:Leaf"/>
+          <xsd:element name="subBranches" type="URIFragmentEMF:Branch"/>
+          <xsd:element name="parent" type="URIFragmentEMF:Branch"/>
+          <xsd:element name="apples" type="URIFragmentEMF:Apple"/>
+        </xsd:choice>
+        <xsd:attribute name="tree" type="xsd:string"/>
+        <xsd:attribute name="parent" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="Branch" type="URIFragmentEMF:Branch"/>
+  <xsd:complexType name="Leaf">
+    <xsd:complexContent>
+      <xsd:extension base="URIFragmentEMF:NamedNode">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="branch" type="URIFragmentEMF:Branch"/>
+        </xsd:choice>
+        <xsd:attribute name="color" type="xsd:string"/>
+        <xsd:attribute name="branch" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="Leaf" type="URIFragmentEMF:Leaf"/>
+  <xsd:complexType name="Apple">
+    <xsd:complexContent>
+      <xsd:extension base="URIFragmentEMF:NamedNode">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="branch" type="URIFragmentEMF:Branch"/>
+        </xsd:choice>
+        <xsd:attribute name="appleID" type="xsd:string"/>
+        <xsd:attribute name="branch" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="Apple" type="URIFragmentEMF:Apple"/>
+  <xsd:complexType abstract="true" name="NamedNode">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="name" type="xsd:string"/>
+  </xsd:complexType>
+  <xsd:element name="NamedNode" type="URIFragmentEMF:NamedNode"/>
+</xsd:schema>
