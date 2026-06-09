@@ -67,7 +67,7 @@ Require-Bundle: org.apache.log4j,
  ExtType2Doc_SCDerived,
  ExtType2Doc_ConcSync,
  MoDiscoIbexTGG,
- junit-jupiter-api,
- junit-platform-commons,
- org.junit
+ org.junit,
+ testsuite.dependencies;bundle-version="1.0.0"
 Automatic-Module-Name: Testsuite
+Bundle-ClassPath: .

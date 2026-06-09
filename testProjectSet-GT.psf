@@ -34,6 +34,7 @@
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,SlowEconomy"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,SmartEmfIdMetamodel"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,TestsuiteGT"/>
+<project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,testsuite.dependencies"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,Triangles"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,TrianglesGraphTransformation"/>
 <project reference="1.0,https://github.com/eMoflon/emoflon-ibex-tests.git,master,VoterModelGraphTransformation"/>
@@ -83,5 +84,6 @@
 <workingSets editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" id="1544812013290_7" label="testsuites" name="testsuites">
 <item elementID="=Benchmarx" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=TestsuiteGT" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=testsuite.dependencies" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 </workingSets>
 </psf>

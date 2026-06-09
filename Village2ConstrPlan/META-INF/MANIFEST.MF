@@ -4,7 +4,7 @@ Bundle-ManifestVersion: 2
 Bundle-Version: 0.0.1
 Bundle-SymbolicName: Village2ConstrPlan;singleton:=true
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-16
+Bundle-RequiredExecutionEnvironment: JavaSE-21
 Export-Package: Village2ConstrPlan,
  Village2ConstrPlan.impl,
  org.emoflon.ibex.tgg.run.village2constrplan
@@ -15,3 +15,4 @@ Require-Bundle: org.emoflon.smartemf,
  ConstructionPlan;bundle-version="0.0.1",
  org.emoflon.ibex.tgg.ui.debug;bundle-version="1.0.0",
  org.emoflon.ibex.tgg.ui.debug.adapter;bundle-version="1.0.0"
+
